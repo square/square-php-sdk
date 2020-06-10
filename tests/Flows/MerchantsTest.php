@@ -1,0 +1,68 @@
+<?php
+
+namespace Square\Tests;
+
+use Square\APIException;
+use Square\APIHelper;
+use Square\Apis\MerchantsApi;
+use Square\Exceptions;
+use Square\Models\ListMerchantsResponse;
+use Square\Models\Merchant;
+use Square\Models\RetrieveMerchantResponse;
+
+use PHPUnit\Framework\TestCase;
+
+class MarchantsTest extends TestCase
+{
+
+    /**
+     * @var \Square\Apis\MerchantsApi Controller instance
+     */
+    protected static $controller;
+
+    /**
+     * @var HttpCallBackCatcher Callback
+     */
+    protected static $httpResponse;
+
+    /**
+     * Setup test class
+     */
+    public static function setUpBeforeClass(): void
+    {
+        $config = ClientFactory::create();
+        self::$httpResponse = new HttpCallBackCatcher();
+        self::$controller = new MerchantsApi($config, self::$httpResponse);
+    }
+
+    public function testListMerchants() 
+    {
+        $apiResponse = self::$controller->listMerchants();
+
+        $this->assertEquals($apiResponse->getStatusCode(), 200);
+        $this->assertTrue($apiResponse->isSuccess());
+        $this->assertFalse($apiResponse->isError());
+        $this->assertTrue($apiResponse->getResult() instanceof ListMerchantsResponse);
+        $this->assertIsArray($apiResponse->getResult()->getMerchant());
+
+        return $apiResponse->getResult()->getMerchant()[0]->id;
+    }
+
+
+    /**
+     * @depends testListMerchants
+     */
+    public function testRetrieveMerchant($merchantId) 
+    {
+
+        $apiResponse = self::$controller->retrieveMerchant($merchantId);
+
+        $this->assertEquals($apiResponse->getStatusCode(), 200);
+        $this->assertTrue($apiResponse->isSuccess());
+        $this->assertFalse($apiResponse->isError());
+        $this->assertTrue($apiResponse->getResult() instanceof RetrieveMerchantResponse);
+        $this->assertTrue($apiResponse->getResult()->getMerchant() instanceof Merchant);
+        $this->assertEquals($apiResponse->getResult()->getMerchant()->getId(), $merchantId);
+    }
+   
+}
