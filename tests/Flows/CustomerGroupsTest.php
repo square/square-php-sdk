@@ -51,7 +51,9 @@ class CustomerGroupsTest extends TestCase
 
     public function testCreateCustomerGroup() 
     {
-        $body_group_name = 'Great Customers';
+        // uniqid ensures that group name is unique 
+        // used in test to avoid errors caused by concurrently running tests
+        $body_group_name = uniqid('Great Customers');
         $body_group = new CustomerGroup(
             $body_group_name
         );
