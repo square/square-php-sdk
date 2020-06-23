@@ -13,40 +13,11 @@ PHP 7.1+:
 Installing
 -----
 
-##### Option 1: With Composer
-
-The PHP SDK is available on Packagist. To add it to Composer, simply run:
+The PHP SDK is available on Packagist. The reccomended way to install is via [Composer](https://getcomposer.org/), simply run:
 
 ```
 $ composer require square/square
 ```
-
-Or add this line under `"require"` to your composer.json:
-
-```
-"require": {
-    ...
-    "square/square": "*",
-    ...
-}
-```
-And then install your composer dependencies with
-```
-$ composer install
-```
-##### Option 2: From GitHub
-Clone this repository, or download the zip into your project's folder and then add the following line in your code:
-```
-require('square-php-sdk/autoload.php');
-```
-*Note: you might have to change the path depending on your project's folder structure.*
-##### Option 3: Without Command Line Access
-If you cannot access the command line for your server, you can also install the SDK from github. Download the SDK from github with [this link](https://github.com/square/square-php-sdk/archive/master.zip), unzip it and add the following line to your php files that will need to access the SDK:
-```
-require('square-php-sdk-master/autoload.php');
-```
-*Note: you might have to change the path depending on where you place the SDK in relation to your other `php` files.*
-
 
 ## API documentation
 
@@ -114,7 +85,6 @@ Now let’s call your first Square API. Open your favorite text editor, create a
 ```php
 <?php
 
-
 require 'vendor/autoload.php';
 
 use Square\SquareClient;
@@ -130,18 +100,22 @@ $client = new SquareClient([
     'environment' => Environment::SANDBOX,
 ]);
 
-$locationsApi = $client->getLocationsApi();
-$apiResponse = $locationsApi->listLocations();
+try {
+    $locationsApi = $client->getLocationsApi();
+    $apiResponse = $locationsApi->listLocations();
 
-if ($apiResponse->isSuccess()) {
-    $listLocationsResponse = $apiResponse->getResult();
-    $locationsList = $listLocationsResponse->getLocations()
-    foreach ($locationsList as $location) {
-       print_r($location);
+    if ($apiResponse->isSuccess()) {
+        $listLocationsResponse = $apiResponse->getResult();
+        $locationsList = $listLocationsResponse->getLocations();
+        foreach ($locationsList as $location) {
+        print_r($location);
+        }
+    } else {
+        print_r($apiResponse->getErrors());
     }
-} else {
-    print_r($apiResponse->getErrors());
-}
+} catch (ApiException $e) {
+    print_r("Recieved error while calling Square: " . $e->getMessage());
+} 
 ```
 
 Next, get an access token and reference it in your code. Go back to your application in the Developer Dashboard, in the Sandbox section click Show in the Sandbox Access Token box, copy that access token, and replace `'YOUR SANDBOX ACCESS TOKEN HERE'` with that token.
@@ -243,7 +217,11 @@ Each API is implemented as a class. The Client object instantiates every API cla
 - Work with an API by calling the methods on the API object. For example, you would call listCustomers to get a list of all customers in the Square account:
 
 ```php
-$result = $client->getCustomersApi()->listCustomers();
+try {
+    $result = $client->getCustomersApi()->listCustomers();
+} catch (ApiException $e) {
+    print_r("Recieved error while calling Square: " . $e->getMessage());
+} 
 ```
 
 See the SDK documentation for the list of methods for each API class.
@@ -252,6 +230,7 @@ Pass complex parameters (such as create, update, search, etc.) as a Request obje
 
 ```php
 use Square\SquareClient;
+use Square\Exceptions\ApiException;
 use Square\Models\CreateCustomerRequest;
 use Square\Environment;
 
@@ -269,13 +248,17 @@ $request->setFamilyName('Earhart');
 $request->setPhoneNumber("1-252-555-4240");
 $request->setNote('A customer');
 
-$result = $customersApi->createCustomer($request);
+try {
+    $result = $customersApi->createCustomer($request);
 
-if ($result->isSuccess()) {
-    print_r($result->getResult()->getCustomer());
-} else {
-    print_r($result->getErrors());
-}
+    if ($result->isSuccess()) {
+        print_r($result->getResult()->getCustomer());
+    } else {
+        print_r($result->getErrors());
+    }
+} catch (ApiException $e) {
+    print_r("Recieved error while calling Square: " . $e->getMessage());
+} 
 ```
 
 If your call succeeds, you’ll see a response that looks like this:
@@ -343,14 +326,15 @@ composer install
 ```
 
 
-Before running the tests, find a sandbox token in your [Developer Dashboard] and set a `SANDBOX_ACCESS_TOKEN` environment variable.
+Before running the tests, find a sandbox token in your [Developer Dashboard] and set a `SQUARE_ACCESS_TOKEN` environment variable.
 
 ```sh
 $dotenv = Dotenv::create(__DIR__);
 $dotenv->load();
-$appId = getenv('SANDBOX_APP_ID');
-$appAccessToken = getenv('SANDBOX_ACCESS_TOKEN');
-$appSecret =getenv('SANDBOX_APP_SECRET');
+$timeout = getenv('SQUARE_TIMEOUT');
+$accessToken = getenv('SQUARE_ACCESS_TOKEN');
+$environment = getenv('SQUARE_ENVIRONMENT');
+$baseUrl = getenv('SQUARE_BASE_URL');
 ```
 
 And run the tests.
