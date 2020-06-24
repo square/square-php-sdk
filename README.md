@@ -13,7 +13,7 @@ PHP 7.1+:
 Installing
 -----
 
-The PHP SDK is available on Packagist. The reccomended way to install is via [Composer](https://getcomposer.org/), simply run:
+The PHP SDK is available on Packagist. The recommended way to install is via [Composer](https://getcomposer.org/), simply run:
 
 ```
 $ composer require square/square
