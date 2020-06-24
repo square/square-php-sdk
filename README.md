@@ -108,7 +108,7 @@ try {
         $listLocationsResponse = $apiResponse->getResult();
         $locationsList = $listLocationsResponse->getLocations();
         foreach ($locationsList as $location) {
-        print_r($location);
+            print_r($location);
         }
     } else {
         print_r($apiResponse->getErrors());
