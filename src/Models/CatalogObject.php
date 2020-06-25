@@ -5,27 +5,37 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The wrapper object for object types in the Catalog data model. The type
- * of a particular `CatalogObject` is determined by the value of
- * `type` and only the corresponding data field may be set.
+ * The wrapper object for the Catalog entries of a given object type.
  *
- * - if type = `ITEM`, only `item_data` will be populated and it will contain a valid `CatalogItem`
+ * The type of a particular `CatalogObject` is determined by the value of the
+ * `type` attribute and only the corresponding data attribute can be set on the `CatalogObject`
+ * instance.
+ * For example, the following list shows some instances of `CatalogObject` of a given `type` and
+ * their corresponding data atrribute that can be set:
+ * - For a `CatalogObject` of the `ITEM` type, set the `item_data` attribute to yield the `CatalogItem`
  * object.
- * - if type = `ITEM_VARIATION`, only `item_variation_data` will be populated and it will contain a
- * valid `CatalogItemVariation` object.
- * - if type = `MODIFIER`, only `modifier_data` will be populated and it will contain a valid
+ * - For a `CatalogObject` of the `ITEM_VARIATION` type, set the `item_variation_data` attribute to
+ * yield the `CatalogItemVariation` object.
+ * - For a 'CatalogObject' of the `MODIFIER` type, set the `modifier_data` attribute to yield the
  * `CatalogModifier` object.
- * - if type = `MODIFIER_LIST`, only `modifier_list_data` will be populated and it will contain a valid
- * `CatalogModifierList` object.
- * - if type = `CATEGORY`, only `category_data` will be populated and it will contain a valid
+ * - For a 'CatalogObject' of the `MODIFIER_LIST` type, set the `modifier_list_data` attribute to yield
+ * the `CatalogModifierList` object.
+ * - For a 'CatalogObject' of the `CATEGORY` type, set the `category_data` attribute to yield the
  * `CatalogCategory` object.
- * - if type = `DISCOUNT`, only `discount_data` will be populated and it will contain a valid
+ * - For a 'CatalogObject' of the `DISCOUNT` type, set the `discount_data` attribute to yield the
  * `CatalogDiscount` object.
- * - if type = `TAX`, only `tax_data` will be populated and it will contain a valid `CatalogTax` object.
- * - if type = `IMAGE`, only `image_data` will be populated and it will contain a valid `CatalogImage`
+ * - For a 'CatalogObject' of the `TAX` type, set the `tax_data` attribute to yield the `CatalogTax`
  * object.
- * - if type = `QUICK_AMOUNTS_SETTINGS`, only `quick_amounts_settings_data` will be populated and will
- * contain a valid `CatalogQuickAmountsSettings` object.
+ * - For a 'CatalogObject' of the `IMAGE` type, set the `image_data` attribute to yield the
+ * `CatalogImageData`  object.
+ * - For a 'CatalogObject' of the `QUICK_AMOUNTS_SETTINGS` type, set the `quick_amounts_settings_data`
+ * attribute to yield the `CatalogQuickAmountsSettings` object.
+ * - For a 'CatalogObject' of the `PRICING_RULE` type, set the `pricing_rule_data` attribute to yield
+ * the `CatalogPricingRule` object.
+ * - For a 'CatalogObject' of the `TIME_PERIOD` type, set the `time_period_data` attribute to yield the
+ * `CatalogTimePeriod` object.
+ * - For a 'CatalogObject' of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the
+ * `CatalogProductSet`  object.
  *
  * For a more detailed discussion of the Catalog data model, please see the
  * [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
@@ -314,17 +324,29 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Custom Attribute Values.
      *
-     * Application-defined key/value attributes that are set at a global (location-independent) level.
-     * Custom Attribute Values are intended to store additional information about a Catalog Object
+     * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
+     * pair
+     * is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key`
+     * attribute
+     * value defined in the associated [CatalogCustomAttributeDefinition](#type-
+     * CatalogCustomAttributeDefinition)
+     * object defined by the application making the request.
+     *
+     * If the `CatalogCustomAttributeDefinition` object is
+     * defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is
+     * prefixed by
+     * the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key`
+     * attribute of
+     * "cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:
+     * cocoa_brand" if the
+     * application making the request is different from the application defining the custom attribute
+     * definition.
+     * Otherwise, the key used in the map is simply "cocoa-brand".
+     *
+     * Application-defined custom attributes that are set at a global (location-independent) level.
+     * Custom attribute values are intended to store additional information about a catalog object
      * or associations with an entity in another system. Do not use custom attributes
      * to store any sensitive information (personally identifiable information, card details, etc.).
-     *
-     * For CustomAttributesDefinitions defined by the app making the request, the map key is the key
-     * defined in the
-     * `CatalogCustomAttributeDefinition` (e.g. “reference_id”). For custom attributes created by other
-     * apps, the map key is
-     * the key defined in `CatalogCustomAttributeDefinition` prefixed with the application ID and a colon
-     * (eg. “abcd1234:reference_id”).
      */
     public function getCustomAttributeValues(): ?array
     {
@@ -334,17 +356,29 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Custom Attribute Values.
      *
-     * Application-defined key/value attributes that are set at a global (location-independent) level.
-     * Custom Attribute Values are intended to store additional information about a Catalog Object
+     * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
+     * pair
+     * is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key`
+     * attribute
+     * value defined in the associated [CatalogCustomAttributeDefinition](#type-
+     * CatalogCustomAttributeDefinition)
+     * object defined by the application making the request.
+     *
+     * If the `CatalogCustomAttributeDefinition` object is
+     * defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is
+     * prefixed by
+     * the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key`
+     * attribute of
+     * "cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:
+     * cocoa_brand" if the
+     * application making the request is different from the application defining the custom attribute
+     * definition.
+     * Otherwise, the key used in the map is simply "cocoa-brand".
+     *
+     * Application-defined custom attributes that are set at a global (location-independent) level.
+     * Custom attribute values are intended to store additional information about a catalog object
      * or associations with an entity in another system. Do not use custom attributes
      * to store any sensitive information (personally identifiable information, card details, etc.).
-     *
-     * For CustomAttributesDefinitions defined by the app making the request, the map key is the key
-     * defined in the
-     * `CatalogCustomAttributeDefinition` (e.g. “reference_id”). For custom attributes created by other
-     * apps, the map key is
-     * the key defined in `CatalogCustomAttributeDefinition` prefixed with the application ID and a colon
-     * (eg. “abcd1234:reference_id”).
      *
      * @maps custom_attribute_values
      */
@@ -712,7 +746,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Pricing Rule Data.
      *
-     * Defines how prices are modified or set for items that match the pricing rule
+     * Defines how discounts are automatically applied to a set of items that match the pricing rule
      * during the active time period.
      */
     public function getPricingRuleData(): ?CatalogPricingRule
@@ -723,7 +757,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Pricing Rule Data.
      *
-     * Defines how prices are modified or set for items that match the pricing rule
+     * Defines how discounts are automatically applied to a set of items that match the pricing rule
      * during the active time period.
      *
      * @maps pricing_rule_data

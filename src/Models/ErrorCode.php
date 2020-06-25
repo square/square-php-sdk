@@ -257,6 +257,11 @@ class ErrorCode
     public const INVALID_FORM_VALUE = 'INVALID_FORM_VALUE';
 
     /**
+     * 400 Bad Request - the provided customer id can't be found in the merchant's customers list.
+     */
+    public const CUSTOMER_NOT_FOUND = 'CUSTOMER_NOT_FOUND';
+
+    /**
      * 400 Bad Request - a general error occurred.
      */
     public const ONE_INSTRUMENT_EXPECTED = 'ONE_INSTRUMENT_EXPECTED';
@@ -551,7 +556,7 @@ class ErrorCode
     public const INVALID_SQUARE_VERSION_FORMAT = 'INVALID_SQUARE_VERSION_FORMAT';
 
     /**
-     * The provided Square-Version is incompatibile with the requested action.
+     * The provided Square-Version is incompatible with the requested action.
      */
     public const API_VERSION_INCOMPATIBLE = 'API_VERSION_INCOMPATIBLE';
 

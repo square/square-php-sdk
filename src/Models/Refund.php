@@ -181,7 +181,7 @@ class Refund implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * The time when the refund was created, in RFC 3339 format.
+     * The timestamp for when the refund was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -191,7 +191,7 @@ class Refund implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * The time when the refund was created, in RFC 3339 format.
+     * The timestamp for when the refund was created, in RFC 3339 format.
      *
      * @maps created_at
      */

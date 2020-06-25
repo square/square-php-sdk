@@ -38,6 +38,7 @@ class SquareClient implements ConfigurationInterface
     private $merchants;
     private $payments;
     private $refunds;
+    private $team;
     private $terminal;
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
@@ -118,13 +119,13 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '5.0.0.20200528';
+        return '6.0.0.20200625';
     }
 
 
     public function getSquareVersion(): string
     {
-        return '2020-05-28';
+        return '2020-06-25';
     }
 
     /**
@@ -434,6 +435,17 @@ class SquareClient implements ConfigurationInterface
             $this->refunds = new Apis\RefundsApi($this);
         }
         return $this->refunds;
+    }
+
+    /**
+     * Returns Team Api
+     */
+    public function getTeamApi(): Apis\TeamApi
+    {
+        if ($this->team == null) {
+            $this->team = new Apis\TeamApi($this);
+        }
+        return $this->team;
     }
 
     /**
