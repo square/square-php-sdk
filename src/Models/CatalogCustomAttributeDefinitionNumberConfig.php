@@ -22,7 +22,7 @@ class CatalogCustomAttributeDefinitionNumberConfig implements \JsonSerializable
      * - if the precision is 1, the quantity can be 0.1, 0.2, etc.
      * - if the precision is 2, the quantity can be 0.01, 0.12, etc.
      *
-     * Default: 3
+     * Default: 5
      */
     public function getPrecision(): ?int
     {
@@ -40,7 +40,7 @@ class CatalogCustomAttributeDefinitionNumberConfig implements \JsonSerializable
      * - if the precision is 1, the quantity can be 0.1, 0.2, etc.
      * - if the precision is 2, the quantity can be 0.01, 0.12, etc.
      *
-     * Default: 3
+     * Default: 5
      *
      * @maps precision
      */

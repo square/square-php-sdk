@@ -28,4 +28,10 @@ class CardBrand
     public const SQUARE_GIFT_CARD = 'SQUARE_GIFT_CARD';
 
     public const SQUARE_CAPITAL_CARD = 'SQUARE_CAPITAL_CARD';
+
+    public const INTERAC = 'INTERAC';
+
+    public const EFTPOS = 'EFTPOS';
+
+    public const FELICA = 'FELICA';
 }
