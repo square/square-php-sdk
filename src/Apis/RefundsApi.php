@@ -44,7 +44,9 @@ class RefundsApi extends BaseApi
      *
      *                            See [Pagination](https://developer.squareup.
      *                            com/docs/basics/api101/pagination) for more information.
-     * @param string|null $locationId ID of location associated with payment.
+     * @param string|null $locationId Limit results to the location supplied. By default, results
+     *                                are returned
+     *                                for all locations associated with the merchant.
      * @param string|null $status If provided, only refunds with the given status are returned.
      *                            For a list of refund status values, see [PaymentRefund](#type-
      *                            paymentrefund).

@@ -49,8 +49,9 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * A unique string that identifies this RefundPayment request. Key can be any valid string but
-     * must be unique for every RefundPayment request.
+     * A unique string that identifies this RefundPayment request. Key can be any valid string
+     * but must be unique for every RefundPayment request.
+     *
      * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
@@ -62,8 +63,9 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * A unique string that identifies this RefundPayment request. Key can be any valid string but
-     * must be unique for every RefundPayment request.
+     * A unique string that identifies this RefundPayment request. Key can be any valid string
+     * but must be unique for every RefundPayment request.
+     *
      * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *

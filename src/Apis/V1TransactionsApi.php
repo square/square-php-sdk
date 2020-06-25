@@ -27,16 +27,6 @@ class V1TransactionsApi extends BaseApi
      * does not provide full bank account numbers, and there is no way to obtain a full bank account number
      * with the Connect API.
      *
-     * ---
-     *
-     * - __Deprecation date__: 2020-02-26
-     * - [__Retirement date__](https://developer.squareup.com/docs/docs/build-basics/api-
-     * lifecycle#deprecated): 2021-02-26
-     * - [Migration guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/v1-
-     * bankaccounts)
-     *
-     * ---
-     *
      * @deprecated
      *
      * @param string $locationId The ID of the location to list bank accounts for.
@@ -106,16 +96,6 @@ class V1TransactionsApi extends BaseApi
      * Provides non-confidential details for a merchant's associated bank account. This endpoint does not
      * provide full bank account numbers, and there is no way to obtain a full bank account number with the
      * Connect API.
-     *
-     * ---
-     *
-     * - __Deprecation date__: 2020-02-26
-     * - [__Retirement date__](https://developer.squareup.com/docs/docs/build-basics/api-
-     * lifecycle#deprecated): 2021-02-26
-     * - [Migration guide](https://developer.squareup.com/docs/docs/migrate-from-v1/guides/v1-
-     * bankaccounts)
-     *
-     * ---
      *
      * @deprecated
      *
@@ -458,7 +438,7 @@ class V1TransactionsApi extends BaseApi
         ?string $endTime = null,
         ?int $limit = null,
         ?string $batchToken = null,
-        ?bool $includePartial = null
+        ?bool $includePartial = false
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/payments';
@@ -475,7 +455,7 @@ class V1TransactionsApi extends BaseApi
             'end_time'        => $endTime,
             'limit'           => $limit,
             'batch_token'     => $batchToken,
-            'include_partial' => var_export($includePartial, true),
+            'include_partial' => (null != $includePartial) ? var_export($includePartial, true) : false,
         ]);
 
         //validate and preprocess url

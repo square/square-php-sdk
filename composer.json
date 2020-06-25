@@ -1,14 +1,14 @@
 {
     "name": "square/square",
     "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
-    "version": "5.0.0.20200528",
+    "version": "6.0.0.20200625",
     "type": "library",
     "keywords": [
         "Square",
         "API",
         "SDK"
     ],
-    "homepage": "https://developer.squareup.com/docs/sdks/php",
+    "homepage": "https://squareup.com/developers",
     "license": "MIT",
     "authors": [
         {

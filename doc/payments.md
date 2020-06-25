@@ -267,7 +267,7 @@ the payment using this endpoint. For more information, see
 [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
 
 ```php
-function completePayment(string $paymentId, array $body): ApiResponse
+function completePayment(string $paymentId): ApiResponse
 ```
 
 ### Parameters
@@ -275,7 +275,6 @@ function completePayment(string $paymentId, array $body): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `paymentId` | `string` | Template, Required | Unique ID identifying the payment to be completed. |
-| `body` | `array` | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ### Response Type
 
@@ -285,9 +284,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $paymentId = 'payment_id0';
-$body = Square\ApiHelper::deserialize('{"key1":"val1","key2":"val2"}');
 
-$apiResponse = $paymentsApi->completePayment($paymentId, $body);
+$apiResponse = $paymentsApi->completePayment($paymentId);
 
 if ($apiResponse->isSuccess()) {
     $completePaymentResponse = $apiResponse->getResult();

@@ -54,6 +54,7 @@ Square API.
 | `INVALID_ENUM_VALUE` | 400 Bad Request - the provided static string is not valid for the<br>field. |
 | `INVALID_CONTENT_TYPE` | 400 Bad Request - invalid content type header. |
 | `INVALID_FORM_VALUE` | 400 Bad Request - Only relevant for applications created prior to<br>2016-03-30. Indicates there was an error while parsing form values. |
+| `CUSTOMER_NOT_FOUND` | 400 Bad Request - the provided customer id can't be found in the merchant's customers list. |
 | `ONE_INSTRUMENT_EXPECTED` | 400 Bad Request - a general error occurred. |
 | `NO_FIELDS_SET` | 400 Bad Request - a general error occurred. |
 | `CARD_EXPIRED` | The card issuer declined the request because the card is expired. |
@@ -105,7 +106,7 @@ Square API.
 | `CHECKOUT_EXPIRED` | The provided checkout URL has expired. |
 | `BAD_CERTIFICATE` | Bad certificate. |
 | `INVALID_SQUARE_VERSION_FORMAT` | The provided Square-Version is incorrectly formatted. |
-| `API_VERSION_INCOMPATIBLE` | The provided Square-Version is incompatibile with the requested action. |
+| `API_VERSION_INCOMPATIBLE` | The provided Square-Version is incompatible with the requested action. |
 | `CARD_DECLINED` | 402 Request failed - the card was declined. |
 | `VERIFY_CVV_FAILURE` | 402 Request failed - the CVV could not be verified. |
 | `VERIFY_AVS_FAILURE` | 402 Request failed - the AVS could not be verified. |

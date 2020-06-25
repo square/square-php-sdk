@@ -75,6 +75,11 @@ class CardPaymentDetails implements \JsonSerializable
     private $deviceDetails;
 
     /**
+     * @var bool|null
+     */
+    private $refundRequiresCardPresence;
+
+    /**
      * @var Error[]|null
      */
     private $errors;
@@ -388,6 +393,30 @@ class CardPaymentDetails implements \JsonSerializable
     }
 
     /**
+     * Returns Refund Requires Card Presence.
+     *
+     * Whether or not the card is required to be physically present in order for the payment to
+     * be refunded.  If true, the card is required to be present.
+     */
+    public function getRefundRequiresCardPresence(): ?bool
+    {
+        return $this->refundRequiresCardPresence;
+    }
+
+    /**
+     * Sets Refund Requires Card Presence.
+     *
+     * Whether or not the card is required to be physically present in order for the payment to
+     * be refunded.  If true, the card is required to be present.
+     *
+     * @maps refund_requires_card_presence
+     */
+    public function setRefundRequiresCardPresence(?bool $refundRequiresCardPresence): void
+    {
+        $this->refundRequiresCardPresence = $refundRequiresCardPresence;
+    }
+
+    /**
      * Returns Errors.
      *
      * Information on errors encountered during the request.
@@ -421,20 +450,21 @@ class CardPaymentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['status']                = $this->status;
-        $json['card']                  = $this->card;
-        $json['entry_method']          = $this->entryMethod;
-        $json['cvv_status']            = $this->cvvStatus;
-        $json['avs_status']            = $this->avsStatus;
-        $json['auth_result_code']      = $this->authResultCode;
-        $json['application_identifier'] = $this->applicationIdentifier;
-        $json['application_name']      = $this->applicationName;
-        $json['application_cryptogram'] = $this->applicationCryptogram;
-        $json['verification_method']   = $this->verificationMethod;
-        $json['verification_results']  = $this->verificationResults;
-        $json['statement_description'] = $this->statementDescription;
-        $json['device_details']        = $this->deviceDetails;
-        $json['errors']                = $this->errors;
+        $json['status']                     = $this->status;
+        $json['card']                       = $this->card;
+        $json['entry_method']               = $this->entryMethod;
+        $json['cvv_status']                 = $this->cvvStatus;
+        $json['avs_status']                 = $this->avsStatus;
+        $json['auth_result_code']           = $this->authResultCode;
+        $json['application_identifier']     = $this->applicationIdentifier;
+        $json['application_name']           = $this->applicationName;
+        $json['application_cryptogram']     = $this->applicationCryptogram;
+        $json['verification_method']        = $this->verificationMethod;
+        $json['verification_results']       = $this->verificationResults;
+        $json['statement_description']      = $this->statementDescription;
+        $json['device_details']             = $this->deviceDetails;
+        $json['refund_requires_card_presence'] = $this->refundRequiresCardPresence;
+        $json['errors']                     = $this->errors;
 
         return array_filter($json, function ($val) {
             return $val !== null;

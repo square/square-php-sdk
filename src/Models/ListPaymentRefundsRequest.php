@@ -155,7 +155,8 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * ID of location associated with payment.
+     * Limit results to the location supplied. By default, results are returned
+     * for all locations associated with the merchant.
      */
     public function getLocationId(): ?string
     {
@@ -165,7 +166,8 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * ID of location associated with payment.
+     * Limit results to the location supplied. By default, results are returned
+     * for all locations associated with the merchant.
      *
      * @maps location_id
      */

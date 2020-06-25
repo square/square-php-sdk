@@ -425,15 +425,12 @@ class PaymentsApi extends BaseApi
      * [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
      *
      * @param string $paymentId Unique ID identifying the payment to be completed.
-     * @param array $body An object containing the fields to POST for the request.
-     *
-     *                    See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function completePayment(string $paymentId, array $body): ApiResponse
+    public function completePayment(string $paymentId): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments/{payment_id}/complete';
@@ -451,13 +448,9 @@ class PaymentsApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
 
@@ -470,7 +463,7 @@ class PaymentsApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_queryUrl, $_headers);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
