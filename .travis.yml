@@ -9,7 +9,6 @@ install:
 - travis_retry composer install --no-interaction --prefer-dist
 script:
 - composer run test
-- composer run lint
 - composer run analyze
 env:
   global:
