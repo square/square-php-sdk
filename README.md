@@ -12,12 +12,20 @@ PHP 7.1+:
 
 Installing
 -----
-
-The PHP SDK is available on Packagist. The reccomended way to install is via [Composer](https://getcomposer.org/), simply run:
+### Composer
+The PHP SDK is available on Packagist. The recommended way to install is via [Composer](https://getcomposer.org/), simply run:
 
 ```
 $ composer require square/square
 ```
+### Manual Installation
+If you prefer not to use Composer, you can manually install the following packages by cloning them into your root PHP directory. 
+
+* [`square/square-php-sdk`](https://github.com/square/square-php-sdk) - this package includes Square's PHP SDK
+* [`apimatic/jsonmapper`](https://github.com/apimatic/jsonmapper) - the Square PHP SDK uses JSON Mapper to convert JSON responses into PHP classes dynamically. This package bundles a custom version of JSON Mapper that works with the Square API.
+* [`apimatic/unirest-php`](https://github.com/apimatic/unirest-php) - the Square PHP SDK wraps Unirest, an REST API HTTP client. This package bundles a custom version of Unirest that works with the Square API.
+
+After downloading the SDK and its dependencies you'll need to write a custom `autoload.php` file. Once written you can then require your `autoload.php` and have access to the SDK and its dependencies. An example `autoload.php` can be found [here](example-autoload.php).
 
 ## API documentation
 
