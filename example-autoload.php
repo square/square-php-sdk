@@ -28,7 +28,7 @@ spl_autoload_register(function ($class) {
         "Unirest\\" =>  "/unirest-php/src/Unirest/",
     ];
 
-    $matchingPrefix;
+    $matchingPrefix = '';
     foreach ($prefixToLocation as $prefix => $location) {
         $len = strlen($prefix);
         if (strncmp($prefix, $class, $len) !== 0) {
@@ -39,7 +39,7 @@ spl_autoload_register(function ($class) {
         }
     }
 
-    if (!$matchingPrefix) return; // ClassPrefix was not found return
+    if ($matchingPrefix == '') return; // ClassPrefix was not found return
 
     // base directory for the namespace prefix
     $base_dir = (__DIR__ . $prefixToLocation[$matchingPrefix]);
