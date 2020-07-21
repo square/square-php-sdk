@@ -19,7 +19,7 @@ notifications:
   slack:
     secure: N4i24NGxxwlpuNt6qeudJl2yyCpJAZEXi1BSHWO/7VrnM8cAESu+m9iEzJgeV93yRE49EAdEbskU1vWlOAsIZRbekBHami8pSosQ5wS2VeZCnbR4CmgRLq7QmYPm7YRQ1cknqqrJcgKN4U+SptDu92w4OEC+2beADuxgqbndZtEwpE/yg7Fw9Kg3DeXm7CLls8ANewDF1KM5Q1MEPHF7+i/x9rm9jZf29MEZL6a/YnV36p4s95rxUah8EZIrXkPRcgBHrjcvRToOYsWOqw+W1Cy/4/qOxnxmi7U/ititR7sl1vEeHuyay+Q4r/NFolQdeepnwUyS3GVuSEtPPtGa//T9l8zZwNSFKy3er9y3flacE/BvP0SfFQkyyZziotnLapVSsRSY9Mc+wwuORovAoFRw7wH3AoNnjcrdfY/hFNUGSj51e3WslAd67TJvedQb+7kBTMZviZiWXKW6bGvk0oHfdSGtMCFJ5eT7NmryggmrxLJU9lZjf2CHn+z3WGYcGIqLmMOXnmQB3uiHiXw6wQpv70B14PNDHlY/4v+MEtAk2tGe4wx24JLZMCqUlTlYXBTvcFwARWj7d4MzyRscvOy1EKVL/UKNw9aYGSp53aFOCFkV/zxuusAbE7NCefgmtTR4ctOPMBEhwKRrI4gsPcBv5EgxNvCOS7Ymc70B39k=
     on_success: change
-      template:
+    template:
         - "@oncall"
         - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} in PR <%{pull_request_url}|#%{pull_request_number}> by %{author} %{result} in %{duration}"
   email:
