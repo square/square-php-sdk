@@ -59,7 +59,7 @@ class CheckoutTest extends TestCase
 
         $this->assertTrue($locationsResult->isSuccess());
 
-        $locationId = $locationsResult->getResult()->getLocations()[0]->id;
+        $locationId = $locationsResult->getResult()->getLocations()[0]->getId();
 
         // Create Order Request
         $orderBody_idempotencyKey = uniqid();
