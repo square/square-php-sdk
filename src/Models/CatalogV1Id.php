@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * An Items Connect V1 object ID along with its associated location ID.
+ * A Square API V1 identifier of an item, including the object ID and its associated location ID.
  */
 class CatalogV1Id implements \JsonSerializable
 {
@@ -22,7 +22,8 @@ class CatalogV1Id implements \JsonSerializable
     /**
      * Returns Catalog V1 Id.
      *
-     * The ID for an object in Connect V1, if different from its Connect V2 ID.
+     * The ID for an object used in the Square API V1, if the object ID differs from the Square API V2
+     * object ID.
      */
     public function getCatalogV1Id(): ?string
     {
@@ -32,7 +33,8 @@ class CatalogV1Id implements \JsonSerializable
     /**
      * Sets Catalog V1 Id.
      *
-     * The ID for an object in Connect V1, if different from its Connect V2 ID.
+     * The ID for an object used in the Square API V1, if the object ID differs from the Square API V2
+     * object ID.
      *
      * @maps catalog_v1_id
      */

@@ -13,7 +13,7 @@ PHP 7.1+:
 Installing
 -----
 ### Composer
-The PHP SDK is available on Packagist. The recommended way to install is via [Composer](https://getcomposer.org/), simply run:
+The PHP SDK is available on Packagist. The reccomended way to install is via [Composer](https://getcomposer.org/), simply run:
 
 ```
 $ composer require square/square
@@ -39,6 +39,9 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 
 ### Orders
 * [Orders]
+
+### Invoices
+* [Invoices]
 
 ### Items
 * [Catalog]
@@ -384,6 +387,7 @@ You can also use the Square API to create applications or services that work wit
 [Locations]: doc/locations.md
 [Merchants]: doc/merchants.md
 [Orders]: doc/orders.md
+[Invoices]: doc/invoices.md
 [Apple Pay]: doc/apple-pay.md
 [Refunds]: doc/refunds.md
 [Reporting]: doc/reporting.md

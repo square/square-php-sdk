@@ -20,6 +20,7 @@ $catalogApi = $client->getCatalogApi();
 * [Delete Catalog Object](/doc/catalog.md#delete-catalog-object)
 * [Retrieve Catalog Object](/doc/catalog.md#retrieve-catalog-object)
 * [Search Catalog Objects](/doc/catalog.md#search-catalog-objects)
+* [Search Catalog Items](/doc/catalog.md#search-catalog-items)
 * [Update Item Modifier Lists](/doc/catalog.md#update-item-modifier-lists)
 * [Update Item Taxes](/doc/catalog.md#update-item-taxes)
 
@@ -244,11 +245,11 @@ if ($apiResponse->isSuccess()) {
 
 ## Create Catalog Image
 
-Upload an image file to create a new [CatalogImage](#type-catalogimage) for an existing
-[CatalogObject](#type-catalogobject). Images can be uploaded and linked in this request or created independently
-(without an object assignment) and linked to a [CatalogObject](#type-catalogobject) at a later time.
+Uploads an image file to be represented by an [CatalogImage](#type-catalogimage) object linked to an existing
+[CatalogObject](#type-catalogobject) instance. A call to this endpoint can upload an image, link an image to
+a catalog object, or do both.
 
-CreateCatalogImage accepts HTTP multipart/form-data requests with a JSON part and an image file part in
+This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
 JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 
 Additional information and an example cURL request can be found in the [Create a Catalog Image recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/create-catalog-images).
@@ -301,8 +302,8 @@ if ($apiResponse->isSuccess()) {
 
 ## Catalog Info
 
-Returns information about the Square Catalog API, such as batch size
-limits for `BatchUpsertCatalogObjects`.
+Retrieves information about the Square Catalog API, such as batch size
+limits that can be used by the `BatchUpsertCatalogObjects` endpoint.
 
 ```php
 function catalogInfo(): ApiResponse
@@ -507,18 +508,16 @@ if ($apiResponse->isSuccess()) {
 
 ## Search Catalog Objects
 
-Queries the targeted catalog using a variety of query expressions.
+Searches for [CatalogObject](#type-CatalogObject) of any types against supported search attribute values,
+excluding custom attribute values on items or item variations, against one or more of the specified query expressions,
 
-Supported query expressions are of the following types:
+This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
+endpoint in the following aspects:
 
-- [CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
-- [CatalogQueryExact](#type-catalogqueryexact),
-- [CatalogQueryRange](#type-catalogqueryrange),
-- [CatalogQueryText](#type-catalogquerytext),
-- [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
-- [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist),
-- [CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions), and
-- [CatalogQueryItemVariationsForItemOptionValues](#type-catalogqueryitemvariationsforitemoptionvalues).
+- `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
+- `SearchCatalogItems` supports the custom attribute query filters to return items or item variations that contain custom attribute values, where `SearchCatalogObjects` does not.
+- `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted items or item variations, whereas `SearchCatalogObjects` does.
+- The both endpoints have different call conventions, including the query filter formats.
 
 ```php
 function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
@@ -552,6 +551,78 @@ $apiResponse = $catalogApi->searchCatalogObjects($body);
 
 if ($apiResponse->isSuccess()) {
     $searchCatalogObjectsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+## Search Catalog Items
+
+Searches for catalog items or item variations by matching supported search attribute values, including
+custom attribute values, against one or more of the specified query expressions,
+
+This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects)
+endpoint in the following aspects:
+
+- `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
+- `SearchCatalogItems` supports the custom attribute query filters to return items or item variations that contain custom attribute values, where `SearchCatalogObjects` does not.
+- `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted items or item variations, whereas `SearchCatalogObjects` does.
+- The both endpoints use different call conventions, including the query filter formats.
+
+```php
+function searchCatalogItems(SearchCatalogItemsRequest $body): ApiResponse
+```
+
+### Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`SearchCatalogItemsRequest`](/doc/models/search-catalog-items-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+### Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchCatalogItemsResponse`](/doc/models/search-catalog-items-response.md).
+
+### Example Usage
+
+```php
+$body = new Models\SearchCatalogItemsRequest;
+$body->setTextFilter('red');
+$body->setCategoryIds(['WINE_CATEGORY_ID']);
+$body->setStockLevels([Models\SearchCatalogItemsRequestStockLevel::OUT, Models\SearchCatalogItemsRequestStockLevel::LOW]);
+$body->setEnabledLocationIds(['ATL_LOCATION_ID']);
+$body->setLimit(100);
+$body->setSortOrder(Models\SortOrder::ASC);
+$body->setProductTypes([Models\CatalogItemProductType::REGULAR]);
+$body_customAttributeFilters = [];
+
+$body_customAttributeFilters[0] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[0]->setCustomAttributeDefinitionId('VEGAN_DEFINITION_ID');
+$body_customAttributeFilters[0]->setBoolFilter(true);
+
+$body_customAttributeFilters[1] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[1]->setCustomAttributeDefinitionId('BRAND_DEFINITION_ID');
+$body_customAttributeFilters[1]->setStringFilter('Dark Horse');
+
+$body_customAttributeFilters[2] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[2]->setKey('VINTAGE');
+$body_customAttributeFilters[2]->setNumberFilter(new Models\Range);
+$body_customAttributeFilters[2]->getNumberFilter()->setMin('2017');
+$body_customAttributeFilters[2]->getNumberFilter()->setMax('2018');
+
+$body_customAttributeFilters[3] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[3]->setCustomAttributeDefinitionId('VARIETAL_DEFINITION_ID');
+$body->setCustomAttributeFilters($body_customAttributeFilters);
+
+
+$apiResponse = $catalogApi->searchCatalogItems($body);
+
+if ($apiResponse->isSuccess()) {
+    $searchCatalogItemsResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

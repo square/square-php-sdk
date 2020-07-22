@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A category to which a `CatalogItem` belongs in the `Catalog` object model.
+ * A category to which a `CatalogItem` instance belongs.
  */
 class CatalogCategory implements \JsonSerializable
 {
@@ -17,7 +17,8 @@ class CatalogCategory implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The category name. Searchable. This field has max length of 255 Unicode code points.
+     * The category name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -27,7 +28,8 @@ class CatalogCategory implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The category name. Searchable. This field has max length of 255 Unicode code points.
+     * The category name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      *
      * @maps name
      */

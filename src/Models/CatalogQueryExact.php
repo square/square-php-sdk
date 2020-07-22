@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query filter to return the serch result by exact match of the specified attribute name and
+ * value.
+ */
 class CatalogQueryExact implements \JsonSerializable
 {
     /**
@@ -29,7 +33,7 @@ class CatalogQueryExact implements \JsonSerializable
     /**
      * Returns Attribute Name.
      *
-     * The name of the attribute to be searched.
+     * The name of the attribute to be searched. Matching of the attribute name is exact.
      */
     public function getAttributeName(): string
     {
@@ -39,7 +43,7 @@ class CatalogQueryExact implements \JsonSerializable
     /**
      * Sets Attribute Name.
      *
-     * The name of the attribute to be searched.
+     * The name of the attribute to be searched. Matching of the attribute name is exact.
      *
      * @required
      * @maps attribute_name
@@ -52,7 +56,10 @@ class CatalogQueryExact implements \JsonSerializable
     /**
      * Returns Attribute Value.
      *
-     * The desired value of the search attribute.
+     * The desired value of the search attribute. Matching of the attribute value is case insensitive and
+     * can be partial.
+     * For example, if a specified value of "sma", objects with the named attribute value of "Small",
+     * "small" are both matched.
      */
     public function getAttributeValue(): string
     {
@@ -62,7 +69,10 @@ class CatalogQueryExact implements \JsonSerializable
     /**
      * Sets Attribute Value.
      *
-     * The desired value of the search attribute.
+     * The desired value of the search attribute. Matching of the attribute value is case insensitive and
+     * can be partial.
+     * For example, if a specified value of "sma", objects with the named attribute value of "Small",
+     * "small" are both matched.
      *
      * @required
      * @maps attribute_value

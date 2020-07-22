@@ -53,7 +53,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
      * Returns Name.
      *
      * Selection name, unique within `allowed_selections`.
-     * Required. Min length of 1, max length of 255.
      */
     public function getName(): string
     {
@@ -64,7 +63,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
      * Sets Name.
      *
      * Selection name, unique within `allowed_selections`.
-     * Required. Min length of 1, max length of 255.
      *
      * @required
      * @maps name

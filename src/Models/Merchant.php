@@ -40,6 +40,11 @@ class Merchant implements \JsonSerializable
     private $status;
 
     /**
+     * @var string|null
+     */
+    private $mainLocationId;
+
+    /**
      * @param string $country
      */
     public function __construct(string $country)
@@ -181,6 +186,28 @@ class Merchant implements \JsonSerializable
     }
 
     /**
+     * Returns Main Location Id.
+     *
+     * The ID of the main `Location` for this merchant.
+     */
+    public function getMainLocationId(): ?string
+    {
+        return $this->mainLocationId;
+    }
+
+    /**
+     * Sets Main Location Id.
+     *
+     * The ID of the main `Location` for this merchant.
+     *
+     * @maps main_location_id
+     */
+    public function setMainLocationId(?string $mainLocationId): void
+    {
+        $this->mainLocationId = $mainLocationId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -188,12 +215,13 @@ class Merchant implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']           = $this->id;
-        $json['business_name'] = $this->businessName;
-        $json['country']      = $this->country;
-        $json['language_code'] = $this->languageCode;
-        $json['currency']     = $this->currency;
-        $json['status']       = $this->status;
+        $json['id']             = $this->id;
+        $json['business_name']  = $this->businessName;
+        $json['country']        = $this->country;
+        $json['language_code']  = $this->languageCode;
+        $json['currency']       = $this->currency;
+        $json['status']         = $this->status;
+        $json['main_location_id'] = $this->mainLocationId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

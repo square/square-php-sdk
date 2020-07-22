@@ -88,7 +88,7 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Item Id.
      *
-     * The ID of the `CatalogItem` associated with this item variation. Searchable.
+     * The ID of the `CatalogItem` associated with this item variation.
      */
     public function getItemId(): ?string
     {
@@ -98,7 +98,7 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Item Id.
      *
-     * The ID of the `CatalogItem` associated with this item variation. Searchable.
+     * The ID of the `CatalogItem` associated with this item variation.
      *
      * @maps item_id
      */
@@ -110,7 +110,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The item variation's name. Searchable. This field has max length of 255 Unicode code points.
+     * The item variation's name. This is a searchable attribute for use in applicable query filters, and
+     * its value length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -120,7 +121,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The item variation's name. Searchable. This field has max length of 255 Unicode code points.
+     * The item variation's name. This is a searchable attribute for use in applicable query filters, and
+     * its value length is of Unicode code points.
      *
      * @maps name
      */
@@ -132,7 +134,7 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Sku.
      *
-     * The item variation's SKU, if any. Searchable.
+     * The item variation's SKU, if any. This is a searchable attribute for use in applicable query filters.
      */
     public function getSku(): ?string
     {
@@ -142,7 +144,7 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Sku.
      *
-     * The item variation's SKU, if any. Searchable.
+     * The item variation's SKU, if any. This is a searchable attribute for use in applicable query filters.
      *
      * @maps sku
      */
@@ -154,9 +156,9 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Upc.
      *
-     * The item variation's UPC, if any. Searchable in the Connect API.
-     * This field is only exposed in the Connect API. It is not exposed in Square's Dashboard,
-     * Square Point of Sale app or Retail Point of Sale app.
+     * The item variation's UPC, if any. This is a searchable attribute for use in applicable query filters.
+     * It is only accessible through the Square API, and not exposed in the Square Seller Dashboard,
+     * Square Point of Sale or Retail Point of Sale apps.
      */
     public function getUpc(): ?string
     {
@@ -166,9 +168,9 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Upc.
      *
-     * The item variation's UPC, if any. Searchable in the Connect API.
-     * This field is only exposed in the Connect API. It is not exposed in Square's Dashboard,
-     * Square Point of Sale app or Retail Point of Sale app.
+     * The item variation's UPC, if any. This is a searchable attribute for use in applicable query filters.
+     * It is only accessible through the Square API, and not exposed in the Square Seller Dashboard,
+     * Square Point of Sale or Retail Point of Sale apps.
      *
      * @maps upc
      */
@@ -366,8 +368,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns User Data.
      *
-     * Arbitrary user metadata to associate with the item variation. Searchable. This field has max length
-     * of 255 Unicode code points.
+     * Arbitrary user metadata to associate with the item variation. This attribute value length is of
+     * Unicode code points.
      */
     public function getUserData(): ?string
     {
@@ -377,8 +379,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets User Data.
      *
-     * Arbitrary user metadata to associate with the item variation. Searchable. This field has max length
-     * of 255 Unicode code points.
+     * Arbitrary user metadata to associate with the item variation. This attribute value length is of
+     * Unicode code points.
      *
      * @maps user_data
      */

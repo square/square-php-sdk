@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query filter to return the items containing the specified tax IDs.
+ */
 class CatalogQueryItemsForTax implements \JsonSerializable
 {
     /**

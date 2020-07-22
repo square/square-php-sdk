@@ -5,17 +5,29 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A query to be applied to a `SearchCatalogObjectsRequest`.
- * Only one query field may be present.
+ * A query composed of one or more different types of filters to narrow the scope of targeted objects
+ * when calling the `SearchCatalogObjects` endpoint.
  *
- * Where an attribute name is required, it should be specified as the name of any field
- * marked "searchable" from the structured data types for the desired result object type(s)
- * (`CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, `CatalogTax`,
- * `CatalogDiscount`, `CatalogModifierList`, `CatalogModifier`).
+ * Although a query can have multiple filters, only one query is allowed per call to
+ * [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects).
  *
- * For example, a query that should return Items may specify attribute names from
- * any of the searchable fields of the `CatalogItem` data type, namely
- * `"name"`, `"description"`, and `"abbreviation"`.
+ * When a query filter is based on an attribute, the attribute must be searchable.
+ * Searchable attributes are listed as follows, along their parent types that can be searched for with
+ * applicable query filters.
+ *
+ * Searchable attribute and objects queryable by searchable attributes **
+ * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`,
+ * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
+ * - `description`: `CatalogItem`, `CatalogItemOptionValue`
+ * - `abbreviation`: `CatalogItem`
+ * - `upc`: `CatalogItemVariation`
+ * - `sku`: `CatalogItemVariation`
+ * - `caption`: `CatalogImage`
+ * - `display_name`: `CatalogItemOption`
+ *
+ * For example, to search for [CatalogItem](#type-CatalogItem) objects by searchable attributes, you
+ * can use
+ * the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable query filter.
  */
 class CatalogQuery implements \JsonSerializable
 {
@@ -66,6 +78,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Sorted Attribute Query.
+     *
+     * The query expression to specify the key to sort search results.
      */
     public function getSortedAttributeQuery(): ?CatalogQuerySortedAttribute
     {
@@ -74,6 +88,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Sorted Attribute Query.
+     *
+     * The query expression to specify the key to sort search results.
      *
      * @maps sorted_attribute_query
      */
@@ -84,6 +100,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Exact Query.
+     *
+     * The query filter to return the serch result by exact match of the specified attribute name and value.
      */
     public function getExactQuery(): ?CatalogQueryExact
     {
@@ -92,6 +110,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Exact Query.
+     *
+     * The query filter to return the serch result by exact match of the specified attribute name and value.
      *
      * @maps exact_query
      */
@@ -102,6 +122,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Prefix Query.
+     *
+     * The query filter to return the search result whose named attribute values are prefixed by the
+     * specified attribute value.
      */
     public function getPrefixQuery(): ?CatalogQueryPrefix
     {
@@ -110,6 +133,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Prefix Query.
+     *
+     * The query filter to return the search result whose named attribute values are prefixed by the
+     * specified attribute value.
      *
      * @maps prefix_query
      */
@@ -120,6 +146,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Range Query.
+     *
+     * The query filter to return the search result whose named attribute values fall between the specified
+     * range.
      */
     public function getRangeQuery(): ?CatalogQueryRange
     {
@@ -128,6 +157,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Range Query.
+     *
+     * The query filter to return the search result whose named attribute values fall between the specified
+     * range.
      *
      * @maps range_query
      */
@@ -138,6 +170,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Text Query.
+     *
+     * The query filter to return the search result whose searchable attribute values contain all of the
+     * specified keywords or tokens, independent of the token order or case.
      */
     public function getTextQuery(): ?CatalogQueryText
     {
@@ -146,6 +181,9 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Text Query.
+     *
+     * The query filter to return the search result whose searchable attribute values contain all of the
+     * specified keywords or tokens, independent of the token order or case.
      *
      * @maps text_query
      */
@@ -156,6 +194,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Items for Tax Query.
+     *
+     * The query filter to return the items containing the specified tax IDs.
      */
     public function getItemsForTaxQuery(): ?CatalogQueryItemsForTax
     {
@@ -164,6 +204,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Items for Tax Query.
+     *
+     * The query filter to return the items containing the specified tax IDs.
      *
      * @maps items_for_tax_query
      */
@@ -174,6 +216,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Items for Modifier List Query.
+     *
+     * The query filter to return the items containing the specified modifier list IDs.
      */
     public function getItemsForModifierListQuery(): ?CatalogQueryItemsForModifierList
     {
@@ -182,6 +226,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Items for Modifier List Query.
+     *
+     * The query filter to return the items containing the specified modifier list IDs.
      *
      * @maps items_for_modifier_list_query
      */
@@ -192,6 +238,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Items for Item Options Query.
+     *
+     * The query filter to return the items containing the specified item option IDs.
      */
     public function getItemsForItemOptionsQuery(): ?CatalogQueryItemsForItemOptions
     {
@@ -200,6 +248,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Items for Item Options Query.
+     *
+     * The query filter to return the items containing the specified item option IDs.
      *
      * @maps items_for_item_options_query
      */
@@ -210,6 +260,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Returns Item Variations for Item Option Values Query.
+     *
+     * The query filter to return the item variations containing the specified item option value IDs.
      */
     public function getItemVariationsForItemOptionValuesQuery(): ?CatalogQueryItemVariationsForItemOptionValues
     {
@@ -218,6 +270,8 @@ class CatalogQuery implements \JsonSerializable
 
     /**
      * Sets Item Variations for Item Option Values Query.
+     *
+     * The query filter to return the item variations containing the specified item option value IDs.
      *
      * @maps item_variations_for_item_option_values_query
      */

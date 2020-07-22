@@ -80,9 +80,9 @@ class OAuthApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization'   => $authorization
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -163,9 +163,9 @@ class OAuthApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization'   => $authorization
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -243,9 +243,9 @@ class OAuthApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json'
+            'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 

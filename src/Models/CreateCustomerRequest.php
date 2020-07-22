@@ -68,7 +68,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * The idempotency key for the request. See the
+     * The idempotency key for the request.	See the
      * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency) guide for more
      * information.
      */
@@ -80,7 +80,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * The idempotency key for the request. See the
+     * The idempotency key for the request.	See the
      * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency) guide for more
      * information.
      *

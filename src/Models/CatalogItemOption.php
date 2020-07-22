@@ -43,7 +43,7 @@ class CatalogItemOption implements \JsonSerializable
      * Returns Name.
      *
      * The item option's display name for the seller. Must be unique across
-     * all item options. Searchable.
+     * all item options. This is a searchable attribute for use in applicable query filters.
      */
     public function getName(): ?string
     {
@@ -54,7 +54,7 @@ class CatalogItemOption implements \JsonSerializable
      * Sets Name.
      *
      * The item option's display name for the seller. Must be unique across
-     * all item options. Searchable.
+     * all item options. This is a searchable attribute for use in applicable query filters.
      *
      * @maps name
      */
@@ -66,7 +66,8 @@ class CatalogItemOption implements \JsonSerializable
     /**
      * Returns Display Name.
      *
-     * The item option's display name for the customer. Searchable.
+     * The item option's display name for the customer. This is a searchable attribute for use in
+     * applicable query filters.
      */
     public function getDisplayName(): ?string
     {
@@ -76,7 +77,8 @@ class CatalogItemOption implements \JsonSerializable
     /**
      * Sets Display Name.
      *
-     * The item option's display name for the customer. Searchable.
+     * The item option's display name for the customer. This is a searchable attribute for use in
+     * applicable query filters.
      *
      * @maps display_name
      */
@@ -90,7 +92,7 @@ class CatalogItemOption implements \JsonSerializable
      *
      * The item option's human-readable description. Displayed in the Square
      * Point of Sale app for the seller and in the Online Store or on receipts for
-     * the buyer.
+     * the buyer. This is a searchable attribute for use in applicable query filters.
      */
     public function getDescription(): ?string
     {
@@ -102,7 +104,7 @@ class CatalogItemOption implements \JsonSerializable
      *
      * The item option's human-readable description. Displayed in the Square
      * Point of Sale app for the seller and in the Online Store or on receipts for
-     * the buyer.
+     * the buyer. This is a searchable attribute for use in applicable query filters.
      *
      * @maps description
      */

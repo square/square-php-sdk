@@ -10,9 +10,9 @@ A group of variations for a `CatalogItem`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `name` | `?string` | Optional | The item option's display name for the seller. Must be unique across<br>all item options. Searchable. |
-| `displayName` | `?string` | Optional | The item option's display name for the customer. Searchable. |
-| `description` | `?string` | Optional | The item option's human-readable description. Displayed in the Square<br>Point of Sale app for the seller and in the Online Store or on receipts for<br>the buyer. |
+| `name` | `?string` | Optional | The item option's display name for the seller. Must be unique across<br>all item options. This is a searchable attribute for use in applicable query filters. |
+| `displayName` | `?string` | Optional | The item option's display name for the customer. This is a searchable attribute for use in applicable query filters. |
+| `description` | `?string` | Optional | The item option's human-readable description. Displayed in the Square<br>Point of Sale app for the seller and in the Online Store or on receipts for<br>the buyer. This is a searchable attribute for use in applicable query filters. |
 | `showColors` | `?bool` | Optional | If true, display colors for entries in `values` when present. |
 | `values` | [`?(CatalogObject[])`](/doc/models/catalog-object.md) | Optional | A list of CatalogObjects containing the<br>`CatalogItemOptionValue`s for this item. |
 | `itemCount` | `?int` | Optional | The number of `CatalogItem`s currently associated<br>with this item option. Present only if the `include_counts` was specified<br>in the request. Any count over 100 will be returned as `100`. |

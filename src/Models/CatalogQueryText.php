@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query filter to return the search result whose searchable attribute values contain all of the
+ * specified keywords or tokens, independent of the token order or case.
+ */
 class CatalogQueryText implements \JsonSerializable
 {
     /**
@@ -22,8 +26,7 @@ class CatalogQueryText implements \JsonSerializable
     /**
      * Returns Keywords.
      *
-     * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters
-     * are ignored.
+     * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters are ignored.
      *
      * @return string[]
      */
@@ -35,8 +38,7 @@ class CatalogQueryText implements \JsonSerializable
     /**
      * Sets Keywords.
      *
-     * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters
-     * are ignored.
+     * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters are ignored.
      *
      * @required
      * @maps keywords

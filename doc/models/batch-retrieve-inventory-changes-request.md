@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectIds` | `?(string[])` | Optional | Filters results by `CatalogObject` ID.<br>Only applied when set. Default: unset. |
+| `catalogObjectIds` | `?(string[])` | Optional | Filters results by `CatalogObject` ID.<br>Only applied when set. Max size is 500 IDs. Default: unset. |
 | `locationIds` | `?(string[])` | Optional | Filters results by `Location` ID. Only<br>applied when set. Default: unset. |
 | `types` | [`?(string[]) (InventoryChangeType)`](/doc/models/inventory-change-type.md) | Optional | Filters results by `InventoryChangeType`.<br>Default: [`PHYSICAL_COUNT`, `ADJUSTMENT`]. `TRANSFER` is not supported as<br>a filter.<br>See [InventoryChangeType](#type-inventorychangetype) for possible values |
 | `states` | [`?(string[]) (InventoryState)`](/doc/models/inventory-state.md) | Optional | Filters `ADJUSTMENT` query results by<br>`InventoryState`. Only applied when set.<br>Default: unset.<br>See [InventoryState](#type-inventorystate) for possible values |

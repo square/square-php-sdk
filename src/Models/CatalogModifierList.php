@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A modifier list in the Catalog object model. A `CatalogModifierList`
- * contains `CatalogModifier` objects that can be applied to a `CatalogItem` at
- * the time of sale.
+ * A list of modifiers applicable to items at the time of sale.
  *
- * For example, a modifier list "Condiments" that would apply to a "Hot Dog"
- * `CatalogItem` might contain `CatalogModifier`s "Ketchup", "Mustard", and "Relish".
- * The `selection_type` field specifies whether or not multiple selections from
+ * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
+ * may contain "Ketchup", "Mustard", and "Relish" modifiers.
+ * Use the `selection_type` field to specify whether or not multiple selections from
  * the modifier list are allowed.
  */
 class CatalogModifierList implements \JsonSerializable
@@ -39,8 +37,8 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * A searchable name for the `CatalogModifierList`. This field has max length of 255 Unicode code
-     * points.
+     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
+     * applicable query filters, and its value length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -50,8 +48,8 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * A searchable name for the `CatalogModifierList`. This field has max length of 255 Unicode code
-     * points.
+     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
+     * applicable query filters, and its value length is of Unicode code points.
      *
      * @maps name
      */
@@ -63,7 +61,7 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Returns Ordinal.
      *
-     * Determines where this `CatalogModifierList` appears in a list of `CatalogModifierList` values.
+     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
      */
     public function getOrdinal(): ?int
     {
@@ -73,7 +71,7 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Sets Ordinal.
      *
-     * Determines where this `CatalogModifierList` appears in a list of `CatalogModifierList` values.
+     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
      *
      * @maps ordinal
      */

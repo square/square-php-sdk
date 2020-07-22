@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query expression to specify the key to sort search results.
+ */
 class CatalogQuerySortedAttribute implements \JsonSerializable
 {
     /**
@@ -32,7 +35,7 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
     /**
      * Returns Attribute Name.
      *
-     * The attribute whose value should be used as the sort key.
+     * The attribute whose value is used as the sort key.
      */
     public function getAttributeName(): string
     {
@@ -42,7 +45,7 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
     /**
      * Sets Attribute Name.
      *
-     * The attribute whose value should be used as the sort key.
+     * The attribute whose value is used as the sort key.
      *
      * @required
      * @maps attribute_name

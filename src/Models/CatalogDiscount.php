@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A discount in the Catalog object model.
+ * A discount applicable to items.
  */
 class CatalogDiscount implements \JsonSerializable
 {
@@ -47,7 +47,8 @@ class CatalogDiscount implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The discount name. Searchable. This field has max length of 255 Unicode code points.
+     * The discount name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -57,7 +58,8 @@ class CatalogDiscount implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The discount name. Searchable. This field has max length of 255 Unicode code points.
+     * The discount name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      *
      * @maps name
      */
@@ -97,7 +99,7 @@ class CatalogDiscount implements \JsonSerializable
      * `0` if `discount_type`
      * is `VARIABLE_PERCENTAGE`.
      *
-     * Do not include this field for amount-based or variable discounts.
+     * Do not use this field for amount-based or variable discounts.
      */
     public function getPercentage(): ?string
     {
@@ -113,7 +115,7 @@ class CatalogDiscount implements \JsonSerializable
      * `0` if `discount_type`
      * is `VARIABLE_PERCENTAGE`.
      *
-     * Do not include this field for amount-based or variable discounts.
+     * Do not use this field for amount-based or variable discounts.
      *
      * @maps percentage
      */

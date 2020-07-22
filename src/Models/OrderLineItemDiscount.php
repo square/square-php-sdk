@@ -65,6 +65,11 @@ class OrderLineItemDiscount implements \JsonSerializable
     private $rewardIds;
 
     /**
+     * @var string|null
+     */
+    private $pricingRuleId;
+
+    /**
      * Returns Uid.
      *
      * Unique ID that identifies the discount only within this order.
@@ -361,6 +366,34 @@ class OrderLineItemDiscount implements \JsonSerializable
     }
 
     /**
+     * Returns Pricing Rule Id.
+     *
+     * The object identifier of a [pricing rule](#type-CatalogPricingRule) to be applied automatically
+     * to this discount. The specification and application of the discounts, to which a `pricing_rule_id`
+     * is
+     * assigned, are completely controlled by the corresponding pricing rule.
+     */
+    public function getPricingRuleId(): ?string
+    {
+        return $this->pricingRuleId;
+    }
+
+    /**
+     * Sets Pricing Rule Id.
+     *
+     * The object identifier of a [pricing rule](#type-CatalogPricingRule) to be applied automatically
+     * to this discount. The specification and application of the discounts, to which a `pricing_rule_id`
+     * is
+     * assigned, are completely controlled by the corresponding pricing rule.
+     *
+     * @maps pricing_rule_id
+     */
+    public function setPricingRuleId(?string $pricingRuleId): void
+    {
+        $this->pricingRuleId = $pricingRuleId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -378,6 +411,7 @@ class OrderLineItemDiscount implements \JsonSerializable
         $json['metadata']        = $this->metadata;
         $json['scope']           = $this->scope;
         $json['reward_ids']      = $this->rewardIds;
+        $json['pricing_rule_id'] = $this->pricingRuleId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

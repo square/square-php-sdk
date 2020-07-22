@@ -163,8 +163,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     /**
      * Returns Source Application.
      *
-     * Provides information about the application used to generate an inventory
-     * change.
+     * Provides information about the application used to generate a change.
      */
     public function getSourceApplication(): ?SourceApplication
     {
@@ -174,8 +173,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     /**
      * Sets Source Application.
      *
-     * Provides information about the application used to generate an inventory
-     * change.
+     * Provides information about the application used to generate a change.
      *
      * @maps source_application
      */

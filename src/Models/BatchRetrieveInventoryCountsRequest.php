@@ -30,7 +30,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      * Returns Catalog Object Ids.
      *
      * Filters results by `CatalogObject` ID.
-     * Only applied when set. Default: unset.
+     * Only applied when set. Max size is 1000 IDs. Default: unset.
      *
      * @return string[]|null
      */
@@ -43,7 +43,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      * Sets Catalog Object Ids.
      *
      * Filters results by `CatalogObject` ID.
-     * Only applied when set. Default: unset.
+     * Only applied when set. Max size is 1000 IDs. Default: unset.
      *
      * @maps catalog_object_ids
      *

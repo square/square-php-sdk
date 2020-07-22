@@ -145,6 +145,11 @@ class Order implements \JsonSerializable
     private $totalServiceChargeMoney;
 
     /**
+     * @var OrderPricingOptions|null
+     */
+    private $pricingOptions;
+
+    /**
      * @var OrderReward[]|null
      */
     private $rewards;
@@ -909,6 +914,34 @@ class Order implements \JsonSerializable
     }
 
     /**
+     * Returns Pricing Options.
+     *
+     * Pricing options for an order. The options affect how the order's price is calculated.
+     * They can be used, for example, to apply automatic price adjustments that are based on pre-
+     * configured
+     * [pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule).
+     */
+    public function getPricingOptions(): ?OrderPricingOptions
+    {
+        return $this->pricingOptions;
+    }
+
+    /**
+     * Sets Pricing Options.
+     *
+     * Pricing options for an order. The options affect how the order's price is calculated.
+     * They can be used, for example, to apply automatic price adjustments that are based on pre-
+     * configured
+     * [pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule).
+     *
+     * @maps pricing_options
+     */
+    public function setPricingOptions(?OrderPricingOptions $pricingOptions): void
+    {
+        $this->pricingOptions = $pricingOptions;
+    }
+
+    /**
      * Returns Rewards.
      *
      * A set-like list of rewards that have been added to the order.
@@ -968,6 +1001,7 @@ class Order implements \JsonSerializable
         $json['total_tax_money']         = $this->totalTaxMoney;
         $json['total_discount_money']    = $this->totalDiscountMoney;
         $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
+        $json['pricing_options']         = $this->pricingOptions;
         $json['rewards']                 = $this->rewards;
 
         return array_filter($json, function ($val) {
