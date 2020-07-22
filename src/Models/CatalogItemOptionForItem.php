@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A list of item option values that can be assigned to item variations.
+ * An option that can be assigned to an item.
  * For example, a t-shirt item may offer a color option or a size option.
  */
 class CatalogItemOptionForItem implements \JsonSerializable

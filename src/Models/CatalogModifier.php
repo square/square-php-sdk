@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A modifier in the Catalog object model.
+ * A modifier applicable to items at the time of sale.
  */
 class CatalogModifier implements \JsonSerializable
 {
@@ -32,7 +32,8 @@ class CatalogModifier implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The modifier name. Searchable. This field has max length of 255 Unicode code points.
+     * The modifier name.  This is a searchable attribute for use in applicable query filters, and its
+     * value length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -42,7 +43,8 @@ class CatalogModifier implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The modifier name. Searchable. This field has max length of 255 Unicode code points.
+     * The modifier name.  This is a searchable attribute for use in applicable query filters, and its
+     * value length is of Unicode code points.
      *
      * @maps name
      */
@@ -110,7 +112,7 @@ class CatalogModifier implements \JsonSerializable
     /**
      * Returns Modifier List Id.
      *
-     * The ID of the `CatalogModifierList` associated with this modifier. Searchable.
+     * The ID of the `CatalogModifierList` associated with this modifier.
      */
     public function getModifierListId(): ?string
     {
@@ -120,7 +122,7 @@ class CatalogModifier implements \JsonSerializable
     /**
      * Sets Modifier List Id.
      *
-     * The ID of the `CatalogModifierList` associated with this modifier. Searchable.
+     * The ID of the `CatalogModifierList` associated with this modifier.
      *
      * @maps modifier_list_id
      */

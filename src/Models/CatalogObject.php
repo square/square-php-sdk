@@ -16,25 +16,25 @@ namespace Square\Models;
  * object.
  * - For a `CatalogObject` of the `ITEM_VARIATION` type, set the `item_variation_data` attribute to
  * yield the `CatalogItemVariation` object.
- * - For a 'CatalogObject' of the `MODIFIER` type, set the `modifier_data` attribute to yield the
+ * - For a `CatalogObject` of the `MODIFIER` type, set the `modifier_data` attribute to yield the
  * `CatalogModifier` object.
- * - For a 'CatalogObject' of the `MODIFIER_LIST` type, set the `modifier_list_data` attribute to yield
+ * - For a `CatalogObject` of the `MODIFIER_LIST` type, set the `modifier_list_data` attribute to yield
  * the `CatalogModifierList` object.
- * - For a 'CatalogObject' of the `CATEGORY` type, set the `category_data` attribute to yield the
+ * - For a `CatalogObject` of the `CATEGORY` type, set the `category_data` attribute to yield the
  * `CatalogCategory` object.
- * - For a 'CatalogObject' of the `DISCOUNT` type, set the `discount_data` attribute to yield the
+ * - For a `CatalogObject` of the `DISCOUNT` type, set the `discount_data` attribute to yield the
  * `CatalogDiscount` object.
- * - For a 'CatalogObject' of the `TAX` type, set the `tax_data` attribute to yield the `CatalogTax`
+ * - For a `CatalogObject` of the `TAX` type, set the `tax_data` attribute to yield the `CatalogTax`
  * object.
- * - For a 'CatalogObject' of the `IMAGE` type, set the `image_data` attribute to yield the
+ * - For a `CatalogObject` of the `IMAGE` type, set the `image_data` attribute to yield the
  * `CatalogImageData`  object.
- * - For a 'CatalogObject' of the `QUICK_AMOUNTS_SETTINGS` type, set the `quick_amounts_settings_data`
+ * - For a `CatalogObject` of the `QUICK_AMOUNTS_SETTINGS` type, set the `quick_amounts_settings_data`
  * attribute to yield the `CatalogQuickAmountsSettings` object.
- * - For a 'CatalogObject' of the `PRICING_RULE` type, set the `pricing_rule_data` attribute to yield
+ * - For a `CatalogObject` of the `PRICING_RULE` type, set the `pricing_rule_data` attribute to yield
  * the `CatalogPricingRule` object.
- * - For a 'CatalogObject' of the `TIME_PERIOD` type, set the `time_period_data` attribute to yield the
+ * - For a `CatalogObject` of the `TIME_PERIOD` type, set the `time_period_data` attribute to yield the
  * `CatalogTimePeriod` object.
- * - For a 'CatalogObject' of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the
+ * - For a `CatalogObject` of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the
  * `CatalogProductSet`  object.
  *
  * For a more detailed discussion of the Catalog data model, please see the
@@ -524,7 +524,8 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Item Data.
      *
-     * An item (i.e., product family) in the Catalog object model.
+     * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+     * the catalog.
      */
     public function getItemData(): ?CatalogItem
     {
@@ -534,7 +535,8 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Item Data.
      *
-     * An item (i.e., product family) in the Catalog object model.
+     * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+     * the catalog.
      *
      * @maps item_data
      */
@@ -546,7 +548,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Category Data.
      *
-     * A category to which a `CatalogItem` belongs in the `Catalog` object model.
+     * A category to which a `CatalogItem` instance belongs.
      */
     public function getCategoryData(): ?CatalogCategory
     {
@@ -556,7 +558,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Category Data.
      *
-     * A category to which a `CatalogItem` belongs in the `Catalog` object model.
+     * A category to which a `CatalogItem` instance belongs.
      *
      * @maps category_data
      */
@@ -592,7 +594,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Tax Data.
      *
-     * A tax in the Catalog object model.
+     * A tax applicable to an item.
      */
     public function getTaxData(): ?CatalogTax
     {
@@ -602,7 +604,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Tax Data.
      *
-     * A tax in the Catalog object model.
+     * A tax applicable to an item.
      *
      * @maps tax_data
      */
@@ -614,7 +616,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Discount Data.
      *
-     * A discount in the Catalog object model.
+     * A discount applicable to items.
      */
     public function getDiscountData(): ?CatalogDiscount
     {
@@ -624,7 +626,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Discount Data.
      *
-     * A discount in the Catalog object model.
+     * A discount applicable to items.
      *
      * @maps discount_data
      */
@@ -636,13 +638,11 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Modifier List Data.
      *
-     * A modifier list in the Catalog object model. A `CatalogModifierList`
-     * contains `CatalogModifier` objects that can be applied to a `CatalogItem` at
-     * the time of sale.
+     * A list of modifiers applicable to items at the time of sale.
      *
-     * For example, a modifier list "Condiments" that would apply to a "Hot Dog"
-     * `CatalogItem` might contain `CatalogModifier`s "Ketchup", "Mustard", and "Relish".
-     * The `selection_type` field specifies whether or not multiple selections from
+     * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
+     * may contain "Ketchup", "Mustard", and "Relish" modifiers.
+     * Use the `selection_type` field to specify whether or not multiple selections from
      * the modifier list are allowed.
      */
     public function getModifierListData(): ?CatalogModifierList
@@ -653,13 +653,11 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Modifier List Data.
      *
-     * A modifier list in the Catalog object model. A `CatalogModifierList`
-     * contains `CatalogModifier` objects that can be applied to a `CatalogItem` at
-     * the time of sale.
+     * A list of modifiers applicable to items at the time of sale.
      *
-     * For example, a modifier list "Condiments" that would apply to a "Hot Dog"
-     * `CatalogItem` might contain `CatalogModifier`s "Ketchup", "Mustard", and "Relish".
-     * The `selection_type` field specifies whether or not multiple selections from
+     * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
+     * may contain "Ketchup", "Mustard", and "Relish" modifiers.
+     * Use the `selection_type` field to specify whether or not multiple selections from
      * the modifier list are allowed.
      *
      * @maps modifier_list_data
@@ -672,7 +670,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Modifier Data.
      *
-     * A modifier in the Catalog object model.
+     * A modifier applicable to items at the time of sale.
      */
     public function getModifierData(): ?CatalogModifier
     {
@@ -682,7 +680,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Modifier Data.
      *
-     * A modifier in the Catalog object model.
+     * A modifier applicable to items at the time of sale.
      *
      * @maps modifier_data
      */
@@ -770,7 +768,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Image Data.
      *
-     * An image file to use in Square catalogs. Can be associated with catalog
+     * An image file to use in Square catalogs. It can be associated with catalog
      * items, item variations, and categories.
      */
     public function getImageData(): ?CatalogImage
@@ -781,7 +779,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Image Data.
      *
-     * An image file to use in Square catalogs. Can be associated with catalog
+     * An image file to use in Square catalogs. It can be associated with catalog
      * items, item variations, and categories.
      *
      * @maps image_data

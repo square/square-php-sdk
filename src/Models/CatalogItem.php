@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * An item (i.e., product family) in the Catalog object model.
+ * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item,
+ * in the catalog.
  */
 class CatalogItem implements \JsonSerializable
 {
@@ -82,8 +83,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The item's name. Searchable. This field must not be empty. This field has max length of 512 Unicode
-     * code points.
+     * The item's name. This is a searchable attribute for use in applicable query filters, its value must
+     * not be empty, and the length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -93,8 +94,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The item's name. Searchable. This field must not be empty. This field has max length of 512 Unicode
-     * code points.
+     * The item's name. This is a searchable attribute for use in applicable query filters, its value must
+     * not be empty, and the length is of Unicode code points.
      *
      * @maps name
      */
@@ -106,7 +107,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Returns Description.
      *
-     * The item's description. Searchable. This field has max length of 4096 Unicode code points.
+     * The item's description. This is a searchable attribute for use in applicable query filters, and its
+     * value length is of Unicode code points.
      */
     public function getDescription(): ?string
     {
@@ -116,7 +118,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Sets Description.
      *
-     * The item's description. Searchable. This field has max length of 4096 Unicode code points.
+     * The item's description. This is a searchable attribute for use in applicable query filters, and its
+     * value length is of Unicode code points.
      *
      * @maps description
      */
@@ -129,8 +132,8 @@ class CatalogItem implements \JsonSerializable
      * Returns Abbreviation.
      *
      * The text of the item's display label in the Square Point of Sale app. Only up to the first five
-     * characters of the string are used. Searchable.
-     * This field has max length of 24 Unicode code points.
+     * characters of the string are used.
+     * This attribute is searchable, and its value length is of Unicode code points.
      */
     public function getAbbreviation(): ?string
     {
@@ -141,8 +144,8 @@ class CatalogItem implements \JsonSerializable
      * Sets Abbreviation.
      *
      * The text of the item's display label in the Square Point of Sale app. Only up to the first five
-     * characters of the string are used. Searchable.
-     * This field has max length of 24 Unicode code points.
+     * characters of the string are used.
+     * This attribute is searchable, and its value length is of Unicode code points.
      *
      * @maps abbreviation
      */

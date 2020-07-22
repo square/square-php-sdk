@@ -44,7 +44,7 @@ class EmployeesTest extends TestCase
         $this->assertFalse($apiResponse->isError());
         $this->assertTrue($apiResponse->getResult() instanceof ListEmployeesResponse);
 
-        return $apiResponse->getResult()->getEmployees()[0]->id;
+        return $apiResponse->getResult()->getEmployees()[0]->getId();
     }
 
     /**

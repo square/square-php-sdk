@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the parameters that can be included in the body of
- * a request to the __RegisterDomain__ endpoint.
+ * a request to the [RegisterDomain](#endpoint-registerdomain) endpoint.
  */
 class RegisterDomainRequest implements \JsonSerializable
 {

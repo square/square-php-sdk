@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A tax in the Catalog object model.
+ * A tax applicable to an item.
  */
 class CatalogTax implements \JsonSerializable
 {
@@ -42,7 +42,8 @@ class CatalogTax implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The tax's name. Searchable. This field has max length of 255 Unicode code points.
+     * The tax's name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      */
     public function getName(): ?string
     {
@@ -52,7 +53,8 @@ class CatalogTax implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The tax's name. Searchable. This field has max length of 255 Unicode code points.
+     * The tax's name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
      *
      * @maps name
      */

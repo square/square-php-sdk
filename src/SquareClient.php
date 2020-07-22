@@ -28,6 +28,7 @@ class SquareClient implements ConfigurationInterface
     private $disputes;
     private $employees;
     private $inventory;
+    private $invoices;
     private $labor;
     private $locations;
     private $reporting;
@@ -42,6 +43,7 @@ class SquareClient implements ConfigurationInterface
     private $terminal;
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
+    private $squareVersion = ConfigurationDefaults::SQUARE_VERSION;
     private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
     private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
     private $environment = ConfigurationDefaults::ENVIRONMENT;
@@ -50,6 +52,9 @@ class SquareClient implements ConfigurationInterface
     {
         if (isset($configOptions['timeout'])) {
             $this->timeout = $configOptions['timeout'];
+        }
+        if (isset($configOptions['squareVersion'])) {
+            $this->squareVersion = $configOptions['squareVersion'];
         }
         if (isset($configOptions['accessToken'])) {
             $this->accessToken = $configOptions['accessToken'];
@@ -72,6 +77,9 @@ class SquareClient implements ConfigurationInterface
 
         if (isset($this->timeout)) {
             $configMap['timeout'] = $this->timeout;
+        }
+        if (isset($this->squareVersion)) {
+            $configMap['squareVersion'] = $this->squareVersion;
         }
         if (isset($this->accessToken)) {
             $configMap['accessToken'] = $this->accessToken;
@@ -99,6 +107,11 @@ class SquareClient implements ConfigurationInterface
         return $this->timeout;
     }
 
+    public function getSquareVersion(): string
+    {
+        return $this->squareVersion;
+    }
+
     public function getAccessToken(): string
     {
         return $this->accessToken;
@@ -119,13 +132,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '6.0.0.20200625';
-    }
-
-
-    public function getSquareVersion(): string
-    {
-        return '2020-06-25';
+        return '6.1.0.20200722';
     }
 
     /**
@@ -325,6 +332,17 @@ class SquareClient implements ConfigurationInterface
             $this->inventory = new Apis\InventoryApi($this);
         }
         return $this->inventory;
+    }
+
+    /**
+     * Returns Invoices Api
+     */
+    public function getInvoicesApi(): Apis\InvoicesApi
+    {
+        if ($this->invoices == null) {
+            $this->invoices = new Apis\InvoicesApi($this);
+        }
+        return $this->invoices;
     }
 
     /**

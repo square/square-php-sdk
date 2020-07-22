@@ -16,6 +16,7 @@ Represents a Square seller.
 | `languageCode` | `?string` | Optional | The language code associated with the merchant account, in BCP 47 format. |
 | `currency` | [`?string (Currency)`](/doc/models/currency.md) | Optional | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). |
 | `status` | [`?string (MerchantStatus)`](/doc/models/merchant-status.md) | Optional | -  |
+| `mainLocationId` | `?string` | Optional | The ID of the main `Location` for this merchant. |
 
 ### Example (as JSON)
 
@@ -26,7 +27,8 @@ Represents a Square seller.
   "country": "FO",
   "language_code": null,
   "currency": null,
-  "status": null
+  "status": null,
+  "main_location_id": null
 }
 ```
 

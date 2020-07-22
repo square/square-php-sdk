@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Provides information about the application used to generate an inventory
- * change.
+ * Provides information about the application used to generate a change.
  */
 class SourceApplication implements \JsonSerializable
 {

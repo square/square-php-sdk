@@ -272,6 +272,21 @@ class ErrorCode
     public const NO_FIELDS_SET = 'NO_FIELDS_SET';
 
     /**
+     * 400 Bad Request - too many entries in the map field.
+     */
+    public const TOO_MANY_MAP_ENTRIES = 'TOO_MANY_MAP_ENTRIES';
+
+    /**
+     * 400 Bad Request - the length of one of the provided keys in the map is too short.
+     */
+    public const MAP_KEY_LENGTH_TOO_SHORT = 'MAP_KEY_LENGTH_TOO_SHORT';
+
+    /**
+     * 400 Bad Request - the length of one of the provided keys in the map is too long.
+     */
+    public const MAP_KEY_LENGTH_TOO_LONG = 'MAP_KEY_LENGTH_TOO_LONG';
+
+    /**
      * The card issuer declined the request because the card is expired.
      */
     public const CARD_EXPIRED = 'CARD_EXPIRED';

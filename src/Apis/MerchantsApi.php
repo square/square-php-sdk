@@ -57,8 +57,8 @@ class MerchantsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -99,7 +99,10 @@ class MerchantsApi extends BaseApi
     /**
      * Retrieve a `Merchant` object for the given `merchant_id`.
      *
-     * @param string $merchantId The ID of the merchant to retrieve.
+     * @param string $merchantId The ID of the merchant to retrieve. If the string "me" is
+     *                           supplied as the ID,
+     *                           then retrieve the merchant that is currently accessible to this
+     *                           call.
      *
      * @return ApiResponse Response from the API call
      *
@@ -121,8 +124,8 @@ class MerchantsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());

@@ -63,7 +63,7 @@ class OrdersTest extends TestCase
 
         $this->assertTrue($locationsResult->isSuccess());
 
-        $locationId = $locationsResult->getResult()->getLocations()[0]->id;
+        $locationId = $locationsResult->getResult()->getLocations()[0]->getId();
 
        
         $body = new SearchOrdersRequest;
@@ -92,7 +92,7 @@ class OrdersTest extends TestCase
 
         $this->assertTrue($locationsResult->isSuccess());
 
-        $locationId = $locationsResult->getResult()->getLocations()[0]->id;
+        $locationId = $locationsResult->getResult()->getLocations()[0]->getId();
 
         $body_idempotencyKey = uniqid();
         $order = new Order($locationId);
@@ -157,7 +157,7 @@ class OrdersTest extends TestCase
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof BatchRetrieveOrdersResponse );
-        $this->assertEquals($apiResponse->getResult()->getOrders()[0]->location_id, $locationId);
+        $this->assertEquals($apiResponse->getResult()->getOrders()[0]->getLocationId(), $locationId);
 
         return $orderId;
     }

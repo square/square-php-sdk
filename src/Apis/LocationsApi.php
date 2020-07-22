@@ -44,8 +44,8 @@ class LocationsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -109,9 +109,9 @@ class LocationsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -153,9 +153,14 @@ class LocationsApi extends BaseApi
     }
 
     /**
-     * Retrieves details of a location.
+     * Retrieves details of a location. You can specify "main"
+     * as the location ID to retrieve details of the
+     * main location. For more information,
+     * see [Locations API Overview](https://developer.squareup.com/docs/docs/locations-api).
      *
-     * @param string $locationId The ID of the location to retrieve.
+     * @param string $locationId The ID of the location to retrieve. If you specify the string
+     *                           "main",
+     *                           then the endpoint returns the main location.
      *
      * @return ApiResponse Response from the API call
      *
@@ -177,8 +182,8 @@ class LocationsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -246,9 +251,9 @@ class LocationsApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());

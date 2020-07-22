@@ -62,9 +62,9 @@ class MobileAuthorizationApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());

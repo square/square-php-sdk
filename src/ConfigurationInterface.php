@@ -15,6 +15,11 @@ interface ConfigurationInterface
     public function getTimeout(): int;
 
     /**
+     * Get square Connect API versions
+     */
+    public function getSquareVersion(): string;
+
+    /**
      * Get oAuth 2.0 Access Token
      */
     public function getAccessToken(): string;
@@ -37,9 +42,4 @@ interface ConfigurationInterface
      * @return string Base URI
      */
     public function getBaseUri(string $server = Server::DEFAULT_): string;
-
-    /**
-     * Get version of the Square API supported by this SDK
-     */
-    public function getSquareVersion(): string;
 }

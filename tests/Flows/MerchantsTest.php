@@ -45,7 +45,7 @@ class MarchantsTest extends TestCase
         $this->assertTrue($apiResponse->getResult() instanceof ListMerchantsResponse);
         $this->assertIsArray($apiResponse->getResult()->getMerchant());
 
-        return $apiResponse->getResult()->getMerchant()[0]->id;
+        return $apiResponse->getResult()->getMerchant()[0]->getId();
     }
 
 

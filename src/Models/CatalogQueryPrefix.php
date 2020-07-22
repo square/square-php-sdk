@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query filter to return the search result whose named attribute values are prefixed by the
+ * specified attribute value.
+ */
 class CatalogQueryPrefix implements \JsonSerializable
 {
     /**

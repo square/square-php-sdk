@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * Options to control how to override the default behavior of the specified modifier.
+ */
 class CatalogModifierOverride implements \JsonSerializable
 {
     /**

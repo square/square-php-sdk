@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * The query filter to return the search result whose named attribute values fall between the
+ * specified range.
+ */
 class CatalogQueryRange implements \JsonSerializable
 {
     /**

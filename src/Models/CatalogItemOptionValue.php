@@ -66,7 +66,7 @@ class CatalogItemOptionValue implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * Name of this item option value. Searchable.
+     * Name of this item option value. This is a searchable attribute for use in applicable query filters.
      */
     public function getName(): ?string
     {
@@ -76,7 +76,7 @@ class CatalogItemOptionValue implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * Name of this item option value. Searchable.
+     * Name of this item option value. This is a searchable attribute for use in applicable query filters.
      *
      * @maps name
      */
@@ -88,7 +88,8 @@ class CatalogItemOptionValue implements \JsonSerializable
     /**
      * Returns Description.
      *
-     * A human-readable description for the option value.
+     * A human-readable description for the option value. This is a searchable attribute for use in
+     * applicable query filters.
      */
     public function getDescription(): ?string
     {
@@ -98,7 +99,8 @@ class CatalogItemOptionValue implements \JsonSerializable
     /**
      * Sets Description.
      *
-     * A human-readable description for the option value.
+     * A human-readable description for the option value. This is a searchable attribute for use in
+     * applicable query filters.
      *
      * @maps description
      */
@@ -161,11 +163,9 @@ class CatalogItemOptionValue implements \JsonSerializable
      * Returns Item Variation Count.
      *
      * The number of `CatalogItemVariation`s that
-     * currently make use of this Item Option value. Present only if `retrieve_counts`
-     * was specified on the request used to retrieve the parent Item Option of this
+     * currently use this item option value. Present only if `retrieve_counts`
+     * was specified on the request used to retrieve the parent item option of this
      * value.
-     *
-     * Maximum: 100 counts.
      */
     public function getItemVariationCount(): ?int
     {
@@ -176,11 +176,9 @@ class CatalogItemOptionValue implements \JsonSerializable
      * Sets Item Variation Count.
      *
      * The number of `CatalogItemVariation`s that
-     * currently make use of this Item Option value. Present only if `retrieve_counts`
-     * was specified on the request used to retrieve the parent Item Option of this
+     * currently use this item option value. Present only if `retrieve_counts`
+     * was specified on the request used to retrieve the parent item option of this
      * value.
-     *
-     * Maximum: 100 counts.
      *
      * @maps item_variation_count
      */

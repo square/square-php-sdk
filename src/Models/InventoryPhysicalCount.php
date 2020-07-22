@@ -218,14 +218,6 @@ class InventoryPhysicalCount implements \JsonSerializable
      *
      * The number of items affected by the physical count as a decimal string.
      * Can support up to 5 digits after the decimal point.
-     *
-     * _Important_: The Point of Sale app and Dashboard do not currently support
-     * decimal quantities. If a Point of Sale app or Dashboard attempts to read a
-     * decimal quantity on inventory counts or adjustments, the quantity will be rounded
-     * down to the nearest integer. For example, `2.5` will become `2`, and `-2.5`
-     * will become `-3`.
-     * Read [Decimal Quantities (BETA)](https://developer.squareup.com/docs/inventory-api/what-it-
-     * does#decimal-quantities-beta) for more information.
      */
     public function getQuantity(): ?string
     {
@@ -238,14 +230,6 @@ class InventoryPhysicalCount implements \JsonSerializable
      * The number of items affected by the physical count as a decimal string.
      * Can support up to 5 digits after the decimal point.
      *
-     * _Important_: The Point of Sale app and Dashboard do not currently support
-     * decimal quantities. If a Point of Sale app or Dashboard attempts to read a
-     * decimal quantity on inventory counts or adjustments, the quantity will be rounded
-     * down to the nearest integer. For example, `2.5` will become `2`, and `-2.5`
-     * will become `-3`.
-     * Read [Decimal Quantities (BETA)](https://developer.squareup.com/docs/inventory-api/what-it-
-     * does#decimal-quantities-beta) for more information.
-     *
      * @maps quantity
      */
     public function setQuantity(?string $quantity): void
@@ -256,8 +240,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Returns Source.
      *
-     * Provides information about the application used to generate an inventory
-     * change.
+     * Provides information about the application used to generate a change.
      */
     public function getSource(): ?SourceApplication
     {
@@ -267,8 +250,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Sets Source.
      *
-     * Provides information about the application used to generate an inventory
-     * change.
+     * Provides information about the application used to generate a change.
      *
      * @maps source
      */

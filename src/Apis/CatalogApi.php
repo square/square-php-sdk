@@ -55,9 +55,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -128,9 +128,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -206,9 +206,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -250,13 +250,14 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Upload an image file to create a new [CatalogImage](#type-catalogimage) for an existing
-     * [CatalogObject](#type-catalogobject). Images can be uploaded and linked in this request or created
-     * independently
-     * (without an object assignment) and linked to a [CatalogObject](#type-catalogobject) at a later time.
+     * Uploads an image file to be represented by an [CatalogImage](#type-catalogimage) object linked to
+     * an existing
+     * [CatalogObject](#type-catalogobject) instance. A call to this endpoint can upload an image, link an
+     * image to
+     * a catalog object, or do both.
      *
-     * CreateCatalogImage accepts HTTP multipart/form-data requests with a JSON part and an image file part
-     * in
+     * This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an
+     * image file part in
      * JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
      *
      * Additional information and an example cURL request can be found in the [Create a Catalog Image
@@ -282,8 +283,8 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -328,8 +329,8 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Returns information about the Square Catalog API, such as batch size
-     * limits for `BatchUpsertCatalogObjects`.
+     * Retrieves information about the Square Catalog API, such as batch size
+     * limits that can be used by the `BatchUpsertCatalogObjects` endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -346,8 +347,8 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -429,8 +430,8 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -492,9 +493,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -569,8 +570,8 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -661,8 +662,8 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'            => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'                => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -701,18 +702,22 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Queries the targeted catalog using a variety of query expressions.
+     * Searches for [CatalogObject](#type-CatalogObject) of any types against supported search attribute
+     * values,
+     * excluding custom attribute values on items or item variations, against one or more of the specified
+     * query expressions,
      *
-     * Supported query expressions are of the following types:
-     * - [CatalogQuerySortedAttribute](#type-catalogquerysortedattribute),
-     * - [CatalogQueryExact](#type-catalogqueryexact),
-     * - [CatalogQueryRange](#type-catalogqueryrange),
-     * - [CatalogQueryText](#type-catalogquerytext),
-     * - [CatalogQueryItemsForTax](#type-catalogqueryitemsfortax),
-     * - [CatalogQueryItemsForModifierList](#type-catalogqueryitemsformodifierlist),
-     * - [CatalogQueryItemsForItemOptions](#type-catalogqueryitemsforitemoptions), and
-     * - [CatalogQueryItemVariationsForItemOptionValues](#type-
-     * catalogqueryitemvariationsforitemoptionvalues).
+     * This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](#endpoint-Catalog-
+     * SearchCatalogItems)
+     * endpoint in the following aspects:
+     *
+     * - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects`
+     * can search for any type of catalog objects.
+     * - `SearchCatalogItems` supports the custom attribute query filters to return items or item
+     * variations that contain custom attribute values, where `SearchCatalogObjects` does not.
+     * - `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted
+     * items or item variations, whereas `SearchCatalogObjects` does.
+     * - The both endpoints have different call conventions, including the query filter formats.
      *
      * @param \Square\Models\SearchCatalogObjectsRequest $body An object containing the fields to
      *                                                         POST for the request.
@@ -735,9 +740,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -779,6 +784,87 @@ class CatalogApi extends BaseApi
     }
 
     /**
+     * Searches for catalog items or item variations by matching supported search attribute values,
+     * including
+     * custom attribute values, against one or more of the specified query expressions,
+     *
+     * This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](#endpoint-Catalog-
+     * SearchCatalogObjects)
+     * endpoint in the following aspects:
+     *
+     * - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects`
+     * can search for any type of catalog objects.
+     * - `SearchCatalogItems` supports the custom attribute query filters to return items or item
+     * variations that contain custom attribute values, where `SearchCatalogObjects` does not.
+     * - `SearchCatalogItems` does not support the `include_deleted_objects` filter to search for deleted
+     * items or item variations, whereas `SearchCatalogObjects` does.
+     * - The both endpoints use different call conventions, including the query filter formats.
+     *
+     * @param \Square\Models\SearchCatalogItemsRequest $body An object containing the fields to
+     *                                                       POST for the request.
+     *
+     *                                                       See the corresponding object
+     *                                                       definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function searchCatalogItems(\Square\Models\SearchCatalogItemsRequest $body): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/catalog/search-catalog-items';
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //json encode body
+        $_bodyJson = Request\Body::Json($body);
+
+        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchCatalogItemsResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
      * Updates the [CatalogModifierList](#type-catalogmodifierlist) objects
      * that apply to the targeted [CatalogItem](#type-catalogitem) without having
      * to perform an upsert on the entire item.
@@ -804,9 +890,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
@@ -873,9 +959,9 @@ class CatalogApi extends BaseApi
         //prepare headers
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
-            'Square-Version' => $this->config->getSquareVersion(),
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
             'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
