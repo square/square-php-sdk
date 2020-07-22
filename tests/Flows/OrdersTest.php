@@ -157,7 +157,7 @@ class OrdersTest extends TestCase
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof BatchRetrieveOrdersResponse );
-        $this->assertEquals($apiResponse->getResult()->getOrders()[0]->location_id, $locationId);
+        $this->assertEquals($apiResponse->getResult()->getOrders()[0]->getLocationId(), $locationId);
 
         return $orderId;
     }
