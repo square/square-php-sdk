@@ -83,6 +83,15 @@ class CatalogObjectType
     public const MEASUREMENT_UNIT = 'MEASUREMENT_UNIT';
 
     /**
+     * A subscription plan, corresponding to
+     * [CatalogSubscriptionPlan](#type-CatalogSubscriptionPlan).
+     *
+     * The subscription plan data is stored in the `subscription_plan_data` field of the
+     * [CatalogObject](#type-CatalogObject).
+     */
+    public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
+
+    /**
      * Represents a list of item option values that can be assigned to item
      * variations. For example, a color option or size option for a t-shirt.
      */
