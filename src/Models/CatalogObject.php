@@ -36,6 +36,9 @@ namespace Square\Models;
  * `CatalogTimePeriod` object.
  * - For a `CatalogObject` of the `PRODUCT_SET` type, set the `product_set_data` attribute to yield the
  * `CatalogProductSet`  object.
+ * - For a `CatalogObject` of the `SUBSCRIPTION_PLAN` type, set the `subscription_plan_data` attribute
+ * to yield the `CatalogSubscriptionPlan` object.
+ *
  *
  * For a more detailed discussion of the Catalog data model, please see the
  * [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
@@ -156,6 +159,11 @@ class CatalogObject implements \JsonSerializable
      * @var CatalogMeasurementUnit|null
      */
     private $measurementUnitData;
+
+    /**
+     * @var CatalogSubscriptionPlan|null
+     */
+    private $subscriptionPlanData;
 
     /**
      * @var CatalogItemOption|null
@@ -814,6 +822,32 @@ class CatalogObject implements \JsonSerializable
     }
 
     /**
+     * Returns Subscription Plan Data.
+     *
+     * Describes a subscription plan. For more information, see
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-
+     * api/setup-plan).
+     */
+    public function getSubscriptionPlanData(): ?CatalogSubscriptionPlan
+    {
+        return $this->subscriptionPlanData;
+    }
+
+    /**
+     * Sets Subscription Plan Data.
+     *
+     * Describes a subscription plan. For more information, see
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-
+     * api/setup-plan).
+     *
+     * @maps subscription_plan_data
+     */
+    public function setSubscriptionPlanData(?CatalogSubscriptionPlan $subscriptionPlanData): void
+    {
+        $this->subscriptionPlanData = $subscriptionPlanData;
+    }
+
+    /**
      * Returns Item Option Data.
      *
      * A group of variations for a `CatalogItem`.
@@ -947,6 +981,7 @@ class CatalogObject implements \JsonSerializable
         $json['pricing_rule_data']             = $this->pricingRuleData;
         $json['image_data']                    = $this->imageData;
         $json['measurement_unit_data']         = $this->measurementUnitData;
+        $json['subscription_plan_data']        = $this->subscriptionPlanData;
         $json['item_option_data']              = $this->itemOptionData;
         $json['item_option_value_data']        = $this->itemOptionValueData;
         $json['custom_attribute_definition_data'] = $this->customAttributeDefinitionData;
