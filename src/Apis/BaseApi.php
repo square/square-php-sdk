@@ -19,7 +19,7 @@ class BaseApi
      *
      * @var string
      */
-    protected const USER_AGENT = 'Square-PHP-SDK/6.2.0.20200812';
+    protected const USER_AGENT = 'Square-PHP-SDK/6.3.0.20200826';
 
     /**
      * HttpCallBack instance associated with this controller

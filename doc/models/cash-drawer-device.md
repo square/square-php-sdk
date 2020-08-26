@@ -6,17 +6,17 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The device Square-issued ID |
-| `name` | `?string` | Optional | The device merchant-specified name. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The device Square-issued ID | getId(): ?string | setId(?string id): void |
+| `name` | `?string` | Optional | The device merchant-specified name. | getName(): ?string | setName(?string name): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
-  "name": null
+  "id": "id0",
+  "name": "name0"
 }
 ```
 

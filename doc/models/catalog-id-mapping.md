@@ -18,17 +18,17 @@ to the new object. The permanent ID is unique across the Square catalog.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `clientObjectId` | `?string` | Optional | The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`. |
-| `objectId` | `?string` | Optional | The permanent ID for the CatalogObject created by the server. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `clientObjectId` | `?string` | Optional | The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`. | getClientObjectId(): ?string | setClientObjectId(?string clientObjectId): void |
+| `objectId` | `?string` | Optional | The permanent ID for the CatalogObject created by the server. | getObjectId(): ?string | setObjectId(?string objectId): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "client_object_id": null,
-  "object_id": null
+  "client_object_id": "client_object_id0",
+  "object_id": "object_id8"
 }
 ```
 

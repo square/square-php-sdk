@@ -8,10 +8,10 @@ A request to redeem a loyalty reward.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `idempotencyKey` | `string` | A unique string that identifies this `RedeemLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request. |
-| `locationId` | `string` | The ID of the [location](#type-Location) where the reward is redeemed. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `idempotencyKey` | `string` | A unique string that identifies this `RedeemLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request. | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
+| `locationId` | `string` | The ID of the [location](#type-Location) where the reward is redeemed. | getLocationId(): string | setLocationId(string locationId): void |
 
 ### Example (as JSON)
 

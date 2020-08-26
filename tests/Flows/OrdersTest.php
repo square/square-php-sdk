@@ -100,8 +100,9 @@ class OrdersTest extends TestCase
         $body = new CreateOrderRequest;
         $body->setIdempotencyKey($body_idempotencyKey);
         $body->setOrder($order);
+        $body->setLocationId($locationId);
 
-        $apiResponse = self::$controller->createOrder($locationId, $body);
+        $apiResponse = self::$controller->createOrder($body);
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof CreateOrderResponse);
@@ -129,7 +130,7 @@ class OrdersTest extends TestCase
         $body = new UpdateOrderRequest();
         $body->setOrder($order);
 
-        $apiResponse = self::$controller->updateOrder($locationId, $orderId, $body);
+        $apiResponse = self::$controller->updateOrder($orderId, $body);
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof UpdateOrderResponse);
@@ -152,8 +153,9 @@ class OrdersTest extends TestCase
         $body = new BatchRetrieveOrdersRequest(
             $body_orderIds
         );
+        $body->setLocationId($locationId);
 
-        $apiResponse = self::$controller->batchRetrieveOrders($locationId, $body);
+        $apiResponse = self::$controller->batchRetrieveOrders($body);
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof BatchRetrieveOrdersResponse );

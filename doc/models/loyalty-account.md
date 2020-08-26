@@ -9,38 +9,36 @@ Describes a loyalty account. For more information, see
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The Square-assigned ID of the loyalty account. |
-| `mappings` | [`LoyaltyAccountMapping[]`](/doc/models/loyalty-account-mapping.md) |  | The list of mappings that the account is associated with.<br>Currently, a buyer can only be mapped to a loyalty account using<br>a phone number. Therefore, the list can only have one mapping. |
-| `programId` | `string` |  | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram) to which the account belongs. |
-| `balance` | `?int` | Optional | The available point balance in the loyalty account. |
-| `lifetimePoints` | `?int` | Optional | The total points accrued during the lifetime of the account. |
-| `customerId` | `?string` | Optional | The Square-assigned ID of the [customer](#type-Customer) that is associated with the account. |
-| `enrolledAt` | `?string` | Optional | The timestamp when enrollment occurred, in RFC 3339 format. |
-| `createdAt` | `?string` | Optional | The timestamp when the loyalty account was created, in RFC 3339 format. |
-| `updatedAt` | `?string` | Optional | The timestamp when the loyalty account was last updated, in RFC 3339 format. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The Square-assigned ID of the loyalty account. | getId(): ?string | setId(?string id): void |
+| `mappings` | [`LoyaltyAccountMapping[]`](/doc/models/loyalty-account-mapping.md) |  | The list of mappings that the account is associated with.<br>Currently, a buyer can only be mapped to a loyalty account using<br>a phone number. Therefore, the list can only have one mapping. | getMappings(): array | setMappings(array mappings): void |
+| `programId` | `string` |  | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram) to which the account belongs. | getProgramId(): string | setProgramId(string programId): void |
+| `balance` | `?int` | Optional | The available point balance in the loyalty account. | getBalance(): ?int | setBalance(?int balance): void |
+| `lifetimePoints` | `?int` | Optional | The total points accrued during the lifetime of the account. | getLifetimePoints(): ?int | setLifetimePoints(?int lifetimePoints): void |
+| `customerId` | `?string` | Optional | The Square-assigned ID of the [customer](#type-Customer) that is associated with the account. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
+| `enrolledAt` | `?string` | Optional | The timestamp when enrollment occurred, in RFC 3339 format. | getEnrolledAt(): ?string | setEnrolledAt(?string enrolledAt): void |
+| `createdAt` | `?string` | Optional | The timestamp when the loyalty account was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
+| `updatedAt` | `?string` | Optional | The timestamp when the loyalty account was last updated, in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "mappings": [
     {
-      "id": null,
+      "id": "id4",
       "type": "type6",
       "value": "value6",
-      "created_at": null
+      "created_at": "created_at8"
     }
   ],
   "program_id": "program_id0",
-  "balance": null,
-  "lifetime_points": null,
-  "customer_id": null,
-  "enrolled_at": null,
-  "created_at": null,
-  "updated_at": null
+  "balance": 64,
+  "lifetime_points": 88,
+  "customer_id": "customer_id8",
+  "enrolled_at": "enrolled_at0"
 }
 ```
 

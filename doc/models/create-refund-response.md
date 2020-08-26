@@ -11,10 +11,10 @@ One of `errors` or `refund` is present in a given response (never both).
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `refund` | [`?Refund`](/doc/models/refund.md) | Optional | Represents a refund processed for a Square transaction. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `refund` | [`?Refund`](/doc/models/refund.md) | Optional | Represents a refund processed for a Square transaction. | getRefund(): ?Refund | setRefund(?Refund refund): void |
 
 ### Example (as JSON)
 

@@ -10,21 +10,21 @@ or more information, see
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The Square-assigned ID of the mapping. |
-| `type` | `string` |  | The type of mapping.<br>*Default: `'PHONE'`* |
-| `value` | `string` |  | The phone number, in E.164 format. For example, "+14155551111". |
-| `createdAt` | `?string` | Optional | The timestamp when the mapping was created, in RFC 3339 format. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The Square-assigned ID of the mapping. | getId(): ?string | setId(?string id): void |
+| `type` | `string` |  | The type of mapping.<br>*Default: `'PHONE'`* | getType(): string | setType(string type): void |
+| `value` | `string` |  | The phone number, in E.164 format. For example, "+14155551111". | getValue(): string | setValue(string value): void |
+| `createdAt` | `?string` | Optional | The timestamp when the mapping was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "type": "type0",
   "value": "value2",
-  "created_at": null
+  "created_at": "created_at2"
 }
 ```
 

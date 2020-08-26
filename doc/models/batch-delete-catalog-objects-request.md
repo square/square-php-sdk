@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `objectIds` | `?(string[])` | Optional | The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects<br>in the graph that depend on that object will be deleted as well (for example, deleting a<br>CatalogItem will delete its CatalogItemVariation. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `objectIds` | `?(string[])` | Optional | The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects<br>in the graph that depend on that object will be deleted as well (for example, deleting a<br>CatalogItem will delete its CatalogItemVariation. | getObjectIds(): ?array | setObjectIds(?array objectIds): void |
 
 ### Example (as JSON)
 

@@ -37,7 +37,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $customerGroupsApi->listCustomerGroups();
+$cursor = 'cursor6';
+
+$apiResponse = $customerGroupsApi->listCustomerGroups($cursor);
 
 if ($apiResponse->isSuccess()) {
     $listCustomerGroupsResponse = $apiResponse->getResult();
@@ -77,9 +79,13 @@ $body_group_name = 'Loyal Customers';
 $body_group = new Models\CustomerGroup(
     $body_group_name
 );
+$body_group->setId('id4');
+$body_group->setCreatedAt('created_at2');
+$body_group->setUpdatedAt('updated_at0');
 $body = new Models\CreateCustomerGroupRequest(
     $body_group
 );
+$body->setIdempotencyKey('idempotency_key2');
 
 $apiResponse = $customerGroupsApi->createCustomerGroup($body);
 
@@ -193,6 +199,9 @@ $body_group_name = 'Loyal Customers';
 $body_group = new Models\CustomerGroup(
     $body_group_name
 );
+$body_group->setId('id4');
+$body_group->setCreatedAt('created_at2');
+$body_group->setUpdatedAt('updated_at0');
 $body = new Models\UpdateCustomerGroupRequest(
     $body_group
 );

@@ -11,6 +11,6 @@ the result set when they match the filtering criteria.
 
 | Name | Description |
 |  --- | --- |
-| `INCLUDE_` | Customers should be included in the result set when they match the<br>filtering criteria. |
+| `INCLUDE` | Customers should be included in the result set when they match the<br>filtering criteria. |
 | `EXCLUDE` | Customers should be excluded from the result set when they match<br>the filtering criteria. |
 

@@ -51,7 +51,15 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $refundsApi->listPaymentRefunds();
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$sortOrder = 'sort_order0';
+$cursor = 'cursor6';
+$locationId = 'location_id4';
+$status = 'status8';
+$sourceType = 'source_type0';
+
+$apiResponse = $refundsApi->listPaymentRefunds($beginTime, $endTime, $sortOrder, $cursor, $locationId, $status, $sourceType);
 
 if ($apiResponse->isSuccess()) {
     $listPaymentRefundsResponse = $apiResponse->getResult();
@@ -97,6 +105,10 @@ $body = new Models\RefundPaymentRequest(
     $body_amountMoney,
     $body_paymentId
 );
+$body->setAppFeeMoney(new Models\Money);
+$body->getAppFeeMoney()->setAmount(114);
+$body->getAppFeeMoney()->setCurrency(Models\Currency::GEL);
+$body->setReason('reason8');
 
 $apiResponse = $refundsApi->refundPayment($body);
 

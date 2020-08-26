@@ -24,8 +24,6 @@ class ListEmployeesResponse implements \JsonSerializable
     /**
      * Returns Employees.
      *
-     * List of employees returned from the request.
-     *
      * @return Employee[]|null
      */
     public function getEmployees(): ?array
@@ -35,8 +33,6 @@ class ListEmployeesResponse implements \JsonSerializable
 
     /**
      * Sets Employees.
-     *
-     * List of employees returned from the request.
      *
      * @maps employees
      *

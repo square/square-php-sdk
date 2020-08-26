@@ -6,15 +6,15 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `autocomplete` | `?bool` | Optional | Indicates whether the Payment objects created from this `TerminalCheckout` will automatically be<br>COMPLETED or left in an APPROVED state for later modification. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `autocomplete` | `?bool` | Optional | Indicates whether the Payment objects created from this `TerminalCheckout` will automatically be<br>COMPLETED or left in an APPROVED state for later modification. | getAutocomplete(): ?bool | setAutocomplete(?bool autocomplete): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "autocomplete": null
+  "autocomplete": false
 }
 ```
 

@@ -38,6 +38,11 @@ class TenderType
     public const NO_SALE = 'NO_SALE';
 
     /**
+     * An ACH payment.
+     */
+    public const BANK_TRANSFER = 'BANK_TRANSFER';
+
+    /**
      * A form of tender that does not match any other value.
      */
     public const OTHER = 'OTHER';

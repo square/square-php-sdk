@@ -41,7 +41,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $merchantsApi->listMerchants();
+$cursor = 210;
+
+$apiResponse = $merchantsApi->listMerchants($cursor);
 
 if ($apiResponse->isSuccess()) {
     $listMerchantsResponse = $apiResponse->getResult();

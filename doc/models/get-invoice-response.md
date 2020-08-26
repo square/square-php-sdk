@@ -8,10 +8,10 @@ Describes a `GetInvoice` response.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `invoice` | [`?Invoice`](/doc/models/invoice.md) | Optional | Stores information about an invoice. You use the Invoices API to create and process<br>invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.squareup.com/docs/docs/invoices-api/overview). |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `invoice` | [`?Invoice`](/doc/models/invoice.md) | Optional | Stores information about an invoice. You use the Invoices API to create and process<br>invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.squareup.com/docs/docs/invoices-api/overview). | getInvoice(): ?Invoice | setInvoice(?Invoice invoice): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ### Example (as JSON)
 

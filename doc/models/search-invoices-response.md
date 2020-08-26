@@ -8,11 +8,11 @@ Describes a `SearchInvoices` response.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `invoices` | [`?(Invoice[])`](/doc/models/invoice.md) | Optional | The list of invoices returned by the search. |
-| `cursor` | `?string` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to fetch the next set of invoices. If empty, this is the final<br>response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination). |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `invoices` | [`?(Invoice[])`](/doc/models/invoice.md) | Optional | The list of invoices returned by the search. | getInvoices(): ?array | setInvoices(?array invoices): void |
+| `cursor` | `?string` | Optional | When a response is truncated, it includes a cursor that you can use in a<br>subsequent request to fetch the next set of invoices. If empty, this is the final<br>response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ### Example (as JSON)
 

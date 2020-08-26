@@ -10,15 +10,15 @@ They can be used, for example, to apply automatic price adjustments that are bas
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `autoApplyDiscounts` | `?bool` | Optional | The option to determine whether or not pricing rule-based discounts are automatically applied to an order. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `autoApplyDiscounts` | `?bool` | Optional | The option to determine whether or not pricing rule-based discounts are automatically applied to an order. | getAutoApplyDiscounts(): ?bool | setAutoApplyDiscounts(?bool autoApplyDiscounts): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "auto_apply_discounts": null
+  "auto_apply_discounts": false
 }
 ```
 

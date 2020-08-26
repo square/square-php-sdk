@@ -49,9 +49,9 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
      * Returns Created At.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      */
     public function getCreatedAt(): ?TimeRange
@@ -63,9 +63,9 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
      * Sets Created At.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      *
      * @maps created_at

@@ -54,12 +54,19 @@ $body_loyaltyAccount_mappings[0] = new Models\LoyaltyAccountMapping(
     $body_loyaltyAccount_mappings_0_type,
     $body_loyaltyAccount_mappings_0_value
 );
+$body_loyaltyAccount_mappings[0]->setId('id0');
+$body_loyaltyAccount_mappings[0]->setCreatedAt('created_at8');
 
 $body_loyaltyAccount_programId = 'd619f755-2d17-41f3-990d-c04ecedd64dd';
 $body_loyaltyAccount = new Models\LoyaltyAccount(
     $body_loyaltyAccount_mappings,
     $body_loyaltyAccount_programId
 );
+$body_loyaltyAccount->setId('id2');
+$body_loyaltyAccount->setBalance(14);
+$body_loyaltyAccount->setLifetimePoints(38);
+$body_loyaltyAccount->setCustomerId('customer_id0');
+$body_loyaltyAccount->setEnrolledAt('enrolled_at2');
 $body_idempotencyKey = 'ec78c477-b1c3-4899-a209-a4e71337c996';
 $body = new Models\CreateLoyaltyAccountRequest(
     $body_loyaltyAccount,
@@ -112,9 +119,12 @@ $body_query_mappings[0] = new Models\LoyaltyAccountMapping(
     $body_query_mappings_0_type,
     $body_query_mappings_0_value
 );
+$body_query_mappings[0]->setId('id4');
+$body_query_mappings[0]->setCreatedAt('created_at8');
 $body->getQuery()->setMappings($body_query_mappings);
 
 $body->setLimit(10);
+$body->setCursor('cursor0');
 
 $apiResponse = $loyaltyApi->searchLoyaltyAccounts($body);
 
@@ -200,6 +210,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $accountId = 'account_id2';
 $body_accumulatePoints = new Models\LoyaltyEventAccumulatePoints;
+$body_accumulatePoints->setLoyaltyProgramId('loyalty_program_id8');
+$body_accumulatePoints->setPoints(90);
 $body_accumulatePoints->setOrderId('RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY');
 $body_idempotencyKey = '58b90739-c3e8-4b11-85f7-e636d48d72cb';
 $body_locationId = 'P034NEENMD09F';
@@ -254,6 +266,8 @@ $body_adjustPoints_points = 112;
 $body_adjustPoints = new Models\LoyaltyEventAdjustPoints(
     $body_adjustPoints_points
 );
+$body_adjustPoints->setLoyaltyProgramId('loyalty_program_id4');
+$body_adjustPoints->setReason('reason0');
 $body = new Models\AdjustLoyaltyPointsRequest(
     $body_idempotencyKey,
     $body_adjustPoints
@@ -303,11 +317,30 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = new Models\SearchLoyaltyEventsRequest;
 $body->setQuery(new Models\LoyaltyEventQuery);
 $body->getQuery()->setFilter(new Models\LoyaltyEventFilter);
+$body_query_filter_loyaltyAccountFilter_loyaltyAccountId = 'loyalty_account_id6';
+$body->getQuery()->getFilter()->setLoyaltyAccountFilter(new Models\LoyaltyEventLoyaltyAccountFilter(
+    $body_query_filter_loyaltyAccountFilter_loyaltyAccountId
+));
+$body_query_filter_typeFilter_types = [Models\LoyaltyEventType::DELETE_REWARD, Models\LoyaltyEventType::ADJUST_POINTS, Models\LoyaltyEventType::EXPIRE_POINTS];
+$body->getQuery()->getFilter()->setTypeFilter(new Models\LoyaltyEventTypeFilter(
+    $body_query_filter_typeFilter_types
+));
+$body_query_filter_dateTimeFilter_createdAt = new Models\TimeRange;
+$body_query_filter_dateTimeFilter_createdAt->setStartAt('start_at8');
+$body_query_filter_dateTimeFilter_createdAt->setEndAt('end_at4');
+$body->getQuery()->getFilter()->setDateTimeFilter(new Models\LoyaltyEventDateTimeFilter(
+    $body_query_filter_dateTimeFilter_createdAt
+));
+$body_query_filter_locationFilter_locationIds = ['location_ids2', 'location_ids3', 'location_ids4'];
+$body->getQuery()->getFilter()->setLocationFilter(new Models\LoyaltyEventLocationFilter(
+    $body_query_filter_locationFilter_locationIds
+));
 $body_query_filter_orderFilter_orderId = 'PyATxhYLfsMqpVkcKJITPydgEYfZY';
 $body->getQuery()->getFilter()->setOrderFilter(new Models\LoyaltyEventOrderFilter(
     $body_query_filter_orderFilter_orderId
 ));
 $body->setLimit(30);
+$body->setCursor('cursor0');
 
 $apiResponse = $loyaltyApi->searchLoyaltyEvents($body);
 
@@ -386,6 +419,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $programId = 'program_id0';
 $body = new Models\CalculateLoyaltyPointsRequest;
 $body->setOrderId('RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY');
+$body->setTransactionAmountMoney(new Models\Money);
+$body->getTransactionAmountMoney()->setAmount(72);
+$body->getTransactionAmountMoney()->setCurrency(Models\Currency::UZS);
 
 $apiResponse = $loyaltyApi->calculateLoyaltyPoints($programId, $body);
 
@@ -436,7 +472,11 @@ $body_reward = new Models\LoyaltyReward(
     $body_reward_loyaltyAccountId,
     $body_reward_rewardTierId
 );
+$body_reward->setId('id4');
+$body_reward->setStatus(Models\LoyaltyRewardStatus::REDEEMED);
+$body_reward->setPoints(230);
 $body_reward->setOrderId('RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY');
+$body_reward->setCreatedAt('created_at2');
 $body_idempotencyKey = '18c2e5ea-a620-4b1f-ad60-7b167285e451';
 $body = new Models\CreateLoyaltyRewardRequest(
     $body_reward,
@@ -490,7 +530,9 @@ $body_query_loyaltyAccountId = '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd';
 $body->setQuery(new Models\SearchLoyaltyRewardsRequestLoyaltyRewardQuery(
     $body_query_loyaltyAccountId
 ));
+$body->getQuery()->setStatus(Models\LoyaltyRewardStatus::REDEEMED);
 $body->setLimit(10);
+$body->setCursor('cursor0');
 
 $apiResponse = $loyaltyApi->searchLoyaltyRewards($body);
 

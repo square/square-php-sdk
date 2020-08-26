@@ -8,10 +8,10 @@ Contains some brief information about a Customer Group with its identifier inclu
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `id` | `string` | The ID of the Customer Group. |
-| `name` | `string` | The name of the Customer Group. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `id` | `string` | The ID of the Customer Group. | getId(): string | setId(string id): void |
+| `name` | `string` | The name of the Customer Group. | getName(): string | setName(string name): void |
 
 ### Example (as JSON)
 

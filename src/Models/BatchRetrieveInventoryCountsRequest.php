@@ -27,10 +27,15 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     private $cursor;
 
     /**
+     * @var string[]|null
+     */
+    private $states;
+
+    /**
      * Returns Catalog Object Ids.
      *
-     * Filters results by `CatalogObject` ID.
-     * Only applied when set. Max size is 1000 IDs. Default: unset.
+     * The filter to return results by `CatalogObject` ID.
+     * The filter is applicable only when set.  The default is null.
      *
      * @return string[]|null
      */
@@ -42,8 +47,8 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     /**
      * Sets Catalog Object Ids.
      *
-     * Filters results by `CatalogObject` ID.
-     * Only applied when set. Max size is 1000 IDs. Default: unset.
+     * The filter to return results by `CatalogObject` ID.
+     * The filter is applicable only when set.  The default is null.
      *
      * @maps catalog_object_ids
      *
@@ -57,8 +62,8 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * Filters results by `Location` ID. Only
-     * applied when set. Default: unset.
+     * The filter to return results by `Location` ID.
+     * This filter is applicable only when set. The default is null.
      *
      * @return string[]|null
      */
@@ -70,8 +75,8 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * Filters results by `Location` ID. Only
-     * applied when set. Default: unset.
+     * The filter to return results by `Location` ID.
+     * This filter is applicable only when set. The default is null.
      *
      * @maps location_ids
      *
@@ -85,9 +90,9 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     /**
      * Returns Updated After.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `calculated_at` value is after the given time. Default: UNIX epoch
-     * (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `calculated_at` value
+     * after the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      */
     public function getUpdatedAfter(): ?string
     {
@@ -97,9 +102,9 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     /**
      * Sets Updated After.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `calculated_at` value is after the given time. Default: UNIX epoch
-     * (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `calculated_at` value
+     * after the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      *
      * @maps updated_after
      */
@@ -139,6 +144,38 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns States.
+     *
+     * The filter to return results by `InventoryState`. The filter is only applicable when set.
+     * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
+     * The default is null.
+     * See [InventoryState](#type-inventorystate) for possible values
+     *
+     * @return string[]|null
+     */
+    public function getStates(): ?array
+    {
+        return $this->states;
+    }
+
+    /**
+     * Sets States.
+     *
+     * The filter to return results by `InventoryState`. The filter is only applicable when set.
+     * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
+     * The default is null.
+     * See [InventoryState](#type-inventorystate) for possible values
+     *
+     * @maps states
+     *
+     * @param string[]|null $states
+     */
+    public function setStates(?array $states): void
+    {
+        $this->states = $states;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -150,6 +187,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
         $json['location_ids']     = $this->locationIds;
         $json['updated_after']    = $this->updatedAfter;
         $json['cursor']           = $this->cursor;
+        $json['states']           = $this->states;
 
         return array_filter($json, function ($val) {
             return $val !== null;

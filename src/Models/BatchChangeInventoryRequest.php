@@ -58,7 +58,7 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      *
      * The set of physical counts and inventory adjustments to be made.
      * Changes are applied based on the client-supplied timestamp and may be sent
-     * out of order. Max size is 100 changes.
+     * out of order.
      *
      * @return InventoryChange[]|null
      */
@@ -72,7 +72,7 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      *
      * The set of physical counts and inventory adjustments to be made.
      * Changes are applied based on the client-supplied timestamp and may be sent
-     * out of order. Max size is 100 changes.
+     * out of order.
      *
      * @maps changes
      *

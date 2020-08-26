@@ -117,6 +117,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = new Models\RevokeTokenRequest;
 $body->setClientId('CLIENT_ID');
 $body->setAccessToken('ACCESS_TOKEN');
+$body->setMerchantId('merchant_id6');
+$body->setRevokeOnlyAccessToken(false);
 $authorization = 'Client CLIENT_SECRET';
 
 $apiResponse = $oAuthApi->revokeToken($body, $authorization);
@@ -176,6 +178,9 @@ $body = new Models\ObtainTokenRequest(
     $body_grantType
 );
 $body->setCode('CODE_FROM_AUTHORIZE');
+$body->setRedirectUri('redirect_uri4');
+$body->setRefreshToken('refresh_token6');
+$body->setMigrationToken('migration_token4');
 
 $apiResponse = $oAuthApi->obtainToken($body);
 

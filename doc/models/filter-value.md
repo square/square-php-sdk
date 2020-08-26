@@ -12,19 +12,28 @@ Refer to the documentation of the field.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `all` | `?(string[])` | Optional | A list of terms that must be present on the field of the resource. |
-| `any` | `?(string[])` | Optional | A list of terms where at least one of them must be present on the<br>field of the resource. |
-| `none` | `?(string[])` | Optional | A list of terms that must not be present on the field the resource |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `all` | `?(string[])` | Optional | A list of terms that must be present on the field of the resource. | getAll(): ?array | setAll(?array all): void |
+| `any` | `?(string[])` | Optional | A list of terms where at least one of them must be present on the<br>field of the resource. | getAny(): ?array | setAny(?array any): void |
+| `none` | `?(string[])` | Optional | A list of terms that must not be present on the field the resource | getNone(): ?array | setNone(?array none): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "all": null,
-  "any": null,
-  "none": null
+  "all": [
+    "all1",
+    "all2"
+  ],
+  "any": [
+    "any6"
+  ],
+  "none": [
+    "none1",
+    "none2",
+    "none3"
+  ]
 }
 ```
 

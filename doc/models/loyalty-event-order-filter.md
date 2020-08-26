@@ -8,9 +8,9 @@ Filter events by the order associated with the event.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `orderId` | `string` | The ID of the [order](#type-Order) associated with the event. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `orderId` | `string` | The ID of the [order](#type-Order) associated with the event. | getOrderId(): string | setOrderId(string orderId): void |
 
 ### Example (as JSON)
 

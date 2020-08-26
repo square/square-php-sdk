@@ -20,7 +20,7 @@ Square API.
 | `INSUFFICIENT_SCOPES` | 403 Forbidden - the provided access token does not have permission<br>to execute the requested action. |
 | `APPLICATION_DISABLED` | 403 Forbidden - the calling application was disabled. |
 | `V1_APPLICATION` | 403 Forbidden - the calling application was created prior to<br>2016-03-30 and is not compatible with v2 Square API calls. |
-| `V1_ACCESSTOKEN` | 403 Forbidden - the calling application is using an access token<br>created prior to 2016-03-30 and is not compatible with v2 Square API<br>calls. |
+| `V1_ACCESS_TOKEN` | 403 Forbidden - the calling application is using an access token<br>created prior to 2016-03-30 and is not compatible with v2 Square API<br>calls. |
 | `CARD_PROCESSING_NOT_ENABLED` | 403 Forbidden - the location provided in the API call is not<br>enabled for credit card processing. |
 | `BAD_REQUEST` | 400 Bad Request - a general error occurred. |
 | `MISSING_REQUIRED_PARAMETER` | 400 Bad Request - the request is missing a required path, query, or<br>body parameter. |
@@ -99,6 +99,7 @@ Square API.
 | `REFUND_AMOUNT_INVALID` | The requested refund amount exceeds the amount available to refund. |
 | `REFUND_ALREADY_PENDING` | The payment already has a pending refund. |
 | `PAYMENT_NOT_REFUNDABLE` | The payment is not refundable. For example, a previous refund has<br>already been rejected and no new refunds can be accepted. |
+| `REFUND_DECLINED` | Request failed - The card issuer declined the refund. |
 | `INVALID_CARD_DATA` | Generic error - the provided card data is invalid. |
 | `LOCATION_MISMATCH` | Generic error - the given location does not matching what is expected. |
 | `IDEMPOTENCY_KEY_REUSED` | The provided idempotency key has already been used. |

@@ -11,10 +11,10 @@ One of `errors` or `locations` is present in a given response (never both).
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `locations` | [`?(Location[])`](/doc/models/location.md) | Optional | The business locations. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `locations` | [`?(Location[])`](/doc/models/location.md) | Optional | The business locations. | getLocations(): ?array | setLocations(?array locations): void |
 
 ### Example (as JSON)
 

@@ -29,45 +29,34 @@ associated payment.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The tender's unique ID. |
-| `type` | [`?string (V1TenderType)`](/doc/models/v1-tender-type.md) | Optional | -  |
-| `name` | `?string` | Optional | A human-readable description of the tender. |
-| `employeeId` | `?string` | Optional | The ID of the employee that processed the tender. |
-| `receiptUrl` | `?string` | Optional | The URL of the receipt for the tender. |
-| `cardBrand` | [`?string (V1TenderCardBrand)`](/doc/models/v1-tender-card-brand.md) | Optional | The brand of a credit card. |
-| `panSuffix` | `?string` | Optional | The last four digits of the provided credit card's account number. |
-| `entryMethod` | [`?string (V1TenderEntryMethod)`](/doc/models/v1-tender-entry-method.md) | Optional | -  |
-| `paymentNote` | `?string` | Optional | Notes entered by the merchant about the tender at the time of payment, if any. Typically only present for tender with the type: OTHER. |
-| `totalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  |
-| `tenderedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  |
-| `tenderedAt` | `?string` | Optional | The time when the tender was created, in ISO 8601 format. |
-| `settledAt` | `?string` | Optional | The time when the tender was settled, in ISO 8601 format. |
-| `changeBackMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  |
-| `refundedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  |
-| `isExchange` | `?bool` | Optional | Indicates whether or not the tender is associated with an exchange. If is_exchange is true, the tender represents the value of goods returned in an exchange not the actual money paid. The exchange value reduces the tender amounts needed to pay for items purchased in the exchange. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The tender's unique ID. | getId(): ?string | setId(?string id): void |
+| `type` | [`?string (V1TenderType)`](/doc/models/v1-tender-type.md) | Optional | -  | getType(): ?string | setType(?string type): void |
+| `name` | `?string` | Optional | A human-readable description of the tender. | getName(): ?string | setName(?string name): void |
+| `employeeId` | `?string` | Optional | The ID of the employee that processed the tender. | getEmployeeId(): ?string | setEmployeeId(?string employeeId): void |
+| `receiptUrl` | `?string` | Optional | The URL of the receipt for the tender. | getReceiptUrl(): ?string | setReceiptUrl(?string receiptUrl): void |
+| `cardBrand` | [`?string (V1TenderCardBrand)`](/doc/models/v1-tender-card-brand.md) | Optional | The brand of a credit card. | getCardBrand(): ?string | setCardBrand(?string cardBrand): void |
+| `panSuffix` | `?string` | Optional | The last four digits of the provided credit card's account number. | getPanSuffix(): ?string | setPanSuffix(?string panSuffix): void |
+| `entryMethod` | [`?string (V1TenderEntryMethod)`](/doc/models/v1-tender-entry-method.md) | Optional | -  | getEntryMethod(): ?string | setEntryMethod(?string entryMethod): void |
+| `paymentNote` | `?string` | Optional | Notes entered by the merchant about the tender at the time of payment, if any. Typically only present for tender with the type: OTHER. | getPaymentNote(): ?string | setPaymentNote(?string paymentNote): void |
+| `totalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalMoney(): ?V1Money | setTotalMoney(?V1Money totalMoney): void |
+| `tenderedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTenderedMoney(): ?V1Money | setTenderedMoney(?V1Money tenderedMoney): void |
+| `tenderedAt` | `?string` | Optional | The time when the tender was created, in ISO 8601 format. | getTenderedAt(): ?string | setTenderedAt(?string tenderedAt): void |
+| `settledAt` | `?string` | Optional | The time when the tender was settled, in ISO 8601 format. | getSettledAt(): ?string | setSettledAt(?string settledAt): void |
+| `changeBackMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getChangeBackMoney(): ?V1Money | setChangeBackMoney(?V1Money changeBackMoney): void |
+| `refundedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getRefundedMoney(): ?V1Money | setRefundedMoney(?V1Money refundedMoney): void |
+| `isExchange` | `?bool` | Optional | Indicates whether or not the tender is associated with an exchange. If is_exchange is true, the tender represents the value of goods returned in an exchange not the actual money paid. The exchange value reduces the tender amounts needed to pay for items purchased in the exchange. | getIsExchange(): ?bool | setIsExchange(?bool isExchange): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
-  "type": null,
-  "name": null,
-  "employee_id": null,
-  "receipt_url": null,
-  "card_brand": null,
-  "pan_suffix": null,
-  "entry_method": null,
-  "payment_note": null,
-  "total_money": null,
-  "tendered_money": null,
-  "tendered_at": null,
-  "settled_at": null,
-  "change_back_money": null,
-  "refunded_money": null,
-  "is_exchange": null
+  "id": "id0",
+  "type": "UNKNOWN",
+  "name": "name0",
+  "employee_id": "employee_id0",
+  "receipt_url": "receipt_url8"
 }
 ```
 

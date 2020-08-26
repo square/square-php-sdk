@@ -8,19 +8,19 @@ Information about fulfillment updates.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `fulfillmentUid` | `?string` | Optional | Unique ID that identifies the fulfillment only within this order. |
-| `oldState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. |
-| `newState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `fulfillmentUid` | `?string` | Optional | Unique ID that identifies the fulfillment only within this order. | getFulfillmentUid(): ?string | setFulfillmentUid(?string fulfillmentUid): void |
+| `oldState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. | getOldState(): ?string | setOldState(?string oldState): void |
+| `newState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. | getNewState(): ?string | setNewState(?string newState): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "fulfillment_uid": null,
-  "old_state": null,
-  "new_state": null
+  "fulfillment_uid": "fulfillment_uid4",
+  "old_state": "PREPARED",
+  "new_state": "PREPARED"
 }
 ```
 

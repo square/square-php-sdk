@@ -6,11 +6,11 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `counts` | [`?(InventoryCount[])`](/doc/models/inventory-count.md) | Optional | The current calculated inventory counts for the requested object and<br>locations. |
-| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br><br>See the [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) guide for more information. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `counts` | [`?(InventoryCount[])`](/doc/models/inventory-count.md) | Optional | The current calculated inventory counts for the requested object and<br>locations. | getCounts(): ?array | setCounts(?array counts): void |
+| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br><br>See the [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) guide for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

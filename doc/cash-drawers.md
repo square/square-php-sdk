@@ -49,8 +49,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$sortOrder = Models\SortOrder::DESC;
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$limit = 172;
+$cursor = 'cursor6';
 
-$apiResponse = $cashDrawersApi->listCashDrawerShifts($locationId);
+$apiResponse = $cashDrawersApi->listCashDrawerShifts($locationId, $sortOrder, $beginTime, $endTime, $limit, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listCashDrawerShiftsResponse = $apiResponse->getResult();
@@ -133,8 +138,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $shiftId = 'shift_id0';
+$limit = 172;
+$cursor = 'cursor6';
 
-$apiResponse = $cashDrawersApi->listCashDrawerShiftEvents($locationId, $shiftId);
+$apiResponse = $cashDrawersApi->listCashDrawerShiftEvents($locationId, $shiftId, $limit, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listCashDrawerShiftEventsResponse = $apiResponse->getResult();

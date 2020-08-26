@@ -25,8 +25,9 @@ class EmployeesApi extends BaseApi
     /**
      * ListEmployees
      *
-     * @param string|null $locationId Filter employees returned to only those that are associated
-     *                                with the specified location.
+     * @deprecated
+     *
+     * @param string|null $locationId
      * @param string|null $status Specifies the EmployeeStatus to filter the employee by.
      * @param int|null $limit The number of employees to be returned on each page.
      * @param string|null $cursor The token required to retrieve the specified page of results.
@@ -41,6 +42,8 @@ class EmployeesApi extends BaseApi
         ?int $limit = null,
         ?string $cursor = null
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v2/employees';
 
@@ -100,6 +103,8 @@ class EmployeesApi extends BaseApi
     /**
      * RetrieveEmployee
      *
+     * @deprecated
+     *
      * @param string $id UUID for the employee that was requested.
      *
      * @return ApiResponse Response from the API call
@@ -108,6 +113,8 @@ class EmployeesApi extends BaseApi
      */
     public function retrieveEmployee(string $id): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v2/employees/{id}';
 

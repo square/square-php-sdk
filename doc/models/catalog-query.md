@@ -26,31 +26,47 @@ the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable qu
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `sortedAttributeQuery` | [`?CatalogQuerySortedAttribute`](/doc/models/catalog-query-sorted-attribute.md) | Optional | The query expression to specify the key to sort search results. |
-| `exactQuery` | [`?CatalogQueryExact`](/doc/models/catalog-query-exact.md) | Optional | The query filter to return the serch result by exact match of the specified attribute name and value. |
-| `prefixQuery` | [`?CatalogQueryPrefix`](/doc/models/catalog-query-prefix.md) | Optional | The query filter to return the search result whose named attribute values are prefixed by the specified attribute value. |
-| `rangeQuery` | [`?CatalogQueryRange`](/doc/models/catalog-query-range.md) | Optional | The query filter to return the search result whose named attribute values fall between the specified range. |
-| `textQuery` | [`?CatalogQueryText`](/doc/models/catalog-query-text.md) | Optional | The query filter to return the search result whose searchable attribute values contain all of the specified keywords or tokens, independent of the token order or case. |
-| `itemsForTaxQuery` | [`?CatalogQueryItemsForTax`](/doc/models/catalog-query-items-for-tax.md) | Optional | The query filter to return the items containing the specified tax IDs. |
-| `itemsForModifierListQuery` | [`?CatalogQueryItemsForModifierList`](/doc/models/catalog-query-items-for-modifier-list.md) | Optional | The query filter to return the items containing the specified modifier list IDs. |
-| `itemsForItemOptionsQuery` | [`?CatalogQueryItemsForItemOptions`](/doc/models/catalog-query-items-for-item-options.md) | Optional | The query filter to return the items containing the specified item option IDs. |
-| `itemVariationsForItemOptionValuesQuery` | [`?CatalogQueryItemVariationsForItemOptionValues`](/doc/models/catalog-query-item-variations-for-item-option-values.md) | Optional | The query filter to return the item variations containing the specified item option value IDs. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `sortedAttributeQuery` | [`?CatalogQuerySortedAttribute`](/doc/models/catalog-query-sorted-attribute.md) | Optional | The query expression to specify the key to sort search results. | getSortedAttributeQuery(): ?CatalogQuerySortedAttribute | setSortedAttributeQuery(?CatalogQuerySortedAttribute sortedAttributeQuery): void |
+| `exactQuery` | [`?CatalogQueryExact`](/doc/models/catalog-query-exact.md) | Optional | The query filter to return the serch result by exact match of the specified attribute name and value. | getExactQuery(): ?CatalogQueryExact | setExactQuery(?CatalogQueryExact exactQuery): void |
+| `prefixQuery` | [`?CatalogQueryPrefix`](/doc/models/catalog-query-prefix.md) | Optional | The query filter to return the search result whose named attribute values are prefixed by the specified attribute value. | getPrefixQuery(): ?CatalogQueryPrefix | setPrefixQuery(?CatalogQueryPrefix prefixQuery): void |
+| `rangeQuery` | [`?CatalogQueryRange`](/doc/models/catalog-query-range.md) | Optional | The query filter to return the search result whose named attribute values fall between the specified range. | getRangeQuery(): ?CatalogQueryRange | setRangeQuery(?CatalogQueryRange rangeQuery): void |
+| `textQuery` | [`?CatalogQueryText`](/doc/models/catalog-query-text.md) | Optional | The query filter to return the search result whose searchable attribute values contain all of the specified keywords or tokens, independent of the token order or case. | getTextQuery(): ?CatalogQueryText | setTextQuery(?CatalogQueryText textQuery): void |
+| `itemsForTaxQuery` | [`?CatalogQueryItemsForTax`](/doc/models/catalog-query-items-for-tax.md) | Optional | The query filter to return the items containing the specified tax IDs. | getItemsForTaxQuery(): ?CatalogQueryItemsForTax | setItemsForTaxQuery(?CatalogQueryItemsForTax itemsForTaxQuery): void |
+| `itemsForModifierListQuery` | [`?CatalogQueryItemsForModifierList`](/doc/models/catalog-query-items-for-modifier-list.md) | Optional | The query filter to return the items containing the specified modifier list IDs. | getItemsForModifierListQuery(): ?CatalogQueryItemsForModifierList | setItemsForModifierListQuery(?CatalogQueryItemsForModifierList itemsForModifierListQuery): void |
+| `itemsForItemOptionsQuery` | [`?CatalogQueryItemsForItemOptions`](/doc/models/catalog-query-items-for-item-options.md) | Optional | The query filter to return the items containing the specified item option IDs. | getItemsForItemOptionsQuery(): ?CatalogQueryItemsForItemOptions | setItemsForItemOptionsQuery(?CatalogQueryItemsForItemOptions itemsForItemOptionsQuery): void |
+| `itemVariationsForItemOptionValuesQuery` | [`?CatalogQueryItemVariationsForItemOptionValues`](/doc/models/catalog-query-item-variations-for-item-option-values.md) | Optional | The query filter to return the item variations containing the specified item option value IDs. | getItemVariationsForItemOptionValuesQuery(): ?CatalogQueryItemVariationsForItemOptionValues | setItemVariationsForItemOptionValuesQuery(?CatalogQueryItemVariationsForItemOptionValues itemVariationsForItemOptionValuesQuery): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "sorted_attribute_query": null,
-  "exact_query": null,
-  "prefix_query": null,
-  "range_query": null,
-  "text_query": null,
-  "items_for_tax_query": null,
-  "items_for_modifier_list_query": null,
-  "items_for_item_options_query": null,
-  "item_variations_for_item_option_values_query": null
+  "sorted_attribute_query": {
+    "attribute_name": "attribute_name0",
+    "initial_attribute_value": "initial_attribute_value8",
+    "sort_order": "DESC"
+  },
+  "exact_query": {
+    "attribute_name": "attribute_name4",
+    "attribute_value": "attribute_value6"
+  },
+  "prefix_query": {
+    "attribute_name": "attribute_name6",
+    "attribute_prefix": "attribute_prefix8"
+  },
+  "range_query": {
+    "attribute_name": "attribute_name0",
+    "attribute_min_value": 208,
+    "attribute_max_value": 138
+  },
+  "text_query": {
+    "keywords": [
+      "keywords3",
+      "keywords4",
+      "keywords5"
+    ]
+  }
 }
 ```
 

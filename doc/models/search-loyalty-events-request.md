@@ -8,11 +8,11 @@ A request to search for loyalty events.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `query` | [`?LoyaltyEventQuery`](/doc/models/loyalty-event-query.md) | Optional | Represents a query used to search for loyalty events. |
-| `limit` | `?int` | Optional | The maximum number of results to include in the response.<br>The last page might contain fewer events.<br>The default is 30 events. |
-| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination). |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `query` | [`?LoyaltyEventQuery`](/doc/models/loyalty-event-query.md) | Optional | Represents a query used to search for loyalty events. | getQuery(): ?LoyaltyEventQuery | setQuery(?LoyaltyEventQuery query): void |
+| `limit` | `?int` | Optional | The maximum number of results to include in the response.<br>The last page might contain fewer events.<br>The default is 30 events. | getLimit(): ?int | setLimit(?int limit): void |
+| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

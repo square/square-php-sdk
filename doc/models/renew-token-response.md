@@ -6,14 +6,14 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `accessToken` | `?string` | Optional | The renewed access token.<br>This value might be different from the `access_token` you provided in your request.<br>You provide this token in a header with every request to Connect API endpoints.<br>See [Request and response headers](https://developer.squareup.com/docs/api/connect/v2/#requestandresponseheaders) for the format of this header. |
-| `tokenType` | `?string` | Optional | This value is always _bearer_. |
-| `expiresAt` | `?string` | Optional | The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm) format. |
-| `merchantId` | `?string` | Optional | The ID of the authorizing merchant's business. |
-| `subscriptionId` | `?string` | Optional | __LEGACY FIELD__. The ID of the merchant subscription associated with<br>the authorization. Only present if the merchant signed up for a subscription<br>during authorization.. |
-| `planId` | `?string` | Optional | __LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. Only present if the merchant signed up for a subscription during<br>authorization. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `accessToken` | `?string` | Optional | The renewed access token.<br>This value might be different from the `access_token` you provided in your request.<br>You provide this token in a header with every request to Connect API endpoints.<br>See [Request and response headers](https://developer.squareup.com/docs/api/connect/v2/#requestandresponseheaders) for the format of this header. | getAccessToken(): ?string | setAccessToken(?string accessToken): void |
+| `tokenType` | `?string` | Optional | This value is always _bearer_. | getTokenType(): ?string | setTokenType(?string tokenType): void |
+| `expiresAt` | `?string` | Optional | The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm) format. | getExpiresAt(): ?string | setExpiresAt(?string expiresAt): void |
+| `merchantId` | `?string` | Optional | The ID of the authorizing merchant's business. | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
+| `subscriptionId` | `?string` | Optional | __LEGACY FIELD__. The ID of the merchant subscription associated with<br>the authorization. Only present if the merchant signed up for a subscription<br>during authorization.. | getSubscriptionId(): ?string | setSubscriptionId(?string subscriptionId): void |
+| `planId` | `?string` | Optional | __LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. Only present if the merchant signed up for a subscription during<br>authorization. | getPlanId(): ?string | setPlanId(?string planId): void |
 
 ### Example (as JSON)
 

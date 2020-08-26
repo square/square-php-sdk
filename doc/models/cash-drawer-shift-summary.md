@@ -11,31 +11,27 @@ end based on summing all cash drawer shift events.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The shift unique ID. |
-| `state` | [`?string (CashDrawerShiftState)`](/doc/models/cash-drawer-shift-state.md) | Optional | The current state of a cash drawer shift. |
-| `openedAt` | `?string` | Optional | The shift start time in ISO 8601 format. |
-| `endedAt` | `?string` | Optional | The shift end time in ISO 8601 format. |
-| `closedAt` | `?string` | Optional | The shift close time in ISO 8601 format. |
-| `description` | `?string` | Optional | An employee free-text description of a cash drawer shift. |
-| `openedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
-| `expectedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
-| `closedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The shift unique ID. | getId(): ?string | setId(?string id): void |
+| `state` | [`?string (CashDrawerShiftState)`](/doc/models/cash-drawer-shift-state.md) | Optional | The current state of a cash drawer shift. | getState(): ?string | setState(?string state): void |
+| `openedAt` | `?string` | Optional | The shift start time in ISO 8601 format. | getOpenedAt(): ?string | setOpenedAt(?string openedAt): void |
+| `endedAt` | `?string` | Optional | The shift end time in ISO 8601 format. | getEndedAt(): ?string | setEndedAt(?string endedAt): void |
+| `closedAt` | `?string` | Optional | The shift close time in ISO 8601 format. | getClosedAt(): ?string | setClosedAt(?string closedAt): void |
+| `description` | `?string` | Optional | An employee free-text description of a cash drawer shift. | getDescription(): ?string | setDescription(?string description): void |
+| `openedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getOpenedCashMoney(): ?Money | setOpenedCashMoney(?Money openedCashMoney): void |
+| `expectedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getExpectedCashMoney(): ?Money | setExpectedCashMoney(?Money expectedCashMoney): void |
+| `closedCashMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getClosedCashMoney(): ?Money | setClosedCashMoney(?Money closedCashMoney): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
-  "state": null,
-  "opened_at": null,
-  "ended_at": null,
-  "closed_at": null,
-  "description": null,
-  "opened_cash_money": null,
-  "expected_cash_money": null,
-  "closed_cash_money": null
+  "id": "id0",
+  "state": "CLOSED",
+  "opened_at": "opened_at8",
+  "ended_at": "ended_at2",
+  "closed_at": "closed_at2"
 }
 ```
 

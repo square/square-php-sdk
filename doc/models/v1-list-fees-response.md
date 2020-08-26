@@ -6,15 +6,30 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `items` | [`?(V1Fee[])`](/doc/models/v1-fee.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `items` | [`?(V1Fee[])`](/doc/models/v1-fee.md) | Optional | -  | getItems(): ?array | setItems(?array items): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "items": null
+  "items": [
+    {
+      "id": "id7",
+      "name": "name7",
+      "rate": "rate3",
+      "calculation_phase": "FEE_TOTAL_PHASE",
+      "adjustment_type": "TAX"
+    },
+    {
+      "id": "id8",
+      "name": "name8",
+      "rate": "rate2",
+      "calculation_phase": "FEE_SUBTOTAL_PHASE",
+      "adjustment_type": "TAX"
+    }
+  ]
 }
 ```
 

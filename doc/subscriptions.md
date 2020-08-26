@@ -26,8 +26,7 @@ the subscription. Otherwise, Square bills an invoice to the customer's email
 address. The subscription starts immediately, unless the request includes
 the optional `start_date`. Each individual subscription is associated with a particular location.
 
-For more information,
-see [Subscription API Overview](https://developer.squareup.com/docs/docs/subscriptions-api/overview).
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#create-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#create-subscriptions)
 
 ```php
 function createSubscription(CreateSubscriptionRequest $body): ApiResponse
@@ -57,6 +56,7 @@ $body = new Models\CreateSubscriptionRequest(
     $body_customerId
 );
 $body->setStartDate('2020-08-01');
+$body->setCanceledDate('canceled_date0');
 $body->setTaxPercentage('5');
 $body->setPriceOverrideMoney(new Models\Money);
 $body->getPriceOverrideMoney()->setAmount(100);
@@ -96,6 +96,8 @@ customer by subscription creation date.
 For more information, see
 [Retrieve subscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#retrieve-subscriptions).
 
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions)
+
 ```php
 function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
 ```
@@ -114,6 +116,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $body = new Models\SearchSubscriptionsRequest;
+$body->setCursor('cursor0');
+$body->setLimit(164);
 $body->setQuery(new Models\SearchSubscriptionsQuery);
 $body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter);
 $body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
@@ -135,6 +139,8 @@ if ($apiResponse->isSuccess()) {
 ## Retrieve Subscription
 
 Retrieves a subscription.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-subscriptions)
 
 ```php
 function retrieveSubscription(string $subscriptionId): ApiResponse
@@ -171,8 +177,9 @@ if ($apiResponse->isSuccess()) {
 ## Update Subscription
 
 Updates a subscription. You can set, modify, and clear the
-`subscription` field values. For more information and examples, see
-[Update subscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#update-subscriptions).
+`subscription` field values.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#update-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#update-subscriptions)
 
 ```php
 function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $body): ApiResponse
@@ -195,6 +202,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $subscriptionId = 'subscription_id0';
 $body = new Models\UpdateSubscriptionRequest;
 $body->setSubscription(new Models\Subscription);
+$body->getSubscription()->setId('id8');
+$body->getSubscription()->setLocationId('location_id2');
+$body->getSubscription()->setPlanId('plan_id0');
+$body->getSubscription()->setCustomerId('customer_id6');
+$body->getSubscription()->setStartDate('start_date2');
+$body->getSubscription()->setTaxPercentage('null');
 $body->getSubscription()->setPriceOverrideMoney(new Models\Money);
 $body->getSubscription()->getPriceOverrideMoney()->setAmount(2000);
 $body->getSubscription()->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
@@ -215,11 +228,10 @@ if ($apiResponse->isSuccess()) {
 
 ## Cancel Subscription
 
-Cancels a subscription immediately and sets the subscription
-`status` to `CANCELED`. You can also use the `UpdateSubscription`
-endpoint to cancel a subscription at a future date. For more
-information, see
-[CancelSubscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#cancel-subscriptions).
+Sets the `canceled_date` field to the end of the active billing period.
+After this date, the status changes from ACTIVE to CANCELED.
+
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#cancel-subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#cancel-subscriptions)
 
 ```php
 function cancelSubscription(string $subscriptionId): ApiResponse
@@ -258,6 +270,8 @@ if ($apiResponse->isSuccess()) {
 Lists all events for a specific subscription.
 In the current implementation, only `START_SUBSCRIPTION` and `STOP_SUBSCRIPTION` (when the subscription was canceled) events are returned.
 
+Subscriptions Guide: [https://developer.squareup.com/docs/subscriptions-api/overview#subscription-events](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-events)
+
 ```php
 function listSubscriptionEvents(string $subscriptionId, ?string $cursor = null, ?int $limit = null): ApiResponse
 ```
@@ -278,8 +292,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $subscriptionId = 'subscription_id0';
+$cursor = 'cursor6';
+$limit = 172;
 
-$apiResponse = $subscriptionsApi->listSubscriptionEvents($subscriptionId);
+$apiResponse = $subscriptionsApi->listSubscriptionEvents($subscriptionId, $cursor, $limit);
 
 if ($apiResponse->isSuccess()) {
     $listSubscriptionEventsResponse = $apiResponse->getResult();

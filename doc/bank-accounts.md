@@ -39,7 +39,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $bankAccountsApi->listBankAccounts();
+$cursor = 'cursor6';
+$limit = 172;
+$locationId = 'location_id4';
+
+$apiResponse = $bankAccountsApi->listBankAccounts($cursor, $limit, $locationId);
 
 if ($apiResponse->isSuccess()) {
     $listBankAccountsResponse = $apiResponse->getResult();

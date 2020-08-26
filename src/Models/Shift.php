@@ -17,7 +17,7 @@ class Shift implements \JsonSerializable
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $employeeId;
 
@@ -72,12 +72,15 @@ class Shift implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @param string $employeeId
+     * @var string|null
+     */
+    private $teamMemberId;
+
+    /**
      * @param string $startAt
      */
-    public function __construct(string $employeeId, string $startAt)
+    public function __construct(string $startAt)
     {
-        $this->employeeId = $employeeId;
         $this->startAt = $startAt;
     }
 
@@ -106,9 +109,10 @@ class Shift implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * The ID of the employee this shift belongs to.
+     * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
+     * instead
      */
-    public function getEmployeeId(): string
+    public function getEmployeeId(): ?string
     {
         return $this->employeeId;
     }
@@ -116,12 +120,12 @@ class Shift implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * The ID of the employee this shift belongs to.
+     * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
+     * instead
      *
-     * @required
      * @maps employee_id
      */
-    public function setEmployeeId(string $employeeId): void
+    public function setEmployeeId(?string $employeeId): void
     {
         $this->employeeId = $employeeId;
     }
@@ -205,9 +209,7 @@ class Shift implements \JsonSerializable
      * Returns End At.
      *
      * RFC 3339; shifted to timezone + offset. Precision up to the minute is
-     * respected; seconds are truncated. The `end_at` minute is not
-     * counted when the shift length is calculated. For example, a shift from `00:00`
-     * to `08:01` is considered an 8 hour shift (midnight to 8am).
+     * respected; seconds are truncated.
      */
     public function getEndAt(): ?string
     {
@@ -218,9 +220,7 @@ class Shift implements \JsonSerializable
      * Sets End At.
      *
      * RFC 3339; shifted to timezone + offset. Precision up to the minute is
-     * respected; seconds are truncated. The `end_at` minute is not
-     * counted when the shift length is calculated. For example, a shift from `00:00`
-     * to `08:01` is considered an 8 hour shift (midnight to 8am).
+     * respected; seconds are truncated.
      *
      * @maps end_at
      */
@@ -372,6 +372,28 @@ class Shift implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     *
+     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26"
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26"
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -379,18 +401,19 @@ class Shift implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']         = $this->id;
-        $json['employee_id'] = $this->employeeId;
-        $json['location_id'] = $this->locationId;
-        $json['timezone']   = $this->timezone;
-        $json['start_at']   = $this->startAt;
-        $json['end_at']     = $this->endAt;
-        $json['wage']       = $this->wage;
-        $json['breaks']     = $this->breaks;
-        $json['status']     = $this->status;
-        $json['version']    = $this->version;
-        $json['created_at'] = $this->createdAt;
-        $json['updated_at'] = $this->updatedAt;
+        $json['id']           = $this->id;
+        $json['employee_id']  = $this->employeeId;
+        $json['location_id']  = $this->locationId;
+        $json['timezone']     = $this->timezone;
+        $json['start_at']     = $this->startAt;
+        $json['end_at']       = $this->endAt;
+        $json['wage']         = $this->wage;
+        $json['breaks']       = $this->breaks;
+        $json['status']       = $this->status;
+        $json['version']      = $this->version;
+        $json['created_at']   = $this->createdAt;
+        $json['updated_at']   = $this->updatedAt;
+        $json['team_member_id'] = $this->teamMemberId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -6,10 +6,10 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `deviceCode` | [`?DeviceCode`](/doc/models/device-code.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `deviceCode` | [`?DeviceCode`](/doc/models/device-code.md) | Optional | -  | getDeviceCode(): ?DeviceCode | setDeviceCode(?DeviceCode deviceCode): void |
 
 ### Example (as JSON)
 

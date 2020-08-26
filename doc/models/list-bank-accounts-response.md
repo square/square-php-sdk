@@ -8,11 +8,11 @@ Response object returned by ListBankAccounts.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `bankAccounts` | [`?(BankAccount[])`](/doc/models/bank-account.md) | Optional | List of BankAccounts associated with this account. |
-| `cursor` | `?string` | Optional | When a response is truncated, it includes a cursor that you can<br>use in a subsequent request to fetch next set of bank accounts.<br>If empty, this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination). |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `bankAccounts` | [`?(BankAccount[])`](/doc/models/bank-account.md) | Optional | List of BankAccounts associated with this account. | getBankAccounts(): ?array | setBankAccounts(?array bankAccounts): void |
+| `cursor` | `?string` | Optional | When a response is truncated, it includes a cursor that you can<br>use in a subsequent request to fetch next set of bank accounts.<br>If empty, this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

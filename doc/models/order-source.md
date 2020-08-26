@@ -8,15 +8,15 @@ Represents the origination details of an order.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `name` | `?string` | Optional | The name used to identify the place (physical or digital) that an order originates.<br>If unset, the name defaults to the name of the application that created the order. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `name` | `?string` | Optional | The name used to identify the place (physical or digital) that an order originates.<br>If unset, the name defaults to the name of the application that created the order. | getName(): ?string | setName(?string name): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "name": null
+  "name": "name0"
 }
 ```
 

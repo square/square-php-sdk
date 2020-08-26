@@ -6,17 +6,17 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `string` |  | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier. |
-| `status` | [`string (LoyaltyProgramStatus)`](/doc/models/loyalty-program-status.md) |  | Whether the program is currently active. |
-| `rewardTiers` | [`LoyaltyProgramRewardTier[]`](/doc/models/loyalty-program-reward-tier.md) |  | The list of rewards for buyers, sorted by ascending points. |
-| `expirationPolicy` | [`?LoyaltyProgramExpirationPolicy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. |
-| `terminology` | [`LoyaltyProgramTerminology`](/doc/models/loyalty-program-terminology.md) |  | -  |
-| `locationIds` | `string[]` |  | The [locations](#type-Location) at which the program is active. |
-| `createdAt` | `string` |  | The timestamp when the program was created, in RFC 3339 format. |
-| `updatedAt` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format. |
-| `accrualRules` | [`LoyaltyProgramAccrualRule[]`](/doc/models/loyalty-program-accrual-rule.md) |  | Defines how buyers can earn loyalty points. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `string` |  | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier. | getId(): string | setId(string id): void |
+| `status` | [`string (LoyaltyProgramStatus)`](/doc/models/loyalty-program-status.md) |  | Whether the program is currently active. | getStatus(): string | setStatus(string status): void |
+| `rewardTiers` | [`LoyaltyProgramRewardTier[]`](/doc/models/loyalty-program-reward-tier.md) |  | The list of rewards for buyers, sorted by ascending points. | getRewardTiers(): array | setRewardTiers(array rewardTiers): void |
+| `expirationPolicy` | [`?LoyaltyProgramExpirationPolicy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. | getExpirationPolicy(): ?LoyaltyProgramExpirationPolicy | setExpirationPolicy(?LoyaltyProgramExpirationPolicy expirationPolicy): void |
+| `terminology` | [`LoyaltyProgramTerminology`](/doc/models/loyalty-program-terminology.md) |  | -  | getTerminology(): LoyaltyProgramTerminology | setTerminology(LoyaltyProgramTerminology terminology): void |
+| `locationIds` | `string[]` |  | The [locations](#type-Location) at which the program is active. | getLocationIds(): array | setLocationIds(array locationIds): void |
+| `createdAt` | `string` |  | The timestamp when the program was created, in RFC 3339 format. | getCreatedAt(): string | setCreatedAt(string createdAt): void |
+| `updatedAt` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format. | getUpdatedAt(): string | setUpdatedAt(string updatedAt): void |
+| `accrualRules` | [`LoyaltyProgramAccrualRule[]`](/doc/models/loyalty-program-accrual-rule.md) |  | Defines how buyers can earn loyalty points. | getAccrualRules(): array | setAccrualRules(array accrualRules): void |
 
 ### Example (as JSON)
 
@@ -32,10 +32,20 @@
       "definition": {
         "scope": "CATEGORY",
         "discount_type": "FIXED_PERCENTAGE",
-        "percentage_discount": null,
-        "catalog_object_ids": null,
-        "fixed_discount_money": null,
-        "max_discount_money": null
+        "percentage_discount": "percentage_discount1",
+        "catalog_object_ids": [
+          "catalog_object_ids3",
+          "catalog_object_ids4",
+          "catalog_object_ids5"
+        ],
+        "fixed_discount_money": {
+          "amount": 119,
+          "currency": "CUC"
+        },
+        "max_discount_money": {
+          "amount": 163,
+          "currency": "ZMK"
+        }
       },
       "created_at": "created_at7"
     },
@@ -46,15 +56,25 @@
       "definition": {
         "scope": "ORDER",
         "discount_type": "FIXED_AMOUNT",
-        "percentage_discount": null,
-        "catalog_object_ids": null,
-        "fixed_discount_money": null,
-        "max_discount_money": null
+        "percentage_discount": "percentage_discount2",
+        "catalog_object_ids": [
+          "catalog_object_ids4"
+        ],
+        "fixed_discount_money": {
+          "amount": 120,
+          "currency": "CUP"
+        },
+        "max_discount_money": {
+          "amount": 164,
+          "currency": "ZMW"
+        }
       },
       "created_at": "created_at8"
     }
   ],
-  "expiration_policy": null,
+  "expiration_policy": {
+    "expiration_duration": "expiration_duration0"
+  },
   "terminology": {
     "one": "one0",
     "other": "other6"
@@ -67,17 +87,29 @@
   "accrual_rules": [
     {
       "accrual_type": "ITEM_VARIATION",
-      "points": null,
-      "visit_minimum_amount_money": null,
-      "spend_amount_money": null,
-      "catalog_object_id": null
+      "points": 100,
+      "visit_minimum_amount_money": {
+        "amount": 238,
+        "currency": "ISK"
+      },
+      "spend_amount_money": {
+        "amount": 98,
+        "currency": "UGX"
+      },
+      "catalog_object_id": "catalog_object_id8"
     },
     {
       "accrual_type": "SPEND",
-      "points": null,
-      "visit_minimum_amount_money": null,
-      "spend_amount_money": null,
-      "catalog_object_id": null
+      "points": 99,
+      "visit_minimum_amount_money": {
+        "amount": 237,
+        "currency": "JMD"
+      },
+      "spend_amount_money": {
+        "amount": 99,
+        "currency": "USD"
+      },
+      "catalog_object_id": "catalog_object_id7"
     }
   ]
 }

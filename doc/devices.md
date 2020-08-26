@@ -41,7 +41,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $devicesApi->listDeviceCodes();
+$cursor = 'cursor6';
+$locationId = 'location_id4';
+$productType = Models\ProductType::TERMINAL_API;
+
+$apiResponse = $devicesApi->listDeviceCodes($cursor, $locationId, $productType);
 
 if ($apiResponse->isSuccess()) {
     $listDeviceCodesResponse = $apiResponse->getResult();
@@ -81,7 +85,10 @@ $body_deviceCode_productType = 'TERMINAL_API';
 $body_deviceCode = new Models\DeviceCode(
     $body_deviceCode_productType
 );
+$body_deviceCode->setId('id0');
 $body_deviceCode->setName('Counter 1');
+$body_deviceCode->setCode('code8');
+$body_deviceCode->setDeviceId('device_id6');
 $body_deviceCode->setLocationId('B5E4484SHHNYH');
 $body = new Models\CreateDeviceCodeRequest(
     $body_idempotencyKey,

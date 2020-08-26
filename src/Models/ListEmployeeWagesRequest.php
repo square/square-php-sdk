@@ -27,8 +27,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * Filter wages returned to only those that are associated with the
-     * specified employee.
+     * Filter wages returned to only those that are associated with the specified employee.
      */
     public function getEmployeeId(): ?string
     {
@@ -38,8 +37,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * Filter wages returned to only those that are associated with the
-     * specified employee.
+     * Filter wages returned to only those that are associated with the specified employee.
      *
      * @maps employee_id
      */

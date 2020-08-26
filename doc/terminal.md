@@ -44,12 +44,20 @@ $body_checkout_deviceOptions_deviceId = 'dbb5d83a-7838-11ea-bc55-0242ac130003';
 $body_checkout_deviceOptions = new Models\DeviceCheckoutOptions(
     $body_checkout_deviceOptions_deviceId
 );
+$body_checkout_deviceOptions->setSkipReceiptScreen(false);
+$body_checkout_deviceOptions->setTipSettings(new Models\TipSettings);
+$body_checkout_deviceOptions->getTipSettings()->setAllowTipping(false);
+$body_checkout_deviceOptions->getTipSettings()->setSeparateTipScreen(false);
+$body_checkout_deviceOptions->getTipSettings()->setCustomTipField(false);
 $body_checkout = new Models\TerminalCheckout(
     $body_checkout_amountMoney,
     $body_checkout_deviceOptions
 );
+$body_checkout->setId('id8');
 $body_checkout->setReferenceId('id11572');
 $body_checkout->setNote('A brief note');
+$body_checkout->setDeadlineDuration('deadline_duration0');
+$body_checkout->setStatus('status0');
 $body = new Models\CreateTerminalCheckoutRequest(
     $body_idempotencyKey,
     $body_checkout
@@ -92,7 +100,14 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = new Models\SearchTerminalCheckoutsRequest;
 $body->setQuery(new Models\TerminalCheckoutQuery);
 $body->getQuery()->setFilter(new Models\TerminalCheckoutQueryFilter);
+$body->getQuery()->getFilter()->setDeviceId('device_id8');
+$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
+$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('start_at2');
+$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('end_at0');
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
+$body->getQuery()->setSort(new Models\TerminalCheckoutQuerySort);
+$body->getQuery()->getSort()->setSortOrder('sort_order8');
+$body->setCursor('cursor0');
 $body->setLimit(2);
 
 $apiResponse = $terminalApi->searchTerminalCheckouts($body);

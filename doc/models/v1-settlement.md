@@ -8,25 +8,27 @@ V1Settlement
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `?string` | Optional | The settlement's unique identifier. |
-| `status` | [`?string (V1SettlementStatus)`](/doc/models/v1-settlement-status.md) | Optional | -  |
-| `totalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  |
-| `initiatedAt` | `?string` | Optional | The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format. |
-| `bankAccountId` | `?string` | Optional | The Square-issued unique identifier for the bank account associated with the settlement. |
-| `entries` | [`?(V1SettlementEntry[])`](/doc/models/v1-settlement-entry.md) | Optional | The entries included in this settlement. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `?string` | Optional | The settlement's unique identifier. | getId(): ?string | setId(?string id): void |
+| `status` | [`?string (V1SettlementStatus)`](/doc/models/v1-settlement-status.md) | Optional | -  | getStatus(): ?string | setStatus(?string status): void |
+| `totalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalMoney(): ?V1Money | setTotalMoney(?V1Money totalMoney): void |
+| `initiatedAt` | `?string` | Optional | The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format. | getInitiatedAt(): ?string | setInitiatedAt(?string initiatedAt): void |
+| `bankAccountId` | `?string` | Optional | The Square-issued unique identifier for the bank account associated with the settlement. | getBankAccountId(): ?string | setBankAccountId(?string bankAccountId): void |
+| `entries` | [`?(V1SettlementEntry[])`](/doc/models/v1-settlement-entry.md) | Optional | The entries included in this settlement. | getEntries(): ?array | setEntries(?array entries): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "id": null,
-  "status": null,
-  "total_money": null,
-  "initiated_at": null,
-  "bank_account_id": null,
-  "entries": null
+  "id": "id0",
+  "status": "FAILED",
+  "total_money": {
+    "amount": 250,
+    "currency_code": "USS"
+  },
+  "initiated_at": "initiated_at2",
+  "bank_account_id": "bank_account_id0"
 }
 ```
 

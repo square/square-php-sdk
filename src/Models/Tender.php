@@ -70,6 +70,11 @@ class Tender implements \JsonSerializable
     private $cashDetails;
 
     /**
+     * @var TenderBankTransferDetails|null
+     */
+    private $bankTransferDetails;
+
+    /**
      * @var AdditionalRecipient[]|null
      */
     private $additionalRecipients;
@@ -391,6 +396,34 @@ class Tender implements \JsonSerializable
     }
 
     /**
+     * Returns Bank Transfer Details.
+     *
+     * Represents the details of a tender with `type` `BANK_TRANSFER`.
+     *
+     * See [PaymentBankTransferDetails](#type-paymentbanktransferdetails) for more exposed details of a
+     * bank transfer payment.
+     */
+    public function getBankTransferDetails(): ?TenderBankTransferDetails
+    {
+        return $this->bankTransferDetails;
+    }
+
+    /**
+     * Sets Bank Transfer Details.
+     *
+     * Represents the details of a tender with `type` `BANK_TRANSFER`.
+     *
+     * See [PaymentBankTransferDetails](#type-paymentbanktransferdetails) for more exposed details of a
+     * bank transfer payment.
+     *
+     * @maps bank_transfer_details
+     */
+    public function setBankTransferDetails(?TenderBankTransferDetails $bankTransferDetails): void
+    {
+        $this->bankTransferDetails = $bankTransferDetails;
+    }
+
+    /**
      * Returns Additional Recipients.
      *
      * Additional recipients (other than the merchant) receiving a portion of this tender.
@@ -462,6 +495,7 @@ class Tender implements \JsonSerializable
         $json['type']                 = $this->type;
         $json['card_details']         = $this->cardDetails;
         $json['cash_details']         = $this->cashDetails;
+        $json['bank_transfer_details'] = $this->bankTransferDetails;
         $json['additional_recipients'] = $this->additionalRecipients;
         $json['payment_id']           = $this->paymentId;
 

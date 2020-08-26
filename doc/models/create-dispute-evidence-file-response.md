@@ -8,10 +8,10 @@ Defines fields in a CreateDisputeEvidenceFile response.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `evidence` | [`?DisputeEvidence`](/doc/models/dispute-evidence.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `evidence` | [`?DisputeEvidence`](/doc/models/dispute-evidence.md) | Optional | -  | getEvidence(): ?DisputeEvidence | setEvidence(?DisputeEvidence evidence): void |
 
 ### Example (as JSON)
 

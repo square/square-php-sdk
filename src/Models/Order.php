@@ -142,6 +142,11 @@ class Order implements \JsonSerializable
     /**
      * @var Money|null
      */
+    private $totalTipMoney;
+
+    /**
+     * @var Money|null
+     */
     private $totalServiceChargeMoney;
 
     /**
@@ -880,6 +885,40 @@ class Order implements \JsonSerializable
     }
 
     /**
+     * Returns Total Tip Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getTotalTipMoney(): ?Money
+    {
+        return $this->totalTipMoney;
+    }
+
+    /**
+     * Sets Total Tip Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps total_tip_money
+     */
+    public function setTotalTipMoney(?Money $totalTipMoney): void
+    {
+        $this->totalTipMoney = $totalTipMoney;
+    }
+
+    /**
      * Returns Total Service Charge Money.
      *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
@@ -1000,6 +1039,7 @@ class Order implements \JsonSerializable
         $json['total_money']             = $this->totalMoney;
         $json['total_tax_money']         = $this->totalTaxMoney;
         $json['total_discount_money']    = $this->totalDiscountMoney;
+        $json['total_tip_money']         = $this->totalTipMoney;
         $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
         $json['pricing_options']         = $this->pricingOptions;
         $json['rewards']                 = $this->rewards;

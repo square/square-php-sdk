@@ -11,11 +11,11 @@ One of `errors` or `transactions` is present in a given response (never both).
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `transactions` | [`?(Transaction[])`](/doc/models/transaction.md) | Optional | An array of transactions that match your query. |
-| `cursor` | `?string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](#paginatingresults) for more information. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `transactions` | [`?(Transaction[])`](/doc/models/transaction.md) | Optional | An array of transactions that match your query. | getTransactions(): ?array | setTransactions(?array transactions): void |
+| `cursor` | `?string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](#paginatingresults) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

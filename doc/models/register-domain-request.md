@@ -9,9 +9,9 @@ a request to the [RegisterDomain](#endpoint-registerdomain) endpoint.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `domainName` | `string` | A domain name as described in RFC-1034 that will be registered with ApplePay |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `domainName` | `string` | A domain name as described in RFC-1034 that will be registered with ApplePay | getDomainName(): string | setDomainName(string domainName): void |
 
 ### Example (as JSON)
 

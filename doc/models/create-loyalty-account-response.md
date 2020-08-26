@@ -8,10 +8,10 @@ A response that includes loyalty account created.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `loyaltyAccount` | [`?LoyaltyAccount`](/doc/models/loyalty-account.md) | Optional | Describes a loyalty account. For more information, see<br>[Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview). |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `loyaltyAccount` | [`?LoyaltyAccount`](/doc/models/loyalty-account.md) | Optional | Describes a loyalty account. For more information, see<br>[Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview). | getLoyaltyAccount(): ?LoyaltyAccount | setLoyaltyAccount(?LoyaltyAccount loyaltyAccount): void |
 
 ### Example (as JSON)
 

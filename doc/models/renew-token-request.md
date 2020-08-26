@@ -6,9 +6,9 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `accessToken` | `?string` | Optional | The token you want to renew. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `accessToken` | `?string` | Optional | The token you want to renew. | getAccessToken(): ?string | setAccessToken(?string accessToken): void |
 
 ### Example (as JSON)
 

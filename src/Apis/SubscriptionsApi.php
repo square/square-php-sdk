@@ -30,9 +30,6 @@ class SubscriptionsApi extends BaseApi
      * address. The subscription starts immediately, unless the request includes
      * the optional `start_date`. Each individual subscription is associated with a particular location.
      *
-     * For more information,
-     * see [Subscription API Overview](https://developer.squareup.com/docs/docs/subscriptions-api/overview).
-     *
      * @param \Square\Models\CreateSubscriptionRequest $body An object containing the fields to
      *                                                       POST for the request.
      *
@@ -246,9 +243,7 @@ class SubscriptionsApi extends BaseApi
 
     /**
      * Updates a subscription. You can set, modify, and clear the
-     * `subscription` field values. For more information and examples, see
-     * [Update subscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#update-
-     * subscriptions).
+     * `subscription` field values.
      *
      * @param string $subscriptionId The ID for the subscription to update.
      * @param \Square\Models\UpdateSubscriptionRequest $body An object containing the fields to
@@ -323,12 +318,8 @@ class SubscriptionsApi extends BaseApi
     }
 
     /**
-     * Cancels a subscription immediately and sets the subscription
-     * `status` to `CANCELED`. You can also use the `UpdateSubscription`
-     * endpoint to cancel a subscription at a future date. For more
-     * information, see
-     * [CancelSubscriptions](https://developer.squareup.com/docs/docs/subscriptions-api/overview#cancel-
-     * subscriptions).
+     * Sets the `canceled_date` field to the end of the active billing period.
+     * After this date, the status changes from ACTIVE to CANCELED.
      *
      * @param string $subscriptionId The ID of the subscription to cancel.
      *

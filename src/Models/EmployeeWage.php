@@ -6,7 +6,8 @@ namespace Square\Models;
 
 /**
  * The hourly wage rate that an employee will earn on a `Shift` for doing the job
- * specified by the `title` property of this object.
+ * specified by the `title` property of this object. Deprecated at verison 2020-08-26. Use
+ * `TeamMemberWage` instead.
  */
 class EmployeeWage implements \JsonSerializable
 {
@@ -16,7 +17,7 @@ class EmployeeWage implements \JsonSerializable
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $employeeId;
 
@@ -29,14 +30,6 @@ class EmployeeWage implements \JsonSerializable
      * @var Money|null
      */
     private $hourlyRate;
-
-    /**
-     * @param string $employeeId
-     */
-    public function __construct(string $employeeId)
-    {
-        $this->employeeId = $employeeId;
-    }
 
     /**
      * Returns Id.
@@ -65,7 +58,7 @@ class EmployeeWage implements \JsonSerializable
      *
      * The `Employee` that this wage is assigned to.
      */
-    public function getEmployeeId(): string
+    public function getEmployeeId(): ?string
     {
         return $this->employeeId;
     }
@@ -75,10 +68,9 @@ class EmployeeWage implements \JsonSerializable
      *
      * The `Employee` that this wage is assigned to.
      *
-     * @required
      * @maps employee_id
      */
-    public function setEmployeeId(string $employeeId): void
+    public function setEmployeeId(?string $employeeId): void
     {
         $this->employeeId = $employeeId;
     }

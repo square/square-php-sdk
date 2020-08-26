@@ -9,11 +9,11 @@ a set of `EmployeeWage`.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `employeeWages` | [`?(EmployeeWage[])`](/doc/models/employee-wage.md) | Optional | A page of Employee Wage results. |
-| `cursor` | `?string` | Optional | Value supplied in the subsequent request to fetch the next next page<br>of Employee Wage results. |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `employeeWages` | [`?(EmployeeWage[])`](/doc/models/employee-wage.md) | Optional | A page of Employee Wage results. | getEmployeeWages(): ?array | setEmployeeWages(?array employeeWages): void |
+| `cursor` | `?string` | Optional | Value supplied in the subsequent request to fetch the next next page<br>of Employee Wage results. | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ### Example (as JSON)
 

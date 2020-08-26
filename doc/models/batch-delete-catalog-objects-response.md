@@ -6,11 +6,11 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | The set of Errors encountered. |
-| `deletedObjectIds` | `?(string[])` | Optional | The IDs of all CatalogObjects deleted by this request. |
-| `deletedAt` | `?string` | Optional | The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of this deletion in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | The set of Errors encountered. | getErrors(): ?array | setErrors(?array errors): void |
+| `deletedObjectIds` | `?(string[])` | Optional | The IDs of all CatalogObjects deleted by this request. | getDeletedObjectIds(): ?array | setDeletedObjectIds(?array deletedObjectIds): void |
+| `deletedAt` | `?string` | Optional | The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of this deletion in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". | getDeletedAt(): ?string | setDeletedAt(?string deletedAt): void |
 
 ### Example (as JSON)
 
