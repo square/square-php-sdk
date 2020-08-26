@@ -6,10 +6,10 @@
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `idempotencyKey` | `string` | A value you specify that uniquely identifies this<br>request among all your requests. A common way to create<br>a valid idempotency key is to use a Universally unique<br>identifier (UUID).<br><br>If you're unsure whether a particular request was successful,<br>you can reattempt it with the same idempotency key without<br>worrying about creating duplicate objects.<br><br>See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more information. |
-| `object` | [`CatalogObject`](/doc/models/catalog-object.md) | -  |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `idempotencyKey` | `string` | A value you specify that uniquely identifies this<br>request among all your requests. A common way to create<br>a valid idempotency key is to use a Universally unique<br>identifier (UUID).<br><br>If you're unsure whether a particular request was successful,<br>you can reattempt it with the same idempotency key without<br>worrying about creating duplicate objects.<br><br>See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more information. | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
+| `object` | [`CatalogObject`](/doc/models/catalog-object.md) | -  | getObject(): CatalogObject | setObject(CatalogObject object): void |
 
 ### Example (as JSON)
 

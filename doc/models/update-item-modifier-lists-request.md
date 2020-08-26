@@ -6,11 +6,11 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `itemIds` | `string[]` |  | The IDs of the catalog items associated with the CatalogModifierList objects being updated. |
-| `modifierListsToEnable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem. |
-| `modifierListsToDisable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `itemIds` | `string[]` |  | The IDs of the catalog items associated with the CatalogModifierList objects being updated. | getItemIds(): array | setItemIds(array itemIds): void |
+| `modifierListsToEnable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem. | getModifierListsToEnable(): ?array | setModifierListsToEnable(?array modifierListsToEnable): void |
+| `modifierListsToDisable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem. | getModifierListsToDisable(): ?array | setModifierListsToDisable(?array modifierListsToDisable): void |
 
 ### Example (as JSON)
 

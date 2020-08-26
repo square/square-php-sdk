@@ -8,9 +8,9 @@ Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | -  | getLocation(): ?Location | setLocation(?Location location): void |
 
 ### Example (as JSON)
 
@@ -19,6 +19,7 @@ Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
   "location": {
     "name": "New location name",
     "description": "My new location.",
+    "facebook_url": "null",
     "address": {
       "address_line_1": "1234 Peachtree St. NE",
       "administrative_district_level_1": "GA",

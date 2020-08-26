@@ -9,15 +9,15 @@ For example, a t-shirt item may offer a color option or a size option.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `itemOptionId` | `?string` | Optional | The unique id of the item option, used to form the dimensions of the item option matrix in a specified order. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `itemOptionId` | `?string` | Optional | The unique id of the item option, used to form the dimensions of the item option matrix in a specified order. | getItemOptionId(): ?string | setItemOptionId(?string itemOptionId): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "item_option_id": null
+  "item_option_id": "item_option_id2"
 }
 ```
 

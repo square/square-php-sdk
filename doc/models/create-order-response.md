@@ -11,10 +11,10 @@ One of `errors` or `order` is present in a given response (never both).
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `order` | [`?Order`](/doc/models/order.md) | Optional | Contains all information related to a single order to process with Square,<br>including line items that specify the products to purchase. Order objects also<br>include information on any associated tenders, refunds, and returns.<br><br>All Connect V2 Transactions have all been converted to Orders including all associated<br>itemization data. |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `order` | [`?Order`](/doc/models/order.md) | Optional | Contains all information related to a single order to process with Square,<br>including line items that specify the products to purchase. Order objects also<br>include information on any associated tenders, refunds, and returns.<br><br>All Connect V2 Transactions have all been converted to Orders including all associated<br>itemization data. | getOrder(): ?Order | setOrder(?Order order): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ### Example (as JSON)
 
@@ -22,7 +22,7 @@ One of `errors` or `order` is present in a given response (never both).
 {
   "order": {
     "id": "CAISENgvlJ6jLWAzERDzjyHVybY",
-    "location_id": "LOCATION_ID",
+    "location_id": "057P5VYJ4A5X1",
     "line_items": [
       {
         "uid": "8uSwfzvUImn3IRrvciqlXC",

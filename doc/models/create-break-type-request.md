@@ -8,10 +8,10 @@ A request to create a new `BreakType`
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `idempotencyKey` | `?string` | Optional | Unique string value to insure idempotency of the operation |
-| `breakType` | [`BreakType`](/doc/models/break-type.md) |  | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `idempotencyKey` | `?string` | Optional | Unique string value to insure idempotency of the operation | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
+| `breakType` | [`BreakType`](/doc/models/break-type.md) |  | A defined break template that sets an expectation for possible `Break`<br>instances on a `Shift`. | getBreakType(): BreakType | setBreakType(BreakType breakType): void |
 
 ### Example (as JSON)
 

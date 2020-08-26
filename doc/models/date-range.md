@@ -9,17 +9,17 @@ objects that have date properties.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `startDate` | `?string` | Optional | String in `YYYY-MM-DD` format, e.g. `2017-10-31` per the ISO 8601<br>extended format for calendar dates.<br>The beginning of a date range (inclusive) |
-| `endDate` | `?string` | Optional | String in `YYYY-MM-DD` format, e.g. `2017-10-31` per the ISO 8601<br>extended format for calendar dates.<br>The end of a date range (inclusive) |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `startDate` | `?string` | Optional | String in `YYYY-MM-DD` format, e.g. `2017-10-31` per the ISO 8601<br>extended format for calendar dates.<br>The beginning of a date range (inclusive) | getStartDate(): ?string | setStartDate(?string startDate): void |
+| `endDate` | `?string` | Optional | String in `YYYY-MM-DD` format, e.g. `2017-10-31` per the ISO 8601<br>extended format for calendar dates.<br>The end of a date range (inclusive) | getEndDate(): ?string | setEndDate(?string endDate): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "start_date": null,
-  "end_date": null
+  "start_date": "start_date6",
+  "end_date": "end_date0"
 }
 ```
 

@@ -8,19 +8,19 @@ Provides metadata when the event `type` is `ADJUST_POINTS`.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `loyaltyProgramId` | `?string` | Optional | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram). |
-| `points` | `int` |  | The number of points added or removed. |
-| `reason` | `?string` | Optional | The reason for the adjustment of points. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `loyaltyProgramId` | `?string` | Optional | The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram). | getLoyaltyProgramId(): ?string | setLoyaltyProgramId(?string loyaltyProgramId): void |
+| `points` | `int` |  | The number of points added or removed. | getPoints(): int | setPoints(int points): void |
+| `reason` | `?string` | Optional | The reason for the adjustment of points. | getReason(): ?string | setReason(?string reason): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "loyalty_program_id": null,
+  "loyalty_program_id": "loyalty_program_id0",
   "points": 236,
-  "reason": null
+  "reason": "reason4"
 }
 ```
 

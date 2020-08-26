@@ -44,8 +44,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Catalog Object Ids.
      *
-     * Filters results by `CatalogObject` ID.
-     * Only applied when set. Max size is 500 IDs. Default: unset.
+     * The filter to return results by `CatalogObject` ID.
+     * The filter is only applicable when set. The default value is null.
      *
      * @return string[]|null
      */
@@ -57,8 +57,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Catalog Object Ids.
      *
-     * Filters results by `CatalogObject` ID.
-     * Only applied when set. Max size is 500 IDs. Default: unset.
+     * The filter to return results by `CatalogObject` ID.
+     * The filter is only applicable when set. The default value is null.
      *
      * @maps catalog_object_ids
      *
@@ -72,8 +72,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * Filters results by `Location` ID. Only
-     * applied when set. Default: unset.
+     * The filter to return results by `Location` ID.
+     * The filter is only applicable when set. The default value is null.
      *
      * @return string[]|null
      */
@@ -85,8 +85,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * Filters results by `Location` ID. Only
-     * applied when set. Default: unset.
+     * The filter to return results by `Location` ID.
+     * The filter is only applicable when set. The default value is null.
      *
      * @maps location_ids
      *
@@ -100,9 +100,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Types.
      *
-     * Filters results by `InventoryChangeType`.
-     * Default: [`PHYSICAL_COUNT`, `ADJUSTMENT`]. `TRANSFER` is not supported as
-     * a filter.
+     * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
+     * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
      * See [InventoryChangeType](#type-inventorychangetype) for possible values
      *
      * @return string[]|null
@@ -115,9 +114,8 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Types.
      *
-     * Filters results by `InventoryChangeType`.
-     * Default: [`PHYSICAL_COUNT`, `ADJUSTMENT`]. `TRANSFER` is not supported as
-     * a filter.
+     * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
+     * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
      * See [InventoryChangeType](#type-inventorychangetype) for possible values
      *
      * @maps types
@@ -132,9 +130,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns States.
      *
-     * Filters `ADJUSTMENT` query results by
-     * `InventoryState`. Only applied when set.
-     * Default: unset.
+     * The filter to return `ADJUSTMENT` query results by
+     * `InventoryState`. This filter is only applied when set.
+     * The default value is null.
      * See [InventoryState](#type-inventorystate) for possible values
      *
      * @return string[]|null
@@ -147,9 +145,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets States.
      *
-     * Filters `ADJUSTMENT` query results by
-     * `InventoryState`. Only applied when set.
-     * Default: unset.
+     * The filter to return `ADJUSTMENT` query results by
+     * `InventoryState`. This filter is only applied when set.
+     * The default value is null.
      * See [InventoryState](#type-inventorystate) for possible values
      *
      * @maps states
@@ -164,9 +162,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Updated After.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `created_at` or `calculated_at` value is after the given time.
-     * Default: UNIX epoch (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `calculated_at` value
+     * after the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      */
     public function getUpdatedAfter(): ?string
     {
@@ -176,9 +174,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Updated After.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `created_at` or `calculated_at` value is after the given time.
-     * Default: UNIX epoch (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `calculated_at` value
+     * after the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      *
      * @maps updated_after
      */
@@ -190,9 +188,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Updated Before.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `created_at` or `calculated_at` value is strictly before the given time.
-     * Default: UNIX epoch (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `created_at` or `calculated_at` value
+     * strictly before the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      */
     public function getUpdatedBefore(): ?string
     {
@@ -202,9 +200,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Updated Before.
      *
-     * Provided as an RFC 3339 timestamp. Returns results whose
-     * `created_at` or `calculated_at` value is strictly before the given time.
-     * Default: UNIX epoch (`1970-01-01T00:00:00Z`).
+     * The filter to return results with their `created_at` or `calculated_at` value
+     * strictly before the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
      *
      * @maps updated_before
      */

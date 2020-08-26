@@ -8,10 +8,10 @@ Represents a request to create a `Shift`
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `idempotencyKey` | `?string` | Optional | Unique string value to insure the idempotency of the operation. |
-| `shift` | [`Shift`](/doc/models/shift.md) |  | A record of the hourly rate, start, and end times for a single work shift<br>for an employee. May include a record of the start and end times for breaks<br>taken during the shift. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `idempotencyKey` | `?string` | Optional | Unique string value to insure the idempotency of the operation. | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
+| `shift` | [`Shift`](/doc/models/shift.md) |  | A record of the hourly rate, start, and end times for a single work shift<br>for an employee. May include a record of the start and end times for breaks<br>taken during the shift. | getShift(): Shift | setShift(Shift shift): void |
 
 ### Example (as JSON)
 
@@ -19,7 +19,7 @@ Represents a request to create a `Shift`
 {
   "idempotency_key": "HIDSNG5KS478L",
   "shift": {
-    "employee_id": "ormj0jJJZ5OZIzxrZYJI",
+    "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
     "location_id": "PAA1RJZZKXBFG",
     "start_at": "2019-01-25T03:11:00-05:00",
     "end_at": "2019-01-25T13:11:00-05:00",

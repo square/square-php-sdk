@@ -49,7 +49,8 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * The Square-assigned ID of the subscription phase.
+     * The Square-assigned ID of the subscription phase. This field cannot be changed after a
+     * `SubscriptionPhase` is created.
      */
     public function getUid(): ?string
     {
@@ -59,7 +60,8 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * The Square-assigned ID of the subscription phase.
+     * The Square-assigned ID of the subscription phase. This field cannot be changed after a
+     * `SubscriptionPhase` is created.
      *
      * @maps uid
      */
@@ -95,7 +97,7 @@ class SubscriptionPhase implements \JsonSerializable
      * Returns Periods.
      *
      * The number of `cadence`s the phase lasts. If not set, the phase never ends. Only the last phase can
-     * be indefinite.
+     * be indefinite. This field cannot be changed after a `SubscriptionPhase` is created.
      */
     public function getPeriods(): ?int
     {
@@ -106,7 +108,7 @@ class SubscriptionPhase implements \JsonSerializable
      * Sets Periods.
      *
      * The number of `cadence`s the phase lasts. If not set, the phase never ends. Only the last phase can
-     * be indefinite.
+     * be indefinite. This field cannot be changed after a `SubscriptionPhase` is created.
      *
      * @maps periods
      */
@@ -153,7 +155,8 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Returns Ordinal.
      *
-     * The position this phase appears in the sequence of phases defined for the plan, indexed from 0.
+     * The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This
+     * field cannot be changed after a `SubscriptionPhase` is created.
      */
     public function getOrdinal(): ?int
     {
@@ -163,7 +166,8 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Sets Ordinal.
      *
-     * The position this phase appears in the sequence of phases defined for the plan, indexed from 0.
+     * The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This
+     * field cannot be changed after a `SubscriptionPhase` is created.
      *
      * @maps ordinal
      */

@@ -28,8 +28,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
-     * Filter employees returned to only those that are associated with the specified location.
      */
     public function getLocationId(): ?string
     {
@@ -38,8 +36,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
-     * Filter employees returned to only those that are associated with the specified location.
      *
      * @maps location_id
      */

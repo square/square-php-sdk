@@ -59,8 +59,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$sortOrder = Models\SortOrder::DESC;
+$cursor = 'cursor6';
 
-$apiResponse = $transactionsApi->listRefunds($locationId);
+$apiResponse = $transactionsApi->listRefunds($locationId, $beginTime, $endTime, $sortOrder, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listRefundsResponse = $apiResponse->getResult();
@@ -110,8 +114,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$sortOrder = Models\SortOrder::DESC;
+$cursor = 'cursor6';
 
-$apiResponse = $transactionsApi->listTransactions($locationId);
+$apiResponse = $transactionsApi->listTransactions($locationId, $beginTime, $endTime, $sortOrder, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listTransactionsResponse = $apiResponse->getResult();
@@ -175,19 +183,25 @@ $body = new Models\ChargeRequest(
     $body_amountMoney
 );
 $body->setCardNonce('card_nonce_from_square_123');
+$body->setCustomerCardId('customer_card_id6');
 $body->setDelayCapture(false);
 $body->setReferenceId('some optional reference id');
 $body->setNote('some optional note');
 $body->setBillingAddress(new Models\Address);
 $body->getBillingAddress()->setAddressLine1('500 Electric Ave');
 $body->getBillingAddress()->setAddressLine2('Suite 600');
+$body->getBillingAddress()->setAddressLine3('address_line_38');
 $body->getBillingAddress()->setLocality('New York');
+$body->getBillingAddress()->setSublocality('sublocality2');
 $body->getBillingAddress()->setAdministrativeDistrictLevel1('NY');
 $body->getBillingAddress()->setPostalCode('10003');
 $body->getBillingAddress()->setCountry(Models\Country::US);
 $body->setShippingAddress(new Models\Address);
 $body->getShippingAddress()->setAddressLine1('123 Main St');
+$body->getShippingAddress()->setAddressLine2('address_line_24');
+$body->getShippingAddress()->setAddressLine3('address_line_30');
 $body->getShippingAddress()->setLocality('San Francisco');
+$body->getShippingAddress()->setSublocality('sublocality4');
 $body->getShippingAddress()->setAdministrativeDistrictLevel1('CA');
 $body->getShippingAddress()->setPostalCode('94114');
 $body->getShippingAddress()->setCountry(Models\Country::US);
@@ -203,6 +217,7 @@ $body_additionalRecipients[0] = new Models\AdditionalRecipient(
     $body_additionalRecipients_0_description,
     $body_additionalRecipients_0_amountMoney
 );
+$body_additionalRecipients[0]->setReceivableId('receivable_id5');
 $body->setAdditionalRecipients($body_additionalRecipients);
 
 

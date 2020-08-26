@@ -521,6 +521,11 @@ class ErrorCode
     public const PAYMENT_NOT_REFUNDABLE = 'PAYMENT_NOT_REFUNDABLE';
 
     /**
+     * Request failed - The card issuer declined the refund.
+     */
+    public const REFUND_DECLINED = 'REFUND_DECLINED';
+
+    /**
      * Generic error - the provided card data is invalid.
      */
     public const INVALID_CARD_DATA = 'INVALID_CARD_DATA';

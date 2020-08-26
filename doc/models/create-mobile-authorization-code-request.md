@@ -9,9 +9,9 @@ __CreateMobileAuthorizationCode__ endpoint.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `locationId` | `?string` | Optional | The Square location ID the authorization code should be tied to. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `locationId` | `?string` | Optional | The Square location ID the authorization code should be tied to. | getLocationId(): ?string | setLocationId(?string locationId): void |
 
 ### Example (as JSON)
 

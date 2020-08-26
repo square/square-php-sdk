@@ -9,11 +9,11 @@ a request to the [ListPayments](#endpoint-payments-listpayments) endpoint.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `payments` | [`?(Payment[])`](/doc/models/payment.md) | Optional | The requested list of `Payment`s. |
-| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `payments` | [`?(Payment[])`](/doc/models/payment.md) | Optional | The requested list of `Payment`s. | getPayments(): ?array | setPayments(?array payments): void |
+| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

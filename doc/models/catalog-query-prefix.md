@@ -8,10 +8,10 @@ The query filter to return the search result whose named attribute values are pr
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `attributeName` | `string` | The name of the attribute to be searched. |
-| `attributePrefix` | `string` | The desired prefix of the search attribute value. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `attributeName` | `string` | The name of the attribute to be searched. | getAttributeName(): string | setAttributeName(string attributeName): void |
+| `attributePrefix` | `string` | The desired prefix of the search attribute value. | getAttributePrefix(): string | setAttributePrefix(string attributePrefix): void |
 
 ### Example (as JSON)
 

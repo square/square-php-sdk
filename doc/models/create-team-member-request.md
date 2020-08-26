@@ -8,10 +8,10 @@ Represents a create request for a `TeamMember` object.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `idempotencyKey` | `?string` | Optional | A unique string that identifies this CreateTeamMember request.<br>Keys can be any valid string but must be unique for every request.<br>See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more information.<br><br><br><b>Min Length 1    Max Length 45</b> |
-| `teamMember` | [`?TeamMember`](/doc/models/team-member.md) | Optional | A record representing an individual team member for a business. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `idempotencyKey` | `?string` | Optional | A unique string that identifies this CreateTeamMember request.<br>Keys can be any valid string but must be unique for every request.<br>See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more information.<br><br><br><b>Min Length 1    Max Length 45</b> | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
+| `teamMember` | [`?TeamMember`](/doc/models/team-member.md) | Optional | A record representing an individual team member for a business. | getTeamMember(): ?TeamMember | setTeamMember(?TeamMember teamMember): void |
 
 ### Example (as JSON)
 

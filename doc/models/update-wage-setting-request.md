@@ -8,9 +8,9 @@ Represents an update request for the `WageSetting` object describing a `TeamMemb
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `wageSetting` | [`WageSetting`](/doc/models/wage-setting.md) | An object representing a team member's wage information. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `wageSetting` | [`WageSetting`](/doc/models/wage-setting.md) | An object representing a team member's wage information. | getWageSetting(): WageSetting | setWageSetting(WageSetting wageSetting): void |
 
 ### Example (as JSON)
 

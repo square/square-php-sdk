@@ -6,15 +6,19 @@
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`?V1Category`](/doc/models/v1-category.md) | Optional | V1Category |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `body` | [`?V1Category`](/doc/models/v1-category.md) | Optional | V1Category | getBody(): ?V1Category | setBody(?V1Category body): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "body": null
+  "body": {
+    "id": "id6",
+    "name": "name6",
+    "v2_id": "v2_id6"
+  }
 }
 ```
 

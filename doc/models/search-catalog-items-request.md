@@ -8,17 +8,17 @@ Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCa
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `textFilter` | `?string` | Optional | The text filter expression to return items or item variations containing specified text in<br>the `name`, `description`, or `abbreviation` attribute value of an item, or in<br>the `name`, `sku`, or `upc` attribute value of an item variation. |
-| `categoryIds` | `?(string[])` | Optional | The category id query expression to return items containing the specified category IDs. |
-| `stockLevels` | [`?(string[]) (SearchCatalogItemsRequestStockLevel)`](/doc/models/search-catalog-items-request-stock-level.md) | Optional | The stock-level query expression to return item variations with the specified stock levels.<br>See [SearchCatalogItemsRequestStockLevel](#type-searchcatalogitemsrequeststocklevel) for possible values |
-| `enabledLocationIds` | `?(string[])` | Optional | The enabled-location query expression to return items and item variations having specified enabled locations. |
-| `cursor` | `?string` | Optional | The pagination token, returned in the previous response, used to fetch the next batch of pending results. |
-| `limit` | `?int` | Optional | The maximum number of results to return per page. The default value is 100. |
-| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. |
-| `productTypes` | [`?(string[]) (CatalogItemProductType)`](/doc/models/catalog-item-product-type.md) | Optional | The product types query expression to return items or item variations having the specified product types.<br>See [CatalogItemProductType](#type-catalogitemproducttype) for possible values |
-| `customAttributeFilters` | [`?(CustomAttributeFilter[])`](/doc/models/custom-attribute-filter.md) | Optional | The customer-attribute filter to return items or item variations matching the specified<br>custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in<br>a single call to the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `textFilter` | `?string` | Optional | The text filter expression to return items or item variations containing specified text in<br>the `name`, `description`, or `abbreviation` attribute value of an item, or in<br>the `name`, `sku`, or `upc` attribute value of an item variation. | getTextFilter(): ?string | setTextFilter(?string textFilter): void |
+| `categoryIds` | `?(string[])` | Optional | The category id query expression to return items containing the specified category IDs. | getCategoryIds(): ?array | setCategoryIds(?array categoryIds): void |
+| `stockLevels` | [`?(string[]) (SearchCatalogItemsRequestStockLevel)`](/doc/models/search-catalog-items-request-stock-level.md) | Optional | The stock-level query expression to return item variations with the specified stock levels.<br>See [SearchCatalogItemsRequestStockLevel](#type-searchcatalogitemsrequeststocklevel) for possible values | getStockLevels(): ?array | setStockLevels(?array stockLevels): void |
+| `enabledLocationIds` | `?(string[])` | Optional | The enabled-location query expression to return items and item variations having specified enabled locations. | getEnabledLocationIds(): ?array | setEnabledLocationIds(?array enabledLocationIds): void |
+| `cursor` | `?string` | Optional | The pagination token, returned in the previous response, used to fetch the next batch of pending results. | getCursor(): ?string | setCursor(?string cursor): void |
+| `limit` | `?int` | Optional | The maximum number of results to return per page. The default value is 100. | getLimit(): ?int | setLimit(?int limit): void |
+| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
+| `productTypes` | [`?(string[]) (CatalogItemProductType)`](/doc/models/catalog-item-product-type.md) | Optional | The product types query expression to return items or item variations having the specified product types.<br>See [CatalogItemProductType](#type-catalogitemproducttype) for possible values | getProductTypes(): ?array | setProductTypes(?array productTypes): void |
+| `customAttributeFilters` | [`?(CustomAttributeFilter[])`](/doc/models/custom-attribute-filter.md) | Optional | The customer-attribute filter to return items or item variations matching the specified<br>custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in<br>a single call to the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint. | getCustomAttributeFilters(): ?array | setCustomAttributeFilters(?array customAttributeFilters): void |
 
 ### Example (as JSON)
 

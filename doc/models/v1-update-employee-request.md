@@ -6,25 +6,28 @@
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `body` | [`V1Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `body` | [`V1Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. | getBody(): V1Employee | setBody(V1Employee body): void |
 
 ### Example (as JSON)
 
 ```json
 {
   "body": {
-    "id": null,
+    "id": "id6",
     "first_name": "first_name6",
     "last_name": "last_name4",
-    "role_ids": null,
-    "authorized_location_ids": null,
-    "email": null,
-    "status": null,
-    "external_id": null,
-    "created_at": null,
-    "updated_at": null
+    "role_ids": [
+      "role_ids0",
+      "role_ids1"
+    ],
+    "authorized_location_ids": [
+      "authorized_location_ids7",
+      "authorized_location_ids8"
+    ],
+    "email": "email0",
+    "status": "ACTIVE"
   }
 }
 ```

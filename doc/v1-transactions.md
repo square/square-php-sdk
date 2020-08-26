@@ -126,8 +126,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$order = Models\SortOrder::DESC;
+$limit = 172;
+$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listOrders($locationId);
+$apiResponse = $v1TransactionsApi->listOrders($locationId, $order, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -207,6 +210,10 @@ $body_action = Models\V1UpdateOrderRequestAction::REFUND;
 $body = new Models\V1UpdateOrderRequest(
     $body_action
 );
+$body->setShippedTrackingNumber('shipped_tracking_number6');
+$body->setCompletedNote('completed_note6');
+$body->setRefundedNote('refunded_note0');
+$body->setCanceledNote('canceled_note4');
 
 $apiResponse = $v1TransactionsApi->updateOrder($locationId, $orderId, $body);
 
@@ -267,8 +274,14 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$order = Models\SortOrder::DESC;
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$limit = 172;
+$batchToken = 'batch_token2';
+$includePartial = false;
 
-$apiResponse = $v1TransactionsApi->listPayments($locationId);
+$apiResponse = $v1TransactionsApi->listPayments($locationId, $order, $beginTime, $endTime, $limit, $batchToken, $includePartial);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -353,8 +366,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$order = Models\SortOrder::DESC;
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$limit = 172;
+$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listRefunds($locationId);
+$apiResponse = $v1TransactionsApi->listRefunds($locationId, $order, $beginTime, $endTime, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Refund = $apiResponse->getResult();
@@ -409,6 +427,10 @@ $body = new Models\V1CreateRefundRequest(
     $body_type,
     $body_reason
 );
+$body->setRefundedMoney(new Models\V1Money);
+$body->getRefundedMoney()->setAmount(222);
+$body->getRefundedMoney()->setCurrencyCode(Models\Currency::CLF);
+$body->setRequestIdempotenceKey('request_idempotence_key2');
 
 $apiResponse = $v1TransactionsApi->createRefund($locationId, $body);
 
@@ -464,8 +486,14 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$order = Models\SortOrder::DESC;
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$limit = 172;
+$status = Models\V1ListSettlementsRequestStatus::SENT;
+$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listSettlements($locationId);
+$apiResponse = $v1TransactionsApi->listSettlements($locationId, $order, $beginTime, $endTime, $limit, $status, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Settlement = $apiResponse->getResult();

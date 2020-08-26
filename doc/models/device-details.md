@@ -8,17 +8,17 @@ Details about the device that took the payment.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `deviceId` | `?string` | Optional | Square-issued ID of the device. |
-| `deviceName` | `?string` | Optional | The name of the device set by the merchant. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `deviceId` | `?string` | Optional | Square-issued ID of the device. | getDeviceId(): ?string | setDeviceId(?string deviceId): void |
+| `deviceName` | `?string` | Optional | The name of the device set by the merchant. | getDeviceName(): ?string | setDeviceName(?string deviceName): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "device_id": null,
-  "device_name": null
+  "device_id": "device_id6",
+  "device_name": "device_name2"
 }
 ```
 

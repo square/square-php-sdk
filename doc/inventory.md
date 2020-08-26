@@ -87,13 +87,27 @@ $body_changes = [];
 $body_changes[0] = new Models\InventoryChange;
 $body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
 $body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount);
+$body_changes[0]->getPhysicalCount()->setId('id0');
 $body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
 $body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
+$body_changes[0]->getPhysicalCount()->setCatalogObjectType('catalog_object_type4');
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
 $body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
 $body_changes[0]->getPhysicalCount()->setQuantity('53');
 $body_changes[0]->getPhysicalCount()->setEmployeeId('LRK57NSQ5X7PUD05');
 $body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
+$body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
+$body_changes[0]->getAdjustment()->setId('id6');
+$body_changes[0]->getAdjustment()->setReferenceId('reference_id4');
+$body_changes[0]->getAdjustment()->setFromState(Models\InventoryState::SOLD);
+$body_changes[0]->getAdjustment()->setToState(Models\InventoryState::IN_TRANSIT_TO);
+$body_changes[0]->getAdjustment()->setLocationId('location_id0');
+$body_changes[0]->setTransfer(new Models\InventoryTransfer);
+$body_changes[0]->getTransfer()->setId('id0');
+$body_changes[0]->getTransfer()->setReferenceId('reference_id8');
+$body_changes[0]->getTransfer()->setState(Models\InventoryState::SOLD);
+$body_changes[0]->getTransfer()->setFromLocationId('from_location_id2');
+$body_changes[0]->getTransfer()->setToLocationId('to_location_id2');
 $body->setChanges($body_changes);
 
 $body->setIgnoreUnchangedCounts(true);
@@ -195,6 +209,8 @@ $body = new Models\BatchRetrieveInventoryCountsRequest;
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
+$body->setCursor('cursor0');
+$body->setStates([Models\InventoryState::IN_TRANSIT_TO]);
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);
 
@@ -277,8 +293,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $catalogObjectId = 'catalog_object_id6';
+$locationIds = 'location_ids0';
+$cursor = 'cursor6';
 
-$apiResponse = $inventoryApi->retrieveInventoryCount($catalogObjectId);
+$apiResponse = $inventoryApi->retrieveInventoryCount($catalogObjectId, $locationIds, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $retrieveInventoryCountResponse = $apiResponse->getResult();
@@ -300,8 +318,8 @@ provided [CatalogObject](#type-catalogobject) at the requested
 Results are paginated and sorted in descending order according to their
 `occurred_at` timestamp (newest first).
 
-There are no limits on how far back the caller can page. This endpoint is
-useful when displaying recent changes for a specific item. For more
+There are no limits on how far back the caller can page. This endpoint can be
+used to display recent changes for a specific item. For more
 sophisticated queries, use a batch endpoint.
 
 ```php
@@ -328,8 +346,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $catalogObjectId = 'catalog_object_id6';
+$locationIds = 'location_ids0';
+$cursor = 'cursor6';
 
-$apiResponse = $inventoryApi->retrieveInventoryChanges($catalogObjectId);
+$apiResponse = $inventoryApi->retrieveInventoryChanges($catalogObjectId, $locationIds, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $retrieveInventoryChangesResponse = $apiResponse->getResult();

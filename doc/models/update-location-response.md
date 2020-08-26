@@ -8,10 +8,10 @@ Response object returned by the [UpdateLocation](#endpoint-updatelocation) endpo
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | -  | getLocation(): ?Location | setLocation(?Location location): void |
 
 ### Example (as JSON)
 

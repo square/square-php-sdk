@@ -44,7 +44,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $disputesApi->listDisputes();
+$cursor = 'cursor6';
+$states = Models\DisputeState::EVIDENCE_REQUIRED;
+$locationId = 'location_id4';
+
+$apiResponse = $disputesApi->listDisputes($cursor, $states, $locationId);
 
 if ($apiResponse->isSuccess()) {
     $listDisputesResponse = $apiResponse->getResult();
@@ -287,8 +291,15 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $disputeId = 'dispute_id2';
+$request_idempotencyKey = 'idempotency_key2';
+$request = new Models\CreateDisputeEvidenceFileRequest(
+    $request_idempotencyKey
+);
+$request->setEvidenceType(Models\DisputeEvidenceType::REBUTTAL_EXPLANATION);
+$request->setContentType('content_type0');
+$imageFile = 'dummy_file';
 
-$apiResponse = $disputesApi->createDisputeEvidenceFile($disputeId);
+$apiResponse = $disputesApi->createDisputeEvidenceFile($disputeId, $request, $imageFile);
 
 if ($apiResponse->isSuccess()) {
     $createDisputeEvidenceFileResponse = $apiResponse->getResult();

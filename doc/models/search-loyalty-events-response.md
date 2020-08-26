@@ -9,11 +9,11 @@ criteria, in order by the `created_at` date.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `events` | [`?(LoyaltyEvent[])`](/doc/models/loyalty-event.md) | Optional | The loyalty events that satisfy the search criteria. |
-| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response.<br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination). |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `events` | [`?(LoyaltyEvent[])`](/doc/models/loyalty-event.md) | Optional | The loyalty events that satisfy the search criteria. | getEvents(): ?array | setEvents(?array events): void |
+| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response.<br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ### Example (as JSON)
 

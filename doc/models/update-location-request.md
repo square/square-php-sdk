@@ -8,9 +8,9 @@ Request object for the [UpdateLocation](#endpoint-updatelocation) endpoint.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | -  |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | -  | getLocation(): ?Location | setLocation(?Location location): void |
 
 ### Example (as JSON)
 
@@ -19,6 +19,7 @@ Request object for the [UpdateLocation](#endpoint-updatelocation) endpoint.
   "location": {
     "name": "Updated nickname",
     "description": "Updated description",
+    "facebook_url": "null",
     "twitter_username": "twitter",
     "instagram_username": "instagram",
     "address": {

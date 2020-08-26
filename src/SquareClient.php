@@ -31,12 +31,11 @@ class SquareClient implements ConfigurationInterface
     private $invoices;
     private $labor;
     private $locations;
-    private $reporting;
     private $checkout;
-    private $orders;
     private $transactions;
     private $loyalty;
     private $merchants;
+    private $orders;
     private $payments;
     private $refunds;
     private $subscriptions;
@@ -133,7 +132,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '6.2.0.20200812';
+        return '6.3.0.20200826';
     }
 
     /**
@@ -369,17 +368,6 @@ class SquareClient implements ConfigurationInterface
     }
 
     /**
-     * Returns Reporting Api
-     */
-    public function getReportingApi(): Apis\ReportingApi
-    {
-        if ($this->reporting == null) {
-            $this->reporting = new Apis\ReportingApi($this);
-        }
-        return $this->reporting;
-    }
-
-    /**
      * Returns Checkout Api
      */
     public function getCheckoutApi(): Apis\CheckoutApi
@@ -388,17 +376,6 @@ class SquareClient implements ConfigurationInterface
             $this->checkout = new Apis\CheckoutApi($this);
         }
         return $this->checkout;
-    }
-
-    /**
-     * Returns Orders Api
-     */
-    public function getOrdersApi(): Apis\OrdersApi
-    {
-        if ($this->orders == null) {
-            $this->orders = new Apis\OrdersApi($this);
-        }
-        return $this->orders;
     }
 
     /**
@@ -432,6 +409,17 @@ class SquareClient implements ConfigurationInterface
             $this->merchants = new Apis\MerchantsApi($this);
         }
         return $this->merchants;
+    }
+
+    /**
+     * Returns Orders Api
+     */
+    public function getOrdersApi(): Apis\OrdersApi
+    {
+        if ($this->orders == null) {
+            $this->orders = new Apis\OrdersApi($this);
+        }
+        return $this->orders;
     }
 
     /**

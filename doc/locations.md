@@ -71,13 +71,20 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = new Models\CreateLocationRequest;
 $body->setLocation(new Models\Location);
+$body->getLocation()->setId('id0');
 $body->getLocation()->setName('New location name');
 $body->getLocation()->setAddress(new Models\Address);
 $body->getLocation()->getAddress()->setAddressLine1('1234 Peachtree St. NE');
+$body->getLocation()->getAddress()->setAddressLine2('address_line_26');
+$body->getLocation()->getAddress()->setAddressLine3('address_line_32');
 $body->getLocation()->getAddress()->setLocality('Atlanta');
+$body->getLocation()->getAddress()->setSublocality('sublocality6');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
 $body->getLocation()->getAddress()->setPostalCode('30309');
+$body->getLocation()->setTimezone('timezone0');
+$body->getLocation()->setCapabilities([Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING]);
 $body->getLocation()->setDescription('My new location.');
+$body->getLocation()->setFacebookUrl('null');
 
 $apiResponse = $locationsApi->createLocation($body);
 
@@ -156,12 +163,18 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $body = new Models\UpdateLocationRequest;
 $body->setLocation(new Models\Location);
+$body->getLocation()->setId('id0');
 $body->getLocation()->setName('Updated nickname');
 $body->getLocation()->setAddress(new Models\Address);
 $body->getLocation()->getAddress()->setAddressLine1('1234 Peachtree St. NE');
+$body->getLocation()->getAddress()->setAddressLine2('address_line_26');
+$body->getLocation()->getAddress()->setAddressLine3('address_line_32');
 $body->getLocation()->getAddress()->setLocality('Atlanta');
+$body->getLocation()->getAddress()->setSublocality('sublocality6');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
 $body->getLocation()->getAddress()->setPostalCode('30309');
+$body->getLocation()->setTimezone('timezone0');
+$body->getLocation()->setCapabilities([Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING]);
 $body->getLocation()->setBusinessHours(new Models\BusinessHours);
 $body_location_businessHours_periods = [];
 
@@ -174,6 +187,7 @@ $body->getLocation()->getBusinessHours()->setPeriods($body_location_businessHour
 $body->getLocation()->setDescription('Updated description');
 $body->getLocation()->setTwitterUsername('twitter');
 $body->getLocation()->setInstagramUsername('instagram');
+$body->getLocation()->setFacebookUrl('null');
 
 $apiResponse = $locationsApi->updateLocation($locationId, $body);
 

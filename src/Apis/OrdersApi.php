@@ -35,7 +35,6 @@ class OrdersApi extends BaseApi
      * To learn more about the Orders API, see the
      * [Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
      *
-     * @param string $locationId The ID of the business location to associate the order with.
      * @param \Square\Models\CreateOrderRequest $body An object containing the fields to POST for
      *                                                the request.
      *
@@ -46,15 +45,10 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createOrder(string $locationId, \Square\Models\CreateOrderRequest $body): ApiResponse
+    public function createOrder(\Square\Models\CreateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/orders';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'location_id' => $locationId,
-            ]);
+        $_queryBuilder = '/v2/orders';
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -110,7 +104,6 @@ class OrdersApi extends BaseApi
      *
      * If a given Order ID does not exist, the ID is ignored instead of generating an error.
      *
-     * @param string $locationId The ID of the orders' associated location.
      * @param \Square\Models\BatchRetrieveOrdersRequest $body An object containing the fields to
      *                                                        POST for the request.
      *
@@ -121,17 +114,10 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveOrders(
-        string $locationId,
-        \Square\Models\BatchRetrieveOrdersRequest $body
-    ): ApiResponse {
+    public function batchRetrieveOrders(\Square\Models\BatchRetrieveOrdersRequest $body): ApiResponse
+    {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/orders/batch-retrieve';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'location_id' => $locationId,
-            ]);
+        $_queryBuilder = '/v2/orders/batch-retrieve';
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -179,103 +165,6 @@ class OrdersApi extends BaseApi
 
         $mapper = $this->getJsonMapper();
         $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchRetrieveOrdersResponse');
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
-     * Updates an open [Order](#type-order) by adding, replacing, or deleting
-     * fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
-     *
-     * An UpdateOrder request requires the following:
-     *
-     * - The `order_id` in the endpoint path, identifying the order to update.
-     * - The latest `version` of the order to update.
-     * - The [sparse order](https://developer.squareup.com/docs/orders-api/manage-orders#sparse-order-
-     * objects)
-     * containing only the fields to update and the version the update is
-     * being applied to.
-     * - If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#on-dot-notation)
-     * identifying fields to clear.
-     *
-     * To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-
-     * api/pay-for-orders) guide.
-     *
-     * To learn more about the Orders API, see the
-     * [Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-     *
-     * @param string $locationId The ID of the order's associated location.
-     * @param string $orderId The ID of the order to update.
-     * @param \Square\Models\UpdateOrderRequest $body An object containing the fields to POST for
-     *                                                the request.
-     *
-     *                                                See the corresponding object definition for
-     *                                                field details.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function updateOrder(
-        string $locationId,
-        string $orderId,
-        \Square\Models\UpdateOrderRequest $body
-    ): ApiResponse {
-        //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/orders/{order_id}';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'location_id' => $locationId,
-            'order_id'    => $orderId,
-            ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
-            'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = Request\Body::Json($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = Request::put($_queryUrl, $_headers, $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateOrderResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -426,6 +315,98 @@ class OrdersApi extends BaseApi
 
         $mapper = $this->getJsonMapper();
         $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchOrdersResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Updates an open [Order](#type-order) by adding, replacing, or deleting
+     * fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
+     *
+     * An UpdateOrder request requires the following:
+     *
+     * - The `order_id` in the endpoint path, identifying the order to update.
+     * - The latest `version` of the order to update.
+     * - The [sparse order](https://developer.squareup.com/docs/orders-api/manage-orders#sparse-order-
+     * objects)
+     * containing only the fields to update and the version the update is
+     * being applied to.
+     * - If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-
+     * orders#on-dot-notation)
+     * identifying fields to clear.
+     *
+     * To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-
+     * api/pay-for-orders) guide.
+     *
+     * To learn more about the Orders API, see the
+     * [Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
+     *
+     * @param string $orderId The ID of the order to update.
+     * @param \Square\Models\UpdateOrderRequest $body An object containing the fields to POST for
+     *                                                the request.
+     *
+     *                                                See the corresponding object definition for
+     *                                                field details.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function updateOrder(string $orderId, \Square\Models\UpdateOrderRequest $body): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/orders/{order_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'order_id' => $orderId,
+            ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //json encode body
+        $_bodyJson = Request\Body::Json($body);
+
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::put($_queryUrl, $_headers, $_bodyJson);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateOrderResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 

@@ -56,7 +56,16 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $paymentsApi->listPayments();
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
+$sortOrder = 'sort_order0';
+$cursor = 'cursor6';
+$locationId = 'location_id4';
+$total = 10;
+$last4 = 'last_42';
+$cardBrand = 'card_brand6';
+
+$apiResponse = $paymentsApi->listPayments($beginTime, $endTime, $sortOrder, $cursor, $locationId, $total, $last4, $cardBrand);
 
 if ($apiResponse->isSuccess()) {
     $listPaymentsResponse = $apiResponse->getResult();
@@ -112,10 +121,15 @@ $body = new Models\CreatePaymentRequest(
     $body_idempotencyKey,
     $body_amountMoney
 );
+$body->setTipMoney(new Models\Money);
+$body->getTipMoney()->setAmount(198);
+$body->getTipMoney()->setCurrency(Models\Currency::CHF);
 $body->setAppFeeMoney(new Models\Money);
 $body->getAppFeeMoney()->setAmount(10);
 $body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
+$body->setDelayDuration('delay_duration6');
 $body->setAutocomplete(true);
+$body->setOrderId('order_id0');
 $body->setCustomerId('VDKXEEKPJN48QDG3BGGFAK05P8');
 $body->setLocationId('XK3DBG77NJBFX');
 $body->setReferenceId('123456');

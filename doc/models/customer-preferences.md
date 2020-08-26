@@ -8,15 +8,15 @@ Represents communication preferences for the customer profile.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `emailUnsubscribed` | `?bool` | Optional | The customer has unsubscribed from receiving marketing campaign emails. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `emailUnsubscribed` | `?bool` | Optional | The customer has unsubscribed from receiving marketing campaign emails. | getEmailUnsubscribed(): ?bool | setEmailUnsubscribed(?bool emailUnsubscribed): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "email_unsubscribed": null
+  "email_unsubscribed": false
 }
 ```
 

@@ -8,10 +8,10 @@ A response that contains all loyalty programs.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
-| `programs` | [`?(LoyaltyProgram[])`](/doc/models/loyalty-program.md) | Optional | A list of `LoyaltyProgram` for the merchant. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `programs` | [`?(LoyaltyProgram[])`](/doc/models/loyalty-program.md) | Optional | A list of `LoyaltyProgram` for the merchant. | getPrograms(): ?array | setPrograms(?array programs): void |
 
 ### Example (as JSON)
 

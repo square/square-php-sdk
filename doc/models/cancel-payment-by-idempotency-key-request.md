@@ -8,9 +8,9 @@ Specifies idempotency key of a payment to cancel.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `idempotencyKey` | `string` | `idempotency_key` identifying the payment to be canceled. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `idempotencyKey` | `string` | `idempotency_key` identifying the payment to be canceled. | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
 
 ### Example (as JSON)
 

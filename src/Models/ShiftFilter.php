@@ -11,7 +11,7 @@ namespace Square\Models;
 class ShiftFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var string[]
      */
     private $locationIds;
 
@@ -41,13 +41,28 @@ class ShiftFilter implements \JsonSerializable
     private $workday;
 
     /**
+     * @var string[]
+     */
+    private $teamMemberIds;
+
+    /**
+     * @param string[] $locationIds
+     * @param string[] $teamMemberIds
+     */
+    public function __construct(array $locationIds, array $teamMemberIds)
+    {
+        $this->locationIds = $locationIds;
+        $this->teamMemberIds = $teamMemberIds;
+    }
+
+    /**
      * Returns Location Ids.
      *
      * Fetch shifts for the specified location.
      *
-     * @return string[]|null
+     * @return string[]
      */
-    public function getLocationIds(): ?array
+    public function getLocationIds(): array
     {
         return $this->locationIds;
     }
@@ -57,11 +72,12 @@ class ShiftFilter implements \JsonSerializable
      *
      * Fetch shifts for the specified location.
      *
+     * @required
      * @maps location_ids
      *
-     * @param string[]|null $locationIds
+     * @param string[] $locationIds
      */
-    public function setLocationIds(?array $locationIds): void
+    public function setLocationIds(array $locationIds): void
     {
         $this->locationIds = $locationIds;
     }
@@ -69,7 +85,8 @@ class ShiftFilter implements \JsonSerializable
     /**
      * Returns Employee Ids.
      *
-     * Fetch shifts for the specified employee.
+     * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
+     * instead
      *
      * @return string[]|null
      */
@@ -81,7 +98,8 @@ class ShiftFilter implements \JsonSerializable
     /**
      * Sets Employee Ids.
      *
-     * Fetch shifts for the specified employee.
+     * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
+     * instead
      *
      * @maps employee_ids
      *
@@ -118,9 +136,9 @@ class ShiftFilter implements \JsonSerializable
      * Returns Start.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      */
     public function getStart(): ?TimeRange
@@ -132,9 +150,9 @@ class ShiftFilter implements \JsonSerializable
      * Sets Start.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      *
      * @maps start
@@ -148,9 +166,9 @@ class ShiftFilter implements \JsonSerializable
      * Returns End.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      */
     public function getEnd(): ?TimeRange
@@ -162,9 +180,9 @@ class ShiftFilter implements \JsonSerializable
      * Sets End.
      *
      * Represents a generic time range. The start and end values are
-     * represented in RFC-3339 format. Time ranges are customized to be
+     * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
-     * Refer to the relevent endpoint-specific documentation to determine
+     * Refer to the relevant endpoint-specific documentation to determine
      * how time ranges are handled.
      *
      * @maps end
@@ -199,6 +217,33 @@ class ShiftFilter implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Ids.
+     *
+     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26"
+     *
+     * @return string[]
+     */
+    public function getTeamMemberIds(): array
+    {
+        return $this->teamMemberIds;
+    }
+
+    /**
+     * Sets Team Member Ids.
+     *
+     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26"
+     *
+     * @required
+     * @maps team_member_ids
+     *
+     * @param string[] $teamMemberIds
+     */
+    public function setTeamMemberIds(array $teamMemberIds): void
+    {
+        $this->teamMemberIds = $teamMemberIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -206,12 +251,13 @@ class ShiftFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_ids'] = $this->locationIds;
-        $json['employee_ids'] = $this->employeeIds;
-        $json['status']      = $this->status;
-        $json['start']       = $this->start;
-        $json['end']         = $this->end;
-        $json['workday']     = $this->workday;
+        $json['location_ids']  = $this->locationIds;
+        $json['employee_ids']  = $this->employeeIds;
+        $json['status']        = $this->status;
+        $json['start']         = $this->start;
+        $json['end']           = $this->end;
+        $json['workday']       = $this->workday;
+        $json['team_member_ids'] = $this->teamMemberIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -10,11 +10,11 @@ the request resulted in errors.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `shifts` | [`?(Shift[])`](/doc/models/shift.md) | Optional | Shifts |
-| `cursor` | `?string` | Optional | Opaque cursor for fetching the next page. |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `shifts` | [`?(Shift[])`](/doc/models/shift.md) | Optional | Shifts | getShifts(): ?array | setShifts(?array shifts): void |
+| `cursor` | `?string` | Optional | Opaque cursor for fetching the next page. | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ### Example (as JSON)
 
@@ -23,6 +23,7 @@ the request resulted in errors.
   "shifts": [
     {
       "id": "X714F3HA6D1PT",
+      "team_member_id": "ormj0jJJZ5OZIzxrZYJI",
       "employee_id": "ormj0jJJZ5OZIzxrZYJI",
       "location_id": "PAA1RJZZKXBFG",
       "timezone": "America/New_York",
@@ -53,6 +54,7 @@ the request resulted in errors.
     },
     {
       "id": "GDHYBZYWK0P2V",
+      "team_member_id": "33fJchumvVdJwxV0H6L9",
       "employee_id": "33fJchumvVdJwxV0H6L9",
       "location_id": "PAA1RJZZKXBFG",
       "timezone": "America/New_York",

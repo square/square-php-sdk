@@ -8,9 +8,9 @@ The query filter to return the items containing the specified tax IDs.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `taxIds` | `string[]` | A set of `CatalogTax` IDs to be used to find associated `CatalogItem`s. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `taxIds` | `string[]` | A set of `CatalogTax` IDs to be used to find associated `CatalogItem`s. | getTaxIds(): array | setTaxIds(array taxIds): void |
 
 ### Example (as JSON)
 

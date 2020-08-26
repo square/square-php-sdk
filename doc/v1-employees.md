@@ -66,7 +66,17 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $v1EmployeesApi->listEmployees();
+$order = Models\SortOrder::DESC;
+$beginUpdatedAt = 'begin_updated_at6';
+$endUpdatedAt = 'end_updated_at4';
+$beginCreatedAt = 'begin_created_at6';
+$endCreatedAt = 'end_created_at8';
+$status = Models\V1ListEmployeesRequestStatus::ACTIVE;
+$externalId = 'external_id6';
+$limit = 172;
+$batchToken = 'batch_token2';
+
+$apiResponse = $v1EmployeesApi->listEmployees($order, $beginUpdatedAt, $endUpdatedAt, $beginCreatedAt, $endCreatedAt, $status, $externalId, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Employee = $apiResponse->getResult();
@@ -116,6 +126,11 @@ $body = new Models\V1Employee(
     $body_firstName,
     $body_lastName
 );
+$body->setId('id6');
+$body->setRoleIds(['role_ids0', 'role_ids1']);
+$body->setAuthorizedLocationIds(['authorized_location_ids7', 'authorized_location_ids8']);
+$body->setEmail('email0');
+$body->setStatus(Models\V1EmployeeStatus::ACTIVE);
 
 $apiResponse = $v1EmployeesApi->createEmployee($body);
 
@@ -195,6 +210,11 @@ $body = new Models\V1Employee(
     $body_firstName,
     $body_lastName
 );
+$body->setId('id6');
+$body->setRoleIds(['role_ids0', 'role_ids1']);
+$body->setAuthorizedLocationIds(['authorized_location_ids7', 'authorized_location_ids8']);
+$body->setEmail('email0');
+$body->setStatus(Models\V1EmployeeStatus::ACTIVE);
 
 $apiResponse = $v1EmployeesApi->updateEmployee($employeeId, $body);
 
@@ -232,7 +252,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $v1EmployeesApi->listEmployeeRoles();
+$order = Models\SortOrder::DESC;
+$limit = 172;
+$batchToken = 'batch_token2';
+
+$apiResponse = $v1EmployeesApi->listEmployeeRoles($order, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1EmployeeRole = $apiResponse->getResult();
@@ -284,6 +308,10 @@ $body = new Models\V1EmployeeRole(
     $body_name,
     $body_permissions
 );
+$body->setId('id6');
+$body->setIsOwner(false);
+$body->setCreatedAt('created_at4');
+$body->setUpdatedAt('updated_at8');
 
 $apiResponse = $v1EmployeesApi->createEmployeeRole($body);
 
@@ -363,6 +391,10 @@ $body = new Models\V1EmployeeRole(
     $body_name,
     $body_permissions
 );
+$body->setId('id6');
+$body->setIsOwner(false);
+$body->setCreatedAt('created_at4');
+$body->setUpdatedAt('updated_at8');
 
 $apiResponse = $v1EmployeesApi->updateEmployeeRole($roleId, $body);
 
@@ -420,7 +452,19 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $v1EmployeesApi->listTimecards();
+$order = Models\SortOrder::DESC;
+$employeeId = 'employee_id0';
+$beginClockinTime = 'begin_clockin_time8';
+$endClockinTime = 'end_clockin_time2';
+$beginClockoutTime = 'begin_clockout_time0';
+$endClockoutTime = 'end_clockout_time2';
+$beginUpdatedAt = 'begin_updated_at6';
+$endUpdatedAt = 'end_updated_at4';
+$deleted = false;
+$limit = 172;
+$batchToken = 'batch_token2';
+
+$apiResponse = $v1EmployeesApi->listTimecards($order, $employeeId, $beginClockinTime, $endClockinTime, $beginClockoutTime, $endClockoutTime, $beginUpdatedAt, $endUpdatedAt, $deleted, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Timecard = $apiResponse->getResult();
@@ -470,6 +514,11 @@ $body_employeeId = 'employee_id4';
 $body = new Models\V1Timecard(
     $body_employeeId
 );
+$body->setId('id6');
+$body->setDeleted(false);
+$body->setClockinTime('clockin_time2');
+$body->setClockoutTime('clockout_time2');
+$body->setClockinLocationId('clockin_location_id4');
 
 $apiResponse = $v1EmployeesApi->createTimecard($body);
 
@@ -604,6 +653,11 @@ $body_employeeId = 'employee_id4';
 $body = new Models\V1Timecard(
     $body_employeeId
 );
+$body->setId('id6');
+$body->setDeleted(false);
+$body->setClockinTime('clockin_time2');
+$body->setClockoutTime('clockout_time2');
+$body->setClockinLocationId('clockin_location_id4');
 
 $apiResponse = $v1EmployeesApi->updateTimecard($timecardId, $body);
 
@@ -692,8 +746,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$order = Models\SortOrder::DESC;
+$beginTime = 'begin_time2';
+$endTime = 'end_time2';
 
-$apiResponse = $v1EmployeesApi->listCashDrawerShifts($locationId);
+$apiResponse = $v1EmployeesApi->listCashDrawerShifts($locationId, $order, $beginTime, $endTime);
 
 if ($apiResponse->isSuccess()) {
     $v1CashDrawerShift = $apiResponse->getResult();

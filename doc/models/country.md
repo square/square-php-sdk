@@ -22,7 +22,7 @@ Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/
 | `AO` | Angola |
 | `AQ` | Antartica |
 | `AR` | Argentina |
-| `AS_` | American Samoa |
+| `AS` | American Samoa |
 | `AT` | Austria |
 | `AU` | Australia |
 | `AW` | Aruba |
@@ -72,7 +72,7 @@ Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/
 | `DJ` | Djibouti |
 | `DK` | Denmark |
 | `DM` | Dominica |
-| `DO_` | Dominican Republic |
+| `DO` | Dominican Republic |
 | `DZ` | Algeria |
 | `EC` | Ecuador |
 | `EE` | Estonia |

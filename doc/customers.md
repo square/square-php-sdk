@@ -48,7 +48,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $customersApi->listCustomers();
+$cursor = 'cursor6';
+$sortField = Models\CustomerSortField::DEFAULT_;
+$sortOrder = Models\SortOrder::DESC;
+
+$apiResponse = $customersApi->listCustomers($cursor, $sortField, $sortOrder);
 
 if ($apiResponse->isSuccess()) {
     $listCustomersResponse = $apiResponse->getResult();
@@ -92,13 +96,18 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $body = new Models\CreateCustomerRequest;
+$body->setIdempotencyKey('idempotency_key2');
 $body->setGivenName('Amelia');
 $body->setFamilyName('Earhart');
+$body->setCompanyName('company_name2');
+$body->setNickname('nickname2');
 $body->setEmailAddress('Amelia.Earhart@example.com');
 $body->setAddress(new Models\Address);
 $body->getAddress()->setAddressLine1('500 Electric Ave');
 $body->getAddress()->setAddressLine2('Suite 600');
+$body->getAddress()->setAddressLine3('address_line_38');
 $body->getAddress()->setLocality('New York');
+$body->getAddress()->setSublocality('sublocality2');
 $body->getAddress()->setAdministrativeDistrictLevel1('NY');
 $body->getAddress()->setPostalCode('10003');
 $body->getAddress()->setCountry(Models\Country::US);
@@ -150,6 +159,7 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $body = new Models\SearchCustomersRequest;
+$body->setCursor('cursor0');
 $body->setLimit(2);
 $body->setQuery(new Models\CustomerQuery);
 $body->getQuery()->setFilter(new Models\CustomerFilter);
@@ -159,10 +169,19 @@ $body->getQuery()->getFilter()->getCreationSource()->setRule(Models\CustomerIncl
 $body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
 $body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2018-01-01T00:00:00-00:00');
 $body->getQuery()->getFilter()->getCreatedAt()->setEndAt('2018-02-01T00:00:00-00:00');
+$body->getQuery()->getFilter()->setUpdatedAt(new Models\TimeRange);
+$body->getQuery()->getFilter()->getUpdatedAt()->setStartAt('start_at4');
+$body->getQuery()->getFilter()->getUpdatedAt()->setEndAt('end_at8');
 $body->getQuery()->getFilter()->setEmailAddress(new Models\CustomerTextFilter);
+$body->getQuery()->getFilter()->getEmailAddress()->setExact('exact0');
 $body->getQuery()->getFilter()->getEmailAddress()->setFuzzy('example.com');
+$body->getQuery()->getFilter()->setPhoneNumber(new Models\CustomerTextFilter);
+$body->getQuery()->getFilter()->getPhoneNumber()->setExact('exact0');
+$body->getQuery()->getFilter()->getPhoneNumber()->setFuzzy('fuzzy6');
 $body->getQuery()->getFilter()->setGroupIds(new Models\FilterValue);
 $body->getQuery()->getFilter()->getGroupIds()->setAll(['545AXB44B4XXWMVQ4W8SBT3HHF']);
+$body->getQuery()->getFilter()->getGroupIds()->setAny(['any0', 'any1', 'any2']);
+$body->getQuery()->getFilter()->getGroupIds()->setNone(['none5', 'none6']);
 $body->getQuery()->setSort(new Models\CustomerSort);
 $body->getQuery()->getSort()->setField(Models\CustomerSortField::CREATED_AT);
 $body->getQuery()->getSort()->setOrder(Models\SortOrder::ASC);
@@ -285,6 +304,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $customerId = 'customer_id8';
 $body = new Models\UpdateCustomerRequest;
+$body->setGivenName('given_name8');
+$body->setFamilyName('family_name0');
+$body->setCompanyName('company_name2');
+$body->setNickname('nickname2');
 $body->setEmailAddress('New.Amelia.Earhart@example.com');
 $body->setPhoneNumber('');
 $body->setNote('updated customer note');
@@ -336,11 +359,14 @@ $body = new Models\CreateCustomerCardRequest(
 $body->setBillingAddress(new Models\Address);
 $body->getBillingAddress()->setAddressLine1('500 Electric Ave');
 $body->getBillingAddress()->setAddressLine2('Suite 600');
+$body->getBillingAddress()->setAddressLine3('address_line_38');
 $body->getBillingAddress()->setLocality('New York');
+$body->getBillingAddress()->setSublocality('sublocality2');
 $body->getBillingAddress()->setAdministrativeDistrictLevel1('NY');
 $body->getBillingAddress()->setPostalCode('10003');
 $body->getBillingAddress()->setCountry(Models\Country::US);
 $body->setCardholderName('Amelia Earhart');
+$body->setVerificationToken('verification_token0');
 
 $apiResponse = $customersApi->createCustomerCard($customerId, $body);
 

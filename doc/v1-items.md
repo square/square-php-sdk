@@ -111,6 +111,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1Category;
+$body->setId('id6');
+$body->setName('name6');
+$body->setV2Id('v2_id6');
 
 $apiResponse = $v1ItemsApi->createCategory($locationId, $body);
 
@@ -193,6 +196,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $categoryId = 'category_id8';
 $body = new Models\V1Category;
+$body->setId('id6');
+$body->setName('name6');
+$body->setV2Id('v2_id6');
 
 $apiResponse = $v1ItemsApi->updateCategory($locationId, $categoryId, $body);
 
@@ -267,6 +273,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1Discount;
+$body->setId('id6');
+$body->setName('name6');
+$body->setRate('rate4');
+$body->setAmountMoney(new Models\V1Money);
+$body->getAmountMoney()->setAmount(194);
+$body->getAmountMoney()->setCurrencyCode(Models\Currency::KWD);
+$body->setDiscountType(Models\V1DiscountDiscountType::VARIABLE_AMOUNT);
 
 $apiResponse = $v1ItemsApi->createDiscount($locationId, $body);
 
@@ -349,6 +362,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $discountId = 'discount_id8';
 $body = new Models\V1Discount;
+$body->setId('id6');
+$body->setName('name6');
+$body->setRate('rate4');
+$body->setAmountMoney(new Models\V1Money);
+$body->getAmountMoney()->setAmount(194);
+$body->getAmountMoney()->setCurrencyCode(Models\Currency::KWD);
+$body->setDiscountType(Models\V1DiscountDiscountType::VARIABLE_AMOUNT);
 
 $apiResponse = $v1ItemsApi->updateDiscount($locationId, $discountId, $body);
 
@@ -423,6 +443,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1Fee;
+$body->setId('id6');
+$body->setName('name6');
+$body->setRate('rate4');
+$body->setCalculationPhase(Models\V1FeeCalculationPhase::FEE_SUBTOTAL_PHASE);
+$body->setAdjustmentType(Models\V1FeeAdjustmentType::TAX);
 
 $apiResponse = $v1ItemsApi->createFee($locationId, $body);
 
@@ -505,6 +530,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $feeId = 'fee_id8';
 $body = new Models\V1Fee;
+$body->setId('id6');
+$body->setName('name6');
+$body->setRate('rate4');
+$body->setCalculationPhase(Models\V1FeeCalculationPhase::FEE_SUBTOTAL_PHASE);
+$body->setAdjustmentType(Models\V1FeeAdjustmentType::TAX);
 
 $apiResponse = $v1ItemsApi->updateFee($locationId, $feeId, $body);
 
@@ -544,8 +574,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$limit = 172;
+$batchToken = 'batch_token2';
 
-$apiResponse = $v1ItemsApi->listInventory($locationId);
+$apiResponse = $v1ItemsApi->listInventory($locationId, $limit, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1InventoryEntry = $apiResponse->getResult();
@@ -584,6 +616,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $variationId = 'variation_id2';
 $body = new Models\V1AdjustInventoryRequest;
+$body->setQuantityDelta(87.82);
+$body->setAdjustmentType(Models\V1AdjustInventoryRequestAdjustmentType::SALE);
+$body->setMemo('memo0');
 
 $apiResponse = $v1ItemsApi->adjustInventory($locationId, $variationId, $body);
 
@@ -621,8 +656,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 
 ```php
 $locationId = 'location_id4';
+$batchToken = 'batch_token2';
 
-$apiResponse = $v1ItemsApi->listItems($locationId);
+$apiResponse = $v1ItemsApi->listItems($locationId, $batchToken);
 
 if ($apiResponse->isSuccess()) {
     $v1Item = $apiResponse->getResult();
@@ -670,6 +706,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1Item;
+$body->setId('id6');
+$body->setName('name6');
+$body->setDescription('description4');
+$body->setType(Models\V1ItemType::GIFT_CARD);
+$body->setColor(Models\V1ItemColor::ENUM_593C00);
 
 $apiResponse = $v1ItemsApi->createItem($locationId, $body);
 
@@ -791,6 +832,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $itemId = 'item_id0';
 $body = new Models\V1Item;
+$body->setId('id6');
+$body->setName('name6');
+$body->setDescription('description4');
+$body->setType(Models\V1ItemType::GIFT_CARD);
+$body->setColor(Models\V1ItemColor::ENUM_593C00);
 
 $apiResponse = $v1ItemsApi->updateItem($locationId, $itemId, $body);
 
@@ -995,6 +1041,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $itemId = 'item_id0';
 $body = new Models\V1Variation;
+$body->setId('id6');
+$body->setName('name6');
+$body->setItemId('item_id4');
+$body->setOrdinal(88);
+$body->setPricingType(Models\V1VariationPricingType::FIXED_PRICING);
 
 $apiResponse = $v1ItemsApi->createVariation($locationId, $itemId, $body);
 
@@ -1081,6 +1132,11 @@ $locationId = 'location_id4';
 $itemId = 'item_id0';
 $variationId = 'variation_id2';
 $body = new Models\V1Variation;
+$body->setId('id6');
+$body->setName('name6');
+$body->setItemId('item_id4');
+$body->setOrdinal(88);
+$body->setPricingType(Models\V1VariationPricingType::FIXED_PRICING);
 
 $apiResponse = $v1ItemsApi->updateVariation($locationId, $itemId, $variationId, $body);
 
@@ -1155,6 +1211,31 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1ModifierList;
+$body->setId('id6');
+$body->setName('name6');
+$body->setSelectionType(Models\V1ModifierListSelectionType::SINGLE);
+$body_modifierOptions = [];
+
+$body_modifierOptions[0] = new Models\V1ModifierOption;
+$body_modifierOptions[0]->setId('id0');
+$body_modifierOptions[0]->setName('name0');
+$body_modifierOptions[0]->setPriceMoney(new Models\V1Money);
+$body_modifierOptions[0]->getPriceMoney()->setAmount(104);
+$body_modifierOptions[0]->getPriceMoney()->setCurrencyCode(Models\Currency::UAH);
+$body_modifierOptions[0]->setOnByDefault(false);
+$body_modifierOptions[0]->setOrdinal(178);
+
+$body_modifierOptions[1] = new Models\V1ModifierOption;
+$body_modifierOptions[1]->setId('id1');
+$body_modifierOptions[1]->setName('name1');
+$body_modifierOptions[1]->setPriceMoney(new Models\V1Money);
+$body_modifierOptions[1]->getPriceMoney()->setAmount(103);
+$body_modifierOptions[1]->getPriceMoney()->setCurrencyCode(Models\Currency::TZS);
+$body_modifierOptions[1]->setOnByDefault(true);
+$body_modifierOptions[1]->setOrdinal(179);
+$body->setModifierOptions($body_modifierOptions);
+
+$body->setV2Id('v2_id6');
 
 $apiResponse = $v1ItemsApi->createModifierList($locationId, $body);
 
@@ -1280,6 +1361,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $modifierListId = 'modifier_list_id6';
 $body = new Models\V1UpdateModifierListRequest;
+$body->setName('name6');
+$body->setSelectionType(Models\V1UpdateModifierListRequestSelectionType::SINGLE);
 
 $apiResponse = $v1ItemsApi->updateModifierList($locationId, $modifierListId, $body);
 
@@ -1320,6 +1403,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $modifierListId = 'modifier_list_id6';
 $body = new Models\V1ModifierOption;
+$body->setId('id6');
+$body->setName('name6');
+$body->setPriceMoney(new Models\V1Money);
+$body->getPriceMoney()->setAmount(194);
+$body->getPriceMoney()->setCurrencyCode(Models\Currency::XBA);
+$body->setOnByDefault(false);
+$body->setOrdinal(88);
 
 $apiResponse = $v1ItemsApi->createModifierOption($locationId, $modifierListId, $body);
 
@@ -1411,6 +1501,13 @@ $locationId = 'location_id4';
 $modifierListId = 'modifier_list_id6';
 $modifierOptionId = 'modifier_option_id6';
 $body = new Models\V1ModifierOption;
+$body->setId('id6');
+$body->setName('name6');
+$body->setPriceMoney(new Models\V1Money);
+$body->getPriceMoney()->setAmount(194);
+$body->getPriceMoney()->setCurrencyCode(Models\Currency::XBA);
+$body->setOnByDefault(false);
+$body->setOrdinal(88);
 
 $apiResponse = $v1ItemsApi->updateModifierOption($locationId, $modifierListId, $modifierOptionId, $body);
 
@@ -1486,6 +1583,19 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $body = new Models\V1Page;
+$body->setId('id6');
+$body->setName('name6');
+$body->setPageIndex(224);
+$body_cells = [];
+
+$body_cells[0] = new Models\V1PageCell;
+$body_cells[0]->setPageId('page_id8');
+$body_cells[0]->setRow(2);
+$body_cells[0]->setColumn(80);
+$body_cells[0]->setObjectType(Models\V1PageCellObjectType::ITEM);
+$body_cells[0]->setObjectId('object_id6');
+$body->setCells($body_cells);
+
 
 $apiResponse = $v1ItemsApi->createPage($locationId, $body);
 
@@ -1567,6 +1677,19 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $pageId = 'page_id0';
 $body = new Models\V1Page;
+$body->setId('id6');
+$body->setName('name6');
+$body->setPageIndex(224);
+$body_cells = [];
+
+$body_cells[0] = new Models\V1PageCell;
+$body_cells[0]->setPageId('page_id8');
+$body_cells[0]->setRow(2);
+$body_cells[0]->setColumn(80);
+$body_cells[0]->setObjectType(Models\V1PageCellObjectType::ITEM);
+$body_cells[0]->setObjectId('object_id6');
+$body->setCells($body_cells);
+
 
 $apiResponse = $v1ItemsApi->updatePage($locationId, $pageId, $body);
 
@@ -1616,8 +1739,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $locationId = 'location_id4';
 $pageId = 'page_id0';
+$row = 'row0';
+$column = 'column4';
 
-$apiResponse = $v1ItemsApi->deletePageCell($locationId, $pageId);
+$apiResponse = $v1ItemsApi->deletePageCell($locationId, $pageId, $row, $column);
 
 if ($apiResponse->isSuccess()) {
     $v1Page = $apiResponse->getResult();
@@ -1656,6 +1781,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $locationId = 'location_id4';
 $pageId = 'page_id0';
 $body = new Models\V1PageCell;
+$body->setPageId('page_id6');
+$body->setRow(22);
+$body->setColumn(60);
+$body->setObjectType(Models\V1PageCellObjectType::ITEM);
+$body->setObjectId('object_id4');
 
 $apiResponse = $v1ItemsApi->updatePageCell($locationId, $pageId, $body);
 

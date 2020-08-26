@@ -8,19 +8,19 @@ Provides metadata when the event `type` is `ACCUMULATE_POINTS`.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `loyaltyProgramId` | `?string` | Optional | The ID of the [loyalty program](#type-LoyaltyProgram). |
-| `points` | `?int` | Optional | The number of points accumulated by the event. |
-| `orderId` | `?string` | Optional | The ID of the [order](#type-Order) for which the buyer accumulated the points.<br>This field is returned only if the Orders API is used to process orders. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `loyaltyProgramId` | `?string` | Optional | The ID of the [loyalty program](#type-LoyaltyProgram). | getLoyaltyProgramId(): ?string | setLoyaltyProgramId(?string loyaltyProgramId): void |
+| `points` | `?int` | Optional | The number of points accumulated by the event. | getPoints(): ?int | setPoints(?int points): void |
+| `orderId` | `?string` | Optional | The ID of the [order](#type-Order) for which the buyer accumulated the points.<br>This field is returned only if the Orders API is used to process orders. | getOrderId(): ?string | setOrderId(?string orderId): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "loyalty_program_id": null,
-  "points": null,
-  "order_id": null
+  "loyalty_program_id": "loyalty_program_id0",
+  "points": 236,
+  "order_id": "order_id6"
 }
 ```
 

@@ -30,7 +30,7 @@ function listEmployees(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `locationId` | `?string` | Query, Optional | Filter employees returned to only those that are associated with the specified location. |
+| `locationId` | `?string` | Query, Optional | -  |
 | `status` | [`?string (EmployeeStatus)`](/doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `?int` | Query, Optional | The number of employees to be returned on each page. |
 | `cursor` | `?string` | Query, Optional | The token required to retrieve the specified page of results. |
@@ -42,7 +42,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ### Example Usage
 
 ```php
-$apiResponse = $employeesApi->listEmployees();
+$locationId = 'location_id4';
+$status = Models\EmployeeStatus::ACTIVE;
+$limit = 172;
+$cursor = 'cursor6';
+
+$apiResponse = $employeesApi->listEmployees($locationId, $status, $limit, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listEmployeesResponse = $apiResponse->getResult();

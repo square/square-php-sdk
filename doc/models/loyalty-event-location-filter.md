@@ -8,9 +8,9 @@ Filter events by location.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `locationIds` | `string[]` | The [location](#type-Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `locationIds` | `string[]` | The [location](#type-Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. | getLocationIds(): array | setLocationIds(array locationIds): void |
 
 ### Example (as JSON)
 

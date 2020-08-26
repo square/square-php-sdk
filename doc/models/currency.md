@@ -156,7 +156,7 @@ to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
 | `TMT` | Turkmenistan manat |
 | `TND` | Tunisian dinar |
 | `TOP` | Tongan pa'anga |
-| `TRY_` | Turkish lira |
+| `TRY` | Turkish lira |
 | `TTD` | Trinidad and Tobago dollar |
 | `TWD` | New Taiwan dollar |
 | `TZS` | Tanzanian shilling |

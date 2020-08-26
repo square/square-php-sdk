@@ -6,9 +6,9 @@ namespace Square\Models;
 
 /**
  * Represents a generic time range. The start and end values are
- * represented in RFC-3339 format. Time ranges are customized to be
+ * represented in RFC 3339 format. Time ranges are customized to be
  * inclusive or exclusive based on the needs of a particular endpoint.
- * Refer to the relevent endpoint-specific documentation to determine
+ * Refer to the relevant endpoint-specific documentation to determine
  * how time ranges are handled.
  */
 class TimeRange implements \JsonSerializable
@@ -26,7 +26,7 @@ class TimeRange implements \JsonSerializable
     /**
      * Returns Start At.
      *
-     * A datetime value in RFC-3339 format indicating when the time range
+     * A datetime value in RFC 3339 format indicating when the time range
      * starts.
      */
     public function getStartAt(): ?string
@@ -37,7 +37,7 @@ class TimeRange implements \JsonSerializable
     /**
      * Sets Start At.
      *
-     * A datetime value in RFC-3339 format indicating when the time range
+     * A datetime value in RFC 3339 format indicating when the time range
      * starts.
      *
      * @maps start_at
@@ -50,7 +50,7 @@ class TimeRange implements \JsonSerializable
     /**
      * Returns End At.
      *
-     * A datetime value in RFC-3339 format indicating when the time range
+     * A datetime value in RFC 3339 format indicating when the time range
      * ends.
      */
     public function getEndAt(): ?string
@@ -61,7 +61,7 @@ class TimeRange implements \JsonSerializable
     /**
      * Sets End At.
      *
-     * A datetime value in RFC-3339 format indicating when the time range
+     * A datetime value in RFC 3339 format indicating when the time range
      * ends.
      *
      * @maps end_at

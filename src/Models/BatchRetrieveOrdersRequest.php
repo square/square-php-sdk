@@ -11,6 +11,11 @@ namespace Square\Models;
 class BatchRetrieveOrdersRequest implements \JsonSerializable
 {
     /**
+     * @var string|null
+     */
+    private $locationId;
+
+    /**
      * @var string[]
      */
     private $orderIds;
@@ -21,6 +26,30 @@ class BatchRetrieveOrdersRequest implements \JsonSerializable
     public function __construct(array $orderIds)
     {
         $this->orderIds = $orderIds;
+    }
+
+    /**
+     * Returns Location Id.
+     *
+     * The ID of the location for these orders. This field is optional: omit it to retrieve
+     * orders within the scope of the current authorization's merchant ID.
+     */
+    public function getLocationId(): ?string
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * Sets Location Id.
+     *
+     * The ID of the location for these orders. This field is optional: omit it to retrieve
+     * orders within the scope of the current authorization's merchant ID.
+     *
+     * @maps location_id
+     */
+    public function setLocationId(?string $locationId): void
+    {
+        $this->locationId = $locationId;
     }
 
     /**
@@ -58,7 +87,8 @@ class BatchRetrieveOrdersRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_ids'] = $this->orderIds;
+        $json['location_id'] = $this->locationId;
+        $json['order_ids']  = $this->orderIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

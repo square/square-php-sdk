@@ -11,13 +11,13 @@ results.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `locationIds` | `?(string[])` | Optional | The location IDs for the orders to query. All locations must belong to<br>the same merchant.<br><br>Min: 1 location IDs.<br><br>Max: 10 location IDs. |
-| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `query` | [`?SearchOrdersQuery`](/doc/models/search-orders-query.md) | Optional | Contains query criteria for the search. |
-| `limit` | `?int` | Optional | Maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500` |
-| `returnEntries` | `?bool` | Optional | Boolean that controls the format of the search results. If `true`,<br>SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders<br>will return complete Order objects.<br><br>Default: `false`. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `locationIds` | `?(string[])` | Optional | The location IDs for the orders to query. All locations must belong to<br>the same merchant.<br><br>Min: 1 location IDs.<br><br>Max: 10 location IDs. | getLocationIds(): ?array | setLocationIds(?array locationIds): void |
+| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
+| `query` | [`?SearchOrdersQuery`](/doc/models/search-orders-query.md) | Optional | Contains query criteria for the search. | getQuery(): ?SearchOrdersQuery | setQuery(?SearchOrdersQuery query): void |
+| `limit` | `?int` | Optional | Maximum number of results to be returned in a single page. It is<br>possible to receive fewer results than the specified limit on a given page.<br><br>Default: `500` | getLimit(): ?int | setLimit(?int limit): void |
+| `returnEntries` | `?bool` | Optional | Boolean that controls the format of the search results. If `true`,<br>SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders<br>will return complete Order objects.<br><br>Default: `false`. | getReturnEntries(): ?bool | setReturnEntries(?bool returnEntries): void |
 
 ### Example (as JSON)
 

@@ -8,10 +8,10 @@ Represents a phone number.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `callingCode` | `string` | The phone number's international calling code. For US phone numbers, this value is +1. |
-| `number` | `string` | The phone number. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `callingCode` | `string` | The phone number's international calling code. For US phone numbers, this value is +1. | getCallingCode(): string | setCallingCode(string callingCode): void |
+| `number` | `string` | The phone number. | getNumber(): string | setNumber(string number): void |
 
 ### Example (as JSON)
 

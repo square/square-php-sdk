@@ -8,9 +8,9 @@ Represents an update request for a `TeamMember` object.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `teamMember` | [`?TeamMember`](/doc/models/team-member.md) | Optional | A record representing an individual team member for a business. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `teamMember` | [`?TeamMember`](/doc/models/team-member.md) | Optional | A record representing an individual team member for a business. | getTeamMember(): ?TeamMember | setTeamMember(?TeamMember teamMember): void |
 
 ### Example (as JSON)
 

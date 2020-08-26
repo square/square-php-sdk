@@ -8,9 +8,9 @@ Describes when the loyalty program expires.
 
 ### Fields
 
-| Name | Type | Description |
-|  --- | --- | --- |
-| `expirationDuration` | `string` | The duration of time before points expire, in RFC 3339 format. |
+| Name | Type | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- |
+| `expirationDuration` | `string` | The duration of time before points expire, in RFC 3339 format. | getExpirationDuration(): string | setExpirationDuration(string expirationDuration): void |
 
 ### Example (as JSON)
 

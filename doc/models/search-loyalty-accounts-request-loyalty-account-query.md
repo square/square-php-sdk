@@ -8,15 +8,22 @@ The search criteria for the loyalty accounts.
 
 ### Fields
 
-| Name | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `mappings` | [`?(LoyaltyAccountMapping[])`](/doc/models/loyalty-account-mapping.md) | Optional | The set of mappings to use in the loyalty account search. |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `mappings` | [`?(LoyaltyAccountMapping[])`](/doc/models/loyalty-account-mapping.md) | Optional | The set of mappings to use in the loyalty account search. | getMappings(): ?array | setMappings(?array mappings): void |
 
 ### Example (as JSON)
 
 ```json
 {
-  "mappings": null
+  "mappings": [
+    {
+      "id": "id4",
+      "type": "type6",
+      "value": "value6",
+      "created_at": "created_at8"
+    }
+  ]
 }
 ```
 

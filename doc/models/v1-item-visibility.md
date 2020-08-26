@@ -8,6 +8,6 @@
 
 | Name |
 |  --- |
-| `PUBLIC_` |
-| `PRIVATE_` |
+| `PUBLIC` |
+| `PRIVATE` |
 
