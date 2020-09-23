@@ -288,8 +288,8 @@ function captureTransaction(string $locationId, string $transactionId): ApiRespo
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `locationId` | `string` | Template, Required | -  |
-| `transactionId` | `string` | Template, Required | -  |
+| `locationId` | `string` | Template, Required | - |
+| `transactionId` | `string` | Template, Required | - |
 
 ### Response Type
 
@@ -388,8 +388,8 @@ function voidTransaction(string $locationId, string $transactionId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `locationId` | `string` | Template, Required | -  |
-| `transactionId` | `string` | Template, Required | -  |
+| `locationId` | `string` | Template, Required | - |
+| `transactionId` | `string` | Template, Required | - |
 
 ### Response Type
 

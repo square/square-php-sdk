@@ -60,6 +60,14 @@ class RefundsApi extends BaseApi
      *
      *                                Default: If omitted refunds are returned regardless of
      *                                source type.
+     * @param int|null $limit Maximum number of results to be returned in a single page.
+     *                        It is possible to receive fewer results than the specified limit on
+     *                        a given page.
+     *
+     *                        If the supplied value is greater than 100, at most 100 results will
+     *                        be returned.
+     *
+     *                        Default: `100`
      *
      * @return ApiResponse Response from the API call
      *
@@ -72,7 +80,8 @@ class RefundsApi extends BaseApi
         ?string $cursor = null,
         ?string $locationId = null,
         ?string $status = null,
-        ?string $sourceType = null
+        ?string $sourceType = null,
+        ?int $limit = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/refunds';
@@ -86,6 +95,7 @@ class RefundsApi extends BaseApi
             'location_id' => $locationId,
             'status'      => $status,
             'source_type' => $sourceType,
+            'limit'       => $limit,
         ]);
 
         //validate and preprocess url
@@ -135,8 +145,7 @@ class RefundsApi extends BaseApi
 
     /**
      * Refunds a payment. You can refund the entire payment amount or a
-     * portion of it. For more information, see
-     * [Payments and Refunds Overview](https://developer.squareup.com/docs/payments-api/overview).
+     * portion of it.
      *
      * @param \Square\Models\RefundPaymentRequest $body An object containing the fields to POST
      *                                                  for the request.

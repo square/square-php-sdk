@@ -17,7 +17,7 @@ V1BankAccount
 | `routingNumber` | `?string` | Optional | The bank account's routing number. | getRoutingNumber(): ?string | setRoutingNumber(?string routingNumber): void |
 | `accountNumberSuffix` | `?string` | Optional | The last few digits of the bank account number. | getAccountNumberSuffix(): ?string | setAccountNumberSuffix(?string accountNumberSuffix): void |
 | `currencyCode` | `?string` | Optional | The currency code of the currency associated with the bank account, in ISO 4217 format. For example, the currency code for US dollars is USD. | getCurrencyCode(): ?string | setCurrencyCode(?string currencyCode): void |
-| `type` | [`?string (V1BankAccountType)`](/doc/models/v1-bank-account-type.md) | Optional | -  | getType(): ?string | setType(?string type): void |
+| `type` | [`?string (V1BankAccountType)`](/doc/models/v1-bank-account-type.md) | Optional | - | getType(): ?string | setType(?string type): void |
 
 ### Example (as JSON)
 

@@ -16,7 +16,7 @@ Represents one of a business's employees.
 | `roleIds` | `?(string[])` | Optional | The ids of the employee's associated roles. Currently, you can specify only one or zero roles per employee. | getRoleIds(): ?array | setRoleIds(?array roleIds): void |
 | `authorizedLocationIds` | `?(string[])` | Optional | The IDs of the locations the employee is allowed to clock in at. | getAuthorizedLocationIds(): ?array | setAuthorizedLocationIds(?array authorizedLocationIds): void |
 | `email` | `?string` | Optional | The employee's email address. | getEmail(): ?string | setEmail(?string email): void |
-| `status` | [`?string (V1EmployeeStatus)`](/doc/models/v1-employee-status.md) | Optional | -  | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string (V1EmployeeStatus)`](/doc/models/v1-employee-status.md) | Optional | - | getStatus(): ?string | setStatus(?string status): void |
 | `externalId` | `?string` | Optional | An ID the merchant can set to associate the employee with an entity in another system. | getExternalId(): ?string | setExternalId(?string externalId): void |
 | `createdAt` | `?string` | Optional | The time when the employee entity was created, in ISO 8601 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The time when the employee entity was most recently updated, in ISO 8601 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |

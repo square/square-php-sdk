@@ -12,7 +12,7 @@
 | `beginTime` | `?string` | Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. | getBeginTime(): ?string | setBeginTime(?string beginTime): void |
 | `endTime` | `?string` | Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. | getEndTime(): ?string | setEndTime(?string endTime): void |
 | `limit` | `?int` | Optional | The maximum number of settlements to return in a single response. This value cannot exceed 200. | getLimit(): ?int | setLimit(?int limit): void |
-| `status` | [`?string (V1ListSettlementsRequestStatus)`](/doc/models/v1-list-settlements-request-status.md) | Optional | -  | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string (V1ListSettlementsRequestStatus)`](/doc/models/v1-list-settlements-request-status.md) | Optional | - | getStatus(): ?string | setStatus(?string status): void |
 | `batchToken` | `?string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. | getBatchToken(): ?string | setBatchToken(?string batchToken): void |
 
 ### Example (as JSON)

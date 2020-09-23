@@ -484,8 +484,8 @@ function createCatalogImage(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request` | [`?CreateCatalogImageRequest`](/doc/models/create-catalog-image-request.md) | Form, Optional | -  |
-| `imageFile` | `?\Square\Utils\FileWrapper` | Form, Optional | -  |
+| `request` | [`?CreateCatalogImageRequest`](/doc/models/create-catalog-image-request.md) | Form, Optional | - |
+| `imageFile` | `?\Square\Utils\FileWrapper` | Form, Optional | - |
 
 ### Response Type
 

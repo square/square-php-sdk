@@ -12,7 +12,7 @@ V1ModifierList
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The modifier list's unique ID. | getId(): ?string | setId(?string id): void |
 | `name` | `?string` | Optional | The modifier list's name. | getName(): ?string | setName(?string name): void |
-| `selectionType` | [`?string (V1ModifierListSelectionType)`](/doc/models/v1-modifier-list-selection-type.md) | Optional | -  | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
+| `selectionType` | [`?string (V1ModifierListSelectionType)`](/doc/models/v1-modifier-list-selection-type.md) | Optional | - | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
 | `modifierOptions` | [`?(V1ModifierOption[])`](/doc/models/v1-modifier-option.md) | Optional | The options included in the modifier list. | getModifierOptions(): ?array | setModifierOptions(?array modifierOptions): void |
 | `v2Id` | `?string` | Optional | The ID of the CatalogObject in the Connect v2 API. Objects that are shared across multiple locations share the same v2 ID. | getV2Id(): ?string | setV2Id(?string v2Id): void |
 

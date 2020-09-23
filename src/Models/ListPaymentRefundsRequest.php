@@ -47,6 +47,11 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     private $sourceType;
 
     /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
      * Returns Begin Time.
      *
      * Timestamp for the beginning of the requested reporting period, in RFC 3339 format.
@@ -235,6 +240,38 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Limit.
+     *
+     * Maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     *
+     * If the supplied value is greater than 100, at most 100 results will be returned.
+     *
+     * Default: `100`
+     */
+    public function getLimit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * Sets Limit.
+     *
+     * Maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     *
+     * If the supplied value is greater than 100, at most 100 results will be returned.
+     *
+     * Default: `100`
+     *
+     * @maps limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -249,6 +286,7 @@ class ListPaymentRefundsRequest implements \JsonSerializable
         $json['location_id'] = $this->locationId;
         $json['status']     = $this->status;
         $json['source_type'] = $this->sourceType;
+        $json['limit']      = $this->limit;
 
         return array_filter($json, function ($val) {
             return $val !== null;

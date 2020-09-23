@@ -52,6 +52,11 @@ class ListPaymentsRequest implements \JsonSerializable
     private $cardBrand;
 
     /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
      * Returns Begin Time.
      *
      * Timestamp for the beginning of the reporting period, in RFC 3339 format.
@@ -159,7 +164,7 @@ class ListPaymentsRequest implements \JsonSerializable
      * Returns Location Id.
      *
      * Limit results to the location supplied. By default, results are returned
-     * for all locations associated with the merchant.
+     * for the default (main) location associated with the merchant.
      */
     public function getLocationId(): ?string
     {
@@ -170,7 +175,7 @@ class ListPaymentsRequest implements \JsonSerializable
      * Sets Location Id.
      *
      * Limit results to the location supplied. By default, results are returned
-     * for all locations associated with the merchant.
+     * for the default (main) location associated with the merchant.
      *
      * @maps location_id
      */
@@ -246,6 +251,38 @@ class ListPaymentsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Limit.
+     *
+     * Maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     *
+     * If the supplied value is greater than 100, at most 100 results will be returned.
+     *
+     * Default: `100`
+     */
+    public function getLimit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * Sets Limit.
+     *
+     * Maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     *
+     * If the supplied value is greater than 100, at most 100 results will be returned.
+     *
+     * Default: `100`
+     *
+     * @maps limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -261,6 +298,7 @@ class ListPaymentsRequest implements \JsonSerializable
         $json['total']      = $this->total;
         $json['last_4']     = $this->last4;
         $json['card_brand'] = $this->cardBrand;
+        $json['limit']      = $this->limit;
 
         return array_filter($json, function ($val) {
             return $val !== null;

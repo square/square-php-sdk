@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `items` | [`?(V1ModifierList[])`](/doc/models/v1-modifier-list.md) | Optional | -  | getItems(): ?array | setItems(?array items): void |
+| `items` | [`?(V1ModifierList[])`](/doc/models/v1-modifier-list.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
 ### Example (as JSON)
 

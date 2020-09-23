@@ -30,7 +30,7 @@ function listEmployees(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `locationId` | `?string` | Query, Optional | -  |
+| `locationId` | `?string` | Query, Optional | - |
 | `status` | [`?string (EmployeeStatus)`](/doc/models/employee-status.md) | Query, Optional | Specifies the EmployeeStatus to filter the employee by. |
 | `limit` | `?int` | Query, Optional | The number of employees to be returned on each page. |
 | `cursor` | `?string` | Query, Optional | The token required to retrieve the specified page of results. |

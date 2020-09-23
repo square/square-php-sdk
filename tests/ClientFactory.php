@@ -21,12 +21,16 @@ class ClientFactory
     {
         $config = [];
         $timeout = getenv('SQUARE_TIMEOUT');
+        $squareVersion = getenv('SQUARE_SQUARE_VERSION');
         $accessToken = getenv('SQUARE_ACCESS_TOKEN');
         $environment = getenv('SQUARE_ENVIRONMENT');
-        $baseUrl = getenv('SQUARE_BASE_URL');
 
         if ($timeout !== false && \is_numeric($timeout)) {
             $config['timeout'] = intval($timeout);
+        }
+
+        if ($squareVersion !== false) {
+            $config['squareVersion'] = $squareVersion;
         }
 
         if ($accessToken !== false) {
@@ -35,10 +39,6 @@ class ClientFactory
 
         if ($environment !== false) {
             $config['environment'] = $environment;
-        }
-
-        if ($baseUrl !== false) {
-            $config['baseUrl'] = $baseUrl;
         }
 
         return $config;

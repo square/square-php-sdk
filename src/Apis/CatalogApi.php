@@ -292,7 +292,7 @@ class CatalogApi extends BaseApi
         //prepare parameters
         $_parameters = [
             'request'  => json_encode($request),
-            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance()
+            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl, $_parameters);

@@ -11,7 +11,7 @@ A response that includes the loyalty reward created.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `reward` | [`?LoyaltyReward`](/doc/models/loyalty-reward.md) | Optional | -  | getReward(): ?LoyaltyReward | setReward(?LoyaltyReward reward): void |
+| `reward` | [`?LoyaltyReward`](/doc/models/loyalty-reward.md) | Optional | - | getReward(): ?LoyaltyReward | setReward(?LoyaltyReward reward): void |
 
 ### Example (as JSON)
 

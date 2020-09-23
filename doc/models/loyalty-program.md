@@ -12,7 +12,7 @@
 | `status` | [`string (LoyaltyProgramStatus)`](/doc/models/loyalty-program-status.md) |  | Whether the program is currently active. | getStatus(): string | setStatus(string status): void |
 | `rewardTiers` | [`LoyaltyProgramRewardTier[]`](/doc/models/loyalty-program-reward-tier.md) |  | The list of rewards for buyers, sorted by ascending points. | getRewardTiers(): array | setRewardTiers(array rewardTiers): void |
 | `expirationPolicy` | [`?LoyaltyProgramExpirationPolicy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. | getExpirationPolicy(): ?LoyaltyProgramExpirationPolicy | setExpirationPolicy(?LoyaltyProgramExpirationPolicy expirationPolicy): void |
-| `terminology` | [`LoyaltyProgramTerminology`](/doc/models/loyalty-program-terminology.md) |  | -  | getTerminology(): LoyaltyProgramTerminology | setTerminology(LoyaltyProgramTerminology terminology): void |
+| `terminology` | [`LoyaltyProgramTerminology`](/doc/models/loyalty-program-terminology.md) |  | - | getTerminology(): LoyaltyProgramTerminology | setTerminology(LoyaltyProgramTerminology terminology): void |
 | `locationIds` | `string[]` |  | The [locations](#type-Location) at which the program is active. | getLocationIds(): array | setLocationIds(array locationIds): void |
 | `createdAt` | `string` |  | The timestamp when the program was created, in RFC 3339 format. | getCreatedAt(): string | setCreatedAt(string createdAt): void |
 | `updatedAt` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format. | getUpdatedAt(): string | setUpdatedAt(string updatedAt): void |

@@ -153,6 +153,9 @@ class OrderLineItem implements \JsonSerializable
      * The quantity purchased, formatted as a decimal number.
      * For example: `"3"`.
      *
+     * Line items with a quantity of `"0"` will be automatically removed
+     * upon paying for or otherwise completing the order.
+     *
      * Line items with a `quantity_unit` can have non-integer quantities.
      * For example: `"1.70000"`.
      */
@@ -166,6 +169,9 @@ class OrderLineItem implements \JsonSerializable
      *
      * The quantity purchased, formatted as a decimal number.
      * For example: `"3"`.
+     *
+     * Line items with a quantity of `"0"` will be automatically removed
+     * upon paying for or otherwise completing the order.
      *
      * Line items with a `quantity_unit` can have non-integer quantities.
      * For example: `"1.70000"`.

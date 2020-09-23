@@ -10,7 +10,7 @@ A request to create a loyalty reward.
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
-| `reward` | [`LoyaltyReward`](/doc/models/loyalty-reward.md) | -  | getReward(): LoyaltyReward | setReward(LoyaltyReward reward): void |
+| `reward` | [`LoyaltyReward`](/doc/models/loyalty-reward.md) | - | getReward(): LoyaltyReward | setReward(LoyaltyReward reward): void |
 | `idempotencyKey` | `string` | A unique string that identifies this `CreateLoyaltyReward` request.<br>Keys can be any valid string, but must be unique for every request. | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
 
 ### Example (as JSON)
