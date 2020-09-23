@@ -29,11 +29,13 @@ class LocationsApiTest extends TestCase
         self::$controller = new \Square\Apis\LocationsApi($config, self::$httpResponse);
     }
 
+
     /**
      * Provides information of all locations of a business.
-     * Most other Connect API endpoints have a required `location_id` path parameter.
-     * The `id` field of the [`Location`](#type-location) objects returned by this
-     * endpoint correspond to that `location_id` parameter.
+
+Most other Connect API endpoints have a required `location_id` path parameter.
+The `id` field of the [`Location`](#type-location) objects returned by this
+endpoint correspond to that `location_id` parameter.
      */
     public function testListLocations()
     {

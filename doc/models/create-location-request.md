@@ -10,7 +10,7 @@ Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | -  | getLocation(): ?Location | setLocation(?Location location): void |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | - | getLocation(): ?Location | setLocation(?Location location): void |
 
 ### Example (as JSON)
 

@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `items` | [`?(V1BankAccount[])`](/doc/models/v1-bank-account.md) | Optional | -  | getItems(): ?array | setItems(?array items): void |
+| `items` | [`?(V1BankAccount[])`](/doc/models/v1-bank-account.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
 ### Example (as JSON)
 

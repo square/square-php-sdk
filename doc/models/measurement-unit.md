@@ -17,7 +17,7 @@ or inches. Exactly one of the following fields are required: `custom_unit`,
 | `lengthUnit` | [`?string (MeasurementUnitLength)`](/doc/models/measurement-unit-length.md) | Optional | The unit of length used to measure a quantity. | getLengthUnit(): ?string | setLengthUnit(?string lengthUnit): void |
 | `volumeUnit` | [`?string (MeasurementUnitVolume)`](/doc/models/measurement-unit-volume.md) | Optional | The unit of volume used to measure a quantity. | getVolumeUnit(): ?string | setVolumeUnit(?string volumeUnit): void |
 | `weightUnit` | [`?string (MeasurementUnitWeight)`](/doc/models/measurement-unit-weight.md) | Optional | Unit of weight used to measure a quantity. | getWeightUnit(): ?string | setWeightUnit(?string weightUnit): void |
-| `genericUnit` | [`?string (MeasurementUnitGeneric)`](/doc/models/measurement-unit-generic.md) | Optional | -  | getGenericUnit(): ?string | setGenericUnit(?string genericUnit): void |
+| `genericUnit` | [`?string (MeasurementUnitGeneric)`](/doc/models/measurement-unit-generic.md) | Optional | - | getGenericUnit(): ?string | setGenericUnit(?string genericUnit): void |
 | `timeUnit` | [`?string (MeasurementUnitTime)`](/doc/models/measurement-unit-time.md) | Optional | Unit of time used to measure a quantity (a duration). | getTimeUnit(): ?string | setTimeUnit(?string timeUnit): void |
 | `type` | [`?string (MeasurementUnitUnitType)`](/doc/models/measurement-unit-unit-type.md) | Optional | Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum. | getType(): ?string | setType(?string type): void |
 

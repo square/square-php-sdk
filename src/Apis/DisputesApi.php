@@ -177,8 +177,6 @@ class DisputesApi extends BaseApi
      * Square debits the disputed amount from the seller’s Square
      * account. If the Square account balance does not have
      * sufficient funds, Square debits the associated bank account.
-     * For an overview of the Disputes API, see [Overview](https://developer.squareup.
-     * com/docs/docs/disputes-api/overview).
      *
      * @param string $disputeId ID of the dispute you want to accept.
      *
@@ -450,8 +448,6 @@ class DisputesApi extends BaseApi
      * Uploads a file to use as evidence in a dispute challenge. The endpoint accepts
      * HTTP multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG,
      * and TIFF formats.
-     * For more information, see [Challenge a Dispute](https://developer.squareup.com/docs/docs/disputes-
-     * api/process-disputes#challenge-a-dispute).
      *
      * @param string $disputeId ID of the dispute you want to upload evidence for.
      * @param \Square\Models\CreateDisputeEvidenceFileRequest|null $request Defines parameters for
@@ -492,7 +488,7 @@ class DisputesApi extends BaseApi
         //prepare parameters
         $_parameters = [
             'request'  => json_encode($request),
-            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance()
+            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl, $_parameters);
@@ -529,9 +525,7 @@ class DisputesApi extends BaseApi
     }
 
     /**
-     * Uploads text to use as evidence for a dispute challenge. For more information, see
-     * [Challenge a Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
-     * disputes#challenge-a-dispute).
+     * Uploads text to use as evidence for a dispute challenge.
      *
      * @param string $disputeId The ID of the dispute you want to upload evidence for.
      * @param \Square\Models\CreateDisputeEvidenceTextRequest $body An object containing the
@@ -615,9 +609,7 @@ class DisputesApi extends BaseApi
      * [CreateDisputeEvidenceText](https://developer.squareup.com/docs/reference/square/disputes-api/create-
      * dispute-evidence-text) endpoints,
      * and evidence automatically provided by Square, when
-     * available. For more information, see
-     * [Challenge a Dispute](https://developer.squareup.com/docs/docs/disputes-api/process-
-     * disputes#challenge-a-dispute).
+     * available.
      *
      * @param string $disputeId The ID of the dispute you want to submit evidence for.
      *

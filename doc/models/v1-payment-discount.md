@@ -11,7 +11,7 @@ V1PaymentDiscount
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `name` | `?string` | Optional | The discount's name. | getName(): ?string | setName(?string name): void |
-| `appliedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getAppliedMoney(): ?V1Money | setAppliedMoney(?V1Money appliedMoney): void |
+| `appliedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getAppliedMoney(): ?V1Money | setAppliedMoney(?V1Money appliedMoney): void |
 | `discountId` | `?string` | Optional | The ID of the applied discount, if available. Discounts applied in older versions of Square Register might not have an ID. | getDiscountId(): ?string | setDiscountId(?string discountId): void |
 
 ### Example (as JSON)

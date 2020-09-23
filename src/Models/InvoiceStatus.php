@@ -11,7 +11,7 @@ class InvoiceStatus
 {
     /**
      * The invoice is a draft. You must publish a draft invoice before Square can process it.
-     * A draft invoice has no public_url, so it is not available to customers.
+     * A draft invoice has no `public_url`, so it is not available to customers.
      */
     public const DRAFT = 'DRAFT';
 
@@ -21,10 +21,10 @@ class InvoiceStatus
     public const UNPAID = 'UNPAID';
 
     /**
-     * The invoice is scheduled to be processed. On scheduled date,
-     * Square emails the invoice (if the `request_method` is EMAIL),
-     * charge the customer's card (if `request_method` is CHARGE_CARD_ON_FILE),
-     * or take no action (if the `request_method` is SHARE_MANUALLY).
+     * The invoice is scheduled to be processed. On the scheduled date,
+     * Square emails the invoice (if the `request_method` is `EMAIL`),
+     * charges the customer's card (if the `request_method` is `CHARGE_CARD_ON_FILE`),
+     * or takes no action (if the `request_method` is `SHARE_MANUALLY`).
      * The invoice status then changes accordingly (`UNPAID`, `PAID`, or `PARTIALLY_PAID`).
      */
     public const SCHEDULED = 'SCHEDULED';
@@ -61,4 +61,11 @@ class InvoiceStatus
      * Square canceled the invoice due to suspicious activity.
      */
     public const FAILED = 'FAILED';
+
+    /**
+     * A payment on the invoice was initiated but has not yet been processed.
+     *
+     * When in this state, invoices cannot be updated and other payments cannot be initiated.
+     */
+    public const PAYMENT_PENDING = 'PAYMENT_PENDING';
 }

@@ -27,7 +27,7 @@ class FileWrapper
     /**
      * Create FileWrapper instance from a file on disk
      */
-    public static function createFromPath(string $realFilePath, ?string $mimeType = '', ?string $filename = ''): self
+    public static function createFromPath(string $realFilePath, ?string $mimeType = null, ?string $filename = ''): self
     {
         return new self($realFilePath, $mimeType, $filename);
     }
@@ -58,8 +58,9 @@ class FileWrapper
     /**
      * Internal method: Do not use directly!
      */
-    public function createCurlFileInstance(): \CURLFile
+    public function createCurlFileInstance(string $defaultMimeType): \CURLFile
     {
-        return new \CURLFile($this->realFilePath, $this->mimeType, $this->filename);
+        $mimeType = $this->mimeType ?? $defaultMimeType;
+        return new \CURLFile($this->realFilePath, $mimeType, $this->filename);
     }
 }

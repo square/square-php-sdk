@@ -27,8 +27,7 @@ guide.
 
 You can modify open orders using the [UpdateOrder](#endpoint-orders-updateorder) endpoint.
 
-To learn more about the Orders API, see the
-[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
+Create Orders: [https://developer.squareup.com/docs/orders-api/create-orders](https://developer.squareup.com/docs/orders-api/create-orders)
 
 ```php
 function createOrder(CreateOrderRequest $body): ApiResponse
@@ -195,6 +194,8 @@ if ($apiResponse->isSuccess()) {
 Retrieves a set of [Order](#type-order)s by their IDs.
 
 If a given Order ID does not exist, the ID is ignored instead of generating an error.
+
+Retrieve orders: [https://developer.squareup.com/docs/orders-api/manage-orders#retrieve-orders](https://developer.squareup.com/docs/orders-api/manage-orders#retrieve-orders)
 
 ```php
 function batchRetrieveOrders(BatchRetrieveOrdersRequest $body): ApiResponse
@@ -387,6 +388,8 @@ offline mode may not be transmitted to Square for up to 72 hours. Offline
 orders have a `created_at` value that reflects the time the order was created,
 not the time it was subsequently transmitted to Square.
 
+Search orders: [https://developer.squareup.com/docs/orders-api/manage-orders#search-orders](https://developer.squareup.com/docs/orders-api/manage-orders#search-orders)
+
 ```php
 function searchOrders(SearchOrdersRequest $body): ApiResponse
 ```
@@ -468,8 +471,7 @@ An UpdateOrder request requires the following:
 
 To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
 
-To learn more about the Orders API, see the
-[Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
+Update orders: [https://developer.squareup.com/docs/orders-api/manage-orders#update-orders](https://developer.squareup.com/docs/orders-api/manage-orders#update-orders)
 
 ```php
 function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
@@ -580,7 +582,7 @@ To be used with PayOrder, a payment must:
 - Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-capture).
   Using a delayed capture payment with PayOrder will complete the approved payment.
 
-Learn how to [pay for orders with a single payment using the Payments API](https://developer.squareup.com/docs/orders-api/pay-for-orders).
+Pay for Orders: [https://developer.squareup.com/docs/orders-api/pay-for-orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
 
 ```php
 function payOrder(string $orderId, PayOrderRequest $body): ApiResponse

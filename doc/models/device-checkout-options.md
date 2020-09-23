@@ -10,7 +10,7 @@
 |  --- | --- | --- | --- | --- | --- |
 | `deviceId` | `string` |  | The unique Id of the device intended for this `TerminalCheckout`.<br>The Id can be retrieved from /v2/devices api. | getDeviceId(): string | setDeviceId(string deviceId): void |
 | `skipReceiptScreen` | `?bool` | Optional | Instruct the device to skip the receipt screen. Defaults to false. | getSkipReceiptScreen(): ?bool | setSkipReceiptScreen(?bool skipReceiptScreen): void |
-| `tipSettings` | [`?TipSettings`](/doc/models/tip-settings.md) | Optional | -  | getTipSettings(): ?TipSettings | setTipSettings(?TipSettings tipSettings): void |
+| `tipSettings` | [`?TipSettings`](/doc/models/tip-settings.md) | Optional | - | getTipSettings(): ?TipSettings | setTipSettings(?TipSettings tipSettings): void |
 
 ### Example (as JSON)
 

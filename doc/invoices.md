@@ -24,7 +24,8 @@ $invoicesApi = $client->getInvoicesApi();
 Returns a list of invoices for a given location. The response
 is paginated. If truncated, the response includes a `cursor` that you  
 use in a subsequent request to fetch the next set of invoices.
-For more information about retrieving invoices, see [Retrieve invoices](https://developer.squareup.com/docs/docs/invoices-api/overview#retrieve-invoices).
+
+Retrieve an invoice: [https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice)
 
 ```php
 function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = null): ApiResponse
@@ -69,7 +70,8 @@ for an order created using the Orders API.
 
 A draft invoice remains in your account and no action is taken.
 You must publish the invoice before Square can process it (send it to the customer's email address or charge the customer’s card on file).
-For more information, see [Manage Invoices Using the Invoices API](https://developer.squareup.com/docs/docs/invoices-api/overview).
+
+Create and publish an invoice: [https://developer.squareup.com/docs/invoices-api/overview#create-and-publish-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#create-and-publish-an-invoice)
 
 ```php
 function createInvoice(CreateInvoiceRequest $body): ApiResponse
@@ -158,7 +160,8 @@ optionally one customer.
 
 The response is paginated. If truncated, the response includes a `cursor`
 that you use in a subsequent request to fetch the next set of invoices.
-For more information about retrieving invoices, see [Retrieve invoices](https://developer.squareup.com/docs/docs/invoices-api/overview#retrieve-invoices).
+
+Retrieve an invoice: [https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice)
 
 ```php
 function searchInvoices(SearchInvoicesRequest $body): ApiResponse
@@ -216,6 +219,8 @@ associated Order status changes to CANCELED. You can only delete a draft
 invoice (you cannot delete an invoice scheduled for publication, or a
 published invoice).
 
+Delete an invoice: [https://developer.squareup.com/docs/invoices-api/overview#delete-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#delete-an-invoice)
+
 ```php
 function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
 ```
@@ -253,6 +258,8 @@ if ($apiResponse->isSuccess()) {
 ## Get Invoice
 
 Retrieves an invoice by invoice ID.
+
+Retrieve an invoice: [https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#retrieve-an-invoice)
 
 ```php
 function getInvoice(string $invoiceId): ApiResponse
@@ -292,7 +299,8 @@ Updates an invoice by modifying field values, clearing field values, or both
 as specified in the request.
 There are no restrictions to updating an invoice in a draft state.
 However, there are guidelines for updating a published invoice.
-For more information, see [Update an invoice](https://developer.squareup.com/docs/docs/invoices-api/overview#update-an-invoice).
+
+Update an invoice: [https://developer.squareup.com/docs/invoices-api/overview#update-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#update-an-invoice)
 
 ```php
 function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiResponse
@@ -368,6 +376,8 @@ the canceled invoice.
 
 You cannot cancel an invoice in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
 
+Cancel an invoice: [https://developer.squareup.com/docs/invoices-api/overview#cancel-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#cancel-an-invoice)
+
 ```php
 function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiResponse
 ```
@@ -419,8 +429,7 @@ based on the invoice configuration. For example, the status changes to `UNPAID` 
 Square emails the invoice or `PARTIALLY_PAID` if Square charge a card on file for a portion of the
 invoice amount).
 
-For more information, see
-[Create and publish an invoice](https://developer.squareup.com/docs/docs/invoices-api/overview#create-and-publish-an-invoice).
+Create and publish an invoice: [https://developer.squareup.com/docs/invoices-api/overview#create-and-publish-an-invoice](https://developer.squareup.com/docs/invoices-api/overview#create-and-publish-an-invoice)
 
 ```php
 function publishInvoice(string $invoiceId, PublishInvoiceRequest $body): ApiResponse

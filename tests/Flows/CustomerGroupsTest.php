@@ -94,7 +94,7 @@ class CustomerGroupsTest extends TestCase
      */
     public function testUpdateCustomerGroup($groupId) 
     {
-        $body_group_name = uniqid('The Best Customers');
+        $body_group_name = uniqid('The Best Customers' );
         $body_group = new CustomerGroup(
             $body_group_name
         );

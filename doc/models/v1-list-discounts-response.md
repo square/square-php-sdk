@@ -8,7 +8,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `items` | [`?(V1Discount[])`](/doc/models/v1-discount.md) | Optional | -  | getItems(): ?array | setItems(?array items): void |
+| `items` | [`?(V1Discount[])`](/doc/models/v1-discount.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
 ### Example (as JSON)
 

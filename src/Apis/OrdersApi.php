@@ -32,9 +32,6 @@ class OrdersApi extends BaseApi
      *
      * You can modify open orders using the [UpdateOrder](#endpoint-orders-updateorder) endpoint.
      *
-     * To learn more about the Orders API, see the
-     * [Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-     *
      * @param \Square\Models\CreateOrderRequest $body An object containing the fields to POST for
      *                                                the request.
      *
@@ -337,9 +334,6 @@ class OrdersApi extends BaseApi
      * To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-
      * api/pay-for-orders) guide.
      *
-     * To learn more about the Orders API, see the
-     * [Orders API Overview](https://developer.squareup.com/docs/orders-api/what-it-does).
-     *
      * @param string $orderId The ID of the order to update.
      * @param \Square\Models\UpdateOrderRequest $body An object containing the fields to POST for
      *                                                the request.
@@ -427,9 +421,6 @@ class OrdersApi extends BaseApi
      * - Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-
      * payments#delayed-capture).
      * Using a delayed capture payment with PayOrder will complete the approved payment.
-     *
-     * Learn how to [pay for orders with a single payment using the Payments API](https://developer.
-     * squareup.com/docs/orders-api/pay-for-orders).
      *
      * @param string $orderId The ID of the order being paid.
      * @param \Square\Models\PayOrderRequest $body An object containing the fields to POST for the

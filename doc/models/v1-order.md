@@ -15,13 +15,13 @@ V1Order
 | `buyerEmail` | `?string` | Optional | The email address of the order's buyer. | getBuyerEmail(): ?string | setBuyerEmail(?string buyerEmail): void |
 | `recipientName` | `?string` | Optional | The name of the order's buyer. | getRecipientName(): ?string | setRecipientName(?string recipientName): void |
 | `recipientPhoneNumber` | `?string` | Optional | The phone number to use for the order's delivery. | getRecipientPhoneNumber(): ?string | setRecipientPhoneNumber(?string recipientPhoneNumber): void |
-| `state` | [`?string (V1OrderState)`](/doc/models/v1-order-state.md) | Optional | -  | getState(): ?string | setState(?string state): void |
+| `state` | [`?string (V1OrderState)`](/doc/models/v1-order-state.md) | Optional | - | getState(): ?string | setState(?string state): void |
 | `shippingAddress` | [`?Address`](/doc/models/address.md) | Optional | Represents a physical address. | getShippingAddress(): ?Address | setShippingAddress(?Address shippingAddress): void |
-| `subtotalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getSubtotalMoney(): ?V1Money | setSubtotalMoney(?V1Money subtotalMoney): void |
-| `totalShippingMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalShippingMoney(): ?V1Money | setTotalShippingMoney(?V1Money totalShippingMoney): void |
-| `totalTaxMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalTaxMoney(): ?V1Money | setTotalTaxMoney(?V1Money totalTaxMoney): void |
-| `totalPriceMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalPriceMoney(): ?V1Money | setTotalPriceMoney(?V1Money totalPriceMoney): void |
-| `totalDiscountMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getTotalDiscountMoney(): ?V1Money | setTotalDiscountMoney(?V1Money totalDiscountMoney): void |
+| `subtotalMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getSubtotalMoney(): ?V1Money | setSubtotalMoney(?V1Money subtotalMoney): void |
+| `totalShippingMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getTotalShippingMoney(): ?V1Money | setTotalShippingMoney(?V1Money totalShippingMoney): void |
+| `totalTaxMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getTotalTaxMoney(): ?V1Money | setTotalTaxMoney(?V1Money totalTaxMoney): void |
+| `totalPriceMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getTotalPriceMoney(): ?V1Money | setTotalPriceMoney(?V1Money totalPriceMoney): void |
+| `totalDiscountMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getTotalDiscountMoney(): ?V1Money | setTotalDiscountMoney(?V1Money totalDiscountMoney): void |
 | `createdAt` | `?string` | Optional | The time when the order was created, in ISO 8601 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The time when the order was last modified, in ISO 8601 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `expiresAt` | `?string` | Optional | The time when the order expires if no action is taken, in ISO 8601 format. | getExpiresAt(): ?string | setExpiresAt(?string expiresAt): void |

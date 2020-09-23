@@ -11,9 +11,9 @@ V1CreateRefundRequest
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `paymentId` | `string` |  | The ID of the payment to refund. If you are creating a `PARTIAL`<br>refund for a split tender payment, instead provide the id of the<br>particular tender you want to refund. | getPaymentId(): string | setPaymentId(string paymentId): void |
-| `type` | [`string (V1CreateRefundRequestType)`](/doc/models/v1-create-refund-request-type.md) |  | -  | getType(): string | setType(string type): void |
+| `type` | [`string (V1CreateRefundRequestType)`](/doc/models/v1-create-refund-request-type.md) |  | - | getType(): string | setType(string type): void |
 | `reason` | `string` |  | The reason for the refund. | getReason(): string | setReason(string reason): void |
-| `refundedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | -  | getRefundedMoney(): ?V1Money | setRefundedMoney(?V1Money refundedMoney): void |
+| `refundedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getRefundedMoney(): ?V1Money | setRefundedMoney(?V1Money refundedMoney): void |
 | `requestIdempotenceKey` | `?string` | Optional | An optional key to ensure idempotence if you issue the same PARTIAL refund request more than once. | getRequestIdempotenceKey(): ?string | setRequestIdempotenceKey(?string requestIdempotenceKey): void |
 
 ### Example (as JSON)

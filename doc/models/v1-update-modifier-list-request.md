@@ -11,7 +11,7 @@ V1UpdateModifierListRequest
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `name` | `?string` | Optional | The modifier list's name. | getName(): ?string | setName(?string name): void |
-| `selectionType` | [`?string (V1UpdateModifierListRequestSelectionType)`](/doc/models/v1-update-modifier-list-request-selection-type.md) | Optional | -  | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
+| `selectionType` | [`?string (V1UpdateModifierListRequestSelectionType)`](/doc/models/v1-update-modifier-list-request-selection-type.md) | Optional | - | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
 
 ### Example (as JSON)
 

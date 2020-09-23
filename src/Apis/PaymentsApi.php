@@ -45,10 +45,18 @@ class PaymentsApi extends BaseApi
      *                            com/docs/basics/api101/pagination) for more information.
      * @param string|null $locationId Limit results to the location supplied. By default, results
      *                                are returned
-     *                                for all locations associated with the merchant.
+     *                                for the default (main) location associated with the merchant.
      * @param int|null $total The exact amount in the total_money for a `Payment`.
      * @param string|null $last4 The last 4 digits of `Payment` card.
      * @param string|null $cardBrand The brand of `Payment` card. For example, `VISA`
+     * @param int|null $limit Maximum number of results to be returned in a single page.
+     *                        It is possible to receive fewer results than the specified limit on
+     *                        a given page.
+     *
+     *                        If the supplied value is greater than 100, at most 100 results will
+     *                        be returned.
+     *
+     *                        Default: `100`
      *
      * @return ApiResponse Response from the API call
      *
@@ -62,7 +70,8 @@ class PaymentsApi extends BaseApi
         ?string $locationId = null,
         ?int $total = null,
         ?string $last4 = null,
-        ?string $cardBrand = null
+        ?string $cardBrand = null,
+        ?int $limit = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments';
@@ -77,6 +86,7 @@ class PaymentsApi extends BaseApi
             'total'       => $total,
             'last_4'      => $last4,
             'card_brand'  => $cardBrand,
+            'limit'       => $limit,
         ]);
 
         //validate and preprocess url
@@ -133,8 +143,6 @@ class PaymentsApi extends BaseApi
      * There are several optional parameters that you can include in the request.
      * For example, tip money, whether to autocomplete the payment, or a reference ID
      * to correlate this payment with another system.
-     * For more information about these
-     * payment options, see [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      *
      * The `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required
      * to enable application fees.
@@ -352,8 +360,7 @@ class PaymentsApi extends BaseApi
 
     /**
      * Cancels (voids) a payment. If you set `autocomplete` to false when creating a payment,
-     * you can cancel the payment using this endpoint. For more information, see
-     * [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+     * you can cancel the payment using this endpoint.
      *
      * @param string $paymentId `payment_id` identifying the payment to be canceled.
      *
@@ -421,8 +428,7 @@ class PaymentsApi extends BaseApi
      *
      * By default, payments are set to complete immediately after they are created.
      * If you set autocomplete to false when creating a payment, you can complete (capture)
-     * the payment using this endpoint. For more information, see
-     * [Delayed Payments](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+     * the payment using this endpoint.
      *
      * @param string $paymentId Unique ID identifying the payment to be completed.
      *
