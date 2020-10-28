@@ -1,15 +1,16 @@
-## List Transactions Request
+
+# List Transactions Request
 
 Defines the query parameters that can be included in
 a request to the [ListTransactions](#endpoint-listtransactions) endpoint.
 
 Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 
-### Structure
+## Structure
 
 `ListTransactionsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@ Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
 | `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
 | `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](#paginatingresults) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

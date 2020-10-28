@@ -1,12 +1,13 @@
-## Order Fulfillment Updated Update
+
+# Order Fulfillment Updated Update
 
 Information about fulfillment updates.
 
-### Structure
+## Structure
 
 `OrderFulfillmentUpdatedUpdate`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Information about fulfillment updates.
 | `oldState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. | getOldState(): ?string | setOldState(?string oldState): void |
 | `newState` | [`?string (OrderFulfillmentState)`](/doc/models/order-fulfillment-state.md) | Optional | The current state of this fulfillment. | getNewState(): ?string | setNewState(?string newState): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

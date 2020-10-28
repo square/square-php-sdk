@@ -1,12 +1,13 @@
-## Invoice Status
+
+# Invoice Status
 
 Indicates the status of an invoice.
 
-### Enumeration
+## Enumeration
 
 `InvoiceStatus`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

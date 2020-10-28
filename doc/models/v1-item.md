@@ -1,12 +1,13 @@
-## V1 Item
+
+# V1 Item
 
 V1Item
 
-### Structure
+## Structure
 
 `V1Item`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -28,7 +29,7 @@ V1Item
 | `availableForPickup` | `?bool` | Optional | If true, the item can be added to pickup orders from the merchant's online store. Default value: false | getAvailableForPickup(): ?bool | setAvailableForPickup(?bool availableForPickup): void |
 | `v2Id` | `?string` | Optional | The ID of the CatalogObject in the Connect v2 API. Objects that are shared across multiple locations share the same v2 ID. | getV2Id(): ?string | setV2Id(?string v2Id): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

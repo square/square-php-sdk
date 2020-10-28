@@ -1,10 +1,11 @@
-## List Cash Drawer Shift Events Request
 
-### Structure
+# List Cash Drawer Shift Events Request
+
+## Structure
 
 `ListCashDrawerShiftEventsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `limit` | `?int` | Optional | Number of resources to be returned in a page of results (200 by<br>default, 1000 max). | getLimit(): ?int | setLimit(?int limit): void |
 | `cursor` | `?string` | Optional | Opaque cursor for fetching the next page of results. | getCursor(): ?string | setCursor(?string cursor): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

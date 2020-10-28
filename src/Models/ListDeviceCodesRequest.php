@@ -22,6 +22,11 @@ class ListDeviceCodesRequest implements \JsonSerializable
     private $productType;
 
     /**
+     * @var string[]|null
+     */
+    private $status;
+
+    /**
      * Returns Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
@@ -92,6 +97,36 @@ class ListDeviceCodesRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Status.
+     *
+     * If specified, returns DeviceCodes with the specified statuses.
+     * Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
+     * See [DeviceCodeStatus](#type-devicecodestatus) for possible values
+     *
+     * @return string[]|null
+     */
+    public function getStatus(): ?array
+    {
+        return $this->status;
+    }
+
+    /**
+     * Sets Status.
+     *
+     * If specified, returns DeviceCodes with the specified statuses.
+     * Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
+     * See [DeviceCodeStatus](#type-devicecodestatus) for possible values
+     *
+     * @maps status
+     *
+     * @param string[]|null $status
+     */
+    public function setStatus(?array $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -102,6 +137,7 @@ class ListDeviceCodesRequest implements \JsonSerializable
         $json['cursor']      = $this->cursor;
         $json['location_id'] = $this->locationId;
         $json['product_type'] = $this->productType;
+        $json['status']      = $this->status;
 
         return array_filter($json, function ($val) {
             return $val !== null;

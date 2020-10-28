@@ -345,11 +345,11 @@ class CatalogObject implements \JsonSerializable
      * prefixed by
      * the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key`
      * attribute of
-     * "cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:
-     * cocoa_brand" if the
-     * application making the request is different from the application defining the custom attribute
-     * definition.
-     * Otherwise, the key used in the map is simply "cocoa-brand".
+     * `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the key in the map is `"abcd1234:
+     * cocoa_brand"`
+     * if the application making the request is different from the application defining the custom
+     * attribute definition.
+     * Otherwise, the key used in the map is simply `"cocoa_brand"`.
      *
      * Application-defined custom attributes that are set at a global (location-independent) level.
      * Custom attribute values are intended to store additional information about a catalog object
@@ -377,11 +377,11 @@ class CatalogObject implements \JsonSerializable
      * prefixed by
      * the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key`
      * attribute of
-     * "cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:
-     * cocoa_brand" if the
-     * application making the request is different from the application defining the custom attribute
-     * definition.
-     * Otherwise, the key used in the map is simply "cocoa-brand".
+     * `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the key in the map is `"abcd1234:
+     * cocoa_brand"`
+     * if the application making the request is different from the application defining the custom
+     * attribute definition.
+     * Otherwise, the key used in the map is simply `"cocoa_brand"`.
      *
      * Application-defined custom attributes that are set at a global (location-independent) level.
      * Custom attribute values are intended to store additional information about a catalog object

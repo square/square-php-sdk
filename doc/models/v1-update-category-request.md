@@ -1,16 +1,17 @@
-## V1 Update Category Request
 
-### Structure
+# V1 Update Category Request
+
+## Structure
 
 `V1UpdateCategoryRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `body` | [`V1Category`](/doc/models/v1-category.md) | V1Category | getBody(): V1Category | setBody(V1Category body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

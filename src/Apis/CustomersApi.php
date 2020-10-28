@@ -27,7 +27,7 @@ class CustomersApi extends BaseApi
      *
      * Under normal operating conditions, newly created or updated customer profiles become available
      * for the listing operation in well under 30 seconds. Occasionally, propagation of the new or updated
-     * profiles can take closer to one minute or longer, espeically during network incidents and outages.
+     * profiles can take closer to one minute or longer, especially during network incidents and outages.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *                            Provide this to retrieve the next set of results for your
@@ -185,8 +185,7 @@ class CustomersApi extends BaseApi
     }
 
     /**
-     * Searches the customer profiles associated with a Square account using
-     * one or more supported query filters.
+     * Searches the customer profiles associated with a Square account using a supported query filter.
      *
      * Calling `SearchCustomers` without any explicit query filter returns all
      * customer profiles ordered alphabetically based on `given_name` and
@@ -194,7 +193,7 @@ class CustomersApi extends BaseApi
      *
      * Under normal operating conditions, newly created or updated customer profiles become available
      * for the search operation in well under 30 seconds. Occasionally, propagation of the new or updated
-     * profiles can take closer to one minute or longer, espeically during network incidents and outages.
+     * profiles can take closer to one minute or longer, especially during network incidents and outages.
      *
      * @param \Square\Models\SearchCustomersRequest $body An object containing the fields to POST
      *                                                    for the request.
@@ -397,8 +396,9 @@ class CustomersApi extends BaseApi
      *
      * You cannot edit a customer's cards on file with this endpoint. To make changes
      * to a card on file, you must delete the existing card on file with the
-     * [DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then create a new one with the
-     * [CreateCustomerCard](#endpoint-createcustomercard) endpoint.
+     * [DeleteCustomerCard](#endpoint-Customers-deletecustomercard) endpoint, then create a new one with
+     * the
+     * [CreateCustomerCard](#endpoint-Customers-createcustomercard) endpoint.
      *
      * @param string $customerId The ID of the customer to update.
      * @param \Square\Models\UpdateCustomerRequest $body An object containing the fields to POST

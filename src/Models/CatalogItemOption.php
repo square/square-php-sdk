@@ -35,11 +35,6 @@ class CatalogItemOption implements \JsonSerializable
     private $values;
 
     /**
-     * @var int|null
-     */
-    private $itemCount;
-
-    /**
      * Returns Name.
      *
      * The item option's display name for the seller. Must be unique across
@@ -164,32 +159,6 @@ class CatalogItemOption implements \JsonSerializable
     }
 
     /**
-     * Returns Item Count.
-     *
-     * The number of `CatalogItem`s currently associated
-     * with this item option. Present only if the `include_counts` was specified
-     * in the request. Any count over 100 will be returned as `100`.
-     */
-    public function getItemCount(): ?int
-    {
-        return $this->itemCount;
-    }
-
-    /**
-     * Sets Item Count.
-     *
-     * The number of `CatalogItem`s currently associated
-     * with this item option. Present only if the `include_counts` was specified
-     * in the request. Any count over 100 will be returned as `100`.
-     *
-     * @maps item_count
-     */
-    public function setItemCount(?int $itemCount): void
-    {
-        $this->itemCount = $itemCount;
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -202,7 +171,6 @@ class CatalogItemOption implements \JsonSerializable
         $json['description'] = $this->description;
         $json['show_colors'] = $this->showColors;
         $json['values']      = $this->values;
-        $json['item_count']  = $this->itemCount;
 
         return array_filter($json, function ($val) {
             return $val !== null;

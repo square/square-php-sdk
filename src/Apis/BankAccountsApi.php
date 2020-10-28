@@ -24,8 +24,6 @@ class BankAccountsApi extends BaseApi
 
     /**
      * Returns a list of [BankAccount](#type-bankaccount) objects linked to a Square account.
-     * For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
      *
      * @param string|null $cursor The pagination cursor returned by a previous call to this
      *                            endpoint.
@@ -111,10 +109,6 @@ class BankAccountsApi extends BaseApi
 
     /**
      * Returns details of a [BankAccount](#type-bankaccount) identified by V1 bank account ID.
-     * For more information, see
-     * [Retrieve a bank account by using an ID issued by V1 Bank Accounts API](https://developer.squareup.
-     * com/docs/docs/bank-accounts-api#retrieve-a-bank-account-by-using-an-id-issued-by-the-v1-bank-
-     * accounts-api).
      *
      * @param string $v1BankAccountId Connect V1 ID of the desired `BankAccount`. For more
      *                                information, see
@@ -184,8 +178,7 @@ class BankAccountsApi extends BaseApi
 
     /**
      * Returns details of a [BankAccount](#type-bankaccount)
-     * linked to a Square account. For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * linked to a Square account.
      *
      * @param string $bankAccountId Square-issued ID of the desired `BankAccount`.
      *

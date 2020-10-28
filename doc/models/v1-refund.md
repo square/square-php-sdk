@@ -1,12 +1,13 @@
-## V1 Refund
+
+# V1 Refund
 
 V1Refund
 
-### Structure
+## Structure
 
 `V1Refund`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -29,7 +30,7 @@ V1Refund
 | `merchantId` | `?string` | Optional | - | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
 | `isExchange` | `?bool` | Optional | Indicates whether or not the refund is associated with an exchange. If is_exchange is true, the refund reflects the value of goods returned in the exchange not the total money refunded. | getIsExchange(): ?bool | setIsExchange(?bool isExchange): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

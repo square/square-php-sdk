@@ -145,6 +145,10 @@ class LoyaltyAccount implements \JsonSerializable
      * Returns Balance.
      *
      * The available point balance in the loyalty account.
+     *
+     * Your application should be able to handle loyalty accounts that have a negative point balance
+     * (`balance` is less than 0). This might occur if a seller makes a manual adjustment or as a result of
+     * a refund or exchange.
      */
     public function getBalance(): ?int
     {
@@ -155,6 +159,10 @@ class LoyaltyAccount implements \JsonSerializable
      * Sets Balance.
      *
      * The available point balance in the loyalty account.
+     *
+     * Your application should be able to handle loyalty accounts that have a negative point balance
+     * (`balance` is less than 0). This might occur if a seller makes a manual adjustment or as a result of
+     * a refund or exchange.
      *
      * @maps balance
      */

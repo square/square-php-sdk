@@ -1,12 +1,13 @@
-## Invoice Recipient
+
+# Invoice Recipient
 
 Provides customer data that Square uses to deliver an invoice.
 
-### Structure
+## Structure
 
 `InvoiceRecipient`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@ Provides customer data that Square uses to deliver an invoice.
 | `phoneNumber` | `?string` | Optional | The recipient's phone number. | getPhoneNumber(): ?string | setPhoneNumber(?string phoneNumber): void |
 | `companyName` | `?string` | Optional | The name of the recipient's company. | getCompanyName(): ?string | setCompanyName(?string companyName): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

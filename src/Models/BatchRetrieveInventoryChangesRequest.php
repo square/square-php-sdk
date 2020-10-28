@@ -102,7 +102,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      *
      * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
      * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
-     * See [InventoryChangeType](#type-inventorychangetype) for possible values
      *
      * @return string[]|null
      */
@@ -116,7 +115,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      *
      * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
      * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
-     * See [InventoryChangeType](#type-inventorychangetype) for possible values
      *
      * @maps types
      *
@@ -133,7 +131,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      * The filter to return `ADJUSTMENT` query results by
      * `InventoryState`. This filter is only applied when set.
      * The default value is null.
-     * See [InventoryState](#type-inventorystate) for possible values
      *
      * @return string[]|null
      */
@@ -148,7 +145,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      * The filter to return `ADJUSTMENT` query results by
      * `InventoryState`. This filter is only applied when set.
      * The default value is null.
-     * See [InventoryState](#type-inventorystate) for possible values
      *
      * @maps states
      *

@@ -1,10 +1,11 @@
-## V1 Settlement Entry Type
 
-### Enumeration
+# V1 Settlement Entry Type
+
+## Enumeration
 
 `V1SettlementEntryType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

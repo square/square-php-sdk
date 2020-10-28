@@ -1,16 +1,17 @@
-## V1 Create Page Request
 
-### Structure
+# V1 Create Page Request
+
+## Structure
 
 `V1CreatePageRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1Page`](/doc/models/v1-page.md) | Optional | V1Page | getBody(): ?V1Page | setBody(?V1Page body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

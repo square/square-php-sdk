@@ -1,10 +1,11 @@
-## Loyalty Program
 
-### Structure
+# Loyalty Program
+
+## Structure
 
 `LoyaltyProgram`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@
 | `updatedAt` | `string` |  | The timestamp when the reward was last updated, in RFC 3339 format. | getUpdatedAt(): string | setUpdatedAt(string updatedAt): void |
 | `accrualRules` | [`LoyaltyProgramAccrualRule[]`](/doc/models/loyalty-program-accrual-rule.md) |  | Defines how buyers can earn loyalty points. | getAccrualRules(): array | setAccrualRules(array accrualRules): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

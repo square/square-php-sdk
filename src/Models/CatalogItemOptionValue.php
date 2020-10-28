@@ -37,11 +37,6 @@ class CatalogItemOptionValue implements \JsonSerializable
     private $ordinal;
 
     /**
-     * @var int|null
-     */
-    private $itemVariationCount;
-
-    /**
      * Returns Item Option Id.
      *
      * Unique ID of the associated item option.
@@ -160,34 +155,6 @@ class CatalogItemOptionValue implements \JsonSerializable
     }
 
     /**
-     * Returns Item Variation Count.
-     *
-     * The number of `CatalogItemVariation`s that
-     * currently use this item option value. Present only if `retrieve_counts`
-     * was specified on the request used to retrieve the parent item option of this
-     * value.
-     */
-    public function getItemVariationCount(): ?int
-    {
-        return $this->itemVariationCount;
-    }
-
-    /**
-     * Sets Item Variation Count.
-     *
-     * The number of `CatalogItemVariation`s that
-     * currently use this item option value. Present only if `retrieve_counts`
-     * was specified on the request used to retrieve the parent item option of this
-     * value.
-     *
-     * @maps item_variation_count
-     */
-    public function setItemVariationCount(?int $itemVariationCount): void
-    {
-        $this->itemVariationCount = $itemVariationCount;
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -195,12 +162,11 @@ class CatalogItemOptionValue implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_option_id']     = $this->itemOptionId;
-        $json['name']               = $this->name;
-        $json['description']        = $this->description;
-        $json['color']              = $this->color;
-        $json['ordinal']            = $this->ordinal;
-        $json['item_variation_count'] = $this->itemVariationCount;
+        $json['item_option_id'] = $this->itemOptionId;
+        $json['name']         = $this->name;
+        $json['description']  = $this->description;
+        $json['color']        = $this->color;
+        $json['ordinal']      = $this->ordinal;
 
         return array_filter($json, function ($val) {
             return $val !== null;

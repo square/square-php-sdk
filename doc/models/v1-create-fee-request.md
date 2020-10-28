@@ -1,16 +1,17 @@
-## V1 Create Fee Request
 
-### Structure
+# V1 Create Fee Request
+
+## Structure
 
 `V1CreateFeeRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1Fee`](/doc/models/v1-fee.md) | Optional | V1Fee | getBody(): ?V1Fee | setBody(?V1Fee body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

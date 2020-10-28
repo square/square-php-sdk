@@ -1,20 +1,21 @@
-## Search Orders Customer Filter
+
+# Search Orders Customer Filter
 
 Filter based on Order `customer_id` and any Tender `customer_id`
 associated with the Order. Does not filter based on the
 [FulfillmentRecipient](#type-orderfulfillmentrecipient) `customer_id`.
 
-### Structure
+## Structure
 
 `SearchOrdersCustomerFilter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `customerIds` | `?(string[])` | Optional | List of customer IDs to filter by.<br><br>Max: 10 customer IDs. | getCustomerIds(): ?array | setCustomerIds(?array customerIds): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

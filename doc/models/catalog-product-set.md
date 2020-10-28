@@ -1,4 +1,5 @@
-## Catalog Product Set
+
+# Catalog Product Set
 
 Represents a collection of catalog objects for the purpose of applying a
 `PricingRule`. Including a catalog object will include all of its subtypes.
@@ -6,11 +7,11 @@ For example, including a category in a product set will include all of its
 items and associated item variations in the product set. Including an item in
 a product set will also include its item variations.
 
-### Structure
+## Structure
 
 `CatalogProductSet`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -22,7 +23,7 @@ a product set will also include its item variations.
 | `quantityMax` | `?int` | Optional | If set, the pricing rule will apply to a maximum of this many items from<br>`products_any` or `products_all`. | getQuantityMax(): ?int | setQuantityMax(?int quantityMax): void |
 | `allProducts` | `?bool` | Optional | If set to `true`, the product set will include every item in the catalog.<br><br>Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set. | getAllProducts(): ?bool | setAllProducts(?bool allProducts): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

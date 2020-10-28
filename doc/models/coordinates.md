@@ -1,19 +1,20 @@
-## Coordinates
+
+# Coordinates
 
 Latitude and longitude coordinates.
 
-### Structure
+## Structure
 
 `Coordinates`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `latitude` | `?float` | Optional | The latitude of the coordinate expressed in degrees. | getLatitude(): ?float | setLatitude(?float latitude): void |
 | `longitude` | `?float` | Optional | The longitude of the coordinate expressed in degrees. | getLongitude(): ?float | setLongitude(?float longitude): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

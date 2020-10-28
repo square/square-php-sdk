@@ -1,14 +1,15 @@
-## Inventory Count
+
+# Inventory Count
 
 Represents Square's estimated quantity of items in a particular state at a
 particular location based on the known history of physical counts and
 inventory adjustments.
 
-### Structure
+## Structure
 
 `InventoryCount`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -19,7 +20,7 @@ inventory adjustments.
 | `quantity` | `?string` | Optional | The number of items affected by the estimated count as a decimal string.<br>Can support up to 5 digits after the decimal point. | getQuantity(): ?string | setQuantity(?string quantity): void |
 | `calculatedAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format that indicates when Square<br>received the most recent physical count or adjustment that had an affect<br>on the estimated count. | getCalculatedAt(): ?string | setCalculatedAt(?string calculatedAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

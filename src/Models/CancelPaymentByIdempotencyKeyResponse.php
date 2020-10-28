@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Return value from the
+ * The return value from the
  * [CancelPaymentByIdempotencyKey](#endpoint-payments-cancelpaymentbyidempotencykey) endpoint.
- * On success, `errors` will be empty.
+ * On success, `errors` is empty.
  */
 class CancelPaymentByIdempotencyKeyResponse implements \JsonSerializable
 {

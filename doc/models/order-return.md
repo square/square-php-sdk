@@ -1,12 +1,13 @@
-## Order Return
+
+# Order Return
 
 The set of line items, service charges, taxes, discounts, tips, etc. being returned in an Order.
 
-### Structure
+## Structure
 
 `OrderReturn`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -19,7 +20,7 @@ The set of line items, service charges, taxes, discounts, tips, etc. being retur
 | `roundingAdjustment` | [`?OrderRoundingAdjustment`](/doc/models/order-rounding-adjustment.md) | Optional | A rounding adjustment of the money being returned. Commonly used to apply Cash Rounding<br>when the minimum unit of account is smaller than the lowest physical denomination of currency. | getRoundingAdjustment(): ?OrderRoundingAdjustment | setRoundingAdjustment(?OrderRoundingAdjustment roundingAdjustment): void |
 | `returnAmounts` | [`?OrderMoneyAmounts`](/doc/models/order-money-amounts.md) | Optional | A collection of various money amounts. | getReturnAmounts(): ?OrderMoneyAmounts | setReturnAmounts(?OrderMoneyAmounts returnAmounts): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

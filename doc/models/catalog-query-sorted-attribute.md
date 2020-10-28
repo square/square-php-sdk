@@ -1,12 +1,13 @@
-## Catalog Query Sorted Attribute
+
+# Catalog Query Sorted Attribute
 
 The query expression to specify the key to sort search results.
 
-### Structure
+## Structure
 
 `CatalogQuerySortedAttribute`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ The query expression to specify the key to sort search results.
 | `initialAttributeValue` | `?string` | Optional | The first attribute value to be returned by the query. Ascending sorts will return only<br>objects with this value or greater, while descending sorts will return only objects with this value<br>or less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts). | getInitialAttributeValue(): ?string | setInitialAttributeValue(?string initialAttributeValue): void |
 | `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

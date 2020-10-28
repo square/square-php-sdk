@@ -1,14 +1,15 @@
-## Bank Account
+
+# Bank Account
 
 Represents a bank account. For more information about
 linking a bank account to a Square account, see
 [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
 
-### Structure
+## Structure
 
 `BankAccount`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -30,7 +31,7 @@ linking a bank account to a Square account, see
 | `version` | `?int` | Optional | The current version of the `BankAccount`. | getVersion(): ?int | setVersion(?int version): void |
 | `bankName` | `?string` | Optional | Read only. Name of actual financial institution.<br>For example "Bank of America". | getBankName(): ?string | setBankName(?string bankName): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -250,8 +250,8 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Uploads an image file to be represented by an [CatalogImage](#type-catalogimage) object linked to
-     * an existing
+     * Uploads an image file to be represented by a [CatalogImage](#type-catalogimage) object linked to an
+     * existing
      * [CatalogObject](#type-catalogobject) instance. A call to this endpoint can upload an image, link an
      * image to
      * a catalog object, or do both.
@@ -259,9 +259,6 @@ class CatalogApi extends BaseApi
      * This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an
      * image file part in
      * JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
-     *
-     * Additional information and an example cURL request can be found in the [Create a Catalog Image
-     * recipe](https://developer.squareup.com/docs/more-apis/catalog/cookbook/create-catalog-images).
      *
      * @param \Square\Models\CreateCatalogImageRequest|null $request
      * @param \Square\Utils\FileWrapper|null $imageFile
@@ -624,16 +621,14 @@ class CatalogApi extends BaseApi
      *                                         requested object, as follows:
      *
      *                                         If the `object` field of the response contains a
-     *                                         CatalogItem,
-     *                                         its associated CatalogCategory, CatalogTax objects,
-     *                                         CatalogImages and CatalogModifierLists
-     *                                         will be returned in the `related_objects` field of
-     *                                         the response. If the `object`
-     *                                         field of the response contains a
-     *                                         CatalogItemVariation,
-     *                                         its parent CatalogItem will be returned in the
-     *                                         `related_objects` field of
-     *                                         the response.
+     *                                         `CatalogItem`, its associated
+     *                                         `CatalogCategory`, `CatalogTax`, `CatalogImage` and
+     *                                         `CatalogModifierList` objects will
+     *                                         be returned in the `related_objects` field of the
+     *                                         response. If the `object` field of
+     *                                         the response contains a `CatalogItemVariation`, its
+     *                                         parent `CatalogItem` will be returned
+     *                                         in the `related_objects` field of the response.
      *
      *                                         Default value: `false`
      *

@@ -1,12 +1,13 @@
-## V1 Modifier List
+
+# V1 Modifier List
 
 V1ModifierList
 
-### Structure
+## Structure
 
 `V1ModifierList`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,7 +17,7 @@ V1ModifierList
 | `modifierOptions` | [`?(V1ModifierOption[])`](/doc/models/v1-modifier-option.md) | Optional | The options included in the modifier list. | getModifierOptions(): ?array | setModifierOptions(?array modifierOptions): void |
 | `v2Id` | `?string` | Optional | The ID of the CatalogObject in the Connect v2 API. Objects that are shared across multiple locations share the same v2 ID. | getV2Id(): ?string | setV2Id(?string v2Id): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

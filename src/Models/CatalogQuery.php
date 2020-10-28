@@ -15,7 +15,7 @@ namespace Square\Models;
  * Searchable attributes are listed as follows, along their parent types that can be searched for with
  * applicable query filters.
  *
- * Searchable attribute and objects queryable by searchable attributes **
+ * * Searchable attribute and objects queryable by searchable attributes **
  * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`,
  * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
  * - `description`: `CatalogItem`, `CatalogItemOptionValue`
@@ -40,6 +40,11 @@ class CatalogQuery implements \JsonSerializable
      * @var CatalogQueryExact|null
      */
     private $exactQuery;
+
+    /**
+     * @var CatalogQuerySet|null
+     */
+    private $setQuery;
 
     /**
      * @var CatalogQueryPrefix|null
@@ -101,7 +106,8 @@ class CatalogQuery implements \JsonSerializable
     /**
      * Returns Exact Query.
      *
-     * The query filter to return the serch result by exact match of the specified attribute name and value.
+     * The query filter to return the search result by exact match of the specified attribute name and
+     * value.
      */
     public function getExactQuery(): ?CatalogQueryExact
     {
@@ -111,13 +117,40 @@ class CatalogQuery implements \JsonSerializable
     /**
      * Sets Exact Query.
      *
-     * The query filter to return the serch result by exact match of the specified attribute name and value.
+     * The query filter to return the search result by exact match of the specified attribute name and
+     * value.
      *
      * @maps exact_query
      */
     public function setExactQuery(?CatalogQueryExact $exactQuery): void
     {
         $this->exactQuery = $exactQuery;
+    }
+
+    /**
+     * Returns Set Query.
+     *
+     * The query filter to return the search result(s) by exact match of the specified `attribute_name` and
+     * any of
+     * the `attribute_values`.
+     */
+    public function getSetQuery(): ?CatalogQuerySet
+    {
+        return $this->setQuery;
+    }
+
+    /**
+     * Sets Set Query.
+     *
+     * The query filter to return the search result(s) by exact match of the specified `attribute_name` and
+     * any of
+     * the `attribute_values`.
+     *
+     * @maps set_query
+     */
+    public function setSetQuery(?CatalogQuerySet $setQuery): void
+    {
+        $this->setQuery = $setQuery;
     }
 
     /**
@@ -291,6 +324,7 @@ class CatalogQuery implements \JsonSerializable
         $json = [];
         $json['sorted_attribute_query']                 = $this->sortedAttributeQuery;
         $json['exact_query']                            = $this->exactQuery;
+        $json['set_query']                              = $this->setQuery;
         $json['prefix_query']                           = $this->prefixQuery;
         $json['range_query']                            = $this->rangeQuery;
         $json['text_query']                             = $this->textQuery;

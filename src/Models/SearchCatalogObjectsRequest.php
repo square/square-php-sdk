@@ -72,7 +72,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * The legal values are taken from the CatalogObjectType enum: `"ITEM"`, `"ITEM_VARIATION"`,
      * `"CATEGORY"`,
      * `"DISCOUNT"`, `"TAX"`, `"MODIFIER"`, or `"MODIFIER_LIST"`.
-     * See [CatalogObjectType](#type-catalogobjecttype) for possible values
      *
      * @return string[]|null
      */
@@ -88,7 +87,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * The legal values are taken from the CatalogObjectType enum: `"ITEM"`, `"ITEM_VARIATION"`,
      * `"CATEGORY"`,
      * `"DISCOUNT"`, `"TAX"`, `"MODIFIER"`, or `"MODIFIER_LIST"`.
-     * See [CatalogObjectType](#type-catalogobjecttype) for possible values
      *
      * @maps object_types
      *
@@ -206,7 +204,7 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * Searchable attributes are listed as follows, along their parent types that can be searched for with
      * applicable query filters.
      *
-     * Searchable attribute and objects queryable by searchable attributes **
+     * * Searchable attribute and objects queryable by searchable attributes **
      * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`,
      * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
      * - `description`: `CatalogItem`, `CatalogItemOptionValue`
@@ -238,7 +236,7 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * Searchable attributes are listed as follows, along their parent types that can be searched for with
      * applicable query filters.
      *
-     * Searchable attribute and objects queryable by searchable attributes **
+     * * Searchable attribute and objects queryable by searchable attributes **
      * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`,
      * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
      * - `description`: `CatalogItem`, `CatalogItemOptionValue`

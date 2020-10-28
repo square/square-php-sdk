@@ -25,7 +25,7 @@ class LocationsApi extends BaseApi
     /**
      * Provides information of all locations of a business.
      *
-     * Most other Connect API endpoints have a required `location_id` path parameter.
+     * Many Square API endpoints require a `location_id` parameter.
      * The `id` field of the [`Location`](#type-location) objects returned by this
      * endpoint correspond to that `location_id` parameter.
      *
@@ -85,8 +85,6 @@ class LocationsApi extends BaseApi
 
     /**
      * Creates a location.
-     * For more information about locations, see [Locations API Overview](https://developer.squareup.
-     * com/docs/locations-api).
      *
      * @param \Square\Models\CreateLocationRequest $body An object containing the fields to POST
      *                                                   for the request.
@@ -155,8 +153,7 @@ class LocationsApi extends BaseApi
     /**
      * Retrieves details of a location. You can specify "main"
      * as the location ID to retrieve details of the
-     * main location. For more information,
-     * see [Locations API Overview](https://developer.squareup.com/docs/docs/locations-api).
+     * main location.
      *
      * @param string $locationId The ID of the location to retrieve. If you specify the string
      *                           "main",

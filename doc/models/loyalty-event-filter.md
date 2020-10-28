@@ -1,13 +1,14 @@
-## Loyalty Event Filter
+
+# Loyalty Event Filter
 
 The filtering criteria. If the request specifies multiple filters,
 the endpoint uses a logical AND to evaluate them.
 
-### Structure
+## Structure
 
 `LoyaltyEventFilter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -17,7 +18,7 @@ the endpoint uses a logical AND to evaluate them.
 | `locationFilter` | [`?LoyaltyEventLocationFilter`](/doc/models/loyalty-event-location-filter.md) | Optional | Filter events by location. | getLocationFilter(): ?LoyaltyEventLocationFilter | setLocationFilter(?LoyaltyEventLocationFilter locationFilter): void |
 | `orderFilter` | [`?LoyaltyEventOrderFilter`](/doc/models/loyalty-event-order-filter.md) | Optional | Filter events by the order associated with the event. | getOrderFilter(): ?LoyaltyEventOrderFilter | setOrderFilter(?LoyaltyEventOrderFilter orderFilter): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

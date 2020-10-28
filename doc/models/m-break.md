@@ -1,12 +1,13 @@
-## M Break
+
+# M Break
 
 A record of an employee's break during a shift.
 
-### Structure
+## Structure
 
-`Break`
+`MBreak`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@ A record of an employee's break during a shift.
 | `expectedDuration` | `string` |  | Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of<br>the break. | getExpectedDuration(): string | setExpectedDuration(string expectedDuration): void |
 | `isPaid` | `bool` |  | Whether this break counts towards time worked for compensation<br>purposes. | getIsPaid(): bool | setIsPaid(bool isPaid): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

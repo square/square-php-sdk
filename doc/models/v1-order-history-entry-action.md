@@ -1,10 +1,11 @@
-## V1 Order History Entry Action
 
-### Enumeration
+# V1 Order History Entry Action
+
+## Enumeration
 
 `V1OrderHistoryEntryAction`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

@@ -1,10 +1,11 @@
-## Update Item Modifier Lists Request
 
-### Structure
+# Update Item Modifier Lists Request
+
+## Structure
 
 `UpdateItemModifierListsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `modifierListsToEnable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem. | getModifierListsToEnable(): ?array | setModifierListsToEnable(?array modifierListsToEnable): void |
 | `modifierListsToDisable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem. | getModifierListsToDisable(): ?array | setModifierListsToDisable(?array modifierListsToDisable): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -20,12 +21,12 @@
     "H42BRLUJ5KTZTTMPVSLFAACQ",
     "2JXOBJIHCWBQ4NZ3RIXQGJA6"
   ],
+  "modifier_lists_to_disable": [
+    "7WRC16CJZDVLSNDQ35PP6YAD"
+  ],
   "modifier_lists_to_enable": [
     "H42BRLUJ5KTZTTMPVSLFAACQ",
     "2JXOBJIHCWBQ4NZ3RIXQGJA6"
-  ],
-  "modifier_lists_to_disable": [
-    "7WRC16CJZDVLSNDQ35PP6YAD"
   ]
 }
 ```

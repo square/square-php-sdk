@@ -1,12 +1,13 @@
-## Tender Card Details Status
+
+# Tender Card Details Status
 
 Indicates the card transaction's current status.
 
-### Enumeration
+## Enumeration
 
 `TenderCardDetailsStatus`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

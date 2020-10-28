@@ -1,10 +1,11 @@
-## Catalog Info Response Limits
 
-### Structure
+# Catalog Info Response Limits
+
+## Structure
 
 `CatalogInfoResponseLimits`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -20,7 +21,7 @@
 | `updateItemModifierListsMaxModifierListsToEnable` | `?int` | Optional | The maximum number of modifier list IDs to be enabled that may be included in<br>a single `/v2/catalog/update-item-modifier-lists` request. | getUpdateItemModifierListsMaxModifierListsToEnable(): ?int | setUpdateItemModifierListsMaxModifierListsToEnable(?int updateItemModifierListsMaxModifierListsToEnable): void |
 | `updateItemModifierListsMaxModifierListsToDisable` | `?int` | Optional | The maximum number of modifier list IDs to be disabled that may be included in<br>a single `/v2/catalog/update-item-modifier-lists` request. | getUpdateItemModifierListsMaxModifierListsToDisable(): ?int | setUpdateItemModifierListsMaxModifierListsToDisable(?int updateItemModifierListsMaxModifierListsToDisable): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## Measurement Unit Time
+
+# Measurement Unit Time
 
 Unit of time used to measure a quantity (a duration).
 
-### Enumeration
+## Enumeration
 
 `MeasurementUnitTime`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

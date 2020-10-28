@@ -1,10 +1,11 @@
-## List Employees Response
 
-### Structure
+# List Employees Response
+
+## Structure
 
 `ListEmployeesResponse`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `cursor` | `?string` | Optional | The token to be used to retrieve the next page of results. | getCursor(): ?string | setCursor(?string cursor): void |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -29,19 +30,19 @@
   "errors": [
     {
       "category": "AUTHENTICATION_ERROR",
-      "code": "REQUEST_TIMEOUT",
+      "code": "MAP_KEY_LENGTH_TOO_SHORT",
       "detail": "detail1",
       "field": "field9"
     },
     {
       "category": "INVALID_REQUEST_ERROR",
-      "code": "CONFLICT",
+      "code": "MAP_KEY_LENGTH_TOO_LONG",
       "detail": "detail2",
       "field": "field0"
     },
     {
       "category": "RATE_LIMIT_ERROR",
-      "code": "GONE",
+      "code": "CARD_EXPIRED",
       "detail": "detail3",
       "field": "field1"
     }

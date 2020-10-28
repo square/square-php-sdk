@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The query filter to return the serch result by exact match of the specified attribute name and
+ * The query filter to return the search result by exact match of the specified attribute name and
  * value.
  */
 class CatalogQueryExact implements \JsonSerializable

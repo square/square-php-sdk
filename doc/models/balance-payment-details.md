@@ -1,19 +1,20 @@
-## Balance Payment Details
+
+# Balance Payment Details
 
 Reflects the current status of a balance payment.
 
-### Structure
+## Structure
 
 `BalancePaymentDetails`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `accountId` | `?string` | Optional | ID for the account used to fund the payment. | getAccountId(): ?string | setAccountId(?string accountId): void |
 | `status` | `?string` | Optional | The balance payment’s current state. Can be `COMPLETED` or `FAILED`. | getStatus(): ?string | setStatus(?string status): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

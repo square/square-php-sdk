@@ -1,31 +1,32 @@
-## Create Location Request
+
+# Create Location Request
 
 Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
 
-### Structure
+## Structure
 
 `CreateLocationRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `location` | [`?Location`](/doc/models/location.md) | Optional | - | getLocation(): ?Location | setLocation(?Location location): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "location": {
-    "name": "New location name",
-    "description": "My new location.",
-    "facebook_url": "null",
     "address": {
       "address_line_1": "1234 Peachtree St. NE",
       "administrative_district_level_1": "GA",
       "locality": "Atlanta",
       "postal_code": "30309"
-    }
+    },
+    "description": "My new location.",
+    "facebook_url": "null",
+    "name": "New location name"
   }
 }
 ```

@@ -1,10 +1,11 @@
-## V1 Tender Entry Method
 
-### Enumeration
+# V1 Tender Entry Method
+
+## Enumeration
 
 `V1TenderEntryMethod`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

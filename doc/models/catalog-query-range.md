@@ -1,12 +1,13 @@
-## Catalog Query Range
+
+# Catalog Query Range
 
 The query filter to return the search result whose named attribute values fall between the specified range.
 
-### Structure
+## Structure
 
 `CatalogQueryRange`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ The query filter to return the search result whose named attribute values fall b
 | `attributeMinValue` | `?int` | Optional | The desired minimum value for the search attribute (inclusive). | getAttributeMinValue(): ?int | setAttributeMinValue(?int attributeMinValue): void |
 | `attributeMaxValue` | `?int` | Optional | The desired maximum value for the search attribute (inclusive). | getAttributeMaxValue(): ?int | setAttributeMaxValue(?int attributeMaxValue): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

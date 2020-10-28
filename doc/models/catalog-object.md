@@ -1,4 +1,5 @@
-## Catalog Object
+
+# Catalog Object
 
 The wrapper object for the Catalog entries of a given object type.
 
@@ -24,11 +25,11 @@ their corresponding data atrribute that can be set:
 For a more detailed discussion of the Catalog data model, please see the
 [Design a Catalog](https://developer.squareup.com/docs/catalog-api/design-a-catalog) guide.
 
-### Structure
+## Structure
 
 `CatalogObject`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -37,7 +38,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `updatedAt` | `?string` | Optional | Last modification [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`<br>would indicate the UTC time (denoted by `Z`) of August 15, 2016 at 23:59:33 and 123 milliseconds. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `version` | `?int` | Optional | The version of the object. When updating an object, the version supplied<br>must match the version in the database, otherwise the write will be rejected as conflicting. | getVersion(): ?int | setVersion(?int version): void |
 | `isDeleted` | `?bool` | Optional | If `true`, the object has been deleted from the database. Must be `false` for new objects<br>being inserted. When deleted, the `updated_at` field will equal the deletion time. | getIsDeleted(): ?bool | setIsDeleted(?bool isDeleted): void |
-| `customAttributeValues` | [`?array`](/doc/models/catalog-custom-attribute-value.md) | Optional | A map (key-value pairs) of application-defined custom attribute values. The value of a key-value pair<br>is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key` attribute<br>value defined in the associated [CatalogCustomAttributeDefinition](#type-CatalogCustomAttributeDefinition)<br>object defined by the application making the request.<br><br>If the `CatalogCustomAttributeDefinition` object is<br>defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is prefixed by<br>the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key` attribute of<br>"cocoa_brand" and the defining application ID is "abcd1234", the key in the map is "abcd1234:cocoa_brand" if the<br>application making the request is different from the application defining the custom attribute definition.<br>Otherwise, the key used in the map is simply "cocoa-brand".<br><br>Application-defined custom attributes that are set at a global (location-independent) level.<br>Custom attribute values are intended to store additional information about a catalog object<br>or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.). | getCustomAttributeValues(): ?array | setCustomAttributeValues(?array customAttributeValues): void |
+| `customAttributeValues` | [`?array`](/doc/models/catalog-custom-attribute-value.md) | Optional | A map (key-value pairs) of application-defined custom attribute values. The value of a key-value pair<br>is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key` attribute<br>value defined in the associated [CatalogCustomAttributeDefinition](#type-CatalogCustomAttributeDefinition)<br>object defined by the application making the request.<br><br>If the `CatalogCustomAttributeDefinition` object is<br>defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is prefixed by<br>the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key` attribute of<br>`"cocoa_brand"` and the defining application ID is `"abcd1234"`, the key in the map is `"abcd1234:cocoa_brand"`<br>if the application making the request is different from the application defining the custom attribute definition.<br>Otherwise, the key used in the map is simply `"cocoa_brand"`.<br><br>Application-defined custom attributes that are set at a global (location-independent) level.<br>Custom attribute values are intended to store additional information about a catalog object<br>or associations with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.). | getCustomAttributeValues(): ?array | setCustomAttributeValues(?array customAttributeValues): void |
 | `catalogV1Ids` | [`?(CatalogV1Id[])`](/doc/models/catalog-v1-id.md) | Optional | The Connect v1 IDs for this object at each location where it is present, where they<br>differ from the object's Connect V2 ID. The field will only be present for objects that<br>have been created or modified by legacy APIs. | getCatalogV1Ids(): ?array | setCatalogV1Ids(?array catalogV1Ids): void |
 | `presentAtAllLocations` | `?bool` | Optional | If `true`, this object is present at all locations (including future locations), except where specified in<br>the `absent_at_location_ids` field. If `false`, this object is not present at any locations (including future locations),<br>except where specified in the `present_at_location_ids` field. If not specified, defaults to `true`. | getPresentAtAllLocations(): ?bool | setPresentAtAllLocations(?bool presentAtAllLocations): void |
 | `presentAtLocationIds` | `?(string[])` | Optional | A list of locations where the object is present, even if `present_at_all_locations` is `false`. | getPresentAtLocationIds(): ?array | setPresentAtLocationIds(?array presentAtLocationIds): void |
@@ -61,7 +62,7 @@ For a more detailed discussion of the Catalog data model, please see the
 | `customAttributeDefinitionData` | [`?CatalogCustomAttributeDefinition`](/doc/models/catalog-custom-attribute-definition.md) | Optional | Contains information defining a custom attribute. Custom attributes are<br>intended to store additional information about a catalog object or to associate a<br>catalog object with an entity in another system. Do not use custom attributes<br>to store any sensitive information (personally identifiable information, card details, etc.).<br>[Read more about custom attributes](https://developer.squareup.com/docs/catalog-api/add-custom-attributes) | getCustomAttributeDefinitionData(): ?CatalogCustomAttributeDefinition | setCustomAttributeDefinitionData(?CatalogCustomAttributeDefinition customAttributeDefinitionData): void |
 | `quickAmountsSettingsData` | [`?CatalogQuickAmountsSettings`](/doc/models/catalog-quick-amounts-settings.md) | Optional | A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts. | getQuickAmountsSettingsData(): ?CatalogQuickAmountsSettings | setQuickAmountsSettingsData(?CatalogQuickAmountsSettings quickAmountsSettingsData): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

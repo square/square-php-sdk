@@ -1,19 +1,20 @@
-## Catalog Modifier Override
+
+# Catalog Modifier Override
 
 Options to control how to override the default behavior of the specified modifier.
 
-### Structure
+## Structure
 
 `CatalogModifierOverride`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `modifierId` | `string` |  | The ID of the `CatalogModifier` whose default behavior is being overridden. | getModifierId(): string | setModifierId(string modifierId): void |
 | `onByDefault` | `?bool` | Optional | If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`. | getOnByDefault(): ?bool | setOnByDefault(?bool onByDefault): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

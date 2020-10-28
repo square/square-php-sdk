@@ -1,10 +1,11 @@
-## List Employees Request
 
-### Structure
+# List Employees Request
+
+## Structure
 
 `ListEmployeesRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -13,7 +14,7 @@
 | `limit` | `?int` | Optional | The number of employees to be returned on each page. | getLimit(): ?int | setLimit(?int limit): void |
 | `cursor` | `?string` | Optional | The token required to retrieve the specified page of results. | getCursor(): ?string | setCursor(?string cursor): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

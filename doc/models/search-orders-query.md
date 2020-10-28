@@ -1,19 +1,20 @@
-## Search Orders Query
+
+# Search Orders Query
 
 Contains query criteria for the search.
 
-### Structure
+## Structure
 
 `SearchOrdersQuery`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `filter` | [`?SearchOrdersFilter`](/doc/models/search-orders-filter.md) | Optional | Filtering criteria to use for a SearchOrders request. Multiple filters<br>will be ANDed together. | getFilter(): ?SearchOrdersFilter | setFilter(?SearchOrdersFilter filter): void |
 | `sort` | [`?SearchOrdersSort`](/doc/models/search-orders-sort.md) | Optional | Sorting criteria for a SearchOrders request. Results can only be sorted<br>by a timestamp field. | getSort(): ?SearchOrdersSort | setSort(?SearchOrdersSort sort): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

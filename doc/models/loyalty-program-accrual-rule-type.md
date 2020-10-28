@@ -1,12 +1,13 @@
-## Loyalty Program Accrual Rule Type
+
+# Loyalty Program Accrual Rule Type
 
 The type of the accrual rule that defines how buyers can earn points.
 
-### Enumeration
+## Enumeration
 
 `LoyaltyProgramAccrualRuleType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

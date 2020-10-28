@@ -37,6 +37,8 @@ class DevicesApi extends BaseApi
      * @param string|null $productType If specified, only returns DeviceCodes targeting the
      *                                 specified product type.
      *                                 Returns DeviceCodes of all product types if empty.
+     * @param string|null $status If specified, returns DeviceCodes with the specified statuses.
+     *                            Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
      *
      * @return ApiResponse Response from the API call
      *
@@ -45,7 +47,8 @@ class DevicesApi extends BaseApi
     public function listDeviceCodes(
         ?string $cursor = null,
         ?string $locationId = null,
-        ?string $productType = null
+        ?string $productType = null,
+        ?string $status = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/devices/codes';
@@ -55,6 +58,7 @@ class DevicesApi extends BaseApi
             'cursor'       => $cursor,
             'location_id'  => $locationId,
             'product_type' => $productType,
+            'status'       => $status,
         ]);
 
         //validate and preprocess url

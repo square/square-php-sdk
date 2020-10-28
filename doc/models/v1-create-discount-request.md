@@ -1,16 +1,17 @@
-## V1 Create Discount Request
 
-### Structure
+# V1 Create Discount Request
+
+## Structure
 
 `V1CreateDiscountRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1Discount`](/doc/models/v1-discount.md) | Optional | V1Discount | getBody(): ?V1Discount | setBody(?V1Discount body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

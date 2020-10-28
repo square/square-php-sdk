@@ -24,7 +24,7 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on any errors encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -36,7 +36,7 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on any errors encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *
@@ -144,7 +144,7 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
     /**
      * Returns Related Objects.
      *
-     * A list of CatalogObjects referenced by the object in the `object` field.
+     * A list of `CatalogObject`s referenced by the object in the `object` field.
      *
      * @return CatalogObject[]|null
      */
@@ -156,7 +156,7 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
     /**
      * Sets Related Objects.
      *
-     * A list of CatalogObjects referenced by the object in the `object` field.
+     * A list of `CatalogObject`s referenced by the object in the `object` field.
      *
      * @maps related_objects
      *

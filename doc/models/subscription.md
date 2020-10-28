@@ -1,14 +1,15 @@
-## Subscription
+
+# Subscription
 
 Represents a customer subscription to a subscription plan.
 For an overview of the `Subscription` type, see
 [Subscription object](https://developer.squareup.com/docs/docs/subscriptions-api/overview#subscription-object-overview).
 
-### Structure
+## Structure
 
 `Subscription`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -28,7 +29,7 @@ For an overview of the `Subscription` type, see
 | `paidUntilDate` | `?string` | Optional | The date up to which the customer is invoiced for the<br>subscription, in YYYY-MM-DD format (for example, 2013-01-15).<br><br>After the invoice is paid for a given billing period,<br>this date will be the last day of the billing period.<br>For example,<br>suppose for the month of May a customer gets an invoice<br>(or charged the card) on May 1. For the monthly billing scenario,<br>this date is then set to May 31. | getPaidUntilDate(): ?string | setPaidUntilDate(?string paidUntilDate): void |
 | `timezone` | `?string` | Optional | Timezone that will be used in date calculations for the subscription.<br>Defaults to the timezone of the location based on `location_id`.<br>Format: the IANA Timezone Database identifier for the location timezone (for example, `America/Los_Angeles`). | getTimezone(): ?string | setTimezone(?string timezone): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

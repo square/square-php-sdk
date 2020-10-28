@@ -1,10 +1,11 @@
-## V1 List Payments Request
 
-### Structure
+# V1 List Payments Request
+
+## Structure
 
 `V1ListPaymentsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `batchToken` | `?string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. | getBatchToken(): ?string | setBatchToken(?string batchToken): void |
 | `includePartial` | `?bool` | Optional | Indicates whether or not to include partial payments in the response. Partial payments will have the tenders collected so far, but the itemizations will be empty until the payment is completed. | getIncludePartial(): ?bool | setIncludePartial(?bool includePartial): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

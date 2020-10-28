@@ -25,7 +25,7 @@ class RefundsApi extends BaseApi
     /**
      * Retrieves a list of refunds for the account making the request.
      *
-     * Max results per page: 100
+     * The maximum results per page is 100.
      *
      * @param string|null $beginTime Timestamp for the beginning of the requested reporting period,
      *                               in RFC 3339 format.
@@ -212,7 +212,7 @@ class RefundsApi extends BaseApi
     }
 
     /**
-     * Retrieves a specific `Refund` using the `refund_id`.
+     * Retrieves a specific refund using the `refund_id`.
      *
      * @param string $refundId Unique ID for the desired `PaymentRefund`.
      *

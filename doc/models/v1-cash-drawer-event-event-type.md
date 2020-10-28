@@ -1,10 +1,11 @@
-## V1 Cash Drawer Event Event Type
 
-### Enumeration
+# V1 Cash Drawer Event Event Type
+
+## Enumeration
 
 `V1CashDrawerEventEventType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

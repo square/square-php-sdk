@@ -1,14 +1,15 @@
-## Loyalty Account Mapping
+
+# Loyalty Account Mapping
 
 Associates a loyalty account with the buyer's phone number.
-or more information, see
+For more information, see
 [Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
 
-### Structure
+## Structure
 
 `LoyaltyAccountMapping`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -17,7 +18,7 @@ or more information, see
 | `value` | `string` |  | The phone number, in E.164 format. For example, "+14155551111". | getValue(): string | setValue(string value): void |
 | `createdAt` | `?string` | Optional | The timestamp when the mapping was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

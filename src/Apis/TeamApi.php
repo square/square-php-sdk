@@ -25,8 +25,9 @@ class TeamApi extends BaseApi
     /**
      * Creates a single `TeamMember` object. The `TeamMember` will be returned on successful creates.
      * You must provide the following values in your request to this endpoint:
-     * - `first_name`
-     * - `last_name`
+     * - `given_name`
+     * - `family_name`
+     *
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
      * com/docs/docs/team/troubleshooting#createteammember).
      *
@@ -249,7 +250,7 @@ class TeamApi extends BaseApi
      * Returns a paginated list of `TeamMember` objects for a business.
      * The list to be returned can be filtered by:
      * - location IDs **and**
-     * - `is_active`
+     * - `status`
      *
      * @param \Square\Models\SearchTeamMembersRequest $body An object containing the fields to
      *                                                      POST for the request.
@@ -316,7 +317,7 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Retrieve a `TeamMember` object for the given `TeamMember.id`
+     * Retrieve a `TeamMember` object for the given `TeamMember.id`.
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
      * com/docs/docs/team/troubleshooting#retrieveteammember).
      *

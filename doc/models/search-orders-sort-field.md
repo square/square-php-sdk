@@ -1,12 +1,13 @@
-## Search Orders Sort Field
+
+# Search Orders Sort Field
 
 Specifies which timestamp to use to sort SearchOrder results.
 
-### Enumeration
+## Enumeration
 
 `SearchOrdersSortField`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

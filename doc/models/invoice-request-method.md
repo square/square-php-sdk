@@ -1,13 +1,14 @@
-## Invoice Request Method
+
+# Invoice Request Method
 
 Specifies the action for Square to take for processing the invoice. For example,
 email the invoice, charge a customer's card on file, or do nothing.
 
-### Enumeration
+## Enumeration
 
 `InvoiceRequestMethod`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

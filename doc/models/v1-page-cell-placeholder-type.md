@@ -1,10 +1,11 @@
-## V1 Page Cell Placeholder Type
 
-### Enumeration
+# V1 Page Cell Placeholder Type
+
+## Enumeration
 
 `V1PageCellPlaceholderType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

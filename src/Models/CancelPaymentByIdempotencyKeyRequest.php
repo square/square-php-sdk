@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Specifies idempotency key of a payment to cancel.
+ * Specifies the idempotency key of a payment to cancel.
  */
 class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
 {
@@ -25,7 +25,7 @@ class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * `idempotency_key` identifying the payment to be canceled.
+     * The `idempotency_key` identifying the payment to be canceled.
      */
     public function getIdempotencyKey(): string
     {
@@ -35,7 +35,7 @@ class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * `idempotency_key` identifying the payment to be canceled.
+     * The `idempotency_key` identifying the payment to be canceled.
      *
      * @required
      * @maps idempotency_key

@@ -1,10 +1,11 @@
-## V1 Refund Type
 
-### Enumeration
+# V1 Refund Type
+
+## Enumeration
 
 `V1RefundType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

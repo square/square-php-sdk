@@ -1,4 +1,5 @@
-## V1 Payment Itemization
+
+# V1 Payment Itemization
 
 Payment include an`itemizations` field that lists the items purchased,
 along with associated fees, modifiers, and discounts. Each itemization has an
@@ -17,11 +18,11 @@ reloading it.
 details collected **at the time of the payment**. Details such as the name or
 price of items might have changed since the payment was processed.
 
-### Structure
+## Structure
 
 `V1PaymentItemization`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -40,7 +41,7 @@ price of items might have changed since the payment was processed.
 | `discounts` | [`?(V1PaymentDiscount[])`](/doc/models/v1-payment-discount.md) | Optional | All discounts applied to this itemization. | getDiscounts(): ?array | setDiscounts(?array discounts): void |
 | `modifiers` | [`?(V1PaymentModifier[])`](/doc/models/v1-payment-modifier.md) | Optional | All modifier options applied to this itemization. | getModifiers(): ?array | setModifiers(?array modifiers): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -160,7 +160,8 @@ class CatalogTax implements \JsonSerializable
     /**
      * Returns Enabled.
      *
-     * If `true`, the tax will be shown as enabled in the Square Point of Sale app.
+     * A Boolean flag to indicate whether the tax is displayed as enabled (`true`) in the Square Point of
+     * Sale app or not (`false`).
      */
     public function getEnabled(): ?bool
     {
@@ -170,7 +171,8 @@ class CatalogTax implements \JsonSerializable
     /**
      * Sets Enabled.
      *
-     * If `true`, the tax will be shown as enabled in the Square Point of Sale app.
+     * A Boolean flag to indicate whether the tax is displayed as enabled (`true`) in the Square Point of
+     * Sale app or not (`false`).
      *
      * @maps enabled
      */

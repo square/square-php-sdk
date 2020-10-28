@@ -1,19 +1,20 @@
-## Catalog Query Prefix
+
+# Catalog Query Prefix
 
 The query filter to return the search result whose named attribute values are prefixed by the specified attribute value.
 
-### Structure
+## Structure
 
 `CatalogQueryPrefix`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `attributeName` | `string` | The name of the attribute to be searched. | getAttributeName(): string | setAttributeName(string attributeName): void |
 | `attributePrefix` | `string` | The desired prefix of the search attribute value. | getAttributePrefix(): string | setAttributePrefix(string attributePrefix): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

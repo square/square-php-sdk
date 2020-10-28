@@ -1,16 +1,17 @@
-## Retrieve Cash Drawer Shift Request
 
-### Structure
+# Retrieve Cash Drawer Shift Request
+
+## Structure
 
 `RetrieveCashDrawerShiftRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `locationId` | `string` | The ID of the location to retrieve cash drawer shifts from. | getLocationId(): string | setLocationId(string locationId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## Transaction Type
+
+# Transaction Type
 
 Transaction type used in the disputed payment.
 
-### Enumeration
+## Enumeration
 
 `TransactionType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

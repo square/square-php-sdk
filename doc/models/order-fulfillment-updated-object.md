@@ -1,16 +1,17 @@
-## Order Fulfillment Updated Object
 
-### Structure
+# Order Fulfillment Updated Object
+
+## Structure
 
 `OrderFulfillmentUpdatedObject`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `orderFulfillmentUpdated` | [`?OrderFulfillmentUpdated`](/doc/models/order-fulfillment-updated.md) | Optional | - | getOrderFulfillmentUpdated(): ?OrderFulfillmentUpdated | setOrderFulfillmentUpdated(?OrderFulfillmentUpdated orderFulfillmentUpdated): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -50,7 +50,7 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Returns Start Local Time.
      *
      * The start time of a business hours period, specified in local time using partial-time
-     * RFC3339 format.
+     * RFC 3339 format.
      */
     public function getStartLocalTime(): ?string
     {
@@ -61,7 +61,7 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Sets Start Local Time.
      *
      * The start time of a business hours period, specified in local time using partial-time
-     * RFC3339 format.
+     * RFC 3339 format.
      *
      * @maps start_local_time
      */
@@ -74,7 +74,7 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Returns End Local Time.
      *
      * The end time of a business hours period, specified in local time using partial-time
-     * RFC3339 format.
+     * RFC 3339 format.
      */
     public function getEndLocalTime(): ?string
     {
@@ -85,7 +85,7 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Sets End Local Time.
      *
      * The end time of a business hours period, specified in local time using partial-time
-     * RFC3339 format.
+     * RFC 3339 format.
      *
      * @maps end_local_time
      */

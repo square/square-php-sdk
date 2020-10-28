@@ -38,9 +38,12 @@ class TenderType
     public const NO_SALE = 'NO_SALE';
 
     /**
-     * An ACH payment.
+     * A payment from a digital wallet, e.g. Cash App.
+     *
+     * Note: Some "digital wallets", including Google Pay and Apple Pay, facilitate
+     * card payments.  Those payments have the `CARD` type.
      */
-    public const BANK_TRANSFER = 'BANK_TRANSFER';
+    public const WALLET = 'WALLET';
 
     /**
      * A form of tender that does not match any other value.

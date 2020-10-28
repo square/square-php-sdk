@@ -146,10 +146,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Returns Match Products Id.
      *
-     * Unique ID for the `CatalogProductSet` that will be matched by this rule.
-     * A match rule matches within the entire cart.
-     * A match rule can match multiple times in the cart.
-     * If no `ProductSet` is present, the rule will match all products.
+     * Unique ID for the `CatalogProductSet` that will be matched by this rule. A match rule
+     * matches within the entire cart, and can match multiple times. This field will always be set.
      */
     public function getMatchProductsId(): ?string
     {
@@ -159,10 +157,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Sets Match Products Id.
      *
-     * Unique ID for the `CatalogProductSet` that will be matched by this rule.
-     * A match rule matches within the entire cart.
-     * A match rule can match multiple times in the cart.
-     * If no `ProductSet` is present, the rule will match all products.
+     * Unique ID for the `CatalogProductSet` that will be matched by this rule. A match rule
+     * matches within the entire cart, and can match multiple times. This field will always be set.
      *
      * @maps match_products_id
      */
@@ -242,8 +238,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Returns Valid From Date.
      *
-     * Represents the date the Pricing Rule is valid from. Represented in RFC3339 full-date format (YYYY-MM-
-     * DD).
+     * Represents the date the Pricing Rule is valid from. Represented in RFC 3339 full-date format (YYYY-
+     * MM-DD).
      */
     public function getValidFromDate(): ?string
     {
@@ -253,8 +249,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Sets Valid From Date.
      *
-     * Represents the date the Pricing Rule is valid from. Represented in RFC3339 full-date format (YYYY-MM-
-     * DD).
+     * Represents the date the Pricing Rule is valid from. Represented in RFC 3339 full-date format (YYYY-
+     * MM-DD).
      *
      * @maps valid_from_date
      */
@@ -266,8 +262,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Returns Valid From Local Time.
      *
-     * Represents the local time the pricing rule should be valid from. Represented in RFC3339 partial-time
-     * format
+     * Represents the local time the pricing rule should be valid from. Represented in RFC 3339 partial-
+     * time format
      * (HH:MM:SS). Partial seconds will be truncated.
      */
     public function getValidFromLocalTime(): ?string
@@ -278,8 +274,8 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Sets Valid From Local Time.
      *
-     * Represents the local time the pricing rule should be valid from. Represented in RFC3339 partial-time
-     * format
+     * Represents the local time the pricing rule should be valid from. Represented in RFC 3339 partial-
+     * time format
      * (HH:MM:SS). Partial seconds will be truncated.
      *
      * @maps valid_from_local_time
@@ -292,7 +288,7 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Returns Valid Until Date.
      *
-     * Represents the date the Pricing Rule is valid until. Represented in RFC3339 full-date format (YYYY-
+     * Represents the date the Pricing Rule is valid until. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      */
     public function getValidUntilDate(): ?string
@@ -303,7 +299,7 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Sets Valid Until Date.
      *
-     * Represents the date the Pricing Rule is valid until. Represented in RFC3339 full-date format (YYYY-
+     * Represents the date the Pricing Rule is valid until. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      *
      * @maps valid_until_date
@@ -316,7 +312,7 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Returns Valid Until Local Time.
      *
-     * Represents the local time the pricing rule should be valid until. Represented in RFC3339 partial-
+     * Represents the local time the pricing rule should be valid until. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
      */
@@ -328,7 +324,7 @@ class CatalogPricingRule implements \JsonSerializable
     /**
      * Sets Valid Until Local Time.
      *
-     * Represents the local time the pricing rule should be valid until. Represented in RFC3339 partial-
+     * Represents the local time the pricing rule should be valid until. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
      *

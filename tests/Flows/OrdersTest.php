@@ -100,7 +100,6 @@ class OrdersTest extends TestCase
         $body = new CreateOrderRequest;
         $body->setIdempotencyKey($body_idempotencyKey);
         $body->setOrder($order);
-        $body->setLocationId($locationId);
 
         $apiResponse = self::$controller->createOrder($body);
 
@@ -153,7 +152,6 @@ class OrdersTest extends TestCase
         $body = new BatchRetrieveOrdersRequest(
             $body_orderIds
         );
-        $body->setLocationId($locationId);
 
         $apiResponse = self::$controller->batchRetrieveOrders($body);
 

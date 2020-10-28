@@ -1,19 +1,20 @@
-## V1 Inventory Entry
+
+# V1 Inventory Entry
 
 V1InventoryEntry
 
-### Structure
+## Structure
 
 `V1InventoryEntry`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `variationId` | `?string` | Optional | The variation that the entry corresponds to. | getVariationId(): ?string | setVariationId(?string variationId): void |
 | `quantityOnHand` | `?float` | Optional | The current available quantity of the item variation. | getQuantityOnHand(): ?float | setQuantityOnHand(?float quantityOnHand): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

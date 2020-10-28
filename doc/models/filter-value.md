@@ -1,4 +1,5 @@
-## Filter Value
+
+# Filter Value
 
 A filter to select resources based on an exact field value. For any given
 value, the value can only be in one property. Depending on the field, either
@@ -6,11 +7,11 @@ all properties can be set or only a subset will be available.
 
 Refer to the documentation of the field.
 
-### Structure
+## Structure
 
 `FilterValue`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@ Refer to the documentation of the field.
 | `any` | `?(string[])` | Optional | A list of terms where at least one of them must be present on the<br>field of the resource. | getAny(): ?array | setAny(?array any): void |
 | `none` | `?(string[])` | Optional | A list of terms that must not be present on the field the resource | getNone(): ?array | setNone(?array none): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

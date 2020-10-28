@@ -1,16 +1,17 @@
-## V1 List Employee Roles Response
 
-### Structure
+# V1 List Employee Roles Response
+
+## Structure
 
 `V1ListEmployeeRolesResponse`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `items` | [`?(V1EmployeeRole[])`](/doc/models/v1-employee-role.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

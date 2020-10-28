@@ -149,7 +149,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      * The filter to return results by `InventoryState`. The filter is only applicable when set.
      * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
      * The default is null.
-     * See [InventoryState](#type-inventorystate) for possible values
      *
      * @return string[]|null
      */
@@ -164,7 +163,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      * The filter to return results by `InventoryState`. The filter is only applicable when set.
      * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
      * The default is null.
-     * See [InventoryState](#type-inventorystate) for possible values
      *
      * @maps states
      *

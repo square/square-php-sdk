@@ -1,10 +1,11 @@
-## V1 Item Visibility
 
-### Enumeration
+# V1 Item Visibility
+
+## Enumeration
 
 `V1ItemVisibility`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

@@ -16,8 +16,8 @@ class LoyaltyEventType
 
     /**
      * A loyalty reward is created. For more information, see
-     * [Loyalty rewards](https://developer.squareup.com/docs/docs/loyalty-api/overview/#loyalty-overview-
-     * loyalty-rewards).
+     * [Loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview/#loyalty-overview-loyalty-
+     * rewards).
      */
     public const CREATE_REWARD = 'CREATE_REWARD';
 

@@ -1,12 +1,13 @@
-## Catalog Discount
+
+# Catalog Discount
 
 A discount applicable to items.
 
-### Structure
+## Structure
 
 `CatalogDiscount`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,21 +19,21 @@ A discount applicable to items.
 | `labelColor` | `?string` | Optional | The color of the discount display label in the Square Point of Sale app. This must be a valid hex color code. | getLabelColor(): ?string | setLabelColor(?string labelColor): void |
 | `modifyTaxBasis` | [`?string (CatalogDiscountModifyTaxBasis)`](/doc/models/catalog-discount-modify-tax-basis.md) | Optional | - | getModifyTaxBasis(): ?string | setModifyTaxBasis(?string modifyTaxBasis): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "object": {
-    "type": "DISCOUNT",
+    "discount_data": {
+      "discount_type": "FIXED_PERCENTAGE",
+      "label_color": "red",
+      "name": "Welcome to the Dark(Roast) Side!",
+      "percentage": "5.4",
+      "pin_required": false
+    },
     "id": "#Maythe4th",
     "present_at_all_locations": true,
-    "discount_data": {
-      "name": "Welcome to the Dark(Roast) Side!",
-      "discount_type": "FIXED_PERCENTAGE",
-      "percentage": "5.4",
-      "pin_required": false,
-      "label_color": "red"
-    }
+    "type": "DISCOUNT"
   }
 }
 ```

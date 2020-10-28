@@ -132,6 +132,11 @@ class Location implements \JsonSerializable
     private $mcc;
 
     /**
+     * @var string|null
+     */
+    private $fullFormatLogoUrl;
+
+    /**
      * Returns Id.
      *
      * The Square-issued ID of the location.
@@ -644,7 +649,10 @@ class Location implements \JsonSerializable
     /**
      * Returns Logo Url.
      *
-     * The URL of the logo image for the location.
+     * The URL of the logo image for the location. The Seller must choose this logo in the Seller
+     * dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)
+     * that Square generates on behalf of the Seller. This image should have an aspect ratio
+     * close to 1:1 and is recommended to be at least 200x200 pixels.
      */
     public function getLogoUrl(): ?string
     {
@@ -654,7 +662,10 @@ class Location implements \JsonSerializable
     /**
      * Sets Logo Url.
      *
-     * The URL of the logo image for the location.
+     * The URL of the logo image for the location. The Seller must choose this logo in the Seller
+     * dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)
+     * that Square generates on behalf of the Seller. This image should have an aspect ratio
+     * close to 1:1 and is recommended to be at least 200x200 pixels.
      *
      * @maps logo_url
      */
@@ -710,6 +721,38 @@ class Location implements \JsonSerializable
     }
 
     /**
+     * Returns Full Format Logo Url.
+     *
+     * The URL of a full-format logo image for the location. The Seller must choose this logo in the
+     * Seller dashboard (Receipts section) for the logo to appear on transactions (such as receipts,
+     * invoices)
+     * that Square generates on behalf of the Seller. This image can have an aspect ratio of 2:1 or
+     * greater
+     * and is recommended to be at least 1280x648 pixels.
+     */
+    public function getFullFormatLogoUrl(): ?string
+    {
+        return $this->fullFormatLogoUrl;
+    }
+
+    /**
+     * Sets Full Format Logo Url.
+     *
+     * The URL of a full-format logo image for the location. The Seller must choose this logo in the
+     * Seller dashboard (Receipts section) for the logo to appear on transactions (such as receipts,
+     * invoices)
+     * that Square generates on behalf of the Seller. This image can have an aspect ratio of 2:1 or
+     * greater
+     * and is recommended to be at least 1280x648 pixels.
+     *
+     * @maps full_format_logo_url
+     */
+    public function setFullFormatLogoUrl(?string $fullFormatLogoUrl): void
+    {
+        $this->fullFormatLogoUrl = $fullFormatLogoUrl;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -742,6 +785,7 @@ class Location implements \JsonSerializable
         $json['logo_url']          = $this->logoUrl;
         $json['pos_background_url'] = $this->posBackgroundUrl;
         $json['mcc']               = $this->mcc;
+        $json['full_format_logo_url'] = $this->fullFormatLogoUrl;
 
         return array_filter($json, function ($val) {
             return $val !== null;

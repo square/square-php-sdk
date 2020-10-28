@@ -1,10 +1,11 @@
-## Order Fulfillment Updated
 
-### Structure
+# Order Fulfillment Updated
+
+## Structure
 
 `OrderFulfillmentUpdated`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,7 +17,7 @@
 | `updatedAt` | `?string` | Optional | Timestamp for when the order was last updated in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `fulfillmentUpdate` | [`?(OrderFulfillmentUpdatedUpdate[])`](/doc/models/order-fulfillment-updated-update.md) | Optional | The fulfillments that were updated with this version change. | getFulfillmentUpdate(): ?array | setFulfillmentUpdate(?array fulfillmentUpdate): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

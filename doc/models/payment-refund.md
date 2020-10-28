@@ -1,13 +1,14 @@
-## Payment Refund
+
+# Payment Refund
 
 Represents a refund of a payment made using Square. Contains information on
 the original payment and the amount of money refunded.
 
-### Structure
+## Structure
 
 `PaymentRefund`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -23,7 +24,7 @@ the original payment and the amount of money refunded.
 | `createdAt` | `?string` | Optional | Timestamp of when the refund was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | Timestamp of when the refund was last updated, in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

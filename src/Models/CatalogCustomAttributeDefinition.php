@@ -113,7 +113,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * Returns Name.
      *
      * The name of this definition for API and seller-facing UI purposes.
-     * The name must be unique within the (merchant, application_id) pair. Required.
+     * The name must be unique within the (merchant, application) pair. Required.
      * May not be empty and may not exceed 255 characters. Can be modified after creation.
      */
     public function getName(): string
@@ -125,7 +125,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * Sets Name.
      *
      * The name of this definition for API and seller-facing UI purposes.
-     * The name must be unique within the (merchant, application_id) pair. Required.
+     * The name must be unique within the (merchant, application) pair. Required.
      * May not be empty and may not exceed 255 characters. Can be modified after creation.
      *
      * @required
@@ -359,7 +359,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * The name of the desired custom attribute key that can be used to access
      * the custom attribute value on catalog objects. Cannot be modified after the
      * custom attribute definition has been created.
-     * Must be between 1 and 60 characters, and may only contain the characters [a-zA-Z0-9_-].
+     * Must be between 1 and 60 characters, and may only contain the characters `[a-zA-Z0-9_-]`.
      */
     public function getKey(): ?string
     {
@@ -372,7 +372,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * The name of the desired custom attribute key that can be used to access
      * the custom attribute value on catalog objects. Cannot be modified after the
      * custom attribute definition has been created.
-     * Must be between 1 and 60 characters, and may only contain the characters [a-zA-Z0-9_-].
+     * Must be between 1 and 60 characters, and may only contain the characters `[a-zA-Z0-9_-]`.
      *
      * @maps key
      */

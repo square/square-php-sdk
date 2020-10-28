@@ -1,10 +1,11 @@
-## Order Created
 
-### Structure
+# Order Created
+
+## Structure
 
 `OrderCreated`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@
 | `state` | [`?string (OrderState)`](/doc/models/order-state.md) | Optional | The state of the order. | getState(): ?string | setState(?string state): void |
 | `createdAt` | `?string` | Optional | Timestamp for when the order was created in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

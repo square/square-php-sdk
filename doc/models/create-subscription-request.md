@@ -1,13 +1,14 @@
-## Create Subscription Request
+
+# Create Subscription Request
 
 Defines parameters in a
 [CreateSubscription](#endpoint-subscriptions-createsubscription) endpoint request.
 
-### Structure
+## Structure
 
 `CreateSubscriptionRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -22,21 +23,21 @@ Defines parameters in a
 | `cardId` | `?string` | Optional | The ID of the [customer](#type-customer) [card](#type-card) to charge.<br>If not specified, Square sends an invoice via email. For an example to<br>create a customer and add a card on file, see [Subscriptions Walkthrough](https://developer.squareup.com/docs/docs/subscriptions-api/walkthrough). | getCardId(): ?string | setCardId(?string cardId): void |
 | `timezone` | `?string` | Optional | The timezone that is used in date calculations for the subscription. If unset, defaults to<br>the location timezone. If a timezone is not configured for the location, defaults to "America/New_York".<br>Format: the IANA Timezone Database identifier for the location timezone. For<br>a list of time zones, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). | getTimezone(): ?string | setTimezone(?string timezone): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
+  "card_id": "ccof:qy5x8hHGYsgLrp4Q4GB",
+  "customer_id": "CHFGVKYY8RSV93M5KCYTG4PN0G",
   "idempotency_key": "8193148c-9586-11e6-99f9-28cfe92138cf",
   "location_id": "S8GWD5R9QB376",
   "plan_id": "6JHXF3B2CW3YKHDV4XEM674H",
-  "customer_id": "CHFGVKYY8RSV93M5KCYTG4PN0G",
-  "card_id": "ccof:qy5x8hHGYsgLrp4Q4GB",
-  "start_date": "2020-08-01",
-  "tax_percentage": "5",
   "price_override_money": {
     "amount": 100,
     "currency": "USD"
   },
+  "start_date": "2020-08-01",
+  "tax_percentage": "5",
   "timezone": "America/Los_Angeles"
 }
 ```

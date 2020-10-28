@@ -1,12 +1,13 @@
-## Create Dispute Evidence File Request
+
+# Create Dispute Evidence File Request
 
 Defines parameters for a CreateDisputeEvidenceFile request.
 
-### Structure
+## Structure
 
 `CreateDisputeEvidenceFileRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Defines parameters for a CreateDisputeEvidenceFile request.
 | `evidenceType` | [`?string (DisputeEvidenceType)`](/doc/models/dispute-evidence-type.md) | Optional | Type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
 | `contentType` | `?string` | Optional | The MIME type of the uploaded file.<br>One of image/heic, image/heif, image/jpeg, application/pdf,  image/png, image/tiff. | getContentType(): ?string | setContentType(?string contentType): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

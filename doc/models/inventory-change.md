@@ -1,14 +1,15 @@
-## Inventory Change
+
+# Inventory Change
 
 Represents a single physical count, inventory, adjustment, or transfer
 that is part of the history of inventory changes for a particular
 `CatalogObject`.
 
-### Structure
+## Structure
 
 `InventoryChange`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -17,7 +18,7 @@ that is part of the history of inventory changes for a particular
 | `adjustment` | [`?InventoryAdjustment`](/doc/models/inventory-adjustment.md) | Optional | Represents a change in state or quantity of product inventory at a<br>particular time and location. | getAdjustment(): ?InventoryAdjustment | setAdjustment(?InventoryAdjustment adjustment): void |
 | `transfer` | [`?InventoryTransfer`](/doc/models/inventory-transfer.md) | Optional | Represents the transfer of a quantity of product inventory at a<br>particular time from one location to another. | getTransfer(): ?InventoryTransfer | setTransfer(?InventoryTransfer transfer): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

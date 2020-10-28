@@ -1,10 +1,11 @@
-## V1 List Employee Roles Request
 
-### Structure
+# V1 List Employee Roles Request
+
+## Structure
 
 `V1ListEmployeeRolesRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `limit` | `?int` | Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. | getLimit(): ?int | setLimit(?int limit): void |
 | `batchToken` | `?string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. | getBatchToken(): ?string | setBatchToken(?string batchToken): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

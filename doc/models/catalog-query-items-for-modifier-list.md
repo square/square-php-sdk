@@ -1,18 +1,19 @@
-## Catalog Query Items for Modifier List
+
+# Catalog Query Items for Modifier List
 
 The query filter to return the items containing the specified modifier list IDs.
 
-### Structure
+## Structure
 
 `CatalogQueryItemsForModifierList`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `modifierListIds` | `string[]` | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. | getModifierListIds(): array | setModifierListIds(array modifierListIds): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
