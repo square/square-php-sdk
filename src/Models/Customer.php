@@ -354,7 +354,7 @@ class Customer implements \JsonSerializable
     /**
      * Returns Birthday.
      *
-     * The birthday associated with the customer profile, in RFC-3339 format.
+     * The birthday associated with the customer profile, in RFC 3339 format.
      * Year is optional, timezone and times are not allowed.
      * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
      * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.
@@ -367,7 +367,7 @@ class Customer implements \JsonSerializable
     /**
      * Sets Birthday.
      *
-     * The birthday associated with the customer profile, in RFC-3339 format.
+     * The birthday associated with the customer profile, in RFC 3339 format.
      * Year is optional, timezone and times are not allowed.
      * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
      * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.

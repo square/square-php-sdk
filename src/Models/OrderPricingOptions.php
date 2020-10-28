@@ -20,8 +20,8 @@ class OrderPricingOptions implements \JsonSerializable
     /**
      * Returns Auto Apply Discounts.
      *
-     * The option to determine whether or not pricing rule-based discounts are automatically applied to an
-     * order.
+     * The option to determine whether or not pricing rule-based
+     * discounts are automatically applied to an order.
      */
     public function getAutoApplyDiscounts(): ?bool
     {
@@ -31,8 +31,8 @@ class OrderPricingOptions implements \JsonSerializable
     /**
      * Sets Auto Apply Discounts.
      *
-     * The option to determine whether or not pricing rule-based discounts are automatically applied to an
-     * order.
+     * The option to determine whether or not pricing rule-based
+     * discounts are automatically applied to an order.
      *
      * @maps auto_apply_discounts
      */

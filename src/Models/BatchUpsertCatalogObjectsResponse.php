@@ -29,7 +29,7 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on any errors that encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -41,7 +41,7 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on any errors that encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

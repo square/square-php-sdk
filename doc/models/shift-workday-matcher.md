@@ -1,12 +1,13 @@
-## Shift Workday Matcher
+
+# Shift Workday Matcher
 
 Defines the logic used to apply a workday filter.
 
-### Enumeration
+## Enumeration
 
 `ShiftWorkdayMatcher`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

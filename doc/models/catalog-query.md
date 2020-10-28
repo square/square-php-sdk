@@ -1,4 +1,5 @@
-## Catalog Query
+
+# Catalog Query
 
 A query composed of one or more different types of filters to narrow the scope of targeted objects when calling the `SearchCatalogObjects` endpoint.
 
@@ -7,7 +8,7 @@ Although a query can have multiple filters, only one query is allowed per call t
 When a query filter is based on an attribute, the attribute must be searchable.
 Searchable attributes are listed as follows, along their parent types that can be searched for with applicable query filters.
 
-Searchable attribute and objects queryable by searchable attributes **
+* Searchable attribute and objects queryable by searchable attributes **
 
 - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`, `CatalogModifier`, 'CatalogModifierList`,`CatalogItemOption`,`CatalogItemOptionValue`
 - `description`: `CatalogItem`, `CatalogItemOptionValue`
@@ -20,16 +21,17 @@ Searchable attribute and objects queryable by searchable attributes **
 For example, to search for [CatalogItem](#type-CatalogItem) objects by searchable attributes, you can use
 the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable query filter.
 
-### Structure
+## Structure
 
 `CatalogQuery`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `sortedAttributeQuery` | [`?CatalogQuerySortedAttribute`](/doc/models/catalog-query-sorted-attribute.md) | Optional | The query expression to specify the key to sort search results. | getSortedAttributeQuery(): ?CatalogQuerySortedAttribute | setSortedAttributeQuery(?CatalogQuerySortedAttribute sortedAttributeQuery): void |
-| `exactQuery` | [`?CatalogQueryExact`](/doc/models/catalog-query-exact.md) | Optional | The query filter to return the serch result by exact match of the specified attribute name and value. | getExactQuery(): ?CatalogQueryExact | setExactQuery(?CatalogQueryExact exactQuery): void |
+| `exactQuery` | [`?CatalogQueryExact`](/doc/models/catalog-query-exact.md) | Optional | The query filter to return the search result by exact match of the specified attribute name and value. | getExactQuery(): ?CatalogQueryExact | setExactQuery(?CatalogQueryExact exactQuery): void |
+| `setQuery` | [`?CatalogQuerySet`](/doc/models/catalog-query-set.md) | Optional | The query filter to return the search result(s) by exact match of the specified `attribute_name` and any of<br>the `attribute_values`. | getSetQuery(): ?CatalogQuerySet | setSetQuery(?CatalogQuerySet setQuery): void |
 | `prefixQuery` | [`?CatalogQueryPrefix`](/doc/models/catalog-query-prefix.md) | Optional | The query filter to return the search result whose named attribute values are prefixed by the specified attribute value. | getPrefixQuery(): ?CatalogQueryPrefix | setPrefixQuery(?CatalogQueryPrefix prefixQuery): void |
 | `rangeQuery` | [`?CatalogQueryRange`](/doc/models/catalog-query-range.md) | Optional | The query filter to return the search result whose named attribute values fall between the specified range. | getRangeQuery(): ?CatalogQueryRange | setRangeQuery(?CatalogQueryRange rangeQuery): void |
 | `textQuery` | [`?CatalogQueryText`](/doc/models/catalog-query-text.md) | Optional | The query filter to return the search result whose searchable attribute values contain all of the specified keywords or tokens, independent of the token order or case. | getTextQuery(): ?CatalogQueryText | setTextQuery(?CatalogQueryText textQuery): void |
@@ -38,7 +40,7 @@ the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable qu
 | `itemsForItemOptionsQuery` | [`?CatalogQueryItemsForItemOptions`](/doc/models/catalog-query-items-for-item-options.md) | Optional | The query filter to return the items containing the specified item option IDs. | getItemsForItemOptionsQuery(): ?CatalogQueryItemsForItemOptions | setItemsForItemOptionsQuery(?CatalogQueryItemsForItemOptions itemsForItemOptionsQuery): void |
 | `itemVariationsForItemOptionValuesQuery` | [`?CatalogQueryItemVariationsForItemOptionValues`](/doc/models/catalog-query-item-variations-for-item-option-values.md) | Optional | The query filter to return the item variations containing the specified item option value IDs. | getItemVariationsForItemOptionValuesQuery(): ?CatalogQueryItemVariationsForItemOptionValues | setItemVariationsForItemOptionValuesQuery(?CatalogQueryItemVariationsForItemOptionValues itemVariationsForItemOptionValuesQuery): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -51,6 +53,12 @@ the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable qu
     "attribute_name": "attribute_name4",
     "attribute_value": "attribute_value6"
   },
+  "set_query": {
+    "attribute_name": "attribute_name2",
+    "attribute_values": [
+      "attribute_values6"
+    ]
+  },
   "prefix_query": {
     "attribute_name": "attribute_name6",
     "attribute_prefix": "attribute_prefix8"
@@ -59,13 +67,6 @@ the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable qu
     "attribute_name": "attribute_name0",
     "attribute_min_value": 208,
     "attribute_max_value": 138
-  },
-  "text_query": {
-    "keywords": [
-      "keywords3",
-      "keywords4",
-      "keywords5"
-    ]
   }
 }
 ```

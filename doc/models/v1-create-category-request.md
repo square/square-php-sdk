@@ -1,16 +1,17 @@
-## V1 Create Category Request
 
-### Structure
+# V1 Create Category Request
+
+## Structure
 
 `V1CreateCategoryRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1Category`](/doc/models/v1-category.md) | Optional | V1Category | getBody(): ?V1Category | setBody(?V1Category body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

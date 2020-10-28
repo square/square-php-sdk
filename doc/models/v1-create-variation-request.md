@@ -1,16 +1,17 @@
-## V1 Create Variation Request
 
-### Structure
+# V1 Create Variation Request
+
+## Structure
 
 `V1CreateVariationRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1Variation`](/doc/models/v1-variation.md) | Optional | V1Variation | getBody(): ?V1Variation | setBody(?V1Variation body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

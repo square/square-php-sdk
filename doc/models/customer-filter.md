@@ -1,13 +1,14 @@
-## Customer Filter
+
+# Customer Filter
 
 Represents a set of `CustomerQuery` filters used to limit the set of
 `Customers` returned by `SearchCustomers`.
 
-### Structure
+## Structure
 
 `CustomerFilter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -19,7 +20,7 @@ Represents a set of `CustomerQuery` filters used to limit the set of
 | `referenceId` | [`?CustomerTextFilter`](/doc/models/customer-text-filter.md) | Optional | A filter to select customers based on exact or fuzzy matching of<br>customer attributes against a specified query. Depending on customer attributes,<br>the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both. | getReferenceId(): ?CustomerTextFilter | setReferenceId(?CustomerTextFilter referenceId): void |
 | `groupIds` | [`?FilterValue`](/doc/models/filter-value.md) | Optional | A filter to select resources based on an exact field value. For any given<br>value, the value can only be in one property. Depending on the field, either<br>all properties can be set or only a subset will be available.<br><br>Refer to the documentation of the field. | getGroupIds(): ?FilterValue | setGroupIds(?FilterValue groupIds): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

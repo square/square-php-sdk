@@ -1,12 +1,13 @@
-## Cash Drawer Shift State
+
+# Cash Drawer Shift State
 
 The current state of a cash drawer shift.
 
-### Enumeration
+## Enumeration
 
 `CashDrawerShiftState`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

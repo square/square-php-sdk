@@ -1,10 +1,11 @@
-## V1 Tender Type
 
-### Enumeration
+# V1 Tender Type
+
+## Enumeration
 
 `V1TenderType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

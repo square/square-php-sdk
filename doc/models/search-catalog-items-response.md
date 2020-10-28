@@ -1,40 +1,41 @@
-## Search Catalog Items Response
+
+# Search Catalog Items Response
 
 Defines the response body returned from the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint.
 
-### Structure
+## Structure
 
 `SearchCatalogItemsResponse`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Errors detected when the call to [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint fails. | getErrors(): ?array | setErrors(?array errors): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `items` | [`?(CatalogObject[])`](/doc/models/catalog-object.md) | Optional | Returned items matching the specified query expressions. | getItems(): ?array | setItems(?array items): void |
 | `cursor` | `?string` | Optional | Pagination token used in the next request to return more of the search result. | getCursor(): ?string | setCursor(?string cursor): void |
 | `matchedVariationIds` | `?(string[])` | Optional | Ids of returned item variations matching the specified query expression. | getMatchedVariationIds(): ?array | setMatchedVariationIds(?array matchedVariationIds): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "errors": [
     {
       "category": "AUTHENTICATION_ERROR",
-      "code": "REQUEST_TIMEOUT",
+      "code": "MAP_KEY_LENGTH_TOO_SHORT",
       "detail": "detail1",
       "field": "field9"
     },
     {
       "category": "INVALID_REQUEST_ERROR",
-      "code": "CONFLICT",
+      "code": "MAP_KEY_LENGTH_TOO_LONG",
       "detail": "detail2",
       "field": "field0"
     },
     {
       "category": "RATE_LIMIT_ERROR",
-      "code": "GONE",
+      "code": "CARD_EXPIRED",
       "detail": "detail3",
       "field": "field1"
     }

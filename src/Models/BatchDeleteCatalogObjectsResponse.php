@@ -24,7 +24,7 @@ class BatchDeleteCatalogObjectsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * The set of Errors encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -36,7 +36,7 @@ class BatchDeleteCatalogObjectsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * The set of Errors encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

@@ -1,10 +1,11 @@
-## V1 Adjust Inventory Request Adjustment Type
 
-### Enumeration
+# V1 Adjust Inventory Request Adjustment Type
+
+## Enumeration
 
 `V1AdjustInventoryRequestAdjustmentType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

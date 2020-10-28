@@ -1,17 +1,18 @@
-## Device
 
-### Structure
+# Device
+
+## Structure
 
 `Device`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The device's Square-issued ID. | getId(): ?string | setId(?string id): void |
 | `name` | `?string` | Optional | The device's merchant-specified name. | getName(): ?string | setName(?string name): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,19 +1,20 @@
-## Team Member Assigned Locations
+
+# Team Member Assigned Locations
 
 An object that represents a team member's assignment to locations.
 
-### Structure
+## Structure
 
 `TeamMemberAssignedLocations`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `assignmentType` | [`?string (TeamMemberAssignedLocationsAssignmentType)`](/doc/models/team-member-assigned-locations-assignment-type.md) | Optional | Enumerates the possible assignment types the team member can have | getAssignmentType(): ?string | setAssignmentType(?string assignmentType): void |
 | `locationIds` | `?(string[])` | Optional | The locations that the team member is assigned to. | getLocationIds(): ?array | setLocationIds(?array locationIds): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

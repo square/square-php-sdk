@@ -1,12 +1,13 @@
-## V1 Cash Drawer Shift
+
+# V1 Cash Drawer Shift
 
 Contains details for a single cash drawer shift.
 
-### Structure
+## Structure
 
 `V1CashDrawerShift`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -30,7 +31,7 @@ Contains details for a single cash drawer shift.
 | `device` | [`?Device`](/doc/models/device.md) | Optional | - | getDevice(): ?Device | setDevice(?Device device): void |
 | `events` | [`?(V1CashDrawerEvent[])`](/doc/models/v1-cash-drawer-event.md) | Optional | All of the events (payments, refunds, and so on) that involved the cash drawer during the shift. | getEvents(): ?array | setEvents(?array events): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

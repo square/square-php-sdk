@@ -1,12 +1,13 @@
-## Team Member
+
+# Team Member
 
 A record representing an individual team member for a business.
 
-### Structure
+## Structure
 
 `TeamMember`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -22,7 +23,7 @@ A record representing an individual team member for a business.
 | `updatedAt` | `?string` | Optional | The timestamp in RFC 3339 format describing when the team member was last updated.<br>Ex: "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z" | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `assignedLocations` | [`?TeamMemberAssignedLocations`](/doc/models/team-member-assigned-locations.md) | Optional | An object that represents a team member's assignment to locations. | getAssignedLocations(): ?TeamMemberAssignedLocations | setAssignedLocations(?TeamMemberAssignedLocations assignedLocations): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

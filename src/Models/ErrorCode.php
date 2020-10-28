@@ -531,6 +531,16 @@ class ErrorCode
     public const INVALID_CARD_DATA = 'INVALID_CARD_DATA';
 
     /**
+     * The provided source id was already used to create a card.
+     */
+    public const SOURCE_USED = 'SOURCE_USED';
+
+    /**
+     * The provided source id has expired.
+     */
+    public const SOURCE_EXPIRED = 'SOURCE_EXPIRED';
+
+    /**
      * Generic error - the given location does not matching what is expected.
      */
     public const LOCATION_MISMATCH = 'LOCATION_MISMATCH';

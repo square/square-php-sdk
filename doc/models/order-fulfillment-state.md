@@ -1,12 +1,13 @@
-## Order Fulfillment State
+
+# Order Fulfillment State
 
 The current state of this fulfillment.
 
-### Enumeration
+## Enumeration
 
 `OrderFulfillmentState`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

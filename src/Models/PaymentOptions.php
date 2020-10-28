@@ -15,7 +15,7 @@ class PaymentOptions implements \JsonSerializable
      * Returns Autocomplete.
      *
      * Indicates whether the Payment objects created from this `TerminalCheckout` will automatically be
-     * COMPLETED or left in an APPROVED state for later modification.
+     * `COMPLETED` or left in an `APPROVED` state for later modification.
      */
     public function getAutocomplete(): ?bool
     {
@@ -26,7 +26,7 @@ class PaymentOptions implements \JsonSerializable
      * Sets Autocomplete.
      *
      * Indicates whether the Payment objects created from this `TerminalCheckout` will automatically be
-     * COMPLETED or left in an APPROVED state for later modification.
+     * `COMPLETED` or left in an `APPROVED` state for later modification.
      *
      * @maps autocomplete
      */

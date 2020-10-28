@@ -1,12 +1,13 @@
-## Loyalty Program Reward Tier
+
+# Loyalty Program Reward Tier
 
 Describes a loyalty program reward tier.
 
-### Structure
+## Structure
 
 `LoyaltyProgramRewardTier`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
@@ -16,7 +17,7 @@ Describes a loyalty program reward tier.
 | `definition` | [`LoyaltyProgramRewardDefinition`](/doc/models/loyalty-program-reward-definition.md) | Provides details about the loyalty program reward tier definition. | getDefinition(): LoyaltyProgramRewardDefinition | setDefinition(LoyaltyProgramRewardDefinition definition): void |
 | `createdAt` | `string` | The timestamp when the reward tier was created, in RFC 3339 format. | getCreatedAt(): string | setCreatedAt(string createdAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

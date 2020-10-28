@@ -24,7 +24,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * The set of [Error](#type-error)s encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -36,7 +36,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * The set of [Error](#type-error)s encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

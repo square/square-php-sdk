@@ -1,12 +1,13 @@
-## Location Capability
+
+# Location Capability
 
 The capabilities a location may have.
 
-### Enumeration
+## Enumeration
 
 `LocationCapability`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Device Details
+
+# Device Details
 
 Details about the device that took the payment.
 
-### Structure
+## Structure
 
 `DeviceDetails`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ Details about the device that took the payment.
 | `deviceInstallationId` | `?string` | Optional | Square-issued installation ID for the device. | getDeviceInstallationId(): ?string | setDeviceInstallationId(?string deviceInstallationId): void |
 | `deviceName` | `?string` | Optional | The name of the device set by the merchant. | getDeviceName(): ?string | setDeviceName(?string deviceName): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

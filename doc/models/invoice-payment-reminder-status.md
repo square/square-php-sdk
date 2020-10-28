@@ -1,12 +1,13 @@
-## Invoice Payment Reminder Status
+
+# Invoice Payment Reminder Status
 
 The status of a payment request reminder.
 
-### Enumeration
+## Enumeration
 
 `InvoicePaymentReminderStatus`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

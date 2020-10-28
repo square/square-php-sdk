@@ -1,14 +1,15 @@
-## List Payment Refunds Request
+
+# List Payment Refunds Request
 
 Retrieves a list of refunds for the account making the request.
 
 Max results per page: 100
 
-### Structure
+## Structure
 
 `ListPaymentRefundsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -21,7 +22,7 @@ Max results per page: 100
 | `sourceType` | `?string` | Optional | If provided, only refunds with the given source type are returned.<br><br>- `CARD` - List refunds only for payments where card was specified as payment<br>  source.<br><br>Default: If omitted refunds are returned regardless of source type. | getSourceType(): ?string | setSourceType(?string sourceType): void |
 | `limit` | `?int` | Optional | Maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>If the supplied value is greater than 100, at most 100 results will be returned.<br><br>Default: `100` | getLimit(): ?int | setLimit(?int limit): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {}

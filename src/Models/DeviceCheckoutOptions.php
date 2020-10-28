@@ -32,8 +32,9 @@ class DeviceCheckoutOptions implements \JsonSerializable
     /**
      * Returns Device Id.
      *
-     * The unique Id of the device intended for this `TerminalCheckout`.
-     * The Id can be retrieved from /v2/devices api.
+     * The unique ID of the device intended for this `TerminalCheckout`.
+     * A list of `DeviceCode` objects can be retrieved from the /v2/devices/codes endpoint.
+     * Match a `DeviceCode.device_id` value with `device_id` to get the associated device code.
      */
     public function getDeviceId(): string
     {
@@ -43,8 +44,9 @@ class DeviceCheckoutOptions implements \JsonSerializable
     /**
      * Sets Device Id.
      *
-     * The unique Id of the device intended for this `TerminalCheckout`.
-     * The Id can be retrieved from /v2/devices api.
+     * The unique ID of the device intended for this `TerminalCheckout`.
+     * A list of `DeviceCode` objects can be retrieved from the /v2/devices/codes endpoint.
+     * Match a `DeviceCode.device_id` value with `device_id` to get the associated device code.
      *
      * @required
      * @maps device_id

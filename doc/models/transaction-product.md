@@ -1,12 +1,13 @@
-## Transaction Product
+
+# Transaction Product
 
 Indicates the Square product used to process a transaction.
 
-### Enumeration
+## Enumeration
 
 `TransactionProduct`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

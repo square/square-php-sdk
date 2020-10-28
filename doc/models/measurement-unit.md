@@ -1,14 +1,15 @@
-## Measurement Unit
+
+# Measurement Unit
 
 Represents a unit of measurement to use with a quantity, such as ounces
 or inches. Exactly one of the following fields are required: `custom_unit`,
 `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
 
-### Structure
+## Structure
 
 `MeasurementUnit`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -21,7 +22,7 @@ or inches. Exactly one of the following fields are required: `custom_unit`,
 | `timeUnit` | [`?string (MeasurementUnitTime)`](/doc/models/measurement-unit-time.md) | Optional | Unit of time used to measure a quantity (a duration). | getTimeUnit(): ?string | setTimeUnit(?string timeUnit): void |
 | `type` | [`?string (MeasurementUnitUnitType)`](/doc/models/measurement-unit-unit-type.md) | Optional | Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum. | getType(): ?string | setType(?string type): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,18 +1,19 @@
-## Customer Preferences
+
+# Customer Preferences
 
 Represents communication preferences for the customer profile.
 
-### Structure
+## Structure
 
 `CustomerPreferences`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `emailUnsubscribed` | `?bool` | Optional | The customer has unsubscribed from receiving marketing campaign emails. | getEmailUnsubscribed(): ?bool | setEmailUnsubscribed(?bool emailUnsubscribed): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

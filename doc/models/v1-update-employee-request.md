@@ -1,16 +1,17 @@
-## V1 Update Employee Request
 
-### Structure
+# V1 Update Employee Request
+
+## Structure
 
 `V1UpdateEmployeeRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `body` | [`V1Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. | getBody(): V1Employee | setBody(V1Employee body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

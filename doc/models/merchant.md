@@ -1,12 +1,13 @@
-## Merchant
+
+# Merchant
 
 Represents a Square seller.
 
-### Structure
+## Structure
 
 `Merchant`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -18,7 +19,7 @@ Represents a Square seller.
 | `status` | [`?string (MerchantStatus)`](/doc/models/merchant-status.md) | Optional | - | getStatus(): ?string | setStatus(?string status): void |
 | `mainLocationId` | `?string` | Optional | The ID of the main `Location` for this merchant. | getMainLocationId(): ?string | setMainLocationId(?string mainLocationId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

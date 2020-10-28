@@ -1,14 +1,15 @@
-## Search Subscriptions Request
+
+# Search Subscriptions Request
 
 Defines parameters in a
 [SearchSubscriptions](#endpoint-subscriptions-searchsubscriptions) endpoint
 request.
 
-### Structure
+## Structure
 
 `SearchSubscriptionsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,17 +17,17 @@ request.
 | `limit` | `?int` | Optional | The upper limit on the number of subscriptions to return<br>in the response.<br><br>Default: `200` | getLimit(): ?int | setLimit(?int limit): void |
 | `query` | [`?SearchSubscriptionsQuery`](/doc/models/search-subscriptions-query.md) | Optional | Represents a query (including filtering criteria) used to search for subscriptions. | getQuery(): ?SearchSubscriptionsQuery | setQuery(?SearchSubscriptionsQuery query): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "query": {
     "filter": {
-      "location_ids": [
-        "S8GWD5R9QB376"
-      ],
       "customer_ids": [
         "CHFGVKYY8RSV93M5KCYTG4PN0G"
+      ],
+      "location_ids": [
+        "S8GWD5R9QB376"
       ]
     }
   }

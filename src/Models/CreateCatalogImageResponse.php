@@ -19,7 +19,7 @@ class CreateCatalogImageResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on any errors encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -31,7 +31,7 @@ class CreateCatalogImageResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on any errors encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

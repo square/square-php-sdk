@@ -1,4 +1,5 @@
-## Order Line Item Discount
+
+# Order Line Item Discount
 
 Represents a discount that applies to one or more line items in an
 order.
@@ -7,11 +8,11 @@ Fixed-amount, order-scoped discounts are distributed across all non-zero line it
 The amount distributed to each line item is relative to the
 amount contributed by the item to the order subtotal.
 
-### Structure
+## Structure
 
 `OrderLineItemDiscount`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -27,7 +28,7 @@ amount contributed by the item to the order subtotal.
 | `rewardIds` | `?(string[])` | Optional | The reward identifiers corresponding to this discount. The application and<br>specification of discounts that have `reward_ids` are completely controlled by the backing<br>criteria corresponding to the reward tiers of the rewards that are added to the order<br>through the Loyalty API. To manually unapply discounts that are the result of added rewards,<br>the rewards must be removed from the order through the Loyalty API. | getRewardIds(): ?array | setRewardIds(?array rewardIds): void |
 | `pricingRuleId` | `?string` | Optional | The object identifier of a [pricing rule](#type-CatalogPricingRule) to be applied automatically<br>to this discount. The specification and application of the discounts, to which a `pricing_rule_id` is<br>assigned, are completely controlled by the corresponding pricing rule. | getPricingRuleId(): ?string | setPricingRuleId(?string pricingRuleId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,4 +1,5 @@
-## Transaction
+
+# Transaction
 
 Represents a transaction processed with Square, either with the
 Connect API or with Square Point of Sale.
@@ -6,11 +7,11 @@ Connect API or with Square Point of Sale.
 The `tenders` field of this object lists all methods of payment used to pay in
 the transaction.
 
-### Structure
+## Structure
 
 `Transaction`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -25,7 +26,7 @@ the transaction.
 | `shippingAddress` | [`?Address`](/doc/models/address.md) | Optional | Represents a physical address. | getShippingAddress(): ?Address | setShippingAddress(?Address shippingAddress): void |
 | `orderId` | `?string` | Optional | The order_id is an identifier for the order associated with this transaction, if any. | getOrderId(): ?string | setOrderId(?string orderId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

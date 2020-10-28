@@ -1,13 +1,14 @@
-## Error Code
+
+# Error Code
 
 Indicates the specific error that occurred during a request to a
 Square API.
 
-### Enumeration
+## Enumeration
 
 `ErrorCode`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
@@ -101,6 +102,8 @@ Square API.
 | `PAYMENT_NOT_REFUNDABLE` | The payment is not refundable. For example, a previous refund has<br>already been rejected and no new refunds can be accepted. |
 | `REFUND_DECLINED` | Request failed - The card issuer declined the refund. |
 | `INVALID_CARD_DATA` | Generic error - the provided card data is invalid. |
+| `SOURCE_USED` | The provided source id was already used to create a card. |
+| `SOURCE_EXPIRED` | The provided source id has expired. |
 | `LOCATION_MISMATCH` | Generic error - the given location does not matching what is expected. |
 | `IDEMPOTENCY_KEY_REUSED` | The provided idempotency key has already been used. |
 | `UNEXPECTED_VALUE` | General error - the value provided was unexpected. |

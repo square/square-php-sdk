@@ -100,7 +100,7 @@ class CatalogObjectType
     /**
      * Represents an option value associated with one or more item options.
      * For example, an item option of "Size" may have item option values such as
-     * “Small" or "Medium".
+     * "Small" or "Medium".
      */
     public const ITEM_OPTION_VAL = 'ITEM_OPTION_VAL';
 

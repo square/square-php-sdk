@@ -1,16 +1,17 @@
-## V1 Update Discount Request
 
-### Structure
+# V1 Update Discount Request
+
+## Structure
 
 `V1UpdateDiscountRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `body` | [`V1Discount`](/doc/models/v1-discount.md) | V1Discount | getBody(): V1Discount | setBody(V1Discount body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

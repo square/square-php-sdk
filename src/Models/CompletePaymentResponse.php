@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Return value from a [CompletePayment](#endpoint-payments-completepayment) call.
+ * The return value from a [CompletePayment](#endpoint-payments-completepayment) call.
  */
 class CompletePaymentResponse implements \JsonSerializable
 {
@@ -22,7 +22,7 @@ class CompletePaymentResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -34,7 +34,7 @@ class CompletePaymentResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *

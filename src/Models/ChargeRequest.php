@@ -73,7 +73,7 @@ class ChargeRequest implements \JsonSerializable
     private $orderId;
 
     /**
-     * @var AdditionalRecipient[]|null
+     * @var ChargeRequestAdditionalRecipient[]|null
      */
     private $additionalRecipients;
 
@@ -458,7 +458,7 @@ class ChargeRequest implements \JsonSerializable
      *
      * This field is currently not supported in sandbox.
      *
-     * @return AdditionalRecipient[]|null
+     * @return ChargeRequestAdditionalRecipient[]|null
      */
     public function getAdditionalRecipients(): ?array
     {
@@ -481,7 +481,7 @@ class ChargeRequest implements \JsonSerializable
      *
      * @maps additional_recipients
      *
-     * @param AdditionalRecipient[]|null $additionalRecipients
+     * @param ChargeRequestAdditionalRecipient[]|null $additionalRecipients
      */
     public function setAdditionalRecipients(?array $additionalRecipients): void
     {

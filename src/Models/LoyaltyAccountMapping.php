@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Associates a loyalty account with the buyer's phone number.
- * or more information, see
+ * For more information, see
  * [Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
  */
 class LoyaltyAccountMapping implements \JsonSerializable

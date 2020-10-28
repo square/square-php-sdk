@@ -1,10 +1,11 @@
-## Action Cancel Reason
 
-### Enumeration
+# Action Cancel Reason
+
+## Enumeration
 
 `ActionCancelReason`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,10 +1,11 @@
-## V1 Variation Inventory Alert Type
 
-### Enumeration
+# V1 Variation Inventory Alert Type
+
+## Enumeration
 
 `V1VariationInventoryAlertType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

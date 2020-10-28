@@ -1,10 +1,11 @@
-## V1 Item Type
 
-### Enumeration
+# V1 Item Type
+
+## Enumeration
 
 `V1ItemType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

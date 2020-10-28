@@ -1,12 +1,13 @@
-## Search Invoices Request
+
+# Search Invoices Request
 
 Describes a `SearchInvoices` request.
 
-### Structure
+## Structure
 
 `SearchInvoicesRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,24 +15,24 @@ Describes a `SearchInvoices` request.
 | `limit` | `?int` | Optional | The maximum number of invoices to return (200 is the maximum `limit`).<br>If not provided, the server<br>uses a default limit of 100 invoices. | getLimit(): ?int | setLimit(?int limit): void |
 | `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "query": {
     "filter": {
-      "location_ids": [
-        "ES0RJRZYEC39A"
-      ],
       "customer_ids": [
         "JDKYHBWT1D4F8MFH63DBMEN8Y4"
+      ],
+      "location_ids": [
+        "ES0RJRZYEC39A"
       ]
     },
+    "limit": 100,
     "sort": {
       "field": "INVOICE_SORT_DATE",
       "order": "DESC"
-    },
-    "limit": 100
+    }
   }
 }
 ```

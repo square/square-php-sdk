@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Return value from the [CancelPayment](#endpoint-payments-cancelpayment) endpoint.
+ * The return value from the [CancelPayment](#endpoint-payments-cancelpayment) endpoint.
  */
 class CancelPaymentResponse implements \JsonSerializable
 {
@@ -22,7 +22,7 @@ class CancelPaymentResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -34,7 +34,7 @@ class CancelPaymentResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *

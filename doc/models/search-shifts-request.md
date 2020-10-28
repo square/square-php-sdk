@@ -1,12 +1,13 @@
-## Search Shifts Request
+
+# Search Shifts Request
 
 A request for a filtered and sorted set of `Shift` objects.
 
-### Structure
+## Structure
 
 `SearchShiftsRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,7 +15,7 @@ A request for a filtered and sorted set of `Shift` objects.
 | `limit` | `?int` | Optional | number of resources in a page (200 by default). | getLimit(): ?int | setLimit(?int limit): void |
 | `cursor` | `?string` | Optional | opaque cursor for fetching the next page. | getCursor(): ?string | setCursor(?string cursor): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

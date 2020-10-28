@@ -1,16 +1,17 @@
-## V1 List Items Response
 
-### Structure
+# V1 List Items Response
+
+## Structure
 
 `V1ListItemsResponse`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `items` | [`?(V1Item[])`](/doc/models/v1-item.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

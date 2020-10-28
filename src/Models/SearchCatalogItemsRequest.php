@@ -238,7 +238,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      *
      * The product types query expression to return items or item variations having the specified product
      * types.
-     * See [CatalogItemProductType](#type-catalogitemproducttype) for possible values
      *
      * @return string[]|null
      */
@@ -252,7 +251,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      *
      * The product types query expression to return items or item variations having the specified product
      * types.
-     * See [CatalogItemProductType](#type-catalogitemproducttype) for possible values
      *
      * @maps product_types
      *

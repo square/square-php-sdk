@@ -15,9 +15,18 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
     private $mappings;
 
     /**
+     * @var string[]|null
+     */
+    private $customerIds;
+
+    /**
      * Returns Mappings.
      *
      * The set of mappings to use in the loyalty account search.
+     *
+     * This cannot be combined with `customer_ids`.
+     *
+     * Max: 30 mappings
      *
      * @return LoyaltyAccountMapping[]|null
      */
@@ -31,6 +40,10 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
      *
      * The set of mappings to use in the loyalty account search.
      *
+     * This cannot be combined with `customer_ids`.
+     *
+     * Max: 30 mappings
+     *
      * @maps mappings
      *
      * @param LoyaltyAccountMapping[]|null $mappings
@@ -41,6 +54,40 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
     }
 
     /**
+     * Returns Customer Ids.
+     *
+     * The set of customer IDs to use in the loyalty account search.
+     *
+     * This cannot be combined with `mappings`.
+     *
+     * Max: 30 customer IDs
+     *
+     * @return string[]|null
+     */
+    public function getCustomerIds(): ?array
+    {
+        return $this->customerIds;
+    }
+
+    /**
+     * Sets Customer Ids.
+     *
+     * The set of customer IDs to use in the loyalty account search.
+     *
+     * This cannot be combined with `mappings`.
+     *
+     * Max: 30 customer IDs
+     *
+     * @maps customer_ids
+     *
+     * @param string[]|null $customerIds
+     */
+    public function setCustomerIds(?array $customerIds): void
+    {
+        $this->customerIds = $customerIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -48,7 +95,8 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
     public function jsonSerialize()
     {
         $json = [];
-        $json['mappings'] = $this->mappings;
+        $json['mappings']    = $this->mappings;
+        $json['customer_ids'] = $this->customerIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

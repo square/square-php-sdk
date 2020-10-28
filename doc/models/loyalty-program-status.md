@@ -1,12 +1,13 @@
-## Loyalty Program Status
+
+# Loyalty Program Status
 
 Whether the program is currently active.
 
-### Enumeration
+## Enumeration
 
 `LoyaltyProgramStatus`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

@@ -1,12 +1,13 @@
-## Catalog Item Option
+
+# Catalog Item Option
 
 A group of variations for a `CatalogItem`.
 
-### Structure
+## Structure
 
 `CatalogItemOption`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -15,9 +16,8 @@ A group of variations for a `CatalogItem`.
 | `description` | `?string` | Optional | The item option's human-readable description. Displayed in the Square<br>Point of Sale app for the seller and in the Online Store or on receipts for<br>the buyer. This is a searchable attribute for use in applicable query filters. | getDescription(): ?string | setDescription(?string description): void |
 | `showColors` | `?bool` | Optional | If true, display colors for entries in `values` when present. | getShowColors(): ?bool | setShowColors(?bool showColors): void |
 | `values` | [`?(CatalogObject[])`](/doc/models/catalog-object.md) | Optional | A list of CatalogObjects containing the<br>`CatalogItemOptionValue`s for this item. | getValues(): ?array | setValues(?array values): void |
-| `itemCount` | `?int` | Optional | The number of `CatalogItem`s currently associated<br>with this item option. Present only if the `include_counts` was specified<br>in the request. Any count over 100 will be returned as `100`. | getItemCount(): ?int | setItemCount(?int itemCount): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

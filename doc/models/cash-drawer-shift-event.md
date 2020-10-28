@@ -1,10 +1,11 @@
-## Cash Drawer Shift Event
 
-### Structure
+# Cash Drawer Shift Event
+
+## Structure
 
 `CashDrawerShiftEvent`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -15,7 +16,7 @@
 | `createdAt` | `?string` | Optional | The event time in ISO 8601 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `description` | `?string` | Optional | An optional description of the event, entered by the employee that<br>created the event. | getDescription(): ?string | setDescription(?string description): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

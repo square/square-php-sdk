@@ -1,13 +1,14 @@
-## Inventory Adjustment
+
+# Inventory Adjustment
 
 Represents a change in state or quantity of product inventory at a
 particular time and location.
 
-### Structure
+## Structure
 
 `InventoryAdjustment`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -29,7 +30,7 @@ particular time and location.
 | `purchaseOrderId` | `?string` | Optional | The read-only Square ID of the purchase order that caused the<br>adjustment. Only relevant for state transitions from the Square for Retail<br>app. | getPurchaseOrderId(): ?string | setPurchaseOrderId(?string purchaseOrderId): void |
 | `goodsReceiptId` | `?string` | Optional | The read-only Square ID of the Square goods receipt that caused the<br>adjustment. Only relevant for state transitions from the Square for Retail<br>app. | getGoodsReceiptId(): ?string | setGoodsReceiptId(?string goodsReceiptId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

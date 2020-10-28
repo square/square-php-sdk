@@ -1,12 +1,13 @@
-## Tender
+
+# Tender
 
 Represents a tender (i.e., a method of payment) used in a Square transaction.
 
-### Structure
+## Structure
 
 `Tender`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -22,11 +23,10 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
 | `type` | [`string (TenderType)`](/doc/models/tender-type.md) |  | Indicates a tender's type. | getType(): string | setType(string type): void |
 | `cardDetails` | [`?TenderCardDetails`](/doc/models/tender-card-details.md) | Optional | Represents additional details of a tender with `type` `CARD` or `SQUARE_GIFT_CARD` | getCardDetails(): ?TenderCardDetails | setCardDetails(?TenderCardDetails cardDetails): void |
 | `cashDetails` | [`?TenderCashDetails`](/doc/models/tender-cash-details.md) | Optional | Represents the details of a tender with `type` `CASH`. | getCashDetails(): ?TenderCashDetails | setCashDetails(?TenderCashDetails cashDetails): void |
-| `bankTransferDetails` | [`?TenderBankTransferDetails`](/doc/models/tender-bank-transfer-details.md) | Optional | Represents the details of a tender with `type` `BANK_TRANSFER`.<br><br>See [PaymentBankTransferDetails](#type-paymentbanktransferdetails) for more exposed details of a bank transfer payment. | getBankTransferDetails(): ?TenderBankTransferDetails | setBankTransferDetails(?TenderBankTransferDetails bankTransferDetails): void |
 | `additionalRecipients` | [`?(AdditionalRecipient[])`](/doc/models/additional-recipient.md) | Optional | Additional recipients (other than the merchant) receiving a portion of this tender.<br>For example, fees assessed on the purchase by a third party integration. | getAdditionalRecipients(): ?array | setAdditionalRecipients(?array additionalRecipients): void |
 | `paymentId` | `?string` | Optional | The ID of the [Payment](#type-payment) that corresponds to this tender.<br>This value is only present for payments created with the v2 Payments API. | getPaymentId(): ?string | setPaymentId(?string paymentId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
@@ -35,7 +35,7 @@ Represents a tender (i.e., a method of payment) used in a Square transaction.
   "transaction_id": "transaction_id8",
   "created_at": "created_at2",
   "note": "note4",
-  "type": "BANK_TRANSFER"
+  "type": "WALLET"
 }
 ```
 

@@ -1,12 +1,13 @@
-## Dispute State
+
+# Dispute State
 
 List of possible dispute states.
 
-### Enumeration
+## Enumeration
 
 `DisputeState`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

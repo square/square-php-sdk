@@ -24,7 +24,7 @@ class CatalogInfoResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * The set of errors encountered.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -36,7 +36,7 @@ class CatalogInfoResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * The set of errors encountered.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

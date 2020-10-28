@@ -1,12 +1,13 @@
-## V1 Create Refund Request
+
+# V1 Create Refund Request
 
 V1CreateRefundRequest
 
-### Structure
+## Structure
 
 `V1CreateRefundRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,7 +17,7 @@ V1CreateRefundRequest
 | `refundedMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getRefundedMoney(): ?V1Money | setRefundedMoney(?V1Money refundedMoney): void |
 | `requestIdempotenceKey` | `?string` | Optional | An optional key to ensure idempotence if you issue the same PARTIAL refund request more than once. | getRequestIdempotenceKey(): ?string | setRequestIdempotenceKey(?string requestIdempotenceKey): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

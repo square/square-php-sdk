@@ -116,7 +116,8 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * The version number, which is incremented each time an update is committed to the invoice.
+     * The Square-assigned version number, which is incremented each time an update is committed to the
+     * invoice.
      */
     public function getVersion(): ?int
     {
@@ -126,7 +127,8 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * The version number, which is incremented each time an update is committed to the invoice.
+     * The Square-assigned version number, which is incremented each time an update is committed to the
+     * invoice.
      *
      * @maps version
      */
@@ -214,8 +216,10 @@ class Invoice implements \JsonSerializable
      *
      * An array of `InvoicePaymentRequest` objects. Each object defines
      * a payment request in an invoice payment schedule. It provides information
-     * such as when and how Square processes payments. You can specify maximum of
-     * nine payment requests. All all the payment requests must specify the
+     * such as when and how Square processes payments. You must specify at least one payment request. For
+     * invoices
+     * with multiple payment requests, you can specify a maximum of 12 `INSTALLMENT` request types. All of
+     * the payment requests must specify the
      * same `request_method`.
      *
      * This field is required when creating an invoice.
@@ -232,8 +236,10 @@ class Invoice implements \JsonSerializable
      *
      * An array of `InvoicePaymentRequest` objects. Each object defines
      * a payment request in an invoice payment schedule. It provides information
-     * such as when and how Square processes payments. You can specify maximum of
-     * nine payment requests. All all the payment requests must specify the
+     * such as when and how Square processes payments. You must specify at least one payment request. For
+     * invoices
+     * with multiple payment requests, you can specify a maximum of 12 `INSTALLMENT` request types. All of
+     * the payment requests must specify the
      * same `request_method`.
      *
      * This field is required when creating an invoice.

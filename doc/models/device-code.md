@@ -1,10 +1,11 @@
-## Device Code
 
-### Structure
+# Device Code
+
+## Structure
 
 `DeviceCode`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -20,7 +21,7 @@
 | `statusChangedAt` | `?string` | Optional | When this DeviceCode's status was last changed. Timestamp in RFC 3339 format. | getStatusChangedAt(): ?string | setStatusChangedAt(?string statusChangedAt): void |
 | `pairedAt` | `?string` | Optional | When this DeviceCode was paired. Timestamp in RFC 3339 format. | getPairedAt(): ?string | setPairedAt(?string pairedAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

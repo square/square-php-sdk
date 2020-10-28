@@ -1,16 +1,17 @@
-## V1 Create Modifier List Request
 
-### Structure
+# V1 Create Modifier List Request
+
+## Structure
 
 `V1CreateModifierListRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `body` | [`?V1ModifierList`](/doc/models/v1-modifier-list.md) | Optional | V1ModifierList | getBody(): ?V1ModifierList | setBody(?V1ModifierList body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

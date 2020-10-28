@@ -1,12 +1,13 @@
-## Loyalty Reward Status
+
+# Loyalty Reward Status
 
 The status of the loyalty reward.
 
-### Enumeration
+## Enumeration
 
 `LoyaltyRewardStatus`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

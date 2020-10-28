@@ -1,12 +1,13 @@
-## Create Dispute Evidence Text Request
+
+# Create Dispute Evidence Text Request
 
 Defines parameters for a CreateDisputeEvidenceText request.
 
-### Structure
+## Structure
 
 `CreateDisputeEvidenceTextRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -14,12 +15,12 @@ Defines parameters for a CreateDisputeEvidenceText request.
 | `evidenceType` | [`?string (DisputeEvidenceType)`](/doc/models/dispute-evidence-type.md) | Optional | Type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
 | `evidenceText` | `string` |  | The evidence string. | getEvidenceText(): string | setEvidenceText(string evidenceText): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "evidence_type": "TRACKING_NUMBER",
   "evidence_text": "1Z8888888888888888",
+  "evidence_type": "TRACKING_NUMBER",
   "idempotency_key": "ed3ee3933d946f1514d505d173c82648"
 }
 ```

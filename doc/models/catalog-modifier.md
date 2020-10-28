@@ -1,12 +1,13 @@
-## Catalog Modifier
+
+# Catalog Modifier
 
 A modifier applicable to items at the time of sale.
 
-### Structure
+## Structure
 
 `CatalogModifier`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -15,20 +16,20 @@ A modifier applicable to items at the time of sale.
 | `ordinal` | `?int` | Optional | Determines where this `CatalogModifier` appears in the `CatalogModifierList`. | getOrdinal(): ?int | setOrdinal(?int ordinal): void |
 | `modifierListId` | `?string` | Optional | The ID of the `CatalogModifierList` associated with this modifier. | getModifierListId(): ?string | setModifierListId(?string modifierListId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "object": {
-    "type": "MODIFIER",
-    "present_at_all_locations": true,
     "modifier_data": {
       "name": "Almond Milk",
       "price_money": {
         "amount": 250,
         "currency": "USD"
       }
-    }
+    },
+    "present_at_all_locations": true,
+    "type": "MODIFIER"
   }
 }
 ```

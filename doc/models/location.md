@@ -1,10 +1,11 @@
-## Location
 
-### Structure
+# Location
+
+## Structure
 
 `Location`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -30,11 +31,12 @@
 | `instagramUsername` | `?string` | Optional | The Instagram username of the location without the '@' symbol. | getInstagramUsername(): ?string | setInstagramUsername(?string instagramUsername): void |
 | `facebookUrl` | `?string` | Optional | The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. | getFacebookUrl(): ?string | setFacebookUrl(?string facebookUrl): void |
 | `coordinates` | [`?Coordinates`](/doc/models/coordinates.md) | Optional | Latitude and longitude coordinates. | getCoordinates(): ?Coordinates | setCoordinates(?Coordinates coordinates): void |
-| `logoUrl` | `?string` | Optional | The URL of the logo image for the location. | getLogoUrl(): ?string | setLogoUrl(?string logoUrl): void |
+| `logoUrl` | `?string` | Optional | The URL of the logo image for the location. The Seller must choose this logo in the Seller<br>dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)<br>that Square generates on behalf of the Seller. This image should have an aspect ratio<br>close to 1:1 and is recommended to be at least 200x200 pixels. | getLogoUrl(): ?string | setLogoUrl(?string logoUrl): void |
 | `posBackgroundUrl` | `?string` | Optional | The URL of the Point of Sale background image for the location. | getPosBackgroundUrl(): ?string | setPosBackgroundUrl(?string posBackgroundUrl): void |
 | `mcc` | `?string` | Optional | The merchant category code (MCC) of the location, as standardized by ISO 18245.<br>The MCC describes the kind of goods or services sold at the location. | getMcc(): ?string | setMcc(?string mcc): void |
+| `fullFormatLogoUrl` | `?string` | Optional | The URL of a full-format logo image for the location. The Seller must choose this logo in the<br>Seller dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)<br>that Square generates on behalf of the Seller. This image can have an aspect ratio of 2:1 or greater<br>and is recommended to be at least 1280x648 pixels. | getFullFormatLogoUrl(): ?string | setFullFormatLogoUrl(?string fullFormatLogoUrl): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

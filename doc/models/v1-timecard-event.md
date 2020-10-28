@@ -1,12 +1,13 @@
-## V1 Timecard Event
+
+# V1 Timecard Event
 
 V1TimecardEvent
 
-### Structure
+## Structure
 
 `V1TimecardEvent`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,7 +17,7 @@ V1TimecardEvent
 | `clockoutTime` | `?string` | Optional | The time the employee clocked out, in ISO 8601 format. | getClockoutTime(): ?string | setClockoutTime(?string clockoutTime): void |
 | `createdAt` | `?string` | Optional | The time when the event was created, in ISO 8601 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

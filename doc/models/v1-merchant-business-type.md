@@ -1,10 +1,11 @@
-## V1 Merchant Business Type
 
-### Enumeration
+# V1 Merchant Business Type
+
+## Enumeration
 
 `V1MerchantBusinessType`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

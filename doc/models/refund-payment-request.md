@@ -1,12 +1,13 @@
-## Refund Payment Request
+
+# Refund Payment Request
 
 Refunds a payment.
 
-### Structure
+## Structure
 
 `RefundPaymentRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -16,16 +17,16 @@ Refunds a payment.
 | `paymentId` | `string` |  | Unique ID of the payment being refunded. | getPaymentId(): string | setPaymentId(string paymentId): void |
 | `reason` | `?string` | Optional | A description of the reason for the refund. | getReason(): ?string | setReason(?string reason): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
-  "idempotency_key": "a7e36d40-d24b-11e8-b568-0800200c9a66",
-  "payment_id": "UNOE3kv2BZwqHlJ830RCt5YCuaB",
   "amount_money": {
     "amount": 100,
     "currency": "USD"
-  }
+  },
+  "idempotency_key": "a7e36d40-d24b-11e8-b568-0800200c9a66",
+  "payment_id": "UNOE3kv2BZwqHlJ830RCt5YCuaB"
 }
 ```
 

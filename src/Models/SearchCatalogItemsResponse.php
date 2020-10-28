@@ -33,8 +33,7 @@ class SearchCatalogItemsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Errors detected when the call to [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint
-     * fails.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -46,8 +45,7 @@ class SearchCatalogItemsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Errors detected when the call to [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint
-     * fails.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *

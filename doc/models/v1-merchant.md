@@ -1,13 +1,14 @@
-## V1 Merchant
+
+# V1 Merchant
 
 Defines the fields that are included in the response body of
 a request to the **RetrieveBusiness** endpoint.
 
-### Structure
+## Structure
 
 `V1Merchant`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -27,7 +28,7 @@ a request to the **RetrieveBusiness** endpoint.
 | `locationDetails` | [`?V1MerchantLocationDetails`](/doc/models/v1-merchant-location-details.md) | Optional | Additional information for a single-location account specified by its associated business account, if it has one. | getLocationDetails(): ?V1MerchantLocationDetails | setLocationDetails(?V1MerchantLocationDetails locationDetails): void |
 | `marketUrl` | `?string` | Optional | The URL of the merchant's online store. | getMarketUrl(): ?string | setMarketUrl(?string marketUrl): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

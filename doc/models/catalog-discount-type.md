@@ -1,12 +1,13 @@
-## Catalog Discount Type
+
+# Catalog Discount Type
 
 How to apply a CatalogDiscount to a CatalogItem.
 
-### Enumeration
+## Enumeration
 
 `CatalogDiscountType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

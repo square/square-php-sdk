@@ -1,4 +1,5 @@
-## Order Return Discount
+
+# Order Return Discount
 
 Represents a discount being returned that applies to one or more return line items in an
 order.
@@ -7,11 +8,11 @@ Fixed-amount, order-scoped discounts are distributed across all non-zero return 
 The amount distributed to each return line item is relative to that item’s contribution to the
 order subtotal.
 
-### Structure
+## Structure
 
 `OrderReturnDiscount`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -25,7 +26,7 @@ order subtotal.
 | `appliedMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getAppliedMoney(): ?Money | setAppliedMoney(?Money appliedMoney): void |
 | `scope` | [`?string (OrderLineItemDiscountScope)`](/doc/models/order-line-item-discount-scope.md) | Optional | Indicates whether this is a line item or order level discount. | getScope(): ?string | setScope(?string scope): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

@@ -1,12 +1,13 @@
-## V1 Settlement Entry
+
+# V1 Settlement Entry
 
 V1SettlementEntry
 
-### Structure
+## Structure
 
 `V1SettlementEntry`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -15,7 +16,7 @@ V1SettlementEntry
 | `amountMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getAmountMoney(): ?V1Money | setAmountMoney(?V1Money amountMoney): void |
 | `feeMoney` | [`?V1Money`](/doc/models/v1-money.md) | Optional | - | getFeeMoney(): ?V1Money | setFeeMoney(?V1Money feeMoney): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

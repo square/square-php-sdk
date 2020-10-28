@@ -1,10 +1,11 @@
-## V1 Settlement Status
 
-### Enumeration
+# V1 Settlement Status
+
+## Enumeration
 
 `V1SettlementStatus`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

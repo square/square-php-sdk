@@ -1,12 +1,13 @@
-## V1 Payment Tax
+
+# V1 Payment Tax
 
 V1PaymentTax
 
-### Structure
+## Structure
 
 `V1PaymentTax`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -17,26 +18,26 @@ V1PaymentTax
 | `inclusionType` | [`?string (V1PaymentTaxInclusionType)`](/doc/models/v1-payment-tax-inclusion-type.md) | Optional | - | getInclusionType(): ?string | setInclusionType(?string inclusionType): void |
 | `feeId` | `?string` | Optional | The ID of the tax, if available. Taxes applied in older versions of Square Register might not have an ID. | getFeeId(): ?string | setFeeId(?string feeId): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {
   "errors": [
     {
       "category": "AUTHENTICATION_ERROR",
-      "code": "REQUEST_TIMEOUT",
+      "code": "MAP_KEY_LENGTH_TOO_SHORT",
       "detail": "detail1",
       "field": "field9"
     },
     {
       "category": "INVALID_REQUEST_ERROR",
-      "code": "CONFLICT",
+      "code": "MAP_KEY_LENGTH_TOO_LONG",
       "detail": "detail2",
       "field": "field0"
     },
     {
       "category": "RATE_LIMIT_ERROR",
-      "code": "GONE",
+      "code": "CARD_EXPIRED",
       "detail": "detail3",
       "field": "field1"
     }

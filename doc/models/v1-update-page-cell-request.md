@@ -1,16 +1,17 @@
-## V1 Update Page Cell Request
 
-### Structure
+# V1 Update Page Cell Request
+
+## Structure
 
 `V1UpdatePageCellRequest`
 
-### Fields
+## Fields
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
 | `body` | [`V1PageCell`](/doc/models/v1-page-cell.md) | V1PageCell | getBody(): V1PageCell | setBody(V1PageCell body): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

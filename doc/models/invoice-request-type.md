@@ -1,13 +1,21 @@
-## Invoice Request Type
 
-Identifies the type of the payment request. For more information,
-see [Payment request](TBD).
+# Invoice Request Type
 
-### Enumeration
+Indicates the type of the payment request. An invoice supports the following payment request combinations:
+
+- 1 balance
+- 1 deposit with 1 balance
+- 2 - 12 installments
+- 1 deposit with 2 - 12 installments
+
+For more information,
+see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-requests).
+
+## Enumeration
 
 `InvoiceRequestType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

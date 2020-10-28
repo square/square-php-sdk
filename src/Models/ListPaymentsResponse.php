@@ -28,7 +28,7 @@ class ListPaymentsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -40,7 +40,7 @@ class ListPaymentsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *
@@ -54,7 +54,7 @@ class ListPaymentsResponse implements \JsonSerializable
     /**
      * Returns Payments.
      *
-     * The requested list of `Payment`s.
+     * The requested list of payments.
      *
      * @return Payment[]|null
      */
@@ -66,7 +66,7 @@ class ListPaymentsResponse implements \JsonSerializable
     /**
      * Sets Payments.
      *
-     * The requested list of `Payment`s.
+     * The requested list of payments.
      *
      * @maps payments
      *
@@ -83,7 +83,7 @@ class ListPaymentsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      */
     public function getCursor(): ?string
     {
@@ -96,7 +96,7 @@ class ListPaymentsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      *
      * @maps cursor
      */

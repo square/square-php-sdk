@@ -1,12 +1,13 @@
-## Card Brand
+
+# Card Brand
 
 Indicates a card's brand, such as `VISA` or `MASTERCARD`.
 
-### Enumeration
+## Enumeration
 
 `CardBrand`
 
-### Fields
+## Fields
 
 | Name |
 |  --- |

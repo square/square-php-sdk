@@ -33,7 +33,7 @@ class LocationsApiTest extends TestCase
     /**
      * Provides information of all locations of a business.
 
-Most other Connect API endpoints have a required `location_id` path parameter.
+Many Square API endpoints require a `location_id` parameter.
 The `id` field of the [`Location`](#type-location) objects returned by this
 endpoint correspond to that `location_id` parameter.
      */

@@ -1,10 +1,11 @@
-## Terminal Checkout Query Filter
 
-### Structure
+# Terminal Checkout Query Filter
+
+## Structure
 
 `TerminalCheckoutQueryFilter`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
@@ -12,7 +13,7 @@
 | `createdAt` | [`?TimeRange`](/doc/models/time-range.md) | Optional | Represents a generic time range. The start and end values are<br>represented in RFC 3339 format. Time ranges are customized to be<br>inclusive or exclusive based on the needs of a particular endpoint.<br>Refer to the relevant endpoint-specific documentation to determine<br>how time ranges are handled. | getCreatedAt(): ?TimeRange | setCreatedAt(?TimeRange createdAt): void |
 | `status` | `?string` | Optional | Filtered results with the desired status of the `TerminalCheckout`<br>Options: PENDING, IN\_PROGRESS, CANCELED, COMPLETED | getStatus(): ?string | setStatus(?string status): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {

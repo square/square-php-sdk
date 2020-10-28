@@ -1,12 +1,13 @@
-## Location Type
+
+# Location Type
 
 A location's physical or mobile type.
 
-### Enumeration
+## Enumeration
 
 `LocationType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |

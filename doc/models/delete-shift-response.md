@@ -1,19 +1,20 @@
-## Delete Shift Response
+
+# Delete Shift Response
 
 The response to a request to delete a `Shift`. May contain a set of
 `Error` objects if the request resulted in errors.
 
-### Structure
+## Structure
 
 `DeleteShiftResponse`
 
-### Fields
+## Fields
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
-### Example (as JSON)
+## Example (as JSON)
 
 ```json
 {}

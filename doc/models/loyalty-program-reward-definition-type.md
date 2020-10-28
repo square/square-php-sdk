@@ -1,12 +1,13 @@
-## Loyalty Program Reward Definition Type
+
+# Loyalty Program Reward Definition Type
 
 The type of discount the reward tier offers.
 
-### Enumeration
+## Enumeration
 
 `LoyaltyProgramRewardDefinitionType`
 
-### Fields
+## Fields
 
 | Name | Description |
 |  --- | --- |
