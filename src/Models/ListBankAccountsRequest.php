@@ -32,8 +32,8 @@ class ListBankAccountsRequest implements \JsonSerializable
      * Use it in the next `ListBankAccounts` request to retrieve the next set
      * of results.
      *
-     * See the [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) guide
-     * for more information.
+     * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for
+     * more information.
      */
     public function getCursor(): ?string
     {
@@ -47,8 +47,8 @@ class ListBankAccountsRequest implements \JsonSerializable
      * Use it in the next `ListBankAccounts` request to retrieve the next set
      * of results.
      *
-     * See the [Pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) guide
-     * for more information.
+     * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for
+     * more information.
      *
      * @maps cursor
      */

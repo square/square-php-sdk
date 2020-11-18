@@ -4,8 +4,8 @@
 Defines the fields that are included in the response body of
 a request to the [GetRefund](#endpoint-refunds-getpaymentrefund) endpoint.
 
-Note: if there are errors processing the request, the refund field may not be
-present, or it may be present in a FAILED state.
+Note: If there are errors processing the request, the refund field might not be
+present or it might be present in a FAILED state.
 
 ## Structure
 
@@ -15,8 +15,8 @@ present, or it may be present in a FAILED state.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `refund` | [`?PaymentRefund`](/doc/models/payment-refund.md) | Optional | Represents a refund of a payment made using Square. Contains information on<br>the original payment and the amount of money refunded. | getRefund(): ?PaymentRefund | setRefund(?PaymentRefund refund): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `refund` | [`?PaymentRefund`](/doc/models/payment-refund.md) | Optional | Represents a refund of a payment made using Square. Contains information about<br>the original payment and the amount of money refunded. | getRefund(): ?PaymentRefund | setRefund(?PaymentRefund refund): void |
 
 ## Example (as JSON)
 

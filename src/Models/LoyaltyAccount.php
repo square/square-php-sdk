@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Describes a loyalty account. For more information, see
- * [Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
+ * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
  */
 class LoyaltyAccount implements \JsonSerializable
 {

@@ -34,7 +34,7 @@ class InvoicesApi extends BaseApi
      *                            original query.
      *
      *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/docs/working-with-apis/pagination).
+     *                            squareup.com/docs/working-with-apis/pagination).
      * @param int|null $limit The maximum number of invoices to return (200 is the maximum
      *                        `limit`).
      *                        If not provided, the server

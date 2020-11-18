@@ -94,7 +94,7 @@ Authorization: Client APPLICATION_SECRET
 ```
 
 Replace `APPLICATION_SECRET` with the application secret on the Credentials
-page in the [application dashboard](https://connect.squareup.com/apps).
+page in the [Developer Dashboard](https://developer.squareup.com/apps).
 
 :information_source: **Note** This endpoint does not require authentication.
 
@@ -144,7 +144,6 @@ Returns an OAuth access token.
 The endpoint supports distinct methods of obtaining OAuth access tokens.
 Applications specify a method by adding the `grant_type` parameter
 in the request and also provide relevant information.
-For more information, see [OAuth access token management](https://developer.squareup.com/docs/authz/oauth/how-it-works#oauth-access-token-management).
 
 __Note:__ Regardless of the method application specified,
 the endpoint always returns two items; an OAuth access token and
@@ -184,6 +183,7 @@ $body->setCode('CODE_FROM_AUTHORIZE');
 $body->setRedirectUri('redirect_uri4');
 $body->setRefreshToken('refresh_token6');
 $body->setMigrationToken('migration_token4');
+$body->setScopes(['scopes6', 'scopes7', 'scopes8']);
 
 $apiResponse = $oAuthApi->obtainToken($body);
 

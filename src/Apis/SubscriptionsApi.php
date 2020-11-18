@@ -110,8 +110,8 @@ class SubscriptionsApi extends BaseApi
      * customer by subscription creation date.
      *
      * For more information, see
-     * [Retrieve subscriptions](https://developer.squareup.com/docs/docs/subscriptions-
-     * api/overview#retrieve-subscriptions).
+     * [Retrieve subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-
+     * subscriptions).
      *
      * @param \Square\Models\SearchSubscriptionsRequest $body An object containing the fields to
      *                                                        POST for the request.
@@ -393,7 +393,7 @@ class SubscriptionsApi extends BaseApi
      *                            original query.
      *
      *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/docs/working-with-apis/pagination).
+     *                            squareup.com/docs/working-with-apis/pagination).
      * @param int|null $limit The upper limit on the number of subscription events to return
      *                        in the response.
      *

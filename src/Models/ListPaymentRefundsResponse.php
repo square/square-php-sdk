@@ -8,7 +8,7 @@ namespace Square\Models;
  * Defines the fields that are included in the response body of
  * a request to the [ListPaymentRefunds](#endpoint-refunds-listpaymentrefunds) endpoint.
  *
- * One of `errors` or `refunds` is present in a given response (never both).
+ * Either `errors` or `refunds` is present in a given response (never both).
  */
 class ListPaymentRefundsResponse implements \JsonSerializable
 {
@@ -30,7 +30,7 @@ class ListPaymentRefundsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -42,7 +42,7 @@ class ListPaymentRefundsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *
@@ -85,7 +85,7 @@ class ListPaymentRefundsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      */
     public function getCursor(): ?string
     {
@@ -98,7 +98,7 @@ class ListPaymentRefundsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      *
      * @maps cursor
      */

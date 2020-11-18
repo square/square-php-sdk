@@ -20,7 +20,7 @@ interface ConfigurationInterface
     public function getSquareVersion(): string;
 
     /**
-     * Get oAuth 2.0 Access Token
+     * Get the OAuth 2.0 Access Token to use for API requests.
      */
     public function getAccessToken(): string;
 

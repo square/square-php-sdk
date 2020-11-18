@@ -76,6 +76,11 @@ class CatalogItemVariation implements \JsonSerializable
     private $serviceDuration;
 
     /**
+     * @var bool|null
+     */
+    private $availableForBooking;
+
+    /**
      * @var CatalogItemOptionValueForItemVariation[]|null
      */
     private $itemOptionValues;
@@ -84,6 +89,11 @@ class CatalogItemVariation implements \JsonSerializable
      * @var string|null
      */
     private $measurementUnitId;
+
+    /**
+     * @var string[]|null
+     */
+    private $teamMemberIds;
 
     /**
      * Returns Item Id.
@@ -156,9 +166,16 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Upc.
      *
-     * The item variation's UPC, if any. This is a searchable attribute for use in applicable query filters.
-     * It is only accessible through the Square API, and not exposed in the Square Seller Dashboard,
-     * Square Point of Sale or Retail Point of Sale apps.
+     * The universal product code (UPC) of the item variation, if any. This is a searchable attribute for
+     * use in applicable query filters.
+     *
+     * The value of this attribute should be a number of 12-14 digits long.  This restriction is enforced
+     * on the Square Seller Dashboard,
+     * Square Point of Sale or Retail Point of Sale apps, where this attribute shows in the GTIN field. If
+     * a non-compliant UPC value is assigned
+     * to this attribute using the API, the value is not editable on the Seller Dashboard, Square Point of
+     * Sale or Retail Point of Sale apps
+     * unless it is updated to fit the expected format.
      */
     public function getUpc(): ?string
     {
@@ -168,9 +185,16 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Upc.
      *
-     * The item variation's UPC, if any. This is a searchable attribute for use in applicable query filters.
-     * It is only accessible through the Square API, and not exposed in the Square Seller Dashboard,
-     * Square Point of Sale or Retail Point of Sale apps.
+     * The universal product code (UPC) of the item variation, if any. This is a searchable attribute for
+     * use in applicable query filters.
+     *
+     * The value of this attribute should be a number of 12-14 digits long.  This restriction is enforced
+     * on the Square Seller Dashboard,
+     * Square Point of Sale or Retail Point of Sale apps, where this attribute shows in the GTIN field. If
+     * a non-compliant UPC value is assigned
+     * to this attribute using the API, the value is not editable on the Seller Dashboard, Square Point of
+     * Sale or Retail Point of Sale apps
+     * unless it is updated to fit the expected format.
      *
      * @maps upc
      */
@@ -418,6 +442,30 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Available for Booking.
+     *
+     * If the `CatalogItem` that owns this item variation is of type
+     * `APPOINTMENTS_SERVICE`, a bool representing whether this service is available for booking.
+     */
+    public function getAvailableForBooking(): ?bool
+    {
+        return $this->availableForBooking;
+    }
+
+    /**
+     * Sets Available for Booking.
+     *
+     * If the `CatalogItem` that owns this item variation is of type
+     * `APPOINTMENTS_SERVICE`, a bool representing whether this service is available for booking.
+     *
+     * @maps available_for_booking
+     */
+    public function setAvailableForBooking(?bool $availableForBooking): void
+    {
+        $this->availableForBooking = $availableForBooking;
+    }
+
+    /**
      * Returns Item Option Values.
      *
      * List of item option values associated with this item variation. Listed
@@ -472,6 +520,34 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Ids.
+     *
+     * Tokens of employees that can perform the service represented by this variation. Only valid for
+     * variations of type `APPOINTMENTS_SERVICE`.
+     *
+     * @return string[]|null
+     */
+    public function getTeamMemberIds(): ?array
+    {
+        return $this->teamMemberIds;
+    }
+
+    /**
+     * Sets Team Member Ids.
+     *
+     * Tokens of employees that can perform the service represented by this variation. Only valid for
+     * variations of type `APPOINTMENTS_SERVICE`.
+     *
+     * @maps team_member_ids
+     *
+     * @param string[]|null $teamMemberIds
+     */
+    public function setTeamMemberIds(?array $teamMemberIds): void
+    {
+        $this->teamMemberIds = $teamMemberIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -492,8 +568,10 @@ class CatalogItemVariation implements \JsonSerializable
         $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
         $json['user_data']               = $this->userData;
         $json['service_duration']        = $this->serviceDuration;
+        $json['available_for_booking']   = $this->availableForBooking;
         $json['item_option_values']      = $this->itemOptionValues;
         $json['measurement_unit_id']     = $this->measurementUnitId;
+        $json['team_member_ids']         = $this->teamMemberIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

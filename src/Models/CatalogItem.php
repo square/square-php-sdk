@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item,
- * in the catalog.
+ * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+ * the catalog.
  */
 class CatalogItem implements \JsonSerializable
 {

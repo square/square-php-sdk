@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Provides information about a loyalty event.
- * For more information, see [Loyalty events](https://developer.squareup.com/docs/docs/loyalty-
+ * For more information, see [Loyalty events](https://developer.squareup.com/docs/loyalty-
  * api/overview/#loyalty-events).
  */
 class LoyaltyEvent implements \JsonSerializable

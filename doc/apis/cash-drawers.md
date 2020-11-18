@@ -73,7 +73,7 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Cash Drawer Shift
 
 Provides the summary details for a single cash drawer shift. See
-RetrieveCashDrawerShiftEvents for a list of cash drawer shift events.
+[ListCashDrawerShiftEvents](#endpoint-CashDrawers-ListCashDrawerShiftEvents) for a list of cash drawer shift events.
 
 ```php
 function retrieveCashDrawerShift(string $locationId, string $shiftId): ApiResponse

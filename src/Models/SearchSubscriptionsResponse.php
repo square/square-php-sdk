@@ -84,7 +84,7 @@ class SearchSubscriptionsResponse implements \JsonSerializable
      * use in a subsequent request to fetch the next set of subscriptions.
      * If empty, this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      */
     public function getCursor(): ?string
@@ -99,7 +99,7 @@ class SearchSubscriptionsResponse implements \JsonSerializable
      * use in a subsequent request to fetch the next set of subscriptions.
      * If empty, this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      *
      * @maps cursor

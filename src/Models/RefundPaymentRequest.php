@@ -49,10 +49,10 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * A unique string that identifies this RefundPayment request. Key can be any valid string
-     * but must be unique for every RefundPayment request.
+     * A unique string that identifies this `RefundPayment` request. The key can be any valid string
+     * but must be unique for every `RefundPayment` request.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
     public function getIdempotencyKey(): string
@@ -63,10 +63,10 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * A unique string that identifies this RefundPayment request. Key can be any valid string
-     * but must be unique for every RefundPayment request.
+     * A unique string that identifies this `RefundPayment` request. The key can be any valid string
+     * but must be unique for every `RefundPayment` request.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *
      * @required
@@ -149,7 +149,7 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Returns Payment Id.
      *
-     * Unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded.
      */
     public function getPaymentId(): string
     {
@@ -159,7 +159,7 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Sets Payment Id.
      *
-     * Unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded.
      *
      * @required
      * @maps payment_id

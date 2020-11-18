@@ -8,8 +8,8 @@ namespace Square\Models;
  * Defines the fields that are included in the response body of
  * a request to the [GetRefund](#endpoint-refunds-getpaymentrefund) endpoint.
  *
- * Note: if there are errors processing the request, the refund field may not be
- * present, or it may be present in a FAILED state.
+ * Note: If there are errors processing the request, the refund field might not be
+ * present or it might be present in a FAILED state.
  */
 class GetPaymentRefundResponse implements \JsonSerializable
 {
@@ -26,7 +26,7 @@ class GetPaymentRefundResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -38,7 +38,7 @@ class GetPaymentRefundResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *
@@ -52,7 +52,7 @@ class GetPaymentRefundResponse implements \JsonSerializable
     /**
      * Returns Refund.
      *
-     * Represents a refund of a payment made using Square. Contains information on
+     * Represents a refund of a payment made using Square. Contains information about
      * the original payment and the amount of money refunded.
      */
     public function getRefund(): ?PaymentRefund
@@ -63,7 +63,7 @@ class GetPaymentRefundResponse implements \JsonSerializable
     /**
      * Sets Refund.
      *
-     * Represents a refund of a payment made using Square. Contains information on
+     * Represents a refund of a payment made using Square. Contains information about
      * the original payment and the amount of money refunded.
      *
      * @maps refund

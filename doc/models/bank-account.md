@@ -3,7 +3,7 @@
 
 Represents a bank account. For more information about
 linking a bank account to a Square account, see
-[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
 
 ## Structure
 
@@ -19,8 +19,8 @@ linking a bank account to a Square account, see
 | `currency` | [`string (Currency)`](/doc/models/currency.md) |  | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). | getCurrency(): string | setCurrency(string currency): void |
 | `accountType` | [`string (BankAccountType)`](/doc/models/bank-account-type.md) |  | Indicates the financial purpose of the bank account. | getAccountType(): string | setAccountType(string accountType): void |
 | `holderName` | `string` |  | Name of the account holder. This name must match the name<br>on the targeted bank account record. | getHolderName(): string | setHolderName(string holderName): void |
-| `primaryBankIdentificationNumber` | `string` |  | Primary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api). | getPrimaryBankIdentificationNumber(): string | setPrimaryBankIdentificationNumber(string primaryBankIdentificationNumber): void |
-| `secondaryBankIdentificationNumber` | `?string` | Optional | Secondary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api). | getSecondaryBankIdentificationNumber(): ?string | setSecondaryBankIdentificationNumber(?string secondaryBankIdentificationNumber): void |
+| `primaryBankIdentificationNumber` | `string` |  | Primary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api). | getPrimaryBankIdentificationNumber(): string | setPrimaryBankIdentificationNumber(string primaryBankIdentificationNumber): void |
+| `secondaryBankIdentificationNumber` | `?string` | Optional | Secondary identifier for the bank. For more information, see<br>[Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api). | getSecondaryBankIdentificationNumber(): ?string | setSecondaryBankIdentificationNumber(?string secondaryBankIdentificationNumber): void |
 | `debitMandateReferenceId` | `?string` | Optional | Reference identifier that will be displayed to UK bank account owners<br>when collecting direct debit authorization. Only required for UK bank accounts. | getDebitMandateReferenceId(): ?string | setDebitMandateReferenceId(?string debitMandateReferenceId): void |
 | `referenceId` | `?string` | Optional | Client-provided identifier for linking the banking account to an entity<br>in a third-party system (for example, a bank account number or a user identifier). | getReferenceId(): ?string | setReferenceId(?string referenceId): void |
 | `locationId` | `?string` | Optional | The location to which the bank account belongs. | getLocationId(): ?string | setLocationId(?string locationId): void |

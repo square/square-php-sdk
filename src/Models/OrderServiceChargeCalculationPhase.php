@@ -8,7 +8,7 @@ namespace Square\Models;
  * Represents a phase in the process of calculating order totals.
  * Service charges are applied __after__ the indicated phase.
  *
- * [Read more about how order totals are calculated.](https://developer.squareup.com/docs/docs/orders-
+ * [Read more about how order totals are calculated.](https://developer.squareup.com/docs/orders-
  * api/how-it-works#how-totals-are-calculated)
  */
 class OrderServiceChargeCalculationPhase

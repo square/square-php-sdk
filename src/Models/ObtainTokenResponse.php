@@ -47,12 +47,16 @@ class ObtainTokenResponse implements \JsonSerializable
     private $refreshToken;
 
     /**
+     * @var bool|null
+     */
+    private $shortLived;
+
+    /**
      * Returns Access Token.
      *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
-     * endpoints. See the [Build with OAuth](https://developer.squareup.com/docs/authz/oauth/build-with-the-
-     * api) guide
+     * endpoints. See [OAuth API: Walkthrough](https://developer.squareup.com/docs/oauth-api/walkthrough)
      * for more information.
      */
     public function getAccessToken(): ?string
@@ -65,8 +69,7 @@ class ObtainTokenResponse implements \JsonSerializable
      *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
-     * endpoints. See the [Build with OAuth](https://developer.squareup.com/docs/authz/oauth/build-with-the-
-     * api) guide
+     * endpoints. See [OAuth API: Walkthrough](https://developer.squareup.com/docs/oauth-api/walkthrough)
      * for more information.
      *
      * @maps access_token
@@ -171,7 +174,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Plan Id.
      *
-     * T__LEGACY FIELD__. The ID of the subscription plan the merchant signed
+     * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. Only present if the merchant signed up for a subscription during
      * authorization.
      */
@@ -183,7 +186,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Plan Id.
      *
-     * T__LEGACY FIELD__. The ID of the subscription plan the merchant signed
+     * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. Only present if the merchant signed up for a subscription during
      * authorization.
      *
@@ -245,6 +248,30 @@ class ObtainTokenResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Short Lived.
+     *
+     * A boolean indicating the access token is a short-lived access token.
+     * The short-lived access token returned in the response will expire in 24 hours.
+     */
+    public function getShortLived(): ?bool
+    {
+        return $this->shortLived;
+    }
+
+    /**
+     * Sets Short Lived.
+     *
+     * A boolean indicating the access token is a short-lived access token.
+     * The short-lived access token returned in the response will expire in 24 hours.
+     *
+     * @maps short_lived
+     */
+    public function setShortLived(?bool $shortLived): void
+    {
+        $this->shortLived = $shortLived;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -260,6 +287,7 @@ class ObtainTokenResponse implements \JsonSerializable
         $json['plan_id']        = $this->planId;
         $json['id_token']       = $this->idToken;
         $json['refresh_token']  = $this->refreshToken;
+        $json['short_lived']    = $this->shortLived;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -7,8 +7,8 @@ namespace Square\Models;
 /**
  * Represents a customer subscription to a subscription plan.
  * For an overview of the `Subscription` type, see
- * [Subscription object](https://developer.squareup.com/docs/docs/subscriptions-
- * api/overview#subscription-object-overview).
+ * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
+ * object-overview).
  */
 class Subscription implements \JsonSerializable
 {

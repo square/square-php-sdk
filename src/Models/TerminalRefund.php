@@ -286,7 +286,7 @@ class TerminalRefund implements \JsonSerializable
      * Returns Status.
      *
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -297,7 +297,7 @@ class TerminalRefund implements \JsonSerializable
      * Sets Status.
      *
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */

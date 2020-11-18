@@ -31,7 +31,7 @@ class ApplePayApi extends BaseApi
      * Web Apple Pay with Square for merchants using their platform.
      *
      * To learn more about Apple Pay on Web see the Apple Pay section in the
-     * [Square Payment Form Walkthrough](https://developer.squareup.com/docs/docs/payment-form/payment-form-
+     * [Square Payment Form Walkthrough](https://developer.squareup.com/docs/payment-form/payment-form-
      * walkthrough).
      *
      * @param \Square\Models\RegisterDomainRequest $body An object containing the fields to POST

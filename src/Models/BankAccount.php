@@ -7,7 +7,7 @@ namespace Square\Models;
 /**
  * Represents a bank account. For more information about
  * linking a bank account to a Square account, see
- * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+ * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
  */
 class BankAccount implements \JsonSerializable
 {
@@ -280,7 +280,7 @@ class BankAccount implements \JsonSerializable
      * Returns Primary Bank Identification Number.
      *
      * Primary identifier for the bank. For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      */
     public function getPrimaryBankIdentificationNumber(): string
     {
@@ -291,7 +291,7 @@ class BankAccount implements \JsonSerializable
      * Sets Primary Bank Identification Number.
      *
      * Primary identifier for the bank. For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      *
      * @required
      * @maps primary_bank_identification_number
@@ -305,7 +305,7 @@ class BankAccount implements \JsonSerializable
      * Returns Secondary Bank Identification Number.
      *
      * Secondary identifier for the bank. For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      */
     public function getSecondaryBankIdentificationNumber(): ?string
     {
@@ -316,7 +316,7 @@ class BankAccount implements \JsonSerializable
      * Sets Secondary Bank Identification Number.
      *
      * Secondary identifier for the bank. For more information, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      *
      * @maps secondary_bank_identification_number
      */

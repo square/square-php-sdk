@@ -70,7 +70,7 @@ class OrderFulfillmentUpdated implements \JsonSerializable
      * Orders that were not created through the API will not include a version and
      * thus cannot be updated.
      *
-     * [Read more about working with versions](https://developer.squareup.com/docs/docs/orders-api/manage-
+     * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
      * orders#update-orders)
      */
     public function getVersion(): ?int
@@ -85,7 +85,7 @@ class OrderFulfillmentUpdated implements \JsonSerializable
      * Orders that were not created through the API will not include a version and
      * thus cannot be updated.
      *
-     * [Read more about working with versions](https://developer.squareup.com/docs/docs/orders-api/manage-
+     * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
      * orders#update-orders)
      *
      * @maps version

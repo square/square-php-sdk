@@ -35,8 +35,8 @@ class MobileAuthorizationApi extends BaseApi
      * ```
      *
      * Replace `ACCESS_TOKEN` with a
-     * [valid production authorization credential](https://developer.squareup.com/docs/docs/build-
-     * basics/access-tokens).
+     * [valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-
+     * tokens).
      *
      * @param \Square\Models\CreateMobileAuthorizationCodeRequest $body An object containing the
      *                                                                  fields to POST for the

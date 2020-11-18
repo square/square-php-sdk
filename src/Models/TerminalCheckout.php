@@ -203,7 +203,7 @@ class TerminalCheckout implements \JsonSerializable
      * The duration as an RFC 3339 duration, after which the checkout will be automatically canceled.
      * TerminalCheckouts that are `PENDING` will be automatically `CANCELED` and have a cancellation
      * reason
-     * of `TIMED\_OUT`.
+     * of `TIMED_OUT`.
      *
      * Default: 5 minutes from creation
      *
@@ -220,7 +220,7 @@ class TerminalCheckout implements \JsonSerializable
      * The duration as an RFC 3339 duration, after which the checkout will be automatically canceled.
      * TerminalCheckouts that are `PENDING` will be automatically `CANCELED` and have a cancellation
      * reason
-     * of `TIMED\_OUT`.
+     * of `TIMED_OUT`.
      *
      * Default: 5 minutes from creation
      *
@@ -237,7 +237,7 @@ class TerminalCheckout implements \JsonSerializable
      * Returns Status.
      *
      * The status of the `TerminalCheckout`.
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCEL\_REQUESTED`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -248,7 +248,7 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Status.
      *
      * The status of the `TerminalCheckout`.
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCEL\_REQUESTED`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */

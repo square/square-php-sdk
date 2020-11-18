@@ -27,7 +27,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Returns Device Id.
      *
-     * Square-issued ID of the device.
+     * The Square-issued ID of the device.
      */
     public function getDeviceId(): ?string
     {
@@ -37,7 +37,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Sets Device Id.
      *
-     * Square-issued ID of the device.
+     * The Square-issued ID of the device.
      *
      * @maps device_id
      */
@@ -49,7 +49,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Returns Device Installation Id.
      *
-     * Square-issued installation ID for the device.
+     * The Square-issued installation ID for the device.
      */
     public function getDeviceInstallationId(): ?string
     {
@@ -59,7 +59,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Sets Device Installation Id.
      *
-     * Square-issued installation ID for the device.
+     * The Square-issued installation ID for the device.
      *
      * @maps device_installation_id
      */
@@ -71,7 +71,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Returns Device Name.
      *
-     * The name of the device set by the merchant.
+     * The name of the device set by the seller.
      */
     public function getDeviceName(): ?string
     {
@@ -81,7 +81,7 @@ class DeviceDetails implements \JsonSerializable
     /**
      * Sets Device Name.
      *
-     * The name of the device set by the merchant.
+     * The name of the device set by the seller.
      *
      * @maps device_name
      */

@@ -1,21 +1,20 @@
 
 # Client Class Documentation
 
-The following parameters are configurable for the API Client.
+The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2020-10-28'` |
-| `accessToken` | `string` | OAuth 2.0 Access Token |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2020-11-18'` |
+| `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
-| `accessToken` | `string` | OAuth 2.0 Access Token |
 
-The API client can be initialized as following.
+The API client can be initialized as follows:
 
 ```php
 $client = new Square\SquareClient([
     // Set authentication parameters
-    'squareVersion' => '2020-10-28',
+    'squareVersion' => '2020-11-18',
     'accessToken' => 'AccessToken',
 
     // Set the environment
@@ -39,7 +38,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
-    'squareVersion' => '2020-10-28',
+    'squareVersion' => '2020-11-18',
     'accessToken' => 'AccessToken',
 ]);
 
@@ -60,9 +59,9 @@ if ($apiResponse->isSuccess()) {
 
 ## SquareClient
 
-Gateway for the SDK. This class acts as a factory for apis and also holds the configuration of the SDK.
+The gateway for the SDK. This class acts as a factory for the Apis and also holds the configuration of the SDK.
 
-## Apis
+## API
 
 | Name | Description |
 |  --- | --- |
@@ -74,6 +73,7 @@ Gateway for the SDK. This class acts as a factory for apis and also holds the co
 | getV1ItemsApi() | Provides access to V1ItemsApi |
 | getApplePayApi() | Provides access to ApplePayApi |
 | getBankAccountsApi() | Provides access to BankAccountsApi |
+| getBookingsApi() | Provides access to BookingsApi |
 | getCashDrawersApi() | Provides access to CashDrawersApi |
 | getCatalogApi() | Provides access to CatalogApi |
 | getCustomersApi() | Provides access to CustomersApi |

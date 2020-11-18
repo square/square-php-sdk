@@ -79,7 +79,7 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      * Returns Status.
      *
      * Filtered results with the desired status of the `TerminalRefund`
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCEL\_REQUESTED`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -90,7 +90,7 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      * Sets Status.
      *
      * Filtered results with the desired status of the `TerminalRefund`
-     * Options: `PENDING`, `IN\_PROGRESS`, `CANCEL\_REQUESTED`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */
