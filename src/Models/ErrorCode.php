@@ -408,7 +408,7 @@ class ErrorCode
 
     /**
      * The card is not supported either in the geographic region or by
-     * the MCC [merchant category code](https://developer.squareup.com/docs/docs/api/connect/v2#navsection-
+     * the MCC [merchant category code](https://developer.squareup.com/docs/api/connect/v2#navsection-
      * connectapibasics)
      */
     public const CARD_NOT_SUPPORTED = 'CARD_NOT_SUPPORTED';
@@ -441,26 +441,14 @@ class ErrorCode
     public const PAYMENT_LIMIT_EXCEEDED = 'PAYMENT_LIMIT_EXCEEDED';
 
     /**
-     * When using a gift card as a payment source in a `CreatePayment` request, you can allow
-     * taking partial payment by adding the `accept_partial_authorization` parameter in the request.
-     * If the gift card does not have sufficient balance to pay the entire `amount_money` specified
-     * in the request, the request will succeed (an APPROVED payment for the remaining balance will be
-     * returned). For more information, see [Partial amount with Square gift cards](https://developer.
-     * squareup.com/docs/docs/payments-api/take-payments#partial-payment-gift-card).\r\n\r\n
-     * However, taking such a partial payment does not work if your request also includes `tip_money`,
-     * `app_fee_money`, or both. Square declines such payment and returns this error.\r\n* The error
-     * details provide the amount that was available on the gift card at the time of the request.
-     * The amount is a string representation in the smallest denomination of the applicable currency.
-     * For example, in USD the amount is specified in cents.\r\n* The error code appears in an array
-     * along with the INSUFFICIENT_FUNDS error.\r\n\r\nThe following is an example set of
-     * errors:\r\n```\r\n{\r\n  \"errors\": [\r\n    {\r\n  \"code\": \"INSUFFICIENT_FUNDS\",\r\n
-     * \"detail\": \"Gift card does not have sufficient balance for requested amount and tip.\",\r\n
-     * \"category\": \"PAYMENT_METHOD_ERROR\"\r\n    },\r\n    {\r\n      \"code\":
-     * \"GIFT_CARD_AVAILABLE_AMOUNT\",\r\n      \"detail\": \"4494\",\r\n      \"category\":
-     * \"PAYMENT_METHOD_ERROR\"\r\n    }\r\n  ]\r\n}\r\n```\r\n\r\n
-     * In addition to the errors, it shows the gift card balance at 44.94 USD. You can review this amount
-     * and submit a new `CreatePayment` request with `tip_money` and `amount_money` that fit within the
-     * available balance.
+     * When a Gift Card is a payment source, you can allow taking a partial payment
+     * by adding the `accept_partial_authorization` parameter in the request.
+     * However, taking such a partial payment does not work if your request also includes
+     * `tip_money`, `app_fee_money`, or both. Square declines such payments and returns
+     * the `GIFT_CARD_AVAILABLE_AMOUNT` error.
+     * For more information, see
+     * [CreatePayment errors (additional information)](https://developer.squareup.com/docs/payments-
+     * api/error-codes#createpayment-errors-additional-information).
      */
     public const GIFT_CARD_AVAILABLE_AMOUNT = 'GIFT_CARD_AVAILABLE_AMOUNT';
 

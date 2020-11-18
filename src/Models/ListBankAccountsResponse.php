@@ -83,7 +83,7 @@ class ListBankAccountsResponse implements \JsonSerializable
      * use in a subsequent request to fetch next set of bank accounts.
      * If empty, this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      */
     public function getCursor(): ?string
@@ -98,7 +98,7 @@ class ListBankAccountsResponse implements \JsonSerializable
      * use in a subsequent request to fetch next set of bank accounts.
      * If empty, this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      *
      * @maps cursor

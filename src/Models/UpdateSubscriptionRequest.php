@@ -21,8 +21,8 @@ class UpdateSubscriptionRequest implements \JsonSerializable
      *
      * Represents a customer subscription to a subscription plan.
      * For an overview of the `Subscription` type, see
-     * [Subscription object](https://developer.squareup.com/docs/docs/subscriptions-
-     * api/overview#subscription-object-overview).
+     * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
+     * object-overview).
      */
     public function getSubscription(): ?Subscription
     {
@@ -34,8 +34,8 @@ class UpdateSubscriptionRequest implements \JsonSerializable
      *
      * Represents a customer subscription to a subscription plan.
      * For an overview of the `Subscription` type, see
-     * [Subscription object](https://developer.squareup.com/docs/docs/subscriptions-
-     * api/overview#subscription-object-overview).
+     * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
+     * object-overview).
      *
      * @maps subscription
      */

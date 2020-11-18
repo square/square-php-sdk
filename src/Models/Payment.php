@@ -115,6 +115,11 @@ class Payment implements \JsonSerializable
     private $refundIds;
 
     /**
+     * @var RiskEvaluation|null
+     */
+    private $riskEvaluation;
+
+    /**
      * @var string|null
      */
     private $buyerEmailAddress;
@@ -152,7 +157,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * Unique ID for the payment.
+     * A unique ID for the payment.
      */
     public function getId(): ?string
     {
@@ -162,7 +167,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * Unique ID for the payment.
+     * A unique ID for the payment.
      *
      * @maps id
      */
@@ -174,7 +179,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * Timestamp of when the payment was created, in RFC 3339 format.
+     * The timestamp of when the payment was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -184,7 +189,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * Timestamp of when the payment was created, in RFC 3339 format.
+     * The timestamp of when the payment was created, in RFC 3339 format.
      *
      * @maps created_at
      */
@@ -196,7 +201,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * Timestamp of when the payment was last updated, in RFC 3339 format.
+     * The timestamp of when the payment was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
     {
@@ -206,7 +211,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * Timestamp of when the payment was last updated, in RFC 3339 format.
+     * The timestamp of when the payment was last updated, in RFC 3339 format.
      *
      * @maps updated_at
      */
@@ -354,7 +359,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Processing Fee.
      *
-     * Processing fees and fee adjustments assessed by Square on this payment.
+     * The processing fees and fee adjustments assessed by Square for this payment.
      *
      * @return ProcessingFee[]|null
      */
@@ -366,7 +371,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Processing Fee.
      *
-     * Processing fees and fee adjustments assessed by Square on this payment.
+     * The processing fees and fee adjustments assessed by Square for this payment.
      *
      * @maps processing_fee
      *
@@ -414,7 +419,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Indicates whether the payment is `APPROVED`, `COMPLETED`, `CANCELED`, or `FAILED`.
+     * Indicates whether the payment is APPROVED, COMPLETED, CANCELED, or FAILED.
      */
     public function getStatus(): ?string
     {
@@ -424,7 +429,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Indicates whether the payment is `APPROVED`, `COMPLETED`, `CANCELED`, or `FAILED`.
+     * Indicates whether the payment is APPROVED, COMPLETED, CANCELED, or FAILED.
      *
      * @maps status
      */
@@ -438,7 +443,7 @@ class Payment implements \JsonSerializable
      *
      * The duration of time after the payment's creation when Square automatically applies the
      * `delay_action` to the payment. This automatic `delay_action` applies only to payments that
-     * don't reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
+     * do not reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
      * time period.
      *
      * This field is specified as a time duration, in RFC 3339 format.
@@ -448,8 +453,8 @@ class Payment implements \JsonSerializable
      *
      * Default:
      *
-     * - Card Present payments: "PT36H" (36 hours) from the creation time.
-     * - Card Not Present payments: "P7D" (7 days) from the creation time.
+     * - Card-present payments: "PT36H" (36 hours) from the creation time.
+     * - Card-not-present payments: "P7D" (7 days) from the creation time.
      */
     public function getDelayDuration(): ?string
     {
@@ -461,7 +466,7 @@ class Payment implements \JsonSerializable
      *
      * The duration of time after the payment's creation when Square automatically applies the
      * `delay_action` to the payment. This automatic `delay_action` applies only to payments that
-     * don't reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
+     * do not reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
      * time period.
      *
      * This field is specified as a time duration, in RFC 3339 format.
@@ -471,8 +476,8 @@ class Payment implements \JsonSerializable
      *
      * Default:
      *
-     * - Card Present payments: "PT36H" (36 hours) from the creation time.
-     * - Card Not Present payments: "P7D" (7 days) from the creation time.
+     * - Card-present payments: "PT36H" (36 hours) from the creation time.
+     * - Card-not-present payments: "P7D" (7 days) from the creation time.
      *
      * @maps delay_duration
      */
@@ -485,10 +490,9 @@ class Payment implements \JsonSerializable
      * Returns Delay Action.
      *
      * The action to be applied to the payment when the `delay_duration` has elapsed. This field
-     * is read only.
+     * is read-only.
      *
-     * Current values include:
-     * `CANCEL`
+     * Current values include `CANCEL`.
      */
     public function getDelayAction(): ?string
     {
@@ -499,10 +503,9 @@ class Payment implements \JsonSerializable
      * Sets Delay Action.
      *
      * The action to be applied to the payment when the `delay_duration` has elapsed. This field
-     * is read only.
+     * is read-only.
      *
-     * Current values include:
-     * `CANCEL`
+     * Current values include `CANCEL`.
      *
      * @maps delay_action
      */
@@ -514,11 +517,11 @@ class Payment implements \JsonSerializable
     /**
      * Returns Delayed Until.
      *
-     * Read only timestamp of when the `delay_action` will automatically be applied,
+     * The read-only timestamp of when the `delay_action` is automatically applied,
      * in RFC 3339 format.
      *
      * Note that this field is calculated by summing the payment's `delay_duration` and `created_at`
-     * fields. The `created_at` field is generated by Square and may not exactly match the
+     * fields. The `created_at` field is generated by Square and might not exactly match the
      * time on your local machine.
      */
     public function getDelayedUntil(): ?string
@@ -529,11 +532,11 @@ class Payment implements \JsonSerializable
     /**
      * Sets Delayed Until.
      *
-     * Read only timestamp of when the `delay_action` will automatically be applied,
+     * The read-only timestamp of when the `delay_action` is automatically applied,
      * in RFC 3339 format.
      *
      * Note that this field is calculated by summing the payment's `delay_duration` and `created_at`
-     * fields. The `created_at` field is generated by Square and may not exactly match the
+     * fields. The `created_at` field is generated by Square and might not exactly match the
      * time on your local machine.
      *
      * @maps delayed_until
@@ -546,9 +549,9 @@ class Payment implements \JsonSerializable
     /**
      * Returns Source Type.
      *
-     * The source type for this payment
+     * The source type for this payment.
      *
-     * Current values include: `CARD`.
+     * Current values include `CARD`.
      */
     public function getSourceType(): ?string
     {
@@ -558,9 +561,9 @@ class Payment implements \JsonSerializable
     /**
      * Sets Source Type.
      *
-     * The source type for this payment
+     * The source type for this payment.
      *
-     * Current values include: `CARD`.
+     * Current values include `CARD`.
      *
      * @maps source_type
      */
@@ -594,7 +597,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * ID of the location associated with the payment.
+     * The ID of the location associated with the payment.
      */
     public function getLocationId(): ?string
     {
@@ -604,7 +607,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * ID of the location associated with the payment.
+     * The ID of the location associated with the payment.
      *
      * @maps location_id
      */
@@ -616,7 +619,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Order Id.
      *
-     * ID of the order associated with this payment.
+     * The ID of the order associated with the payment.
      */
     public function getOrderId(): ?string
     {
@@ -626,7 +629,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Order Id.
      *
-     * ID of the order associated with this payment.
+     * The ID of the order associated with the payment.
      *
      * @maps order_id
      */
@@ -638,7 +641,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Reference Id.
      *
-     * An optional ID that associates this payment with an entity in
+     * An optional ID that associates the payment with an entity in
      * another system.
      */
     public function getReferenceId(): ?string
@@ -649,7 +652,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Reference Id.
      *
-     * An optional ID that associates this payment with an entity in
+     * An optional ID that associates the payment with an entity in
      * another system.
      *
      * @maps reference_id
@@ -684,7 +687,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * An optional ID of the employee associated with taking this payment.
+     * An optional ID of the employee associated with taking the payment.
      */
     public function getEmployeeId(): ?string
     {
@@ -694,7 +697,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * An optional ID of the employee associated with taking this payment.
+     * An optional ID of the employee associated with taking the payment.
      *
      * @maps employee_id
      */
@@ -706,7 +709,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Refund Ids.
      *
-     * List of `refund_id`s identifying refunds for this payment.
+     * A list of `refund_id`s identifying refunds for the payment.
      *
      * @return string[]|null
      */
@@ -718,7 +721,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Refund Ids.
      *
-     * List of `refund_id`s identifying refunds for this payment.
+     * A list of `refund_id`s identifying refunds for the payment.
      *
      * @maps refund_ids
      *
@@ -730,9 +733,41 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Risk Evaluation.
+     *
+     * Represents fraud risk information for the associated payment.
+     *
+     * When you take a payment through Square's Payments API (using the `CreatePayment`
+     * endpoint), Square evaluates it and assigns a risk level to the payment. Sellers
+     * can use this information to determine the course of action (for example,
+     * provide the goods/services or refund the payment).
+     */
+    public function getRiskEvaluation(): ?RiskEvaluation
+    {
+        return $this->riskEvaluation;
+    }
+
+    /**
+     * Sets Risk Evaluation.
+     *
+     * Represents fraud risk information for the associated payment.
+     *
+     * When you take a payment through Square's Payments API (using the `CreatePayment`
+     * endpoint), Square evaluates it and assigns a risk level to the payment. Sellers
+     * can use this information to determine the course of action (for example,
+     * provide the goods/services or refund the payment).
+     *
+     * @maps risk_evaluation
+     */
+    public function setRiskEvaluation(?RiskEvaluation $riskEvaluation): void
+    {
+        $this->riskEvaluation = $riskEvaluation;
+    }
+
+    /**
      * Returns Buyer Email Address.
      *
-     * The buyer's e-mail address
+     * The buyer's email address.
      */
     public function getBuyerEmailAddress(): ?string
     {
@@ -742,7 +777,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Buyer Email Address.
      *
-     * The buyer's e-mail address
+     * The buyer's email address.
      *
      * @maps buyer_email_address
      */
@@ -798,7 +833,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Note.
      *
-     * An optional note to include when creating a payment
+     * An optional note to include when creating a payment.
      */
     public function getNote(): ?string
     {
@@ -808,7 +843,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Note.
      *
-     * An optional note to include when creating a payment
+     * An optional note to include when creating a payment.
      *
      * @maps note
      */
@@ -820,12 +855,12 @@ class Payment implements \JsonSerializable
     /**
      * Returns Statement Description Identifier.
      *
-     * Additional payment information that gets added on the customer's card statement
+     * Additional payment information that gets added to the customer's card statement
      * as part of the statement description.
      *
-     * Note that the `statement_description_identifier` may get truncated on the statement description
-     * to fit the required information including the Square identifier (SQ *) and name of the
-     * merchant taking the payment.
+     * Note that the `statement_description_identifier` might get truncated on the statement description
+     * to fit the required information including the Square identifier (SQ *) and the name of the
+     * seller taking the payment.
      */
     public function getStatementDescriptionIdentifier(): ?string
     {
@@ -835,12 +870,12 @@ class Payment implements \JsonSerializable
     /**
      * Sets Statement Description Identifier.
      *
-     * Additional payment information that gets added on the customer's card statement
+     * Additional payment information that gets added to the customer's card statement
      * as part of the statement description.
      *
-     * Note that the `statement_description_identifier` may get truncated on the statement description
-     * to fit the required information including the Square identifier (SQ *) and name of the
-     * merchant taking the payment.
+     * Note that the `statement_description_identifier` might get truncated on the statement description
+     * to fit the required information including the Square identifier (SQ *) and the name of the
+     * seller taking the payment.
      *
      * @maps statement_description_identifier
      */
@@ -853,7 +888,7 @@ class Payment implements \JsonSerializable
      * Returns Receipt Number.
      *
      * The payment's receipt number.
-     * The field will be missing if a payment is CANCELED
+     * The field is missing if a payment is canceled.
      */
     public function getReceiptNumber(): ?string
     {
@@ -864,7 +899,7 @@ class Payment implements \JsonSerializable
      * Sets Receipt Number.
      *
      * The payment's receipt number.
-     * The field will be missing if a payment is CANCELED
+     * The field is missing if a payment is canceled.
      *
      * @maps receipt_number
      */
@@ -877,7 +912,7 @@ class Payment implements \JsonSerializable
      * Returns Receipt Url.
      *
      * The URL for the payment's receipt.
-     * The field will only be populated for COMPLETED payments.
+     * The field is only populated for COMPLETED payments.
      */
     public function getReceiptUrl(): ?string
     {
@@ -888,7 +923,7 @@ class Payment implements \JsonSerializable
      * Sets Receipt Url.
      *
      * The URL for the payment's receipt.
-     * The field will only be populated for COMPLETED payments.
+     * The field is only populated for COMPLETED payments.
      *
      * @maps receipt_url
      */
@@ -926,6 +961,7 @@ class Payment implements \JsonSerializable
         $json['customer_id']                    = $this->customerId;
         $json['employee_id']                    = $this->employeeId;
         $json['refund_ids']                     = $this->refundIds;
+        $json['risk_evaluation']                = $this->riskEvaluation;
         $json['buyer_email_address']            = $this->buyerEmailAddress;
         $json['billing_address']                = $this->billingAddress;
         $json['shipping_address']               = $this->shippingAddress;

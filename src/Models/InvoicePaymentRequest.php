@@ -11,8 +11,7 @@ namespace Square\Models;
  * same `request_method`.
  *
  * For more information,
- * see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-
- * requests).
+ * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
  */
 class InvoicePaymentRequest implements \JsonSerializable
 {
@@ -133,8 +132,7 @@ class InvoicePaymentRequest implements \JsonSerializable
      * - 1 deposit with 2 - 12 installments
      *
      * For more information,
-     * see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-
-     * requests).
+     * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      */
     public function getRequestType(): ?string
     {
@@ -152,8 +150,7 @@ class InvoicePaymentRequest implements \JsonSerializable
      * - 1 deposit with 2 - 12 installments
      *
      * For more information,
-     * see [Payment requests](https://developer.squareup.com/docs/docs/invoices-api/overview#payment-
-     * requests).
+     * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
      * @maps request_type
      */

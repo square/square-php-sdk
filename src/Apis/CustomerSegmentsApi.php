@@ -30,7 +30,7 @@ class CustomerSegmentsApi extends BaseApi
      *                            Used to retrieve the next set of query results.
      *
      *                            See the [Pagination guide](https://developer.squareup.
-     *                            com/docs/docs/working-with-apis/pagination) for more information.
+     *                            com/docs/working-with-apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
      *

@@ -58,6 +58,9 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 ### Loyalty
 * [Loyalty]
 
+### Bookings
+* [Bookings]
+
 ### Business
 * [Merchants]
 * [Locations]
@@ -385,6 +388,7 @@ You can also use the Square API to create applications or services that work wit
 [Inventory]: doc/apis/inventory.md
 [Labor]: doc/apis/labor.md
 [Loyalty]: doc/apis/loyalty.md
+[Bookings]: doc/apis/bookings.md
 [Locations]: doc/apis/locations.md
 [Merchants]: doc/apis/merchants.md
 [Orders]: doc/apis/orders.md

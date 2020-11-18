@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents Square processing fee.
+ * Represents the Square processing fee.
  */
 class ProcessingFee implements \JsonSerializable
 {
@@ -27,7 +27,7 @@ class ProcessingFee implements \JsonSerializable
     /**
      * Returns Effective At.
      *
-     * Timestamp of when the fee takes effect, in RFC 3339 format.
+     * The timestamp of when the fee takes effect, in RFC 3339 format.
      */
     public function getEffectiveAt(): ?string
     {
@@ -37,7 +37,7 @@ class ProcessingFee implements \JsonSerializable
     /**
      * Sets Effective At.
      *
-     * Timestamp of when the fee takes effect, in RFC 3339 format.
+     * The timestamp of when the fee takes effect, in RFC 3339 format.
      *
      * @maps effective_at
      */
@@ -49,7 +49,7 @@ class ProcessingFee implements \JsonSerializable
     /**
      * Returns Type.
      *
-     * The type of fee assessed or adjusted. Can be one of: `INITIAL`, `ADJUSTMENT`.
+     * The type of fee assessed or adjusted. The fee type can be `INITIAL` or `ADJUSTMENT`.
      */
     public function getType(): ?string
     {
@@ -59,7 +59,7 @@ class ProcessingFee implements \JsonSerializable
     /**
      * Sets Type.
      *
-     * The type of fee assessed or adjusted. Can be one of: `INITIAL`, `ADJUSTMENT`.
+     * The type of fee assessed or adjusted. The fee type can be `INITIAL` or `ADJUSTMENT`.
      *
      * @maps type
      */

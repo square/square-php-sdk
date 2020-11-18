@@ -50,7 +50,7 @@ class GetBankAccountByV1IdResponse implements \JsonSerializable
      *
      * Represents a bank account. For more information about
      * linking a bank account to a Square account, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      */
     public function getBankAccount(): ?BankAccount
     {
@@ -62,7 +62,7 @@ class GetBankAccountByV1IdResponse implements \JsonSerializable
      *
      * Represents a bank account. For more information about
      * linking a bank account to a Square account, see
-     * [Bank Accounts API](https://developer.squareup.com/docs/docs/bank-accounts-api).
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      *
      * @maps bank_account
      */

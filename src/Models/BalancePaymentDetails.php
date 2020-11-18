@@ -22,7 +22,7 @@ class BalancePaymentDetails implements \JsonSerializable
     /**
      * Returns Account Id.
      *
-     * ID for the account used to fund the payment.
+     * The ID of the account used to fund the payment.
      */
     public function getAccountId(): ?string
     {
@@ -32,7 +32,7 @@ class BalancePaymentDetails implements \JsonSerializable
     /**
      * Sets Account Id.
      *
-     * ID for the account used to fund the payment.
+     * The ID of the account used to fund the payment.
      *
      * @maps account_id
      */
@@ -44,7 +44,7 @@ class BalancePaymentDetails implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * The balance payment’s current state. Can be `COMPLETED` or `FAILED`.
+     * The balance payment’s current state. The state can be COMPLETED or FAILED.
      */
     public function getStatus(): ?string
     {
@@ -54,7 +54,7 @@ class BalancePaymentDetails implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * The balance payment’s current state. Can be `COMPLETED` or `FAILED`.
+     * The balance payment’s current state. The state can be COMPLETED or FAILED.
      *
      * @maps status
      */

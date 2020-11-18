@@ -22,6 +22,16 @@ class TipSettings implements \JsonSerializable
     private $customTipField;
 
     /**
+     * @var int[]|null
+     */
+    private $tipPercentages;
+
+    /**
+     * @var bool|null
+     */
+    private $smartTipping;
+
+    /**
      * Returns Allow Tipping.
      *
      * Indicates whether tipping is enabled for this checkout. Defaults to false.
@@ -90,6 +100,72 @@ class TipSettings implements \JsonSerializable
     }
 
     /**
+     * Returns Tip Percentages.
+     *
+     * A list of tip percentages that should be presented during the checkout flow. Specified as
+     * up to 3 non-negative integers from 0 to 100 (inclusive). Defaults to [15, 20, 25]
+     *
+     * @return int[]|null
+     */
+    public function getTipPercentages(): ?array
+    {
+        return $this->tipPercentages;
+    }
+
+    /**
+     * Sets Tip Percentages.
+     *
+     * A list of tip percentages that should be presented during the checkout flow. Specified as
+     * up to 3 non-negative integers from 0 to 100 (inclusive). Defaults to [15, 20, 25]
+     *
+     * @maps tip_percentages
+     *
+     * @param int[]|null $tipPercentages
+     */
+    public function setTipPercentages(?array $tipPercentages): void
+    {
+        $this->tipPercentages = $tipPercentages;
+    }
+
+    /**
+     * Returns Smart Tipping.
+     *
+     * Enables the "Smart Tip Amounts" behavior described in https://squareup.com/help/us/en/article/5069-
+     * accept-tips-with-the-square-app.
+     * Exact tipping options depend on the region the Square seller is active in.
+     *
+     * In the United States and Canada, tipping options will be presented in whole dollar amounts for
+     * payments under 10 USD/CAD respectively.
+     *
+     * If set to true, the tip_percentages settings is ignored.
+     * Defaults to false.
+     */
+    public function getSmartTipping(): ?bool
+    {
+        return $this->smartTipping;
+    }
+
+    /**
+     * Sets Smart Tipping.
+     *
+     * Enables the "Smart Tip Amounts" behavior described in https://squareup.com/help/us/en/article/5069-
+     * accept-tips-with-the-square-app.
+     * Exact tipping options depend on the region the Square seller is active in.
+     *
+     * In the United States and Canada, tipping options will be presented in whole dollar amounts for
+     * payments under 10 USD/CAD respectively.
+     *
+     * If set to true, the tip_percentages settings is ignored.
+     * Defaults to false.
+     *
+     * @maps smart_tipping
+     */
+    public function setSmartTipping(?bool $smartTipping): void
+    {
+        $this->smartTipping = $smartTipping;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -100,6 +176,8 @@ class TipSettings implements \JsonSerializable
         $json['allow_tipping']     = $this->allowTipping;
         $json['separate_tip_screen'] = $this->separateTipScreen;
         $json['custom_tip_field']  = $this->customTipField;
+        $json['tip_percentages']   = $this->tipPercentages;
+        $json['smart_tipping']     = $this->smartTipping;
 
         return array_filter($json, function ($val) {
             return $val !== null;

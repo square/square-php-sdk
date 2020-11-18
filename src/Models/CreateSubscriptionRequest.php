@@ -81,7 +81,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
     public function getIdempotencyKey(): string
@@ -96,7 +96,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *
      * @required
@@ -134,7 +134,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * Returns Plan Id.
      *
      * The ID of the subscription plan. For more information, see
-     * [Subscription Plan Overview](https://developer.squareup.com/docs/docs/subscriptions/overview).
+     * [Subscription Plan Overview](https://developer.squareup.com/docs/subscriptions/overview).
      */
     public function getPlanId(): string
     {
@@ -145,7 +145,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * Sets Plan Id.
      *
      * The ID of the subscription plan. For more information, see
-     * [Subscription Plan Overview](https://developer.squareup.com/docs/docs/subscriptions/overview).
+     * [Subscription Plan Overview](https://developer.squareup.com/docs/subscriptions/overview).
      *
      * @required
      * @maps plan_id
@@ -298,7 +298,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * The ID of the [customer](#type-customer) [card](#type-card) to charge.
      * If not specified, Square sends an invoice via email. For an example to
      * create a customer and add a card on file, see [Subscriptions Walkthrough](https://developer.squareup.
-     * com/docs/docs/subscriptions-api/walkthrough).
+     * com/docs/subscriptions-api/walkthrough).
      */
     public function getCardId(): ?string
     {
@@ -311,7 +311,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * The ID of the [customer](#type-customer) [card](#type-card) to charge.
      * If not specified, Square sends an invoice via email. For an example to
      * create a customer and add a card on file, see [Subscriptions Walkthrough](https://developer.squareup.
-     * com/docs/docs/subscriptions-api/walkthrough).
+     * com/docs/subscriptions-api/walkthrough).
      *
      * @maps card_id
      */

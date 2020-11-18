@@ -49,7 +49,7 @@ class AccumulateLoyaltyPointsResponse implements \JsonSerializable
      * Returns Event.
      *
      * Provides information about a loyalty event.
-     * For more information, see [Loyalty events](https://developer.squareup.com/docs/docs/loyalty-
+     * For more information, see [Loyalty events](https://developer.squareup.com/docs/loyalty-
      * api/overview/#loyalty-events).
      */
     public function getEvent(): ?LoyaltyEvent
@@ -61,7 +61,7 @@ class AccumulateLoyaltyPointsResponse implements \JsonSerializable
      * Sets Event.
      *
      * Provides information about a loyalty event.
-     * For more information, see [Loyalty events](https://developer.squareup.com/docs/docs/loyalty-
+     * For more information, see [Loyalty events](https://developer.squareup.com/docs/loyalty-
      * api/overview/#loyalty-events).
      *
      * @maps event

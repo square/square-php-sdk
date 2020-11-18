@@ -33,7 +33,7 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
      * Returns Loyalty Account.
      *
      * Describes a loyalty account. For more information, see
-     * [Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
+     * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
      */
     public function getLoyaltyAccount(): LoyaltyAccount
     {
@@ -44,7 +44,7 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
      * Sets Loyalty Account.
      *
      * Describes a loyalty account. For more information, see
-     * [Loyalty Overview](https://developer.squareup.com/docs/docs/loyalty/overview).
+     * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
      *
      * @required
      * @maps loyalty_account

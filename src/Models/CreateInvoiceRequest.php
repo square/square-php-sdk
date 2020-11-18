@@ -32,7 +32,7 @@ class CreateInvoiceRequest implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      */
     public function getInvoice(): Invoice
     {
@@ -44,7 +44,7 @@ class CreateInvoiceRequest implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      *
      * @required
      * @maps invoice
@@ -61,7 +61,7 @@ class CreateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
     public function getIdempotencyKey(): ?string
@@ -76,7 +76,7 @@ class CreateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *
      * @maps idempotency_key

@@ -54,6 +54,8 @@ $body_checkout_deviceOptions->setTipSettings(new Models\TipSettings);
 $body_checkout_deviceOptions->getTipSettings()->setAllowTipping(false);
 $body_checkout_deviceOptions->getTipSettings()->setSeparateTipScreen(false);
 $body_checkout_deviceOptions->getTipSettings()->setCustomTipField(false);
+$body_checkout_deviceOptions->getTipSettings()->setTipPercentages([148, 149, 150]);
+$body_checkout_deviceOptions->getTipSettings()->setSmartTipping(false);
 $body_checkout = new Models\TerminalCheckout(
     $body_checkout_amountMoney,
     $body_checkout_deviceOptions
@@ -225,14 +227,14 @@ function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'idempotency_key2';
+$body_idempotencyKey = '402a640b-b26f-401f-b406-46f839590c04';
 $body = new Models\CreateTerminalRefundRequest(
     $body_idempotencyKey
 );
-$body_refund_paymentId = 'payment_id4';
+$body_refund_paymentId = '5O5OvgkcNUhl7JBuINflcjKqUzXZY';
 $body_refund_amountMoney = new Models\Money;
-$body_refund_amountMoney->setAmount(128);
-$body_refund_amountMoney->setCurrency(Models\Currency::AWG);
+$body_refund_amountMoney->setAmount(111);
+$body_refund_amountMoney->setCurrency(Models\Currency::CAD);
 $body->setRefund(new Models\TerminalRefund(
     $body_refund_paymentId,
     $body_refund_amountMoney
@@ -240,8 +242,8 @@ $body->setRefund(new Models\TerminalRefund(
 $body->getRefund()->setId('id4');
 $body->getRefund()->setRefundId('refund_id8');
 $body->getRefund()->setOrderId('order_id8');
-$body->getRefund()->setReason('reason0');
-$body->getRefund()->setDeviceId('device_id0');
+$body->getRefund()->setReason('Returning items');
+$body->getRefund()->setDeviceId('f72dfb8e-4d65-4e56-aade-ec3fb8d33291');
 
 $apiResponse = $terminalApi->createTerminalRefund($body);
 
@@ -285,11 +287,11 @@ $body->getQuery()->getFilter()->setDeviceId('device_id8');
 $body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
 $body->getQuery()->getFilter()->getCreatedAt()->setStartAt('start_at2');
 $body->getQuery()->getFilter()->getCreatedAt()->setEndAt('end_at0');
-$body->getQuery()->getFilter()->setStatus('status6');
+$body->getQuery()->getFilter()->setStatus('COMPLETED');
 $body->getQuery()->setSort(new Models\TerminalRefundQuerySort);
 $body->getQuery()->getSort()->setSortOrder('sort_order8');
 $body->setCursor('cursor0');
-$body->setLimit(164);
+$body->setLimit(1);
 
 $apiResponse = $terminalApi->searchTerminalRefunds($body);
 

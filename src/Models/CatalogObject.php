@@ -532,7 +532,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Item Data.
      *
-     * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+     * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
      * the catalog.
      */
     public function getItemData(): ?CatalogItem
@@ -543,7 +543,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Item Data.
      *
-     * An [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+     * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
      * the catalog.
      *
      * @maps item_data
@@ -825,8 +825,8 @@ class CatalogObject implements \JsonSerializable
      * Returns Subscription Plan Data.
      *
      * Describes a subscription plan. For more information, see
-     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-
-     * api/setup-plan).
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
+     * plan).
      */
     public function getSubscriptionPlanData(): ?CatalogSubscriptionPlan
     {
@@ -837,8 +837,8 @@ class CatalogObject implements \JsonSerializable
      * Sets Subscription Plan Data.
      *
      * Describes a subscription plan. For more information, see
-     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/docs/subscriptions-
-     * api/setup-plan).
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
+     * plan).
      *
      * @maps subscription_plan_data
      */

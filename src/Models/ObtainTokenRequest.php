@@ -42,6 +42,16 @@ class ObtainTokenRequest implements \JsonSerializable
     private $migrationToken;
 
     /**
+     * @var string[]|null
+     */
+    private $scopes;
+
+    /**
+     * @var bool|null
+     */
+    private $shortLived;
+
+    /**
      * @param string $clientId
      * @param string $clientSecret
      * @param string $grantType
@@ -235,6 +245,72 @@ class ObtainTokenRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Scopes.
+     *
+     * __OPTIONAL__
+     *
+     * A JSON list of strings representing the permissions the application is requesting.
+     * For example: "`["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]`"
+     * The access token returned in the response is granted the permissions
+     * that comprise the intersection between the requested list of permissions, and those
+     * that belong to the provided refresh token.
+     *
+     * @return string[]|null
+     */
+    public function getScopes(): ?array
+    {
+        return $this->scopes;
+    }
+
+    /**
+     * Sets Scopes.
+     *
+     * __OPTIONAL__
+     *
+     * A JSON list of strings representing the permissions the application is requesting.
+     * For example: "`["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]`"
+     * The access token returned in the response is granted the permissions
+     * that comprise the intersection between the requested list of permissions, and those
+     * that belong to the provided refresh token.
+     *
+     * @maps scopes
+     *
+     * @param string[]|null $scopes
+     */
+    public function setScopes(?array $scopes): void
+    {
+        $this->scopes = $scopes;
+    }
+
+    /**
+     * Returns Short Lived.
+     *
+     * __OPTIONAL__
+     *
+     * A boolean indicating a request for a short-lived access token.
+     * The short-lived access token returned in the response will expire in 24 hours.
+     */
+    public function getShortLived(): ?bool
+    {
+        return $this->shortLived;
+    }
+
+    /**
+     * Sets Short Lived.
+     *
+     * __OPTIONAL__
+     *
+     * A boolean indicating a request for a short-lived access token.
+     * The short-lived access token returned in the response will expire in 24 hours.
+     *
+     * @maps short_lived
+     */
+    public function setShortLived(?bool $shortLived): void
+    {
+        $this->shortLived = $shortLived;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -249,6 +325,8 @@ class ObtainTokenRequest implements \JsonSerializable
         $json['grant_type']     = $this->grantType;
         $json['refresh_token']  = $this->refreshToken;
         $json['migration_token'] = $this->migrationToken;
+        $json['scopes']         = $this->scopes;
+        $json['short_lived']    = $this->shortLived;
 
         return array_filter($json, function ($val) {
             return $val !== null;

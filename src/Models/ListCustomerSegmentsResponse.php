@@ -85,8 +85,8 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
      * to retrieve the next set of query results. Only present only if the request succeeded and
      * additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/docs/working-with-apis/pagination)
-     * for more information.
+     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
+     * more information.
      */
     public function getCursor(): ?string
     {
@@ -100,8 +100,8 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
      * to retrieve the next set of query results. Only present only if the request succeeded and
      * additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/docs/working-with-apis/pagination)
-     * for more information.
+     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
+     * more information.
      *
      * @maps cursor
      */

@@ -24,7 +24,7 @@ class PublishInvoiceResponse implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      */
     public function getInvoice(): ?Invoice
     {
@@ -36,7 +36,7 @@ class PublishInvoiceResponse implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      *
      * @maps invoice
      */

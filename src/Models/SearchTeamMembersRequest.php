@@ -72,8 +72,8 @@ class SearchTeamMembersRequest implements \JsonSerializable
      * Returns Cursor.
      *
      * The opaque cursor for fetching the next page. Read about
-     * [pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) with Square APIs
-     * for more information.
+     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination) with Square APIs for
+     * more information.
      */
     public function getCursor(): ?string
     {
@@ -84,8 +84,8 @@ class SearchTeamMembersRequest implements \JsonSerializable
      * Sets Cursor.
      *
      * The opaque cursor for fetching the next page. Read about
-     * [pagination](https://developer.squareup.com/docs/docs/working-with-apis/pagination) with Square APIs
-     * for more information.
+     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination) with Square APIs for
+     * more information.
      *
      * @maps cursor
      */

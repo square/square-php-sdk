@@ -87,8 +87,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * The card payment's current state. It can be one of: `AUTHORIZED`, `CAPTURED`, `VOIDED`,
-     * `FAILED`.
+     * The card payment's current state. The state can be AUTHORIZED, CAPTURED, VOIDED, or
+     * FAILED.
      */
     public function getStatus(): ?string
     {
@@ -98,8 +98,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * The card payment's current state. It can be one of: `AUTHORIZED`, `CAPTURED`, `VOIDED`,
-     * `FAILED`.
+     * The card payment's current state. The state can be AUTHORIZED, CAPTURED, VOIDED, or
+     * FAILED.
      *
      * @maps status
      */
@@ -135,7 +135,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Entry Method.
      *
-     * The method used to enter the card's details for the payment.  Can be
+     * The method used to enter the card's details for the payment. The method can be
      * `KEYED`, `SWIPED`, `EMV`, `ON_FILE`, or `CONTACTLESS`.
      */
     public function getEntryMethod(): ?string
@@ -146,7 +146,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Entry Method.
      *
-     * The method used to enter the card's details for the payment.  Can be
+     * The method used to enter the card's details for the payment. The method can be
      * `KEYED`, `SWIPED`, `EMV`, `ON_FILE`, or `CONTACTLESS`.
      *
      * @maps entry_method
@@ -159,8 +159,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Cvv Status.
      *
-     * Status code returned from the Card Verification Value (CVV) check. Can be
-     * `CVV_ACCEPTED`, `CVV_REJECTED`, `CVV_NOT_CHECKED`.
+     * The status code returned from the Card Verification Value (CVV) check. The code can be
+     * `CVV_ACCEPTED`, `CVV_REJECTED`, or `CVV_NOT_CHECKED`.
      */
     public function getCvvStatus(): ?string
     {
@@ -170,8 +170,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Cvv Status.
      *
-     * Status code returned from the Card Verification Value (CVV) check. Can be
-     * `CVV_ACCEPTED`, `CVV_REJECTED`, `CVV_NOT_CHECKED`.
+     * The status code returned from the Card Verification Value (CVV) check. The code can be
+     * `CVV_ACCEPTED`, `CVV_REJECTED`, or `CVV_NOT_CHECKED`.
      *
      * @maps cvv_status
      */
@@ -183,8 +183,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Avs Status.
      *
-     * Status code returned from the Address Verification System (AVS) check. Can be
-     * `AVS_ACCEPTED`, `AVS_REJECTED`, `AVS_NOT_CHECKED`.
+     * The status code returned from the Address Verification System (AVS) check. The code can be
+     * `AVS_ACCEPTED`, `AVS_REJECTED`, or `AVS_NOT_CHECKED`.
      */
     public function getAvsStatus(): ?string
     {
@@ -194,8 +194,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Avs Status.
      *
-     * Status code returned from the Address Verification System (AVS) check. Can be
-     * `AVS_ACCEPTED`, `AVS_REJECTED`, `AVS_NOT_CHECKED`.
+     * The status code returned from the Address Verification System (AVS) check. The code can be
+     * `AVS_ACCEPTED`, `AVS_REJECTED`, or `AVS_NOT_CHECKED`.
      *
      * @maps avs_status
      */
@@ -207,7 +207,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Auth Result Code.
      *
-     * Status code returned by the card issuer that describes the payment's
+     * The status code returned by the card issuer that describes the payment's
      * authorization status.
      */
     public function getAuthResultCode(): ?string
@@ -218,7 +218,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Auth Result Code.
      *
-     * Status code returned by the card issuer that describes the payment's
+     * The status code returned by the card issuer that describes the payment's
      * authorization status.
      *
      * @maps auth_result_code
@@ -231,7 +231,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Application Identifier.
      *
-     * For EMV payments, identifies the EMV application used for the payment.
+     * For EMV payments, the application ID identifies the EMV application used for the payment.
      */
     public function getApplicationIdentifier(): ?string
     {
@@ -241,7 +241,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Application Identifier.
      *
-     * For EMV payments, identifies the EMV application used for the payment.
+     * For EMV payments, the application ID identifies the EMV application used for the payment.
      *
      * @maps application_identifier
      */
@@ -297,7 +297,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Verification Method.
      *
-     * For EMV payments, method used to verify the cardholder's identity.  Can be one of
+     * For EMV payments, the method used to verify the cardholder's identity. The method can be
      * `PIN`, `SIGNATURE`, `PIN_AND_SIGNATURE`, `ON_DEVICE`, or `NONE`.
      */
     public function getVerificationMethod(): ?string
@@ -308,7 +308,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Verification Method.
      *
-     * For EMV payments, method used to verify the cardholder's identity.  Can be one of
+     * For EMV payments, the method used to verify the cardholder's identity. The method can be
      * `PIN`, `SIGNATURE`, `PIN_AND_SIGNATURE`, `ON_DEVICE`, or `NONE`.
      *
      * @maps verification_method
@@ -321,7 +321,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Verification Results.
      *
-     * For EMV payments, the results of the cardholder verification.  Can be one of
+     * For EMV payments, the results of the cardholder verification. The result can be
      * `SUCCESS`, `FAILURE`, or `UNKNOWN`.
      */
     public function getVerificationResults(): ?string
@@ -332,7 +332,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Verification Results.
      *
-     * For EMV payments, the results of the cardholder verification.  Can be one of
+     * For EMV payments, the results of the cardholder verification. The result can be
      * `SUCCESS`, `FAILURE`, or `UNKNOWN`.
      *
      * @maps verification_results
@@ -347,7 +347,7 @@ class CardPaymentDetails implements \JsonSerializable
      *
      * The statement description sent to the card networks.
      *
-     * Note: The actual statement description will vary and is likely to be truncated and appended with
+     * Note: The actual statement description varies and is likely to be truncated and appended with
      * additional information on a per issuer basis.
      */
     public function getStatementDescription(): ?string
@@ -360,7 +360,7 @@ class CardPaymentDetails implements \JsonSerializable
      *
      * The statement description sent to the card networks.
      *
-     * Note: The actual statement description will vary and is likely to be truncated and appended with
+     * Note: The actual statement description varies and is likely to be truncated and appended with
      * additional information on a per issuer basis.
      *
      * @maps statement_description
@@ -395,8 +395,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Refund Requires Card Presence.
      *
-     * Whether or not the card is required to be physically present in order for the payment to
-     * be refunded.  If true, the card is required to be present.
+     * Whether the card must be physically present for the payment to
+     * be refunded.  If set to `true`, the card must be present.
      */
     public function getRefundRequiresCardPresence(): ?bool
     {
@@ -406,8 +406,8 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Refund Requires Card Presence.
      *
-     * Whether or not the card is required to be physically present in order for the payment to
-     * be refunded.  If true, the card is required to be present.
+     * Whether the card must be physically present for the payment to
+     * be refunded.  If set to `true`, the card must be present.
      *
      * @maps refund_requires_card_presence
      */
@@ -419,7 +419,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -431,7 +431,7 @@ class CardPaymentDetails implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *

@@ -37,7 +37,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      */
     public function getInvoice(): Invoice
     {
@@ -49,7 +49,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      *
      * Stores information about an invoice. You use the Invoices API to create and process
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
-     * squareup.com/docs/docs/invoices-api/overview).
+     * squareup.com/docs/invoices-api/overview).
      *
      * @required
      * @maps invoice
@@ -66,7 +66,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
     public function getIdempotencyKey(): ?string
@@ -81,7 +81,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/docs/working-with-
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *
      * @maps idempotency_key
@@ -95,7 +95,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      * Returns Fields to Clear.
      *
      * List of fields to clear.
-     * For examples, see [Update an invoice](https://developer.squareup.com/docs/docs/invoices-
+     * For examples, see [Update an invoice](https://developer.squareup.com/docs/invoices-
      * api/overview#update-an-invoice).
      *
      * @return string[]|null
@@ -109,7 +109,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
      * Sets Fields to Clear.
      *
      * List of fields to clear.
-     * For examples, see [Update an invoice](https://developer.squareup.com/docs/docs/invoices-
+     * For examples, see [Update an invoice](https://developer.squareup.com/docs/invoices-
      * api/overview#update-an-invoice).
      *
      * @maps fields_to_clear

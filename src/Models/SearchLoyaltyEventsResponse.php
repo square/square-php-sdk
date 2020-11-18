@@ -83,7 +83,7 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      * For more information,
-     * see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination).
+     * see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      */
     public function getCursor(): ?string
     {
@@ -96,7 +96,7 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      * For more information,
-     * see [Pagination](https://developer.squareup.com/docs/docs/basics/api101/pagination).
+     * see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      *
      * @maps cursor
      */

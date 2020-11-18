@@ -19,6 +19,7 @@ class SquareClient implements ConfigurationInterface
     private $v1Items;
     private $applePay;
     private $bankAccounts;
+    private $bookings;
     private $cashDrawers;
     private $catalog;
     private $customers;
@@ -132,7 +133,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '6.5.0.20201028';
+        return '7.0.0.20201118';
     }
 
     /**
@@ -233,6 +234,17 @@ class SquareClient implements ConfigurationInterface
             $this->bankAccounts = new Apis\BankAccountsApi($this);
         }
         return $this->bankAccounts;
+    }
+
+    /**
+     * Returns Bookings Api
+     */
+    public function getBookingsApi(): Apis\BookingsApi
+    {
+        if ($this->bookings == null) {
+            $this->bookings = new Apis\BookingsApi($this);
+        }
+        return $this->bookings;
     }
 
     /**
