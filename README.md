@@ -379,7 +379,7 @@ You can also use the Square API to create applications or services that work wit
 [Cash Drawers]: doc/apis/cash-drawers.md
 [Customer Groups]: doc/apis/customer-groups.md
 [Customer Segments]: doc/apis/customer-segments.md
-[Bank Accounts]: doc/apis/bank-accounts
+[Bank Accounts]: doc/apis/bank-accounts.md
 [Payments]: doc/apis/payments.md
 [Checkout]: doc/apis/checkout.md
 [Catalog]: doc/apis/catalog.md
