@@ -17,6 +17,11 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     private $includeRelatedObjects;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @param string[] $objectIds
      */
     public function __construct(array $objectIds)
@@ -90,6 +95,34 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Catalog Version.
+     *
+     * The specific version of the catalog objects to be included in the response.
+     * This allows you to retrieve historical versions of objects. The specified version value is matched
+     * against
+     * the [CatalogObject](#type-catalogobject)s' `version` attribute.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The specific version of the catalog objects to be included in the response.
+     * This allows you to retrieve historical versions of objects. The specified version value is matched
+     * against
+     * the [CatalogObject](#type-catalogobject)s' `version` attribute.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -99,6 +132,7 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
         $json = [];
         $json['object_ids']            = $this->objectIds;
         $json['include_related_objects'] = $this->includeRelatedObjects;
+        $json['catalog_version']       = $this->catalogVersion;
 
         return array_filter($json, function ($val) {
             return $val !== null;

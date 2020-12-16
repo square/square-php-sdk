@@ -1,0 +1,116 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Square\Models;
+
+/**
+ * A tax to block from applying to a line item. The tax must be
+ * identified by either `tax_uid` or `tax_catalog_object_id`, but not both.
+ */
+class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
+{
+    /**
+     * @var string|null
+     */
+    private $uid;
+
+    /**
+     * @var string|null
+     */
+    private $taxUid;
+
+    /**
+     * @var string|null
+     */
+    private $taxCatalogObjectId;
+
+    /**
+     * Returns Uid.
+     *
+     * Unique ID of the `BlockedTax` within the order.
+     */
+    public function getUid(): ?string
+    {
+        return $this->uid;
+    }
+
+    /**
+     * Sets Uid.
+     *
+     * Unique ID of the `BlockedTax` within the order.
+     *
+     * @maps uid
+     */
+    public function setUid(?string $uid): void
+    {
+        $this->uid = $uid;
+    }
+
+    /**
+     * Returns Tax Uid.
+     *
+     * The `uid` of the tax that should be blocked. Use this field to block
+     * ad-hoc taxes. For catalog taxes use the `tax_catalog_object_id` field.
+     */
+    public function getTaxUid(): ?string
+    {
+        return $this->taxUid;
+    }
+
+    /**
+     * Sets Tax Uid.
+     *
+     * The `uid` of the tax that should be blocked. Use this field to block
+     * ad-hoc taxes. For catalog taxes use the `tax_catalog_object_id` field.
+     *
+     * @maps tax_uid
+     */
+    public function setTaxUid(?string $taxUid): void
+    {
+        $this->taxUid = $taxUid;
+    }
+
+    /**
+     * Returns Tax Catalog Object Id.
+     *
+     * The `catalog_object_id` of the tax that should be blocked.
+     * Use this field to block catalog taxes. For ad-hoc taxes use the
+     * `tax_uid` field.
+     */
+    public function getTaxCatalogObjectId(): ?string
+    {
+        return $this->taxCatalogObjectId;
+    }
+
+    /**
+     * Sets Tax Catalog Object Id.
+     *
+     * The `catalog_object_id` of the tax that should be blocked.
+     * Use this field to block catalog taxes. For ad-hoc taxes use the
+     * `tax_uid` field.
+     *
+     * @maps tax_catalog_object_id
+     */
+    public function setTaxCatalogObjectId(?string $taxCatalogObjectId): void
+    {
+        $this->taxCatalogObjectId = $taxCatalogObjectId;
+    }
+
+    /**
+     * Encode this object to JSON
+     *
+     * @return mixed
+     */
+    public function jsonSerialize()
+    {
+        $json = [];
+        $json['uid']                = $this->uid;
+        $json['tax_uid']            = $this->taxUid;
+        $json['tax_catalog_object_id'] = $this->taxCatalogObjectId;
+
+        return array_filter($json, function ($val) {
+            return $val !== null;
+        });
+    }
+}

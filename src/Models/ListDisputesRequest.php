@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines request parameters for the ListDisputes endpoint.
+ * Defines the request parameters for the `ListDisputes` endpoint.
  */
 class ListDisputesRequest implements \JsonSerializable
 {
@@ -28,8 +28,8 @@ class ListDisputesRequest implements \JsonSerializable
      * Returns Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
-     * For more information, see [Paginating](https://developer.squareup.com/docs/basics/api101/pagination).
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      */
     public function getCursor(): ?string
     {
@@ -40,8 +40,8 @@ class ListDisputesRequest implements \JsonSerializable
      * Sets Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
-     * For more information, see [Paginating](https://developer.squareup.com/docs/basics/api101/pagination).
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
      *
      * @maps cursor
      */
@@ -54,9 +54,9 @@ class ListDisputesRequest implements \JsonSerializable
      * Returns States.
      *
      * The dispute states to filter the result.
-     * If not specified, the endpoint
-     * returns all open disputes (dispute status is not
-     * `INQUIRY_CLOSED`, `WON`, or `LOST`).
+     * If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
+     * `WON`,
+     * or `LOST`).
      * See [DisputeState](#type-disputestate) for possible values
      *
      * @return string[]|null
@@ -70,9 +70,9 @@ class ListDisputesRequest implements \JsonSerializable
      * Sets States.
      *
      * The dispute states to filter the result.
-     * If not specified, the endpoint
-     * returns all open disputes (dispute status is not
-     * `INQUIRY_CLOSED`, `WON`, or `LOST`).
+     * If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
+     * `WON`,
+     * or `LOST`).
      * See [DisputeState](#type-disputestate) for possible values
      *
      * @maps states
@@ -87,11 +87,10 @@ class ListDisputesRequest implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The ID of the location for which to return
-     * a list of disputes. If not specified,
-     * the endpoint returns all open disputes
-     * (dispute status is not `INQUIRY_CLOSED`, `WON`, or
-     * `LOST`) associated with all locations.
+     * The ID of the location for which to return a list of disputes. If not specified, the endpoint
+     * returns
+     * all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
+     * locations.
      */
     public function getLocationId(): ?string
     {
@@ -101,11 +100,10 @@ class ListDisputesRequest implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The ID of the location for which to return
-     * a list of disputes. If not specified,
-     * the endpoint returns all open disputes
-     * (dispute status is not `INQUIRY_CLOSED`, `WON`, or
-     * `LOST`) associated with all locations.
+     * The ID of the location for which to return a list of disputes. If not specified, the endpoint
+     * returns
+     * all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
+     * locations.
      *
      * @maps location_id
      */

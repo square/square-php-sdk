@@ -35,6 +35,11 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     private $createdAt;
 
     /**
+     * @var CatalogObjectReference|null
+     */
+    private $pricingRuleReference;
+
+    /**
      * @param string $id
      * @param int $points
      * @param string $name
@@ -127,7 +132,10 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     /**
      * Returns Definition.
      *
-     * Provides details about the loyalty program reward tier definition.
+     * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      */
     public function getDefinition(): LoyaltyProgramRewardDefinition
     {
@@ -137,7 +145,10 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     /**
      * Sets Definition.
      *
-     * Provides details about the loyalty program reward tier definition.
+     * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      *
      * @required
      * @maps definition
@@ -171,6 +182,32 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     }
 
     /**
+     * Returns Pricing Rule Reference.
+     *
+     * A reference to a Catalog object at a specific version. In general this is
+     * used as an entry point into a graph of catalog objects, where the objects exist
+     * at a specific version.
+     */
+    public function getPricingRuleReference(): ?CatalogObjectReference
+    {
+        return $this->pricingRuleReference;
+    }
+
+    /**
+     * Sets Pricing Rule Reference.
+     *
+     * A reference to a Catalog object at a specific version. In general this is
+     * used as an entry point into a graph of catalog objects, where the objects exist
+     * at a specific version.
+     *
+     * @maps pricing_rule_reference
+     */
+    public function setPricingRuleReference(?CatalogObjectReference $pricingRuleReference): void
+    {
+        $this->pricingRuleReference = $pricingRuleReference;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -178,11 +215,12 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']         = $this->id;
-        $json['points']     = $this->points;
-        $json['name']       = $this->name;
-        $json['definition'] = $this->definition;
-        $json['created_at'] = $this->createdAt;
+        $json['id']                   = $this->id;
+        $json['points']               = $this->points;
+        $json['name']                 = $this->name;
+        $json['definition']           = $this->definition;
+        $json['created_at']           = $this->createdAt;
+        $json['pricing_rule_reference'] = $this->pricingRuleReference;
 
         return array_filter($json, function ($val) {
             return $val !== null;

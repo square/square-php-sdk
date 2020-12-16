@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines parameters for a CreateDisputeEvidenceText request.
+ * Defines the parameters for a `CreateDisputeEvidenceText` request.
  */
 class CreateDisputeEvidenceTextRequest implements \JsonSerializable
 {
@@ -37,8 +37,8 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * Unique ID. For more information,
-     * see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
+     * with-apis/idempotency).
      */
     public function getIdempotencyKey(): string
     {
@@ -48,8 +48,8 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * Unique ID. For more information,
-     * see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
+     * with-apis/idempotency).
      *
      * @required
      * @maps idempotency_key
@@ -62,7 +62,7 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
     /**
      * Returns Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      */
     public function getEvidenceType(): ?string
     {
@@ -72,7 +72,7 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
     /**
      * Sets Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      *
      * @maps evidence_type
      */

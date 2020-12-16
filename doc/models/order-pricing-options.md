@@ -13,13 +13,15 @@ They can be used, for example, to apply automatic price adjustments that are bas
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `autoApplyDiscounts` | `?bool` | Optional | The option to determine whether or not pricing rule-based<br>discounts are automatically applied to an order. | getAutoApplyDiscounts(): ?bool | setAutoApplyDiscounts(?bool autoApplyDiscounts): void |
+| `autoApplyDiscounts` | `?bool` | Optional | The option to determine whether pricing rule-based<br>discounts are automatically applied to an order. | getAutoApplyDiscounts(): ?bool | setAutoApplyDiscounts(?bool autoApplyDiscounts): void |
+| `autoApplyTaxes` | `?bool` | Optional | The option to determine whether rule-based taxes are automatically<br>applied to an order when the criteria of the corresponding rules are met. | getAutoApplyTaxes(): ?bool | setAutoApplyTaxes(?bool autoApplyTaxes): void |
 
 ## Example (as JSON)
 
 ```json
 {
-  "auto_apply_discounts": false
+  "auto_apply_discounts": false,
+  "auto_apply_taxes": false
 }
 ```
 

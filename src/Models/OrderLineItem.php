@@ -96,6 +96,11 @@ class OrderLineItem implements \JsonSerializable
     private $totalMoney;
 
     /**
+     * @var OrderLineItemPricingBlocklists|null
+     */
+    private $pricingBlocklists;
+
+    /**
      * @param string $quantity
      */
     public function __construct(string $quantity)
@@ -653,6 +658,34 @@ class OrderLineItem implements \JsonSerializable
     }
 
     /**
+     * Returns Pricing Blocklists.
+     *
+     * Describes pricing adjustments that are blocked from manual and
+     * automatic application to a line item. For more information, see
+     * [Apply Taxes and Discounts](https://developer.squareup.com/docs/orders-api/apply-taxes-and-
+     * discounts).
+     */
+    public function getPricingBlocklists(): ?OrderLineItemPricingBlocklists
+    {
+        return $this->pricingBlocklists;
+    }
+
+    /**
+     * Sets Pricing Blocklists.
+     *
+     * Describes pricing adjustments that are blocked from manual and
+     * automatic application to a line item. For more information, see
+     * [Apply Taxes and Discounts](https://developer.squareup.com/docs/orders-api/apply-taxes-and-
+     * discounts).
+     *
+     * @maps pricing_blocklists
+     */
+    public function setPricingBlocklists(?OrderLineItemPricingBlocklists $pricingBlocklists): void
+    {
+        $this->pricingBlocklists = $pricingBlocklists;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -677,6 +710,7 @@ class OrderLineItem implements \JsonSerializable
         $json['total_tax_money']          = $this->totalTaxMoney;
         $json['total_discount_money']     = $this->totalDiscountMoney;
         $json['total_money']              = $this->totalMoney;
+        $json['pricing_blocklists']       = $this->pricingBlocklists;
 
         return array_filter($json, function ($val) {
             return $val !== null;

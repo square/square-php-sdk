@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines parameters for a CreateDisputeEvidenceFile request.
+ * Defines the parameters for a `CreateDisputeEvidenceFile` request.
  */
 class CreateDisputeEvidenceFileRequest implements \JsonSerializable
 {
@@ -35,8 +35,8 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * Unique ID. For more information,
-     * see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
+     * with-apis/idempotency).
      */
     public function getIdempotencyKey(): string
     {
@@ -46,8 +46,8 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * Unique ID. For more information,
-     * see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
+     * with-apis/idempotency).
      *
      * @required
      * @maps idempotency_key
@@ -60,7 +60,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
     /**
      * Returns Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      */
     public function getEvidenceType(): ?string
     {
@@ -70,7 +70,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
     /**
      * Sets Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      *
      * @maps evidence_type
      */
@@ -83,7 +83,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
      * Returns Content Type.
      *
      * The MIME type of the uploaded file.
-     * One of image/heic, image/heif, image/jpeg, application/pdf,  image/png, image/tiff.
+     * The type can be image/heic, image/heif, image/jpeg, application/pdf, image/png, or image/tiff.
      */
     public function getContentType(): ?string
     {
@@ -94,7 +94,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
      * Sets Content Type.
      *
      * The MIME type of the uploaded file.
-     * One of image/heic, image/heif, image/jpeg, application/pdf,  image/png, image/tiff.
+     * The type can be image/heic, image/heif, image/jpeg, application/pdf, image/png, or image/tiff.
      *
      * @maps content_type
      */

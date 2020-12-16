@@ -1,7 +1,7 @@
 
 # Create Dispute Evidence Text Request
 
-Defines parameters for a CreateDisputeEvidenceText request.
+Defines the parameters for a `CreateDisputeEvidenceText` request.
 
 ## Structure
 
@@ -11,8 +11,8 @@ Defines parameters for a CreateDisputeEvidenceText request.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `idempotencyKey` | `string` |  | Unique ID. For more information,<br>see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency). | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
-| `evidenceType` | [`?string (DisputeEvidenceType)`](/doc/models/dispute-evidence-type.md) | Optional | Type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
+| `idempotencyKey` | `string` |  | The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency). | getIdempotencyKey(): string | setIdempotencyKey(string idempotencyKey): void |
+| `evidenceType` | [`?string (DisputeEvidenceType)`](/doc/models/dispute-evidence-type.md) | Optional | The type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
 | `evidenceText` | `string` |  | The evidence string. | getEvidenceText(): string | setEvidenceText(string evidenceText): void |
 
 ## Example (as JSON)

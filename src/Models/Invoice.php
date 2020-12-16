@@ -92,6 +92,11 @@ class Invoice implements \JsonSerializable
     private $updatedAt;
 
     /**
+     * @var InvoiceCustomField[]|null
+     */
+    private $customFields;
+
+    /**
      * Returns Id.
      *
      * The Square-assigned ID of the invoice.
@@ -214,15 +219,12 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Payment Requests.
      *
-     * An array of `InvoicePaymentRequest` objects. Each object defines
-     * a payment request in an invoice payment schedule. It provides information
-     * such as when and how Square processes payments. You must specify at least one payment request. For
-     * invoices
-     * with multiple payment requests, you can specify a maximum of 12 `INSTALLMENT` request types. All of
-     * the payment requests must specify the
-     * same `request_method`.
+     * The payment schedule for the invoice, represented by one or more payment requests that
+     * define payment settings, such as amount due and due date. You can specify a maximum of 13
+     * payment requests, with up to 12 `INSTALLMENT` request types. For more information, see
+     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
-     * This field is required when creating an invoice.
+     * This field is required when creating an invoice. It must contain at least one payment request.
      *
      * @return InvoicePaymentRequest[]|null
      */
@@ -234,15 +236,12 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Payment Requests.
      *
-     * An array of `InvoicePaymentRequest` objects. Each object defines
-     * a payment request in an invoice payment schedule. It provides information
-     * such as when and how Square processes payments. You must specify at least one payment request. For
-     * invoices
-     * with multiple payment requests, you can specify a maximum of 12 `INSTALLMENT` request types. All of
-     * the payment requests must specify the
-     * same `request_method`.
+     * The payment schedule for the invoice, represented by one or more payment requests that
+     * define payment settings, such as amount due and due date. You can specify a maximum of 13
+     * payment requests, with up to 12 `INSTALLMENT` request types. For more information, see
+     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
-     * This field is required when creating an invoice.
+     * This field is required when creating an invoice. It must contain at least one payment request.
      *
      * @maps payment_requests
      *
@@ -306,7 +305,7 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Description.
      *
-     * The description of the invoice. This is visible the customer receiving the invoice.
+     * The description of the invoice. This is visible to the customer receiving the invoice.
      */
     public function getDescription(): ?string
     {
@@ -316,7 +315,7 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Description.
      *
-     * The description of the invoice. This is visible the customer receiving the invoice.
+     * The description of the invoice. This is visible to the customer receiving the invoice.
      *
      * @maps description
      */
@@ -329,10 +328,10 @@ class Invoice implements \JsonSerializable
      * Returns Scheduled At.
      *
      * The timestamp when the invoice is scheduled for processing, in RFC 3339 format.
-     * At the specified time, depending on the `request_method`, Square sends the
-     * invoice to the customer's email address or charge the customer's card on file.
+     * After the invoice is published, Square processes the invoice on the specified date,
+     * based on the settings for the invoice payment requests.
      *
-     * If the field is not set, Square processes the invoice immediately after publication.
+     * If the field is not set, Square processes the invoice immediately after it is published.
      */
     public function getScheduledAt(): ?string
     {
@@ -343,10 +342,10 @@ class Invoice implements \JsonSerializable
      * Sets Scheduled At.
      *
      * The timestamp when the invoice is scheduled for processing, in RFC 3339 format.
-     * At the specified time, depending on the `request_method`, Square sends the
-     * invoice to the customer's email address or charge the customer's card on file.
+     * After the invoice is published, Square processes the invoice on the specified date,
+     * based on the settings for the invoice payment requests.
      *
-     * If the field is not set, Square processes the invoice immediately after publication.
+     * If the field is not set, Square processes the invoice immediately after it is published.
      *
      * @maps scheduled_at
      */
@@ -504,6 +503,44 @@ class Invoice implements \JsonSerializable
     }
 
     /**
+     * Returns Custom Fields.
+     *
+     * Additional seller-defined fields to render on the invoice. These fields are visible to sellers and
+     * buyers
+     * on the Square-hosted invoice page and in emailed or PDF copies of invoices. For more information,
+     * see
+     * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
+     *
+     * Max: 2 custom fields
+     *
+     * @return InvoiceCustomField[]|null
+     */
+    public function getCustomFields(): ?array
+    {
+        return $this->customFields;
+    }
+
+    /**
+     * Sets Custom Fields.
+     *
+     * Additional seller-defined fields to render on the invoice. These fields are visible to sellers and
+     * buyers
+     * on the Square-hosted invoice page and in emailed or PDF copies of invoices. For more information,
+     * see
+     * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
+     *
+     * Max: 2 custom fields
+     *
+     * @maps custom_fields
+     *
+     * @param InvoiceCustomField[]|null $customFields
+     */
+    public function setCustomFields(?array $customFields): void
+    {
+        $this->customFields = $customFields;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -527,6 +564,7 @@ class Invoice implements \JsonSerializable
         $json['timezone']               = $this->timezone;
         $json['created_at']             = $this->createdAt;
         $json['updated_at']             = $this->updatedAt;
+        $json['custom_fields']          = $this->customFields;
 
         return array_filter($json, function ($val) {
             return $val !== null;

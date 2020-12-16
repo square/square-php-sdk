@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Whether the program is currently active.
+ * Indicates whether the program is currently active.
  */
 class LoyaltyProgramStatus
 {

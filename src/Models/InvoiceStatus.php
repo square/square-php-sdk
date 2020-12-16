@@ -22,10 +22,10 @@ class InvoiceStatus
 
     /**
      * The invoice is scheduled to be processed. On the scheduled date,
-     * Square emails the invoice (if the `request_method` is `EMAIL`),
-     * charges the customer's card (if the `request_method` is `CHARGE_CARD_ON_FILE`),
-     * or takes no action (if the `request_method` is `SHARE_MANUALLY`).
-     * The invoice status then changes accordingly (`UNPAID`, `PAID`, or `PARTIALLY_PAID`).
+     * Square sends the invoice, initiates an automatic payment, or takes no action, depending on the
+     * settings
+     * for the invoice payment requests. Square also sets the invoice status to the appropriate state:
+     * `UNPAID`, `PAID`, `PARTIALLY_PAID`, or `PAYMENT_PENDING`.
      */
     public const SCHEDULED = 'SCHEDULED';
 

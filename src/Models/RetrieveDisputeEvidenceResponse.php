@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines fields in a RetrieveDisputeEvidence response.
+ * Defines the fields in a `RetrieveDisputeEvidence` response.
  */
 class RetrieveDisputeEvidenceResponse implements \JsonSerializable
 {

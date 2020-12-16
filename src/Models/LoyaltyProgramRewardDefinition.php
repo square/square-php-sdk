@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Provides details about the loyalty program reward tier definition.
+ * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount
+ * details
+ * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+ * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+ * discount-details).
  */
 class LoyaltyProgramRewardDefinition implements \JsonSerializable
 {
@@ -52,7 +56,10 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Returns Scope.
      *
-     * Indicates the scope of the reward tier.
+     * Indicates the scope of the reward tier. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      */
     public function getScope(): string
     {
@@ -62,7 +69,10 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Sets Scope.
      *
-     * Indicates the scope of the reward tier.
+     * Indicates the scope of the reward tier. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      *
      * @required
      * @maps scope
@@ -75,7 +85,10 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Returns Discount Type.
      *
-     * The type of discount the reward tier offers.
+     * The type of discount the reward tier offers. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      */
     public function getDiscountType(): string
     {
@@ -85,7 +98,10 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Sets Discount Type.
      *
-     * The type of discount the reward tier offers.
+     * The type of discount the reward tier offers. DEPRECATED at version 2020-12-16. Discount details
+     * are now defined using a catalog pricing rule and other catalog objects. For more information, see
+     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
+     * discount-details).
      *
      * @required
      * @maps discount_type
@@ -98,8 +114,11 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Returns Percentage Discount.
      *
-     * Present if `discount_type` is `FIXED_PERCENTAGE`.
-     * For example, a 7.25% off discount will be represented as "7.25".
+     * The fixed percentage of the discount. Present if `discount_type` is `FIXED_PERCENTAGE`.
+     * For example, a 7.25% off discount will be represented as "7.25". DEPRECATED at version 2020-12-16.
+     * You can find this
+     * information in the `discount_data.percentage` field of the `DISCOUNT` catalog object referenced by
+     * the pricing rule.
      */
     public function getPercentageDiscount(): ?string
     {
@@ -109,8 +128,11 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Sets Percentage Discount.
      *
-     * Present if `discount_type` is `FIXED_PERCENTAGE`.
-     * For example, a 7.25% off discount will be represented as "7.25".
+     * The fixed percentage of the discount. Present if `discount_type` is `FIXED_PERCENTAGE`.
+     * For example, a 7.25% off discount will be represented as "7.25". DEPRECATED at version 2020-12-16.
+     * You can find this
+     * information in the `discount_data.percentage` field of the `DISCOUNT` catalog object referenced by
+     * the pricing rule.
      *
      * @maps percentage_discount
      */
@@ -122,8 +144,11 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Returns Catalog Object Ids.
      *
-     * A list of [catalog object](#type-CatalogObject) ids to which this reward can be applied. They are
-     * either all item-variation ids or category ids, depending on the `type` field.
+     * The list of catalog objects to which this reward can be applied. They are either all item-variation
+     * ids or category ids, depending on the `type` field.
+     * DEPRECATED at version 2020-12-16. You can find this information in the `product_set_data.
+     * product_ids_any` field
+     * of the `PRODUCT_SET` catalog object referenced by the pricing rule.
      *
      * @return string[]|null
      */
@@ -135,8 +160,11 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Sets Catalog Object Ids.
      *
-     * A list of [catalog object](#type-CatalogObject) ids to which this reward can be applied. They are
-     * either all item-variation ids or category ids, depending on the `type` field.
+     * The list of catalog objects to which this reward can be applied. They are either all item-variation
+     * ids or category ids, depending on the `type` field.
+     * DEPRECATED at version 2020-12-16. You can find this information in the `product_set_data.
+     * product_ids_any` field
+     * of the `PRODUCT_SET` catalog object referenced by the pricing rule.
      *
      * @maps catalog_object_ids
      *

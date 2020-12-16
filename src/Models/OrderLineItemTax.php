@@ -54,6 +54,11 @@ class OrderLineItemTax implements \JsonSerializable
     private $scope;
 
     /**
+     * @var bool|null
+     */
+    private $autoApplied;
+
+    /**
      * Returns Uid.
      *
      * Unique ID that identifies the tax only within this order.
@@ -280,6 +285,34 @@ class OrderLineItemTax implements \JsonSerializable
     }
 
     /**
+     * Returns Auto Applied.
+     *
+     * Determines whether the tax was automatically applied to the order based on
+     * the catalog configuration. For an example, see
+     * [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-
+     * and-discounts/auto-apply-taxes).
+     */
+    public function getAutoApplied(): ?bool
+    {
+        return $this->autoApplied;
+    }
+
+    /**
+     * Sets Auto Applied.
+     *
+     * Determines whether the tax was automatically applied to the order based on
+     * the catalog configuration. For an example, see
+     * [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-
+     * and-discounts/auto-apply-taxes).
+     *
+     * @maps auto_applied
+     */
+    public function setAutoApplied(?bool $autoApplied): void
+    {
+        $this->autoApplied = $autoApplied;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -295,6 +328,7 @@ class OrderLineItemTax implements \JsonSerializable
         $json['metadata']        = $this->metadata;
         $json['applied_money']   = $this->appliedMoney;
         $json['scope']           = $this->scope;
+        $json['auto_applied']    = $this->autoApplied;
 
         return array_filter($json, function ($val) {
             return $val !== null;
