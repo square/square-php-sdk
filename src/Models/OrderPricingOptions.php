@@ -18,9 +18,14 @@ class OrderPricingOptions implements \JsonSerializable
     private $autoApplyDiscounts;
 
     /**
+     * @var bool|null
+     */
+    private $autoApplyTaxes;
+
+    /**
      * Returns Auto Apply Discounts.
      *
-     * The option to determine whether or not pricing rule-based
+     * The option to determine whether pricing rule-based
      * discounts are automatically applied to an order.
      */
     public function getAutoApplyDiscounts(): ?bool
@@ -31,7 +36,7 @@ class OrderPricingOptions implements \JsonSerializable
     /**
      * Sets Auto Apply Discounts.
      *
-     * The option to determine whether or not pricing rule-based
+     * The option to determine whether pricing rule-based
      * discounts are automatically applied to an order.
      *
      * @maps auto_apply_discounts
@@ -39,6 +44,30 @@ class OrderPricingOptions implements \JsonSerializable
     public function setAutoApplyDiscounts(?bool $autoApplyDiscounts): void
     {
         $this->autoApplyDiscounts = $autoApplyDiscounts;
+    }
+
+    /**
+     * Returns Auto Apply Taxes.
+     *
+     * The option to determine whether rule-based taxes are automatically
+     * applied to an order when the criteria of the corresponding rules are met.
+     */
+    public function getAutoApplyTaxes(): ?bool
+    {
+        return $this->autoApplyTaxes;
+    }
+
+    /**
+     * Sets Auto Apply Taxes.
+     *
+     * The option to determine whether rule-based taxes are automatically
+     * applied to an order when the criteria of the corresponding rules are met.
+     *
+     * @maps auto_apply_taxes
+     */
+    public function setAutoApplyTaxes(?bool $autoApplyTaxes): void
+    {
+        $this->autoApplyTaxes = $autoApplyTaxes;
     }
 
     /**
@@ -50,6 +79,7 @@ class OrderPricingOptions implements \JsonSerializable
     {
         $json = [];
         $json['auto_apply_discounts'] = $this->autoApplyDiscounts;
+        $json['auto_apply_taxes']   = $this->autoApplyTaxes;
 
         return array_filter($json, function ($val) {
             return $val !== null;

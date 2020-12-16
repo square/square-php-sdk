@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines fields in a ListDisputeEvidence response.
+ * Defines the fields in a `ListDisputeEvidence` response.
  */
 class ListDisputeEvidenceResponse implements \JsonSerializable
 {
@@ -48,7 +48,7 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -60,7 +60,7 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *

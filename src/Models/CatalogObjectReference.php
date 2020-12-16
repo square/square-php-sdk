@@ -9,7 +9,7 @@ namespace Square\Models;
  * used as an entry point into a graph of catalog objects, where the objects exist
  * at a specific version.
  */
-class VersionedCatalogObject implements \JsonSerializable
+class CatalogObjectReference implements \JsonSerializable
 {
     /**
      * @var string|null

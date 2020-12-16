@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `string` |  | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier. | getId(): string | setId(string id): void |
-| `status` | [`string (LoyaltyProgramStatus)`](/doc/models/loyalty-program-status.md) |  | Whether the program is currently active. | getStatus(): string | setStatus(string status): void |
+| `status` | [`string (LoyaltyProgramStatus)`](/doc/models/loyalty-program-status.md) |  | Indicates whether the program is currently active. | getStatus(): string | setStatus(string status): void |
 | `rewardTiers` | [`LoyaltyProgramRewardTier[]`](/doc/models/loyalty-program-reward-tier.md) |  | The list of rewards for buyers, sorted by ascending points. | getRewardTiers(): array | setRewardTiers(array rewardTiers): void |
 | `expirationPolicy` | [`?LoyaltyProgramExpirationPolicy`](/doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. | getExpirationPolicy(): ?LoyaltyProgramExpirationPolicy | setExpirationPolicy(?LoyaltyProgramExpirationPolicy expirationPolicy): void |
 | `terminology` | [`LoyaltyProgramTerminology`](/doc/models/loyalty-program-terminology.md) |  | - | getTerminology(): LoyaltyProgramTerminology | setTerminology(LoyaltyProgramTerminology terminology): void |
@@ -48,7 +48,11 @@
           "currency": "ZMK"
         }
       },
-      "created_at": "created_at7"
+      "created_at": "created_at7",
+      "pricing_rule_reference": {
+        "object_id": "object_id9",
+        "catalog_version": 205
+      }
     },
     {
       "id": "id0",
@@ -70,7 +74,11 @@
           "currency": "ZMW"
         }
       },
-      "created_at": "created_at8"
+      "created_at": "created_at8",
+      "pricing_rule_reference": {
+        "object_id": "object_id0",
+        "catalog_version": 206
+      }
     }
   ],
   "expiration_policy": {

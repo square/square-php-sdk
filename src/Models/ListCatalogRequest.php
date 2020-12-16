@@ -17,6 +17,11 @@ class ListCatalogRequest implements \JsonSerializable
     private $types;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * Returns Cursor.
      *
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
@@ -73,6 +78,34 @@ class ListCatalogRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Catalog Version.
+     *
+     * The specific version of the catalog objects to be included in the response.
+     * This allows you to retrieve historical
+     * versions of objects. The specified version value is matched against
+     * the [CatalogObject](#type-catalogobject)s' `version` attribute.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The specific version of the catalog objects to be included in the response.
+     * This allows you to retrieve historical
+     * versions of objects. The specified version value is matched against
+     * the [CatalogObject](#type-catalogobject)s' `version` attribute.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -80,8 +113,9 @@ class ListCatalogRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor'] = $this->cursor;
-        $json['types']  = $this->types;
+        $json['cursor']         = $this->cursor;
+        $json['types']          = $this->types;
+        $json['catalog_version'] = $this->catalogVersion;
 
         return array_filter($json, function ($val) {
             return $val !== null;

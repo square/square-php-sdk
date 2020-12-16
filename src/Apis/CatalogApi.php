@@ -405,20 +405,28 @@ class CatalogApi extends BaseApi
      *                           The legal values are taken from the CatalogObjectType enum:
      *                           `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
      *                           `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
+     * @param int|null $catalogVersion The specific version of the catalog objects to be included
+     *                                 in the response.
+     *                                 This allows you to retrieve historical
+     *                                 versions of objects. The specified version value is matched
+     *                                 against
+     *                                 the [CatalogObject](#type-catalogobject)s' `version`
+     *                                 attribute.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function listCatalog(?string $cursor = null, ?string $types = null): ApiResponse
+    public function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalogVersion = null): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/list';
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
-            'cursor' => $cursor,
-            'types'  => $types,
+            'cursor'          => $cursor,
+            'types'           => $types,
+            'catalog_version' => $catalogVersion,
         ]);
 
         //validate and preprocess url
@@ -631,13 +639,22 @@ class CatalogApi extends BaseApi
      *                                         in the `related_objects` field of the response.
      *
      *                                         Default value: `false`
+     * @param int|null $catalogVersion Requests objects as of a specific version of the catalog.
+     *                                 This allows you to retrieve historical
+     *                                 versions of objects. The value to retrieve a specific
+     *                                 version of an object can be found
+     *                                 in the version field of [CatalogObject](#type-
+     *                                 catalogobject)s.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function retrieveCatalogObject(string $objectId, ?bool $includeRelatedObjects = false): ApiResponse
-    {
+    public function retrieveCatalogObject(
+        string $objectId,
+        ?bool $includeRelatedObjects = false,
+        ?int $catalogVersion = null
+    ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/object/{object_id}';
 
@@ -649,6 +666,7 @@ class CatalogApi extends BaseApi
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
             'include_related_objects' => (null != $includeRelatedObjects) ? var_export($includeRelatedObjects, true) : false,
+            'catalog_version'         => $catalogVersion,
         ]);
 
         //validate and preprocess url

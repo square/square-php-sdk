@@ -11,23 +11,6 @@ use PHPUnit\Framework\TestCase;
 
 class ErrorsTest extends TestCase
 {
-    public function testV1Error()
-    {
-        $client = new SquareClient([
-            'environment' => \Square\Environment::PRODUCTION,
-            'accessToken' => 'BAD_TOKEN'
-        ]);
-
-        error_reporting(E_ALL ^ E_USER_DEPRECATED);
-        $response = $client->getV1LocationsApi()->listLocations();
-
-        $this->assertEquals(401, $response->getStatusCode());
-        $this->assertEquals(1, count($response->getErrors()));
-        $this->assertEquals("V1_ERROR", $response->getErrors()[0]->getCategory());
-        $this->assertEquals("service.not_authorized", $response->getErrors()[0]->getCode());
-        $this->assertEquals("Not Authorized", $response->getErrors()[0]->getDetail());
-    }
-
     public function testV2Error()
     {
         $client = new SquareClient([

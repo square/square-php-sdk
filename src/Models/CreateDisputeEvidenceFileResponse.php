@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines fields in a CreateDisputeEvidenceFile response.
+ * Defines the fields in a `CreateDisputeEvidenceFile` response.
  */
 class CreateDisputeEvidenceFileResponse implements \JsonSerializable
 {

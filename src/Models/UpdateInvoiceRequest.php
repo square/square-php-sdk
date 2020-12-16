@@ -94,7 +94,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
     /**
      * Returns Fields to Clear.
      *
-     * List of fields to clear.
+     * The list of fields to clear.
      * For examples, see [Update an invoice](https://developer.squareup.com/docs/invoices-
      * api/overview#update-an-invoice).
      *
@@ -108,7 +108,7 @@ class UpdateInvoiceRequest implements \JsonSerializable
     /**
      * Sets Fields to Clear.
      *
-     * List of fields to clear.
+     * The list of fields to clear.
      * For examples, see [Update an invoice](https://developer.squareup.com/docs/invoices-
      * api/overview#update-an-invoice).
      *

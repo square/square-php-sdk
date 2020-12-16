@@ -11,278 +11,278 @@ namespace Square\Models;
 class ErrorCode
 {
     /**
-     * 500 Internal Server Error - a general server error occurred.
+     * A general server error occurred.
      */
     public const INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR';
 
     /**
-     * 401 Unauthorized - a general authorization error occurred.
+     * A general authorization error occurred.
      */
     public const UNAUTHORIZED = 'UNAUTHORIZED';
 
     /**
-     * 401 Unauthorized - the provided access token has expired.
+     * The provided access token has expired.
      */
     public const ACCESS_TOKEN_EXPIRED = 'ACCESS_TOKEN_EXPIRED';
 
     /**
-     * 401 Unauthorized - the provided access token has been revoked.
+     * The provided access token has been revoked.
      */
     public const ACCESS_TOKEN_REVOKED = 'ACCESS_TOKEN_REVOKED';
 
     /**
-     * 401 Unauthorized - the provided client has been disabled.
+     * The provided client has been disabled.
      */
     public const CLIENT_DISABLED = 'CLIENT_DISABLED';
 
     /**
-     * 403 Forbidden - a general access error occurred.
+     * A general access error occurred.
      */
     public const FORBIDDEN = 'FORBIDDEN';
 
     /**
-     * 403 Forbidden - the provided access token does not have permission
+     * The provided access token does not have permission
      * to execute the requested action.
      */
     public const INSUFFICIENT_SCOPES = 'INSUFFICIENT_SCOPES';
 
     /**
-     * 403 Forbidden - the calling application was disabled.
+     * The calling application was disabled.
      */
     public const APPLICATION_DISABLED = 'APPLICATION_DISABLED';
 
     /**
-     * 403 Forbidden - the calling application was created prior to
+     * The calling application was created prior to
      * 2016-03-30 and is not compatible with v2 Square API calls.
      */
     public const V1_APPLICATION = 'V1_APPLICATION';
 
     /**
-     * 403 Forbidden - the calling application is using an access token
+     * The calling application is using an access token
      * created prior to 2016-03-30 and is not compatible with v2 Square API
      * calls.
      */
     public const V1_ACCESSTOKEN = 'V1_ACCESS_TOKEN';
 
     /**
-     * 403 Forbidden - the location provided in the API call is not
+     * The location provided in the API call is not
      * enabled for credit card processing.
      */
     public const CARD_PROCESSING_NOT_ENABLED = 'CARD_PROCESSING_NOT_ENABLED';
 
     /**
-     * 400 Bad Request - a general error occurred.
+     * A general error occurred with the request.
      */
     public const BAD_REQUEST = 'BAD_REQUEST';
 
     /**
-     * 400 Bad Request - the request is missing a required path, query, or
+     * The request is missing a required path, query, or
      * body parameter.
      */
     public const MISSING_REQUIRED_PARAMETER = 'MISSING_REQUIRED_PARAMETER';
 
     /**
-     * 400 Bad Request - the value provided in the request is the wrong
+     * The value provided in the request is the wrong
      * type. For example, a string instead of an integer.
      */
     public const INCORRECT_TYPE = 'INCORRECT_TYPE';
 
     /**
-     * 400 Bad Request - formatting for the provided time value is
+     * Formatting for the provided time value is
      * incorrect.
      */
     public const INVALID_TIME = 'INVALID_TIME';
 
     /**
-     * 400 Bad Request - the time range provided in the request is invalid.
+     * The time range provided in the request is invalid.
      * For example, the end time is before the start time.
      */
     public const INVALID_TIME_RANGE = 'INVALID_TIME_RANGE';
 
     /**
-     * 400 Bad Request - the provided value is invalid. For example,
+     * The provided value is invalid. For example,
      * including `%` in a phone number.
      */
     public const INVALID_VALUE = 'INVALID_VALUE';
 
     /**
-     * 400 Bad Request - the pagination cursor included in the request is
+     * The pagination cursor included in the request is
      * invalid.
      */
     public const INVALID_CURSOR = 'INVALID_CURSOR';
 
     /**
-     * 400 Bad Request - the query parameters provided is invalid for the
+     * The query parameters provided is invalid for the
      * requested endpoint.
      */
     public const UNKNOWN_QUERY_PARAMETER = 'UNKNOWN_QUERY_PARAMETER';
 
     /**
-     * 400 Bad Request - 1 or more of the request parameters conflict with
+     * One or more of the request parameters conflict with
      * each other.
      */
     public const CONFLICTING_PARAMETERS = 'CONFLICTING_PARAMETERS';
 
     /**
-     * 400 Bad Request - the request body is not a JSON object.
+     * The request body is not a JSON object.
      */
     public const EXPECTED_JSON_BODY = 'EXPECTED_JSON_BODY';
 
     /**
-     * 400 Bad Request - the provided sort order is not a valid key.
+     * The provided sort order is not a valid key.
      * Currently, sort order must be `ASC` or `DESC`.
      */
     public const INVALID_SORT_ORDER = 'INVALID_SORT_ORDER';
 
     /**
-     * 400 Bad Request - the provided value does not match an expected
+     * The provided value does not match an expected
      * regular expression.
      */
     public const VALUE_REGEX_MISMATCH = 'VALUE_REGEX_MISMATCH';
 
     /**
-     * 400 Bad Request - the provided string value is shorter than the
+     * The provided string value is shorter than the
      * minimum length allowed.
      */
     public const VALUE_TOO_SHORT = 'VALUE_TOO_SHORT';
 
     /**
-     * 400 Bad Request - the provided string value is longer than the
+     * The provided string value is longer than the
      * maximum length allowed.
      */
     public const VALUE_TOO_LONG = 'VALUE_TOO_LONG';
 
     /**
-     * 400 Bad Request - the provided value is less than the supported
+     * The provided value is less than the supported
      * minimum.
      */
     public const VALUE_TOO_LOW = 'VALUE_TOO_LOW';
 
     /**
-     * 400 Bad Request - the provided value is greater than the supported
+     * The provided value is greater than the supported
      * maximum.
      */
     public const VALUE_TOO_HIGH = 'VALUE_TOO_HIGH';
 
     /**
-     * 400 Bad Request - the provided value has a default (empty) value
+     * The provided value has a default (empty) value
      * such as a blank string.
      */
     public const VALUE_EMPTY = 'VALUE_EMPTY';
 
     /**
-     * 400 Bad Request - the provided array has too many elements.
+     * The provided array has too many elements.
      */
     public const ARRAY_LENGTH_TOO_LONG = 'ARRAY_LENGTH_TOO_LONG';
 
     /**
-     * 400 Bad Request - the provided array has too few elements.
+     * The provided array has too few elements.
      */
     public const ARRAY_LENGTH_TOO_SHORT = 'ARRAY_LENGTH_TOO_SHORT';
 
     /**
-     * 400 Bad Request - the provided array is empty.
+     * The provided array is empty.
      */
     public const ARRAY_EMPTY = 'ARRAY_EMPTY';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be a
+     * The endpoint expected the provided value to be a
      * boolean.
      */
     public const EXPECTED_BOOLEAN = 'EXPECTED_BOOLEAN';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be an
+     * The endpoint expected the provided value to be an
      * integer.
      */
     public const EXPECTED_INTEGER = 'EXPECTED_INTEGER';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be a
+     * The endpoint expected the provided value to be a
      * float.
      */
     public const EXPECTED_FLOAT = 'EXPECTED_FLOAT';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be a
+     * The endpoint expected the provided value to be a
      * string.
      */
     public const EXPECTED_STRING = 'EXPECTED_STRING';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be a
+     * The endpoint expected the provided value to be a
      * JSON object.
      */
     public const EXPECTED_OBJECT = 'EXPECTED_OBJECT';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be an
+     * The endpoint expected the provided value to be an
      * array or list.
      */
     public const EXPECTED_ARRAY = 'EXPECTED_ARRAY';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be a
+     * The endpoint expected the provided value to be a
      * map or associative array.
      */
     public const EXPECTED_MAP = 'EXPECTED_MAP';
 
     /**
-     * 400 Bad Request - the endpoint expected the provided value to be an
+     * The endpoint expected the provided value to be an
      * array encoded in base64.
      */
     public const EXPECTED_BASE64_ENCODED_BYTE_ARRAY = 'EXPECTED_BASE64_ENCODED_BYTE_ARRAY';
 
     /**
-     * 400 Bad Request - 1 or more object in the array does not match the
+     * One or more objects in the array does not match the
      * array type.
      */
     public const INVALID_ARRAY_VALUE = 'INVALID_ARRAY_VALUE';
 
     /**
-     * 400 Bad Request - the provided static string is not valid for the
+     * The provided static string is not valid for the
      * field.
      */
     public const INVALID_ENUM_VALUE = 'INVALID_ENUM_VALUE';
 
     /**
-     * 400 Bad Request - invalid content type header.
+     * Invalid content type header.
      */
     public const INVALID_CONTENT_TYPE = 'INVALID_CONTENT_TYPE';
 
     /**
-     * 400 Bad Request - Only relevant for applications created prior to
+     * Only relevant for applications created prior to
      * 2016-03-30. Indicates there was an error while parsing form values.
      */
     public const INVALID_FORM_VALUE = 'INVALID_FORM_VALUE';
 
     /**
-     * 400 Bad Request - the provided customer id can't be found in the merchant's customers list.
+     * The provided customer id can't be found in the merchant's customers list.
      */
     public const CUSTOMER_NOT_FOUND = 'CUSTOMER_NOT_FOUND';
 
     /**
-     * 400 Bad Request - a general error occurred.
+     * A general error occurred.
      */
     public const ONE_INSTRUMENT_EXPECTED = 'ONE_INSTRUMENT_EXPECTED';
 
     /**
-     * 400 Bad Request - a general error occurred.
+     * A general error occurred.
      */
     public const NO_FIELDS_SET = 'NO_FIELDS_SET';
 
     /**
-     * 400 Bad Request - too many entries in the map field.
+     * Too many entries in the map field.
      */
     public const TOO_MANY_MAP_ENTRIES = 'TOO_MANY_MAP_ENTRIES';
 
     /**
-     * 400 Bad Request - the length of one of the provided keys in the map is too short.
+     * The length of one of the provided keys in the map is too short.
      */
     public const MAP_KEY_LENGTH_TOO_SHORT = 'MAP_KEY_LENGTH_TOO_SHORT';
 
     /**
-     * 400 Bad Request - the length of one of the provided keys in the map is too long.
+     * The length of one of the provided keys in the map is too long.
      */
     public const MAP_KEY_LENGTH_TOO_LONG = 'MAP_KEY_LENGTH_TOO_LONG';
 
@@ -529,6 +529,13 @@ class ErrorCode
     public const SOURCE_EXPIRED = 'SOURCE_EXPIRED';
 
     /**
+     * The referenced loyalty program reward tier is not supported.
+     * This could happen if the reward tier created in a first party
+     * application is incompatible with the Loyalty API.
+     */
+    public const UNSUPPORTED_LOYALTY_REWARD_TIER = 'UNSUPPORTED_LOYALTY_REWARD_TIER';
+
+    /**
      * Generic error - the given location does not matching what is expected.
      */
     public const LOCATION_MISMATCH = 'LOCATION_MISMATCH';
@@ -579,125 +586,125 @@ class ErrorCode
     public const API_VERSION_INCOMPATIBLE = 'API_VERSION_INCOMPATIBLE';
 
     /**
-     * 402 Request failed - the card was declined.
+     * The card was declined.
      */
     public const CARD_DECLINED = 'CARD_DECLINED';
 
     /**
-     * 402 Request failed - the CVV could not be verified.
+     * The CVV could not be verified.
      */
     public const VERIFY_CVV_FAILURE = 'VERIFY_CVV_FAILURE';
 
     /**
-     * 402 Request failed - the AVS could not be verified.
+     * The AVS could not be verified.
      */
     public const VERIFY_AVS_FAILURE = 'VERIFY_AVS_FAILURE';
 
     /**
-     * 402 Request failed - the payment card was declined with a request
+     * The payment card was declined with a request
      * for the card holder to call the issuer.
      */
     public const CARD_DECLINED_CALL_ISSUER = 'CARD_DECLINED_CALL_ISSUER';
 
     /**
-     * 402 Request failed - the payment card was declined with a request
+     * The payment card was declined with a request
      * for additional verification.
      */
     public const CARD_DECLINED_VERIFICATION_REQUIRED = 'CARD_DECLINED_VERIFICATION_REQUIRED';
 
     /**
-     * 402 Request failed - the card expiration date is either missing or
+     * The card expiration date is either missing or
      * incorrectly formatted.
      */
     public const BAD_EXPIRATION = 'BAD_EXPIRATION';
 
     /**
-     * 402 Request failed - the card issuer requires that the card be read
+     * The card issuer requires that the card be read
      * using a chip reader.
      */
     public const CHIP_INSERTION_REQUIRED = 'CHIP_INSERTION_REQUIRED';
 
     /**
-     * 402 Request failed - the card has exhausted its available pin entry
+     * The card has exhausted its available pin entry
      * retries set by the card issuer. Resolving the error typically requires the
      * card holder to contact the card issuer.
      */
     public const ALLOWABLE_PIN_TRIES_EXCEEDED = 'ALLOWABLE_PIN_TRIES_EXCEEDED';
 
     /**
-     * 402 Request failed - The card issuer declined the refund.
+     * The card issuer declined the refund.
      */
     public const RESERVATION_DECLINED = 'RESERVATION_DECLINED';
 
     /**
-     * 404 Not Found - a general error occurred.
+     * Not Found - a general error occurred.
      */
     public const NOT_FOUND = 'NOT_FOUND';
 
     /**
-     * 404 Not Found - Square could not find the associated Apple Pay certificate.
+     * Square could not find the associated Apple Pay certificate.
      */
     public const APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND =
         'APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND';
 
     /**
-     * 405 Method Not Allowed - a general error occurred.
+     * Method Not Allowed - a general error occurred.
      */
     public const METHOD_NOT_ALLOWED = 'METHOD_NOT_ALLOWED';
 
     /**
-     * 406 Not Acceptable - a general error occurred.
+     * Not Acceptable - a general error occurred.
      */
     public const NOT_ACCEPTABLE = 'NOT_ACCEPTABLE';
 
     /**
-     * 408 Request Timeout - a general error occurred.
+     * Request Timeout - a general error occurred.
      */
     public const REQUEST_TIMEOUT = 'REQUEST_TIMEOUT';
 
     /**
-     * 409 Conflict - a general error occurred.
+     * Conflict - a general error occurred.
      */
     public const CONFLICT = 'CONFLICT';
 
     /**
-     * 410 Gone - the target resource is no longer available and this
-     * condition is likely to be permanent..
+     * The target resource is no longer available and this
+     * condition is likely to be permanent.
      */
     public const GONE = 'GONE';
 
     /**
-     * 413 Request Entity Too Large - a general error occurred.
+     * Request Entity Too Large - a general error occurred.
      */
     public const REQUEST_ENTITY_TOO_LARGE = 'REQUEST_ENTITY_TOO_LARGE';
 
     /**
-     * 415 Unsupported Media Type - a general error occurred.
+     * Unsupported Media Type - a general error occurred.
      */
     public const UNSUPPORTED_MEDIA_TYPE = 'UNSUPPORTED_MEDIA_TYPE';
 
     /**
-     * 422 Unprocessable Entity - a general error occurred.
+     * Unprocessable Entity - a general error occurred.
      */
     public const UNPROCESSABLE_ENTITY = 'UNPROCESSABLE_ENTITY';
 
     /**
-     * 429 Rate Limited - a general error occurred.
+     * Rate Limited - a general error occurred.
      */
     public const RATE_LIMITED = 'RATE_LIMITED';
 
     /**
-     * 501 Not Implemented - a general error occurred.
+     * Not Implemented - a general error occurred.
      */
     public const NOT_IMPLEMENTED = 'NOT_IMPLEMENTED';
 
     /**
-     * 502 Bad Gateway - a general error occurred.
+     * Bad Gateway - a general error occurred.
      */
     public const BAD_GATEWAY = 'BAD_GATEWAY';
 
     /**
-     * 503 Service Unavailable - a general error occurred.
+     * Service Unavailable - a general error occurred.
      */
     public const SERVICE_UNAVAILABLE = 'SERVICE_UNAVAILABLE';
 
@@ -708,7 +715,7 @@ class ErrorCode
     public const TEMPORARY_ERROR = 'TEMPORARY_ERROR';
 
     /**
-     * 504 Gateway Timeout - a general error occurred.
+     * Gateway Timeout - a general error occurred.
      */
     public const GATEWAY_TIMEOUT = 'GATEWAY_TIMEOUT';
 }

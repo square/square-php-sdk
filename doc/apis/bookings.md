@@ -17,6 +17,7 @@ $bookingsApi = $client->getBookingsApi();
 * [Retrieve Team Member Booking Profile](/doc/apis/bookings.md#retrieve-team-member-booking-profile)
 * [Retrieve Booking](/doc/apis/bookings.md#retrieve-booking)
 * [Update Booking](/doc/apis/bookings.md#update-booking)
+* [Cancel Booking](/doc/apis/bookings.md#cancel-booking)
 
 
 # Create Booking
@@ -325,6 +326,47 @@ $apiResponse = $bookingsApi->updateBooking($bookingId, $body);
 
 if ($apiResponse->isSuccess()) {
     $updateBookingResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Cancel Booking
+
+Cancels an existing booking.
+
+```php
+function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](#type-booking) object representing the to-be-cancelled booking. |
+| `body` | [`CancelBookingRequest`](/doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`CancelBookingResponse`](/doc/models/cancel-booking-response.md)
+
+## Example Usage
+
+```php
+$bookingId = 'booking_id4';
+$body = new Models\CancelBookingRequest;
+$body->setIdempotencyKey('idempotency_key2');
+$body->setBookingVersion(8);
+
+$apiResponse = $bookingsApi->cancelBooking($bookingId, $body);
+
+if ($apiResponse->isSuccess()) {
+    $cancelBookingResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

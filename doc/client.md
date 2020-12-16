@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2020-11-18'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2020-12-16'` |
 | `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 
@@ -14,7 +14,7 @@ The API client can be initialized as follows:
 ```php
 $client = new Square\SquareClient([
     // Set authentication parameters
-    'squareVersion' => '2020-11-18',
+    'squareVersion' => '2020-12-16',
     'accessToken' => 'AccessToken',
 
     // Set the environment
@@ -38,7 +38,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
-    'squareVersion' => '2020-11-18',
+    'squareVersion' => '2020-12-16',
     'accessToken' => 'AccessToken',
 ]);
 
@@ -67,7 +67,6 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 |  --- | --- |
 | getMobileAuthorizationApi() | Provides access to MobileAuthorizationApi |
 | getOAuthApi() | Provides access to OAuthApi |
-| getV1LocationsApi() | Provides access to V1LocationsApi |
 | getV1EmployeesApi() | Provides access to V1EmployeesApi |
 | getV1TransactionsApi() | Provides access to V1TransactionsApi |
 | getV1ItemsApi() | Provides access to V1ItemsApi |

@@ -80,7 +80,6 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 * [O Auth]
 
 ### Deprecated APIs
-* [V1 Locations]
 * [V1 Employees]
 * [V1 Transactions]
 * [V1 Items]
@@ -398,7 +397,6 @@ You can also use the Square API to create applications or services that work wit
 [Subscriptions]: doc/apis/subscriptions.md
 [Mobile Authorization]: doc/apis/mobile-authorization.md
 [O Auth]: doc/apis/o-auth.md
-[V1 Locations]: doc/apis/v1-locations.md
 [V1 Employees]: doc/apis/v1-employees.md
 [V1 Transactions]: doc/apis/v1-transactions.md
 [V1 Items]: doc/apis/v1-items.md

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * List of possible dispute states.
+ * The list of possible dispute states.
  */
 class DisputeState
 {

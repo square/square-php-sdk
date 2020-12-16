@@ -95,7 +95,7 @@ class DisputeEvidence implements \JsonSerializable
     /**
      * Returns Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      */
     public function getEvidenceType(): ?string
     {
@@ -105,7 +105,7 @@ class DisputeEvidence implements \JsonSerializable
     /**
      * Sets Evidence Type.
      *
-     * Type of the dispute evidence.
+     * The type of the dispute evidence.
      *
      * @maps evidence_type
      */

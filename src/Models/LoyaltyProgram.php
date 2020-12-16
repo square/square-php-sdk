@@ -109,7 +109,7 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Whether the program is currently active.
+     * Indicates whether the program is currently active.
      */
     public function getStatus(): string
     {
@@ -119,7 +119,7 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Whether the program is currently active.
+     * Indicates whether the program is currently active.
      *
      * @required
      * @maps status

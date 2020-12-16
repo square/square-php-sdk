@@ -13,7 +13,6 @@ class SquareClient implements ConfigurationInterface
 {
     private $mobileAuthorization;
     private $oAuth;
-    private $v1Locations;
     private $v1Employees;
     private $v1Transactions;
     private $v1Items;
@@ -133,7 +132,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '7.0.0.20201118';
+        return '8.0.0.20201216';
     }
 
     /**
@@ -168,17 +167,6 @@ class SquareClient implements ConfigurationInterface
             $this->oAuth = new Apis\OAuthApi($this);
         }
         return $this->oAuth;
-    }
-
-    /**
-     * Returns V1 Locations Api
-     */
-    public function getV1LocationsApi(): Apis\V1LocationsApi
-    {
-        if ($this->v1Locations == null) {
-            $this->v1Locations = new Apis\V1LocationsApi($this);
-        }
-        return $this->v1Locations;
     }
 
     /**

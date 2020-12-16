@@ -17,7 +17,7 @@ class InvoiceRequestMethod
     public const EMAIL = 'EMAIL';
 
     /**
-     * Directs Square to charge the card on file, on the `due_date`, specified in the payment request
+     * Directs Square to charge the card on file on the `due_date` specified in the payment request,
      * after the invoice is published.
      */
     public const CHARGE_CARD_ON_FILE = 'CHARGE_CARD_ON_FILE';
@@ -30,4 +30,16 @@ class InvoiceRequestMethod
      * customer requesting payment.
      */
     public const SHARE_MANUALLY = 'SHARE_MANUALLY';
+
+    /**
+     * Directs Square to charge the bank account on file on the `due_date` specified in the
+     * payment request, after the invoice is published.
+     *
+     * This payment method applies only to recurring invoices that sellers create in the Seller Dashboard
+     * or other
+     * Square first-party application. The bank account is provided by the customer during the payment flow.
+     * You
+     * cannot set `CHARGE_BANK_ON_FILE` as a payment source using the Invoices API.
+     */
+    public const CHARGE_BANK_ON_FILE = 'CHARGE_BANK_ON_FILE';
 }
