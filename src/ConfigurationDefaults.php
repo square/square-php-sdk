@@ -11,7 +11,7 @@ class ConfigurationDefaults
 {
     public const TIMEOUT = 60;
 
-    public const SQUARE_VERSION = '2020-12-16';
+    public const SQUARE_VERSION = '2021-01-21';
 
     public const ACCESS_TOKEN = 'TODO: Replace';
 

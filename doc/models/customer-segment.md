@@ -13,7 +13,7 @@ Segments (also known as Smart Groups) are defined and created within Customer Di
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `id` | `?string` | Optional | Unique Square-generated ID for the segment. | getId(): ?string | setId(?string id): void |
+| `id` | `?string` | Optional | Unique Square-generated ID for the segment.<br>**Constraints**: *Maximum Length*: `255` | getId(): ?string | setId(?string id): void |
 | `name` | `string` |  | Name of the segment. | getName(): string | setName(string name): void |
 | `createdAt` | `?string` | Optional | The timestamp when the segment was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The timestamp when the segment was last updated, in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |

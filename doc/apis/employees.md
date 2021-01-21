@@ -16,6 +16,8 @@ $employeesApi = $client->getEmployeesApi();
 
 # List Employees
 
+**This endpoint is deprecated. **
+
 ListEmployees
 
 ```php
@@ -63,6 +65,8 @@ if ($apiResponse->isSuccess()) {
 
 
 # Retrieve Employee
+
+**This endpoint is deprecated. **
 
 RetrieveEmployee
 

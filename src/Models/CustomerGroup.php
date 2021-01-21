@@ -110,7 +110,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * The timesamp when the customer group was last updated, in RFC 3339 format.
+     * The timestamp when the customer group was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
     {
@@ -120,7 +120,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * The timesamp when the customer group was last updated, in RFC 3339 format.
+     * The timestamp when the customer group was last updated, in RFC 3339 format.
      *
      * @maps updated_at
      */

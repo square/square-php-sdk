@@ -469,7 +469,8 @@ class InvoicesApi extends BaseApi
      * Cancels an invoice. The seller cannot collect payments for
      * the canceled invoice.
      *
-     * You cannot cancel an invoice in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
+     * You cannot cancel an invoice in the `DRAFT` state or in a terminal state: `PAID`, `REFUNDED`,
+     * `CANCELED`, or `FAILED`.
      *
      * @param string $invoiceId The ID of the [invoice](#type-invoice) to cancel.
      * @param \Square\Models\CancelInvoiceRequest $body An object containing the fields to POST

@@ -78,7 +78,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * Returns Location Types.
      *
      * Types of the location allowed for bookings.
-     * See [BookingLocationType](#type-bookinglocationtype) for possible values
+     * See [BusinessAppointmentSettingsBookingLocationType](#type-
+     * businessappointmentsettingsbookinglocationtype) for possible values
      *
      * @return string[]|null
      */
@@ -91,7 +92,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * Sets Location Types.
      *
      * Types of the location allowed for bookings.
-     * See [BookingLocationType](#type-bookinglocationtype) for possible values
+     * See [BusinessAppointmentSettingsBookingLocationType](#type-
+     * businessappointmentsettingsbookinglocationtype) for possible values
      *
      * @maps location_types
      *

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Stores information about an invoice. You use the Invoices API to create and process
+ * Stores information about an invoice. You use the Invoices API to create and manage
  * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
  * squareup.com/docs/invoices-api/overview).
  */
@@ -40,6 +40,11 @@ class Invoice implements \JsonSerializable
      * @var InvoicePaymentRequest[]|null
      */
     private $paymentRequests;
+
+    /**
+     * @var string|null
+     */
+    private $deliveryMethod;
 
     /**
      * @var string|null
@@ -253,6 +258,28 @@ class Invoice implements \JsonSerializable
     }
 
     /**
+     * Returns Delivery Method.
+     *
+     * Indicates how Square delivers the [invoice](#type-Invoice) to the customer.
+     */
+    public function getDeliveryMethod(): ?string
+    {
+        return $this->deliveryMethod;
+    }
+
+    /**
+     * Sets Delivery Method.
+     *
+     * Indicates how Square delivers the [invoice](#type-Invoice) to the customer.
+     *
+     * @maps delivery_method
+     */
+    public function setDeliveryMethod(?string $deliveryMethod): void
+    {
+        $this->deliveryMethod = $deliveryMethod;
+    }
+
+    /**
      * Returns Invoice Number.
      *
      * A user-friendly invoice number. The value is unique within a location.
@@ -328,8 +355,8 @@ class Invoice implements \JsonSerializable
      * Returns Scheduled At.
      *
      * The timestamp when the invoice is scheduled for processing, in RFC 3339 format.
-     * After the invoice is published, Square processes the invoice on the specified date,
-     * based on the settings for the invoice payment requests.
+     * After the invoice is published, Square processes the invoice on the specified date, according to the
+     * delivery method and payment request settings.
      *
      * If the field is not set, Square processes the invoice immediately after it is published.
      */
@@ -342,8 +369,8 @@ class Invoice implements \JsonSerializable
      * Sets Scheduled At.
      *
      * The timestamp when the invoice is scheduled for processing, in RFC 3339 format.
-     * After the invoice is published, Square processes the invoice on the specified date,
-     * based on the settings for the invoice payment requests.
+     * After the invoice is published, Square processes the invoice on the specified date, according to the
+     * delivery method and payment request settings.
      *
      * If the field is not set, Square processes the invoice immediately after it is published.
      *
@@ -554,6 +581,7 @@ class Invoice implements \JsonSerializable
         $json['order_id']               = $this->orderId;
         $json['primary_recipient']      = $this->primaryRecipient;
         $json['payment_requests']       = $this->paymentRequests;
+        $json['delivery_method']        = $this->deliveryMethod;
         $json['invoice_number']         = $this->invoiceNumber;
         $json['title']                  = $this->title;
         $json['description']            = $this->description;

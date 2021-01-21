@@ -11,7 +11,7 @@ Describes when the loyalty program expires.
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
-| `expirationDuration` | `string` | The duration of time before points expire, in RFC 3339 format. | getExpirationDuration(): string | setExpirationDuration(string expirationDuration): void |
+| `expirationDuration` | `string` | The duration of time before points expire, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1` | getExpirationDuration(): string | setExpirationDuration(string expirationDuration): void |
 
 ## Example (as JSON)
 

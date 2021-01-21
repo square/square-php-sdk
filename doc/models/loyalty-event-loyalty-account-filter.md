@@ -11,7 +11,7 @@ Filter events by loyalty account.
 
 | Name | Type | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- |
-| `loyaltyAccountId` | `string` | The ID of the [loyalty account](#type-LoyaltyAccount) associated with loyalty events. | getLoyaltyAccountId(): string | setLoyaltyAccountId(string loyaltyAccountId): void |
+| `loyaltyAccountId` | `string` | The ID of the [loyalty account](#type-LoyaltyAccount) associated with loyalty events.<br>**Constraints**: *Minimum Length*: `1` | getLoyaltyAccountId(): string | setLoyaltyAccountId(string loyaltyAccountId): void |
 
 ## Example (as JSON)
 

@@ -417,6 +417,8 @@ if ($apiResponse->isSuccess()) {
 
 # List Timecards
 
+**This endpoint is deprecated. **
+
 Provides summary information for all of a business's employee timecards.
 
 ```php
@@ -447,7 +449,7 @@ function listTimecards(
 | `endClockoutTime` | `?string` | Query, Optional | If filtering results by their clockout_time field, the end of the requested reporting period, in ISO 8601 format. |
 | `beginUpdatedAt` | `?string` | Query, Optional | If filtering results by their updated_at field, the beginning of the requested reporting period, in ISO 8601 format. |
 | `endUpdatedAt` | `?string` | Query, Optional | If filtering results by their updated_at field, the end of the requested reporting period, in ISO 8601 format. |
-| `deleted` | `?bool` | Query, Optional | If true, only deleted timecards are returned. If false, only valid timecards are returned.If you don't provide this parameter, both valid and deleted timecards are returned. |
+| `deleted` | `?bool` | Query, Optional | If true, only deleted timecards are returned. If false, only valid timecards are returned.If you don't provide this parameter, both valid and deleted timecards are returned.<br>**Default**: `false` |
 | `limit` | `?int` | Query, Optional | The maximum integer number of employee entities to return in a single response. Default 100, maximum 200. |
 | `batchToken` | `?string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
@@ -485,6 +487,8 @@ if ($apiResponse->isSuccess()) {
 
 
 # Create Timecard
+
+**This endpoint is deprecated. **
 
 Creates a timecard for an employee and clocks them in with an
 `API_CREATE` event and a `clockin_time` set to the current time unless
@@ -543,6 +547,8 @@ if ($apiResponse->isSuccess()) {
 
 # Delete Timecard
 
+**This endpoint is deprecated. **
+
 Deletes a timecard. Timecards can also be deleted through the
 Square Dashboard. Deleted timecards are still accessible through
 Connect API endpoints, but cannot be modified. The `deleted` field of
@@ -592,14 +598,13 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Timecard
 
+**This endpoint is deprecated. **
+
 Provides the details for a single timecard.
 
-<aside>
 Only approved accounts can manage their employees with Square.
 Unapproved accounts cannot use employee management features with the
 API.
-</aside>
-
 
 ```php
 function retrieveTimecard(string $timecardId): ApiResponse
@@ -635,6 +640,8 @@ if ($apiResponse->isSuccess()) {
 
 
 # Update Timecard
+
+**This endpoint is deprecated. **
 
 Modifies the details of a timecard with an `API_EDIT` event for
 the timecard. Updating an active timecard with a `clockout_time`
@@ -685,6 +692,8 @@ if ($apiResponse->isSuccess()) {
 
 # List Timecard Events
 
+**This endpoint is deprecated. **
+
 Provides summary information for all events associated with a
 particular timecard.
 
@@ -726,6 +735,8 @@ if ($apiResponse->isSuccess()) {
 
 
 # List Cash Drawer Shifts
+
+**This endpoint is deprecated. **
 
 Provides the details for all of a location's cash drawer shifts during a date range. The date range you specify cannot exceed 90 days.
 
@@ -774,6 +785,8 @@ if ($apiResponse->isSuccess()) {
 
 
 # Retrieve Cash Drawer Shift
+
+**This endpoint is deprecated. **
 
 Provides the details for a single cash drawer shift, including all events that occurred during the shift.
 

@@ -11,12 +11,12 @@ Represents a refund processed for a Square transaction.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `id` | `string` |  | The refund's unique ID. | getId(): string | setId(string id): void |
-| `locationId` | `string` |  | The ID of the refund's associated location. | getLocationId(): string | setLocationId(string locationId): void |
-| `transactionId` | `string` |  | The ID of the transaction that the refunded tender is part of. | getTransactionId(): string | setTransactionId(string transactionId): void |
-| `tenderId` | `string` |  | The ID of the refunded tender. | getTenderId(): string | setTenderId(string tenderId): void |
-| `createdAt` | `?string` | Optional | The timestamp for when the refund was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
-| `reason` | `string` |  | The reason for the refund being issued. | getReason(): string | setReason(string reason): void |
+| `id` | `string` |  | The refund's unique ID.<br>**Constraints**: *Maximum Length*: `255` | getId(): string | setId(string id): void |
+| `locationId` | `string` |  | The ID of the refund's associated location.<br>**Constraints**: *Maximum Length*: `50` | getLocationId(): string | setLocationId(string locationId): void |
+| `transactionId` | `string` |  | The ID of the transaction that the refunded tender is part of.<br>**Constraints**: *Maximum Length*: `192` | getTransactionId(): string | setTransactionId(string transactionId): void |
+| `tenderId` | `string` |  | The ID of the refunded tender.<br>**Constraints**: *Maximum Length*: `192` | getTenderId(): string | setTenderId(string tenderId): void |
+| `createdAt` | `?string` | Optional | The timestamp for when the refund was created, in RFC 3339 format.<br>**Constraints**: *Maximum Length*: `32` | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
+| `reason` | `string` |  | The reason for the refund being issued.<br>**Constraints**: *Maximum Length*: `192` | getReason(): string | setReason(string reason): void |
 | `amountMoney` | [`Money`](/doc/models/money.md) |  | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getAmountMoney(): Money | setAmountMoney(Money amountMoney): void |
 | `status` | [`string (RefundStatus)`](/doc/models/refund-status.md) |  | Indicates a refund's current status. | getStatus(): string | setStatus(string status): void |
 | `processingFeeMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getProcessingFeeMoney(): ?Money | setProcessingFeeMoney(?Money processingFeeMoney): void |

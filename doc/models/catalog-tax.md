@@ -11,7 +11,7 @@ A tax applicable to an item.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `name` | `?string` | Optional | The tax's name. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points. | getName(): ?string | setName(?string name): void |
+| `name` | `?string` | Optional | The tax's name. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `calculationPhase` | [`?string (TaxCalculationPhase)`](/doc/models/tax-calculation-phase.md) | Optional | When to calculate the taxes due on a cart. | getCalculationPhase(): ?string | setCalculationPhase(?string calculationPhase): void |
 | `inclusionType` | [`?string (TaxInclusionType)`](/doc/models/tax-inclusion-type.md) | Optional | Whether to the tax amount should be additional to or included in the CatalogItem price. | getInclusionType(): ?string | setInclusionType(?string inclusionType): void |
 | `percentage` | `?string` | Optional | The percentage of the tax in decimal form, using a `'.'` as the decimal separator and without a `'%'` sign.<br>A value of `7.5` corresponds to 7.5%. | getPercentage(): ?string | setPercentage(?string percentage): void |

@@ -51,7 +51,7 @@ class CreateCatalogImageResponse implements \JsonSerializable
      * `type` attribute and only the corresponding data attribute can be set on the `CatalogObject`
      * instance.
      * For example, the following list shows some instances of `CatalogObject` of a given `type` and
-     * their corresponding data atrribute that can be set:
+     * their corresponding data attribute that can be set:
      * - For a `CatalogObject` of the `ITEM` type, set the `item_data` attribute to yield the `CatalogItem`
      * object.
      * - For a `CatalogObject` of the `ITEM_VARIATION` type, set the `item_variation_data` attribute to
@@ -97,7 +97,7 @@ class CreateCatalogImageResponse implements \JsonSerializable
      * `type` attribute and only the corresponding data attribute can be set on the `CatalogObject`
      * instance.
      * For example, the following list shows some instances of `CatalogObject` of a given `type` and
-     * their corresponding data atrribute that can be set:
+     * their corresponding data attribute that can be set:
      * - For a `CatalogObject` of the `ITEM` type, set the `item_data` attribute to yield the `CatalogItem`
      * object.
      * - For a `CatalogObject` of the `ITEM_VARIATION` type, set the `item_variation_data` attribute to

@@ -11,7 +11,7 @@ Provides customer data that Square uses to deliver an invoice.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `customerId` | `?string` | Optional | The ID of the customer. This is the customer profile ID that<br>you provide when creating a draft invoice. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
+| `customerId` | `?string` | Optional | The ID of the customer. This is the customer profile ID that<br>you provide when creating a draft invoice.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` | getCustomerId(): ?string | setCustomerId(?string customerId): void |
 | `givenName` | `?string` | Optional | The recipient's given (that is, first) name. | getGivenName(): ?string | setGivenName(?string givenName): void |
 | `familyName` | `?string` | Optional | The recipient's family (that is, last) name. | getFamilyName(): ?string | setFamilyName(?string familyName): void |
 | `emailAddress` | `?string` | Optional | The recipient's email address. | getEmailAddress(): ?string | setEmailAddress(?string emailAddress): void |

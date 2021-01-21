@@ -108,13 +108,14 @@ $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
 $body_invoice_paymentRequests[0]->setUid('uid4');
-$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::EMAIL);
+$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SHARE_MANUALLY);
 $body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::BALANCE);
 $body_invoice_paymentRequests[0]->setDueDate('2030-01-24');
 $body_invoice_paymentRequests[0]->setFixedAmountRequestedMoney(new Models\Money);
 $body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setAmount(52);
 $body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setCurrency(Models\Currency::USS);
 $body_invoice_paymentRequests[0]->setTippingEnabled(true);
+$body_invoice_paymentRequests[0]->setAutomaticPaymentSource(Models\InvoiceAutomaticPaymentSource::NONE);
 $body_invoice_paymentRequests_0_reminders = [];
 
 $body_invoice_paymentRequests_0_reminders[0] = new Models\InvoicePaymentReminder;
@@ -127,6 +128,7 @@ $body_invoice_paymentRequests[0]->setReminders($body_invoice_paymentRequests_0_r
 
 $body_invoice->setPaymentRequests($body_invoice_paymentRequests);
 
+$body_invoice->setDeliveryMethod(Models\InvoiceDeliveryMethod::EMAIL);
 $body_invoice->setInvoiceNumber('inv-100');
 $body_invoice->setTitle('Event Planning Services');
 $body_invoice->setDescription('We appreciate your business!');
@@ -368,7 +370,7 @@ if ($apiResponse->isSuccess()) {
 Cancels an invoice. The seller cannot collect payments for
 the canceled invoice.
 
-You cannot cancel an invoice in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
+You cannot cancel an invoice in the `DRAFT` state or in a terminal state: `PAID`, `REFUNDED`, `CANCELED`, or `FAILED`.
 
 ```php
 function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiResponse

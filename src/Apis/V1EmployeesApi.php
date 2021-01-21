@@ -905,11 +905,9 @@ class V1EmployeesApi extends BaseApi
      * Provides the details for a single timecard.
      *
      *
-     * <aside>
      * Only approved accounts can manage their employees with Square.
      * Unapproved accounts cannot use employee management features with the
      * API.
-     * </aside>
      *
      * @deprecated
      *

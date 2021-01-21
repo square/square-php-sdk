@@ -13,7 +13,7 @@ For an overview of the `Subscription` type, see
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `id` | `?string` | Optional | The Square-assigned ID of the subscription. | getId(): ?string | setId(?string id): void |
+| `id` | `?string` | Optional | The Square-assigned ID of the subscription.<br>**Constraints**: *Maximum Length*: `255` | getId(): ?string | setId(?string id): void |
 | `locationId` | `?string` | Optional | The ID of the location associated with the subscription. | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `planId` | `?string` | Optional | The ID of the associated [subscription plan](#type-catalogsubscriptionplan). | getPlanId(): ?string | setPlanId(?string planId): void |
 | `customerId` | `?string` | Optional | The ID of the associated [customer](#type-customer) profile. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
