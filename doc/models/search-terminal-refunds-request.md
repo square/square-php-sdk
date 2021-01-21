@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- | --- | --- |
 | `query` | [`?TerminalRefundQuery`](/doc/models/terminal-refund-query.md) | Optional | - | getQuery(): ?TerminalRefundQuery | setQuery(?TerminalRefundQuery query): void |
 | `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query. | getCursor(): ?string | setCursor(?string cursor): void |
-| `limit` | `?int` | Optional | Limit the number of results returned for a single request. | getLimit(): ?int | setLimit(?int limit): void |
+| `limit` | `?int` | Optional | Limit the number of results returned for a single request.<br>**Constraints**: `>= 1`, `<= 100` | getLimit(): ?int | setLimit(?int limit): void |
 
 ## Example (as JSON)
 

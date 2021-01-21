@@ -12,7 +12,7 @@ A named selection for this `SELECTION`-type custom attribute definition.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `uid` | `?string` | Optional | Unique ID set by Square. | getUid(): ?string | setUid(?string uid): void |
-| `name` | `string` |  | Selection name, unique within `allowed_selections`. | getName(): string | setName(string name): void |
+| `name` | `string` |  | Selection name, unique within `allowed_selections`.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255` | getName(): string | setName(string name): void |
 
 ## Example (as JSON)
 

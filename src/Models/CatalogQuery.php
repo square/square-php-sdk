@@ -23,7 +23,7 @@ namespace Square\Models;
  * applicable query filters.
  *
  * * Searchable attribute and objects queryable by searchable attributes **
- * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatelogCatogry`, `CatalogTax`, `CatalogDiscount`,
+ * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, `CatalogTax`, `CatalogDiscount`,
  * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
  * - `description`: `CatalogItem`, `CatalogItemOptionValue`
  * - `abbreviation`: `CatalogItem`

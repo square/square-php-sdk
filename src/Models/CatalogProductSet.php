@@ -234,7 +234,6 @@ class CatalogProductSet implements \JsonSerializable
      * Returns All Products.
      *
      * If set to `true`, the product set will include every item in the catalog.
-     *
      * Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
      */
     public function getAllProducts(): ?bool
@@ -246,7 +245,6 @@ class CatalogProductSet implements \JsonSerializable
      * Sets All Products.
      *
      * If set to `true`, the product set will include every item in the catalog.
-     *
      * Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
      *
      * @maps all_products

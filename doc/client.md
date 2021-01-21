@@ -5,16 +5,18 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2020-12-16'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-01-21'` |
 | `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
+| `timeout` | `int` | Timeout for API calls |
+| `additionalHeaders` | `array` | Additional headers to add to each API call |
 
 The API client can be initialized as follows:
 
 ```php
 $client = new Square\SquareClient([
     // Set authentication parameters
-    'squareVersion' => '2020-12-16',
+    'squareVersion' => '2021-01-21',
     'accessToken' => 'AccessToken',
 
     // Set the environment
@@ -38,7 +40,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
-    'squareVersion' => '2020-12-16',
+    'squareVersion' => '2021-01-21',
     'accessToken' => 'AccessToken',
 ]);
 

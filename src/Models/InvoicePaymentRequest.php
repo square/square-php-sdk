@@ -51,6 +51,11 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $automaticPaymentSource;
+
+    /**
+     * @var string|null
+     */
     private $cardId;
 
     /**
@@ -99,7 +104,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Request Method.
      *
      * Specifies the action for Square to take for processing the invoice. For example,
-     * email the invoice, charge a customer's card on file, or do nothing.
+     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21.
+     * The corresponding `request_method` field is replaced by the `Invoice.delivery_method` and
+     * `InvoicePaymentRequest.automatic_payment_source` fields.
      */
     public function getRequestMethod(): ?string
     {
@@ -110,7 +117,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Request Method.
      *
      * Specifies the action for Square to take for processing the invoice. For example,
-     * email the invoice, charge a customer's card on file, or do nothing.
+     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21.
+     * The corresponding `request_method` field is replaced by the `Invoice.delivery_method` and
+     * `InvoicePaymentRequest.automatic_payment_source` fields.
      *
      * @maps request_method
      */
@@ -160,8 +169,8 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Due Date.
      *
-     * The due date (in the invoice location's time zone) for the payment request.
-     * After this date, the invoice becomes overdue.
+     * The due date (in the invoice location's time zone) for the payment request, in `YYYY-MM-DD` format.
+     * After this date, the invoice becomes overdue. This field is required to create a payment request.
      */
     public function getDueDate(): ?string
     {
@@ -171,8 +180,8 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Due Date.
      *
-     * The due date (in the invoice location's time zone) for the payment request.
-     * After this date, the invoice becomes overdue.
+     * The due date (in the invoice location's time zone) for the payment request, in `YYYY-MM-DD` format.
+     * After this date, the invoice becomes overdue. This field is required to create a payment request.
      *
      * @maps due_date
      */
@@ -281,6 +290,28 @@ class InvoicePaymentRequest implements \JsonSerializable
     public function setTippingEnabled(?bool $tippingEnabled): void
     {
         $this->tippingEnabled = $tippingEnabled;
+    }
+
+    /**
+     * Returns Automatic Payment Source.
+     *
+     * Indicates the automatic payment method for an [invoice payment request](#type-InvoicePaymentRequest).
+     */
+    public function getAutomaticPaymentSource(): ?string
+    {
+        return $this->automaticPaymentSource;
+    }
+
+    /**
+     * Sets Automatic Payment Source.
+     *
+     * Indicates the automatic payment method for an [invoice payment request](#type-InvoicePaymentRequest).
+     *
+     * @maps automatic_payment_source
+     */
+    public function setAutomaticPaymentSource(?string $automaticPaymentSource): void
+    {
+        $this->automaticPaymentSource = $automaticPaymentSource;
     }
 
     /**
@@ -454,6 +485,7 @@ class InvoicePaymentRequest implements \JsonSerializable
         $json['fixed_amount_requested_money']    = $this->fixedAmountRequestedMoney;
         $json['percentage_requested']            = $this->percentageRequested;
         $json['tipping_enabled']                 = $this->tippingEnabled;
+        $json['automatic_payment_source']        = $this->automaticPaymentSource;
         $json['card_id']                         = $this->cardId;
         $json['reminders']                       = $this->reminders;
         $json['computed_amount_money']           = $this->computedAmountMoney;

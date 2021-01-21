@@ -13,11 +13,11 @@ taken during the shift.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `id` | `?string` | Optional | UUID for this object | getId(): ?string | setId(?string id): void |
+| `id` | `?string` | Optional | UUID for this object<br>**Constraints**: *Maximum Length*: `255` | getId(): ?string | setId(?string id): void |
 | `employeeId` | `?string` | Optional | The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id` instead | getEmployeeId(): ?string | setEmployeeId(?string employeeId): void |
 | `locationId` | `?string` | Optional | The ID of the location this shift occurred at. Should be based on<br>where the employee clocked in. | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `timezone` | `?string` | Optional | Read-only convenience value that is calculated from the location based<br>on `location_id`. Format: the IANA Timezone Database identifier for the<br>location timezone. | getTimezone(): ?string | setTimezone(?string timezone): void |
-| `startAt` | `string` |  | RFC 3339; shifted to location timezone + offset. Precision up to the<br>minute is respected; seconds are truncated. | getStartAt(): string | setStartAt(string startAt): void |
+| `startAt` | `string` |  | RFC 3339; shifted to location timezone + offset. Precision up to the<br>minute is respected; seconds are truncated.<br>**Constraints**: *Minimum Length*: `1` | getStartAt(): string | setStartAt(string startAt): void |
 | `endAt` | `?string` | Optional | RFC 3339; shifted to timezone + offset. Precision up to the minute is<br>respected; seconds are truncated. | getEndAt(): ?string | setEndAt(?string endAt): void |
 | `wage` | [`?ShiftWage`](/doc/models/shift-wage.md) | Optional | The hourly wage rate used to compensate an employee for this shift. | getWage(): ?ShiftWage | setWage(?ShiftWage wage): void |
 | `breaks` | [`?(MBreak[])`](/doc/models/m-break.md) | Optional | A list of any paid or unpaid breaks that were taken during this shift. | getBreaks(): ?array | setBreaks(?array breaks): void |

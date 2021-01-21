@@ -11,7 +11,7 @@ Represents a request to create a `Shift`
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `idempotencyKey` | `?string` | Optional | Unique string value to insure the idempotency of the operation. | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
+| `idempotencyKey` | `?string` | Optional | Unique string value to insure the idempotency of the operation.<br>**Constraints**: *Maximum Length*: `128` | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
 | `shift` | [`Shift`](/doc/models/shift.md) |  | A record of the hourly rate, start, and end times for a single work shift<br>for an employee. May include a record of the start and end times for breaks<br>taken during the shift. | getShift(): Shift | setShift(Shift shift): void |
 
 ## Example (as JSON)

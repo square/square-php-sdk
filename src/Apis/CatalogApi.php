@@ -715,10 +715,10 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Searches for [CatalogObject](#type-CatalogObject) of any types against supported search attribute
-     * values,
+     * Searches for [CatalogObject](#type-CatalogObject) of any type by matching supported search
+     * attribute values,
      * excluding custom attribute values on items or item variations, against one or more of the specified
-     * query expressions,
+     * query expressions.
      *
      * This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](#endpoint-Catalog-
      * SearchCatalogItems)
@@ -799,7 +799,7 @@ class CatalogApi extends BaseApi
     /**
      * Searches for catalog items or item variations by matching supported search attribute values,
      * including
-     * custom attribute values, against one or more of the specified query expressions,
+     * custom attribute values, against one or more of the specified query expressions.
      *
      * This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](#endpoint-Catalog-
      * SearchCatalogObjects)
