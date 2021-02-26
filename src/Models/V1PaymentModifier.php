@@ -67,7 +67,7 @@ class V1PaymentModifier implements \JsonSerializable
     /**
      * Returns Modifier Option Id.
      *
-     * TThe ID of the applied modifier option, if available. Modifier options applied in older versions of
+     * The ID of the applied modifier option, if available. Modifier options applied in older versions of
      * Square Register might not have an ID.
      */
     public function getModifierOptionId(): ?string
@@ -78,7 +78,7 @@ class V1PaymentModifier implements \JsonSerializable
     /**
      * Sets Modifier Option Id.
      *
-     * TThe ID of the applied modifier option, if available. Modifier options applied in older versions of
+     * The ID of the applied modifier option, if available. Modifier options applied in older versions of
      * Square Register might not have an ID.
      *
      * @maps modifier_option_id

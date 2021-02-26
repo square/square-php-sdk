@@ -24,6 +24,7 @@ class ClientFactory
         $squareVersion = getenv('SQUARE_SQUARE_VERSION');
         $accessToken = getenv('SQUARE_ACCESS_TOKEN');
         $environment = getenv('SQUARE_ENVIRONMENT');
+        $customUrl = getenv('SQUARE_CUSTOM_URL');
 
         if ($timeout !== false && \is_numeric($timeout)) {
             $config['timeout'] = intval($timeout);
@@ -39,6 +40,10 @@ class ClientFactory
 
         if ($environment !== false) {
             $config['environment'] = $environment;
+        }
+
+        if ($customUrl !== false) {
+            $config['customUrl'] = $customUrl;
         }
 
         return $config;

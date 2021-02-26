@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `body` | [`V1Employee`](/doc/models/v1-employee.md) | Represents one of a business's employees. | getBody(): V1Employee | setBody(V1Employee body): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `body` | [`V1Employee`](/doc/models/v1-employee.md) | Required | Represents one of a business's employees. | getBody(): V1Employee | setBody(V1Employee body): void |
 
 ## Example (as JSON)
 

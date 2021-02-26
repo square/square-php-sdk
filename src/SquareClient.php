@@ -15,7 +15,6 @@ class SquareClient implements ConfigurationInterface
     private $oAuth;
     private $v1Employees;
     private $v1Transactions;
-    private $v1Items;
     private $applePay;
     private $bankAccounts;
     private $bookings;
@@ -47,6 +46,7 @@ class SquareClient implements ConfigurationInterface
     private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
     private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
     private $environment = ConfigurationDefaults::ENVIRONMENT;
+    private $customUrl = ConfigurationDefaults::CUSTOM_URL;
 
     public function __construct(array $configOptions = null)
     {
@@ -65,6 +65,9 @@ class SquareClient implements ConfigurationInterface
         }
         if (isset($configOptions['environment'])) {
             $this->environment = $configOptions['environment'];
+        }
+        if (isset($configOptions['customUrl'])) {
+            $this->customUrl = $configOptions['customUrl'];
         }
     }
 
@@ -89,6 +92,9 @@ class SquareClient implements ConfigurationInterface
         }
         if (isset($this->environment)) {
             $configMap['environment'] = $this->environment;
+        }
+        if (isset($this->customUrl)) {
+            $configMap['customUrl'] = $this->customUrl;
         }
 
         return $configMap;
@@ -127,12 +133,17 @@ class SquareClient implements ConfigurationInterface
         return $this->environment;
     }
 
+    public function getCustomUrl(): string
+    {
+        return $this->customUrl;
+    }
+
     /**
      * Get current SDK version
      */
     public function getSdkVersion(): string
     {
-        return '8.1.0.20210121';
+        return '9.0.0.20210226';
     }
 
     /**
@@ -144,7 +155,13 @@ class SquareClient implements ConfigurationInterface
      */
     public function getBaseUri(string $server = Server::DEFAULT_): string
     {
-        return static::ENVIRONMENT_MAP[$this->environment][$server];
+        return ApiHelper::appendUrlWithTemplateParameters(
+            static::ENVIRONMENT_MAP[$this->environment][$server],
+            [
+                'custom_url' => $this->customUrl,
+            ],
+            false
+        );
     }
 
     /**
@@ -189,17 +206,6 @@ class SquareClient implements ConfigurationInterface
             $this->v1Transactions = new Apis\V1TransactionsApi($this);
         }
         return $this->v1Transactions;
-    }
-
-    /**
-     * Returns V1 Items Api
-     */
-    public function getV1ItemsApi(): Apis\V1ItemsApi
-    {
-        if ($this->v1Items == null) {
-            $this->v1Items = new Apis\V1ItemsApi($this);
-        }
-        return $this->v1Items;
     }
 
     /**
@@ -488,6 +494,9 @@ class SquareClient implements ConfigurationInterface
         ],
         Environment::SANDBOX => [
             Server::DEFAULT_ => 'https://connect.squareupsandbox.com',
+        ],
+        Environment::CUSTOM => [
+            Server::DEFAULT_ => '{custom_url}',
         ],
     ];
 }

@@ -173,7 +173,6 @@ $body_order_discounts[2]->getAmountMoney()->setCurrency(Models\Currency::USD);
 $body_order_discounts[2]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
 $body->getOrder()->setDiscounts($body_order_discounts);
 
-$body->setLocationId('location_id0');
 $body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
 
 $apiResponse = $ordersApi->createOrder($body);

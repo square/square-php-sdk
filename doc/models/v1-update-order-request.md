@@ -11,7 +11,7 @@ V1UpdateOrderRequest
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `action` | [`string (V1UpdateOrderRequestAction)`](/doc/models/v1-update-order-request-action.md) |  | - | getAction(): string | setAction(string action): void |
+| `action` | [`string (V1UpdateOrderRequestAction)`](/doc/models/v1-update-order-request-action.md) | Required | - | getAction(): string | setAction(string action): void |
 | `shippedTrackingNumber` | `?string` | Optional | The tracking number of the shipment associated with the order. Only valid if action is COMPLETE. | getShippedTrackingNumber(): ?string | setShippedTrackingNumber(?string shippedTrackingNumber): void |
 | `completedNote` | `?string` | Optional | A merchant-specified note about the completion of the order. Only valid if action is COMPLETE. | getCompletedNote(): ?string | setCompletedNote(?string completedNote): void |
 | `refundedNote` | `?string` | Optional | A merchant-specified note about the refunding of the order. Only valid if action is REFUND. | getRefundedNote(): ?string | setRefundedNote(?string refundedNote): void |

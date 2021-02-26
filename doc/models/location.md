@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The Square-issued ID of the location. | getId(): ?string | setId(?string id): void |
-| `name` | `?string` | Optional | The name of the location.<br>This information appears in the dashboard as the nickname. | getName(): ?string | setName(?string name): void |
+| `name` | `?string` | Optional | The name of the location.<br>This information appears in the dashboard as the nickname.<br>A location name must be unique within a seller account. | getName(): ?string | setName(?string name): void |
 | `address` | [`?Address`](/doc/models/address.md) | Optional | Represents a physical address. | getAddress(): ?Address | setAddress(?Address address): void |
 | `timezone` | `?string` | Optional | The [IANA Timezone](https://www.iana.org/time-zones) identifier for<br>the timezone of the location. | getTimezone(): ?string | setTimezone(?string timezone): void |
 | `capabilities` | [`?(string[]) (LocationCapability)`](/doc/models/location-capability.md) | Optional | The Square features that are enabled for the location.<br>See [LocationCapability](#type-locationcapability) for possible values.<br>See [LocationCapability](#type-locationcapability) for possible values | getCapabilities(): ?array | setCapabilities(?array capabilities): void |

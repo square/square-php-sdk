@@ -14,11 +14,6 @@ class CreateOrderRequest implements \JsonSerializable
     /**
      * @var string|null
      */
-    private $locationId;
-
-    /**
-     * @var string|null
-     */
     private $idempotencyKey;
 
     /**
@@ -51,28 +46,6 @@ class CreateOrderRequest implements \JsonSerializable
     public function setOrder(?Order $order): void
     {
         $this->order = $order;
-    }
-
-    /**
-     * Returns Location Id.
-     *
-     * The ID of the business location to associate the order with.
-     */
-    public function getLocationId(): ?string
-    {
-        return $this->locationId;
-    }
-
-    /**
-     * Sets Location Id.
-     *
-     * The ID of the business location to associate the order with.
-     *
-     * @maps location_id
-     */
-    public function setLocationId(?string $locationId): void
-    {
-        $this->locationId = $locationId;
     }
 
     /**
@@ -122,7 +95,6 @@ class CreateOrderRequest implements \JsonSerializable
     {
         $json = [];
         $json['order']          = $this->order;
-        $json['location_id']    = $this->locationId;
         $json['idempotency_key'] = $this->idempotencyKey;
 
         return array_filter($json, function ($val) {

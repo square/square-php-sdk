@@ -163,6 +163,7 @@ class Location implements \JsonSerializable
      *
      * The name of the location.
      * This information appears in the dashboard as the nickname.
+     * A location name must be unique within a seller account.
      */
     public function getName(): ?string
     {
@@ -174,6 +175,7 @@ class Location implements \JsonSerializable
      *
      * The name of the location.
      * This information appears in the dashboard as the nickname.
+     * A location name must be unique within a seller account.
      *
      * @maps name
      */

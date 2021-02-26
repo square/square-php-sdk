@@ -330,7 +330,9 @@ class ErrorCode
     public const INVALID_CARD = 'INVALID_CARD';
 
     /**
-     * An unexpected error occurred.
+     * Square received a decline from the cardholder's bank without any
+     * additional information. If the card information seems correct, the card
+     * holder can contact their card issuer to ask for more information.
      */
     public const GENERIC_DECLINE = 'GENERIC_DECLINE';
 

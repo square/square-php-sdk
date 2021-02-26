@@ -9,10 +9,10 @@ Contains some brief information about a Customer Group with its identifier inclu
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `id` | `string` | The ID of the Customer Group. | getId(): string | setId(string id): void |
-| `name` | `string` | The name of the Customer Group. | getName(): string | setName(string name): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `string` | Required | The ID of the Customer Group. | getId(): string | setId(string id): void |
+| `name` | `string` | Required | The name of the Customer Group. | getName(): string | setName(string name): void |
 
 ## Example (as JSON)
 

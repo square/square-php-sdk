@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `itemIds` | `string[]` |  | IDs for the CatalogItems associated with the CatalogTax objects being updated. | getItemIds(): array | setItemIds(array itemIds): void |
+| `itemIds` | `string[]` | Required | IDs for the CatalogItems associated with the CatalogTax objects being updated. | getItemIds(): array | setItemIds(array itemIds): void |
 | `taxesToEnable` | `?(string[])` | Optional | IDs of the CatalogTax objects to enable. | getTaxesToEnable(): ?array | setTaxesToEnable(?array taxesToEnable): void |
 | `taxesToDisable` | `?(string[])` | Optional | IDs of the CatalogTax objects to disable. | getTaxesToDisable(): ?array | setTaxesToDisable(?array taxesToDisable): void |
 

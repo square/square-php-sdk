@@ -9,9 +9,9 @@ The query filter to return the items containing the specified modifier list IDs.
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `modifierListIds` | `string[]` | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. | getModifierListIds(): array | setModifierListIds(array modifierListIds): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `modifierListIds` | `string[]` | Required | A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s. | getModifierListIds(): array | setModifierListIds(array modifierListIds): void |
 
 ## Example (as JSON)
 

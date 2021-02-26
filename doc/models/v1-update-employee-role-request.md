@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `body` | [`V1EmployeeRole`](/doc/models/v1-employee-role.md) | V1EmployeeRole | getBody(): V1EmployeeRole | setBody(V1EmployeeRole body): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `body` | [`V1EmployeeRole`](/doc/models/v1-employee-role.md) | Required | V1EmployeeRole | getBody(): V1EmployeeRole | setBody(V1EmployeeRole body): void |
 
 ## Example (as JSON)
 

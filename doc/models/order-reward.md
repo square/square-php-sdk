@@ -10,10 +10,10 @@ reward tier criteria are met. Rewards are created through the Loyalty API.
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `id` | `string` | The identifier of the reward.<br>**Constraints**: *Minimum Length*: `1` | getId(): string | setId(string id): void |
-| `rewardTierId` | `string` | The identifier of the reward tier corresponding to this reward.<br>**Constraints**: *Minimum Length*: `1` | getRewardTierId(): string | setRewardTierId(string rewardTierId): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `id` | `string` | Required | The identifier of the reward.<br>**Constraints**: *Minimum Length*: `1` | getId(): string | setId(string id): void |
+| `rewardTierId` | `string` | Required | The identifier of the reward tier corresponding to this reward.<br>**Constraints**: *Minimum Length*: `1` | getRewardTierId(): string | setRewardTierId(string rewardTierId): void |
 
 ## Example (as JSON)
 

@@ -10,8 +10,6 @@ $v1TransactionsApi = $client->getV1TransactionsApi();
 
 ## Methods
 
-* [List Bank Accounts](/doc/apis/v1-transactions.md#list-bank-accounts)
-* [Retrieve Bank Account](/doc/apis/v1-transactions.md#retrieve-bank-account)
 * [List Orders](/doc/apis/v1-transactions.md#list-orders)
 * [Retrieve Order](/doc/apis/v1-transactions.md#retrieve-order)
 * [Update Order](/doc/apis/v1-transactions.md#update-order)
@@ -21,86 +19,6 @@ $v1TransactionsApi = $client->getV1TransactionsApi();
 * [Create Refund](/doc/apis/v1-transactions.md#create-refund)
 * [List Settlements](/doc/apis/v1-transactions.md#list-settlements)
 * [Retrieve Settlement](/doc/apis/v1-transactions.md#retrieve-settlement)
-
-
-# List Bank Accounts
-
-**This endpoint is deprecated. **
-
-Provides non-confidential details for all of a location's associated bank accounts. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
-
-```php
-function listBankAccounts(string $locationId): ApiResponse
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `locationId` | `string` | Template, Required | The ID of the location to list bank accounts for. |
-
-## Response Type
-
-[`V1BankAccount[]`](/doc/models/v1-bank-account.md)
-
-## Example Usage
-
-```php
-$locationId = 'location_id4';
-
-$apiResponse = $v1TransactionsApi->listBankAccounts($locationId);
-
-if ($apiResponse->isSuccess()) {
-    $v1BankAccount = $apiResponse->getResult();
-} else {
-    $errors = $apiResponse->getErrors();
-}
-
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
-```
-
-
-# Retrieve Bank Account
-
-**This endpoint is deprecated. **
-
-Provides non-confidential details for a merchant's associated bank account. This endpoint does not provide full bank account numbers, and there is no way to obtain a full bank account number with the Connect API.
-
-```php
-function retrieveBankAccount(string $locationId, string $bankAccountId): ApiResponse
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `locationId` | `string` | Template, Required | The ID of the bank account's associated location. |
-| `bankAccountId` | `string` | Template, Required | The bank account's Square-issued ID. You obtain this value from Settlement objects returned. |
-
-## Response Type
-
-[`V1BankAccount`](/doc/models/v1-bank-account.md)
-
-## Example Usage
-
-```php
-$locationId = 'location_id4';
-$bankAccountId = 'bank_account_id0';
-
-$apiResponse = $v1TransactionsApi->retrieveBankAccount($locationId, $bankAccountId);
-
-if ($apiResponse->isSuccess()) {
-    $v1BankAccount = $apiResponse->getResult();
-} else {
-    $errors = $apiResponse->getErrors();
-}
-
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
-```
 
 
 # List Orders
@@ -121,7 +39,7 @@ function listOrders(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list online store orders for. |
-| `order` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | TThe order in which payments are listed in the response. |
+| `order` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `limit` | `?int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batchToken` | `?string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
@@ -364,7 +282,7 @@ function listRefunds(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list refunds for. |
-| `order` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | TThe order in which payments are listed in the response. |
+| `order` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `beginTime` | `?string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `endTime` | `?string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `?int` | Query, Optional | The approximate number of refunds to return in a single response. Default: 100. Max: 200. Response may contain more results than the prescribed limit when refunds are made simultaneously to multiple tenders in a payment or when refunds are generated in an exchange to account for the value of returned goods. |
