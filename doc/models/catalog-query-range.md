@@ -11,7 +11,7 @@ The query filter to return the search result whose named attribute values fall b
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `attributeName` | `string` |  | The name of the attribute to be searched.<br>**Constraints**: *Minimum Length*: `1` | getAttributeName(): string | setAttributeName(string attributeName): void |
+| `attributeName` | `string` | Required | The name of the attribute to be searched.<br>**Constraints**: *Minimum Length*: `1` | getAttributeName(): string | setAttributeName(string attributeName): void |
 | `attributeMinValue` | `?int` | Optional | The desired minimum value for the search attribute (inclusive). | getAttributeMinValue(): ?int | setAttributeMinValue(?int attributeMinValue): void |
 | `attributeMaxValue` | `?int` | Optional | The desired maximum value for the search attribute (inclusive). | getAttributeMaxValue(): ?int | setAttributeMaxValue(?int attributeMaxValue): void |
 

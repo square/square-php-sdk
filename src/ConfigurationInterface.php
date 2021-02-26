@@ -35,6 +35,11 @@ interface ConfigurationInterface
     public function getEnvironment(): string;
 
     /**
+     * Get sets the base URL requests are made to. Defaults to `https://connect.squareup.com`
+     */
+    public function getCustomUrl(): string;
+
+    /**
      * Get the base uri for a given server in the current environment
      *
      * @param string $server Server name

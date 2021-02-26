@@ -17,7 +17,7 @@ itemization data.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The order's unique ID. | getId(): ?string | setId(?string id): void |
-| `locationId` | `string` |  | The ID of the merchant location this order is associated with.<br>**Constraints**: *Minimum Length*: `1` | getLocationId(): string | setLocationId(string locationId): void |
+| `locationId` | `string` | Required | The ID of the merchant location this order is associated with.<br>**Constraints**: *Minimum Length*: `1` | getLocationId(): string | setLocationId(string locationId): void |
 | `referenceId` | `?string` | Optional | A client specified identifier to associate an entity in another system<br>with this order.<br>**Constraints**: *Maximum Length*: `40` | getReferenceId(): ?string | setReferenceId(?string referenceId): void |
 | `source` | [`?OrderSource`](/doc/models/order-source.md) | Optional | Represents the origination details of an order. | getSource(): ?OrderSource | setSource(?OrderSource source): void |
 | `customerId` | `?string` | Optional | The [Customer](#type-customer) ID of the customer associated with the order.<br>**Constraints**: *Maximum Length*: `191` | getCustomerId(): ?string | setCustomerId(?string customerId): void |

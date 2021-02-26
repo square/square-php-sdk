@@ -75,6 +75,11 @@ class CardPaymentDetails implements \JsonSerializable
     private $deviceDetails;
 
     /**
+     * @var CardPaymentTimeline|null
+     */
+    private $cardPaymentTimeline;
+
+    /**
      * @var bool|null
      */
     private $refundRequiresCardPresence;
@@ -393,6 +398,28 @@ class CardPaymentDetails implements \JsonSerializable
     }
 
     /**
+     * Returns Card Payment Timeline.
+     *
+     * The timeline for card payments.
+     */
+    public function getCardPaymentTimeline(): ?CardPaymentTimeline
+    {
+        return $this->cardPaymentTimeline;
+    }
+
+    /**
+     * Sets Card Payment Timeline.
+     *
+     * The timeline for card payments.
+     *
+     * @maps card_payment_timeline
+     */
+    public function setCardPaymentTimeline(?CardPaymentTimeline $cardPaymentTimeline): void
+    {
+        $this->cardPaymentTimeline = $cardPaymentTimeline;
+    }
+
+    /**
      * Returns Refund Requires Card Presence.
      *
      * Whether the card must be physically present for the payment to
@@ -463,6 +490,7 @@ class CardPaymentDetails implements \JsonSerializable
         $json['verification_results']       = $this->verificationResults;
         $json['statement_description']      = $this->statementDescription;
         $json['device_details']             = $this->deviceDetails;
+        $json['card_payment_timeline']      = $this->cardPaymentTimeline;
         $json['refund_requires_card_presence'] = $this->refundRequiresCardPresence;
         $json['errors']                     = $this->errors;
 

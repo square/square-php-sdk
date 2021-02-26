@@ -7,9 +7,9 @@
 
 ## Fields
 
-| Name | Type | Description | Getter | Setter |
-|  --- | --- | --- | --- | --- |
-| `query` | [`SearchAvailabilityQuery`](/doc/models/search-availability-query.md) | Query conditions to search for availabilities of bookings. | getQuery(): SearchAvailabilityQuery | setQuery(SearchAvailabilityQuery query): void |
+| Name | Type | Tags | Description | Getter | Setter |
+|  --- | --- | --- | --- | --- | --- |
+| `query` | [`SearchAvailabilityQuery`](/doc/models/search-availability-query.md) | Required | Query conditions to search for availabilities of bookings. | getQuery(): SearchAvailabilityQuery | setQuery(SearchAvailabilityQuery query): void |
 
 ## Example (as JSON)
 

@@ -12,8 +12,8 @@ Represents one of a business's employees.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The employee's unique ID. | getId(): ?string | setId(?string id): void |
-| `firstName` | `string` |  | The employee's first name. | getFirstName(): string | setFirstName(string firstName): void |
-| `lastName` | `string` |  | The employee's last name. | getLastName(): string | setLastName(string lastName): void |
+| `firstName` | `string` | Required | The employee's first name. | getFirstName(): string | setFirstName(string firstName): void |
+| `lastName` | `string` | Required | The employee's last name. | getLastName(): string | setLastName(string lastName): void |
 | `roleIds` | `?(string[])` | Optional | The ids of the employee's associated roles. Currently, you can specify only one or zero roles per employee. | getRoleIds(): ?array | setRoleIds(?array roleIds): void |
 | `authorizedLocationIds` | `?(string[])` | Optional | The IDs of the locations the employee is allowed to clock in at. | getAuthorizedLocationIds(): ?array | setAuthorizedLocationIds(?array authorizedLocationIds): void |
 | `email` | `?string` | Optional | The employee's email address. | getEmail(): ?string | setEmail(?string email): void |

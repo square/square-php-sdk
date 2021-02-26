@@ -23,153 +23,10 @@ class V1TransactionsApi extends BaseApi
     }
 
     /**
-     * Provides non-confidential details for all of a location's associated bank accounts. This endpoint
-     * does not provide full bank account numbers, and there is no way to obtain a full bank account number
-     * with the Connect API.
-     *
-     * @deprecated
-     *
-     * @param string $locationId The ID of the location to list bank accounts for.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function listBankAccounts(string $locationId): ApiResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
-
-        //prepare query string for API call
-        $_queryBuilder = '/v1/{location_id}/bank-accounts';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'location_id' => $locationId,
-            ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = Request::get($_queryUrl, $_headers);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClassArray($response->body, 'Square\\Models\\V1BankAccount');
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
-     * Provides non-confidential details for a merchant's associated bank account. This endpoint does not
-     * provide full bank account numbers, and there is no way to obtain a full bank account number with the
-     * Connect API.
-     *
-     * @deprecated
-     *
-     * @param string $locationId The ID of the bank account's associated location.
-     * @param string $bankAccountId The bank account's Square-issued ID. You obtain this value
-     *                              from Settlement objects returned.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function retrieveBankAccount(string $locationId, string $bankAccountId): ApiResponse
-    {
-        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
-
-        //prepare query string for API call
-        $_queryBuilder = '/v1/{location_id}/bank-accounts/{bank_account_id}';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'location_id'     => $locationId,
-            'bank_account_id' => $bankAccountId,
-            ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = Request::get($_queryUrl, $_headers);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1BankAccount');
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
      * Provides summary information for a merchant's online store orders.
      *
      * @param string $locationId The ID of the location to list online store orders for.
-     * @param string|null $order TThe order in which payments are listed in the response.
+     * @param string|null $order The order in which payments are listed in the response.
      * @param int|null $limit The maximum number of payments to return in a single response. This
      *                        value cannot exceed 200.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
@@ -577,7 +434,7 @@ class V1TransactionsApi extends BaseApi
      * during a date range. Date ranges cannot exceed one year in length.
      *
      * @param string $locationId The ID of the location to list refunds for.
-     * @param string|null $order TThe order in which payments are listed in the response.
+     * @param string|null $order The order in which payments are listed in the response.
      * @param string|null $beginTime The beginning of the requested reporting period, in ISO 8601
      *                               format. If this value is before January 1, 2013 (2013-01-
      *                               01T00:00:00Z), this endpoint returns an error. Default value:

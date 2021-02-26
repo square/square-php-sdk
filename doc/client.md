@@ -5,8 +5,9 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-01-21'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-02-26'` |
 | `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
+| `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `int` | Timeout for API calls |
 | `additionalHeaders` | `array` | Additional headers to add to each API call |
@@ -16,11 +17,14 @@ The API client can be initialized as follows:
 ```php
 $client = new Square\SquareClient([
     // Set authentication parameters
-    'squareVersion' => '2021-01-21',
+    'squareVersion' => '2021-02-26',
     'accessToken' => 'AccessToken',
 
     // Set the environment
     'environment' => 'production',
+
+    // Set configuration parameters
+    'customUrl' => 'https://connect.squareup.com',
 ]);
 ```
 
@@ -40,7 +44,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
-    'squareVersion' => '2021-01-21',
+    'squareVersion' => '2021-02-26',
     'accessToken' => 'AccessToken',
 ]);
 
@@ -59,7 +63,7 @@ if ($apiResponse->isSuccess()) {
 // $headers = $apiResponse->getHeaders();
 ```
 
-## SquareClient
+## Square Client
 
 The gateway for the SDK. This class acts as a factory for the Apis and also holds the configuration of the SDK.
 
@@ -71,7 +75,6 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | getOAuthApi() | Provides access to OAuthApi |
 | getV1EmployeesApi() | Provides access to V1EmployeesApi |
 | getV1TransactionsApi() | Provides access to V1TransactionsApi |
-| getV1ItemsApi() | Provides access to V1ItemsApi |
 | getApplePayApi() | Provides access to ApplePayApi |
 | getBankAccountsApi() | Provides access to BankAccountsApi |
 | getBookingsApi() | Provides access to BookingsApi |

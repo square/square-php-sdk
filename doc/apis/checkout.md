@@ -172,7 +172,6 @@ $body_order_order_discounts[0]->getAmountMoney()->setCurrency(Models\Currency::U
 $body_order_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
 $body_order->getOrder()->setDiscounts($body_order_order_discounts);
 
-$body_order->setLocationId('location_id4');
 $body_order->setIdempotencyKey('12ae1696-z1e3-4328-af6d-f1e04d947gd4');
 $body = new Models\CreateCheckoutRequest(
     $body_idempotencyKey,

@@ -226,6 +226,19 @@ $client = new SquareClient([
 ]);
 ```
 
+- To set a custom environment provide a `customUrl`, and set the environment to `Environment::CUSTOM`:
+
+```php
+use Square\SquareClient;
+use Square\Environment;
+
+$client = new SquareClient([
+    'accessToken' => 'YOUR ACCESS TOKEN HERE',
+    'environment' => Environment::CUSTOM,
+    'customUrl' => 'https://your.customdomain.com'
+]);
+```
+
 ### Get an Instance of an API object and call its methods
 
 Each API is implemented as a class. The Client object instantiates every API class and exposes them as properties so you can easily start using any Square API. You work with an API by calling methods on an instance of an API class. Here’s how:
