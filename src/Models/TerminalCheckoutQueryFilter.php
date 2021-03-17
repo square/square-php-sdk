@@ -24,8 +24,9 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Returns Device Id.
      *
-     * `TerminalCheckout`s associated with a specific device. If no device is specified then all
-     * `TerminalCheckout`s for the merchant will be displayed.
+     * The `TerminalCheckout` objects associated with a specific device. If no device is specified, then
+     * all
+     * `TerminalCheckout` objects for the merchant are displayed.
      */
     public function getDeviceId(): ?string
     {
@@ -35,8 +36,9 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Sets Device Id.
      *
-     * `TerminalCheckout`s associated with a specific device. If no device is specified then all
-     * `TerminalCheckout`s for the merchant will be displayed.
+     * The `TerminalCheckout` objects associated with a specific device. If no device is specified, then
+     * all
+     * `TerminalCheckout` objects for the merchant are displayed.
      *
      * @maps device_id
      */
@@ -78,7 +80,7 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Filtered results with the desired status of the `TerminalCheckout`
+     * Filtered results with the desired status of the `TerminalCheckout`.
      * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
      */
     public function getStatus(): ?string
@@ -89,7 +91,7 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Filtered results with the desired status of the `TerminalCheckout`
+     * Filtered results with the desired status of the `TerminalCheckout`.
      * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
      *
      * @maps status

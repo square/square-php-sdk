@@ -169,8 +169,12 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Due Date.
      *
-     * The due date (in the invoice location's time zone) for the payment request, in `YYYY-MM-DD` format.
-     * After this date, the invoice becomes overdue. This field is required to create a payment request.
+     * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
+     * field is required to create a payment request.
+     *
+     * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
+     * `timezone` of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles
+     * (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
      */
     public function getDueDate(): ?string
     {
@@ -180,8 +184,12 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Due Date.
      *
-     * The due date (in the invoice location's time zone) for the payment request, in `YYYY-MM-DD` format.
-     * After this date, the invoice becomes overdue. This field is required to create a payment request.
+     * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
+     * field is required to create a payment request.
+     *
+     * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
+     * `timezone` of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles
+     * (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
      *
      * @maps due_date
      */

@@ -137,17 +137,14 @@ class PaymentsApi extends BaseApi
     }
 
     /**
-     * Charges a payment source (for example, a card
-     * represented by customer's card on file or a card nonce). In addition
-     * to the payment source, the request must include the
-     * amount to accept for the payment.
+     * Creates a payment using the provided source. You can use this endpoint
+     * to charge a card (credit/debit card or
+     * Square gift card) or record a payment that the seller received outside of Square
+     * (cash payment from a buyer or a payment that an external entity
+     * procesed on behalf of the seller).
      *
-     * There are several optional parameters that you can include in the request
-     * (for example, tip money, whether to autocomplete the payment, or a reference ID
-     * to correlate this payment with another system).
-     *
-     * The `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission is required
-     * to enable application fees.
+     * The endpoint creates a
+     * `Payment` object and returns it in the response.
      *
      * @param \Square\Models\CreatePaymentRequest $body An object containing the fields to POST
      *                                                  for the request.
@@ -364,10 +361,84 @@ class PaymentsApi extends BaseApi
     }
 
     /**
-     * Cancels (voids) a payment. If you set `autocomplete` to `false` when creating a payment,
-     * you can cancel the payment using this endpoint.
+     * Updates a payment with the APPROVED status.
+     * You can update the `amount_money` and `tip_money` using this endpoint.
      *
-     * @param string $paymentId The `payment_id` identifying the payment to be canceled.
+     * @param string $paymentId The ID of the payment to update.
+     * @param \Square\Models\UpdatePaymentRequest $body An object containing the fields to POST
+     *                                                  for the request.
+     *
+     *                                                  See the corresponding object definition
+     *                                                  for field details.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function updatePayment(string $paymentId, \Square\Models\UpdatePaymentRequest $body): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/payments/{payment_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'payment_id' => $paymentId,
+            ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'content-type'  => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //json encode body
+        $_bodyJson = Request\Body::Json($body);
+
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::put($_queryUrl, $_headers, $_bodyJson);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdatePaymentResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Cancels (voids) a payment. You can use this endpoint to cancel a payment with
+     * the APPROVED `status`.
+     *
+     * @param string $paymentId The ID of the payment to cancel.
      *
      * @return ApiResponse Response from the API call
      *
@@ -430,10 +501,9 @@ class PaymentsApi extends BaseApi
 
     /**
      * Completes (captures) a payment.
-     *
      * By default, payments are set to complete immediately after they are created.
-     * If you set `autocomplete` to `false` when creating a payment, you can complete (capture)
-     * the payment using this endpoint.
+     *
+     * You can use this endpoint to complete a payment with the APPROVED `status`.
      *
      * @param string $paymentId The unique ID identifying the payment to be completed.
      *

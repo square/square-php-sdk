@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `checkout` | [`?TerminalCheckout`](/doc/models/terminal-checkout.md) | Optional | - | getCheckout(): ?TerminalCheckout | setCheckout(?TerminalCheckout checkout): void |
 
 ## Example (as JSON)
@@ -33,6 +33,7 @@
     },
     "id": "08YceKh7B3ZqO",
     "note": "A brief note",
+    "payment_type": "CARD_PRESENT",
     "reference_id": "id11572",
     "status": "PENDING",
     "updated_at": "2020-04-06T16:39:32.545Z"

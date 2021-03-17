@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the fields that are included in the response body of
- * a request to the [GetPayment](#endpoint-payments-getpayment) endpoint.
+ * Defines the response returned by [GetPayment](#endpoint-payments-getpayment).
  */
 class GetPaymentResponse implements \JsonSerializable
 {

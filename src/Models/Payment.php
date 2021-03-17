@@ -45,6 +45,11 @@ class Payment implements \JsonSerializable
     private $appFeeMoney;
 
     /**
+     * @var Money|null
+     */
+    private $approvedMoney;
+
+    /**
      * @var ProcessingFee[]|null
      */
     private $processingFee;
@@ -83,6 +88,16 @@ class Payment implements \JsonSerializable
      * @var CardPaymentDetails|null
      */
     private $cardDetails;
+
+    /**
+     * @var CashPaymentDetails|null
+     */
+    private $cashDetails;
+
+    /**
+     * @var ExternalPaymentDetails|null
+     */
+    private $externalDetails;
 
     /**
      * @var string|null
@@ -145,6 +160,11 @@ class Payment implements \JsonSerializable
     private $statementDescriptionIdentifier;
 
     /**
+     * @var string[]|null
+     */
+    private $capabilities;
+
+    /**
      * @var string|null
      */
     private $receiptNumber;
@@ -153,6 +173,11 @@ class Payment implements \JsonSerializable
      * @var string|null
      */
     private $receiptUrl;
+
+    /**
+     * @var string|null
+     */
+    private $versionToken;
 
     /**
      * Returns Id.
@@ -357,6 +382,40 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Approved Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getApprovedMoney(): ?Money
+    {
+        return $this->approvedMoney;
+    }
+
+    /**
+     * Sets Approved Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps approved_money
+     */
+    public function setApprovedMoney(?Money $approvedMoney): void
+    {
+        $this->approvedMoney = $approvedMoney;
+    }
+
+    /**
      * Returns Processing Fee.
      *
      * The processing fees and fee adjustments assessed by Square for this payment.
@@ -551,7 +610,7 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`.
+     * Current values include `CARD`, `CASH`, or `EXTERNAL`.
      */
     public function getSourceType(): ?string
     {
@@ -563,7 +622,7 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`.
+     * Current values include `CARD`, `CASH`, or `EXTERNAL`.
      *
      * @maps source_type
      */
@@ -575,7 +634,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Card Details.
      *
-     * Reflects the current status of a card payment.
+     * Reflects the current status of a card payment. Contains only non-confidential information.
      */
     public function getCardDetails(): ?CardPaymentDetails
     {
@@ -585,13 +644,67 @@ class Payment implements \JsonSerializable
     /**
      * Sets Card Details.
      *
-     * Reflects the current status of a card payment.
+     * Reflects the current status of a card payment. Contains only non-confidential information.
      *
      * @maps card_details
      */
     public function setCardDetails(?CardPaymentDetails $cardDetails): void
     {
         $this->cardDetails = $cardDetails;
+    }
+
+    /**
+     * Returns Cash Details.
+     *
+     * Stores details about a cash payment. Contains only non-confidential information. For more
+     * information, see
+     * [Take Cash Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments).
+     */
+    public function getCashDetails(): ?CashPaymentDetails
+    {
+        return $this->cashDetails;
+    }
+
+    /**
+     * Sets Cash Details.
+     *
+     * Stores details about a cash payment. Contains only non-confidential information. For more
+     * information, see
+     * [Take Cash Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments).
+     *
+     * @maps cash_details
+     */
+    public function setCashDetails(?CashPaymentDetails $cashDetails): void
+    {
+        $this->cashDetails = $cashDetails;
+    }
+
+    /**
+     * Returns External Details.
+     *
+     * Stores details about an external payment. Contains only non-confidential information.
+     * For more information, see
+     * [Take External Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-
+     * payments).
+     */
+    public function getExternalDetails(): ?ExternalPaymentDetails
+    {
+        return $this->externalDetails;
+    }
+
+    /**
+     * Sets External Details.
+     *
+     * Stores details about an external payment. Contains only non-confidential information.
+     * For more information, see
+     * [Take External Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-
+     * payments).
+     *
+     * @maps external_details
+     */
+    public function setExternalDetails(?ExternalPaymentDetails $externalDetails): void
+    {
+        $this->externalDetails = $externalDetails;
     }
 
     /**
@@ -885,6 +998,40 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Capabilities.
+     *
+     * Actions that can be performed on this payment:
+     * - `EDIT_AMOUNT_UP` - The payment amount can be edited up.
+     * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
+     * - `EDIT_TIP_AMOUNT_UP` - The tip amount can be edited up.
+     * - `EDIT_TIP_AMOUNT_DOWN` - The tip amount can be edited down.
+     *
+     * @return string[]|null
+     */
+    public function getCapabilities(): ?array
+    {
+        return $this->capabilities;
+    }
+
+    /**
+     * Sets Capabilities.
+     *
+     * Actions that can be performed on this payment:
+     * - `EDIT_AMOUNT_UP` - The payment amount can be edited up.
+     * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
+     * - `EDIT_TIP_AMOUNT_UP` - The tip amount can be edited up.
+     * - `EDIT_TIP_AMOUNT_DOWN` - The tip amount can be edited down.
+     *
+     * @maps capabilities
+     *
+     * @param string[]|null $capabilities
+     */
+    public function setCapabilities(?array $capabilities): void
+    {
+        $this->capabilities = $capabilities;
+    }
+
+    /**
      * Returns Receipt Number.
      *
      * The payment's receipt number.
@@ -933,6 +1080,30 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Version Token.
+     *
+     * Used for optimistic concurrency. This opaque token identifies a specific version of the
+     * `Payment` object.
+     */
+    public function getVersionToken(): ?string
+    {
+        return $this->versionToken;
+    }
+
+    /**
+     * Sets Version Token.
+     *
+     * Used for optimistic concurrency. This opaque token identifies a specific version of the
+     * `Payment` object.
+     *
+     * @maps version_token
+     */
+    public function setVersionToken(?string $versionToken): void
+    {
+        $this->versionToken = $versionToken;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -947,6 +1118,7 @@ class Payment implements \JsonSerializable
         $json['tip_money']                      = $this->tipMoney;
         $json['total_money']                    = $this->totalMoney;
         $json['app_fee_money']                  = $this->appFeeMoney;
+        $json['approved_money']                 = $this->approvedMoney;
         $json['processing_fee']                 = $this->processingFee;
         $json['refunded_money']                 = $this->refundedMoney;
         $json['status']                         = $this->status;
@@ -955,6 +1127,8 @@ class Payment implements \JsonSerializable
         $json['delayed_until']                  = $this->delayedUntil;
         $json['source_type']                    = $this->sourceType;
         $json['card_details']                   = $this->cardDetails;
+        $json['cash_details']                   = $this->cashDetails;
+        $json['external_details']               = $this->externalDetails;
         $json['location_id']                    = $this->locationId;
         $json['order_id']                       = $this->orderId;
         $json['reference_id']                   = $this->referenceId;
@@ -967,8 +1141,10 @@ class Payment implements \JsonSerializable
         $json['shipping_address']               = $this->shippingAddress;
         $json['note']                           = $this->note;
         $json['statement_description_identifier'] = $this->statementDescriptionIdentifier;
+        $json['capabilities']                   = $this->capabilities;
         $json['receipt_number']                 = $this->receiptNumber;
         $json['receipt_url']                    = $this->receiptUrl;
+        $json['version_token']                  = $this->versionToken;
 
         return array_filter($json, function ($val) {
             return $val !== null;

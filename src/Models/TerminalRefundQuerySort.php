@@ -15,8 +15,8 @@ class TerminalRefundQuerySort implements \JsonSerializable
      * Returns Sort Order.
      *
      * The order in which results are listed.
-     * - `ASC` - oldest to newest
-     * - `DESC` - newest to oldest (default).
+     * - `ASC` - Oldest to newest.
+     * - `DESC` - Newest to oldest (default).
      */
     public function getSortOrder(): ?string
     {
@@ -27,8 +27,8 @@ class TerminalRefundQuerySort implements \JsonSerializable
      * Sets Sort Order.
      *
      * The order in which results are listed.
-     * - `ASC` - oldest to newest
-     * - `DESC` - newest to oldest (default).
+     * - `ASC` - Oldest to newest.
+     * - `DESC` - Newest to oldest (default).
      *
      * @maps sort_order
      */

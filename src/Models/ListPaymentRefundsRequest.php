@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Retrieves a list of refunds for the account making the request.
+ * Describes a request to list refunds using
+ * [ListPaymentRefunds](#endpoint-payments-listpaymentrefunds).
  *
  * The maximum results per page is 100.
  */

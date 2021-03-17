@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Reflects the current status of a card payment.
+ * Reflects the current status of a card payment. Contains only non-confidential information.
  */
 class CardPaymentDetails implements \JsonSerializable
 {

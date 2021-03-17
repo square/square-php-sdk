@@ -67,6 +67,16 @@ class TerminalRefund implements \JsonSerializable
     private $updatedAt;
 
     /**
+     * @var string|null
+     */
+    private $appId;
+
+    /**
+     * @var string|null
+     */
+    private $locationId;
+
+    /**
      * @param string $paymentId
      * @param Money $amountMoney
      */
@@ -79,7 +89,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * A unique ID for this `TerminalRefund`
+     * A unique ID for this `TerminalRefund`.
      */
     public function getId(): ?string
     {
@@ -89,7 +99,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * A unique ID for this `TerminalRefund`
+     * A unique ID for this `TerminalRefund`.
      *
      * @maps id
      */
@@ -123,7 +133,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Payment Id.
      *
-     * Unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded.
      */
     public function getPaymentId(): string
     {
@@ -133,7 +143,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Payment Id.
      *
-     * Unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded.
      *
      * @required
      * @maps payment_id
@@ -146,7 +156,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Order Id.
      *
-     * The reference to the Square order id for the payment identified by the `payment_id`.
+     * The reference to the Square order ID for the payment identified by the `payment_id`.
      */
     public function getOrderId(): ?string
     {
@@ -156,7 +166,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Order Id.
      *
-     * The reference to the Square order id for the payment identified by the `payment_id`.
+     * The reference to the Square order ID for the payment identified by the `payment_id`.
      *
      * @maps order_id
      */
@@ -227,7 +237,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Device Id.
      *
-     * The unique Id of the device intended for this `TerminalRefund`.
+     * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      */
     public function getDeviceId(): ?string
@@ -238,7 +248,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Device Id.
      *
-     * The unique Id of the device intended for this `TerminalRefund`.
+     * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      *
      * @maps device_id
@@ -251,11 +261,11 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Deadline Duration.
      *
-     * The duration as an RFC 3339 duration, after which the refund will be automatically canceled.
-     * TerminalRefunds that are `PENDING` will be automatically `CANCELED` and have a cancellation reason
-     * of `TIMED_OUT`
+     * The RFC 3339 duration, after which the refund is automatically canceled.
+     * A `TerminalRefund` that is `PENDING` is automatically `CANCELED` and has a cancellation reason
+     * of `TIMED_OUT`.
      *
-     * Default: 5 minutes from creation
+     * Default: 5 minutes from creation.
      *
      * Maximum: 5 minutes
      */
@@ -267,11 +277,11 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Deadline Duration.
      *
-     * The duration as an RFC 3339 duration, after which the refund will be automatically canceled.
-     * TerminalRefunds that are `PENDING` will be automatically `CANCELED` and have a cancellation reason
-     * of `TIMED_OUT`
+     * The RFC 3339 duration, after which the refund is automatically canceled.
+     * A `TerminalRefund` that is `PENDING` is automatically `CANCELED` and has a cancellation reason
+     * of `TIMED_OUT`.
      *
-     * Default: 5 minutes from creation
+     * Default: 5 minutes from creation.
      *
      * Maximum: 5 minutes
      *
@@ -286,7 +296,7 @@ class TerminalRefund implements \JsonSerializable
      * Returns Status.
      *
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
      */
     public function getStatus(): ?string
     {
@@ -297,7 +307,7 @@ class TerminalRefund implements \JsonSerializable
      * Sets Status.
      *
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
      *
      * @maps status
      */
@@ -327,7 +337,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * The time when the `TerminalRefund` was created as an RFC 3339 timestamp.
+     * The time when the `TerminalRefund` was created, as an RFC 3339 timestamp.
      */
     public function getCreatedAt(): ?string
     {
@@ -337,7 +347,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * The time when the `TerminalRefund` was created as an RFC 3339 timestamp.
+     * The time when the `TerminalRefund` was created, as an RFC 3339 timestamp.
      *
      * @maps created_at
      */
@@ -349,7 +359,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * The time when the `TerminalRefund` was last updated as an RFC 3339 timestamp.
+     * The time when the `TerminalRefund` was last updated, as an RFC 3339 timestamp.
      */
     public function getUpdatedAt(): ?string
     {
@@ -359,13 +369,57 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * The time when the `TerminalRefund` was last updated as an RFC 3339 timestamp.
+     * The time when the `TerminalRefund` was last updated, as an RFC 3339 timestamp.
      *
      * @maps updated_at
      */
     public function setUpdatedAt(?string $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * Returns App Id.
+     *
+     * The ID of the application that created the refund.
+     */
+    public function getAppId(): ?string
+    {
+        return $this->appId;
+    }
+
+    /**
+     * Sets App Id.
+     *
+     * The ID of the application that created the refund.
+     *
+     * @maps app_id
+     */
+    public function setAppId(?string $appId): void
+    {
+        $this->appId = $appId;
+    }
+
+    /**
+     * Returns Location Id.
+     *
+     * The location of the device where the `TerminalRefund` was directed.
+     */
+    public function getLocationId(): ?string
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * Sets Location Id.
+     *
+     * The location of the device where the `TerminalRefund` was directed.
+     *
+     * @maps location_id
+     */
+    public function setLocationId(?string $locationId): void
+    {
+        $this->locationId = $locationId;
     }
 
     /**
@@ -388,6 +442,8 @@ class TerminalRefund implements \JsonSerializable
         $json['cancel_reason']    = $this->cancelReason;
         $json['created_at']       = $this->createdAt;
         $json['updated_at']       = $this->updatedAt;
+        $json['app_id']           = $this->appId;
+        $json['location_id']      = $this->locationId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

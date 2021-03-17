@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the fields that are included in the response body of
- * a request to the [ListPaymentRefunds](#endpoint-refunds-listpaymentrefunds) endpoint.
+ * Defines the response returned by [ListPaymentRefunds](#endpoint-refunds-listpaymentrefunds).
  *
  * Either `errors` or `refunds` is present in a given response (never both).
  */

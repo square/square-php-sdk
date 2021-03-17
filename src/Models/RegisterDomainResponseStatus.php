@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The status of domain registration.
+ * The status of the domain registration.
  */
 class RegisterDomainResponseStatus
 {

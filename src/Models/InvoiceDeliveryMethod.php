@@ -10,7 +10,7 @@ namespace Square\Models;
 class InvoiceDeliveryMethod
 {
     /**
-     * Directs Square to send the invoice, reminders, and receipts to the customer using email.
+     * Directs Square to send invoices, reminders, and receipts to the customer using email.
      */
     public const EMAIL = 'EMAIL';
 
@@ -22,4 +22,12 @@ class InvoiceDeliveryMethod
      * customer to request payment.
      */
     public const SHARE_MANUALLY = 'SHARE_MANUALLY';
+
+    /**
+     * Directs Square to send invoices and receipts to the customer using SMS (text message).
+     *
+     * You cannot set `SMS` as a delivery method using the Invoices API, but you can change an `SMS`
+     * delivery method to `EMAIL` or `SHARE_MANUALLY`.
+     */
+    public const SMS = 'SMS';
 }
