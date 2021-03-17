@@ -19,7 +19,7 @@ class GetTerminalRefundResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -31,7 +31,7 @@ class GetTerminalRefundResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information on errors encountered during the request.
+     * Information about errors encountered during the request.
      *
      * @maps errors
      *

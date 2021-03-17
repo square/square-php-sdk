@@ -43,7 +43,7 @@ class SearchTerminalRefundsRequest implements \JsonSerializable
      * Returns Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
+     * Provide this cursor to retrieve the next set of results for the original query.
      */
     public function getCursor(): ?string
     {
@@ -54,7 +54,7 @@ class SearchTerminalRefundsRequest implements \JsonSerializable
      * Sets Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
+     * Provide this cursor to retrieve the next set of results for the original query.
      *
      * @maps cursor
      */
@@ -66,7 +66,7 @@ class SearchTerminalRefundsRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * Limit the number of results returned for a single request.
+     * Limits the number of results returned for a single request.
      */
     public function getLimit(): ?int
     {
@@ -76,7 +76,7 @@ class SearchTerminalRefundsRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * Limit the number of results returned for a single request.
+     * Limits the number of results returned for a single request.
      *
      * @maps limit
      */

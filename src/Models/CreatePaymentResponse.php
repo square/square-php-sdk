@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the fields that are included in the response body of
- * a request to the [CreatePayment](#endpoint-payments-createpayment) endpoint.
+ * Defines the response returned by [CreatePayment](#endpoint-payments-createpayment).
  *
- * Note: If there are errors processing the request, the payment field might not be
+ * If there are errors processing the request, the `payment` field might not be
  * present, or it might be present with a status of `FAILED`.
  */
 class CreatePaymentResponse implements \JsonSerializable

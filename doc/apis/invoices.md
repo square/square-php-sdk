@@ -108,7 +108,7 @@ $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
 $body_invoice_paymentRequests[0]->setUid('uid4');
-$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SHARE_MANUALLY);
+$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SMS_CHARGE_CARD_ON_FILE);
 $body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::BALANCE);
 $body_invoice_paymentRequests[0]->setDueDate('2030-01-24');
 $body_invoice_paymentRequests[0]->setFixedAmountRequestedMoney(new Models\Money);
@@ -133,6 +133,19 @@ $body_invoice->setInvoiceNumber('inv-100');
 $body_invoice->setTitle('Event Planning Services');
 $body_invoice->setDescription('We appreciate your business!');
 $body_invoice->setScheduledAt('2030-01-13T10:00:00Z');
+$body_invoice_customFields = [];
+
+$body_invoice_customFields[0] = new Models\InvoiceCustomField;
+$body_invoice_customFields[0]->setLabel('Event Reference Number');
+$body_invoice_customFields[0]->setValue('Ref. #1234');
+$body_invoice_customFields[0]->setPlacement(Models\InvoiceCustomFieldPlacement::ABOVE_LINE_ITEMS);
+
+$body_invoice_customFields[1] = new Models\InvoiceCustomField;
+$body_invoice_customFields[1]->setLabel('Terms of Service');
+$body_invoice_customFields[1]->setValue('The terms of service are...');
+$body_invoice_customFields[1]->setPlacement(Models\InvoiceCustomFieldPlacement::BELOW_LINE_ITEMS);
+$body_invoice->setCustomFields($body_invoice_customFields);
+
 $body = new Models\CreateInvoiceRequest(
     $body_invoice
 );
@@ -336,7 +349,7 @@ $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
 $body_invoice_paymentRequests[0]->setUid('2da7964f-f3d2-4f43-81e8-5aa220bf3355');
-$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SHARE_MANUALLY);
+$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SMS_CHARGE_CARD_ON_FILE);
 $body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::DEPOSIT);
 $body_invoice_paymentRequests[0]->setDueDate('due_date2');
 $body_invoice_paymentRequests[0]->setFixedAmountRequestedMoney(new Models\Money);

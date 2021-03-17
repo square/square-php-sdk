@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Reflects the current status of a balance payment.
+ * Reflects the current status of a balance payment. Contains only non-confidential information.
  */
 class BalancePaymentDetails implements \JsonSerializable
 {

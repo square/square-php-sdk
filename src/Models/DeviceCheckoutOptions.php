@@ -59,7 +59,7 @@ class DeviceCheckoutOptions implements \JsonSerializable
     /**
      * Returns Skip Receipt Screen.
      *
-     * Instruct the device to skip the receipt screen. Defaults to false.
+     * Instructs the device to skip the receipt screen. Defaults to false.
      */
     public function getSkipReceiptScreen(): ?bool
     {
@@ -69,7 +69,7 @@ class DeviceCheckoutOptions implements \JsonSerializable
     /**
      * Sets Skip Receipt Screen.
      *
-     * Instruct the device to skip the receipt screen. Defaults to false.
+     * Instructs the device to skip the receipt screen. Defaults to false.
      *
      * @maps skip_receipt_screen
      */

@@ -22,7 +22,8 @@ $terminalApi = $client->getTerminalApi();
 
 # Create Terminal Checkout
 
-Creates a new Terminal checkout request and sends it to the specified device to take a payment for the requested amount.
+Creates a Terminal checkout request and sends it to the specified device to take a payment
+for the requested amount.
 
 ```php
 function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiResponse
@@ -134,7 +135,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Terminal Checkout
 
-Retrieves a Terminal checkout request by checkout_id.
+Retrieves a Terminal checkout request by `checkout_id`.
 
 ```php
 function getTerminalCheckout(string $checkoutId): ApiResponse
@@ -144,7 +145,7 @@ function getTerminalCheckout(string $checkoutId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkoutId` | `string` | Template, Required | Unique ID for the desired `TerminalCheckout` |
+| `checkoutId` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
@@ -181,7 +182,7 @@ function cancelTerminalCheckout(string $checkoutId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `checkoutId` | `string` | Template, Required | Unique ID for the desired `TerminalCheckout` |
+| `checkoutId` | `string` | Template, Required | The unique ID for the desired `TerminalCheckout`. |
 
 ## Response Type
 
@@ -261,7 +262,7 @@ if ($apiResponse->isSuccess()) {
 
 # Search Terminal Refunds
 
-Retrieves a filtered list of Terminal Interac refund requests created by the seller making the request.
+Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request.
 
 ```php
 function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
@@ -309,7 +310,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Terminal Refund
 
-Retrieves an Interac terminal refund object by ID.
+Retrieves an Interac Terminal refund object by ID.
 
 ```php
 function getTerminalRefund(string $terminalRefundId): ApiResponse
@@ -319,7 +320,7 @@ function getTerminalRefund(string $terminalRefundId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminalRefundId` | `string` | Template, Required | Unique ID for the desired `TerminalRefund` |
+| `terminalRefundId` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 
@@ -346,7 +347,7 @@ if ($apiResponse->isSuccess()) {
 
 # Cancel Terminal Refund
 
-Cancels an Interac terminal refund request by refund request ID if the status of the request permits it.
+Cancels an Interac Terminal refund request by refund request ID if the status of the request permits it.
 
 ```php
 function cancelTerminalRefund(string $terminalRefundId): ApiResponse
@@ -356,7 +357,7 @@ function cancelTerminalRefund(string $terminalRefundId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `terminalRefundId` | `string` | Template, Required | Unique ID for the desired `TerminalRefund` |
+| `terminalRefundId` | `string` | Template, Required | The unique ID for the desired `TerminalRefund`. |
 
 ## Response Type
 

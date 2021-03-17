@@ -8,7 +8,7 @@ namespace Square\Models;
  * Defines the fields that are included in the response body of
  * a request to the [RegisterDomain](#endpoint-registerdomain) endpoint.
  *
- * Either `errors` or `status` will be present in a given response (never both).
+ * Either `errors` or `status` are present in a given response (never both).
  */
 class RegisterDomainResponse implements \JsonSerializable
 {
@@ -51,7 +51,7 @@ class RegisterDomainResponse implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * The status of domain registration.
+     * The status of the domain registration.
      */
     public function getStatus(): ?string
     {
@@ -61,7 +61,7 @@ class RegisterDomainResponse implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * The status of domain registration.
+     * The status of the domain registration.
      *
      * @maps status
      */
