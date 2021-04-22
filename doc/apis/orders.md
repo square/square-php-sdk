@@ -21,13 +21,14 @@ $ordersApi = $client->getOrdersApi();
 
 # Create Order
 
-Creates a new [Order](#type-order) which can include information on products for
+Creates a new [Order](/doc/models/order.md) which can include information on products for
 purchase and settings to apply to the purchase.
 
-To pay for a created order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
+To pay for a created order, please refer to the
+[Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders)
 guide.
 
-You can modify open orders using the [UpdateOrder](#endpoint-orders-updateorder) endpoint.
+You can modify open orders using the [UpdateOrder](/doc/apis/orders.md#update-order) endpoint.
 
 ```php
 function createOrder(CreateOrderRequest $body): ApiResponse
@@ -191,7 +192,7 @@ if ($apiResponse->isSuccess()) {
 
 # Batch Retrieve Orders
 
-Retrieves a set of [Order](#type-order)s by their IDs.
+Retrieves a set of [Order](/doc/models/order.md)s by their IDs.
 
 If a given Order ID does not exist, the ID is ignored instead of generating an error.
 
@@ -234,7 +235,7 @@ if ($apiResponse->isSuccess()) {
 
 # Calculate Order
 
-Calculates an [Order](#type-order).
+Enables applications to preview order pricing without creating an order.
 
 ```php
 function calculateOrder(CalculateOrderRequest $body): ApiResponse
@@ -375,13 +376,13 @@ returns, and exchanges regardless of how or when they entered the Square
 Ecosystem (e.g. Point of Sale, Invoices, Connect APIs, etc).
 
 SearchOrders requests need to specify which locations to search and define a
-[`SearchOrdersQuery`](#type-searchordersquery) object which controls
+[`SearchOrdersQuery`](/doc/models/search-orders-query.md) object which controls
 how to sort or filter the results. Your SearchOrdersQuery can:
 
 Set filter criteria.
 Set sort order.
 Determine whether to return results as complete Order objects, or as
-[OrderEntry](#type-orderentry) objects.
+[OrderEntry](/doc/models/order-entry.md) objects.
 
 Note that details for orders processed with Square Point of Sale while in
 offline mode may not be transmitted to Square for up to 72 hours. Offline
@@ -455,7 +456,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Order
 
-Retrieves an [Order](#type-order) by ID.
+Retrieves an [Order](/doc/models/order.md) by ID.
 
 ```php
 function retrieveOrder(string $orderId): ApiResponse
@@ -492,7 +493,7 @@ if ($apiResponse->isSuccess()) {
 
 # Update Order
 
-Updates an open [Order](#type-order) by adding, replacing, or deleting
+Updates an open [Order](/doc/models/order.md) by adding, replacing, or deleting
 fields. Orders with a `COMPLETED` or `CANCELED` state cannot be updated.
 
 An UpdateOrder request requires the following:
@@ -505,7 +506,8 @@ An UpdateOrder request requires the following:
 - If deleting fields, the [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-notation)
   identifying fields to clear.
 
-To pay for an order, please refer to the [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
+To pay for an order, please refer to the
+[Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders) guide.
 
 ```php
 function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
@@ -602,7 +604,7 @@ if ($apiResponse->isSuccess()) {
 
 # Pay Order
 
-Pay for an [order](#type-order) using one or more approved [payments](#type-payment),
+Pay for an [order](/doc/models/order.md) using one or more approved [payments](/doc/models/payment.md),
 or settle an order with a total of `0`.
 
 The total of the `payment_ids` listed in the request must be equal to the order
@@ -611,7 +613,7 @@ array of `payment_ids` in the request.
 
 To be used with PayOrder, a payment must:
 
-- Reference the order by specifying the `order_id` when [creating the payment](#endpoint-payments-createpayment).
+- Reference the order by specifying the `order_id` when [creating the payment](/doc/apis/payments.md#create-payment).
   Any approved payments that reference the same `order_id` not specified in the
   `payment_ids` will be canceled.
 - Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-capture).

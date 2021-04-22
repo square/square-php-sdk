@@ -6,9 +6,9 @@ namespace Square\Models;
 
 /**
  * Defines the parameters that can be included in the body of
- * a request to the [Charge](#endpoint-charge) endpoint.
+ * a request to the [Charge]($e/Transactions/Charge) endpoint.
  *
- * Deprecated - recommend using [CreatePayment](#endpoint-payments-createpayment)
+ * Deprecated - recommend using [CreatePayment]($e/Payments/CreatePayment)
  */
 class ChargeRequest implements \JsonSerializable
 {
@@ -102,7 +102,8 @@ class ChargeRequest implements \JsonSerializable
      * you can reattempt it with the same idempotency key without
      * worrying about double-charging the buyer.
      *
-     * See [Idempotency keys](#idempotencykeys) for more information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/working-with-apis/idempotency) for more
+     * information.
      */
     public function getIdempotencyKey(): string
     {
@@ -119,7 +120,8 @@ class ChargeRequest implements \JsonSerializable
      * you can reattempt it with the same idempotency key without
      * worrying about double-charging the buyer.
      *
-     * See [Idempotency keys](#idempotencykeys) for more information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/working-with-apis/idempotency) for more
+     * information.
      *
      * @required
      * @maps idempotency_key
@@ -237,8 +239,8 @@ class ChargeRequest implements \JsonSerializable
      *
      * If `true`, the request will only perform an Auth on the provided
      * card. You can then later perform either a Capture (with the
-     * [CaptureTransaction](#endpoint-capturetransaction) endpoint) or a Void
-     * (with the [VoidTransaction](#endpoint-voidtransaction) endpoint).
+     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
      *
      * Default value: `false`
      */
@@ -252,8 +254,8 @@ class ChargeRequest implements \JsonSerializable
      *
      * If `true`, the request will only perform an Auth on the provided
      * card. You can then later perform either a Capture (with the
-     * [CaptureTransaction](#endpoint-capturetransaction) endpoint) or a Void
-     * (with the [VoidTransaction](#endpoint-voidtransaction) endpoint).
+     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
      *
      * Default value: `false`
      *

@@ -4,12 +4,20 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-class OnboardAppointmentsResponse implements \JsonSerializable
+/**
+ * A response that contains the loyalty program.
+ */
+class RetrieveLoyaltyProgramResponse implements \JsonSerializable
 {
     /**
      * @var Error[]|null
      */
     private $errors;
+
+    /**
+     * @var LoyaltyProgram|null
+     */
+    private $program;
 
     /**
      * Returns Errors.
@@ -38,6 +46,24 @@ class OnboardAppointmentsResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Program.
+     */
+    public function getProgram(): ?LoyaltyProgram
+    {
+        return $this->program;
+    }
+
+    /**
+     * Sets Program.
+     *
+     * @maps program
+     */
+    public function setProgram(?LoyaltyProgram $program): void
+    {
+        $this->program = $program;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -45,7 +71,8 @@ class OnboardAppointmentsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
+        $json['errors']  = $this->errors;
+        $json['program'] = $this->program;
 
         return array_filter($json, function ($val) {
             return $val !== null;

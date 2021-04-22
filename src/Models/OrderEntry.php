@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A lightweight description of an [Order](#type-order) that is returned when `returned_entries` is
- * true on a
- * [SearchOrderRequest](#type-searchorderrequest)
+ * A lightweight description of an [Order]($m/Order) that is returned when
+ * `returned_entries` is true on a [SearchOrdersRequest]($e/Orders/SearchOrders)
  */
 class OrderEntry implements \JsonSerializable
 {

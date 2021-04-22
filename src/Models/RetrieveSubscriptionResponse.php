@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response from the
- * [RetrieveSubscription](#endpoint-subscriptions-retrievesubscription) endpoint.
+ * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) endpoint.
  */
 class RetrieveSubscriptionResponse implements \JsonSerializable
 {

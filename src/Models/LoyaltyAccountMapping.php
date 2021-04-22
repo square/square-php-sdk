@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Associates a loyalty account with the buyer's phone number.
- * For more information, see
+ * Represents the mapping that associates a loyalty account with a buyer.
+ *
+ * Currently, a loyalty account can only be mapped to a buyer by phone number. For more information,
+ * see
  * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
  */
 class LoyaltyAccountMapping implements \JsonSerializable
@@ -17,12 +19,12 @@ class LoyaltyAccountMapping implements \JsonSerializable
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $type;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $value;
 
@@ -32,14 +34,9 @@ class LoyaltyAccountMapping implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @param string $type
-     * @param string $value
+     * @var string|null
      */
-    public function __construct(string $type, string $value)
-    {
-        $this->type = $type;
-        $this->value = $value;
-    }
+    private $phoneNumber;
 
     /**
      * Returns Id.
@@ -68,7 +65,7 @@ class LoyaltyAccountMapping implements \JsonSerializable
      *
      * The type of mapping.
      */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }
@@ -78,10 +75,9 @@ class LoyaltyAccountMapping implements \JsonSerializable
      *
      * The type of mapping.
      *
-     * @required
      * @maps type
      */
-    public function setType(string $type): void
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
@@ -89,9 +85,12 @@ class LoyaltyAccountMapping implements \JsonSerializable
     /**
      * Returns Value.
      *
-     * The phone number, in E.164 format. For example, "+14155551111".
+     * The mapping value, which is used with `type` to represent a phone number mapping. The value can be a
+     * phone number in E.164 format. For example, "+14155551111".
+     *
+     * When specifying a mapping, the `phone_number` field is preferred to using `type` and `value`.
      */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->value;
     }
@@ -99,12 +98,14 @@ class LoyaltyAccountMapping implements \JsonSerializable
     /**
      * Sets Value.
      *
-     * The phone number, in E.164 format. For example, "+14155551111".
+     * The mapping value, which is used with `type` to represent a phone number mapping. The value can be a
+     * phone number in E.164 format. For example, "+14155551111".
      *
-     * @required
+     * When specifying a mapping, the `phone_number` field is preferred to using `type` and `value`.
+     *
      * @maps value
      */
-    public function setValue(string $value): void
+    public function setValue(?string $value): void
     {
         $this->value = $value;
     }
@@ -132,6 +133,32 @@ class LoyaltyAccountMapping implements \JsonSerializable
     }
 
     /**
+     * Returns Phone Number.
+     *
+     * The phone number of the buyer, in E.164 format. For example, "+14155551111".
+     *
+     * When specifying a mapping, this `phone_number` field is preferred to using `type` and `value`.
+     */
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * Sets Phone Number.
+     *
+     * The phone number of the buyer, in E.164 format. For example, "+14155551111".
+     *
+     * When specifying a mapping, this `phone_number` field is preferred to using `type` and `value`.
+     *
+     * @maps phone_number
+     */
+    public function setPhoneNumber(?string $phoneNumber): void
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -139,10 +166,11 @@ class LoyaltyAccountMapping implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']        = $this->id;
-        $json['type']      = $this->type;
-        $json['value']     = $this->value;
-        $json['created_at'] = $this->createdAt;
+        $json['id']          = $this->id;
+        $json['type']        = $this->type;
+        $json['value']       = $this->value;
+        $json['created_at']  = $this->createdAt;
+        $json['phone_number'] = $this->phoneNumber;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -105,7 +105,7 @@ class TeamApi extends BaseApi
      * will contain explicit error information for this particular create.
      *
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
-     * com/docs/team/troubleshooting#bulkcreateteammembers).
+     * com/docs/team/troubleshooting#bulk-create-team-members).
      *
      * @param \Square\Models\BulkCreateTeamMembersRequest $body An object containing the fields to
      *                                                          POST for the request.
@@ -180,7 +180,7 @@ class TeamApi extends BaseApi
      * of the response
      * will contain explicit error information for this particular update.
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
-     * com/docs/team/troubleshooting#bulkupdateteammembers).
+     * com/docs/team/troubleshooting#bulk-update-team-members).
      *
      * @param \Square\Models\BulkUpdateTeamMembersRequest $body An object containing the fields to
      *                                                          POST for the request.
@@ -319,7 +319,7 @@ class TeamApi extends BaseApi
     /**
      * Retrieve a `TeamMember` object for the given `TeamMember.id`.
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
-     * com/docs/team/troubleshooting#retrieveteammember).
+     * com/docs/team/troubleshooting#retrieve-a-team-member).
      *
      * @param string $teamMemberId The ID of the team member to retrieve.
      *
@@ -335,7 +335,7 @@ class TeamApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'team_member_id' => $teamMemberId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -385,7 +385,7 @@ class TeamApi extends BaseApi
     /**
      * Updates a single `TeamMember` object. The `TeamMember` will be returned on successful updates.
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
-     * com/docs/team/troubleshooting#updateteammember).
+     * com/docs/team/troubleshooting#update-a-team-member).
      *
      * @param string $teamMemberId The ID of the team member to update.
      * @param \Square\Models\UpdateTeamMemberRequest $body An object containing the fields to POST
@@ -406,7 +406,7 @@ class TeamApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'team_member_id' => $teamMemberId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -477,7 +477,7 @@ class TeamApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'team_member_id' => $teamMemberId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -530,7 +530,7 @@ class TeamApi extends BaseApi
      * it fully replaces the `WageSetting` object for the team member.
      * The `WageSetting` will be returned upon successful update.
      * Learn about [Troubleshooting the Teams API](https://developer.squareup.
-     * com/docs/team/troubleshooting#updatewagesetting).
+     * com/docs/team/troubleshooting#create-or-update-a-wage-setting).
      *
      * @param string $teamMemberId The ID of the team member to update the `WageSetting` object
      *                             for.
@@ -552,7 +552,7 @@ class TeamApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'team_member_id' => $teamMemberId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

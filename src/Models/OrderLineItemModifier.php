@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A [CatalogModifier](#type-catalogmodifier).
+ * A [CatalogModifier]($m/CatalogModifier).
  */
 class OrderLineItemModifier implements \JsonSerializable
 {
@@ -59,7 +59,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier](#type-catalogmodifier).
+     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -69,7 +69,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier](#type-catalogmodifier).
+     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
      *
      * @maps catalog_object_id
      */

@@ -30,6 +30,11 @@ class SubscriptionEvent implements \JsonSerializable
     private $planId;
 
     /**
+     * @var SubscriptionEventInfo|null
+     */
+    private $info;
+
+    /**
      * @param string $id
      * @param string $subscriptionEventType
      * @param string $effectiveDate
@@ -138,6 +143,28 @@ class SubscriptionEvent implements \JsonSerializable
     }
 
     /**
+     * Returns Info.
+     *
+     * Provides information about the subscription event.
+     */
+    public function getInfo(): ?SubscriptionEventInfo
+    {
+        return $this->info;
+    }
+
+    /**
+     * Sets Info.
+     *
+     * Provides information about the subscription event.
+     *
+     * @maps info
+     */
+    public function setInfo(?SubscriptionEventInfo $info): void
+    {
+        $this->info = $info;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -149,6 +176,7 @@ class SubscriptionEvent implements \JsonSerializable
         $json['subscription_event_type'] = $this->subscriptionEventType;
         $json['effective_date']        = $this->effectiveDate;
         $json['plan_id']               = $this->planId;
+        $json['info']                  = $this->info;
 
         return array_filter($json, function ($val) {
             return $val !== null;

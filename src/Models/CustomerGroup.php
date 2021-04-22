@@ -7,8 +7,8 @@ namespace Square\Models;
 /**
  * Represents a group of customer profiles.
  *
- * Customer groups can be created, modified, and have their membership defined either via
- * the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
+ * Customer groups can be created, be modified, and have their membership defined using
+ * the Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
  */
 class CustomerGroup implements \JsonSerializable
 {
@@ -43,7 +43,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * Unique Square-generated ID for the customer group.
+     * A unique Square-generated ID for the customer group.
      */
     public function getId(): ?string
     {
@@ -53,7 +53,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * Unique Square-generated ID for the customer group.
+     * A unique Square-generated ID for the customer group.
      *
      * @maps id
      */
@@ -65,7 +65,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * Name of the customer group.
+     * The name of the customer group.
      */
     public function getName(): string
     {
@@ -75,7 +75,7 @@ class CustomerGroup implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * Name of the customer group.
+     * The name of the customer group.
      *
      * @required
      * @maps name

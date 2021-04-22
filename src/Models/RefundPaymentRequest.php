@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Describes a request to refund a payment using [RefundPayment](#endpoint-payments-refundpayment).
+ * Describes a request to refund a payment using [RefundPayment]($e/Refunds/RefundPayment).
  */
 class RefundPaymentRequest implements \JsonSerializable
 {

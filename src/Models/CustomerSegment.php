@@ -7,8 +7,8 @@ namespace Square\Models;
 /**
  * Represents a group of customer profiles that match one or more predefined filter criteria.
  *
- * Segments (also known as Smart Groups) are defined and created within Customer Directory in the
- * Square Dashboard or Point of Sale.
+ * Segments (also known as Smart Groups) are defined and created within the Customer Directory in the
+ * Square Seller Dashboard or Point of Sale.
  */
 class CustomerSegment implements \JsonSerializable
 {
@@ -43,7 +43,7 @@ class CustomerSegment implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * Unique Square-generated ID for the segment.
+     * A unique Square-generated ID for the segment.
      */
     public function getId(): ?string
     {
@@ -53,7 +53,7 @@ class CustomerSegment implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * Unique Square-generated ID for the segment.
+     * A unique Square-generated ID for the segment.
      *
      * @maps id
      */
@@ -65,7 +65,7 @@ class CustomerSegment implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * Name of the segment.
+     * The name of the segment.
      */
     public function getName(): string
     {
@@ -75,7 +75,7 @@ class CustomerSegment implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * Name of the segment.
+     * The name of the segment.
      *
      * @required
      * @maps name

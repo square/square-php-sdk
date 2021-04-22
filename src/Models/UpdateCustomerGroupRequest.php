@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the body parameters that can be provided in a request to the
- * [UpdateCustomerGroup](#endpoint-updatecustomergroup) endpoint.
+ * Defines the body parameters that can be included in a request to the
+ * [UpdateCustomerGroup]($e/CustomerGroups/UpdateCustomerGroup) endpoint.
  */
 class UpdateCustomerGroupRequest implements \JsonSerializable
 {
@@ -28,8 +28,8 @@ class UpdateCustomerGroupRequest implements \JsonSerializable
      *
      * Represents a group of customer profiles.
      *
-     * Customer groups can be created, modified, and have their membership defined either via
-     * the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
+     * Customer groups can be created, be modified, and have their membership defined using
+     * the Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
      */
     public function getGroup(): CustomerGroup
     {
@@ -41,8 +41,8 @@ class UpdateCustomerGroupRequest implements \JsonSerializable
      *
      * Represents a group of customer profiles.
      *
-     * Customer groups can be created, modified, and have their membership defined either via
-     * the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
+     * Customer groups can be created, be modified, and have their membership defined using
+     * the Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
      *
      * @required
      * @maps group

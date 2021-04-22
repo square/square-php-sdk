@@ -21,7 +21,7 @@ $locationsApi = $client->getLocationsApi();
 Provides information of all locations of a business.
 
 Many Square API endpoints require a `location_id` parameter.
-The `id` field of the [`Location`](#type-location) objects returned by this
+The `id` field of the [`Location`](/doc/models/location.md) objects returned by this
 endpoint correspond to that `location_id` parameter.
 
 ```php
@@ -83,7 +83,7 @@ $body->getLocation()->getAddress()->setSublocality('sublocality6');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
 $body->getLocation()->getAddress()->setPostalCode('30309');
 $body->getLocation()->setTimezone('timezone0');
-$body->getLocation()->setCapabilities([Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING]);
+$body->getLocation()->setCapabilities([Models\LocationCapability::AUTOMATIC_TRANSFERS, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::AUTOMATIC_TRANSFERS]);
 $body->getLocation()->setDescription('My new location.');
 $body->getLocation()->setFacebookUrl('null');
 
@@ -176,7 +176,7 @@ $body->getLocation()->getAddress()->setSublocality('sublocality6');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
 $body->getLocation()->getAddress()->setPostalCode('30309');
 $body->getLocation()->setTimezone('timezone0');
-$body->getLocation()->setCapabilities([Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::CREDIT_CARD_PROCESSING]);
+$body->getLocation()->setCapabilities([Models\LocationCapability::AUTOMATIC_TRANSFERS, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::AUTOMATIC_TRANSFERS]);
 $body->getLocation()->setBusinessHours(new Models\BusinessHours);
 $body_location_businessHours_periods = [];
 

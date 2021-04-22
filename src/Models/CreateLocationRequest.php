@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Request object for the [CreateLocation](#endpoint-createlocation) endpoint.
+ * Request object for the [CreateLocation]($e/Locations/CreateLocation) endpoint.
  */
 class CreateLocationRequest implements \JsonSerializable
 {

@@ -17,6 +17,7 @@ $loyaltyApi = $client->getLoyaltyApi();
 * [Adjust Loyalty Points](/doc/apis/loyalty.md#adjust-loyalty-points)
 * [Search Loyalty Events](/doc/apis/loyalty.md#search-loyalty-events)
 * [List Loyalty Programs](/doc/apis/loyalty.md#list-loyalty-programs)
+* [Retrieve Loyalty Program](/doc/apis/loyalty.md#retrieve-loyalty-program)
 * [Calculate Loyalty Points](/doc/apis/loyalty.md#calculate-loyalty-points)
 * [Create Loyalty Reward](/doc/apis/loyalty.md#create-loyalty-reward)
 * [Search Loyalty Rewards](/doc/apis/loyalty.md#search-loyalty-rewards)
@@ -27,7 +28,7 @@ $loyaltyApi = $client->getLoyaltyApi();
 
 # Create Loyalty Account
 
-Creates a loyalty account.
+Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and either the `mapping` field (preferred) or the `mappings` field.
 
 ```php
 function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
@@ -46,27 +47,30 @@ function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_loyaltyAccount_mappings = [];
-
-$body_loyaltyAccount_mappings_0_type = 'PHONE';
-$body_loyaltyAccount_mappings_0_value = '+14155551234';
-$body_loyaltyAccount_mappings[0] = new Models\LoyaltyAccountMapping(
-    $body_loyaltyAccount_mappings_0_type,
-    $body_loyaltyAccount_mappings_0_value
-);
-$body_loyaltyAccount_mappings[0]->setId('id0');
-$body_loyaltyAccount_mappings[0]->setCreatedAt('created_at8');
-
 $body_loyaltyAccount_programId = 'd619f755-2d17-41f3-990d-c04ecedd64dd';
 $body_loyaltyAccount = new Models\LoyaltyAccount(
-    $body_loyaltyAccount_mappings,
     $body_loyaltyAccount_programId
 );
 $body_loyaltyAccount->setId('id2');
+$body_loyaltyAccount_mappings = [];
+
+$body_loyaltyAccount_mappings[0] = new Models\LoyaltyAccountMapping;
+$body_loyaltyAccount_mappings[0]->setId('id0');
+$body_loyaltyAccount_mappings[0]->setType(Models\LoyaltyAccountMappingType::PHONE);
+$body_loyaltyAccount_mappings[0]->setValue('value2');
+$body_loyaltyAccount_mappings[0]->setCreatedAt('created_at8');
+$body_loyaltyAccount_mappings[0]->setPhoneNumber('phone_number8');
+$body_loyaltyAccount->setMappings($body_loyaltyAccount_mappings);
+
 $body_loyaltyAccount->setBalance(14);
 $body_loyaltyAccount->setLifetimePoints(38);
 $body_loyaltyAccount->setCustomerId('customer_id0');
-$body_loyaltyAccount->setEnrolledAt('enrolled_at2');
+$body_loyaltyAccount->setMapping(new Models\LoyaltyAccountMapping);
+$body_loyaltyAccount->getMapping()->setId('id6');
+$body_loyaltyAccount->getMapping()->setType(Models\LoyaltyAccountMappingType::PHONE);
+$body_loyaltyAccount->getMapping()->setValue('value8');
+$body_loyaltyAccount->getMapping()->setCreatedAt('created_at4');
+$body_loyaltyAccount->getMapping()->setPhoneNumber('+14155551234');
 $body_idempotencyKey = 'ec78c477-b1c3-4899-a209-a4e71337c996';
 $body = new Models\CreateLoyaltyAccountRequest(
     $body_loyaltyAccount,
@@ -116,14 +120,12 @@ $body = new Models\SearchLoyaltyAccountsRequest;
 $body->setQuery(new Models\SearchLoyaltyAccountsRequestLoyaltyAccountQuery);
 $body_query_mappings = [];
 
-$body_query_mappings_0_type = 'PHONE';
-$body_query_mappings_0_value = '+14155551234';
-$body_query_mappings[0] = new Models\LoyaltyAccountMapping(
-    $body_query_mappings_0_type,
-    $body_query_mappings_0_value
-);
+$body_query_mappings[0] = new Models\LoyaltyAccountMapping;
 $body_query_mappings[0]->setId('id4');
+$body_query_mappings[0]->setType(Models\LoyaltyAccountMappingType::PHONE);
+$body_query_mappings[0]->setValue('value6');
 $body_query_mappings[0]->setCreatedAt('created_at8');
+$body_query_mappings[0]->setPhoneNumber('+14155551234');
 $body->getQuery()->setMappings($body_query_mappings);
 
 $body->getQuery()->setCustomerIds(['customer_ids5', 'customer_ids4']);
@@ -156,7 +158,7 @@ function retrieveLoyaltyAccount(string $accountId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The ID of the [loyalty account](#type-LoyaltyAccount) to retrieve. |
+| `accountId` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) to retrieve. |
 
 ## Response Type
 
@@ -190,7 +192,7 @@ Adds points to a loyalty account.
 - If you are not using the Orders API to manage orders,
   you first perform a client-side computation to compute the points.  
   For spend-based and visit-based programs, you can call
-  [CalculateLoyaltyPoints](#endpoint-Loyalty-CalculateLoyaltyPoints) to compute the points. For more information,
+  [CalculateLoyaltyPoints](/doc/apis/loyalty.md#calculate-loyalty-points) to compute the points. For more information,
   see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
   You then provide the points in a request to this endpoint.
 
@@ -202,7 +204,7 @@ function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsReque
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The [loyalty account](#type-LoyaltyAccount) ID to which to add the points. |
+| `accountId` | `string` | Template, Required | The [loyalty account](/doc/models/loyalty-account.md) ID to which to add the points. |
 | `body` | [`AccumulateLoyaltyPointsRequest`](/doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -244,7 +246,7 @@ if ($apiResponse->isSuccess()) {
 Adds points to or subtracts points from a buyer's account.
 
 Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call
-[AccumulateLoyaltyPoints](#endpoint-Loyalty-AccumulateLoyaltyPoints)
+[AccumulateLoyaltyPoints](/doc/apis/loyalty.md#accumulate-loyalty-points)
 to add points when a buyer pays for the purchase.
 
 ```php
@@ -255,7 +257,7 @@ function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The ID of the [loyalty account](#type-LoyaltyAccount) in which to adjust the points. |
+| `accountId` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) in which to adjust the points. |
 | `body` | [`AdjustLoyaltyPointsRequest`](/doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -266,13 +268,13 @@ function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body
 
 ```php
 $accountId = 'account_id2';
-$body_idempotencyKey = 'idempotency_key2';
-$body_adjustPoints_points = 112;
+$body_idempotencyKey = 'bc29a517-3dc9-450e-aa76-fae39ee849d1';
+$body_adjustPoints_points = 10;
 $body_adjustPoints = new Models\LoyaltyEventAdjustPoints(
     $body_adjustPoints_points
 );
 $body_adjustPoints->setLoyaltyProgramId('loyalty_program_id4');
-$body_adjustPoints->setReason('reason0');
+$body_adjustPoints->setReason('Complimentary points');
 $body = new Models\AdjustLoyaltyPointsRequest(
     $body_idempotencyKey,
     $body_adjustPoints
@@ -300,6 +302,8 @@ A Square loyalty program maintains a ledger of events that occur during the life
 buyer's loyalty account. Each change in the point balance
 (for example, points earned, points redeemed, and points expired) is
 recorded in the ledger. Using this endpoint, you can search the ledger for events.
+
+Search results are sorted by `created_at` in descending order.
 
 ```php
 function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
@@ -390,6 +394,45 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
+# Retrieve Loyalty Program
+
+Retrieves the loyalty program in a seller's account, specified by the program ID or the keyword `main`.
+
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+
+```php
+function retrieveLoyaltyProgram(string $programId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `programId` | `string` | Template, Required | The ID of the loyalty program or the keyword `main`. Either value can be used to retrieve the single loyalty program that belongs to the seller. |
+
+## Response Type
+
+[`RetrieveLoyaltyProgramResponse`](/doc/models/retrieve-loyalty-program-response.md)
+
+## Example Usage
+
+```php
+$programId = 'program_id0';
+
+$apiResponse = $loyaltyApi->retrieveLoyaltyProgram($programId);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveLoyaltyProgramResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
 # Calculate Loyalty Points
 
 Calculates the points a purchase earns.
@@ -410,7 +453,7 @@ function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `programId` | `string` | Template, Required | The [loyalty program](#type-LoyaltyProgram) ID, which defines the rules for accruing points. |
+| `programId` | `string` | Template, Required | The [loyalty program](/doc/models/loyalty-program.md) ID, which defines the rules for accruing points. |
 | `body` | [`CalculateLoyaltyPointsRequest`](/doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -507,7 +550,9 @@ Searches for loyalty rewards in a loyalty account.
 In the current implementation, the endpoint supports search by the reward `status`.
 
 If you know a reward ID, use the
-[RetrieveLoyaltyReward](#endpoint-Loyalty-RetrieveLoyaltyReward) endpoint.
+[RetrieveLoyaltyReward](/doc/apis/loyalty.md#retrieve-loyalty-reward) endpoint.
+
+Search results are sorted by `updated_at` in descending order.
 
 ```php
 function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
@@ -555,7 +600,7 @@ Deletes a loyalty reward by doing the following:
 
 - Returns the loyalty points back to the loyalty account.
 - If an order ID was specified when the reward was created
-  (see [CreateLoyaltyReward](#endpoint-Loyalty-CreateLoyaltyReward)),
+  (see [CreateLoyaltyReward](/doc/apis/loyalty.md#create-loyalty-reward)),
   it updates the order by removing the reward and related
   discounts.
 
@@ -569,7 +614,7 @@ function deleteLoyaltyReward(string $rewardId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to delete. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to delete. |
 
 ## Response Type
 
@@ -606,7 +651,7 @@ function retrieveLoyaltyReward(string $rewardId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to retrieve. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to retrieve. |
 
 ## Response Type
 
@@ -653,7 +698,7 @@ function redeemLoyaltyReward(string $rewardId, RedeemLoyaltyRewardRequest $body)
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](#type-LoyaltyReward) to redeem. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to redeem. |
 | `body` | [`RedeemLoyaltyRewardRequest`](/doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type

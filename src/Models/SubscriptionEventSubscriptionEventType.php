@@ -23,4 +23,14 @@ class SubscriptionEventSubscriptionEventType
      * The subscription stopped.
      */
     public const STOP_SUBSCRIPTION = 'STOP_SUBSCRIPTION';
+
+    /**
+     * The subscription deactivated
+     */
+    public const DEACTIVATE_SUBSCRIPTION = 'DEACTIVATE_SUBSCRIPTION';
+
+    /**
+     * The subscription resumed.
+     */
+    public const RESUME_SUBSCRIPTION = 'RESUME_SUBSCRIPTION';
 }

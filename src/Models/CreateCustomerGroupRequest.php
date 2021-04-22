@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the body parameters that can be provided in a request to the
- * [CreateCustomerGroup](#endpoint-createcustomegroup) endpoint.
+ * Defines the body parameters that can be included in a request to the
+ * [CreateCustomerGroup]($e/CustomerGroups/CreateCustomerGroup) endpoint.
  */
 class CreateCustomerGroupRequest implements \JsonSerializable
 {
@@ -31,9 +31,8 @@ class CreateCustomerGroupRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * The idempotency key for the request. See the [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency)
-     * guide for more information.
+     * The idempotency key for the request. For more information, see [Idempotency](https://developer.
+     * squareup.com/docs/basics/api101/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -43,9 +42,8 @@ class CreateCustomerGroupRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * The idempotency key for the request. See the [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency)
-     * guide for more information.
+     * The idempotency key for the request. For more information, see [Idempotency](https://developer.
+     * squareup.com/docs/basics/api101/idempotency).
      *
      * @maps idempotency_key
      */
@@ -59,8 +57,8 @@ class CreateCustomerGroupRequest implements \JsonSerializable
      *
      * Represents a group of customer profiles.
      *
-     * Customer groups can be created, modified, and have their membership defined either via
-     * the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
+     * Customer groups can be created, be modified, and have their membership defined using
+     * the Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
      */
     public function getGroup(): CustomerGroup
     {
@@ -72,8 +70,8 @@ class CreateCustomerGroupRequest implements \JsonSerializable
      *
      * Represents a group of customer profiles.
      *
-     * Customer groups can be created, modified, and have their membership defined either via
-     * the Customers API or within Customer Directory in the Square Dashboard or Point of Sale.
+     * Customer groups can be created, be modified, and have their membership defined using
+     * the Customers API or within the Customer Directory in the Square Seller Dashboard or Point of Sale.
      *
      * @required
      * @maps group

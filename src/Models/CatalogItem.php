@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
+ * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in
  * the catalog.
  */
 class CatalogItem implements \JsonSerializable
@@ -79,6 +79,11 @@ class CatalogItem implements \JsonSerializable
      * @var CatalogItemOptionForItem[]|null
      */
     private $itemOptions;
+
+    /**
+     * @var string|null
+     */
+    private $sortName;
 
     /**
      * Returns Name.
@@ -449,6 +454,34 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Sort Name.
+     *
+     * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
+     * the regular `name` field is used for sorting.
+     *
+     * It is currently supported for sellers of the Japanese locale only.
+     */
+    public function getSortName(): ?string
+    {
+        return $this->sortName;
+    }
+
+    /**
+     * Sets Sort Name.
+     *
+     * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
+     * the regular `name` field is used for sorting.
+     *
+     * It is currently supported for sellers of the Japanese locale only.
+     *
+     * @maps sort_name
+     */
+    public function setSortName(?string $sortName): void
+    {
+        $this->sortName = $sortName;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -470,6 +503,7 @@ class CatalogItem implements \JsonSerializable
         $json['product_type']            = $this->productType;
         $json['skip_modifier_screen']    = $this->skipModifierScreen;
         $json['item_options']            = $this->itemOptions;
+        $json['sort_name']               = $this->sortName;
 
         return array_filter($json, function ($val) {
             return $val !== null;

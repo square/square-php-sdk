@@ -200,7 +200,7 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * The [locations](#type-Location) at which the program is active.
+     * The [locations]($m/Location) at which the program is active.
      *
      * @return string[]
      */
@@ -212,7 +212,7 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * The [locations](#type-Location) at which the program is active.
+     * The [locations]($m/Location) at which the program is active.
      *
      * @required
      * @maps location_ids

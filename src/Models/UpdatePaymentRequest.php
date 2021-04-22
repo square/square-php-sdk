@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Describes a request to update a payment using
- * [UpdatePayment](#endpoint-payments-updatepayment).
+ * [UpdatePayment]($e/Payments/UpdatePayment).
  */
 class UpdatePaymentRequest implements \JsonSerializable
 {

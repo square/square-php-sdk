@@ -26,11 +26,11 @@ class CustomerGroupsApi extends BaseApi
      * Retrieves the list of customer groups of a business.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for your
+     *                            Provide this cursor to retrieve the next set of results for your
      *                            original query.
      *
-     *                            See the [Pagination guide](https://developer.squareup.
-     *                            com/docs/working-with-apis/pagination) for more information.
+     *                            For more information, see [Pagination](https://developer.
+     *                            squareup.com/docs/working-with-apis/pagination).
      *
      * @return ApiResponse Response from the API call
      *
@@ -177,7 +177,7 @@ class CustomerGroupsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'group_id' => $groupId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -241,7 +241,7 @@ class CustomerGroupsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'group_id' => $groupId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -310,7 +310,7 @@ class CustomerGroupsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'group_id' => $groupId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

@@ -143,7 +143,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '9.1.0.20210317';
+        return '10.0.0.20210421';
     }
 
     /**

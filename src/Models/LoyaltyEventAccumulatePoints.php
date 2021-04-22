@@ -27,7 +27,7 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     /**
      * Returns Loyalty Program Id.
      *
-     * The ID of the [loyalty program](#type-LoyaltyProgram).
+     * The ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): ?string
     {
@@ -37,7 +37,7 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     /**
      * Sets Loyalty Program Id.
      *
-     * The ID of the [loyalty program](#type-LoyaltyProgram).
+     * The ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @maps loyalty_program_id
      */
@@ -71,7 +71,7 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     /**
      * Returns Order Id.
      *
-     * The ID of the [order](#type-Order) for which the buyer accumulated the points.
+     * The ID of the [order]($m/Order) for which the buyer accumulated the points.
      * This field is returned only if the Orders API is used to process orders.
      */
     public function getOrderId(): ?string
@@ -82,7 +82,7 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     /**
      * Sets Order Id.
      *
-     * The ID of the [order](#type-Order) for which the buyer accumulated the points.
+     * The ID of the [order]($m/Order) for which the buyer accumulated the points.
      * This field is returned only if the Orders API is used to process orders.
      *
      * @maps order_id

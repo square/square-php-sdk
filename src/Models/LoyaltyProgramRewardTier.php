@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Describes a loyalty program reward tier.
+ * Represents a reward tier in a loyalty program. A reward tier defines how buyers can redeem points
+ * for a reward, such as the number of points required and the value and scope of the discount. A
+ * loyalty program can offer multiple reward tiers.
  */
 class LoyaltyProgramRewardTier implements \JsonSerializable
 {

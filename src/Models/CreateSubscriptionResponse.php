@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response from the
- * [CreateSubscription](#endpoint-subscriptions-createsubscription) endpoint.
+ * [CreateSubscription]($e/Subscriptions/CreateSubscription) endpoint.
  */
 class CreateSubscriptionResponse implements \JsonSerializable
 {

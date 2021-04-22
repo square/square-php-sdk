@@ -53,7 +53,7 @@ class InvoiceQuery implements \JsonSerializable
     /**
      * Returns Sort.
      *
-     * Identifies the  sort field and sort order.
+     * Identifies the sort field and sort order.
      */
     public function getSort(): ?InvoiceSort
     {
@@ -63,7 +63,7 @@ class InvoiceQuery implements \JsonSerializable
     /**
      * Sets Sort.
      *
-     * Identifies the  sort field and sort order.
+     * Identifies the sort field and sort order.
      *
      * @maps sort
      */

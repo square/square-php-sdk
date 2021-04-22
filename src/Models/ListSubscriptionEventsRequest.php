@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines parameters in a
- * [ListSubscriptionEvents](#endpoint-subscriptions-listsubscriptionevents)
+ * [ListSubscriptionEvents]($e/Subscriptions/ListSubscriptionEvents)
  * endpoint request.
  */
 class ListSubscriptionEventsRequest implements \JsonSerializable

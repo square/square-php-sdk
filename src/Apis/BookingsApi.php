@@ -241,7 +241,8 @@ class BookingsApi extends BaseApi
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
-            'bookable_only' => (null != $bookableOnly) ? var_export($bookableOnly, true) : false,
+            'bookable_only' => (null != $bookableOnly) ?
+                var_export($bookableOnly, true) : false,
             'limit'         => $limit,
             'cursor'        => $cursor,
             'location_id'   => $locationId,
@@ -312,7 +313,7 @@ class BookingsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'team_member_id' => $teamMemberId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -365,8 +366,8 @@ class BookingsApi extends BaseApi
     /**
      * Retrieves a booking.
      *
-     * @param string $bookingId The ID of the [Booking](#type-booking) object representing the to-
-     *                          be-retrieved booking.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
+     *                          retrieved booking.
      *
      * @return ApiResponse Response from the API call
      *
@@ -380,7 +381,7 @@ class BookingsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'booking_id' => $bookingId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -430,8 +431,8 @@ class BookingsApi extends BaseApi
     /**
      * Updates a booking.
      *
-     * @param string $bookingId The ID of the [Booking](#type-booking) object representing the to-
-     *                          be-updated booking.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
+     *                          updated booking.
      * @param \Square\Models\UpdateBookingRequest $body An object containing the fields to POST
      *                                                  for the request.
      *
@@ -450,7 +451,7 @@ class BookingsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'booking_id' => $bookingId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -504,8 +505,8 @@ class BookingsApi extends BaseApi
     /**
      * Cancels an existing booking.
      *
-     * @param string $bookingId The ID of the [Booking](#type-booking) object representing the to-
-     *                          be-cancelled booking.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
+     *                          cancelled booking.
      * @param \Square\Models\CancelBookingRequest $body An object containing the fields to POST
      *                                                  for the request.
      *
@@ -524,7 +525,7 @@ class BookingsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'booking_id' => $bookingId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

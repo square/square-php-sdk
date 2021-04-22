@@ -143,7 +143,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns From Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items were tracked before the transfer.
      */
     public function getFromLocationId(): ?string
@@ -154,7 +154,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets From Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items were tracked before the transfer.
      *
      * @maps from_location_id
@@ -167,7 +167,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns To Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items were tracked after the transfer.
      */
     public function getToLocationId(): ?string
@@ -178,7 +178,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets To Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items were tracked after the transfer.
      *
      * @maps to_location_id
@@ -339,7 +339,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * The Square ID of the [Employee](#type-employee) responsible for the
+     * The Square ID of the [Employee]($m/Employee) responsible for the
      * inventory transfer.
      */
     public function getEmployeeId(): ?string
@@ -350,7 +350,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * The Square ID of the [Employee](#type-employee) responsible for the
+     * The Square ID of the [Employee]($m/Employee) responsible for the
      * inventory transfer.
      *
      * @maps employee_id

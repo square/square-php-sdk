@@ -223,8 +223,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Placed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment was
-     * requested. Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the shipment was requested.
+     * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getPlacedAt(): ?string
     {
@@ -234,8 +235,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Placed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment was
-     * requested. Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the shipment was requested.
+     * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps placed_at
      */
@@ -247,8 +249,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns In Progress At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment was
-     * moved to the `RESERVED` state. Indicates that preparation of this shipment has begun.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment wasmoved to the `RESERVED` state. Indicates that preparation
+     * of this shipment has begun.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getInProgressAt(): ?string
@@ -259,8 +262,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets In Progress At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment was
-     * moved to the `RESERVED` state. Indicates that preparation of this shipment has begun.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment wasmoved to the `RESERVED` state. Indicates that preparation
+     * of this shipment has begun.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps in_progress_at
@@ -273,7 +277,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Packaged At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * this fulfillment
      * was moved to the `PREPARED` state. Indicates that the fulfillment is packaged.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
@@ -285,7 +290,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Packaged At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * this fulfillment
      * was moved to the `PREPARED` state. Indicates that the fulfillment is packaged.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
@@ -299,9 +305,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Expected Shipped At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment is
-     * expected to be delivered to the shipping carrier. Must be in RFC 3339 timestamp
-     * format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the shipment is expected to be delivered to the shipping carrier. Must be in
+     * RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getExpectedShippedAt(): ?string
     {
@@ -311,9 +317,9 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Expected Shipped At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment is
-     * expected to be delivered to the shipping carrier. Must be in RFC 3339 timestamp
-     * format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the shipment is expected to be delivered to the shipping carrier. Must be in
+     * RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps expected_shipped_at
      */
@@ -325,9 +331,10 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Shipped At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
-     * was moved to the `COMPLETED`state. Indicates that the fulfillment has been given
-     * to the shipping carrier. Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment was moved to the `COMPLETED`state. Indicates that the fulfillment
+     * has been given to the shipping carrier. Must be in RFC 3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      */
     public function getShippedAt(): ?string
     {
@@ -337,9 +344,10 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Shipped At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
-     * was moved to the `COMPLETED`state. Indicates that the fulfillment has been given
-     * to the shipping carrier. Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment was moved to the `COMPLETED`state. Indicates that the fulfillment
+     * has been given to the shipping carrier. Must be in RFC 3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      *
      * @maps shipped_at
      */
@@ -351,7 +359,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Canceled At.
      *
-     * The [timestamp](#workingwithdates) indicating the shipment was canceled.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating the
+     * shipment was canceled.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getCanceledAt(): ?string
@@ -362,7 +371,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Canceled At.
      *
-     * The [timestamp](#workingwithdates) indicating the shipment was canceled.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating the
+     * shipment was canceled.
      * Must be in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps canceled_at
@@ -397,7 +407,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Returns Failed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * the shipment
      * failed to be completed. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
      */
@@ -409,7 +420,8 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Sets Failed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the shipment
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * the shipment
      * failed to be completed. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
      *

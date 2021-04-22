@@ -84,10 +84,10 @@ class CatalogObjectType
 
     /**
      * A subscription plan, corresponding to
-     * [CatalogSubscriptionPlan](#type-CatalogSubscriptionPlan).
+     * [CatalogSubscriptionPlan]($m/CatalogSubscriptionPlan).
      *
      * The subscription plan data is stored in the `subscription_plan_data` field of the
-     * [CatalogObject](#type-CatalogObject).
+     * [CatalogObject]($m/CatalogObject).
      */
     public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
 

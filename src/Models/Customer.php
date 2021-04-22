@@ -86,11 +86,6 @@ class Customer implements \JsonSerializable
     private $preferences;
 
     /**
-     * @var CustomerGroupInfo[]|null
-     */
-    private $groups;
-
-    /**
      * @var string|null
      */
     private $creationSource;
@@ -104,6 +99,11 @@ class Customer implements \JsonSerializable
      * @var string[]|null
      */
     private $segmentIds;
+
+    /**
+     * @var int|null
+     */
+    private $version;
 
     /**
      * Returns Id.
@@ -174,7 +174,7 @@ class Customer implements \JsonSerializable
     /**
      * Returns Cards.
      *
-     * Payment details of cards stored on file for the customer profile.
+     * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
      * @return Card[]|null
      */
@@ -186,7 +186,7 @@ class Customer implements \JsonSerializable
     /**
      * Sets Cards.
      *
-     * Payment details of cards stored on file for the customer profile.
+     * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
      * @maps cards
      *
@@ -354,10 +354,10 @@ class Customer implements \JsonSerializable
     /**
      * Returns Birthday.
      *
-     * The birthday associated with the customer profile, in RFC 3339 format.
-     * Year is optional, timezone and times are not allowed.
-     * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
-     * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.
+     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
+     * timezone and time are not allowed.
+     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
+     * 00-00:00` represents a birthday on September 21, 1998.
      */
     public function getBirthday(): ?string
     {
@@ -367,10 +367,10 @@ class Customer implements \JsonSerializable
     /**
      * Sets Birthday.
      *
-     * The birthday associated with the customer profile, in RFC 3339 format.
-     * Year is optional, timezone and times are not allowed.
-     * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
-     * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.
+     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
+     * timezone and time are not allowed.
+     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
+     * 00-00:00` represents a birthday on September 21, 1998.
      *
      * @maps birthday
      */
@@ -382,7 +382,7 @@ class Customer implements \JsonSerializable
     /**
      * Returns Reference Id.
      *
-     * An optional, second ID used to associate the customer profile with an
+     * An optional second ID used to associate the customer profile with an
      * entity in another system.
      */
     public function getReferenceId(): ?string
@@ -393,7 +393,7 @@ class Customer implements \JsonSerializable
     /**
      * Sets Reference Id.
      *
-     * An optional, second ID used to associate the customer profile with an
+     * An optional second ID used to associate the customer profile with an
      * entity in another system.
      *
      * @maps reference_id
@@ -445,38 +445,6 @@ class Customer implements \JsonSerializable
     public function setPreferences(?CustomerPreferences $preferences): void
     {
         $this->preferences = $preferences;
-    }
-
-    /**
-     * Returns Groups.
-     *
-     * The customer groups and segments the customer belongs to. This deprecated field has been replaced
-     * with  the dedicated `group_ids` for customer groups and the dedicated `segment_ids` field for
-     * customer segments. You can retrieve information about a given customer group and segment
-     * respectively using the Customer Groups API and Customer Segments API.
-     *
-     * @return CustomerGroupInfo[]|null
-     */
-    public function getGroups(): ?array
-    {
-        return $this->groups;
-    }
-
-    /**
-     * Sets Groups.
-     *
-     * The customer groups and segments the customer belongs to. This deprecated field has been replaced
-     * with  the dedicated `group_ids` for customer groups and the dedicated `segment_ids` field for
-     * customer segments. You can retrieve information about a given customer group and segment
-     * respectively using the Customer Groups API and Customer Segments API.
-     *
-     * @maps groups
-     *
-     * @param CustomerGroupInfo[]|null $groups
-     */
-    public function setGroups(?array $groups): void
-    {
-        $this->groups = $groups;
     }
 
     /**
@@ -554,6 +522,32 @@ class Customer implements \JsonSerializable
     }
 
     /**
+     * Returns Version.
+     *
+     * The Square-assigned version number of the customer profile. The version number is incremented each
+     * time an update is committed to the customer profile, except for changes to customer segment
+     * membership and cards on file.
+     */
+    public function getVersion(): ?int
+    {
+        return $this->version;
+    }
+
+    /**
+     * Sets Version.
+     *
+     * The Square-assigned version number of the customer profile. The version number is incremented each
+     * time an update is committed to the customer profile, except for changes to customer segment
+     * membership and cards on file.
+     *
+     * @maps version
+     */
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -576,10 +570,10 @@ class Customer implements \JsonSerializable
         $json['reference_id']   = $this->referenceId;
         $json['note']           = $this->note;
         $json['preferences']    = $this->preferences;
-        $json['groups']         = $this->groups;
         $json['creation_source'] = $this->creationSource;
         $json['group_ids']      = $this->groupIds;
         $json['segment_ids']    = $this->segmentIds;
+        $json['version']        = $this->version;
 
         return array_filter($json, function ($val) {
             return $val !== null;

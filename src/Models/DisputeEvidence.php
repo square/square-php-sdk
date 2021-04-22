@@ -17,6 +17,16 @@ class DisputeEvidence implements \JsonSerializable
     private $disputeId;
 
     /**
+     * @var DisputeEvidenceFile|null
+     */
+    private $evidenceFile;
+
+    /**
+     * @var string|null
+     */
+    private $evidenceText;
+
+    /**
      * @var string|null
      */
     private $uploadedAt;
@@ -68,6 +78,50 @@ class DisputeEvidence implements \JsonSerializable
     public function setDisputeId(?string $disputeId): void
     {
         $this->disputeId = $disputeId;
+    }
+
+    /**
+     * Returns Evidence File.
+     *
+     * A file to be uploaded as dispute evidence.
+     */
+    public function getEvidenceFile(): ?DisputeEvidenceFile
+    {
+        return $this->evidenceFile;
+    }
+
+    /**
+     * Sets Evidence File.
+     *
+     * A file to be uploaded as dispute evidence.
+     *
+     * @maps evidence_file
+     */
+    public function setEvidenceFile(?DisputeEvidenceFile $evidenceFile): void
+    {
+        $this->evidenceFile = $evidenceFile;
+    }
+
+    /**
+     * Returns Evidence Text.
+     *
+     * Raw text
+     */
+    public function getEvidenceText(): ?string
+    {
+        return $this->evidenceText;
+    }
+
+    /**
+     * Sets Evidence Text.
+     *
+     * Raw text
+     *
+     * @maps evidence_text
+     */
+    public function setEvidenceText(?string $evidenceText): void
+    {
+        $this->evidenceText = $evidenceText;
     }
 
     /**
@@ -124,6 +178,8 @@ class DisputeEvidence implements \JsonSerializable
         $json = [];
         $json['evidence_id']  = $this->evidenceId;
         $json['dispute_id']   = $this->disputeId;
+        $json['evidence_file'] = $this->evidenceFile;
+        $json['evidence_text'] = $this->evidenceText;
         $json['uploaded_at']  = $this->uploadedAt;
         $json['evidence_type'] = $this->evidenceType;
 

@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [ListTransactions](#endpoint-listtransactions) endpoint.
+ * a request to the [ListTransactions]($e/Transactions/ListTransactions) endpoint.
  *
  * One of `errors` or `transactions` is present in a given response (never both).
  */
@@ -86,7 +86,8 @@ class ListTransactionsResponse implements \JsonSerializable
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      */
     public function getCursor(): ?string
     {
@@ -100,7 +101,8 @@ class ListTransactionsResponse implements \JsonSerializable
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      *
      * @maps cursor
      */

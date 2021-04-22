@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by [ListPaymentRefunds](#endpoint-refunds-listpaymentrefunds).
+ * Defines the response returned by [ListPaymentRefunds]($e/Refunds/ListPaymentRefunds).
  *
  * Either `errors` or `refunds` is present in a given response (never both).
  */

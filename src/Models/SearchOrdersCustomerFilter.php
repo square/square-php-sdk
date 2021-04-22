@@ -7,7 +7,7 @@ namespace Square\Models;
 /**
  * Filter based on Order `customer_id` and any Tender `customer_id`
  * associated with the Order. Does not filter based on the
- * [FulfillmentRecipient](#type-orderfulfillmentrecipient) `customer_id`.
+ * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.
  */
 class SearchOrdersCustomerFilter implements \JsonSerializable
 {

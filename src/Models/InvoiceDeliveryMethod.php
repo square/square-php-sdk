@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Indicates how Square delivers the [invoice](#type-Invoice) to the customer.
+ * Indicates how Square delivers the [invoice]($m/Invoice) to the customer.
  */
 class InvoiceDeliveryMethod
 {

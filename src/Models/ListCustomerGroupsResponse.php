@@ -6,9 +6,9 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [ListCustomerGroups](#endpoint-listcustomergroups) endpoint.
+ * a request to the [ListCustomerGroups]($e/CustomerGroups/ListCustomerGroups) endpoint.
  *
- * One of `errors` or `groups` is present in a given response (never both).
+ * Either `errors` or `groups` is present in a given response (never both).
  */
 class ListCustomerGroupsResponse implements \JsonSerializable
 {
@@ -56,7 +56,7 @@ class ListCustomerGroupsResponse implements \JsonSerializable
     /**
      * Returns Groups.
      *
-     * A list of customer groups belonging to the current merchant.
+     * A list of customer groups belonging to the current seller.
      *
      * @return CustomerGroup[]|null
      */
@@ -68,7 +68,7 @@ class ListCustomerGroupsResponse implements \JsonSerializable
     /**
      * Sets Groups.
      *
-     * A list of customer groups belonging to the current merchant.
+     * A list of customer groups belonging to the current seller.
      *
      * @maps groups
      *
@@ -86,8 +86,8 @@ class ListCustomerGroupsResponse implements \JsonSerializable
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -101,8 +101,8 @@ class ListCustomerGroupsResponse implements \JsonSerializable
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */

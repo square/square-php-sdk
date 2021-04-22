@@ -80,7 +80,8 @@ class ListDeviceCodesResponse implements \JsonSerializable
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      */
     public function getCursor(): ?string
     {
@@ -94,7 +95,8 @@ class ListDeviceCodesResponse implements \JsonSerializable
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      *
      * @maps cursor
      */

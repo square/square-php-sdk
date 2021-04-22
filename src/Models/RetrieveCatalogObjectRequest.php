@@ -61,7 +61,7 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
      *
      * Requests objects as of a specific version of the catalog. This allows you to retrieve historical
      * versions of objects. The value to retrieve a specific version of an object can be found
-     * in the version field of [CatalogObject](#type-catalogobject)s.
+     * in the version field of [CatalogObject]($m/CatalogObject)s.
      */
     public function getCatalogVersion(): ?int
     {
@@ -73,7 +73,7 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
      *
      * Requests objects as of a specific version of the catalog. This allows you to retrieve historical
      * versions of objects. The value to retrieve a specific version of an object can be found
-     * in the version field of [CatalogObject](#type-catalogobject)s.
+     * in the version field of [CatalogObject]($m/CatalogObject)s.
      *
      * @maps catalog_version
      */

@@ -23,4 +23,9 @@ class SubscriptionStatus
      * The subscription is canceled.
      */
     public const CANCELED = 'CANCELED';
+
+    /**
+     * The subscription is deactivated.
+     */
+    public const DEACTIVATED = 'DEACTIVATED';
 }

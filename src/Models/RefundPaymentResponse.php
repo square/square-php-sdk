@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the response returned by
- * [RefundPayment](#endpoint-payments-refundpayment).
+ * [RefundPayment]($e/Refunds/RefundPayment).
  *
  * If there are errors processing the request, the `refund` field might not be
  * present, or it might be present with a status of `FAILED`.

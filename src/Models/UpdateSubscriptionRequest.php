@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines parameters in a
- * [UpdateSubscription](#endpoint-subscriptions-updatesubscription) endpoint
+ * [UpdateSubscription]($e/Subscriptions/UpdateSubscription) endpoint
  * request.
  */
 class UpdateSubscriptionRequest implements \JsonSerializable

@@ -16,7 +16,7 @@ class LoyaltyAccount implements \JsonSerializable
     private $id;
 
     /**
-     * @var LoyaltyAccountMapping[]
+     * @var LoyaltyAccountMapping[]|null
      */
     private $mappings;
 
@@ -56,12 +56,15 @@ class LoyaltyAccount implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @param LoyaltyAccountMapping[] $mappings
+     * @var LoyaltyAccountMapping|null
+     */
+    private $mapping;
+
+    /**
      * @param string $programId
      */
-    public function __construct(array $mappings, string $programId)
+    public function __construct(string $programId)
     {
-        $this->mappings = $mappings;
         $this->programId = $programId;
     }
 
@@ -94,9 +97,14 @@ class LoyaltyAccount implements \JsonSerializable
      * Currently, a buyer can only be mapped to a loyalty account using
      * a phone number. Therefore, the list can only have one mapping.
      *
-     * @return LoyaltyAccountMapping[]
+     * One of the following is required when creating a loyalty account:
+     * - (Preferred) The `mapping` field, with the buyer's phone number specified in the `phone_number`
+     * field.
+     * - This `mappings` field.
+     *
+     * @return LoyaltyAccountMapping[]|null
      */
-    public function getMappings(): array
+    public function getMappings(): ?array
     {
         return $this->mappings;
     }
@@ -108,12 +116,16 @@ class LoyaltyAccount implements \JsonSerializable
      * Currently, a buyer can only be mapped to a loyalty account using
      * a phone number. Therefore, the list can only have one mapping.
      *
-     * @required
+     * One of the following is required when creating a loyalty account:
+     * - (Preferred) The `mapping` field, with the buyer's phone number specified in the `phone_number`
+     * field.
+     * - This `mappings` field.
+     *
      * @maps mappings
      *
-     * @param LoyaltyAccountMapping[] $mappings
+     * @param LoyaltyAccountMapping[]|null $mappings
      */
-    public function setMappings(array $mappings): void
+    public function setMappings(?array $mappings): void
     {
         $this->mappings = $mappings;
     }
@@ -121,7 +133,7 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Returns Program Id.
      *
-     * The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram) to which the account belongs.
+     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
      */
     public function getProgramId(): string
     {
@@ -131,7 +143,7 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Sets Program Id.
      *
-     * The Square-assigned ID of the [loyalty program](#type-LoyaltyProgram) to which the account belongs.
+     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
      *
      * @required
      * @maps program_id
@@ -196,7 +208,7 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The Square-assigned ID of the [customer](#type-Customer) that is associated with the account.
+     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
      */
     public function getCustomerId(): ?string
     {
@@ -206,7 +218,7 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The Square-assigned ID of the [customer](#type-Customer) that is associated with the account.
+     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
      *
      * @maps customer_id
      */
@@ -282,6 +294,36 @@ class LoyaltyAccount implements \JsonSerializable
     }
 
     /**
+     * Returns Mapping.
+     *
+     * Represents the mapping that associates a loyalty account with a buyer.
+     *
+     * Currently, a loyalty account can only be mapped to a buyer by phone number. For more information,
+     * see
+     * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
+     */
+    public function getMapping(): ?LoyaltyAccountMapping
+    {
+        return $this->mapping;
+    }
+
+    /**
+     * Sets Mapping.
+     *
+     * Represents the mapping that associates a loyalty account with a buyer.
+     *
+     * Currently, a loyalty account can only be mapped to a buyer by phone number. For more information,
+     * see
+     * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
+     *
+     * @maps mapping
+     */
+    public function setMapping(?LoyaltyAccountMapping $mapping): void
+    {
+        $this->mapping = $mapping;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -298,6 +340,7 @@ class LoyaltyAccount implements \JsonSerializable
         $json['enrolled_at']    = $this->enrolledAt;
         $json['created_at']     = $this->createdAt;
         $json['updated_at']     = $this->updatedAt;
+        $json['mapping']        = $this->mapping;
 
         return array_filter($json, function ($val) {
             return $val !== null;

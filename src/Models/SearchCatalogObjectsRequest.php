@@ -192,13 +192,13 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * when calling the `SearchCatalogObjects` endpoint.
      *
      * Although a query can have multiple filters, only certain query types can be combined per call to
-     * [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects).
+     * [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
      * Any combination of the following types may be used together:
-     * - [exact_query](#type-CatalogExactQuery)
-     * - [prefix_query](#type-CatalogPrefixQuery)
-     * - [range_query](#type-CatalogRangeQuery)
-     * - [sorted_attribute_query](#type-CatalogSortedAttribute)
-     * - [text_query](#type-CatalogTextQuery)
+     * - [exact_query]($m/CatalogQueryExact)
+     * - [prefix_query]($m/CatalogQueryPrefix)
+     * - [range_query]($m/CatalogQueryRange)
+     * - [sorted_attribute_query]($m/CatalogQuerySortedAttribute)
+     * - [text_query]($m/CatalogQueryText)
      * All other query types cannot be combined with any others.
      *
      * When a query filter is based on an attribute, the attribute must be searchable.
@@ -215,8 +215,8 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * - `caption`: `CatalogImage`
      * - `display_name`: `CatalogItemOption`
      *
-     * For example, to search for [CatalogItem](#type-CatalogItem) objects by searchable attributes, you
-     * can use
+     * For example, to search for [CatalogItem]($m/CatalogItem) objects by searchable attributes, you can
+     * use
      * the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable query filter.
      */
     public function getQuery(): ?CatalogQuery
@@ -231,13 +231,13 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * when calling the `SearchCatalogObjects` endpoint.
      *
      * Although a query can have multiple filters, only certain query types can be combined per call to
-     * [SearchCatalogObjects](#endpoint-Catalog-SearchCatalogObjects).
+     * [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
      * Any combination of the following types may be used together:
-     * - [exact_query](#type-CatalogExactQuery)
-     * - [prefix_query](#type-CatalogPrefixQuery)
-     * - [range_query](#type-CatalogRangeQuery)
-     * - [sorted_attribute_query](#type-CatalogSortedAttribute)
-     * - [text_query](#type-CatalogTextQuery)
+     * - [exact_query]($m/CatalogQueryExact)
+     * - [prefix_query]($m/CatalogQueryPrefix)
+     * - [range_query]($m/CatalogQueryRange)
+     * - [sorted_attribute_query]($m/CatalogQuerySortedAttribute)
+     * - [text_query]($m/CatalogQueryText)
      * All other query types cannot be combined with any others.
      *
      * When a query filter is based on an attribute, the attribute must be searchable.
@@ -254,8 +254,8 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * - `caption`: `CatalogImage`
      * - `display_name`: `CatalogItemOption`
      *
-     * For example, to search for [CatalogItem](#type-CatalogItem) objects by searchable attributes, you
-     * can use
+     * For example, to search for [CatalogItem]($m/CatalogItem) objects by searchable attributes, you can
+     * use
      * the `"name"`, `"description"`, or `"abbreviation"` attribute in an applicable query filter.
      *
      * @maps query

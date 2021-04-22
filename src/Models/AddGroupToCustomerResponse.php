@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [AddGroupToCustomer](#endpoint-addgrouptocustomer) endpoint.
+ * a request to the [AddGroupToCustomer]($e/Customers/AddGroupToCustomer) endpoint.
  */
 class AddGroupToCustomerResponse implements \JsonSerializable
 {

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the body parameters that can be provided in a request to the
- * CreateCustomer endpoint.
+ * Defines the body parameters that can be included in a request to the
+ * `CreateCustomer` endpoint.
  */
 class CreateCustomerRequest implements \JsonSerializable
 {
@@ -68,9 +68,8 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      *
-     * The idempotency key for the request. See the
-     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency) guide for more
-     * information.
+     * The idempotency key for the request. For more information, see
+     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -80,9 +79,8 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      *
-     * The idempotency key for the request. See the
-     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency) guide for more
-     * information.
+     * The idempotency key for the request. For more information, see
+     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
      *
      * @maps idempotency_key
      */
@@ -94,7 +92,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Given Name.
      *
-     * The given (i.e., first) name associated with the customer profile.
+     * The given name (that is, the first name) associated with the customer profile.
      */
     public function getGivenName(): ?string
     {
@@ -104,7 +102,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Given Name.
      *
-     * The given (i.e., first) name associated with the customer profile.
+     * The given name (that is, the first name) associated with the customer profile.
      *
      * @maps given_name
      */
@@ -116,7 +114,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Family Name.
      *
-     * The family (i.e., last) name associated with the customer profile.
+     * The family name (that is, the last name) associated with the customer profile.
      */
     public function getFamilyName(): ?string
     {
@@ -126,7 +124,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Family Name.
      *
-     * The family (i.e., last) name associated with the customer profile.
+     * The family name (that is, the last name) associated with the customer profile.
      *
      * @maps family_name
      */
@@ -248,7 +246,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Reference Id.
      *
-     * An optional, second ID used to associate the customer profile with an
+     * An optional second ID used to associate the customer profile with an
      * entity in another system.
      */
     public function getReferenceId(): ?string
@@ -259,7 +257,7 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Reference Id.
      *
-     * An optional, second ID used to associate the customer profile with an
+     * An optional second ID used to associate the customer profile with an
      * entity in another system.
      *
      * @maps reference_id
@@ -294,10 +292,11 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Birthday.
      *
-     * The birthday associated with the customer profile, in RFC 3339 format.
-     * Year is optional, timezone and times are not allowed.
-     * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
-     * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.
+     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
+     * timezone and time are not allowed.
+     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
+     * 00-00:00` represents a birthday on September 21, 1998.
+     * You can also specify this value in `YYYY-MM-DD` format.
      */
     public function getBirthday(): ?string
     {
@@ -307,10 +306,11 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Birthday.
      *
-     * The birthday associated with the customer profile, in RFC 3339 format.
-     * Year is optional, timezone and times are not allowed.
-     * For example: `0000-09-01T00:00:00-00:00` indicates a birthday on September 1st.
-     * `1998-09-01T00:00:00-00:00` indications a birthday on September 1st __1998__.
+     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
+     * timezone and time are not allowed.
+     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
+     * 00-00:00` represents a birthday on September 21, 1998.
+     * You can also specify this value in `YYYY-MM-DD` format.
      *
      * @maps birthday
      */

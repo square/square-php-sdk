@@ -261,7 +261,7 @@ class Order implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the order.
+     * The [Customer]($m/Customer) ID of the customer associated with the order.
      */
     public function getCustomerId(): ?string
     {
@@ -271,7 +271,7 @@ class Order implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the order.
+     * The [Customer]($m/Customer) ID of the customer associated with the order.
      *
      * @maps customer_id
      */
@@ -707,7 +707,7 @@ class Order implements \JsonSerializable
     /**
      * Returns Closed At.
      *
-     * Timestamp for when the order reached a terminal [state](#property-state). In RFC 3339 format, e.g.,
+     * Timestamp for when the order reached a terminal [state]($m/OrderState). In RFC 3339 format, e.g.,
      * "2016-09-04T23:59:33.123Z".
      */
     public function getClosedAt(): ?string
@@ -718,7 +718,7 @@ class Order implements \JsonSerializable
     /**
      * Sets Closed At.
      *
-     * Timestamp for when the order reached a terminal [state](#property-state). In RFC 3339 format, e.g.,
+     * Timestamp for when the order reached a terminal [state]($m/OrderState). In RFC 3339 format, e.g.,
      * "2016-09-04T23:59:33.123Z".
      *
      * @maps closed_at
@@ -958,7 +958,7 @@ class Order implements \JsonSerializable
      * Pricing options for an order. The options affect how the order's price is calculated.
      * They can be used, for example, to apply automatic price adjustments that are based on pre-
      * configured
-     * [pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule).
+     * [pricing rules]($m/CatalogPricingRule).
      */
     public function getPricingOptions(): ?OrderPricingOptions
     {
@@ -971,7 +971,7 @@ class Order implements \JsonSerializable
      * Pricing options for an order. The options affect how the order's price is calculated.
      * They can be used, for example, to apply automatic price adjustments that are based on pre-
      * configured
-     * [pricing rules](https://developer.squareup.com/docs/reference/square/objects/CatalogPricingRule).
+     * [pricing rules]($m/CatalogPricingRule).
      *
      * @maps pricing_options
      */

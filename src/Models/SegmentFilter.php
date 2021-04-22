@@ -30,7 +30,7 @@ class SegmentFilter implements \JsonSerializable
     /**
      * Returns Service Variation Id.
      *
-     * The ID of the [CatalogItemVariation](#type-CatalogItemVariation) representing the service booked in
+     * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) representing the service booked in
      * this segment.
      */
     public function getServiceVariationId(): string
@@ -41,7 +41,7 @@ class SegmentFilter implements \JsonSerializable
     /**
      * Sets Service Variation Id.
      *
-     * The ID of the [CatalogItemVariation](#type-CatalogItemVariation) representing the service booked in
+     * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) representing the service booked in
      * this segment.
      *
      * @required

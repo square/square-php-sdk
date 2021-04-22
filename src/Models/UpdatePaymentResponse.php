@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the response returned by
- * [UpdatePayment](#endpoint-payments-update).
+ * [UpdatePayment]($e/Payments/UpdatePayment).
  */
 class UpdatePaymentResponse implements \JsonSerializable
 {

@@ -23,7 +23,8 @@ class LoyaltyApi extends BaseApi
     }
 
     /**
-     * Creates a loyalty account.
+     * Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and
+     * either the `mapping` field (preferred) or the `mappings` field.
      *
      * @param \Square\Models\CreateLoyaltyAccountRequest $body An object containing the fields to
      *                                                         POST for the request.
@@ -164,7 +165,7 @@ class LoyaltyApi extends BaseApi
     /**
      * Retrieves a loyalty account.
      *
-     * @param string $accountId The ID of the [loyalty account](#type-LoyaltyAccount) to retrieve.
+     * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) to retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -178,7 +179,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'account_id' => $accountId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -233,12 +234,12 @@ class LoyaltyApi extends BaseApi
      * - If you are not using the Orders API to manage orders,
      * you first perform a client-side computation to compute the points.
      * For spend-based and visit-based programs, you can call
-     * [CalculateLoyaltyPoints](#endpoint-Loyalty-CalculateLoyaltyPoints) to compute the points. For more
+     * [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute the points. For more
      * information,
      * see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
      * You then provide the points in a request to this endpoint.
      *
-     * @param string $accountId The [loyalty account](#type-LoyaltyAccount) ID to which to add the
+     * @param string $accountId The [loyalty account]($m/LoyaltyAccount) ID to which to add the
      *                          points.
      * @param \Square\Models\AccumulateLoyaltyPointsRequest $body An object containing the fields
      *                                                            to POST for the request.
@@ -260,7 +261,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'account_id' => $accountId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -316,10 +317,10 @@ class LoyaltyApi extends BaseApi
      *
      * Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow,
      * you call
-     * [AccumulateLoyaltyPoints](#endpoint-Loyalty-AccumulateLoyaltyPoints)
+     * [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints)
      * to add points when a buyer pays for the purchase.
      *
-     * @param string $accountId The ID of the [loyalty account](#type-LoyaltyAccount) in which to
+     * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) in which to
      *                          adjust the points.
      * @param \Square\Models\AdjustLoyaltyPointsRequest $body An object containing the fields to
      *                                                        POST for the request.
@@ -339,7 +340,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'account_id' => $accountId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -397,6 +398,8 @@ class LoyaltyApi extends BaseApi
      * buyer's loyalty account. Each change in the point balance
      * (for example, points earned, points redeemed, and points expired) is
      * recorded in the ledger. Using this endpoint, you can search the ledger for events.
+     *
+     * Search results are sorted by `created_at` in descending order.
      *
      * @param \Square\Models\SearchLoyaltyEventsRequest $body An object containing the fields to
      *                                                        POST for the request.
@@ -521,6 +524,77 @@ class LoyaltyApi extends BaseApi
     }
 
     /**
+     * Retrieves the loyalty program in a seller's account, specified by the program ID or the keyword
+     * `main`.
+     *
+     * Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can
+     * have only one loyalty program, which is created and managed from the Seller Dashboard. For more
+     * information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+     *
+     * @param string $programId The ID of the loyalty program or the keyword `main`. Either value
+     *                          can be used to retrieve the single loyalty program that belongs to
+     *                          the seller.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function retrieveLoyaltyProgram(string $programId): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/loyalty/programs/{program_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'program_id' => $programId,
+        ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::get($_queryUrl, $_headers);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveLoyaltyProgramResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
      * Calculates the points a purchase earns.
      *
      * - If you are using the Orders API to manage orders, you provide `order_id` in the request. The
@@ -531,7 +605,7 @@ class LoyaltyApi extends BaseApi
      * An application might call this endpoint to show the points that a buyer can earn with the
      * specific purchase.
      *
-     * @param string $programId The [loyalty program](#type-LoyaltyProgram) ID, which defines the
+     * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the
      *                          rules for accruing points.
      * @param \Square\Models\CalculateLoyaltyPointsRequest $body An object containing the fields
      *                                                           to POST for the request.
@@ -553,7 +627,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'program_id' => $programId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -684,7 +758,9 @@ class LoyaltyApi extends BaseApi
      * In the current implementation, the endpoint supports search by the reward `status`.
      *
      * If you know a reward ID, use the
-     * [RetrieveLoyaltyReward](#endpoint-Loyalty-RetrieveLoyaltyReward) endpoint.
+     * [RetrieveLoyaltyReward]($e/Loyalty/RetrieveLoyaltyReward) endpoint.
+     *
+     * Search results are sorted by `updated_at` in descending order.
      *
      * @param \Square\Models\SearchLoyaltyRewardsRequest $body An object containing the fields to
      *                                                         POST for the request.
@@ -755,13 +831,13 @@ class LoyaltyApi extends BaseApi
      *
      * - Returns the loyalty points back to the loyalty account.
      * - If an order ID was specified when the reward was created
-     * (see [CreateLoyaltyReward](#endpoint-Loyalty-CreateLoyaltyReward)),
+     * (see [CreateLoyaltyReward]($e/Loyalty/CreateLoyaltyReward)),
      * it updates the order by removing the reward and related
      * discounts.
      *
      * You cannot delete a reward that has reached the terminal state (REDEEMED).
      *
-     * @param string $rewardId The ID of the [loyalty reward](#type-LoyaltyReward) to delete.
+     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to delete.
      *
      * @return ApiResponse Response from the API call
      *
@@ -775,7 +851,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'reward_id' => $rewardId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -825,7 +901,7 @@ class LoyaltyApi extends BaseApi
     /**
      * Retrieves a loyalty reward.
      *
-     * @param string $rewardId The ID of the [loyalty reward](#type-LoyaltyReward) to retrieve.
+     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -839,7 +915,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'reward_id' => $rewardId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -899,7 +975,7 @@ class LoyaltyApi extends BaseApi
      * In other words, points used for the reward cannot be returned
      * to the account.
      *
-     * @param string $rewardId The ID of the [loyalty reward](#type-LoyaltyReward) to redeem.
+     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to redeem.
      * @param \Square\Models\RedeemLoyaltyRewardRequest $body An object containing the fields to
      *                                                        POST for the request.
      *
@@ -918,7 +994,7 @@ class LoyaltyApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'reward_id' => $rewardId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

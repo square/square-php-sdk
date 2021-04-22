@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Filter based on [Order Fulfillment](#type-orderfulfillment) information.
+ * Filter based on [Order Fulfillment]($m/OrderFulfillment) information.
  */
 class SearchOrdersFulfillmentFilter implements \JsonSerializable
 {
@@ -22,7 +22,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     /**
      * Returns Fulfillment Types.
      *
-     * List of [fulfillment types](#type-orderfulfillmenttype) to filter
+     * List of [fulfillment types]($m/OrderFulfillmentType) to filter
      * for. Will return orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
      * See [OrderFulfillmentType](#type-orderfulfillmenttype) for possible values
@@ -37,7 +37,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     /**
      * Sets Fulfillment Types.
      *
-     * List of [fulfillment types](#type-orderfulfillmenttype) to filter
+     * List of [fulfillment types]($m/OrderFulfillmentType) to filter
      * for. Will return orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
      * See [OrderFulfillmentType](#type-orderfulfillmenttype) for possible values
@@ -54,7 +54,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     /**
      * Returns Fulfillment States.
      *
-     * List of [fulfillment states](#type-orderfulfillmentstate) to filter
+     * List of [fulfillment states]($m/OrderFulfillmentState) to filter
      * for. Will return orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
      * See [OrderFulfillmentState](#type-orderfulfillmentstate) for possible values
@@ -69,7 +69,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     /**
      * Sets Fulfillment States.
      *
-     * List of [fulfillment states](#type-orderfulfillmentstate) to filter
+     * List of [fulfillment states]($m/OrderFulfillmentState) to filter
      * for. Will return orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
      * See [OrderFulfillmentState](#type-orderfulfillmentstate) for possible values

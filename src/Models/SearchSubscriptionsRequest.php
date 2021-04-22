@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines parameters in a
- * [SearchSubscriptions](#endpoint-subscriptions-searchsubscriptions) endpoint
+ * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint
  * request.
  */
 class SearchSubscriptionsRequest implements \JsonSerializable

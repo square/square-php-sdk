@@ -42,7 +42,7 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The ID of the `Location`.
+     * The ID of the `Location`. This can include locations that are deactivated.
      */
     public function getLocationId(): ?string
     {
@@ -52,7 +52,7 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The ID of the `Location`.
+     * The ID of the `Location`. This can include locations that are deactivated.
      *
      * @maps location_id
      */

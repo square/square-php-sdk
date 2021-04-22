@@ -13,7 +13,7 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `employeeWage` | [`?EmployeeWage`](/doc/models/employee-wage.md) | Optional | The hourly wage rate that an employee will earn on a `Shift` for doing the job<br>specified by the `title` property of this object. Deprecated at verison 2020-08-26. Use `TeamMemberWage` instead. | getEmployeeWage(): ?EmployeeWage | setEmployeeWage(?EmployeeWage employeeWage): void |
+| `employeeWage` | [`?EmployeeWage`](/doc/models/employee-wage.md) | Optional | The hourly wage rate that an employee will earn on a `Shift` for doing the job<br>specified by the `title` property of this object. Deprecated at version 2020-08-26. Use `TeamMemberWage` instead. | getEmployeeWage(): ?EmployeeWage | setEmployeeWage(?EmployeeWage employeeWage): void |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

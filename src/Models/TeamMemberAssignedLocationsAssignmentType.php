@@ -10,7 +10,7 @@ namespace Square\Models;
 class TeamMemberAssignedLocationsAssignmentType
 {
     /**
-     * The team member is assigned to all curent and future locations - the location_ids field
+     * The team member is assigned to all current and future locations - the location_ids field
      * is empty if the team member has this assignment type.
      */
     public const ALL_CURRENT_AND_FUTURE_LOCATIONS = 'ALL_CURRENT_AND_FUTURE_LOCATIONS';

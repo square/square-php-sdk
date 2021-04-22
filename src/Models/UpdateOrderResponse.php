@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [UpdateOrder](#endpoint-orders-updateorder) endpoint.
+ * a request to the [UpdateOrder]($e/Orders/UpdateOrder) endpoint.
  */
 class UpdateOrderResponse implements \JsonSerializable
 {

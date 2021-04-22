@@ -124,11 +124,11 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Expires At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
-     * will expire if it is not accepted. Must be in RFC 3339 format
-     * e.g., "2016-09-04T23:59:33.123Z". Expiration time can only be set up to 7
-     * days in the future. If `expires_at` is not set, this pickup fulfillment
-     * will be automatically accepted when placed.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment will expire if it is not accepted. Must be in RFC 3339 format
+     * e.g., "2016-09-04T23:59:33.123Z". Expiration time can only be set up to 7 days in the future.
+     * If `expires_at` is not set, this pickup fulfillment will be automatically accepted when
+     * placed.
      */
     public function getExpiresAt(): ?string
     {
@@ -138,11 +138,11 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Expires At.
      *
-     * The [timestamp](#workingwithdates) indicating when this fulfillment
-     * will expire if it is not accepted. Must be in RFC 3339 format
-     * e.g., "2016-09-04T23:59:33.123Z". Expiration time can only be set up to 7
-     * days in the future. If `expires_at` is not set, this pickup fulfillment
-     * will be automatically accepted when placed.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment will expire if it is not accepted. Must be in RFC 3339 format
+     * e.g., "2016-09-04T23:59:33.123Z". Expiration time can only be set up to 7 days in the future.
+     * If `expires_at` is not set, this pickup fulfillment will be automatically accepted when
+     * placed.
      *
      * @maps expires_at
      */
@@ -206,8 +206,10 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Pickup At.
      *
-     * The [timestamp](#workingwithdates) that represents the start of the pickup window.
-     * Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * that represents the start of the pickup window. Must be in RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
+     *
      * For fulfillments with the schedule type `ASAP`, this is automatically set
      * to the current time plus the expected duration to prepare the fulfillment.
      */
@@ -219,8 +221,10 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Pickup At.
      *
-     * The [timestamp](#workingwithdates) that represents the start of the pickup window.
-     * Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * that represents the start of the pickup window. Must be in RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
+     *
      * For fulfillments with the schedule type `ASAP`, this is automatically set
      * to the current time plus the expected duration to prepare the fulfillment.
      *
@@ -308,8 +312,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Placed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was placed. Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was placed. Must be in RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      */
     public function getPlacedAt(): ?string
     {
@@ -319,8 +324,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Placed At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was placed. Must be in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was placed. Must be in RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      *
      * @maps placed_at
      */
@@ -332,8 +338,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Accepted At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was accepted. In RFC3339 timestamp format,
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was accepted. In RFC3339 timestamp format,
      * e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getAcceptedAt(): ?string
@@ -344,8 +350,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Accepted At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was accepted. In RFC3339 timestamp format,
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was accepted. In RFC3339 timestamp format,
      * e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps accepted_at
@@ -358,8 +364,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Rejected At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was rejected. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was rejected. In RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      */
     public function getRejectedAt(): ?string
     {
@@ -369,8 +376,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Rejected At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was rejected. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was rejected. In RFC3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
      *
      * @maps rejected_at
      */
@@ -382,8 +390,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Ready At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment is
-     * marked as ready for pickup. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment is marked as ready for pickup. In RFC3339 timestamp format,
+     * e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getReadyAt(): ?string
     {
@@ -393,8 +402,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Ready At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment is
-     * marked as ready for pickup. In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment is marked as ready for pickup. In RFC3339 timestamp format,
+     * e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps ready_at
      */
@@ -406,7 +416,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Expired At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment expired.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * the fulfillment expired.
      * In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getExpiredAt(): ?string
@@ -417,7 +428,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Expired At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment expired.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) indicating when
+     * the fulfillment expired.
      * In RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps expired_at
@@ -430,8 +442,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Picked up At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was picked up by the recipient. In RFC3339 timestamp format,
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was picked up by the recipient. In RFC3339 timestamp format,
      * e.g., "2016-09-04T23:59:33.123Z".
      */
     public function getPickedUpAt(): ?string
@@ -442,8 +454,8 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Picked up At.
      *
-     * The [timestamp](#workingwithdates) indicating when the fulfillment
-     * was picked up by the recipient. In RFC3339 timestamp format,
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the fulfillment was picked up by the recipient. In RFC3339 timestamp format,
      * e.g., "2016-09-04T23:59:33.123Z".
      *
      * @maps picked_up_at
@@ -456,8 +468,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Returns Canceled At.
      *
-     * The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",
-     * indicating when the fulfillment was canceled.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z", indicating when the
+     * fulfillment was canceled.
      */
     public function getCanceledAt(): ?string
     {
@@ -467,8 +480,9 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     /**
      * Sets Canceled At.
      *
-     * The [timestamp](#workingwithdates) in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",
-     * indicating when the fulfillment was canceled.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * in RFC3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z", indicating when the
+     * fulfillment was canceled.
      *
      * @maps canceled_at
      */

@@ -10,7 +10,7 @@ namespace Square\Models;
 class OrderFulfillmentType
 {
     /**
-     * A fulfillment to be picked up from a physical [location](#type-location)
+     * A fulfillment to be picked up from a physical [location]($m/Location)
      * by a recipient.
      */
     public const PICKUP = 'PICKUP';

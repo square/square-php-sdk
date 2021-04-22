@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Request object for the [UpdateLocation](#endpoint-updatelocation) endpoint.
+ * Request object for the [UpdateLocation]($e/Locations/UpdateLocation) endpoint.
  */
 class UpdateLocationRequest implements \JsonSerializable
 {

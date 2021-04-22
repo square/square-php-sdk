@@ -59,8 +59,7 @@ class SearchInvoicesRequest implements \JsonSerializable
      * Returns Limit.
      *
      * The maximum number of invoices to return (200 is the maximum `limit`).
-     * If not provided, the server
-     * uses a default limit of 100 invoices.
+     * If not provided, the server uses a default limit of 100 invoices.
      */
     public function getLimit(): ?int
     {
@@ -71,8 +70,7 @@ class SearchInvoicesRequest implements \JsonSerializable
      * Sets Limit.
      *
      * The maximum number of invoices to return (200 is the maximum `limit`).
-     * If not provided, the server
-     * uses a default limit of 100 invoices.
+     * If not provided, the server uses a default limit of 100 invoices.
      *
      * @maps limit
      */

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Identifies the  sort field and sort order.
+ * Identifies the sort field and sort order.
  */
 class InvoiceSort implements \JsonSerializable
 {
@@ -30,7 +30,7 @@ class InvoiceSort implements \JsonSerializable
     /**
      * Returns Field.
      *
-     * Field to use for sorting.
+     * The field to use for sorting.
      */
     public function getField(): string
     {
@@ -40,7 +40,7 @@ class InvoiceSort implements \JsonSerializable
     /**
      * Sets Field.
      *
-     * Field to use for sorting.
+     * The field to use for sorting.
      *
      * @required
      * @maps field

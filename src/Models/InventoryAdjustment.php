@@ -192,7 +192,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items are being tracked.
      */
     public function getLocationId(): ?string
@@ -203,7 +203,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items are being tracked.
      *
      * @maps location_id
@@ -398,7 +398,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * The Square ID of the [Employee](#type-employee) responsible for the
+     * The Square ID of the [Employee]($m/Employee) responsible for the
      * inventory adjustment.
      */
     public function getEmployeeId(): ?string
@@ -409,7 +409,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * The Square ID of the [Employee](#type-employee) responsible for the
+     * The Square ID of the [Employee]($m/Employee) responsible for the
      * inventory adjustment.
      *
      * @maps employee_id

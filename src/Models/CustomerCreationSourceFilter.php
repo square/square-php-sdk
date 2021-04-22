@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Creation source filter.
+ * The creation source filter.
  *
  * If one or more creation sources are set, customer profiles are included in,
- * or excluded from, the result if they match at least one of the filter
- * criteria.
+ * or excluded from, the result if they match at least one of the filter criteria.
  */
 class CustomerCreationSourceFilter implements \JsonSerializable
 {

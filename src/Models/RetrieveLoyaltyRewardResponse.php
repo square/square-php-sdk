@@ -47,6 +47,11 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Returns Reward.
+     *
+     * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
+     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
+     * [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-
+     * rewards).
      */
     public function getReward(): ?LoyaltyReward
     {
@@ -55,6 +60,11 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Sets Reward.
+     *
+     * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
+     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
+     * [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-
+     * rewards).
      *
      * @maps reward
      */

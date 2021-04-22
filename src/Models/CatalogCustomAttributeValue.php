@@ -99,8 +99,8 @@ class CatalogCustomAttributeValue implements \JsonSerializable
     /**
      * Returns Custom Attribute Definition Id.
      *
-     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition](#type-
-     * CatalogCustomAttributeDefinition) this value belongs to.
+     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * this value belongs to.
      */
     public function getCustomAttributeDefinitionId(): ?string
     {
@@ -110,8 +110,8 @@ class CatalogCustomAttributeValue implements \JsonSerializable
     /**
      * Sets Custom Attribute Definition Id.
      *
-     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition](#type-
-     * CatalogCustomAttributeDefinition) this value belongs to.
+     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * this value belongs to.
      *
      * @maps custom_attribute_definition_id
      */

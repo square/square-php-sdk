@@ -2,7 +2,7 @@
 # Update Subscription Request
 
 Defines parameters in a
-[UpdateSubscription](#endpoint-subscriptions-updatesubscription) endpoint
+[UpdateSubscription](/doc/apis/subscriptions.md#update-subscription) endpoint
 request.
 
 ## Structure

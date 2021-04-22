@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Only one of `order_entries` or `orders` fields will be set, depending on whether
- * `return_entries` was set on the [SearchOrdersRequest](#type-searchorderrequest).
+ * `return_entries` was set on the [SearchOrdersRequest]($e/Orders/SearchOrders).
  */
 class SearchOrdersResponse implements \JsonSerializable
 {
@@ -33,7 +33,7 @@ class SearchOrdersResponse implements \JsonSerializable
     /**
      * Returns Order Entries.
      *
-     * List of [OrderEntries](#type-orderentry) that fit the query
+     * List of [OrderEntries]($m/OrderEntry) that fit the query
      * conditions. Populated only if `return_entries` was set to `true` in the request.
      *
      * @return OrderEntry[]|null
@@ -46,7 +46,7 @@ class SearchOrdersResponse implements \JsonSerializable
     /**
      * Sets Order Entries.
      *
-     * List of [OrderEntries](#type-orderentry) that fit the query
+     * List of [OrderEntries]($m/OrderEntry) that fit the query
      * conditions. Populated only if `return_entries` was set to `true` in the request.
      *
      * @maps order_entries
@@ -62,7 +62,7 @@ class SearchOrdersResponse implements \JsonSerializable
      * Returns Orders.
      *
      * List of
-     * [Order](#type-order) objects that match query conditions. Populated only if
+     * [Order]($m/Order) objects that match query conditions. Populated only if
      * `return_entries` in the request is set to `false`.
      *
      * @return Order[]|null
@@ -76,7 +76,7 @@ class SearchOrdersResponse implements \JsonSerializable
      * Sets Orders.
      *
      * List of
-     * [Order](#type-order) objects that match query conditions. Populated only if
+     * [Order]($m/Order) objects that match query conditions. Populated only if
      * `return_entries` in the request is set to `false`.
      *
      * @maps orders
@@ -93,7 +93,8 @@ class SearchOrdersResponse implements \JsonSerializable
      *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * information.
      */
     public function getCursor(): ?string
     {
@@ -105,7 +106,8 @@ class SearchOrdersResponse implements \JsonSerializable
      *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * information.
      *
      * @maps cursor
      */
@@ -117,7 +119,7 @@ class SearchOrdersResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * [Errors](#type-error) encountered during the search.
+     * [Errors]($m/Error) encountered during the search.
      *
      * @return Error[]|null
      */
@@ -129,7 +131,7 @@ class SearchOrdersResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * [Errors](#type-error) encountered during the search.
+     * [Errors]($m/Error) encountered during the search.
      *
      * @maps errors
      *

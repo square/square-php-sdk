@@ -48,11 +48,10 @@ class CustomerFilter implements \JsonSerializable
     /**
      * Returns Creation Source.
      *
-     * Creation source filter.
+     * The creation source filter.
      *
      * If one or more creation sources are set, customer profiles are included in,
-     * or excluded from, the result if they match at least one of the filter
-     * criteria.
+     * or excluded from, the result if they match at least one of the filter criteria.
      */
     public function getCreationSource(): ?CustomerCreationSourceFilter
     {
@@ -62,11 +61,10 @@ class CustomerFilter implements \JsonSerializable
     /**
      * Sets Creation Source.
      *
-     * Creation source filter.
+     * The creation source filter.
      *
      * If one or more creation sources are set, customer profiles are included in,
-     * or excluded from, the result if they match at least one of the filter
-     * criteria.
+     * or excluded from, the result if they match at least one of the filter criteria.
      *
      * @maps creation_source
      */
@@ -139,8 +137,8 @@ class CustomerFilter implements \JsonSerializable
      * Returns Email Address.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      */
     public function getEmailAddress(): ?CustomerTextFilter
     {
@@ -151,8 +149,8 @@ class CustomerFilter implements \JsonSerializable
      * Sets Email Address.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      *
      * @maps email_address
      */
@@ -165,8 +163,8 @@ class CustomerFilter implements \JsonSerializable
      * Returns Phone Number.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      */
     public function getPhoneNumber(): ?CustomerTextFilter
     {
@@ -177,8 +175,8 @@ class CustomerFilter implements \JsonSerializable
      * Sets Phone Number.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      *
      * @maps phone_number
      */
@@ -191,8 +189,8 @@ class CustomerFilter implements \JsonSerializable
      * Returns Reference Id.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      */
     public function getReferenceId(): ?CustomerTextFilter
     {
@@ -203,8 +201,8 @@ class CustomerFilter implements \JsonSerializable
      * Sets Reference Id.
      *
      * A filter to select customers based on exact or fuzzy matching of
-     * customer attributes against a specified query. Depending on customer attributes,
-     * the filter can be case sensitive. This filter can be either exact or fuzzy. It cannot be both.
+     * customer attributes against a specified query. Depending on the customer attributes,
+     * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
      *
      * @maps reference_id
      */

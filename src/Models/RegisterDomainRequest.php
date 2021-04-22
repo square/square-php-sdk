@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the parameters that can be included in the body of
- * a request to the [RegisterDomain](#endpoint-registerdomain) endpoint.
+ * a request to the [RegisterDomain]($e/ApplePay/RegisterDomain) endpoint.
  */
 class RegisterDomainRequest implements \JsonSerializable
 {
@@ -26,7 +26,7 @@ class RegisterDomainRequest implements \JsonSerializable
     /**
      * Returns Domain Name.
      *
-     * A domain name as described in RFC-1034 that will be registered with ApplePay
+     * A domain name as described in RFC-1034 that will be registered with ApplePay.
      */
     public function getDomainName(): string
     {
@@ -36,7 +36,7 @@ class RegisterDomainRequest implements \JsonSerializable
     /**
      * Sets Domain Name.
      *
-     * A domain name as described in RFC-1034 that will be registered with ApplePay
+     * A domain name as described in RFC-1034 that will be registered with ApplePay.
      *
      * @required
      * @maps domain_name

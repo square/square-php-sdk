@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The response object returned by the [ListMerchant](#endpoint-listmerchant) endpoint.
+ * The response object returned by the [ListMerchant]($e/Merchants/ListMerchants) endpoint.
  */
 class ListMerchantsResponse implements \JsonSerializable
 {

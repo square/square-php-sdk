@@ -94,7 +94,7 @@ class OrderLineItemDiscount implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogDiscount](#type-catalogdiscount).
+     * The catalog object id referencing [CatalogDiscount]($m/CatalogDiscount).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -104,7 +104,7 @@ class OrderLineItemDiscount implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogDiscount](#type-catalogdiscount).
+     * The catalog object id referencing [CatalogDiscount]($m/CatalogDiscount).
      *
      * @maps catalog_object_id
      */
@@ -273,7 +273,8 @@ class OrderLineItemDiscount implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      */
     public function getMetadata(): ?array
     {
@@ -300,7 +301,8 @@ class OrderLineItemDiscount implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      *
      * @maps metadata
      */
@@ -368,10 +370,10 @@ class OrderLineItemDiscount implements \JsonSerializable
     /**
      * Returns Pricing Rule Id.
      *
-     * The object identifier of a [pricing rule](#type-CatalogPricingRule) to be applied automatically
-     * to this discount. The specification and application of the discounts, to which a `pricing_rule_id`
-     * is
-     * assigned, are completely controlled by the corresponding pricing rule.
+     * The object identifier of a [pricing rule]($m/CatalogPricingRule) to be applied
+     * automatically to this discount. The specification and application of the discounts, to
+     * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding
+     * pricing rule.
      */
     public function getPricingRuleId(): ?string
     {
@@ -381,10 +383,10 @@ class OrderLineItemDiscount implements \JsonSerializable
     /**
      * Sets Pricing Rule Id.
      *
-     * The object identifier of a [pricing rule](#type-CatalogPricingRule) to be applied automatically
-     * to this discount. The specification and application of the discounts, to which a `pricing_rule_id`
-     * is
-     * assigned, are completely controlled by the corresponding pricing rule.
+     * The object identifier of a [pricing rule]($m/CatalogPricingRule) to be applied
+     * automatically to this discount. The specification and application of the discounts, to
+     * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding
+     * pricing rule.
      *
      * @maps pricing_rule_id
      */

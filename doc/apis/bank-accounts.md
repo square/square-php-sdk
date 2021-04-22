@@ -17,7 +17,7 @@ $bankAccountsApi = $client->getBankAccountsApi();
 
 # List Bank Accounts
 
-Returns a list of [BankAccount](#type-bankaccount) objects linked to a Square account.
+Returns a list of [BankAccount](/doc/models/bank-account.md) objects linked to a Square account.
 
 ```php
 function listBankAccounts(?string $cursor = null, ?int $limit = null, ?string $locationId = null): ApiResponse
@@ -58,7 +58,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Bank Account by V1 Id
 
-Returns details of a [BankAccount](#type-bankaccount) identified by V1 bank account ID.
+Returns details of a [BankAccount](/doc/models/bank-account.md) identified by V1 bank account ID.
 
 ```php
 function getBankAccountByV1Id(string $v1BankAccountId): ApiResponse
@@ -95,7 +95,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Bank Account
 
-Returns details of a [BankAccount](#type-bankaccount)
+Returns details of a [BankAccount](/doc/models/bank-account.md)
 linked to a Square account.
 
 ```php

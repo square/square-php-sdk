@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Describes a request to cancel a payment using
- * [CancelPaymentByIdempotencyKey](#endpoint-payments-cancelpaymentbyidempotencykey).
+ * [CancelPaymentByIdempotencyKey]($e/Payments/CancelPaymentByIdempotencyKey).
  */
 class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
 {

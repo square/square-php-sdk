@@ -15,7 +15,7 @@ class AdditionalRecipient implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $description;
 
@@ -31,13 +31,11 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * @param string $locationId
-     * @param string $description
      * @param Money $amountMoney
      */
-    public function __construct(string $locationId, string $description, Money $amountMoney)
+    public function __construct(string $locationId, Money $amountMoney)
     {
         $this->locationId = $locationId;
-        $this->description = $description;
         $this->amountMoney = $amountMoney;
     }
 
@@ -69,7 +67,7 @@ class AdditionalRecipient implements \JsonSerializable
      *
      * The description of the additional recipient.
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -79,10 +77,9 @@ class AdditionalRecipient implements \JsonSerializable
      *
      * The description of the additional recipient.
      *
-     * @required
      * @maps description
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
@@ -125,8 +122,8 @@ class AdditionalRecipient implements \JsonSerializable
     /**
      * Returns Receivable Id.
      *
-     * The unique ID for this [AdditionalRecipientReceivable](#type-additionalrecipientreceivable),
-     * assigned by the server.
+     * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
+     * by the server.
      */
     public function getReceivableId(): ?string
     {
@@ -136,8 +133,8 @@ class AdditionalRecipient implements \JsonSerializable
     /**
      * Sets Receivable Id.
      *
-     * The unique ID for this [AdditionalRecipientReceivable](#type-additionalrecipientreceivable),
-     * assigned by the server.
+     * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
+     * by the server.
      *
      * @maps receivable_id
      */

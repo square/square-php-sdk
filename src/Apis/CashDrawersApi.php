@@ -110,8 +110,8 @@ class CashDrawersApi extends BaseApi
 
     /**
      * Provides the summary details for a single cash drawer shift. See
-     * [ListCashDrawerShiftEvents](#endpoint-CashDrawers-ListCashDrawerShiftEvents) for a list of cash
-     * drawer shift events.
+     * [ListCashDrawerShiftEvents]($e/CashDrawers/ListCashDrawerShiftEvents) for a list of cash drawer
+     * shift events.
      *
      * @param string $locationId The ID of the location to retrieve cash drawer shifts from.
      * @param string $shiftId The shift ID.
@@ -128,7 +128,7 @@ class CashDrawersApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'shift_id'    => $shiftId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -205,7 +205,7 @@ class CashDrawersApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'shift_id'    => $shiftId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [

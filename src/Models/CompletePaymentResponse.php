@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by[CompletePayment](#endpoint-payments-completepayment).
+ * Defines the response returned by[CompletePayment]($e/Payments/CompletePayment).
  */
 class CompletePaymentResponse implements \JsonSerializable
 {

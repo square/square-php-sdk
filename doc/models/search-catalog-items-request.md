@@ -1,7 +1,7 @@
 
 # Search Catalog Items Request
 
-Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint.
+Defines the request body for the [SearchCatalogItems](/doc/apis/catalog.md#search-catalog-items) endpoint.
 
 ## Structure
 
@@ -19,7 +19,7 @@ Defines the request body for the [SearchCatalogItems](#endpoint-Catalog-SearchCa
 | `limit` | `?int` | Optional | The maximum number of results to return per page. The default value is 100.<br>**Constraints**: `<= 100` | getLimit(): ?int | setLimit(?int limit): void |
 | `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
 | `productTypes` | [`?(string[]) (CatalogItemProductType)`](/doc/models/catalog-item-product-type.md) | Optional | The product types query expression to return items or item variations having the specified product types. | getProductTypes(): ?array | setProductTypes(?array productTypes): void |
-| `customAttributeFilters` | [`?(CustomAttributeFilter[])`](/doc/models/custom-attribute-filter.md) | Optional | The customer-attribute filter to return items or item variations matching the specified<br>custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in<br>a single call to the [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems) endpoint. | getCustomAttributeFilters(): ?array | setCustomAttributeFilters(?array customAttributeFilters): void |
+| `customAttributeFilters` | [`?(CustomAttributeFilter[])`](/doc/models/custom-attribute-filter.md) | Optional | The customer-attribute filter to return items or item variations matching the specified<br>custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in<br>a single call to the [SearchCatalogItems](/doc/apis/catalog.md#search-catalog-items) endpoint. | getCustomAttributeFilters(): ?array | setCustomAttributeFilters(?array customAttributeFilters): void |
 
 ## Example (as JSON)
 
