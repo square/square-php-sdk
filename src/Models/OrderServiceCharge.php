@@ -116,7 +116,7 @@ class OrderServiceCharge implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object ID referencing the service charge [CatalogObject](#type-catalogobject).
+     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -126,7 +126,7 @@ class OrderServiceCharge implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object ID referencing the service charge [CatalogObject](#type-catalogobject).
+     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
      *
      * @maps catalog_object_id
      */

@@ -2,7 +2,7 @@
 # Search Subscriptions Request
 
 Defines parameters in a
-[SearchSubscriptions](#endpoint-subscriptions-searchsubscriptions) endpoint
+[SearchSubscriptions](/doc/apis/subscriptions.md#search-subscriptions) endpoint
 request.
 
 ## Structure

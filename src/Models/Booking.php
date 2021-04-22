@@ -135,7 +135,7 @@ class Booking implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * The timestamp specifying the creation time of this booking.
+     * The timestamp specifying the creation time of this booking, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -145,7 +145,7 @@ class Booking implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * The timestamp specifying the creation time of this booking.
+     * The timestamp specifying the creation time of this booking, in RFC 3339 format.
      *
      * @maps created_at
      */
@@ -157,7 +157,7 @@ class Booking implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * The timestamp specifying the most recent update time of this booking.
+     * The timestamp specifying the most recent update time of this booking, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
     {
@@ -167,7 +167,7 @@ class Booking implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * The timestamp specifying the most recent update time of this booking.
+     * The timestamp specifying the most recent update time of this booking, in RFC 3339 format.
      *
      * @maps updated_at
      */
@@ -179,7 +179,7 @@ class Booking implements \JsonSerializable
     /**
      * Returns Start At.
      *
-     * The timestamp specifying the starting time of this booking.
+     * The timestamp specifying the starting time of this booking, in RFC 3339 format.
      */
     public function getStartAt(): ?string
     {
@@ -189,7 +189,7 @@ class Booking implements \JsonSerializable
     /**
      * Sets Start At.
      *
-     * The timestamp specifying the starting time of this booking.
+     * The timestamp specifying the starting time of this booking, in RFC 3339 format.
      *
      * @maps start_at
      */
@@ -201,8 +201,8 @@ class Booking implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The ID of the [Location](#type-location) object representing the location where the booked service
-     * is provided.
+     * The ID of the [Location]($m/Location) object representing the location where the booked service is
+     * provided.
      */
     public function getLocationId(): ?string
     {
@@ -212,8 +212,8 @@ class Booking implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The ID of the [Location](#type-location) object representing the location where the booked service
-     * is provided.
+     * The ID of the [Location]($m/Location) object representing the location where the booked service is
+     * provided.
      *
      * @maps location_id
      */
@@ -225,7 +225,7 @@ class Booking implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of the [Customer](#type-Customer) object representing the customer attending this booking
+     * The ID of the [Customer]($m/Customer) object representing the customer attending this booking
      */
     public function getCustomerId(): ?string
     {
@@ -235,7 +235,7 @@ class Booking implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of the [Customer](#type-Customer) object representing the customer attending this booking
+     * The ID of the [Customer]($m/Customer) object representing the customer attending this booking
      *
      * @maps customer_id
      */
@@ -248,8 +248,8 @@ class Booking implements \JsonSerializable
      * Returns Customer Note.
      *
      * The free-text field for the customer to supply notes about the booking. For example, the note can be
-     * preferences that cannot be expressed by supported attributes of a relevant [CatalogObject](#type-
-     * CatalogObject) instance.
+     * preferences that cannot be expressed by supported attributes of a relevant
+     * [CatalogObject]($m/CatalogObject) instance.
      */
     public function getCustomerNote(): ?string
     {
@@ -260,8 +260,8 @@ class Booking implements \JsonSerializable
      * Sets Customer Note.
      *
      * The free-text field for the customer to supply notes about the booking. For example, the note can be
-     * preferences that cannot be expressed by supported attributes of a relevant [CatalogObject](#type-
-     * CatalogObject) instance.
+     * preferences that cannot be expressed by supported attributes of a relevant
+     * [CatalogObject]($m/CatalogObject) instance.
      *
      * @maps customer_note
      */
@@ -274,8 +274,8 @@ class Booking implements \JsonSerializable
      * Returns Seller Note.
      *
      * The free-text field for the seller to supply notes about the booking. For example, the note can be
-     * preferences that cannot be expressed by supported attributes of a specific [CatalogObject](#type-
-     * CatalogObject) instance.
+     * preferences that cannot be expressed by supported attributes of a specific
+     * [CatalogObject]($m/CatalogObject) instance.
      * This field should not be visible to customers.
      */
     public function getSellerNote(): ?string
@@ -287,8 +287,8 @@ class Booking implements \JsonSerializable
      * Sets Seller Note.
      *
      * The free-text field for the seller to supply notes about the booking. For example, the note can be
-     * preferences that cannot be expressed by supported attributes of a specific [CatalogObject](#type-
-     * CatalogObject) instance.
+     * preferences that cannot be expressed by supported attributes of a specific
+     * [CatalogObject]($m/CatalogObject) instance.
      * This field should not be visible to customers.
      *
      * @maps seller_note

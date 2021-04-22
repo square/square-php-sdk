@@ -17,7 +17,7 @@ order subtotal.
 |  --- | --- | --- | --- | --- | --- |
 | `uid` | `?string` | Optional | Unique ID that identifies the return tax only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
 | `sourceTaxUid` | `?string` | Optional | `uid` of the Tax from the Order which contains the original charge of this tax.<br>**Constraints**: *Maximum Length*: `60` | getSourceTaxUid(): ?string | setSourceTaxUid(?string sourceTaxUid): void |
-| `catalogObjectId` | `?string` | Optional | The catalog object id referencing [CatalogTax](#type-catalogtax).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
+| `catalogObjectId` | `?string` | Optional | The catalog object id referencing [CatalogTax](/doc/models/catalog-tax.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
 | `name` | `?string` | Optional | The tax's name.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `type` | [`?string (OrderLineItemTaxType)`](/doc/models/order-line-item-tax-type.md) | Optional | Indicates how the tax is applied to the associated line item or order. | getType(): ?string | setType(?string type): void |
 | `percentage` | `?string` | Optional | The percentage of the tax, as a string representation of a decimal number.<br>For example, a value of `"7.25"` corresponds to a percentage of 7.25%.<br>**Constraints**: *Maximum Length*: `10` | getPercentage(): ?string | setPercentage(?string percentage): void |

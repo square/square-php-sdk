@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the valid parameters for requests to __ListCustomerSegments__.
+ * Defines the valid parameters for requests to the `ListCustomerSegments` endpoint.
  */
 class ListCustomerSegmentsRequest implements \JsonSerializable
 {
@@ -17,11 +17,11 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * A pagination cursor returned by previous calls to __ListCustomerSegments__.
-     * Used to retrieve the next set of query results.
+     * A pagination cursor returned by previous calls to `ListCustomerSegments`.
+     * This cursor is used to retrieve the next set of query results.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -31,11 +31,11 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * A pagination cursor returned by previous calls to __ListCustomerSegments__.
-     * Used to retrieve the next set of query results.
+     * A pagination cursor returned by previous calls to `ListCustomerSegments`.
+     * This cursor is used to retrieve the next set of query results.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */

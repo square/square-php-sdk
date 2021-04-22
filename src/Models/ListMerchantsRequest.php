@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Request object for the [ListMerchant](#endpoint-listmerchant) endpoint.
+ * Request object for the [ListMerchant]($e/Merchants/ListMerchants) endpoint.
  */
 class ListMerchantsRequest implements \JsonSerializable
 {

@@ -16,6 +16,7 @@ $subscriptionsApi = $client->getSubscriptionsApi();
 * [Update Subscription](/doc/apis/subscriptions.md#update-subscription)
 * [Cancel Subscription](/doc/apis/subscriptions.md#cancel-subscription)
 * [List Subscription Events](/doc/apis/subscriptions.md#list-subscription-events)
+* [Resume Subscription](/doc/apis/subscriptions.md#resume-subscription)
 
 
 # Create Subscription
@@ -293,6 +294,43 @@ $apiResponse = $subscriptionsApi->listSubscriptionEvents($subscriptionId, $curso
 
 if ($apiResponse->isSuccess()) {
     $listSubscriptionEventsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Resume Subscription
+
+Resumes a deactivated subscription.
+
+```php
+function resumeSubscription(string $subscriptionId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription to resume. |
+
+## Response Type
+
+[`ResumeSubscriptionResponse`](/doc/models/resume-subscription-response.md)
+
+## Example Usage
+
+```php
+$subscriptionId = 'subscription_id0';
+
+$apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId);
+
+if ($apiResponse->isSuccess()) {
+    $resumeSubscriptionResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [VoidTransaction](#endpoint-voidtransaction) endpoint.
+ * a request to the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint.
  */
 class VoidTransactionResponse implements \JsonSerializable
 {

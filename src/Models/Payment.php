@@ -778,7 +778,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the payment.
+     * The [Customer]($m/Customer) ID of the customer associated with the payment.
      */
     public function getCustomerId(): ?string
     {
@@ -788,7 +788,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the payment.
+     * The [Customer]($m/Customer) ID of the customer associated with the payment.
      *
      * @maps customer_id
      */

@@ -13,7 +13,7 @@ Describes a subscription plan. For more information, see
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `name` | `?string` | Optional | The name of the plan. | getName(): ?string | setName(?string name): void |
-| `phases` | [`?(SubscriptionPhase[])`](/doc/models/subscription-phase.md) | Optional | A list of SubscriptionPhase containing the [SubscriptionPhase](#type-SubscriptionPhase) for this plan. | getPhases(): ?array | setPhases(?array phases): void |
+| `phases` | [`?(SubscriptionPhase[])`](/doc/models/subscription-phase.md) | Optional | A list of SubscriptionPhase containing the [SubscriptionPhase](/doc/models/subscription-phase.md) for this plan. | getPhases(): ?array | setPhases(?array phases): void |
 
 ## Example (as JSON)
 

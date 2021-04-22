@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Determines the billing cadence of a [Subscription](#type-Subscription)
+ * Determines the billing cadence of a [Subscription]($m/Subscription)
  */
 class SubscriptionCadence
 {

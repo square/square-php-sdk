@@ -46,8 +46,7 @@ class CatalogSubscriptionPlan implements \JsonSerializable
     /**
      * Returns Phases.
      *
-     * A list of SubscriptionPhase containing the [SubscriptionPhase](#type-SubscriptionPhase) for this
-     * plan.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
      * @return SubscriptionPhase[]|null
      */
@@ -59,8 +58,7 @@ class CatalogSubscriptionPlan implements \JsonSerializable
     /**
      * Sets Phases.
      *
-     * A list of SubscriptionPhase containing the [SubscriptionPhase](#type-SubscriptionPhase) for this
-     * plan.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
      * @maps phases
      *

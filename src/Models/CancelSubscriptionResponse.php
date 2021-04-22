@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines fields that are included in a
- * [CancelSubscription](#endpoint-subscriptions-cancelsubscription) response.
+ * [CancelSubscription]($e/Subscriptions/CancelSubscription) response.
  */
 class CancelSubscriptionResponse implements \JsonSerializable
 {

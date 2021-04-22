@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in requests to the
- * [PayOrder](#endpoint-payorder) endpoint.
+ * [PayOrder]($e/Orders/PayOrder) endpoint.
  */
 class PayOrderRequest implements \JsonSerializable
 {
@@ -91,7 +91,7 @@ class PayOrderRequest implements \JsonSerializable
     /**
      * Returns Payment Ids.
      *
-     * The IDs of the [payments](#type-payment) to collect.
+     * The IDs of the [payments]($m/Payment) to collect.
      * The payment total must match the order total.
      *
      * @return string[]|null
@@ -104,7 +104,7 @@ class PayOrderRequest implements \JsonSerializable
     /**
      * Sets Payment Ids.
      *
-     * The IDs of the [payments](#type-payment) to collect.
+     * The IDs of the [payments]($m/Payment) to collect.
      * The payment total must match the order total.
      *
      * @maps payment_ids

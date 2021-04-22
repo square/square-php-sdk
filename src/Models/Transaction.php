@@ -184,7 +184,7 @@ class Transaction implements \JsonSerializable
     /**
      * Returns Reference Id.
      *
-     * If the transaction was created with the [Charge](#endpoint-charge)
+     * If the transaction was created with the [Charge]($e/Transactions/Charge)
      * endpoint, this value is the same as the value provided for the `reference_id`
      * parameter in the request to that endpoint. Otherwise, it is not set.
      */
@@ -196,7 +196,7 @@ class Transaction implements \JsonSerializable
     /**
      * Sets Reference Id.
      *
-     * If the transaction was created with the [Charge](#endpoint-charge)
+     * If the transaction was created with the [Charge]($e/Transactions/Charge)
      * endpoint, this value is the same as the value provided for the `reference_id`
      * parameter in the request to that endpoint. Otherwise, it is not set.
      *

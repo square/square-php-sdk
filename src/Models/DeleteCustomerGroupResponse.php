@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [DeleteCustomerGroup](#endpoint-deletecustomergroup) endpoint.
+ * a request to the [DeleteCustomerGroup]($e/CustomerGroups/DeleteCustomerGroup) endpoint.
  */
 class DeleteCustomerGroupResponse implements \JsonSerializable
 {

@@ -238,7 +238,7 @@ class OrderLineItem implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The [CatalogItemVariation](#type-catalogitemvariation) id applied to this line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this line item.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -248,7 +248,7 @@ class OrderLineItem implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The [CatalogItemVariation](#type-catalogitemvariation) id applied to this line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this line item.
      *
      * @maps catalog_object_id
      */
@@ -299,7 +299,8 @@ class OrderLineItem implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      */
     public function getMetadata(): ?array
     {
@@ -326,7 +327,8 @@ class OrderLineItem implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      *
      * @maps metadata
      */
@@ -338,7 +340,7 @@ class OrderLineItem implements \JsonSerializable
     /**
      * Returns Modifiers.
      *
-     * The [CatalogModifier](#type-catalogmodifier)s applied to this line item.
+     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @return OrderLineItemModifier[]|null
      */
@@ -350,7 +352,7 @@ class OrderLineItem implements \JsonSerializable
     /**
      * Sets Modifiers.
      *
-     * The [CatalogModifier](#type-catalogmodifier)s applied to this line item.
+     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @maps modifiers
      *

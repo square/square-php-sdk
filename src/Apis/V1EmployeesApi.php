@@ -214,7 +214,7 @@ class V1EmployeesApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'employee_id' => $employeeId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -283,7 +283,7 @@ class V1EmployeesApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'employee_id' => $employeeId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -418,7 +418,7 @@ class V1EmployeesApi extends BaseApi
      * role might be able to issue refunds in Square Point of Sale, whereas an
      * employee with a "Clerk" role might not.
      *
-     * Roles are assigned with the [V1UpdateEmployee](#endpoint-v1updateemployee)
+     * Roles are assigned with the [V1UpdateEmployee]($e/V1Employees/UpdateEmployeeRole)
      * endpoint. An employee can have only one role at a time.
      *
      * If an employee has no role, they have none of the permissions associated
@@ -502,7 +502,7 @@ class V1EmployeesApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'role_id' => $roleId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -571,7 +571,7 @@ class V1EmployeesApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'role_id' => $roleId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response body returned from the [SearchCatalogItems](#endpoint-Catalog-
- * SearchCatalogItems) endpoint.
+ * Defines the response body returned from the [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
+ * endpoint.
  */
 class SearchCatalogItemsResponse implements \JsonSerializable
 {

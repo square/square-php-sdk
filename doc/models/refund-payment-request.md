@@ -1,7 +1,7 @@
 
 # Refund Payment Request
 
-Describes a request to refund a payment using [RefundPayment](#endpoint-payments-refundpayment).
+Describes a request to refund a payment using [RefundPayment](/doc/apis/refunds.md#refund-payment).
 
 ## Structure
 

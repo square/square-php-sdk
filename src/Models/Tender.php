@@ -421,7 +421,7 @@ class Tender implements \JsonSerializable
     /**
      * Returns Payment Id.
      *
-     * The ID of the [Payment](#type-payment) that corresponds to this tender.
+     * The ID of the [Payment]($m/Payment) that corresponds to this tender.
      * This value is only present for payments created with the v2 Payments API.
      */
     public function getPaymentId(): ?string
@@ -432,7 +432,7 @@ class Tender implements \JsonSerializable
     /**
      * Sets Payment Id.
      *
-     * The ID of the [Payment](#type-payment) that corresponds to this tender.
+     * The ID of the [Payment]($m/Payment) that corresponds to this tender.
      * This value is only present for payments created with the v2 Payments API.
      *
      * @maps payment_id

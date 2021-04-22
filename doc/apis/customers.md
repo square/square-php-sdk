@@ -38,9 +38,9 @@ function listCustomers(?string $cursor = null, ?string $sortField = null, ?strin
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
-| `sortField` | [`?string (CustomerSortField)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how Customers should be sorted.<br><br>Default: `DEFAULT`. |
-| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether Customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>Default: `ASC`. |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `sortField` | [`?string (CustomerSortField)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>Default: `DEFAULT`. |
+| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>Default: `ASC`. |
 
 ## Response Type
 
@@ -71,7 +71,7 @@ if ($apiResponse->isSuccess()) {
 
 Creates a new customer for a business, which can have associated cards on file.
 
-You must provide __at least one__ of the following values in your request to this
+You must provide at least one of the following values in your request to this
 endpoint:
 
 - `given_name`
@@ -204,12 +204,14 @@ if ($apiResponse->isSuccess()) {
 
 # Delete Customer
 
-Deletes a customer from a business, along with any linked cards on file. When two profiles
-are merged into a single profile, that profile is assigned a new `customer_id`. You must use the
-new `customer_id` to delete merged profiles.
+Deletes a customer profile from a business, including any linked cards on file.
+
+As a best practice, you should include the `version` field in the request to enable [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control. The value must be set to the current version of the customer profile.
+
+To delete a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
 
 ```php
-function deleteCustomer(string $customerId): ApiResponse
+function deleteCustomer(string $customerId, ?int $version = null): ApiResponse
 ```
 
 ## Parameters
@@ -217,6 +219,7 @@ function deleteCustomer(string $customerId): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `customerId` | `string` | Template, Required | The ID of the customer to delete. |
+| `version` | `?int` | Query, Optional | The current version of the customer profile.<br><br>As a best practice, you should include this parameter to enable [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control.  For more information, see [Delete a customer profile](https://developer.squareup.com/docs/customers-api/use-the-api/keep-records#delete-customer-profile). |
 
 ## Response Type
 
@@ -226,8 +229,9 @@ function deleteCustomer(string $customerId): ApiResponse
 
 ```php
 $customerId = 'customer_id8';
+$version = 172;
 
-$apiResponse = $customersApi->deleteCustomer($customerId);
+$apiResponse = $customersApi->deleteCustomer($customerId, $version);
 
 if ($apiResponse->isSuccess()) {
     $deleteCustomerResponse = $apiResponse->getResult();
@@ -280,14 +284,13 @@ if ($apiResponse->isSuccess()) {
 
 # Update Customer
 
-Updates the details of an existing customer. When two profiles are merged
-into a single profile, that profile is assigned a new `customer_id`. You must use
-the new `customer_id` to update merged profiles.
+Updates a customer profile. To change an attribute, specify the new value. To remove an attribute, specify the value as an empty string or empty object.
 
-You cannot edit a customer's cards on file with this endpoint. To make changes
-to a card on file, you must delete the existing card on file with the
-[DeleteCustomerCard](#endpoint-Customers-deletecustomercard) endpoint, then create a new one with the
-[CreateCustomerCard](#endpoint-Customers-createcustomercard) endpoint.
+As a best practice, you should include the `version` field in the request to enable [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control. The value must be set to the current version of the customer profile.
+
+To update a customer profile that was created by merging existing profiles, you must use the ID of the newly created profile.
+
+You cannot use this endpoint to change cards on file. To change a card on file, call [DeleteCustomerCard](/doc/apis/customers.md#delete-customer-card) to delete the existing card and then call [CreateCustomerCard](/doc/apis/customers.md#create-customer-card) to create a new card.
 
 ```php
 function updateCustomer(string $customerId, UpdateCustomerRequest $body): ApiResponse
@@ -316,6 +319,7 @@ $body->setNickname('nickname2');
 $body->setEmailAddress('New.Amelia.Earhart@example.com');
 $body->setPhoneNumber('');
 $body->setNote('updated customer note');
+$body->setVersion(2);
 
 $apiResponse = $customersApi->updateCustomer($customerId, $body);
 

@@ -22,10 +22,9 @@ class InvoiceStatus
 
     /**
      * The invoice is scheduled to be processed. On the scheduled date,
-     * Square sends the invoice, initiates an automatic payment, or takes no action, depending on the
-     * delivery method and payment request settings. Square also sets the invoice status to the appropriate
-     * state:
-     * `UNPAID`, `PAID`, `PARTIALLY_PAID`, or `PAYMENT_PENDING`.
+     * Square sends the invoice, initiates an automatic payment, or takes no action, depending on
+     * the delivery method and payment request settings. Square also sets the invoice status to the
+     * appropriate state: `UNPAID`, `PAID`, `PARTIALLY_PAID`, or `PAYMENT_PENDING`.
      */
     public const SCHEDULED = 'SCHEDULED';
 
@@ -53,7 +52,7 @@ class InvoiceStatus
     /**
      * The invoice is canceled. Square no longer requests payments from the customer.
      * The `public_url` page remains and is accessible, but it displays the invoice
-     * as cancelled and does not accept payment.
+     * as canceled and does not accept payment.
      */
     public const CANCELED = 'CANCELED';
 

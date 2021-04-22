@@ -32,7 +32,7 @@ class TransactionsApi extends BaseApi
      * Refunds with a `status` of `PENDING` are not currently included in this
      * endpoint's response.
      *
-     * Max results per [page](#paginatingresults): 50
+     * Max results per [page](https://developer.squareup.com/docs/working-with-apis/pagination): 50
      *
      * @deprecated
      *
@@ -40,13 +40,15 @@ class TransactionsApi extends BaseApi
      * @param string|null $beginTime The beginning of the requested reporting period, in RFC 3339
      *                               format.
      *
-     *                               See [Date ranges](#dateranges) for details on date
+     *                               See [Date ranges](https://developer.squareup.com/docs/build-
+     *                               basics/working-with-dates) for details on date
      *                               inclusivity/exclusivity.
      *
      *                               Default value: The current time minus one year.
      * @param string|null $endTime The end of the requested reporting period, in RFC 3339 format.
      *
-     *                             See [Date ranges](#dateranges) for details on date
+     *                             See [Date ranges](https://developer.squareup.com/docs/build-
+     *                             basics/working-with-dates) for details on date
      *                             inclusivity/exclusivity.
      *
      *                             Default value: The current time.
@@ -59,8 +61,8 @@ class TransactionsApi extends BaseApi
      *                            Provide this to retrieve the next set of results for your
      *                            original query.
      *
-     *                            See [Paginating results](#paginatingresults) for more
-     *                            information.
+     *                            See [Paginating results](https://developer.squareup.
+     *                            com/docs/working-with-apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -81,7 +83,7 @@ class TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -142,7 +144,7 @@ class TransactionsApi extends BaseApi
      * Transactions include payment information from sales and exchanges and refund
      * information from returns and exchanges.
      *
-     * Max results per [page](#paginatingresults): 50
+     * Max results per [page](https://developer.squareup.com/docs/working-with-apis/pagination): 50
      *
      * @deprecated
      *
@@ -150,13 +152,15 @@ class TransactionsApi extends BaseApi
      * @param string|null $beginTime The beginning of the requested reporting period, in RFC 3339
      *                               format.
      *
-     *                               See [Date ranges](#dateranges) for details on date
+     *                               See [Date ranges](https://developer.squareup.com/docs/build-
+     *                               basics/working-with-dates) for details on date
      *                               inclusivity/exclusivity.
      *
      *                               Default value: The current time minus one year.
      * @param string|null $endTime The end of the requested reporting period, in RFC 3339 format.
      *
-     *                             See [Date ranges](#dateranges) for details on date
+     *                             See [Date ranges](https://developer.squareup.com/docs/build-
+     *                             basics/working-with-dates) for details on date
      *                             inclusivity/exclusivity.
      *
      *                             Default value: The current time.
@@ -169,8 +173,8 @@ class TransactionsApi extends BaseApi
      *                            Provide this to retrieve the next set of results for your
      *                            original query.
      *
-     *                            See [Paginating results](#paginatingresults) for more
-     *                            information.
+     *                            See [Paginating results](https://developer.squareup.
+     *                            com/docs/working-with-apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -191,7 +195,7 @@ class TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -265,8 +269,8 @@ class TransactionsApi extends BaseApi
      *
      * When this response is returned, the amount of Square's processing fee might not yet be
      * calculated. To obtain the processing fee, wait about ten seconds and call
-     * [RetrieveTransaction](#endpoint-retrievetransaction). See the `processing_fee_money`
-     * field of each [Tender included](#type-tender) in the transaction.
+     * [RetrieveTransaction]($e/Transactions/RetrieveTransaction). See the `processing_fee_money`
+     * field of each [Tender included]($m/Tender) in the transaction.
      *
      * @deprecated
      *
@@ -291,7 +295,7 @@ class TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -365,7 +369,7 @@ class TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -413,7 +417,7 @@ class TransactionsApi extends BaseApi
     }
 
     /**
-     * Captures a transaction that was created with the [Charge](#endpoint-charge)
+     * Captures a transaction that was created with the [Charge]($e/Transactions/Charge)
      * endpoint with a `delay_capture` value of `true`.
      *
      *
@@ -441,7 +445,7 @@ class TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -528,7 +532,7 @@ class TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -580,7 +584,7 @@ class TransactionsApi extends BaseApi
     }
 
     /**
-     * Cancels a transaction that was created with the [Charge](#endpoint-charge)
+     * Cancels a transaction that was created with the [Charge]($e/Transactions/Charge)
      * endpoint with a `delay_capture` value of `true`.
      *
      *
@@ -608,7 +612,7 @@ class TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

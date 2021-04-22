@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Describes a request to list payments using
- * [ListPayments](#endpoint-payments-listpayments).
+ * [ListPayments]($e/Payments/ListPayments).
  *
  * The maximum results per page is 100.
  */

@@ -78,7 +78,8 @@ class SearchOrdersRequest implements \JsonSerializable
      *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * information.
      */
     public function getCursor(): ?string
     {
@@ -90,7 +91,8 @@ class SearchOrdersRequest implements \JsonSerializable
      *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * information.
      *
      * @maps cursor
      */
@@ -153,7 +155,7 @@ class SearchOrdersRequest implements \JsonSerializable
      * Returns Return Entries.
      *
      * Boolean that controls the format of the search results. If `true`,
-     * SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders
+     * SearchOrders will return [`OrderEntry`]($m/OrderEntry) objects. If `false`, SearchOrders
      * will return complete Order objects.
      *
      * Default: `false`.
@@ -167,7 +169,7 @@ class SearchOrdersRequest implements \JsonSerializable
      * Sets Return Entries.
      *
      * Boolean that controls the format of the search results. If `true`,
-     * SearchOrders will return [`OrderEntry`](#type-orderentry) objects. If `false`, SearchOrders
+     * SearchOrders will return [`OrderEntry`]($m/OrderEntry) objects. If `false`, SearchOrders
      * will return complete Order objects.
      *
      * Default: `false`.

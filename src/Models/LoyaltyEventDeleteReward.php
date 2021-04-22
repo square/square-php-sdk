@@ -37,7 +37,7 @@ class LoyaltyEventDeleteReward implements \JsonSerializable
     /**
      * Returns Loyalty Program Id.
      *
-     * The ID of the [loyalty program](#type-LoyaltyProgram).
+     * The ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
     {
@@ -47,7 +47,7 @@ class LoyaltyEventDeleteReward implements \JsonSerializable
     /**
      * Sets Loyalty Program Id.
      *
-     * The ID of the [loyalty program](#type-LoyaltyProgram).
+     * The ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @required
      * @maps loyalty_program_id
@@ -60,7 +60,7 @@ class LoyaltyEventDeleteReward implements \JsonSerializable
     /**
      * Returns Reward Id.
      *
-     * The ID of the deleted [loyalty reward](#type-LoyaltyReward).
+     * The ID of the deleted [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      */
     public function getRewardId(): ?string
@@ -71,7 +71,7 @@ class LoyaltyEventDeleteReward implements \JsonSerializable
     /**
      * Sets Reward Id.
      *
-     * The ID of the deleted [loyalty reward](#type-LoyaltyReward).
+     * The ID of the deleted [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      *
      * @maps reward_id

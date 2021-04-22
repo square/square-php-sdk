@@ -49,7 +49,7 @@ class V1TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -123,7 +123,7 @@ class V1TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
             'order_id'    => $orderId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -199,7 +199,7 @@ class V1TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
             'order_id'    => $orderId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -303,7 +303,7 @@ class V1TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'     => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -312,7 +312,8 @@ class V1TransactionsApi extends BaseApi
             'end_time'        => $endTime,
             'limit'           => $limit,
             'batch_token'     => $batchToken,
-            'include_partial' => (null != $includePartial) ? var_export($includePartial, true) : false,
+            'include_partial' => (null != $includePartial) ?
+                var_export($includePartial, true) : false,
         ]);
 
         //validate and preprocess url
@@ -382,7 +383,7 @@ class V1TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
             'payment_id'  => $paymentId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -469,7 +470,7 @@ class V1TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -558,7 +559,7 @@ class V1TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -655,7 +656,7 @@ class V1TransactionsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id' => $locationId,
-            ]);
+        ]);
 
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
@@ -748,7 +749,7 @@ class V1TransactionsApi extends BaseApi
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'location_id'   => $locationId,
             'settlement_id' => $settlementId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

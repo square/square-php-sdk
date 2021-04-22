@@ -6,22 +6,22 @@ namespace Square\Models;
 
 /**
  * Specifies the action for Square to take for processing the invoice. For example,
- * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21.
- * The corresponding `request_method` field is replaced by the `Invoice.delivery_method` and
- * `InvoicePaymentRequest.automatic_payment_source` fields.
+ * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
+ * version 2021-01-21. The corresponding `request_method` field is replaced by the
+ * `Invoice.delivery_method` and `InvoicePaymentRequest.automatic_payment_source` fields.
  */
 class InvoiceRequestMethod
 {
     /**
-     * Directs Square to send invoices, reminders, and receipts to the customer using email. Square sends
-     * the invoice after it is published
-     * (either immediately or at the `scheduled_at` time, if specified in the [invoice](#type-invoice)).
+     * Directs Square to send invoices, reminders, and receipts to the customer using email.
+     * Square sends the invoice after it is published (either immediately or at the `scheduled_at`
+     * time, if specified in the [invoice]($m/Invoice)).
      */
     public const EMAIL = 'EMAIL';
 
     /**
-     * Directs Square to charge the card on file on the `due_date` specified in the payment request and to
-     * use email to send invoices, reminders, and receipts.
+     * Directs Square to charge the card on file on the `due_date` specified in the payment request
+     * and to use email to send invoices, reminders, and receipts.
      */
     public const CHARGE_CARD_ON_FILE = 'CHARGE_CARD_ON_FILE';
 
@@ -48,15 +48,17 @@ class InvoiceRequestMethod
 
     /**
      * Directs Square to send invoices and receipts to the customer using SMS (text message). Square sends
-     * the invoice after it is published (either immediately or at the `scheduled_at` time, if specified in
-     * the [invoice](#type-invoice)).
+     * the invoice
+     * after it is published (either immediately or at the `scheduled_at` time, if specified in the
+     * [invoice]($m/Invoice)).
      *
      * You cannot set `SMS` as a request method using the Invoices API.
      */
     public const SMS = 'SMS';
 
     /**
-     * Directs Square to charge the card on file on the `due_date` specified in the payment request and to
+     * Directs Square to charge the card on file on the `due_date` specified in the payment request and
+     * to
      * use SMS (text message) to send invoices and receipts.
      *
      * You cannot set `SMS_CHARGE_CARD_ON_FILE` as a request method using the Invoices API.
@@ -65,12 +67,14 @@ class InvoiceRequestMethod
 
     /**
      * Directs Square to charge the bank account on file on the `due_date` specified in the payment
-     * request and to use SMS (text message) to send invoices and receipts.
+     * request
+     * and to use SMS (text message) to send invoices and receipts.
      *
      * The bank on file payment method applies only to recurring invoices that sellers create in the Seller
-     * Dashboard or other Square first-party applications. The bank account is provided by the customer
-     * during the payment flow. You cannot set `SMS_CHARGE_BANK_ON_FILE` as a request method using the
-     * Invoices API.
+     * Dashboard
+     * or other Square first-party applications. The bank account is provided by the customer during the
+     * payment flow.
+     * You cannot set `SMS_CHARGE_BANK_ON_FILE` as a request method using the Invoices API.
      */
     public const SMS_CHARGE_BANK_ON_FILE = 'SMS_CHARGE_BANK_ON_FILE';
 }

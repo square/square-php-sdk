@@ -50,7 +50,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Returns Objects.
      *
-     * A list of [CatalogObject](#type-catalogobject)s returned.
+     * A list of [CatalogObject]($m/CatalogObject)s returned.
      *
      * @return CatalogObject[]|null
      */
@@ -62,7 +62,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Sets Objects.
      *
-     * A list of [CatalogObject](#type-catalogobject)s returned.
+     * A list of [CatalogObject]($m/CatalogObject)s returned.
      *
      * @maps objects
      *
@@ -76,7 +76,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Returns Related Objects.
      *
-     * A list of [CatalogObject](#type-catalogobject)s referenced by the object in the `objects` field.
+     * A list of [CatalogObject]($m/CatalogObject)s referenced by the object in the `objects` field.
      *
      * @return CatalogObject[]|null
      */
@@ -88,7 +88,7 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     /**
      * Sets Related Objects.
      *
-     * A list of [CatalogObject](#type-catalogobject)s referenced by the object in the `objects` field.
+     * A list of [CatalogObject]($m/CatalogObject)s referenced by the object in the `objects` field.
      *
      * @maps related_objects
      *

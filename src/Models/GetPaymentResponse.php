@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by [GetPayment](#endpoint-payments-getpayment).
+ * Defines the response returned by [GetPayment]($e/Payments/GetPayment).
  */
 class GetPaymentResponse implements \JsonSerializable
 {

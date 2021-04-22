@@ -1,9 +1,9 @@
 
 # Retrieve Customer Segment Response
 
-Defines the fields included in the response body for requests to __RetrieveCustomerSegment__.
+Defines the fields that are included in the response body for requests to the `RetrieveCustomerSegment` endpoint.
 
-One of `errors` or `segment` is present in a given response (never both).
+Either `errors` or `segment` is present in a given response (never both).
 
 ## Structure
 
@@ -14,7 +14,7 @@ One of `errors` or `segment` is present in a given response (never both).
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `segment` | [`?CustomerSegment`](/doc/models/customer-segment.md) | Optional | Represents a group of customer profiles that match one or more predefined filter criteria.<br><br>Segments (also known as Smart Groups) are defined and created within Customer Directory in the Square Dashboard or Point of Sale. | getSegment(): ?CustomerSegment | setSegment(?CustomerSegment segment): void |
+| `segment` | [`?CustomerSegment`](/doc/models/customer-segment.md) | Optional | Represents a group of customer profiles that match one or more predefined filter criteria.<br><br>Segments (also known as Smart Groups) are defined and created within the Customer Directory in the<br>Square Seller Dashboard or Point of Sale. | getSegment(): ?CustomerSegment | setSegment(?CustomerSegment segment): void |
 
 ## Example (as JSON)
 

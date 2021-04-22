@@ -248,7 +248,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The [CatalogItemVariation](#type-catalogitemvariation) id applied to this returned line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this returned line item.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -258,7 +258,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The [CatalogItemVariation](#type-catalogitemvariation) id applied to this returned line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this returned line item.
      *
      * @maps catalog_object_id
      */
@@ -292,7 +292,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Return Modifiers.
      *
-     * The [CatalogModifier](#type-catalogmodifier)s applied to this line item.
+     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @return OrderReturnLineItemModifier[]|null
      */
@@ -304,7 +304,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Return Modifiers.
      *
-     * The [CatalogModifier](#type-catalogmodifier)s applied to this line item.
+     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @maps return_modifiers
      *

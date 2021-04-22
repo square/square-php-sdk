@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a payment request for an [invoice](#type-Invoice). Invoices can specify a maximum
+ * Represents a payment request for an [invoice]($m/Invoice). Invoices can specify a maximum
  * of 13 payment requests, with up to 12 `INSTALLMENT` request types.
  *
  * For more information,
@@ -81,7 +81,7 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * The Square-generated ID of the payment request in an [invoice](#type-invoice).
+     * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
      */
     public function getUid(): ?string
     {
@@ -91,7 +91,7 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * The Square-generated ID of the payment request in an [invoice](#type-invoice).
+     * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
      *
      * @maps uid
      */
@@ -104,9 +104,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Request Method.
      *
      * Specifies the action for Square to take for processing the invoice. For example,
-     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21.
-     * The corresponding `request_method` field is replaced by the `Invoice.delivery_method` and
-     * `InvoicePaymentRequest.automatic_payment_source` fields.
+     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
+     * version 2021-01-21. The corresponding `request_method` field is replaced by the
+     * `Invoice.delivery_method` and `InvoicePaymentRequest.automatic_payment_source` fields.
      */
     public function getRequestMethod(): ?string
     {
@@ -117,9 +117,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Request Method.
      *
      * Specifies the action for Square to take for processing the invoice. For example,
-     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at version 2021-01-21.
-     * The corresponding `request_method` field is replaced by the `Invoice.delivery_method` and
-     * `InvoicePaymentRequest.automatic_payment_source` fields.
+     * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
+     * version 2021-01-21. The corresponding `request_method` field is replaced by the
+     * `Invoice.delivery_method` and `InvoicePaymentRequest.automatic_payment_source` fields.
      *
      * @maps request_method
      */
@@ -170,11 +170,14 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Due Date.
      *
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
-     * field is required to create a payment request.
+     * field
+     * is required to create a payment request.
      *
      * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
-     * `timezone` of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles
-     * (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
+     * `timezone`
+     * of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles (which equals
+     * a UTC
+     * timestamp of 2021-03-10T08:00:00Z).
      */
     public function getDueDate(): ?string
     {
@@ -185,11 +188,14 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Due Date.
      *
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
-     * field is required to create a payment request.
+     * field
+     * is required to create a payment request.
      *
      * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
-     * `timezone` of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles
-     * (which equals a UTC timestamp of 2021-03-10T08:00:00Z).
+     * `timezone`
+     * of America/Los\_Angeles becomes overdue at midnight on March 9 in America/Los\_Angeles (which equals
+     * a UTC
+     * timestamp of 2021-03-10T08:00:00Z).
      *
      * @maps due_date
      */
@@ -237,8 +243,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      *
      * Specifies the amount for the payment request in percentage:
      *
-     * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order total amount.
-     * - When the payment `request_type` is `INSTALLMENT`, it is the percentage of the order total less
+     * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order's total amount.
+     * - When the payment `request_type` is `INSTALLMENT`, it is the percentage of the order's total less
      * the deposit, if requested. The sum of the `percentage_requested` in all installment
      * payment requests must be equal to 100.
      *
@@ -255,8 +261,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      *
      * Specifies the amount for the payment request in percentage:
      *
-     * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order total amount.
-     * - When the payment `request_type` is `INSTALLMENT`, it is the percentage of the order total less
+     * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order's total amount.
+     * - When the payment `request_type` is `INSTALLMENT`, it is the percentage of the order's total less
      * the deposit, if requested. The sum of the `percentage_requested` in all installment
      * payment requests must be equal to 100.
      *
@@ -303,7 +309,7 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Automatic Payment Source.
      *
-     * Indicates the automatic payment method for an [invoice payment request](#type-InvoicePaymentRequest).
+     * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
      */
     public function getAutomaticPaymentSource(): ?string
     {
@@ -313,7 +319,7 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Automatic Payment Source.
      *
-     * Indicates the automatic payment method for an [invoice payment request](#type-InvoicePaymentRequest).
+     * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
      *
      * @maps automatic_payment_source
      */
@@ -326,8 +332,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Card Id.
      *
      * The ID of the card on file to charge for the payment request. To get the customer’s card on file,
-     * use the `customer_id` of the invoice recipient to call [RetrieveCustomer](#endpoint-Customers-
-     * RetrieveCustomer)
+     * use the `customer_id` of the invoice recipient to call
+     * [RetrieveCustomer]($e/Customers/RetrieveCustomer)
      * in the Customers API. Then, get the ID of the target card from the `cards` field in the response.
      */
     public function getCardId(): ?string
@@ -339,8 +345,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Card Id.
      *
      * The ID of the card on file to charge for the payment request. To get the customer’s card on file,
-     * use the `customer_id` of the invoice recipient to call [RetrieveCustomer](#endpoint-Customers-
-     * RetrieveCustomer)
+     * use the `customer_id` of the invoice recipient to call
+     * [RetrieveCustomer]($e/Customers/RetrieveCustomer)
      * in the Customers API. Then, get the ID of the target card from the `cards` field in the response.
      *
      * @maps card_id

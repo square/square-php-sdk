@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the response returned by
- * [CancelPaymentByIdempotencyKey](#endpoint-payments-cancelpaymentbyidempotencykey).
+ * [CancelPaymentByIdempotencyKey]($e/Payments/CancelPaymentByIdempotencyKey).
  * On success, `errors` is empty.
  */
 class CancelPaymentByIdempotencyKeyResponse implements \JsonSerializable

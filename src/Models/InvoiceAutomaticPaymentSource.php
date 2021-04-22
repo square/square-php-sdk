@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Indicates the automatic payment method for an [invoice payment request](#type-
- * InvoicePaymentRequest).
+ * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
  */
 class InvoiceAutomaticPaymentSource
 {
@@ -31,8 +30,8 @@ class InvoiceAutomaticPaymentSource
      *
      * This payment method applies only to recurring invoices that sellers create in the Seller Dashboard
      * or other
-     * Square first-party application. The bank account is provided by the customer during the payment flow.
-     *
+     * Square first-party applications. The bank account is provided by the customer during the payment
+     * flow.
      *
      * You cannot set `BANK_ON_FILE` as a payment method using the Invoices API, but you can change a
      * `BANK_ON_FILE`

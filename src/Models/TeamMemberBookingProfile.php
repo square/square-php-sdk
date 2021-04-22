@@ -38,7 +38,7 @@ class TeamMemberBookingProfile implements \JsonSerializable
     /**
      * Returns Team Member Id.
      *
-     * The ID of the [TeamMember](#type-TeamMember) object for the team member associated with the booking
+     * The ID of the [TeamMember]($m/TeamMember) object for the team member associated with the booking
      * profile.
      */
     public function getTeamMemberId(): ?string
@@ -49,7 +49,7 @@ class TeamMemberBookingProfile implements \JsonSerializable
     /**
      * Sets Team Member Id.
      *
-     * The ID of the [TeamMember](#type-TeamMember) object for the team member associated with the booking
+     * The ID of the [TeamMember]($m/TeamMember) object for the team member associated with the booking
      * profile.
      *
      * @maps team_member_id

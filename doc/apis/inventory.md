@@ -21,7 +21,7 @@ $inventoryApi = $client->getInventoryApi();
 
 # Retrieve Inventory Adjustment
 
-Returns the [InventoryAdjustment](#type-inventoryadjustment) object
+Returns the [InventoryAdjustment](/doc/models/inventory-adjustment.md) object
 with the provided `adjustment_id`.
 
 ```php
@@ -32,7 +32,7 @@ function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](#type-inventoryadjustment) to retrieve. |
+| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](/doc/models/inventory-adjustment.md) to retrieve. |
 
 ## Response Type
 
@@ -110,6 +110,19 @@ $body_changes[0]->getTransfer()->setReferenceId('reference_id8');
 $body_changes[0]->getTransfer()->setState(Models\InventoryState::SOLD);
 $body_changes[0]->getTransfer()->setFromLocationId('from_location_id2');
 $body_changes[0]->getTransfer()->setToLocationId('to_location_id2');
+$body_changes[0]->setMeasurementUnit(new Models\CatalogMeasurementUnit);
+$body_changes[0]->getMeasurementUnit()->setMeasurementUnit(new Models\MeasurementUnit);
+$body_changes_0_measurementUnit_measurementUnit_customUnit_name = 'name0';
+$body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation = 'abbreviation2';
+$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
+    $body_changes_0_measurementUnit_measurementUnit_customUnit_name,
+    $body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation
+));
+$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_FOOT);
+$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_METER);
+$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::METRIC_MILLILITER);
+$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::IMPERIAL_WEIGHT_OUNCE);
+$body_changes[0]->getMeasurementUnit()->setPrecision(26);
 $body->setChanges($body_changes);
 
 $body->setIgnoreUnchangedCounts(true);
@@ -181,8 +194,8 @@ if ($apiResponse->isSuccess()) {
 # Batch Retrieve Inventory Counts
 
 Returns current counts for the provided
-[CatalogObject](#type-catalogobject)s at the requested
-[Location](#type-location)s.
+[CatalogObject](/doc/models/catalog-object.md)s at the requested
+[Location](/doc/models/location.md)s.
 
 Results are paginated and sorted in descending order according to their
 `calculated_at` timestamp (newest first).
@@ -232,7 +245,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Inventory Physical Count
 
-Returns the [InventoryPhysicalCount](#type-inventoryphysicalcount)
+Returns the [InventoryPhysicalCount](/doc/models/inventory-physical-count.md)
 object with the provided `physical_count_id`.
 
 ```php
@@ -243,7 +256,7 @@ function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](#type-inventoryphysicalcount) to retrieve. |
+| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](/doc/models/inventory-physical-count.md) to retrieve. |
 
 ## Response Type
 
@@ -271,8 +284,8 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Inventory Count
 
 Retrieves the current calculated stock count for a given
-[CatalogObject](#type-catalogobject) at a given set of
-[Location](#type-location)s. Responses are paginated and unsorted.
+[CatalogObject](/doc/models/catalog-object.md) at a given set of
+[Location](/doc/models/location.md)s. Responses are paginated and unsorted.
 For more sophisticated queries, use a batch endpoint.
 
 ```php
@@ -287,8 +300,8 @@ function retrieveInventoryCount(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](#type-catalogobject) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](#type-location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](/doc/models/catalog-object.md) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](/doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
@@ -319,8 +332,8 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Inventory Changes
 
 Returns a set of physical counts and inventory adjustments for the
-provided [CatalogObject](#type-catalogobject) at the requested
-[Location](#type-location)s.
+provided [CatalogObject](/doc/models/catalog-object.md) at the requested
+[Location](/doc/models/location.md)s.
 
 Results are paginated and sorted in descending order according to their
 `occurred_at` timestamp (newest first).
@@ -341,8 +354,8 @@ function retrieveInventoryChanges(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](#type-catalogobject) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](#type-location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](/doc/models/catalog-object.md) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](/doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type

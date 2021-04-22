@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
+ * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
+ * [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-
+ * rewards).
+ */
 class LoyaltyReward implements \JsonSerializable
 {
     /**
@@ -108,7 +114,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Returns Loyalty Account Id.
      *
-     * The Square-assigned ID of the [loyalty account](#type-LoyaltyAccount) to which the reward belongs.
+     * The Square-assigned ID of the [loyalty account]($m/LoyaltyAccount) to which the reward belongs.
      */
     public function getLoyaltyAccountId(): string
     {
@@ -118,7 +124,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Sets Loyalty Account Id.
      *
-     * The Square-assigned ID of the [loyalty account](#type-LoyaltyAccount) to which the reward belongs.
+     * The Square-assigned ID of the [loyalty account]($m/LoyaltyAccount) to which the reward belongs.
      *
      * @required
      * @maps loyalty_account_id
@@ -131,8 +137,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Returns Reward Tier Id.
      *
-     * The Square-assigned ID of the [reward tier](#type-LoyaltyProgramRewardTier) used to create the
-     * reward.
+     * The Square-assigned ID of the [reward tier]($m/LoyaltyProgramRewardTier) used to create the reward.
      */
     public function getRewardTierId(): string
     {
@@ -142,8 +147,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Sets Reward Tier Id.
      *
-     * The Square-assigned ID of the [reward tier](#type-LoyaltyProgramRewardTier) used to create the
-     * reward.
+     * The Square-assigned ID of the [reward tier]($m/LoyaltyProgramRewardTier) used to create the reward.
      *
      * @required
      * @maps reward_tier_id
@@ -178,7 +182,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Returns Order Id.
      *
-     * The Square-assigned ID of the [order](#type-Order) to which the reward is attached.
+     * The Square-assigned ID of the [order]($m/Order) to which the reward is attached.
      */
     public function getOrderId(): ?string
     {
@@ -188,7 +192,7 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Sets Order Id.
      *
-     * The Square-assigned ID of the [order](#type-Order) to which the reward is attached.
+     * The Square-assigned ID of the [order]($m/Order) to which the reward is attached.
      *
      * @maps order_id
      */

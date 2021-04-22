@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the query parameters that can be provided in a request to the
- * [ListCustomerGroups](#endpoint-listcustomergroups) endpoint.
+ * Defines the query parameters that can be included in a request to the
+ * [ListCustomerGroups]($e/CustomerGroups/ListCustomerGroups) endpoint.
  */
 class ListCustomerGroupsRequest implements \JsonSerializable
 {
@@ -19,10 +19,10 @@ class ListCustomerGroupsRequest implements \JsonSerializable
      * Returns Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for your original query.
+     * Provide this cursor to retrieve the next set of results for your original query.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -33,10 +33,10 @@ class ListCustomerGroupsRequest implements \JsonSerializable
      * Sets Cursor.
      *
      * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for your original query.
+     * Provide this cursor to retrieve the next set of results for your original query.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */

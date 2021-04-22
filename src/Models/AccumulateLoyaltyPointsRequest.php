@@ -90,7 +90,7 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The [location](#type-Location) where the purchase was made.
+     * The [location]($m/Location) where the purchase was made.
      */
     public function getLocationId(): string
     {
@@ -100,7 +100,7 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The [location](#type-Location) where the purchase was made.
+     * The [location]($m/Location) where the purchase was made.
      *
      * @required
      * @maps location_id

@@ -23,7 +23,7 @@ class BankAccountsApi extends BaseApi
     }
 
     /**
-     * Returns a list of [BankAccount](#type-bankaccount) objects linked to a Square account.
+     * Returns a list of [BankAccount]($m/BankAccount) objects linked to a Square account.
      *
      * @param string|null $cursor The pagination cursor returned by a previous call to this
      *                            endpoint.
@@ -107,7 +107,7 @@ class BankAccountsApi extends BaseApi
     }
 
     /**
-     * Returns details of a [BankAccount](#type-bankaccount) identified by V1 bank account ID.
+     * Returns details of a [BankAccount]($m/BankAccount) identified by V1 bank account ID.
      *
      * @param string $v1BankAccountId Connect V1 ID of the desired `BankAccount`. For more
      *                                information, see
@@ -128,7 +128,7 @@ class BankAccountsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'v1_bank_account_id' => $v1BankAccountId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
@@ -176,7 +176,7 @@ class BankAccountsApi extends BaseApi
     }
 
     /**
-     * Returns details of a [BankAccount](#type-bankaccount)
+     * Returns details of a [BankAccount]($m/BankAccount)
      * linked to a Square account.
      *
      * @param string $bankAccountId Square-issued ID of the desired `BankAccount`.
@@ -193,7 +193,7 @@ class BankAccountsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'bank_account_id' => $bankAccountId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

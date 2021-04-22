@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines parameters in a
- * [CreateSubscription](#endpoint-subscriptions-createsubscription) endpoint request.
+ * [CreateSubscription]($e/Subscriptions/CreateSubscription) endpoint request.
  */
 class CreateSubscriptionRequest implements \JsonSerializable
 {
@@ -158,7 +158,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of the [customer](#type-customer) profile.
+     * The ID of the [customer]($m/Customer) profile.
      */
     public function getCustomerId(): string
     {
@@ -168,7 +168,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of the [customer](#type-customer) profile.
+     * The ID of the [customer]($m/Customer) profile.
      *
      * @required
      * @maps customer_id
@@ -295,7 +295,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Returns Card Id.
      *
-     * The ID of the [customer](#type-customer) [card](#type-card) to charge.
+     * The ID of the [customer]($m/Customer) [card]($m/Card) to charge.
      * If not specified, Square sends an invoice via email. For an example to
      * create a customer and add a card on file, see [Subscriptions Walkthrough](https://developer.squareup.
      * com/docs/subscriptions-api/walkthrough).
@@ -308,7 +308,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Sets Card Id.
      *
-     * The ID of the [customer](#type-customer) [card](#type-card) to charge.
+     * The ID of the [customer]($m/Customer) [card]($m/Card) to charge.
      * If not specified, Square sends an invoice via email. For an example to
      * create a customer and add a card on file, see [Subscriptions Walkthrough](https://developer.squareup.
      * com/docs/subscriptions-api/walkthrough).

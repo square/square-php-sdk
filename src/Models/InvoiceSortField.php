@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Field to use for sorting.
+ * The field to use for sorting.
  */
 class InvoiceSortField
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Response object returned by the [CreateLocation](#endpoint-createlocation) endpoint.
+ * Response object returned by the [CreateLocation]($e/Locations/CreateLocation) endpoint.
  */
 class CreateLocationResponse implements \JsonSerializable
 {

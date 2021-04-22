@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by [CreatePayment](#endpoint-payments-createpayment).
+ * Defines the response returned by [CreatePayment]($e/Payments/CreatePayment).
  *
  * If there are errors processing the request, the `payment` field might not be
  * present, or it might be present with a status of `FAILED`.

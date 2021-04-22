@@ -220,7 +220,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * `migration_token` to indicate that the application wants to get a replacement
      * OAuth access token. The response also returns a refresh token.
      * For more information, see [Migrate to Using Refresh Tokens](https://developer.squareup.
-     * com/docs/authz/oauth/migration).
+     * com/docs/oauth-api/migrate-to-refresh-tokens).
      */
     public function getMigrationToken(): ?string
     {
@@ -235,7 +235,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * `migration_token` to indicate that the application wants to get a replacement
      * OAuth access token. The response also returns a refresh token.
      * For more information, see [Migrate to Using Refresh Tokens](https://developer.squareup.
-     * com/docs/authz/oauth/migration).
+     * com/docs/oauth-api/migrate-to-refresh-tokens).
      *
      * @maps migration_token
      */

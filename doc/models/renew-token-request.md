@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `accessToken` | `?string` | Optional | The token you want to renew. | getAccessToken(): ?string | setAccessToken(?string accessToken): void |
+| `accessToken` | `?string` | Optional | The token you want to renew.<br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `1024` | getAccessToken(): ?string | setAccessToken(?string accessToken): void |
 
 ## Example (as JSON)
 

@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Supported custom attribute query expressions for calling the
- * [SearchCatalogItems](#endpoint-Catalog-SearchCatalogItems)
+ * [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
  * endpoint to search for items or item variations.
  */
 class CustomAttributeFilter implements \JsonSerializable

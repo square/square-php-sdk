@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response from the
- * [ListSubscriptionEvents](#endpoint-subscriptions-listsubscriptionevents)
+ * [ListSubscriptionEvents]($e/Subscriptions/ListSubscriptionEvents)
  * endpoint.
  */
 class ListSubscriptionEventsResponse implements \JsonSerializable

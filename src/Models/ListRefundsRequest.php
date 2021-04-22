@@ -6,9 +6,9 @@ namespace Square\Models;
 
 /**
  * Defines the query parameters that can be included in
- * a request to the [ListRefunds](#endpoint-listrefunds) endpoint.
+ * a request to the [ListRefunds]($e/Transactions/ListRefunds) endpoint.
  *
- * Deprecated - recommend using [SearchOrders](#endpoint-orders-searchorders)
+ * Deprecated - recommend using [SearchOrders]($e/Orders/SearchOrders)
  */
 class ListRefundsRequest implements \JsonSerializable
 {
@@ -37,7 +37,8 @@ class ListRefundsRequest implements \JsonSerializable
      *
      * The beginning of the requested reporting period, in RFC 3339 format.
      *
-     * See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
      *
      * Default value: The current time minus one year.
      */
@@ -51,7 +52,8 @@ class ListRefundsRequest implements \JsonSerializable
      *
      * The beginning of the requested reporting period, in RFC 3339 format.
      *
-     * See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
      *
      * Default value: The current time minus one year.
      *
@@ -67,7 +69,8 @@ class ListRefundsRequest implements \JsonSerializable
      *
      * The end of the requested reporting period, in RFC 3339 format.
      *
-     * See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
      *
      * Default value: The current time.
      */
@@ -81,7 +84,8 @@ class ListRefundsRequest implements \JsonSerializable
      *
      * The end of the requested reporting period, in RFC 3339 format.
      *
-     * See [Date ranges](#dateranges) for details on date inclusivity/exclusivity.
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
      *
      * Default value: The current time.
      *
@@ -120,7 +124,8 @@ class ListRefundsRequest implements \JsonSerializable
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      */
     public function getCursor(): ?string
     {
@@ -133,7 +138,8 @@ class ListRefundsRequest implements \JsonSerializable
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
-     * See [Paginating results](#paginatingresults) for more information.
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
      *
      * @maps cursor
      */

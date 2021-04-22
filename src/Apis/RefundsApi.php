@@ -25,6 +25,9 @@ class RefundsApi extends BaseApi
     /**
      * Retrieves a list of refunds for the account making the request.
      *
+     * Results are eventually consistent, and new refunds or changes to refunds might take several
+     * seconds to appear.
+     *
      * The maximum results per page is 100.
      *
      * @param string|null $beginTime The timestamp for the beginning of the requested reporting
@@ -48,8 +51,8 @@ class RefundsApi extends BaseApi
      *                                are returned
      *                                for all locations associated with the seller.
      * @param string|null $status If provided, only refunds with the given status are returned.
-     *                            For a list of refund status values, see [PaymentRefund](#type-
-     *                            paymentrefund).
+     *                            For a list of refund status values, see
+     *                            [PaymentRefund]($m/PaymentRefund).
      *
      *                            Default: If omitted, refunds are returned regardless of their
      *                            status.
@@ -232,7 +235,7 @@ class RefundsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'refund_id' => $refundId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);

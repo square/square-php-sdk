@@ -330,9 +330,9 @@ class ErrorCode
     public const INVALID_CARD = 'INVALID_CARD';
 
     /**
-     * Square received a decline from the cardholder's bank without any
-     * additional information. If the card information seems correct, the card
-     * holder can contact their card issuer to ask for more information.
+     * Square received a decline without any additional information.
+     * If the payment information seems correct, the buyer can contact their
+     * issuer to ask for more information.
      */
     public const GENERIC_DECLINE = 'GENERIC_DECLINE';
 
@@ -347,7 +347,7 @@ class ErrorCode
     public const ADDRESS_VERIFICATION_FAILURE = 'ADDRESS_VERIFICATION_FAILURE';
 
     /**
-     * The card issuer was not able to locate account on record.
+     * The issuer was not able to locate the account on record.
      */
     public const INVALID_ACCOUNT = 'INVALID_ACCOUNT';
 
@@ -410,8 +410,8 @@ class ErrorCode
 
     /**
      * The card is not supported either in the geographic region or by
-     * the MCC [merchant category code](https://developer.squareup.com/docs/api/connect/v2#navsection-
-     * connectapibasics)
+     * the [merchant category code](https://developer.squareup.com/docs/locations-api#initialize-a-merchant-
+     * category-code) (MCC).
      */
     public const CARD_NOT_SUPPORTED = 'CARD_NOT_SUPPORTED';
 
@@ -453,6 +453,16 @@ class ErrorCode
      * api/error-codes#createpayment-errors-additional-information).
      */
     public const GIFT_CARD_AVAILABLE_AMOUNT = 'GIFT_CARD_AVAILABLE_AMOUNT';
+
+    /**
+     * The account provided cannot carry out transactions.
+     */
+    public const ACCOUNT_UNUSABLE = 'ACCOUNT_UNUSABLE';
+
+    /**
+     * Bank account rejected or was not authorized for the payment.
+     */
+    public const BUYER_REFUSED_PAYMENT = 'BUYER_REFUSED_PAYMENT';
 
     /**
      * The application tried to update a delayed-capture payment that has expired.

@@ -83,7 +83,7 @@ This process is non-transactional and will process as much of the request as is 
 the request cannot be successfully processed, the request will NOT be marked as failed, but the body of the response
 will contain explicit error information for this particular create.
 
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulkcreateteammembers).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulk-create-team-members).
 
 ```php
 function bulkCreateTeamMembers(BulkCreateTeamMembersRequest $body): ApiResponse
@@ -132,7 +132,7 @@ Updates multiple `TeamMember` objects. The updated `TeamMember` objects will be 
 This process is non-transactional and will process as much of the request as is possible. If one of the updates in
 the request cannot be successfully processed, the request will NOT be marked as failed, but the body of the response
 will contain explicit error information for this particular update.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulkupdateteammembers).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#bulk-update-team-members).
 
 ```php
 function bulkUpdateTeamMembers(BulkUpdateTeamMembersRequest $body): ApiResponse
@@ -225,7 +225,7 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Team Member
 
 Retrieve a `TeamMember` object for the given `TeamMember.id`.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#retrieveteammember).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#retrieve-a-team-member).
 
 ```php
 function retrieveTeamMember(string $teamMemberId): ApiResponse
@@ -263,7 +263,7 @@ if ($apiResponse->isSuccess()) {
 # Update Team Member
 
 Updates a single `TeamMember` object. The `TeamMember` will be returned on successful updates.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#updateteammember).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#update-a-team-member).
 
 ```php
 function updateTeamMember(string $teamMemberId, UpdateTeamMemberRequest $body): ApiResponse
@@ -357,7 +357,7 @@ Creates or updates a `WageSetting` object. The object is created if a
 `WageSetting` with the specified `team_member_id` does not exist. Otherwise,
 it fully replaces the `WageSetting` object for the team member.
 The `WageSetting` will be returned upon successful update.
-Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#updatewagesetting).
+Learn about [Troubleshooting the Teams API](https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting).
 
 ```php
 function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body): ApiResponse

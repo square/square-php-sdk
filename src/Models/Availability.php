@@ -28,7 +28,7 @@ class Availability implements \JsonSerializable
     /**
      * Returns Start At.
      *
-     * The RFC-3339 timestamp specifying the beginning time of the slot available for booking.
+     * The RFC 3339 timestamp specifying the beginning time of the slot available for booking.
      */
     public function getStartAt(): ?string
     {
@@ -38,7 +38,7 @@ class Availability implements \JsonSerializable
     /**
      * Sets Start At.
      *
-     * The RFC-3339 timestamp specifying the beginning time of the slot available for booking.
+     * The RFC 3339 timestamp specifying the beginning time of the slot available for booking.
      *
      * @maps start_at
      */

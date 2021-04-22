@@ -39,7 +39,7 @@ class InvoiceRequestType
     /**
      * Identifies that the payment request is for an installment. An invoice can request payments in
      * installments.
-     * Along with installments, you can request an optional deposit. All these payment requests must add to
+     * Along with installments, you can request an optional deposit. All these payment requests must equal
      * the total order amount.
      */
     public const INSTALLMENT = 'INSTALLMENT';

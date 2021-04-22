@@ -73,8 +73,8 @@ class AppointmentSegment implements \JsonSerializable
     /**
      * Returns Service Variation Id.
      *
-     * The ID of the [CatalogItemVariation](#type-CatalogItemVariation) object representing the service
-     * booked in this segment.
+     * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
+     * in this segment.
      */
     public function getServiceVariationId(): string
     {
@@ -84,8 +84,8 @@ class AppointmentSegment implements \JsonSerializable
     /**
      * Sets Service Variation Id.
      *
-     * The ID of the [CatalogItemVariation](#type-CatalogItemVariation) object representing the service
-     * booked in this segment.
+     * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
+     * in this segment.
      *
      * @required
      * @maps service_variation_id
@@ -98,8 +98,7 @@ class AppointmentSegment implements \JsonSerializable
     /**
      * Returns Team Member Id.
      *
-     * The ID of the [TeamMember](#type-TeamMember) object representing the team member booked in this
-     * segment.
+     * The ID of the [TeamMember]($m/TeamMember) object representing the team member booked in this segment.
      */
     public function getTeamMemberId(): string
     {
@@ -109,8 +108,7 @@ class AppointmentSegment implements \JsonSerializable
     /**
      * Sets Team Member Id.
      *
-     * The ID of the [TeamMember](#type-TeamMember) object representing the team member booked in this
-     * segment.
+     * The ID of the [TeamMember]($m/TeamMember) object representing the team member booked in this segment.
      *
      * @required
      * @maps team_member_id

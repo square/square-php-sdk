@@ -182,7 +182,7 @@ if ($apiResponse->isSuccess()) {
 Removes specified evidence from a dispute.
 
 Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-submitting it to the bank using [SubmitEvidence](https://developer.squareup.com/docs/reference/square/disputes-api/submit-evidence).
+submitting it to the bank using [SubmitEvidence](/doc/apis/disputes.md#submit-evidence).
 
 ```php
 function removeDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
@@ -362,8 +362,8 @@ if ($apiResponse->isSuccess()) {
 Submits evidence to the cardholder's bank.
 
 Before submitting evidence, Square compiles all available evidence. This includes evidence uploaded
-using the [CreateDisputeEvidenceFile](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-file) and
-[CreateDisputeEvidenceText](https://developer.squareup.com/docs/reference/square/disputes-api/create-dispute-evidence-text) endpoints and
+using the [CreateDisputeEvidenceFile](/doc/apis/disputes.md#create-dispute-evidence-file) and
+[CreateDisputeEvidenceText](/doc/apis/disputes.md#create-dispute-evidence-text) endpoints and
 evidence automatically provided by Square, when available.
 
 ```php

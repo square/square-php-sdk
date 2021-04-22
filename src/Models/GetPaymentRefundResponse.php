@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by [GetRefund](#endpoint-refunds-getpaymentrefund).
+ * Defines the response returned by [GetRefund]($e/Refunds/GetPaymentRefund).
  *
  * Note: If there are errors processing the request, the refund field might not be
  * present or it might be present in a FAILED state.

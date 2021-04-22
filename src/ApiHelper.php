@@ -62,10 +62,10 @@ class ApiHelper
         $hasParams = (strrpos($queryBuilder, '?') > 0);
 
         //if already has parameters, use the &amp; to append new parameters
-        $queryBuilder = $queryBuilder . (($hasParams) ? '&' : '?');
+        $queryBuilder .= (($hasParams) ? '&' : '?');
 
         //append parameters
-        $queryBuilder = $queryBuilder . http_build_query($parameters);
+        $queryBuilder .= http_build_query($parameters);
     }
 
     /**
@@ -159,8 +159,7 @@ class ApiHelper
         foreach ($arr as $key => $value) {
             if ($value instanceof JsonSerializable) {
                 $arr[$key] = static::prepareFormFields($value);
-            } elseif (
-                is_array($value) && !empty($value) && !static::isAssociative($value) &&
+            } elseif (is_array($value) && !empty($value) && !static::isAssociative($value) &&
                 $value[0] instanceof JsonSerializable
             ) {
                 $temp = [];

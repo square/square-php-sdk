@@ -100,7 +100,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax](#type-catalogtax).
+     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -110,7 +110,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax](#type-catalogtax).
+     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
      *
      * @maps catalog_object_id
      */

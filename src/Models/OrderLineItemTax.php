@@ -83,7 +83,7 @@ class OrderLineItemTax implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax](#type-catalogtax).
+     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -93,7 +93,7 @@ class OrderLineItemTax implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax](#type-catalogtax).
+     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
      *
      * @maps catalog_object_id
      */
@@ -192,7 +192,8 @@ class OrderLineItemTax implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      */
     public function getMetadata(): ?array
     {
@@ -219,7 +220,8 @@ class OrderLineItemTax implements \JsonSerializable
      * Entries written by applications are private and can only be read or modified by the same
      * application.
      *
-     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more information.
+     * See [Metadata](https://developer.squareup.com/docs/build-basics/metadata) for more
+     * information.
      *
      * @maps metadata
      */

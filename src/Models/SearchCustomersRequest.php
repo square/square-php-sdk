@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the fields included in the request body for the
- * SearchCustomers endpoint.
+ * Defines the fields that are included in the request body of a request to the
+ * `SearchCustomers` endpoint.
  */
 class SearchCustomersRequest implements \JsonSerializable
 {
@@ -31,8 +31,8 @@ class SearchCustomersRequest implements \JsonSerializable
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -45,8 +45,8 @@ class SearchCustomersRequest implements \JsonSerializable
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */
@@ -59,9 +59,9 @@ class SearchCustomersRequest implements \JsonSerializable
      * Returns Limit.
      *
      * A limit on the number of results to be returned in a single page.
-     * The limit is advisory - the implementation may return more or fewer results.
-     * If the supplied limit is negative, zero, or is higher than the maximum limit
-     * of 100, it will be ignored.
+     * The limit is advisory. The implementation might return more or fewer results.
+     * If the supplied limit is negative, zero, or higher than the maximum limit
+     * of 100, it is ignored.
      */
     public function getLimit(): ?int
     {
@@ -72,9 +72,9 @@ class SearchCustomersRequest implements \JsonSerializable
      * Sets Limit.
      *
      * A limit on the number of results to be returned in a single page.
-     * The limit is advisory - the implementation may return more or fewer results.
-     * If the supplied limit is negative, zero, or is higher than the maximum limit
-     * of 100, it will be ignored.
+     * The limit is advisory. The implementation might return more or fewer results.
+     * If the supplied limit is negative, zero, or higher than the maximum limit
+     * of 100, it is ignored.
      *
      * @maps limit
      */

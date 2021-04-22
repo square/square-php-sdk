@@ -116,7 +116,7 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items are being tracked.
      */
     public function getLocationId(): ?string
@@ -127,7 +127,7 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The Square ID of the [Location](#type-location) where the related
+     * The Square ID of the [Location]($m/Location) where the related
      * quantity of items are being tracked.
      *
      * @maps location_id

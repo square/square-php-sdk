@@ -142,7 +142,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object ID of the associated [CatalogServiceCharge](#type-catalogservicecharge).
+     * The catalog object ID of the associated [OrderServiceCharge]($m/OrderServiceCharge).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -152,7 +152,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object ID of the associated [CatalogServiceCharge](#type-catalogservicecharge).
+     * The catalog object ID of the associated [OrderServiceCharge]($m/OrderServiceCharge).
      *
      * @maps catalog_object_id
      */

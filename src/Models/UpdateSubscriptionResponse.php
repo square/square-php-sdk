@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response from the
- * [UpdateSubscription](#endpoint-subscriptions-updatesubscription) endpoint.
+ * [UpdateSubscription]($e/Subscriptions/UpdateSubscription) endpoint.
  */
 class UpdateSubscriptionResponse implements \JsonSerializable
 {

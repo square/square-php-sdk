@@ -14,7 +14,7 @@ namespace Square\Models;
  * is absent, it defaults to the time of the first request for the cursor.
  *
  * __Important:__ If you use the DateTimeFilter in a SearchOrders query,
- * you must also set the `sort_field` in [OrdersSort](#type-searchorderordersort)
+ * you must also set the `sort_field` in [OrdersSort]($m/SearchOrdersSort)
  * to the same field you filter for. For example, if you set the `CLOSED_AT` field
  * in DateTimeFilter, you must also set the `sort_field` in SearchOrdersSort to
  * `CLOSED_AT`. Otherwise, SearchOrders will throw an error.

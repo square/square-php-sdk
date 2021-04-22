@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Describes a request to create a payment using
- * [CreatePayment](#endpoint-payments-createpayment).
+ * [CreatePayment]($e/Payments/CreatePayment).
  */
 class CreatePaymentRequest implements \JsonSerializable
 {
@@ -355,7 +355,8 @@ class CreatePaymentRequest implements \JsonSerializable
      * If set to `true`, this payment will be completed when possible. If
      * set to `false`, this payment is held in an approved state until either
      * explicitly completed (captured) or canceled (voided). For more information, see
-     * [Delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+     * [Delayed capture](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments#delayed-capture-of-a-card-payment).
      *
      * Default: true
      */
@@ -370,7 +371,8 @@ class CreatePaymentRequest implements \JsonSerializable
      * If set to `true`, this payment will be completed when possible. If
      * set to `false`, this payment is held in an approved state until either
      * explicitly completed (captured) or canceled (voided). For more information, see
-     * [Delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-payments).
+     * [Delayed capture](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments#delayed-capture-of-a-card-payment).
      *
      * Default: true
      *
@@ -406,7 +408,7 @@ class CreatePaymentRequest implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the payment.
+     * The [Customer]($m/Customer) ID of the customer associated with the payment.
      *
      * This is required if the `source_id` refers to a card on file created using the Customers API.
      */
@@ -418,7 +420,7 @@ class CreatePaymentRequest implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The [Customer](#type-customer) ID of the customer associated with the payment.
+     * The [Customer]($m/Customer) ID of the customer associated with the payment.
      *
      * This is required if the `source_id` refers to a card on file created using the Customers API.
      *

@@ -66,7 +66,7 @@ class BusinessBookingProfile implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * The RFC-3339 timestamp specifying the booking's creation time.
+     * The RFC 3339 timestamp specifying the booking's creation time.
      */
     public function getCreatedAt(): ?string
     {
@@ -76,7 +76,7 @@ class BusinessBookingProfile implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * The RFC-3339 timestamp specifying the booking's creation time.
+     * The RFC 3339 timestamp specifying the booking's creation time.
      *
      * @maps created_at
      */

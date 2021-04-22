@@ -334,10 +334,10 @@ class CatalogObject implements \JsonSerializable
      *
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
-     * is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key`
+     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
      * attribute
-     * value defined in the associated [CatalogCustomAttributeDefinition](#type-
-     * CatalogCustomAttributeDefinition)
+     * value defined in the associated
+     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
      * object defined by the application making the request.
      *
      * If the `CatalogCustomAttributeDefinition` object is
@@ -366,10 +366,10 @@ class CatalogObject implements \JsonSerializable
      *
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
-     * is a [CatalogCustomAttributeValue](#type-CatalogCustomAttributeValue) object. The key is the `key`
+     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
      * attribute
-     * value defined in the associated [CatalogCustomAttributeDefinition](#type-
-     * CatalogCustomAttributeDefinition)
+     * value defined in the associated
+     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
      * object defined by the application making the request.
      *
      * If the `CatalogCustomAttributeDefinition` object is
@@ -459,6 +459,7 @@ class CatalogObject implements \JsonSerializable
      * Returns Present at Location Ids.
      *
      * A list of locations where the object is present, even if `present_at_all_locations` is `false`.
+     * This can include locations that are deactivated.
      *
      * @return string[]|null
      */
@@ -471,6 +472,7 @@ class CatalogObject implements \JsonSerializable
      * Sets Present at Location Ids.
      *
      * A list of locations where the object is present, even if `present_at_all_locations` is `false`.
+     * This can include locations that are deactivated.
      *
      * @maps present_at_location_ids
      *
@@ -485,6 +487,7 @@ class CatalogObject implements \JsonSerializable
      * Returns Absent at Location Ids.
      *
      * A list of locations where the object is not present, even if `present_at_all_locations` is `true`.
+     * This can include locations that are deactivated.
      *
      * @return string[]|null
      */
@@ -497,6 +500,7 @@ class CatalogObject implements \JsonSerializable
      * Sets Absent at Location Ids.
      *
      * A list of locations where the object is not present, even if `present_at_all_locations` is `true`.
+     * This can include locations that are deactivated.
      *
      * @maps absent_at_location_ids
      *
@@ -532,8 +536,8 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Item Data.
      *
-     * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
-     * the catalog.
+     * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in the
+     * catalog.
      */
     public function getItemData(): ?CatalogItem
     {
@@ -543,8 +547,8 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Item Data.
      *
-     * A [CatalogObject](#type-CatalogObject) instance of the `ITEM` type, also referred to as an item, in
-     * the catalog.
+     * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in the
+     * catalog.
      *
      * @maps item_data
      */

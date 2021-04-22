@@ -73,7 +73,7 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Returns Cadence.
      *
-     * Determines the billing cadence of a [Subscription](#type-Subscription)
+     * Determines the billing cadence of a [Subscription]($m/Subscription)
      */
     public function getCadence(): string
     {
@@ -83,7 +83,7 @@ class SubscriptionPhase implements \JsonSerializable
     /**
      * Sets Cadence.
      *
-     * Determines the billing cadence of a [Subscription](#type-Subscription)
+     * Determines the billing cadence of a [Subscription]($m/Subscription)
      *
      * @required
      * @maps cadence

@@ -11,7 +11,7 @@ Filter events by location.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `locationIds` | `string[]` | Required | The [location](#type-Location) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. | getLocationIds(): array | setLocationIds(array locationIds): void |
+| `locationIds` | `string[]` | Required | The [location](/doc/models/location.md) IDs for loyalty events to query.<br>If multiple values are specified, the endpoint uses<br>a logical OR to combine them. | getLocationIds(): array | setLocationIds(array locationIds): void |
 
 ## Example (as JSON)
 

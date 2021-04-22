@@ -19,7 +19,7 @@ class RetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * The [Location](#type-location) IDs to look up as a comma-separated
+     * The [Location]($m/Location) IDs to look up as a comma-separated
      * list. An empty list queries all locations.
      */
     public function getLocationIds(): ?string
@@ -30,7 +30,7 @@ class RetrieveInventoryChangesRequest implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * The [Location](#type-location) IDs to look up as a comma-separated
+     * The [Location]($m/Location) IDs to look up as a comma-separated
      * list. An empty list queries all locations.
      *
      * @maps location_ids

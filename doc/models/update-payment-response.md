@@ -2,7 +2,7 @@
 # Update Payment Response
 
 Defines the response returned by
-[UpdatePayment](#endpoint-payments-update).
+[UpdatePayment](/doc/apis/payments.md#update-payment).
 
 ## Structure
 

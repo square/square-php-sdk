@@ -11,7 +11,7 @@ Price and inventory alerting overrides for a `CatalogItemVariation` at a specifi
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `locationId` | `?string` | Optional | The ID of the `Location`. | getLocationId(): ?string | setLocationId(?string locationId): void |
+| `locationId` | `?string` | Optional | The ID of the `Location`. This can include locations that are deactivated. | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `priceMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getPriceMoney(): ?Money | setPriceMoney(?Money priceMoney): void |
 | `pricingType` | [`?string (CatalogPricingType)`](/doc/models/catalog-pricing-type.md) | Optional | Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale. | getPricingType(): ?string | setPricingType(?string pricingType): void |
 | `trackInventory` | `?bool` | Optional | If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`. | getTrackInventory(): ?bool | setTrackInventory(?bool trackInventory): void |

@@ -13,7 +13,7 @@
 | `name` | `?string` | Optional | The name of the location.<br>This information appears in the dashboard as the nickname.<br>A location name must be unique within a seller account. | getName(): ?string | setName(?string name): void |
 | `address` | [`?Address`](/doc/models/address.md) | Optional | Represents a physical address. | getAddress(): ?Address | setAddress(?Address address): void |
 | `timezone` | `?string` | Optional | The [IANA Timezone](https://www.iana.org/time-zones) identifier for<br>the timezone of the location. | getTimezone(): ?string | setTimezone(?string timezone): void |
-| `capabilities` | [`?(string[]) (LocationCapability)`](/doc/models/location-capability.md) | Optional | The Square features that are enabled for the location.<br>See [LocationCapability](#type-locationcapability) for possible values.<br>See [LocationCapability](#type-locationcapability) for possible values | getCapabilities(): ?array | setCapabilities(?array capabilities): void |
+| `capabilities` | [`?(string[]) (LocationCapability)`](/doc/models/location-capability.md) | Optional | The Square features that are enabled for the location.<br>See [LocationCapability](/doc/models/location-capability.md) for possible values.<br>See [LocationCapability](#type-locationcapability) for possible values | getCapabilities(): ?array | setCapabilities(?array capabilities): void |
 | `status` | [`?string (LocationStatus)`](/doc/models/location-status.md) | Optional | The status of the location, whether a location is active or inactive. | getStatus(): ?string | setStatus(?string status): void |
 | `createdAt` | `?string` | Optional | The time when the location was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `merchantId` | `?string` | Optional | The ID of the merchant that owns the location. | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
@@ -51,7 +51,7 @@
   },
   "timezone": "timezone0",
   "capabilities": [
-    "CREDIT_CARD_PROCESSING"
+    "AUTOMATIC_TRANSFERS"
   ]
 }
 ```

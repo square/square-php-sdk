@@ -225,8 +225,8 @@ class ObtainTokenResponse implements \JsonSerializable
      * Returns Refresh Token.
      *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
-     * For more information, see [OAuth access token management](https://developer.squareup.
-     * com/docs/authz/oauth/how-it-works#oauth-access-token-management).
+     * For more information, see [OAuth access token management](https://developer.squareup.com/docs/oauth-
+     * api/how-it-works#oauth-access-token-management).
      */
     public function getRefreshToken(): ?string
     {
@@ -237,8 +237,8 @@ class ObtainTokenResponse implements \JsonSerializable
      * Sets Refresh Token.
      *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
-     * For more information, see [OAuth access token management](https://developer.squareup.
-     * com/docs/authz/oauth/how-it-works#oauth-access-token-management).
+     * For more information, see [OAuth access token management](https://developer.squareup.com/docs/oauth-
+     * api/how-it-works#oauth-access-token-management).
      *
      * @maps refresh_token
      */

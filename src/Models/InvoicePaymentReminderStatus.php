@@ -10,7 +10,7 @@ namespace Square\Models;
 class InvoicePaymentReminderStatus
 {
     /**
-     * The reminder is to be sent on the `relative_scheduled_date` (if the invoice is published).
+     * The reminder will be sent on the `relative_scheduled_date` (if the invoice is published).
      */
     public const PENDING = 'PENDING';
 

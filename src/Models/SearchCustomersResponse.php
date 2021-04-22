@@ -6,9 +6,9 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the SearchCustomers endpoint.
+ * a request to the `SearchCustomers` endpoint.
  *
- * One of `errors` or `customers` is present in a given response (never both).
+ * Either `errors` or `customers` is present in a given response (never both).
  */
 class SearchCustomersResponse implements \JsonSerializable
 {
@@ -83,12 +83,12 @@ class SearchCustomersResponse implements \JsonSerializable
      * Returns Cursor.
      *
      * A pagination cursor that can be used during subsequent calls
-     * to SearchCustomers to retrieve the next set of results associated
+     * to `SearchCustomers` to retrieve the next set of results associated
      * with the original query. Pagination cursors are only present when
      * a request succeeds and additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -99,12 +99,12 @@ class SearchCustomersResponse implements \JsonSerializable
      * Sets Cursor.
      *
      * A pagination cursor that can be used during subsequent calls
-     * to SearchCustomers to retrieve the next set of results associated
+     * to `SearchCustomers` to retrieve the next set of results associated
      * with the original query. Pagination cursors are only present when
      * a request succeeds and additional results are available.
      *
-     * See the [Pagination guide](https://developer.squareup.com/docs/working-with-apis/pagination) for
-     * more information.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */

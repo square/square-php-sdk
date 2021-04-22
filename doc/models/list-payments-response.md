@@ -1,7 +1,7 @@
 
 # List Payments Response
 
-Defines the response returned by [ListPayments](#endpoint-payments-listpayments).
+Defines the response returned by [ListPayments](/doc/apis/payments.md#list-payments).
 
 ## Structure
 

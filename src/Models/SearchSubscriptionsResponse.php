@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Defines the fields that are included in the response from the
- * [SearchSubscriptions](#endpoint-subscriptions-searchsubscriptions) endpoint.
+ * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint.
  */
 class SearchSubscriptionsResponse implements \JsonSerializable
 {

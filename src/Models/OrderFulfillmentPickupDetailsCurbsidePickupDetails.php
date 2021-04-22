@@ -44,8 +44,9 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
     /**
      * Returns Buyer Arrived At.
      *
-     * The [timestamp](#workingwithdates) in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",
-     * indicating when the buyer arrived and is waiting for pickup.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z", indicating when the buyer
+     * arrived and is waiting for pickup.
      */
     public function getBuyerArrivedAt(): ?string
     {
@@ -55,8 +56,9 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
     /**
      * Sets Buyer Arrived At.
      *
-     * The [timestamp](#workingwithdates) in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z",
-     * indicating when the buyer arrived and is waiting for pickup.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * in RFC 3339 timestamp format, e.g., "2016-09-04T23:59:33.123Z", indicating when the buyer
+     * arrived and is waiting for pickup.
      *
      * @maps buyer_arrived_at
      */

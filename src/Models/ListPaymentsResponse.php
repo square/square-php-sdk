@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the response returned by [ListPayments](#endpoint-payments-listpayments).
+ * Defines the response returned by [ListPayments]($e/Payments/ListPayments).
  */
 class ListPaymentsResponse implements \JsonSerializable
 {

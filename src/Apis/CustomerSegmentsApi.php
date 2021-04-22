@@ -26,11 +26,11 @@ class CustomerSegmentsApi extends BaseApi
      * Retrieves the list of customer segments of a business.
      *
      * @param string|null $cursor A pagination cursor returned by previous calls to
-     *                            __ListCustomerSegments__.
-     *                            Used to retrieve the next set of query results.
+     *                            `ListCustomerSegments`.
+     *                            This cursor is used to retrieve the next set of query results.
      *
-     *                            See the [Pagination guide](https://developer.squareup.
-     *                            com/docs/working-with-apis/pagination) for more information.
+     *                            For more information, see [Pagination](https://developer.
+     *                            squareup.com/docs/working-with-apis/pagination).
      *
      * @return ApiResponse Response from the API call
      *
@@ -108,7 +108,7 @@ class CustomerSegmentsApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'segment_id' => $segmentId,
-            ]);
+        ]);
 
         //validate and preprocess url
         $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
