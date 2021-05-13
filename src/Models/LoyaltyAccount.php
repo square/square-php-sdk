@@ -16,11 +16,6 @@ class LoyaltyAccount implements \JsonSerializable
     private $id;
 
     /**
-     * @var LoyaltyAccountMapping[]|null
-     */
-    private $mappings;
-
-    /**
      * @var string
      */
     private $programId;
@@ -88,46 +83,6 @@ class LoyaltyAccount implements \JsonSerializable
     public function setId(?string $id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * Returns Mappings.
-     *
-     * The list of mappings that the account is associated with.
-     * Currently, a buyer can only be mapped to a loyalty account using
-     * a phone number. Therefore, the list can only have one mapping.
-     *
-     * One of the following is required when creating a loyalty account:
-     * - (Preferred) The `mapping` field, with the buyer's phone number specified in the `phone_number`
-     * field.
-     * - This `mappings` field.
-     *
-     * @return LoyaltyAccountMapping[]|null
-     */
-    public function getMappings(): ?array
-    {
-        return $this->mappings;
-    }
-
-    /**
-     * Sets Mappings.
-     *
-     * The list of mappings that the account is associated with.
-     * Currently, a buyer can only be mapped to a loyalty account using
-     * a phone number. Therefore, the list can only have one mapping.
-     *
-     * One of the following is required when creating a loyalty account:
-     * - (Preferred) The `mapping` field, with the buyer's phone number specified in the `phone_number`
-     * field.
-     * - This `mappings` field.
-     *
-     * @maps mappings
-     *
-     * @param LoyaltyAccountMapping[]|null $mappings
-     */
-    public function setMappings(?array $mappings): void
-    {
-        $this->mappings = $mappings;
     }
 
     /**
@@ -332,7 +287,6 @@ class LoyaltyAccount implements \JsonSerializable
     {
         $json = [];
         $json['id']             = $this->id;
-        $json['mappings']       = $this->mappings;
         $json['program_id']     = $this->programId;
         $json['balance']        = $this->balance;
         $json['lifetime_points'] = $this->lifetimePoints;

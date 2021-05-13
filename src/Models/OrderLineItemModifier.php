@@ -37,7 +37,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the modifier only within this order.
+     * A unique ID that identifies the modifier only within this order.
      */
     public function getUid(): ?string
     {
@@ -47,7 +47,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the modifier only within this order.
+     * A unique ID that identifies the modifier only within this order.
      *
      * @maps uid
      */
@@ -59,7 +59,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -69,7 +69,7 @@ class OrderLineItemModifier implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      *
      * @maps catalog_object_id
      */

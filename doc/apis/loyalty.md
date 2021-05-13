@@ -28,7 +28,7 @@ $loyaltyApi = $client->getLoyaltyApi();
 
 # Create Loyalty Account
 
-Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and either the `mapping` field (preferred) or the `mappings` field.
+Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and a `mapping` with the `phone_number` of the buyer.
 
 ```php
 function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
@@ -52,23 +52,12 @@ $body_loyaltyAccount = new Models\LoyaltyAccount(
     $body_loyaltyAccount_programId
 );
 $body_loyaltyAccount->setId('id2');
-$body_loyaltyAccount_mappings = [];
-
-$body_loyaltyAccount_mappings[0] = new Models\LoyaltyAccountMapping;
-$body_loyaltyAccount_mappings[0]->setId('id0');
-$body_loyaltyAccount_mappings[0]->setType(Models\LoyaltyAccountMappingType::PHONE);
-$body_loyaltyAccount_mappings[0]->setValue('value2');
-$body_loyaltyAccount_mappings[0]->setCreatedAt('created_at8');
-$body_loyaltyAccount_mappings[0]->setPhoneNumber('phone_number8');
-$body_loyaltyAccount->setMappings($body_loyaltyAccount_mappings);
-
 $body_loyaltyAccount->setBalance(14);
 $body_loyaltyAccount->setLifetimePoints(38);
 $body_loyaltyAccount->setCustomerId('customer_id0');
+$body_loyaltyAccount->setEnrolledAt('enrolled_at2');
 $body_loyaltyAccount->setMapping(new Models\LoyaltyAccountMapping);
 $body_loyaltyAccount->getMapping()->setId('id6');
-$body_loyaltyAccount->getMapping()->setType(Models\LoyaltyAccountMappingType::PHONE);
-$body_loyaltyAccount->getMapping()->setValue('value8');
 $body_loyaltyAccount->getMapping()->setCreatedAt('created_at4');
 $body_loyaltyAccount->getMapping()->setPhoneNumber('+14155551234');
 $body_idempotencyKey = 'ec78c477-b1c3-4899-a209-a4e71337c996';
@@ -122,8 +111,6 @@ $body_query_mappings = [];
 
 $body_query_mappings[0] = new Models\LoyaltyAccountMapping;
 $body_query_mappings[0]->setId('id4');
-$body_query_mappings[0]->setType(Models\LoyaltyAccountMappingType::PHONE);
-$body_query_mappings[0]->setValue('value6');
 $body_query_mappings[0]->setCreatedAt('created_at8');
 $body_query_mappings[0]->setPhoneNumber('+14155551234');
 $body->getQuery()->setMappings($body_query_mappings);
@@ -366,8 +353,12 @@ if ($apiResponse->isSuccess()) {
 
 # List Loyalty Programs
 
+**This endpoint is deprecated. **
+
 Returns a list of loyalty programs in the seller's account.
-Currently, a seller can only have one loyalty program.
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+
+Replaced with [RetrieveLoyaltyProgram](/doc/apis/loyalty.md#retrieve-loyalty-program) when used with the keyword `main`.
 
 ```php
 function listLoyaltyPrograms(): ApiResponse

@@ -7,7 +7,7 @@ namespace Square\Models;
 /**
  * Represents a single physical count, inventory, adjustment, or transfer
  * that is part of the history of inventory changes for a particular
- * `CatalogObject`.
+ * [CatalogObject]($m/CatalogObject) instance.
  */
 class InventoryChange implements \JsonSerializable
 {

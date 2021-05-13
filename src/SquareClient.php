@@ -37,6 +37,8 @@ class SquareClient implements ConfigurationInterface
     private $orders;
     private $payments;
     private $refunds;
+    private $sites;
+    private $snippets;
     private $subscriptions;
     private $team;
     private $terminal;
@@ -143,7 +145,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '10.0.0.20210421';
+        return '11.0.0.20210513';
     }
 
     /**
@@ -448,6 +450,28 @@ class SquareClient implements ConfigurationInterface
             $this->refunds = new Apis\RefundsApi($this);
         }
         return $this->refunds;
+    }
+
+    /**
+     * Returns Sites Api
+     */
+    public function getSitesApi(): Apis\SitesApi
+    {
+        if ($this->sites == null) {
+            $this->sites = new Apis\SitesApi($this);
+        }
+        return $this->sites;
+    }
+
+    /**
+     * Returns Snippets Api
+     */
+    public function getSnippetsApi(): Apis\SnippetsApi
+    {
+        if ($this->snippets == null) {
+            $this->snippets = new Apis\SnippetsApi($this);
+        }
+        return $this->snippets;
     }
 
     /**

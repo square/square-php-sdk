@@ -7,7 +7,7 @@ namespace Square\Models;
 class BatchChangeInventoryRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var string
      */
     private $idempotencyKey;
 
@@ -22,6 +22,14 @@ class BatchChangeInventoryRequest implements \JsonSerializable
     private $ignoreUnchangedCounts;
 
     /**
+     * @param string $idempotencyKey
+     */
+    public function __construct(string $idempotencyKey)
+    {
+        $this->idempotencyKey = $idempotencyKey;
+    }
+
+    /**
      * Returns Idempotency Key.
      *
      * A client-supplied, universally unique identifier (UUID) for the
@@ -31,7 +39,7 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
      * information.
      */
-    public function getIdempotencyKey(): ?string
+    public function getIdempotencyKey(): string
     {
         return $this->idempotencyKey;
     }
@@ -46,9 +54,10 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
      * information.
      *
+     * @required
      * @maps idempotency_key
      */
-    public function setIdempotencyKey(?string $idempotencyKey): void
+    public function setIdempotencyKey(string $idempotencyKey): void
     {
         $this->idempotencyKey = $idempotencyKey;
     }

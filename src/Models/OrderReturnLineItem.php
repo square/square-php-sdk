@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The line item being returned in an Order.
+ * The line item being returned in an order.
  */
 class OrderReturnLineItem implements \JsonSerializable
 {
@@ -105,7 +105,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique identifier for this return line item entry.
+     * A unique ID for this return line-item entry.
      */
     public function getUid(): ?string
     {
@@ -115,7 +115,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique identifier for this return line item entry.
+     * A unique ID for this return line-item entry.
      *
      * @maps uid
      */
@@ -127,7 +127,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Source Line Item Uid.
      *
-     * `uid` of the LineItem in the original sale Order.
+     * The `uid` of the line item in the original sale order.
      */
     public function getSourceLineItemUid(): ?string
     {
@@ -137,7 +137,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Source Line Item Uid.
      *
-     * `uid` of the LineItem in the original sale Order.
+     * The `uid` of the line item in the original sale order.
      *
      * @maps source_line_item_uid
      */
@@ -172,10 +172,10 @@ class OrderReturnLineItem implements \JsonSerializable
      * Returns Quantity.
      *
      * The quantity returned, formatted as a decimal number.
-     * For example: `"3"`.
+     * For example, `"3"`.
      *
      * Line items with a `quantity_unit` can have non-integer quantities.
-     * For example: `"1.70000"`.
+     * For example, `"1.70000"`.
      */
     public function getQuantity(): string
     {
@@ -186,10 +186,10 @@ class OrderReturnLineItem implements \JsonSerializable
      * Sets Quantity.
      *
      * The quantity returned, formatted as a decimal number.
-     * For example: `"3"`.
+     * For example, `"3"`.
      *
      * Line items with a `quantity_unit` can have non-integer quantities.
-     * For example: `"1.70000"`.
+     * For example, `"1.70000"`.
      *
      * @required
      * @maps quantity
@@ -202,7 +202,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Quantity Unit.
      *
-     * Contains the measurement unit for a quantity and a precision which
+     * Contains the measurement unit for a quantity and a precision that
      * specifies the number of digits after the decimal point for decimal quantities.
      */
     public function getQuantityUnit(): ?OrderQuantityUnit
@@ -213,7 +213,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Quantity Unit.
      *
-     * Contains the measurement unit for a quantity and a precision which
+     * Contains the measurement unit for a quantity and a precision that
      * specifies the number of digits after the decimal point for decimal quantities.
      *
      * @maps quantity_unit
@@ -226,7 +226,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Note.
      *
-     * The note of the returned line item.
+     * The note of the return line item.
      */
     public function getNote(): ?string
     {
@@ -236,7 +236,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Note.
      *
-     * The note of the returned line item.
+     * The note of the return line item.
      *
      * @maps note
      */
@@ -248,7 +248,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this returned line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this return line item.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -258,7 +258,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The [CatalogItemVariation]($m/CatalogItemVariation) id applied to this returned line item.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this return line item.
      *
      * @maps catalog_object_id
      */
@@ -270,7 +270,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Variation Name.
      *
-     * The name of the variation applied to this returned line item.
+     * The name of the variation applied to this return line item.
      */
     public function getVariationName(): ?string
     {
@@ -280,7 +280,7 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Variation Name.
      *
-     * The name of the variation applied to this returned line item.
+     * The name of the variation applied to this return line item.
      *
      * @maps variation_name
      */
@@ -318,9 +318,9 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Applied Taxes.
      *
-     * The list of references to `OrderReturnTax` entities applied to the returned line item. Each
+     * The list of references to `OrderReturnTax` entities applied to the return line item. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
-     * `OrderReturnTax` applied to the returned line item. On reads, the amount applied
+     * `OrderReturnTax` applied to the return line item. On reads, the applied amount
      * is populated.
      *
      * @return OrderLineItemAppliedTax[]|null
@@ -333,9 +333,9 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Applied Taxes.
      *
-     * The list of references to `OrderReturnTax` entities applied to the returned line item. Each
+     * The list of references to `OrderReturnTax` entities applied to the return line item. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
-     * `OrderReturnTax` applied to the returned line item. On reads, the amount applied
+     * `OrderReturnTax` applied to the return line item. On reads, the applied amount
      * is populated.
      *
      * @maps applied_taxes
@@ -350,10 +350,10 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Returns Applied Discounts.
      *
-     * The list of references to `OrderReturnDiscount` entities applied to the returned line item. Each
+     * The list of references to `OrderReturnDiscount` entities applied to the return line item. Each
      * `OrderLineItemAppliedDiscount` has a `discount_uid` that references the `uid` of a top-level
-     * `OrderReturnDiscount` applied to the returned line item. On reads, the amount
-     * applied is populated.
+     * `OrderReturnDiscount` applied to the return line item. On reads, the applied amount
+     * is populated.
      *
      * @return OrderLineItemAppliedDiscount[]|null
      */
@@ -365,10 +365,10 @@ class OrderReturnLineItem implements \JsonSerializable
     /**
      * Sets Applied Discounts.
      *
-     * The list of references to `OrderReturnDiscount` entities applied to the returned line item. Each
+     * The list of references to `OrderReturnDiscount` entities applied to the return line item. Each
      * `OrderLineItemAppliedDiscount` has a `discount_uid` that references the `uid` of a top-level
-     * `OrderReturnDiscount` applied to the returned line item. On reads, the amount
-     * applied is populated.
+     * `OrderReturnDiscount` applied to the return line item. On reads, the applied amount
+     * is populated.
      *
      * @maps applied_discounts
      *

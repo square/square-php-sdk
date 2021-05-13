@@ -27,7 +27,7 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
     /**
      * Returns Fulfillment Uid.
      *
-     * Unique ID that identifies the fulfillment only within this order.
+     * A unique ID that identifies the fulfillment only within this order.
      */
     public function getFulfillmentUid(): ?string
     {
@@ -37,7 +37,7 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
     /**
      * Sets Fulfillment Uid.
      *
-     * Unique ID that identifies the fulfillment only within this order.
+     * A unique ID that identifies the fulfillment only within this order.
      *
      * @maps fulfillment_uid
      */

@@ -10,12 +10,12 @@ namespace Square\Models;
 class OrderFulfillmentPickupDetailsScheduleType
 {
     /**
-     * Indicates the fulfillment will be picked up at a scheduled pickup time.
+     * Indicates that the fulfillment will be picked up at a scheduled pickup time.
      */
     public const SCHEDULED = 'SCHEDULED';
 
     /**
-     * Indicates the fulfillment will be picked up as soon as possible and
+     * Indicates that the fulfillment will be picked up as soon as possible and
      * should be prepared immediately.
      */
     public const ASAP = 'ASAP';

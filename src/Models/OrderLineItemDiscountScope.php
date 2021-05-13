@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Indicates whether this is a line item or order level discount.
+ * Indicates whether this is a line-item or order-level discount.
  */
 class OrderLineItemDiscountScope
 {

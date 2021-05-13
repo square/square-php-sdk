@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Sorting criteria for a SearchOrders request. Results can only be sorted
+ * Sorting criteria for a `SearchOrders` request. Results can only be sorted
  * by a timestamp field.
  */
 class SearchOrdersSort implements \JsonSerializable
@@ -31,7 +31,7 @@ class SearchOrdersSort implements \JsonSerializable
     /**
      * Returns Sort Field.
      *
-     * Specifies which timestamp to use to sort SearchOrder results.
+     * Specifies which timestamp to use to sort `SearchOrder` results.
      */
     public function getSortField(): string
     {
@@ -41,7 +41,7 @@ class SearchOrdersSort implements \JsonSerializable
     /**
      * Sets Sort Field.
      *
-     * Specifies which timestamp to use to sort SearchOrder results.
+     * Specifies which timestamp to use to sort `SearchOrder` results.
      *
      * @required
      * @maps sort_field

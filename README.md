@@ -1,6 +1,6 @@
 # Square PHP SDK
 
-[![Travis status](https://travis-ci.com/square/square-php-sdk.svg?branch=master)](https://travis-ci.com/square/square-php-sdk)
+[![Build](https://github.com/square/square-php-sdk/actions/workflows/php.yml/badge.svg)](https://github.com/square/square-php-sdk/actions/workflows/php.yml)
 [![PHP version](https://badge.fury.io/ph/square%2Fsquare.svg)](https://badge.fury.io/ph/square%2Fsquare)
 [![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -75,9 +75,13 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 ### Financials
 * [Bank Accounts]
 
+### Online
+* [Sites]
+* [Snippets]
+
 ### Authorization APIs
 * [Mobile Authorization]
-* [O Auth]
+* [OAuth]
 
 ### Deprecated APIs
 * [V1 Employees]
@@ -409,9 +413,11 @@ You can also use the Square API to create applications or services that work wit
 [Refunds]: doc/apis/refunds.md
 [Subscriptions]: doc/apis/subscriptions.md
 [Mobile Authorization]: doc/apis/mobile-authorization.md
-[O Auth]: doc/apis/o-auth.md
+[OAuth]: doc/apis/o-auth.md
 [V1 Employees]: doc/apis/v1-employees.md
 [V1 Transactions]: doc/apis/v1-transactions.md
 [V1 Items]: doc/apis/v1-items.md
 [Team]: doc/apis/team.md
 [Transactions]: doc/apis/transactions.md
+[Sites]: doc/api/sites.md
+[Snippets]: doc/api/snippets.md

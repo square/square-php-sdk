@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Filter based on order `source` information.
+ * A filter based on order `source` information.
  */
 class SearchOrdersSourceFilter implements \JsonSerializable
 {
@@ -17,8 +17,8 @@ class SearchOrdersSourceFilter implements \JsonSerializable
     /**
      * Returns Source Names.
      *
-     * Filters by [Source]($m/OrderSource) `name`. Will return any orders
-     * with with a `source.name` that matches any of the listed source names.
+     * Filters by the [Source]($m/OrderSource) `name`. The filter returns any orders
+     * with a `source.name` that matches any of the listed source names.
      *
      * Max: 10 source names.
      *
@@ -32,8 +32,8 @@ class SearchOrdersSourceFilter implements \JsonSerializable
     /**
      * Sets Source Names.
      *
-     * Filters by [Source]($m/OrderSource) `name`. Will return any orders
-     * with with a `source.name` that matches any of the listed source names.
+     * Filters by the [Source]($m/OrderSource) `name`. The filter returns any orders
+     * with a `source.name` that matches any of the listed source names.
      *
      * Max: 10 source names.
      *

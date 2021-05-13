@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents Square's estimated quantity of items in a particular state at a
- * particular location based on the known history of physical counts and
+ * Represents Square-estimated quantity of items in a particular state at a
+ * particular seller location based on the known history of physical counts and
  * inventory adjustments.
  */
 class InventoryCount implements \JsonSerializable
@@ -44,8 +44,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -55,8 +55,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -68,8 +68,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked. Tracking is only
+     * The [type]($m/CatalogObjectType) of the
+     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
      * supported for the `ITEM_VARIATION` type.
      */
     public function getCatalogObjectType(): ?string
@@ -80,8 +80,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked. Tracking is only
+     * The [type]($m/CatalogObjectType) of the
+     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
      * supported for the `ITEM_VARIATION` type.
      *
      * @maps catalog_object_type
@@ -116,8 +116,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items are being tracked.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
      */
     public function getLocationId(): ?string
     {
@@ -127,8 +127,8 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items are being tracked.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
      *
      * @maps location_id
      */
@@ -164,9 +164,9 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Calculated At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
-     * received the most recent physical count or adjustment that had an affect
-     * on the estimated count.
+     * An RFC 3339-formatted timestamp that indicates when the most recent physical count or adjustment
+     * affecting
+     * the estimated count is received.
      */
     public function getCalculatedAt(): ?string
     {
@@ -176,9 +176,9 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Calculated At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
-     * received the most recent physical count or adjustment that had an affect
-     * on the estimated count.
+     * An RFC 3339-formatted timestamp that indicates when the most recent physical count or adjustment
+     * affecting
+     * the estimated count is received.
      *
      * @maps calculated_at
      */

@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-04-21'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-05-13'` |
 | `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
 | `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
@@ -17,7 +17,7 @@ The API client can be initialized as follows:
 ```php
 $client = new Square\SquareClient([
     // Set authentication parameters
-    'squareVersion' => '2021-04-21',
+    'squareVersion' => '2021-05-13',
     'accessToken' => 'AccessToken',
 
     // Set the environment
@@ -44,7 +44,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
-    'squareVersion' => '2021-04-21',
+    'squareVersion' => '2021-05-13',
     'accessToken' => 'AccessToken',
 ]);
 
@@ -97,6 +97,8 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | getOrdersApi() | Gets OrdersApi |
 | getPaymentsApi() | Gets PaymentsApi |
 | getRefundsApi() | Gets RefundsApi |
+| getSitesApi() | Gets SitesApi |
+| getSnippetsApi() | Gets SnippetsApi |
 | getSubscriptionsApi() | Gets SubscriptionsApi |
 | getTeamApi() | Gets TeamApi |
 | getTerminalApi() | Gets TerminalApi |

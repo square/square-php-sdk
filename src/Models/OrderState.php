@@ -10,17 +10,17 @@ namespace Square\Models;
 class OrderState
 {
     /**
-     * Indicates the order is open. Open orders may be updated.
+     * Indicates that the order is open. Open orders can be updated.
      */
     public const OPEN = 'OPEN';
 
     /**
-     * Indicates the order is completed. Completed orders are fully paid. This is a terminal state.
+     * Indicates that the order is completed. Completed orders are fully paid. This is a terminal state.
      */
     public const COMPLETED = 'COMPLETED';
 
     /**
-     * Indicates the order is canceled. Canceled orders are not paid. This is a terminal state.
+     * Indicates that the order is canceled. Canceled orders are not paid. This is a terminal state.
      */
     public const CANCELED = 'CANCELED';
 }

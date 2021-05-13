@@ -62,7 +62,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the return discount only within this order.
+     * A unique ID that identifies the returned discount only within this order.
      */
     public function getUid(): ?string
     {
@@ -72,7 +72,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the return discount only within this order.
+     * A unique ID that identifies the returned discount only within this order.
      *
      * @maps uid
      */
@@ -84,7 +84,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Returns Source Discount Uid.
      *
-     * `uid` of the Discount from the Order which contains the original application of this discount.
+     * The discount `uid` from the order that contains the original application of this discount.
      */
     public function getSourceDiscountUid(): ?string
     {
@@ -94,7 +94,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Sets Source Discount Uid.
      *
-     * `uid` of the Discount from the Order which contains the original application of this discount.
+     * The discount `uid` from the order that contains the original application of this discount.
      *
      * @maps source_discount_uid
      */
@@ -106,7 +106,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -116,7 +116,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
      *
      * @maps catalog_object_id
      */
@@ -173,7 +173,7 @@ class OrderReturnDiscount implements \JsonSerializable
      * Returns Percentage.
      *
      * The percentage of the tax, as a string representation of a decimal number.
-     * A value of `7.25` corresponds to a percentage of 7.25%.
+     * A value of `"7.25"` corresponds to a percentage of 7.25%.
      *
      * `percentage` is not set for amount-based discounts.
      */
@@ -186,7 +186,7 @@ class OrderReturnDiscount implements \JsonSerializable
      * Sets Percentage.
      *
      * The percentage of the tax, as a string representation of a decimal number.
-     * A value of `7.25` corresponds to a percentage of 7.25%.
+     * A value of `"7.25"` corresponds to a percentage of 7.25%.
      *
      * `percentage` is not set for amount-based discounts.
      *
@@ -268,7 +268,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Returns Scope.
      *
-     * Indicates whether this is a line item or order level discount.
+     * Indicates whether this is a line-item or order-level discount.
      */
     public function getScope(): ?string
     {
@@ -278,7 +278,7 @@ class OrderReturnDiscount implements \JsonSerializable
     /**
      * Sets Scope.
      *
-     * Indicates whether this is a line item or order level discount.
+     * Indicates whether this is a line-item or order-level discount.
      *
      * @maps scope
      */

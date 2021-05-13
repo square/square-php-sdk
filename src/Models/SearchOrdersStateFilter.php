@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Filter by current Order `state`.
+ * Filter by the current order `state`.
  */
 class SearchOrdersStateFilter implements \JsonSerializable
 {
