@@ -95,6 +95,11 @@ class Payment implements \JsonSerializable
     private $cashDetails;
 
     /**
+     * @var BankAccountPaymentDetails|null
+     */
+    private $bankAccountDetails;
+
+    /**
      * @var ExternalPaymentDetails|null
      */
     private $externalDetails;
@@ -478,7 +483,7 @@ class Payment implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Indicates whether the payment is APPROVED, COMPLETED, CANCELED, or FAILED.
+     * Indicates whether the payment is APPROVED, PENDING, COMPLETED, CANCELED, or FAILED.
      */
     public function getStatus(): ?string
     {
@@ -488,7 +493,7 @@ class Payment implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Indicates whether the payment is APPROVED, COMPLETED, CANCELED, or FAILED.
+     * Indicates whether the payment is APPROVED, PENDING, COMPLETED, CANCELED, or FAILED.
      *
      * @maps status
      */
@@ -610,7 +615,7 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`, `CASH`, or `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `CASH`, or `EXTERNAL`.
      */
     public function getSourceType(): ?string
     {
@@ -622,7 +627,7 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`, `CASH`, or `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `CASH`, or `EXTERNAL`.
      *
      * @maps source_type
      */
@@ -677,6 +682,28 @@ class Payment implements \JsonSerializable
     public function setCashDetails(?CashPaymentDetails $cashDetails): void
     {
         $this->cashDetails = $cashDetails;
+    }
+
+    /**
+     * Returns Bank Account Details.
+     *
+     * Additional details about BANK_ACCOUNT type payments.
+     */
+    public function getBankAccountDetails(): ?BankAccountPaymentDetails
+    {
+        return $this->bankAccountDetails;
+    }
+
+    /**
+     * Sets Bank Account Details.
+     *
+     * Additional details about BANK_ACCOUNT type payments.
+     *
+     * @maps bank_account_details
+     */
+    public function setBankAccountDetails(?BankAccountPaymentDetails $bankAccountDetails): void
+    {
+        $this->bankAccountDetails = $bankAccountDetails;
     }
 
     /**
@@ -1128,6 +1155,7 @@ class Payment implements \JsonSerializable
         $json['source_type']                    = $this->sourceType;
         $json['card_details']                   = $this->cardDetails;
         $json['cash_details']                   = $this->cashDetails;
+        $json['bank_account_details']           = $this->bankAccountDetails;
         $json['external_details']               = $this->externalDetails;
         $json['location_id']                    = $this->locationId;
         $json['order_id']                       = $this->orderId;

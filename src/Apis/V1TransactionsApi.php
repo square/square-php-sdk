@@ -25,6 +25,8 @@ class V1TransactionsApi extends BaseApi
     /**
      * Provides summary information for a merchant's online store orders.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the location to list online store orders for.
      * @param string|null $order The order in which payments are listed in the response.
      * @param int|null $limit The maximum number of payments to return in a single response. This
@@ -43,6 +45,8 @@ class V1TransactionsApi extends BaseApi
         ?int $limit = null,
         ?string $batchToken = null
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/orders';
 
@@ -106,6 +110,8 @@ class V1TransactionsApi extends BaseApi
     /**
      * Provides comprehensive information for a single online store order, including the order's history.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the order's associated location.
      * @param string $orderId The order's Square-issued ID. You obtain this value from Order
      *                        objects returned by the List Orders endpoint
@@ -116,6 +122,8 @@ class V1TransactionsApi extends BaseApi
      */
     public function retrieveOrder(string $locationId, string $orderId): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/orders/{order_id}';
 
@@ -174,6 +182,8 @@ class V1TransactionsApi extends BaseApi
      * Updates the details of an online store order. Every update you perform on an order corresponds to
      * one of three actions:
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the order's associated location.
      * @param string $orderId The order's Square-issued ID. You obtain this value from Order
      *                        objects returned by the List Orders endpoint
@@ -192,6 +202,8 @@ class V1TransactionsApi extends BaseApi
         string $orderId,
         \Square\Models\V1UpdateOrderRequest $body
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/orders/{order_id}';
 
@@ -263,6 +275,8 @@ class V1TransactionsApi extends BaseApi
      * list an offline payment chronologically between online payments that
      * were seen in a previous request.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the location to list payments for. If you specify me,
      *                           this endpoint returns payments aggregated from all of the
      *                           business's locations.
@@ -297,6 +311,8 @@ class V1TransactionsApi extends BaseApi
         ?string $batchToken = null,
         ?bool $includePartial = false
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/payments';
 
@@ -364,6 +380,8 @@ class V1TransactionsApi extends BaseApi
     /**
      * Provides comprehensive information for a single payment.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the payment's associated location.
      * @param string $paymentId The Square-issued payment ID. payment_id comes from Payment
      *                          objects returned by the List Payments endpoint, Settlement objects
@@ -376,6 +394,8 @@ class V1TransactionsApi extends BaseApi
      */
     public function retrievePayment(string $locationId, string $paymentId): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/payments/{payment_id}';
 
@@ -434,6 +454,8 @@ class V1TransactionsApi extends BaseApi
      * Provides the details for all refunds initiated by a merchant or any of the merchant's mobile staff
      * during a date range. Date ranges cannot exceed one year in length.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the location to list refunds for.
      * @param string|null $order The order in which payments are listed in the response.
      * @param string|null $beginTime The beginning of the requested reporting period, in ISO 8601
@@ -464,6 +486,8 @@ class V1TransactionsApi extends BaseApi
         ?int $limit = null,
         ?string $batchToken = null
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/refunds';
 
@@ -540,6 +564,8 @@ class V1TransactionsApi extends BaseApi
      * purposes, you can create fake cash payments in Square Point of Sale and
      * refund them.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the original payment's associated location.
      * @param \Square\Models\V1CreateRefundRequest $body An object containing the fields to POST
      *                                                   for the request.
@@ -553,6 +579,8 @@ class V1TransactionsApi extends BaseApi
      */
     public function createRefund(string $locationId, \Square\Models\V1CreateRefundRequest $body): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/refunds';
 
@@ -618,6 +646,8 @@ class V1TransactionsApi extends BaseApi
      * *Note**: the ListSettlements endpoint does not provide entry
      * information.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the location to list settlements for. If you specify me,
      *                           this endpoint returns settlements aggregated from all of the
      *                           business's locations.
@@ -650,6 +680,8 @@ class V1TransactionsApi extends BaseApi
         ?string $status = null,
         ?string $batchToken = null
     ): ApiResponse {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/settlements';
 
@@ -732,6 +764,8 @@ class V1TransactionsApi extends BaseApi
      * a bank account within 3 business days, but in exceptional cases it may
      * take longer.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the settlements's associated location.
      * @param string $settlementId The settlement's Square-issued ID. You obtain this value from
      *                             Settlement objects returned by the List Settlements endpoint.
@@ -742,6 +776,8 @@ class V1TransactionsApi extends BaseApi
      */
     public function retrieveSettlement(string $locationId, string $settlementId): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v1/{location_id}/settlements/{settlement_id}';
 

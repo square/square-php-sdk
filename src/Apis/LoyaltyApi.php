@@ -23,8 +23,8 @@ class LoyaltyApi extends BaseApi
     }
 
     /**
-     * Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and
-     * either the `mapping` field (preferred) or the `mappings` field.
+     * Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and a
+     * `mapping` with the `phone_number` of the buyer.
      *
      * @param \Square\Models\CreateLoyaltyAccountRequest $body An object containing the fields to
      *                                                         POST for the request.
@@ -467,7 +467,15 @@ class LoyaltyApi extends BaseApi
 
     /**
      * Returns a list of loyalty programs in the seller's account.
-     * Currently, a seller can only have one loyalty program.
+     * Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can
+     * have only one loyalty program, which is created and managed from the Seller Dashboard. For more
+     * information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+     *
+     *
+     * Replaced with [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) when used with the keyword
+     * `main`.
+     *
+     * @deprecated
      *
      * @return ApiResponse Response from the API call
      *
@@ -475,6 +483,8 @@ class LoyaltyApi extends BaseApi
      */
     public function listLoyaltyPrograms(): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/programs';
 

@@ -192,8 +192,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items are being tracked.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
      */
     public function getLocationId(): ?string
     {
@@ -203,8 +203,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items are being tracked.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
      *
      * @maps location_id
      */
@@ -216,8 +216,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -227,8 +227,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -240,8 +240,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked. Tracking is only
+     * The [type](entity:CatalogObjectType] of the
+     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
      * supported for the `ITEM_VARIATION` type.
      */
     public function getCatalogObjectType(): ?string
@@ -252,8 +252,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked. Tracking is only
+     * The [type](entity:CatalogObjectType] of the
+     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
      * supported for the `ITEM_VARIATION` type.
      *
      * @maps catalog_object_type
@@ -324,8 +324,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Occurred At.
      *
-     * A client-generated timestamp in RFC 3339 format that indicates when
-     * the adjustment took place. For write actions, the `occurred_at`
+     * A client-generated RFC 3339-formatted timestamp that indicates when
+     * the inventory adjustment took place. For inventory adjustment updates, the `occurred_at`
      * timestamp cannot be older than 24 hours or in the future relative to the
      * time of the request.
      */
@@ -337,8 +337,8 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Occurred At.
      *
-     * A client-generated timestamp in RFC 3339 format that indicates when
-     * the adjustment took place. For write actions, the `occurred_at`
+     * A client-generated RFC 3339-formatted timestamp that indicates when
+     * the inventory adjustment took place. For inventory adjustment updates, the `occurred_at`
      * timestamp cannot be older than 24 hours or in the future relative to the
      * time of the request.
      *
@@ -352,8 +352,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
-     * received the adjustment.
+     * An RFC 3339-formatted timestamp that indicates when the inventory adjustment is received.
      */
     public function getCreatedAt(): ?string
     {
@@ -363,8 +362,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
-     * received the adjustment.
+     * An RFC 3339-formatted timestamp that indicates when the inventory adjustment is received.
      *
      * @maps created_at
      */
@@ -398,7 +396,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * The Square ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * inventory adjustment.
      */
     public function getEmployeeId(): ?string
@@ -409,7 +407,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * The Square ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * inventory adjustment.
      *
      * @maps employee_id
@@ -422,7 +420,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Transaction Id.
      *
-     * The read-only Square ID of the [Transaction][#type-transaction] that
+     * The Square-generated ID of the [Transaction][#type-transaction] that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      */
@@ -434,7 +432,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Transaction Id.
      *
-     * The read-only Square ID of the [Transaction][#type-transaction] that
+     * The Square-generated ID of the [Transaction][#type-transaction] that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      *
@@ -448,7 +446,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Refund Id.
      *
-     * The read-only Square ID of the [Refund][#type-refund] that
+     * The Square-generated ID of the [Refund][#type-refund] that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      */
@@ -460,7 +458,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Refund Id.
      *
-     * The read-only Square ID of the [Refund][#type-refund] that
+     * The Square-generated ID of the [Refund][#type-refund] that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      *
@@ -474,7 +472,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Purchase Order Id.
      *
-     * The read-only Square ID of the purchase order that caused the
+     * The Square-generated ID of the purchase order that caused the
      * adjustment. Only relevant for state transitions from the Square for Retail
      * app.
      */
@@ -486,7 +484,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Purchase Order Id.
      *
-     * The read-only Square ID of the purchase order that caused the
+     * The Square-generated ID of the purchase order that caused the
      * adjustment. Only relevant for state transitions from the Square for Retail
      * app.
      *
@@ -500,7 +498,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Goods Receipt Id.
      *
-     * The read-only Square ID of the Square goods receipt that caused the
+     * The Square-generated ID of the goods receipt that caused the
      * adjustment. Only relevant for state transitions from the Square for Retail
      * app.
      */
@@ -512,7 +510,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Goods Receipt Id.
      *
-     * The read-only Square ID of the Square goods receipt that caused the
+     * The Square-generated ID of the goods receipt that caused the
      * adjustment. Only relevant for state transitions from the Square for Retail
      * app.
      *

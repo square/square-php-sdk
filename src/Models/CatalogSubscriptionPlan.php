@@ -12,21 +12,31 @@ namespace Square\Models;
 class CatalogSubscriptionPlan implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var string
      */
     private $name;
 
     /**
-     * @var SubscriptionPhase[]|null
+     * @var SubscriptionPhase[]
      */
     private $phases;
+
+    /**
+     * @param string $name
+     * @param SubscriptionPhase[] $phases
+     */
+    public function __construct(string $name, array $phases)
+    {
+        $this->name = $name;
+        $this->phases = $phases;
+    }
 
     /**
      * Returns Name.
      *
      * The name of the plan.
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -36,9 +46,10 @@ class CatalogSubscriptionPlan implements \JsonSerializable
      *
      * The name of the plan.
      *
+     * @required
      * @maps name
      */
-    public function setName(?string $name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -48,9 +59,9 @@ class CatalogSubscriptionPlan implements \JsonSerializable
      *
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
-     * @return SubscriptionPhase[]|null
+     * @return SubscriptionPhase[]
      */
-    public function getPhases(): ?array
+    public function getPhases(): array
     {
         return $this->phases;
     }
@@ -60,11 +71,12 @@ class CatalogSubscriptionPlan implements \JsonSerializable
      *
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
+     * @required
      * @maps phases
      *
-     * @param SubscriptionPhase[]|null $phases
+     * @param SubscriptionPhase[] $phases
      */
-    public function setPhases(?array $phases): void
+    public function setPhases(array $phases): void
     {
         $this->phases = $phases;
     }

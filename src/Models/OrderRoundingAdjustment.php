@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A rounding adjustment of the money being returned. Commonly used to apply Cash Rounding
- * when the minimum unit of account is smaller than the lowest physical denomination of currency.
+ * A rounding adjustment of the money being returned. Commonly used to apply cash rounding
+ * when the minimum unit of the account is smaller than the lowest physical denomination of the
+ * currency.
  */
 class OrderRoundingAdjustment implements \JsonSerializable
 {
@@ -28,7 +29,7 @@ class OrderRoundingAdjustment implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the rounding adjustment only within this order.
+     * A unique ID that identifies the rounding adjustment only within this order.
      */
     public function getUid(): ?string
     {
@@ -38,7 +39,7 @@ class OrderRoundingAdjustment implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the rounding adjustment only within this order.
+     * A unique ID that identifies the rounding adjustment only within this order.
      *
      * @maps uid
      */
@@ -50,7 +51,7 @@ class OrderRoundingAdjustment implements \JsonSerializable
     /**
      * Returns Name.
      *
-     * The name of the rounding adjustment from the original sale Order.
+     * The name of the rounding adjustment from the original sale order.
      */
     public function getName(): ?string
     {
@@ -60,7 +61,7 @@ class OrderRoundingAdjustment implements \JsonSerializable
     /**
      * Sets Name.
      *
-     * The name of the rounding adjustment from the original sale Order.
+     * The name of the rounding adjustment from the original sale order.
      *
      * @maps name
      */

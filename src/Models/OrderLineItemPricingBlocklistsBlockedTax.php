@@ -28,7 +28,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID of the `BlockedTax` within the order.
+     * A unique ID of the `BlockedTax` within the order.
      */
     public function getUid(): ?string
     {
@@ -38,7 +38,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID of the `BlockedTax` within the order.
+     * A unique ID of the `BlockedTax` within the order.
      *
      * @maps uid
      */
@@ -51,7 +51,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      * Returns Tax Uid.
      *
      * The `uid` of the tax that should be blocked. Use this field to block
-     * ad-hoc taxes. For catalog taxes use the `tax_catalog_object_id` field.
+     * ad hoc taxes. For catalog, taxes use the `tax_catalog_object_id` field.
      */
     public function getTaxUid(): ?string
     {
@@ -62,7 +62,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      * Sets Tax Uid.
      *
      * The `uid` of the tax that should be blocked. Use this field to block
-     * ad-hoc taxes. For catalog taxes use the `tax_catalog_object_id` field.
+     * ad hoc taxes. For catalog, taxes use the `tax_catalog_object_id` field.
      *
      * @maps tax_uid
      */
@@ -75,7 +75,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      * Returns Tax Catalog Object Id.
      *
      * The `catalog_object_id` of the tax that should be blocked.
-     * Use this field to block catalog taxes. For ad-hoc taxes use the
+     * Use this field to block catalog taxes. For ad hoc taxes, use the
      * `tax_uid` field.
      */
     public function getTaxCatalogObjectId(): ?string
@@ -87,7 +87,7 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      * Sets Tax Catalog Object Id.
      *
      * The `catalog_object_id` of the tax that should be blocked.
-     * Use this field to block catalog taxes. For ad-hoc taxes use the
+     * Use this field to block catalog taxes. For ad hoc taxes, use the
      * `tax_uid` field.
      *
      * @maps tax_catalog_object_id

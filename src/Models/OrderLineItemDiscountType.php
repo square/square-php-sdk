@@ -16,12 +16,12 @@ class OrderLineItemDiscountType
     public const UNKNOWN_DISCOUNT = 'UNKNOWN_DISCOUNT';
 
     /**
-     * Apply the discount as a fixed percentage (e.g., 5%) off the item price.
+     * Apply the discount as a fixed percentage (such as 5%) off the item price.
      */
     public const FIXED_PERCENTAGE = 'FIXED_PERCENTAGE';
 
     /**
-     * Apply the discount as a fixed monetary value (e.g., $1.00) off the item price.
+     * Apply the discount as a fixed monetary value (such as $1.00) off the item price.
      */
     public const FIXED_AMOUNT = 'FIXED_AMOUNT';
 

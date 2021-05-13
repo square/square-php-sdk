@@ -56,7 +56,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the return tax only within this order.
+     * A unique ID that identifies the returned tax only within this order.
      */
     public function getUid(): ?string
     {
@@ -66,7 +66,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the return tax only within this order.
+     * A unique ID that identifies the returned tax only within this order.
      *
      * @maps uid
      */
@@ -78,7 +78,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Returns Source Tax Uid.
      *
-     * `uid` of the Tax from the Order which contains the original charge of this tax.
+     * The tax `uid` from the order that contains the original tax charge.
      */
     public function getSourceTaxUid(): ?string
     {
@@ -88,7 +88,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Sets Source Tax Uid.
      *
-     * `uid` of the Tax from the Order which contains the original charge of this tax.
+     * The tax `uid` from the order that contains the original tax charge.
      *
      * @maps source_tax_uid
      */
@@ -100,7 +100,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
+     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -110,7 +110,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogTax]($m/CatalogTax).
+     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      *
      * @maps catalog_object_id
      */
@@ -224,7 +224,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Returns Scope.
      *
-     * Indicates whether this is a line item or order level tax.
+     * Indicates whether this is a line-item or order-level tax.
      */
     public function getScope(): ?string
     {
@@ -234,7 +234,7 @@ class OrderReturnTax implements \JsonSerializable
     /**
      * Sets Scope.
      *
-     * Indicates whether this is a line item or order level tax.
+     * Indicates whether this is a line-item or order-level tax.
      *
      * @maps scope
      */

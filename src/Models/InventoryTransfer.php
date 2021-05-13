@@ -143,8 +143,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns From Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items were tracked before the transfer.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked before the transfer.
      */
     public function getFromLocationId(): ?string
     {
@@ -154,8 +154,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets From Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items were tracked before the transfer.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked before the transfer.
      *
      * @maps from_location_id
      */
@@ -167,8 +167,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns To Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items were tracked after the transfer.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked after the transfer.
      */
     public function getToLocationId(): ?string
     {
@@ -178,8 +178,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets To Location Id.
      *
-     * The Square ID of the [Location]($m/Location) where the related
-     * quantity of items were tracked after the transfer.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked after the transfer.
      *
      * @maps to_location_id
      */
@@ -191,8 +191,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -202,8 +202,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The Square generated ID of the
-     * `CatalogObject` being tracked.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -215,8 +215,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked.Tracking is only
+     * The [type]($m/CatalogObjectType) of the
+     * [CatalogObject]($m/CatalogObject) being tracked.Tracking is only
      * supported for the `ITEM_VARIATION` type.
      */
     public function getCatalogObjectType(): ?string
@@ -227,8 +227,8 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Catalog Object Type.
      *
-     * The `CatalogObjectType` of the
-     * `CatalogObject` being tracked.Tracking is only
+     * The [type]($m/CatalogObjectType) of the
+     * [CatalogObject]($m/CatalogObject) being tracked.Tracking is only
      * supported for the `ITEM_VARIATION` type.
      *
      * @maps catalog_object_type
@@ -265,7 +265,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Occurred At.
      *
-     * A client-generated timestamp in RFC 3339 format that indicates when
+     * A client-generated RFC 3339-formatted timestamp that indicates when
      * the transfer took place. For write actions, the `occurred_at` timestamp
      * cannot be older than 24 hours or in the future relative to the time of the
      * request.
@@ -278,7 +278,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Occurred At.
      *
-     * A client-generated timestamp in RFC 3339 format that indicates when
+     * A client-generated RFC 3339-formatted timestamp that indicates when
      * the transfer took place. For write actions, the `occurred_at` timestamp
      * cannot be older than 24 hours or in the future relative to the time of the
      * request.
@@ -293,7 +293,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
+     * An RFC 3339-formatted timestamp that indicates when Square
      * received the transfer request.
      */
     public function getCreatedAt(): ?string
@@ -304,7 +304,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * A read-only timestamp in RFC 3339 format that indicates when Square
+     * An RFC 3339-formatted timestamp that indicates when Square
      * received the transfer request.
      *
      * @maps created_at
@@ -339,7 +339,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * The Square ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * inventory transfer.
      */
     public function getEmployeeId(): ?string
@@ -350,7 +350,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * The Square ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * inventory transfer.
      *
      * @maps employee_id

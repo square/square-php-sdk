@@ -15,14 +15,14 @@ order subtotal.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `uid` | `?string` | Optional | Unique ID that identifies the return tax only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
-| `sourceTaxUid` | `?string` | Optional | `uid` of the Tax from the Order which contains the original charge of this tax.<br>**Constraints**: *Maximum Length*: `60` | getSourceTaxUid(): ?string | setSourceTaxUid(?string sourceTaxUid): void |
-| `catalogObjectId` | `?string` | Optional | The catalog object id referencing [CatalogTax](/doc/models/catalog-tax.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
+| `uid` | `?string` | Optional | A unique ID that identifies the returned tax only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
+| `sourceTaxUid` | `?string` | Optional | The tax `uid` from the order that contains the original tax charge.<br>**Constraints**: *Maximum Length*: `60` | getSourceTaxUid(): ?string | setSourceTaxUid(?string sourceTaxUid): void |
+| `catalogObjectId` | `?string` | Optional | The catalog object ID referencing [CatalogTax](/doc/models/catalog-tax.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
 | `name` | `?string` | Optional | The tax's name.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `type` | [`?string (OrderLineItemTaxType)`](/doc/models/order-line-item-tax-type.md) | Optional | Indicates how the tax is applied to the associated line item or order. | getType(): ?string | setType(?string type): void |
 | `percentage` | `?string` | Optional | The percentage of the tax, as a string representation of a decimal number.<br>For example, a value of `"7.25"` corresponds to a percentage of 7.25%.<br>**Constraints**: *Maximum Length*: `10` | getPercentage(): ?string | setPercentage(?string percentage): void |
 | `appliedMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getAppliedMoney(): ?Money | setAppliedMoney(?Money appliedMoney): void |
-| `scope` | [`?string (OrderLineItemTaxScope)`](/doc/models/order-line-item-tax-scope.md) | Optional | Indicates whether this is a line item or order level tax. | getScope(): ?string | setScope(?string scope): void |
+| `scope` | [`?string (OrderLineItemTaxScope)`](/doc/models/order-line-item-tax-scope.md) | Optional | Indicates whether this is a line-item or order-level tax. | getScope(): ?string | setScope(?string scope): void |
 
 ## Example (as JSON)
 

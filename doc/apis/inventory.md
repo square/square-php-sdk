@@ -82,8 +82,10 @@ function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\BatchChangeInventoryRequest;
-$body->setIdempotencyKey('8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe');
+$body_idempotencyKey = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe';
+$body = new Models\BatchChangeInventoryRequest(
+    $body_idempotencyKey
+);
 $body_changes = [];
 
 $body_changes[0] = new Models\InventoryChange;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Filter based on Order `customer_id` and any Tender `customer_id`
- * associated with the Order. Does not filter based on the
+ * A filter based on the order `customer_id` and any tender `customer_id`
+ * associated with the order. It does not filter based on the
  * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.
  */
 class SearchOrdersCustomerFilter implements \JsonSerializable
@@ -19,7 +19,7 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
     /**
      * Returns Customer Ids.
      *
-     * List of customer IDs to filter by.
+     * A list of customer IDs to filter by.
      *
      * Max: 10 customer IDs.
      *
@@ -33,7 +33,7 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
     /**
      * Sets Customer Ids.
      *
-     * List of customer IDs to filter by.
+     * A list of customer IDs to filter by.
      *
      * Max: 10 customer IDs.
      *

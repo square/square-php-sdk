@@ -72,7 +72,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the return service charge only within this order.
+     * A unique ID that identifies the return service charge only within this order.
      */
     public function getUid(): ?string
     {
@@ -82,7 +82,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the return service charge only within this order.
+     * A unique ID that identifies the return service charge only within this order.
      *
      * @maps uid
      */
@@ -94,8 +94,8 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Returns Source Service Charge Uid.
      *
-     * `uid` of the Service Charge from the Order containing the original
-     * charge of the service charge. `source_service_charge_uid` is `null` for
+     * The service charge `uid` from the order containing the original
+     * service charge. `source_service_charge_uid` is `null` for
      * unlinked returns.
      */
     public function getSourceServiceChargeUid(): ?string
@@ -106,8 +106,8 @@ class OrderReturnServiceCharge implements \JsonSerializable
     /**
      * Sets Source Service Charge Uid.
      *
-     * `uid` of the Service Charge from the Order containing the original
-     * charge of the service charge. `source_service_charge_uid` is `null` for
+     * The service charge `uid` from the order containing the original
+     * service charge. `source_service_charge_uid` is `null` for
      * unlinked returns.
      *
      * @maps source_service_charge_uid
@@ -168,7 +168,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * a decimal number. For example, a value of `"7.25"` corresponds to a
      * percentage of 7.25%.
      *
-     * Exactly one of `percentage` or `amount_money` should be set.
+     * Either `percentage` or `amount_money` should be set, but not both.
      */
     public function getPercentage(): ?string
     {
@@ -182,7 +182,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * a decimal number. For example, a value of `"7.25"` corresponds to a
      * percentage of 7.25%.
      *
-     * Exactly one of `percentage` or `amount_money` should be set.
+     * Either `percentage` or `amount_money` should be set, but not both.
      *
      * @maps percentage
      */
@@ -331,7 +331,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * Returns Calculation Phase.
      *
      * Represents a phase in the process of calculating order totals.
-     * Service charges are applied __after__ the indicated phase.
+     * Service charges are applied after the indicated phase.
      *
      * [Read more about how order totals are calculated.](https://developer.squareup.com/docs/orders-
      * api/how-it-works#how-totals-are-calculated)
@@ -345,7 +345,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * Sets Calculation Phase.
      *
      * Represents a phase in the process of calculating order totals.
-     * Service charges are applied __after__ the indicated phase.
+     * Service charges are applied after the indicated phase.
      *
      * [Read more about how order totals are calculated.](https://developer.squareup.com/docs/orders-
      * api/how-it-works#how-totals-are-calculated)
@@ -387,7 +387,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * The list of references to `OrderReturnTax` entities applied to the
      * `OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`
      * that references the `uid` of a top-level `OrderReturnTax` that is being
-     * applied to the `OrderReturnServiceCharge`. On reads, the amount applied is
+     * applied to the `OrderReturnServiceCharge`. On reads, the applied amount is
      * populated.
      *
      * @return OrderLineItemAppliedTax[]|null
@@ -403,7 +403,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * The list of references to `OrderReturnTax` entities applied to the
      * `OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`
      * that references the `uid` of a top-level `OrderReturnTax` that is being
-     * applied to the `OrderReturnServiceCharge`. On reads, the amount applied is
+     * applied to the `OrderReturnServiceCharge`. On reads, the applied amount is
      * populated.
      *
      * @maps applied_taxes

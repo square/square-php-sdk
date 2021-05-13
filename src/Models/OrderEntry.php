@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A lightweight description of an [Order]($m/Order) that is returned when
- * `returned_entries` is true on a [SearchOrdersRequest]($e/Orders/SearchOrders)
+ * A lightweight description of an [order]($m/Order) that is returned when
+ * `returned_entries` is `true` on a [SearchOrdersRequest]($e/Orders/SearchOrders).
  */
 class OrderEntry implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class OrderEntry implements \JsonSerializable
     /**
      * Returns Order Id.
      *
-     * The id of the Order
+     * The ID of the order.
      */
     public function getOrderId(): ?string
     {
@@ -38,7 +38,7 @@ class OrderEntry implements \JsonSerializable
     /**
      * Sets Order Id.
      *
-     * The id of the Order
+     * The ID of the order.
      *
      * @maps order_id
      */
@@ -50,12 +50,12 @@ class OrderEntry implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * Version number which is incremented each time an update is committed to the order.
-     * Orders that were not created through the API will not include a version and
-     * thus cannot be updated.
+     * The version number, which is incremented each time an update is committed to the order.
+     * Orders that were not created through the API do not include a version number and
+     * therefore cannot be updated.
      *
-     * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders).
+     * [Read more about working with versions.](https://developer.squareup.com/docs/orders-api/manage-
+     * orders#update-orders)
      */
     public function getVersion(): ?int
     {
@@ -65,12 +65,12 @@ class OrderEntry implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * Version number which is incremented each time an update is committed to the order.
-     * Orders that were not created through the API will not include a version and
-     * thus cannot be updated.
+     * The version number, which is incremented each time an update is committed to the order.
+     * Orders that were not created through the API do not include a version number and
+     * therefore cannot be updated.
      *
-     * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders).
+     * [Read more about working with versions.](https://developer.squareup.com/docs/orders-api/manage-
+     * orders#update-orders)
      *
      * @maps version
      */
@@ -82,7 +82,7 @@ class OrderEntry implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The location id the Order belongs to.
+     * The location ID the order belongs to.
      */
     public function getLocationId(): ?string
     {
@@ -92,7 +92,7 @@ class OrderEntry implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The location id the Order belongs to.
+     * The location ID the order belongs to.
      *
      * @maps location_id
      */

@@ -42,7 +42,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Returns Uid.
      *
-     * Unique ID that identifies the return modifier only within this order.
+     * A unique ID that identifies the return modifier only within this order.
      */
     public function getUid(): ?string
     {
@@ -52,7 +52,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Sets Uid.
      *
-     * Unique ID that identifies the return modifier only within this order.
+     * A unique ID that identifies the return modifier only within this order.
      *
      * @maps uid
      */
@@ -64,7 +64,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Returns Source Modifier Uid.
      *
-     * `uid` of the Modifier from the LineItem from the Order which contains the
+     * The modifier `uid` from the order's line item that contains the
      * original sale of this line item modifier.
      */
     public function getSourceModifierUid(): ?string
@@ -75,7 +75,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Sets Source Modifier Uid.
      *
-     * `uid` of the Modifier from the LineItem from the Order which contains the
+     * The modifier `uid` from the order's line item that contains the
      * original sale of this line item modifier.
      *
      * @maps source_modifier_uid
@@ -88,7 +88,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -98,7 +98,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The catalog object id referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      *
      * @maps catalog_object_id
      */
