@@ -419,5 +419,5 @@ You can also use the Square API to create applications or services that work wit
 [V1 Items]: doc/apis/v1-items.md
 [Team]: doc/apis/team.md
 [Transactions]: doc/apis/transactions.md
-[Sites]: doc/api/sites.md
-[Snippets]: doc/api/snippets.md
+[Sites]: doc/apis/sites.md
+[Snippets]: doc/apis/snippets.md
