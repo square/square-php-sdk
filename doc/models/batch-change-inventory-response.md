@@ -11,6 +11,7 @@
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `counts` | [`?(InventoryCount[])`](/doc/models/inventory-count.md) | Optional | The current counts for all objects referenced in the request. | getCounts(): ?array | setCounts(?array counts): void |
+| `changes` | [`?(InventoryChange[])`](/doc/models/inventory-change.md) | Optional | Changes created for the request. | getChanges(): ?array | setChanges(?array changes): void |
 
 ## Example (as JSON)
 

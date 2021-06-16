@@ -20,6 +20,11 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
     private $errors;
 
     /**
+     * @var string|null
+     */
+    private $cursor;
+
+    /**
      * Returns Evidence.
      *
      * The list of evidence previously uploaded to the specified dispute.
@@ -72,6 +77,32 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Cursor.
+     *
+     * The pagination cursor to be used in a subsequent request.
+     * If unset, this is the final response. For more information, see [Pagination](https://developer.
+     * squareup.com/docs/basics/api101/pagination).
+     */
+    public function getCursor(): ?string
+    {
+        return $this->cursor;
+    }
+
+    /**
+     * Sets Cursor.
+     *
+     * The pagination cursor to be used in a subsequent request.
+     * If unset, this is the final response. For more information, see [Pagination](https://developer.
+     * squareup.com/docs/basics/api101/pagination).
+     *
+     * @maps cursor
+     */
+    public function setCursor(?string $cursor): void
+    {
+        $this->cursor = $cursor;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -81,6 +112,7 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
         $json = [];
         $json['evidence'] = $this->evidence;
         $json['errors']   = $this->errors;
+        $json['cursor']   = $this->cursor;
 
         return array_filter($json, function ($val) {
             return $val !== null;

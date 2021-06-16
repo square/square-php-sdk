@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+/**
+ * Represents the naming used for loyalty points.
+ */
 class LoyaltyProgramTerminology implements \JsonSerializable
 {
     /**

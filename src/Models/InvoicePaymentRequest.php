@@ -331,10 +331,9 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Card Id.
      *
-     * The ID of the card on file to charge for the payment request. To get the customer’s card on file,
-     * use the `customer_id` of the invoice recipient to call
-     * [RetrieveCustomer]($e/Customers/RetrieveCustomer)
-     * in the Customers API. Then, get the ID of the target card from the `cards` field in the response.
+     * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
+     * file for a customer,
+     * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
      */
     public function getCardId(): ?string
     {
@@ -344,10 +343,9 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Card Id.
      *
-     * The ID of the card on file to charge for the payment request. To get the customer’s card on file,
-     * use the `customer_id` of the invoice recipient to call
-     * [RetrieveCustomer]($e/Customers/RetrieveCustomer)
-     * in the Customers API. Then, get the ID of the target card from the `cards` field in the response.
+     * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
+     * file for a customer,
+     * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
      *
      * @maps card_id
      */

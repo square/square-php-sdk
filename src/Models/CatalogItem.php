@@ -336,7 +336,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Returns Variations.
      *
-     * A list of CatalogObjects containing the `CatalogItemVariation`s for this item.
+     * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
+     * at least one variation.
      *
      * @return CatalogObject[]|null
      */
@@ -348,7 +349,8 @@ class CatalogItem implements \JsonSerializable
     /**
      * Sets Variations.
      *
-     * A list of CatalogObjects containing the `CatalogItemVariation`s for this item.
+     * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
+     * at least one variation.
      *
      * @maps variations
      *

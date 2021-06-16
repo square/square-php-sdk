@@ -10,13 +10,13 @@ namespace Square\Models;
 class TeamMemberStatus
 {
     /**
-     * The team member can log in to Point of Sale and Dashboard.
+     * The team member can sign in to Point of Sale and the Seller Dashboard.
      */
     public const ACTIVE = 'ACTIVE';
 
     /**
-     * The team member can no longer log in to Point of Sale or Dashboard,
-     * but their sales reports remain available.
+     * The team member can no longer sign in to Point of Sale or the Seller Dashboard,
+     * but the team member's sales reports remain available.
      */
     public const INACTIVE = 'INACTIVE';
 }

@@ -19,7 +19,7 @@ class SearchTeamMembersQuery implements \JsonSerializable
      *
      * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
      * between the individual fields, and `OR` logic is applied within list-based fields.
-     * For example, setting this filter value,
+     * For example, setting this filter value:
      * ```
      * filter = (locations_ids = ["A", "B"], status = ACTIVE)
      * ```
@@ -35,7 +35,7 @@ class SearchTeamMembersQuery implements \JsonSerializable
      *
      * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
      * between the individual fields, and `OR` logic is applied within list-based fields.
-     * For example, setting this filter value,
+     * For example, setting this filter value:
      * ```
      * filter = (locations_ids = ["A", "B"], status = ACTIVE)
      * ```

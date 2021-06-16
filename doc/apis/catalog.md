@@ -592,7 +592,7 @@ function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalo
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `?string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `types` | `?string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve, for example<br>`ITEM,ITEM_VARIATION,CATEGORY,IMAGE`.<br><br>The legal values are taken from the CatalogObjectType enum:<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, or `IMAGE`. |
+| `types` | `?string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](/doc/models/catalog-object-type.md) enum, including<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.<br><br>If this is unspecified, the operation returns objects of all the types at the version of the Square API used to make the request. |
 | `catalogVersion` | `?int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](/doc/models/catalog-object.md)s' `version` attribute. |
 
 ## Response Type
@@ -677,10 +677,96 @@ $body_object->setCatalogV1Ids($body_object_catalogV1Ids);
 
 $body_object->setItemData(new Models\CatalogItem);
 $body_object->getItemData()->setName('Cocoa');
-$body_object->getItemData()->setDescription('Hot chocolate');
+$body_object->getItemData()->setDescription('Hot Chocolate');
 $body_object->getItemData()->setAbbreviation('Ch');
 $body_object->getItemData()->setLabelColor('label_color4');
 $body_object->getItemData()->setAvailableOnline(false);
+$body_object_itemData_variations = [];
+
+$body_object_itemData_variations_0_type = Models\CatalogObjectType::ITEM_VARIATION;
+$body_object_itemData_variations_0_id = '#Small';
+$body_object_itemData_variations[0] = new Models\CatalogObject(
+    $body_object_itemData_variations_0_type,
+    $body_object_itemData_variations_0_id
+);
+$body_object_itemData_variations[0]->setUpdatedAt('updated_at9');
+$body_object_itemData_variations[0]->setVersion(69);
+$body_object_itemData_variations[0]->setIsDeleted(true);
+$body_object_itemData_variations_0_customAttributeValues = [];
+
+$body_object_itemData_variations_0_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
+$body_object_itemData_variations_0_customAttributeValues['key0']->setName('name4');
+$body_object_itemData_variations_0_customAttributeValues['key0']->setStringValue('string_value8');
+$body_object_itemData_variations_0_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id8');
+$body_object_itemData_variations_0_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::NUMBER);
+$body_object_itemData_variations_0_customAttributeValues['key0']->setNumberValue('number_value4');
+
+$body_object_itemData_variations_0_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
+$body_object_itemData_variations_0_customAttributeValues['key1']->setName('name5');
+$body_object_itemData_variations_0_customAttributeValues['key1']->setStringValue('string_value9');
+$body_object_itemData_variations_0_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id7');
+$body_object_itemData_variations_0_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
+$body_object_itemData_variations_0_customAttributeValues['key1']->setNumberValue('number_value5');
+$body_object_itemData_variations[0]->setCustomAttributeValues($body_object_itemData_variations_0_customAttributeValues);
+
+$body_object_itemData_variations_0_catalogV1Ids = [];
+
+$body_object_itemData_variations_0_catalogV1Ids[0] = new Models\CatalogV1Id;
+$body_object_itemData_variations_0_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id9');
+$body_object_itemData_variations_0_catalogV1Ids[0]->setLocationId('location_id9');
+$body_object_itemData_variations[0]->setCatalogV1Ids($body_object_itemData_variations_0_catalogV1Ids);
+
+
+$body_object_itemData_variations_1_type = Models\CatalogObjectType::ITEM_VARIATION;
+$body_object_itemData_variations_1_id = '#Large';
+$body_object_itemData_variations[1] = new Models\CatalogObject(
+    $body_object_itemData_variations_1_type,
+    $body_object_itemData_variations_1_id
+);
+$body_object_itemData_variations[1]->setUpdatedAt('updated_at0');
+$body_object_itemData_variations[1]->setVersion(68);
+$body_object_itemData_variations[1]->setIsDeleted(false);
+$body_object_itemData_variations_1_customAttributeValues = [];
+
+$body_object_itemData_variations_1_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
+$body_object_itemData_variations_1_customAttributeValues['key0']->setName('name5');
+$body_object_itemData_variations_1_customAttributeValues['key0']->setStringValue('string_value9');
+$body_object_itemData_variations_1_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id7');
+$body_object_itemData_variations_1_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
+$body_object_itemData_variations_1_customAttributeValues['key0']->setNumberValue('number_value5');
+
+$body_object_itemData_variations_1_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
+$body_object_itemData_variations_1_customAttributeValues['key1']->setName('name6');
+$body_object_itemData_variations_1_customAttributeValues['key1']->setStringValue('string_value0');
+$body_object_itemData_variations_1_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id6');
+$body_object_itemData_variations_1_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
+$body_object_itemData_variations_1_customAttributeValues['key1']->setNumberValue('number_value6');
+
+$body_object_itemData_variations_1_customAttributeValues['key2'] = new Models\CatalogCustomAttributeValue;
+$body_object_itemData_variations_1_customAttributeValues['key2']->setName('name7');
+$body_object_itemData_variations_1_customAttributeValues['key2']->setStringValue('string_value1');
+$body_object_itemData_variations_1_customAttributeValues['key2']->setCustomAttributeDefinitionId('custom_attribute_definition_id5');
+$body_object_itemData_variations_1_customAttributeValues['key2']->setType(Models\CatalogCustomAttributeDefinitionType::SELECTION);
+$body_object_itemData_variations_1_customAttributeValues['key2']->setNumberValue('number_value7');
+$body_object_itemData_variations[1]->setCustomAttributeValues($body_object_itemData_variations_1_customAttributeValues);
+
+$body_object_itemData_variations_1_catalogV1Ids = [];
+
+$body_object_itemData_variations_1_catalogV1Ids[0] = new Models\CatalogV1Id;
+$body_object_itemData_variations_1_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id8');
+$body_object_itemData_variations_1_catalogV1Ids[0]->setLocationId('location_id8');
+
+$body_object_itemData_variations_1_catalogV1Ids[1] = new Models\CatalogV1Id;
+$body_object_itemData_variations_1_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id9');
+$body_object_itemData_variations_1_catalogV1Ids[1]->setLocationId('location_id9');
+
+$body_object_itemData_variations_1_catalogV1Ids[2] = new Models\CatalogV1Id;
+$body_object_itemData_variations_1_catalogV1Ids[2]->setCatalogV1Id('catalog_v1_id0');
+$body_object_itemData_variations_1_catalogV1Ids[2]->setLocationId('location_id0');
+$body_object_itemData_variations[1]->setCatalogV1Ids($body_object_itemData_variations_1_catalogV1Ids);
+
+$body_object->getItemData()->setVariations($body_object_itemData_variations);
+
 $body = new Models\UpsertCatalogObjectRequest(
     $body_idempotencyKey,
     $body_object

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from a bulk create request, containing the created `TeamMember` objects or
+ * Represents a response from a bulk create request containing the created `TeamMember` objects or
  * error messages.
  */
 class BulkCreateTeamMembersResponse implements \JsonSerializable

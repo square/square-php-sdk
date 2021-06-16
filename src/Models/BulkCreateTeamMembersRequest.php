@@ -25,8 +25,8 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
     /**
      * Returns Team Members.
      *
-     * The data which will be used to create the `TeamMember` objects. Each key is the `idempotency_key`
-     * that maps to the `CreateTeamMemberRequest`.
+     * The data used to create the `TeamMember` objects. Each key is the `idempotency_key` that maps to the
+     * `CreateTeamMemberRequest`.
      */
     public function getTeamMembers(): array
     {
@@ -36,8 +36,8 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
     /**
      * Sets Team Members.
      *
-     * The data which will be used to create the `TeamMember` objects. Each key is the `idempotency_key`
-     * that maps to the `CreateTeamMemberRequest`.
+     * The data used to create the `TeamMember` objects. Each key is the `idempotency_key` that maps to the
+     * `CreateTeamMemberRequest`.
      *
      * @required
      * @maps team_members

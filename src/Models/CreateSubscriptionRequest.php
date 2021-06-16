@@ -11,7 +11,7 @@ namespace Square\Models;
 class CreateSubscriptionRequest implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $idempotencyKey;
 
@@ -61,14 +61,12 @@ class CreateSubscriptionRequest implements \JsonSerializable
     private $timezone;
 
     /**
-     * @param string $idempotencyKey
      * @param string $locationId
      * @param string $planId
      * @param string $customerId
      */
-    public function __construct(string $idempotencyKey, string $locationId, string $planId, string $customerId)
+    public function __construct(string $locationId, string $planId, string $customerId)
     {
-        $this->idempotencyKey = $idempotencyKey;
         $this->locationId = $locationId;
         $this->planId = $planId;
         $this->customerId = $customerId;
@@ -84,7 +82,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      */
-    public function getIdempotencyKey(): string
+    public function getIdempotencyKey(): ?string
     {
         return $this->idempotencyKey;
     }
@@ -99,10 +97,9 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
      * apis/idempotency).
      *
-     * @required
      * @maps idempotency_key
      */
-    public function setIdempotencyKey(string $idempotencyKey): void
+    public function setIdempotencyKey(?string $idempotencyKey): void
     {
         $this->idempotencyKey = $idempotencyKey;
     }
@@ -133,8 +130,11 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Returns Plan Id.
      *
-     * The ID of the subscription plan. For more information, see
-     * [Subscription Plan Overview](https://developer.squareup.com/docs/subscriptions/overview).
+     * The ID of the subscription plan created using the Catalog API.
+     * For more information, see
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
+     * plan) and
+     * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
      */
     public function getPlanId(): string
     {
@@ -144,8 +144,11 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Sets Plan Id.
      *
-     * The ID of the subscription plan. For more information, see
-     * [Subscription Plan Overview](https://developer.squareup.com/docs/subscriptions/overview).
+     * The ID of the subscription plan created using the Catalog API.
+     * For more information, see
+     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
+     * plan) and
+     * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
      *
      * @required
      * @maps plan_id

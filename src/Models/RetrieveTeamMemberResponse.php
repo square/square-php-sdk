@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from a retrieve request, containing a `TeamMember` object or error messages.
+ * Represents a response from a retrieve request containing a `TeamMember` object or error messages.
  */
 class RetrieveTeamMemberResponse implements \JsonSerializable
 {

@@ -91,9 +91,19 @@ class CatalogItemVariation implements \JsonSerializable
     private $measurementUnitId;
 
     /**
+     * @var bool|null
+     */
+    private $stockable;
+
+    /**
      * @var string[]|null
      */
     private $teamMemberIds;
+
+    /**
+     * @var CatalogStockConversion|null
+     */
+    private $stockableConversion;
 
     /**
      * Returns Item Id.
@@ -520,6 +530,30 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Stockable.
+     *
+     * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
+     * For backward compatibility missing values will be interpreted as TRUE.
+     */
+    public function getStockable(): ?bool
+    {
+        return $this->stockable;
+    }
+
+    /**
+     * Sets Stockable.
+     *
+     * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
+     * For backward compatibility missing values will be interpreted as TRUE.
+     *
+     * @maps stockable
+     */
+    public function setStockable(?bool $stockable): void
+    {
+        $this->stockable = $stockable;
+    }
+
+    /**
      * Returns Team Member Ids.
      *
      * Tokens of employees that can perform the service represented by this variation. Only valid for
@@ -548,6 +582,34 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Stockable Conversion.
+     *
+     * Represents the rule of conversion between a stockable
+     * [CatalogItemVariation]($m/CatalogItemVariation)
+     * and a non-stockable sell-by or receive-by `CatalogItemVariation` that
+     * share the same underlying stock.
+     */
+    public function getStockableConversion(): ?CatalogStockConversion
+    {
+        return $this->stockableConversion;
+    }
+
+    /**
+     * Sets Stockable Conversion.
+     *
+     * Represents the rule of conversion between a stockable
+     * [CatalogItemVariation]($m/CatalogItemVariation)
+     * and a non-stockable sell-by or receive-by `CatalogItemVariation` that
+     * share the same underlying stock.
+     *
+     * @maps stockable_conversion
+     */
+    public function setStockableConversion(?CatalogStockConversion $stockableConversion): void
+    {
+        $this->stockableConversion = $stockableConversion;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -571,7 +633,9 @@ class CatalogItemVariation implements \JsonSerializable
         $json['available_for_booking']   = $this->availableForBooking;
         $json['item_option_values']      = $this->itemOptionValues;
         $json['measurement_unit_id']     = $this->measurementUnitId;
+        $json['stockable']               = $this->stockable;
         $json['team_member_ids']         = $this->teamMemberIds;
+        $json['stockable_conversion']    = $this->stockableConversion;
 
         return array_filter($json, function ($val) {
             return $val !== null;

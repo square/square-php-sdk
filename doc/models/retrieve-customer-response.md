@@ -15,7 +15,7 @@ Either `errors` or `customer` is present in a given response (never both).
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `customer` | [`?Customer`](/doc/models/customer.md) | Optional | Represents a Square customer profile, which can have one or more<br>cards on file associated with it. | getCustomer(): ?Customer | setCustomer(?Customer customer): void |
+| `customer` | [`?Customer`](/doc/models/customer.md) | Optional | Represents a Square customer profile in the Customer Directory of a Square seller. | getCustomer(): ?Customer | setCustomer(?Customer customer): void |
 
 ## Example (as JSON)
 

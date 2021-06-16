@@ -115,7 +115,7 @@ $body->getQuery()->getFilter()->getCreatedAt()->setStartAt('start_at2');
 $body->getQuery()->getFilter()->getCreatedAt()->setEndAt('end_at0');
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
 $body->getQuery()->setSort(new Models\TerminalCheckoutQuerySort);
-$body->getQuery()->getSort()->setSortOrder('sort_order8');
+$body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
 $body->setCursor('cursor0');
 $body->setLimit(2);
 

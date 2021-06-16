@@ -247,13 +247,12 @@ class CreateCheckoutRequest implements \JsonSerializable
      * Returns Redirect Url.
      *
      * The URL to redirect to after the checkout is completed with `checkoutId`,
-     * Square's `orderId`, `transactionId`, and `referenceId` appended as URL
-     * parameters. For example, if the provided redirect URL is
-     * `http://www.example.com/order-complete`, a successful transaction redirects
-     * the customer to:
+     * `transactionId`, and `referenceId` appended as URL parameters. For example,
+     * if the provided redirect URL is `http://www.example.com/order-complete`, a
+     * successful transaction redirects the customer to:
      *
-     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;orderId=xxxxxx&amp;
-     * referenceId=xxxxxx&amp;transactionId=xxxxxx</code></pre>
+     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
+     * transactionId=xxxxxx</code></pre>
      *
      * If you do not provide a redirect URL, Square Checkout displays an order
      * confirmation page on your behalf; however, it is strongly recommended that
@@ -271,13 +270,12 @@ class CreateCheckoutRequest implements \JsonSerializable
      * Sets Redirect Url.
      *
      * The URL to redirect to after the checkout is completed with `checkoutId`,
-     * Square's `orderId`, `transactionId`, and `referenceId` appended as URL
-     * parameters. For example, if the provided redirect URL is
-     * `http://www.example.com/order-complete`, a successful transaction redirects
-     * the customer to:
+     * `transactionId`, and `referenceId` appended as URL parameters. For example,
+     * if the provided redirect URL is `http://www.example.com/order-complete`, a
+     * successful transaction redirects the customer to:
      *
-     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;orderId=xxxxxx&amp;
-     * referenceId=xxxxxx&amp;transactionId=xxxxxx</code></pre>
+     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
+     * transactionId=xxxxxx</code></pre>
      *
      * If you do not provide a redirect URL, Square Checkout displays an order
      * confirmation page on your behalf; however, it is strongly recommended that

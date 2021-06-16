@@ -23,12 +23,12 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Creates a single `TeamMember` object. The `TeamMember` will be returned on successful creates.
+     * Creates a single `TeamMember` object. The `TeamMember` object is returned on successful creates.
      * You must provide the following values in your request to this endpoint:
      * - `given_name`
      * - `family_name`
      *
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#createteammember).
      *
      * @param \Square\Models\CreateTeamMemberRequest $body An object containing the fields to POST
@@ -96,15 +96,15 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Creates multiple `TeamMember` objects. The created `TeamMember` objects will be returned on
-     * successful creates.
-     * This process is non-transactional and will process as much of the request as is possible. If one of
-     * the creates in
-     * the request cannot be successfully processed, the request will NOT be marked as failed, but the body
-     * of the response
-     * will contain explicit error information for this particular create.
+     * Creates multiple `TeamMember` objects. The created `TeamMember` objects are returned on successful
+     * creates.
+     * This process is non-transactional and processes as much of the request as possible. If one of the
+     * creates in
+     * the request cannot be successfully processed, the request is not marked as failed, but the body of
+     * the response
+     * contains explicit error information for the failed create.
      *
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#bulk-create-team-members).
      *
      * @param \Square\Models\BulkCreateTeamMembersRequest $body An object containing the fields to
@@ -172,14 +172,14 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Updates multiple `TeamMember` objects. The updated `TeamMember` objects will be returned on
-     * successful updates.
-     * This process is non-transactional and will process as much of the request as is possible. If one of
-     * the updates in
-     * the request cannot be successfully processed, the request will NOT be marked as failed, but the body
-     * of the response
-     * will contain explicit error information for this particular update.
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Updates multiple `TeamMember` objects. The updated `TeamMember` objects are returned on successful
+     * updates.
+     * This process is non-transactional and processes as much of the request as possible. If one of the
+     * updates in
+     * the request cannot be successfully processed, the request is not marked as failed, but the body of
+     * the response
+     * contains explicit error information for the failed update.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#bulk-update-team-members).
      *
      * @param \Square\Models\BulkUpdateTeamMembersRequest $body An object containing the fields to
@@ -248,8 +248,8 @@ class TeamApi extends BaseApi
 
     /**
      * Returns a paginated list of `TeamMember` objects for a business.
-     * The list to be returned can be filtered by:
-     * - location IDs **and**
+     * The list can be filtered by the following:
+     * - location IDs
      * - `status`
      *
      * @param \Square\Models\SearchTeamMembersRequest $body An object containing the fields to
@@ -317,8 +317,8 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Retrieve a `TeamMember` object for the given `TeamMember.id`.
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Retrieves a `TeamMember` object for the given `TeamMember.id`.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#retrieve-a-team-member).
      *
      * @param string $teamMemberId The ID of the team member to retrieve.
@@ -383,8 +383,8 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Updates a single `TeamMember` object. The `TeamMember` will be returned on successful updates.
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Updates a single `TeamMember` object. The `TeamMember` object is returned on successful updates.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#update-a-team-member).
      *
      * @param string $teamMemberId The ID of the team member to update.
@@ -458,12 +458,13 @@ class TeamApi extends BaseApi
     }
 
     /**
-     * Retrieve a `WageSetting` object for a team member specified
+     * Retrieves a `WageSetting` object for a team member specified
      * by `TeamMember.id`.
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#retrievewagesetting).
      *
-     * @param string $teamMemberId The ID of the team member to retrieve wage setting for
+     * @param string $teamMemberId The ID of the team member for which to retrieve the wage
+     *                             setting.
      *
      * @return ApiResponse Response from the API call
      *
@@ -528,12 +529,12 @@ class TeamApi extends BaseApi
      * Creates or updates a `WageSetting` object. The object is created if a
      * `WageSetting` with the specified `team_member_id` does not exist. Otherwise,
      * it fully replaces the `WageSetting` object for the team member.
-     * The `WageSetting` will be returned upon successful update.
-     * Learn about [Troubleshooting the Teams API](https://developer.squareup.
+     * The `WageSetting` is returned on a successful update.
+     * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#create-or-update-a-wage-setting).
      *
-     * @param string $teamMemberId The ID of the team member to update the `WageSetting` object
-     *                             for.
+     * @param string $teamMemberId The ID of the team member for which to update the `WageSetting`
+     *                             object.
      * @param \Square\Models\UpdateWageSettingRequest $body An object containing the fields to
      *                                                      POST for the request.
      *

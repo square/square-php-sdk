@@ -169,11 +169,12 @@ class ChargeRequest implements \JsonSerializable
     /**
      * Returns Card Nonce.
      *
-     * A nonce generated from the `SqPaymentForm` that represents the card
+     * A payment token generated from the [Card.tokenize()](https://developer.squareup.
+     * com/reference/sdks/web/payments/objects/Card#Card.tokenize) that represents the card
      * to charge.
      *
-     * The application that provides a nonce to this endpoint must be the
-     * _same application_ that generated the nonce with the `SqPaymentForm`.
+     * The application that provides a payment token to this endpoint must be the
+     * _same application_ that generated the payment token with the Web Payments SDK.
      * Otherwise, the nonce is invalid.
      *
      * Do not provide a value for this field if you provide a value for
@@ -187,11 +188,12 @@ class ChargeRequest implements \JsonSerializable
     /**
      * Sets Card Nonce.
      *
-     * A nonce generated from the `SqPaymentForm` that represents the card
+     * A payment token generated from the [Card.tokenize()](https://developer.squareup.
+     * com/reference/sdks/web/payments/objects/Card#Card.tokenize) that represents the card
      * to charge.
      *
-     * The application that provides a nonce to this endpoint must be the
-     * _same application_ that generated the nonce with the `SqPaymentForm`.
+     * The application that provides a payment token to this endpoint must be the
+     * _same application_ that generated the payment token with the Web Payments SDK.
      * Otherwise, the nonce is invalid.
      *
      * Do not provide a value for this field if you provide a value for

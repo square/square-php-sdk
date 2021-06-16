@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from an update request, containing the updated `TeamMember` object or error
+ * Represents a response from an update request containing the updated `TeamMember` object or error
  * messages.
  */
 class UpdateTeamMemberResponse implements \JsonSerializable

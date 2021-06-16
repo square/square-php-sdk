@@ -45,16 +45,15 @@ function createSubscription(CreateSubscriptionRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '8193148c-9586-11e6-99f9-28cfe92138cf';
 $body_locationId = 'S8GWD5R9QB376';
 $body_planId = '6JHXF3B2CW3YKHDV4XEM674H';
 $body_customerId = 'CHFGVKYY8RSV93M5KCYTG4PN0G';
 $body = new Models\CreateSubscriptionRequest(
-    $body_idempotencyKey,
     $body_locationId,
     $body_planId,
     $body_customerId
 );
+$body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
 $body->setStartDate('2020-08-01');
 $body->setCanceledDate('canceled_date0');
 $body->setTaxPercentage('5');

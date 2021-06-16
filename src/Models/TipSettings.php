@@ -133,8 +133,11 @@ class TipSettings implements \JsonSerializable
      * Enables the "Smart Tip Amounts" behavior.
      * Exact tipping options depend on the region in which the Square seller is active.
      *
-     * In the United States and Canada, tipping options are presented in whole dollar amounts for
-     * payments under $10 USD/CAD respectively.
+     * For payments under 10.00, in the Australia, Canada, Ireland, United Kingdom, and United States,
+     * tipping options are presented as no tip, .50, 1.00 or 2.00.
+     *
+     * For payment amounts of 10.00 or greater, tipping options are presented as the following percentages:
+     * 0%, 5%, 10%, 15%.
      *
      * If set to true, the `tip_percentages` settings is ignored.
      * Defaults to false.
@@ -153,8 +156,11 @@ class TipSettings implements \JsonSerializable
      * Enables the "Smart Tip Amounts" behavior.
      * Exact tipping options depend on the region in which the Square seller is active.
      *
-     * In the United States and Canada, tipping options are presented in whole dollar amounts for
-     * payments under $10 USD/CAD respectively.
+     * For payments under 10.00, in the Australia, Canada, Ireland, United Kingdom, and United States,
+     * tipping options are presented as no tip, .50, 1.00 or 2.00.
+     *
+     * For payment amounts of 10.00 or greater, tipping options are presented as the following percentages:
+     * 0%, 5%, 10%, 15%.
      *
      * If set to true, the `tip_percentages` settings is ignored.
      * Defaults to false.
