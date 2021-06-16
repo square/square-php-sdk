@@ -35,6 +35,16 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var string[]|null
+     */
+    private $excludedCategoryIds;
+
+    /**
+     * @var string[]|null
+     */
+    private $excludedItemVariationIds;
+
+    /**
      * @param string $accrualType
      */
     public function __construct(string $accrualType)
@@ -160,10 +170,10 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      *
-     * The ID of the [catalog object]($m/CatalogObject) to purchase to earn the number of points defined by
-     * the
-     * rule. This is either an item variation or a category, depending on the type. This is defined on
-     * `ITEM_VARIATION` rules and `CATEGORY` rules.
+     * When the accrual rule is item-based or category-based, this field specifies the ID
+     * of the [catalog object]($m/CatalogObject) that buyers can purchase to earn points.
+     * If `accrual_type` is `ITEM_VARIATION`, the object is an item variation.
+     * If `accrual_type` is `CATEGORY`, the object is a category.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -173,16 +183,84 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      *
-     * The ID of the [catalog object]($m/CatalogObject) to purchase to earn the number of points defined by
-     * the
-     * rule. This is either an item variation or a category, depending on the type. This is defined on
-     * `ITEM_VARIATION` rules and `CATEGORY` rules.
+     * When the accrual rule is item-based or category-based, this field specifies the ID
+     * of the [catalog object]($m/CatalogObject) that buyers can purchase to earn points.
+     * If `accrual_type` is `ITEM_VARIATION`, the object is an item variation.
+     * If `accrual_type` is `CATEGORY`, the object is a category.
      *
      * @maps catalog_object_id
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Excluded Category Ids.
+     *
+     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
+     * lists the IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded categories.
+     *
+     * @return string[]|null
+     */
+    public function getExcludedCategoryIds(): ?array
+    {
+        return $this->excludedCategoryIds;
+    }
+
+    /**
+     * Sets Excluded Category Ids.
+     *
+     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
+     * lists the IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded categories.
+     *
+     * @maps excluded_category_ids
+     *
+     * @param string[]|null $excludedCategoryIds
+     */
+    public function setExcludedCategoryIds(?array $excludedCategoryIds): void
+    {
+        $this->excludedCategoryIds = $excludedCategoryIds;
+    }
+
+    /**
+     * Returns Excluded Item Variation Ids.
+     *
+     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
+     * lists the IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded item variations.
+     *
+     * @return string[]|null
+     */
+    public function getExcludedItemVariationIds(): ?array
+    {
+        return $this->excludedItemVariationIds;
+    }
+
+    /**
+     * Sets Excluded Item Variation Ids.
+     *
+     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
+     * lists the IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded item variations.
+     *
+     * @maps excluded_item_variation_ids
+     *
+     * @param string[]|null $excludedItemVariationIds
+     */
+    public function setExcludedItemVariationIds(?array $excludedItemVariationIds): void
+    {
+        $this->excludedItemVariationIds = $excludedItemVariationIds;
     }
 
     /**
@@ -193,11 +271,13 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['accrual_type']            = $this->accrualType;
-        $json['points']                  = $this->points;
+        $json['accrual_type']             = $this->accrualType;
+        $json['points']                   = $this->points;
         $json['visit_minimum_amount_money'] = $this->visitMinimumAmountMoney;
-        $json['spend_amount_money']      = $this->spendAmountMoney;
-        $json['catalog_object_id']       = $this->catalogObjectId;
+        $json['spend_amount_money']       = $this->spendAmountMoney;
+        $json['catalog_object_id']        = $this->catalogObjectId;
+        $json['excluded_category_ids']    = $this->excludedCategoryIds;
+        $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

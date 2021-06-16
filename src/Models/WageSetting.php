@@ -64,10 +64,10 @@ class WageSetting implements \JsonSerializable
     /**
      * Returns Job Assignments.
      *
-     * <b>Required</b> The ordered list of jobs that the team member is assigned to.
-     * The first job assignment is considered the team member's "Primary Job".
-     * <br>
-     * <b>Min Length 1    Max Length 12</b>
+     * Required. The ordered list of jobs that the team member is assigned to.
+     * The first job assignment is considered the team member's primary job.
+     *
+     * The minimum length is 1 and the maximum length is 12.
      *
      * @return JobAssignment[]|null
      */
@@ -79,10 +79,10 @@ class WageSetting implements \JsonSerializable
     /**
      * Sets Job Assignments.
      *
-     * <b>Required</b> The ordered list of jobs that the team member is assigned to.
-     * The first job assignment is considered the team member's "Primary Job".
-     * <br>
-     * <b>Min Length 1    Max Length 12</b>
+     * Required. The ordered list of jobs that the team member is assigned to.
+     * The first job assignment is considered the team member's primary job.
+     *
+     * The minimum length is 1 and the maximum length is 12.
      *
      * @maps job_assignments
      *
@@ -96,7 +96,7 @@ class WageSetting implements \JsonSerializable
     /**
      * Returns Is Overtime Exempt.
      *
-     * Whether the team member is exempt from the overtime rules of the seller country.
+     * Whether the team member is exempt from the overtime rules of the seller's country.
      */
     public function getIsOvertimeExempt(): ?bool
     {
@@ -106,7 +106,7 @@ class WageSetting implements \JsonSerializable
     /**
      * Sets Is Overtime Exempt.
      *
-     * Whether the team member is exempt from the overtime rules of the seller country.
+     * Whether the team member is exempt from the overtime rules of the seller's country.
      *
      * @maps is_overtime_exempt
      */
@@ -118,12 +118,11 @@ class WageSetting implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * Used for resolving concurrency issues; request will fail if version
-     * provided does not match server version at time of request. If not provided,
-     * Square executes a blind write, potentially overwriting data from another write. Read
-     * about [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
-     * concurrency)
-     * in Square APIs for more information.
+     * Used for resolving concurrency issues. The request fails if the version
+     * provided does not match the server version at the time of the request. If not provided,
+     * Square executes a blind write, potentially overwriting data from another write. For more information,
+     * see [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
+     * concurrency).
      */
     public function getVersion(): ?int
     {
@@ -133,12 +132,11 @@ class WageSetting implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * Used for resolving concurrency issues; request will fail if version
-     * provided does not match server version at time of request. If not provided,
-     * Square executes a blind write, potentially overwriting data from another write. Read
-     * about [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
-     * concurrency)
-     * in Square APIs for more information.
+     * Used for resolving concurrency issues. The request fails if the version
+     * provided does not match the server version at the time of the request. If not provided,
+     * Square executes a blind write, potentially overwriting data from another write. For more information,
+     * see [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
+     * concurrency).
      *
      * @maps version
      */
@@ -150,8 +148,8 @@ class WageSetting implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * The timestamp in RFC 3339 format describing when the wage setting object was created.
-     * Ex: "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z"
+     * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
+     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
     public function getCreatedAt(): ?string
     {
@@ -161,8 +159,8 @@ class WageSetting implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * The timestamp in RFC 3339 format describing when the wage setting object was created.
-     * Ex: "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z"
+     * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
+     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *
      * @maps created_at
      */
@@ -174,8 +172,8 @@ class WageSetting implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * The timestamp in RFC 3339 format describing when the wage setting object was last updated.
-     * Ex: "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z"
+     * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
+     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
     public function getUpdatedAt(): ?string
     {
@@ -185,8 +183,8 @@ class WageSetting implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * The timestamp in RFC 3339 format describing when the wage setting object was last updated.
-     * Ex: "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z"
+     * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
+     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *
      * @maps updated_at
      */

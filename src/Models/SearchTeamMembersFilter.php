@@ -7,7 +7,7 @@ namespace Square\Models;
 /**
  * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
  * between the individual fields, and `OR` logic is applied within list-based fields.
- * For example, setting this filter value,
+ * For example, setting this filter value:
  * ```
  * filter = (locations_ids = ["A", "B"], status = ACTIVE)
  * ```
@@ -28,8 +28,8 @@ class SearchTeamMembersFilter implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * When present, filter by team members assigned to the specified locations.
-     * When empty, include team members assigned to any location.
+     * When present, filters by team members assigned to the specified locations.
+     * When empty, includes team members assigned to any location.
      *
      * @return string[]|null
      */
@@ -41,8 +41,8 @@ class SearchTeamMembersFilter implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * When present, filter by team members assigned to the specified locations.
-     * When empty, include team members assigned to any location.
+     * When present, filters by team members assigned to the specified locations.
+     * When empty, includes team members assigned to any location.
      *
      * @maps location_ids
      *

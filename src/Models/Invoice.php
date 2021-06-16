@@ -161,7 +161,9 @@ class Invoice implements \JsonSerializable
      * Returns Location Id.
      *
      * The ID of the location that this invoice is associated with.
-     * This field is required when creating an invoice.
+     *
+     * If specified in a `CreateInvoice` request, the value must match the `location_id` of the associated
+     * order.
      */
     public function getLocationId(): ?string
     {
@@ -172,7 +174,9 @@ class Invoice implements \JsonSerializable
      * Sets Location Id.
      *
      * The ID of the location that this invoice is associated with.
-     * This field is required when creating an invoice.
+     *
+     * If specified in a `CreateInvoice` request, the value must match the `location_id` of the associated
+     * order.
      *
      * @maps location_id
      */
@@ -186,8 +190,7 @@ class Invoice implements \JsonSerializable
      *
      * The ID of the [order]($m/Order) for which the invoice is created.
      *
-     * This order must be in the `OPEN` state and must belong to the `location_id`
-     * specified for this invoice. This field is required when creating an invoice.
+     * This order must be in the `OPEN` state. This field is required when creating an invoice.
      */
     public function getOrderId(): ?string
     {
@@ -199,8 +202,7 @@ class Invoice implements \JsonSerializable
      *
      * The ID of the [order]($m/Order) for which the invoice is created.
      *
-     * This order must be in the `OPEN` state and must belong to the `location_id`
-     * specified for this invoice. This field is required when creating an invoice.
+     * This order must be in the `OPEN` state. This field is required when creating an invoice.
      *
      * @maps order_id
      */

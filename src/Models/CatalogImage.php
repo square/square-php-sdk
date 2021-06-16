@@ -29,6 +29,9 @@ class CatalogImage implements \JsonSerializable
      * Returns Name.
      *
      * The internal name to identify this image in calls to the Square API.
+     * This is a searchable attribute for use in applicable query filters
+     * using the [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
+     * It is not unique and should not be shown in a buyer facing context.
      */
     public function getName(): ?string
     {
@@ -39,6 +42,9 @@ class CatalogImage implements \JsonSerializable
      * Sets Name.
      *
      * The internal name to identify this image in calls to the Square API.
+     * This is a searchable attribute for use in applicable query filters
+     * using the [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
+     * It is not unique and should not be shown in a buyer facing context.
      *
      * @maps name
      */
@@ -75,7 +81,8 @@ class CatalogImage implements \JsonSerializable
      * Returns Caption.
      *
      * A caption that describes what is shown in the image. Displayed in the
-     * Square Online Store. This is a searchable attribute for use in applicable query filters.
+     * Square Online Store. This is a searchable attribute for use in applicable query filters
+     * using the [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
      */
     public function getCaption(): ?string
     {
@@ -86,7 +93,8 @@ class CatalogImage implements \JsonSerializable
      * Sets Caption.
      *
      * A caption that describes what is shown in the image. Displayed in the
-     * Square Online Store. This is a searchable attribute for use in applicable query filters.
+     * Square Online Store. This is a searchable attribute for use in applicable query filters
+     * using the [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects).
      *
      * @maps caption
      */

@@ -104,12 +104,12 @@ $body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
 $body_changes[0]->getAdjustment()->setId('id6');
 $body_changes[0]->getAdjustment()->setReferenceId('reference_id4');
 $body_changes[0]->getAdjustment()->setFromState(Models\InventoryState::SOLD);
-$body_changes[0]->getAdjustment()->setToState(Models\InventoryState::IN_TRANSIT_TO);
+$body_changes[0]->getAdjustment()->setToState(Models\InventoryState::SOLD_ONLINE);
 $body_changes[0]->getAdjustment()->setLocationId('location_id0');
 $body_changes[0]->setTransfer(new Models\InventoryTransfer);
 $body_changes[0]->getTransfer()->setId('id0');
 $body_changes[0]->getTransfer()->setReferenceId('reference_id8');
-$body_changes[0]->getTransfer()->setState(Models\InventoryState::SOLD);
+$body_changes[0]->getTransfer()->setState(Models\InventoryState::UNLINKED_RETURN);
 $body_changes[0]->getTransfer()->setFromLocationId('from_location_id2');
 $body_changes[0]->getTransfer()->setToLocationId('to_location_id2');
 $body_changes[0]->setMeasurementUnit(new Models\CatalogMeasurementUnit);
@@ -229,7 +229,7 @@ $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
 $body->setCursor('cursor0');
-$body->setStates([Models\InventoryState::IN_TRANSIT_TO]);
+$body->setStates([Models\InventoryState::SUPPORTED_BY_NEWER_VERSION]);
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);
 

@@ -14,10 +14,10 @@ $disputesApi = $client->getDisputesApi();
 * [Retrieve Dispute](/doc/apis/disputes.md#retrieve-dispute)
 * [Accept Dispute](/doc/apis/disputes.md#accept-dispute)
 * [List Dispute Evidence](/doc/apis/disputes.md#list-dispute-evidence)
-* [Remove Dispute Evidence](/doc/apis/disputes.md#remove-dispute-evidence)
-* [Retrieve Dispute Evidence](/doc/apis/disputes.md#retrieve-dispute-evidence)
 * [Create Dispute Evidence File](/doc/apis/disputes.md#create-dispute-evidence-file)
 * [Create Dispute Evidence Text](/doc/apis/disputes.md#create-dispute-evidence-text)
+* [Delete Dispute Evidence](/doc/apis/disputes.md#delete-dispute-evidence)
+* [Retrieve Dispute Evidence](/doc/apis/disputes.md#retrieve-dispute-evidence)
 * [Submit Evidence](/doc/apis/disputes.md#submit-evidence)
 
 
@@ -145,7 +145,7 @@ if ($apiResponse->isSuccess()) {
 Returns a list of evidence associated with a dispute.
 
 ```php
-function listDisputeEvidence(string $disputeId): ApiResponse
+function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResponse
 ```
 
 ## Parameters
@@ -153,6 +153,7 @@ function listDisputeEvidence(string $disputeId): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `disputeId` | `string` | Template, Required | The ID of the dispute. |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
 
 ## Response Type
 
@@ -162,95 +163,12 @@ function listDisputeEvidence(string $disputeId): ApiResponse
 
 ```php
 $disputeId = 'dispute_id2';
+$cursor = 'cursor6';
 
-$apiResponse = $disputesApi->listDisputeEvidence($disputeId);
+$apiResponse = $disputesApi->listDisputeEvidence($disputeId, $cursor);
 
 if ($apiResponse->isSuccess()) {
     $listDisputeEvidenceResponse = $apiResponse->getResult();
-} else {
-    $errors = $apiResponse->getErrors();
-}
-
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
-```
-
-
-# Remove Dispute Evidence
-
-Removes specified evidence from a dispute.
-
-Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-submitting it to the bank using [SubmitEvidence](/doc/apis/disputes.md#submit-evidence).
-
-```php
-function removeDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `disputeId` | `string` | Template, Required | The ID of the dispute you want to remove evidence from. |
-| `evidenceId` | `string` | Template, Required | The ID of the evidence you want to remove. |
-
-## Response Type
-
-[`RemoveDisputeEvidenceResponse`](/doc/models/remove-dispute-evidence-response.md)
-
-## Example Usage
-
-```php
-$disputeId = 'dispute_id2';
-$evidenceId = 'evidence_id2';
-
-$apiResponse = $disputesApi->removeDisputeEvidence($disputeId, $evidenceId);
-
-if ($apiResponse->isSuccess()) {
-    $removeDisputeEvidenceResponse = $apiResponse->getResult();
-} else {
-    $errors = $apiResponse->getErrors();
-}
-
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
-```
-
-
-# Retrieve Dispute Evidence
-
-Returns the specific evidence metadata associated with a specific dispute.
-
-You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
-download the evidence after you upload it.
-
-```php
-function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `disputeId` | `string` | Template, Required | The ID of the dispute that you want to retrieve evidence from. |
-| `evidenceId` | `string` | Template, Required | The ID of the evidence to retrieve. |
-
-## Response Type
-
-[`RetrieveDisputeEvidenceResponse`](/doc/models/retrieve-dispute-evidence-response.md)
-
-## Example Usage
-
-```php
-$disputeId = 'dispute_id2';
-$evidenceId = 'evidence_id2';
-
-$apiResponse = $disputesApi->retrieveDisputeEvidence($disputeId, $evidenceId);
-
-if ($apiResponse->isSuccess()) {
-    $retrieveDisputeEvidenceResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }
@@ -347,6 +265,90 @@ $apiResponse = $disputesApi->createDisputeEvidenceText($disputeId, $body);
 
 if ($apiResponse->isSuccess()) {
     $createDisputeEvidenceTextResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Delete Dispute Evidence
+
+Removes specified evidence from a dispute.
+
+Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
+submitting it to the bank using [SubmitEvidence](/doc/apis/disputes.md#submit-evidence).
+
+```php
+function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `disputeId` | `string` | Template, Required | The ID of the dispute you want to remove evidence from. |
+| `evidenceId` | `string` | Template, Required | The ID of the evidence you want to remove. |
+
+## Response Type
+
+[`DeleteDisputeEvidenceResponse`](/doc/models/delete-dispute-evidence-response.md)
+
+## Example Usage
+
+```php
+$disputeId = 'dispute_id2';
+$evidenceId = 'evidence_id2';
+
+$apiResponse = $disputesApi->deleteDisputeEvidence($disputeId, $evidenceId);
+
+if ($apiResponse->isSuccess()) {
+    $deleteDisputeEvidenceResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Retrieve Dispute Evidence
+
+Returns the evidence metadata specified by the evidence ID in the request URL path
+
+You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
+download the evidence after you upload it.
+
+```php
+function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `disputeId` | `string` | Template, Required | The ID of the dispute that you want to retrieve evidence from. |
+| `evidenceId` | `string` | Template, Required | The ID of the evidence to retrieve. |
+
+## Response Type
+
+[`RetrieveDisputeEvidenceResponse`](/doc/models/retrieve-dispute-evidence-response.md)
+
+## Example Usage
+
+```php
+$disputeId = 'dispute_id2';
+$evidenceId = 'evidence_id2';
+
+$apiResponse = $disputesApi->retrieveDisputeEvidence($disputeId, $evidenceId);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveDisputeEvidenceResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

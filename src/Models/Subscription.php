@@ -45,6 +45,11 @@ class Subscription implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $chargedThroughDate;
+
+    /**
+     * @var string|null
+     */
     private $status;
 
     /**
@@ -76,11 +81,6 @@ class Subscription implements \JsonSerializable
      * @var string|null
      */
     private $cardId;
-
-    /**
-     * @var string|null
-     */
-    private $paidUntilDate;
 
     /**
      * @var string|null
@@ -231,6 +231,44 @@ class Subscription implements \JsonSerializable
     public function setCanceledDate(?string $canceledDate): void
     {
         $this->canceledDate = $canceledDate;
+    }
+
+    /**
+     * Returns Charged Through Date.
+     *
+     * The date up to which the customer is invoiced for the
+     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
+     *
+     * After the invoice is sent for a given billing period,
+     * this date will be the last day of the billing period.
+     * For example,
+     * suppose for the month of May a customer gets an invoice
+     * (or charged the card) on May 1. For the monthly billing scenario,
+     * this date is then set to May 31.
+     */
+    public function getChargedThroughDate(): ?string
+    {
+        return $this->chargedThroughDate;
+    }
+
+    /**
+     * Sets Charged Through Date.
+     *
+     * The date up to which the customer is invoiced for the
+     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
+     *
+     * After the invoice is sent for a given billing period,
+     * this date will be the last day of the billing period.
+     * For example,
+     * suppose for the month of May a customer gets an invoice
+     * (or charged the card) on May 1. For the monthly billing scenario,
+     * this date is then set to May 31.
+     *
+     * @maps charged_through_date
+     */
+    public function setChargedThroughDate(?string $chargedThroughDate): void
+    {
+        $this->chargedThroughDate = $chargedThroughDate;
     }
 
     /**
@@ -420,44 +458,6 @@ class Subscription implements \JsonSerializable
     }
 
     /**
-     * Returns Paid Until Date.
-     *
-     * The date up to which the customer is invoiced for the
-     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
-     *
-     * After the invoice is paid for a given billing period,
-     * this date will be the last day of the billing period.
-     * For example,
-     * suppose for the month of May a customer gets an invoice
-     * (or charged the card) on May 1. For the monthly billing scenario,
-     * this date is then set to May 31.
-     */
-    public function getPaidUntilDate(): ?string
-    {
-        return $this->paidUntilDate;
-    }
-
-    /**
-     * Sets Paid Until Date.
-     *
-     * The date up to which the customer is invoiced for the
-     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
-     *
-     * After the invoice is paid for a given billing period,
-     * this date will be the last day of the billing period.
-     * For example,
-     * suppose for the month of May a customer gets an invoice
-     * (or charged the card) on May 1. For the monthly billing scenario,
-     * this date is then set to May 31.
-     *
-     * @maps paid_until_date
-     */
-    public function setPaidUntilDate(?string $paidUntilDate): void
-    {
-        $this->paidUntilDate = $paidUntilDate;
-    }
-
-    /**
      * Returns Timezone.
      *
      * Timezone that will be used in date calculations for the subscription.
@@ -499,6 +499,7 @@ class Subscription implements \JsonSerializable
         $json['customer_id']        = $this->customerId;
         $json['start_date']         = $this->startDate;
         $json['canceled_date']      = $this->canceledDate;
+        $json['charged_through_date'] = $this->chargedThroughDate;
         $json['status']             = $this->status;
         $json['tax_percentage']     = $this->taxPercentage;
         $json['invoice_ids']        = $this->invoiceIds;
@@ -506,7 +507,6 @@ class Subscription implements \JsonSerializable
         $json['version']            = $this->version;
         $json['created_at']         = $this->createdAt;
         $json['card_id']            = $this->cardId;
-        $json['paid_until_date']    = $this->paidUntilDate;
         $json['timezone']           = $this->timezone;
 
         return array_filter($json, function ($val) {

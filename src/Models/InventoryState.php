@@ -87,4 +87,20 @@ class InventoryState
      * `IN_STOCK`) introduces new stock into the system.
      */
     public const UNLINKED_RETURN = 'UNLINKED_RETURN';
+
+    /**
+     * The related quantity of items that are part of a composition consisting one or more components.
+     */
+    public const COMPOSED = 'COMPOSED';
+
+    /**
+     * The related quantity of items that are part of a component.
+     */
+    public const DECOMPOSED = 'DECOMPOSED';
+
+    /**
+     * This state is not supported by this version of the Square API. We recommend that you upgrade the
+     * client to use the appropriate version of the Square API supporting this state.
+     */
+    public const SUPPORTED_BY_NEWER_VERSION = 'SUPPORTED_BY_NEWER_VERSION';
 }

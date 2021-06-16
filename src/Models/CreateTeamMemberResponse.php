@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from a create request, containing the created `TeamMember` object or error
+ * Represents a response from a create request containing the created `TeamMember` object or error
  * messages.
  */
 class CreateTeamMemberResponse implements \JsonSerializable

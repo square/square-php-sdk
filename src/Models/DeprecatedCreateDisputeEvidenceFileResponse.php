@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Defines the fields in a `RemoveDisputeEvidence` response.
+ * Defines the fields in a `DeprecatedCreateDisputeEvidenceFile` response.
  */
-class RemoveDisputeEvidenceResponse implements \JsonSerializable
+class DeprecatedCreateDisputeEvidenceFileResponse implements \JsonSerializable
 {
     /**
      * @var Error[]|null
@@ -15,9 +15,14 @@ class RemoveDisputeEvidenceResponse implements \JsonSerializable
     private $errors;
 
     /**
+     * @var DisputeEvidence|null
+     */
+    private $evidence;
+
+    /**
      * Returns Errors.
      *
-     * Information about errors encountered during the request.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -29,7 +34,7 @@ class RemoveDisputeEvidenceResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information about errors encountered during the request.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *
@@ -41,6 +46,24 @@ class RemoveDisputeEvidenceResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Evidence.
+     */
+    public function getEvidence(): ?DisputeEvidence
+    {
+        return $this->evidence;
+    }
+
+    /**
+     * Sets Evidence.
+     *
+     * @maps evidence
+     */
+    public function setEvidence(?DisputeEvidence $evidence): void
+    {
+        $this->evidence = $evidence;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -48,7 +71,8 @@ class RemoveDisputeEvidenceResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
+        $json['errors']   = $this->errors;
+        $json['evidence'] = $this->evidence;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -14,6 +14,11 @@ class DisputeEvidence implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $id;
+
+    /**
+     * @var string|null
+     */
     private $disputeId;
 
     /**
@@ -56,6 +61,28 @@ class DisputeEvidence implements \JsonSerializable
     public function setEvidenceId(?string $evidenceId): void
     {
         $this->evidenceId = $evidenceId;
+    }
+
+    /**
+     * Returns Id.
+     *
+     * The Square-generated ID of the evidence.
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * Sets Id.
+     *
+     * The Square-generated ID of the evidence.
+     *
+     * @maps id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -177,6 +204,7 @@ class DisputeEvidence implements \JsonSerializable
     {
         $json = [];
         $json['evidence_id']  = $this->evidenceId;
+        $json['id']           = $this->id;
         $json['dispute_id']   = $this->disputeId;
         $json['evidence_file'] = $this->evidenceFile;
         $json['evidence_text'] = $this->evidenceText;

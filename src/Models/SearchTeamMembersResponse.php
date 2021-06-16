@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from a search request, containing a filtered list of `TeamMember` objects.
+ * Represents a response from a search request containing a filtered list of `TeamMember` objects.
  */
 class SearchTeamMembersResponse implements \JsonSerializable
 {
@@ -53,9 +53,8 @@ class SearchTeamMembersResponse implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * The opaque cursor for fetching the next page. Read about
-     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination) with Square APIs for
-     * more information.
+     * The opaque cursor for fetching the next page. For more information, see
+     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -65,9 +64,8 @@ class SearchTeamMembersResponse implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * The opaque cursor for fetching the next page. Read about
-     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination) with Square APIs for
-     * more information.
+     * The opaque cursor for fetching the next page. For more information, see
+     * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      *
      * @maps cursor
      */

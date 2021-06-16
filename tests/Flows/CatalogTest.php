@@ -6,6 +6,7 @@ use Square\APIException;
 use Square\APIHelper;
 use Square\Exceptions;
 use \Square\Models\CatalogItem;
+use \Square\Models\CatalogItemVariation;
 use \Square\Models\CatalogImage;
 use \Square\Models\CatalogObject;
 use \Square\Models\CatalogObjectType;
@@ -79,16 +80,33 @@ class CatalogTest extends TestCase
         $body_object->getItemData()->setName('Cocoa');
         $body_object->getItemData()->setDescription('Hot chocolate');
         $body_object->getItemData()->setAbbreviation('Ch');
+        
+        $variation_object_type = CatalogObjectType::ITEM_VARIATION;
+        $variation_object_id = '#Small';
+        $variation_object = new CatalogObject(
+            $variation_object_type,
+            $variation_object_id
+        );
+        $variation_object->setItemVariationData(new CatalogItemVariation);
+        $variation_object->getItemVariationData()->setItemId($body_object_id);
+        $variation_object->getItemVariationData()->setName('Small');
+        $variation_object->getItemVariationData()->setPricingType('VARIABLE_PRICING');
+        
+        $body_object->getItemData()->setVariations([$variation_object]);
         $body = new UpsertCatalogObjectRequest(
             $body_idempotencyKey,
             $body_object
         );
 
         $result = self::$controller->upsertCatalogObject($body);
-        $resultCatalogObject = $result->getResult()->getCatalogObject();
 
+        // Assert is succeess and of correct type before retrieving response object
         $this->assertTrue($result->isSuccess());
         $this->assertTrue($result->getResult() instanceof UpsertCatalogObjectResponse);
+
+        // Retrieve response object
+        $resultCatalogObject = $result->getResult()->getCatalogObject();
+
         $this->assertEquals($body->getObject()->getType(), $resultCatalogObject->getType());
         $this->assertEquals($body->getObject()->getItemData()->getName(), $resultCatalogObject->getItemData()->getName());
         $this->assertEquals($body->getObject()->getItemData()->getDescription(), $resultCatalogObject->getItemData()->getDescription());

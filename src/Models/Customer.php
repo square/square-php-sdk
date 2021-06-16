@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a Square customer profile, which can have one or more
- * cards on file associated with it.
+ * Represents a Square customer profile in the Customer Directory of a Square seller.
  */
 class Customer implements \JsonSerializable
 {
@@ -176,6 +175,13 @@ class Customer implements \JsonSerializable
      *
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
+     * and debit cards on file)
+     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * `customer_id` query parameter.
+     * For more information, see [Migrate to the Cards API and Gift Cards API](https://developer.squareup.
+     * com/docs/customers-api/use-the-api/integrate-with-other-services#migrate-customer-cards).
+     *
      * @return Card[]|null
      */
     public function getCards(): ?array
@@ -187,6 +193,13 @@ class Customer implements \JsonSerializable
      * Sets Cards.
      *
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
+     *
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
+     * and debit cards on file)
+     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * `customer_id` query parameter.
+     * For more information, see [Migrate to the Cards API and Gift Cards API](https://developer.squareup.
+     * com/docs/customers-api/use-the-api/integrate-with-other-services#migrate-customer-cards).
      *
      * @maps cards
      *

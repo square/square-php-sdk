@@ -17,6 +17,11 @@ class BatchChangeInventoryResponse implements \JsonSerializable
     private $counts;
 
     /**
+     * @var InventoryChange[]|null
+     */
+    private $changes;
+
+    /**
      * Returns Errors.
      *
      * Any errors that occurred during the request.
@@ -69,6 +74,32 @@ class BatchChangeInventoryResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Changes.
+     *
+     * Changes created for the request.
+     *
+     * @return InventoryChange[]|null
+     */
+    public function getChanges(): ?array
+    {
+        return $this->changes;
+    }
+
+    /**
+     * Sets Changes.
+     *
+     * Changes created for the request.
+     *
+     * @maps changes
+     *
+     * @param InventoryChange[]|null $changes
+     */
+    public function setChanges(?array $changes): void
+    {
+        $this->changes = $changes;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -76,8 +107,9 @@ class BatchChangeInventoryResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['counts'] = $this->counts;
+        $json['errors']  = $this->errors;
+        $json['counts']  = $this->counts;
+        $json['changes'] = $this->changes;
 
         return array_filter($json, function ($val) {
             return $val !== null;

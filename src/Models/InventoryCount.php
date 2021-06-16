@@ -42,6 +42,11 @@ class InventoryCount implements \JsonSerializable
     private $calculatedAt;
 
     /**
+     * @var bool|null
+     */
+    private $isEstimated;
+
+    /**
      * Returns Catalog Object Id.
      *
      * The Square-generated ID of the
@@ -188,6 +193,38 @@ class InventoryCount implements \JsonSerializable
     }
 
     /**
+     * Returns Is Estimated.
+     *
+     * Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory
+     * count will not be present in the response of
+     * any of these endpoints: [BatchChangeInventory]($e/Inventory/BatchChangeInventory),
+     * [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChanges),
+     * [BatchRetrieveInventoryCounts]($e/Inventory/BatchRetrieveInventoryCounts), and
+     * [RetrieveInventoryChanges]($e/Inventory/RetrieveInventoryChanges).
+     */
+    public function getIsEstimated(): ?bool
+    {
+        return $this->isEstimated;
+    }
+
+    /**
+     * Sets Is Estimated.
+     *
+     * Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory
+     * count will not be present in the response of
+     * any of these endpoints: [BatchChangeInventory]($e/Inventory/BatchChangeInventory),
+     * [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChanges),
+     * [BatchRetrieveInventoryCounts]($e/Inventory/BatchRetrieveInventoryCounts), and
+     * [RetrieveInventoryChanges]($e/Inventory/RetrieveInventoryChanges).
+     *
+     * @maps is_estimated
+     */
+    public function setIsEstimated(?bool $isEstimated): void
+    {
+        $this->isEstimated = $isEstimated;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -201,6 +238,7 @@ class InventoryCount implements \JsonSerializable
         $json['location_id']       = $this->locationId;
         $json['quantity']          = $this->quantity;
         $json['calculated_at']     = $this->calculatedAt;
+        $json['is_estimated']      = $this->isEstimated;
 
         return array_filter($json, function ($val) {
             return $val !== null;

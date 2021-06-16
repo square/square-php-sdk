@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-class TerminalCheckoutPaymentType
+class CheckoutOptionsPaymentType
 {
     /**
      * Accept credit card or debit card payments via tap, dip or swipe.

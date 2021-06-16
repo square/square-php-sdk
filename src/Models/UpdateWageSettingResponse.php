@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from an update request, containing the updated `WageSetting` object
+ * Represents a response from an update request containing the updated `WageSetting` object
  * or error messages.
  */
 class UpdateWageSettingResponse implements \JsonSerializable

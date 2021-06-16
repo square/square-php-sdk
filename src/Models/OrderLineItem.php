@@ -46,6 +46,11 @@ class OrderLineItem implements \JsonSerializable
     private $variationName;
 
     /**
+     * @var string|null
+     */
+    private $itemType;
+
+    /**
      * @var array|null
      */
     private $metadata;
@@ -277,6 +282,28 @@ class OrderLineItem implements \JsonSerializable
     public function setVariationName(?string $variationName): void
     {
         $this->variationName = $variationName;
+    }
+
+    /**
+     * Returns Item Type.
+     *
+     * Represents the line item type.
+     */
+    public function getItemType(): ?string
+    {
+        return $this->itemType;
+    }
+
+    /**
+     * Sets Item Type.
+     *
+     * Represents the line item type.
+     *
+     * @maps item_type
+     */
+    public function setItemType(?string $itemType): void
+    {
+        $this->itemType = $itemType;
     }
 
     /**
@@ -700,6 +727,7 @@ class OrderLineItem implements \JsonSerializable
         $json['note']                     = $this->note;
         $json['catalog_object_id']        = $this->catalogObjectId;
         $json['variation_name']           = $this->variationName;
+        $json['item_type']                = $this->itemType;
         $json['metadata']                 = $this->metadata;
         $json['modifiers']                = $this->modifiers;
         $json['applied_taxes']            = $this->appliedTaxes;

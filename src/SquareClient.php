@@ -18,6 +18,7 @@ class SquareClient implements ConfigurationInterface
     private $applePay;
     private $bankAccounts;
     private $bookings;
+    private $cards;
     private $cashDrawers;
     private $catalog;
     private $customers;
@@ -26,6 +27,8 @@ class SquareClient implements ConfigurationInterface
     private $devices;
     private $disputes;
     private $employees;
+    private $giftCards;
+    private $giftCardActivities;
     private $inventory;
     private $invoices;
     private $labor;
@@ -145,7 +148,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '11.0.0.20210513';
+        return '12.0.0.20210616';
     }
 
     /**
@@ -244,6 +247,17 @@ class SquareClient implements ConfigurationInterface
     }
 
     /**
+     * Returns Cards Api
+     */
+    public function getCardsApi(): Apis\CardsApi
+    {
+        if ($this->cards == null) {
+            $this->cards = new Apis\CardsApi($this);
+        }
+        return $this->cards;
+    }
+
+    /**
      * Returns Cash Drawers Api
      */
     public function getCashDrawersApi(): Apis\CashDrawersApi
@@ -329,6 +343,28 @@ class SquareClient implements ConfigurationInterface
             $this->employees = new Apis\EmployeesApi($this);
         }
         return $this->employees;
+    }
+
+    /**
+     * Returns Gift Cards Api
+     */
+    public function getGiftCardsApi(): Apis\GiftCardsApi
+    {
+        if ($this->giftCards == null) {
+            $this->giftCards = new Apis\GiftCardsApi($this);
+        }
+        return $this->giftCards;
+    }
+
+    /**
+     * Returns Gift Card Activities Api
+     */
+    public function getGiftCardActivitiesApi(): Apis\GiftCardActivitiesApi
+    {
+        if ($this->giftCardActivities == null) {
+            $this->giftCardActivities = new Apis\GiftCardActivitiesApi($this);
+        }
+        return $this->giftCardActivities;
     }
 
     /**

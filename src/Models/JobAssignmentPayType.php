@@ -15,7 +15,7 @@ class JobAssignmentPayType
     public const NONE = 'NONE';
 
     /**
-     * The job pays on an hourly basis.
+     * The job pays an hourly rate.
      */
     public const HOURLY = 'HOURLY';
 

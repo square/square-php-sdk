@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Represents a response from a retrieve request, containing the specified `WageSetting` object or
+ * Represents a response from a retrieve request containing the specified `WageSetting` object or
  * error messages.
  */
 class RetrieveWageSettingResponse implements \JsonSerializable

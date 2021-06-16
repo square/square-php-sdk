@@ -240,12 +240,17 @@ class DisputesApi extends BaseApi
      * Returns a list of evidence associated with a dispute.
      *
      * @param string $disputeId The ID of the dispute.
+     * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
+     *                            Provide this cursor to retrieve the next set of results for the
+     *                            original query.
+     *                            For more information, see [Pagination](https://developer.
+     *                            squareup.com/docs/basics/api101/pagination).
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function listDisputeEvidence(string $disputeId): ApiResponse
+    public function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/disputes/{dispute_id}/evidence';
@@ -253,6 +258,11 @@ class DisputesApi extends BaseApi
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
             'dispute_id' => $disputeId,
+        ]);
+
+        //process optional query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+            'cursor'     => $cursor,
         ]);
 
         //validate and preprocess url
@@ -301,144 +311,6 @@ class DisputesApi extends BaseApi
     }
 
     /**
-     * Removes specified evidence from a dispute.
-     *
-     * Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-     * submitting it to the bank using [SubmitEvidence]($e/Disputes/SubmitEvidence).
-     *
-     * @param string $disputeId The ID of the dispute you want to remove evidence from.
-     * @param string $evidenceId The ID of the evidence you want to remove.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function removeDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
-    {
-        //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'dispute_id'  => $disputeId,
-            'evidence_id' => $evidenceId,
-        ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = Request::delete($_queryUrl, $_headers);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RemoveDisputeEvidenceResponse');
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
-     * Returns the specific evidence metadata associated with a specific dispute.
-     *
-     * You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
-     * download the evidence after you upload it.
-     *
-     * @param string $disputeId The ID of the dispute that you want to retrieve evidence from.
-     * @param string $evidenceId The ID of the evidence to retrieve.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
-    {
-        //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
-
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'dispute_id'  => $disputeId,
-            'evidence_id' => $evidenceId,
-        ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = Request::get($_queryUrl, $_headers);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveDisputeEvidenceResponse');
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
      * Uploads a file to use as evidence in a dispute challenge. The endpoint accepts HTTP
      * multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
      *
@@ -459,7 +331,7 @@ class DisputesApi extends BaseApi
         ?\Square\Utils\FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence_file';
+        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-files';
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
@@ -536,7 +408,7 @@ class DisputesApi extends BaseApi
         \Square\Models\CreateDisputeEvidenceTextRequest $body
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence_text';
+        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-text';
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
@@ -589,6 +461,144 @@ class DisputesApi extends BaseApi
 
         $mapper = $this->getJsonMapper();
         $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateDisputeEvidenceTextResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Removes specified evidence from a dispute.
+     *
+     * Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
+     * submitting it to the bank using [SubmitEvidence]($e/Disputes/SubmitEvidence).
+     *
+     * @param string $disputeId The ID of the dispute you want to remove evidence from.
+     * @param string $evidenceId The ID of the evidence you want to remove.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'dispute_id'  => $disputeId,
+            'evidence_id' => $evidenceId,
+        ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::delete($_queryUrl, $_headers);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteDisputeEvidenceResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Returns the evidence metadata specified by the evidence ID in the request URL path
+     *
+     * You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
+     * download the evidence after you upload it.
+     *
+     * @param string $disputeId The ID of the dispute that you want to retrieve evidence from.
+     * @param string $evidenceId The ID of the evidence to retrieve.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'dispute_id'  => $disputeId,
+            'evidence_id' => $evidenceId,
+        ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => BaseApi::USER_AGENT,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+        // Set request timeout
+        Request::timeout($this->config->getTimeout());
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::get($_queryUrl, $_headers);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveDisputeEvidenceResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 

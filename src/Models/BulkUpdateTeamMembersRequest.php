@@ -25,8 +25,8 @@ class BulkUpdateTeamMembersRequest implements \JsonSerializable
     /**
      * Returns Team Members.
      *
-     * The data which will be used to update the `TeamMember` objects. Each key is the `team_member_id`
-     * that maps to the `UpdateTeamMemberRequest`.
+     * The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the
+     * `UpdateTeamMemberRequest`.
      */
     public function getTeamMembers(): array
     {
@@ -36,8 +36,8 @@ class BulkUpdateTeamMembersRequest implements \JsonSerializable
     /**
      * Sets Team Members.
      *
-     * The data which will be used to update the `TeamMember` objects. Each key is the `team_member_id`
-     * that maps to the `UpdateTeamMemberRequest`.
+     * The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the
+     * `UpdateTeamMemberRequest`.
      *
      * @required
      * @maps team_members

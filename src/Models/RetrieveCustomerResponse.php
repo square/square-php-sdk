@@ -51,8 +51,7 @@ class RetrieveCustomerResponse implements \JsonSerializable
     /**
      * Returns Customer.
      *
-     * Represents a Square customer profile, which can have one or more
-     * cards on file associated with it.
+     * Represents a Square customer profile in the Customer Directory of a Square seller.
      */
     public function getCustomer(): ?Customer
     {
@@ -62,8 +61,7 @@ class RetrieveCustomerResponse implements \JsonSerializable
     /**
      * Sets Customer.
      *
-     * Represents a Square customer profile, which can have one or more
-     * cards on file associated with it.
+     * Represents a Square customer profile in the Customer Directory of a Square seller.
      *
      * @maps customer
      */

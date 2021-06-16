@@ -34,4 +34,6 @@ class CardBrand
     public const EFTPOS = 'EFTPOS';
 
     public const FELICA = 'FELICA';
+
+    public const EBT = 'EBT';
 }
