@@ -75,8 +75,12 @@ class RetrieveMerchantResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']   = $this->errors;
-        $json['merchant'] = $this->merchant;
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
+        if (isset($this->merchant)) {
+            $json['merchant'] = $this->merchant;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

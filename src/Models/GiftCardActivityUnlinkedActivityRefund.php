@@ -127,9 +127,13 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['amount_money'] = $this->amountMoney;
-        $json['reference_id'] = $this->referenceId;
-        $json['payment_id']  = $this->paymentId;
+        $json['amount_money']     = $this->amountMoney;
+        if (isset($this->referenceId)) {
+            $json['reference_id'] = $this->referenceId;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']   = $this->paymentId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

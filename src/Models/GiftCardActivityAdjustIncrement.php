@@ -92,7 +92,7 @@ class GiftCardActivityAdjustIncrement implements \JsonSerializable
     {
         $json = [];
         $json['amount_money'] = $this->amountMoney;
-        $json['reason']      = $this->reason;
+        $json['reason']       = $this->reason;
 
         return array_filter($json, function ($val) {
             return $val !== null;

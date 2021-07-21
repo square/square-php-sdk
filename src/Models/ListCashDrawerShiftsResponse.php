@@ -107,9 +107,15 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['items']  = $this->items;
-        $json['cursor'] = $this->cursor;
-        $json['errors'] = $this->errors;
+        if (isset($this->items)) {
+            $json['items']  = $this->items;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor'] = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -163,11 +163,21 @@ class ListCardsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']          = $this->cursor;
-        $json['customer_id']     = $this->customerId;
-        $json['include_disabled'] = $this->includeDisabled;
-        $json['reference_id']    = $this->referenceId;
-        $json['sort_order']      = $this->sortOrder;
+        if (isset($this->cursor)) {
+            $json['cursor']           = $this->cursor;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']      = $this->customerId;
+        }
+        if (isset($this->includeDisabled)) {
+            $json['include_disabled'] = $this->includeDisabled;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']     = $this->referenceId;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order']       = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

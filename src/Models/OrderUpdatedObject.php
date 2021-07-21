@@ -37,7 +37,9 @@ class OrderUpdatedObject implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_updated'] = $this->orderUpdated;
+        if (isset($this->orderUpdated)) {
+            $json['order_updated'] = $this->orderUpdated;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

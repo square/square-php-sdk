@@ -56,6 +56,7 @@ class ExternalPaymentDetails implements \JsonSerializable
      * - EMONEY - Paid using an E-money provider.
      * - CARD - A credit or debit card that Square does not support.
      * - STORED_BALANCE - Use for house accounts, store credit, and so forth.
+     * - FOOD_VOUCHER - Restaurant voucher provided by employers to employees to pay for meals
      * - OTHER - A type not listed here.
      */
     public function getType(): string
@@ -77,6 +78,7 @@ class ExternalPaymentDetails implements \JsonSerializable
      * - EMONEY - Paid using an E-money provider.
      * - CARD - A credit or debit card that Square does not support.
      * - STORED_BALANCE - Use for house accounts, store credit, and so forth.
+     * - FOOD_VOUCHER - Restaurant voucher provided by employers to employees to pay for meals
      * - OTHER - A type not listed here.
      *
      * @required
@@ -176,10 +178,14 @@ class ExternalPaymentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']           = $this->type;
-        $json['source']         = $this->source;
-        $json['source_id']      = $this->sourceId;
-        $json['source_fee_money'] = $this->sourceFeeMoney;
+        $json['type']                 = $this->type;
+        $json['source']               = $this->source;
+        if (isset($this->sourceId)) {
+            $json['source_id']        = $this->sourceId;
+        }
+        if (isset($this->sourceFeeMoney)) {
+            $json['source_fee_money'] = $this->sourceFeeMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

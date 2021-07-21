@@ -78,8 +78,12 @@ class RetrieveCashDrawerShiftResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cash_drawer_shift'] = $this->cashDrawerShift;
-        $json['errors']          = $this->errors;
+        if (isset($this->cashDrawerShift)) {
+            $json['cash_drawer_shift'] = $this->cashDrawerShift;
+        }
+        if (isset($this->errors)) {
+            $json['errors']            = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

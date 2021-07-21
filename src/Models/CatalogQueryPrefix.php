@@ -84,7 +84,7 @@ class CatalogQueryPrefix implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['attribute_name']  = $this->attributeName;
+        $json['attribute_name']   = $this->attributeName;
         $json['attribute_prefix'] = $this->attributePrefix;
 
         return array_filter($json, function ($val) {

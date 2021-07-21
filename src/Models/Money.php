@@ -85,8 +85,12 @@ class Money implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['amount']   = $this->amount;
-        $json['currency'] = $this->currency;
+        if (isset($this->amount)) {
+            $json['amount']   = $this->amount;
+        }
+        if (isset($this->currency)) {
+            $json['currency'] = $this->currency;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

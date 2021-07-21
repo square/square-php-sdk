@@ -118,8 +118,12 @@ class ListInvoicesRequest implements \JsonSerializable
     {
         $json = [];
         $json['location_id'] = $this->locationId;
-        $json['cursor']     = $this->cursor;
-        $json['limit']      = $this->limit;
+        if (isset($this->cursor)) {
+            $json['cursor']  = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']   = $this->limit;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

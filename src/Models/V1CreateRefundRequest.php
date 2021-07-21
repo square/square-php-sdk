@@ -163,11 +163,15 @@ class V1CreateRefundRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['payment_id']            = $this->paymentId;
-        $json['type']                  = $this->type;
-        $json['reason']                = $this->reason;
-        $json['refunded_money']        = $this->refundedMoney;
-        $json['request_idempotence_key'] = $this->requestIdempotenceKey;
+        $json['payment_id']                  = $this->paymentId;
+        $json['type']                        = $this->type;
+        $json['reason']                      = $this->reason;
+        if (isset($this->refundedMoney)) {
+            $json['refunded_money']          = $this->refundedMoney;
+        }
+        if (isset($this->requestIdempotenceKey)) {
+            $json['request_idempotence_key'] = $this->requestIdempotenceKey;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

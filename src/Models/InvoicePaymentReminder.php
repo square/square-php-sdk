@@ -160,11 +160,21 @@ class InvoicePaymentReminder implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                   = $this->uid;
-        $json['relative_scheduled_days'] = $this->relativeScheduledDays;
-        $json['message']               = $this->message;
-        $json['status']                = $this->status;
-        $json['sent_at']               = $this->sentAt;
+        if (isset($this->uid)) {
+            $json['uid']                     = $this->uid;
+        }
+        if (isset($this->relativeScheduledDays)) {
+            $json['relative_scheduled_days'] = $this->relativeScheduledDays;
+        }
+        if (isset($this->message)) {
+            $json['message']                 = $this->message;
+        }
+        if (isset($this->status)) {
+            $json['status']                  = $this->status;
+        }
+        if (isset($this->sentAt)) {
+            $json['sent_at']                 = $this->sentAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

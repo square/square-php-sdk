@@ -240,13 +240,17 @@ class MBreak implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['start_at']         = $this->startAt;
-        $json['end_at']           = $this->endAt;
-        $json['break_type_id']    = $this->breakTypeId;
-        $json['name']             = $this->name;
+        if (isset($this->id)) {
+            $json['id']            = $this->id;
+        }
+        $json['start_at']          = $this->startAt;
+        if (isset($this->endAt)) {
+            $json['end_at']        = $this->endAt;
+        }
+        $json['break_type_id']     = $this->breakTypeId;
+        $json['name']              = $this->name;
         $json['expected_duration'] = $this->expectedDuration;
-        $json['is_paid']          = $this->isPaid;
+        $json['is_paid']           = $this->isPaid;
 
         return array_filter($json, function ($val) {
             return $val !== null;

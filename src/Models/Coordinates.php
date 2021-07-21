@@ -71,8 +71,12 @@ class Coordinates implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['latitude']  = $this->latitude;
-        $json['longitude'] = $this->longitude;
+        if (isset($this->latitude)) {
+            $json['latitude']  = $this->latitude;
+        }
+        if (isset($this->longitude)) {
+            $json['longitude'] = $this->longitude;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -215,13 +215,25 @@ class Merchant implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']             = $this->id;
-        $json['business_name']  = $this->businessName;
-        $json['country']        = $this->country;
-        $json['language_code']  = $this->languageCode;
-        $json['currency']       = $this->currency;
-        $json['status']         = $this->status;
-        $json['main_location_id'] = $this->mainLocationId;
+        if (isset($this->id)) {
+            $json['id']               = $this->id;
+        }
+        if (isset($this->businessName)) {
+            $json['business_name']    = $this->businessName;
+        }
+        $json['country']              = $this->country;
+        if (isset($this->languageCode)) {
+            $json['language_code']    = $this->languageCode;
+        }
+        if (isset($this->currency)) {
+            $json['currency']         = $this->currency;
+        }
+        if (isset($this->status)) {
+            $json['status']           = $this->status;
+        }
+        if (isset($this->mainLocationId)) {
+            $json['main_location_id'] = $this->mainLocationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

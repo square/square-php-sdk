@@ -109,9 +109,15 @@ class OrderEntry implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_id']   = $this->orderId;
-        $json['version']    = $this->version;
-        $json['location_id'] = $this->locationId;
+        if (isset($this->orderId)) {
+            $json['order_id']    = $this->orderId;
+        }
+        if (isset($this->version)) {
+            $json['version']     = $this->version;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

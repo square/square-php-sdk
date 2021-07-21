@@ -111,9 +111,15 @@ class CatalogImage implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']    = $this->name;
-        $json['url']     = $this->url;
-        $json['caption'] = $this->caption;
+        if (isset($this->name)) {
+            $json['name']    = $this->name;
+        }
+        if (isset($this->url)) {
+            $json['url']     = $this->url;
+        }
+        if (isset($this->caption)) {
+            $json['caption'] = $this->caption;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

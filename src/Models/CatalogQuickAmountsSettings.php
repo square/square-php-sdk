@@ -114,9 +114,13 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['option']                 = $this->option;
-        $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts;
-        $json['amounts']                = $this->amounts;
+        $json['option']                        = $this->option;
+        if (isset($this->eligibleForAutoAmounts)) {
+            $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts;
+        }
+        if (isset($this->amounts)) {
+            $json['amounts']                   = $this->amounts;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

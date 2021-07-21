@@ -119,8 +119,8 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
     {
         $json = [];
         $json['accumulate_points'] = $this->accumulatePoints;
-        $json['idempotency_key']  = $this->idempotencyKey;
-        $json['location_id']      = $this->locationId;
+        $json['idempotency_key']   = $this->idempotencyKey;
+        $json['location_id']       = $this->locationId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

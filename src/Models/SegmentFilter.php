@@ -90,8 +90,10 @@ class SegmentFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['service_variation_id'] = $this->serviceVariationId;
-        $json['team_member_id_filter'] = $this->teamMemberIdFilter;
+        $json['service_variation_id']      = $this->serviceVariationId;
+        if (isset($this->teamMemberIdFilter)) {
+            $json['team_member_id_filter'] = $this->teamMemberIdFilter;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

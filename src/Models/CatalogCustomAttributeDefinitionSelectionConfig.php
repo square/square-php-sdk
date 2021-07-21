@@ -85,8 +85,12 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
     public function jsonSerialize()
     {
         $json = [];
-        $json['max_allowed_selections'] = $this->maxAllowedSelections;
-        $json['allowed_selections']   = $this->allowedSelections;
+        if (isset($this->maxAllowedSelections)) {
+            $json['max_allowed_selections'] = $this->maxAllowedSelections;
+        }
+        if (isset($this->allowedSelections)) {
+            $json['allowed_selections']     = $this->allowedSelections;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

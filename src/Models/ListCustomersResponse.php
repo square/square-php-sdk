@@ -119,9 +119,15 @@ class ListCustomersResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']    = $this->errors;
-        $json['customers'] = $this->customers;
-        $json['cursor']    = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']    = $this->errors;
+        }
+        if (isset($this->customers)) {
+            $json['customers'] = $this->customers;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']    = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

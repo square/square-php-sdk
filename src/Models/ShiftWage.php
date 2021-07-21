@@ -85,8 +85,12 @@ class ShiftWage implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['title']      = $this->title;
-        $json['hourly_rate'] = $this->hourlyRate;
+        if (isset($this->title)) {
+            $json['title']       = $this->title;
+        }
+        if (isset($this->hourlyRate)) {
+            $json['hourly_rate'] = $this->hourlyRate;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

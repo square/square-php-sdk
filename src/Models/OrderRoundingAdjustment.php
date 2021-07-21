@@ -112,9 +112,15 @@ class OrderRoundingAdjustment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']         = $this->uid;
-        $json['name']        = $this->name;
-        $json['amount_money'] = $this->amountMoney;
+        if (isset($this->uid)) {
+            $json['uid']          = $this->uid;
+        }
+        if (isset($this->name)) {
+            $json['name']         = $this->name;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money'] = $this->amountMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

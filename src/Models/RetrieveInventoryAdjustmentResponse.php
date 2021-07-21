@@ -74,8 +74,12 @@ class RetrieveInventoryAdjustmentResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']     = $this->errors;
-        $json['adjustment'] = $this->adjustment;
+        if (isset($this->errors)) {
+            $json['errors']     = $this->errors;
+        }
+        if (isset($this->adjustment)) {
+            $json['adjustment'] = $this->adjustment;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

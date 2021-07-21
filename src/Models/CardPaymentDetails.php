@@ -477,22 +477,54 @@ class CardPaymentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['status']                     = $this->status;
-        $json['card']                       = $this->card;
-        $json['entry_method']               = $this->entryMethod;
-        $json['cvv_status']                 = $this->cvvStatus;
-        $json['avs_status']                 = $this->avsStatus;
-        $json['auth_result_code']           = $this->authResultCode;
-        $json['application_identifier']     = $this->applicationIdentifier;
-        $json['application_name']           = $this->applicationName;
-        $json['application_cryptogram']     = $this->applicationCryptogram;
-        $json['verification_method']        = $this->verificationMethod;
-        $json['verification_results']       = $this->verificationResults;
-        $json['statement_description']      = $this->statementDescription;
-        $json['device_details']             = $this->deviceDetails;
-        $json['card_payment_timeline']      = $this->cardPaymentTimeline;
-        $json['refund_requires_card_presence'] = $this->refundRequiresCardPresence;
-        $json['errors']                     = $this->errors;
+        if (isset($this->status)) {
+            $json['status']                        = $this->status;
+        }
+        if (isset($this->card)) {
+            $json['card']                          = $this->card;
+        }
+        if (isset($this->entryMethod)) {
+            $json['entry_method']                  = $this->entryMethod;
+        }
+        if (isset($this->cvvStatus)) {
+            $json['cvv_status']                    = $this->cvvStatus;
+        }
+        if (isset($this->avsStatus)) {
+            $json['avs_status']                    = $this->avsStatus;
+        }
+        if (isset($this->authResultCode)) {
+            $json['auth_result_code']              = $this->authResultCode;
+        }
+        if (isset($this->applicationIdentifier)) {
+            $json['application_identifier']        = $this->applicationIdentifier;
+        }
+        if (isset($this->applicationName)) {
+            $json['application_name']              = $this->applicationName;
+        }
+        if (isset($this->applicationCryptogram)) {
+            $json['application_cryptogram']        = $this->applicationCryptogram;
+        }
+        if (isset($this->verificationMethod)) {
+            $json['verification_method']           = $this->verificationMethod;
+        }
+        if (isset($this->verificationResults)) {
+            $json['verification_results']          = $this->verificationResults;
+        }
+        if (isset($this->statementDescription)) {
+            $json['statement_description']         = $this->statementDescription;
+        }
+        if (isset($this->deviceDetails)) {
+            $json['device_details']                = $this->deviceDetails;
+        }
+        if (isset($this->cardPaymentTimeline)) {
+            $json['card_payment_timeline']         = $this->cardPaymentTimeline;
+        }
+        if (isset($this->refundRequiresCardPresence)) {
+            $json['refund_requires_card_presence'] = $this->refundRequiresCardPresence;
+        }
+        if (isset($this->errors)) {
+            $json['errors']                        = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

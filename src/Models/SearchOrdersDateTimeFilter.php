@@ -136,9 +136,15 @@ class SearchOrdersDateTimeFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['created_at'] = $this->createdAt;
-        $json['updated_at'] = $this->updatedAt;
-        $json['closed_at'] = $this->closedAt;
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at'] = $this->updatedAt;
+        }
+        if (isset($this->closedAt)) {
+            $json['closed_at']  = $this->closedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

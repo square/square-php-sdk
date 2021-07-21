@@ -491,21 +491,51 @@ class CatalogItem implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']                    = $this->name;
-        $json['description']             = $this->description;
-        $json['abbreviation']            = $this->abbreviation;
-        $json['label_color']             = $this->labelColor;
-        $json['available_online']        = $this->availableOnline;
-        $json['available_for_pickup']    = $this->availableForPickup;
-        $json['available_electronically'] = $this->availableElectronically;
-        $json['category_id']             = $this->categoryId;
-        $json['tax_ids']                 = $this->taxIds;
-        $json['modifier_list_info']      = $this->modifierListInfo;
-        $json['variations']              = $this->variations;
-        $json['product_type']            = $this->productType;
-        $json['skip_modifier_screen']    = $this->skipModifierScreen;
-        $json['item_options']            = $this->itemOptions;
-        $json['sort_name']               = $this->sortName;
+        if (isset($this->name)) {
+            $json['name']                     = $this->name;
+        }
+        if (isset($this->description)) {
+            $json['description']              = $this->description;
+        }
+        if (isset($this->abbreviation)) {
+            $json['abbreviation']             = $this->abbreviation;
+        }
+        if (isset($this->labelColor)) {
+            $json['label_color']              = $this->labelColor;
+        }
+        if (isset($this->availableOnline)) {
+            $json['available_online']         = $this->availableOnline;
+        }
+        if (isset($this->availableForPickup)) {
+            $json['available_for_pickup']     = $this->availableForPickup;
+        }
+        if (isset($this->availableElectronically)) {
+            $json['available_electronically'] = $this->availableElectronically;
+        }
+        if (isset($this->categoryId)) {
+            $json['category_id']              = $this->categoryId;
+        }
+        if (isset($this->taxIds)) {
+            $json['tax_ids']                  = $this->taxIds;
+        }
+        if (isset($this->modifierListInfo)) {
+            $json['modifier_list_info']       = $this->modifierListInfo;
+        }
+        if (isset($this->variations)) {
+            $json['variations']               = $this->variations;
+        }
+        if (isset($this->productType)) {
+            $json['product_type']             = $this->productType;
+        }
+        if (isset($this->skipModifierScreen)) {
+            $json['skip_modifier_screen']     = $this->skipModifierScreen;
+        }
+        if (isset($this->itemOptions)) {
+            $json['item_options']             = $this->itemOptions;
+        }
+        if (isset($this->sortName)) {
+            $json['sort_name']                = $this->sortName;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

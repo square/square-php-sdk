@@ -76,8 +76,12 @@ class CreateBookingResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['booking'] = $this->booking;
-        $json['errors']  = $this->errors;
+        if (isset($this->booking)) {
+            $json['booking'] = $this->booking;
+        }
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

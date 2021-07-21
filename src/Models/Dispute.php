@@ -467,22 +467,54 @@ class Dispute implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['dispute_id']      = $this->disputeId;
-        $json['id']              = $this->id;
-        $json['amount_money']    = $this->amountMoney;
-        $json['reason']          = $this->reason;
-        $json['state']           = $this->state;
-        $json['due_at']          = $this->dueAt;
-        $json['disputed_payment'] = $this->disputedPayment;
-        $json['evidence_ids']    = $this->evidenceIds;
-        $json['card_brand']      = $this->cardBrand;
-        $json['created_at']      = $this->createdAt;
-        $json['updated_at']      = $this->updatedAt;
-        $json['brand_dispute_id'] = $this->brandDisputeId;
-        $json['reported_date']   = $this->reportedDate;
-        $json['reported_at']     = $this->reportedAt;
-        $json['version']         = $this->version;
-        $json['location_id']     = $this->locationId;
+        if (isset($this->disputeId)) {
+            $json['dispute_id']       = $this->disputeId;
+        }
+        if (isset($this->id)) {
+            $json['id']               = $this->id;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']     = $this->amountMoney;
+        }
+        if (isset($this->reason)) {
+            $json['reason']           = $this->reason;
+        }
+        if (isset($this->state)) {
+            $json['state']            = $this->state;
+        }
+        if (isset($this->dueAt)) {
+            $json['due_at']           = $this->dueAt;
+        }
+        if (isset($this->disputedPayment)) {
+            $json['disputed_payment'] = $this->disputedPayment;
+        }
+        if (isset($this->evidenceIds)) {
+            $json['evidence_ids']     = $this->evidenceIds;
+        }
+        if (isset($this->cardBrand)) {
+            $json['card_brand']       = $this->cardBrand;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']       = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']       = $this->updatedAt;
+        }
+        if (isset($this->brandDisputeId)) {
+            $json['brand_dispute_id'] = $this->brandDisputeId;
+        }
+        if (isset($this->reportedDate)) {
+            $json['reported_date']    = $this->reportedDate;
+        }
+        if (isset($this->reportedAt)) {
+            $json['reported_at']      = $this->reportedAt;
+        }
+        if (isset($this->version)) {
+            $json['version']          = $this->version;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']      = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

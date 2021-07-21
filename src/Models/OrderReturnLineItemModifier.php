@@ -25,6 +25,11 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @var string|null
      */
     private $name;
@@ -105,6 +110,28 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this line item modifier references.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this line item modifier references.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
     }
 
     /**
@@ -205,12 +232,27 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']               = $this->uid;
-        $json['source_modifier_uid'] = $this->sourceModifierUid;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['name']              = $this->name;
-        $json['base_price_money']  = $this->basePriceMoney;
-        $json['total_price_money'] = $this->totalPriceMoney;
+        if (isset($this->uid)) {
+            $json['uid']                 = $this->uid;
+        }
+        if (isset($this->sourceModifierUid)) {
+            $json['source_modifier_uid'] = $this->sourceModifierUid;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']     = $this->catalogVersion;
+        }
+        if (isset($this->name)) {
+            $json['name']                = $this->name;
+        }
+        if (isset($this->basePriceMoney)) {
+            $json['base_price_money']    = $this->basePriceMoney;
+        }
+        if (isset($this->totalPriceMoney)) {
+            $json['total_price_money']   = $this->totalPriceMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

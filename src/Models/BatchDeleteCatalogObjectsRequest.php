@@ -49,7 +49,9 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['object_ids'] = $this->objectIds;
+        if (isset($this->objectIds)) {
+            $json['object_ids'] = $this->objectIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

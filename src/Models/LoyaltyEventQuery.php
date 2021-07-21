@@ -46,7 +46,9 @@ class LoyaltyEventQuery implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['filter'] = $this->filter;
+        if (isset($this->filter)) {
+            $json['filter'] = $this->filter;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

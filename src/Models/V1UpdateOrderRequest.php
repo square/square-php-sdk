@@ -157,11 +157,19 @@ class V1UpdateOrderRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['action']                = $this->action;
-        $json['shipped_tracking_number'] = $this->shippedTrackingNumber;
-        $json['completed_note']        = $this->completedNote;
-        $json['refunded_note']         = $this->refundedNote;
-        $json['canceled_note']         = $this->canceledNote;
+        $json['action']                      = $this->action;
+        if (isset($this->shippedTrackingNumber)) {
+            $json['shipped_tracking_number'] = $this->shippedTrackingNumber;
+        }
+        if (isset($this->completedNote)) {
+            $json['completed_note']          = $this->completedNote;
+        }
+        if (isset($this->refundedNote)) {
+            $json['refunded_note']           = $this->refundedNote;
+        }
+        if (isset($this->canceledNote)) {
+            $json['canceled_note']           = $this->canceledNote;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

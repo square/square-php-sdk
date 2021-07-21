@@ -175,9 +175,15 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']        = $this->errors;
-        $json['catalog_object'] = $this->catalogObject;
-        $json['id_mappings']   = $this->idMappings;
+        if (isset($this->errors)) {
+            $json['errors']         = $this->errors;
+        }
+        if (isset($this->catalogObject)) {
+            $json['catalog_object'] = $this->catalogObject;
+        }
+        if (isset($this->idMappings)) {
+            $json['id_mappings']    = $this->idMappings;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

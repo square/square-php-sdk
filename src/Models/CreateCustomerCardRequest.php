@@ -157,10 +157,16 @@ class CreateCustomerCardRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['card_nonce']        = $this->cardNonce;
-        $json['billing_address']   = $this->billingAddress;
-        $json['cardholder_name']   = $this->cardholderName;
-        $json['verification_token'] = $this->verificationToken;
+        $json['card_nonce']             = $this->cardNonce;
+        if (isset($this->billingAddress)) {
+            $json['billing_address']    = $this->billingAddress;
+        }
+        if (isset($this->cardholderName)) {
+            $json['cardholder_name']    = $this->cardholderName;
+        }
+        if (isset($this->verificationToken)) {
+            $json['verification_token'] = $this->verificationToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

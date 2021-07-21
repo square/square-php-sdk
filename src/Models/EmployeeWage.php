@@ -139,10 +139,18 @@ class EmployeeWage implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']         = $this->id;
-        $json['employee_id'] = $this->employeeId;
-        $json['title']      = $this->title;
-        $json['hourly_rate'] = $this->hourlyRate;
+        if (isset($this->id)) {
+            $json['id']          = $this->id;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id'] = $this->employeeId;
+        }
+        if (isset($this->title)) {
+            $json['title']       = $this->title;
+        }
+        if (isset($this->hourlyRate)) {
+            $json['hourly_rate'] = $this->hourlyRate;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

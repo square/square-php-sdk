@@ -310,15 +310,27 @@ class ObtainTokenRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['client_id']      = $this->clientId;
-        $json['client_secret']  = $this->clientSecret;
-        $json['code']           = $this->code;
-        $json['redirect_uri']   = $this->redirectUri;
-        $json['grant_type']     = $this->grantType;
-        $json['refresh_token']  = $this->refreshToken;
-        $json['migration_token'] = $this->migrationToken;
-        $json['scopes']         = $this->scopes;
-        $json['short_lived']    = $this->shortLived;
+        $json['client_id']           = $this->clientId;
+        $json['client_secret']       = $this->clientSecret;
+        if (isset($this->code)) {
+            $json['code']            = $this->code;
+        }
+        if (isset($this->redirectUri)) {
+            $json['redirect_uri']    = $this->redirectUri;
+        }
+        $json['grant_type']          = $this->grantType;
+        if (isset($this->refreshToken)) {
+            $json['refresh_token']   = $this->refreshToken;
+        }
+        if (isset($this->migrationToken)) {
+            $json['migration_token'] = $this->migrationToken;
+        }
+        if (isset($this->scopes)) {
+            $json['scopes']          = $this->scopes;
+        }
+        if (isset($this->shortLived)) {
+            $json['short_lived']     = $this->shortLived;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

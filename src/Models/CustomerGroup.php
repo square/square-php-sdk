@@ -137,10 +137,16 @@ class CustomerGroup implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']        = $this->id;
-        $json['name']      = $this->name;
-        $json['created_at'] = $this->createdAt;
-        $json['updated_at'] = $this->updatedAt;
+        if (isset($this->id)) {
+            $json['id']         = $this->id;
+        }
+        $json['name']           = $this->name;
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at'] = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

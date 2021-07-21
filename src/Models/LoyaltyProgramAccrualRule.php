@@ -271,13 +271,25 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['accrual_type']             = $this->accrualType;
-        $json['points']                   = $this->points;
-        $json['visit_minimum_amount_money'] = $this->visitMinimumAmountMoney;
-        $json['spend_amount_money']       = $this->spendAmountMoney;
-        $json['catalog_object_id']        = $this->catalogObjectId;
-        $json['excluded_category_ids']    = $this->excludedCategoryIds;
-        $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
+        $json['accrual_type']                    = $this->accrualType;
+        if (isset($this->points)) {
+            $json['points']                      = $this->points;
+        }
+        if (isset($this->visitMinimumAmountMoney)) {
+            $json['visit_minimum_amount_money']  = $this->visitMinimumAmountMoney;
+        }
+        if (isset($this->spendAmountMoney)) {
+            $json['spend_amount_money']          = $this->spendAmountMoney;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']           = $this->catalogObjectId;
+        }
+        if (isset($this->excludedCategoryIds)) {
+            $json['excluded_category_ids']       = $this->excludedCategoryIds;
+        }
+        if (isset($this->excludedItemVariationIds)) {
+            $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

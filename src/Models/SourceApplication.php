@@ -102,9 +102,15 @@ class SourceApplication implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['product']       = $this->product;
-        $json['application_id'] = $this->applicationId;
-        $json['name']          = $this->name;
+        if (isset($this->product)) {
+            $json['product']        = $this->product;
+        }
+        if (isset($this->applicationId)) {
+            $json['application_id'] = $this->applicationId;
+        }
+        if (isset($this->name)) {
+            $json['name']           = $this->name;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -163,11 +163,21 @@ class V1ListRefundsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order']      = $this->order;
-        $json['begin_time'] = $this->beginTime;
-        $json['end_time']   = $this->endTime;
-        $json['limit']      = $this->limit;
-        $json['batch_token'] = $this->batchToken;
+        if (isset($this->order)) {
+            $json['order']       = $this->order;
+        }
+        if (isset($this->beginTime)) {
+            $json['begin_time']  = $this->beginTime;
+        }
+        if (isset($this->endTime)) {
+            $json['end_time']    = $this->endTime;
+        }
+        if (isset($this->limit)) {
+            $json['limit']       = $this->limit;
+        }
+        if (isset($this->batchToken)) {
+            $json['batch_token'] = $this->batchToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

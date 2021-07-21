@@ -98,9 +98,15 @@ class CardPaymentTimeline implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['authorized_at'] = $this->authorizedAt;
-        $json['captured_at']  = $this->capturedAt;
-        $json['voided_at']    = $this->voidedAt;
+        if (isset($this->authorizedAt)) {
+            $json['authorized_at'] = $this->authorizedAt;
+        }
+        if (isset($this->capturedAt)) {
+            $json['captured_at']   = $this->capturedAt;
+        }
+        if (isset($this->voidedAt)) {
+            $json['voided_at']     = $this->voidedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

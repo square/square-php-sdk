@@ -124,9 +124,13 @@ class BatchChangeInventoryRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']       = $this->idempotencyKey;
-        $json['changes']               = $this->changes;
-        $json['ignore_unchanged_counts'] = $this->ignoreUnchangedCounts;
+        $json['idempotency_key']             = $this->idempotencyKey;
+        if (isset($this->changes)) {
+            $json['changes']                 = $this->changes;
+        }
+        if (isset($this->ignoreUnchangedCounts)) {
+            $json['ignore_unchanged_counts'] = $this->ignoreUnchangedCounts;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

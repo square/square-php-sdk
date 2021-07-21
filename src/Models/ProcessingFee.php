@@ -110,9 +110,15 @@ class ProcessingFee implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['effective_at'] = $this->effectiveAt;
-        $json['type']        = $this->type;
-        $json['amount_money'] = $this->amountMoney;
+        if (isset($this->effectiveAt)) {
+            $json['effective_at'] = $this->effectiveAt;
+        }
+        if (isset($this->type)) {
+            $json['type']         = $this->type;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money'] = $this->amountMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

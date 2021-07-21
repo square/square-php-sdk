@@ -68,8 +68,12 @@ class CancelTerminalCheckoutResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']   = $this->errors;
-        $json['checkout'] = $this->checkout;
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
+        if (isset($this->checkout)) {
+            $json['checkout'] = $this->checkout;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

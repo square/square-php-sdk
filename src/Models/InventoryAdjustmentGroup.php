@@ -124,10 +124,18 @@ class InventoryAdjustmentGroup implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['root_adjustment_id'] = $this->rootAdjustmentId;
-        $json['from_state']       = $this->fromState;
-        $json['to_state']         = $this->toState;
+        if (isset($this->id)) {
+            $json['id']                 = $this->id;
+        }
+        if (isset($this->rootAdjustmentId)) {
+            $json['root_adjustment_id'] = $this->rootAdjustmentId;
+        }
+        if (isset($this->fromState)) {
+            $json['from_state']         = $this->fromState;
+        }
+        if (isset($this->toState)) {
+            $json['to_state']           = $this->toState;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

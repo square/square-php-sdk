@@ -412,18 +412,42 @@ class CatalogPricingRule implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']                = $this->name;
-        $json['time_period_ids']     = $this->timePeriodIds;
-        $json['discount_id']         = $this->discountId;
-        $json['match_products_id']   = $this->matchProductsId;
-        $json['apply_products_id']   = $this->applyProductsId;
-        $json['exclude_products_id'] = $this->excludeProductsId;
-        $json['valid_from_date']     = $this->validFromDate;
-        $json['valid_from_local_time'] = $this->validFromLocalTime;
-        $json['valid_until_date']    = $this->validUntilDate;
-        $json['valid_until_local_time'] = $this->validUntilLocalTime;
-        $json['exclude_strategy']    = $this->excludeStrategy;
-        $json['customer_group_ids_any'] = $this->customerGroupIdsAny;
+        if (isset($this->name)) {
+            $json['name']                   = $this->name;
+        }
+        if (isset($this->timePeriodIds)) {
+            $json['time_period_ids']        = $this->timePeriodIds;
+        }
+        if (isset($this->discountId)) {
+            $json['discount_id']            = $this->discountId;
+        }
+        if (isset($this->matchProductsId)) {
+            $json['match_products_id']      = $this->matchProductsId;
+        }
+        if (isset($this->applyProductsId)) {
+            $json['apply_products_id']      = $this->applyProductsId;
+        }
+        if (isset($this->excludeProductsId)) {
+            $json['exclude_products_id']    = $this->excludeProductsId;
+        }
+        if (isset($this->validFromDate)) {
+            $json['valid_from_date']        = $this->validFromDate;
+        }
+        if (isset($this->validFromLocalTime)) {
+            $json['valid_from_local_time']  = $this->validFromLocalTime;
+        }
+        if (isset($this->validUntilDate)) {
+            $json['valid_until_date']       = $this->validUntilDate;
+        }
+        if (isset($this->validUntilLocalTime)) {
+            $json['valid_until_local_time'] = $this->validUntilLocalTime;
+        }
+        if (isset($this->excludeStrategy)) {
+            $json['exclude_strategy']       = $this->excludeStrategy;
+        }
+        if (isset($this->customerGroupIdsAny)) {
+            $json['customer_group_ids_any'] = $this->customerGroupIdsAny;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

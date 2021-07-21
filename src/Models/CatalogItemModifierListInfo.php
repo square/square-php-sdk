@@ -171,11 +171,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['modifier_list_id']     = $this->modifierListId;
-        $json['modifier_overrides']   = $this->modifierOverrides;
-        $json['min_selected_modifiers'] = $this->minSelectedModifiers;
-        $json['max_selected_modifiers'] = $this->maxSelectedModifiers;
-        $json['enabled']              = $this->enabled;
+        $json['modifier_list_id']           = $this->modifierListId;
+        if (isset($this->modifierOverrides)) {
+            $json['modifier_overrides']     = $this->modifierOverrides;
+        }
+        if (isset($this->minSelectedModifiers)) {
+            $json['min_selected_modifiers'] = $this->minSelectedModifiers;
+        }
+        if (isset($this->maxSelectedModifiers)) {
+            $json['max_selected_modifiers'] = $this->maxSelectedModifiers;
+        }
+        if (isset($this->enabled)) {
+            $json['enabled']                = $this->enabled;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

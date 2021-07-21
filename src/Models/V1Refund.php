@@ -483,24 +483,60 @@ class V1Refund implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']                       = $this->type;
-        $json['reason']                     = $this->reason;
-        $json['refunded_money']             = $this->refundedMoney;
-        $json['refunded_processing_fee_money'] = $this->refundedProcessingFeeMoney;
-        $json['refunded_tax_money']         = $this->refundedTaxMoney;
-        $json['refunded_additive_tax_money'] = $this->refundedAdditiveTaxMoney;
-        $json['refunded_additive_tax']      = $this->refundedAdditiveTax;
-        $json['refunded_inclusive_tax_money'] = $this->refundedInclusiveTaxMoney;
-        $json['refunded_inclusive_tax']     = $this->refundedInclusiveTax;
-        $json['refunded_tip_money']         = $this->refundedTipMoney;
-        $json['refunded_discount_money']    = $this->refundedDiscountMoney;
-        $json['refunded_surcharge_money']   = $this->refundedSurchargeMoney;
-        $json['refunded_surcharges']        = $this->refundedSurcharges;
-        $json['created_at']                 = $this->createdAt;
-        $json['processed_at']               = $this->processedAt;
-        $json['payment_id']                 = $this->paymentId;
-        $json['merchant_id']                = $this->merchantId;
-        $json['is_exchange']                = $this->isExchange;
+        if (isset($this->type)) {
+            $json['type']                          = $this->type;
+        }
+        if (isset($this->reason)) {
+            $json['reason']                        = $this->reason;
+        }
+        if (isset($this->refundedMoney)) {
+            $json['refunded_money']                = $this->refundedMoney;
+        }
+        if (isset($this->refundedProcessingFeeMoney)) {
+            $json['refunded_processing_fee_money'] = $this->refundedProcessingFeeMoney;
+        }
+        if (isset($this->refundedTaxMoney)) {
+            $json['refunded_tax_money']            = $this->refundedTaxMoney;
+        }
+        if (isset($this->refundedAdditiveTaxMoney)) {
+            $json['refunded_additive_tax_money']   = $this->refundedAdditiveTaxMoney;
+        }
+        if (isset($this->refundedAdditiveTax)) {
+            $json['refunded_additive_tax']         = $this->refundedAdditiveTax;
+        }
+        if (isset($this->refundedInclusiveTaxMoney)) {
+            $json['refunded_inclusive_tax_money']  = $this->refundedInclusiveTaxMoney;
+        }
+        if (isset($this->refundedInclusiveTax)) {
+            $json['refunded_inclusive_tax']        = $this->refundedInclusiveTax;
+        }
+        if (isset($this->refundedTipMoney)) {
+            $json['refunded_tip_money']            = $this->refundedTipMoney;
+        }
+        if (isset($this->refundedDiscountMoney)) {
+            $json['refunded_discount_money']       = $this->refundedDiscountMoney;
+        }
+        if (isset($this->refundedSurchargeMoney)) {
+            $json['refunded_surcharge_money']      = $this->refundedSurchargeMoney;
+        }
+        if (isset($this->refundedSurcharges)) {
+            $json['refunded_surcharges']           = $this->refundedSurcharges;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']                    = $this->createdAt;
+        }
+        if (isset($this->processedAt)) {
+            $json['processed_at']                  = $this->processedAt;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']                    = $this->paymentId;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']                   = $this->merchantId;
+        }
+        if (isset($this->isExchange)) {
+            $json['is_exchange']                   = $this->isExchange;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

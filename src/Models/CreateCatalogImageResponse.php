@@ -144,8 +144,12 @@ class CreateCatalogImageResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['image']  = $this->image;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->image)) {
+            $json['image']  = $this->image;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

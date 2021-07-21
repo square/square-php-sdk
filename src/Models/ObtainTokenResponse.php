@@ -279,15 +279,33 @@ class ObtainTokenResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['access_token']   = $this->accessToken;
-        $json['token_type']     = $this->tokenType;
-        $json['expires_at']     = $this->expiresAt;
-        $json['merchant_id']    = $this->merchantId;
-        $json['subscription_id'] = $this->subscriptionId;
-        $json['plan_id']        = $this->planId;
-        $json['id_token']       = $this->idToken;
-        $json['refresh_token']  = $this->refreshToken;
-        $json['short_lived']    = $this->shortLived;
+        if (isset($this->accessToken)) {
+            $json['access_token']    = $this->accessToken;
+        }
+        if (isset($this->tokenType)) {
+            $json['token_type']      = $this->tokenType;
+        }
+        if (isset($this->expiresAt)) {
+            $json['expires_at']      = $this->expiresAt;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']     = $this->merchantId;
+        }
+        if (isset($this->subscriptionId)) {
+            $json['subscription_id'] = $this->subscriptionId;
+        }
+        if (isset($this->planId)) {
+            $json['plan_id']         = $this->planId;
+        }
+        if (isset($this->idToken)) {
+            $json['id_token']        = $this->idToken;
+        }
+        if (isset($this->refreshToken)) {
+            $json['refresh_token']   = $this->refreshToken;
+        }
+        if (isset($this->shortLived)) {
+            $json['short_lived']     = $this->shortLived;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -52,7 +52,9 @@ class UpdateSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['subscription'] = $this->subscription;
+        if (isset($this->subscription)) {
+            $json['subscription'] = $this->subscription;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

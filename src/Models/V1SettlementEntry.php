@@ -113,10 +113,18 @@ class V1SettlementEntry implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['payment_id']  = $this->paymentId;
-        $json['type']        = $this->type;
-        $json['amount_money'] = $this->amountMoney;
-        $json['fee_money']   = $this->feeMoney;
+        if (isset($this->paymentId)) {
+            $json['payment_id']   = $this->paymentId;
+        }
+        if (isset($this->type)) {
+            $json['type']         = $this->type;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money'] = $this->amountMoney;
+        }
+        if (isset($this->feeMoney)) {
+            $json['fee_money']    = $this->feeMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

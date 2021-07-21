@@ -124,9 +124,13 @@ class PayOrderRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['order_version']  = $this->orderVersion;
-        $json['payment_ids']    = $this->paymentIds;
+        $json['idempotency_key']   = $this->idempotencyKey;
+        if (isset($this->orderVersion)) {
+            $json['order_version'] = $this->orderVersion;
+        }
+        if (isset($this->paymentIds)) {
+            $json['payment_ids']   = $this->paymentIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

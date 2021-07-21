@@ -184,11 +184,21 @@ class OrderFulfillmentRecipient implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['customer_id']  = $this->customerId;
-        $json['display_name'] = $this->displayName;
-        $json['email_address'] = $this->emailAddress;
-        $json['phone_number'] = $this->phoneNumber;
-        $json['address']      = $this->address;
+        if (isset($this->customerId)) {
+            $json['customer_id']   = $this->customerId;
+        }
+        if (isset($this->displayName)) {
+            $json['display_name']  = $this->displayName;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address'] = $this->emailAddress;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']  = $this->phoneNumber;
+        }
+        if (isset($this->address)) {
+            $json['address']       = $this->address;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

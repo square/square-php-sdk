@@ -102,9 +102,15 @@ class LoyaltyAccountMapping implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']          = $this->id;
-        $json['created_at']  = $this->createdAt;
-        $json['phone_number'] = $this->phoneNumber;
+        if (isset($this->id)) {
+            $json['id']           = $this->id;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']   = $this->createdAt;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number'] = $this->phoneNumber;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

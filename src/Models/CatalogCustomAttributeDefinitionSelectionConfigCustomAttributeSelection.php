@@ -80,8 +80,10 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']  = $this->uid;
-        $json['name'] = $this->name;
+        if (isset($this->uid)) {
+            $json['uid'] = $this->uid;
+        }
+        $json['name']    = $this->name;
 
         return array_filter($json, function ($val) {
             return $val !== null;

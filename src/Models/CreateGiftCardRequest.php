@@ -114,8 +114,8 @@ class CreateGiftCardRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['location_id']    = $this->locationId;
-        $json['gift_card']      = $this->giftCard;
+        $json['location_id']     = $this->locationId;
+        $json['gift_card']       = $this->giftCard;
 
         return array_filter($json, function ($val) {
             return $val !== null;

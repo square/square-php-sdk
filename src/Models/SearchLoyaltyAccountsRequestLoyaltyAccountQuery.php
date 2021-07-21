@@ -95,8 +95,12 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
     public function jsonSerialize()
     {
         $json = [];
-        $json['mappings']    = $this->mappings;
-        $json['customer_ids'] = $this->customerIds;
+        if (isset($this->mappings)) {
+            $json['mappings']     = $this->mappings;
+        }
+        if (isset($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

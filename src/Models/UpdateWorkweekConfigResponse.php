@@ -79,8 +79,12 @@ class UpdateWorkweekConfigResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['workweek_config'] = $this->workweekConfig;
-        $json['errors']         = $this->errors;
+        if (isset($this->workweekConfig)) {
+            $json['workweek_config'] = $this->workweekConfig;
+        }
+        if (isset($this->errors)) {
+            $json['errors']          = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

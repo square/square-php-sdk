@@ -52,7 +52,9 @@ class CatalogQueryItemsForItemOptions implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_option_ids'] = $this->itemOptionIds;
+        if (isset($this->itemOptionIds)) {
+            $json['item_option_ids'] = $this->itemOptionIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

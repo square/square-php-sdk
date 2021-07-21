@@ -73,8 +73,12 @@ class CatalogV1Id implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['catalog_v1_id'] = $this->catalogV1Id;
-        $json['location_id'] = $this->locationId;
+        if (isset($this->catalogV1Id)) {
+            $json['catalog_v1_id'] = $this->catalogV1Id;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']   = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

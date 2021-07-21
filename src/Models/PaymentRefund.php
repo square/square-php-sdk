@@ -363,17 +363,35 @@ class PaymentRefund implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']            = $this->id;
-        $json['status']        = $this->status;
-        $json['location_id']   = $this->locationId;
-        $json['amount_money']  = $this->amountMoney;
-        $json['app_fee_money'] = $this->appFeeMoney;
-        $json['processing_fee'] = $this->processingFee;
-        $json['payment_id']    = $this->paymentId;
-        $json['order_id']      = $this->orderId;
-        $json['reason']        = $this->reason;
-        $json['created_at']    = $this->createdAt;
-        $json['updated_at']    = $this->updatedAt;
+        $json['id']                 = $this->id;
+        if (isset($this->status)) {
+            $json['status']         = $this->status;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']    = $this->locationId;
+        }
+        $json['amount_money']       = $this->amountMoney;
+        if (isset($this->appFeeMoney)) {
+            $json['app_fee_money']  = $this->appFeeMoney;
+        }
+        if (isset($this->processingFee)) {
+            $json['processing_fee'] = $this->processingFee;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']     = $this->paymentId;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']       = $this->orderId;
+        }
+        if (isset($this->reason)) {
+            $json['reason']         = $this->reason;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']     = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']     = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -102,9 +102,15 @@ class BusinessHoursPeriod implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['day_of_week']    = $this->dayOfWeek;
-        $json['start_local_time'] = $this->startLocalTime;
-        $json['end_local_time'] = $this->endLocalTime;
+        if (isset($this->dayOfWeek)) {
+            $json['day_of_week']      = $this->dayOfWeek;
+        }
+        if (isset($this->startLocalTime)) {
+            $json['start_local_time'] = $this->startLocalTime;
+        }
+        if (isset($this->endLocalTime)) {
+            $json['end_local_time']   = $this->endLocalTime;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -44,7 +44,7 @@ class InventoryChange implements \JsonSerializable
     /**
      * Returns Type.
      *
-     * Indicates how the inventory change was applied to a tracked quantity of items.
+     * Indicates how the inventory change was applied to a tracked product quantity.
      */
     public function getType(): ?string
     {
@@ -54,7 +54,7 @@ class InventoryChange implements \JsonSerializable
     /**
      * Sets Type.
      *
-     * Indicates how the inventory change was applied to a tracked quantity of items.
+     * Indicates how the inventory change was applied to a tracked product quantity.
      *
      * @maps type
      */
@@ -195,12 +195,24 @@ class InventoryChange implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']              = $this->type;
-        $json['physical_count']    = $this->physicalCount;
-        $json['adjustment']        = $this->adjustment;
-        $json['transfer']          = $this->transfer;
-        $json['measurement_unit']  = $this->measurementUnit;
-        $json['measurement_unit_id'] = $this->measurementUnitId;
+        if (isset($this->type)) {
+            $json['type']                = $this->type;
+        }
+        if (isset($this->physicalCount)) {
+            $json['physical_count']      = $this->physicalCount;
+        }
+        if (isset($this->adjustment)) {
+            $json['adjustment']          = $this->adjustment;
+        }
+        if (isset($this->transfer)) {
+            $json['transfer']            = $this->transfer;
+        }
+        if (isset($this->measurementUnit)) {
+            $json['measurement_unit']    = $this->measurementUnit;
+        }
+        if (isset($this->measurementUnitId)) {
+            $json['measurement_unit_id'] = $this->measurementUnitId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

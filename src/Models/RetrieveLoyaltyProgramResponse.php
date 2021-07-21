@@ -85,8 +85,12 @@ class RetrieveLoyaltyProgramResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['program'] = $this->program;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->program)) {
+            $json['program'] = $this->program;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

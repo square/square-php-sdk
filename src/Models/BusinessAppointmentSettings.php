@@ -398,19 +398,45 @@ class BusinessAppointmentSettings implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_types']                 = $this->locationTypes;
-        $json['alignment_time']                 = $this->alignmentTime;
-        $json['min_booking_lead_time_seconds']  = $this->minBookingLeadTimeSeconds;
-        $json['max_booking_lead_time_seconds']  = $this->maxBookingLeadTimeSeconds;
-        $json['any_team_member_booking_enabled'] = $this->anyTeamMemberBookingEnabled;
-        $json['multiple_service_booking_enabled'] = $this->multipleServiceBookingEnabled;
-        $json['max_appointments_per_day_limit_type'] = $this->maxAppointmentsPerDayLimitType;
-        $json['max_appointments_per_day_limit'] = $this->maxAppointmentsPerDayLimit;
-        $json['cancellation_window_seconds']    = $this->cancellationWindowSeconds;
-        $json['cancellation_fee_money']         = $this->cancellationFeeMoney;
-        $json['cancellation_policy']            = $this->cancellationPolicy;
-        $json['cancellation_policy_text']       = $this->cancellationPolicyText;
-        $json['skip_booking_flow_staff_selection'] = $this->skipBookingFlowStaffSelection;
+        if (isset($this->locationTypes)) {
+            $json['location_types']                      = $this->locationTypes;
+        }
+        if (isset($this->alignmentTime)) {
+            $json['alignment_time']                      = $this->alignmentTime;
+        }
+        if (isset($this->minBookingLeadTimeSeconds)) {
+            $json['min_booking_lead_time_seconds']       = $this->minBookingLeadTimeSeconds;
+        }
+        if (isset($this->maxBookingLeadTimeSeconds)) {
+            $json['max_booking_lead_time_seconds']       = $this->maxBookingLeadTimeSeconds;
+        }
+        if (isset($this->anyTeamMemberBookingEnabled)) {
+            $json['any_team_member_booking_enabled']     = $this->anyTeamMemberBookingEnabled;
+        }
+        if (isset($this->multipleServiceBookingEnabled)) {
+            $json['multiple_service_booking_enabled']    = $this->multipleServiceBookingEnabled;
+        }
+        if (isset($this->maxAppointmentsPerDayLimitType)) {
+            $json['max_appointments_per_day_limit_type'] = $this->maxAppointmentsPerDayLimitType;
+        }
+        if (isset($this->maxAppointmentsPerDayLimit)) {
+            $json['max_appointments_per_day_limit']      = $this->maxAppointmentsPerDayLimit;
+        }
+        if (isset($this->cancellationWindowSeconds)) {
+            $json['cancellation_window_seconds']         = $this->cancellationWindowSeconds;
+        }
+        if (isset($this->cancellationFeeMoney)) {
+            $json['cancellation_fee_money']              = $this->cancellationFeeMoney;
+        }
+        if (isset($this->cancellationPolicy)) {
+            $json['cancellation_policy']                 = $this->cancellationPolicy;
+        }
+        if (isset($this->cancellationPolicyText)) {
+            $json['cancellation_policy_text']            = $this->cancellationPolicyText;
+        }
+        if (isset($this->skipBookingFlowStaffSelection)) {
+            $json['skip_booking_flow_staff_selection']   = $this->skipBookingFlowStaffSelection;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

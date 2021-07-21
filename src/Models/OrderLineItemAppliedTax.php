@@ -132,9 +132,13 @@ class OrderLineItemAppliedTax implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']          = $this->uid;
-        $json['tax_uid']      = $this->taxUid;
-        $json['applied_money'] = $this->appliedMoney;
+        if (isset($this->uid)) {
+            $json['uid']           = $this->uid;
+        }
+        $json['tax_uid']           = $this->taxUid;
+        if (isset($this->appliedMoney)) {
+            $json['applied_money'] = $this->appliedMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

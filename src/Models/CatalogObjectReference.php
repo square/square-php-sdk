@@ -73,8 +73,12 @@ class CatalogObjectReference implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['object_id']      = $this->objectId;
-        $json['catalog_version'] = $this->catalogVersion;
+        if (isset($this->objectId)) {
+            $json['object_id']       = $this->objectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version'] = $this->catalogVersion;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

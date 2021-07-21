@@ -25,7 +25,8 @@ class LoyaltyProgramExpirationPolicy implements \JsonSerializable
     /**
      * Returns Expiration Duration.
      *
-     * The duration of time before points expire, in RFC 3339 format.
+     * The number of months before points expire, in RFC 3339 duration format. For example, a value of
+     * `P12M` represents a duration of 12 months.
      */
     public function getExpirationDuration(): string
     {
@@ -35,7 +36,8 @@ class LoyaltyProgramExpirationPolicy implements \JsonSerializable
     /**
      * Sets Expiration Duration.
      *
-     * The duration of time before points expire, in RFC 3339 format.
+     * The number of months before points expire, in RFC 3339 duration format. For example, a value of
+     * `P12M` represents a duration of 12 months.
      *
      * @required
      * @maps expiration_duration

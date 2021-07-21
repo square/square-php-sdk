@@ -81,8 +81,12 @@ class RefundPaymentResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['refund'] = $this->refund;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->refund)) {
+            $json['refund'] = $this->refund;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

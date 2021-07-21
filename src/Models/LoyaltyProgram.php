@@ -317,15 +317,17 @@ class LoyaltyProgram implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['status']           = $this->status;
-        $json['reward_tiers']     = $this->rewardTiers;
-        $json['expiration_policy'] = $this->expirationPolicy;
-        $json['terminology']      = $this->terminology;
-        $json['location_ids']     = $this->locationIds;
-        $json['created_at']       = $this->createdAt;
-        $json['updated_at']       = $this->updatedAt;
-        $json['accrual_rules']    = $this->accrualRules;
+        $json['id']                    = $this->id;
+        $json['status']                = $this->status;
+        $json['reward_tiers']          = $this->rewardTiers;
+        if (isset($this->expirationPolicy)) {
+            $json['expiration_policy'] = $this->expirationPolicy;
+        }
+        $json['terminology']           = $this->terminology;
+        $json['location_ids']          = $this->locationIds;
+        $json['created_at']            = $this->createdAt;
+        $json['updated_at']            = $this->updatedAt;
+        $json['accrual_rules']         = $this->accrualRules;
 
         return array_filter($json, function ($val) {
             return $val !== null;

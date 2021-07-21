@@ -194,12 +194,24 @@ class CashDrawerShiftEvent implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']          = $this->id;
-        $json['employee_id'] = $this->employeeId;
-        $json['event_type']  = $this->eventType;
-        $json['event_money'] = $this->eventMoney;
-        $json['created_at']  = $this->createdAt;
-        $json['description'] = $this->description;
+        if (isset($this->id)) {
+            $json['id']          = $this->id;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id'] = $this->employeeId;
+        }
+        if (isset($this->eventType)) {
+            $json['event_type']  = $this->eventType;
+        }
+        if (isset($this->eventMoney)) {
+            $json['event_money'] = $this->eventMoney;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']  = $this->createdAt;
+        }
+        if (isset($this->description)) {
+            $json['description'] = $this->description;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

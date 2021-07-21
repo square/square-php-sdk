@@ -41,7 +41,9 @@ class V1ListSettlementsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['items'] = $this->items;
+        if (isset($this->items)) {
+            $json['items'] = $this->items;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

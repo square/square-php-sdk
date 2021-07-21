@@ -50,7 +50,9 @@ class BusinessHours implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['periods'] = $this->periods;
+        if (isset($this->periods)) {
+            $json['periods'] = $this->periods;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

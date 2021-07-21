@@ -110,9 +110,15 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['rewards'] = $this->rewards;
-        $json['cursor']  = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->rewards)) {
+            $json['rewards'] = $this->rewards;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']  = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

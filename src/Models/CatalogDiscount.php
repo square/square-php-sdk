@@ -232,13 +232,27 @@ class CatalogDiscount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']           = $this->name;
-        $json['discount_type']  = $this->discountType;
-        $json['percentage']     = $this->percentage;
-        $json['amount_money']   = $this->amountMoney;
-        $json['pin_required']   = $this->pinRequired;
-        $json['label_color']    = $this->labelColor;
-        $json['modify_tax_basis'] = $this->modifyTaxBasis;
+        if (isset($this->name)) {
+            $json['name']             = $this->name;
+        }
+        if (isset($this->discountType)) {
+            $json['discount_type']    = $this->discountType;
+        }
+        if (isset($this->percentage)) {
+            $json['percentage']       = $this->percentage;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']     = $this->amountMoney;
+        }
+        if (isset($this->pinRequired)) {
+            $json['pin_required']     = $this->pinRequired;
+        }
+        if (isset($this->labelColor)) {
+            $json['label_color']      = $this->labelColor;
+        }
+        if (isset($this->modifyTaxBasis)) {
+            $json['modify_tax_basis'] = $this->modifyTaxBasis;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

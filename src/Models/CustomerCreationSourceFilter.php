@@ -82,8 +82,12 @@ class CustomerCreationSourceFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['values'] = $this->values;
-        $json['rule']   = $this->rule;
+        if (isset($this->values)) {
+            $json['values'] = $this->values;
+        }
+        if (isset($this->rule)) {
+            $json['rule']   = $this->rule;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

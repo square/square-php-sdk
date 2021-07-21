@@ -110,9 +110,15 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['workweek_configs'] = $this->workweekConfigs;
-        $json['cursor']          = $this->cursor;
-        $json['errors']          = $this->errors;
+        if (isset($this->workweekConfigs)) {
+            $json['workweek_configs'] = $this->workweekConfigs;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']           = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']           = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

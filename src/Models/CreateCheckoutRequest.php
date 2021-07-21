@@ -369,15 +369,29 @@ class CreateCheckoutRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']            = $this->idempotencyKey;
-        $json['order']                      = $this->order;
-        $json['ask_for_shipping_address']   = $this->askForShippingAddress;
-        $json['merchant_support_email']     = $this->merchantSupportEmail;
-        $json['pre_populate_buyer_email']   = $this->prePopulateBuyerEmail;
-        $json['pre_populate_shipping_address'] = $this->prePopulateShippingAddress;
-        $json['redirect_url']               = $this->redirectUrl;
-        $json['additional_recipients']      = $this->additionalRecipients;
-        $json['note']                       = $this->note;
+        $json['idempotency_key']                   = $this->idempotencyKey;
+        $json['order']                             = $this->order;
+        if (isset($this->askForShippingAddress)) {
+            $json['ask_for_shipping_address']      = $this->askForShippingAddress;
+        }
+        if (isset($this->merchantSupportEmail)) {
+            $json['merchant_support_email']        = $this->merchantSupportEmail;
+        }
+        if (isset($this->prePopulateBuyerEmail)) {
+            $json['pre_populate_buyer_email']      = $this->prePopulateBuyerEmail;
+        }
+        if (isset($this->prePopulateShippingAddress)) {
+            $json['pre_populate_shipping_address'] = $this->prePopulateShippingAddress;
+        }
+        if (isset($this->redirectUrl)) {
+            $json['redirect_url']                  = $this->redirectUrl;
+        }
+        if (isset($this->additionalRecipients)) {
+            $json['additional_recipients']         = $this->additionalRecipients;
+        }
+        if (isset($this->note)) {
+            $json['note']                          = $this->note;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

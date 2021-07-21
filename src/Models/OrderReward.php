@@ -84,7 +84,7 @@ class OrderReward implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']           = $this->id;
+        $json['id']             = $this->id;
         $json['reward_tier_id'] = $this->rewardTierId;
 
         return array_filter($json, function ($val) {

@@ -104,9 +104,13 @@ class DeviceCheckoutOptions implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['device_id']         = $this->deviceId;
-        $json['skip_receipt_screen'] = $this->skipReceiptScreen;
-        $json['tip_settings']      = $this->tipSettings;
+        $json['device_id']               = $this->deviceId;
+        if (isset($this->skipReceiptScreen)) {
+            $json['skip_receipt_screen'] = $this->skipReceiptScreen;
+        }
+        if (isset($this->tipSettings)) {
+            $json['tip_settings']        = $this->tipSettings;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -201,12 +201,24 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_id']             = $this->locationId;
-        $json['price_money']             = $this->priceMoney;
-        $json['pricing_type']            = $this->pricingType;
-        $json['track_inventory']         = $this->trackInventory;
-        $json['inventory_alert_type']    = $this->inventoryAlertType;
-        $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
+        if (isset($this->locationId)) {
+            $json['location_id']               = $this->locationId;
+        }
+        if (isset($this->priceMoney)) {
+            $json['price_money']               = $this->priceMoney;
+        }
+        if (isset($this->pricingType)) {
+            $json['pricing_type']              = $this->pricingType;
+        }
+        if (isset($this->trackInventory)) {
+            $json['track_inventory']           = $this->trackInventory;
+        }
+        if (isset($this->inventoryAlertType)) {
+            $json['inventory_alert_type']      = $this->inventoryAlertType;
+        }
+        if (isset($this->inventoryAlertThreshold)) {
+            $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

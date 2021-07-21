@@ -96,9 +96,15 @@ class V1PaymentModifier implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']             = $this->name;
-        $json['applied_money']    = $this->appliedMoney;
-        $json['modifier_option_id'] = $this->modifierOptionId;
+        if (isset($this->name)) {
+            $json['name']               = $this->name;
+        }
+        if (isset($this->appliedMoney)) {
+            $json['applied_money']      = $this->appliedMoney;
+        }
+        if (isset($this->modifierOptionId)) {
+            $json['modifier_option_id'] = $this->modifierOptionId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

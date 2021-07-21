@@ -46,7 +46,9 @@ class CatalogCategory implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name'] = $this->name;
+        if (isset($this->name)) {
+            $json['name'] = $this->name;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

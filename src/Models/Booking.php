@@ -332,17 +332,39 @@ class Booking implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                  = $this->id;
-        $json['version']             = $this->version;
-        $json['status']              = $this->status;
-        $json['created_at']          = $this->createdAt;
-        $json['updated_at']          = $this->updatedAt;
-        $json['start_at']            = $this->startAt;
-        $json['location_id']         = $this->locationId;
-        $json['customer_id']         = $this->customerId;
-        $json['customer_note']       = $this->customerNote;
-        $json['seller_note']         = $this->sellerNote;
-        $json['appointment_segments'] = $this->appointmentSegments;
+        if (isset($this->id)) {
+            $json['id']                   = $this->id;
+        }
+        if (isset($this->version)) {
+            $json['version']              = $this->version;
+        }
+        if (isset($this->status)) {
+            $json['status']               = $this->status;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']           = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']           = $this->updatedAt;
+        }
+        if (isset($this->startAt)) {
+            $json['start_at']             = $this->startAt;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']          = $this->locationId;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']          = $this->customerId;
+        }
+        if (isset($this->customerNote)) {
+            $json['customer_note']        = $this->customerNote;
+        }
+        if (isset($this->sellerNote)) {
+            $json['seller_note']          = $this->sellerNote;
+        }
+        if (isset($this->appointmentSegments)) {
+            $json['appointment_segments'] = $this->appointmentSegments;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

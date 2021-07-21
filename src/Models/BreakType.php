@@ -264,14 +264,22 @@ class BreakType implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['location_id']      = $this->locationId;
-        $json['break_name']       = $this->breakName;
+        if (isset($this->id)) {
+            $json['id']            = $this->id;
+        }
+        $json['location_id']       = $this->locationId;
+        $json['break_name']        = $this->breakName;
         $json['expected_duration'] = $this->expectedDuration;
-        $json['is_paid']          = $this->isPaid;
-        $json['version']          = $this->version;
-        $json['created_at']       = $this->createdAt;
-        $json['updated_at']       = $this->updatedAt;
+        $json['is_paid']           = $this->isPaid;
+        if (isset($this->version)) {
+            $json['version']       = $this->version;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']    = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']    = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

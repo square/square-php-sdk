@@ -245,13 +245,27 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['catalog_object_ids'] = $this->catalogObjectIds;
-        $json['location_ids']     = $this->locationIds;
-        $json['types']            = $this->types;
-        $json['states']           = $this->states;
-        $json['updated_after']    = $this->updatedAfter;
-        $json['updated_before']   = $this->updatedBefore;
-        $json['cursor']           = $this->cursor;
+        if (isset($this->catalogObjectIds)) {
+            $json['catalog_object_ids'] = $this->catalogObjectIds;
+        }
+        if (isset($this->locationIds)) {
+            $json['location_ids']       = $this->locationIds;
+        }
+        if (isset($this->types)) {
+            $json['types']              = $this->types;
+        }
+        if (isset($this->states)) {
+            $json['states']             = $this->states;
+        }
+        if (isset($this->updatedAfter)) {
+            $json['updated_after']      = $this->updatedAfter;
+        }
+        if (isset($this->updatedBefore)) {
+            $json['updated_before']     = $this->updatedBefore;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']             = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

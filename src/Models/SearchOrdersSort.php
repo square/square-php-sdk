@@ -81,8 +81,10 @@ class SearchOrdersSort implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['sort_field'] = $this->sortField;
-        $json['sort_order'] = $this->sortOrder;
+        $json['sort_field']     = $this->sortField;
+        if (isset($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

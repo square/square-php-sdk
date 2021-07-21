@@ -41,7 +41,9 @@ class RenewTokenRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['access_token'] = $this->accessToken;
+        if (isset($this->accessToken)) {
+            $json['access_token'] = $this->accessToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

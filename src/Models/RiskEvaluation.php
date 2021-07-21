@@ -72,8 +72,12 @@ class RiskEvaluation implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['created_at'] = $this->createdAt;
-        $json['risk_level'] = $this->riskLevel;
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
+        if (isset($this->riskLevel)) {
+            $json['risk_level'] = $this->riskLevel;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

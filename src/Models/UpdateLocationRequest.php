@@ -40,7 +40,9 @@ class UpdateLocationRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location'] = $this->location;
+        if (isset($this->location)) {
+            $json['location'] = $this->location;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

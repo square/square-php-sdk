@@ -76,8 +76,12 @@ class RetrieveWageSettingResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['wage_setting'] = $this->wageSetting;
-        $json['errors']      = $this->errors;
+        if (isset($this->wageSetting)) {
+            $json['wage_setting'] = $this->wageSetting;
+        }
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

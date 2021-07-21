@@ -124,10 +124,18 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['bookable_only'] = $this->bookableOnly;
-        $json['limit']        = $this->limit;
-        $json['cursor']       = $this->cursor;
-        $json['location_id']  = $this->locationId;
+        if (isset($this->bookableOnly)) {
+            $json['bookable_only'] = $this->bookableOnly;
+        }
+        if (isset($this->limit)) {
+            $json['limit']         = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']        = $this->cursor;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']   = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

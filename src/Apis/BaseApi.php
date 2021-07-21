@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Http\HttpCallBack;
 use Square\Http\HttpResponse;
 use Square\ConfigurationInterface;
+use Square\AuthManagerInterface;
 use apimatic\jsonmapper\JsonMapper;
 
 /**
@@ -19,14 +20,14 @@ class BaseApi
      *
      * @var string
      */
-    protected const USER_AGENT = 'Square-PHP-SDK/12.0.0.20210616';
+    protected const USER_AGENT = 'Square-PHP-SDK/13.0.0.20210721';
 
     /**
      * HttpCallBack instance associated with this controller
      *
      * @var HttpCallBack|null
      */
-    private $httpCallBack = null;
+    private $httpCallBack;
 
     /**
      * Configuration instance
@@ -36,15 +37,31 @@ class BaseApi
     protected $config;
 
     /**
+     * List of auth managers for this controller.
+     *
+     * @var array
+     */
+    private $authManagers = [];
+
+    /**
      * Constructor that sets the timeout of requests
      */
-    protected function __construct(ConfigurationInterface $config, ?HttpCallBack $httpCallBack = null)
+    protected function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
     {
         $this->config = $config;
+        $this->authManagers = $authManagers;
+        $this->httpCallBack = $httpCallBack;
+    }
 
-        if (isset($httpCallBack)) {
-            $this->httpCallBack = $httpCallBack;
-        }
+    /**
+     * Get auth manager for the provided namespace key.
+     *
+     * @param  string   $key         Namespace key
+     * @return AuthManagerInterface  The AuthManager set for this key.
+     */
+    protected function getAuthManager(string $key): AuthManagerInterface
+    {
+        return $this->authManagers[$key];
     }
 
     /**

@@ -99,8 +99,10 @@ class CalculateOrderRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order']           = $this->order;
-        $json['proposed_rewards'] = $this->proposedRewards;
+        $json['order']                = $this->order;
+        if (isset($this->proposedRewards)) {
+            $json['proposed_rewards'] = $this->proposedRewards;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

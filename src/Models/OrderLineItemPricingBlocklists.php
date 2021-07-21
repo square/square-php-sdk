@@ -90,8 +90,12 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['blocked_discounts'] = $this->blockedDiscounts;
-        $json['blocked_taxes']    = $this->blockedTaxes;
+        if (isset($this->blockedDiscounts)) {
+            $json['blocked_discounts'] = $this->blockedDiscounts;
+        }
+        if (isset($this->blockedTaxes)) {
+            $json['blocked_taxes']     = $this->blockedTaxes;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

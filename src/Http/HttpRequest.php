@@ -96,6 +96,17 @@ class HttpRequest
     }
 
     /**
+     * Add or replace a single header
+     *
+     * @param string $key   key for the header
+     * @param string $value value of the header
+     */
+    public function addHeader(string $key, string $value): void
+    {
+        $this->headers[$key] = $value;
+    }
+
+    /**
      * Get query url
      *
      * @return string Query url

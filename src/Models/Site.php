@@ -179,12 +179,24 @@ class Site implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']          = $this->id;
-        $json['site_title']  = $this->siteTitle;
-        $json['domain']      = $this->domain;
-        $json['is_published'] = $this->isPublished;
-        $json['created_at']  = $this->createdAt;
-        $json['updated_at']  = $this->updatedAt;
+        if (isset($this->id)) {
+            $json['id']           = $this->id;
+        }
+        if (isset($this->siteTitle)) {
+            $json['site_title']   = $this->siteTitle;
+        }
+        if (isset($this->domain)) {
+            $json['domain']       = $this->domain;
+        }
+        if (isset($this->isPublished)) {
+            $json['is_published'] = $this->isPublished;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']   = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']   = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

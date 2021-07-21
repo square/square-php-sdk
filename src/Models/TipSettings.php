@@ -183,11 +183,21 @@ class TipSettings implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['allow_tipping']     = $this->allowTipping;
-        $json['separate_tip_screen'] = $this->separateTipScreen;
-        $json['custom_tip_field']  = $this->customTipField;
-        $json['tip_percentages']   = $this->tipPercentages;
-        $json['smart_tipping']     = $this->smartTipping;
+        if (isset($this->allowTipping)) {
+            $json['allow_tipping']       = $this->allowTipping;
+        }
+        if (isset($this->separateTipScreen)) {
+            $json['separate_tip_screen'] = $this->separateTipScreen;
+        }
+        if (isset($this->customTipField)) {
+            $json['custom_tip_field']    = $this->customTipField;
+        }
+        if (isset($this->tipPercentages)) {
+            $json['tip_percentages']     = $this->tipPercentages;
+        }
+        if (isset($this->smartTipping)) {
+            $json['smart_tipping']       = $this->smartTipping;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

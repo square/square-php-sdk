@@ -20,11 +20,6 @@ interface ConfigurationInterface
     public function getSquareVersion(): string;
 
     /**
-     * Get the OAuth 2.0 Access Token to use for API requests.
-     */
-    public function getAccessToken(): string;
-
-    /**
      * Get additional headers to add to each API call
      */
     public function getAdditionalHeaders(): array;
@@ -40,7 +35,12 @@ interface ConfigurationInterface
     public function getCustomUrl(): string;
 
     /**
-     * Get the base uri for a given server in the current environment
+     * Get the credentials to use with AccessToken
+     */
+    public function getAccessTokenCredentials(): ?AccessTokenCredentials;
+
+    /**
+     * Get the base uri for a given server in the current environment.
      *
      * @param string $server Server name
      *

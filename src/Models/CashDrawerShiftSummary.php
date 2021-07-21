@@ -299,15 +299,33 @@ class CashDrawerShiftSummary implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['state']             = $this->state;
-        $json['opened_at']         = $this->openedAt;
-        $json['ended_at']          = $this->endedAt;
-        $json['closed_at']         = $this->closedAt;
-        $json['description']       = $this->description;
-        $json['opened_cash_money'] = $this->openedCashMoney;
-        $json['expected_cash_money'] = $this->expectedCashMoney;
-        $json['closed_cash_money'] = $this->closedCashMoney;
+        if (isset($this->id)) {
+            $json['id']                  = $this->id;
+        }
+        if (isset($this->state)) {
+            $json['state']               = $this->state;
+        }
+        if (isset($this->openedAt)) {
+            $json['opened_at']           = $this->openedAt;
+        }
+        if (isset($this->endedAt)) {
+            $json['ended_at']            = $this->endedAt;
+        }
+        if (isset($this->closedAt)) {
+            $json['closed_at']           = $this->closedAt;
+        }
+        if (isset($this->description)) {
+            $json['description']         = $this->description;
+        }
+        if (isset($this->openedCashMoney)) {
+            $json['opened_cash_money']   = $this->openedCashMoney;
+        }
+        if (isset($this->expectedCashMoney)) {
+            $json['expected_cash_money'] = $this->expectedCashMoney;
+        }
+        if (isset($this->closedCashMoney)) {
+            $json['closed_cash_money']   = $this->closedCashMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -106,9 +106,15 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['query']  = $this->query;
-        $json['limit']  = $this->limit;
-        $json['cursor'] = $this->cursor;
+        if (isset($this->query)) {
+            $json['query']  = $this->query;
+        }
+        if (isset($this->limit)) {
+            $json['limit']  = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor'] = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

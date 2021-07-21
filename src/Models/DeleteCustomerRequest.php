@@ -55,7 +55,9 @@ class DeleteCustomerRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['version'] = $this->version;
+        if (isset($this->version)) {
+            $json['version'] = $this->version;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

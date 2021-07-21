@@ -139,10 +139,18 @@ class CatalogModifier implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']           = $this->name;
-        $json['price_money']    = $this->priceMoney;
-        $json['ordinal']        = $this->ordinal;
-        $json['modifier_list_id'] = $this->modifierListId;
+        if (isset($this->name)) {
+            $json['name']             = $this->name;
+        }
+        if (isset($this->priceMoney)) {
+            $json['price_money']      = $this->priceMoney;
+        }
+        if (isset($this->ordinal)) {
+            $json['ordinal']          = $this->ordinal;
+        }
+        if (isset($this->modifierListId)) {
+            $json['modifier_list_id'] = $this->modifierListId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

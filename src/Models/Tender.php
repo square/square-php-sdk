@@ -450,20 +450,46 @@ class Tender implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                   = $this->id;
-        $json['location_id']          = $this->locationId;
-        $json['transaction_id']       = $this->transactionId;
-        $json['created_at']           = $this->createdAt;
-        $json['note']                 = $this->note;
-        $json['amount_money']         = $this->amountMoney;
-        $json['tip_money']            = $this->tipMoney;
-        $json['processing_fee_money'] = $this->processingFeeMoney;
-        $json['customer_id']          = $this->customerId;
-        $json['type']                 = $this->type;
-        $json['card_details']         = $this->cardDetails;
-        $json['cash_details']         = $this->cashDetails;
-        $json['additional_recipients'] = $this->additionalRecipients;
-        $json['payment_id']           = $this->paymentId;
+        if (isset($this->id)) {
+            $json['id']                    = $this->id;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']           = $this->locationId;
+        }
+        if (isset($this->transactionId)) {
+            $json['transaction_id']        = $this->transactionId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']            = $this->createdAt;
+        }
+        if (isset($this->note)) {
+            $json['note']                  = $this->note;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']          = $this->amountMoney;
+        }
+        if (isset($this->tipMoney)) {
+            $json['tip_money']             = $this->tipMoney;
+        }
+        if (isset($this->processingFeeMoney)) {
+            $json['processing_fee_money']  = $this->processingFeeMoney;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']           = $this->customerId;
+        }
+        $json['type']                      = $this->type;
+        if (isset($this->cardDetails)) {
+            $json['card_details']          = $this->cardDetails;
+        }
+        if (isset($this->cashDetails)) {
+            $json['cash_details']          = $this->cashDetails;
+        }
+        if (isset($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']            = $this->paymentId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

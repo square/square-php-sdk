@@ -552,24 +552,60 @@ class InventoryAdjustment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['reference_id']      = $this->referenceId;
-        $json['from_state']        = $this->fromState;
-        $json['to_state']          = $this->toState;
-        $json['location_id']       = $this->locationId;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['catalog_object_type'] = $this->catalogObjectType;
-        $json['quantity']          = $this->quantity;
-        $json['total_price_money'] = $this->totalPriceMoney;
-        $json['occurred_at']       = $this->occurredAt;
-        $json['created_at']        = $this->createdAt;
-        $json['source']            = $this->source;
-        $json['employee_id']       = $this->employeeId;
-        $json['transaction_id']    = $this->transactionId;
-        $json['refund_id']         = $this->refundId;
-        $json['purchase_order_id'] = $this->purchaseOrderId;
-        $json['goods_receipt_id']  = $this->goodsReceiptId;
-        $json['adjustment_group']  = $this->adjustmentGroup;
+        if (isset($this->id)) {
+            $json['id']                  = $this->id;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']        = $this->referenceId;
+        }
+        if (isset($this->fromState)) {
+            $json['from_state']          = $this->fromState;
+        }
+        if (isset($this->toState)) {
+            $json['to_state']            = $this->toState;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']         = $this->locationId;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId;
+        }
+        if (isset($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType;
+        }
+        if (isset($this->quantity)) {
+            $json['quantity']            = $this->quantity;
+        }
+        if (isset($this->totalPriceMoney)) {
+            $json['total_price_money']   = $this->totalPriceMoney;
+        }
+        if (isset($this->occurredAt)) {
+            $json['occurred_at']         = $this->occurredAt;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']          = $this->createdAt;
+        }
+        if (isset($this->source)) {
+            $json['source']              = $this->source;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id']         = $this->employeeId;
+        }
+        if (isset($this->transactionId)) {
+            $json['transaction_id']      = $this->transactionId;
+        }
+        if (isset($this->refundId)) {
+            $json['refund_id']           = $this->refundId;
+        }
+        if (isset($this->purchaseOrderId)) {
+            $json['purchase_order_id']   = $this->purchaseOrderId;
+        }
+        if (isset($this->goodsReceiptId)) {
+            $json['goods_receipt_id']    = $this->goodsReceiptId;
+        }
+        if (isset($this->adjustmentGroup)) {
+            $json['adjustment_group']    = $this->adjustmentGroup;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

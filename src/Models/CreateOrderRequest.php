@@ -94,8 +94,12 @@ class CreateOrderRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order']          = $this->order;
-        $json['idempotency_key'] = $this->idempotencyKey;
+        if (isset($this->order)) {
+            $json['order']           = $this->order;
+        }
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

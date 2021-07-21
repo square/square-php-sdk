@@ -82,8 +82,12 @@ class RetrieveSubscriptionResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']       = $this->errors;
-        $json['subscription'] = $this->subscription;
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
+        if (isset($this->subscription)) {
+            $json['subscription'] = $this->subscription;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

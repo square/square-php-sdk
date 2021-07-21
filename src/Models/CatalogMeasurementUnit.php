@@ -92,8 +92,12 @@ class CatalogMeasurementUnit implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['measurement_unit'] = $this->measurementUnit;
-        $json['precision']       = $this->precision;
+        if (isset($this->measurementUnit)) {
+            $json['measurement_unit'] = $this->measurementUnit;
+        }
+        if (isset($this->precision)) {
+            $json['precision']        = $this->precision;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

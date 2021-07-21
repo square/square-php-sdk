@@ -102,9 +102,15 @@ class ListBreakTypesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_id'] = $this->locationId;
-        $json['limit']      = $this->limit;
-        $json['cursor']     = $this->cursor;
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
+        if (isset($this->limit)) {
+            $json['limit']       = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']      = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

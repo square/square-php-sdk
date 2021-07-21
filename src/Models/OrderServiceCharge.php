@@ -25,6 +25,11 @@ class OrderServiceCharge implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @var string|null
      */
     private $percentage;
@@ -68,6 +73,11 @@ class OrderServiceCharge implements \JsonSerializable
      * @var array|null
      */
     private $metadata;
+
+    /**
+     * @var string|null
+     */
+    private $type;
 
     /**
      * Returns Uid.
@@ -133,6 +143,28 @@ class OrderServiceCharge implements \JsonSerializable
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this service charge references.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this service charge references.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
     }
 
     /**
@@ -460,6 +492,24 @@ class OrderServiceCharge implements \JsonSerializable
     }
 
     /**
+     * Returns Type.
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Sets Type.
+     *
+     * @maps type
+     */
+    public function setType(?string $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -467,18 +517,48 @@ class OrderServiceCharge implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']              = $this->uid;
-        $json['name']             = $this->name;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['percentage']       = $this->percentage;
-        $json['amount_money']     = $this->amountMoney;
-        $json['applied_money']    = $this->appliedMoney;
-        $json['total_money']      = $this->totalMoney;
-        $json['total_tax_money']  = $this->totalTaxMoney;
-        $json['calculation_phase'] = $this->calculationPhase;
-        $json['taxable']          = $this->taxable;
-        $json['applied_taxes']    = $this->appliedTaxes;
-        $json['metadata']         = $this->metadata;
+        if (isset($this->uid)) {
+            $json['uid']               = $this->uid;
+        }
+        if (isset($this->name)) {
+            $json['name']              = $this->name;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion;
+        }
+        if (isset($this->percentage)) {
+            $json['percentage']        = $this->percentage;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']      = $this->amountMoney;
+        }
+        if (isset($this->appliedMoney)) {
+            $json['applied_money']     = $this->appliedMoney;
+        }
+        if (isset($this->totalMoney)) {
+            $json['total_money']       = $this->totalMoney;
+        }
+        if (isset($this->totalTaxMoney)) {
+            $json['total_tax_money']   = $this->totalTaxMoney;
+        }
+        if (isset($this->calculationPhase)) {
+            $json['calculation_phase'] = $this->calculationPhase;
+        }
+        if (isset($this->taxable)) {
+            $json['taxable']           = $this->taxable;
+        }
+        if (isset($this->appliedTaxes)) {
+            $json['applied_taxes']     = $this->appliedTaxes;
+        }
+        if (isset($this->metadata)) {
+            $json['metadata']          = $this->metadata;
+        }
+        if (isset($this->type)) {
+            $json['type']              = $this->type;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -265,15 +265,33 @@ class V1ListEmployeesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order']          = $this->order;
-        $json['begin_updated_at'] = $this->beginUpdatedAt;
-        $json['end_updated_at'] = $this->endUpdatedAt;
-        $json['begin_created_at'] = $this->beginCreatedAt;
-        $json['end_created_at'] = $this->endCreatedAt;
-        $json['status']         = $this->status;
-        $json['external_id']    = $this->externalId;
-        $json['limit']          = $this->limit;
-        $json['batch_token']    = $this->batchToken;
+        if (isset($this->order)) {
+            $json['order']            = $this->order;
+        }
+        if (isset($this->beginUpdatedAt)) {
+            $json['begin_updated_at'] = $this->beginUpdatedAt;
+        }
+        if (isset($this->endUpdatedAt)) {
+            $json['end_updated_at']   = $this->endUpdatedAt;
+        }
+        if (isset($this->beginCreatedAt)) {
+            $json['begin_created_at'] = $this->beginCreatedAt;
+        }
+        if (isset($this->endCreatedAt)) {
+            $json['end_created_at']   = $this->endCreatedAt;
+        }
+        if (isset($this->status)) {
+            $json['status']           = $this->status;
+        }
+        if (isset($this->externalId)) {
+            $json['external_id']      = $this->externalId;
+        }
+        if (isset($this->limit)) {
+            $json['limit']            = $this->limit;
+        }
+        if (isset($this->batchToken)) {
+            $json['batch_token']      = $this->batchToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

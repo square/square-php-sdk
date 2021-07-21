@@ -24,6 +24,11 @@ class OrderLineItemTax implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @var string|null
      */
     private $name;
@@ -100,6 +105,28 @@ class OrderLineItemTax implements \JsonSerializable
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this tax references.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this tax references.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
     }
 
     /**
@@ -320,15 +347,36 @@ class OrderLineItemTax implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']             = $this->uid;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['name']            = $this->name;
-        $json['type']            = $this->type;
-        $json['percentage']      = $this->percentage;
-        $json['metadata']        = $this->metadata;
-        $json['applied_money']   = $this->appliedMoney;
-        $json['scope']           = $this->scope;
-        $json['auto_applied']    = $this->autoApplied;
+        if (isset($this->uid)) {
+            $json['uid']               = $this->uid;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion;
+        }
+        if (isset($this->name)) {
+            $json['name']              = $this->name;
+        }
+        if (isset($this->type)) {
+            $json['type']              = $this->type;
+        }
+        if (isset($this->percentage)) {
+            $json['percentage']        = $this->percentage;
+        }
+        if (isset($this->metadata)) {
+            $json['metadata']          = $this->metadata;
+        }
+        if (isset($this->appliedMoney)) {
+            $json['applied_money']     = $this->appliedMoney;
+        }
+        if (isset($this->scope)) {
+            $json['scope']             = $this->scope;
+        }
+        if (isset($this->autoApplied)) {
+            $json['auto_applied']      = $this->autoApplied;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

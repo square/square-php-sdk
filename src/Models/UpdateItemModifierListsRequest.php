@@ -116,9 +116,13 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_ids']               = $this->itemIds;
-        $json['modifier_lists_to_enable'] = $this->modifierListsToEnable;
-        $json['modifier_lists_to_disable'] = $this->modifierListsToDisable;
+        $json['item_ids']                      = $this->itemIds;
+        if (isset($this->modifierListsToEnable)) {
+            $json['modifier_lists_to_enable']  = $this->modifierListsToEnable;
+        }
+        if (isset($this->modifierListsToDisable)) {
+            $json['modifier_lists_to_disable'] = $this->modifierListsToDisable;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

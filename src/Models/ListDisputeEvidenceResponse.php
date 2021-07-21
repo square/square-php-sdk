@@ -110,9 +110,15 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['evidence'] = $this->evidence;
-        $json['errors']   = $this->errors;
-        $json['cursor']   = $this->cursor;
+        if (isset($this->evidence)) {
+            $json['evidence'] = $this->evidence;
+        }
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']   = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

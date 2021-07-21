@@ -48,10 +48,13 @@ class SquareClient implements ConfigurationInterface
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
     private $squareVersion = ConfigurationDefaults::SQUARE_VERSION;
-    private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
     private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
     private $environment = ConfigurationDefaults::ENVIRONMENT;
     private $customUrl = ConfigurationDefaults::CUSTOM_URL;
+    private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
+    private $accessTokenManager;
+    private $authManagers = [];
+    private $httpCallback;
 
     public function __construct(array $configOptions = null)
     {
@@ -60,9 +63,6 @@ class SquareClient implements ConfigurationInterface
         }
         if (isset($configOptions['squareVersion'])) {
             $this->squareVersion = $configOptions['squareVersion'];
-        }
-        if (isset($configOptions['accessToken'])) {
-            $this->accessToken = $configOptions['accessToken'];
         }
         if (isset($configOptions['additionalHeaders'])) {
             $this->additionalHeaders = $configOptions['additionalHeaders'];
@@ -74,6 +74,15 @@ class SquareClient implements ConfigurationInterface
         if (isset($configOptions['customUrl'])) {
             $this->customUrl = $configOptions['customUrl'];
         }
+        if (isset($configOptions['accessToken'])) {
+            $this->accessToken = $configOptions['accessToken'];
+        }
+        if (isset($configOptions['httpCallback'])) {
+            $this->httpCallback = $configOptions['httpCallback'];
+        }
+
+        $this->accessTokenManager = new AccessTokenManager($this->accessToken);
+        $this->authManagers['global'] = $this->accessTokenManager;
     }
 
     /**
@@ -89,9 +98,6 @@ class SquareClient implements ConfigurationInterface
         if (isset($this->squareVersion)) {
             $configMap['squareVersion'] = $this->squareVersion;
         }
-        if (isset($this->accessToken)) {
-            $configMap['accessToken'] = $this->accessToken;
-        }
         if (isset($this->additionalHeaders)) {
             $configMap['additionalHeaders'] = $this->additionalHeaders;
         }
@@ -100,6 +106,12 @@ class SquareClient implements ConfigurationInterface
         }
         if (isset($this->customUrl)) {
             $configMap['customUrl'] = $this->customUrl;
+        }
+        if (isset($this->accessToken)) {
+            $configMap['accessToken'] = $this->accessToken;
+        }
+        if (isset($this->httpCallback)) {
+            $configMap['httpCallback'] = $this->httpCallback;
         }
 
         return $configMap;
@@ -123,11 +135,6 @@ class SquareClient implements ConfigurationInterface
         return $this->squareVersion;
     }
 
-    public function getAccessToken(): string
-    {
-        return $this->accessToken;
-    }
-
     public function getAdditionalHeaders(): array
     {
         return $this->additionalHeaders;
@@ -143,13 +150,23 @@ class SquareClient implements ConfigurationInterface
         return $this->customUrl;
     }
 
+    public function getAccessTokenCredentials(): ?AccessTokenCredentials
+    {
+        if (isset($this->accessTokenManager)) {
+            return clone $this->accessTokenManager;
+        } else {
+            return null;
+        }
+    }
+
     /**
      * Get current SDK version
      */
     public function getSdkVersion(): string
     {
-        return '12.0.0.20210616';
+        return '13.0.0.20210721';
     }
+
 
     /**
      * Get the base uri for a given server in the current environment
@@ -175,7 +192,11 @@ class SquareClient implements ConfigurationInterface
     public function getMobileAuthorizationApi(): Apis\MobileAuthorizationApi
     {
         if ($this->mobileAuthorization == null) {
-            $this->mobileAuthorization = new Apis\MobileAuthorizationApi($this);
+            $this->mobileAuthorization = new Apis\MobileAuthorizationApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->mobileAuthorization;
     }
@@ -186,7 +207,7 @@ class SquareClient implements ConfigurationInterface
     public function getOAuthApi(): Apis\OAuthApi
     {
         if ($this->oAuth == null) {
-            $this->oAuth = new Apis\OAuthApi($this);
+            $this->oAuth = new Apis\OAuthApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->oAuth;
     }
@@ -197,7 +218,7 @@ class SquareClient implements ConfigurationInterface
     public function getV1EmployeesApi(): Apis\V1EmployeesApi
     {
         if ($this->v1Employees == null) {
-            $this->v1Employees = new Apis\V1EmployeesApi($this);
+            $this->v1Employees = new Apis\V1EmployeesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->v1Employees;
     }
@@ -208,7 +229,11 @@ class SquareClient implements ConfigurationInterface
     public function getV1TransactionsApi(): Apis\V1TransactionsApi
     {
         if ($this->v1Transactions == null) {
-            $this->v1Transactions = new Apis\V1TransactionsApi($this);
+            $this->v1Transactions = new Apis\V1TransactionsApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->v1Transactions;
     }
@@ -219,7 +244,7 @@ class SquareClient implements ConfigurationInterface
     public function getApplePayApi(): Apis\ApplePayApi
     {
         if ($this->applePay == null) {
-            $this->applePay = new Apis\ApplePayApi($this);
+            $this->applePay = new Apis\ApplePayApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->applePay;
     }
@@ -230,7 +255,7 @@ class SquareClient implements ConfigurationInterface
     public function getBankAccountsApi(): Apis\BankAccountsApi
     {
         if ($this->bankAccounts == null) {
-            $this->bankAccounts = new Apis\BankAccountsApi($this);
+            $this->bankAccounts = new Apis\BankAccountsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->bankAccounts;
     }
@@ -241,7 +266,7 @@ class SquareClient implements ConfigurationInterface
     public function getBookingsApi(): Apis\BookingsApi
     {
         if ($this->bookings == null) {
-            $this->bookings = new Apis\BookingsApi($this);
+            $this->bookings = new Apis\BookingsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->bookings;
     }
@@ -252,7 +277,7 @@ class SquareClient implements ConfigurationInterface
     public function getCardsApi(): Apis\CardsApi
     {
         if ($this->cards == null) {
-            $this->cards = new Apis\CardsApi($this);
+            $this->cards = new Apis\CardsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->cards;
     }
@@ -263,7 +288,7 @@ class SquareClient implements ConfigurationInterface
     public function getCashDrawersApi(): Apis\CashDrawersApi
     {
         if ($this->cashDrawers == null) {
-            $this->cashDrawers = new Apis\CashDrawersApi($this);
+            $this->cashDrawers = new Apis\CashDrawersApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->cashDrawers;
     }
@@ -274,7 +299,7 @@ class SquareClient implements ConfigurationInterface
     public function getCatalogApi(): Apis\CatalogApi
     {
         if ($this->catalog == null) {
-            $this->catalog = new Apis\CatalogApi($this);
+            $this->catalog = new Apis\CatalogApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->catalog;
     }
@@ -285,7 +310,7 @@ class SquareClient implements ConfigurationInterface
     public function getCustomersApi(): Apis\CustomersApi
     {
         if ($this->customers == null) {
-            $this->customers = new Apis\CustomersApi($this);
+            $this->customers = new Apis\CustomersApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->customers;
     }
@@ -296,7 +321,11 @@ class SquareClient implements ConfigurationInterface
     public function getCustomerGroupsApi(): Apis\CustomerGroupsApi
     {
         if ($this->customerGroups == null) {
-            $this->customerGroups = new Apis\CustomerGroupsApi($this);
+            $this->customerGroups = new Apis\CustomerGroupsApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->customerGroups;
     }
@@ -307,7 +336,11 @@ class SquareClient implements ConfigurationInterface
     public function getCustomerSegmentsApi(): Apis\CustomerSegmentsApi
     {
         if ($this->customerSegments == null) {
-            $this->customerSegments = new Apis\CustomerSegmentsApi($this);
+            $this->customerSegments = new Apis\CustomerSegmentsApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->customerSegments;
     }
@@ -318,7 +351,7 @@ class SquareClient implements ConfigurationInterface
     public function getDevicesApi(): Apis\DevicesApi
     {
         if ($this->devices == null) {
-            $this->devices = new Apis\DevicesApi($this);
+            $this->devices = new Apis\DevicesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->devices;
     }
@@ -329,7 +362,7 @@ class SquareClient implements ConfigurationInterface
     public function getDisputesApi(): Apis\DisputesApi
     {
         if ($this->disputes == null) {
-            $this->disputes = new Apis\DisputesApi($this);
+            $this->disputes = new Apis\DisputesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->disputes;
     }
@@ -340,7 +373,7 @@ class SquareClient implements ConfigurationInterface
     public function getEmployeesApi(): Apis\EmployeesApi
     {
         if ($this->employees == null) {
-            $this->employees = new Apis\EmployeesApi($this);
+            $this->employees = new Apis\EmployeesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->employees;
     }
@@ -351,7 +384,7 @@ class SquareClient implements ConfigurationInterface
     public function getGiftCardsApi(): Apis\GiftCardsApi
     {
         if ($this->giftCards == null) {
-            $this->giftCards = new Apis\GiftCardsApi($this);
+            $this->giftCards = new Apis\GiftCardsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->giftCards;
     }
@@ -362,7 +395,11 @@ class SquareClient implements ConfigurationInterface
     public function getGiftCardActivitiesApi(): Apis\GiftCardActivitiesApi
     {
         if ($this->giftCardActivities == null) {
-            $this->giftCardActivities = new Apis\GiftCardActivitiesApi($this);
+            $this->giftCardActivities = new Apis\GiftCardActivitiesApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->giftCardActivities;
     }
@@ -373,7 +410,7 @@ class SquareClient implements ConfigurationInterface
     public function getInventoryApi(): Apis\InventoryApi
     {
         if ($this->inventory == null) {
-            $this->inventory = new Apis\InventoryApi($this);
+            $this->inventory = new Apis\InventoryApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->inventory;
     }
@@ -384,7 +421,7 @@ class SquareClient implements ConfigurationInterface
     public function getInvoicesApi(): Apis\InvoicesApi
     {
         if ($this->invoices == null) {
-            $this->invoices = new Apis\InvoicesApi($this);
+            $this->invoices = new Apis\InvoicesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->invoices;
     }
@@ -395,7 +432,7 @@ class SquareClient implements ConfigurationInterface
     public function getLaborApi(): Apis\LaborApi
     {
         if ($this->labor == null) {
-            $this->labor = new Apis\LaborApi($this);
+            $this->labor = new Apis\LaborApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->labor;
     }
@@ -406,7 +443,7 @@ class SquareClient implements ConfigurationInterface
     public function getLocationsApi(): Apis\LocationsApi
     {
         if ($this->locations == null) {
-            $this->locations = new Apis\LocationsApi($this);
+            $this->locations = new Apis\LocationsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->locations;
     }
@@ -417,7 +454,7 @@ class SquareClient implements ConfigurationInterface
     public function getCheckoutApi(): Apis\CheckoutApi
     {
         if ($this->checkout == null) {
-            $this->checkout = new Apis\CheckoutApi($this);
+            $this->checkout = new Apis\CheckoutApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->checkout;
     }
@@ -428,7 +465,7 @@ class SquareClient implements ConfigurationInterface
     public function getTransactionsApi(): Apis\TransactionsApi
     {
         if ($this->transactions == null) {
-            $this->transactions = new Apis\TransactionsApi($this);
+            $this->transactions = new Apis\TransactionsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->transactions;
     }
@@ -439,7 +476,7 @@ class SquareClient implements ConfigurationInterface
     public function getLoyaltyApi(): Apis\LoyaltyApi
     {
         if ($this->loyalty == null) {
-            $this->loyalty = new Apis\LoyaltyApi($this);
+            $this->loyalty = new Apis\LoyaltyApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->loyalty;
     }
@@ -450,7 +487,7 @@ class SquareClient implements ConfigurationInterface
     public function getMerchantsApi(): Apis\MerchantsApi
     {
         if ($this->merchants == null) {
-            $this->merchants = new Apis\MerchantsApi($this);
+            $this->merchants = new Apis\MerchantsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->merchants;
     }
@@ -461,7 +498,7 @@ class SquareClient implements ConfigurationInterface
     public function getOrdersApi(): Apis\OrdersApi
     {
         if ($this->orders == null) {
-            $this->orders = new Apis\OrdersApi($this);
+            $this->orders = new Apis\OrdersApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->orders;
     }
@@ -472,7 +509,7 @@ class SquareClient implements ConfigurationInterface
     public function getPaymentsApi(): Apis\PaymentsApi
     {
         if ($this->payments == null) {
-            $this->payments = new Apis\PaymentsApi($this);
+            $this->payments = new Apis\PaymentsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->payments;
     }
@@ -483,7 +520,7 @@ class SquareClient implements ConfigurationInterface
     public function getRefundsApi(): Apis\RefundsApi
     {
         if ($this->refunds == null) {
-            $this->refunds = new Apis\RefundsApi($this);
+            $this->refunds = new Apis\RefundsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->refunds;
     }
@@ -494,7 +531,7 @@ class SquareClient implements ConfigurationInterface
     public function getSitesApi(): Apis\SitesApi
     {
         if ($this->sites == null) {
-            $this->sites = new Apis\SitesApi($this);
+            $this->sites = new Apis\SitesApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->sites;
     }
@@ -505,7 +542,7 @@ class SquareClient implements ConfigurationInterface
     public function getSnippetsApi(): Apis\SnippetsApi
     {
         if ($this->snippets == null) {
-            $this->snippets = new Apis\SnippetsApi($this);
+            $this->snippets = new Apis\SnippetsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->snippets;
     }
@@ -516,7 +553,11 @@ class SquareClient implements ConfigurationInterface
     public function getSubscriptionsApi(): Apis\SubscriptionsApi
     {
         if ($this->subscriptions == null) {
-            $this->subscriptions = new Apis\SubscriptionsApi($this);
+            $this->subscriptions = new Apis\SubscriptionsApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
         }
         return $this->subscriptions;
     }
@@ -527,7 +568,7 @@ class SquareClient implements ConfigurationInterface
     public function getTeamApi(): Apis\TeamApi
     {
         if ($this->team == null) {
-            $this->team = new Apis\TeamApi($this);
+            $this->team = new Apis\TeamApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->team;
     }
@@ -538,7 +579,7 @@ class SquareClient implements ConfigurationInterface
     public function getTerminalApi(): Apis\TerminalApi
     {
         if ($this->terminal == null) {
-            $this->terminal = new Apis\TerminalApi($this);
+            $this->terminal = new Apis\TerminalApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->terminal;
     }

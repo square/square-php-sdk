@@ -159,9 +159,15 @@ class GiftCardActivityRefund implements \JsonSerializable
     {
         $json = [];
         $json['redeem_activity_id'] = $this->redeemActivityId;
-        $json['amount_money']     = $this->amountMoney;
-        $json['reference_id']     = $this->referenceId;
-        $json['payment_id']       = $this->paymentId;
+        if (isset($this->amountMoney)) {
+            $json['amount_money']   = $this->amountMoney;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']   = $this->referenceId;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']     = $this->paymentId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -102,9 +102,15 @@ class StandardUnitDescription implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['unit']         = $this->unit;
-        $json['name']         = $this->name;
-        $json['abbreviation'] = $this->abbreviation;
+        if (isset($this->unit)) {
+            $json['unit']         = $this->unit;
+        }
+        if (isset($this->name)) {
+            $json['name']         = $this->name;
+        }
+        if (isset($this->abbreviation)) {
+            $json['abbreviation'] = $this->abbreviation;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

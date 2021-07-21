@@ -368,18 +368,42 @@ class InventoryTransfer implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['reference_id']      = $this->referenceId;
-        $json['state']             = $this->state;
-        $json['from_location_id']  = $this->fromLocationId;
-        $json['to_location_id']    = $this->toLocationId;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['catalog_object_type'] = $this->catalogObjectType;
-        $json['quantity']          = $this->quantity;
-        $json['occurred_at']       = $this->occurredAt;
-        $json['created_at']        = $this->createdAt;
-        $json['source']            = $this->source;
-        $json['employee_id']       = $this->employeeId;
+        if (isset($this->id)) {
+            $json['id']                  = $this->id;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']        = $this->referenceId;
+        }
+        if (isset($this->state)) {
+            $json['state']               = $this->state;
+        }
+        if (isset($this->fromLocationId)) {
+            $json['from_location_id']    = $this->fromLocationId;
+        }
+        if (isset($this->toLocationId)) {
+            $json['to_location_id']      = $this->toLocationId;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId;
+        }
+        if (isset($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType;
+        }
+        if (isset($this->quantity)) {
+            $json['quantity']            = $this->quantity;
+        }
+        if (isset($this->occurredAt)) {
+            $json['occurred_at']         = $this->occurredAt;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']          = $this->createdAt;
+        }
+        if (isset($this->source)) {
+            $json['source']              = $this->source;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id']         = $this->employeeId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

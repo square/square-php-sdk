@@ -79,8 +79,12 @@ class ListLoyaltyProgramsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']   = $this->errors;
-        $json['programs'] = $this->programs;
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
+        if (isset($this->programs)) {
+            $json['programs'] = $this->programs;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

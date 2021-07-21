@@ -99,9 +99,15 @@ class ListEmployeesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['employees'] = $this->employees;
-        $json['cursor']    = $this->cursor;
-        $json['errors']    = $this->errors;
+        if (isset($this->employees)) {
+            $json['employees'] = $this->employees;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']    = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']    = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

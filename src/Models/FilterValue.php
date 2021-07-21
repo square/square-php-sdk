@@ -116,9 +116,15 @@ class FilterValue implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['all']  = $this->all;
-        $json['any']  = $this->any;
-        $json['none'] = $this->none;
+        if (isset($this->all)) {
+            $json['all']  = $this->all;
+        }
+        if (isset($this->any)) {
+            $json['any']  = $this->any;
+        }
+        if (isset($this->none)) {
+            $json['none'] = $this->none;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

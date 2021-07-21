@@ -583,26 +583,62 @@ class GiftCardActivity implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                                    = $this->id;
-        $json['type']                                  = $this->type;
-        $json['location_id']                           = $this->locationId;
-        $json['created_at']                            = $this->createdAt;
-        $json['gift_card_id']                          = $this->giftCardId;
-        $json['gift_card_gan']                         = $this->giftCardGan;
-        $json['gift_card_balance_money']               = $this->giftCardBalanceMoney;
-        $json['load_activity_details']                 = $this->loadActivityDetails;
-        $json['activate_activity_details']             = $this->activateActivityDetails;
-        $json['redeem_activity_details']               = $this->redeemActivityDetails;
-        $json['clear_balance_activity_details']        = $this->clearBalanceActivityDetails;
-        $json['deactivate_activity_details']           = $this->deactivateActivityDetails;
-        $json['adjust_increment_activity_details']     = $this->adjustIncrementActivityDetails;
-        $json['adjust_decrement_activity_details']     = $this->adjustDecrementActivityDetails;
-        $json['refund_activity_details']               = $this->refundActivityDetails;
-        $json['unlinked_activity_refund_activity_details'] = $this->unlinkedActivityRefundActivityDetails;
-        $json['import_activity_details']               = $this->importActivityDetails;
-        $json['block_activity_details']                = $this->blockActivityDetails;
-        $json['unblock_activity_details']              = $this->unblockActivityDetails;
-        $json['import_reversal_activity_details']      = $this->importReversalActivityDetails;
+        if (isset($this->id)) {
+            $json['id']                                        = $this->id;
+        }
+        $json['type']                                          = $this->type;
+        $json['location_id']                                   = $this->locationId;
+        if (isset($this->createdAt)) {
+            $json['created_at']                                = $this->createdAt;
+        }
+        if (isset($this->giftCardId)) {
+            $json['gift_card_id']                              = $this->giftCardId;
+        }
+        if (isset($this->giftCardGan)) {
+            $json['gift_card_gan']                             = $this->giftCardGan;
+        }
+        if (isset($this->giftCardBalanceMoney)) {
+            $json['gift_card_balance_money']                   = $this->giftCardBalanceMoney;
+        }
+        if (isset($this->loadActivityDetails)) {
+            $json['load_activity_details']                     = $this->loadActivityDetails;
+        }
+        if (isset($this->activateActivityDetails)) {
+            $json['activate_activity_details']                 = $this->activateActivityDetails;
+        }
+        if (isset($this->redeemActivityDetails)) {
+            $json['redeem_activity_details']                   = $this->redeemActivityDetails;
+        }
+        if (isset($this->clearBalanceActivityDetails)) {
+            $json['clear_balance_activity_details']            = $this->clearBalanceActivityDetails;
+        }
+        if (isset($this->deactivateActivityDetails)) {
+            $json['deactivate_activity_details']               = $this->deactivateActivityDetails;
+        }
+        if (isset($this->adjustIncrementActivityDetails)) {
+            $json['adjust_increment_activity_details']         = $this->adjustIncrementActivityDetails;
+        }
+        if (isset($this->adjustDecrementActivityDetails)) {
+            $json['adjust_decrement_activity_details']         = $this->adjustDecrementActivityDetails;
+        }
+        if (isset($this->refundActivityDetails)) {
+            $json['refund_activity_details']                   = $this->refundActivityDetails;
+        }
+        if (isset($this->unlinkedActivityRefundActivityDetails)) {
+            $json['unlinked_activity_refund_activity_details'] = $this->unlinkedActivityRefundActivityDetails;
+        }
+        if (isset($this->importActivityDetails)) {
+            $json['import_activity_details']                   = $this->importActivityDetails;
+        }
+        if (isset($this->blockActivityDetails)) {
+            $json['block_activity_details']                    = $this->blockActivityDetails;
+        }
+        if (isset($this->unblockActivityDetails)) {
+            $json['unblock_activity_details']                  = $this->unblockActivityDetails;
+        }
+        if (isset($this->importReversalActivityDetails)) {
+            $json['import_reversal_activity_details']          = $this->importReversalActivityDetails;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -264,14 +264,28 @@ class GiftCard implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']           = $this->id;
-        $json['type']         = $this->type;
-        $json['gan_source']   = $this->ganSource;
-        $json['state']        = $this->state;
-        $json['balance_money'] = $this->balanceMoney;
-        $json['gan']          = $this->gan;
-        $json['created_at']   = $this->createdAt;
-        $json['customer_ids'] = $this->customerIds;
+        if (isset($this->id)) {
+            $json['id']            = $this->id;
+        }
+        $json['type']              = $this->type;
+        if (isset($this->ganSource)) {
+            $json['gan_source']    = $this->ganSource;
+        }
+        if (isset($this->state)) {
+            $json['state']         = $this->state;
+        }
+        if (isset($this->balanceMoney)) {
+            $json['balance_money'] = $this->balanceMoney;
+        }
+        if (isset($this->gan)) {
+            $json['gan']           = $this->gan;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']    = $this->createdAt;
+        }
+        if (isset($this->customerIds)) {
+            $json['customer_ids']  = $this->customerIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

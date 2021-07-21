@@ -71,8 +71,12 @@ class Range implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['min'] = $this->min;
-        $json['max'] = $this->max;
+        if (isset($this->min)) {
+            $json['min'] = $this->min;
+        }
+        if (isset($this->max)) {
+            $json['max'] = $this->max;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

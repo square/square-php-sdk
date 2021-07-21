@@ -391,19 +391,35 @@ class LoyaltyEvent implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['type']             = $this->type;
-        $json['created_at']       = $this->createdAt;
-        $json['accumulate_points'] = $this->accumulatePoints;
-        $json['create_reward']    = $this->createReward;
-        $json['redeem_reward']    = $this->redeemReward;
-        $json['delete_reward']    = $this->deleteReward;
-        $json['adjust_points']    = $this->adjustPoints;
-        $json['loyalty_account_id'] = $this->loyaltyAccountId;
-        $json['location_id']      = $this->locationId;
-        $json['source']           = $this->source;
-        $json['expire_points']    = $this->expirePoints;
-        $json['other_event']      = $this->otherEvent;
+        $json['id']                    = $this->id;
+        $json['type']                  = $this->type;
+        $json['created_at']            = $this->createdAt;
+        if (isset($this->accumulatePoints)) {
+            $json['accumulate_points'] = $this->accumulatePoints;
+        }
+        if (isset($this->createReward)) {
+            $json['create_reward']     = $this->createReward;
+        }
+        if (isset($this->redeemReward)) {
+            $json['redeem_reward']     = $this->redeemReward;
+        }
+        if (isset($this->deleteReward)) {
+            $json['delete_reward']     = $this->deleteReward;
+        }
+        if (isset($this->adjustPoints)) {
+            $json['adjust_points']     = $this->adjustPoints;
+        }
+        $json['loyalty_account_id']    = $this->loyaltyAccountId;
+        if (isset($this->locationId)) {
+            $json['location_id']       = $this->locationId;
+        }
+        $json['source']                = $this->source;
+        if (isset($this->expirePoints)) {
+            $json['expire_points']     = $this->expirePoints;
+        }
+        if (isset($this->otherEvent)) {
+            $json['other_event']       = $this->otherEvent;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

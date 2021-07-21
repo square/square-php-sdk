@@ -251,12 +251,20 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['scope']              = $this->scope;
-        $json['discount_type']      = $this->discountType;
-        $json['percentage_discount'] = $this->percentageDiscount;
-        $json['catalog_object_ids'] = $this->catalogObjectIds;
-        $json['fixed_discount_money'] = $this->fixedDiscountMoney;
-        $json['max_discount_money'] = $this->maxDiscountMoney;
+        $json['scope']                    = $this->scope;
+        $json['discount_type']            = $this->discountType;
+        if (isset($this->percentageDiscount)) {
+            $json['percentage_discount']  = $this->percentageDiscount;
+        }
+        if (isset($this->catalogObjectIds)) {
+            $json['catalog_object_ids']   = $this->catalogObjectIds;
+        }
+        if (isset($this->fixedDiscountMoney)) {
+            $json['fixed_discount_money'] = $this->fixedDiscountMoney;
+        }
+        if (isset($this->maxDiscountMoney)) {
+            $json['max_discount_money']   = $this->maxDiscountMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

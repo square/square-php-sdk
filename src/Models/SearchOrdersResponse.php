@@ -148,10 +148,18 @@ class SearchOrdersResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_entries'] = $this->orderEntries;
-        $json['orders']       = $this->orders;
-        $json['cursor']       = $this->cursor;
-        $json['errors']       = $this->errors;
+        if (isset($this->orderEntries)) {
+            $json['order_entries'] = $this->orderEntries;
+        }
+        if (isset($this->orders)) {
+            $json['orders']        = $this->orders;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']        = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']        = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -136,10 +136,18 @@ class ListDeviceCodesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']      = $this->cursor;
-        $json['location_id'] = $this->locationId;
-        $json['product_type'] = $this->productType;
-        $json['status']      = $this->status;
+        if (isset($this->cursor)) {
+            $json['cursor']       = $this->cursor;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']  = $this->locationId;
+        }
+        if (isset($this->productType)) {
+            $json['product_type'] = $this->productType;
+        }
+        if (isset($this->status)) {
+            $json['status']       = $this->status;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

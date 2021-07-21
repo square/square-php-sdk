@@ -327,17 +327,39 @@ class CreateCustomerRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['given_name']     = $this->givenName;
-        $json['family_name']    = $this->familyName;
-        $json['company_name']   = $this->companyName;
-        $json['nickname']       = $this->nickname;
-        $json['email_address']  = $this->emailAddress;
-        $json['address']        = $this->address;
-        $json['phone_number']   = $this->phoneNumber;
-        $json['reference_id']   = $this->referenceId;
-        $json['note']           = $this->note;
-        $json['birthday']       = $this->birthday;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
+        if (isset($this->givenName)) {
+            $json['given_name']      = $this->givenName;
+        }
+        if (isset($this->familyName)) {
+            $json['family_name']     = $this->familyName;
+        }
+        if (isset($this->companyName)) {
+            $json['company_name']    = $this->companyName;
+        }
+        if (isset($this->nickname)) {
+            $json['nickname']        = $this->nickname;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address']   = $this->emailAddress;
+        }
+        if (isset($this->address)) {
+            $json['address']         = $this->address;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']    = $this->phoneNumber;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId;
+        }
+        if (isset($this->note)) {
+            $json['note']            = $this->note;
+        }
+        if (isset($this->birthday)) {
+            $json['birthday']        = $this->birthday;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

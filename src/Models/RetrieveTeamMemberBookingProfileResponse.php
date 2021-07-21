@@ -74,8 +74,12 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_booking_profile'] = $this->teamMemberBookingProfile;
-        $json['errors']                   = $this->errors;
+        if (isset($this->teamMemberBookingProfile)) {
+            $json['team_member_booking_profile'] = $this->teamMemberBookingProfile;
+        }
+        if (isset($this->errors)) {
+            $json['errors']                      = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

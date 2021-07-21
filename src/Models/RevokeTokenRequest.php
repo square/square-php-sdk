@@ -132,10 +132,18 @@ class RevokeTokenRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['client_id']             = $this->clientId;
-        $json['access_token']          = $this->accessToken;
-        $json['merchant_id']           = $this->merchantId;
-        $json['revoke_only_access_token'] = $this->revokeOnlyAccessToken;
+        if (isset($this->clientId)) {
+            $json['client_id']                = $this->clientId;
+        }
+        if (isset($this->accessToken)) {
+            $json['access_token']             = $this->accessToken;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']              = $this->merchantId;
+        }
+        if (isset($this->revokeOnlyAccessToken)) {
+            $json['revoke_only_access_token'] = $this->revokeOnlyAccessToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

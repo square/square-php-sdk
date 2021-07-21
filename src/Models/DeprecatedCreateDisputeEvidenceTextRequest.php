@@ -112,9 +112,11 @@ class DeprecatedCreateDisputeEvidenceTextRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['evidence_type']  = $this->evidenceType;
-        $json['evidence_text']  = $this->evidenceText;
+        $json['idempotency_key']   = $this->idempotencyKey;
+        if (isset($this->evidenceType)) {
+            $json['evidence_type'] = $this->evidenceType;
+        }
+        $json['evidence_text']     = $this->evidenceText;
 
         return array_filter($json, function ($val) {
             return $val !== null;

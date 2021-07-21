@@ -194,12 +194,24 @@ class RenewTokenResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['access_token']   = $this->accessToken;
-        $json['token_type']     = $this->tokenType;
-        $json['expires_at']     = $this->expiresAt;
-        $json['merchant_id']    = $this->merchantId;
-        $json['subscription_id'] = $this->subscriptionId;
-        $json['plan_id']        = $this->planId;
+        if (isset($this->accessToken)) {
+            $json['access_token']    = $this->accessToken;
+        }
+        if (isset($this->tokenType)) {
+            $json['token_type']      = $this->tokenType;
+        }
+        if (isset($this->expiresAt)) {
+            $json['expires_at']      = $this->expiresAt;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']     = $this->merchantId;
+        }
+        if (isset($this->subscriptionId)) {
+            $json['subscription_id'] = $this->subscriptionId;
+        }
+        if (isset($this->planId)) {
+            $json['plan_id']         = $this->planId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

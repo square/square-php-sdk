@@ -100,9 +100,15 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['loyalty_program_id'] = $this->loyaltyProgramId;
-        $json['points']           = $this->points;
-        $json['order_id']         = $this->orderId;
+        if (isset($this->loyaltyProgramId)) {
+            $json['loyalty_program_id'] = $this->loyaltyProgramId;
+        }
+        if (isset($this->points)) {
+            $json['points']             = $this->points;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']           = $this->orderId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

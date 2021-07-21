@@ -217,12 +217,14 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                   = $this->id;
-        $json['points']               = $this->points;
-        $json['name']                 = $this->name;
-        $json['definition']           = $this->definition;
-        $json['created_at']           = $this->createdAt;
-        $json['pricing_rule_reference'] = $this->pricingRuleReference;
+        $json['id']                         = $this->id;
+        $json['points']                     = $this->points;
+        $json['name']                       = $this->name;
+        $json['definition']                 = $this->definition;
+        $json['created_at']                 = $this->createdAt;
+        if (isset($this->pricingRuleReference)) {
+            $json['pricing_rule_reference'] = $this->pricingRuleReference;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

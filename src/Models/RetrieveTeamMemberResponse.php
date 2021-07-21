@@ -75,8 +75,12 @@ class RetrieveTeamMemberResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member'] = $this->teamMember;
-        $json['errors']     = $this->errors;
+        if (isset($this->teamMember)) {
+            $json['team_member'] = $this->teamMember;
+        }
+        if (isset($this->errors)) {
+            $json['errors']      = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

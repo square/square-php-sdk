@@ -78,8 +78,12 @@ class RegisterDomainResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['status'] = $this->status;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->status)) {
+            $json['status'] = $this->status;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

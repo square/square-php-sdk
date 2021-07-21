@@ -67,8 +67,12 @@ class V1OrderHistoryEntry implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['action']    = $this->action;
-        $json['created_at'] = $this->createdAt;
+        if (isset($this->action)) {
+            $json['action']     = $this->action;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

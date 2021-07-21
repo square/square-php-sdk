@@ -84,7 +84,7 @@ class LoyaltyEventExpirePoints implements \JsonSerializable
     {
         $json = [];
         $json['loyalty_program_id'] = $this->loyaltyProgramId;
-        $json['points']           = $this->points;
+        $json['points']             = $this->points;
 
         return array_filter($json, function ($val) {
             return $val !== null;

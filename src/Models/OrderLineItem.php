@@ -41,6 +41,11 @@ class OrderLineItem implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @var string|null
      */
     private $variationName;
@@ -260,6 +265,28 @@ class OrderLineItem implements \JsonSerializable
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this line item references.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this line item references.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
     }
 
     /**
@@ -720,25 +747,64 @@ class OrderLineItem implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                      = $this->uid;
-        $json['name']                     = $this->name;
-        $json['quantity']                 = $this->quantity;
-        $json['quantity_unit']            = $this->quantityUnit;
-        $json['note']                     = $this->note;
-        $json['catalog_object_id']        = $this->catalogObjectId;
-        $json['variation_name']           = $this->variationName;
-        $json['item_type']                = $this->itemType;
-        $json['metadata']                 = $this->metadata;
-        $json['modifiers']                = $this->modifiers;
-        $json['applied_taxes']            = $this->appliedTaxes;
-        $json['applied_discounts']        = $this->appliedDiscounts;
-        $json['base_price_money']         = $this->basePriceMoney;
-        $json['variation_total_price_money'] = $this->variationTotalPriceMoney;
-        $json['gross_sales_money']        = $this->grossSalesMoney;
-        $json['total_tax_money']          = $this->totalTaxMoney;
-        $json['total_discount_money']     = $this->totalDiscountMoney;
-        $json['total_money']              = $this->totalMoney;
-        $json['pricing_blocklists']       = $this->pricingBlocklists;
+        if (isset($this->uid)) {
+            $json['uid']                         = $this->uid;
+        }
+        if (isset($this->name)) {
+            $json['name']                        = $this->name;
+        }
+        $json['quantity']                        = $this->quantity;
+        if (isset($this->quantityUnit)) {
+            $json['quantity_unit']               = $this->quantityUnit;
+        }
+        if (isset($this->note)) {
+            $json['note']                        = $this->note;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']           = $this->catalogObjectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']             = $this->catalogVersion;
+        }
+        if (isset($this->variationName)) {
+            $json['variation_name']              = $this->variationName;
+        }
+        if (isset($this->itemType)) {
+            $json['item_type']                   = $this->itemType;
+        }
+        if (isset($this->metadata)) {
+            $json['metadata']                    = $this->metadata;
+        }
+        if (isset($this->modifiers)) {
+            $json['modifiers']                   = $this->modifiers;
+        }
+        if (isset($this->appliedTaxes)) {
+            $json['applied_taxes']               = $this->appliedTaxes;
+        }
+        if (isset($this->appliedDiscounts)) {
+            $json['applied_discounts']           = $this->appliedDiscounts;
+        }
+        if (isset($this->basePriceMoney)) {
+            $json['base_price_money']            = $this->basePriceMoney;
+        }
+        if (isset($this->variationTotalPriceMoney)) {
+            $json['variation_total_price_money'] = $this->variationTotalPriceMoney;
+        }
+        if (isset($this->grossSalesMoney)) {
+            $json['gross_sales_money']           = $this->grossSalesMoney;
+        }
+        if (isset($this->totalTaxMoney)) {
+            $json['total_tax_money']             = $this->totalTaxMoney;
+        }
+        if (isset($this->totalDiscountMoney)) {
+            $json['total_discount_money']        = $this->totalDiscountMoney;
+        }
+        if (isset($this->totalMoney)) {
+            $json['total_money']                 = $this->totalMoney;
+        }
+        if (isset($this->pricingBlocklists)) {
+            $json['pricing_blocklists']          = $this->pricingBlocklists;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

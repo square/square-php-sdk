@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Indicates how the inventory change was applied to a tracked quantity of items.
+ * Indicates how the inventory change was applied to a tracked product quantity.
  */
 class InventoryChangeType
 {

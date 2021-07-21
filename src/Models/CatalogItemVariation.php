@@ -617,25 +617,63 @@ class CatalogItemVariation implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_id']                 = $this->itemId;
-        $json['name']                    = $this->name;
-        $json['sku']                     = $this->sku;
-        $json['upc']                     = $this->upc;
-        $json['ordinal']                 = $this->ordinal;
-        $json['pricing_type']            = $this->pricingType;
-        $json['price_money']             = $this->priceMoney;
-        $json['location_overrides']      = $this->locationOverrides;
-        $json['track_inventory']         = $this->trackInventory;
-        $json['inventory_alert_type']    = $this->inventoryAlertType;
-        $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
-        $json['user_data']               = $this->userData;
-        $json['service_duration']        = $this->serviceDuration;
-        $json['available_for_booking']   = $this->availableForBooking;
-        $json['item_option_values']      = $this->itemOptionValues;
-        $json['measurement_unit_id']     = $this->measurementUnitId;
-        $json['stockable']               = $this->stockable;
-        $json['team_member_ids']         = $this->teamMemberIds;
-        $json['stockable_conversion']    = $this->stockableConversion;
+        if (isset($this->itemId)) {
+            $json['item_id']                   = $this->itemId;
+        }
+        if (isset($this->name)) {
+            $json['name']                      = $this->name;
+        }
+        if (isset($this->sku)) {
+            $json['sku']                       = $this->sku;
+        }
+        if (isset($this->upc)) {
+            $json['upc']                       = $this->upc;
+        }
+        if (isset($this->ordinal)) {
+            $json['ordinal']                   = $this->ordinal;
+        }
+        if (isset($this->pricingType)) {
+            $json['pricing_type']              = $this->pricingType;
+        }
+        if (isset($this->priceMoney)) {
+            $json['price_money']               = $this->priceMoney;
+        }
+        if (isset($this->locationOverrides)) {
+            $json['location_overrides']        = $this->locationOverrides;
+        }
+        if (isset($this->trackInventory)) {
+            $json['track_inventory']           = $this->trackInventory;
+        }
+        if (isset($this->inventoryAlertType)) {
+            $json['inventory_alert_type']      = $this->inventoryAlertType;
+        }
+        if (isset($this->inventoryAlertThreshold)) {
+            $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
+        }
+        if (isset($this->userData)) {
+            $json['user_data']                 = $this->userData;
+        }
+        if (isset($this->serviceDuration)) {
+            $json['service_duration']          = $this->serviceDuration;
+        }
+        if (isset($this->availableForBooking)) {
+            $json['available_for_booking']     = $this->availableForBooking;
+        }
+        if (isset($this->itemOptionValues)) {
+            $json['item_option_values']        = $this->itemOptionValues;
+        }
+        if (isset($this->measurementUnitId)) {
+            $json['measurement_unit_id']       = $this->measurementUnitId;
+        }
+        if (isset($this->stockable)) {
+            $json['stockable']                 = $this->stockable;
+        }
+        if (isset($this->teamMemberIds)) {
+            $json['team_member_ids']           = $this->teamMemberIds;
+        }
+        if (isset($this->stockableConversion)) {
+            $json['stockable_conversion']      = $this->stockableConversion;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

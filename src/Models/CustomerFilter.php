@@ -249,13 +249,27 @@ class CustomerFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['creation_source'] = $this->creationSource;
-        $json['created_at']     = $this->createdAt;
-        $json['updated_at']     = $this->updatedAt;
-        $json['email_address']  = $this->emailAddress;
-        $json['phone_number']   = $this->phoneNumber;
-        $json['reference_id']   = $this->referenceId;
-        $json['group_ids']      = $this->groupIds;
+        if (isset($this->creationSource)) {
+            $json['creation_source'] = $this->creationSource;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']      = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']      = $this->updatedAt;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address']   = $this->emailAddress;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']    = $this->phoneNumber;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId;
+        }
+        if (isset($this->groupIds)) {
+            $json['group_ids']       = $this->groupIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

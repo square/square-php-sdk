@@ -137,6 +137,11 @@ class Location implements \JsonSerializable
     private $fullFormatLogoUrl;
 
     /**
+     * @var TaxIds|null
+     */
+    private $taxIds;
+
+    /**
      * Returns Id.
      *
      * The Square-issued ID of the location.
@@ -355,6 +360,8 @@ class Location implements \JsonSerializable
      *
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
+     * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
+     * api#location-language-code).
      */
     public function getLanguageCode(): ?string
     {
@@ -366,6 +373,8 @@ class Location implements \JsonSerializable
      *
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
+     * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
+     * api#location-language-code).
      *
      * @maps language_code
      */
@@ -755,6 +764,28 @@ class Location implements \JsonSerializable
     }
 
     /**
+     * Returns Tax Ids.
+     *
+     * The tax IDs that a Location is operating under.
+     */
+    public function getTaxIds(): ?TaxIds
+    {
+        return $this->taxIds;
+    }
+
+    /**
+     * Sets Tax Ids.
+     *
+     * The tax IDs that a Location is operating under.
+     *
+     * @maps tax_ids
+     */
+    public function setTaxIds(?TaxIds $taxIds): void
+    {
+        $this->taxIds = $taxIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -762,32 +793,87 @@ class Location implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['name']              = $this->name;
-        $json['address']           = $this->address;
-        $json['timezone']          = $this->timezone;
-        $json['capabilities']      = $this->capabilities;
-        $json['status']            = $this->status;
-        $json['created_at']        = $this->createdAt;
-        $json['merchant_id']       = $this->merchantId;
-        $json['country']           = $this->country;
-        $json['language_code']     = $this->languageCode;
-        $json['currency']          = $this->currency;
-        $json['phone_number']      = $this->phoneNumber;
-        $json['business_name']     = $this->businessName;
-        $json['type']              = $this->type;
-        $json['website_url']       = $this->websiteUrl;
-        $json['business_hours']    = $this->businessHours;
-        $json['business_email']    = $this->businessEmail;
-        $json['description']       = $this->description;
-        $json['twitter_username']  = $this->twitterUsername;
-        $json['instagram_username'] = $this->instagramUsername;
-        $json['facebook_url']      = $this->facebookUrl;
-        $json['coordinates']       = $this->coordinates;
-        $json['logo_url']          = $this->logoUrl;
-        $json['pos_background_url'] = $this->posBackgroundUrl;
-        $json['mcc']               = $this->mcc;
-        $json['full_format_logo_url'] = $this->fullFormatLogoUrl;
+        if (isset($this->id)) {
+            $json['id']                   = $this->id;
+        }
+        if (isset($this->name)) {
+            $json['name']                 = $this->name;
+        }
+        if (isset($this->address)) {
+            $json['address']              = $this->address;
+        }
+        if (isset($this->timezone)) {
+            $json['timezone']             = $this->timezone;
+        }
+        if (isset($this->capabilities)) {
+            $json['capabilities']         = $this->capabilities;
+        }
+        if (isset($this->status)) {
+            $json['status']               = $this->status;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']           = $this->createdAt;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']          = $this->merchantId;
+        }
+        if (isset($this->country)) {
+            $json['country']              = $this->country;
+        }
+        if (isset($this->languageCode)) {
+            $json['language_code']        = $this->languageCode;
+        }
+        if (isset($this->currency)) {
+            $json['currency']             = $this->currency;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']         = $this->phoneNumber;
+        }
+        if (isset($this->businessName)) {
+            $json['business_name']        = $this->businessName;
+        }
+        if (isset($this->type)) {
+            $json['type']                 = $this->type;
+        }
+        if (isset($this->websiteUrl)) {
+            $json['website_url']          = $this->websiteUrl;
+        }
+        if (isset($this->businessHours)) {
+            $json['business_hours']       = $this->businessHours;
+        }
+        if (isset($this->businessEmail)) {
+            $json['business_email']       = $this->businessEmail;
+        }
+        if (isset($this->description)) {
+            $json['description']          = $this->description;
+        }
+        if (isset($this->twitterUsername)) {
+            $json['twitter_username']     = $this->twitterUsername;
+        }
+        if (isset($this->instagramUsername)) {
+            $json['instagram_username']   = $this->instagramUsername;
+        }
+        if (isset($this->facebookUrl)) {
+            $json['facebook_url']         = $this->facebookUrl;
+        }
+        if (isset($this->coordinates)) {
+            $json['coordinates']          = $this->coordinates;
+        }
+        if (isset($this->logoUrl)) {
+            $json['logo_url']             = $this->logoUrl;
+        }
+        if (isset($this->posBackgroundUrl)) {
+            $json['pos_background_url']   = $this->posBackgroundUrl;
+        }
+        if (isset($this->mcc)) {
+            $json['mcc']                  = $this->mcc;
+        }
+        if (isset($this->fullFormatLogoUrl)) {
+            $json['full_format_logo_url'] = $this->fullFormatLogoUrl;
+        }
+        if (isset($this->taxIds)) {
+            $json['tax_ids']              = $this->taxIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

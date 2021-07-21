@@ -524,20 +524,44 @@ class ChargeRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']      = $this->idempotencyKey;
-        $json['amount_money']         = $this->amountMoney;
-        $json['card_nonce']           = $this->cardNonce;
-        $json['customer_card_id']     = $this->customerCardId;
-        $json['delay_capture']        = $this->delayCapture;
-        $json['reference_id']         = $this->referenceId;
-        $json['note']                 = $this->note;
-        $json['customer_id']          = $this->customerId;
-        $json['billing_address']      = $this->billingAddress;
-        $json['shipping_address']     = $this->shippingAddress;
-        $json['buyer_email_address']  = $this->buyerEmailAddress;
-        $json['order_id']             = $this->orderId;
-        $json['additional_recipients'] = $this->additionalRecipients;
-        $json['verification_token']   = $this->verificationToken;
+        $json['idempotency_key']           = $this->idempotencyKey;
+        $json['amount_money']              = $this->amountMoney;
+        if (isset($this->cardNonce)) {
+            $json['card_nonce']            = $this->cardNonce;
+        }
+        if (isset($this->customerCardId)) {
+            $json['customer_card_id']      = $this->customerCardId;
+        }
+        if (isset($this->delayCapture)) {
+            $json['delay_capture']         = $this->delayCapture;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']          = $this->referenceId;
+        }
+        if (isset($this->note)) {
+            $json['note']                  = $this->note;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']           = $this->customerId;
+        }
+        if (isset($this->billingAddress)) {
+            $json['billing_address']       = $this->billingAddress;
+        }
+        if (isset($this->shippingAddress)) {
+            $json['shipping_address']      = $this->shippingAddress;
+        }
+        if (isset($this->buyerEmailAddress)) {
+            $json['buyer_email_address']   = $this->buyerEmailAddress;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']              = $this->orderId;
+        }
+        if (isset($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients;
+        }
+        if (isset($this->verificationToken)) {
+            $json['verification_token']    = $this->verificationToken;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

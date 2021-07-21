@@ -52,7 +52,9 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['enforce_uniqueness'] = $this->enforceUniqueness;
+        if (isset($this->enforceUniqueness)) {
+            $json['enforce_uniqueness'] = $this->enforceUniqueness;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

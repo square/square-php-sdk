@@ -251,13 +251,23 @@ class ShiftFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_ids']  = $this->locationIds;
-        $json['employee_ids']  = $this->employeeIds;
-        $json['status']        = $this->status;
-        $json['start']         = $this->start;
-        $json['end']           = $this->end;
-        $json['workday']       = $this->workday;
-        $json['team_member_ids'] = $this->teamMemberIds;
+        $json['location_ids']     = $this->locationIds;
+        if (isset($this->employeeIds)) {
+            $json['employee_ids'] = $this->employeeIds;
+        }
+        if (isset($this->status)) {
+            $json['status']       = $this->status;
+        }
+        if (isset($this->start)) {
+            $json['start']        = $this->start;
+        }
+        if (isset($this->end)) {
+            $json['end']          = $this->end;
+        }
+        if (isset($this->workday)) {
+            $json['workday']      = $this->workday;
+        }
+        $json['team_member_ids']  = $this->teamMemberIds;
 
         return array_filter($json, function ($val) {
             return $val !== null;

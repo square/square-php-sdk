@@ -80,8 +80,12 @@ class DateRange implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['start_date'] = $this->startDate;
-        $json['end_date']  = $this->endDate;
+        if (isset($this->startDate)) {
+            $json['start_date'] = $this->startDate;
+        }
+        if (isset($this->endDate)) {
+            $json['end_date']   = $this->endDate;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

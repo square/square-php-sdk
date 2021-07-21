@@ -41,7 +41,9 @@ class V1CreateEmployeeRoleRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['employee_role'] = $this->employeeRole;
+        if (isset($this->employeeRole)) {
+            $json['employee_role'] = $this->employeeRole;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

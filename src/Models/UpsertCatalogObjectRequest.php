@@ -173,7 +173,7 @@ class UpsertCatalogObjectRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['object']         = $this->object;
+        $json['object']          = $this->object;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -754,33 +754,87 @@ class V1Payment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                   = $this->id;
-        $json['merchant_id']          = $this->merchantId;
-        $json['created_at']           = $this->createdAt;
-        $json['creator_id']           = $this->creatorId;
-        $json['device']               = $this->device;
-        $json['payment_url']          = $this->paymentUrl;
-        $json['receipt_url']          = $this->receiptUrl;
-        $json['inclusive_tax_money']  = $this->inclusiveTaxMoney;
-        $json['additive_tax_money']   = $this->additiveTaxMoney;
-        $json['tax_money']            = $this->taxMoney;
-        $json['tip_money']            = $this->tipMoney;
-        $json['discount_money']       = $this->discountMoney;
-        $json['total_collected_money'] = $this->totalCollectedMoney;
-        $json['processing_fee_money'] = $this->processingFeeMoney;
-        $json['net_total_money']      = $this->netTotalMoney;
-        $json['refunded_money']       = $this->refundedMoney;
-        $json['swedish_rounding_money'] = $this->swedishRoundingMoney;
-        $json['gross_sales_money']    = $this->grossSalesMoney;
-        $json['net_sales_money']      = $this->netSalesMoney;
-        $json['inclusive_tax']        = $this->inclusiveTax;
-        $json['additive_tax']         = $this->additiveTax;
-        $json['tender']               = $this->tender;
-        $json['refunds']              = $this->refunds;
-        $json['itemizations']         = $this->itemizations;
-        $json['surcharge_money']      = $this->surchargeMoney;
-        $json['surcharges']           = $this->surcharges;
-        $json['is_partial']           = $this->isPartial;
+        if (isset($this->id)) {
+            $json['id']                     = $this->id;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']            = $this->merchantId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']             = $this->createdAt;
+        }
+        if (isset($this->creatorId)) {
+            $json['creator_id']             = $this->creatorId;
+        }
+        if (isset($this->device)) {
+            $json['device']                 = $this->device;
+        }
+        if (isset($this->paymentUrl)) {
+            $json['payment_url']            = $this->paymentUrl;
+        }
+        if (isset($this->receiptUrl)) {
+            $json['receipt_url']            = $this->receiptUrl;
+        }
+        if (isset($this->inclusiveTaxMoney)) {
+            $json['inclusive_tax_money']    = $this->inclusiveTaxMoney;
+        }
+        if (isset($this->additiveTaxMoney)) {
+            $json['additive_tax_money']     = $this->additiveTaxMoney;
+        }
+        if (isset($this->taxMoney)) {
+            $json['tax_money']              = $this->taxMoney;
+        }
+        if (isset($this->tipMoney)) {
+            $json['tip_money']              = $this->tipMoney;
+        }
+        if (isset($this->discountMoney)) {
+            $json['discount_money']         = $this->discountMoney;
+        }
+        if (isset($this->totalCollectedMoney)) {
+            $json['total_collected_money']  = $this->totalCollectedMoney;
+        }
+        if (isset($this->processingFeeMoney)) {
+            $json['processing_fee_money']   = $this->processingFeeMoney;
+        }
+        if (isset($this->netTotalMoney)) {
+            $json['net_total_money']        = $this->netTotalMoney;
+        }
+        if (isset($this->refundedMoney)) {
+            $json['refunded_money']         = $this->refundedMoney;
+        }
+        if (isset($this->swedishRoundingMoney)) {
+            $json['swedish_rounding_money'] = $this->swedishRoundingMoney;
+        }
+        if (isset($this->grossSalesMoney)) {
+            $json['gross_sales_money']      = $this->grossSalesMoney;
+        }
+        if (isset($this->netSalesMoney)) {
+            $json['net_sales_money']        = $this->netSalesMoney;
+        }
+        if (isset($this->inclusiveTax)) {
+            $json['inclusive_tax']          = $this->inclusiveTax;
+        }
+        if (isset($this->additiveTax)) {
+            $json['additive_tax']           = $this->additiveTax;
+        }
+        if (isset($this->tender)) {
+            $json['tender']                 = $this->tender;
+        }
+        if (isset($this->refunds)) {
+            $json['refunds']                = $this->refunds;
+        }
+        if (isset($this->itemizations)) {
+            $json['itemizations']           = $this->itemizations;
+        }
+        if (isset($this->surchargeMoney)) {
+            $json['surcharge_money']        = $this->surchargeMoney;
+        }
+        if (isset($this->surcharges)) {
+            $json['surcharges']             = $this->surcharges;
+        }
+        if (isset($this->isPartial)) {
+            $json['is_partial']             = $this->isPartial;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

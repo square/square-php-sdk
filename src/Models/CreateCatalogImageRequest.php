@@ -189,8 +189,12 @@ class CreateCatalogImageRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['object_id']      = $this->objectId;
-        $json['image']          = $this->image;
+        if (isset($this->objectId)) {
+            $json['object_id']   = $this->objectId;
+        }
+        if (isset($this->image)) {
+            $json['image']       = $this->image;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

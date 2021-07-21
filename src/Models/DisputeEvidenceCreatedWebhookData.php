@@ -91,9 +91,15 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']   = $this->type;
-        $json['id']     = $this->id;
-        $json['object'] = $this->object;
+        if (isset($this->type)) {
+            $json['type']   = $this->type;
+        }
+        if (isset($this->id)) {
+            $json['id']     = $this->id;
+        }
+        if (isset($this->object)) {
+            $json['object'] = $this->object;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

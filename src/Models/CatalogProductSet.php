@@ -262,13 +262,27 @@ class CatalogProductSet implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']          = $this->name;
-        $json['product_ids_any'] = $this->productIdsAny;
-        $json['product_ids_all'] = $this->productIdsAll;
-        $json['quantity_exact'] = $this->quantityExact;
-        $json['quantity_min']  = $this->quantityMin;
-        $json['quantity_max']  = $this->quantityMax;
-        $json['all_products']  = $this->allProducts;
+        if (isset($this->name)) {
+            $json['name']            = $this->name;
+        }
+        if (isset($this->productIdsAny)) {
+            $json['product_ids_any'] = $this->productIdsAny;
+        }
+        if (isset($this->productIdsAll)) {
+            $json['product_ids_all'] = $this->productIdsAll;
+        }
+        if (isset($this->quantityExact)) {
+            $json['quantity_exact']  = $this->quantityExact;
+        }
+        if (isset($this->quantityMin)) {
+            $json['quantity_min']    = $this->quantityMin;
+        }
+        if (isset($this->quantityMax)) {
+            $json['quantity_max']    = $this->quantityMax;
+        }
+        if (isset($this->allProducts)) {
+            $json['all_products']    = $this->allProducts;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

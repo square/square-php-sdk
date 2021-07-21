@@ -115,9 +115,15 @@ class ListBankAccountsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']     = $this->cursor;
-        $json['limit']      = $this->limit;
-        $json['location_id'] = $this->locationId;
+        if (isset($this->cursor)) {
+            $json['cursor']      = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']       = $this->limit;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

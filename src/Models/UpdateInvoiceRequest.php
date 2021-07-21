@@ -129,9 +129,13 @@ class UpdateInvoiceRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['invoice']        = $this->invoice;
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['fields_to_clear'] = $this->fieldsToClear;
+        $json['invoice']             = $this->invoice;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
+        if (isset($this->fieldsToClear)) {
+            $json['fields_to_clear'] = $this->fieldsToClear;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

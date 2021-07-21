@@ -298,15 +298,33 @@ class SearchCatalogItemsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['text_filter']            = $this->textFilter;
-        $json['category_ids']           = $this->categoryIds;
-        $json['stock_levels']           = $this->stockLevels;
-        $json['enabled_location_ids']   = $this->enabledLocationIds;
-        $json['cursor']                 = $this->cursor;
-        $json['limit']                  = $this->limit;
-        $json['sort_order']             = $this->sortOrder;
-        $json['product_types']          = $this->productTypes;
-        $json['custom_attribute_filters'] = $this->customAttributeFilters;
+        if (isset($this->textFilter)) {
+            $json['text_filter']              = $this->textFilter;
+        }
+        if (isset($this->categoryIds)) {
+            $json['category_ids']             = $this->categoryIds;
+        }
+        if (isset($this->stockLevels)) {
+            $json['stock_levels']             = $this->stockLevels;
+        }
+        if (isset($this->enabledLocationIds)) {
+            $json['enabled_location_ids']     = $this->enabledLocationIds;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']                   = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']                    = $this->limit;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order']               = $this->sortOrder;
+        }
+        if (isset($this->productTypes)) {
+            $json['product_types']            = $this->productTypes;
+        }
+        if (isset($this->customAttributeFilters)) {
+            $json['custom_attribute_filters'] = $this->customAttributeFilters;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

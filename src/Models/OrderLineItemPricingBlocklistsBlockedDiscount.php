@@ -105,9 +105,15 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                     = $this->uid;
-        $json['discount_uid']            = $this->discountUid;
-        $json['discount_catalog_object_id'] = $this->discountCatalogObjectId;
+        if (isset($this->uid)) {
+            $json['uid']                        = $this->uid;
+        }
+        if (isset($this->discountUid)) {
+            $json['discount_uid']               = $this->discountUid;
+        }
+        if (isset($this->discountCatalogObjectId)) {
+            $json['discount_catalog_object_id'] = $this->discountCatalogObjectId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

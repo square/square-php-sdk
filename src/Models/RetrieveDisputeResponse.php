@@ -75,8 +75,12 @@ class RetrieveDisputeResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['dispute'] = $this->dispute;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->dispute)) {
+            $json['dispute'] = $this->dispute;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

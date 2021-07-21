@@ -115,9 +115,15 @@ class SearchCustomersRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor'] = $this->cursor;
-        $json['limit']  = $this->limit;
-        $json['query']  = $this->query;
+        if (isset($this->cursor)) {
+            $json['cursor'] = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']  = $this->limit;
+        }
+        if (isset($this->query)) {
+            $json['query']  = $this->query;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

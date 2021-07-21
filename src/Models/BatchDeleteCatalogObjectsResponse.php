@@ -105,9 +105,15 @@ class BatchDeleteCatalogObjectsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']           = $this->errors;
-        $json['deleted_object_ids'] = $this->deletedObjectIds;
-        $json['deleted_at']       = $this->deletedAt;
+        if (isset($this->errors)) {
+            $json['errors']             = $this->errors;
+        }
+        if (isset($this->deletedObjectIds)) {
+            $json['deleted_object_ids'] = $this->deletedObjectIds;
+        }
+        if (isset($this->deletedAt)) {
+            $json['deleted_at']         = $this->deletedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

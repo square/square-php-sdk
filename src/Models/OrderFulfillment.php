@@ -213,12 +213,24 @@ class OrderFulfillment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']             = $this->uid;
-        $json['type']            = $this->type;
-        $json['state']           = $this->state;
-        $json['metadata']        = $this->metadata;
-        $json['pickup_details']  = $this->pickupDetails;
-        $json['shipment_details'] = $this->shipmentDetails;
+        if (isset($this->uid)) {
+            $json['uid']              = $this->uid;
+        }
+        if (isset($this->type)) {
+            $json['type']             = $this->type;
+        }
+        if (isset($this->state)) {
+            $json['state']            = $this->state;
+        }
+        if (isset($this->metadata)) {
+            $json['metadata']         = $this->metadata;
+        }
+        if (isset($this->pickupDetails)) {
+            $json['pickup_details']   = $this->pickupDetails;
+        }
+        if (isset($this->shipmentDetails)) {
+            $json['shipment_details'] = $this->shipmentDetails;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

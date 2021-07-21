@@ -256,14 +256,30 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['gift_card_id'] = $this->giftCardId;
-        $json['type']       = $this->type;
-        $json['location_id'] = $this->locationId;
-        $json['begin_time'] = $this->beginTime;
-        $json['end_time']   = $this->endTime;
-        $json['limit']      = $this->limit;
-        $json['cursor']     = $this->cursor;
-        $json['sort_order'] = $this->sortOrder;
+        if (isset($this->giftCardId)) {
+            $json['gift_card_id'] = $this->giftCardId;
+        }
+        if (isset($this->type)) {
+            $json['type']         = $this->type;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']  = $this->locationId;
+        }
+        if (isset($this->beginTime)) {
+            $json['begin_time']   = $this->beginTime;
+        }
+        if (isset($this->endTime)) {
+            $json['end_time']     = $this->endTime;
+        }
+        if (isset($this->limit)) {
+            $json['limit']        = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']       = $this->cursor;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order']   = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -187,11 +187,21 @@ class SearchOrdersRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_ids']  = $this->locationIds;
-        $json['cursor']        = $this->cursor;
-        $json['query']         = $this->query;
-        $json['limit']         = $this->limit;
-        $json['return_entries'] = $this->returnEntries;
+        if (isset($this->locationIds)) {
+            $json['location_ids']   = $this->locationIds;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']         = $this->cursor;
+        }
+        if (isset($this->query)) {
+            $json['query']          = $this->query;
+        }
+        if (isset($this->limit)) {
+            $json['limit']          = $this->limit;
+        }
+        if (isset($this->returnEntries)) {
+            $json['return_entries'] = $this->returnEntries;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

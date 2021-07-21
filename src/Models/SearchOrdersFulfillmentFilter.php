@@ -91,8 +91,12 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['fulfillment_types'] = $this->fulfillmentTypes;
-        $json['fulfillment_states'] = $this->fulfillmentStates;
+        if (isset($this->fulfillmentTypes)) {
+            $json['fulfillment_types']  = $this->fulfillmentTypes;
+        }
+        if (isset($this->fulfillmentStates)) {
+            $json['fulfillment_states'] = $this->fulfillmentStates;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -138,10 +138,18 @@ class SearchCatalogItemsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']              = $this->errors;
-        $json['items']               = $this->items;
-        $json['cursor']              = $this->cursor;
-        $json['matched_variation_ids'] = $this->matchedVariationIds;
+        if (isset($this->errors)) {
+            $json['errors']                = $this->errors;
+        }
+        if (isset($this->items)) {
+            $json['items']                 = $this->items;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']                = $this->cursor;
+        }
+        if (isset($this->matchedVariationIds)) {
+            $json['matched_variation_ids'] = $this->matchedVariationIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -68,8 +68,12 @@ class CreateDeviceCodeResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']     = $this->errors;
-        $json['device_code'] = $this->deviceCode;
+        if (isset($this->errors)) {
+            $json['errors']      = $this->errors;
+        }
+        if (isset($this->deviceCode)) {
+            $json['device_code'] = $this->deviceCode;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

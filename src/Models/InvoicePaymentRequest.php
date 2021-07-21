@@ -490,19 +490,45 @@ class InvoicePaymentRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                             = $this->uid;
-        $json['request_method']                  = $this->requestMethod;
-        $json['request_type']                    = $this->requestType;
-        $json['due_date']                        = $this->dueDate;
-        $json['fixed_amount_requested_money']    = $this->fixedAmountRequestedMoney;
-        $json['percentage_requested']            = $this->percentageRequested;
-        $json['tipping_enabled']                 = $this->tippingEnabled;
-        $json['automatic_payment_source']        = $this->automaticPaymentSource;
-        $json['card_id']                         = $this->cardId;
-        $json['reminders']                       = $this->reminders;
-        $json['computed_amount_money']           = $this->computedAmountMoney;
-        $json['total_completed_amount_money']    = $this->totalCompletedAmountMoney;
-        $json['rounding_adjustment_included_money'] = $this->roundingAdjustmentIncludedMoney;
+        if (isset($this->uid)) {
+            $json['uid']                                = $this->uid;
+        }
+        if (isset($this->requestMethod)) {
+            $json['request_method']                     = $this->requestMethod;
+        }
+        if (isset($this->requestType)) {
+            $json['request_type']                       = $this->requestType;
+        }
+        if (isset($this->dueDate)) {
+            $json['due_date']                           = $this->dueDate;
+        }
+        if (isset($this->fixedAmountRequestedMoney)) {
+            $json['fixed_amount_requested_money']       = $this->fixedAmountRequestedMoney;
+        }
+        if (isset($this->percentageRequested)) {
+            $json['percentage_requested']               = $this->percentageRequested;
+        }
+        if (isset($this->tippingEnabled)) {
+            $json['tipping_enabled']                    = $this->tippingEnabled;
+        }
+        if (isset($this->automaticPaymentSource)) {
+            $json['automatic_payment_source']           = $this->automaticPaymentSource;
+        }
+        if (isset($this->cardId)) {
+            $json['card_id']                            = $this->cardId;
+        }
+        if (isset($this->reminders)) {
+            $json['reminders']                          = $this->reminders;
+        }
+        if (isset($this->computedAmountMoney)) {
+            $json['computed_amount_money']              = $this->computedAmountMoney;
+        }
+        if (isset($this->totalCompletedAmountMoney)) {
+            $json['total_completed_amount_money']       = $this->totalCompletedAmountMoney;
+        }
+        if (isset($this->roundingAdjustmentIncludedMoney)) {
+            $json['rounding_adjustment_included_money'] = $this->roundingAdjustmentIncludedMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

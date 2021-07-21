@@ -316,17 +316,37 @@ class DeviceCode implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']              = $this->id;
-        $json['name']            = $this->name;
-        $json['code']            = $this->code;
-        $json['device_id']       = $this->deviceId;
-        $json['product_type']    = $this->productType;
-        $json['location_id']     = $this->locationId;
-        $json['status']          = $this->status;
-        $json['pair_by']         = $this->pairBy;
-        $json['created_at']      = $this->createdAt;
-        $json['status_changed_at'] = $this->statusChangedAt;
-        $json['paired_at']       = $this->pairedAt;
+        if (isset($this->id)) {
+            $json['id']                = $this->id;
+        }
+        if (isset($this->name)) {
+            $json['name']              = $this->name;
+        }
+        if (isset($this->code)) {
+            $json['code']              = $this->code;
+        }
+        if (isset($this->deviceId)) {
+            $json['device_id']         = $this->deviceId;
+        }
+        $json['product_type']          = $this->productType;
+        if (isset($this->locationId)) {
+            $json['location_id']       = $this->locationId;
+        }
+        if (isset($this->status)) {
+            $json['status']            = $this->status;
+        }
+        if (isset($this->pairBy)) {
+            $json['pair_by']           = $this->pairBy;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']        = $this->createdAt;
+        }
+        if (isset($this->statusChangedAt)) {
+            $json['status_changed_at'] = $this->statusChangedAt;
+        }
+        if (isset($this->pairedAt)) {
+            $json['paired_at']         = $this->pairedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

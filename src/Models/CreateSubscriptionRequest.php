@@ -363,16 +363,30 @@ class CreateSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']    = $this->idempotencyKey;
-        $json['location_id']        = $this->locationId;
-        $json['plan_id']            = $this->planId;
-        $json['customer_id']        = $this->customerId;
-        $json['start_date']         = $this->startDate;
-        $json['canceled_date']      = $this->canceledDate;
-        $json['tax_percentage']     = $this->taxPercentage;
-        $json['price_override_money'] = $this->priceOverrideMoney;
-        $json['card_id']            = $this->cardId;
-        $json['timezone']           = $this->timezone;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key']      = $this->idempotencyKey;
+        }
+        $json['location_id']              = $this->locationId;
+        $json['plan_id']                  = $this->planId;
+        $json['customer_id']              = $this->customerId;
+        if (isset($this->startDate)) {
+            $json['start_date']           = $this->startDate;
+        }
+        if (isset($this->canceledDate)) {
+            $json['canceled_date']        = $this->canceledDate;
+        }
+        if (isset($this->taxPercentage)) {
+            $json['tax_percentage']       = $this->taxPercentage;
+        }
+        if (isset($this->priceOverrideMoney)) {
+            $json['price_override_money'] = $this->priceOverrideMoney;
+        }
+        if (isset($this->cardId)) {
+            $json['card_id']              = $this->cardId;
+        }
+        if (isset($this->timezone)) {
+            $json['timezone']             = $this->timezone;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;
