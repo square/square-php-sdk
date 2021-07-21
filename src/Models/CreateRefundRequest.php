@@ -184,9 +184,11 @@ class CreateRefundRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['tender_id']      = $this->tenderId;
-        $json['reason']         = $this->reason;
-        $json['amount_money']   = $this->amountMoney;
+        $json['tender_id']       = $this->tenderId;
+        if (isset($this->reason)) {
+            $json['reason']      = $this->reason;
+        }
+        $json['amount_money']    = $this->amountMoney;
 
         return array_filter($json, function ($val) {
             return $val !== null;

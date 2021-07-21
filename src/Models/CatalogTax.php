@@ -189,12 +189,24 @@ class CatalogTax implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']                   = $this->name;
-        $json['calculation_phase']      = $this->calculationPhase;
-        $json['inclusion_type']         = $this->inclusionType;
-        $json['percentage']             = $this->percentage;
-        $json['applies_to_custom_amounts'] = $this->appliesToCustomAmounts;
-        $json['enabled']                = $this->enabled;
+        if (isset($this->name)) {
+            $json['name']                      = $this->name;
+        }
+        if (isset($this->calculationPhase)) {
+            $json['calculation_phase']         = $this->calculationPhase;
+        }
+        if (isset($this->inclusionType)) {
+            $json['inclusion_type']            = $this->inclusionType;
+        }
+        if (isset($this->percentage)) {
+            $json['percentage']                = $this->percentage;
+        }
+        if (isset($this->appliesToCustomAmounts)) {
+            $json['applies_to_custom_amounts'] = $this->appliesToCustomAmounts;
+        }
+        if (isset($this->enabled)) {
+            $json['enabled']                   = $this->enabled;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

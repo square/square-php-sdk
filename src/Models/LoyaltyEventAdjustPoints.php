@@ -107,9 +107,13 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['loyalty_program_id'] = $this->loyaltyProgramId;
-        $json['points']           = $this->points;
-        $json['reason']           = $this->reason;
+        if (isset($this->loyaltyProgramId)) {
+            $json['loyalty_program_id'] = $this->loyaltyProgramId;
+        }
+        $json['points']                 = $this->points;
+        if (isset($this->reason)) {
+            $json['reason']             = $this->reason;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

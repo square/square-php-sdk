@@ -25,7 +25,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      *
      * The [order]($m/Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
-     * Otherwise, specify the `transaction_amount`.
+     * Otherwise, specify the `transaction_amount_money`.
      */
     public function getOrderId(): ?string
     {
@@ -37,7 +37,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      *
      * The [order]($m/Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
-     * Otherwise, specify the `transaction_amount`.
+     * Otherwise, specify the `transaction_amount_money`.
      *
      * @maps order_id
      */
@@ -88,8 +88,12 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_id']               = $this->orderId;
-        $json['transaction_amount_money'] = $this->transactionAmountMoney;
+        if (isset($this->orderId)) {
+            $json['order_id']                 = $this->orderId;
+        }
+        if (isset($this->transactionAmountMoney)) {
+            $json['transaction_amount_money'] = $this->transactionAmountMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

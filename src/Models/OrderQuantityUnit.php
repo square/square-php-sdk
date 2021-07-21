@@ -21,6 +21,11 @@ class OrderQuantityUnit implements \JsonSerializable
     private $precision;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * Returns Measurement Unit.
      *
      * Represents a unit of measurement to use with a quantity, such as ounces
@@ -79,6 +84,32 @@ class OrderQuantityUnit implements \JsonSerializable
     }
 
     /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this measurement unit references.
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this measurement unit references.
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -86,8 +117,15 @@ class OrderQuantityUnit implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['measurement_unit'] = $this->measurementUnit;
-        $json['precision']       = $this->precision;
+        if (isset($this->measurementUnit)) {
+            $json['measurement_unit'] = $this->measurementUnit;
+        }
+        if (isset($this->precision)) {
+            $json['precision']        = $this->precision;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']  = $this->catalogVersion;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

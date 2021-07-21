@@ -430,20 +430,44 @@ class TerminalRefund implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['refund_id']        = $this->refundId;
-        $json['payment_id']       = $this->paymentId;
-        $json['order_id']         = $this->orderId;
-        $json['amount_money']     = $this->amountMoney;
-        $json['reason']           = $this->reason;
-        $json['device_id']        = $this->deviceId;
-        $json['deadline_duration'] = $this->deadlineDuration;
-        $json['status']           = $this->status;
-        $json['cancel_reason']    = $this->cancelReason;
-        $json['created_at']       = $this->createdAt;
-        $json['updated_at']       = $this->updatedAt;
-        $json['app_id']           = $this->appId;
-        $json['location_id']      = $this->locationId;
+        if (isset($this->id)) {
+            $json['id']                = $this->id;
+        }
+        if (isset($this->refundId)) {
+            $json['refund_id']         = $this->refundId;
+        }
+        $json['payment_id']            = $this->paymentId;
+        if (isset($this->orderId)) {
+            $json['order_id']          = $this->orderId;
+        }
+        $json['amount_money']          = $this->amountMoney;
+        if (isset($this->reason)) {
+            $json['reason']            = $this->reason;
+        }
+        if (isset($this->deviceId)) {
+            $json['device_id']         = $this->deviceId;
+        }
+        if (isset($this->deadlineDuration)) {
+            $json['deadline_duration'] = $this->deadlineDuration;
+        }
+        if (isset($this->status)) {
+            $json['status']            = $this->status;
+        }
+        if (isset($this->cancelReason)) {
+            $json['cancel_reason']     = $this->cancelReason;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']        = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']        = $this->updatedAt;
+        }
+        if (isset($this->appId)) {
+            $json['app_id']            = $this->appId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']       = $this->locationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

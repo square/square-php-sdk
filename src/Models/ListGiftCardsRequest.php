@@ -171,11 +171,21 @@ class ListGiftCardsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']       = $this->type;
-        $json['state']      = $this->state;
-        $json['limit']      = $this->limit;
-        $json['cursor']     = $this->cursor;
-        $json['customer_id'] = $this->customerId;
+        if (isset($this->type)) {
+            $json['type']        = $this->type;
+        }
+        if (isset($this->state)) {
+            $json['state']       = $this->state;
+        }
+        if (isset($this->limit)) {
+            $json['limit']       = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']      = $this->cursor;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id'] = $this->customerId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

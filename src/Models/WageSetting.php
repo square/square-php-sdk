@@ -201,12 +201,24 @@ class WageSetting implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_id']   = $this->teamMemberId;
-        $json['job_assignments']  = $this->jobAssignments;
-        $json['is_overtime_exempt'] = $this->isOvertimeExempt;
-        $json['version']          = $this->version;
-        $json['created_at']       = $this->createdAt;
-        $json['updated_at']       = $this->updatedAt;
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']     = $this->teamMemberId;
+        }
+        if (isset($this->jobAssignments)) {
+            $json['job_assignments']    = $this->jobAssignments;
+        }
+        if (isset($this->isOvertimeExempt)) {
+            $json['is_overtime_exempt'] = $this->isOvertimeExempt;
+        }
+        if (isset($this->version)) {
+            $json['version']            = $this->version;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']         = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']         = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

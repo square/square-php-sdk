@@ -86,7 +86,7 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['location_id']    = $this->locationId;
+        $json['location_id']     = $this->locationId;
 
         return array_filter($json, function ($val) {
             return $val !== null;

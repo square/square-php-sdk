@@ -452,22 +452,54 @@ class V1Tender implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']              = $this->id;
-        $json['type']            = $this->type;
-        $json['name']            = $this->name;
-        $json['employee_id']     = $this->employeeId;
-        $json['receipt_url']     = $this->receiptUrl;
-        $json['card_brand']      = $this->cardBrand;
-        $json['pan_suffix']      = $this->panSuffix;
-        $json['entry_method']    = $this->entryMethod;
-        $json['payment_note']    = $this->paymentNote;
-        $json['total_money']     = $this->totalMoney;
-        $json['tendered_money']  = $this->tenderedMoney;
-        $json['tendered_at']     = $this->tenderedAt;
-        $json['settled_at']      = $this->settledAt;
-        $json['change_back_money'] = $this->changeBackMoney;
-        $json['refunded_money']  = $this->refundedMoney;
-        $json['is_exchange']     = $this->isExchange;
+        if (isset($this->id)) {
+            $json['id']                = $this->id;
+        }
+        if (isset($this->type)) {
+            $json['type']              = $this->type;
+        }
+        if (isset($this->name)) {
+            $json['name']              = $this->name;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id']       = $this->employeeId;
+        }
+        if (isset($this->receiptUrl)) {
+            $json['receipt_url']       = $this->receiptUrl;
+        }
+        if (isset($this->cardBrand)) {
+            $json['card_brand']        = $this->cardBrand;
+        }
+        if (isset($this->panSuffix)) {
+            $json['pan_suffix']        = $this->panSuffix;
+        }
+        if (isset($this->entryMethod)) {
+            $json['entry_method']      = $this->entryMethod;
+        }
+        if (isset($this->paymentNote)) {
+            $json['payment_note']      = $this->paymentNote;
+        }
+        if (isset($this->totalMoney)) {
+            $json['total_money']       = $this->totalMoney;
+        }
+        if (isset($this->tenderedMoney)) {
+            $json['tendered_money']    = $this->tenderedMoney;
+        }
+        if (isset($this->tenderedAt)) {
+            $json['tendered_at']       = $this->tenderedAt;
+        }
+        if (isset($this->settledAt)) {
+            $json['settled_at']        = $this->settledAt;
+        }
+        if (isset($this->changeBackMoney)) {
+            $json['change_back_money'] = $this->changeBackMoney;
+        }
+        if (isset($this->refundedMoney)) {
+            $json['refunded_money']    = $this->refundedMoney;
+        }
+        if (isset($this->isExchange)) {
+            $json['is_exchange']       = $this->isExchange;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

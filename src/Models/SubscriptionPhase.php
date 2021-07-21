@@ -184,11 +184,17 @@ class SubscriptionPhase implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                 = $this->uid;
-        $json['cadence']             = $this->cadence;
-        $json['periods']             = $this->periods;
+        if (isset($this->uid)) {
+            $json['uid']               = $this->uid;
+        }
+        $json['cadence']               = $this->cadence;
+        if (isset($this->periods)) {
+            $json['periods']           = $this->periods;
+        }
         $json['recurring_price_money'] = $this->recurringPriceMoney;
-        $json['ordinal']             = $this->ordinal;
+        if (isset($this->ordinal)) {
+            $json['ordinal']           = $this->ordinal;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

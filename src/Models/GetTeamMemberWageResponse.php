@@ -79,8 +79,12 @@ class GetTeamMemberWageResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_wage'] = $this->teamMemberWage;
-        $json['errors']         = $this->errors;
+        if (isset($this->teamMemberWage)) {
+            $json['team_member_wage'] = $this->teamMemberWage;
+        }
+        if (isset($this->errors)) {
+            $json['errors']           = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

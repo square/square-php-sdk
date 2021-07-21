@@ -81,8 +81,12 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['reward'] = $this->reward;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->reward)) {
+            $json['reward'] = $this->reward;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

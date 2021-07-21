@@ -295,16 +295,36 @@ class Employee implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']          = $this->id;
-        $json['first_name']  = $this->firstName;
-        $json['last_name']   = $this->lastName;
-        $json['email']       = $this->email;
-        $json['phone_number'] = $this->phoneNumber;
-        $json['location_ids'] = $this->locationIds;
-        $json['status']      = $this->status;
-        $json['is_owner']    = $this->isOwner;
-        $json['created_at']  = $this->createdAt;
-        $json['updated_at']  = $this->updatedAt;
+        if (isset($this->id)) {
+            $json['id']           = $this->id;
+        }
+        if (isset($this->firstName)) {
+            $json['first_name']   = $this->firstName;
+        }
+        if (isset($this->lastName)) {
+            $json['last_name']    = $this->lastName;
+        }
+        if (isset($this->email)) {
+            $json['email']        = $this->email;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number'] = $this->phoneNumber;
+        }
+        if (isset($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds;
+        }
+        if (isset($this->status)) {
+            $json['status']       = $this->status;
+        }
+        if (isset($this->isOwner)) {
+            $json['is_owner']     = $this->isOwner;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']   = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']   = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -110,9 +110,15 @@ class ListDisputesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']   = $this->errors;
-        $json['disputes'] = $this->disputes;
-        $json['cursor']   = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
+        if (isset($this->disputes)) {
+            $json['disputes'] = $this->disputes;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']   = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

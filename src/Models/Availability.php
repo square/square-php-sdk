@@ -103,9 +103,15 @@ class Availability implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['start_at']            = $this->startAt;
-        $json['location_id']         = $this->locationId;
-        $json['appointment_segments'] = $this->appointmentSegments;
+        if (isset($this->startAt)) {
+            $json['start_at']             = $this->startAt;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']          = $this->locationId;
+        }
+        if (isset($this->appointmentSegments)) {
+            $json['appointment_segments'] = $this->appointmentSegments;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

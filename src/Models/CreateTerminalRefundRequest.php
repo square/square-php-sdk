@@ -82,7 +82,9 @@ class CreateTerminalRefundRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['refund']         = $this->refund;
+        if (isset($this->refund)) {
+            $json['refund']      = $this->refund;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

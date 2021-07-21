@@ -54,7 +54,9 @@ class SearchOrdersSourceFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['source_names'] = $this->sourceNames;
+        if (isset($this->sourceNames)) {
+            $json['source_names'] = $this->sourceNames;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

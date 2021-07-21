@@ -244,14 +244,30 @@ class CatalogCustomAttributeValue implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']                        = $this->name;
-        $json['string_value']                = $this->stringValue;
-        $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
-        $json['type']                        = $this->type;
-        $json['number_value']                = $this->numberValue;
-        $json['boolean_value']               = $this->booleanValue;
-        $json['selection_uid_values']        = $this->selectionUidValues;
-        $json['key']                         = $this->key;
+        if (isset($this->name)) {
+            $json['name']                           = $this->name;
+        }
+        if (isset($this->stringValue)) {
+            $json['string_value']                   = $this->stringValue;
+        }
+        if (isset($this->customAttributeDefinitionId)) {
+            $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
+        }
+        if (isset($this->type)) {
+            $json['type']                           = $this->type;
+        }
+        if (isset($this->numberValue)) {
+            $json['number_value']                   = $this->numberValue;
+        }
+        if (isset($this->booleanValue)) {
+            $json['boolean_value']                  = $this->booleanValue;
+        }
+        if (isset($this->selectionUidValues)) {
+            $json['selection_uid_values']           = $this->selectionUidValues;
+        }
+        if (isset($this->key)) {
+            $json['key']                            = $this->key;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

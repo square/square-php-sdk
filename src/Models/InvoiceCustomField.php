@@ -102,9 +102,15 @@ class InvoiceCustomField implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['label']     = $this->label;
-        $json['value']     = $this->value;
-        $json['placement'] = $this->placement;
+        if (isset($this->label)) {
+            $json['label']     = $this->label;
+        }
+        if (isset($this->value)) {
+            $json['value']     = $this->value;
+        }
+        if (isset($this->placement)) {
+            $json['placement'] = $this->placement;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -103,9 +103,15 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_booking_profiles'] = $this->teamMemberBookingProfiles;
-        $json['cursor']                    = $this->cursor;
-        $json['errors']                    = $this->errors;
+        if (isset($this->teamMemberBookingProfiles)) {
+            $json['team_member_booking_profiles'] = $this->teamMemberBookingProfiles;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']                       = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']                       = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

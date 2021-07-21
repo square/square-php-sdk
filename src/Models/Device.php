@@ -68,8 +68,12 @@ class Device implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']   = $this->id;
-        $json['name'] = $this->name;
+        if (isset($this->id)) {
+            $json['id']   = $this->id;
+        }
+        if (isset($this->name)) {
+            $json['name'] = $this->name;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

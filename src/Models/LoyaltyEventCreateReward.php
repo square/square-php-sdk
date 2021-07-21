@@ -113,8 +113,10 @@ class LoyaltyEventCreateReward implements \JsonSerializable
     {
         $json = [];
         $json['loyalty_program_id'] = $this->loyaltyProgramId;
-        $json['reward_id']        = $this->rewardId;
-        $json['points']           = $this->points;
+        if (isset($this->rewardId)) {
+            $json['reward_id']      = $this->rewardId;
+        }
+        $json['points']             = $this->points;
 
         return array_filter($json, function ($val) {
             return $val !== null;

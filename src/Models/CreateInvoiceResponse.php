@@ -79,8 +79,12 @@ class CreateInvoiceResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['invoice'] = $this->invoice;
-        $json['errors']  = $this->errors;
+        if (isset($this->invoice)) {
+            $json['invoice'] = $this->invoice;
+        }
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

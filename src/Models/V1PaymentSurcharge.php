@@ -229,14 +229,30 @@ class V1PaymentSurcharge implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']         = $this->name;
-        $json['applied_money'] = $this->appliedMoney;
-        $json['rate']         = $this->rate;
-        $json['amount_money'] = $this->amountMoney;
-        $json['type']         = $this->type;
-        $json['taxable']      = $this->taxable;
-        $json['taxes']        = $this->taxes;
-        $json['surcharge_id'] = $this->surchargeId;
+        if (isset($this->name)) {
+            $json['name']          = $this->name;
+        }
+        if (isset($this->appliedMoney)) {
+            $json['applied_money'] = $this->appliedMoney;
+        }
+        if (isset($this->rate)) {
+            $json['rate']          = $this->rate;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']  = $this->amountMoney;
+        }
+        if (isset($this->type)) {
+            $json['type']          = $this->type;
+        }
+        if (isset($this->taxable)) {
+            $json['taxable']       = $this->taxable;
+        }
+        if (isset($this->taxes)) {
+            $json['taxes']         = $this->taxes;
+        }
+        if (isset($this->surchargeId)) {
+            $json['surcharge_id']  = $this->surchargeId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

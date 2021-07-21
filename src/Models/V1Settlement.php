@@ -175,12 +175,24 @@ class V1Settlement implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']            = $this->id;
-        $json['status']        = $this->status;
-        $json['total_money']   = $this->totalMoney;
-        $json['initiated_at']  = $this->initiatedAt;
-        $json['bank_account_id'] = $this->bankAccountId;
-        $json['entries']       = $this->entries;
+        if (isset($this->id)) {
+            $json['id']              = $this->id;
+        }
+        if (isset($this->status)) {
+            $json['status']          = $this->status;
+        }
+        if (isset($this->totalMoney)) {
+            $json['total_money']     = $this->totalMoney;
+        }
+        if (isset($this->initiatedAt)) {
+            $json['initiated_at']    = $this->initiatedAt;
+        }
+        if (isset($this->bankAccountId)) {
+            $json['bank_account_id'] = $this->bankAccountId;
+        }
+        if (isset($this->entries)) {
+            $json['entries']         = $this->entries;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

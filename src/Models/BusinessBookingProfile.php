@@ -203,13 +203,27 @@ class BusinessBookingProfile implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['seller_id']                   = $this->sellerId;
-        $json['created_at']                  = $this->createdAt;
-        $json['booking_enabled']             = $this->bookingEnabled;
-        $json['customer_timezone_choice']    = $this->customerTimezoneChoice;
-        $json['booking_policy']              = $this->bookingPolicy;
-        $json['allow_user_cancel']           = $this->allowUserCancel;
-        $json['business_appointment_settings'] = $this->businessAppointmentSettings;
+        if (isset($this->sellerId)) {
+            $json['seller_id']                     = $this->sellerId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']                    = $this->createdAt;
+        }
+        if (isset($this->bookingEnabled)) {
+            $json['booking_enabled']               = $this->bookingEnabled;
+        }
+        if (isset($this->customerTimezoneChoice)) {
+            $json['customer_timezone_choice']      = $this->customerTimezoneChoice;
+        }
+        if (isset($this->bookingPolicy)) {
+            $json['booking_policy']                = $this->bookingPolicy;
+        }
+        if (isset($this->allowUserCancel)) {
+            $json['allow_user_cancel']             = $this->allowUserCancel;
+        }
+        if (isset($this->businessAppointmentSettings)) {
+            $json['business_appointment_settings'] = $this->businessAppointmentSettings;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

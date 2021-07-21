@@ -79,8 +79,12 @@ class RedeemLoyaltyRewardResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['event']  = $this->event;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->event)) {
+            $json['event']  = $this->event;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

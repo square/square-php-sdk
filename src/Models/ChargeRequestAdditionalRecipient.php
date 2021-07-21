@@ -126,8 +126,8 @@ class ChargeRequestAdditionalRecipient implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_id'] = $this->locationId;
-        $json['description'] = $this->description;
+        $json['location_id']  = $this->locationId;
+        $json['description']  = $this->description;
         $json['amount_money'] = $this->amountMoney;
 
         return array_filter($json, function ($val) {

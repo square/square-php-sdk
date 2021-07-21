@@ -44,7 +44,9 @@ class DisputedPayment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['payment_id'] = $this->paymentId;
+        if (isset($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

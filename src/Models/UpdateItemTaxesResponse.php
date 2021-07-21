@@ -74,8 +74,12 @@ class UpdateItemTaxesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']    = $this->errors;
-        $json['updated_at'] = $this->updatedAt;
+        if (isset($this->errors)) {
+            $json['errors']     = $this->errors;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at'] = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -109,9 +109,15 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['authorization_code'] = $this->authorizationCode;
-        $json['expires_at']        = $this->expiresAt;
-        $json['error']             = $this->error;
+        if (isset($this->authorizationCode)) {
+            $json['authorization_code'] = $this->authorizationCode;
+        }
+        if (isset($this->expiresAt)) {
+            $json['expires_at']         = $this->expiresAt;
+        }
+        if (isset($this->error)) {
+            $json['error']              = $this->error;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

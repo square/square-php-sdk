@@ -262,6 +262,13 @@ class Order implements \JsonSerializable
      * Returns Customer Id.
      *
      * The ID of the [customer]($m/Customer) associated with the order.
+     *
+     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
+     * transactions
+     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
+     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
+     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
+     * does#instant-profiles).
      */
     public function getCustomerId(): ?string
     {
@@ -272,6 +279,13 @@ class Order implements \JsonSerializable
      * Sets Customer Id.
      *
      * The ID of the [customer]($m/Customer) associated with the order.
+     *
+     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
+     * transactions
+     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
+     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
+     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
+     * does#instant-profiles).
      *
      * @maps customer_id
      */
@@ -1018,35 +1032,91 @@ class Order implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                      = $this->id;
-        $json['location_id']             = $this->locationId;
-        $json['reference_id']            = $this->referenceId;
-        $json['source']                  = $this->source;
-        $json['customer_id']             = $this->customerId;
-        $json['line_items']              = $this->lineItems;
-        $json['taxes']                   = $this->taxes;
-        $json['discounts']               = $this->discounts;
-        $json['service_charges']         = $this->serviceCharges;
-        $json['fulfillments']            = $this->fulfillments;
-        $json['returns']                 = $this->returns;
-        $json['return_amounts']          = $this->returnAmounts;
-        $json['net_amounts']             = $this->netAmounts;
-        $json['rounding_adjustment']     = $this->roundingAdjustment;
-        $json['tenders']                 = $this->tenders;
-        $json['refunds']                 = $this->refunds;
-        $json['metadata']                = $this->metadata;
-        $json['created_at']              = $this->createdAt;
-        $json['updated_at']              = $this->updatedAt;
-        $json['closed_at']               = $this->closedAt;
-        $json['state']                   = $this->state;
-        $json['version']                 = $this->version;
-        $json['total_money']             = $this->totalMoney;
-        $json['total_tax_money']         = $this->totalTaxMoney;
-        $json['total_discount_money']    = $this->totalDiscountMoney;
-        $json['total_tip_money']         = $this->totalTipMoney;
-        $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
-        $json['pricing_options']         = $this->pricingOptions;
-        $json['rewards']                 = $this->rewards;
+        if (isset($this->id)) {
+            $json['id']                         = $this->id;
+        }
+        $json['location_id']                    = $this->locationId;
+        if (isset($this->referenceId)) {
+            $json['reference_id']               = $this->referenceId;
+        }
+        if (isset($this->source)) {
+            $json['source']                     = $this->source;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']                = $this->customerId;
+        }
+        if (isset($this->lineItems)) {
+            $json['line_items']                 = $this->lineItems;
+        }
+        if (isset($this->taxes)) {
+            $json['taxes']                      = $this->taxes;
+        }
+        if (isset($this->discounts)) {
+            $json['discounts']                  = $this->discounts;
+        }
+        if (isset($this->serviceCharges)) {
+            $json['service_charges']            = $this->serviceCharges;
+        }
+        if (isset($this->fulfillments)) {
+            $json['fulfillments']               = $this->fulfillments;
+        }
+        if (isset($this->returns)) {
+            $json['returns']                    = $this->returns;
+        }
+        if (isset($this->returnAmounts)) {
+            $json['return_amounts']             = $this->returnAmounts;
+        }
+        if (isset($this->netAmounts)) {
+            $json['net_amounts']                = $this->netAmounts;
+        }
+        if (isset($this->roundingAdjustment)) {
+            $json['rounding_adjustment']        = $this->roundingAdjustment;
+        }
+        if (isset($this->tenders)) {
+            $json['tenders']                    = $this->tenders;
+        }
+        if (isset($this->refunds)) {
+            $json['refunds']                    = $this->refunds;
+        }
+        if (isset($this->metadata)) {
+            $json['metadata']                   = $this->metadata;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']                 = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']                 = $this->updatedAt;
+        }
+        if (isset($this->closedAt)) {
+            $json['closed_at']                  = $this->closedAt;
+        }
+        if (isset($this->state)) {
+            $json['state']                      = $this->state;
+        }
+        if (isset($this->version)) {
+            $json['version']                    = $this->version;
+        }
+        if (isset($this->totalMoney)) {
+            $json['total_money']                = $this->totalMoney;
+        }
+        if (isset($this->totalTaxMoney)) {
+            $json['total_tax_money']            = $this->totalTaxMoney;
+        }
+        if (isset($this->totalDiscountMoney)) {
+            $json['total_discount_money']       = $this->totalDiscountMoney;
+        }
+        if (isset($this->totalTipMoney)) {
+            $json['total_tip_money']            = $this->totalTipMoney;
+        }
+        if (isset($this->totalServiceChargeMoney)) {
+            $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
+        }
+        if (isset($this->pricingOptions)) {
+            $json['pricing_options']            = $this->pricingOptions;
+        }
+        if (isset($this->rewards)) {
+            $json['rewards']                    = $this->rewards;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

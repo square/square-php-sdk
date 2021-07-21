@@ -151,10 +151,14 @@ class CatalogQuickAmount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']    = $this->type;
-        $json['amount']  = $this->amount;
-        $json['score']   = $this->score;
-        $json['ordinal'] = $this->ordinal;
+        $json['type']        = $this->type;
+        $json['amount']      = $this->amount;
+        if (isset($this->score)) {
+            $json['score']   = $this->score;
+        }
+        if (isset($this->ordinal)) {
+            $json['ordinal'] = $this->ordinal;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

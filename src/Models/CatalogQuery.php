@@ -329,16 +329,36 @@ class CatalogQuery implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['sorted_attribute_query']                 = $this->sortedAttributeQuery;
-        $json['exact_query']                            = $this->exactQuery;
-        $json['set_query']                              = $this->setQuery;
-        $json['prefix_query']                           = $this->prefixQuery;
-        $json['range_query']                            = $this->rangeQuery;
-        $json['text_query']                             = $this->textQuery;
-        $json['items_for_tax_query']                    = $this->itemsForTaxQuery;
-        $json['items_for_modifier_list_query']          = $this->itemsForModifierListQuery;
-        $json['items_for_item_options_query']           = $this->itemsForItemOptionsQuery;
-        $json['item_variations_for_item_option_values_query'] = $this->itemVariationsForItemOptionValuesQuery;
+        if (isset($this->sortedAttributeQuery)) {
+            $json['sorted_attribute_query']                       = $this->sortedAttributeQuery;
+        }
+        if (isset($this->exactQuery)) {
+            $json['exact_query']                                  = $this->exactQuery;
+        }
+        if (isset($this->setQuery)) {
+            $json['set_query']                                    = $this->setQuery;
+        }
+        if (isset($this->prefixQuery)) {
+            $json['prefix_query']                                 = $this->prefixQuery;
+        }
+        if (isset($this->rangeQuery)) {
+            $json['range_query']                                  = $this->rangeQuery;
+        }
+        if (isset($this->textQuery)) {
+            $json['text_query']                                   = $this->textQuery;
+        }
+        if (isset($this->itemsForTaxQuery)) {
+            $json['items_for_tax_query']                          = $this->itemsForTaxQuery;
+        }
+        if (isset($this->itemsForModifierListQuery)) {
+            $json['items_for_modifier_list_query']                = $this->itemsForModifierListQuery;
+        }
+        if (isset($this->itemsForItemOptionsQuery)) {
+            $json['items_for_item_options_query']                 = $this->itemsForItemOptionsQuery;
+        }
+        if (isset($this->itemVariationsForItemOptionValuesQuery)) {
+            $json['item_variations_for_item_option_values_query'] = $this->itemVariationsForItemOptionValuesQuery;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

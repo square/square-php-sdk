@@ -440,21 +440,51 @@ class Address implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['address_line_1']               = $this->addressLine1;
-        $json['address_line_2']               = $this->addressLine2;
-        $json['address_line_3']               = $this->addressLine3;
-        $json['locality']                     = $this->locality;
-        $json['sublocality']                  = $this->sublocality;
-        $json['sublocality_2']                = $this->sublocality2;
-        $json['sublocality_3']                = $this->sublocality3;
-        $json['administrative_district_level_1'] = $this->administrativeDistrictLevel1;
-        $json['administrative_district_level_2'] = $this->administrativeDistrictLevel2;
-        $json['administrative_district_level_3'] = $this->administrativeDistrictLevel3;
-        $json['postal_code']                  = $this->postalCode;
-        $json['country']                      = $this->country;
-        $json['first_name']                   = $this->firstName;
-        $json['last_name']                    = $this->lastName;
-        $json['organization']                 = $this->organization;
+        if (isset($this->addressLine1)) {
+            $json['address_line_1']                  = $this->addressLine1;
+        }
+        if (isset($this->addressLine2)) {
+            $json['address_line_2']                  = $this->addressLine2;
+        }
+        if (isset($this->addressLine3)) {
+            $json['address_line_3']                  = $this->addressLine3;
+        }
+        if (isset($this->locality)) {
+            $json['locality']                        = $this->locality;
+        }
+        if (isset($this->sublocality)) {
+            $json['sublocality']                     = $this->sublocality;
+        }
+        if (isset($this->sublocality2)) {
+            $json['sublocality_2']                   = $this->sublocality2;
+        }
+        if (isset($this->sublocality3)) {
+            $json['sublocality_3']                   = $this->sublocality3;
+        }
+        if (isset($this->administrativeDistrictLevel1)) {
+            $json['administrative_district_level_1'] = $this->administrativeDistrictLevel1;
+        }
+        if (isset($this->administrativeDistrictLevel2)) {
+            $json['administrative_district_level_2'] = $this->administrativeDistrictLevel2;
+        }
+        if (isset($this->administrativeDistrictLevel3)) {
+            $json['administrative_district_level_3'] = $this->administrativeDistrictLevel3;
+        }
+        if (isset($this->postalCode)) {
+            $json['postal_code']                     = $this->postalCode;
+        }
+        if (isset($this->country)) {
+            $json['country']                         = $this->country;
+        }
+        if (isset($this->firstName)) {
+            $json['first_name']                      = $this->firstName;
+        }
+        if (isset($this->lastName)) {
+            $json['last_name']                       = $this->lastName;
+        }
+        if (isset($this->organization)) {
+            $json['organization']                    = $this->organization;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

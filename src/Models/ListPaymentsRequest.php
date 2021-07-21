@@ -293,15 +293,33 @@ class ListPaymentsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['begin_time'] = $this->beginTime;
-        $json['end_time']   = $this->endTime;
-        $json['sort_order'] = $this->sortOrder;
-        $json['cursor']     = $this->cursor;
-        $json['location_id'] = $this->locationId;
-        $json['total']      = $this->total;
-        $json['last_4']     = $this->last4;
-        $json['card_brand'] = $this->cardBrand;
-        $json['limit']      = $this->limit;
+        if (isset($this->beginTime)) {
+            $json['begin_time']  = $this->beginTime;
+        }
+        if (isset($this->endTime)) {
+            $json['end_time']    = $this->endTime;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order']  = $this->sortOrder;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']      = $this->cursor;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
+        if (isset($this->total)) {
+            $json['total']       = $this->total;
+        }
+        if (isset($this->last4)) {
+            $json['last_4']      = $this->last4;
+        }
+        if (isset($this->cardBrand)) {
+            $json['card_brand']  = $this->cardBrand;
+        }
+        if (isset($this->limit)) {
+            $json['limit']       = $this->limit;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

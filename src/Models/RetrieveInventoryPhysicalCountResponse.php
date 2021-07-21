@@ -78,8 +78,12 @@ class RetrieveInventoryPhysicalCountResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['count']  = $this->count;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->count)) {
+            $json['count']  = $this->count;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

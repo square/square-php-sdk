@@ -6,7 +6,8 @@ namespace Square\Models;
 
 /**
  * Describes a loyalty account. For more information, see
- * [Loyalty Overview](https://developer.squareup.com/docs/loyalty/overview).
+ * [Manage Loyalty Accounts Using the Loyalty API](https://developer.squareup.com/docs/loyalty-
+ * api/overview).
  */
 class LoyaltyAccount implements \JsonSerializable
 {
@@ -286,15 +287,31 @@ class LoyaltyAccount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']             = $this->id;
-        $json['program_id']     = $this->programId;
-        $json['balance']        = $this->balance;
-        $json['lifetime_points'] = $this->lifetimePoints;
-        $json['customer_id']    = $this->customerId;
-        $json['enrolled_at']    = $this->enrolledAt;
-        $json['created_at']     = $this->createdAt;
-        $json['updated_at']     = $this->updatedAt;
-        $json['mapping']        = $this->mapping;
+        if (isset($this->id)) {
+            $json['id']              = $this->id;
+        }
+        $json['program_id']          = $this->programId;
+        if (isset($this->balance)) {
+            $json['balance']         = $this->balance;
+        }
+        if (isset($this->lifetimePoints)) {
+            $json['lifetime_points'] = $this->lifetimePoints;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']     = $this->customerId;
+        }
+        if (isset($this->enrolledAt)) {
+            $json['enrolled_at']     = $this->enrolledAt;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']      = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']      = $this->updatedAt;
+        }
+        if (isset($this->mapping)) {
+            $json['mapping']         = $this->mapping;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -275,15 +275,29 @@ class LoyaltyReward implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']               = $this->id;
-        $json['status']           = $this->status;
+        if (isset($this->id)) {
+            $json['id']             = $this->id;
+        }
+        if (isset($this->status)) {
+            $json['status']         = $this->status;
+        }
         $json['loyalty_account_id'] = $this->loyaltyAccountId;
-        $json['reward_tier_id']   = $this->rewardTierId;
-        $json['points']           = $this->points;
-        $json['order_id']         = $this->orderId;
-        $json['created_at']       = $this->createdAt;
-        $json['updated_at']       = $this->updatedAt;
-        $json['redeemed_at']      = $this->redeemedAt;
+        $json['reward_tier_id']     = $this->rewardTierId;
+        if (isset($this->points)) {
+            $json['points']         = $this->points;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']       = $this->orderId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']     = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']     = $this->updatedAt;
+        }
+        if (isset($this->redeemedAt)) {
+            $json['redeemed_at']    = $this->redeemedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

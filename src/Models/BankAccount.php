@@ -546,23 +546,37 @@ class BankAccount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                                = $this->id;
-        $json['account_number_suffix']             = $this->accountNumberSuffix;
-        $json['country']                           = $this->country;
-        $json['currency']                          = $this->currency;
-        $json['account_type']                      = $this->accountType;
-        $json['holder_name']                       = $this->holderName;
-        $json['primary_bank_identification_number'] = $this->primaryBankIdentificationNumber;
-        $json['secondary_bank_identification_number'] = $this->secondaryBankIdentificationNumber;
-        $json['debit_mandate_reference_id']        = $this->debitMandateReferenceId;
-        $json['reference_id']                      = $this->referenceId;
-        $json['location_id']                       = $this->locationId;
-        $json['status']                            = $this->status;
-        $json['creditable']                        = $this->creditable;
-        $json['debitable']                         = $this->debitable;
-        $json['fingerprint']                       = $this->fingerprint;
-        $json['version']                           = $this->version;
-        $json['bank_name']                         = $this->bankName;
+        $json['id']                                       = $this->id;
+        $json['account_number_suffix']                    = $this->accountNumberSuffix;
+        $json['country']                                  = $this->country;
+        $json['currency']                                 = $this->currency;
+        $json['account_type']                             = $this->accountType;
+        $json['holder_name']                              = $this->holderName;
+        $json['primary_bank_identification_number']       = $this->primaryBankIdentificationNumber;
+        if (isset($this->secondaryBankIdentificationNumber)) {
+            $json['secondary_bank_identification_number'] = $this->secondaryBankIdentificationNumber;
+        }
+        if (isset($this->debitMandateReferenceId)) {
+            $json['debit_mandate_reference_id']           = $this->debitMandateReferenceId;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']                         = $this->referenceId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']                          = $this->locationId;
+        }
+        $json['status']                                   = $this->status;
+        $json['creditable']                               = $this->creditable;
+        $json['debitable']                                = $this->debitable;
+        if (isset($this->fingerprint)) {
+            $json['fingerprint']                          = $this->fingerprint;
+        }
+        if (isset($this->version)) {
+            $json['version']                              = $this->version;
+        }
+        if (isset($this->bankName)) {
+            $json['bank_name']                            = $this->bankName;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

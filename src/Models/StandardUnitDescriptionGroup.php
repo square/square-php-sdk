@@ -75,8 +75,12 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['standard_unit_descriptions'] = $this->standardUnitDescriptions;
-        $json['language_code']            = $this->languageCode;
+        if (isset($this->standardUnitDescriptions)) {
+            $json['standard_unit_descriptions'] = $this->standardUnitDescriptions;
+        }
+        if (isset($this->languageCode)) {
+            $json['language_code']              = $this->languageCode;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

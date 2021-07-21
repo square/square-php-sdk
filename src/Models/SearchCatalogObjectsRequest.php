@@ -299,13 +299,27 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']                = $this->cursor;
-        $json['object_types']          = $this->objectTypes;
-        $json['include_deleted_objects'] = $this->includeDeletedObjects;
-        $json['include_related_objects'] = $this->includeRelatedObjects;
-        $json['begin_time']            = $this->beginTime;
-        $json['query']                 = $this->query;
-        $json['limit']                 = $this->limit;
+        if (isset($this->cursor)) {
+            $json['cursor']                  = $this->cursor;
+        }
+        if (isset($this->objectTypes)) {
+            $json['object_types']            = $this->objectTypes;
+        }
+        if (isset($this->includeDeletedObjects)) {
+            $json['include_deleted_objects'] = $this->includeDeletedObjects;
+        }
+        if (isset($this->includeRelatedObjects)) {
+            $json['include_related_objects'] = $this->includeRelatedObjects;
+        }
+        if (isset($this->beginTime)) {
+            $json['begin_time']              = $this->beginTime;
+        }
+        if (isset($this->query)) {
+            $json['query']                   = $this->query;
+        }
+        if (isset($this->limit)) {
+            $json['limit']                   = $this->limit;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

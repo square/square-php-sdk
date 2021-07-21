@@ -212,11 +212,21 @@ class OrderMoneyAmounts implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['total_money']        = $this->totalMoney;
-        $json['tax_money']          = $this->taxMoney;
-        $json['discount_money']     = $this->discountMoney;
-        $json['tip_money']          = $this->tipMoney;
-        $json['service_charge_money'] = $this->serviceChargeMoney;
+        if (isset($this->totalMoney)) {
+            $json['total_money']          = $this->totalMoney;
+        }
+        if (isset($this->taxMoney)) {
+            $json['tax_money']            = $this->taxMoney;
+        }
+        if (isset($this->discountMoney)) {
+            $json['discount_money']       = $this->discountMoney;
+        }
+        if (isset($this->tipMoney)) {
+            $json['tip_money']            = $this->tipMoney;
+        }
+        if (isset($this->serviceChargeMoney)) {
+            $json['service_charge_money'] = $this->serviceChargeMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

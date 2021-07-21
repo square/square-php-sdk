@@ -233,14 +233,30 @@ class MeasurementUnit implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['custom_unit'] = $this->customUnit;
-        $json['area_unit']   = $this->areaUnit;
-        $json['length_unit'] = $this->lengthUnit;
-        $json['volume_unit'] = $this->volumeUnit;
-        $json['weight_unit'] = $this->weightUnit;
-        $json['generic_unit'] = $this->genericUnit;
-        $json['time_unit']   = $this->timeUnit;
-        $json['type']        = $this->type;
+        if (isset($this->customUnit)) {
+            $json['custom_unit']  = $this->customUnit;
+        }
+        if (isset($this->areaUnit)) {
+            $json['area_unit']    = $this->areaUnit;
+        }
+        if (isset($this->lengthUnit)) {
+            $json['length_unit']  = $this->lengthUnit;
+        }
+        if (isset($this->volumeUnit)) {
+            $json['volume_unit']  = $this->volumeUnit;
+        }
+        if (isset($this->weightUnit)) {
+            $json['weight_unit']  = $this->weightUnit;
+        }
+        if (isset($this->genericUnit)) {
+            $json['generic_unit'] = $this->genericUnit;
+        }
+        if (isset($this->timeUnit)) {
+            $json['time_unit']    = $this->timeUnit;
+        }
+        if (isset($this->type)) {
+            $json['type']         = $this->type;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

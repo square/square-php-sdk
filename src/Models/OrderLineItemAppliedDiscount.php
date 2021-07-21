@@ -132,9 +132,13 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']          = $this->uid;
-        $json['discount_uid'] = $this->discountUid;
-        $json['applied_money'] = $this->appliedMoney;
+        if (isset($this->uid)) {
+            $json['uid']           = $this->uid;
+        }
+        $json['discount_uid']      = $this->discountUid;
+        if (isset($this->appliedMoney)) {
+            $json['applied_money'] = $this->appliedMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

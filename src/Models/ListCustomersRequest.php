@@ -107,9 +107,15 @@ class ListCustomersRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']    = $this->cursor;
-        $json['sort_field'] = $this->sortField;
-        $json['sort_order'] = $this->sortOrder;
+        if (isset($this->cursor)) {
+            $json['cursor']     = $this->cursor;
+        }
+        if (isset($this->sortField)) {
+            $json['sort_field'] = $this->sortField;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

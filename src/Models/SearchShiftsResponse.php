@@ -108,9 +108,15 @@ class SearchShiftsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['shifts'] = $this->shifts;
-        $json['cursor'] = $this->cursor;
-        $json['errors'] = $this->errors;
+        if (isset($this->shifts)) {
+            $json['shifts'] = $this->shifts;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor'] = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

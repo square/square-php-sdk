@@ -71,8 +71,12 @@ class ShiftSort implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['field'] = $this->field;
-        $json['order'] = $this->order;
+        if (isset($this->field)) {
+            $json['field'] = $this->field;
+        }
+        if (isset($this->order)) {
+            $json['order'] = $this->order;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

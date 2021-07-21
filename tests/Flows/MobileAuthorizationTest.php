@@ -35,10 +35,10 @@ class MobileAuthorizationTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $config = ClientFactory::create();
         self::$httpResponse = new HttpCallBackCatcher();
-        self::$controller = new MobileAuthorizationApi($config, self::$httpResponse);
-        self::$Locations =  new LocationsApi($config, self::$httpResponse);
+        $client = ClientFactory::create(self::$httpResponse);
+        self::$controller = $client->getMobileAuthorizationApi();
+        self::$Locations = $client->getLocationsApi();
     }
 
     public function testCreateMobileAuthorizationCode() 
@@ -48,7 +48,7 @@ class MobileAuthorizationTest extends TestCase
         $this->assertTrue($locationsResult->isSuccess());
 
         $locationId = $locationsResult->getResult()->getLocations()[0]->getId();
-        $body = new CreateMobileAuthorizationCodeRequest;
+        $body = new CreateMobileAuthorizationCodeRequest();
         $body->setLocationId($locationId);
         $apiResponse = self::$controller->createMobileAuthorizationCode($body);
 

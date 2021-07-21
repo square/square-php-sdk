@@ -72,8 +72,12 @@ class RetrieveEmployeeResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['employee'] = $this->employee;
-        $json['errors']   = $this->errors;
+        if (isset($this->employee)) {
+            $json['employee'] = $this->employee;
+        }
+        if (isset($this->errors)) {
+            $json['errors']   = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

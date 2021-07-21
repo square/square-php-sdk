@@ -73,8 +73,12 @@ class DisputeEvidenceFile implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['filename'] = $this->filename;
-        $json['filetype'] = $this->filetype;
+        if (isset($this->filename)) {
+            $json['filename'] = $this->filename;
+        }
+        if (isset($this->filetype)) {
+            $json['filetype'] = $this->filetype;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

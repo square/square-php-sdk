@@ -111,9 +111,13 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['attribute_name']        = $this->attributeName;
-        $json['initial_attribute_value'] = $this->initialAttributeValue;
-        $json['sort_order']            = $this->sortOrder;
+        $json['attribute_name']              = $this->attributeName;
+        if (isset($this->initialAttributeValue)) {
+            $json['initial_attribute_value'] = $this->initialAttributeValue;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order']              = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -49,10 +49,10 @@ class OrdersTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $config = ClientFactory::create();
         self::$httpResponse = new HttpCallBackCatcher();
-        self::$controller = new OrdersApi($config, self::$httpResponse);
-        self::$Locations =  new LocationsApi($config, self::$httpResponse);
+        $client = ClientFactory::create(self::$httpResponse);
+        self::$controller = $client->getOrdersApi();
+        self::$Locations = $client->getLocationsApi();
     }
 
 

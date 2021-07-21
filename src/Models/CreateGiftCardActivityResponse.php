@@ -76,8 +76,12 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']           = $this->errors;
-        $json['gift_card_activity'] = $this->giftCardActivity;
+        if (isset($this->errors)) {
+            $json['errors']             = $this->errors;
+        }
+        if (isset($this->giftCardActivity)) {
+            $json['gift_card_activity'] = $this->giftCardActivity;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

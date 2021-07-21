@@ -79,8 +79,12 @@ class CustomerTextFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['exact'] = $this->exact;
-        $json['fuzzy'] = $this->fuzzy;
+        if (isset($this->exact)) {
+            $json['exact'] = $this->exact;
+        }
+        if (isset($this->fuzzy)) {
+            $json['fuzzy'] = $this->fuzzy;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

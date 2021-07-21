@@ -351,16 +351,22 @@ class Refund implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                   = $this->id;
-        $json['location_id']          = $this->locationId;
-        $json['transaction_id']       = $this->transactionId;
-        $json['tender_id']            = $this->tenderId;
-        $json['created_at']           = $this->createdAt;
-        $json['reason']               = $this->reason;
-        $json['amount_money']         = $this->amountMoney;
-        $json['status']               = $this->status;
-        $json['processing_fee_money'] = $this->processingFeeMoney;
-        $json['additional_recipients'] = $this->additionalRecipients;
+        $json['id']                        = $this->id;
+        $json['location_id']               = $this->locationId;
+        $json['transaction_id']            = $this->transactionId;
+        $json['tender_id']                 = $this->tenderId;
+        if (isset($this->createdAt)) {
+            $json['created_at']            = $this->createdAt;
+        }
+        $json['reason']                    = $this->reason;
+        $json['amount_money']              = $this->amountMoney;
+        $json['status']                    = $this->status;
+        if (isset($this->processingFeeMoney)) {
+            $json['processing_fee_money']  = $this->processingFeeMoney;
+        }
+        if (isset($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

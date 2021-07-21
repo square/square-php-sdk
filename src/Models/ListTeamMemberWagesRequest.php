@@ -102,9 +102,15 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_id'] = $this->teamMemberId;
-        $json['limit']        = $this->limit;
-        $json['cursor']       = $this->cursor;
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId;
+        }
+        if (isset($this->limit)) {
+            $json['limit']          = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']         = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

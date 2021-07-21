@@ -125,10 +125,18 @@ class V1PaymentItemDetail implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['category_name']   = $this->categoryName;
-        $json['sku']             = $this->sku;
-        $json['item_id']         = $this->itemId;
-        $json['item_variation_id'] = $this->itemVariationId;
+        if (isset($this->categoryName)) {
+            $json['category_name']     = $this->categoryName;
+        }
+        if (isset($this->sku)) {
+            $json['sku']               = $this->sku;
+        }
+        if (isset($this->itemId)) {
+            $json['item_id']           = $this->itemId;
+        }
+        if (isset($this->itemVariationId)) {
+            $json['item_variation_id'] = $this->itemVariationId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

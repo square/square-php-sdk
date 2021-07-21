@@ -105,9 +105,15 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                = $this->uid;
-        $json['tax_uid']            = $this->taxUid;
-        $json['tax_catalog_object_id'] = $this->taxCatalogObjectId;
+        if (isset($this->uid)) {
+            $json['uid']                   = $this->uid;
+        }
+        if (isset($this->taxUid)) {
+            $json['tax_uid']               = $this->taxUid;
+        }
+        if (isset($this->taxCatalogObjectId)) {
+            $json['tax_catalog_object_id'] = $this->taxCatalogObjectId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

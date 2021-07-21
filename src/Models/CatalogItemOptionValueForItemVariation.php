@@ -74,8 +74,12 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_option_id']    = $this->itemOptionId;
-        $json['item_option_value_id'] = $this->itemOptionValueId;
+        if (isset($this->itemOptionId)) {
+            $json['item_option_id']       = $this->itemOptionId;
+        }
+        if (isset($this->itemOptionValueId)) {
+            $json['item_option_value_id'] = $this->itemOptionValueId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

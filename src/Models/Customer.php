@@ -568,25 +568,63 @@ class Customer implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']             = $this->id;
-        $json['created_at']     = $this->createdAt;
-        $json['updated_at']     = $this->updatedAt;
-        $json['cards']          = $this->cards;
-        $json['given_name']     = $this->givenName;
-        $json['family_name']    = $this->familyName;
-        $json['nickname']       = $this->nickname;
-        $json['company_name']   = $this->companyName;
-        $json['email_address']  = $this->emailAddress;
-        $json['address']        = $this->address;
-        $json['phone_number']   = $this->phoneNumber;
-        $json['birthday']       = $this->birthday;
-        $json['reference_id']   = $this->referenceId;
-        $json['note']           = $this->note;
-        $json['preferences']    = $this->preferences;
-        $json['creation_source'] = $this->creationSource;
-        $json['group_ids']      = $this->groupIds;
-        $json['segment_ids']    = $this->segmentIds;
-        $json['version']        = $this->version;
+        if (isset($this->id)) {
+            $json['id']              = $this->id;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']      = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']      = $this->updatedAt;
+        }
+        if (isset($this->cards)) {
+            $json['cards']           = $this->cards;
+        }
+        if (isset($this->givenName)) {
+            $json['given_name']      = $this->givenName;
+        }
+        if (isset($this->familyName)) {
+            $json['family_name']     = $this->familyName;
+        }
+        if (isset($this->nickname)) {
+            $json['nickname']        = $this->nickname;
+        }
+        if (isset($this->companyName)) {
+            $json['company_name']    = $this->companyName;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address']   = $this->emailAddress;
+        }
+        if (isset($this->address)) {
+            $json['address']         = $this->address;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']    = $this->phoneNumber;
+        }
+        if (isset($this->birthday)) {
+            $json['birthday']        = $this->birthday;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId;
+        }
+        if (isset($this->note)) {
+            $json['note']            = $this->note;
+        }
+        if (isset($this->preferences)) {
+            $json['preferences']     = $this->preferences;
+        }
+        if (isset($this->creationSource)) {
+            $json['creation_source'] = $this->creationSource;
+        }
+        if (isset($this->groupIds)) {
+            $json['group_ids']       = $this->groupIds;
+        }
+        if (isset($this->segmentIds)) {
+            $json['segment_ids']     = $this->segmentIds;
+        }
+        if (isset($this->version)) {
+            $json['version']         = $this->version;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -107,9 +107,15 @@ class BatchChangeInventoryResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['counts']  = $this->counts;
-        $json['changes'] = $this->changes;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->counts)) {
+            $json['counts']  = $this->counts;
+        }
+        if (isset($this->changes)) {
+            $json['changes'] = $this->changes;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

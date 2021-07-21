@@ -37,7 +37,9 @@ class OrderCreatedObject implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_created'] = $this->orderCreated;
+        if (isset($this->orderCreated)) {
+            $json['order_created'] = $this->orderCreated;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

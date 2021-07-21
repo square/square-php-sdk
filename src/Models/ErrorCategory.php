@@ -44,4 +44,9 @@ class ErrorCategory
      * An error occurred while attempting to process a refund.
      */
     public const REFUND_ERROR = 'REFUND_ERROR';
+
+    /**
+     * An error occurred when checking a merchant subscription status
+     */
+    public const MERCHANT_SUBSCRIPTION_ERROR = 'MERCHANT_SUBSCRIPTION_ERROR';
 }

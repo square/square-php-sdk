@@ -119,9 +119,15 @@ class ListTransactionsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']       = $this->errors;
-        $json['transactions'] = $this->transactions;
-        $json['cursor']       = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
+        if (isset($this->transactions)) {
+            $json['transactions'] = $this->transactions;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']       = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

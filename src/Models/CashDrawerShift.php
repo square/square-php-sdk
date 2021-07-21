@@ -594,24 +594,60 @@ class CashDrawerShift implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['state']             = $this->state;
-        $json['opened_at']         = $this->openedAt;
-        $json['ended_at']          = $this->endedAt;
-        $json['closed_at']         = $this->closedAt;
-        $json['employee_ids']      = $this->employeeIds;
-        $json['opening_employee_id'] = $this->openingEmployeeId;
-        $json['ending_employee_id'] = $this->endingEmployeeId;
-        $json['closing_employee_id'] = $this->closingEmployeeId;
-        $json['description']       = $this->description;
-        $json['opened_cash_money'] = $this->openedCashMoney;
-        $json['cash_payment_money'] = $this->cashPaymentMoney;
-        $json['cash_refunds_money'] = $this->cashRefundsMoney;
-        $json['cash_paid_in_money'] = $this->cashPaidInMoney;
-        $json['cash_paid_out_money'] = $this->cashPaidOutMoney;
-        $json['expected_cash_money'] = $this->expectedCashMoney;
-        $json['closed_cash_money'] = $this->closedCashMoney;
-        $json['device']            = $this->device;
+        if (isset($this->id)) {
+            $json['id']                  = $this->id;
+        }
+        if (isset($this->state)) {
+            $json['state']               = $this->state;
+        }
+        if (isset($this->openedAt)) {
+            $json['opened_at']           = $this->openedAt;
+        }
+        if (isset($this->endedAt)) {
+            $json['ended_at']            = $this->endedAt;
+        }
+        if (isset($this->closedAt)) {
+            $json['closed_at']           = $this->closedAt;
+        }
+        if (isset($this->employeeIds)) {
+            $json['employee_ids']        = $this->employeeIds;
+        }
+        if (isset($this->openingEmployeeId)) {
+            $json['opening_employee_id'] = $this->openingEmployeeId;
+        }
+        if (isset($this->endingEmployeeId)) {
+            $json['ending_employee_id']  = $this->endingEmployeeId;
+        }
+        if (isset($this->closingEmployeeId)) {
+            $json['closing_employee_id'] = $this->closingEmployeeId;
+        }
+        if (isset($this->description)) {
+            $json['description']         = $this->description;
+        }
+        if (isset($this->openedCashMoney)) {
+            $json['opened_cash_money']   = $this->openedCashMoney;
+        }
+        if (isset($this->cashPaymentMoney)) {
+            $json['cash_payment_money']  = $this->cashPaymentMoney;
+        }
+        if (isset($this->cashRefundsMoney)) {
+            $json['cash_refunds_money']  = $this->cashRefundsMoney;
+        }
+        if (isset($this->cashPaidInMoney)) {
+            $json['cash_paid_in_money']  = $this->cashPaidInMoney;
+        }
+        if (isset($this->cashPaidOutMoney)) {
+            $json['cash_paid_out_money'] = $this->cashPaidOutMoney;
+        }
+        if (isset($this->expectedCashMoney)) {
+            $json['expected_cash_money'] = $this->expectedCashMoney;
+        }
+        if (isset($this->closedCashMoney)) {
+            $json['closed_cash_money']   = $this->closedCashMoney;
+        }
+        if (isset($this->device)) {
+            $json['device']              = $this->device;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

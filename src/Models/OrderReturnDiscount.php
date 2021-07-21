@@ -30,6 +30,11 @@ class OrderReturnDiscount implements \JsonSerializable
     private $catalogObjectId;
 
     /**
+     * @var int|null
+     */
+    private $catalogVersion;
+
+    /**
      * @var string|null
      */
     private $name;
@@ -123,6 +128,28 @@ class OrderReturnDiscount implements \JsonSerializable
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
         $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
+     * Returns Catalog Version.
+     *
+     * The version of the catalog object that this discount references.
+     */
+    public function getCatalogVersion(): ?int
+    {
+        return $this->catalogVersion;
+    }
+
+    /**
+     * Sets Catalog Version.
+     *
+     * The version of the catalog object that this discount references.
+     *
+     * @maps catalog_version
+     */
+    public function setCatalogVersion(?int $catalogVersion): void
+    {
+        $this->catalogVersion = $catalogVersion;
     }
 
     /**
@@ -295,15 +322,36 @@ class OrderReturnDiscount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']               = $this->uid;
-        $json['source_discount_uid'] = $this->sourceDiscountUid;
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['name']              = $this->name;
-        $json['type']              = $this->type;
-        $json['percentage']        = $this->percentage;
-        $json['amount_money']      = $this->amountMoney;
-        $json['applied_money']     = $this->appliedMoney;
-        $json['scope']             = $this->scope;
+        if (isset($this->uid)) {
+            $json['uid']                 = $this->uid;
+        }
+        if (isset($this->sourceDiscountUid)) {
+            $json['source_discount_uid'] = $this->sourceDiscountUid;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']     = $this->catalogVersion;
+        }
+        if (isset($this->name)) {
+            $json['name']                = $this->name;
+        }
+        if (isset($this->type)) {
+            $json['type']                = $this->type;
+        }
+        if (isset($this->percentage)) {
+            $json['percentage']          = $this->percentage;
+        }
+        if (isset($this->amountMoney)) {
+            $json['amount_money']        = $this->amountMoney;
+        }
+        if (isset($this->appliedMoney)) {
+            $json['applied_money']       = $this->appliedMoney;
+        }
+        if (isset($this->scope)) {
+            $json['scope']               = $this->scope;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -149,9 +149,9 @@ class AppointmentSegment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['duration_minutes']        = $this->durationMinutes;
-        $json['service_variation_id']    = $this->serviceVariationId;
-        $json['team_member_id']          = $this->teamMemberId;
+        $json['duration_minutes']          = $this->durationMinutes;
+        $json['service_variation_id']      = $this->serviceVariationId;
+        $json['team_member_id']            = $this->teamMemberId;
         $json['service_variation_version'] = $this->serviceVariationVersion;
 
         return array_filter($json, function ($val) {

@@ -83,8 +83,12 @@ class SearchTeamMembersFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_ids'] = $this->locationIds;
-        $json['status']      = $this->status;
+        if (isset($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds;
+        }
+        if (isset($this->status)) {
+            $json['status']       = $this->status;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

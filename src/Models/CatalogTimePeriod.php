@@ -72,7 +72,9 @@ class CatalogTimePeriod implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['event'] = $this->event;
+        if (isset($this->event)) {
+            $json['event'] = $this->event;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

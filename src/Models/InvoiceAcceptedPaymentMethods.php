@@ -102,9 +102,15 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['card']           = $this->card;
-        $json['square_gift_card'] = $this->squareGiftCard;
-        $json['bank_account']   = $this->bankAccount;
+        if (isset($this->card)) {
+            $json['card']             = $this->card;
+        }
+        if (isset($this->squareGiftCard)) {
+            $json['square_gift_card'] = $this->squareGiftCard;
+        }
+        if (isset($this->bankAccount)) {
+            $json['bank_account']     = $this->bankAccount;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

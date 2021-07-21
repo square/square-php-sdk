@@ -182,11 +182,21 @@ class GiftCardActivityActivate implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['amount_money']              = $this->amountMoney;
-        $json['order_id']                  = $this->orderId;
-        $json['line_item_uid']             = $this->lineItemUid;
-        $json['reference_id']              = $this->referenceId;
-        $json['buyer_payment_instrument_ids'] = $this->buyerPaymentInstrumentIds;
+        if (isset($this->amountMoney)) {
+            $json['amount_money']                 = $this->amountMoney;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']                     = $this->orderId;
+        }
+        if (isset($this->lineItemUid)) {
+            $json['line_item_uid']                = $this->lineItemUid;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']                 = $this->referenceId;
+        }
+        if (isset($this->buyerPaymentInstrumentIds)) {
+            $json['buyer_payment_instrument_ids'] = $this->buyerPaymentInstrumentIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

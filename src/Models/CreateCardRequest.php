@@ -167,10 +167,12 @@ class CreateCardRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']   = $this->idempotencyKey;
-        $json['source_id']         = $this->sourceId;
-        $json['verification_token'] = $this->verificationToken;
-        $json['card']              = $this->card;
+        $json['idempotency_key']        = $this->idempotencyKey;
+        $json['source_id']              = $this->sourceId;
+        if (isset($this->verificationToken)) {
+            $json['verification_token'] = $this->verificationToken;
+        }
+        $json['card']                   = $this->card;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -86,8 +86,12 @@ class ChargeResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']      = $this->errors;
-        $json['transaction'] = $this->transaction;
+        if (isset($this->errors)) {
+            $json['errors']      = $this->errors;
+        }
+        if (isset($this->transaction)) {
+            $json['transaction'] = $this->transaction;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

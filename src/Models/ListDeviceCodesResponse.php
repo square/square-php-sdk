@@ -113,9 +113,15 @@ class ListDeviceCodesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']      = $this->errors;
-        $json['device_codes'] = $this->deviceCodes;
-        $json['cursor']      = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
+        if (isset($this->deviceCodes)) {
+            $json['device_codes'] = $this->deviceCodes;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']       = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

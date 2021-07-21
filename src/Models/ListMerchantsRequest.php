@@ -44,7 +44,9 @@ class ListMerchantsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor'] = $this->cursor;
+        if (isset($this->cursor)) {
+            $json['cursor'] = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

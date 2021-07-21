@@ -76,8 +76,12 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['points'] = $this->points;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->points)) {
+            $json['points'] = $this->points;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

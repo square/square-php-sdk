@@ -82,8 +82,10 @@ class CreateBreakTypeRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['break_type']     = $this->breakType;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
+        $json['break_type']          = $this->breakType;
 
         return array_filter($json, function ($val) {
             return $val !== null;

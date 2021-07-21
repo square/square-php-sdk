@@ -68,8 +68,12 @@ class RetrieveBusinessBookingProfileResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['business_booking_profile'] = $this->businessBookingProfile;
-        $json['errors']                 = $this->errors;
+        if (isset($this->businessBookingProfile)) {
+            $json['business_booking_profile'] = $this->businessBookingProfile;
+        }
+        if (isset($this->errors)) {
+            $json['errors']                   = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

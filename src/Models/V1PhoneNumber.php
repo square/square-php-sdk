@@ -84,7 +84,7 @@ class V1PhoneNumber implements \JsonSerializable
     {
         $json = [];
         $json['calling_code'] = $this->callingCode;
-        $json['number']      = $this->number;
+        $json['number']       = $this->number;
 
         return array_filter($json, function ($val) {
             return $val !== null;

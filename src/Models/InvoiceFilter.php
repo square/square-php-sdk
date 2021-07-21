@@ -94,8 +94,10 @@ class InvoiceFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_ids'] = $this->locationIds;
-        $json['customer_ids'] = $this->customerIds;
+        $json['location_ids']     = $this->locationIds;
+        if (isset($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

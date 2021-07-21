@@ -75,8 +75,12 @@ class TeamMemberAssignedLocations implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['assignment_type'] = $this->assignmentType;
-        $json['location_ids']   = $this->locationIds;
+        if (isset($this->assignmentType)) {
+            $json['assignment_type'] = $this->assignmentType;
+        }
+        if (isset($this->locationIds)) {
+            $json['location_ids']    = $this->locationIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

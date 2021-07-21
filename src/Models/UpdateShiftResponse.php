@@ -81,8 +81,12 @@ class UpdateShiftResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['shift']  = $this->shift;
-        $json['errors'] = $this->errors;
+        if (isset($this->shift)) {
+            $json['shift']  = $this->shift;
+        }
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

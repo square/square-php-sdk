@@ -389,18 +389,36 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']                      = $this->type;
-        $json['name']                      = $this->name;
-        $json['description']               = $this->description;
-        $json['source_application']        = $this->sourceApplication;
-        $json['allowed_object_types']      = $this->allowedObjectTypes;
-        $json['seller_visibility']         = $this->sellerVisibility;
-        $json['app_visibility']            = $this->appVisibility;
-        $json['string_config']             = $this->stringConfig;
-        $json['number_config']             = $this->numberConfig;
-        $json['selection_config']          = $this->selectionConfig;
-        $json['custom_attribute_usage_count'] = $this->customAttributeUsageCount;
-        $json['key']                       = $this->key;
+        $json['type']                             = $this->type;
+        $json['name']                             = $this->name;
+        if (isset($this->description)) {
+            $json['description']                  = $this->description;
+        }
+        if (isset($this->sourceApplication)) {
+            $json['source_application']           = $this->sourceApplication;
+        }
+        $json['allowed_object_types']             = $this->allowedObjectTypes;
+        if (isset($this->sellerVisibility)) {
+            $json['seller_visibility']            = $this->sellerVisibility;
+        }
+        if (isset($this->appVisibility)) {
+            $json['app_visibility']               = $this->appVisibility;
+        }
+        if (isset($this->stringConfig)) {
+            $json['string_config']                = $this->stringConfig;
+        }
+        if (isset($this->numberConfig)) {
+            $json['number_config']                = $this->numberConfig;
+        }
+        if (isset($this->selectionConfig)) {
+            $json['selection_config']             = $this->selectionConfig;
+        }
+        if (isset($this->customAttributeUsageCount)) {
+            $json['custom_attribute_usage_count'] = $this->customAttributeUsageCount;
+        }
+        if (isset($this->key)) {
+            $json['key']                          = $this->key;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

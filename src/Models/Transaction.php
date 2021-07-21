@@ -321,16 +321,36 @@ class Transaction implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']              = $this->id;
-        $json['location_id']     = $this->locationId;
-        $json['created_at']      = $this->createdAt;
-        $json['tenders']         = $this->tenders;
-        $json['refunds']         = $this->refunds;
-        $json['reference_id']    = $this->referenceId;
-        $json['product']         = $this->product;
-        $json['client_id']       = $this->clientId;
-        $json['shipping_address'] = $this->shippingAddress;
-        $json['order_id']        = $this->orderId;
+        if (isset($this->id)) {
+            $json['id']               = $this->id;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']      = $this->locationId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']       = $this->createdAt;
+        }
+        if (isset($this->tenders)) {
+            $json['tenders']          = $this->tenders;
+        }
+        if (isset($this->refunds)) {
+            $json['refunds']          = $this->refunds;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']     = $this->referenceId;
+        }
+        if (isset($this->product)) {
+            $json['product']          = $this->product;
+        }
+        if (isset($this->clientId)) {
+            $json['client_id']        = $this->clientId;
+        }
+        if (isset($this->shippingAddress)) {
+            $json['shipping_address'] = $this->shippingAddress;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']         = $this->orderId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

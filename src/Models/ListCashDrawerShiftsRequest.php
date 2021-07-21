@@ -187,12 +187,22 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_id'] = $this->locationId;
-        $json['sort_order'] = $this->sortOrder;
-        $json['begin_time'] = $this->beginTime;
-        $json['end_time']   = $this->endTime;
-        $json['limit']      = $this->limit;
-        $json['cursor']     = $this->cursor;
+        $json['location_id']    = $this->locationId;
+        if (isset($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder;
+        }
+        if (isset($this->beginTime)) {
+            $json['begin_time'] = $this->beginTime;
+        }
+        if (isset($this->endTime)) {
+            $json['end_time']   = $this->endTime;
+        }
+        if (isset($this->limit)) {
+            $json['limit']      = $this->limit;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']     = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

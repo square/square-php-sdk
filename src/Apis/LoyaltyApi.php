@@ -17,9 +17,9 @@ use Unirest\Request;
 
 class LoyaltyApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, ?HttpCallBack $httpCallBack = null)
+    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
     {
-        parent::__construct($config, $httpCallBack);
+        parent::__construct($config, $authManagers, $httpCallBack);
     }
 
     /**
@@ -49,8 +49,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -58,6 +57,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -68,7 +70,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -121,8 +123,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -130,6 +131,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -140,7 +144,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -188,12 +192,14 @@ class LoyaltyApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -204,7 +210,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_queryUrl, $_headers);
+            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -233,11 +239,14 @@ class LoyaltyApi extends BaseApi
      * The endpoint reads the order to compute points to add to the buyer's account.
      * - If you are not using the Orders API to manage orders,
      * you first perform a client-side computation to compute the points.
-     * For spend-based and visit-based programs, you can call
-     * [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute the points. For more
-     * information,
-     * see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
-     * You then provide the points in a request to this endpoint.
+     * For spend-based and visit-based programs, you can first call
+     * [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute the points
+     * that you provide to this endpoint.
+     *
+     * __Note:__ The country of the seller's Square account determines whether tax is included in the
+     * purchase amount when accruing points for spend-based and visit-based programs.
+     * For more information, see [Availability of Square Loyalty](https://developer.squareup.
+     * com/docs/loyalty-api/overview#loyalty-market-availability).
      *
      * @param string $accountId The [loyalty account]($m/LoyaltyAccount) ID to which to add the
      *                          points.
@@ -271,8 +280,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -280,6 +288,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -290,7 +301,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -350,8 +361,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -359,6 +369,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -369,7 +382,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -424,8 +437,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -433,6 +445,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -443,7 +458,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -495,12 +510,14 @@ class LoyaltyApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -511,7 +528,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_queryUrl, $_headers);
+            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -566,12 +583,14 @@ class LoyaltyApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -582,7 +601,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_queryUrl, $_headers);
+            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -614,6 +633,11 @@ class LoyaltyApi extends BaseApi
      *
      * An application might call this endpoint to show the points that a buyer can earn with the
      * specific purchase.
+     *
+     * __Note:__ The country of the seller's Square account determines whether tax is included in the
+     * purchase amount when accruing points for spend-based and visit-based programs.
+     * For more information, see [Availability of Square Loyalty](https://developer.squareup.
+     * com/docs/loyalty-api/overview#loyalty-market-availability).
      *
      * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the
      *                          rules for accruing points.
@@ -647,8 +671,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -656,6 +679,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -666,7 +692,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -721,8 +747,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -730,6 +755,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -740,7 +768,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -795,8 +823,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -804,6 +831,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -814,7 +844,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -870,12 +900,14 @@ class LoyaltyApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -886,7 +918,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_queryUrl, $_headers);
+            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -934,12 +966,14 @@ class LoyaltyApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -950,7 +984,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_queryUrl, $_headers);
+            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -1014,8 +1048,7 @@ class LoyaltyApi extends BaseApi
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
             'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Authorization' => sprintf('Bearer %1$s', $this->config->getAccessToken())
+            'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -1023,6 +1056,9 @@ class LoyaltyApi extends BaseApi
         $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
 
         //call on-before Http callback
         if ($this->getHttpCallBack() != null) {
@@ -1033,7 +1069,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

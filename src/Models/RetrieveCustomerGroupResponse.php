@@ -84,8 +84,12 @@ class RetrieveCustomerGroupResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['group']  = $this->group;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->group)) {
+            $json['group']  = $this->group;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

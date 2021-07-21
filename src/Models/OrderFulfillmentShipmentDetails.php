@@ -460,21 +460,51 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['recipient']         = $this->recipient;
-        $json['carrier']           = $this->carrier;
-        $json['shipping_note']     = $this->shippingNote;
-        $json['shipping_type']     = $this->shippingType;
-        $json['tracking_number']   = $this->trackingNumber;
-        $json['tracking_url']      = $this->trackingUrl;
-        $json['placed_at']         = $this->placedAt;
-        $json['in_progress_at']    = $this->inProgressAt;
-        $json['packaged_at']       = $this->packagedAt;
-        $json['expected_shipped_at'] = $this->expectedShippedAt;
-        $json['shipped_at']        = $this->shippedAt;
-        $json['canceled_at']       = $this->canceledAt;
-        $json['cancel_reason']     = $this->cancelReason;
-        $json['failed_at']         = $this->failedAt;
-        $json['failure_reason']    = $this->failureReason;
+        if (isset($this->recipient)) {
+            $json['recipient']           = $this->recipient;
+        }
+        if (isset($this->carrier)) {
+            $json['carrier']             = $this->carrier;
+        }
+        if (isset($this->shippingNote)) {
+            $json['shipping_note']       = $this->shippingNote;
+        }
+        if (isset($this->shippingType)) {
+            $json['shipping_type']       = $this->shippingType;
+        }
+        if (isset($this->trackingNumber)) {
+            $json['tracking_number']     = $this->trackingNumber;
+        }
+        if (isset($this->trackingUrl)) {
+            $json['tracking_url']        = $this->trackingUrl;
+        }
+        if (isset($this->placedAt)) {
+            $json['placed_at']           = $this->placedAt;
+        }
+        if (isset($this->inProgressAt)) {
+            $json['in_progress_at']      = $this->inProgressAt;
+        }
+        if (isset($this->packagedAt)) {
+            $json['packaged_at']         = $this->packagedAt;
+        }
+        if (isset($this->expectedShippedAt)) {
+            $json['expected_shipped_at'] = $this->expectedShippedAt;
+        }
+        if (isset($this->shippedAt)) {
+            $json['shipped_at']          = $this->shippedAt;
+        }
+        if (isset($this->canceledAt)) {
+            $json['canceled_at']         = $this->canceledAt;
+        }
+        if (isset($this->cancelReason)) {
+            $json['cancel_reason']       = $this->cancelReason;
+        }
+        if (isset($this->failedAt)) {
+            $json['failed_at']           = $this->failedAt;
+        }
+        if (isset($this->failureReason)) {
+            $json['failure_reason']      = $this->failureReason;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

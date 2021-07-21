@@ -107,9 +107,15 @@ class TerminalRefundQueryFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['device_id'] = $this->deviceId;
-        $json['created_at'] = $this->createdAt;
-        $json['status']    = $this->status;
+        if (isset($this->deviceId)) {
+            $json['device_id']  = $this->deviceId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
+        if (isset($this->status)) {
+            $json['status']     = $this->status;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

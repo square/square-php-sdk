@@ -80,8 +80,10 @@ class InvoiceQuery implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['filter'] = $this->filter;
-        $json['sort']   = $this->sort;
+        $json['filter']   = $this->filter;
+        if (isset($this->sort)) {
+            $json['sort'] = $this->sort;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

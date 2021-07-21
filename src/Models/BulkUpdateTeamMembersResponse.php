@@ -78,8 +78,12 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_members'] = $this->teamMembers;
-        $json['errors']      = $this->errors;
+        if (isset($this->teamMembers)) {
+            $json['team_members'] = $this->teamMembers;
+        }
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

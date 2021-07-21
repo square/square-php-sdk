@@ -17,9 +17,9 @@ use Unirest\Request;
 
 class OAuthApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, ?HttpCallBack $httpCallBack = null)
+    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
     {
-        parent::__construct($config, $httpCallBack);
+        parent::__construct($config, $authManagers, $httpCallBack);
     }
 
     /**
@@ -102,7 +102,7 @@ class OAuthApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -185,7 +185,7 @@ class OAuthApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -262,7 +262,7 @@ class OAuthApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_queryUrl, $_headers, $_bodyJson);
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

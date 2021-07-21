@@ -6,15 +6,15 @@ namespace Square\Tests;
 
 class ClientFactory
 {
-    public static function create(): \Square\SquareClient
+    public static function create(HttpCallBackCatcher $httpCallback): \Square\SquareClient
     {
         return (new \Square\SquareClient(static::getConfigurationFromEnvironment()))
-            ->withConfiguration(static::getTestConfiguration());
+            ->withConfiguration(static::getTestConfiguration($httpCallback));
     }
 
-    public static function getTestConfiguration(): array
+    public static function getTestConfiguration(HttpCallBackCatcher $httpCallback): array
     {
-        return [];
+        return ['httpCallback' => $httpCallback];
     }
 
     public static function getConfigurationFromEnvironment(): array
@@ -22,9 +22,9 @@ class ClientFactory
         $config = [];
         $timeout = getenv('SQUARE_TIMEOUT');
         $squareVersion = getenv('SQUARE_SQUARE_VERSION');
-        $accessToken = getenv('SQUARE_ACCESS_TOKEN');
         $environment = getenv('SQUARE_ENVIRONMENT');
         $customUrl = getenv('SQUARE_CUSTOM_URL');
+        $accessToken = getenv('SQUARE_ACCESS_TOKEN');
 
         if ($timeout !== false && \is_numeric($timeout)) {
             $config['timeout'] = intval($timeout);
@@ -34,16 +34,16 @@ class ClientFactory
             $config['squareVersion'] = $squareVersion;
         }
 
-        if ($accessToken !== false) {
-            $config['accessToken'] = $accessToken;
-        }
-
         if ($environment !== false) {
             $config['environment'] = $environment;
         }
 
         if ($customUrl !== false) {
             $config['customUrl'] = $customUrl;
+        }
+
+        if ($accessToken !== false) {
+            $config['accessToken'] = $accessToken;
         }
 
         return $config;

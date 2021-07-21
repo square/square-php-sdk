@@ -335,19 +335,42 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['batch_upsert_max_objects_per_batch']               = $this->batchUpsertMaxObjectsPerBatch;
-        $json['batch_upsert_max_total_objects']                   = $this->batchUpsertMaxTotalObjects;
-        $json['batch_retrieve_max_object_ids']                    = $this->batchRetrieveMaxObjectIds;
-        $json['search_max_page_limit']                            = $this->searchMaxPageLimit;
-        $json['batch_delete_max_object_ids']                      = $this->batchDeleteMaxObjectIds;
-        $json['update_item_taxes_max_item_ids']                   = $this->updateItemTaxesMaxItemIds;
-        $json['update_item_taxes_max_taxes_to_enable']            = $this->updateItemTaxesMaxTaxesToEnable;
-        $json['update_item_taxes_max_taxes_to_disable']           = $this->updateItemTaxesMaxTaxesToDisable;
-        $json['update_item_modifier_lists_max_item_ids']          = $this->updateItemModifierListsMaxItemIds;
-        $json['update_item_modifier_lists_max_modifier_lists_to_enable'] =
+        if (isset($this->batchUpsertMaxObjectsPerBatch)) {
+            $json['batch_upsert_max_objects_per_batch']                       = $this->batchUpsertMaxObjectsPerBatch;
+        }
+        if (isset($this->batchUpsertMaxTotalObjects)) {
+            $json['batch_upsert_max_total_objects']                           = $this->batchUpsertMaxTotalObjects;
+        }
+        if (isset($this->batchRetrieveMaxObjectIds)) {
+            $json['batch_retrieve_max_object_ids']                            = $this->batchRetrieveMaxObjectIds;
+        }
+        if (isset($this->searchMaxPageLimit)) {
+            $json['search_max_page_limit']                                    = $this->searchMaxPageLimit;
+        }
+        if (isset($this->batchDeleteMaxObjectIds)) {
+            $json['batch_delete_max_object_ids']                              = $this->batchDeleteMaxObjectIds;
+        }
+        if (isset($this->updateItemTaxesMaxItemIds)) {
+            $json['update_item_taxes_max_item_ids']                           = $this->updateItemTaxesMaxItemIds;
+        }
+        if (isset($this->updateItemTaxesMaxTaxesToEnable)) {
+            $json['update_item_taxes_max_taxes_to_enable']                    = $this->updateItemTaxesMaxTaxesToEnable;
+        }
+        if (isset($this->updateItemTaxesMaxTaxesToDisable)) {
+            $json['update_item_taxes_max_taxes_to_disable']                   = $this->updateItemTaxesMaxTaxesToDisable;
+        }
+        if (isset($this->updateItemModifierListsMaxItemIds)) {
+            $json['update_item_modifier_lists_max_item_ids']                  =
+            $this->updateItemModifierListsMaxItemIds;
+        }
+        if (isset($this->updateItemModifierListsMaxModifierListsToEnable)) {
+            $json['update_item_modifier_lists_max_modifier_lists_to_enable']  =
             $this->updateItemModifierListsMaxModifierListsToEnable;
-        $json['update_item_modifier_lists_max_modifier_lists_to_disable'] =
+        }
+        if (isset($this->updateItemModifierListsMaxModifierListsToDisable)) {
+            $json['update_item_modifier_lists_max_modifier_lists_to_disable'] =
             $this->updateItemModifierListsMaxModifierListsToDisable;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

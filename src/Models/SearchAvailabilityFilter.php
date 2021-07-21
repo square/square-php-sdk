@@ -158,10 +158,16 @@ class SearchAvailabilityFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['start_at_range'] = $this->startAtRange;
-        $json['location_id']    = $this->locationId;
-        $json['segment_filters'] = $this->segmentFilters;
-        $json['booking_id']     = $this->bookingId;
+        $json['start_at_range']      = $this->startAtRange;
+        if (isset($this->locationId)) {
+            $json['location_id']     = $this->locationId;
+        }
+        if (isset($this->segmentFilters)) {
+            $json['segment_filters'] = $this->segmentFilters;
+        }
+        if (isset($this->bookingId)) {
+            $json['booking_id']      = $this->bookingId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

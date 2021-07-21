@@ -203,13 +203,27 @@ class DisputeEvidence implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['evidence_id']  = $this->evidenceId;
-        $json['id']           = $this->id;
-        $json['dispute_id']   = $this->disputeId;
-        $json['evidence_file'] = $this->evidenceFile;
-        $json['evidence_text'] = $this->evidenceText;
-        $json['uploaded_at']  = $this->uploadedAt;
-        $json['evidence_type'] = $this->evidenceType;
+        if (isset($this->evidenceId)) {
+            $json['evidence_id']   = $this->evidenceId;
+        }
+        if (isset($this->id)) {
+            $json['id']            = $this->id;
+        }
+        if (isset($this->disputeId)) {
+            $json['dispute_id']    = $this->disputeId;
+        }
+        if (isset($this->evidenceFile)) {
+            $json['evidence_file'] = $this->evidenceFile;
+        }
+        if (isset($this->evidenceText)) {
+            $json['evidence_text'] = $this->evidenceText;
+        }
+        if (isset($this->uploadedAt)) {
+            $json['uploaded_at']   = $this->uploadedAt;
+        }
+        if (isset($this->evidenceType)) {
+            $json['evidence_type'] = $this->evidenceType;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

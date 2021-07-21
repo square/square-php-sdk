@@ -208,13 +208,27 @@ class InvoiceRecipient implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['customer_id']  = $this->customerId;
-        $json['given_name']   = $this->givenName;
-        $json['family_name']  = $this->familyName;
-        $json['email_address'] = $this->emailAddress;
-        $json['address']      = $this->address;
-        $json['phone_number'] = $this->phoneNumber;
-        $json['company_name'] = $this->companyName;
+        if (isset($this->customerId)) {
+            $json['customer_id']   = $this->customerId;
+        }
+        if (isset($this->givenName)) {
+            $json['given_name']    = $this->givenName;
+        }
+        if (isset($this->familyName)) {
+            $json['family_name']   = $this->familyName;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address'] = $this->emailAddress;
+        }
+        if (isset($this->address)) {
+            $json['address']       = $this->address;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']  = $this->phoneNumber;
+        }
+        if (isset($this->companyName)) {
+            $json['company_name']  = $this->companyName;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

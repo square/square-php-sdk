@@ -41,7 +41,9 @@ class DisputeEvidenceCreatedWebhookObject implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['object'] = $this->object;
+        if (isset($this->object)) {
+            $json['object'] = $this->object;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

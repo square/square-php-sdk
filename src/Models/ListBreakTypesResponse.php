@@ -110,9 +110,15 @@ class ListBreakTypesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['break_types'] = $this->breakTypes;
-        $json['cursor']     = $this->cursor;
-        $json['errors']     = $this->errors;
+        if (isset($this->breakTypes)) {
+            $json['break_types'] = $this->breakTypes;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']      = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']      = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

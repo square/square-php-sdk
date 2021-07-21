@@ -85,7 +85,7 @@ class CreateDeviceCodeRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['device_code']    = $this->deviceCode;
+        $json['device_code']     = $this->deviceCode;
 
         return array_filter($json, function ($val) {
             return $val !== null;

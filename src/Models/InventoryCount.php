@@ -232,13 +232,27 @@ class InventoryCount implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['catalog_object_id'] = $this->catalogObjectId;
-        $json['catalog_object_type'] = $this->catalogObjectType;
-        $json['state']             = $this->state;
-        $json['location_id']       = $this->locationId;
-        $json['quantity']          = $this->quantity;
-        $json['calculated_at']     = $this->calculatedAt;
-        $json['is_estimated']      = $this->isEstimated;
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId;
+        }
+        if (isset($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType;
+        }
+        if (isset($this->state)) {
+            $json['state']               = $this->state;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']         = $this->locationId;
+        }
+        if (isset($this->quantity)) {
+            $json['quantity']            = $this->quantity;
+        }
+        if (isset($this->calculatedAt)) {
+            $json['calculated_at']       = $this->calculatedAt;
+        }
+        if (isset($this->isEstimated)) {
+            $json['is_estimated']        = $this->isEstimated;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

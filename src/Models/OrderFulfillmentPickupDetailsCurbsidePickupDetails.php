@@ -77,8 +77,12 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
     public function jsonSerialize()
     {
         $json = [];
-        $json['curbside_details'] = $this->curbsideDetails;
-        $json['buyer_arrived_at'] = $this->buyerArrivedAt;
+        if (isset($this->curbsideDetails)) {
+            $json['curbside_details'] = $this->curbsideDetails;
+        }
+        if (isset($this->buyerArrivedAt)) {
+            $json['buyer_arrived_at'] = $this->buyerArrivedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

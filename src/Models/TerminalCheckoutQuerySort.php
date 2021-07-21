@@ -41,7 +41,9 @@ class TerminalCheckoutQuerySort implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['sort_order'] = $this->sortOrder;
+        if (isset($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -79,8 +79,12 @@ class TimeRange implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['start_at'] = $this->startAt;
-        $json['end_at']  = $this->endAt;
+        if (isset($this->startAt)) {
+            $json['start_at'] = $this->startAt;
+        }
+        if (isset($this->endAt)) {
+            $json['end_at']   = $this->endAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

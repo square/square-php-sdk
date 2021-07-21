@@ -81,8 +81,12 @@ class CatalogIdMapping implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['client_object_id'] = $this->clientObjectId;
-        $json['object_id']      = $this->objectId;
+        if (isset($this->clientObjectId)) {
+            $json['client_object_id'] = $this->clientObjectId;
+        }
+        if (isset($this->objectId)) {
+            $json['object_id']        = $this->objectId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

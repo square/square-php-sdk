@@ -18,7 +18,7 @@
 | `createdAt` | `?string` | Optional | The time when the location was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `merchantId` | `?string` | Optional | The ID of the merchant that owns the location. | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
 | `country` | [`?string (Country)`](/doc/models/country.md) | Optional | Indicates the country associated with another entity, such as a business.<br>Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm). | getCountry(): ?string | setCountry(?string country): void |
-| `languageCode` | `?string` | Optional | The language associated with the location, in<br>[BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A). | getLanguageCode(): ?string | setLanguageCode(?string languageCode): void |
+| `languageCode` | `?string` | Optional | The language associated with the location, in<br>[BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).<br>For more information, see [Location language code](https://developer.squareup.com/docs/locations-api#location-language-code). | getLanguageCode(): ?string | setLanguageCode(?string languageCode): void |
 | `currency` | [`?string (Currency)`](/doc/models/currency.md) | Optional | Indicates the associated currency for an amount of money. Values correspond<br>to [ISO 4217](https://wikipedia.org/wiki/ISO_4217). | getCurrency(): ?string | setCurrency(?string currency): void |
 | `phoneNumber` | `?string` | Optional | The phone number of the location in human readable format. | getPhoneNumber(): ?string | setPhoneNumber(?string phoneNumber): void |
 | `businessName` | `?string` | Optional | The business name of the location<br>This is the name visible to the customers of the location.<br>For example, this name appears on customer receipts. | getBusinessName(): ?string | setBusinessName(?string businessName): void |
@@ -35,6 +35,7 @@
 | `posBackgroundUrl` | `?string` | Optional | The URL of the Point of Sale background image for the location. | getPosBackgroundUrl(): ?string | setPosBackgroundUrl(?string posBackgroundUrl): void |
 | `mcc` | `?string` | Optional | The merchant category code (MCC) of the location, as standardized by ISO 18245.<br>The MCC describes the kind of goods or services sold at the location. | getMcc(): ?string | setMcc(?string mcc): void |
 | `fullFormatLogoUrl` | `?string` | Optional | The URL of a full-format logo image for the location. The Seller must choose this logo in the<br>Seller dashboard (Receipts section) for the logo to appear on transactions (such as receipts, invoices)<br>that Square generates on behalf of the Seller. This image can have an aspect ratio of 2:1 or greater<br>and is recommended to be at least 1280x648 pixels. | getFullFormatLogoUrl(): ?string | setFullFormatLogoUrl(?string fullFormatLogoUrl): void |
+| `taxIds` | [`?TaxIds`](/doc/models/tax-ids.md) | Optional | The tax IDs that a Location is operating under. | getTaxIds(): ?TaxIds | setTaxIds(?TaxIds taxIds): void |
 
 ## Example (as JSON)
 

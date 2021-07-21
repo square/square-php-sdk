@@ -105,9 +105,15 @@ class ListCatalogResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['cursor']  = $this->cursor;
-        $json['objects'] = $this->objects;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']  = $this->cursor;
+        }
+        if (isset($this->objects)) {
+            $json['objects'] = $this->objects;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

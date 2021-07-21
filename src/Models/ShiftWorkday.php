@@ -107,9 +107,15 @@ class ShiftWorkday implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['date_range']      = $this->dateRange;
-        $json['match_shifts_by'] = $this->matchShiftsBy;
-        $json['default_timezone'] = $this->defaultTimezone;
+        if (isset($this->dateRange)) {
+            $json['date_range']       = $this->dateRange;
+        }
+        if (isset($this->matchShiftsBy)) {
+            $json['match_shifts_by']  = $this->matchShiftsBy;
+        }
+        if (isset($this->defaultTimezone)) {
+            $json['default_timezone'] = $this->defaultTimezone;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

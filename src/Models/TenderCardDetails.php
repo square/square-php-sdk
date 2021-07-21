@@ -100,9 +100,15 @@ class TenderCardDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['status']      = $this->status;
-        $json['card']        = $this->card;
-        $json['entry_method'] = $this->entryMethod;
+        if (isset($this->status)) {
+            $json['status']       = $this->status;
+        }
+        if (isset($this->card)) {
+            $json['card']         = $this->card;
+        }
+        if (isset($this->entryMethod)) {
+            $json['entry_method'] = $this->entryMethod;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

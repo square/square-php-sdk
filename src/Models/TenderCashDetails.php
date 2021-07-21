@@ -95,8 +95,12 @@ class TenderCashDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['buyer_tendered_money'] = $this->buyerTenderedMoney;
-        $json['change_back_money']  = $this->changeBackMoney;
+        if (isset($this->buyerTenderedMoney)) {
+            $json['buyer_tendered_money'] = $this->buyerTenderedMoney;
+        }
+        if (isset($this->changeBackMoney)) {
+            $json['change_back_money']    = $this->changeBackMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

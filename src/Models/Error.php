@@ -146,10 +146,14 @@ class Error implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['category'] = $this->category;
-        $json['code']     = $this->code;
-        $json['detail']   = $this->detail;
-        $json['field']    = $this->field;
+        $json['category']   = $this->category;
+        $json['code']       = $this->code;
+        if (isset($this->detail)) {
+            $json['detail'] = $this->detail;
+        }
+        if (isset($this->field)) {
+            $json['field']  = $this->field;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

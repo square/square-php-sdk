@@ -109,9 +109,15 @@ class ListEmployeeWagesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['employee_wages'] = $this->employeeWages;
-        $json['cursor']        = $this->cursor;
-        $json['errors']        = $this->errors;
+        if (isset($this->employeeWages)) {
+            $json['employee_wages'] = $this->employeeWages;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']         = $this->cursor;
+        }
+        if (isset($this->errors)) {
+            $json['errors']         = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

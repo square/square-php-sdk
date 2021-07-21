@@ -86,7 +86,7 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['adjust_points']  = $this->adjustPoints;
+        $json['adjust_points']   = $this->adjustPoints;
 
         return array_filter($json, function ($val) {
             return $val !== null;

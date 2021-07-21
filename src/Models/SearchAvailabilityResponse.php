@@ -76,8 +76,12 @@ class SearchAvailabilityResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['availabilities'] = $this->availabilities;
-        $json['errors']         = $this->errors;
+        if (isset($this->availabilities)) {
+            $json['availabilities'] = $this->availabilities;
+        }
+        if (isset($this->errors)) {
+            $json['errors']         = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

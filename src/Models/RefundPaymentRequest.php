@@ -199,11 +199,15 @@ class RefundPaymentRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['amount_money']   = $this->amountMoney;
-        $json['app_fee_money']  = $this->appFeeMoney;
-        $json['payment_id']     = $this->paymentId;
-        $json['reason']         = $this->reason;
+        $json['idempotency_key']   = $this->idempotencyKey;
+        $json['amount_money']      = $this->amountMoney;
+        if (isset($this->appFeeMoney)) {
+            $json['app_fee_money'] = $this->appFeeMoney;
+        }
+        $json['payment_id']        = $this->paymentId;
+        if (isset($this->reason)) {
+            $json['reason']        = $this->reason;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

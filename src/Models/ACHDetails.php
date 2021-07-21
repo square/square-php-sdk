@@ -100,9 +100,15 @@ class ACHDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['routing_number']      = $this->routingNumber;
-        $json['account_number_suffix'] = $this->accountNumberSuffix;
-        $json['account_type']        = $this->accountType;
+        if (isset($this->routingNumber)) {
+            $json['routing_number']        = $this->routingNumber;
+        }
+        if (isset($this->accountNumberSuffix)) {
+            $json['account_number_suffix'] = $this->accountNumberSuffix;
+        }
+        if (isset($this->accountType)) {
+            $json['account_type']          = $this->accountType;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

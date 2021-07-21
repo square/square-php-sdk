@@ -720,31 +720,81 @@ class V1Order implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']               = $this->errors;
-        $json['id']                   = $this->id;
-        $json['buyer_email']          = $this->buyerEmail;
-        $json['recipient_name']       = $this->recipientName;
-        $json['recipient_phone_number'] = $this->recipientPhoneNumber;
-        $json['state']                = $this->state;
-        $json['shipping_address']     = $this->shippingAddress;
-        $json['subtotal_money']       = $this->subtotalMoney;
-        $json['total_shipping_money'] = $this->totalShippingMoney;
-        $json['total_tax_money']      = $this->totalTaxMoney;
-        $json['total_price_money']    = $this->totalPriceMoney;
-        $json['total_discount_money'] = $this->totalDiscountMoney;
-        $json['created_at']           = $this->createdAt;
-        $json['updated_at']           = $this->updatedAt;
-        $json['expires_at']           = $this->expiresAt;
-        $json['payment_id']           = $this->paymentId;
-        $json['buyer_note']           = $this->buyerNote;
-        $json['completed_note']       = $this->completedNote;
-        $json['refunded_note']        = $this->refundedNote;
-        $json['canceled_note']        = $this->canceledNote;
-        $json['tender']               = $this->tender;
-        $json['order_history']        = $this->orderHistory;
-        $json['promo_code']           = $this->promoCode;
-        $json['btc_receive_address']  = $this->btcReceiveAddress;
-        $json['btc_price_satoshi']    = $this->btcPriceSatoshi;
+        if (isset($this->errors)) {
+            $json['errors']                 = $this->errors;
+        }
+        if (isset($this->id)) {
+            $json['id']                     = $this->id;
+        }
+        if (isset($this->buyerEmail)) {
+            $json['buyer_email']            = $this->buyerEmail;
+        }
+        if (isset($this->recipientName)) {
+            $json['recipient_name']         = $this->recipientName;
+        }
+        if (isset($this->recipientPhoneNumber)) {
+            $json['recipient_phone_number'] = $this->recipientPhoneNumber;
+        }
+        if (isset($this->state)) {
+            $json['state']                  = $this->state;
+        }
+        if (isset($this->shippingAddress)) {
+            $json['shipping_address']       = $this->shippingAddress;
+        }
+        if (isset($this->subtotalMoney)) {
+            $json['subtotal_money']         = $this->subtotalMoney;
+        }
+        if (isset($this->totalShippingMoney)) {
+            $json['total_shipping_money']   = $this->totalShippingMoney;
+        }
+        if (isset($this->totalTaxMoney)) {
+            $json['total_tax_money']        = $this->totalTaxMoney;
+        }
+        if (isset($this->totalPriceMoney)) {
+            $json['total_price_money']      = $this->totalPriceMoney;
+        }
+        if (isset($this->totalDiscountMoney)) {
+            $json['total_discount_money']   = $this->totalDiscountMoney;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']             = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']             = $this->updatedAt;
+        }
+        if (isset($this->expiresAt)) {
+            $json['expires_at']             = $this->expiresAt;
+        }
+        if (isset($this->paymentId)) {
+            $json['payment_id']             = $this->paymentId;
+        }
+        if (isset($this->buyerNote)) {
+            $json['buyer_note']             = $this->buyerNote;
+        }
+        if (isset($this->completedNote)) {
+            $json['completed_note']         = $this->completedNote;
+        }
+        if (isset($this->refundedNote)) {
+            $json['refunded_note']          = $this->refundedNote;
+        }
+        if (isset($this->canceledNote)) {
+            $json['canceled_note']          = $this->canceledNote;
+        }
+        if (isset($this->tender)) {
+            $json['tender']                 = $this->tender;
+        }
+        if (isset($this->orderHistory)) {
+            $json['order_history']          = $this->orderHistory;
+        }
+        if (isset($this->promoCode)) {
+            $json['promo_code']             = $this->promoCode;
+        }
+        if (isset($this->btcReceiveAddress)) {
+            $json['btc_receive_address']    = $this->btcReceiveAddress;
+        }
+        if (isset($this->btcPriceSatoshi)) {
+            $json['btc_price_satoshi']      = $this->btcPriceSatoshi;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

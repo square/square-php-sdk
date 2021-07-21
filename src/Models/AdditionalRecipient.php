@@ -151,10 +151,14 @@ class AdditionalRecipient implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['location_id']  = $this->locationId;
-        $json['description']  = $this->description;
-        $json['amount_money'] = $this->amountMoney;
-        $json['receivable_id'] = $this->receivableId;
+        $json['location_id']       = $this->locationId;
+        if (isset($this->description)) {
+            $json['description']   = $this->description;
+        }
+        $json['amount_money']      = $this->amountMoney;
+        if (isset($this->receivableId)) {
+            $json['receivable_id'] = $this->receivableId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

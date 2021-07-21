@@ -118,9 +118,15 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']             = $this->errors;
-        $json['subscription_events'] = $this->subscriptionEvents;
-        $json['cursor']             = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']              = $this->errors;
+        }
+        if (isset($this->subscriptionEvents)) {
+            $json['subscription_events'] = $this->subscriptionEvents;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']              = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

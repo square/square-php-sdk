@@ -76,8 +76,12 @@ class RetrieveGiftCardFromGANResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']   = $this->errors;
-        $json['gift_card'] = $this->giftCard;
+        if (isset($this->errors)) {
+            $json['errors']    = $this->errors;
+        }
+        if (isset($this->giftCard)) {
+            $json['gift_card'] = $this->giftCard;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

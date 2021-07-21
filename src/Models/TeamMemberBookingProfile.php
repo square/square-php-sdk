@@ -157,11 +157,21 @@ class TeamMemberBookingProfile implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['team_member_id']  = $this->teamMemberId;
-        $json['description']     = $this->description;
-        $json['display_name']    = $this->displayName;
-        $json['is_bookable']     = $this->isBookable;
-        $json['profile_image_url'] = $this->profileImageUrl;
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']    = $this->teamMemberId;
+        }
+        if (isset($this->description)) {
+            $json['description']       = $this->description;
+        }
+        if (isset($this->displayName)) {
+            $json['display_name']      = $this->displayName;
+        }
+        if (isset($this->isBookable)) {
+            $json['is_bookable']       = $this->isBookable;
+        }
+        if (isset($this->profileImageUrl)) {
+            $json['profile_image_url'] = $this->profileImageUrl;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

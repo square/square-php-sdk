@@ -29,9 +29,8 @@ class DisputesTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $config = ClientFactory::create();
         self::$httpResponse = new HttpCallBackCatcher();
-        self::$controller = new DisputesApi($config, self::$httpResponse);
+        self::$controller = ClientFactory::create(self::$httpResponse)->getDisputesApi();
     }
 
     public function testListDisputes() 

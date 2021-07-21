@@ -162,11 +162,21 @@ class CatalogItemOptionValue implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_option_id'] = $this->itemOptionId;
-        $json['name']         = $this->name;
-        $json['description']  = $this->description;
-        $json['color']        = $this->color;
-        $json['ordinal']      = $this->ordinal;
+        if (isset($this->itemOptionId)) {
+            $json['item_option_id'] = $this->itemOptionId;
+        }
+        if (isset($this->name)) {
+            $json['name']           = $this->name;
+        }
+        if (isset($this->description)) {
+            $json['description']    = $this->description;
+        }
+        if (isset($this->color)) {
+            $json['color']          = $this->color;
+        }
+        if (isset($this->ordinal)) {
+            $json['ordinal']        = $this->ordinal;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -172,11 +172,13 @@ class SubscriptionEvent implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                    = $this->id;
+        $json['id']                      = $this->id;
         $json['subscription_event_type'] = $this->subscriptionEventType;
-        $json['effective_date']        = $this->effectiveDate;
-        $json['plan_id']               = $this->planId;
-        $json['info']                  = $this->info;
+        $json['effective_date']          = $this->effectiveDate;
+        $json['plan_id']                 = $this->planId;
+        if (isset($this->info)) {
+            $json['info']                = $this->info;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

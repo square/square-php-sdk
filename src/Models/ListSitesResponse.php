@@ -79,8 +79,12 @@ class ListSitesResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['sites']  = $this->sites;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->sites)) {
+            $json['sites']  = $this->sites;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

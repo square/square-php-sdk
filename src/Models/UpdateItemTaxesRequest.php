@@ -116,9 +116,13 @@ class UpdateItemTaxesRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['item_ids']       = $this->itemIds;
-        $json['taxes_to_enable'] = $this->taxesToEnable;
-        $json['taxes_to_disable'] = $this->taxesToDisable;
+        $json['item_ids']             = $this->itemIds;
+        if (isset($this->taxesToEnable)) {
+            $json['taxes_to_enable']  = $this->taxesToEnable;
+        }
+        if (isset($this->taxesToDisable)) {
+            $json['taxes_to_disable'] = $this->taxesToDisable;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

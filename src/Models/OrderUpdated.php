@@ -186,12 +186,24 @@ class OrderUpdated implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order_id']   = $this->orderId;
-        $json['version']    = $this->version;
-        $json['location_id'] = $this->locationId;
-        $json['state']      = $this->state;
-        $json['created_at'] = $this->createdAt;
-        $json['updated_at'] = $this->updatedAt;
+        if (isset($this->orderId)) {
+            $json['order_id']    = $this->orderId;
+        }
+        if (isset($this->version)) {
+            $json['version']     = $this->version;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
+        if (isset($this->state)) {
+            $json['state']       = $this->state;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']  = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']  = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

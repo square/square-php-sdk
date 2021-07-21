@@ -189,8 +189,10 @@ class Invoice implements \JsonSerializable
      * Returns Order Id.
      *
      * The ID of the [order]($m/Order) for which the invoice is created.
+     * This field is required when creating an invoice, and the order must be in the `OPEN` state.
      *
-     * This order must be in the `OPEN` state. This field is required when creating an invoice.
+     * To view the line items and other information for the associated order, call the
+     * [RetrieveOrder]($e/Orders/RetrieveOrder) endpoint using the order ID.
      */
     public function getOrderId(): ?string
     {
@@ -201,8 +203,10 @@ class Invoice implements \JsonSerializable
      * Sets Order Id.
      *
      * The ID of the [order]($m/Order) for which the invoice is created.
+     * This field is required when creating an invoice, and the order must be in the `OPEN` state.
      *
-     * This order must be in the `OPEN` state. This field is required when creating an invoice.
+     * To view the line items and other information for the associated order, call the
+     * [RetrieveOrder]($e/Orders/RetrieveOrder) endpoint using the order ID.
      *
      * @maps order_id
      */
@@ -645,26 +649,66 @@ class Invoice implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                     = $this->id;
-        $json['version']                = $this->version;
-        $json['location_id']            = $this->locationId;
-        $json['order_id']               = $this->orderId;
-        $json['primary_recipient']      = $this->primaryRecipient;
-        $json['payment_requests']       = $this->paymentRequests;
-        $json['delivery_method']        = $this->deliveryMethod;
-        $json['invoice_number']         = $this->invoiceNumber;
-        $json['title']                  = $this->title;
-        $json['description']            = $this->description;
-        $json['scheduled_at']           = $this->scheduledAt;
-        $json['public_url']             = $this->publicUrl;
-        $json['next_payment_amount_money'] = $this->nextPaymentAmountMoney;
-        $json['status']                 = $this->status;
-        $json['timezone']               = $this->timezone;
-        $json['created_at']             = $this->createdAt;
-        $json['updated_at']             = $this->updatedAt;
-        $json['accepted_payment_methods'] = $this->acceptedPaymentMethods;
-        $json['custom_fields']          = $this->customFields;
-        $json['subscription_id']        = $this->subscriptionId;
+        if (isset($this->id)) {
+            $json['id']                        = $this->id;
+        }
+        if (isset($this->version)) {
+            $json['version']                   = $this->version;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']               = $this->locationId;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']                  = $this->orderId;
+        }
+        if (isset($this->primaryRecipient)) {
+            $json['primary_recipient']         = $this->primaryRecipient;
+        }
+        if (isset($this->paymentRequests)) {
+            $json['payment_requests']          = $this->paymentRequests;
+        }
+        if (isset($this->deliveryMethod)) {
+            $json['delivery_method']           = $this->deliveryMethod;
+        }
+        if (isset($this->invoiceNumber)) {
+            $json['invoice_number']            = $this->invoiceNumber;
+        }
+        if (isset($this->title)) {
+            $json['title']                     = $this->title;
+        }
+        if (isset($this->description)) {
+            $json['description']               = $this->description;
+        }
+        if (isset($this->scheduledAt)) {
+            $json['scheduled_at']              = $this->scheduledAt;
+        }
+        if (isset($this->publicUrl)) {
+            $json['public_url']                = $this->publicUrl;
+        }
+        if (isset($this->nextPaymentAmountMoney)) {
+            $json['next_payment_amount_money'] = $this->nextPaymentAmountMoney;
+        }
+        if (isset($this->status)) {
+            $json['status']                    = $this->status;
+        }
+        if (isset($this->timezone)) {
+            $json['timezone']                  = $this->timezone;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']                = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']                = $this->updatedAt;
+        }
+        if (isset($this->acceptedPaymentMethods)) {
+            $json['accepted_payment_methods']  = $this->acceptedPaymentMethods;
+        }
+        if (isset($this->customFields)) {
+            $json['custom_fields']             = $this->customFields;
+        }
+        if (isset($this->subscriptionId)) {
+            $json['subscription_id']           = $this->subscriptionId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

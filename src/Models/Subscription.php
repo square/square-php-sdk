@@ -493,21 +493,51 @@ class Subscription implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                 = $this->id;
-        $json['location_id']        = $this->locationId;
-        $json['plan_id']            = $this->planId;
-        $json['customer_id']        = $this->customerId;
-        $json['start_date']         = $this->startDate;
-        $json['canceled_date']      = $this->canceledDate;
-        $json['charged_through_date'] = $this->chargedThroughDate;
-        $json['status']             = $this->status;
-        $json['tax_percentage']     = $this->taxPercentage;
-        $json['invoice_ids']        = $this->invoiceIds;
-        $json['price_override_money'] = $this->priceOverrideMoney;
-        $json['version']            = $this->version;
-        $json['created_at']         = $this->createdAt;
-        $json['card_id']            = $this->cardId;
-        $json['timezone']           = $this->timezone;
+        if (isset($this->id)) {
+            $json['id']                   = $this->id;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']          = $this->locationId;
+        }
+        if (isset($this->planId)) {
+            $json['plan_id']              = $this->planId;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']          = $this->customerId;
+        }
+        if (isset($this->startDate)) {
+            $json['start_date']           = $this->startDate;
+        }
+        if (isset($this->canceledDate)) {
+            $json['canceled_date']        = $this->canceledDate;
+        }
+        if (isset($this->chargedThroughDate)) {
+            $json['charged_through_date'] = $this->chargedThroughDate;
+        }
+        if (isset($this->status)) {
+            $json['status']               = $this->status;
+        }
+        if (isset($this->taxPercentage)) {
+            $json['tax_percentage']       = $this->taxPercentage;
+        }
+        if (isset($this->invoiceIds)) {
+            $json['invoice_ids']          = $this->invoiceIds;
+        }
+        if (isset($this->priceOverrideMoney)) {
+            $json['price_override_money'] = $this->priceOverrideMoney;
+        }
+        if (isset($this->version)) {
+            $json['version']              = $this->version;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']           = $this->createdAt;
+        }
+        if (isset($this->cardId)) {
+            $json['card_id']              = $this->cardId;
+        }
+        if (isset($this->timezone)) {
+            $json['timezone']             = $this->timezone;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

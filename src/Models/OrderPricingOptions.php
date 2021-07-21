@@ -77,8 +77,12 @@ class OrderPricingOptions implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['auto_apply_discounts'] = $this->autoApplyDiscounts;
-        $json['auto_apply_taxes']   = $this->autoApplyTaxes;
+        if (isset($this->autoApplyDiscounts)) {
+            $json['auto_apply_discounts'] = $this->autoApplyDiscounts;
+        }
+        if (isset($this->autoApplyTaxes)) {
+            $json['auto_apply_taxes']     = $this->autoApplyTaxes;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -91,7 +91,7 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['reward']         = $this->reward;
+        $json['reward']          = $this->reward;
         $json['idempotency_key'] = $this->idempotencyKey;
 
         return array_filter($json, function ($val) {

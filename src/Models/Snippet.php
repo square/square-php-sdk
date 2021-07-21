@@ -162,11 +162,19 @@ class Snippet implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']        = $this->id;
-        $json['site_id']   = $this->siteId;
-        $json['content']   = $this->content;
-        $json['created_at'] = $this->createdAt;
-        $json['updated_at'] = $this->updatedAt;
+        if (isset($this->id)) {
+            $json['id']         = $this->id;
+        }
+        if (isset($this->siteId)) {
+            $json['site_id']    = $this->siteId;
+        }
+        $json['content']        = $this->content;
+        if (isset($this->createdAt)) {
+            $json['created_at'] = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at'] = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

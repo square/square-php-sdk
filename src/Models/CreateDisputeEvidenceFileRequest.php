@@ -111,9 +111,13 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['evidence_type']  = $this->evidenceType;
-        $json['content_type']   = $this->contentType;
+        $json['idempotency_key']   = $this->idempotencyKey;
+        if (isset($this->evidenceType)) {
+            $json['evidence_type'] = $this->evidenceType;
+        }
+        if (isset($this->contentType)) {
+            $json['content_type']  = $this->contentType;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

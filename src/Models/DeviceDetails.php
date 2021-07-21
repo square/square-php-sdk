@@ -98,9 +98,15 @@ class DeviceDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['device_id']            = $this->deviceId;
-        $json['device_installation_id'] = $this->deviceInstallationId;
-        $json['device_name']          = $this->deviceName;
+        if (isset($this->deviceId)) {
+            $json['device_id']              = $this->deviceId;
+        }
+        if (isset($this->deviceInstallationId)) {
+            $json['device_installation_id'] = $this->deviceInstallationId;
+        }
+        if (isset($this->deviceName)) {
+            $json['device_name']            = $this->deviceName;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

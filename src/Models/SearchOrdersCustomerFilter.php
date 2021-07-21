@@ -54,7 +54,9 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['customer_ids'] = $this->customerIds;
+        if (isset($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

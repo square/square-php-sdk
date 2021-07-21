@@ -81,7 +81,9 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
     {
         $json = [];
         $json['loyalty_account_id'] = $this->loyaltyAccountId;
-        $json['status']           = $this->status;
+        if (isset($this->status)) {
+            $json['status']         = $this->status;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

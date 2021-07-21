@@ -574,24 +574,60 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['recipient']             = $this->recipient;
-        $json['expires_at']            = $this->expiresAt;
-        $json['auto_complete_duration'] = $this->autoCompleteDuration;
-        $json['schedule_type']         = $this->scheduleType;
-        $json['pickup_at']             = $this->pickupAt;
-        $json['pickup_window_duration'] = $this->pickupWindowDuration;
-        $json['prep_time_duration']    = $this->prepTimeDuration;
-        $json['note']                  = $this->note;
-        $json['placed_at']             = $this->placedAt;
-        $json['accepted_at']           = $this->acceptedAt;
-        $json['rejected_at']           = $this->rejectedAt;
-        $json['ready_at']              = $this->readyAt;
-        $json['expired_at']            = $this->expiredAt;
-        $json['picked_up_at']          = $this->pickedUpAt;
-        $json['canceled_at']           = $this->canceledAt;
-        $json['cancel_reason']         = $this->cancelReason;
-        $json['is_curbside_pickup']    = $this->isCurbsidePickup;
-        $json['curbside_pickup_details'] = $this->curbsidePickupDetails;
+        if (isset($this->recipient)) {
+            $json['recipient']               = $this->recipient;
+        }
+        if (isset($this->expiresAt)) {
+            $json['expires_at']              = $this->expiresAt;
+        }
+        if (isset($this->autoCompleteDuration)) {
+            $json['auto_complete_duration']  = $this->autoCompleteDuration;
+        }
+        if (isset($this->scheduleType)) {
+            $json['schedule_type']           = $this->scheduleType;
+        }
+        if (isset($this->pickupAt)) {
+            $json['pickup_at']               = $this->pickupAt;
+        }
+        if (isset($this->pickupWindowDuration)) {
+            $json['pickup_window_duration']  = $this->pickupWindowDuration;
+        }
+        if (isset($this->prepTimeDuration)) {
+            $json['prep_time_duration']      = $this->prepTimeDuration;
+        }
+        if (isset($this->note)) {
+            $json['note']                    = $this->note;
+        }
+        if (isset($this->placedAt)) {
+            $json['placed_at']               = $this->placedAt;
+        }
+        if (isset($this->acceptedAt)) {
+            $json['accepted_at']             = $this->acceptedAt;
+        }
+        if (isset($this->rejectedAt)) {
+            $json['rejected_at']             = $this->rejectedAt;
+        }
+        if (isset($this->readyAt)) {
+            $json['ready_at']                = $this->readyAt;
+        }
+        if (isset($this->expiredAt)) {
+            $json['expired_at']              = $this->expiredAt;
+        }
+        if (isset($this->pickedUpAt)) {
+            $json['picked_up_at']            = $this->pickedUpAt;
+        }
+        if (isset($this->canceledAt)) {
+            $json['canceled_at']             = $this->canceledAt;
+        }
+        if (isset($this->cancelReason)) {
+            $json['cancel_reason']           = $this->cancelReason;
+        }
+        if (isset($this->isCurbsidePickup)) {
+            $json['is_curbside_pickup']      = $this->isCurbsidePickup;
+        }
+        if (isset($this->curbsidePickupDetails)) {
+            $json['curbside_pickup_details'] = $this->curbsidePickupDetails;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -109,9 +109,15 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']    = $this->errors;
-        $json['checkouts'] = $this->checkouts;
-        $json['cursor']    = $this->cursor;
+        if (isset($this->errors)) {
+            $json['errors']    = $this->errors;
+        }
+        if (isset($this->checkouts)) {
+            $json['checkouts'] = $this->checkouts;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']    = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -178,12 +178,24 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['merchant_id'] = $this->merchantId;
-        $json['location_id'] = $this->locationId;
-        $json['type']       = $this->type;
-        $json['event_id']   = $this->eventId;
-        $json['created_at'] = $this->createdAt;
-        $json['data']       = $this->data;
+        if (isset($this->merchantId)) {
+            $json['merchant_id'] = $this->merchantId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id'] = $this->locationId;
+        }
+        if (isset($this->type)) {
+            $json['type']        = $this->type;
+        }
+        if (isset($this->eventId)) {
+            $json['event_id']    = $this->eventId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']  = $this->createdAt;
+        }
+        if (isset($this->data)) {
+            $json['data']        = $this->data;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

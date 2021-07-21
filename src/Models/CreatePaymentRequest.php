@@ -747,26 +747,60 @@ class CreatePaymentRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['source_id']                      = $this->sourceId;
-        $json['idempotency_key']                = $this->idempotencyKey;
-        $json['amount_money']                   = $this->amountMoney;
-        $json['tip_money']                      = $this->tipMoney;
-        $json['app_fee_money']                  = $this->appFeeMoney;
-        $json['delay_duration']                 = $this->delayDuration;
-        $json['autocomplete']                   = $this->autocomplete;
-        $json['order_id']                       = $this->orderId;
-        $json['customer_id']                    = $this->customerId;
-        $json['location_id']                    = $this->locationId;
-        $json['reference_id']                   = $this->referenceId;
-        $json['verification_token']             = $this->verificationToken;
-        $json['accept_partial_authorization']   = $this->acceptPartialAuthorization;
-        $json['buyer_email_address']            = $this->buyerEmailAddress;
-        $json['billing_address']                = $this->billingAddress;
-        $json['shipping_address']               = $this->shippingAddress;
-        $json['note']                           = $this->note;
-        $json['statement_description_identifier'] = $this->statementDescriptionIdentifier;
-        $json['cash_details']                   = $this->cashDetails;
-        $json['external_details']               = $this->externalDetails;
+        $json['source_id']                            = $this->sourceId;
+        $json['idempotency_key']                      = $this->idempotencyKey;
+        $json['amount_money']                         = $this->amountMoney;
+        if (isset($this->tipMoney)) {
+            $json['tip_money']                        = $this->tipMoney;
+        }
+        if (isset($this->appFeeMoney)) {
+            $json['app_fee_money']                    = $this->appFeeMoney;
+        }
+        if (isset($this->delayDuration)) {
+            $json['delay_duration']                   = $this->delayDuration;
+        }
+        if (isset($this->autocomplete)) {
+            $json['autocomplete']                     = $this->autocomplete;
+        }
+        if (isset($this->orderId)) {
+            $json['order_id']                         = $this->orderId;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']                      = $this->customerId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']                      = $this->locationId;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']                     = $this->referenceId;
+        }
+        if (isset($this->verificationToken)) {
+            $json['verification_token']               = $this->verificationToken;
+        }
+        if (isset($this->acceptPartialAuthorization)) {
+            $json['accept_partial_authorization']     = $this->acceptPartialAuthorization;
+        }
+        if (isset($this->buyerEmailAddress)) {
+            $json['buyer_email_address']              = $this->buyerEmailAddress;
+        }
+        if (isset($this->billingAddress)) {
+            $json['billing_address']                  = $this->billingAddress;
+        }
+        if (isset($this->shippingAddress)) {
+            $json['shipping_address']                 = $this->shippingAddress;
+        }
+        if (isset($this->note)) {
+            $json['note']                             = $this->note;
+        }
+        if (isset($this->statementDescriptionIdentifier)) {
+            $json['statement_description_identifier'] = $this->statementDescriptionIdentifier;
+        }
+        if (isset($this->cashDetails)) {
+            $json['cash_details']                     = $this->cashDetails;
+        }
+        if (isset($this->externalDetails)) {
+            $json['external_details']                 = $this->externalDetails;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -148,8 +148,8 @@ class CatalogStockConversion implements \JsonSerializable
     {
         $json = [];
         $json['stockable_item_variation_id'] = $this->stockableItemVariationId;
-        $json['stockable_quantity']       = $this->stockableQuantity;
-        $json['nonstockable_quantity']    = $this->nonstockableQuantity;
+        $json['stockable_quantity']          = $this->stockableQuantity;
+        $json['nonstockable_quantity']       = $this->nonstockableQuantity;
 
         return array_filter($json, function ($val) {
             return $val !== null;

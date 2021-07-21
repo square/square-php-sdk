@@ -107,9 +107,15 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']         = $this->errors;
-        $json['objects']        = $this->objects;
-        $json['related_objects'] = $this->relatedObjects;
+        if (isset($this->errors)) {
+            $json['errors']          = $this->errors;
+        }
+        if (isset($this->objects)) {
+            $json['objects']         = $this->objects;
+        }
+        if (isset($this->relatedObjects)) {
+            $json['related_objects'] = $this->relatedObjects;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -71,6 +71,11 @@ class ErrorCode
     public const CARD_PROCESSING_NOT_ENABLED = 'CARD_PROCESSING_NOT_ENABLED';
 
     /**
+     * A required subscription was not found for the merchant
+     */
+    public const MERCHANT_SUBSCRIPTION_NOT_FOUND = 'MERCHANT_SUBSCRIPTION_NOT_FOUND';
+
+    /**
      * A general error occurred with the request.
      */
     public const BAD_REQUEST = 'BAD_REQUEST';

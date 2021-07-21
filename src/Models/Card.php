@@ -439,21 +439,51 @@ class Card implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']             = $this->id;
-        $json['card_brand']     = $this->cardBrand;
-        $json['last_4']         = $this->last4;
-        $json['exp_month']      = $this->expMonth;
-        $json['exp_year']       = $this->expYear;
-        $json['cardholder_name'] = $this->cardholderName;
-        $json['billing_address'] = $this->billingAddress;
-        $json['fingerprint']    = $this->fingerprint;
-        $json['customer_id']    = $this->customerId;
-        $json['reference_id']   = $this->referenceId;
-        $json['enabled']        = $this->enabled;
-        $json['card_type']      = $this->cardType;
-        $json['prepaid_type']   = $this->prepaidType;
-        $json['bin']            = $this->bin;
-        $json['version']        = $this->version;
+        if (isset($this->id)) {
+            $json['id']              = $this->id;
+        }
+        if (isset($this->cardBrand)) {
+            $json['card_brand']      = $this->cardBrand;
+        }
+        if (isset($this->last4)) {
+            $json['last_4']          = $this->last4;
+        }
+        if (isset($this->expMonth)) {
+            $json['exp_month']       = $this->expMonth;
+        }
+        if (isset($this->expYear)) {
+            $json['exp_year']        = $this->expYear;
+        }
+        if (isset($this->cardholderName)) {
+            $json['cardholder_name'] = $this->cardholderName;
+        }
+        if (isset($this->billingAddress)) {
+            $json['billing_address'] = $this->billingAddress;
+        }
+        if (isset($this->fingerprint)) {
+            $json['fingerprint']     = $this->fingerprint;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']     = $this->customerId;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId;
+        }
+        if (isset($this->enabled)) {
+            $json['enabled']         = $this->enabled;
+        }
+        if (isset($this->cardType)) {
+            $json['card_type']       = $this->cardType;
+        }
+        if (isset($this->prepaidType)) {
+            $json['prepaid_type']    = $this->prepaidType;
+        }
+        if (isset($this->bin)) {
+            $json['bin']             = $this->bin;
+        }
+        if (isset($this->version)) {
+            $json['version']         = $this->version;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

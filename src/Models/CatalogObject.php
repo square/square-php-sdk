@@ -962,34 +962,86 @@ class CatalogObject implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['type']                          = $this->type;
-        $json['id']                            = $this->id;
-        $json['updated_at']                    = $this->updatedAt;
-        $json['version']                       = $this->version;
-        $json['is_deleted']                    = $this->isDeleted;
-        $json['custom_attribute_values']       = $this->customAttributeValues;
-        $json['catalog_v1_ids']                = $this->catalogV1Ids;
-        $json['present_at_all_locations']      = $this->presentAtAllLocations;
-        $json['present_at_location_ids']       = $this->presentAtLocationIds;
-        $json['absent_at_location_ids']        = $this->absentAtLocationIds;
-        $json['image_id']                      = $this->imageId;
-        $json['item_data']                     = $this->itemData;
-        $json['category_data']                 = $this->categoryData;
-        $json['item_variation_data']           = $this->itemVariationData;
-        $json['tax_data']                      = $this->taxData;
-        $json['discount_data']                 = $this->discountData;
-        $json['modifier_list_data']            = $this->modifierListData;
-        $json['modifier_data']                 = $this->modifierData;
-        $json['time_period_data']              = $this->timePeriodData;
-        $json['product_set_data']              = $this->productSetData;
-        $json['pricing_rule_data']             = $this->pricingRuleData;
-        $json['image_data']                    = $this->imageData;
-        $json['measurement_unit_data']         = $this->measurementUnitData;
-        $json['subscription_plan_data']        = $this->subscriptionPlanData;
-        $json['item_option_data']              = $this->itemOptionData;
-        $json['item_option_value_data']        = $this->itemOptionValueData;
-        $json['custom_attribute_definition_data'] = $this->customAttributeDefinitionData;
-        $json['quick_amounts_settings_data']   = $this->quickAmountsSettingsData;
+        $json['type']                                 = $this->type;
+        $json['id']                                   = $this->id;
+        if (isset($this->updatedAt)) {
+            $json['updated_at']                       = $this->updatedAt;
+        }
+        if (isset($this->version)) {
+            $json['version']                          = $this->version;
+        }
+        if (isset($this->isDeleted)) {
+            $json['is_deleted']                       = $this->isDeleted;
+        }
+        if (isset($this->customAttributeValues)) {
+            $json['custom_attribute_values']          = $this->customAttributeValues;
+        }
+        if (isset($this->catalogV1Ids)) {
+            $json['catalog_v1_ids']                   = $this->catalogV1Ids;
+        }
+        if (isset($this->presentAtAllLocations)) {
+            $json['present_at_all_locations']         = $this->presentAtAllLocations;
+        }
+        if (isset($this->presentAtLocationIds)) {
+            $json['present_at_location_ids']          = $this->presentAtLocationIds;
+        }
+        if (isset($this->absentAtLocationIds)) {
+            $json['absent_at_location_ids']           = $this->absentAtLocationIds;
+        }
+        if (isset($this->imageId)) {
+            $json['image_id']                         = $this->imageId;
+        }
+        if (isset($this->itemData)) {
+            $json['item_data']                        = $this->itemData;
+        }
+        if (isset($this->categoryData)) {
+            $json['category_data']                    = $this->categoryData;
+        }
+        if (isset($this->itemVariationData)) {
+            $json['item_variation_data']              = $this->itemVariationData;
+        }
+        if (isset($this->taxData)) {
+            $json['tax_data']                         = $this->taxData;
+        }
+        if (isset($this->discountData)) {
+            $json['discount_data']                    = $this->discountData;
+        }
+        if (isset($this->modifierListData)) {
+            $json['modifier_list_data']               = $this->modifierListData;
+        }
+        if (isset($this->modifierData)) {
+            $json['modifier_data']                    = $this->modifierData;
+        }
+        if (isset($this->timePeriodData)) {
+            $json['time_period_data']                 = $this->timePeriodData;
+        }
+        if (isset($this->productSetData)) {
+            $json['product_set_data']                 = $this->productSetData;
+        }
+        if (isset($this->pricingRuleData)) {
+            $json['pricing_rule_data']                = $this->pricingRuleData;
+        }
+        if (isset($this->imageData)) {
+            $json['image_data']                       = $this->imageData;
+        }
+        if (isset($this->measurementUnitData)) {
+            $json['measurement_unit_data']            = $this->measurementUnitData;
+        }
+        if (isset($this->subscriptionPlanData)) {
+            $json['subscription_plan_data']           = $this->subscriptionPlanData;
+        }
+        if (isset($this->itemOptionData)) {
+            $json['item_option_data']                 = $this->itemOptionData;
+        }
+        if (isset($this->itemOptionValueData)) {
+            $json['item_option_value_data']           = $this->itemOptionValueData;
+        }
+        if (isset($this->customAttributeDefinitionData)) {
+            $json['custom_attribute_definition_data'] = $this->customAttributeDefinitionData;
+        }
+        if (isset($this->quickAmountsSettingsData)) {
+            $json['quick_amounts_settings_data']      = $this->quickAmountsSettingsData;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

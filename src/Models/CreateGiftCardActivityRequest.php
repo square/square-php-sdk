@@ -83,7 +83,7 @@ class CreateGiftCardActivityRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key']  = $this->idempotencyKey;
+        $json['idempotency_key']    = $this->idempotencyKey;
         $json['gift_card_activity'] = $this->giftCardActivity;
 
         return array_filter($json, function ($val) {

@@ -48,7 +48,9 @@ class CustomerPreferences implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['email_unsubscribed'] = $this->emailUnsubscribed;
+        if (isset($this->emailUnsubscribed)) {
+            $json['email_unsubscribed'] = $this->emailUnsubscribed;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

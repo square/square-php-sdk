@@ -153,11 +153,21 @@ class LoyaltyEventFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['loyalty_account_filter'] = $this->loyaltyAccountFilter;
-        $json['type_filter']          = $this->typeFilter;
-        $json['date_time_filter']     = $this->dateTimeFilter;
-        $json['location_filter']      = $this->locationFilter;
-        $json['order_filter']         = $this->orderFilter;
+        if (isset($this->loyaltyAccountFilter)) {
+            $json['loyalty_account_filter'] = $this->loyaltyAccountFilter;
+        }
+        if (isset($this->typeFilter)) {
+            $json['type_filter']            = $this->typeFilter;
+        }
+        if (isset($this->dateTimeFilter)) {
+            $json['date_time_filter']       = $this->dateTimeFilter;
+        }
+        if (isset($this->locationFilter)) {
+            $json['location_filter']        = $this->locationFilter;
+        }
+        if (isset($this->orderFilter)) {
+            $json['order_filter']           = $this->orderFilter;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

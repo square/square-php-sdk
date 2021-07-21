@@ -80,8 +80,10 @@ class CatalogModifierOverride implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['modifier_id'] = $this->modifierId;
-        $json['on_by_default'] = $this->onByDefault;
+        $json['modifier_id']       = $this->modifierId;
+        if (isset($this->onByDefault)) {
+            $json['on_by_default'] = $this->onByDefault;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

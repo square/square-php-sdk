@@ -156,10 +156,18 @@ class ListRefundsRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['begin_time'] = $this->beginTime;
-        $json['end_time']  = $this->endTime;
-        $json['sort_order'] = $this->sortOrder;
-        $json['cursor']    = $this->cursor;
+        if (isset($this->beginTime)) {
+            $json['begin_time'] = $this->beginTime;
+        }
+        if (isset($this->endTime)) {
+            $json['end_time']   = $this->endTime;
+        }
+        if (isset($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder;
+        }
+        if (isset($this->cursor)) {
+            $json['cursor']     = $this->cursor;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

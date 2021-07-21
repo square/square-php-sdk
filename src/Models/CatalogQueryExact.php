@@ -90,7 +90,7 @@ class CatalogQueryExact implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['attribute_name'] = $this->attributeName;
+        $json['attribute_name']  = $this->attributeName;
         $json['attribute_value'] = $this->attributeValue;
 
         return array_filter($json, function ($val) {

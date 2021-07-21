@@ -77,8 +77,12 @@ class UpsertSnippetResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['snippet'] = $this->snippet;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->snippet)) {
+            $json['snippet'] = $this->snippet;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

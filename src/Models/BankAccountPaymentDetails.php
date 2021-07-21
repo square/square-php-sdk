@@ -241,14 +241,30 @@ class BankAccountPaymentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['bank_name']            = $this->bankName;
-        $json['transfer_type']        = $this->transferType;
-        $json['account_ownership_type'] = $this->accountOwnershipType;
-        $json['fingerprint']          = $this->fingerprint;
-        $json['country']              = $this->country;
-        $json['statement_description'] = $this->statementDescription;
-        $json['ach_details']          = $this->achDetails;
-        $json['errors']               = $this->errors;
+        if (isset($this->bankName)) {
+            $json['bank_name']              = $this->bankName;
+        }
+        if (isset($this->transferType)) {
+            $json['transfer_type']          = $this->transferType;
+        }
+        if (isset($this->accountOwnershipType)) {
+            $json['account_ownership_type'] = $this->accountOwnershipType;
+        }
+        if (isset($this->fingerprint)) {
+            $json['fingerprint']            = $this->fingerprint;
+        }
+        if (isset($this->country)) {
+            $json['country']                = $this->country;
+        }
+        if (isset($this->statementDescription)) {
+            $json['statement_description']  = $this->statementDescription;
+        }
+        if (isset($this->achDetails)) {
+            $json['ach_details']            = $this->achDetails;
+        }
+        if (isset($this->errors)) {
+            $json['errors']                 = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

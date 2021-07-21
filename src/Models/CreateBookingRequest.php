@@ -81,8 +81,10 @@ class CreateBookingRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['booking']        = $this->booking;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
+        $json['booking']             = $this->booking;
 
         return array_filter($json, function ($val) {
             return $val !== null;

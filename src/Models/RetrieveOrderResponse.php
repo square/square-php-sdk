@@ -82,8 +82,12 @@ class RetrieveOrderResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['order']  = $this->order;
-        $json['errors'] = $this->errors;
+        if (isset($this->order)) {
+            $json['order']  = $this->order;
+        }
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

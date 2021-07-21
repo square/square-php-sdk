@@ -322,17 +322,39 @@ class TeamMember implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                = $this->id;
-        $json['reference_id']      = $this->referenceId;
-        $json['is_owner']          = $this->isOwner;
-        $json['status']            = $this->status;
-        $json['given_name']        = $this->givenName;
-        $json['family_name']       = $this->familyName;
-        $json['email_address']     = $this->emailAddress;
-        $json['phone_number']      = $this->phoneNumber;
-        $json['created_at']        = $this->createdAt;
-        $json['updated_at']        = $this->updatedAt;
-        $json['assigned_locations'] = $this->assignedLocations;
+        if (isset($this->id)) {
+            $json['id']                 = $this->id;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id']       = $this->referenceId;
+        }
+        if (isset($this->isOwner)) {
+            $json['is_owner']           = $this->isOwner;
+        }
+        if (isset($this->status)) {
+            $json['status']             = $this->status;
+        }
+        if (isset($this->givenName)) {
+            $json['given_name']         = $this->givenName;
+        }
+        if (isset($this->familyName)) {
+            $json['family_name']        = $this->familyName;
+        }
+        if (isset($this->emailAddress)) {
+            $json['email_address']      = $this->emailAddress;
+        }
+        if (isset($this->phoneNumber)) {
+            $json['phone_number']       = $this->phoneNumber;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']         = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']         = $this->updatedAt;
+        }
+        if (isset($this->assignedLocations)) {
+            $json['assigned_locations'] = $this->assignedLocations;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

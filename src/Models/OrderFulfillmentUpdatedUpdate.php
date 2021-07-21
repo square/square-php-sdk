@@ -98,9 +98,15 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['fulfillment_uid'] = $this->fulfillmentUid;
-        $json['old_state']      = $this->oldState;
-        $json['new_state']      = $this->newState;
+        if (isset($this->fulfillmentUid)) {
+            $json['fulfillment_uid'] = $this->fulfillmentUid;
+        }
+        if (isset($this->oldState)) {
+            $json['old_state']       = $this->oldState;
+        }
+        if (isset($this->newState)) {
+            $json['new_state']       = $this->newState;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -205,12 +205,24 @@ class CustomAttributeFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
-        $json['key']                         = $this->key;
-        $json['string_filter']               = $this->stringFilter;
-        $json['number_filter']               = $this->numberFilter;
-        $json['selection_uids_filter']       = $this->selectionUidsFilter;
-        $json['bool_filter']                 = $this->boolFilter;
+        if (isset($this->customAttributeDefinitionId)) {
+            $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
+        }
+        if (isset($this->key)) {
+            $json['key']                            = $this->key;
+        }
+        if (isset($this->stringFilter)) {
+            $json['string_filter']                  = $this->stringFilter;
+        }
+        if (isset($this->numberFilter)) {
+            $json['number_filter']                  = $this->numberFilter;
+        }
+        if (isset($this->selectionUidsFilter)) {
+            $json['selection_uids_filter']          = $this->selectionUidsFilter;
+        }
+        if (isset($this->boolFilter)) {
+            $json['bool_filter']                    = $this->boolFilter;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

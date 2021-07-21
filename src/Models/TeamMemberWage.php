@@ -138,10 +138,18 @@ class TeamMemberWage implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']           = $this->id;
-        $json['team_member_id'] = $this->teamMemberId;
-        $json['title']        = $this->title;
-        $json['hourly_rate']  = $this->hourlyRate;
+        if (isset($this->id)) {
+            $json['id']             = $this->id;
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId;
+        }
+        if (isset($this->title)) {
+            $json['title']          = $this->title;
+        }
+        if (isset($this->hourlyRate)) {
+            $json['hourly_rate']    = $this->hourlyRate;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

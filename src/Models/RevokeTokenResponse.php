@@ -41,7 +41,9 @@ class RevokeTokenResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['success'] = $this->success;
+        if (isset($this->success)) {
+            $json['success'] = $this->success;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

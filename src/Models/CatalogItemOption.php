@@ -166,11 +166,21 @@ class CatalogItemOption implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['name']        = $this->name;
-        $json['display_name'] = $this->displayName;
-        $json['description'] = $this->description;
-        $json['show_colors'] = $this->showColors;
-        $json['values']      = $this->values;
+        if (isset($this->name)) {
+            $json['name']         = $this->name;
+        }
+        if (isset($this->displayName)) {
+            $json['display_name'] = $this->displayName;
+        }
+        if (isset($this->description)) {
+            $json['description']  = $this->description;
+        }
+        if (isset($this->showColors)) {
+            $json['show_colors']  = $this->showColors;
+        }
+        if (isset($this->values)) {
+            $json['values']       = $this->values;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

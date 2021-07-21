@@ -85,7 +85,7 @@ class CreateTerminalCheckoutRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['checkout']       = $this->checkout;
+        $json['checkout']        = $this->checkout;
 
         return array_filter($json, function ($val) {
             return $val !== null;

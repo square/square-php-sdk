@@ -92,8 +92,10 @@ class PublishInvoiceRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['version']        = $this->version;
-        $json['idempotency_key'] = $this->idempotencyKey;
+        $json['version']             = $this->version;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

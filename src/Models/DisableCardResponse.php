@@ -81,8 +81,12 @@ class DisableCardResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors'] = $this->errors;
-        $json['card']   = $this->card;
+        if (isset($this->errors)) {
+            $json['errors'] = $this->errors;
+        }
+        if (isset($this->card)) {
+            $json['card']   = $this->card;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

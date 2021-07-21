@@ -185,11 +185,21 @@ class SearchOrdersFilter implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['state_filter']      = $this->stateFilter;
-        $json['date_time_filter']  = $this->dateTimeFilter;
-        $json['fulfillment_filter'] = $this->fulfillmentFilter;
-        $json['source_filter']     = $this->sourceFilter;
-        $json['customer_filter']   = $this->customerFilter;
+        if (isset($this->stateFilter)) {
+            $json['state_filter']       = $this->stateFilter;
+        }
+        if (isset($this->dateTimeFilter)) {
+            $json['date_time_filter']   = $this->dateTimeFilter;
+        }
+        if (isset($this->fulfillmentFilter)) {
+            $json['fulfillment_filter'] = $this->fulfillmentFilter;
+        }
+        if (isset($this->sourceFilter)) {
+            $json['source_filter']      = $this->sourceFilter;
+        }
+        if (isset($this->customerFilter)) {
+            $json['customer_filter']    = $this->customerFilter;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -202,12 +202,20 @@ class WorkweekConfig implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                  = $this->id;
-        $json['start_of_week']       = $this->startOfWeek;
+        if (isset($this->id)) {
+            $json['id']                  = $this->id;
+        }
+        $json['start_of_week']           = $this->startOfWeek;
         $json['start_of_day_local_time'] = $this->startOfDayLocalTime;
-        $json['version']             = $this->version;
-        $json['created_at']          = $this->createdAt;
-        $json['updated_at']          = $this->updatedAt;
+        if (isset($this->version)) {
+            $json['version']             = $this->version;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']          = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']          = $this->updatedAt;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

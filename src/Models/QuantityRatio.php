@@ -79,8 +79,12 @@ class QuantityRatio implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['quantity']            = $this->quantity;
-        $json['quantity_denominator'] = $this->quantityDenominator;
+        if (isset($this->quantity)) {
+            $json['quantity']             = $this->quantity;
+        }
+        if (isset($this->quantityDenominator)) {
+            $json['quantity_denominator'] = $this->quantityDenominator;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

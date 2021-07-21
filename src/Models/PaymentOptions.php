@@ -43,7 +43,9 @@ class PaymentOptions implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['autocomplete'] = $this->autocomplete;
+        if (isset($this->autocomplete)) {
+            $json['autocomplete'] = $this->autocomplete;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -401,19 +401,43 @@ class Shift implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']           = $this->id;
-        $json['employee_id']  = $this->employeeId;
-        $json['location_id']  = $this->locationId;
-        $json['timezone']     = $this->timezone;
-        $json['start_at']     = $this->startAt;
-        $json['end_at']       = $this->endAt;
-        $json['wage']         = $this->wage;
-        $json['breaks']       = $this->breaks;
-        $json['status']       = $this->status;
-        $json['version']      = $this->version;
-        $json['created_at']   = $this->createdAt;
-        $json['updated_at']   = $this->updatedAt;
-        $json['team_member_id'] = $this->teamMemberId;
+        if (isset($this->id)) {
+            $json['id']             = $this->id;
+        }
+        if (isset($this->employeeId)) {
+            $json['employee_id']    = $this->employeeId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']    = $this->locationId;
+        }
+        if (isset($this->timezone)) {
+            $json['timezone']       = $this->timezone;
+        }
+        $json['start_at']           = $this->startAt;
+        if (isset($this->endAt)) {
+            $json['end_at']         = $this->endAt;
+        }
+        if (isset($this->wage)) {
+            $json['wage']           = $this->wage;
+        }
+        if (isset($this->breaks)) {
+            $json['breaks']         = $this->breaks;
+        }
+        if (isset($this->status)) {
+            $json['status']         = $this->status;
+        }
+        if (isset($this->version)) {
+            $json['version']        = $this->version;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']     = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']     = $this->updatedAt;
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

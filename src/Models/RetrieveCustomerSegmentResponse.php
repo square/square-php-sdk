@@ -84,8 +84,12 @@ class RetrieveCustomerSegmentResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']  = $this->errors;
-        $json['segment'] = $this->segment;
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
+        }
+        if (isset($this->segment)) {
+            $json['segment'] = $this->segment;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

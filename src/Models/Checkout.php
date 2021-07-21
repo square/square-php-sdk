@@ -356,16 +356,36 @@ class Checkout implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['id']                         = $this->id;
-        $json['checkout_page_url']          = $this->checkoutPageUrl;
-        $json['ask_for_shipping_address']   = $this->askForShippingAddress;
-        $json['merchant_support_email']     = $this->merchantSupportEmail;
-        $json['pre_populate_buyer_email']   = $this->prePopulateBuyerEmail;
-        $json['pre_populate_shipping_address'] = $this->prePopulateShippingAddress;
-        $json['redirect_url']               = $this->redirectUrl;
-        $json['order']                      = $this->order;
-        $json['created_at']                 = $this->createdAt;
-        $json['additional_recipients']      = $this->additionalRecipients;
+        if (isset($this->id)) {
+            $json['id']                            = $this->id;
+        }
+        if (isset($this->checkoutPageUrl)) {
+            $json['checkout_page_url']             = $this->checkoutPageUrl;
+        }
+        if (isset($this->askForShippingAddress)) {
+            $json['ask_for_shipping_address']      = $this->askForShippingAddress;
+        }
+        if (isset($this->merchantSupportEmail)) {
+            $json['merchant_support_email']        = $this->merchantSupportEmail;
+        }
+        if (isset($this->prePopulateBuyerEmail)) {
+            $json['pre_populate_buyer_email']      = $this->prePopulateBuyerEmail;
+        }
+        if (isset($this->prePopulateShippingAddress)) {
+            $json['pre_populate_shipping_address'] = $this->prePopulateShippingAddress;
+        }
+        if (isset($this->redirectUrl)) {
+            $json['redirect_url']                  = $this->redirectUrl;
+        }
+        if (isset($this->order)) {
+            $json['order']                         = $this->order;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']                    = $this->createdAt;
+        }
+        if (isset($this->additionalRecipients)) {
+            $json['additional_recipients']         = $this->additionalRecipients;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

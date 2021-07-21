@@ -71,8 +71,12 @@ class SubscriptionEventInfo implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['detail'] = $this->detail;
-        $json['code']   = $this->code;
+        if (isset($this->detail)) {
+            $json['detail'] = $this->detail;
+        }
+        if (isset($this->code)) {
+            $json['code']   = $this->code;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

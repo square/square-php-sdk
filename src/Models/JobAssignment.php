@@ -188,11 +188,17 @@ class JobAssignment implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['job_title']   = $this->jobTitle;
-        $json['pay_type']    = $this->payType;
-        $json['hourly_rate'] = $this->hourlyRate;
-        $json['annual_rate'] = $this->annualRate;
-        $json['weekly_hours'] = $this->weeklyHours;
+        $json['job_title']        = $this->jobTitle;
+        $json['pay_type']         = $this->payType;
+        if (isset($this->hourlyRate)) {
+            $json['hourly_rate']  = $this->hourlyRate;
+        }
+        if (isset($this->annualRate)) {
+            $json['annual_rate']  = $this->annualRate;
+        }
+        if (isset($this->weeklyHours)) {
+            $json['weekly_hours'] = $this->weeklyHours;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

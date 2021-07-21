@@ -93,7 +93,7 @@ class CatalogQuerySet implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['attribute_name']  = $this->attributeName;
+        $json['attribute_name']   = $this->attributeName;
         $json['attribute_values'] = $this->attributeValues;
 
         return array_filter($json, function ($val) {

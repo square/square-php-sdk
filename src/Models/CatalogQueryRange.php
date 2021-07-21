@@ -108,9 +108,13 @@ class CatalogQueryRange implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['attribute_name']    = $this->attributeName;
-        $json['attribute_min_value'] = $this->attributeMinValue;
-        $json['attribute_max_value'] = $this->attributeMaxValue;
+        $json['attribute_name']          = $this->attributeName;
+        if (isset($this->attributeMinValue)) {
+            $json['attribute_min_value'] = $this->attributeMinValue;
+        }
+        if (isset($this->attributeMaxValue)) {
+            $json['attribute_max_value'] = $this->attributeMaxValue;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

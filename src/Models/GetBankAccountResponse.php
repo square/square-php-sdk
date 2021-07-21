@@ -79,8 +79,12 @@ class GetBankAccountResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']      = $this->errors;
-        $json['bank_account'] = $this->bankAccount;
+        if (isset($this->errors)) {
+            $json['errors']       = $this->errors;
+        }
+        if (isset($this->bankAccount)) {
+            $json['bank_account'] = $this->bankAccount;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

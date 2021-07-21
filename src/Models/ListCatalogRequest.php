@@ -119,9 +119,15 @@ class ListCatalogRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['cursor']         = $this->cursor;
-        $json['types']          = $this->types;
-        $json['catalog_version'] = $this->catalogVersion;
+        if (isset($this->cursor)) {
+            $json['cursor']          = $this->cursor;
+        }
+        if (isset($this->types)) {
+            $json['types']           = $this->types;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version'] = $this->catalogVersion;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

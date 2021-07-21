@@ -89,8 +89,10 @@ class CreateCustomerGroupRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['group']          = $this->group;
+        if (isset($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey;
+        }
+        $json['group']               = $this->group;
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -153,7 +153,7 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key'] = $this->idempotencyKey;
-        $json['batches']        = $this->batches;
+        $json['batches']         = $this->batches;
 
         return array_filter($json, function ($val) {
             return $val !== null;

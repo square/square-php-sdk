@@ -127,9 +127,13 @@ class GiftCardActivityRedeem implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['amount_money'] = $this->amountMoney;
-        $json['payment_id']  = $this->paymentId;
-        $json['reference_id'] = $this->referenceId;
+        $json['amount_money']     = $this->amountMoney;
+        if (isset($this->paymentId)) {
+            $json['payment_id']   = $this->paymentId;
+        }
+        if (isset($this->referenceId)) {
+            $json['reference_id'] = $this->referenceId;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

@@ -95,9 +95,15 @@ class CatalogInfoResponse implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['errors']                       = $this->errors;
-        $json['limits']                       = $this->limits;
-        $json['standard_unit_description_group'] = $this->standardUnitDescriptionGroup;
+        if (isset($this->errors)) {
+            $json['errors']                          = $this->errors;
+        }
+        if (isset($this->limits)) {
+            $json['limits']                          = $this->limits;
+        }
+        if (isset($this->standardUnitDescriptionGroup)) {
+            $json['standard_unit_description_group'] = $this->standardUnitDescriptionGroup;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

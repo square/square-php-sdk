@@ -264,14 +264,30 @@ class OrderReturn implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['uid']                  = $this->uid;
-        $json['source_order_id']      = $this->sourceOrderId;
-        $json['return_line_items']    = $this->returnLineItems;
-        $json['return_service_charges'] = $this->returnServiceCharges;
-        $json['return_taxes']         = $this->returnTaxes;
-        $json['return_discounts']     = $this->returnDiscounts;
-        $json['rounding_adjustment']  = $this->roundingAdjustment;
-        $json['return_amounts']       = $this->returnAmounts;
+        if (isset($this->uid)) {
+            $json['uid']                    = $this->uid;
+        }
+        if (isset($this->sourceOrderId)) {
+            $json['source_order_id']        = $this->sourceOrderId;
+        }
+        if (isset($this->returnLineItems)) {
+            $json['return_line_items']      = $this->returnLineItems;
+        }
+        if (isset($this->returnServiceCharges)) {
+            $json['return_service_charges'] = $this->returnServiceCharges;
+        }
+        if (isset($this->returnTaxes)) {
+            $json['return_taxes']           = $this->returnTaxes;
+        }
+        if (isset($this->returnDiscounts)) {
+            $json['return_discounts']       = $this->returnDiscounts;
+        }
+        if (isset($this->roundingAdjustment)) {
+            $json['rounding_adjustment']    = $this->roundingAdjustment;
+        }
+        if (isset($this->returnAmounts)) {
+            $json['return_amounts']         = $this->returnAmounts;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

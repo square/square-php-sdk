@@ -106,8 +106,10 @@ class CashPaymentDetails implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['buyer_supplied_money'] = $this->buyerSuppliedMoney;
-        $json['change_back_money']  = $this->changeBackMoney;
+        $json['buyer_supplied_money']  = $this->buyerSuppliedMoney;
+        if (isset($this->changeBackMoney)) {
+            $json['change_back_money'] = $this->changeBackMoney;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;

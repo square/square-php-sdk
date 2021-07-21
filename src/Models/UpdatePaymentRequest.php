@@ -93,7 +93,9 @@ class UpdatePaymentRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['payment']        = $this->payment;
+        if (isset($this->payment)) {
+            $json['payment']     = $this->payment;
+        }
         $json['idempotency_key'] = $this->idempotencyKey;
 
         return array_filter($json, function ($val) {

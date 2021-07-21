@@ -90,8 +90,12 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
     public function jsonSerialize()
     {
         $json = [];
-        $json['include_related_objects'] = $this->includeRelatedObjects;
-        $json['catalog_version']       = $this->catalogVersion;
+        if (isset($this->includeRelatedObjects)) {
+            $json['include_related_objects'] = $this->includeRelatedObjects;
+        }
+        if (isset($this->catalogVersion)) {
+            $json['catalog_version']         = $this->catalogVersion;
+        }
 
         return array_filter($json, function ($val) {
             return $val !== null;
