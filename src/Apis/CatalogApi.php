@@ -34,11 +34,10 @@ class CatalogApi extends BaseApi
      * IDs can be deleted. The response will only include IDs that were
      * actually deleted.
      *
-     * @param \Square\Models\BatchDeleteCatalogObjectsRequest $body An object containing the
-     *                                                              fields to POST for the request.
+     * @param \Square\Models\BatchDeleteCatalogObjectsRequest $body An object containing the fields
+     *        to POST for the request.
      *
-     *                                                              See the corresponding object
-     *                                                              definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -73,6 +72,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -82,6 +82,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -109,11 +110,9 @@ class CatalogApi extends BaseApi
      * any [CatalogTax]($m/CatalogTax) objects that apply to it.
      *
      * @param \Square\Models\BatchRetrieveCatalogObjectsRequest $body An object containing the
-     *                                                                fields to POST for the
-     *                                                                request.
+     *        fields to POST for the request.
      *
-     *                                                                See the corresponding object
-     *                                                                definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -148,6 +147,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -157,6 +157,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -189,11 +190,10 @@ class CatalogApi extends BaseApi
      * request (items, variations, modifier lists, discounts, and taxes) is no more
      * than 10,000.
      *
-     * @param \Square\Models\BatchUpsertCatalogObjectsRequest $body An object containing the
-     *                                                              fields to POST for the request.
+     * @param \Square\Models\BatchUpsertCatalogObjectsRequest $body An object containing the fields
+     *        to POST for the request.
      *
-     *                                                              See the corresponding object
-     *                                                              definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -228,6 +228,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -237,6 +238,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -306,19 +308,21 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
             $response = Request::post(
-                $_queryUrl,
-                $_headers,
+                $_httpRequest->getQueryUrl(),
+                $_httpRequest->getHeaders(),
                 Request::buildHTTPCurlQuery($_parameters)
             );
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -370,6 +374,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -379,6 +384,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -409,33 +415,35 @@ class CatalogApi extends BaseApi
      * and set the `include_deleted_objects` attribute value to `true`.
      *
      * @param string|null $cursor The pagination cursor returned in the previous response. Leave
-     *                            unset for an initial request.
-     *                            The page size is currently set to be 100.
-     *                            See [Pagination](https://developer.squareup.
-     *                            com/docs/basics/api101/pagination) for more information.
-     * @param string|null $types An optional case-insensitive, comma-separated list of object
-     *                           types to retrieve.
+     *        unset for an initial request.
+     *        The page size is currently set to be 100.
+     *        See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for
+     *        more information.
+     * @param string|null $types An optional case-insensitive, comma-separated list of object types
+     *        to retrieve.
      *
-     *                           The valid values are defined in the
-     *                           [CatalogObjectType]($m/CatalogObjectType) enum, including
-     *                           `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
-     *                           `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
+     *        The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum,
+     *        including
+     *        `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
+     *        `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
      *
-     *                           If this is unspecified, the operation returns objects of all the
-     *                           types at the version of the Square API used to make the request.
-     * @param int|null $catalogVersion The specific version of the catalog objects to be included
-     *                                 in the response.
-     *                                 This allows you to retrieve historical
-     *                                 versions of objects. The specified version value is matched
-     *                                 against
-     *                                 the [CatalogObject]($m/CatalogObject)s' `version` attribute.
+     *        If this is unspecified, the operation returns objects of all the types at the
+     *        version of the Square API used to make the request.
+     * @param int|null $catalogVersion The specific version of the catalog objects to be included in
+     *        the response.
+     *        This allows you to retrieve historical
+     *        versions of objects. The specified version value is matched against
+     *        the [CatalogObject]($m/CatalogObject)s' `version` attribute.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalogVersion = null): ApiResponse
-    {
+    public function listCatalog(
+        ?string $cursor = null,
+        ?string $types = null,
+        ?int $catalogVersion = null
+    ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/list';
 
@@ -466,6 +474,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -475,6 +484,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -497,10 +507,9 @@ class CatalogApi extends BaseApi
      * Creates or updates the target [CatalogObject]($m/CatalogObject).
      *
      * @param \Square\Models\UpsertCatalogObjectRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -535,6 +544,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -544,6 +554,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -571,10 +582,10 @@ class CatalogApi extends BaseApi
      * [CatalogItemVariation]($m/CatalogItemVariation) children.
      *
      * @param string $objectId The ID of the catalog object to be deleted. When an object is
-     *                         deleted, other
-     *                         objects in the graph that depend on that object will be deleted as
-     *                         well (for example, deleting a
-     *                         catalog item will delete its catalog item variations).
+     *        deleted, other
+     *        objects in the graph that depend on that object will be deleted as well (for example,
+     *        deleting a
+     *        catalog item will delete its catalog item variations).
      *
      * @return ApiResponse Response from the API call
      *
@@ -610,6 +621,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -619,6 +631,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -648,25 +661,24 @@ class CatalogApi extends BaseApi
      *
      * @param string $objectId The object ID of any type of catalog objects to be retrieved.
      * @param bool|null $includeRelatedObjects If `true`, the response will include additional
-     *                                         objects that are related to the
-     *                                         requested object, as follows:
+     *        objects that are related to the
+     *        requested object, as follows:
      *
-     *                                         If the `object` field of the response contains a
-     *                                         `CatalogItem`, its associated
-     *                                         `CatalogCategory`, `CatalogTax`, `CatalogImage` and
-     *                                         `CatalogModifierList` objects will
-     *                                         be returned in the `related_objects` field of the
-     *                                         response. If the `object` field of
-     *                                         the response contains a `CatalogItemVariation`, its
-     *                                         parent `CatalogItem` will be returned
-     *                                         in the `related_objects` field of the response.
+     *        If the `object` field of the response contains a `CatalogItem`, its associated
+     *        `CatalogCategory`, `CatalogTax`, `CatalogImage` and `CatalogModifierList` objects
+     *        will
+     *        be returned in the `related_objects` field of the response. If the `object` field
+     *        of
+     *        the response contains a `CatalogItemVariation`, its parent `CatalogItem` will be
+     *        returned
+     *        in the `related_objects` field of the response.
      *
-     *                                         Default value: `false`
+     *        Default value: `false`
      * @param int|null $catalogVersion Requests objects as of a specific version of the catalog.
-     *                                 This allows you to retrieve historical
-     *                                 versions of objects. The value to retrieve a specific
-     *                                 version of an object can be found
-     *                                 in the version field of [CatalogObject]($m/CatalogObject)s.
+     *        This allows you to retrieve historical
+     *        versions of objects. The value to retrieve a specific version of an object can be
+     *        found
+     *        in the version field of [CatalogObject]($m/CatalogObject)s.
      *
      * @return ApiResponse Response from the API call
      *
@@ -712,6 +724,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -721,6 +734,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -758,10 +772,9 @@ class CatalogApi extends BaseApi
      * - The both endpoints have different call conventions, including the query filter formats.
      *
      * @param \Square\Models\SearchCatalogObjectsRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -796,6 +809,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -805,6 +819,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -840,11 +855,10 @@ class CatalogApi extends BaseApi
      * items or item variations, whereas `SearchCatalogObjects` does.
      * - The both endpoints use different call conventions, including the query filter formats.
      *
-     * @param \Square\Models\SearchCatalogItemsRequest $body An object containing the fields to
-     *                                                       POST for the request.
+     * @param \Square\Models\SearchCatalogItemsRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                       See the corresponding object
-     *                                                       definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -879,6 +893,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -888,6 +903,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -911,11 +927,10 @@ class CatalogApi extends BaseApi
      * that apply to the targeted [CatalogItem]($m/CatalogItem) without having
      * to perform an upsert on the entire item.
      *
-     * @param \Square\Models\UpdateItemModifierListsRequest $body An object containing the fields
-     *                                                            to POST for the request.
+     * @param \Square\Models\UpdateItemModifierListsRequest $body An object containing the fields to
+     *        POST for the request.
      *
-     *                                                            See the corresponding object
-     *                                                            definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -950,6 +965,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -959,6 +975,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -983,10 +1000,9 @@ class CatalogApi extends BaseApi
      * upsert on the entire item.
      *
      * @param \Square\Models\UpdateItemTaxesRequest $body An object containing the fields to POST
-     *                                                    for the request.
+     *        for the request.
      *
-     *                                                    See the corresponding object definition
-     *                                                    for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -1021,6 +1037,7 @@ class CatalogApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -1030,6 +1047,7 @@ class CatalogApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

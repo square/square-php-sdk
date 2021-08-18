@@ -26,21 +26,17 @@ class BankAccountsApi extends BaseApi
      * Returns a list of [BankAccount]($m/BankAccount) objects linked to a Square account.
      *
      * @param string|null $cursor The pagination cursor returned by a previous call to this
-     *                            endpoint.
-     *                            Use it in the next `ListBankAccounts` request to retrieve the
-     *                            next set
-     *                            of results.
+     *        endpoint.
+     *        Use it in the next `ListBankAccounts` request to retrieve the next set
+     *        of results.
      *
-     *                            See the [Pagination](https://developer.squareup.com/docs/working-
-     *                            with-apis/pagination) guide for more information.
+     *        See the [Pagination](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) guide for more information.
      * @param int|null $limit Upper limit on the number of bank accounts to return in the response.
-     *
-     *                        Currently, 1000 is the largest supported limit. You can specify a
-     *                        limit
-     *                        of up to 1000 bank accounts. This is also the default limit.
-     * @param string|null $locationId Location ID. You can specify this optional filter
-     *                                to retrieve only the linked bank accounts belonging to a
-     *                                specific location.
+     *        Currently, 1000 is the largest supported limit. You can specify a limit
+     *        of up to 1000 bank accounts. This is also the default limit.
+     * @param string|null $locationId Location ID. You can specify this optional filter to retrieve
+     *        only the linked bank accounts belonging to a specific location.
      *
      * @return ApiResponse Response from the API call
      *
@@ -81,6 +77,7 @@ class BankAccountsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -90,6 +87,7 @@ class BankAccountsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -112,11 +110,10 @@ class BankAccountsApi extends BaseApi
      * Returns details of a [BankAccount]($m/BankAccount) identified by V1 bank account ID.
      *
      * @param string $v1BankAccountId Connect V1 ID of the desired `BankAccount`. For more
-     *                                information, see
-     *                                [Retrieve a bank account by using an ID issued by V1 Bank
-     *                                Accounts API](https://developer.squareup.com/docs/bank-
-     *                                accounts-api#retrieve-a-bank-account-by-using-an-id-issued-
-     *                                by-v1-bank-accounts-api).
+     *        information, see
+     *        [Retrieve a bank account by using an ID issued by V1 Bank Accounts API](https:
+     *        //developer.squareup.com/docs/bank-accounts-api#retrieve-a-bank-account-by-using-an-
+     *        id-issued-by-v1-bank-accounts-api).
      *
      * @return ApiResponse Response from the API call
      *
@@ -152,6 +149,7 @@ class BankAccountsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -161,6 +159,7 @@ class BankAccountsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -219,6 +218,7 @@ class BankAccountsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -228,6 +228,7 @@ class BankAccountsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

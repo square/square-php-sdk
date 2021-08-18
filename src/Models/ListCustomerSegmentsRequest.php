@@ -15,6 +15,11 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
     private $cursor;
 
     /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
      * Returns Cursor.
      *
      * A pagination cursor returned by previous calls to `ListCustomerSegments`.
@@ -45,6 +50,38 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Limit.
+     *
+     * The maximum number of results to return in a single page. This limit is advisory. The response might
+     * contain more or fewer results.
+     * The limit is ignored if it is less than 1 or greater than 50. The default value is 50.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     */
+    public function getLimit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * Sets Limit.
+     *
+     * The maximum number of results to return in a single page. This limit is advisory. The response might
+     * contain more or fewer results.
+     * The limit is ignored if it is less than 1 or greater than 50. The default value is 50.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     *
+     * @maps limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -54,6 +91,9 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
         $json = [];
         if (isset($this->cursor)) {
             $json['cursor'] = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']  = $this->limit;
         }
 
         return array_filter($json, function ($val) {

@@ -47,13 +47,12 @@ class OAuthApi extends BaseApi
      *
      * @deprecated
      *
-     * @param string $clientId Your application ID, available from the [developer dashboard](https:
-     *                         //developer.squareup.com/apps).
-     * @param \Square\Models\RenewTokenRequest $body An object containing the fields to POST for
-     *                                               the request.
+     * @param string $clientId Your application ID, available from the [developer
+     *        dashboard](https://developer.squareup.com/apps).
+     * @param \Square\Models\RenewTokenRequest $body An object containing the fields to POST for the
+     *        request.
      *
-     *                                               See the corresponding object definition for
-     *                                               field details.
+     *        See the corresponding object definition for field details.
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
@@ -97,6 +96,7 @@ class OAuthApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -106,6 +106,7 @@ class OAuthApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -143,10 +144,9 @@ class OAuthApi extends BaseApi
      * page in the [developer dashboard](https://developer.squareup.com/apps).
      *
      * @param \Square\Models\RevokeTokenRequest $body An object containing the fields to POST for
-     *                                                the request.
+     *        the request.
      *
-     *                                                See the corresponding object definition for
-     *                                                field details.
+     *        See the corresponding object definition for field details.
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
@@ -180,6 +180,7 @@ class OAuthApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -189,6 +190,7 @@ class OAuthApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -222,10 +224,9 @@ class OAuthApi extends BaseApi
      * should never interact directly with OAuth tokens__.
      *
      * @param \Square\Models\ObtainTokenRequest $body An object containing the fields to POST for
-     *                                                the request.
+     *        the request.
      *
-     *                                                See the corresponding object definition for
-     *                                                field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -257,6 +258,7 @@ class OAuthApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -266,6 +268,7 @@ class OAuthApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

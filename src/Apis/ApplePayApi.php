@@ -34,11 +34,10 @@ class ApplePayApi extends BaseApi
      * [Add the Apple Pay on the Web Button](https://developer.squareup.com/docs/payment-form/add-digital-
      * wallets/apple-pay).
      *
-     * @param \Square\Models\RegisterDomainRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\RegisterDomainRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -73,6 +72,7 @@ class ApplePayApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -82,6 +82,7 @@ class ApplePayApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

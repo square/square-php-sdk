@@ -30,7 +30,7 @@ class InventoryApi extends BaseApi
      * @deprecated
      *
      * @param string $adjustmentId ID of the [InventoryAdjustment]($m/InventoryAdjustment) to
-     *                             retrieve.
+     *        retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -68,6 +68,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -77,6 +78,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -103,7 +105,7 @@ class InventoryApi extends BaseApi
      * with the provided `adjustment_id`.
      *
      * @param string $adjustmentId ID of the [InventoryAdjustment]($m/InventoryAdjustment) to
-     *                             retrieve.
+     *        retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -139,6 +141,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -148,6 +151,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -177,10 +181,9 @@ class InventoryApi extends BaseApi
      * @deprecated
      *
      * @param \Square\Models\BatchChangeInventoryRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -217,6 +220,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -226,6 +230,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -252,12 +257,9 @@ class InventoryApi extends BaseApi
      * @deprecated
      *
      * @param \Square\Models\BatchRetrieveInventoryChangesRequest $body An object containing the
-     *                                                                  fields to POST for the
-     *                                                                  request.
+     *        fields to POST for the request.
      *
-     *                                                                  See the corresponding
-     *                                                                  object definition for
-     *                                                                  field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -295,6 +297,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -304,6 +307,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -333,12 +337,9 @@ class InventoryApi extends BaseApi
      * @deprecated
      *
      * @param \Square\Models\BatchRetrieveInventoryCountsRequest $body An object containing the
-     *                                                                 fields to POST for the
-     *                                                                 request.
+     *        fields to POST for the request.
      *
-     *                                                                 See the corresponding
-     *                                                                 object definition for field
-     *                                                                 details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -376,6 +377,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -385,6 +387,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -414,10 +417,9 @@ class InventoryApi extends BaseApi
      * On failure: returns a list of related errors.
      *
      * @param \Square\Models\BatchChangeInventoryRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -452,6 +454,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -461,6 +464,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -490,12 +494,9 @@ class InventoryApi extends BaseApi
      * that cannot be handled by other, simpler endpoints.
      *
      * @param \Square\Models\BatchRetrieveInventoryChangesRequest $body An object containing the
-     *                                                                  fields to POST for the
-     *                                                                  request.
+     *        fields to POST for the request.
      *
-     *                                                                  See the corresponding
-     *                                                                  object definition for
-     *                                                                  field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -531,6 +532,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -540,6 +542,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -575,12 +578,9 @@ class InventoryApi extends BaseApi
      * in response to receiving a Webhook notification.
      *
      * @param \Square\Models\BatchRetrieveInventoryCountsRequest $body An object containing the
-     *                                                                 fields to POST for the
-     *                                                                 request.
+     *        fields to POST for the request.
      *
-     *                                                                 See the corresponding
-     *                                                                 object definition for field
-     *                                                                 details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -615,6 +615,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -624,6 +625,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -652,9 +654,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param string $physicalCountId ID of the
-     *                                [InventoryPhysicalCount]($m/InventoryPhysicalCount) to
-     *                                retrieve.
+     * @param string $physicalCountId ID of the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
+     *        to retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -692,6 +693,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -701,6 +703,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -726,9 +729,8 @@ class InventoryApi extends BaseApi
      * Returns the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
      * object with the provided `physical_count_id`.
      *
-     * @param string $physicalCountId ID of the
-     *                                [InventoryPhysicalCount]($m/InventoryPhysicalCount) to
-     *                                retrieve.
+     * @param string $physicalCountId ID of the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
+     *        to retrieve.
      *
      * @return ApiResponse Response from the API call
      *
@@ -764,6 +766,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -773,6 +776,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -834,6 +838,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -843,6 +848,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -868,15 +874,14 @@ class InventoryApi extends BaseApi
      * For more sophisticated queries, use a batch endpoint.
      *
      * @param string $catalogObjectId ID of the [CatalogObject]($m/CatalogObject) to retrieve.
-     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a comma-
-     *                                 separated
-     *                                 list. An empty list queries all locations.
+     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a
+     *        comma-separated
+     *        list. An empty list queries all locations.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for the
-     *                            original query.
+     *        Provide this to retrieve the next set of results for the original query.
      *
-     *                            See the [Pagination](https://developer.squareup.com/docs/working-
-     *                            with-apis/pagination) guide for more information.
+     *        See the [Pagination](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) guide for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -921,6 +926,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -930,6 +936,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -967,15 +974,14 @@ class InventoryApi extends BaseApi
      * @deprecated
      *
      * @param string $catalogObjectId ID of the [CatalogObject]($m/CatalogObject) to retrieve.
-     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a comma-
-     *                                 separated
-     *                                 list. An empty list queries all locations.
+     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a
+     *        comma-separated
+     *        list. An empty list queries all locations.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for the
-     *                            original query.
+     *        Provide this to retrieve the next set of results for the original query.
      *
-     *                            See the [Pagination](https://developer.squareup.com/docs/working-
-     *                            with-apis/pagination) guide for more information.
+     *        See the [Pagination](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) guide for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -1022,6 +1028,7 @@ class InventoryApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -1031,6 +1038,7 @@ class InventoryApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

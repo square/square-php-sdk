@@ -27,10 +27,9 @@ class LoyaltyApi extends BaseApi
      * `mapping` with the `phone_number` of the buyer.
      *
      * @param \Square\Models\CreateLoyaltyAccountRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -65,6 +64,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -74,6 +74,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -101,10 +102,9 @@ class LoyaltyApi extends BaseApi
      * Search results are sorted by `created_at` in ascending order.
      *
      * @param \Square\Models\SearchLoyaltyAccountsRequest $body An object containing the fields to
-     *                                                          POST for the request.
+     *        POST for the request.
      *
-     *                                                          See the corresponding object
-     *                                                          definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -139,6 +139,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -148,6 +149,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -205,6 +207,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -214,6 +217,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -249,12 +253,11 @@ class LoyaltyApi extends BaseApi
      * com/docs/loyalty-api/overview#loyalty-market-availability).
      *
      * @param string $accountId The [loyalty account]($m/LoyaltyAccount) ID to which to add the
-     *                          points.
-     * @param \Square\Models\AccumulateLoyaltyPointsRequest $body An object containing the fields
-     *                                                            to POST for the request.
+     *        points.
+     * @param \Square\Models\AccumulateLoyaltyPointsRequest $body An object containing the fields to
+     *        POST for the request.
      *
-     *                                                            See the corresponding object
-     *                                                            definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -296,6 +299,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -305,6 +309,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -332,19 +337,20 @@ class LoyaltyApi extends BaseApi
      * to add points when a buyer pays for the purchase.
      *
      * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) in which to
-     *                          adjust the points.
+     *        adjust the points.
      * @param \Square\Models\AdjustLoyaltyPointsRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function adjustLoyaltyPoints(string $accountId, \Square\Models\AdjustLoyaltyPointsRequest $body): ApiResponse
-    {
+    public function adjustLoyaltyPoints(
+        string $accountId,
+        \Square\Models\AdjustLoyaltyPointsRequest $body
+    ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/accounts/{account_id}/adjust';
 
@@ -377,6 +383,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -386,6 +393,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -415,10 +423,9 @@ class LoyaltyApi extends BaseApi
      * Search results are sorted by `created_at` in descending order.
      *
      * @param \Square\Models\SearchLoyaltyEventsRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -453,6 +460,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -462,6 +470,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -523,6 +532,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -532,6 +542,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -559,8 +570,7 @@ class LoyaltyApi extends BaseApi
      * information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
      *
      * @param string $programId The ID of the loyalty program or the keyword `main`. Either value
-     *                          can be used to retrieve the single loyalty program that belongs to
-     *                          the seller.
+     *        can be used to retrieve the single loyalty program that belongs to the seller.
      *
      * @return ApiResponse Response from the API call
      *
@@ -596,6 +606,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -605,6 +616,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -639,13 +651,12 @@ class LoyaltyApi extends BaseApi
      * For more information, see [Availability of Square Loyalty](https://developer.squareup.
      * com/docs/loyalty-api/overview#loyalty-market-availability).
      *
-     * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the
-     *                          rules for accruing points.
-     * @param \Square\Models\CalculateLoyaltyPointsRequest $body An object containing the fields
-     *                                                           to POST for the request.
+     * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the rules
+     *        for accruing points.
+     * @param \Square\Models\CalculateLoyaltyPointsRequest $body An object containing the fields to
+     *        POST for the request.
      *
-     *                                                           See the corresponding object
-     *                                                           definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -687,6 +698,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -696,6 +708,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -725,10 +738,9 @@ class LoyaltyApi extends BaseApi
      * not available for the buyer to redeem another reward.
      *
      * @param \Square\Models\CreateLoyaltyRewardRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -763,6 +775,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -772,6 +785,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -801,10 +815,9 @@ class LoyaltyApi extends BaseApi
      * Search results are sorted by `updated_at` in descending order.
      *
      * @param \Square\Models\SearchLoyaltyRewardsRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -839,6 +852,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -848,6 +862,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -913,6 +928,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -922,6 +938,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -979,6 +996,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -988,6 +1006,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -1021,10 +1040,9 @@ class LoyaltyApi extends BaseApi
      *
      * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to redeem.
      * @param \Square\Models\RedeemLoyaltyRewardRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -1064,6 +1082,7 @@ class LoyaltyApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -1073,6 +1092,7 @@ class LoyaltyApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

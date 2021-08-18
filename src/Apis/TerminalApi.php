@@ -26,11 +26,10 @@ class TerminalApi extends BaseApi
      * Creates a Terminal checkout request and sends it to the specified device to take a payment
      * for the requested amount.
      *
-     * @param \Square\Models\CreateTerminalCheckoutRequest $body An object containing the fields
-     *                                                           to POST for the request.
+     * @param \Square\Models\CreateTerminalCheckoutRequest $body An object containing the fields to
+     *        POST for the request.
      *
-     *                                                           See the corresponding object
-     *                                                           definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -65,6 +64,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -74,6 +74,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -95,11 +96,10 @@ class TerminalApi extends BaseApi
     /**
      * Retrieves a filtered list of Terminal checkout requests created by the account making the request.
      *
-     * @param \Square\Models\SearchTerminalCheckoutsRequest $body An object containing the fields
-     *                                                            to POST for the request.
+     * @param \Square\Models\SearchTerminalCheckoutsRequest $body An object containing the fields to
+     *        POST for the request.
      *
-     *                                                            See the corresponding object
-     *                                                            definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -134,6 +134,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -143,6 +144,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -200,6 +202,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -209,6 +212,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -266,6 +270,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -275,6 +280,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -297,10 +303,9 @@ class TerminalApi extends BaseApi
      * Creates a request to refund an Interac payment completed on a Square Terminal.
      *
      * @param \Square\Models\CreateTerminalRefundRequest $body An object containing the fields to
-     *                                                         POST for the request.
+     *        POST for the request.
      *
-     *                                                         See the corresponding object
-     *                                                         definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -335,6 +340,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -344,6 +350,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -367,10 +374,9 @@ class TerminalApi extends BaseApi
      * request.
      *
      * @param \Square\Models\SearchTerminalRefundsRequest $body An object containing the fields to
-     *                                                          POST for the request.
+     *        POST for the request.
      *
-     *                                                          See the corresponding object
-     *                                                          definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -405,6 +411,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -414,6 +421,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -471,6 +479,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -480,6 +489,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -538,6 +548,7 @@ class TerminalApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -547,6 +558,7 @@ class TerminalApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

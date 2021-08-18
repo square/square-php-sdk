@@ -30,11 +30,10 @@ class SubscriptionsApi extends BaseApi
      * address. The subscription starts immediately, unless the request includes
      * the optional `start_date`. Each individual subscription is associated with a particular location.
      *
-     * @param \Square\Models\CreateSubscriptionRequest $body An object containing the fields to
-     *                                                       POST for the request.
+     * @param \Square\Models\CreateSubscriptionRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                       See the corresponding object
-     *                                                       definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -69,6 +68,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -78,6 +78,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -116,10 +117,9 @@ class SubscriptionsApi extends BaseApi
      * subscriptions).
      *
      * @param \Square\Models\SearchSubscriptionsRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -154,6 +154,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -163,6 +164,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -220,6 +222,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -229,6 +232,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -252,11 +256,10 @@ class SubscriptionsApi extends BaseApi
      * `subscription` field values.
      *
      * @param string $subscriptionId The ID for the subscription to update.
-     * @param \Square\Models\UpdateSubscriptionRequest $body An object containing the fields to
-     *                                                       POST for the request.
+     * @param \Square\Models\UpdateSubscriptionRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                       See the corresponding object
-     *                                                       definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -298,6 +301,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -307,6 +311,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -365,6 +370,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -374,6 +380,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -399,15 +406,14 @@ class SubscriptionsApi extends BaseApi
      *
      * @param string $subscriptionId The ID of the subscription to retrieve the events for.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for the
-     *                            original query.
+     *        Provide this to retrieve the next set of results for the original query.
      *
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/working-with-apis/pagination).
-     * @param int|null $limit The upper limit on the number of subscription events to return
-     *                        in the response.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param int|null $limit The upper limit on the number of subscription events to return in the
+     *        response.
      *
-     *                        Default: `200`
+     *        Default: `200`
      *
      * @return ApiResponse Response from the API call
      *
@@ -452,6 +458,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -461,6 +468,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -518,6 +526,7 @@ class SubscriptionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -527,6 +536,7 @@ class SubscriptionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

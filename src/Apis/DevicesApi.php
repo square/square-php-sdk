@@ -26,19 +26,18 @@ class DevicesApi extends BaseApi
      * Lists all DeviceCodes associated with the merchant.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for your
-     *                            original query.
+     *        Provide this to retrieve the next set of results for your original query.
      *
-     *                            See [Paginating results](https://developer.squareup.
-     *                            com/docs/working-with-apis/pagination) for more information.
+     *        See [Paginating results](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) for more information.
      * @param string|null $locationId If specified, only returns DeviceCodes of the specified
-     *                                location.
-     *                                Returns DeviceCodes of all locations if empty.
+     *        location.
+     *        Returns DeviceCodes of all locations if empty.
      * @param string|null $productType If specified, only returns DeviceCodes targeting the
-     *                                 specified product type.
-     *                                 Returns DeviceCodes of all product types if empty.
+     *        specified product type.
+     *        Returns DeviceCodes of all product types if empty.
      * @param string|null $status If specified, returns DeviceCodes with the specified statuses.
-     *                            Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
+     *        Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
      *
      * @return ApiResponse Response from the API call
      *
@@ -81,6 +80,7 @@ class DevicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -90,6 +90,7 @@ class DevicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -113,10 +114,9 @@ class DevicesApi extends BaseApi
      * terminal mode.
      *
      * @param \Square\Models\CreateDeviceCodeRequest $body An object containing the fields to POST
-     *                                                     for the request.
+     *        for the request.
      *
-     *                                                     See the corresponding object definition
-     *                                                     for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -151,6 +151,7 @@ class DevicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -160,6 +161,7 @@ class DevicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -217,6 +219,7 @@ class DevicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -226,6 +229,7 @@ class DevicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

@@ -30,19 +30,24 @@ class CustomersApi extends BaseApi
      * profiles can take closer to one minute or longer, especially during network incidents and outages.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this cursor to retrieve the next set of results for your
-     *                            original query.
+     *        Provide this cursor to retrieve the next set of results for your original query.
      *
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/working-with-apis/pagination).
-     * @param string|null $sortField Indicates how customers should be sorted.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param int|null $limit The maximum number of results to return in a single page. This limit
+     *        is advisory. The response might contain more or fewer results.
+     *        The limit is ignored if it is less than 1 or greater than 100. The default value is
+     *        100.
      *
-     *                               Default: `DEFAULT`.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param string|null $sortField Indicates how customers should be sorted. The default value is
+     *        `DEFAULT`.
      * @param string|null $sortOrder Indicates whether customers should be sorted in ascending
-     *                               (`ASC`) or
-     *                               descending (`DESC`) order.
+     *        (`ASC`) or
+     *        descending (`DESC`) order.
      *
-     *                               Default: `ASC`.
+     *        The default value is `ASC`.
      *
      * @return ApiResponse Response from the API call
      *
@@ -50,6 +55,7 @@ class CustomersApi extends BaseApi
      */
     public function listCustomers(
         ?string $cursor = null,
+        ?int $limit = null,
         ?string $sortField = null,
         ?string $sortOrder = null
     ): ApiResponse {
@@ -59,6 +65,7 @@ class CustomersApi extends BaseApi
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
             'cursor'     => $cursor,
+            'limit'      => $limit,
             'sort_field' => $sortField,
             'sort_order' => $sortOrder,
         ]);
@@ -83,6 +90,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -92,6 +100,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -122,11 +131,10 @@ class CustomersApi extends BaseApi
      * - `email_address`
      * - `phone_number`
      *
-     * @param \Square\Models\CreateCustomerRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\CreateCustomerRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -161,6 +169,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -170,6 +179,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -200,10 +210,9 @@ class CustomersApi extends BaseApi
      * profiles can take closer to one minute or longer, especially during network incidents and outages.
      *
      * @param \Square\Models\SearchCustomersRequest $body An object containing the fields to POST
-     *                                                    for the request.
+     *        for the request.
      *
-     *                                                    See the corresponding object definition
-     *                                                    for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -238,6 +247,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -247,6 +257,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -277,14 +288,11 @@ class CustomersApi extends BaseApi
      * the newly created profile.
      *
      * @param string $customerId The ID of the customer to delete.
-     * @param int|null $version The current version of the customer profile.
-     *
-     *                          As a best practice, you should include this parameter to enable
-     *                          [optimistic concurrency](https://developer.squareup.
-     *                          com/docs/working-with-apis/optimistic-concurrency) control.  For
-     *                          more information, see [Delete a customer profile](https:
-     *                          //developer.squareup.com/docs/customers-api/use-the-api/keep-
-     *                          records#delete-customer-profile).
+     * @param int|null $version The current version of the customer profile. As a best practice, you
+     *        should include this parameter to enable [optimistic concurrency](https://developer.
+     *        squareup.com/docs/working-with-apis/optimistic-concurrency) control.  For more
+     *        information, see [Delete a customer profile](https://developer.squareup.
+     *        com/docs/customers-api/use-the-api/keep-records#delete-customer-profile).
      *
      * @return ApiResponse Response from the API call
      *
@@ -325,6 +333,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -334,6 +343,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -391,6 +401,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -400,6 +411,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -433,11 +445,10 @@ class CustomersApi extends BaseApi
      * or [Gift Cards API]($e/GiftCards).
      *
      * @param string $customerId The ID of the customer to update.
-     * @param \Square\Models\UpdateCustomerRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\UpdateCustomerRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -477,6 +488,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -486,6 +498,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -514,11 +527,10 @@ class CustomersApi extends BaseApi
      * @deprecated
      *
      * @param string $customerId The Square ID of the customer profile the card is linked to.
-     * @param \Square\Models\CreateCustomerCardRequest $body An object containing the fields to
-     *                                                       POST for the request.
+     * @param \Square\Models\CreateCustomerCardRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                       See the corresponding object
-     *                                                       definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -560,6 +572,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -569,6 +582,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -632,6 +646,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -641,6 +656,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -703,6 +719,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -712,6 +729,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -774,6 +792,7 @@ class CustomersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -783,6 +802,7 @@ class CustomersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

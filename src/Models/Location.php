@@ -192,7 +192,37 @@ class Location implements \JsonSerializable
     /**
      * Returns Address.
      *
-     * Represents a physical address.
+     * Represents a postal address in a country. The address format is based
+     * on an [open-source library from Google](https://github.com/google/libaddressinput). For more
+     * information,
+     * see [AddressValidationMetadata](https://github.
+     * com/google/libaddressinput/wiki/AddressValidationMetadata).
+     * This format has dedicated fields for four address components: postal code,
+     * locality (city), administrative district (state, prefecture, or province), and
+     * sublocality (town or village). These components have dedicated fields in the
+     * `Address` object because software sometimes behaves differently based on them.
+     * For example, sales tax software may charge different amounts of sales tax
+     * based on the postal code, and some software is only available in
+     * certain states due to compliance reasons.
+     *
+     * For the remaining address components, the `Address` type provides the
+     * `address_line_1` and `address_line_2` fields for free-form data entry.
+     * These fields are free-form because the remaining address components have
+     * too many variations around the world and typical software does not parse
+     * these components. These fields enable users to enter anything they want.
+     *
+     * Note that, in the current implementation, all other `Address` type fields are blank.
+     * These include `address_line_3`, `sublocality_2`, `sublocality_3`,
+     * `administrative_district_level_2`, `administrative_district_level_3`,
+     * `first_name`, `last_name`, and `organization`.
+     *
+     * When it comes to localization, the seller's language preferences
+     * (see [Language preferences](https://developer.squareup.com/docs/locations-api#location-specific-and-
+     * seller-level-language-preferences))
+     * are ignored for addresses. Even though Square products (such as Square Point of Sale
+     * and the Seller Dashboard) mostly use a seller's language preference in
+     * communication, when it comes to addresses, they will use English for a US address,
+     * Japanese for an address in Japan, and so on.
      */
     public function getAddress(): ?Address
     {
@@ -202,7 +232,37 @@ class Location implements \JsonSerializable
     /**
      * Sets Address.
      *
-     * Represents a physical address.
+     * Represents a postal address in a country. The address format is based
+     * on an [open-source library from Google](https://github.com/google/libaddressinput). For more
+     * information,
+     * see [AddressValidationMetadata](https://github.
+     * com/google/libaddressinput/wiki/AddressValidationMetadata).
+     * This format has dedicated fields for four address components: postal code,
+     * locality (city), administrative district (state, prefecture, or province), and
+     * sublocality (town or village). These components have dedicated fields in the
+     * `Address` object because software sometimes behaves differently based on them.
+     * For example, sales tax software may charge different amounts of sales tax
+     * based on the postal code, and some software is only available in
+     * certain states due to compliance reasons.
+     *
+     * For the remaining address components, the `Address` type provides the
+     * `address_line_1` and `address_line_2` fields for free-form data entry.
+     * These fields are free-form because the remaining address components have
+     * too many variations around the world and typical software does not parse
+     * these components. These fields enable users to enter anything they want.
+     *
+     * Note that, in the current implementation, all other `Address` type fields are blank.
+     * These include `address_line_3`, `sublocality_2`, `sublocality_3`,
+     * `administrative_district_level_2`, `administrative_district_level_3`,
+     * `first_name`, `last_name`, and `organization`.
+     *
+     * When it comes to localization, the seller's language preferences
+     * (see [Language preferences](https://developer.squareup.com/docs/locations-api#location-specific-and-
+     * seller-level-language-preferences))
+     * are ignored for addresses. Even though Square products (such as Square Point of Sale
+     * and the Seller Dashboard) mostly use a seller's language preference in
+     * communication, when it comes to addresses, they will use English for a US address,
+     * Japanese for an address in Japan, and so on.
      *
      * @maps address
      */
@@ -291,6 +351,8 @@ class Location implements \JsonSerializable
      * Returns Created At.
      *
      * The time when the location was created, in RFC 3339 format.
+     * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
+     * basics/working-with-dates).
      */
     public function getCreatedAt(): ?string
     {
@@ -301,6 +363,8 @@ class Location implements \JsonSerializable
      * Sets Created At.
      *
      * The time when the location was created, in RFC 3339 format.
+     * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
+     * basics/working-with-dates).
      *
      * @maps created_at
      */
@@ -410,7 +474,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Phone Number.
      *
-     * The phone number of the location in human readable format.
+     * The phone number of the location in human readable format. For example, `+353 80 0 098 8099`.
      */
     public function getPhoneNumber(): ?string
     {
@@ -420,7 +484,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Phone Number.
      *
-     * The phone number of the location in human readable format.
+     * The phone number of the location in human readable format. For example, `+353 80 0 098 8099`.
      *
      * @maps phone_number
      */
@@ -480,7 +544,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Website Url.
      *
-     * The website URL of the location.
+     * The website URL of the location.  For example, `https://squareup.com`.
      */
     public function getWebsiteUrl(): ?string
     {
@@ -490,7 +554,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Website Url.
      *
-     * The website URL of the location.
+     * The website URL of the location.  For example, `https://squareup.com`.
      *
      * @maps website_url
      */
@@ -527,6 +591,7 @@ class Location implements \JsonSerializable
      * The email of the location.
      * This email is visible to the customers of the location.
      * For example, the email appears on customer receipts.
+     * For example, `help@squareup.com`.
      */
     public function getBusinessEmail(): ?string
     {
@@ -539,6 +604,7 @@ class Location implements \JsonSerializable
      * The email of the location.
      * This email is visible to the customers of the location.
      * For example, the email appears on customer receipts.
+     * For example, `help@squareup.com`.
      *
      * @maps business_email
      */
@@ -572,7 +638,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Twitter Username.
      *
-     * The Twitter username of the location without the '@' symbol.
+     * The Twitter username of the location without the '@' symbol. For example, `Square`.
      */
     public function getTwitterUsername(): ?string
     {
@@ -582,7 +648,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Twitter Username.
      *
-     * The Twitter username of the location without the '@' symbol.
+     * The Twitter username of the location without the '@' symbol. For example, `Square`.
      *
      * @maps twitter_username
      */
@@ -594,7 +660,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Instagram Username.
      *
-     * The Instagram username of the location without the '@' symbol.
+     * The Instagram username of the location without the '@' symbol. For example, `square`.
      */
     public function getInstagramUsername(): ?string
     {
@@ -604,7 +670,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Instagram Username.
      *
-     * The Instagram username of the location without the '@' symbol.
+     * The Instagram username of the location without the '@' symbol. For example, `square`.
      *
      * @maps instagram_username
      */
@@ -616,7 +682,8 @@ class Location implements \JsonSerializable
     /**
      * Returns Facebook Url.
      *
-     * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'.
+     * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example,
+     * `https://www.facebook.com/square`.
      */
     public function getFacebookUrl(): ?string
     {
@@ -626,7 +693,8 @@ class Location implements \JsonSerializable
     /**
      * Sets Facebook Url.
      *
-     * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'.
+     * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example,
+     * `https://www.facebook.com/square`.
      *
      * @maps facebook_url
      */

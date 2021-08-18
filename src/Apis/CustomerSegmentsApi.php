@@ -26,17 +26,24 @@ class CustomerSegmentsApi extends BaseApi
      * Retrieves the list of customer segments of a business.
      *
      * @param string|null $cursor A pagination cursor returned by previous calls to
-     *                            `ListCustomerSegments`.
-     *                            This cursor is used to retrieve the next set of query results.
+     *        `ListCustomerSegments`.
+     *        This cursor is used to retrieve the next set of query results.
      *
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/working-with-apis/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param int|null $limit The maximum number of results to return in a single page. This limit
+     *        is advisory. The response might contain more or fewer results.
+     *        The limit is ignored if it is less than 1 or greater than 50. The default value is
+     *        50.
+     *
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function listCustomerSegments(?string $cursor = null): ApiResponse
+    public function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/segments';
@@ -44,6 +51,7 @@ class CustomerSegmentsApi extends BaseApi
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
             'cursor' => $cursor,
+            'limit'  => $limit,
         ]);
 
         //validate and preprocess url
@@ -66,6 +74,7 @@ class CustomerSegmentsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -75,6 +84,7 @@ class CustomerSegmentsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -132,6 +142,7 @@ class CustomerSegmentsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -141,6 +152,7 @@ class CustomerSegmentsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

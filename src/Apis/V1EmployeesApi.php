@@ -26,26 +26,24 @@ class V1EmployeesApi extends BaseApi
      * Provides summary information for all of a business's employees.
      *
      * @param string|null $order The order in which employees are listed in the response, based on
-     *                           their created_at field.      Default value: ASC
+     *        their created_at field.      Default value: ASC
      * @param string|null $beginUpdatedAt If filtering results by their updated_at field, the
-     *                                    beginning of the requested reporting period, in ISO 8601
-     *                                    format
+     *        beginning of the requested reporting period, in ISO 8601 format
      * @param string|null $endUpdatedAt If filtering results by there updated_at field, the end of
-     *                                  the requested reporting period, in ISO 8601 format.
+     *        the requested reporting period, in ISO 8601 format.
      * @param string|null $beginCreatedAt If filtering results by their created_at field, the
-     *                                    beginning of the requested reporting period, in ISO 8601
-     *                                    format.
+     *        beginning of the requested reporting period, in ISO 8601 format.
      * @param string|null $endCreatedAt If filtering results by their created_at field, the end of
-     *                                  the requested reporting period, in ISO 8601 format.
-     * @param string|null $status If provided, the endpoint returns only employee entities with
-     *                            the specified status (ACTIVE or INACTIVE).
-     * @param string|null $externalId If provided, the endpoint returns only employee entities
-     *                                with the specified external_id.
-     * @param int|null $limit The maximum integer number of employee entities to return in a
-     *                        single response. Default 100, maximum 200.
+     *        the requested reporting period, in ISO 8601 format.
+     * @param string|null $status If provided, the endpoint returns only employee entities with the
+     *        specified status (ACTIVE or INACTIVE).
+     * @param string|null $externalId If provided, the endpoint returns only employee entities with
+     *        the specified external_id.
+     * @param int|null $limit The maximum integer number of employee entities to return in a single
+     *        response. Default 100, maximum 200.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
+     *        your
+     *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -98,6 +96,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -107,6 +106,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -136,10 +136,9 @@ class V1EmployeesApi extends BaseApi
      * set the employee's status to <code>INACTIVE</code>
      *
      * @param \Square\Models\V1Employee $body An object containing the fields to POST for the
-     *                                        request.
+     *        request.
      *
-     *                                        See the corresponding object definition for field
-     *                                        details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -174,6 +173,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -183,6 +183,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -240,6 +241,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -249,6 +251,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -272,10 +275,9 @@ class V1EmployeesApi extends BaseApi
      *
      * @param string $employeeId The ID of the role to modify.
      * @param \Square\Models\V1Employee $body An object containing the fields to POST for the
-     *                                        request.
+     *        request.
      *
-     *                                        See the corresponding object definition for field
-     *                                        details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -315,6 +317,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -324,6 +327,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -346,12 +350,12 @@ class V1EmployeesApi extends BaseApi
      * Provides summary information for all of a business's employee roles.
      *
      * @param string|null $order The order in which employees are listed in the response, based on
-     *                           their created_at field.Default value: ASC
-     * @param int|null $limit The maximum integer number of employee entities to return in a
-     *                        single response. Default 100, maximum 200.
+     *        their created_at field.Default value: ASC
+     * @param int|null $limit The maximum integer number of employee entities to return in a single
+     *        response. Default 100, maximum 200.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
+     *        your
+     *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -392,6 +396,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -401,6 +406,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -435,7 +441,7 @@ class V1EmployeesApi extends BaseApi
      * with roles. All employees can accept payments with Square Point of Sale.
      *
      * @param \Square\Models\V1EmployeeRole $body An EmployeeRole object with a name and
-     *                                            permissions, and an optional owner flag.
+     *        permissions, and an optional owner flag.
      *
      * @return ApiResponse Response from the API call
      *
@@ -470,6 +476,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -479,6 +486,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -536,6 +544,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -545,6 +554,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -568,10 +578,9 @@ class V1EmployeesApi extends BaseApi
      *
      * @param string $roleId The ID of the role to modify.
      * @param \Square\Models\V1EmployeeRole $body An object containing the fields to POST for the
-     *                                            request.
+     *        request.
      *
-     *                                            See the corresponding object definition for
-     *                                            field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -611,6 +620,7 @@ class V1EmployeesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -620,6 +630,7 @@ class V1EmployeesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

@@ -35,9 +35,6 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 * [Disputes]
 * [Checkout]
 * [Apple Pay]
-* [Cards]
-
-### Terminal
 * [Terminal]
 
 ### Orders
@@ -61,10 +58,6 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 ### Loyalty
 * [Loyalty]
 
-### Gift Cards
-* [Gift Cards]
-* [Gift Card Activities]
-
 ### Bookings
 * [Bookings]
 
@@ -72,11 +65,12 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 * [Merchants]
 * [Locations]
 * [Devices]
-* [Cash Drawers]
 
 ### Team
 * [Team]
+* [Employees]
 * [Labor]
+* [Cash Drawers]
 
 ### Financials
 * [Bank Accounts]
@@ -90,7 +84,6 @@ After downloading the SDK and its dependencies you'll need to write a custom `au
 * [OAuth]
 
 ### Deprecated APIs
-* [Employees]
 * [V1 Employees]
 * [V1 Transactions]
 * [V1 Items]
@@ -428,6 +421,3 @@ You can also use the Square API to create applications or services that work wit
 [Transactions]: doc/apis/transactions.md
 [Sites]: doc/apis/sites.md
 [Snippets]: doc/apis/snippets.md
-[Cards]: doc/api/cards.md
-[Gift Cards]: doc/api/gift-cards.md
-[Gift Card Activities]: doc/api/gift-card-activities.md

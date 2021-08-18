@@ -25,11 +25,10 @@ class BookingsApi extends BaseApi
     /**
      * Creates a booking.
      *
-     * @param \Square\Models\CreateBookingRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param \Square\Models\CreateBookingRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -64,6 +63,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -73,6 +73,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -94,11 +95,10 @@ class BookingsApi extends BaseApi
     /**
      * Searches for availabilities for booking.
      *
-     * @param \Square\Models\SearchAvailabilityRequest $body An object containing the fields to
-     *                                                       POST for the request.
+     * @param \Square\Models\SearchAvailabilityRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                       See the corresponding object
-     *                                                       definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -133,6 +133,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -142,6 +143,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -192,6 +194,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -201,6 +204,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -225,12 +229,12 @@ class BookingsApi extends BaseApi
     /**
      * Lists booking profiles for team members.
      *
-     * @param bool|null $bookableOnly Indicates whether to include only bookable team members in
-     *                                the returned result (`true`) or not (`false`).
+     * @param bool|null $bookableOnly Indicates whether to include only bookable team members in the
+     *        returned result (`true`) or not (`false`).
      * @param int|null $limit The maximum number of results to return.
      * @param string|null $cursor The cursor for paginating through the results.
-     * @param string|null $locationId Indicates whether to include only team members enabled at
-     *                                the given location in the returned result.
+     * @param string|null $locationId Indicates whether to include only team members enabled at the
+     *        given location in the returned result.
      *
      * @return ApiResponse Response from the API call
      *
@@ -274,6 +278,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -283,6 +288,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -343,6 +349,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -352,6 +359,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -376,8 +384,8 @@ class BookingsApi extends BaseApi
     /**
      * Retrieves a booking.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
-     *                          retrieved booking.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     *        to-be-retrieved booking.
      *
      * @return ApiResponse Response from the API call
      *
@@ -413,6 +421,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -422,6 +431,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -443,13 +453,12 @@ class BookingsApi extends BaseApi
     /**
      * Updates a booking.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
-     *                          updated booking.
-     * @param \Square\Models\UpdateBookingRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     *        to-be-updated booking.
+     * @param \Square\Models\UpdateBookingRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -489,6 +498,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -498,6 +508,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -519,13 +530,12 @@ class BookingsApi extends BaseApi
     /**
      * Cancels an existing booking.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the to-be-
-     *                          cancelled booking.
-     * @param \Square\Models\CancelBookingRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     *        to-be-cancelled booking.
+     * @param \Square\Models\CancelBookingRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -565,6 +575,7 @@ class BookingsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -574,6 +585,7 @@ class BookingsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

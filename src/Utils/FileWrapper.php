@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Utils;
 
+use SplFileObject;
+
 /**
  * Wraps file with mime-type and filename to be sent as part of an HTTP request.
  */
@@ -62,5 +64,15 @@ class FileWrapper
     {
         $mimeType = $this->mimeType ?? $defaultMimeType;
         return new \CURLFile($this->realFilePath, $mimeType, $this->filename);
+    }
+
+    /**
+     * Internal method: Do not use directly!
+     */
+    public function getContent(): ?string
+    {
+        $thisFile = new SplFileObject($this->realFilePath);
+        $content = $thisFile->fread($thisFile->getSize());
+        return $content === false ? null : $content;
     }
 }

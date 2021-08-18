@@ -39,12 +39,9 @@ class MobileAuthorizationApi extends BaseApi
      * tokens).
      *
      * @param \Square\Models\CreateMobileAuthorizationCodeRequest $body An object containing the
-     *                                                                  fields to POST for the
-     *                                                                  request.
+     *        fields to POST for the request.
      *
-     *                                                                  See the corresponding
-     *                                                                  object definition for
-     *                                                                  field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -80,6 +77,7 @@ class MobileAuthorizationApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -89,6 +87,7 @@ class MobileAuthorizationApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

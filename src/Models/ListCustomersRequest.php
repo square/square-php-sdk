@@ -16,6 +16,11 @@ class ListCustomersRequest implements \JsonSerializable
     private $cursor;
 
     /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
      * @var string|null
      */
     private $sortField;
@@ -53,6 +58,38 @@ class ListCustomersRequest implements \JsonSerializable
     public function setCursor(?string $cursor): void
     {
         $this->cursor = $cursor;
+    }
+
+    /**
+     * Returns Limit.
+     *
+     * The maximum number of results to return in a single page. This limit is advisory. The response might
+     * contain more or fewer results.
+     * The limit is ignored if it is less than 1 or greater than 100. The default value is 100.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     */
+    public function getLimit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * Sets Limit.
+     *
+     * The maximum number of results to return in a single page. This limit is advisory. The response might
+     * contain more or fewer results.
+     * The limit is ignored if it is less than 1 or greater than 100. The default value is 100.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     *
+     * @maps limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     /**
@@ -109,6 +146,9 @@ class ListCustomersRequest implements \JsonSerializable
         $json = [];
         if (isset($this->cursor)) {
             $json['cursor']     = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']      = $this->limit;
         }
         if (isset($this->sortField)) {
             $json['sort_field'] = $this->sortField;

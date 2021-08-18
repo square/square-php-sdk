@@ -71,7 +71,8 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
      * Returns Reference Id.
      *
      * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square Orders
+     * activity. This can be used to track the order or payment related information when the Square
+     * Payments
      * API is not being used.
      */
     public function getReferenceId(): ?string
@@ -83,7 +84,8 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
      * Sets Reference Id.
      *
      * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square Orders
+     * activity. This can be used to track the order or payment related information when the Square
+     * Payments
      * API is not being used.
      *
      * @maps reference_id
@@ -96,9 +98,8 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
     /**
      * Returns Payment Id.
      *
-     * When the Square Payments API is used, Refund is not called on the Gift Cards API.
-     * However, when Square reads a Refund activity from the Gift Cards API, the developer needs to know
-     * the ID of the payment (made using this gift card) that is being refunded.
+     * When using the Square Payments API, the ID of the payment that was refunded to this gift
+     * card.
      */
     public function getPaymentId(): ?string
     {
@@ -108,9 +109,8 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
     /**
      * Sets Payment Id.
      *
-     * When the Square Payments API is used, Refund is not called on the Gift Cards API.
-     * However, when Square reads a Refund activity from the Gift Cards API, the developer needs to know
-     * the ID of the payment (made using this gift card) that is being refunded.
+     * When using the Square Payments API, the ID of the payment that was refunded to this gift
+     * card.
      *
      * @maps payment_id
      */

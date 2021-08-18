@@ -29,15 +29,12 @@ class InvoicesApi extends BaseApi
      *
      * @param string $locationId The ID of the location for which to list invoices.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
+     *        Provide this cursor to retrieve the next set of results for your original query.
      *
-     *                            Provide this cursor to retrieve the next set of results for your
-     *                            original query.
-     *
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/working-with-apis/pagination).
-     * @param int|null $limit The maximum number of invoices to return (200 is the maximum
-     *                        `limit`).
-     *                        If not provided, the server uses a default limit of 100 invoices.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param int|null $limit The maximum number of invoices to return (200 is the maximum `limit`).
+     *        If not provided, the server uses a default limit of 100 invoices.
      *
      * @return ApiResponse Response from the API call
      *
@@ -75,6 +72,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -84,6 +82,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -110,11 +109,10 @@ class InvoicesApi extends BaseApi
      * You must publish the invoice before Square can process it (send it to the customer's email address
      * or charge the customer’s card on file).
      *
-     * @param \Square\Models\CreateInvoiceRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param \Square\Models\CreateInvoiceRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -149,6 +147,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -158,6 +157,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -185,11 +185,10 @@ class InvoicesApi extends BaseApi
      * The response is paginated. If truncated, the response includes a `cursor`
      * that you use in a subsequent request to retrieve the next set of invoices.
      *
-     * @param \Square\Models\SearchInvoicesRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\SearchInvoicesRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -224,6 +223,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -233,6 +233,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -257,10 +258,9 @@ class InvoicesApi extends BaseApi
      * invoice (you cannot delete a published invoice, including one that is scheduled for processing).
      *
      * @param string $invoiceId The ID of the invoice to delete.
-     * @param int|null $version The version of the [invoice]($m/Invoice) to delete.
-     *                          If you do not know the version, you can call
-     *                          [GetInvoice]($e/Invoices/GetInvoice) or
-     *                          [ListInvoices]($e/Invoices/ListInvoices).
+     * @param int|null $version The version of the [invoice]($m/Invoice) to delete. If you do not
+     *        know the version, you can call [GetInvoice]($e/Invoices/GetInvoice) or
+     *        [ListInvoices]($e/Invoices/ListInvoices).
      *
      * @return ApiResponse Response from the API call
      *
@@ -301,6 +301,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -310,6 +311,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -367,6 +369,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -376,6 +379,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -405,11 +409,10 @@ class InvoicesApi extends BaseApi
      * additional restrictions.
      *
      * @param string $invoiceId The ID of the invoice to update.
-     * @param \Square\Models\UpdateInvoiceRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param \Square\Models\UpdateInvoiceRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -449,6 +452,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -458,6 +462,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -484,11 +489,10 @@ class InvoicesApi extends BaseApi
      * `CANCELED`, or `FAILED`.
      *
      * @param string $invoiceId The ID of the [invoice]($m/Invoice) to cancel.
-     * @param \Square\Models\CancelInvoiceRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param \Square\Models\CancelInvoiceRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -528,6 +532,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -537,6 +542,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -569,11 +575,10 @@ class InvoicesApi extends BaseApi
      * invoice amount.
      *
      * @param string $invoiceId The ID of the invoice to publish.
-     * @param \Square\Models\PublishInvoiceRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\PublishInvoiceRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -613,6 +618,7 @@ class InvoicesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -622,6 +628,7 @@ class InvoicesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
