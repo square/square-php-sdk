@@ -30,10 +30,10 @@ class V1TransactionsApi extends BaseApi
      * @param string $locationId The ID of the location to list online store orders for.
      * @param string|null $order The order in which payments are listed in the response.
      * @param int|null $limit The maximum number of payments to return in a single response. This
-     *                        value cannot exceed 200.
+     *        value cannot exceed 200.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
+     *        your
+     *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -82,6 +82,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -91,6 +92,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -115,8 +117,8 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the order's associated location.
-     * @param string $orderId The order's Square-issued ID. You obtain this value from Order
-     *                        objects returned by the List Orders endpoint
+     * @param string $orderId The order's Square-issued ID. You obtain this value from Order objects
+     *        returned by the List Orders endpoint
      *
      * @return ApiResponse Response from the API call
      *
@@ -155,6 +157,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -164,6 +167,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -189,13 +193,12 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the order's associated location.
-     * @param string $orderId The order's Square-issued ID. You obtain this value from Order
-     *                        objects returned by the List Orders endpoint
-     * @param \Square\Models\V1UpdateOrderRequest $body An object containing the fields to POST
-     *                                                  for the request.
+     * @param string $orderId The order's Square-issued ID. You obtain this value from Order objects
+     *        returned by the List Orders endpoint
+     * @param \Square\Models\V1UpdateOrderRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                  See the corresponding object definition
-     *                                                  for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -241,6 +244,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -250,6 +254,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -284,25 +289,22 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the location to list payments for. If you specify me,
-     *                           this endpoint returns payments aggregated from all of the
-     *                           business's locations.
+     *        this endpoint returns payments aggregated from all of the business's locations.
      * @param string|null $order The order in which payments are listed in the response.
      * @param string|null $beginTime The beginning of the requested reporting period, in ISO 8601
-     *                               format. If this value is before January 1, 2013 (2013-01-
-     *                               01T00:00:00Z), this endpoint returns an error. Default value:
-     *                               The current time minus one year.
-     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format.
-     *                             If this value is more than one year greater than begin_time,
-     *                             this endpoint returns an error. Default value: The current time.
+     *        format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this
+     *        endpoint returns an error. Default value: The current time minus one year.
+     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format. If
+     *        this value is more than one year greater than begin_time, this endpoint returns an
+     *        error. Default value: The current time.
      * @param int|null $limit The maximum number of payments to return in a single response. This
-     *                        value cannot exceed 200.
+     *        value cannot exceed 200.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
-     * @param bool|null $includePartial Indicates whether or not to include partial payments in
-     *                                  the response. Partial payments will have the tenders
-     *                                  collected so far, but the itemizations will be empty until
-     *                                  the payment is completed.
+     *        your
+     *        original query to the endpoint.
+     * @param bool|null $includePartial Indicates whether or not to include partial payments in the
+     *        response. Partial payments will have the tenders collected so far, but the
+     *        itemizations will be empty until the payment is completed.
      *
      * @return ApiResponse Response from the API call
      *
@@ -358,6 +360,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -367,6 +370,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -391,10 +395,9 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the payment's associated location.
-     * @param string $paymentId The Square-issued payment ID. payment_id comes from Payment
-     *                          objects returned by the List Payments endpoint, Settlement objects
-     *                          returned by the List Settlements endpoint, or Refund objects
-     *                          returned by the List Refunds endpoint.
+     * @param string $paymentId The Square-issued payment ID. payment_id comes from Payment objects
+     *        returned by the List Payments endpoint, Settlement objects returned by the List
+     *        Settlements endpoint, or Refund objects returned by the List Refunds endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -433,6 +436,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -442,6 +446,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -469,20 +474,18 @@ class V1TransactionsApi extends BaseApi
      * @param string $locationId The ID of the location to list refunds for.
      * @param string|null $order The order in which payments are listed in the response.
      * @param string|null $beginTime The beginning of the requested reporting period, in ISO 8601
-     *                               format. If this value is before January 1, 2013 (2013-01-
-     *                               01T00:00:00Z), this endpoint returns an error. Default value:
-     *                               The current time minus one year.
-     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format.
-     *                             If this value is more than one year greater than begin_time,
-     *                             this endpoint returns an error. Default value: The current time.
+     *        format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this
+     *        endpoint returns an error. Default value: The current time minus one year.
+     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format. If
+     *        this value is more than one year greater than begin_time, this endpoint returns an
+     *        error. Default value: The current time.
      * @param int|null $limit The approximate number of refunds to return in a single response.
-     *                        Default: 100. Max: 200. Response may contain more results than the
-     *                        prescribed limit when refunds are made simultaneously to multiple
-     *                        tenders in a payment or when refunds are generated in an exchange to
-     *                        account for the value of returned goods.
+     *        Default: 100. Max: 200. Response may contain more results than the prescribed limit
+     *        when refunds are made simultaneously to multiple tenders in a payment or when
+     *        refunds are generated in an exchange to account for the value of returned goods.
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
+     *        your
+     *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -535,6 +538,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -544,6 +548,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -579,11 +584,10 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the original payment's associated location.
-     * @param \Square\Models\V1CreateRefundRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\V1CreateRefundRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -625,6 +629,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -634,6 +639,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -663,23 +669,21 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the location to list settlements for. If you specify me,
-     *                           this endpoint returns settlements aggregated from all of the
-     *                           business's locations.
+     *        this endpoint returns settlements aggregated from all of the business's locations.
      * @param string|null $order The order in which settlements are listed in the response.
      * @param string|null $beginTime The beginning of the requested reporting period, in ISO 8601
-     *                               format. If this value is before January 1, 2013 (2013-01-
-     *                               01T00:00:00Z), this endpoint returns an error. Default value:
-     *                               The current time minus one year.
-     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format.
-     *                             If this value is more than one year greater than begin_time,
-     *                             this endpoint returns an error. Default value: The current time.
-     * @param int|null $limit The maximum number of settlements to return in a single response.
-     *                        This value cannot exceed 200.
+     *        format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this
+     *        endpoint returns an error. Default value: The current time minus one year.
+     * @param string|null $endTime The end of the requested reporting period, in ISO 8601 format. If
+     *        this value is more than one year greater than begin_time, this endpoint returns an
+     *        error. Default value: The current time.
+     * @param int|null $limit The maximum number of settlements to return in a single response. This
+     *        value cannot exceed 200.
      * @param string|null $status Provide this parameter to retrieve only settlements with a
-     *                            particular status (SENT or FAILED).
+     *        particular status (SENT or FAILED).
      * @param string|null $batchToken A pagination cursor to retrieve the next set of results for
-     *                                your
-     *                                original query to the endpoint.
+     *        your
+     *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -734,6 +738,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -743,6 +748,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -784,7 +790,7 @@ class V1TransactionsApi extends BaseApi
      *
      * @param string $locationId The ID of the settlements's associated location.
      * @param string $settlementId The settlement's Square-issued ID. You obtain this value from
-     *                             Settlement objects returned by the List Settlements endpoint.
+     *        Settlement objects returned by the List Settlements endpoint.
      *
      * @return ApiResponse Response from the API call
      *
@@ -823,6 +829,7 @@ class V1TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -832,6 +839,7 @@ class V1TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

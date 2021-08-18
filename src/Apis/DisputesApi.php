@@ -26,19 +26,17 @@ class DisputesApi extends BaseApi
      * Returns a list of disputes associated with a particular account.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this cursor to retrieve the next set of results for the
-     *                            original query.
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/basics/api101/pagination).
-     * @param string|null $states The dispute states to filter the result.
-     *                            If not specified, the endpoint returns all open disputes (the
-     *                            dispute status is not `INQUIRY_CLOSED`, `WON`,
-     *                            or `LOST`).
-     * @param string|null $locationId The ID of the location for which to return a list of
-     *                                disputes. If not specified, the endpoint returns
-     *                                all open disputes (the dispute status is not
-     *                                `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
-     *                                locations.
+     *        Provide this cursor to retrieve the next set of results for the original query.
+     *        For more information, see [Pagination](https://developer.squareup.
+     *        com/docs/basics/api101/pagination).
+     * @param string|null $states The dispute states to filter the result. If not specified, the
+     *        endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
+     *        `WON`,
+     *        or `LOST`).
+     * @param string|null $locationId The ID of the location for which to return a list of disputes.
+     *        If not specified, the endpoint returns
+     *        all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`)
+     *        associated with all locations.
      *
      * @return ApiResponse Response from the API call
      *
@@ -79,6 +77,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -88,6 +87,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -145,6 +145,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -154,6 +155,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -215,6 +217,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -224,6 +227,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -247,10 +251,9 @@ class DisputesApi extends BaseApi
      *
      * @param string $disputeId The ID of the dispute.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this cursor to retrieve the next set of results for the
-     *                            original query.
-     *                            For more information, see [Pagination](https://developer.
-     *                            squareup.com/docs/basics/api101/pagination).
+     *        Provide this cursor to retrieve the next set of results for the original query.
+     *        For more information, see [Pagination](https://developer.squareup.
+     *        com/docs/basics/api101/pagination).
      *
      * @return ApiResponse Response from the API call
      *
@@ -291,6 +294,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -300,6 +304,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -324,9 +329,7 @@ class DisputesApi extends BaseApi
      *
      * @param string $disputeId The ID of the dispute you want to upload evidence for.
      * @param \Square\Models\CreateDisputeEvidenceFileRequest|null $request Defines the parameters
-     *                                                                      for a
-     *                                                                      `CreateDisputeEvidence
-     *                                                                      File` request.
+     *        for a `CreateDisputeEvidenceFile` request.
      * @param \Square\Utils\FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
@@ -372,19 +375,21 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
             $response = Request::post(
-                $_queryUrl,
-                $_headers,
+                $_httpRequest->getQueryUrl(),
+                $_httpRequest->getHeaders(),
                 Request::buildHTTPCurlQuery($_parameters)
             );
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -407,11 +412,10 @@ class DisputesApi extends BaseApi
      * Uploads text to use as evidence for a dispute challenge.
      *
      * @param string $disputeId The ID of the dispute you want to upload evidence for.
-     * @param \Square\Models\CreateDisputeEvidenceTextRequest $body An object containing the
-     *                                                              fields to POST for the request.
+     * @param \Square\Models\CreateDisputeEvidenceTextRequest $body An object containing the fields
+     *        to POST for the request.
      *
-     *                                                              See the corresponding object
-     *                                                              definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -453,6 +457,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -462,6 +467,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -524,6 +530,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -533,6 +540,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -595,6 +603,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -604,6 +613,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -666,6 +676,7 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -675,6 +686,7 @@ class DisputesApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

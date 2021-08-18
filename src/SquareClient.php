@@ -107,8 +107,8 @@ class SquareClient implements ConfigurationInterface
         if (isset($this->customUrl)) {
             $configMap['customUrl'] = $this->customUrl;
         }
-        if (isset($this->accessToken)) {
-            $configMap['accessToken'] = $this->accessToken;
+        if ($this->getAccessTokenCredentials()->getAccessToken() !== null) {
+            $configMap['accessToken'] = $this->getAccessTokenCredentials()->getAccessToken();
         }
         if (isset($this->httpCallback)) {
             $configMap['httpCallback'] = $this->httpCallback;
@@ -152,11 +152,7 @@ class SquareClient implements ConfigurationInterface
 
     public function getAccessTokenCredentials(): ?AccessTokenCredentials
     {
-        if (isset($this->accessTokenManager)) {
-            return clone $this->accessTokenManager;
-        } else {
-            return null;
-        }
+        return $this->accessTokenManager;
     }
 
     /**
@@ -164,7 +160,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '13.0.0.20210721';
+        return '13.1.0.20210818';
     }
 
 

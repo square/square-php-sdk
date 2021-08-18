@@ -32,10 +32,9 @@ class OrdersApi extends BaseApi
      * You can modify open orders using the [UpdateOrder]($e/Orders/UpdateOrder) endpoint.
      *
      * @param \Square\Models\CreateOrderRequest $body An object containing the fields to POST for
-     *                                                the request.
+     *        the request.
      *
-     *                                                See the corresponding object definition for
-     *                                                field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -70,6 +69,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -79,6 +79,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -103,10 +104,9 @@ class OrdersApi extends BaseApi
      * If a given order ID does not exist, the ID is ignored instead of generating an error.
      *
      * @param \Square\Models\BatchRetrieveOrdersRequest $body An object containing the fields to
-     *                                                        POST for the request.
+     *        POST for the request.
      *
-     *                                                        See the corresponding object
-     *                                                        definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -141,6 +141,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -150,6 +151,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -171,11 +173,10 @@ class OrdersApi extends BaseApi
     /**
      * Enables applications to preview order pricing without creating an order.
      *
-     * @param \Square\Models\CalculateOrderRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\CalculateOrderRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -210,6 +211,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -219,6 +221,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -257,10 +260,9 @@ class OrdersApi extends BaseApi
      * not the time it was subsequently transmitted to Square.
      *
      * @param \Square\Models\SearchOrdersRequest $body An object containing the fields to POST for
-     *                                                 the request.
+     *        the request.
      *
-     *                                                 See the corresponding object definition for
-     *                                                 field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -295,6 +297,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -304,6 +307,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -361,6 +365,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -370,6 +375,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -409,10 +415,9 @@ class OrdersApi extends BaseApi
      *
      * @param string $orderId The ID of the order to update.
      * @param \Square\Models\UpdateOrderRequest $body An object containing the fields to POST for
-     *                                                the request.
+     *        the request.
      *
-     *                                                See the corresponding object definition for
-     *                                                field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -452,6 +457,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -461,6 +467,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -499,10 +506,9 @@ class OrdersApi extends BaseApi
      *
      * @param string $orderId The ID of the order being paid.
      * @param \Square\Models\PayOrderRequest $body An object containing the fields to POST for the
-     *                                             request.
+     *        request.
      *
-     *                                             See the corresponding object definition for
-     *                                             field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -542,6 +548,7 @@ class OrdersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -551,6 +558,7 @@ class OrdersApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

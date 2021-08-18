@@ -38,31 +38,27 @@ class TransactionsApi extends BaseApi
      *
      * @param string $locationId The ID of the location to list refunds for.
      * @param string|null $beginTime The beginning of the requested reporting period, in RFC 3339
-     *                               format.
+     *        format.
      *
-     *                               See [Date ranges](https://developer.squareup.com/docs/build-
-     *                               basics/working-with-dates) for details on date
-     *                               inclusivity/exclusivity.
+     *        See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-
+     *        dates) for details on date inclusivity/exclusivity.
      *
-     *                               Default value: The current time minus one year.
+     *        Default value: The current time minus one year.
      * @param string|null $endTime The end of the requested reporting period, in RFC 3339 format.
+     *        See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-
+     *        dates) for details on date inclusivity/exclusivity.
      *
-     *                             See [Date ranges](https://developer.squareup.com/docs/build-
-     *                             basics/working-with-dates) for details on date
-     *                             inclusivity/exclusivity.
-     *
-     *                             Default value: The current time.
+     *        Default value: The current time.
      * @param string|null $sortOrder The order in which results are listed in the response (`ASC`
-     *                               for
-     *                               oldest first, `DESC` for newest first).
+     *        for
+     *        oldest first, `DESC` for newest first).
      *
-     *                               Default value: `DESC`
+     *        Default value: `DESC`
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for your
-     *                            original query.
+     *        Provide this to retrieve the next set of results for your original query.
      *
-     *                            See [Paginating results](https://developer.squareup.
-     *                            com/docs/working-with-apis/pagination) for more information.
+     *        See [Paginating results](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -113,6 +109,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -122,6 +119,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -152,31 +150,27 @@ class TransactionsApi extends BaseApi
      *
      * @param string $locationId The ID of the location to list transactions for.
      * @param string|null $beginTime The beginning of the requested reporting period, in RFC 3339
-     *                               format.
+     *        format.
      *
-     *                               See [Date ranges](https://developer.squareup.com/docs/build-
-     *                               basics/working-with-dates) for details on date
-     *                               inclusivity/exclusivity.
+     *        See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-
+     *        dates) for details on date inclusivity/exclusivity.
      *
-     *                               Default value: The current time minus one year.
+     *        Default value: The current time minus one year.
      * @param string|null $endTime The end of the requested reporting period, in RFC 3339 format.
+     *        See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-
+     *        dates) for details on date inclusivity/exclusivity.
      *
-     *                             See [Date ranges](https://developer.squareup.com/docs/build-
-     *                             basics/working-with-dates) for details on date
-     *                             inclusivity/exclusivity.
-     *
-     *                             Default value: The current time.
+     *        Default value: The current time.
      * @param string|null $sortOrder The order in which results are listed in the response (`ASC`
-     *                               for
-     *                               oldest first, `DESC` for newest first).
+     *        for
+     *        oldest first, `DESC` for newest first).
      *
-     *                               Default value: `DESC`
+     *        Default value: `DESC`
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for your
-     *                            original query.
+     *        Provide this to retrieve the next set of results for your original query.
      *
-     *                            See [Paginating results](https://developer.squareup.
-     *                            com/docs/working-with-apis/pagination) for more information.
+     *        See [Paginating results](https://developer.squareup.com/docs/working-with-
+     *        apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
      *
@@ -227,6 +221,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -236,6 +231,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -280,10 +276,9 @@ class TransactionsApi extends BaseApi
      *
      * @param string $locationId The ID of the location to associate the created transaction with.
      * @param \Square\Models\ChargeRequest $body An object containing the fields to POST for the
-     *                                           request.
+     *        request.
      *
-     *                                           See the corresponding object definition for field
-     *                                           details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -325,6 +320,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -334,6 +330,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -397,6 +394,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -406,6 +404,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -475,6 +474,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -484,6 +484,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -517,12 +518,11 @@ class TransactionsApi extends BaseApi
      *
      * @param string $locationId The ID of the original transaction's associated location.
      * @param string $transactionId The ID of the original transaction that includes the tender to
-     *                              refund.
+     *        refund.
      * @param \Square\Models\CreateRefundRequest $body An object containing the fields to POST for
-     *                                                 the request.
+     *        the request.
      *
-     *                                                 See the corresponding object definition for
-     *                                                 field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -568,6 +568,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -577,6 +578,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -646,6 +648,7 @@ class TransactionsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -655,6 +658,7 @@ class TransactionsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

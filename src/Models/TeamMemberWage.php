@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The hourly wage rate that a team member will earn on a `Shift` for doing the job
+ * The hourly wage rate that a team member earns on a `Shift` for doing the job
  * specified by the `title` property of this object.
  */
 class TeamMemberWage implements \JsonSerializable
@@ -33,7 +33,7 @@ class TeamMemberWage implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * UUID for this object.
+     * The UUID for this object.
      */
     public function getId(): ?string
     {
@@ -43,7 +43,7 @@ class TeamMemberWage implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * UUID for this object.
+     * The UUID for this object.
      *
      * @maps id
      */
@@ -55,7 +55,7 @@ class TeamMemberWage implements \JsonSerializable
     /**
      * Returns Team Member Id.
      *
-     * The `Team Member` that this wage is assigned to.
+     * The `TeamMember` that this wage is assigned to.
      */
     public function getTeamMemberId(): ?string
     {
@@ -65,7 +65,7 @@ class TeamMemberWage implements \JsonSerializable
     /**
      * Sets Team Member Id.
      *
-     * The `Team Member` that this wage is assigned to.
+     * The `TeamMember` that this wage is assigned to.
      *
      * @maps team_member_id
      */

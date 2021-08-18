@@ -32,10 +32,9 @@ class TeamApi extends BaseApi
      * com/docs/team/troubleshooting#createteammember).
      *
      * @param \Square\Models\CreateTeamMemberRequest $body An object containing the fields to POST
-     *                                                     for the request.
+     *        for the request.
      *
-     *                                                     See the corresponding object definition
-     *                                                     for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -70,6 +69,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -79,6 +79,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -110,10 +111,9 @@ class TeamApi extends BaseApi
      * com/docs/team/troubleshooting#bulk-create-team-members).
      *
      * @param \Square\Models\BulkCreateTeamMembersRequest $body An object containing the fields to
-     *                                                          POST for the request.
+     *        POST for the request.
      *
-     *                                                          See the corresponding object
-     *                                                          definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -148,6 +148,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -157,6 +158,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -187,10 +189,9 @@ class TeamApi extends BaseApi
      * com/docs/team/troubleshooting#bulk-update-team-members).
      *
      * @param \Square\Models\BulkUpdateTeamMembersRequest $body An object containing the fields to
-     *                                                          POST for the request.
+     *        POST for the request.
      *
-     *                                                          See the corresponding object
-     *                                                          definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -225,6 +226,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -234,6 +236,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -258,11 +261,10 @@ class TeamApi extends BaseApi
      * - location IDs
      * - `status`
      *
-     * @param \Square\Models\SearchTeamMembersRequest $body An object containing the fields to
-     *                                                      POST for the request.
+     * @param \Square\Models\SearchTeamMembersRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                      See the corresponding object
-     *                                                      definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -297,6 +299,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -306,6 +309,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -365,6 +369,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -374,6 +379,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -399,10 +405,9 @@ class TeamApi extends BaseApi
      *
      * @param string $teamMemberId The ID of the team member to update.
      * @param \Square\Models\UpdateTeamMemberRequest $body An object containing the fields to POST
-     *                                                     for the request.
+     *        for the request.
      *
-     *                                                     See the corresponding object definition
-     *                                                     for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -442,6 +447,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -451,6 +457,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -475,8 +482,7 @@ class TeamApi extends BaseApi
      * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#retrievewagesetting).
      *
-     * @param string $teamMemberId The ID of the team member for which to retrieve the wage
-     *                             setting.
+     * @param string $teamMemberId The ID of the team member for which to retrieve the wage setting.
      *
      * @return ApiResponse Response from the API call
      *
@@ -512,6 +518,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -521,6 +528,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -548,12 +556,11 @@ class TeamApi extends BaseApi
      * com/docs/team/troubleshooting#create-or-update-a-wage-setting).
      *
      * @param string $teamMemberId The ID of the team member for which to update the `WageSetting`
-     *                             object.
-     * @param \Square\Models\UpdateWageSettingRequest $body An object containing the fields to
-     *                                                      POST for the request.
+     *        object.
+     * @param \Square\Models\UpdateWageSettingRequest $body An object containing the fields to POST
+     *        for the request.
      *
-     *                                                      See the corresponding object
-     *                                                      definition for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -593,6 +600,7 @@ class TeamApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -602,6 +610,7 @@ class TeamApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

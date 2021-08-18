@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The response to a request to delete a `BreakType`. May contain a set
+ * The response to a request to delete a `BreakType`. The response might contain a set
  * of `Error` objects if the request resulted in errors.
  */
 class DeleteBreakTypeResponse implements \JsonSerializable

@@ -70,6 +70,7 @@ class MerchantsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -79,6 +80,7 @@ class MerchantsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -100,10 +102,9 @@ class MerchantsApi extends BaseApi
     /**
      * Retrieve a `Merchant` object for the given `merchant_id`.
      *
-     * @param string $merchantId The ID of the merchant to retrieve. If the string "me" is
-     *                           supplied as the ID,
-     *                           then retrieve the merchant that is currently accessible to this
-     *                           call.
+     * @param string $merchantId The ID of the merchant to retrieve. If the string "me" is supplied
+     *        as the ID,
+     *        then retrieve the merchant that is currently accessible to this call.
      *
      * @return ApiResponse Response from the API call
      *
@@ -139,6 +140,7 @@ class MerchantsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -148,6 +150,7 @@ class MerchantsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

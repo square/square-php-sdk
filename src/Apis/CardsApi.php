@@ -27,21 +27,19 @@ class CardsApi extends BaseApi
      * A max of 25 cards will be returned.
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *                            Provide this to retrieve the next set of results for your
-     *                            original query.
+     *        Provide this to retrieve the next set of results for your original query.
      *
-     *                            See [Pagination](https://developer.squareup.
-     *                            com/docs/basics/api101/pagination) for more information.
+     *        See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for
+     *        more information.
      * @param string|null $customerId Limit results to cards associated with the customer supplied.
-     *                                By default, all cards owned by the merchant are returned.
-     * @param bool|null $includeDisabled Includes disabled cards.
-     *                                   By default, all enabled cards owned by the merchant are
-     *                                   returned.
+     *        By default, all cards owned by the merchant are returned.
+     * @param bool|null $includeDisabled Includes disabled cards. By default, all enabled cards
+     *        owned by the merchant are returned.
      * @param string|null $referenceId Limit results to cards associated with the reference_id
-     *                                 supplied.
+     *        supplied.
      * @param string|null $sortOrder Sorts the returned list by when the card was created with the
-     *                               specified order.
-     *                               This field defaults to ASC.
+     *        specified order.
+     *        This field defaults to ASC.
      *
      * @return ApiResponse Response from the API call
      *
@@ -87,6 +85,7 @@ class CardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -96,6 +95,7 @@ class CardsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -117,11 +117,10 @@ class CardsApi extends BaseApi
     /**
      * Adds a card on file to an existing merchant.
      *
-     * @param \Square\Models\CreateCardRequest $body An object containing the fields to POST for
-     *                                               the request.
+     * @param \Square\Models\CreateCardRequest $body An object containing the fields to POST for the
+     *        request.
      *
-     *                                               See the corresponding object definition for
-     *                                               field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -156,6 +155,7 @@ class CardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -165,6 +165,7 @@ class CardsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -222,6 +223,7 @@ class CardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -231,6 +233,7 @@ class CardsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -289,6 +292,7 @@ class CardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -298,6 +302,7 @@ class CardsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);

@@ -58,6 +58,7 @@ class LocationsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -67,6 +68,7 @@ class LocationsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -88,11 +90,10 @@ class LocationsApi extends BaseApi
     /**
      * Creates a location.
      *
-     * @param \Square\Models\CreateLocationRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\CreateLocationRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -127,6 +128,7 @@ class LocationsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -136,6 +138,7 @@ class LocationsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -160,8 +163,8 @@ class LocationsApi extends BaseApi
      * main location.
      *
      * @param string $locationId The ID of the location to retrieve. If you specify the string
-     *                           "main",
-     *                           then the endpoint returns the main location.
+     *        "main",
+     *        then the endpoint returns the main location.
      *
      * @return ApiResponse Response from the API call
      *
@@ -197,6 +200,7 @@ class LocationsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -206,6 +210,7 @@ class LocationsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
@@ -228,11 +233,10 @@ class LocationsApi extends BaseApi
      * Updates a location.
      *
      * @param string $locationId The ID of the location to update.
-     * @param \Square\Models\UpdateLocationRequest $body An object containing the fields to POST
-     *                                                   for the request.
+     * @param \Square\Models\UpdateLocationRequest $body An object containing the fields to POST for
+     *        the request.
      *
-     *                                                   See the corresponding object definition
-     *                                                   for field details.
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
@@ -272,6 +276,7 @@ class LocationsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
+
         // Set request timeout
         Request::timeout($this->config->getTimeout());
 
@@ -281,6 +286,7 @@ class LocationsApi extends BaseApi
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
+
 
         $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
         $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
