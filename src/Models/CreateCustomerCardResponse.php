@@ -9,6 +9,8 @@ namespace Square\Models;
  * a request to the `CreateCustomerCard` endpoint.
  *
  * Either `errors` or `card` is present in a given response (never both).
+ *
+ * @deprecated
  */
 class CreateCustomerCardResponse implements \JsonSerializable
 {

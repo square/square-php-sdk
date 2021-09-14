@@ -524,7 +524,7 @@ class CustomersApi extends BaseApi
      * calls with the same card nonce return the same card record that was created
      * with the provided nonce during the _first_ call.
      *
-     * @deprecated
+     * @deprecated Use createCard() through the Cards API and specify a customer ID instead
      *
      * @param string $customerId The Square ID of the customer profile the card is linked to.
      * @param \Square\Models\CreateCustomerCardRequest $body An object containing the fields to POST
@@ -604,7 +604,7 @@ class CustomersApi extends BaseApi
     /**
      * Removes a card on file from a customer.
      *
-     * @deprecated
+     * @deprecated Use disableCard() through the Cards API instead
      *
      * @param string $customerId The ID of the customer that the card on file belongs to.
      * @param string $cardId The ID of the card on file to delete.

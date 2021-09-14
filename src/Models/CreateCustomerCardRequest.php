@@ -7,6 +7,8 @@ namespace Square\Models;
 /**
  * Defines the fields that are included in the request body of a request
  * to the `CreateCustomerCard` endpoint.
+ *
+ * @deprecated
  */
 class CreateCustomerCardRequest implements \JsonSerializable
 {
