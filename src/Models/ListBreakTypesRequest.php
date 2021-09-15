@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A request for a filtered set of `BreakType` objects.
+ * A request for a filtered set of `BreakType` objects
  */
 class ListBreakTypesRequest implements \JsonSerializable
 {
@@ -27,7 +27,7 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * Filter the returned `BreakType` results to only those that are associated with the
+     * Filter Break Types returned to only those that are associated with the
      * specified location.
      */
     public function getLocationId(): ?string
@@ -38,7 +38,7 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * Filter the returned `BreakType` results to only those that are associated with the
+     * Filter Break Types returned to only those that are associated with the
      * specified location.
      *
      * @maps location_id
@@ -51,8 +51,8 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * The maximum number of `BreakType` results to return per page. The number can range between 1
-     * and 200. The default is 200.
+     * Maximum number of Break Types to return per page. Can range between 1
+     * and 200. The default is the maximum at 200.
      */
     public function getLimit(): ?int
     {
@@ -62,8 +62,8 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * The maximum number of `BreakType` results to return per page. The number can range between 1
-     * and 200. The default is 200.
+     * Maximum number of Break Types to return per page. Can range between 1
+     * and 200. The default is the maximum at 200.
      *
      * @maps limit
      */
@@ -75,7 +75,7 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * A pointer to the next page of `BreakType` results to fetch.
+     * Pointer to the next page of Break Type results to fetch.
      */
     public function getCursor(): ?string
     {
@@ -85,7 +85,7 @@ class ListBreakTypesRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * A pointer to the next page of `BreakType` results to fetch.
+     * Pointer to the next page of Break Type results to fetch.
      *
      * @maps cursor
      */

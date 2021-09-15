@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Enumerates the possible status of a `Shift`.
+ * Enumerates the possible status of a `Shift`
  */
 class ShiftStatus
 {

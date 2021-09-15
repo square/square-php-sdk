@@ -34,20 +34,12 @@ class CustomersApi extends BaseApi
      *
      *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
      *        with-apis/pagination).
-     * @param int|null $limit The maximum number of results to return in a single page. This limit
-     *        is advisory. The response might contain more or fewer results.
-     *        The limit is ignored if it is less than 1 or greater than 100. The default value is
-     *        100.
-     *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
-     * @param string|null $sortField Indicates how customers should be sorted. The default value is
-     *        `DEFAULT`.
+     * @param string|null $sortField Indicates how customers should be sorted. Default: `DEFAULT`.
      * @param string|null $sortOrder Indicates whether customers should be sorted in ascending
      *        (`ASC`) or
      *        descending (`DESC`) order.
      *
-     *        The default value is `ASC`.
+     *        Default: `ASC`.
      *
      * @return ApiResponse Response from the API call
      *
@@ -55,7 +47,6 @@ class CustomersApi extends BaseApi
      */
     public function listCustomers(
         ?string $cursor = null,
-        ?int $limit = null,
         ?string $sortField = null,
         ?string $sortOrder = null
     ): ApiResponse {
@@ -65,7 +56,6 @@ class CustomersApi extends BaseApi
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
             'cursor'     => $cursor,
-            'limit'      => $limit,
             'sort_field' => $sortField,
             'sort_order' => $sortOrder,
         ]);

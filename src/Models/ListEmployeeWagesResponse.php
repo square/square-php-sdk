@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The response to a request for a set of `EmployeeWage` objects. The response contains
- * a set of `EmployeeWage` objects.
+ * The response to a request for a set of `EmployeeWage` objects. Contains
+ * a set of `EmployeeWage`.
  */
 class ListEmployeeWagesResponse implements \JsonSerializable
 {
@@ -28,7 +28,7 @@ class ListEmployeeWagesResponse implements \JsonSerializable
     /**
      * Returns Employee Wages.
      *
-     * A page of `EmployeeWage` results.
+     * A page of Employee Wage results.
      *
      * @return EmployeeWage[]|null
      */
@@ -40,7 +40,7 @@ class ListEmployeeWagesResponse implements \JsonSerializable
     /**
      * Sets Employee Wages.
      *
-     * A page of `EmployeeWage` results.
+     * A page of Employee Wage results.
      *
      * @maps employee_wages
      *
@@ -54,8 +54,8 @@ class ListEmployeeWagesResponse implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * The value supplied in the subsequent request to fetch the next page
-     * of `EmployeeWage` results.
+     * Value supplied in the subsequent request to fetch the next next page
+     * of Employee Wage results.
      */
     public function getCursor(): ?string
     {
@@ -65,8 +65,8 @@ class ListEmployeeWagesResponse implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * The value supplied in the subsequent request to fetch the next page
-     * of `EmployeeWage` results.
+     * Value supplied in the subsequent request to fetch the next next page
+     * of Employee Wage results.
      *
      * @maps cursor
      */

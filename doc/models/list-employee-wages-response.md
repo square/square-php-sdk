@@ -1,8 +1,8 @@
 
 # List Employee Wages Response
 
-The response to a request for a set of `EmployeeWage` objects. The response contains
-a set of `EmployeeWage` objects.
+The response to a request for a set of `EmployeeWage` objects. Contains
+a set of `EmployeeWage`.
 
 ## Structure
 
@@ -12,8 +12,8 @@ a set of `EmployeeWage` objects.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `employeeWages` | [`?(EmployeeWage[])`](/doc/models/employee-wage.md) | Optional | A page of `EmployeeWage` results. | getEmployeeWages(): ?array | setEmployeeWages(?array employeeWages): void |
-| `cursor` | `?string` | Optional | The value supplied in the subsequent request to fetch the next page<br>of `EmployeeWage` results. | getCursor(): ?string | setCursor(?string cursor): void |
+| `employeeWages` | [`?(EmployeeWage[])`](/doc/models/employee-wage.md) | Optional | A page of Employee Wage results. | getEmployeeWages(): ?array | setEmployeeWages(?array employeeWages): void |
+| `cursor` | `?string` | Optional | Value supplied in the subsequent request to fetch the next next page<br>of Employee Wage results. | getCursor(): ?string | setCursor(?string cursor): void |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

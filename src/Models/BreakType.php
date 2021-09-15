@@ -67,7 +67,7 @@ class BreakType implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * The UUID for this object.
+     * UUID for this object.
      */
     public function getId(): ?string
     {
@@ -77,7 +77,7 @@ class BreakType implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * The UUID for this object.
+     * UUID for this object.
      *
      * @maps id
      */
@@ -112,7 +112,7 @@ class BreakType implements \JsonSerializable
     /**
      * Returns Break Name.
      *
-     * A human-readable name for this type of break. The name is displayed to
+     * A human-readable name for this type of break. Will be displayed to
      * employees in Square products.
      */
     public function getBreakName(): string
@@ -123,7 +123,7 @@ class BreakType implements \JsonSerializable
     /**
      * Sets Break Name.
      *
-     * A human-readable name for this type of break. The name is displayed to
+     * A human-readable name for this type of break. Will be displayed to
      * employees in Square products.
      *
      * @required
@@ -138,7 +138,7 @@ class BreakType implements \JsonSerializable
      * Returns Expected Duration.
      *
      * Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
-     * this break. Precision less than minutes is truncated.
+     * this break. Precision below minutes is truncated.
      */
     public function getExpectedDuration(): string
     {
@@ -149,7 +149,7 @@ class BreakType implements \JsonSerializable
      * Sets Expected Duration.
      *
      * Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
-     * this break. Precision less than minutes is truncated.
+     * this break. Precision below minutes is truncated.
      *
      * @required
      * @maps expected_duration
@@ -187,8 +187,8 @@ class BreakType implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * Used for resolving concurrency issues. The request fails if the version
-     * provided does not match the server version at the time of the request. If a value is not
+     * Used for resolving concurrency issues; request will fail if version
+     * provided does not match server version at time of request. If a value is not
      * provided, Square's servers execute a "blind" write; potentially
      * overwriting another writer's data.
      */
@@ -200,8 +200,8 @@ class BreakType implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * Used for resolving concurrency issues. The request fails if the version
-     * provided does not match the server version at the time of the request. If a value is not
+     * Used for resolving concurrency issues; request will fail if version
+     * provided does not match server version at time of request. If a value is not
      * provided, Square's servers execute a "blind" write; potentially
      * overwriting another writer's data.
      *

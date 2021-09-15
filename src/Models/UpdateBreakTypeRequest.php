@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A request to update a `BreakType`.
+ * A request to update a `BreakType`
  */
 class UpdateBreakTypeRequest implements \JsonSerializable
 {

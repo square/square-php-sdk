@@ -86,7 +86,7 @@ class ShiftFilter implements \JsonSerializable
      * Returns Employee Ids.
      *
      * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
-     * instead.
+     * instead
      *
      * @return string[]|null
      */
@@ -99,7 +99,7 @@ class ShiftFilter implements \JsonSerializable
      * Sets Employee Ids.
      *
      * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
-     * instead.
+     * instead
      *
      * @maps employee_ids
      *
@@ -219,7 +219,7 @@ class ShiftFilter implements \JsonSerializable
     /**
      * Returns Team Member Ids.
      *
-     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26".
+     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26"
      *
      * @return string[]
      */
@@ -231,7 +231,7 @@ class ShiftFilter implements \JsonSerializable
     /**
      * Sets Team Member Ids.
      *
-     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26".
+     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26"
      *
      * @required
      * @maps team_member_ids

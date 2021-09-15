@@ -6,12 +6,10 @@ namespace Square\Models;
 
 /**
  * Represents a payment request for an [invoice]($m/Invoice). Invoices can specify a maximum
- * of 13 payment requests, with up to 12 `INSTALLMENT` request types. For more information,
- * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+ * of 13 payment requests, with up to 12 `INSTALLMENT` request types.
  *
- * Adding `INSTALLMENT` payment requests to an invoice requires an
- * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
- * subscription).
+ * For more information,
+ * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
  */
 class InvoicePaymentRequest implements \JsonSerializable
 {
@@ -133,8 +131,15 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Request Type.
      *
-     * Indicates the type of the payment request. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * Indicates the type of the payment request. An invoice supports the following payment request
+     * combinations:
+     * - 1 balance
+     * - 1 deposit with 1 balance
+     * - 2 - 12 installments
+     * - 1 deposit with 2 - 12 installments
+     *
+     * For more information,
+     * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      */
     public function getRequestType(): ?string
     {
@@ -144,8 +149,15 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Request Type.
      *
-     * Indicates the type of the payment request. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * Indicates the type of the payment request. An invoice supports the following payment request
+     * combinations:
+     * - 1 balance
+     * - 1 deposit with 1 balance
+     * - 2 - 12 installments
+     * - 1 deposit with 2 - 12 installments
+     *
+     * For more information,
+     * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
      * @maps request_type
      */

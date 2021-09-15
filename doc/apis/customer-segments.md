@@ -19,7 +19,7 @@ $customerSegmentsApi = $client->getCustomerSegmentsApi();
 Retrieves the list of customer segments of a business.
 
 ```php
-function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiResponse
+function listCustomerSegments(?string $cursor = null): ApiResponse
 ```
 
 ## Parameters
@@ -27,7 +27,6 @@ function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiRe
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by previous calls to `ListCustomerSegments`.<br>This cursor is used to retrieve the next set of query results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `limit` | `?int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>The limit is ignored if it is less than 1 or greater than 50. The default value is 50.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 
 ## Response Type
 
@@ -37,9 +36,8 @@ function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiRe
 
 ```php
 $cursor = 'cursor6';
-$limit = 172;
 
-$apiResponse = $customerSegmentsApi->listCustomerSegments($cursor, $limit);
+$apiResponse = $customerSegmentsApi->listCustomerSegments($cursor);
 
 if ($apiResponse->isSuccess()) {
     $listCustomerSegmentsResponse = $apiResponse->getResult();

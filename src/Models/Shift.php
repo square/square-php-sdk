@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * A record of the hourly rate, start, and end times for a single work shift
- * for an employee. This might include a record of the start and end times for breaks
+ * for an employee. May include a record of the start and end times for breaks
  * taken during the shift.
  */
 class Shift implements \JsonSerializable
@@ -87,7 +87,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * The UUID for this object.
+     * UUID for this object
      */
     public function getId(): ?string
     {
@@ -97,7 +97,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * The UUID for this object.
+     * UUID for this object
      *
      * @maps id
      */
@@ -110,7 +110,7 @@ class Shift implements \JsonSerializable
      * Returns Employee Id.
      *
      * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
-     * instead.
+     * instead
      */
     public function getEmployeeId(): ?string
     {
@@ -121,7 +121,7 @@ class Shift implements \JsonSerializable
      * Sets Employee Id.
      *
      * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
-     * instead.
+     * instead
      *
      * @maps employee_id
      */
@@ -133,7 +133,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The ID of the location this shift occurred at. The location should be based on
+     * The ID of the location this shift occurred at. Should be based on
      * where the employee clocked in.
      */
     public function getLocationId(): ?string
@@ -144,7 +144,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The ID of the location this shift occurred at. The location should be based on
+     * The ID of the location this shift occurred at. Should be based on
      * where the employee clocked in.
      *
      * @maps location_id
@@ -157,8 +157,8 @@ class Shift implements \JsonSerializable
     /**
      * Returns Timezone.
      *
-     * The read-only convenience value that is calculated from the location based
-     * on the `location_id`. Format: the IANA timezone database identifier for the
+     * Read-only convenience value that is calculated from the location based
+     * on `location_id`. Format: the IANA Timezone Database identifier for the
      * location timezone.
      */
     public function getTimezone(): ?string
@@ -169,8 +169,8 @@ class Shift implements \JsonSerializable
     /**
      * Sets Timezone.
      *
-     * The read-only convenience value that is calculated from the location based
-     * on the `location_id`. Format: the IANA timezone database identifier for the
+     * Read-only convenience value that is calculated from the location based
+     * on `location_id`. Format: the IANA Timezone Database identifier for the
      * location timezone.
      *
      * @maps timezone
@@ -183,7 +183,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Start At.
      *
-     * RFC 3339; shifted to the location timezone + offset. Precision up to the
+     * RFC 3339; shifted to location timezone + offset. Precision up to the
      * minute is respected; seconds are truncated.
      */
     public function getStartAt(): string
@@ -194,7 +194,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Start At.
      *
-     * RFC 3339; shifted to the location timezone + offset. Precision up to the
+     * RFC 3339; shifted to location timezone + offset. Precision up to the
      * minute is respected; seconds are truncated.
      *
      * @required
@@ -208,7 +208,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns End At.
      *
-     * RFC 3339; shifted to the timezone + offset. Precision up to the minute is
+     * RFC 3339; shifted to timezone + offset. Precision up to the minute is
      * respected; seconds are truncated.
      */
     public function getEndAt(): ?string
@@ -219,7 +219,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets End At.
      *
-     * RFC 3339; shifted to the timezone + offset. Precision up to the minute is
+     * RFC 3339; shifted to timezone + offset. Precision up to the minute is
      * respected; seconds are truncated.
      *
      * @maps end_at
@@ -254,7 +254,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Breaks.
      *
-     * A list of all the paid or unpaid breaks that were taken during this shift.
+     * A list of any paid or unpaid breaks that were taken during this shift.
      *
      * @return MBreak[]|null
      */
@@ -266,7 +266,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Breaks.
      *
-     * A list of all the paid or unpaid breaks that were taken during this shift.
+     * A list of any paid or unpaid breaks that were taken during this shift.
      *
      * @maps breaks
      *
@@ -280,7 +280,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Enumerates the possible status of a `Shift`.
+     * Enumerates the possible status of a `Shift`
      */
     public function getStatus(): ?string
     {
@@ -290,7 +290,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Enumerates the possible status of a `Shift`.
+     * Enumerates the possible status of a `Shift`
      *
      * @maps status
      */
@@ -302,8 +302,8 @@ class Shift implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * Used for resolving concurrency issues. The request fails if the version
-     * provided does not match the server version at the time of the request. If not provided,
+     * Used for resolving concurrency issues; request will fail if version
+     * provided does not match server version at time of request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
      * write.
      */
@@ -315,8 +315,8 @@ class Shift implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * Used for resolving concurrency issues. The request fails if the version
-     * provided does not match the server version at the time of the request. If not provided,
+     * Used for resolving concurrency issues; request will fail if version
+     * provided does not match server version at time of request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
      * write.
      *
@@ -374,7 +374,7 @@ class Shift implements \JsonSerializable
     /**
      * Returns Team Member Id.
      *
-     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26".
+     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26"
      */
     public function getTeamMemberId(): ?string
     {
@@ -384,7 +384,7 @@ class Shift implements \JsonSerializable
     /**
      * Sets Team Member Id.
      *
-     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26".
+     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26"
      *
      * @maps team_member_id
      */
