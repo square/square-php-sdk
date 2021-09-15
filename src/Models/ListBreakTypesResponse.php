@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The response to a request for a set of `BreakType` objects. The response contains
- * the requested `BreakType` objects and might contain a set of `Error` objects if
+ * The response to a request for a set of `BreakTypes`. Contains
+ * the requested `BreakType` objects. May contain a set of `Error` objects if
  * the request resulted in errors.
  */
 class ListBreakTypesResponse implements \JsonSerializable
@@ -55,8 +55,8 @@ class ListBreakTypesResponse implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * The value supplied in the subsequent request to fetch the next page
-     * of `BreakType` results.
+     * Value supplied in the subsequent request to fetch the next next page
+     * of Break Type results.
      */
     public function getCursor(): ?string
     {
@@ -66,8 +66,8 @@ class ListBreakTypesResponse implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * The value supplied in the subsequent request to fetch the next page
-     * of `BreakType` results.
+     * Value supplied in the subsequent request to fetch the next next page
+     * of Break Type results.
      *
      * @maps cursor
      */

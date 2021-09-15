@@ -426,16 +426,6 @@ class ErrorCode
     public const INVALID_PIN = 'INVALID_PIN';
 
     /**
-     * The payment is missing a required PIN.
-     */
-    public const MISSING_PIN = 'MISSING_PIN';
-
-    /**
-     * The payment is missing a required ACCOUNT_TYPE parameter.
-     */
-    public const MISSING_ACCOUNT_TYPE = 'MISSING_ACCOUNT_TYPE';
-
-    /**
      * The postal code is incorrectly formatted.
      */
     public const INVALID_POSTAL_CODE = 'INVALID_POSTAL_CODE';

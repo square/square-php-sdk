@@ -1,8 +1,8 @@
 
 # List Workweek Configs Response
 
-The response to a request for a set of `WorkweekConfig` objects. The response contains
-the requested `WorkweekConfig` objects and might contain a set of `Error` objects if
+The response to a request for a set of `WorkweekConfig` objects. Contains
+the requested `WorkweekConfig` objects. May contain a set of `Error` objects if
 the request resulted in errors.
 
 ## Structure
@@ -13,8 +13,8 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `workweekConfigs` | [`?(WorkweekConfig[])`](/doc/models/workweek-config.md) | Optional | A page of `EmployeeWage` results. | getWorkweekConfigs(): ?array | setWorkweekConfigs(?array workweekConfigs): void |
-| `cursor` | `?string` | Optional | The value supplied in the subsequent request to fetch the next page of<br>`EmployeeWage` results. | getCursor(): ?string | setCursor(?string cursor): void |
+| `workweekConfigs` | [`?(WorkweekConfig[])`](/doc/models/workweek-config.md) | Optional | A page of Employee Wage results. | getWorkweekConfigs(): ?array | setWorkweekConfigs(?array workweekConfigs): void |
+| `cursor` | `?string` | Optional | Value supplied in the subsequent request to fetch the next page of<br>Employee Wage results. | getCursor(): ?string | setCursor(?string cursor): void |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

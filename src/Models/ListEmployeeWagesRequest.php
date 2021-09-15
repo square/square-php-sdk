@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A request for a set of `EmployeeWage` objects.
+ * A request for a set of `EmployeeWage` objects
  */
 class ListEmployeeWagesRequest implements \JsonSerializable
 {
@@ -27,7 +27,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
-     * Filter the returned wages to only those that are associated with the specified employee.
+     * Filter wages returned to only those that are associated with the specified employee.
      */
     public function getEmployeeId(): ?string
     {
@@ -37,7 +37,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
-     * Filter the returned wages to only those that are associated with the specified employee.
+     * Filter wages returned to only those that are associated with the specified employee.
      *
      * @maps employee_id
      */
@@ -49,8 +49,8 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * The maximum number of `EmployeeWage` results to return per page. The number can range between
-     * 1 and 200. The default is 200.
+     * Maximum number of Employee Wages to return per page. Can range between
+     * 1 and 200. The default is the maximum at 200.
      */
     public function getLimit(): ?int
     {
@@ -60,8 +60,8 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * The maximum number of `EmployeeWage` results to return per page. The number can range between
-     * 1 and 200. The default is 200.
+     * Maximum number of Employee Wages to return per page. Can range between
+     * 1 and 200. The default is the maximum at 200.
      *
      * @maps limit
      */
@@ -73,7 +73,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * A pointer to the next page of `EmployeeWage` results to fetch.
+     * Pointer to the next page of Employee Wage results to fetch.
      */
     public function getCursor(): ?string
     {
@@ -83,7 +83,7 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * A pointer to the next page of `EmployeeWage` results to fetch.
+     * Pointer to the next page of Employee Wage results to fetch.
      *
      * @maps cursor
      */

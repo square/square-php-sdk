@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The response to a request to update a `WorkweekConfig` object. The response contains
- * the updated `WorkweekConfig` object and might contain a set of `Error` objects if
+ * The response to a request to update a `WorkweekConfig` object. Contains
+ * the updated `WorkweekConfig` object. May contain a set of `Error` objects if
  * the request resulted in errors.
  */
 class UpdateWorkweekConfigResponse implements \JsonSerializable
@@ -24,8 +24,8 @@ class UpdateWorkweekConfigResponse implements \JsonSerializable
     /**
      * Returns Workweek Config.
      *
-     * Sets the day of the week and hour of the day that a business starts a
-     * workweek. This is used to calculate overtime pay.
+     * Sets the Day of the week and hour of the day that a business starts a
+     * work week. Used for the calculation of overtime pay.
      */
     public function getWorkweekConfig(): ?WorkweekConfig
     {
@@ -35,8 +35,8 @@ class UpdateWorkweekConfigResponse implements \JsonSerializable
     /**
      * Sets Workweek Config.
      *
-     * Sets the day of the week and hour of the day that a business starts a
-     * workweek. This is used to calculate overtime pay.
+     * Sets the Day of the week and hour of the day that a business starts a
+     * work week. Used for the calculation of overtime pay.
      *
      * @maps workweek_config
      */

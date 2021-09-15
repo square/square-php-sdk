@@ -68,7 +68,7 @@ class MBreak implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * The UUID for this object.
+     * UUID for this object
      */
     public function getId(): ?string
     {
@@ -78,7 +78,7 @@ class MBreak implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * The UUID for this object.
+     * UUID for this object
      *
      * @maps id
      */
@@ -90,7 +90,7 @@ class MBreak implements \JsonSerializable
     /**
      * Returns Start At.
      *
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows same timezone info as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      */
     public function getStartAt(): string
@@ -101,7 +101,7 @@ class MBreak implements \JsonSerializable
     /**
      * Sets Start At.
      *
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows same timezone info as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      *
      * @required
@@ -115,7 +115,7 @@ class MBreak implements \JsonSerializable
     /**
      * Returns End At.
      *
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows same timezone info as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      */
     public function getEndAt(): ?string
@@ -126,7 +126,7 @@ class MBreak implements \JsonSerializable
     /**
      * Sets End At.
      *
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows same timezone info as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      *
      * @maps end_at
@@ -139,7 +139,7 @@ class MBreak implements \JsonSerializable
     /**
      * Returns Break Type Id.
      *
-     * The `BreakType` that this `Break` was templated on.
+     * The `BreakType` this `Break` was templated on.
      */
     public function getBreakTypeId(): string
     {
@@ -149,7 +149,7 @@ class MBreak implements \JsonSerializable
     /**
      * Sets Break Type Id.
      *
-     * The `BreakType` that this `Break` was templated on.
+     * The `BreakType` this `Break` was templated on.
      *
      * @required
      * @maps break_type_id

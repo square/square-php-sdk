@@ -23,7 +23,7 @@ class ShiftWage implements \JsonSerializable
      * Returns Title.
      *
      * The name of the job performed during this shift. Square
-     * labor-reporting UIs might group shifts together by title.
+     * labor-reporting UIs may group shifts together by title.
      */
     public function getTitle(): ?string
     {
@@ -34,7 +34,7 @@ class ShiftWage implements \JsonSerializable
      * Sets Title.
      *
      * The name of the job performed during this shift. Square
-     * labor-reporting UIs might group shifts together by title.
+     * labor-reporting UIs may group shifts together by title.
      *
      * @maps title
      */

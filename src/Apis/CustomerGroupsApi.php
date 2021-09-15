@@ -30,19 +30,12 @@ class CustomerGroupsApi extends BaseApi
      *
      *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
      *        with-apis/pagination).
-     * @param int|null $limit The maximum number of results to return in a single page. This limit
-     *        is advisory. The response might contain more or fewer results.
-     *        The limit is ignored if it is less than 1 or greater than 50. The default value is
-     *        50.
-     *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function listCustomerGroups(?string $cursor = null, ?int $limit = null): ApiResponse
+    public function listCustomerGroups(?string $cursor = null): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/groups';
@@ -50,7 +43,6 @@ class CustomerGroupsApi extends BaseApi
         //process optional query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
             'cursor' => $cursor,
-            'limit'  => $limit,
         ]);
 
         //validate and preprocess url
