@@ -77,6 +77,11 @@ class TerminalCheckout implements \JsonSerializable
     private $paymentType;
 
     /**
+     * @var string|null
+     */
+    private $customerId;
+
+    /**
      * @param Money $amountMoney
      * @param DeviceCheckoutOptions $deviceOptions
      */
@@ -423,6 +428,28 @@ class TerminalCheckout implements \JsonSerializable
     }
 
     /**
+     * Returns Customer Id.
+     *
+     * An optional ID of the customer associated with the checkout.
+     */
+    public function getCustomerId(): ?string
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * Sets Customer Id.
+     *
+     * An optional ID of the customer associated with the checkout.
+     *
+     * @maps customer_id
+     */
+    public function setCustomerId(?string $customerId): void
+    {
+        $this->customerId = $customerId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -467,6 +494,9 @@ class TerminalCheckout implements \JsonSerializable
         }
         if (isset($this->paymentType)) {
             $json['payment_type']      = $this->paymentType;
+        }
+        if (isset($this->customerId)) {
+            $json['customer_id']       = $this->customerId;
         }
 
         return array_filter($json, function ($val) {

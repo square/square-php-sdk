@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Represents a set of `CustomerQuery` filters used to limit the set of
- * `Customers` returned by `SearchCustomers`.
+ * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
  */
 class CustomerFilter implements \JsonSerializable
 {

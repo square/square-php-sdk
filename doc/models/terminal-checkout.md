@@ -23,6 +23,7 @@
 | `appId` | `?string` | Optional | The ID of the application that created the checkout. | getAppId(): ?string | setAppId(?string appId): void |
 | `locationId` | `?string` | Optional | The location of the device where the `TerminalCheckout` was directed. | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `paymentType` | [`?string (CheckoutOptionsPaymentType)`](/doc/models/checkout-options-payment-type.md) | Optional | - | getPaymentType(): ?string | setPaymentType(?string paymentType): void |
+| `customerId` | `?string` | Optional | An optional ID of the customer associated with the checkout. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
 
 ## Example (as JSON)
 

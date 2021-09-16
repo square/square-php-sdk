@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A response to a request to get a `TeamMemberWage`. Contains
- * the requested `TeamMemberWage` objects. May contain a set of `Error` objects if
+ * A response to a request to get a `TeamMemberWage`. The response contains
+ * the requested `TeamMemberWage` objects and might contain a set of `Error` objects if
  * the request resulted in errors.
  */
 class GetTeamMemberWageResponse implements \JsonSerializable
@@ -24,7 +24,7 @@ class GetTeamMemberWageResponse implements \JsonSerializable
     /**
      * Returns Team Member Wage.
      *
-     * The hourly wage rate that a team member will earn on a `Shift` for doing the job
+     * The hourly wage rate that a team member earns on a `Shift` for doing the job
      * specified by the `title` property of this object.
      */
     public function getTeamMemberWage(): ?TeamMemberWage
@@ -35,7 +35,7 @@ class GetTeamMemberWageResponse implements \JsonSerializable
     /**
      * Sets Team Member Wage.
      *
-     * The hourly wage rate that a team member will earn on a `Shift` for doing the job
+     * The hourly wage rate that a team member earns on a `Shift` for doing the job
      * specified by the `title` property of this object.
      *
      * @maps team_member_wage

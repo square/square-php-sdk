@@ -66,6 +66,7 @@ $body_order_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLeng
 $body_order_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_SHOT);
 $body_order_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
 $body_order_order_lineItems[0]->getQuantityUnit()->setPrecision(191);
+$body_order_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id7');
 $body_order_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(131);
 $body_order_order_lineItems[0]->setNote('note1');
 $body_order_order_lineItems[0]->setCatalogObjectId('catalog_object_id3');
@@ -116,6 +117,7 @@ $body_order_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLeng
 $body_order_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_CUP);
 $body_order_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::IMPERIAL_STONE);
 $body_order_order_lineItems[1]->getQuantityUnit()->setPrecision(192);
+$body_order_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id6');
 $body_order_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(130);
 $body_order_order_lineItems[1]->setNote('note0');
 $body_order_order_lineItems[1]->setCatalogObjectId('catalog_object_id2');
@@ -142,6 +144,7 @@ $body_order_order_lineItems[2]->getQuantityUnit()->getMeasurementUnit()->setLeng
 $body_order_order_lineItems[2]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
 $body_order_order_lineItems[2]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::IMPERIAL_POUND);
 $body_order_order_lineItems[2]->getQuantityUnit()->setPrecision(193);
+$body_order_order_lineItems[2]->getQuantityUnit()->setCatalogObjectId('catalog_object_id5');
 $body_order_order_lineItems[2]->getQuantityUnit()->setCatalogVersion(129);
 $body_order_order_lineItems[2]->setNote('note9');
 $body_order_order_lineItems[2]->setCatalogObjectId('catalog_object_id1');

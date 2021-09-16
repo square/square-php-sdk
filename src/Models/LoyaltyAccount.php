@@ -57,6 +57,11 @@ class LoyaltyAccount implements \JsonSerializable
     private $mapping;
 
     /**
+     * @var LoyaltyAccountExpiringPointDeadline[]|null
+     */
+    private $expiringPointDeadlines;
+
+    /**
      * @param string $programId
      */
     public function __construct(string $programId)
@@ -112,7 +117,8 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Returns Balance.
      *
-     * The available point balance in the loyalty account.
+     * The available point balance in the loyalty account. If points are scheduled to expire, they are
+     * listed in the `expiring_point_deadlines` field.
      *
      * Your application should be able to handle loyalty accounts that have a negative point balance
      * (`balance` is less than 0). This might occur if a seller makes a manual adjustment or as a result of
@@ -126,7 +132,8 @@ class LoyaltyAccount implements \JsonSerializable
     /**
      * Sets Balance.
      *
-     * The available point balance in the loyalty account.
+     * The available point balance in the loyalty account. If points are scheduled to expire, they are
+     * listed in the `expiring_point_deadlines` field.
      *
      * Your application should be able to handle loyalty accounts that have a negative point balance
      * (`balance` is less than 0). This might occur if a seller makes a manual adjustment or as a result of
@@ -280,6 +287,38 @@ class LoyaltyAccount implements \JsonSerializable
     }
 
     /**
+     * Returns Expiring Point Deadlines.
+     *
+     * The schedule for when points expire in the loyalty account balance. This field is present only if
+     * the account has points that are scheduled to expire.
+     *
+     * The total number of points in this field equals the number of points in the `balance` field.
+     *
+     * @return LoyaltyAccountExpiringPointDeadline[]|null
+     */
+    public function getExpiringPointDeadlines(): ?array
+    {
+        return $this->expiringPointDeadlines;
+    }
+
+    /**
+     * Sets Expiring Point Deadlines.
+     *
+     * The schedule for when points expire in the loyalty account balance. This field is present only if
+     * the account has points that are scheduled to expire.
+     *
+     * The total number of points in this field equals the number of points in the `balance` field.
+     *
+     * @maps expiring_point_deadlines
+     *
+     * @param LoyaltyAccountExpiringPointDeadline[]|null $expiringPointDeadlines
+     */
+    public function setExpiringPointDeadlines(?array $expiringPointDeadlines): void
+    {
+        $this->expiringPointDeadlines = $expiringPointDeadlines;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -288,29 +327,32 @@ class LoyaltyAccount implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']              = $this->id;
+            $json['id']                       = $this->id;
         }
-        $json['program_id']          = $this->programId;
+        $json['program_id']                   = $this->programId;
         if (isset($this->balance)) {
-            $json['balance']         = $this->balance;
+            $json['balance']                  = $this->balance;
         }
         if (isset($this->lifetimePoints)) {
-            $json['lifetime_points'] = $this->lifetimePoints;
+            $json['lifetime_points']          = $this->lifetimePoints;
         }
         if (isset($this->customerId)) {
-            $json['customer_id']     = $this->customerId;
+            $json['customer_id']              = $this->customerId;
         }
         if (isset($this->enrolledAt)) {
-            $json['enrolled_at']     = $this->enrolledAt;
+            $json['enrolled_at']              = $this->enrolledAt;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']      = $this->createdAt;
+            $json['created_at']               = $this->createdAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']      = $this->updatedAt;
+            $json['updated_at']               = $this->updatedAt;
         }
         if (isset($this->mapping)) {
-            $json['mapping']         = $this->mapping;
+            $json['mapping']                  = $this->mapping;
+        }
+        if (isset($this->expiringPointDeadlines)) {
+            $json['expiring_point_deadlines'] = $this->expiringPointDeadlines;
         }
 
         return array_filter($json, function ($val) {

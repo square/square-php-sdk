@@ -498,33 +498,34 @@ function createCatalogImage(
 
 ```php
 $request_idempotencyKey = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86';
-$request = new Models\CreateCatalogImageRequest(
-    $request_idempotencyKey
-);
-$request->setObjectId('ND6EA5AAJEO5WL3JNNIAQA32');
 $request_image_type = Models\CatalogObjectType::IMAGE;
 $request_image_id = '#TEMP_ID';
-$request->setImage(new Models\CatalogObject(
+$request_image = new Models\CatalogObject(
     $request_image_type,
     $request_image_id
-));
-$request->getImage()->setUpdatedAt('updated_at4');
-$request->getImage()->setVersion(68);
-$request->getImage()->setIsDeleted(false);
+);
+$request_image->setUpdatedAt('updated_at4');
+$request_image->setVersion(68);
+$request_image->setIsDeleted(false);
 $request_image_customAttributeValues = [];
 
 $request_image_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
 
 $request_image_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-$request->getImage()->setCustomAttributeValues($request_image_customAttributeValues);
+$request_image->setCustomAttributeValues($request_image_customAttributeValues);
 
 $request_image_catalogV1Ids = [];
 
 $request_image_catalogV1Ids[0] = new Models\CatalogV1Id;
 $request_image_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id4');
 $request_image_catalogV1Ids[0]->setLocationId('location_id4');
-$request->getImage()->setCatalogV1Ids($request_image_catalogV1Ids);
+$request_image->setCatalogV1Ids($request_image_catalogV1Ids);
 
+$request = new Models\CreateCatalogImageRequest(
+    $request_idempotencyKey,
+    $request_image
+);
+$request->setObjectId('ND6EA5AAJEO5WL3JNNIAQA32');
 $imageFile = 'dummy_file';
 
 $apiResponse = $catalogApi->createCatalogImage($request, $imageFile);
@@ -882,7 +883,7 @@ if ($apiResponse->isSuccess()) {
 # Search Catalog Objects
 
 Searches for [CatalogObject](/doc/models/catalog-object.md) of any type by matching supported search attribute values,
-excluding custom attribute values on items or item variations, against one or more of the specified query expressions.
+excluding custom attribute values on items or item variations, against one or more of the specified query filters.
 
 This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](/doc/apis/catalog.md#search-catalog-items)
 endpoint in the following aspects:
@@ -965,7 +966,7 @@ if ($apiResponse->isSuccess()) {
 # Search Catalog Items
 
 Searches for catalog items or item variations by matching supported search attribute values, including
-custom attribute values, against one or more of the specified query expressions.
+custom attribute values, against one or more of the specified query filters.
 
 This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](/doc/apis/catalog.md#search-catalog-objects)
 endpoint in the following aspects:

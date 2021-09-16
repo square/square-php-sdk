@@ -26,6 +26,11 @@ class SearchTeamMembersFilter implements \JsonSerializable
     private $status;
 
     /**
+     * @var bool|null
+     */
+    private $isOwner;
+
+    /**
      * Returns Location Ids.
      *
      * When present, filters by team members assigned to the specified locations.
@@ -76,6 +81,28 @@ class SearchTeamMembersFilter implements \JsonSerializable
     }
 
     /**
+     * Returns Is Owner.
+     *
+     * When present and set to true, returns the team member who is the owner of the Square account.
+     */
+    public function getIsOwner(): ?bool
+    {
+        return $this->isOwner;
+    }
+
+    /**
+     * Sets Is Owner.
+     *
+     * When present and set to true, returns the team member who is the owner of the Square account.
+     *
+     * @maps is_owner
+     */
+    public function setIsOwner(?bool $isOwner): void
+    {
+        $this->isOwner = $isOwner;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @return mixed
@@ -88,6 +115,9 @@ class SearchTeamMembersFilter implements \JsonSerializable
         }
         if (isset($this->status)) {
             $json['status']       = $this->status;
+        }
+        if (isset($this->isOwner)) {
+            $json['is_owner']     = $this->isOwner;
         }
 
         return array_filter($json, function ($val) {

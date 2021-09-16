@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A request for a set of `WorkweekConfig` objects
+ * A request for a set of `WorkweekConfig` objects.
  */
 class ListWorkweekConfigsRequest implements \JsonSerializable
 {
@@ -22,7 +22,7 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * Maximum number of Workweek Configs to return per page.
+     * The maximum number of `WorkweekConfigs` results to return per page.
      */
     public function getLimit(): ?int
     {
@@ -32,7 +32,7 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * Maximum number of Workweek Configs to return per page.
+     * The maximum number of `WorkweekConfigs` results to return per page.
      *
      * @maps limit
      */
@@ -44,7 +44,7 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * Pointer to the next page of Workweek Config results to fetch.
+     * A pointer to the next page of `WorkweekConfig` results to fetch.
      */
     public function getCursor(): ?string
     {
@@ -54,7 +54,7 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * Pointer to the next page of Workweek Config results to fetch.
+     * A pointer to the next page of `WorkweekConfig` results to fetch.
      *
      * @maps cursor
      */

@@ -23,4 +23,12 @@ class OrderState
      * Indicates that the order is canceled. Canceled orders are not paid. This is a terminal state.
      */
     public const CANCELED = 'CANCELED';
+
+    /**
+     * Indicates that the order is in a draft state. Draft orders can be updated,
+     * but cannot be paid or fulfilled.
+     * For more information, see [Create Orders](https://developer.squareup.com/docs/orders-api/create-
+     * orders).
+     */
+    public const DRAFT = 'DRAFT';
 }

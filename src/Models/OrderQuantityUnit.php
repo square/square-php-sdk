@@ -21,6 +21,11 @@ class OrderQuantityUnit implements \JsonSerializable
     private $precision;
 
     /**
+     * @var string|null
+     */
+    private $catalogObjectId;
+
+    /**
      * @var int|null
      */
     private $catalogVersion;
@@ -84,6 +89,34 @@ class OrderQuantityUnit implements \JsonSerializable
     }
 
     /**
+     * Returns Catalog Object Id.
+     *
+     * The catalog object ID referencing the
+     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     */
+    public function getCatalogObjectId(): ?string
+    {
+        return $this->catalogObjectId;
+    }
+
+    /**
+     * Sets Catalog Object Id.
+     *
+     * The catalog object ID referencing the
+     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     *
+     * @maps catalog_object_id
+     */
+    public function setCatalogObjectId(?string $catalogObjectId): void
+    {
+        $this->catalogObjectId = $catalogObjectId;
+    }
+
+    /**
      * Returns Catalog Version.
      *
      * The version of the catalog object that this measurement unit references.
@@ -118,13 +151,16 @@ class OrderQuantityUnit implements \JsonSerializable
     {
         $json = [];
         if (isset($this->measurementUnit)) {
-            $json['measurement_unit'] = $this->measurementUnit;
+            $json['measurement_unit']  = $this->measurementUnit;
         }
         if (isset($this->precision)) {
-            $json['precision']        = $this->precision;
+            $json['precision']         = $this->precision;
+        }
+        if (isset($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId;
         }
         if (isset($this->catalogVersion)) {
-            $json['catalog_version']  = $this->catalogVersion;
+            $json['catalog_version']   = $this->catalogVersion;
         }
 
         return array_filter($json, function ($val) {

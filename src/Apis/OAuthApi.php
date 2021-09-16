@@ -47,8 +47,8 @@ class OAuthApi extends BaseApi
      *
      * @deprecated
      *
-     * @param string $clientId Your application ID, available from the [developer
-     *        dashboard](https://developer.squareup.com/apps).
+     * @param string $clientId Your application ID, available from the OAuth page for your
+     *        application on the Developer Dashboard.
      * @param \Square\Models\RenewTokenRequest $body An object containing the fields to POST for the
      *        request.
      *
@@ -141,7 +141,7 @@ class OAuthApi extends BaseApi
      * ```
      *
      * Replace `APPLICATION_SECRET` with the application secret on the OAuth
-     * page in the [developer dashboard](https://developer.squareup.com/apps).
+     * page for your application on the Developer Dashboard.
      *
      * @param \Square\Models\RevokeTokenRequest $body An object containing the fields to POST for
      *        the request.
@@ -210,18 +210,23 @@ class OAuthApi extends BaseApi
     }
 
     /**
-     * Returns an OAuth access token.
+     * Returns an OAuth access token and a refresh token unless the
+     * `short_lived` parameter is set to `true`, in which case the endpoint
+     * returns only an access token.
      *
-     * The endpoint supports distinct methods of obtaining OAuth access tokens.
-     * Applications specify a method by adding the `grant_type` parameter
-     * in the request and also provide relevant information.
+     * The `grant_type` parameter specifies the type of OAuth request. If
+     * `grant_type` is `authorization_code`, you must include the authorization
+     * code you received when a seller granted you authorization. If `grant_type`
+     * is `refresh_token`, you must provide a valid refresh token. If you are using
+     * an old version of the Square APIs (prior to March 13, 2019), `grant_type`
+     * can be `migration_token` and you must provide a valid migration token.
      *
-     * __Note:__ Regardless of the method application specified,
-     * the endpoint always returns two items; an OAuth access token and
-     * a refresh token in the response.
+     * You can use the `scopes` parameter to limit the set of permissions granted
+     * to the access token and refresh token. You can use the `short_lived` parameter
+     * to create an access token that expires in 24 hours.
      *
-     * __OAuth tokens should only live on secure servers. Application clients
-     * should never interact directly with OAuth tokens__.
+     * __Note:__ OAuth tokens should be encrypted and stored on a secure server.
+     * Application clients should never interact directly with OAuth tokens.
      *
      * @param \Square\Models\ObtainTokenRequest $body An object containing the fields to POST for
      *        the request.

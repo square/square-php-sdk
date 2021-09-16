@@ -5,114 +5,135 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Possible types of CatalogObjects returned from the Catalog, each
- * containing type-specific properties in the `*_data` field corresponding to the object type.
+ * Possible types of CatalogObjects returned from the catalog, each
+ * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
  */
 class CatalogObjectType
 {
     /**
-     * An item, corresponding to `CatalogItem`. The item-specific data
-     * will be stored in the `item_data` field.
+     * The `CatalogObject` instance is of the [CatalogItem]($m/CatalogItem) type and represents an item.
+     * The item-specific data
+     * must be set on the `item_data` field.
      */
     public const ITEM = 'ITEM';
 
     /**
-     * An image, corresponding to `CatalogImage`. The image-specific data
-     * will be stored in the `image_data` field.
+     * The `CatalogObject` instance is of the [CatalogImage]($m/CatalogImage) type and represents an image.
+     * The image-specific data
+     * must be set on the `image_data` field.
      */
     public const IMAGE = 'IMAGE';
 
     /**
-     * A category, corresponding to `CatalogCategory`. The category-specific data
-     * will be stored in the `category_data` field.
+     * The `CatalogObject` instance is of the [CatalogCategory]($m/CatalogCategory) type and represents a
+     * category. The category-specific data
+     * must be set on the `category_data` field.
      */
     public const CATEGORY = 'CATEGORY';
 
     /**
-     * An item variation, corresponding to `CatalogItemVariation`. The
-     * item variation-specific data will be stored in the `item_variation_data` field.
+     * The `CatalogObject` instance is of the  [CatalogItemVariation]($m/CatalogItemVariation) type and
+     * represents an item variation, also referred to as variation.
+     * The item variation-specific data must be set on the `item_variation_data` field.
      */
     public const ITEM_VARIATION = 'ITEM_VARIATION';
 
     /**
-     * A tax, corresponding to `CatalogTax`. The tax-specific data
-     * will be stored in the `tax_data` field.
+     * The `CatalogObject` instance is of the [CatalogTax]($m/CatalogTax) type and represents a tax. The
+     * tax-specific data
+     * must be set on the `tax_data` field.
      */
     public const TAX = 'TAX';
 
     /**
-     * A discount, corresponding to `CatalogDiscount`. The discount-specific data
-     * will be stored in the `discount_data` field.
+     * The `CatalogObject` instance is of the [CatalogDiscount]($m/CatalogDiscount) type and represents a
+     * discount. The discount-specific data
+     * must be set on the `discount_data` field.
      */
     public const DISCOUNT = 'DISCOUNT';
 
     /**
-     * A modifier list, corresponding to `CatalogModifierList`.
-     * The modifier list-specific data will be stored in the `modifier_list_data` field.
+     * The `CatalogObject` instance is of the [CatalogModifierList]($m/CatalogModifierList) type and
+     * represents a modifier list.
+     * The modifier-list-specific data must be set on the `modifier_list_data` field.
      */
     public const MODIFIER_LIST = 'MODIFIER_LIST';
 
     /**
-     * A modifier, corresponding to `CatalogModifier`. The modifier-specific data
-     * will be stored in the `modifier_data` field.
+     * The `CatalogObject` instance is of the [CatalogModifier]($m/CatalogModifier) type and represents a
+     * modifier. The modifier-specific data
+     * must be set on the `modifier_data` field.
      */
     public const MODIFIER = 'MODIFIER';
 
     /**
-     * A pricing rule, corresponding to `CatalogPricingRule`. The pricing-rule-specific data
-     * will be stored in the `pricing_rule_data` field.
+     * The `CatalogObject` instance is of the [CatalogPricingRule]($m/CatalogPricingRule) type and
+     * represents a pricing rule. The pricing-rule-specific data
+     * must be set on the `pricing_rule_data` field.
      */
     public const PRICING_RULE = 'PRICING_RULE';
 
     /**
-     * A product set, corresponding to `CatalogProductSet`.
+     * The `CatalogObject` instance is of the [CatalogProductSet]($m/CatalogProductSet) type and
+     * represents a product set.
      * The product-set-specific data will be stored in the `product_set_data` field.
      */
     public const PRODUCT_SET = 'PRODUCT_SET';
 
     /**
-     * A time period, corresponding to `CatalogTimePeriod`.
-     * The time-period-specific data will be stored in the `time_period_data` field.
+     * The `CatalogObject` instance is of the [CatalogTimePeriod]($m/CatalogTimePeriod) type and
+     * represents a time period.
+     * The time-period-specific data must be set on the `time_period_data` field.
      */
     public const TIME_PERIOD = 'TIME_PERIOD';
 
     /**
-     * A measurement unit, corresponding to `CatalogMeasurementUnit`. The unit of
-     * measure and precision in which an item variation should be sold.
+     * The `CatalogObject` instance is of the [CatalogMeasurementUnit]($m/CatalogMeasurementUnit) type and
+     * represents a measurement unit specifying the unit of
+     * measure and precision in which an item variation is sold. The measurement-unit-specific data must
+     * set on the `measurement_unit_data` field.
      */
     public const MEASUREMENT_UNIT = 'MEASUREMENT_UNIT';
 
     /**
-     * A subscription plan, corresponding to
-     * [CatalogSubscriptionPlan]($m/CatalogSubscriptionPlan).
-     *
-     * The subscription plan data is stored in the `subscription_plan_data` field of the
-     * [CatalogObject]($m/CatalogObject).
+     * The `CatalogObject` instance is of the [CatalogSubscriptionPlan]($m/CatalogSubscriptionPlan) type
+     * and represents a subscription plan.
+     * The subscription-plan-specific data must be stored on the `subscription_plan_data` field.
      */
     public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
 
     /**
-     * Represents a list of item option values that can be assigned to item
-     * variations. For example, a color option or size option for a t-shirt.
+     * The `CatalogObject` instance is of the [CatalogItemOption]($m/CatalogItemOption) type and
+     * represents a list of options (such as a color or size of a T-shirt)
+     * that can be assigned to item variations. The item-option-specific data must be on the
+     * `item_option_data` field.
      */
     public const ITEM_OPTION = 'ITEM_OPTION';
 
     /**
-     * Represents an option value associated with one or more item options.
-     * For example, an item option of "Size" may have item option values such as
-     * "Small" or "Medium".
+     * The `CatalogObject` instance is of the [CatalogItemOptionValue]($m/CatalogItemOptionValue) type and
+     * represents a value associated with one or more item options.
+     * For example, an item option of "Size" may have item option values such as "Small" or "Medium".
+     * The item-option-value-specific data must be on the `item_option_value_data` field.
      */
     public const ITEM_OPTION_VAL = 'ITEM_OPTION_VAL';
 
     /**
-     * Represents the definition of a custom attribute
+     * The `CatalogObject` instance is of the
+     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition) type and represents the
+     * definition of a custom attribute.
+     * The custom-attribute-definition-specific data must be set on the `custom_attribute_definition_data`
+     * field.
      */
     public const CUSTOM_ATTRIBUTE_DEFINITION = 'CUSTOM_ATTRIBUTE_DEFINITION';
 
     /**
-     * Represents a set of Quick Amounts and their settings at each location.
+     * The `CatalogObject` instance is of the
+     * [CatalogQuickAmountsSettings]($m/CatalogQuickAmountsSettings) type and represents settings to
+     * configure preset charges for quick payments at each location.
      * For example, a location may have a list of both AUTO and MANUAL quick amounts that are set to
      * DISABLED.
+     * The quick-amounts-settings-specific data must be set on the `quick_amounts_settings_data` field.
      */
     public const QUICK_AMOUNTS_SETTINGS = 'QUICK_AMOUNTS_SETTINGS';
 }

@@ -11,7 +11,7 @@ class ConfigurationDefaults
 {
     public const TIMEOUT = 60;
 
-    public const SQUARE_VERSION = '2021-07-21';
+    public const SQUARE_VERSION = '2021-09-15';
 
     public const ADDITIONAL_HEADERS = [];
 

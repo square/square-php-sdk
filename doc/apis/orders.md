@@ -13,6 +13,7 @@ $ordersApi = $client->getOrdersApi();
 * [Create Order](/doc/apis/orders.md#create-order)
 * [Batch Retrieve Orders](/doc/apis/orders.md#batch-retrieve-orders)
 * [Calculate Order](/doc/apis/orders.md#calculate-order)
+* [Clone Order](/doc/apis/orders.md#clone-order)
 * [Search Orders](/doc/apis/orders.md#search-orders)
 * [Retrieve Order](/doc/apis/orders.md#retrieve-order)
 * [Update Order](/doc/apis/orders.md#update-order)
@@ -77,6 +78,7 @@ $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
 $body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
+$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
 $body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
 $body_order_lineItems[0]->setNote('note3');
 $body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
@@ -103,6 +105,7 @@ $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
 $body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
+$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
 $body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
 $body_order_lineItems[1]->setNote('note4');
 $body_order_lineItems[1]->setCatalogObjectId('BEMYCSMIJL46OCDV4KYIKXIB');
@@ -285,6 +288,7 @@ $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
 $body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
+$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
 $body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
 $body_order_lineItems[0]->setNote('note3');
 $body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
@@ -311,6 +315,7 @@ $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
 $body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
+$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
 $body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
 $body_order_lineItems[1]->setNote('note4');
 $body_order_lineItems[1]->setCatalogObjectId('catalog_object_id6');
@@ -363,6 +368,49 @@ $apiResponse = $ordersApi->calculateOrder($body);
 
 if ($apiResponse->isSuccess()) {
     $calculateOrderResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Clone Order
+
+Creates a new order, in the `DRAFT` state, by duplicating an existing order. The newly created order has
+only the core fields (such as line items, taxes, and discounts) copied from the original order.
+
+```php
+function cloneOrder(CloneOrderRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`CloneOrderRequest`](/doc/models/clone-order-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`CloneOrderResponse`](/doc/models/clone-order-response.md)
+
+## Example Usage
+
+```php
+$body_orderId = 'ZAISEM52YcpmcWAzERDOyiWS123';
+$body = new Models\CloneOrderRequest(
+    $body_orderId
+);
+$body->setVersion(3);
+$body->setIdempotencyKey('UNIQUE_STRING');
+
+$apiResponse = $ordersApi->cloneOrder($body);
+
+if ($apiResponse->isSuccess()) {
+    $cloneOrderResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }
@@ -563,6 +611,7 @@ $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
 $body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
 $body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
+$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
 $body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
 $body_order_lineItems[0]->setNote('note3');
 $body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
@@ -586,6 +635,7 @@ $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
 $body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
 $body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
+$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
 $body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
 $body_order_lineItems[1]->setNote('note4');
 $body_order_lineItems[1]->setCatalogObjectId('catalog_object_id6');
