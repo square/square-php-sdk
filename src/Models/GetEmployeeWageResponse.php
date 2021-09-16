@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A response to a request to get an `EmployeeWage`. Contains
- * the requested `EmployeeWage` objects. May contain a set of `Error` objects if
+ * A response to a request to get an `EmployeeWage`. The response contains
+ * the requested `EmployeeWage` objects and might contain a set of `Error` objects if
  * the request resulted in errors.
  */
 class GetEmployeeWageResponse implements \JsonSerializable
@@ -24,7 +24,7 @@ class GetEmployeeWageResponse implements \JsonSerializable
     /**
      * Returns Employee Wage.
      *
-     * The hourly wage rate that an employee will earn on a `Shift` for doing the job
+     * The hourly wage rate that an employee earns on a `Shift` for doing the job
      * specified by the `title` property of this object. Deprecated at version 2020-08-26. Use
      * `TeamMemberWage` instead.
      */
@@ -36,7 +36,7 @@ class GetEmployeeWageResponse implements \JsonSerializable
     /**
      * Sets Employee Wage.
      *
-     * The hourly wage rate that an employee will earn on a `Shift` for doing the job
+     * The hourly wage rate that an employee earns on a `Shift` for doing the job
      * specified by the `title` property of this object. Deprecated at version 2020-08-26. Use
      * `TeamMemberWage` instead.
      *

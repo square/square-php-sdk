@@ -75,7 +75,7 @@ class ShiftWorkday implements \JsonSerializable
      * Returns Default Timezone.
      *
      * Location-specific timezones convert workdays to datetime filters.
-     * Every location included in the query must have a timezone, or this field
+     * Every location included in the query must have a timezone or this field
      * must be provided as a fallback. Format: the IANA timezone database
      * identifier for the relevant timezone.
      */
@@ -88,7 +88,7 @@ class ShiftWorkday implements \JsonSerializable
      * Sets Default Timezone.
      *
      * Location-specific timezones convert workdays to datetime filters.
-     * Every location included in the query must have a timezone, or this field
+     * Every location included in the query must have a timezone or this field
      * must be provided as a fallback. Format: the IANA timezone database
      * identifier for the relevant timezone.
      *

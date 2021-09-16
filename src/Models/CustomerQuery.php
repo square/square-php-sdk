@@ -24,7 +24,7 @@ class CustomerQuery implements \JsonSerializable
      * Returns Filter.
      *
      * Represents a set of `CustomerQuery` filters used to limit the set of
-     * `Customers` returned by `SearchCustomers`.
+     * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
      */
     public function getFilter(): ?CustomerFilter
     {
@@ -35,7 +35,7 @@ class CustomerQuery implements \JsonSerializable
      * Sets Filter.
      *
      * Represents a set of `CustomerQuery` filters used to limit the set of
-     * `Customers` returned by `SearchCustomers`.
+     * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
      *
      * @maps filter
      */

@@ -29,8 +29,8 @@ class RevokeTokenRequest implements \JsonSerializable
     /**
      * Returns Client Id.
      *
-     * The Square issued ID for your application, available from the
-     * [developer dashboard](https://developer.squareup.com/apps).
+     * The Square-issued ID for your application, available from
+     * the OAuth page for your application on the Developer Dashboard.
      */
     public function getClientId(): ?string
     {
@@ -40,8 +40,8 @@ class RevokeTokenRequest implements \JsonSerializable
     /**
      * Sets Client Id.
      *
-     * The Square issued ID for your application, available from the
-     * [developer dashboard](https://developer.squareup.com/apps).
+     * The Square-issued ID for your application, available from
+     * the OAuth page for your application on the Developer Dashboard.
      *
      * @maps client_id
      */

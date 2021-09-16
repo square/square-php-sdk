@@ -200,8 +200,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Id Token.
      *
-     * Then OpenID token belonging to this this person. Only present if the
-     * OPENID scope is included in the authorize request.
+     * Then OpenID token belonging to this person. Only present if the
+     * OPENID scope is included in the authorization request.
      */
     public function getIdToken(): ?string
     {
@@ -211,8 +211,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Id Token.
      *
-     * Then OpenID token belonging to this this person. Only present if the
-     * OPENID scope is included in the authorize request.
+     * Then OpenID token belonging to this person. Only present if the
+     * OPENID scope is included in the authorization request.
      *
      * @maps id_token
      */
@@ -225,8 +225,8 @@ class ObtainTokenResponse implements \JsonSerializable
      * Returns Refresh Token.
      *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
-     * For more information, see [OAuth access token management](https://developer.squareup.com/docs/oauth-
-     * api/how-it-works#oauth-access-token-management).
+     * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
+     * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
      */
     public function getRefreshToken(): ?string
     {
@@ -237,8 +237,8 @@ class ObtainTokenResponse implements \JsonSerializable
      * Sets Refresh Token.
      *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
-     * For more information, see [OAuth access token management](https://developer.squareup.com/docs/oauth-
-     * api/how-it-works#oauth-access-token-management).
+     * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
+     * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
      *
      * @maps refresh_token
      */

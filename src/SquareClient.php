@@ -13,7 +13,6 @@ class SquareClient implements ConfigurationInterface
 {
     private $mobileAuthorization;
     private $oAuth;
-    private $v1Employees;
     private $v1Transactions;
     private $applePay;
     private $bankAccounts;
@@ -160,7 +159,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '14.0.0.20210915';
+        return '14.1.0.20210915';
     }
 
 
@@ -206,17 +205,6 @@ class SquareClient implements ConfigurationInterface
             $this->oAuth = new Apis\OAuthApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->oAuth;
-    }
-
-    /**
-     * Returns V1 Employees Api
-     */
-    public function getV1EmployeesApi(): Apis\V1EmployeesApi
-    {
-        if ($this->v1Employees == null) {
-            $this->v1Employees = new Apis\V1EmployeesApi($this, $this->authManagers, $this->httpCallback);
-        }
-        return $this->v1Employees;
     }
 
     /**

@@ -33,6 +33,7 @@ profiles can take closer to one minute or longer, especially during network inci
 ```php
 function listCustomers(
     ?string $cursor = null,
+    ?int $limit = null,
     ?string $sortField = null,
     ?string $sortOrder = null
 ): ApiResponse
@@ -43,8 +44,9 @@ function listCustomers(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `sortField` | [`?string (CustomerSortField)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>Default: `DEFAULT`. |
-| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>Default: `ASC`. |
+| `limit` | `?int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>The limit is ignored if it is less than 1 or greater than 100. The default value is 100.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `sortField` | [`?string (CustomerSortField)`](/doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>The default value is `DEFAULT`. |
+| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>The default value is `ASC`. |
 
 ## Response Type
 
@@ -54,10 +56,11 @@ function listCustomers(
 
 ```php
 $cursor = 'cursor6';
+$limit = 172;
 $sortField = Models\CustomerSortField::DEFAULT_;
 $sortOrder = Models\SortOrder::DESC;
 
-$apiResponse = $customersApi->listCustomers($cursor, $sortField, $sortOrder);
+$apiResponse = $customersApi->listCustomers($cursor, $limit, $sortField, $sortOrder);
 
 if ($apiResponse->isSuccess()) {
     $listCustomersResponse = $apiResponse->getResult();

@@ -150,6 +150,11 @@ class Order implements \JsonSerializable
     private $totalServiceChargeMoney;
 
     /**
+     * @var string|null
+     */
+    private $ticketName;
+
+    /**
      * @var OrderPricingOptions|null
      */
     private $pricingOptions;
@@ -973,6 +978,36 @@ class Order implements \JsonSerializable
     }
 
     /**
+     * Returns Ticket Name.
+     *
+     * A short-term identifier for the order (such as a customer first name, table number, or
+     * auto-generated order number that resets daily). For orders created in Square Point of Sale, the
+     * `ticket_name` is
+     * printed on in-person tickets and stubs. It converts to the `kitchen_printing.name` field in the
+     * bill cart feature details.
+     */
+    public function getTicketName(): ?string
+    {
+        return $this->ticketName;
+    }
+
+    /**
+     * Sets Ticket Name.
+     *
+     * A short-term identifier for the order (such as a customer first name, table number, or
+     * auto-generated order number that resets daily). For orders created in Square Point of Sale, the
+     * `ticket_name` is
+     * printed on in-person tickets and stubs. It converts to the `kitchen_printing.name` field in the
+     * bill cart feature details.
+     *
+     * @maps ticket_name
+     */
+    public function setTicketName(?string $ticketName): void
+    {
+        $this->ticketName = $ticketName;
+    }
+
+    /**
      * Returns Pricing Options.
      *
      * Pricing options for an order. The options affect how the order's price is calculated.
@@ -1110,6 +1145,9 @@ class Order implements \JsonSerializable
         }
         if (isset($this->totalServiceChargeMoney)) {
             $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
+        }
+        if (isset($this->ticketName)) {
+            $json['ticket_name']                = $this->ticketName;
         }
         if (isset($this->pricingOptions)) {
             $json['pricing_options']            = $this->pricingOptions;

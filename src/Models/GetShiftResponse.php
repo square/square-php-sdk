@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A response to request to get a `Shift`. Contains
- * the requested `Shift` object. May contain a set of `Error` objects if
+ * A response to a request to get a `Shift`. The response contains
+ * the requested `Shift` object and might contain a set of `Error` objects if
  * the request resulted in errors.
  */
 class GetShiftResponse implements \JsonSerializable
@@ -25,7 +25,7 @@ class GetShiftResponse implements \JsonSerializable
      * Returns Shift.
      *
      * A record of the hourly rate, start, and end times for a single work shift
-     * for an employee. May include a record of the start and end times for breaks
+     * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
      */
     public function getShift(): ?Shift
@@ -37,7 +37,7 @@ class GetShiftResponse implements \JsonSerializable
      * Sets Shift.
      *
      * A record of the hourly rate, start, and end times for a single work shift
-     * for an employee. May include a record of the start and end times for breaks
+     * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
      *
      * @maps shift

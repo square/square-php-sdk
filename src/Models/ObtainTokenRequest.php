@@ -66,8 +66,8 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Returns Client Id.
      *
-     * The Square-issued ID of your application, available from the
-     * [developer dashboard](https://developer.squareup.com/apps).
+     * The Square-issued ID of your application, available from the OAuth page
+     * for your application on the Developer Dashboard.
      */
     public function getClientId(): string
     {
@@ -77,8 +77,8 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Sets Client Id.
      *
-     * The Square-issued ID of your application, available from the
-     * [developer dashboard](https://developer.squareup.com/apps).
+     * The Square-issued ID of your application, available from the OAuth page
+     * for your application on the Developer Dashboard.
      *
      * @required
      * @maps client_id
@@ -92,7 +92,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * Returns Client Secret.
      *
      * The Square-issued application secret for your application, available
-     * from the [developer dashboard](https://developer.squareup.com/apps).
+     * from the OAuth page for your application on the Developer Dashboard.
      */
     public function getClientSecret(): string
     {
@@ -103,7 +103,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * Sets Client Secret.
      *
      * The Square-issued application secret for your application, available
-     * from the [developer dashboard](https://developer.squareup.com/apps).
+     * from the OAuth page for your application on the Developer Dashboard.
      *
      * @required
      * @maps client_secret
@@ -142,7 +142,7 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Returns Redirect Uri.
      *
-     * The redirect URL assigned in the [developer dashboard](https://developer.squareup.com/apps).
+     * The redirect URL assigned in the OAuth page for your application on the Developer Dashboard.
      */
     public function getRedirectUri(): ?string
     {
@@ -152,7 +152,7 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Sets Redirect Uri.
      *
-     * The redirect URL assigned in the [developer dashboard](https://developer.squareup.com/apps).
+     * The redirect URL assigned in the OAuth page for your application on the Developer Dashboard.
      *
      * @maps redirect_uri
      */
@@ -282,7 +282,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * Returns Short Lived.
      *
      * A boolean indicating a request for a short-lived access token.
-     * The short-lived access token returned in the response will expire in 24 hours.
+     * The short-lived access token returned in the response expires in 24 hours.
      */
     public function getShortLived(): ?bool
     {
@@ -293,7 +293,7 @@ class ObtainTokenRequest implements \JsonSerializable
      * Sets Short Lived.
      *
      * A boolean indicating a request for a short-lived access token.
-     * The short-lived access token returned in the response will expire in 24 hours.
+     * The short-lived access token returned in the response expires in 24 hours.
      *
      * @maps short_lived
      */

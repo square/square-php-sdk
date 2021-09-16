@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The hourly wage rate that an employee will earn on a `Shift` for doing the job
+ * The hourly wage rate that an employee earns on a `Shift` for doing the job
  * specified by the `title` property of this object. Deprecated at version 2020-08-26. Use
  * `TeamMemberWage` instead.
  */
@@ -34,7 +34,7 @@ class EmployeeWage implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * UUID for this object.
+     * The UUID for this object.
      */
     public function getId(): ?string
     {
@@ -44,7 +44,7 @@ class EmployeeWage implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * UUID for this object.
+     * The UUID for this object.
      *
      * @maps id
      */

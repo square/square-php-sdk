@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Sets the Day of the week and hour of the day that a business starts a
- * work week. Used for the calculation of overtime pay.
+ * Sets the day of the week and hour of the day that a business starts a
+ * workweek. This is used to calculate overtime pay.
  */
 class WorkweekConfig implements \JsonSerializable
 {
@@ -53,7 +53,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Returns Id.
      *
-     * UUID for this object
+     * The UUID for this object.
      */
     public function getId(): ?string
     {
@@ -63,7 +63,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Sets Id.
      *
-     * UUID for this object
+     * The UUID for this object.
      *
      * @maps id
      */
@@ -98,7 +98,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Returns Start of Day Local Time.
      *
-     * The local time at which a business week cuts over. Represented as a
+     * The local time at which a business week ends. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
      */
@@ -110,7 +110,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Sets Start of Day Local Time.
      *
-     * The local time at which a business week cuts over. Represented as a
+     * The local time at which a business week ends. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
      *
@@ -125,8 +125,8 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Returns Version.
      *
-     * Used for resolving concurrency issues; request will fail if version
-     * provided does not match server version at time of request. If not provided,
+     * Used for resolving concurrency issues. The request fails if the version
+     * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
      * write.
      */
@@ -138,8 +138,8 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Sets Version.
      *
-     * Used for resolving concurrency issues; request will fail if version
-     * provided does not match server version at time of request. If not provided,
+     * Used for resolving concurrency issues. The request fails if the version
+     * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
      * write.
      *
@@ -153,7 +153,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Returns Created At.
      *
-     * A read-only timestamp in RFC 3339 format; presented in UTC
+     * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getCreatedAt(): ?string
     {
@@ -163,7 +163,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Sets Created At.
      *
-     * A read-only timestamp in RFC 3339 format; presented in UTC
+     * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps created_at
      */
@@ -175,7 +175,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Returns Updated At.
      *
-     * A read-only timestamp in RFC 3339 format; presented in UTC
+     * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getUpdatedAt(): ?string
     {
@@ -185,7 +185,7 @@ class WorkweekConfig implements \JsonSerializable
     /**
      * Sets Updated At.
      *
-     * A read-only timestamp in RFC 3339 format; presented in UTC
+     * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps updated_at
      */

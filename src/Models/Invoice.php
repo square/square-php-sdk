@@ -112,6 +112,11 @@ class Invoice implements \JsonSerializable
     private $subscriptionId;
 
     /**
+     * @var string|null
+     */
+    private $saleOrServiceDate;
+
+    /**
      * Returns Id.
      *
      * The Square-assigned ID of the invoice.
@@ -241,11 +246,20 @@ class Invoice implements \JsonSerializable
      * Returns Payment Requests.
      *
      * The payment schedule for the invoice, represented by one or more payment requests that
-     * define payment settings, such as amount due and due date. You can specify a maximum of 13
-     * payment requests, with up to 12 `INSTALLMENT` request types. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * define payment settings, such as amount due and due date. An invoice supports the following payment
+     * request combinations:
+     * - One balance
+     * - One deposit with one balance
+     * - 2–12 installments
+     * - One deposit with 2–12 installments
      *
      * This field is required when creating an invoice. It must contain at least one payment request.
+     * All payment requests for the invoice must equal the total order amount. For more information, see
+     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     *
+     * Adding `INSTALLMENT` payment requests to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
      *
      * @return InvoicePaymentRequest[]|null
      */
@@ -258,11 +272,20 @@ class Invoice implements \JsonSerializable
      * Sets Payment Requests.
      *
      * The payment schedule for the invoice, represented by one or more payment requests that
-     * define payment settings, such as amount due and due date. You can specify a maximum of 13
-     * payment requests, with up to 12 `INSTALLMENT` request types. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * define payment settings, such as amount due and due date. An invoice supports the following payment
+     * request combinations:
+     * - One balance
+     * - One deposit with one balance
+     * - 2–12 installments
+     * - One deposit with 2–12 installments
      *
      * This field is required when creating an invoice. It must contain at least one payment request.
+     * All payment requests for the invoice must equal the total order amount. For more information, see
+     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     *
+     * Adding `INSTALLMENT` payment requests to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
      *
      * @maps payment_requests
      *
@@ -588,6 +611,10 @@ class Invoice implements \JsonSerializable
      * see
      * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
      *
+     * Adding custom fields to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
+     *
      * Max: 2 custom fields
      *
      * @return InvoiceCustomField[]|null
@@ -605,6 +632,10 @@ class Invoice implements \JsonSerializable
      * on the Square-hosted invoice page and in emailed or PDF copies of invoices. For more information,
      * see
      * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
+     *
+     * Adding custom fields to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
      *
      * Max: 2 custom fields
      *
@@ -639,6 +670,30 @@ class Invoice implements \JsonSerializable
     public function setSubscriptionId(?string $subscriptionId): void
     {
         $this->subscriptionId = $subscriptionId;
+    }
+
+    /**
+     * Returns Sale or Service Date.
+     *
+     * The date of the sale or the date that the service is rendered, in `YYYY-MM-DD` format.
+     * This field can be used to specify a past or future date which is displayed on the invoice.
+     */
+    public function getSaleOrServiceDate(): ?string
+    {
+        return $this->saleOrServiceDate;
+    }
+
+    /**
+     * Sets Sale or Service Date.
+     *
+     * The date of the sale or the date that the service is rendered, in `YYYY-MM-DD` format.
+     * This field can be used to specify a past or future date which is displayed on the invoice.
+     *
+     * @maps sale_or_service_date
+     */
+    public function setSaleOrServiceDate(?string $saleOrServiceDate): void
+    {
+        $this->saleOrServiceDate = $saleOrServiceDate;
     }
 
     /**
@@ -708,6 +763,9 @@ class Invoice implements \JsonSerializable
         }
         if (isset($this->subscriptionId)) {
             $json['subscription_id']           = $this->subscriptionId;
+        }
+        if (isset($this->saleOrServiceDate)) {
+            $json['sale_or_service_date']      = $this->saleOrServiceDate;
         }
 
         return array_filter($json, function ($val) {

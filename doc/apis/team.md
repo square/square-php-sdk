@@ -205,6 +205,7 @@ $body->setQuery(new Models\SearchTeamMembersQuery);
 $body->getQuery()->setFilter(new Models\SearchTeamMembersFilter);
 $body->getQuery()->getFilter()->setLocationIds(['0G5P3VGACMMQZ']);
 $body->getQuery()->getFilter()->setStatus(Models\TeamMemberStatus::ACTIVE);
+$body->getQuery()->getFilter()->setIsOwner(false);
 $body->setLimit(10);
 $body->setCursor('cursor0');
 

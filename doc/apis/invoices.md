@@ -150,6 +150,7 @@ $body_invoice_customFields[1]->setValue('The terms of service are...');
 $body_invoice_customFields[1]->setPlacement(Models\InvoiceCustomFieldPlacement::BELOW_LINE_ITEMS);
 $body_invoice->setCustomFields($body_invoice_customFields);
 
+$body_invoice->setSaleOrServiceDate('2030-01-24');
 $body = new Models\CreateInvoiceRequest(
     $body_invoice
 );
