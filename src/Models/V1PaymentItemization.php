@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Payment include an` itemizations` field that lists the items purchased,
  * along with associated fees, modifiers, and discounts. Each itemization has an
@@ -394,9 +396,12 @@ class V1PaymentItemization implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->name)) {
@@ -441,9 +446,10 @@ class V1PaymentItemization implements \JsonSerializable
         if (isset($this->modifiers)) {
             $json['modifiers']             = $this->modifiers;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

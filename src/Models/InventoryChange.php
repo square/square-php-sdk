@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a single physical count, inventory, adjustment, or transfer
  * that is part of the history of inventory changes for a particular
@@ -190,9 +192,12 @@ class InventoryChange implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->type)) {
@@ -213,9 +218,10 @@ class InventoryChange implements \JsonSerializable
         if (isset($this->measurementUnitId)) {
             $json['measurement_unit_id'] = $this->measurementUnitId;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * V1CreateRefundRequest
  */
@@ -158,9 +160,12 @@ class V1CreateRefundRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['payment_id']                  = $this->paymentId;
@@ -172,9 +177,10 @@ class V1CreateRefundRequest implements \JsonSerializable
         if (isset($this->requestIdempotenceKey)) {
             $json['request_idempotence_key'] = $this->requestIdempotenceKey;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

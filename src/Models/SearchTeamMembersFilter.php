@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
  * between the individual fields, and `OR` logic is applied within list-based fields.
@@ -105,9 +107,12 @@ class SearchTeamMembersFilter implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->locationIds)) {
@@ -119,9 +124,10 @@ class SearchTeamMembersFilter implements \JsonSerializable
         if (isset($this->isOwner)) {
             $json['is_owner']     = $this->isOwner;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

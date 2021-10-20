@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 class ObtainTokenResponse implements \JsonSerializable
 {
     /**
@@ -104,8 +106,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Expires At.
      *
-     * The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)
-     * format.
+     * The date when the access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.
+     * htm) format.
      */
     public function getExpiresAt(): ?string
     {
@@ -115,8 +117,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Expires At.
      *
-     * The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)
-     * format.
+     * The date when the access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.
+     * htm) format.
      *
      * @maps expires_at
      */
@@ -200,7 +202,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Id Token.
      *
-     * Then OpenID token belonging to this person. Only present if the
+     * The OpenID token belonging to this person. Only present if the
      * OPENID scope is included in the authorization request.
      */
     public function getIdToken(): ?string
@@ -211,7 +213,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Id Token.
      *
-     * Then OpenID token belonging to this person. Only present if the
+     * The OpenID token belonging to this person. Only present if the
      * OPENID scope is included in the authorization request.
      *
      * @maps id_token
@@ -274,9 +276,12 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->accessToken)) {
@@ -306,9 +311,10 @@ class ObtainTokenResponse implements \JsonSerializable
         if (isset($this->shortLived)) {
             $json['short_lived']     = $this->shortLived;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

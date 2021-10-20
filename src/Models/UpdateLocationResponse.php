@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Response object returned by the [UpdateLocation]($e/Locations/UpdateLocation) endpoint.
  */
@@ -47,6 +49,8 @@ class UpdateLocationResponse implements \JsonSerializable
 
     /**
      * Returns Location.
+     *
+     * Represents one of a business's locations.
      */
     public function getLocation(): ?Location
     {
@@ -55,6 +59,8 @@ class UpdateLocationResponse implements \JsonSerializable
 
     /**
      * Sets Location.
+     *
+     * Represents one of a business's locations.
      *
      * @maps location
      */
@@ -66,9 +72,12 @@ class UpdateLocationResponse implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->errors)) {
@@ -77,9 +86,10 @@ class UpdateLocationResponse implements \JsonSerializable
         if (isset($this->location)) {
             $json['location'] = $this->location;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

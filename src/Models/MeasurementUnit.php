@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a unit of measurement to use with a quantity, such as ounces
  * or inches. Exactly one of the following fields are required: `custom_unit`,
@@ -228,9 +230,12 @@ class MeasurementUnit implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->customUnit)) {
@@ -257,9 +262,10 @@ class MeasurementUnit implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']         = $this->type;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

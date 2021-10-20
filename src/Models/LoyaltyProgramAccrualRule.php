@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Defines an accrual rule, which is how buyers can earn points.
  */
@@ -266,9 +268,12 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['accrual_type']                    = $this->accrualType;
@@ -290,9 +295,10 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
         if (isset($this->excludedItemVariationIds)) {
             $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

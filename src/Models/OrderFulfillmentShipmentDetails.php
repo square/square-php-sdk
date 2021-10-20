@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Contains the details necessary to fulfill a shipment order.
  */
@@ -455,9 +457,12 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->recipient)) {
@@ -505,9 +510,10 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
         if (isset($this->failureReason)) {
             $json['failure_reason']      = $this->failureReason;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

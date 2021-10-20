@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Present only when `GiftCardActivityType` is REDEEM.
  */
@@ -122,9 +124,12 @@ class GiftCardActivityRedeem implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['amount_money']     = $this->amountMoney;
@@ -134,9 +139,10 @@ class GiftCardActivityRedeem implements \JsonSerializable
         if (isset($this->referenceId)) {
             $json['reference_id'] = $this->referenceId;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

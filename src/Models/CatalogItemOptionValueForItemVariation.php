@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * A `CatalogItemOptionValue` links an item variation to an item option as
  * an item option value. For example, a t-shirt item may offer a color option and
@@ -69,9 +71,12 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->itemOptionId)) {
@@ -80,9 +85,10 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
         if (isset($this->itemOptionValueId)) {
             $json['item_option_value_id'] = $this->itemOptionValueId;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Pricing options for an order. The options affect how the order's price is calculated.
  * They can be used, for example, to apply automatic price adjustments that are based on preconfigured
@@ -72,9 +74,12 @@ class OrderPricingOptions implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->autoApplyDiscounts)) {
@@ -83,9 +88,10 @@ class OrderPricingOptions implements \JsonSerializable
         if (isset($this->autoApplyTaxes)) {
             $json['auto_apply_taxes']     = $this->autoApplyTaxes;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

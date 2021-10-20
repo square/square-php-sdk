@@ -205,10 +205,7 @@ $body_query_filter->setCustomerIds(['JDKYHBWT1D4F8MFH63DBMEN8Y4']);
 $body_query = new Models\InvoiceQuery(
     $body_query_filter
 );
-$body_query_sort_field = 'INVOICE_SORT_DATE';
-$body_query->setSort(new Models\InvoiceSort(
-    $body_query_sort_field
-));
+$body_query->setSort(new Models\InvoiceSort);
 $body_query->getSort()->setOrder(Models\SortOrder::DESC);
 $body = new Models\SearchInvoicesRequest(
     $body_query

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Identifies the sort field and sort order.
  */
@@ -20,14 +22,6 @@ class InvoiceSort implements \JsonSerializable
     private $order;
 
     /**
-     * @param string $field
-     */
-    public function __construct(string $field)
-    {
-        $this->field = $field;
-    }
-
-    /**
      * Returns Field.
      *
      * The field to use for sorting.
@@ -42,7 +36,6 @@ class InvoiceSort implements \JsonSerializable
      *
      * The field to use for sorting.
      *
-     * @required
      * @maps field
      */
     public function setField(string $field): void
@@ -75,18 +68,22 @@ class InvoiceSort implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['field']     = $this->field;
         if (isset($this->order)) {
             $json['order'] = $this->order;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

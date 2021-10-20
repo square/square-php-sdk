@@ -28,6 +28,7 @@ For an overview of the `Subscription` type, see
 | `createdAt` | `?string` | Optional | The timestamp when the subscription was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `cardId` | `?string` | Optional | The ID of the [customer](/doc/models/customer.md) [card](/doc/models/card.md)<br>that is charged for the subscription. | getCardId(): ?string | setCardId(?string cardId): void |
 | `timezone` | `?string` | Optional | Timezone that will be used in date calculations for the subscription.<br>Defaults to the timezone of the location based on `location_id`.<br>Format: the IANA Timezone Database identifier for the location timezone (for example, `America/Los_Angeles`). | getTimezone(): ?string | setTimezone(?string timezone): void |
+| `source` | [`?SubscriptionSource`](/doc/models/subscription-source.md) | Optional | The origination details of the subscription. | getSource(): ?SubscriptionSource | setSource(?SubscriptionSource source): void |
 
 ## Example (as JSON)
 

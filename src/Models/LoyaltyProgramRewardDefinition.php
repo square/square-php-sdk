@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount
  * details
@@ -246,9 +248,12 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['scope']                    = $this->scope;
@@ -265,9 +270,10 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
         if (isset($this->maxDiscountMoney)) {
             $json['max_discount_money']   = $this->maxDiscountMoney;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
- * Provides customer data that Square uses to deliver an invoice.
+ * Represents a snapshot of customer data. This object stores customer data that is displayed on the
+ * invoice
+ * and that Square uses to deliver the invoice.
+ *
+ * When you provide a customer ID for a draft invoice, Square retrieves the associated customer profile
+ * and populates
+ * the remaining `InvoiceRecipient` fields. You cannot update these fields after the invoice is
+ * published.
+ * Square updates the customer ID in response to a merge operation, but does not update other fields.
  */
 class InvoiceRecipient implements \JsonSerializable
 {
@@ -43,6 +53,11 @@ class InvoiceRecipient implements \JsonSerializable
      * @var string|null
      */
     private $companyName;
+
+    /**
+     * @var InvoiceRecipientTaxIds|null
+     */
+    private $taxIds;
 
     /**
      * Returns Customer Id.
@@ -261,11 +276,42 @@ class InvoiceRecipient implements \JsonSerializable
     }
 
     /**
+     * Returns Tax Ids.
+     *
+     * Represents the tax IDs for an invoice recipient. The country of the seller account determines
+     * whether the corresponding `tax_ids` field is available for the customer. For more information,
+     * see [Invoice recipient tax IDs](https://developer.squareup.com/docs/invoices-api/overview#recipient-
+     * tax-ids).
+     */
+    public function getTaxIds(): ?InvoiceRecipientTaxIds
+    {
+        return $this->taxIds;
+    }
+
+    /**
+     * Sets Tax Ids.
+     *
+     * Represents the tax IDs for an invoice recipient. The country of the seller account determines
+     * whether the corresponding `tax_ids` field is available for the customer. For more information,
+     * see [Invoice recipient tax IDs](https://developer.squareup.com/docs/invoices-api/overview#recipient-
+     * tax-ids).
+     *
+     * @maps tax_ids
+     */
+    public function setTaxIds(?InvoiceRecipientTaxIds $taxIds): void
+    {
+        $this->taxIds = $taxIds;
+    }
+
+    /**
      * Encode this object to JSON
+     *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
      *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->customerId)) {
@@ -289,9 +335,13 @@ class InvoiceRecipient implements \JsonSerializable
         if (isset($this->companyName)) {
             $json['company_name']  = $this->companyName;
         }
-
-        return array_filter($json, function ($val) {
+        if (isset($this->taxIds)) {
+            $json['tax_ids']       = $this->taxIds;
+        }
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

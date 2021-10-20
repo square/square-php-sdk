@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a line item in an order. Each line item describes a different
  * product to purchase, with its own quantity and price details.
@@ -742,9 +744,12 @@ class OrderLineItem implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->uid)) {
@@ -805,9 +810,10 @@ class OrderLineItem implements \JsonSerializable
         if (isset($this->pricingBlocklists)) {
             $json['pricing_blocklists']          = $this->pricingBlocklists;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

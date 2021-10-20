@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents Square-estimated quantity of items in a particular state at a
  * particular seller location based on the known history of physical counts and
@@ -227,9 +229,12 @@ class InventoryCount implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->catalogObjectId)) {
@@ -253,9 +258,10 @@ class InventoryCount implements \JsonSerializable
         if (isset($this->isEstimated)) {
             $json['is_estimated']        = $this->isEstimated;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

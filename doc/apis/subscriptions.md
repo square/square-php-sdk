@@ -54,7 +54,7 @@ $body = new Models\CreateSubscriptionRequest(
     $body_customerId
 );
 $body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
-$body->setStartDate('2020-08-01');
+$body->setStartDate('2021-10-20');
 $body->setCanceledDate('canceled_date0');
 $body->setTaxPercentage('5');
 $body->setPriceOverrideMoney(new Models\Money);
@@ -62,6 +62,8 @@ $body->getPriceOverrideMoney()->setAmount(100);
 $body->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
 $body->setCardId('ccof:qy5x8hHGYsgLrp4Q4GB');
 $body->setTimezone('America/Los_Angeles');
+$body->setSource(new Models\SubscriptionSource);
+$body->getSource()->setName('My App');
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 
@@ -120,6 +122,7 @@ $body->setQuery(new Models\SearchSubscriptionsQuery);
 $body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter);
 $body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
 $body->getQuery()->getFilter()->setLocationIds(['S8GWD5R9QB376']);
+$body->getQuery()->getFilter()->setSourceNames(['My App']);
 
 $apiResponse = $subscriptionsApi->searchSubscriptions($body);
 

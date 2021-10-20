@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a refund of a payment made using Square. Contains information about
  * the original payment and the amount of money refunded.
@@ -64,6 +66,11 @@ class PaymentRefund implements \JsonSerializable
      * @var string|null
      */
     private $updatedAt;
+
+    /**
+     * @var string|null
+     */
+    private $teamMemberId;
 
     /**
      * @param string $id
@@ -356,11 +363,36 @@ class PaymentRefund implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     *
+     * An optional ID of the team member associated with taking the payment.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * An optional ID of the team member associated with taking the payment.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
+    }
+
+    /**
      * Encode this object to JSON
+     *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
      *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['id']                 = $this->id;
@@ -392,9 +424,13 @@ class PaymentRefund implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']     = $this->updatedAt;
         }
-
-        return array_filter($json, function ($val) {
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId;
+        }
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

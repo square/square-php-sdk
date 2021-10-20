@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 class DeviceCode implements \JsonSerializable
 {
     /**
@@ -60,14 +62,6 @@ class DeviceCode implements \JsonSerializable
      * @var string|null
      */
     private $pairedAt;
-
-    /**
-     * @param string $productType
-     */
-    public function __construct(string $productType)
-    {
-        $this->productType = $productType;
-    }
 
     /**
      * Returns Id.
@@ -168,7 +162,6 @@ class DeviceCode implements \JsonSerializable
     /**
      * Sets Product Type.
      *
-     * @required
      * @maps product_type
      */
     public function setProductType(string $productType): void
@@ -311,9 +304,12 @@ class DeviceCode implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -347,9 +343,10 @@ class DeviceCode implements \JsonSerializable
         if (isset($this->pairedAt)) {
             $json['paired_at']         = $this->pairedAt;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }
