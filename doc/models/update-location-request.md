@@ -11,7 +11,7 @@ Request object for the [UpdateLocation](/doc/apis/locations.md#update-location) 
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | - | getLocation(): ?Location | setLocation(?Location location): void |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | Represents one of a business's locations. | getLocation(): ?Location | setLocation(?Location location): void |
 
 ## Example (as JSON)
 

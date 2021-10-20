@@ -6,6 +6,7 @@ namespace Square;
 
 use InvalidArgumentException;
 use JsonSerializable;
+use stdClass;
 
 /**
  * API utility class
@@ -155,11 +156,15 @@ class ApiHelper
         }
 
         $arr = $model->jsonSerialize();
+        if ($arr instanceof stdClass) {
+            return [];
+        }
 
         foreach ($arr as $key => $value) {
             if ($value instanceof JsonSerializable) {
                 $arr[$key] = static::prepareFormFields($value);
-            } elseif (is_array($value) && !empty($value) && !static::isAssociative($value) &&
+            } elseif (
+                is_array($value) && !empty($value) && !static::isAssociative($value) &&
                 $value[0] instanceof JsonSerializable
             ) {
                 $temp = [];

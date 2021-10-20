@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Information about fulfillment updates.
  */
@@ -93,9 +95,12 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->fulfillmentUid)) {
@@ -107,9 +112,10 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
         if (isset($this->newState)) {
             $json['new_state']       = $this->newState;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

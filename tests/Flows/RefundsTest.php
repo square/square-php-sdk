@@ -1,4 +1,5 @@
 <?php
+
 namespace Square\Tests;
 
 use Square\ApiHelper;

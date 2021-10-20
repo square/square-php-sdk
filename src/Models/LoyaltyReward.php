@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
  * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
@@ -270,9 +272,12 @@ class LoyaltyReward implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -298,9 +303,10 @@ class LoyaltyReward implements \JsonSerializable
         if (isset($this->redeemedAt)) {
             $json['redeemed_at']    = $this->redeemedAt;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

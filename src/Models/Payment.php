@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a payment processed by the Square API.
  */
@@ -135,6 +137,11 @@ class Payment implements \JsonSerializable
     private $employeeId;
 
     /**
+     * @var string|null
+     */
+    private $teamMemberId;
+
+    /**
      * @var string[]|null
      */
     private $refundIds;
@@ -183,6 +190,16 @@ class Payment implements \JsonSerializable
      * @var string|null
      */
     private $receiptUrl;
+
+    /**
+     * @var DeviceDetails|null
+     */
+    private $deviceDetails;
+
+    /**
+     * @var ApplicationDetails|null
+     */
+    private $applicationDetails;
 
     /**
      * @var string|null
@@ -854,6 +871,8 @@ class Payment implements \JsonSerializable
     /**
      * Returns Employee Id.
      *
+     * __Deprecated__: Use `Payment.team_member_id` instead.
+     *
      * An optional ID of the employee associated with taking the payment.
      */
     public function getEmployeeId(): ?string
@@ -864,6 +883,8 @@ class Payment implements \JsonSerializable
     /**
      * Sets Employee Id.
      *
+     * __Deprecated__: Use `Payment.team_member_id` instead.
+     *
      * An optional ID of the employee associated with taking the payment.
      *
      * @maps employee_id
@@ -871,6 +892,28 @@ class Payment implements \JsonSerializable
     public function setEmployeeId(?string $employeeId): void
     {
         $this->employeeId = $employeeId;
+    }
+
+    /**
+     * Returns Team Member Id.
+     *
+     * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
     }
 
     /**
@@ -1254,6 +1297,50 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Device Details.
+     *
+     * Details about the device that took the payment.
+     */
+    public function getDeviceDetails(): ?DeviceDetails
+    {
+        return $this->deviceDetails;
+    }
+
+    /**
+     * Sets Device Details.
+     *
+     * Details about the device that took the payment.
+     *
+     * @maps device_details
+     */
+    public function setDeviceDetails(?DeviceDetails $deviceDetails): void
+    {
+        $this->deviceDetails = $deviceDetails;
+    }
+
+    /**
+     * Returns Application Details.
+     *
+     * Details about the application that took the payment.
+     */
+    public function getApplicationDetails(): ?ApplicationDetails
+    {
+        return $this->applicationDetails;
+    }
+
+    /**
+     * Sets Application Details.
+     *
+     * Details about the application that took the payment.
+     *
+     * @maps application_details
+     */
+    public function setApplicationDetails(?ApplicationDetails $applicationDetails): void
+    {
+        $this->applicationDetails = $applicationDetails;
+    }
+
+    /**
      * Returns Version Token.
      *
      * Used for optimistic concurrency. This opaque token identifies a specific version of the
@@ -1280,9 +1367,12 @@ class Payment implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -1360,6 +1450,9 @@ class Payment implements \JsonSerializable
         if (isset($this->employeeId)) {
             $json['employee_id']                      = $this->employeeId;
         }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']                   = $this->teamMemberId;
+        }
         if (isset($this->refundIds)) {
             $json['refund_ids']                       = $this->refundIds;
         }
@@ -1390,12 +1483,19 @@ class Payment implements \JsonSerializable
         if (isset($this->receiptUrl)) {
             $json['receipt_url']                      = $this->receiptUrl;
         }
+        if (isset($this->deviceDetails)) {
+            $json['device_details']                   = $this->deviceDetails;
+        }
+        if (isset($this->applicationDetails)) {
+            $json['application_details']              = $this->applicationDetails;
+        }
         if (isset($this->versionToken)) {
             $json['version_token']                    = $this->versionToken;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

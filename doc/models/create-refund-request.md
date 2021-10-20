@@ -2,7 +2,7 @@
 # Create Refund Request
 
 Defines the body parameters that can be included in
-a request to the [CreateRefund](/doc/apis/transactions.md#create-refund) endpoint.
+a request to the [CreateRefund]($e/Transactions/CreateRefund) endpoint.
 
 Deprecated - recommend using [RefundPayment](/doc/apis/refunds.md#refund-payment)
 

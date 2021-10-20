@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a tender (i.e., a method of payment) used in a Square transaction.
  */
@@ -445,9 +447,12 @@ class Tender implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -490,9 +495,10 @@ class Tender implements \JsonSerializable
         if (isset($this->paymentId)) {
             $json['payment_id']            = $this->paymentId;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

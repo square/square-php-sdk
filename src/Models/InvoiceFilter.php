@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Describes query filters to apply.
  */
@@ -89,18 +91,22 @@ class InvoiceFilter implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['location_ids']     = $this->locationIds;
         if (isset($this->customerIds)) {
             $json['customer_ids'] = $this->customerIds;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

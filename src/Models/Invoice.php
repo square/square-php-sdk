@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Stores information about an invoice. You use the Invoices API to create and manage
  * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
@@ -223,7 +225,15 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Primary Recipient.
      *
-     * Provides customer data that Square uses to deliver an invoice.
+     * Represents a snapshot of customer data. This object stores customer data that is displayed on the
+     * invoice
+     * and that Square uses to deliver the invoice.
+     *
+     * When you provide a customer ID for a draft invoice, Square retrieves the associated customer profile
+     * and populates
+     * the remaining `InvoiceRecipient` fields. You cannot update these fields after the invoice is
+     * published.
+     * Square updates the customer ID in response to a merge operation, but does not update other fields.
      */
     public function getPrimaryRecipient(): ?InvoiceRecipient
     {
@@ -233,7 +243,15 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Primary Recipient.
      *
-     * Provides customer data that Square uses to deliver an invoice.
+     * Represents a snapshot of customer data. This object stores customer data that is displayed on the
+     * invoice
+     * and that Square uses to deliver the invoice.
+     *
+     * When you provide a customer ID for a draft invoice, Square retrieves the associated customer profile
+     * and populates
+     * the remaining `InvoiceRecipient` fields. You cannot update these fields after the invoice is
+     * published.
+     * Square updates the customer ID in response to a merge operation, but does not update other fields.
      *
      * @maps primary_recipient
      */
@@ -699,9 +717,12 @@ class Invoice implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -767,9 +788,10 @@ class Invoice implements \JsonSerializable
         if (isset($this->saleOrServiceDate)) {
             $json['sale_or_service_date']      = $this->saleOrServiceDate;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

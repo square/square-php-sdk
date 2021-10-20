@@ -23,6 +23,7 @@ the original payment and the amount of money refunded.
 | `reason` | `?string` | Optional | The reason for the refund.<br>**Constraints**: *Maximum Length*: `192` | getReason(): ?string | setReason(?string reason): void |
 | `createdAt` | `?string` | Optional | The timestamp of when the refund was created, in RFC 3339 format.<br>**Constraints**: *Maximum Length*: `32` | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The timestamp of when the refund was last updated, in RFC 3339 format.<br>**Constraints**: *Maximum Length*: `32` | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
+| `teamMemberId` | `?string` | Optional | An optional ID of the team member associated with taking the payment.<br>**Constraints**: *Maximum Length*: `192` | getTeamMemberId(): ?string | setTeamMemberId(?string teamMemberId): void |
 
 ## Example (as JSON)
 

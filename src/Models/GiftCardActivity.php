@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents an action performed on a gift card that affects its state or balance.
  */
@@ -578,9 +580,12 @@ class GiftCardActivity implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -639,9 +644,10 @@ class GiftCardActivity implements \JsonSerializable
         if (isset($this->importReversalActivityDetails)) {
             $json['import_reversal_activity_details']          = $this->importReversalActivityDetails;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

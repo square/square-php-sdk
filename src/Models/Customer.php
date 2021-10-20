@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a Square customer profile in the Customer Directory of a Square seller.
  */
@@ -103,6 +105,11 @@ class Customer implements \JsonSerializable
      * @var int|null
      */
     private $version;
+
+    /**
+     * @var CustomerTaxIds|null
+     */
+    private $taxIds;
 
     /**
      * Returns Id.
@@ -621,11 +628,42 @@ class Customer implements \JsonSerializable
     }
 
     /**
+     * Returns Tax Ids.
+     *
+     * Represents the tax ID associated with a customer profile. The corresponding `tax_ids` field is
+     * available only for customers of sellers in France, Ireland, or the United Kingdom.
+     * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-
+     * it-does#customer-tax-ids).
+     */
+    public function getTaxIds(): ?CustomerTaxIds
+    {
+        return $this->taxIds;
+    }
+
+    /**
+     * Sets Tax Ids.
+     *
+     * Represents the tax ID associated with a customer profile. The corresponding `tax_ids` field is
+     * available only for customers of sellers in France, Ireland, or the United Kingdom.
+     * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-
+     * it-does#customer-tax-ids).
+     *
+     * @maps tax_ids
+     */
+    public function setTaxIds(?CustomerTaxIds $taxIds): void
+    {
+        $this->taxIds = $taxIds;
+    }
+
+    /**
      * Encode this object to JSON
+     *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
      *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->id)) {
@@ -685,9 +723,13 @@ class Customer implements \JsonSerializable
         if (isset($this->version)) {
             $json['version']         = $this->version;
         }
-
-        return array_filter($json, function ($val) {
+        if (isset($this->taxIds)) {
+            $json['tax_ids']         = $this->taxIds;
+        }
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

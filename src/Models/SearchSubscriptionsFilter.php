@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents a set of SearchSubscriptionsQuery filters used to limit the set of Subscriptions
  * returned by SearchSubscriptions.
@@ -19,6 +21,11 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      * @var string[]|null
      */
     private $locationIds;
+
+    /**
+     * @var string[]|null
+     */
+    private $sourceNames;
 
     /**
      * Returns Customer Ids.
@@ -73,11 +80,40 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     }
 
     /**
+     * Returns Source Names.
+     *
+     * A filter to select subscriptions based on the source application.
+     *
+     * @return string[]|null
+     */
+    public function getSourceNames(): ?array
+    {
+        return $this->sourceNames;
+    }
+
+    /**
+     * Sets Source Names.
+     *
+     * A filter to select subscriptions based on the source application.
+     *
+     * @maps source_names
+     *
+     * @param string[]|null $sourceNames
+     */
+    public function setSourceNames(?array $sourceNames): void
+    {
+        $this->sourceNames = $sourceNames;
+    }
+
+    /**
      * Encode this object to JSON
+     *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
      *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->customerIds)) {
@@ -86,9 +122,13 @@ class SearchSubscriptionsFilter implements \JsonSerializable
         if (isset($this->locationIds)) {
             $json['location_ids'] = $this->locationIds;
         }
-
-        return array_filter($json, function ($val) {
+        if (isset($this->sourceNames)) {
+            $json['source_names'] = $this->sourceNames;
+        }
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

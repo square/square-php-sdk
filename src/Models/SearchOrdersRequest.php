@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * The request does not have any required fields. When given no query criteria,
  * `SearchOrders` returns all results for all of the seller's locations. When retrieving additional
@@ -182,9 +184,12 @@ class SearchOrdersRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->locationIds)) {
@@ -202,9 +207,10 @@ class SearchOrdersRequest implements \JsonSerializable
         if (isset($this->returnEntries)) {
             $json['return_entries'] = $this->returnEntries;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Defines the valid parameters for requests to the `ListCustomerSegments` endpoint.
  */
@@ -84,9 +86,12 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->cursor)) {
@@ -95,9 +100,10 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
         if (isset($this->limit)) {
             $json['limit']  = $this->limit;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

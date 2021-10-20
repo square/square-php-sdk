@@ -351,7 +351,7 @@ if ($apiResponse->isSuccess()) {
 
 ## Tests
 
-First, clone the gem locally and `cd` into the directory.
+First, clone the repo locally and `cd` into the directory.
 
 ```sh
 git clone https://github.com/square/square-php-sdk.git

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Present only when `GiftCardActivityType` is UNBLOCK.
  */
@@ -13,14 +15,6 @@ class GiftCardActivityUnblock implements \JsonSerializable
      * @var string
      */
     private $reason;
-
-    /**
-     * @param string $reason
-     */
-    public function __construct(string $reason)
-    {
-        $this->reason = $reason;
-    }
 
     /**
      * Returns Reason.
@@ -33,7 +27,6 @@ class GiftCardActivityUnblock implements \JsonSerializable
     /**
      * Sets Reason.
      *
-     * @required
      * @maps reason
      */
     public function setReason(string $reason): void
@@ -44,15 +37,19 @@ class GiftCardActivityUnblock implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['reason'] = $this->reason;
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

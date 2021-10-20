@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Describes pricing adjustments that are blocked from manual and
  * automatic application to a line item. For more information, see
@@ -85,9 +87,12 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->blockedDiscounts)) {
@@ -96,9 +101,10 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
         if (isset($this->blockedTaxes)) {
             $json['blocked_taxes']     = $this->blockedTaxes;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

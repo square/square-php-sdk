@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Describes a request to create a payment using
  * [CreatePayment]($e/Payments/CreatePayment).
@@ -59,6 +61,11 @@ class CreatePaymentRequest implements \JsonSerializable
      * @var string|null
      */
     private $locationId;
+
+    /**
+     * @var string|null
+     */
+    private $teamMemberId;
 
     /**
      * @var string|null
@@ -453,6 +460,30 @@ class CreatePaymentRequest implements \JsonSerializable
     public function setLocationId(?string $locationId): void
     {
         $this->locationId = $locationId;
+    }
+
+    /**
+     * Returns Team Member Id.
+     *
+     * An optional [TeamMember]($m/TeamMember) ID to associate with
+     * this payment.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * An optional [TeamMember]($m/TeamMember) ID to associate with
+     * this payment.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
     }
 
     /**
@@ -864,9 +895,12 @@ class CreatePaymentRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['source_id']                            = $this->sourceId;
@@ -892,6 +926,9 @@ class CreatePaymentRequest implements \JsonSerializable
         }
         if (isset($this->locationId)) {
             $json['location_id']                      = $this->locationId;
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']                   = $this->teamMemberId;
         }
         if (isset($this->referenceId)) {
             $json['reference_id']                     = $this->referenceId;
@@ -923,9 +960,10 @@ class CreatePaymentRequest implements \JsonSerializable
         if (isset($this->externalDetails)) {
             $json['external_details']                 = $this->externalDetails;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

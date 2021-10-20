@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Describes a payment request reminder (automatic notification) that Square sends
  * to the customer. You configure a reminder relative to the payment request
@@ -155,9 +157,12 @@ class InvoicePaymentReminder implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->uid)) {
@@ -175,9 +180,10 @@ class InvoicePaymentReminder implements \JsonSerializable
         if (isset($this->sentAt)) {
             $json['sent_at']                 = $this->sentAt;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

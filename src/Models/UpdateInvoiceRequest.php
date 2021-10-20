@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Describes a `UpdateInvoice` request.
  */
@@ -124,9 +126,12 @@ class UpdateInvoiceRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['invoice']             = $this->invoice;
@@ -136,9 +141,10 @@ class UpdateInvoiceRequest implements \JsonSerializable
         if (isset($this->fieldsToClear)) {
             $json['fields_to_clear'] = $this->fieldsToClear;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

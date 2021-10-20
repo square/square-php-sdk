@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 class BatchChangeInventoryRequest implements \JsonSerializable
 {
     /**
@@ -119,9 +121,12 @@ class BatchChangeInventoryRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['idempotency_key']             = $this->idempotencyKey;
@@ -131,9 +136,10 @@ class BatchChangeInventoryRequest implements \JsonSerializable
         if (isset($this->ignoreUnchangedCounts)) {
             $json['ignore_unchanged_counts'] = $this->ignoreUnchangedCounts;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

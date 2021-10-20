@@ -104,20 +104,22 @@ function refundPayment(RefundPaymentRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'a7e36d40-d24b-11e8-b568-0800200c9a66';
+$body_idempotencyKey = '9b7f2dcf-49da-4411-b23e-a2d6af21333a';
 $body_amountMoney = new Models\Money;
-$body_amountMoney->setAmount(100);
+$body_amountMoney->setAmount(1000);
 $body_amountMoney->setCurrency(Models\Currency::USD);
-$body_paymentId = 'UNOE3kv2BZwqHlJ830RCt5YCuaB';
+$body_paymentId = 'R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY';
 $body = new Models\RefundPaymentRequest(
     $body_idempotencyKey,
     $body_amountMoney,
     $body_paymentId
 );
 $body->setAppFeeMoney(new Models\Money);
-$body->getAppFeeMoney()->setAmount(114);
-$body->getAppFeeMoney()->setCurrency(Models\Currency::GEL);
-$body->setReason('reason8');
+$body->getAppFeeMoney()->setAmount(10);
+$body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
+$body->setReason('Example');
+$body->setPaymentVersionToken('payment_version_token6');
+$body->setTeamMemberId('team_member_id4');
 
 $apiResponse = $refundsApi->refundPayment($body);
 

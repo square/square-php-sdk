@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-09-15'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2021-10-20'` |
 | `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `int` | Timeout for API calls |
@@ -17,7 +17,7 @@ The API client can be initialized as follows:
 $client = new Square\SquareClient([
     // Set authentication parameters
     'accessToken' => 'AccessToken',
-    'squareVersion' => '2021-09-15',
+    'squareVersion' => '2021-10-20',
 
     // Set the environment
     'environment' => 'production',
@@ -44,7 +44,7 @@ require_once "vendor/autoload.php";
 
 $client = new Square\SquareClient([
     'accessToken' => 'AccessToken',
-    'squareVersion' => '2021-09-15',
+    'squareVersion' => '2021-10-20',
 ]);
 
 $locationsApi = $client->getLocationsApi();

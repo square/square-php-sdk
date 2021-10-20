@@ -524,12 +524,16 @@ class PaymentsApi extends BaseApi
      * You can use this endpoint to complete a payment with the APPROVED `status`.
      *
      * @param string $paymentId The unique ID identifying the payment to be completed.
+     * @param \Square\Models\CompletePaymentRequest $body An object containing the fields to POST
+     *        for the request.
+     *
+     *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function completePayment(string $paymentId): ApiResponse
+    public function completePayment(string $paymentId, \Square\Models\CompletePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments/{payment_id}/complete';
@@ -546,9 +550,13 @@ class PaymentsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
+            'content-type'  => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //json encode body
+        $_bodyJson = Request\Body::Json($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
 
@@ -565,7 +573,7 @@ class PaymentsApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

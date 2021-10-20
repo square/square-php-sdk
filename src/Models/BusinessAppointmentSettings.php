@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * The service appointment settings, including where and how the service is provided.
  */
@@ -393,9 +395,12 @@ class BusinessAppointmentSettings implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->locationTypes)) {
@@ -437,9 +442,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
         if (isset($this->skipBookingFlowStaffSelection)) {
             $json['skip_booking_flow_staff_selection']   = $this->skipBookingFlowStaffSelection;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

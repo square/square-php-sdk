@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * A discount to block from applying to a line item. The discount must be
  * identified by either `discount_uid` or `discount_catalog_object_id`, but not both.
@@ -100,9 +102,12 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->uid)) {
@@ -114,9 +119,10 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
         if (isset($this->discountCatalogObjectId)) {
             $json['discount_catalog_object_id'] = $this->discountCatalogObjectId;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

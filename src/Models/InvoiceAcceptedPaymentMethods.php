@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * The payment methods that customers can use to pay an invoice on the Square-hosted invoice page.
  */
@@ -97,9 +99,12 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->card)) {
@@ -111,9 +116,10 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
         if (isset($this->bankAccount)) {
             $json['bank_account']     = $this->bankAccount;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

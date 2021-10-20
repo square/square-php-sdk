@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Published when evidence is added to a [Dispute]($m/Dispute)
  * from the Disputes Dashboard in the Seller Dashboard, the Square Point of Sale app,
@@ -173,9 +175,12 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         if (isset($this->merchantId)) {
@@ -196,9 +201,10 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
         if (isset($this->data)) {
             $json['data']        = $this->data;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

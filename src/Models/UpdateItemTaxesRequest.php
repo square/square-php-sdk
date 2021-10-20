@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 class UpdateItemTaxesRequest implements \JsonSerializable
 {
     /**
@@ -111,9 +113,12 @@ class UpdateItemTaxesRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['item_ids']             = $this->itemIds;
@@ -123,9 +128,10 @@ class UpdateItemTaxesRequest implements \JsonSerializable
         if (isset($this->taxesToDisable)) {
             $json['taxes_to_disable'] = $this->taxesToDisable;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

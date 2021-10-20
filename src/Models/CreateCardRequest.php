@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Creates a card from the source (nonce, payment id, etc). Accessible via
  * HTTP requests at POST https://connect.squareup.com/v2/cards
@@ -162,9 +164,12 @@ class CreateCardRequest implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['idempotency_key']        = $this->idempotencyKey;
@@ -173,9 +178,10 @@ class CreateCardRequest implements \JsonSerializable
             $json['verification_token'] = $this->verificationToken;
         }
         $json['card']                   = $this->card;
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Represents the rule of conversion between a stockable
  * [CatalogItemVariation]($m/CatalogItemVariation)
@@ -46,7 +48,8 @@ class CatalogStockConversion implements \JsonSerializable
      * Returns Stockable Item Variation Id.
      *
      * References to the stockable [CatalogItemVariation]($m/CatalogItemVariation)
-     * for this stock conversion. Selling, receiving or recounting the non-stockable `CatalogItemVariation`
+     * for this stock conversion. Selling, receiving or recounting the non-stockable
+     * `CatalogItemVariation`
      * defined with a stock conversion results in adjustments of this stockable `CatalogItemVariation`.
      * This immutable field must reference a stockable `CatalogItemVariation`
      * that shares the parent [CatalogItem]($m/CatalogItem) of the converted `CatalogItemVariation.`
@@ -60,7 +63,8 @@ class CatalogStockConversion implements \JsonSerializable
      * Sets Stockable Item Variation Id.
      *
      * References to the stockable [CatalogItemVariation]($m/CatalogItemVariation)
-     * for this stock conversion. Selling, receiving or recounting the non-stockable `CatalogItemVariation`
+     * for this stock conversion. Selling, receiving or recounting the non-stockable
+     * `CatalogItemVariation`
      * defined with a stock conversion results in adjustments of this stockable `CatalogItemVariation`.
      * This immutable field must reference a stockable `CatalogItemVariation`
      * that shares the parent [CatalogItem]($m/CatalogItem) of the converted `CatalogItemVariation.`
@@ -142,17 +146,21 @@ class CatalogStockConversion implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['stockable_item_variation_id'] = $this->stockableItemVariationId;
         $json['stockable_quantity']          = $this->stockableQuantity;
         $json['nonstockable_quantity']       = $this->nonstockableQuantity;
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }

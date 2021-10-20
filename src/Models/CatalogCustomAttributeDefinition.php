@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use stdClass;
+
 /**
  * Contains information defining a custom attribute. Custom attributes are
  * intended to store additional information about a catalog object or to associate a
@@ -384,9 +386,12 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     /**
      * Encode this object to JSON
      *
+     * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
+     *        are set. (default: false)
+     *
      * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
         $json['type']                             = $this->type;
@@ -419,9 +424,10 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
         if (isset($this->key)) {
             $json['key']                          = $this->key;
         }
-
-        return array_filter($json, function ($val) {
+        $json = array_filter($json, function ($val) {
             return $val !== null;
         });
+
+        return (!$asArrayWhenEmpty && empty($json)) ? new stdClass() : $json;
     }
 }
