@@ -46,7 +46,7 @@ class SubscriptionEventInfo implements \JsonSerializable
     /**
      * Returns Code.
      *
-     * The possible subscription event info codes.
+     * Supported info codes of a subscription event.
      */
     public function getCode(): ?string
     {
@@ -56,7 +56,7 @@ class SubscriptionEventInfo implements \JsonSerializable
     /**
      * Sets Code.
      *
-     * The possible subscription event info codes.
+     * Supported info codes of a subscription event.
      *
      * @maps code
      */

@@ -78,9 +78,6 @@ class DisputesApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -145,9 +142,6 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -217,9 +211,6 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -295,9 +286,6 @@ class DisputesApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -346,7 +334,7 @@ class DisputesApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'dispute_id' => $disputeId,
+            'dispute_id'   => $disputeId,
         ]);
 
         //validate and preprocess url
@@ -362,7 +350,7 @@ class DisputesApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'  => json_encode($request),
+            'request'    => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -375,9 +363,6 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -430,7 +415,7 @@ class DisputesApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'dispute_id' => $disputeId,
+            'dispute_id'   => $disputeId,
         ]);
 
         //validate and preprocess url
@@ -440,8 +425,8 @@ class DisputesApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -457,9 +442,6 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -531,9 +513,6 @@ class DisputesApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -604,9 +583,6 @@ class DisputesApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -676,9 +652,6 @@ class DisputesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

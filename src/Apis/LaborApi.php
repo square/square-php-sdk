@@ -70,9 +70,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -135,8 +132,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -152,9 +149,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -223,9 +217,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -291,9 +282,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -339,7 +327,7 @@ class LaborApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'id'   => $id,
+            'id'           => $id,
         ]);
 
         //validate and preprocess url
@@ -349,8 +337,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -366,9 +354,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -449,9 +434,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -521,9 +503,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -590,8 +569,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -607,9 +586,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -673,8 +649,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -690,9 +666,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -759,9 +732,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -827,9 +797,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -881,7 +848,7 @@ class LaborApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'id'   => $id,
+            'id'           => $id,
         ]);
 
         //validate and preprocess url
@@ -891,8 +858,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -908,9 +875,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -988,9 +952,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -1055,9 +1016,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -1126,9 +1084,6 @@ class LaborApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -1174,7 +1129,7 @@ class LaborApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'id'   => $id,
+            'id'           => $id,
         ]);
 
         //validate and preprocess url
@@ -1184,8 +1139,8 @@ class LaborApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -1201,9 +1156,6 @@ class LaborApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

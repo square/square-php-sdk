@@ -83,6 +83,8 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Type.
+     *
+     * Indicates the gift card type.
      */
     public function getType(): string
     {
@@ -91,6 +93,8 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Type.
+     *
+     * Indicates the gift card type.
      *
      * @required
      * @maps type

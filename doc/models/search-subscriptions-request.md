@@ -1,9 +1,8 @@
 
 # Search Subscriptions Request
 
-Defines parameters in a
-[SearchSubscriptions](/doc/apis/subscriptions.md#search-subscriptions) endpoint
-request.
+Defines input parameters in a request to the
+[SearchSubscriptions](/doc/apis/subscriptions.md#search-subscriptions) endpoint.
 
 ## Structure
 
@@ -13,9 +12,10 @@ request.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
-| `limit` | `?int` | Optional | The upper limit on the number of subscriptions to return<br>in the response.<br><br>Default: `200`<br>**Constraints**: `>= 1` | getLimit(): ?int | setLimit(?int limit): void |
-| `query` | [`?SearchSubscriptionsQuery`](/doc/models/search-subscriptions-query.md) | Optional | Represents a query (including filtering criteria) used to search for subscriptions. | getQuery(): ?SearchSubscriptionsQuery | setQuery(?SearchSubscriptionsQuery query): void |
+| `cursor` | `?string` | Optional | When the total number of resulting subscriptions exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `limit` | `?int` | Optional | The upper limit on the number of subscriptions to return<br>in a paged response.<br>**Constraints**: `>= 1` | getLimit(): ?int | setLimit(?int limit): void |
+| `query` | [`?SearchSubscriptionsQuery`](/doc/models/search-subscriptions-query.md) | Optional | Represents a query, consisting of specified query expressions, used to search for subscriptions. | getQuery(): ?SearchSubscriptionsQuery | setQuery(?SearchSubscriptionsQuery query): void |
+| `mInclude` | `?(string[])` | Optional | A query parameter to specify related information to be included in the response.<br><br>The supported query parameter values are:<br><br>- `actions`: to include scheduled actions on the targeted subscriptions. | getMInclude(): ?array | setMInclude(?array mInclude): void |
 
 ## Example (as JSON)
 

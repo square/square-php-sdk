@@ -26,23 +26,24 @@ class GiftCardsApi extends BaseApi
      * Lists all gift cards. You can specify optional filters to retrieve
      * a subset of the gift cards.
      *
-     * @param string|null $type If a type is provided, gift cards of this type are returned (see
-     *        [GiftCardType]($m/GiftCardType)).
-     *        If no type is provided, it returns gift cards of all types.
-     * @param string|null $state If the state is provided, it returns the gift cards in the
-     *        specified state
-     *        (see [GiftCardStatus]($m/GiftCardStatus)).
-     *        Otherwise, it returns the gift cards of all states.
-     * @param int|null $limit If a value is provided, it returns only that number of results per
-     *        page.
-     *        The maximum number of results allowed per page is 50. The default value is 30.
-     * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
-     *        Provide this cursor to retrieve the next set of results for the original query.
-     *        If a cursor is not provided, it returns the first page of the results.
+     * @param string|null $type If a [type]($m/GiftCardType) is provided, the endpoint returns gift
+     *        cards of the specified type.
+     *        Otherwise, the endpoint returns gift cards of all types.
+     * @param string|null $state If a [state]($m/GiftCardStatus) is provided, the endpoint returns
+     *        the gift cards in the specified state.
+     *        Otherwise, the endpoint returns the gift cards of all states.
+     * @param int|null $limit If a limit is provided, the endpoint returns only the specified number
+     *        of results per page.
+     *        The maximum value is 50. The default value is 30.
      *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
      *        with-apis/pagination).
-     * @param string|null $customerId If a value is provided, returns only the gift cards linked to
-     *        the specified customer
+     * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
+     *        Provide this cursor to retrieve the next set of results for the original query.
+     *        If a cursor is not provided, the endpoint returns the first page of the results.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
+     * @param string|null $customerId If a customer ID is provided, the endpoint returns only the
+     *        gift cards linked to the specified customer.
      *
      * @return ApiResponse Response from the API call
      *
@@ -87,9 +88,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -144,8 +142,8 @@ class GiftCardsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -161,9 +159,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -214,8 +209,8 @@ class GiftCardsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -231,9 +226,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -261,7 +253,7 @@ class GiftCardsApi extends BaseApi
     }
 
     /**
-     * Retrieves a gift card using a nonce (a secure token) that represents the gift card.
+     * Retrieves a gift card using a secure payment token that represents the gift card.
      *
      * @param \Square\Models\RetrieveGiftCardFromNonceRequest $body An object containing the fields
      *        to POST for the request.
@@ -284,8 +276,8 @@ class GiftCardsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -301,9 +293,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -331,9 +320,9 @@ class GiftCardsApi extends BaseApi
     }
 
     /**
-     * Links a customer to a gift card
+     * Links a customer to a gift card, which is also referred to as adding a card on file.
      *
-     * @param string $giftCardId The ID of the gift card to link.
+     * @param string $giftCardId The ID of the gift card to be linked.
      * @param \Square\Models\LinkCustomerToGiftCardRequest $body An object containing the fields to
      *        POST for the request.
      *
@@ -362,8 +351,8 @@ class GiftCardsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -379,9 +368,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -409,9 +395,9 @@ class GiftCardsApi extends BaseApi
     }
 
     /**
-     * Unlinks a customer from a gift card
+     * Unlinks a customer from a gift card, which is also referred to as removing a card on file.
      *
-     * @param string $giftCardId
+     * @param string $giftCardId The ID of the gift card to be unlinked.
      * @param \Square\Models\UnlinkCustomerFromGiftCardRequest $body An object containing the fields
      *        to POST for the request.
      *
@@ -440,8 +426,8 @@ class GiftCardsApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -457,9 +443,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -528,9 +511,6 @@ class GiftCardsApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

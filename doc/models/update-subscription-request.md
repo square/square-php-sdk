@@ -1,9 +1,8 @@
 
 # Update Subscription Request
 
-Defines parameters in a
-[UpdateSubscription](/doc/apis/subscriptions.md#update-subscription) endpoint
-request.
+Defines input parameters in a request to the
+[UpdateSubscription](/doc/apis/subscriptions.md#update-subscription) endpoint.
 
 ## Structure
 
@@ -13,7 +12,7 @@ request.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `subscription` | [`?Subscription`](/doc/models/subscription.md) | Optional | Represents a customer subscription to a subscription plan.<br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). | getSubscription(): ?Subscription | setSubscription(?Subscription subscription): void |
+| `subscription` | [`?Subscription`](/doc/models/subscription.md) | Optional | Represents a subscription to a subscription plan by a subscriber.<br><br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). | getSubscription(): ?Subscription | setSubscription(?Subscription subscription): void |
 
 ## Example (as JSON)
 

@@ -7,9 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A response that contains one or more `GiftCardActivity`. The response might contain a set of
- * `Error` objects
- * if the request resulted in errors.
+ * A response that contains a list of `GiftCardActivity` objects. If the request resulted in errors,
+ * the response contains a set of `Error` objects.
  */
 class ListGiftCardActivitiesResponse implements \JsonSerializable
 {
@@ -57,7 +56,7 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
     /**
      * Returns Gift Card Activities.
      *
-     * Gift card activities retrieved.
+     * The requested gift card activities or an empty object if none are found.
      *
      * @return GiftCardActivity[]|null
      */
@@ -69,7 +68,7 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
     /**
      * Sets Gift Card Activities.
      *
-     * Gift card activities retrieved.
+     * The requested gift card activities or an empty object if none are found.
      *
      * @maps gift_card_activities
      *
@@ -84,8 +83,10 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
      * Returns Cursor.
      *
      * When a response is truncated, it includes a cursor that you can use in a
-     * subsequent request to fetch the next set of activities. If empty, this is
+     * subsequent request to retrieve the next set of activities. If a cursor is not present, this is
      * the final response.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      */
     public function getCursor(): ?string
     {
@@ -96,8 +97,10 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
      * Sets Cursor.
      *
      * When a response is truncated, it includes a cursor that you can use in a
-     * subsequent request to fetch the next set of activities. If empty, this is
+     * subsequent request to retrieve the next set of activities. If a cursor is not present, this is
      * the final response.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
      *
      * @maps cursor
      */

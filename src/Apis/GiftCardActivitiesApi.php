@@ -28,29 +28,32 @@ class GiftCardActivitiesApi extends BaseApi
      * filter the list. For example, you can get a list of gift card activities for a gift card,
      * for all gift cards in a specific region, or for activities within a time window.
      *
-     * @param string|null $giftCardId If you provide a gift card ID, the endpoint returns activities
-     *        that belong
+     * @param string|null $giftCardId If a gift card ID is provided, the endpoint returns activities
+     *        related
      *        to the specified gift card. Otherwise, the endpoint returns all gift card activities
      *        for
      *        the seller.
-     * @param string|null $type If you provide a type, the endpoint returns gift card activities of
-     *        this type.
+     * @param string|null $type If a [type]($m/GiftCardActivityType) is provided, the endpoint
+     *        returns gift card activities of the specified type.
      *        Otherwise, the endpoint returns all types of gift card activities.
-     * @param string|null $locationId If you provide a location ID, the endpoint returns gift card
-     *        activities for that location.
+     * @param string|null $locationId If a location ID is provided, the endpoint returns gift card
+     *        activities for the specified location.
      *        Otherwise, the endpoint returns gift card activities for all locations.
      * @param string|null $beginTime The timestamp for the beginning of the reporting period, in RFC
      *        3339 format.
-     *        Inclusive. Default: The current time minus one year.
+     *        This start time is inclusive. The default value is the current time minus one year.
      * @param string|null $endTime The timestamp for the end of the reporting period, in RFC 3339
      *        format.
-     *        Inclusive. Default: The current time.
-     * @param int|null $limit If you provide a limit value, the endpoint returns the specified
-     *        number
-     *        of results (or less) per page. A maximum value is 100. The default value is 50.
+     *        This end time is inclusive. The default value is the current time.
+     * @param int|null $limit If a limit is provided, the endpoint returns the specified number of
+     *        results (or fewer) per page. The maximum value is 100. The default value is 50.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
-     *        If you do not provide the cursor, the call returns the first page of the results.
+     *        If a cursor is not provided, the endpoint returns the first page of the results.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
+     *        with-apis/pagination).
      * @param string|null $sortOrder The order in which the endpoint returns the activities, based
      *        on `created_at`.
      *        - `ASC` - Oldest to newest.
@@ -106,9 +109,6 @@ class GiftCardActivitiesApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -162,8 +162,8 @@ class GiftCardActivitiesApi extends BaseApi
         $_headers = [
             'user-agent'    => BaseApi::USER_AGENT,
             'Accept'        => 'application/json',
-            'content-type'  => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
         ];
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
@@ -179,9 +179,6 @@ class GiftCardActivitiesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

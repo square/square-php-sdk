@@ -227,7 +227,7 @@ class Booking implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of the [Customer]($m/Customer) object representing the customer attending this booking
+     * The ID of the [Customer]($m/Customer) object representing the customer receiving the booked service.
      */
     public function getCustomerId(): ?string
     {
@@ -237,7 +237,7 @@ class Booking implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of the [Customer]($m/Customer) object representing the customer attending this booking
+     * The ID of the [Customer]($m/Customer) object representing the customer receiving the booked service.
      *
      * @maps customer_id
      */

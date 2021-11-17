@@ -23,7 +23,8 @@ class SitesApi extends BaseApi
     }
 
     /**
-     * Lists the Square Online sites that belong to a seller.
+     * Lists the Square Online sites that belong to a seller. Sites are listed in descending order by the
+     * `created_at` date.
      *
      *
      * __Note:__ Square Online APIs are publicly available as part of an early access program. For more
@@ -59,9 +60,6 @@ class SitesApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

@@ -60,6 +60,11 @@ class Card implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $merchantId;
+
+    /**
+     * @var string|null
+     */
     private $referenceId;
 
     /**
@@ -350,6 +355,28 @@ class Card implements \JsonSerializable
     }
 
     /**
+     * Returns Merchant Id.
+     *
+     * The ID of the merchant associated with the card.
+     */
+    public function getMerchantId(): ?string
+    {
+        return $this->merchantId;
+    }
+
+    /**
+     * Sets Merchant Id.
+     *
+     * The ID of the merchant associated with the card.
+     *
+     * @maps merchant_id
+     */
+    public function setMerchantId(?string $merchantId): void
+    {
+        $this->merchantId = $merchantId;
+    }
+
+    /**
      * Returns Reference Id.
      *
      * An optional user-defined reference ID that associates this card with
@@ -530,6 +557,9 @@ class Card implements \JsonSerializable
         }
         if (isset($this->customerId)) {
             $json['customer_id']     = $this->customerId;
+        }
+        if (isset($this->merchantId)) {
+            $json['merchant_id']     = $this->merchantId;
         }
         if (isset($this->referenceId)) {
             $json['reference_id']    = $this->referenceId;

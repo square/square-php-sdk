@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to unlink a customer to a gift card
+ * A request to unlink a customer from a gift card.
  */
 class UnlinkCustomerFromGiftCardRequest implements \JsonSerializable
 {
@@ -26,6 +26,8 @@ class UnlinkCustomerFromGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
+     *
+     * The ID of the customer to unlink from the gift card.
      */
     public function getCustomerId(): string
     {
@@ -34,6 +36,8 @@ class UnlinkCustomerFromGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
+     *
+     * The ID of the customer to unlink from the gift card.
      *
      * @required
      * @maps customer_id

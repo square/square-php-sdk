@@ -7,9 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines parameters in a
- * [ResumeSubscription]($e/Subscriptions/ResumeSubscription) endpoint
- * response.
+ * Defines output parameters in a response from the
+ * [ResumeSubscription]($e/Subscriptions/ResumeSubscription) endpoint.
  */
 class ResumeSubscriptionResponse implements \JsonSerializable
 {
@@ -24,9 +23,14 @@ class ResumeSubscriptionResponse implements \JsonSerializable
     private $subscription;
 
     /**
+     * @var SubscriptionAction[]|null
+     */
+    private $actions;
+
+    /**
      * Returns Errors.
      *
-     * Information about errors encountered during the request.
+     * Errors encountered during the request.
      *
      * @return Error[]|null
      */
@@ -38,7 +42,7 @@ class ResumeSubscriptionResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Information about errors encountered during the request.
+     * Errors encountered during the request.
      *
      * @maps errors
      *
@@ -52,7 +56,8 @@ class ResumeSubscriptionResponse implements \JsonSerializable
     /**
      * Returns Subscription.
      *
-     * Represents a customer subscription to a subscription plan.
+     * Represents a subscription to a subscription plan by a subscriber.
+     *
      * For an overview of the `Subscription` type, see
      * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
      * object-overview).
@@ -65,7 +70,8 @@ class ResumeSubscriptionResponse implements \JsonSerializable
     /**
      * Sets Subscription.
      *
-     * Represents a customer subscription to a subscription plan.
+     * Represents a subscription to a subscription plan by a subscriber.
+     *
      * For an overview of the `Subscription` type, see
      * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
      * object-overview).
@@ -75,6 +81,32 @@ class ResumeSubscriptionResponse implements \JsonSerializable
     public function setSubscription(?Subscription $subscription): void
     {
         $this->subscription = $subscription;
+    }
+
+    /**
+     * Returns Actions.
+     *
+     * A list of `RESUME` actions created by the request and scheduled for the subscription.
+     *
+     * @return SubscriptionAction[]|null
+     */
+    public function getActions(): ?array
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Sets Actions.
+     *
+     * A list of `RESUME` actions created by the request and scheduled for the subscription.
+     *
+     * @maps actions
+     *
+     * @param SubscriptionAction[]|null $actions
+     */
+    public function setActions(?array $actions): void
+    {
+        $this->actions = $actions;
     }
 
     /**
@@ -93,6 +125,9 @@ class ResumeSubscriptionResponse implements \JsonSerializable
         }
         if (isset($this->subscription)) {
             $json['subscription'] = $this->subscription;
+        }
+        if (isset($this->actions)) {
+            $json['actions']      = $this->actions;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

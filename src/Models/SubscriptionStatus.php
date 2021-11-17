@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Possible subscription status values.
+ * Supported subscription statuses.
  */
 class SubscriptionStatus
 {
     /**
-     * The subscription starts in the future.
+     * The subscription is pending to start in the future.
      */
     public const PENDING = 'PENDING';
 
@@ -28,4 +28,9 @@ class SubscriptionStatus
      * The subscription is deactivated.
      */
     public const DEACTIVATED = 'DEACTIVATED';
+
+    /**
+     * The subscription is paused.
+     */
+    public const PAUSED = 'PAUSED';
 }

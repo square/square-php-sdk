@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes changes to subscription and billing states.
+ * Describes changes to a subscription and the subscription status.
  */
 class SubscriptionEvent implements \JsonSerializable
 {
@@ -76,7 +76,7 @@ class SubscriptionEvent implements \JsonSerializable
     /**
      * Returns Subscription Event Type.
      *
-     * The possible subscription event types.
+     * Supported types of an event occurred to a subscription.
      */
     public function getSubscriptionEventType(): string
     {
@@ -86,7 +86,7 @@ class SubscriptionEvent implements \JsonSerializable
     /**
      * Sets Subscription Event Type.
      *
-     * The possible subscription event types.
+     * Supported types of an event occurred to a subscription.
      *
      * @required
      * @maps subscription_event_type
@@ -99,8 +99,7 @@ class SubscriptionEvent implements \JsonSerializable
     /**
      * Returns Effective Date.
      *
-     * The date, in YYYY-MM-DD format (for
-     * example, 2013-01-15), when the subscription event went into effect.
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred.
      */
     public function getEffectiveDate(): string
     {
@@ -110,8 +109,7 @@ class SubscriptionEvent implements \JsonSerializable
     /**
      * Sets Effective Date.
      *
-     * The date, in YYYY-MM-DD format (for
-     * example, 2013-01-15), when the subscription event went into effect.
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred.
      *
      * @required
      * @maps effective_date

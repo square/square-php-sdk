@@ -1,7 +1,7 @@
 
 # Search Subscriptions Query
 
-Represents a query (including filtering criteria) used to search for subscriptions.
+Represents a query, consisting of specified query expressions, used to search for subscriptions.
 
 ## Structure
 
@@ -11,7 +11,7 @@ Represents a query (including filtering criteria) used to search for subscriptio
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `filter` | [`?SearchSubscriptionsFilter`](/doc/models/search-subscriptions-filter.md) | Optional | Represents a set of SearchSubscriptionsQuery filters used to limit the set of Subscriptions returned by SearchSubscriptions. | getFilter(): ?SearchSubscriptionsFilter | setFilter(?SearchSubscriptionsFilter filter): void |
+| `filter` | [`?SearchSubscriptionsFilter`](/doc/models/search-subscriptions-filter.md) | Optional | Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions returned by<br>the [SearchSubscriptions](/doc/apis/subscriptions.md#search-subscriptions) endpoint. | getFilter(): ?SearchSubscriptionsFilter | setFilter(?SearchSubscriptionsFilter filter): void |
 
 ## Example (as JSON)
 

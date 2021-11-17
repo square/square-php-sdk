@@ -12,7 +12,7 @@ Represents an action performed on a gift card that affects its state or balance.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The unique ID of the gift card activity. | getId(): ?string | setId(?string id): void |
-| `type` | [`string (GiftCardActivityType)`](/doc/models/gift-card-activity-type.md) | Required | - | getType(): string | setType(string type): void |
+| `type` | [`string (GiftCardActivityType)`](/doc/models/gift-card-activity-type.md) | Required | Indicates the gift card activity type. | getType(): string | setType(string type): void |
 | `locationId` | `string` | Required | The ID of the location at which the activity occurred. | getLocationId(): string | setLocationId(string locationId): void |
 | `createdAt` | `?string` | Optional | The timestamp when the gift card activity was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `giftCardId` | `?string` | Optional | The gift card ID. The ID is not required if a GAN is present. | getGiftCardId(): ?string | setGiftCardId(?string giftCardId): void |

@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to link a customer to a gift card
+ * A request to link a customer to a gift card.
  */
 class LinkCustomerToGiftCardRequest implements \JsonSerializable
 {
@@ -27,7 +27,7 @@ class LinkCustomerToGiftCardRequest implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of the customer to be linked.
+     * The ID of the customer to link to the gift card.
      */
     public function getCustomerId(): string
     {
@@ -37,7 +37,7 @@ class LinkCustomerToGiftCardRequest implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of the customer to be linked.
+     * The ID of the customer to link to the gift card.
      *
      * @required
      * @maps customer_id

@@ -9,6 +9,7 @@ use Square\Http\HttpResponse;
 use Square\ConfigurationInterface;
 use Square\AuthManagerInterface;
 use apimatic\jsonmapper\JsonMapper;
+use Unirest\Request;
 
 /**
  * Base controller
@@ -20,7 +21,7 @@ class BaseApi
      *
      * @var string
      */
-    protected const USER_AGENT = 'Square-PHP-SDK/15.0.0.20211020';
+    protected const USER_AGENT = 'Square-PHP-SDK/16.0.0.20211117';
 
     /**
      * HttpCallBack instance associated with this controller
@@ -51,6 +52,16 @@ class BaseApi
         $this->config = $config;
         $this->authManagers = $authManagers;
         $this->httpCallBack = $httpCallBack;
+
+        Request::timeout($config->getTimeout());
+        Request::enableRetries($config->shouldEnableRetries());
+        Request::maxNumberOfRetries($config->getNumberOfRetries());
+        Request::retryInterval($config->getRetryInterval());
+        Request::backoffFactor($config->getBackOffFactor());
+        Request::maximumRetryWaitTime($config->getMaximumRetryWaitTime());
+        Request::retryOnTimeout($config->shouldRetryOnTimeout());
+        Request::httpMethodsToRetry($config->getHttpMethodsToRetry());
+        Request::httpStatusCodesToRetry($config->getHttpStatusCodesToRetry());
     }
 
     /**

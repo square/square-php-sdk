@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [DisableCard](#endpoint-cards-disablecard) endpoint.
+ * a request to the [DisableCard]($e/Cards/DisableCard) endpoint.
  *
  * Note: if there are errors processing the request, the card field will not be
  * present.

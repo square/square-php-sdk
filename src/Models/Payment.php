@@ -637,7 +637,8 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, or `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, or
+     * `EXTERNAL`.
      */
     public function getSourceType(): ?string
     {
@@ -649,7 +650,8 @@ class Payment implements \JsonSerializable
      *
      * The source type for this payment.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, or `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, or
+     * `EXTERNAL`.
      *
      * @maps source_type
      */

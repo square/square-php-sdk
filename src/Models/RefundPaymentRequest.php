@@ -27,7 +27,7 @@ class RefundPaymentRequest implements \JsonSerializable
     private $appFeeMoney;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $paymentId;
 
@@ -49,13 +49,11 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * @param string $idempotencyKey
      * @param Money $amountMoney
-     * @param string $paymentId
      */
-    public function __construct(string $idempotencyKey, Money $amountMoney, string $paymentId)
+    public function __construct(string $idempotencyKey, Money $amountMoney)
     {
         $this->idempotencyKey = $idempotencyKey;
         $this->amountMoney = $amountMoney;
-        $this->paymentId = $paymentId;
     }
 
     /**
@@ -161,9 +159,9 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Returns Payment Id.
      *
-     * The unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded. Must be provided and non-empty.
      */
-    public function getPaymentId(): string
+    public function getPaymentId(): ?string
     {
         return $this->paymentId;
     }
@@ -171,12 +169,11 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Sets Payment Id.
      *
-     * The unique ID of the payment being refunded.
+     * The unique ID of the payment being refunded. Must be provided and non-empty.
      *
-     * @required
      * @maps payment_id
      */
-    public function setPaymentId(string $paymentId): void
+    public function setPaymentId(?string $paymentId): void
     {
         $this->paymentId = $paymentId;
     }
@@ -269,7 +266,9 @@ class RefundPaymentRequest implements \JsonSerializable
         if (isset($this->appFeeMoney)) {
             $json['app_fee_money']         = $this->appFeeMoney;
         }
-        $json['payment_id']                = $this->paymentId;
+        if (isset($this->paymentId)) {
+            $json['payment_id']            = $this->paymentId;
+        }
         if (isset($this->reason)) {
             $json['reason']                = $this->reason;
         }

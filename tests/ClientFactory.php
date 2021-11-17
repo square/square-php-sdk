@@ -21,6 +21,8 @@ class ClientFactory
     {
         $config = [];
         $timeout = getenv('SQUARE_TIMEOUT');
+        $numberOfRetries = getenv('SQUARE_NUMBER_OF_RETRIES');
+        $maximumRetryWaitTime = getenv('SQUARE_MAXIMUM_RETRY_WAIT_TIME');
         $squareVersion = getenv('SQUARE_SQUARE_VERSION');
         $environment = getenv('SQUARE_ENVIRONMENT');
         $customUrl = getenv('SQUARE_CUSTOM_URL');
@@ -28,6 +30,14 @@ class ClientFactory
 
         if ($timeout !== false && \is_numeric($timeout)) {
             $config['timeout'] = intval($timeout);
+        }
+
+        if ($numberOfRetries !== false && \is_numeric($numberOfRetries)) {
+            $config['numberOfRetries'] = intval($numberOfRetries);
+        }
+
+        if ($maximumRetryWaitTime !== false && \is_numeric($maximumRetryWaitTime)) {
+            $config['maximumRetryWaitTime'] = intval($maximumRetryWaitTime);
         }
 
         if ($squareVersion !== false) {
