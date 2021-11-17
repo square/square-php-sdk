@@ -45,7 +45,7 @@ function listDisputes(?string $cursor = null, ?string $states = null, ?string $l
 
 ```php
 $cursor = 'cursor6';
-$states = Models\DisputeState::EVIDENCE_REQUIRED;
+$states = Models\DisputeState::INQUIRY_EVIDENCE_REQUIRED;
 $locationId = 'location_id4';
 
 $apiResponse = $disputesApi->listDisputes($cursor, $states, $locationId);

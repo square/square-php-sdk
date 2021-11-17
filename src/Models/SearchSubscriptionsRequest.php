@@ -7,9 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines parameters in a
- * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint
- * request.
+ * Defines input parameters in a request to the
+ * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint.
  */
 class SearchSubscriptionsRequest implements \JsonSerializable
 {
@@ -29,10 +28,16 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     private $query;
 
     /**
+     * @var string[]|null
+     */
+    private $mInclude;
+
+    /**
      * Returns Cursor.
      *
-     * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
+     * When the total number of resulting subscriptions exceeds the limit of a paged response,
+     * specify the cursor returned from a preceding response here to fetch the next set of results.
+     * If the cursor is unset, the response contains the last page of the results.
      *
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
@@ -45,8 +50,9 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * A pagination cursor returned by a previous call to this endpoint.
-     * Provide this to retrieve the next set of results for the original query.
+     * When the total number of resulting subscriptions exceeds the limit of a paged response,
+     * specify the cursor returned from a preceding response here to fetch the next set of results.
+     * If the cursor is unset, the response contains the last page of the results.
      *
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
@@ -62,9 +68,7 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      * Returns Limit.
      *
      * The upper limit on the number of subscriptions to return
-     * in the response.
-     *
-     * Default: `200`
+     * in a paged response.
      */
     public function getLimit(): ?int
     {
@@ -75,9 +79,7 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      * Sets Limit.
      *
      * The upper limit on the number of subscriptions to return
-     * in the response.
-     *
-     * Default: `200`
+     * in a paged response.
      *
      * @maps limit
      */
@@ -89,7 +91,7 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * Returns Query.
      *
-     * Represents a query (including filtering criteria) used to search for subscriptions.
+     * Represents a query, consisting of specified query expressions, used to search for subscriptions.
      */
     public function getQuery(): ?SearchSubscriptionsQuery
     {
@@ -99,13 +101,47 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * Sets Query.
      *
-     * Represents a query (including filtering criteria) used to search for subscriptions.
+     * Represents a query, consisting of specified query expressions, used to search for subscriptions.
      *
      * @maps query
      */
     public function setQuery(?SearchSubscriptionsQuery $query): void
     {
         $this->query = $query;
+    }
+
+    /**
+     * Returns M Include.
+     *
+     * A query parameter to specify related information to be included in the response.
+     *
+     * The supported query parameter values are:
+     *
+     * - `actions`: to include scheduled actions on the targeted subscriptions.
+     *
+     * @return string[]|null
+     */
+    public function getMInclude(): ?array
+    {
+        return $this->mInclude;
+    }
+
+    /**
+     * Sets M Include.
+     *
+     * A query parameter to specify related information to be included in the response.
+     *
+     * The supported query parameter values are:
+     *
+     * - `actions`: to include scheduled actions on the targeted subscriptions.
+     *
+     * @maps include
+     *
+     * @param string[]|null $mInclude
+     */
+    public function setMInclude(?array $mInclude): void
+    {
+        $this->mInclude = $mInclude;
     }
 
     /**
@@ -120,13 +156,16 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     {
         $json = [];
         if (isset($this->cursor)) {
-            $json['cursor'] = $this->cursor;
+            $json['cursor']  = $this->cursor;
         }
         if (isset($this->limit)) {
-            $json['limit']  = $this->limit;
+            $json['limit']   = $this->limit;
         }
         if (isset($this->query)) {
-            $json['query']  = $this->query;
+            $json['query']   = $this->query;
+        }
+        if (isset($this->mInclude)) {
+            $json['include'] = $this->mInclude;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

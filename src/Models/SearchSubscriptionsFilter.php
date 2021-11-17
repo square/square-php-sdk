@@ -7,8 +7,9 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a set of SearchSubscriptionsQuery filters used to limit the set of Subscriptions
- * returned by SearchSubscriptions.
+ * Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions
+ * returned by
+ * the [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint.
  */
 class SearchSubscriptionsFilter implements \JsonSerializable
 {
@@ -30,7 +31,7 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     /**
      * Returns Customer Ids.
      *
-     * A filter to select subscriptions based on the customer.
+     * A filter to select subscriptions based on the subscribing customer IDs.
      *
      * @return string[]|null
      */
@@ -42,7 +43,7 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     /**
      * Sets Customer Ids.
      *
-     * A filter to select subscriptions based on the customer.
+     * A filter to select subscriptions based on the subscribing customer IDs.
      *
      * @maps customer_ids
      *
@@ -56,7 +57,7 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     /**
      * Returns Location Ids.
      *
-     * A filter to select subscriptions based the location.
+     * A filter to select subscriptions based on the location.
      *
      * @return string[]|null
      */
@@ -68,7 +69,7 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     /**
      * Sets Location Ids.
      *
-     * A filter to select subscriptions based the location.
+     * A filter to select subscriptions based on the location.
      *
      * @maps location_ids
      *

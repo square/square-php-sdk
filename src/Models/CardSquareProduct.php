@@ -25,4 +25,6 @@ class CardSquareProduct
     public const VIRTUAL_TERMINAL = 'VIRTUAL_TERMINAL';
 
     public const READER_SDK = 'READER_SDK';
+
+    public const SQUARE_PROFILE = 'SQUARE_PROFILE';
 }

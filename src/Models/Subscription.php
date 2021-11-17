@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a customer subscription to a subscription plan.
+ * Represents a subscription to a subscription plan by a subscriber.
+ *
  * For an overview of the `Subscription` type, see
  * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
  * object-overview).
@@ -95,6 +96,11 @@ class Subscription implements \JsonSerializable
     private $source;
 
     /**
+     * @var SubscriptionAction[]|null
+     */
+    private $actions;
+
+    /**
      * Returns Id.
      *
      * The Square-assigned ID of the subscription.
@@ -141,7 +147,7 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Plan Id.
      *
-     * The ID of the associated [subscription plan]($m/CatalogSubscriptionPlan).
+     * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
      */
     public function getPlanId(): ?string
     {
@@ -151,7 +157,7 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Plan Id.
      *
-     * The ID of the associated [subscription plan]($m/CatalogSubscriptionPlan).
+     * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
      *
      * @maps plan_id
      */
@@ -163,7 +169,7 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of the associated [customer]($m/Customer) profile.
+     * The ID of the subscribing [customer]($m/Customer) profile.
      */
     public function getCustomerId(): ?string
     {
@@ -173,7 +179,7 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of the associated [customer]($m/Customer) profile.
+     * The ID of the subscribing [customer]($m/Customer) profile.
      *
      * @maps customer_id
      */
@@ -185,8 +191,7 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Start Date.
      *
-     * The start date of the subscription, in YYYY-MM-DD format (for example,
-     * 2013-01-15).
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to start the subscription.
      */
     public function getStartDate(): ?string
     {
@@ -196,8 +201,7 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Start Date.
      *
-     * The start date of the subscription, in YYYY-MM-DD format (for example,
-     * 2013-01-15).
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to start the subscription.
      *
      * @maps start_date
      */
@@ -209,13 +213,12 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Canceled Date.
      *
-     * The subscription cancellation date, in YYYY-MM-DD format (for
-     * example, 2013-01-15). On this date, the subscription status changes
-     * to `CANCELED` and the subscription billing stops.
-     * If you don't set this field, the subscription plan dictates if and
-     * when subscription ends.
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to cancel the subscription,
+     * when the subscription status changes to `CANCELED` and the subscription billing stops.
      *
-     * You cannot update this field, you can only clear it.
+     * If this field is not set, the subscription ends according its subscription plan.
+     *
+     * This field cannot be updated, other than being cleared.
      */
     public function getCanceledDate(): ?string
     {
@@ -225,13 +228,12 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Canceled Date.
      *
-     * The subscription cancellation date, in YYYY-MM-DD format (for
-     * example, 2013-01-15). On this date, the subscription status changes
-     * to `CANCELED` and the subscription billing stops.
-     * If you don't set this field, the subscription plan dictates if and
-     * when subscription ends.
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to cancel the subscription,
+     * when the subscription status changes to `CANCELED` and the subscription billing stops.
      *
-     * You cannot update this field, you can only clear it.
+     * If this field is not set, the subscription ends according its subscription plan.
+     *
+     * This field cannot be updated, other than being cleared.
      *
      * @maps canceled_date
      */
@@ -243,13 +245,13 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Charged Through Date.
      *
-     * The date up to which the customer is invoiced for the
-     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
+     * The `YYYY-MM-DD`-formatted date up to when the subscriber is invoiced for the
+     * subscription.
      *
      * After the invoice is sent for a given billing period,
      * this date will be the last day of the billing period.
      * For example,
-     * suppose for the month of May a customer gets an invoice
+     * suppose for the month of May a subscriber gets an invoice
      * (or charged the card) on May 1. For the monthly billing scenario,
      * this date is then set to May 31.
      */
@@ -261,13 +263,13 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Charged Through Date.
      *
-     * The date up to which the customer is invoiced for the
-     * subscription, in YYYY-MM-DD format (for example, 2013-01-15).
+     * The `YYYY-MM-DD`-formatted date up to when the subscriber is invoiced for the
+     * subscription.
      *
      * After the invoice is sent for a given billing period,
      * this date will be the last day of the billing period.
      * For example,
-     * suppose for the month of May a customer gets an invoice
+     * suppose for the month of May a subscriber gets an invoice
      * (or charged the card) on May 1. For the monthly billing scenario,
      * this date is then set to May 31.
      *
@@ -281,7 +283,7 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Status.
      *
-     * Possible subscription status values.
+     * Supported subscription statuses.
      */
     public function getStatus(): ?string
     {
@@ -291,7 +293,7 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Status.
      *
-     * Possible subscription status values.
+     * Supported subscription statuses.
      *
      * @maps status
      */
@@ -443,8 +445,8 @@ class Subscription implements \JsonSerializable
     /**
      * Returns Card Id.
      *
-     * The ID of the [customer]($m/Customer) [card]($m/Card)
-     * that is charged for the subscription.
+     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * used to charge for the subscription.
      */
     public function getCardId(): ?string
     {
@@ -454,8 +456,8 @@ class Subscription implements \JsonSerializable
     /**
      * Sets Card Id.
      *
-     * The ID of the [customer]($m/Customer) [card]($m/Card)
-     * that is charged for the subscription.
+     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * used to charge for the subscription.
      *
      * @maps card_id
      */
@@ -512,6 +514,38 @@ class Subscription implements \JsonSerializable
     public function setSource(?SubscriptionSource $source): void
     {
         $this->source = $source;
+    }
+
+    /**
+     * Returns Actions.
+     *
+     * The list of scheduled actions on this subscription. It is set only in the response from the
+     * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) or
+     * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint with the query parameter
+     * of `include=actions`.
+     *
+     * @return SubscriptionAction[]|null
+     */
+    public function getActions(): ?array
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Sets Actions.
+     *
+     * The list of scheduled actions on this subscription. It is set only in the response from the
+     * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) or
+     * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint with the query parameter
+     * of `include=actions`.
+     *
+     * @maps actions
+     *
+     * @param SubscriptionAction[]|null $actions
+     */
+    public function setActions(?array $actions): void
+    {
+        $this->actions = $actions;
     }
 
     /**
@@ -572,6 +606,9 @@ class Subscription implements \JsonSerializable
         }
         if (isset($this->source)) {
             $json['source']               = $this->source;
+        }
+        if (isset($this->actions)) {
+            $json['actions']              = $this->actions;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

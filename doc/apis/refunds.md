@@ -108,15 +108,14 @@ $body_idempotencyKey = '9b7f2dcf-49da-4411-b23e-a2d6af21333a';
 $body_amountMoney = new Models\Money;
 $body_amountMoney->setAmount(1000);
 $body_amountMoney->setCurrency(Models\Currency::USD);
-$body_paymentId = 'R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY';
 $body = new Models\RefundPaymentRequest(
     $body_idempotencyKey,
-    $body_amountMoney,
-    $body_paymentId
+    $body_amountMoney
 );
 $body->setAppFeeMoney(new Models\Money);
 $body->getAppFeeMoney()->setAmount(10);
 $body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
+$body->setPaymentId('R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY');
 $body->setReason('Example');
 $body->setPaymentVersionToken('payment_version_token6');
 $body->setTeamMemberId('team_member_id4');

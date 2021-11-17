@@ -38,11 +38,11 @@ function listGiftCards(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | `?string` | Query, Optional | If a type is provided, gift cards of this type are returned<br>(see [GiftCardType](/doc/models/gift-card-type.md)).<br>If no type is provided, it returns gift cards of all types. |
-| `state` | `?string` | Query, Optional | If the state is provided, it returns the gift cards in the specified state<br>(see [GiftCardStatus](/doc/models/gift-card-status.md)).<br>Otherwise, it returns the gift cards of all states. |
-| `limit` | `?int` | Query, Optional | If a value is provided, it returns only that number of results per page.<br>The maximum number of results allowed per page is 50. The default value is 30. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, it returns the first page of the results.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `customerId` | `?string` | Query, Optional | If a value is provided, returns only the gift cards linked to the specified customer |
+| `type` | `?string` | Query, Optional | If a [type](/doc/models/gift-card-type.md) is provided, the endpoint returns gift cards of the specified type.<br>Otherwise, the endpoint returns gift cards of all types. |
+| `state` | `?string` | Query, Optional | If a [state](/doc/models/gift-card-status.md) is provided, the endpoint returns the gift cards in the specified state.<br>Otherwise, the endpoint returns the gift cards of all states. |
+| `limit` | `?int` | Query, Optional | If a limit is provided, the endpoint returns only the specified number of results per page.<br>The maximum value is 50. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `customerId` | `?string` | Query, Optional | If a customer ID is provided, the endpoint returns only the gift cards linked to the specified customer. |
 
 ## Response Type
 
@@ -169,7 +169,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Gift Card From Nonce
 
-Retrieves a gift card using a nonce (a secure token) that represents the gift card.
+Retrieves a gift card using a secure payment token that represents the gift card.
 
 ```php
 function retrieveGiftCardFromNonce(RetrieveGiftCardFromNonceRequest $body): ApiResponse
@@ -209,7 +209,7 @@ if ($apiResponse->isSuccess()) {
 
 # Link Customer to Gift Card
 
-Links a customer to a gift card
+Links a customer to a gift card, which is also referred to as adding a card on file.
 
 ```php
 function linkCustomerToGiftCard(string $giftCardId, LinkCustomerToGiftCardRequest $body): ApiResponse
@@ -219,7 +219,7 @@ function linkCustomerToGiftCard(string $giftCardId, LinkCustomerToGiftCardReques
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `giftCardId` | `string` | Template, Required | The ID of the gift card to link. |
+| `giftCardId` | `string` | Template, Required | The ID of the gift card to be linked. |
 | `body` | [`LinkCustomerToGiftCardRequest`](/doc/models/link-customer-to-gift-card-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -251,7 +251,7 @@ if ($apiResponse->isSuccess()) {
 
 # Unlink Customer From Gift Card
 
-Unlinks a customer from a gift card
+Unlinks a customer from a gift card, which is also referred to as removing a card on file.
 
 ```php
 function unlinkCustomerFromGiftCard(string $giftCardId, UnlinkCustomerFromGiftCardRequest $body): ApiResponse
@@ -261,7 +261,7 @@ function unlinkCustomerFromGiftCard(string $giftCardId, UnlinkCustomerFromGiftCa
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `giftCardId` | `string` | Template, Required | - |
+| `giftCardId` | `string` | Template, Required | The ID of the gift card to be unlinked. |
 | `body` | [`UnlinkCustomerFromGiftCardRequest`](/doc/models/unlink-customer-from-gift-card-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type

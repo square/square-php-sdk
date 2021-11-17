@@ -84,9 +84,6 @@ class CashDrawersApi extends BaseApi
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
 
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
-
         // and invoke the API call request to fetch the response
         try {
             $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
@@ -159,9 +156,6 @@ class CashDrawersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {
@@ -242,9 +236,6 @@ class CashDrawersApi extends BaseApi
         if ($this->getHttpCallBack() != null) {
             $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
         }
-
-        // Set request timeout
-        Request::timeout($this->config->getTimeout());
 
         // and invoke the API call request to fetch the response
         try {

@@ -12,7 +12,7 @@ Represents a Square gift card.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The Square-assigned ID of the gift card. | getId(): ?string | setId(?string id): void |
-| `type` | [`string (GiftCardType)`](/doc/models/gift-card-type.md) | Required | - | getType(): string | setType(string type): void |
+| `type` | [`string (GiftCardType)`](/doc/models/gift-card-type.md) | Required | Indicates the gift card type. | getType(): string | setType(string type): void |
 | `ganSource` | [`?string (GiftCardGANSource)`](/doc/models/gift-card-gan-source.md) | Optional | Indicates the source that generated the gift card<br>account number (GAN). | getGanSource(): ?string | setGanSource(?string ganSource): void |
 | `state` | [`?string (GiftCardStatus)`](/doc/models/gift-card-status.md) | Optional | Indicates the gift card state. | getState(): ?string | setState(?string state): void |
 | `balanceMoney` | [`?Money`](/doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getBalanceMoney(): ?Money | setBalanceMoney(?Money balanceMoney): void |

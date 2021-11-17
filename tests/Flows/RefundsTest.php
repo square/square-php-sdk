@@ -104,9 +104,9 @@ class RefundsTest extends TestCase
         $refundBody_paymentId = $payment_id;
         $refundBody = new RefundPaymentRequest(
             $refundBody_idempotencyKey,
-            $refundBody_amountMoney,
-            $refundBody_paymentId
+            $refundBody_amountMoney
         );
+        $refundBody->setPaymentId($refundBody_paymentId);
 
         $apiResponse = self::$controller->refundPayment($refundBody);
 

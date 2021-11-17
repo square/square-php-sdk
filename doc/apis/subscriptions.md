@@ -14,14 +14,17 @@ $subscriptionsApi = $client->getSubscriptionsApi();
 * [Search Subscriptions](/doc/apis/subscriptions.md#search-subscriptions)
 * [Retrieve Subscription](/doc/apis/subscriptions.md#retrieve-subscription)
 * [Update Subscription](/doc/apis/subscriptions.md#update-subscription)
+* [Delete Subscription Action](/doc/apis/subscriptions.md#delete-subscription-action)
 * [Cancel Subscription](/doc/apis/subscriptions.md#cancel-subscription)
 * [List Subscription Events](/doc/apis/subscriptions.md#list-subscription-events)
+* [Pause Subscription](/doc/apis/subscriptions.md#pause-subscription)
 * [Resume Subscription](/doc/apis/subscriptions.md#resume-subscription)
+* [Swap Plan](/doc/apis/subscriptions.md#swap-plan)
 
 
 # Create Subscription
 
-Creates a subscription for a customer to a subscription plan.
+Creates a subscription to a subscription plan by a customer.
 
 If you provide a card on file in the request, Square charges the card for
 the subscription. Otherwise, Square bills an invoice to the customer's email
@@ -82,6 +85,7 @@ if ($apiResponse->isSuccess()) {
 # Search Subscriptions
 
 Searches for subscriptions.
+
 Results are ordered chronologically by subscription creation date. If
 the request specifies more than one location ID,
 the endpoint orders the result
@@ -123,6 +127,7 @@ $body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter);
 $body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
 $body->getQuery()->getFilter()->setLocationIds(['S8GWD5R9QB376']);
 $body->getQuery()->getFilter()->setSourceNames(['My App']);
+$body->setMInclude(['include4', 'include5', 'include6']);
 
 $apiResponse = $subscriptionsApi->searchSubscriptions($body);
 
@@ -143,7 +148,7 @@ if ($apiResponse->isSuccess()) {
 Retrieves a subscription.
 
 ```php
-function retrieveSubscription(string $subscriptionId): ApiResponse
+function retrieveSubscription(string $subscriptionId, ?string $mInclude = null): ApiResponse
 ```
 
 ## Parameters
@@ -151,6 +156,7 @@ function retrieveSubscription(string $subscriptionId): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscriptionId` | `string` | Template, Required | The ID of the subscription to retrieve. |
+| `mInclude` | `?string` | Query, Optional | A query parameter to specify related information to be included in the response.<br><br>The supported query parameter values are:<br><br>- `actions`: to include scheduled actions on the targeted subscription. |
 
 ## Response Type
 
@@ -160,8 +166,9 @@ function retrieveSubscription(string $subscriptionId): ApiResponse
 
 ```php
 $subscriptionId = 'subscription_id0';
+$mInclude = 'include2';
 
-$apiResponse = $subscriptionsApi->retrieveSubscription($subscriptionId);
+$apiResponse = $subscriptionsApi->retrieveSubscription($subscriptionId, $mInclude);
 
 if ($apiResponse->isSuccess()) {
     $retrieveSubscriptionResponse = $apiResponse->getResult();
@@ -188,7 +195,7 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `subscriptionId` | `string` | Template, Required | The ID for the subscription to update. |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription to update. |
 | `body` | [`UpdateSubscriptionRequest`](/doc/models/update-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -226,10 +233,50 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
+# Delete Subscription Action
+
+Deletes a scheduled action for a subscription.
+
+```php
+function deleteSubscriptionAction(string $subscriptionId, string $actionId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription the targeted action is to act upon. |
+| `actionId` | `string` | Template, Required | The ID of the targeted action to be deleted. |
+
+## Response Type
+
+[`DeleteSubscriptionActionResponse`](/doc/models/delete-subscription-action-response.md)
+
+## Example Usage
+
+```php
+$subscriptionId = 'subscription_id0';
+$actionId = 'action_id6';
+
+$apiResponse = $subscriptionsApi->deleteSubscriptionAction($subscriptionId, $actionId);
+
+if ($apiResponse->isSuccess()) {
+    $deleteSubscriptionActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
 # Cancel Subscription
 
-Sets the `canceled_date` field to the end of the active billing period.
-After this date, the status changes from ACTIVE to CANCELED.
+Schedules a `CANCEL` action to cancel an active subscription
+by setting the `canceled_date` field to the end of the active billing period
+and changing the subscription status from ACTIVE to CANCELED after this date.
 
 ```php
 function cancelSubscription(string $subscriptionId): ApiResponse
@@ -278,8 +325,8 @@ function listSubscriptionEvents(string $subscriptionId, ?string $cursor = null, 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscriptionId` | `string` | Template, Required | The ID of the subscription to retrieve the events for. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
-| `limit` | `?int` | Query, Optional | The upper limit on the number of subscription events to return<br>in the response.<br><br>Default: `200` |
+| `cursor` | `?string` | Query, Optional | When the total number of resulting subscription events exceeds the limit of a paged response,<br>specify the cursor returned from a preceding response here to fetch the next set of results.<br>If the cursor is unset, the response contains the last page of the results.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `limit` | `?int` | Query, Optional | The upper limit on the number of subscription events to return<br>in a paged response. |
 
 ## Response Type
 
@@ -306,12 +353,56 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Resume Subscription
+# Pause Subscription
 
-Resumes a deactivated subscription.
+Schedules a `PAUSE` action to pause an active subscription.
 
 ```php
-function resumeSubscription(string $subscriptionId): ApiResponse
+function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription to pause. |
+| `body` | [`PauseSubscriptionRequest`](/doc/models/pause-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`PauseSubscriptionResponse`](/doc/models/pause-subscription-response.md)
+
+## Example Usage
+
+```php
+$subscriptionId = 'subscription_id0';
+$body = new Models\PauseSubscriptionRequest;
+$body->setPauseEffectiveDate('pause_effective_date6');
+$body->setPauseCycleDuration(94);
+$body->setResumeEffectiveDate('resume_effective_date4');
+$body->setResumeChangeTiming(Models\ChangeTiming::IMMEDIATE);
+$body->setPauseReason('pause_reason2');
+
+$apiResponse = $subscriptionsApi->pauseSubscription($subscriptionId, $body);
+
+if ($apiResponse->isSuccess()) {
+    $pauseSubscriptionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Resume Subscription
+
+Schedules a `RESUME` action to resume a paused or a deactivated subscription.
+
+```php
+function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -319,6 +410,7 @@ function resumeSubscription(string $subscriptionId): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscriptionId` | `string` | Template, Required | The ID of the subscription to resume. |
+| `body` | [`ResumeSubscriptionRequest`](/doc/models/resume-subscription-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
@@ -328,11 +420,56 @@ function resumeSubscription(string $subscriptionId): ApiResponse
 
 ```php
 $subscriptionId = 'subscription_id0';
+$body = new Models\ResumeSubscriptionRequest;
+$body->setResumeEffectiveDate('resume_effective_date4');
+$body->setResumeChangeTiming(Models\ChangeTiming::IMMEDIATE);
 
-$apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId);
+$apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId, $body);
 
 if ($apiResponse->isSuccess()) {
     $resumeSubscriptionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Swap Plan
+
+Schedules a `SWAP_PLAN` action to swap a subscription plan in an existing subscription.
+
+```php
+function swapPlan(string $subscriptionId, SwapPlanRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription to swap the subscription plan for. |
+| `body` | [`SwapPlanRequest`](/doc/models/swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`SwapPlanResponse`](/doc/models/swap-plan-response.md)
+
+## Example Usage
+
+```php
+$subscriptionId = 'subscription_id0';
+$body_newPlanId = 'new_plan_id2';
+$body = new Models\SwapPlanRequest(
+    $body_newPlanId
+);
+
+$apiResponse = $subscriptionsApi->swapPlan($subscriptionId, $body);
+
+if ($apiResponse->isSuccess()) {
+    $swapPlanResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

@@ -292,6 +292,26 @@ class ErrorCode
     public const MAP_KEY_LENGTH_TOO_LONG = 'MAP_KEY_LENGTH_TOO_LONG';
 
     /**
+     * The provided customer does not have a recorded name.
+     */
+    public const CUSTOMER_MISSING_NAME = 'CUSTOMER_MISSING_NAME';
+
+    /**
+     * The provided customer does not have a recorded email.
+     */
+    public const CUSTOMER_MISSING_EMAIL = 'CUSTOMER_MISSING_EMAIL';
+
+    /**
+     * The subscription cannot be paused longer than the duration of the current phase.
+     */
+    public const INVALID_PAUSE_LENGTH = 'INVALID_PAUSE_LENGTH';
+
+    /**
+     * The subscription cannot be paused/resumed on the given date.
+     */
+    public const INVALID_DATE = 'INVALID_DATE';
+
+    /**
      * The card issuer declined the request because the card is expired.
      */
     public const CARD_EXPIRED = 'CARD_EXPIRED';

@@ -145,6 +145,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Type.
+     *
+     * Indicates the gift card activity type.
      */
     public function getType(): string
     {
@@ -153,6 +155,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Type.
+     *
+     * Indicates the gift card activity type.
      *
      * @required
      * @maps type

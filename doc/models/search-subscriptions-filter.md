@@ -1,7 +1,8 @@
 
 # Search Subscriptions Filter
 
-Represents a set of SearchSubscriptionsQuery filters used to limit the set of Subscriptions returned by SearchSubscriptions.
+Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions returned by
+the [SearchSubscriptions](/doc/apis/subscriptions.md#search-subscriptions) endpoint.
 
 ## Structure
 
@@ -11,8 +12,8 @@ Represents a set of SearchSubscriptionsQuery filters used to limit the set of Su
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `customerIds` | `?(string[])` | Optional | A filter to select subscriptions based on the customer. | getCustomerIds(): ?array | setCustomerIds(?array customerIds): void |
-| `locationIds` | `?(string[])` | Optional | A filter to select subscriptions based the location. | getLocationIds(): ?array | setLocationIds(?array locationIds): void |
+| `customerIds` | `?(string[])` | Optional | A filter to select subscriptions based on the subscribing customer IDs. | getCustomerIds(): ?array | setCustomerIds(?array customerIds): void |
+| `locationIds` | `?(string[])` | Optional | A filter to select subscriptions based on the location. | getLocationIds(): ?array | setLocationIds(?array locationIds): void |
 | `sourceNames` | `?(string[])` | Optional | A filter to select subscriptions based on the source application. | getSourceNames(): ?array | setSourceNames(?array sourceNames): void |
 
 ## Example (as JSON)

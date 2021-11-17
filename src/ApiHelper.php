@@ -125,6 +125,27 @@ class ApiHelper
     }
 
     /**
+     * Converts a valid json string into an array to send in Api calls.
+     *
+     * @param  mixed  $json  Valid string json to be translated into a php array.
+     * @return array|null    Returns an array made up of key-value pairs in the provided json string
+     *                       or null, if the provided json is not valid.
+     */
+    public static function makeArray($json): ?array
+    {
+        if (is_array($json)) {
+            return $json;
+        }
+        if (empty($json) || is_numeric($json) || is_bool($json)) {
+            return null;
+        }
+        if ($json instanceof stdClass) {
+            return json_decode(json_encode($json), true);
+        }
+        return is_string($json) ? json_decode($json, true) : null;
+    }
+
+    /**
      * Check if an array isAssociative (has string keys)
      *
      * @param  array   $arr   A valid array

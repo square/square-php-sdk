@@ -46,6 +46,14 @@ class SquareClient implements ConfigurationInterface
     private $terminal;
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
+    private $enableRetries = ConfigurationDefaults::ENABLE_RETRIES;
+    private $numberOfRetries = ConfigurationDefaults::NUMBER_OF_RETRIES;
+    private $retryInterval = ConfigurationDefaults::RETRY_INTERVAL;
+    private $backOffFactor = ConfigurationDefaults::BACK_OFF_FACTOR;
+    private $maximumRetryWaitTime = ConfigurationDefaults::MAXIMUM_RETRY_WAIT_TIME;
+    private $retryOnTimeout = ConfigurationDefaults::RETRY_ON_TIMEOUT;
+    private $httpStatusCodesToRetry = ConfigurationDefaults::HTTP_STATUS_CODES_TO_RETRY;
+    private $httpMethodsToRetry = ConfigurationDefaults::HTTP_METHODS_TO_RETRY;
     private $squareVersion = ConfigurationDefaults::SQUARE_VERSION;
     private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
     private $environment = ConfigurationDefaults::ENVIRONMENT;
@@ -59,6 +67,30 @@ class SquareClient implements ConfigurationInterface
     {
         if (isset($configOptions['timeout'])) {
             $this->timeout = $configOptions['timeout'];
+        }
+        if (isset($configOptions['enableRetries'])) {
+            $this->enableRetries = $configOptions['enableRetries'];
+        }
+        if (isset($configOptions['numberOfRetries'])) {
+            $this->numberOfRetries = $configOptions['numberOfRetries'];
+        }
+        if (isset($configOptions['retryInterval'])) {
+            $this->retryInterval = $configOptions['retryInterval'];
+        }
+        if (isset($configOptions['backOffFactor'])) {
+            $this->backOffFactor = $configOptions['backOffFactor'];
+        }
+        if (isset($configOptions['maximumRetryWaitTime'])) {
+            $this->maximumRetryWaitTime = $configOptions['maximumRetryWaitTime'];
+        }
+        if (isset($configOptions['retryOnTimeout'])) {
+            $this->retryOnTimeout = $configOptions['retryOnTimeout'];
+        }
+        if (isset($configOptions['httpStatusCodesToRetry'])) {
+            $this->httpStatusCodesToRetry = $configOptions['httpStatusCodesToRetry'];
+        }
+        if (isset($configOptions['httpMethodsToRetry'])) {
+            $this->httpMethodsToRetry = $configOptions['httpMethodsToRetry'];
         }
         if (isset($configOptions['squareVersion'])) {
             $this->squareVersion = $configOptions['squareVersion'];
@@ -93,6 +125,30 @@ class SquareClient implements ConfigurationInterface
 
         if (isset($this->timeout)) {
             $configMap['timeout'] = $this->timeout;
+        }
+        if (isset($this->enableRetries)) {
+            $configMap['enableRetries'] = $this->enableRetries;
+        }
+        if (isset($this->numberOfRetries)) {
+            $configMap['numberOfRetries'] = $this->numberOfRetries;
+        }
+        if (isset($this->retryInterval)) {
+            $configMap['retryInterval'] = $this->retryInterval;
+        }
+        if (isset($this->backOffFactor)) {
+            $configMap['backOffFactor'] = $this->backOffFactor;
+        }
+        if (isset($this->maximumRetryWaitTime)) {
+            $configMap['maximumRetryWaitTime'] = $this->maximumRetryWaitTime;
+        }
+        if (isset($this->retryOnTimeout)) {
+            $configMap['retryOnTimeout'] = $this->retryOnTimeout;
+        }
+        if (isset($this->httpStatusCodesToRetry)) {
+            $configMap['httpStatusCodesToRetry'] = $this->httpStatusCodesToRetry;
+        }
+        if (isset($this->httpMethodsToRetry)) {
+            $configMap['httpMethodsToRetry'] = $this->httpMethodsToRetry;
         }
         if (isset($this->squareVersion)) {
             $configMap['squareVersion'] = $this->squareVersion;
@@ -129,6 +185,46 @@ class SquareClient implements ConfigurationInterface
         return $this->timeout;
     }
 
+    public function shouldEnableRetries(): bool
+    {
+        return $this->enableRetries;
+    }
+
+    public function getNumberOfRetries(): int
+    {
+        return $this->numberOfRetries;
+    }
+
+    public function getRetryInterval(): float
+    {
+        return $this->retryInterval;
+    }
+
+    public function getBackOffFactor(): float
+    {
+        return $this->backOffFactor;
+    }
+
+    public function getMaximumRetryWaitTime(): int
+    {
+        return $this->maximumRetryWaitTime;
+    }
+
+    public function shouldRetryOnTimeout(): bool
+    {
+        return $this->retryOnTimeout;
+    }
+
+    public function getHttpStatusCodesToRetry(): array
+    {
+        return $this->httpStatusCodesToRetry;
+    }
+
+    public function getHttpMethodsToRetry(): array
+    {
+        return $this->httpMethodsToRetry;
+    }
+
     public function getSquareVersion(): string
     {
         return $this->squareVersion;
@@ -159,7 +255,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '15.0.0.20211020';
+        return '16.0.0.20211117';
     }
 
 

@@ -51,7 +51,7 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * The maximum number of results to return in the response.
+     * The maximum number of results to return in the response. The default value is 30.
      */
     public function getLimit(): ?int
     {
@@ -61,7 +61,7 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * The maximum number of results to return in the response.
+     * The maximum number of results to return in the response. The default value is 30.
      *
      * @maps limit
      */
