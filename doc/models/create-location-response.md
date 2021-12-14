@@ -11,8 +11,8 @@ Response object returned by the [CreateLocation](/doc/apis/locations.md#create-l
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `location` | [`?Location`](/doc/models/location.md) | Optional | Represents one of a business's locations. | getLocation(): ?Location | setLocation(?Location location): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on [errors](https://developer.squareup.com/docs/build-basics/handling-errors) encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `location` | [`?Location`](/doc/models/location.md) | Optional | Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api). | getLocation(): ?Location | setLocation(?Location location): void |
 
 ## Example (as JSON)
 
@@ -36,11 +36,11 @@ Response object returned by the [CreateLocation](/doc/apis/locations.md#create-l
     "created_at": "2019-07-19T17:58:25Z",
     "currency": "USD",
     "description": "My new location.",
-    "id": "LOCATION_ID",
+    "id": "3Z4V4WHQK64X9",
     "instagram_username": "instagram",
     "language_code": "en-US",
     "mcc": "1234",
-    "merchant_id": "MERCHANT_ID",
+    "merchant_id": "BS11H1A5M511E",
     "name": "New location name",
     "status": "ACTIVE",
     "twitter_username": "twitter",

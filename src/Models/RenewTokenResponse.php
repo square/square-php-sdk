@@ -93,8 +93,8 @@ class RenewTokenResponse implements \JsonSerializable
     /**
      * Returns Expires At.
      *
-     * The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)
-     * format.
+     * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
      */
     public function getExpiresAt(): ?string
     {
@@ -104,8 +104,8 @@ class RenewTokenResponse implements \JsonSerializable
     /**
      * Sets Expires At.
      *
-     * The date when access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)
-     * format.
+     * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
      *
      * @maps expires_at
      */
@@ -140,8 +140,8 @@ class RenewTokenResponse implements \JsonSerializable
      * Returns Subscription Id.
      *
      * __LEGACY FIELD__. The ID of the merchant subscription associated with
-     * the authorization. Only present if the merchant signed up for a subscription
-     * during authorization..
+     * the authorization. The ID is only present if the merchant signed up for a subscription
+     * during authorization.
      */
     public function getSubscriptionId(): ?string
     {
@@ -152,8 +152,8 @@ class RenewTokenResponse implements \JsonSerializable
      * Sets Subscription Id.
      *
      * __LEGACY FIELD__. The ID of the merchant subscription associated with
-     * the authorization. Only present if the merchant signed up for a subscription
-     * during authorization..
+     * the authorization. The ID is only present if the merchant signed up for a subscription
+     * during authorization.
      *
      * @maps subscription_id
      */
@@ -166,7 +166,7 @@ class RenewTokenResponse implements \JsonSerializable
      * Returns Plan Id.
      *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
-     * up for. Only present if the merchant signed up for a subscription during
+     * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
      */
     public function getPlanId(): ?string
@@ -178,7 +178,7 @@ class RenewTokenResponse implements \JsonSerializable
      * Sets Plan Id.
      *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
-     * up for. Only present if the merchant signed up for a subscription during
+     * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
      *
      * @maps plan_id

@@ -27,13 +27,12 @@ class OAuthApi extends BaseApi
      * [Migrate from Renew to Refresh OAuth Tokens](https://developer.squareup.com/docs/oauth-api/migrate-
      * to-refresh-tokens).
      *
-     *
      * Renews an OAuth access token before it expires.
      *
-     * OAuth access tokens besides your application's personal access token expire after __30 days__.
-     * You can also renew expired tokens within __15 days__ of their expiration.
+     * OAuth access tokens besides your application's personal access token expire after 30 days.
+     * You can also renew expired tokens within 15 days of their expiration.
      * You cannot renew an access token that has been expired for more than 15 days.
-     * Instead, the associated user must re-complete the OAuth flow from the beginning.
+     * Instead, the associated user must recomplete the OAuth flow from the beginning.
      *
      * __Important:__ The `Authorization` header for this endpoint must have the
      * following format:
@@ -43,12 +42,12 @@ class OAuthApi extends BaseApi
      * ```
      *
      * Replace `APPLICATION_SECRET` with the application secret on the Credentials
-     * page in the [developer dashboard](https://developer.squareup.com/apps).
+     * page in the [Developer Dashboard](https://developer.squareup.com/apps).
      *
      * @deprecated
      *
-     * @param string $clientId Your application ID, available from the OAuth page for your
-     *        application on the Developer Dashboard.
+     * @param string $clientId Your application ID, which is available in the OAuth page in the
+     *        [Developer Dashboard](https://developer.squareup.com/apps).
      * @param \Square\Models\RenewTokenRequest $body An object containing the fields to POST for the
      *        request.
      *
@@ -79,7 +78,7 @@ class OAuthApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json',
@@ -160,7 +159,7 @@ class OAuthApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json',
@@ -241,7 +240,7 @@ class OAuthApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'

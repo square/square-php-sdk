@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the body parameters that can be provided in a request to the
- * __CreateMobileAuthorizationCode__ endpoint.
+ * `CreateMobileAuthorizationCode` endpoint.
  */
 class CreateMobileAuthorizationCodeRequest implements \JsonSerializable
 {
@@ -20,7 +20,7 @@ class CreateMobileAuthorizationCodeRequest implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The Square location ID the authorization code should be tied to.
+     * The Square location ID that the authorization code should be tied to.
      */
     public function getLocationId(): ?string
     {
@@ -30,7 +30,7 @@ class CreateMobileAuthorizationCodeRequest implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The Square location ID the authorization code should be tied to.
+     * The Square location ID that the authorization code should be tied to.
      *
      * @maps location_id
      */

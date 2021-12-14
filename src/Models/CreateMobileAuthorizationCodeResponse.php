@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the __CreateMobileAuthorizationCode__ endpoint.
+ * a request to the `CreateMobileAuthorizationCode` endpoint.
  */
 class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
 {
@@ -30,7 +30,7 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     /**
      * Returns Authorization Code.
      *
-     * Generated authorization code that connects a mobile application instance
+     * The generated authorization code that connects a mobile application instance
      * to a Square account.
      */
     public function getAuthorizationCode(): ?string
@@ -41,7 +41,7 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     /**
      * Sets Authorization Code.
      *
-     * Generated authorization code that connects a mobile application instance
+     * The generated authorization code that connects a mobile application instance
      * to a Square account.
      *
      * @maps authorization_code
@@ -54,8 +54,8 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     /**
      * Returns Expires At.
      *
-     * The timestamp when `authorization_code` expires in
-     * [RFC 3339](https://tools.ietf.org/html/rfc3339) format, e.g., "2016-09-04T23:59:33.123Z".
+     * The timestamp when `authorization_code` expires, in
+     * [RFC 3339](https://tools.ietf.org/html/rfc3339) format (for example, "2016-09-04T23:59:33.123Z").
      */
     public function getExpiresAt(): ?string
     {
@@ -65,8 +65,8 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     /**
      * Sets Expires At.
      *
-     * The timestamp when `authorization_code` expires in
-     * [RFC 3339](https://tools.ietf.org/html/rfc3339) format, e.g., "2016-09-04T23:59:33.123Z".
+     * The timestamp when `authorization_code` expires, in
+     * [RFC 3339](https://tools.ietf.org/html/rfc3339) format (for example, "2016-09-04T23:59:33.123Z").
      *
      * @maps expires_at
      */

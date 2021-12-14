@@ -24,6 +24,7 @@ class ClientFactory
         $numberOfRetries = getenv('SQUARE_NUMBER_OF_RETRIES');
         $maximumRetryWaitTime = getenv('SQUARE_MAXIMUM_RETRY_WAIT_TIME');
         $squareVersion = getenv('SQUARE_SQUARE_VERSION');
+        $userAgentDetail = getenv('SQUARE_USER_AGENT_DETAIL');
         $environment = getenv('SQUARE_ENVIRONMENT');
         $customUrl = getenv('SQUARE_CUSTOM_URL');
         $accessToken = getenv('SQUARE_ACCESS_TOKEN');
@@ -42,6 +43,10 @@ class ClientFactory
 
         if ($squareVersion !== false) {
             $config['squareVersion'] = $squareVersion;
+        }
+
+        if ($userAgentDetail !== false) {
+            $config['userAgentDetail'] = $userAgentDetail;
         }
 
         if ($environment !== false) {

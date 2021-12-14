@@ -75,11 +75,6 @@ class CatalogObject implements \JsonSerializable
     private $absentAtLocationIds;
 
     /**
-     * @var string|null
-     */
-    private $imageId;
-
-    /**
      * @var CatalogItem|null
      */
     private $itemData;
@@ -488,28 +483,6 @@ class CatalogObject implements \JsonSerializable
     public function setAbsentAtLocationIds(?array $absentAtLocationIds): void
     {
         $this->absentAtLocationIds = $absentAtLocationIds;
-    }
-
-    /**
-     * Returns Image Id.
-     *
-     * Identifies the `CatalogImage` attached to this `CatalogObject`.
-     */
-    public function getImageId(): ?string
-    {
-        return $this->imageId;
-    }
-
-    /**
-     * Sets Image Id.
-     *
-     * Identifies the `CatalogImage` attached to this `CatalogObject`.
-     *
-     * @maps image_id
-     */
-    public function setImageId(?string $imageId): void
-    {
-        $this->imageId = $imageId;
     }
 
     /**
@@ -977,9 +950,6 @@ class CatalogObject implements \JsonSerializable
         }
         if (isset($this->absentAtLocationIds)) {
             $json['absent_at_location_ids']           = $this->absentAtLocationIds;
-        }
-        if (isset($this->imageId)) {
-            $json['image_id']                         = $this->imageId;
         }
         if (isset($this->itemData)) {
             $json['item_data']                        = $this->itemData;

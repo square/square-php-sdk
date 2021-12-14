@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines the fields that are included in the response body of
- * a request to the __ListLocations__ endpoint.
+ * Defines the fields that are included in the response body of a request
+ * to the [ListLocations]($e/Locations/ListLocations) endpoint.
  *
  * One of `errors` or `locations` is present in a given response (never both).
  */

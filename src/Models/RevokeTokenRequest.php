@@ -31,8 +31,8 @@ class RevokeTokenRequest implements \JsonSerializable
     /**
      * Returns Client Id.
      *
-     * The Square-issued ID for your application, available from
-     * the OAuth page for your application on the Developer Dashboard.
+     * The Square-issued ID for your application, which is available in the OAuth page in the
+     * [Developer Dashboard](https://developer.squareup.com/apps).
      */
     public function getClientId(): ?string
     {
@@ -42,8 +42,8 @@ class RevokeTokenRequest implements \JsonSerializable
     /**
      * Sets Client Id.
      *
-     * The Square-issued ID for your application, available from
-     * the OAuth page for your application on the Developer Dashboard.
+     * The Square-issued ID for your application, which is available in the OAuth page in the
+     * [Developer Dashboard](https://developer.squareup.com/apps).
      *
      * @maps client_id
      */
@@ -56,7 +56,7 @@ class RevokeTokenRequest implements \JsonSerializable
      * Returns Access Token.
      *
      * The access token of the merchant whose token you want to revoke.
-     * Do not provide a value for merchant_id if you provide this parameter.
+     * Do not provide a value for `merchant_id` if you provide this parameter.
      */
     public function getAccessToken(): ?string
     {
@@ -67,7 +67,7 @@ class RevokeTokenRequest implements \JsonSerializable
      * Sets Access Token.
      *
      * The access token of the merchant whose token you want to revoke.
-     * Do not provide a value for merchant_id if you provide this parameter.
+     * Do not provide a value for `merchant_id` if you provide this parameter.
      *
      * @maps access_token
      */
@@ -80,7 +80,7 @@ class RevokeTokenRequest implements \JsonSerializable
      * Returns Merchant Id.
      *
      * The ID of the merchant whose token you want to revoke.
-     * Do not provide a value for access_token if you provide this parameter.
+     * Do not provide a value for `access_token` if you provide this parameter.
      */
     public function getMerchantId(): ?string
     {
@@ -91,7 +91,7 @@ class RevokeTokenRequest implements \JsonSerializable
      * Sets Merchant Id.
      *
      * The ID of the merchant whose token you want to revoke.
-     * Do not provide a value for access_token if you provide this parameter.
+     * Do not provide a value for `access_token` if you provide this parameter.
      *
      * @maps merchant_id
      */

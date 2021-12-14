@@ -59,7 +59,7 @@ class CustomerSegmentsApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -124,7 +124,7 @@ class CustomerSegmentsApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];

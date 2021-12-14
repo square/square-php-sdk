@@ -10,8 +10,8 @@
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `itemIds` | `string[]` | Required | The IDs of the catalog items associated with the CatalogModifierList objects being updated. | getItemIds(): array | setItemIds(array itemIds): void |
-| `modifierListsToEnable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem. | getModifierListsToEnable(): ?array | setModifierListsToEnable(?array modifierListsToEnable): void |
-| `modifierListsToDisable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem. | getModifierListsToDisable(): ?array | setModifierListsToDisable(?array modifierListsToDisable): void |
+| `modifierListsToEnable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to enable for the CatalogItem.<br>At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified. | getModifierListsToEnable(): ?array | setModifierListsToEnable(?array modifierListsToEnable): void |
+| `modifierListsToDisable` | `?(string[])` | Optional | The IDs of the CatalogModifierList objects to disable for the CatalogItem.<br>At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified. | getModifierListsToDisable(): ?array | setModifierListsToDisable(?array modifierListsToDisable): void |
 
 ## Example (as JSON)
 

@@ -37,6 +37,11 @@ class CatalogModifierList implements \JsonSerializable
     private $modifiers;
 
     /**
+     * @var string[]|null
+     */
+    private $imageIds;
+
+    /**
      * Returns Name.
      *
      * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
@@ -137,6 +142,36 @@ class CatalogModifierList implements \JsonSerializable
     }
 
     /**
+     * Returns Image Ids.
+     *
+     * The IDs of images associated with this `CatalogModifierList` instance.
+     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * applications.
+     *
+     * @return string[]|null
+     */
+    public function getImageIds(): ?array
+    {
+        return $this->imageIds;
+    }
+
+    /**
+     * Sets Image Ids.
+     *
+     * The IDs of images associated with this `CatalogModifierList` instance.
+     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * applications.
+     *
+     * @maps image_ids
+     *
+     * @param string[]|null $imageIds
+     */
+    public function setImageIds(?array $imageIds): void
+    {
+        $this->imageIds = $imageIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -158,6 +193,9 @@ class CatalogModifierList implements \JsonSerializable
         }
         if (isset($this->modifiers)) {
             $json['modifiers']      = $this->modifiers;
+        }
+        if (isset($this->imageIds)) {
+            $json['image_ids']      = $this->imageIds;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -24,6 +24,11 @@ class CreateCatalogImageRequest implements \JsonSerializable
     private $image;
 
     /**
+     * @var bool|null
+     */
+    private $isPrimary;
+
+    /**
      * @param string $idempotencyKey
      * @param CatalogObject $image
      */
@@ -67,9 +72,9 @@ class CreateCatalogImageRequest implements \JsonSerializable
     /**
      * Returns Object Id.
      *
-     * Unique ID of the `CatalogObject` to attach to this `CatalogImage`. Leave this
+     * Unique ID of the `CatalogObject` to attach this `CatalogImage` object to. Leave this
      * field empty to create unattached images, for example if you are building an integration
-     * where these images can be attached to catalog items at a later time.
+     * where an image can be attached to catalog items at a later time.
      */
     public function getObjectId(): ?string
     {
@@ -79,9 +84,9 @@ class CreateCatalogImageRequest implements \JsonSerializable
     /**
      * Sets Object Id.
      *
-     * Unique ID of the `CatalogObject` to attach to this `CatalogImage`. Leave this
+     * Unique ID of the `CatalogObject` to attach this `CatalogImage` object to. Leave this
      * field empty to create unattached images, for example if you are building an integration
-     * where these images can be attached to catalog items at a later time.
+     * where an image can be attached to catalog items at a later time.
      *
      * @maps object_id
      */
@@ -140,6 +145,44 @@ class CreateCatalogImageRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Is Primary.
+     *
+     * If this is set to `true`, the image created will be the primary, or first image of the object
+     * referenced by `object_id`.
+     * If the `CatalogObject` already has a primary `CatalogImage`, setting this field to `true` will
+     * replace the primary image.
+     * If this is set to `false` and you use the Square API version 2021-12-15 or later, the image id will
+     * be appended to the list of `image_ids` on the object.
+     *
+     * With Square API version 2021-12-15 or later, the default value is `false`. Otherwise, the effective
+     * default value is `true`.
+     */
+    public function getIsPrimary(): ?bool
+    {
+        return $this->isPrimary;
+    }
+
+    /**
+     * Sets Is Primary.
+     *
+     * If this is set to `true`, the image created will be the primary, or first image of the object
+     * referenced by `object_id`.
+     * If the `CatalogObject` already has a primary `CatalogImage`, setting this field to `true` will
+     * replace the primary image.
+     * If this is set to `false` and you use the Square API version 2021-12-15 or later, the image id will
+     * be appended to the list of `image_ids` on the object.
+     *
+     * With Square API version 2021-12-15 or later, the default value is `false`. Otherwise, the effective
+     * default value is `true`.
+     *
+     * @maps is_primary
+     */
+    public function setIsPrimary(?bool $isPrimary): void
+    {
+        $this->isPrimary = $isPrimary;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -155,6 +198,9 @@ class CreateCatalogImageRequest implements \JsonSerializable
             $json['object_id']   = $this->objectId;
         }
         $json['image']           = $this->image;
+        if (isset($this->isPrimary)) {
+            $json['is_primary']  = $this->isPrimary;
+        }
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

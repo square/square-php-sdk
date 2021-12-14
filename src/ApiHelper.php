@@ -164,23 +164,21 @@ class ApiHelper
     }
 
     /**
-     * Prepare a model for form encoding
+     * Prepare a model for form encoding.
      *
-     * @param  JsonSerializable  $model  A valid instance of JsonSerializable
+     * @param JsonSerializable|null $model  A valid instance of JsonSerializable.
      *
-     * @return array                     The model as a map of key value pairs
+     * @return array|null  The model as a map of key value pairs.
      */
-    public static function prepareFormFields(JsonSerializable $model): array
+    public static function prepareFormFields(?JsonSerializable $model): ?array
     {
-        if (!$model instanceof JsonSerializable) {
-            return $model;
+        if ($model == null) {
+            return null;
         }
-
         $arr = $model->jsonSerialize();
         if ($arr instanceof stdClass) {
             return [];
         }
-
         foreach ($arr as $key => $value) {
             if ($value instanceof JsonSerializable) {
                 $arr[$key] = static::prepareFormFields($value);
@@ -195,7 +193,6 @@ class ApiHelper
                 $arr[$key] = $temp;
             }
         }
-
         return $arr;
     }
 

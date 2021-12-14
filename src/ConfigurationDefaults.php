@@ -27,9 +27,11 @@ class ConfigurationDefaults
 
     public const HTTP_METHODS_TO_RETRY = ['GET', 'PUT'];
 
-    public const SQUARE_VERSION = '2021-11-17';
+    public const SQUARE_VERSION = '2021-12-15';
 
     public const ADDITIONAL_HEADERS = [];
+
+    public const USER_AGENT_DETAIL = '';
 
     public const ENVIRONMENT = Environment::PRODUCTION;
 

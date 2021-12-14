@@ -119,6 +119,11 @@ class Invoice implements \JsonSerializable
     private $saleOrServiceDate;
 
     /**
+     * @var string|null
+     */
+    private $paymentConditions;
+
+    /**
      * Returns Id.
      *
      * The Square-assigned ID of the invoice.
@@ -339,9 +344,10 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Invoice Number.
      *
-     * A user-friendly invoice number. The value is unique within a location.
+     * A user-friendly invoice number that is displayed on the invoice. The value is unique within a
+     * location.
      * If not provided when creating an invoice, Square assigns a value.
-     * It increments from 1 and padded with zeros making it 7 characters long
+     * It increments from 1 and is padded with zeros making it 7 characters long
      * (for example, 0000001 and 0000002).
      */
     public function getInvoiceNumber(): ?string
@@ -352,9 +358,10 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Invoice Number.
      *
-     * A user-friendly invoice number. The value is unique within a location.
+     * A user-friendly invoice number that is displayed on the invoice. The value is unique within a
+     * location.
      * If not provided when creating an invoice, Square assigns a value.
-     * It increments from 1 and padded with zeros making it 7 characters long
+     * It increments from 1 and is padded with zeros making it 7 characters long
      * (for example, 0000001 and 0000002).
      *
      * @maps invoice_number
@@ -367,7 +374,7 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Title.
      *
-     * The title of the invoice.
+     * The title of the invoice, which is displayed on the invoice.
      */
     public function getTitle(): ?string
     {
@@ -377,7 +384,7 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Title.
      *
-     * The title of the invoice.
+     * The title of the invoice, which is displayed on the invoice.
      *
      * @maps title
      */
@@ -389,7 +396,7 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Description.
      *
-     * The description of the invoice. This is visible to the customer receiving the invoice.
+     * The description of the invoice, which is displayed on the invoice.
      */
     public function getDescription(): ?string
     {
@@ -399,7 +406,7 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Description.
      *
-     * The description of the invoice. This is visible to the customer receiving the invoice.
+     * The description of the invoice, which is displayed on the invoice.
      *
      * @maps description
      */
@@ -623,10 +630,7 @@ class Invoice implements \JsonSerializable
     /**
      * Returns Custom Fields.
      *
-     * Additional seller-defined fields to render on the invoice. These fields are visible to sellers and
-     * buyers
-     * on the Square-hosted invoice page and in emailed or PDF copies of invoices. For more information,
-     * see
+     * Additional seller-defined fields that are displayed on the invoice. For more information, see
      * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
      *
      * Adding custom fields to an invoice requires an
@@ -645,10 +649,7 @@ class Invoice implements \JsonSerializable
     /**
      * Sets Custom Fields.
      *
-     * Additional seller-defined fields to render on the invoice. These fields are visible to sellers and
-     * buyers
-     * on the Square-hosted invoice page and in emailed or PDF copies of invoices. For more information,
-     * see
+     * Additional seller-defined fields that are displayed on the invoice. For more information, see
      * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
      *
      * Adding custom fields to an invoice requires an
@@ -712,6 +713,44 @@ class Invoice implements \JsonSerializable
     public function setSaleOrServiceDate(?string $saleOrServiceDate): void
     {
         $this->saleOrServiceDate = $saleOrServiceDate;
+    }
+
+    /**
+     * Returns Payment Conditions.
+     *
+     * **France only.** The payment terms and conditions that are displayed on the invoice. For more
+     * information,
+     * see [Payment conditions](https://developer.squareup.com/docs/invoices-api/overview#payment-
+     * conditions).
+     *
+     * For countries other than France, Square returns an `INVALID_REQUEST_ERROR` with a `BAD_REQUEST` code
+     * and
+     * "Payment conditions are not supported for this location's country" detail if this field is included
+     * in `CreateInvoice` or `UpdateInvoice` requests.
+     */
+    public function getPaymentConditions(): ?string
+    {
+        return $this->paymentConditions;
+    }
+
+    /**
+     * Sets Payment Conditions.
+     *
+     * **France only.** The payment terms and conditions that are displayed on the invoice. For more
+     * information,
+     * see [Payment conditions](https://developer.squareup.com/docs/invoices-api/overview#payment-
+     * conditions).
+     *
+     * For countries other than France, Square returns an `INVALID_REQUEST_ERROR` with a `BAD_REQUEST` code
+     * and
+     * "Payment conditions are not supported for this location's country" detail if this field is included
+     * in `CreateInvoice` or `UpdateInvoice` requests.
+     *
+     * @maps payment_conditions
+     */
+    public function setPaymentConditions(?string $paymentConditions): void
+    {
+        $this->paymentConditions = $paymentConditions;
     }
 
     /**
@@ -787,6 +826,9 @@ class Invoice implements \JsonSerializable
         }
         if (isset($this->saleOrServiceDate)) {
             $json['sale_or_service_date']      = $this->saleOrServiceDate;
+        }
+        if (isset($this->paymentConditions)) {
+            $json['payment_conditions']        = $this->paymentConditions;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

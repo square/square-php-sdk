@@ -62,7 +62,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -127,7 +127,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -196,7 +196,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -270,7 +270,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -334,7 +334,7 @@ class DisputesApi extends BaseApi
 
         //process optional query parameters
         $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
-            'dispute_id'   => $disputeId,
+            'dispute_id' => $disputeId,
         ]);
 
         //validate and preprocess url
@@ -342,7 +342,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -350,7 +350,7 @@ class DisputesApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'    => json_encode($request),
+            'request'  => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -423,7 +423,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -497,7 +497,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -567,7 +567,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -637,7 +637,7 @@ class DisputesApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];

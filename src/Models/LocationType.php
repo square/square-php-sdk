@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * A location's physical or mobile type.
+ * A location's type.
  */
 class LocationType
 {

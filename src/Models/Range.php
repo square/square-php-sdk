@@ -24,7 +24,8 @@ class Range implements \JsonSerializable
     /**
      * Returns Min.
      *
-     * The lower bound of the number range.
+     * The lower bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no minimum value.
      */
     public function getMin(): ?string
     {
@@ -34,7 +35,8 @@ class Range implements \JsonSerializable
     /**
      * Sets Min.
      *
-     * The lower bound of the number range.
+     * The lower bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no minimum value.
      *
      * @maps min
      */
@@ -46,7 +48,8 @@ class Range implements \JsonSerializable
     /**
      * Returns Max.
      *
-     * The upper bound of the number range.
+     * The upper bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no maximum value.
      */
     public function getMax(): ?string
     {
@@ -56,7 +59,8 @@ class Range implements \JsonSerializable
     /**
      * Sets Max.
      *
-     * The upper bound of the number range.
+     * The upper bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no maximum value.
      *
      * @maps max
      */

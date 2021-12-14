@@ -53,7 +53,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -125,7 +125,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -203,7 +203,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -249,11 +249,11 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Uploads an image file to be represented by a [CatalogImage]($m/CatalogImage) object linked to an
-     * existing
-     * [CatalogObject]($m/CatalogObject) instance. A call to this endpoint can upload an image, link an
-     * image to
-     * a catalog object, or do both.
+     * Uploads an image file to be represented by a [CatalogImage]($m/CatalogImage) object that can be
+     * linked to an existing
+     * [CatalogObject]($m/CatalogObject) instance. The resulting `CatalogImage` is unattached to any
+     * `CatalogObject` if the `object_id`
+     * is not specified.
      *
      * This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an
      * image file part in
@@ -278,7 +278,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -286,7 +286,7 @@ class CatalogApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'    => json_encode($request),
+            'request'  => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -330,6 +330,92 @@ class CatalogApi extends BaseApi
     }
 
     /**
+     * Uploads a new image file to replace the existing one in the specified
+     * [CatalogImage]($m/CatalogImage) object.
+     *
+     * This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an
+     * image file part in
+     * JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
+     *
+     * @param string $imageId The ID of the `CatalogImage` object to update the encapsulated image
+     *        file.
+     * @param \Square\Models\UpdateCatalogImageRequest|null $request
+     * @param \Square\Utils\FileWrapper|null $imageFile
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function updateCatalogImage(
+        string $imageId,
+        ?\Square\Models\UpdateCatalogImageRequest $request = null,
+        ?\Square\Utils\FileWrapper $imageFile = null
+    ): ApiResponse {
+        //prepare query string for API call
+        $_queryBuilder = '/v2/catalog/images/{image_id}';
+
+        //process optional query parameters
+        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+            'image_id'   => $imageId,
+        ]);
+
+        //validate and preprocess url
+        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => $this->internalUserAgent,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion()
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //prepare parameters
+        $_parameters = [
+            'request'  => json_encode($request),
+            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
+        ];
+
+        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = Request::put(
+                $_httpRequest->getQueryUrl(),
+                $_httpRequest->getHeaders(),
+                Request::buildHTTPCurlQuery($_parameters)
+            );
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $mapper = $this->getJsonMapper();
+        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateCatalogImageResponse');
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
      * Retrieves information about the Square Catalog API, such as batch size
      * limits that can be used by the `BatchUpsertCatalogObjects` endpoint.
      *
@@ -347,7 +433,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -389,11 +475,12 @@ class CatalogApi extends BaseApi
     }
 
     /**
-     * Returns a list of [CatalogObject]($m/CatalogObject)s that includes
-     * all objects of a set of desired types (for example, all [CatalogItem]($m/CatalogItem)
-     * and [CatalogTax]($m/CatalogTax) objects) in the catalog. The `types` parameter
-     * is specified as a comma-separated list of valid [CatalogObject]($m/CatalogObject) types:
-     * `ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`.
+     * Returns a list of all [CatalogObject]($m/CatalogObject)s of the specified types in the catalog.
+     *
+     * The `types` parameter is specified as a comma-separated list of the
+     * [CatalogObjectType]($m/CatalogObjectType) values,
+     * for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`,
+     * `IMAGE`".
      *
      * __Important:__ ListCatalog does not return deleted catalog items. To retrieve
      * deleted catalog items, use [SearchCatalogObjects]($e/Catalog/SearchCatalogObjects)
@@ -408,17 +495,27 @@ class CatalogApi extends BaseApi
      *        to retrieve.
      *
      *        The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum,
-     *        including
+     *        for example,
      *        `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
-     *        `MODIFIER`, `MODIFIER_LIST`, or `IMAGE`.
+     *        `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.
      *
-     *        If this is unspecified, the operation returns objects of all the types at the
-     *        version of the Square API used to make the request.
+     *        If this is unspecified, the operation returns objects of all the top level types at
+     *        the version
+     *        of the Square API used to make the request. Object types that are nested onto other
+     *        object types
+     *        are not included in the defaults.
+     *
+     *        At the current API version the default object types are:
+     *        ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,
+     *        SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
+     *        SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
      * @param int|null $catalogVersion The specific version of the catalog objects to be included in
      *        the response.
      *        This allows you to retrieve historical
      *        versions of objects. The specified version value is matched against
-     *        the [CatalogObject]($m/CatalogObject)s' `version` attribute.
+     *        the [CatalogObject]($m/CatalogObject)s' `version` attribute.  If not included,
+     *        results will
+     *        be from the current version of the catalog.
      *
      * @return ApiResponse Response from the API call
      *
@@ -444,7 +541,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -507,7 +604,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -585,7 +682,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -638,23 +735,29 @@ class CatalogApi extends BaseApi
      * @param string $objectId The object ID of any type of catalog objects to be retrieved.
      * @param bool|null $includeRelatedObjects If `true`, the response will include additional
      *        objects that are related to the
-     *        requested object, as follows:
+     *        requested objects. Related objects are defined as any objects referenced by ID by
+     *        the results in the `objects` field
+     *        of the response. These objects are put in the `related_objects` field. Setting this
+     *        to `true` is
+     *        helpful when the objects are needed for immediate display to a user.
+     *        This process only goes one level deep. Objects referenced by the related objects
+     *        will not be included. For example,
      *
-     *        If the `object` field of the response contains a `CatalogItem`, its associated
-     *        `CatalogCategory`, `CatalogTax`, `CatalogImage` and `CatalogModifierList` objects
-     *        will
-     *        be returned in the `related_objects` field of the response. If the `object` field
-     *        of
-     *        the response contains a `CatalogItemVariation`, its parent `CatalogItem` will be
-     *        returned
-     *        in the `related_objects` field of the response.
+     *        if the `objects` field of the response contains a CatalogItem, its associated
+     *        CatalogCategory objects, CatalogTax objects, CatalogImage objects and
+     *        CatalogModifierLists will be returned in the `related_objects` field of the
+     *        response. If the `objects` field of the response contains a CatalogItemVariation,
+     *        its parent CatalogItem will be returned in the `related_objects` field of
+     *        the response.
      *
      *        Default value: `false`
      * @param int|null $catalogVersion Requests objects as of a specific version of the catalog.
      *        This allows you to retrieve historical
      *        versions of objects. The value to retrieve a specific version of an object can be
      *        found
-     *        in the version field of [CatalogObject]($m/CatalogObject)s.
+     *        in the version field of [CatalogObject]($m/CatalogObject)s. If not included, results
+     *        will
+     *        be from the current version of the catalog.
      *
      * @return ApiResponse Response from the API call
      *
@@ -685,7 +788,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'            => BaseApi::USER_AGENT,
+            'user-agent'            => $this->internalUserAgent,
             'Accept'                => 'application/json',
             'Square-Version' => $this->config->getSquareVersion()
         ];
@@ -763,7 +866,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -844,7 +947,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -913,7 +1016,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
@@ -982,7 +1085,7 @@ class CatalogApi extends BaseApi
 
         //prepare headers
         $_headers = [
-            'user-agent'    => BaseApi::USER_AGENT,
+            'user-agent'    => $this->internalUserAgent,
             'Accept'        => 'application/json',
             'Square-Version' => $this->config->getSquareVersion(),
             'Content-Type'    => 'application/json'
