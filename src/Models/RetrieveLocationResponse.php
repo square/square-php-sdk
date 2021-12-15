@@ -7,9 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines the fields that the
- * [RetrieveLocation]($e/Locations/RetrieveLocation) endpoint returns
- * in a response.
+ * Defines the fields that the [RetrieveLocation]($e/Locations/RetrieveLocation)
+ * endpoint returns in a response.
  */
 class RetrieveLocationResponse implements \JsonSerializable
 {
@@ -52,7 +51,7 @@ class RetrieveLocationResponse implements \JsonSerializable
     /**
      * Returns Location.
      *
-     * Represents one of a business's locations.
+     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      */
     public function getLocation(): ?Location
     {
@@ -62,7 +61,7 @@ class RetrieveLocationResponse implements \JsonSerializable
     /**
      * Sets Location.
      *
-     * Represents one of a business's locations.
+     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      *
      * @maps location
      */

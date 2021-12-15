@@ -65,6 +65,11 @@ interface ConfigurationInterface
     public function getAdditionalHeaders(): array;
 
     /**
+     * Get user agent detail, to be appended with user-agent header.
+     */
+    public function getUserAgentDetail(): string;
+
+    /**
      * Get current API environment
      */
     public function getEnvironment(): string;

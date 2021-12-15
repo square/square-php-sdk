@@ -56,6 +56,7 @@ class SquareClient implements ConfigurationInterface
     private $httpMethodsToRetry = ConfigurationDefaults::HTTP_METHODS_TO_RETRY;
     private $squareVersion = ConfigurationDefaults::SQUARE_VERSION;
     private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
+    private $userAgentDetail = ConfigurationDefaults::USER_AGENT_DETAIL;
     private $environment = ConfigurationDefaults::ENVIRONMENT;
     private $customUrl = ConfigurationDefaults::CUSTOM_URL;
     private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
@@ -96,8 +97,12 @@ class SquareClient implements ConfigurationInterface
             $this->squareVersion = $configOptions['squareVersion'];
         }
         if (isset($configOptions['additionalHeaders'])) {
+            ApiHelper::assertHeaders($configOptions['additionalHeaders']);
             $this->additionalHeaders = $configOptions['additionalHeaders'];
-            \Square\ApiHelper::assertHeaders($this->additionalHeaders);
+        }
+        if (isset($configOptions['userAgentDetail'])) {
+            $this->assertUserAgentDetail($configOptions['userAgentDetail']);
+            $this->userAgentDetail = $configOptions['userAgentDetail'];
         }
         if (isset($configOptions['environment'])) {
             $this->environment = $configOptions['environment'];
@@ -155,6 +160,9 @@ class SquareClient implements ConfigurationInterface
         }
         if (isset($this->additionalHeaders)) {
             $configMap['additionalHeaders'] = $this->additionalHeaders;
+        }
+        if (isset($this->userAgentDetail)) {
+            $configMap['userAgentDetail'] = $this->userAgentDetail;
         }
         if (isset($this->environment)) {
             $configMap['environment'] = $this->environment;
@@ -235,6 +243,11 @@ class SquareClient implements ConfigurationInterface
         return $this->additionalHeaders;
     }
 
+    public function getUserAgentDetail(): string
+    {
+        return $this->userAgentDetail;
+    }
+
     public function getEnvironment(): string
     {
         return $this->environment;
@@ -255,9 +268,22 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '16.0.0.20211117';
+        return '17.0.0.20211215';
     }
 
+    /**
+     * Checks userAgentDetail's value, and throw exception if exceeding length limit
+     *
+     * @param string $userAgentDetail user agent detail value to be checked
+     *
+     * @throws \InvalidArgumentException
+     */
+    private function assertUserAgentDetail(string $userAgentDetail): void
+    {
+        if (strlen($userAgentDetail) > 128) {
+            throw new \InvalidArgumentException('The length of user-agent detail should not exceed 128 characters.');
+        }
+    }
 
     /**
      * Get the base uri for a given server in the current environment

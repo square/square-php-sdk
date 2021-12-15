@@ -100,6 +100,11 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * @var string[]|null
      */
+    private $imageIds;
+
+    /**
+     * @var string[]|null
+     */
     private $teamMemberIds;
 
     /**
@@ -556,6 +561,34 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Image Ids.
+     *
+     * The IDs of images associated with this `CatalogItemVariation` instance.
+     * These images will be shown to customers in Square Online Store.
+     *
+     * @return string[]|null
+     */
+    public function getImageIds(): ?array
+    {
+        return $this->imageIds;
+    }
+
+    /**
+     * Sets Image Ids.
+     *
+     * The IDs of images associated with this `CatalogItemVariation` instance.
+     * These images will be shown to customers in Square Online Store.
+     *
+     * @maps image_ids
+     *
+     * @param string[]|null $imageIds
+     */
+    public function setImageIds(?array $imageIds): void
+    {
+        $this->imageIds = $imageIds;
+    }
+
+    /**
      * Returns Team Member Ids.
      *
      * Tokens of employees that can perform the service represented by this variation. Only valid for
@@ -672,6 +705,9 @@ class CatalogItemVariation implements \JsonSerializable
         }
         if (isset($this->stockable)) {
             $json['stockable']                 = $this->stockable;
+        }
+        if (isset($this->imageIds)) {
+            $json['image_ids']                 = $this->imageIds;
         }
         if (isset($this->teamMemberIds)) {
             $json['team_member_ids']           = $this->teamMemberIds;

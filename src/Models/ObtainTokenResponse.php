@@ -58,8 +58,8 @@ class ObtainTokenResponse implements \JsonSerializable
      *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
-     * endpoints. See [OAuth API: Walkthrough](https://developer.squareup.com/docs/oauth-api/walkthrough)
-     * for more information.
+     * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
+     * com/docs/oauth-api/walkthrough).
      */
     public function getAccessToken(): ?string
     {
@@ -71,8 +71,8 @@ class ObtainTokenResponse implements \JsonSerializable
      *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
-     * endpoints. See [OAuth API: Walkthrough](https://developer.squareup.com/docs/oauth-api/walkthrough)
-     * for more information.
+     * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
+     * com/docs/oauth-api/walkthrough).
      *
      * @maps access_token
      */
@@ -106,8 +106,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Expires At.
      *
-     * The date when the access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.
-     * htm) format.
+     * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
      */
     public function getExpiresAt(): ?string
     {
@@ -117,8 +117,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Expires At.
      *
-     * The date when the access_token expires, in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.
-     * htm) format.
+     * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
      *
      * @maps expires_at
      */
@@ -153,7 +153,7 @@ class ObtainTokenResponse implements \JsonSerializable
      * Returns Subscription Id.
      *
      * __LEGACY FIELD__. The ID of a subscription plan the merchant signed up
-     * for. Only present if the merchant signed up for a subscription during authorization.
+     * for. The ID is only present if the merchant signed up for a subscription plan during authorization.
      */
     public function getSubscriptionId(): ?string
     {
@@ -164,7 +164,7 @@ class ObtainTokenResponse implements \JsonSerializable
      * Sets Subscription Id.
      *
      * __LEGACY FIELD__. The ID of a subscription plan the merchant signed up
-     * for. Only present if the merchant signed up for a subscription during authorization.
+     * for. The ID is only present if the merchant signed up for a subscription plan during authorization.
      *
      * @maps subscription_id
      */
@@ -177,7 +177,7 @@ class ObtainTokenResponse implements \JsonSerializable
      * Returns Plan Id.
      *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
-     * up for. Only present if the merchant signed up for a subscription during
+     * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
      */
     public function getPlanId(): ?string
@@ -189,7 +189,7 @@ class ObtainTokenResponse implements \JsonSerializable
      * Sets Plan Id.
      *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
-     * up for. Only present if the merchant signed up for a subscription during
+     * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
      *
      * @maps plan_id
@@ -202,7 +202,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Id Token.
      *
-     * The OpenID token belonging to this person. Only present if the
+     * The OpenID token belonging to this person. This token is only present if the
      * OPENID scope is included in the authorization request.
      */
     public function getIdToken(): ?string
@@ -213,7 +213,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Id Token.
      *
-     * The OpenID token belonging to this person. Only present if the
+     * The OpenID token belonging to this person. This token is only present if the
      * OPENID scope is included in the authorization request.
      *
      * @maps id_token
@@ -252,8 +252,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Short Lived.
      *
-     * A boolean indicating the access token is a short-lived access token.
-     * The short-lived access token returned in the response will expire in 24 hours.
+     * A Boolean indicating that the access token is a short-lived access token.
+     * The short-lived access token returned in the response expires in 24 hours.
      */
     public function getShortLived(): ?bool
     {
@@ -263,8 +263,8 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Short Lived.
      *
-     * A boolean indicating the access token is a short-lived access token.
-     * The short-lived access token returned in the response will expire in 24 hours.
+     * A Boolean indicating that the access token is a short-lived access token.
+     * The short-lived access token returned in the response expires in 24 hours.
      *
      * @maps short_lived
      */

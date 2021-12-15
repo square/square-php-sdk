@@ -19,7 +19,7 @@ class UpdateLocationRequest implements \JsonSerializable
     /**
      * Returns Location.
      *
-     * Represents one of a business's locations.
+     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      */
     public function getLocation(): ?Location
     {
@@ -29,7 +29,7 @@ class UpdateLocationRequest implements \JsonSerializable
     /**
      * Sets Location.
      *
-     * Represents one of a business's locations.
+     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      *
      * @maps location
      */

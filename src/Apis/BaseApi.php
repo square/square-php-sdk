@@ -17,20 +17,6 @@ use Unirest\Request;
 class BaseApi
 {
     /**
-     * User-agent to be sent with API calls
-     *
-     * @var string
-     */
-    protected const USER_AGENT = 'Square-PHP-SDK/16.0.0.20211117';
-
-    /**
-     * HttpCallBack instance associated with this controller
-     *
-     * @var HttpCallBack|null
-     */
-    private $httpCallBack;
-
-    /**
      * Configuration instance
      *
      * @var ConfigurationInterface
@@ -45,6 +31,22 @@ class BaseApi
     private $authManagers = [];
 
     /**
+     * HttpCallBack instance associated with this controller
+     *
+     * @var HttpCallBack|null
+     */
+    private $httpCallBack;
+
+    /**
+     * User-Agent header value to be sent with API calls.
+     *
+     * @var string
+     */
+    protected $internalUserAgent;
+
+    private static $userAgent = 'Square-PHP-SDK/17.0.0.20211215';
+
+    /**
      * Constructor that sets the timeout of requests
      */
     protected function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
@@ -52,6 +54,11 @@ class BaseApi
         $this->config = $config;
         $this->authManagers = $authManagers;
         $this->httpCallBack = $httpCallBack;
+        $this->internalUserAgent = str_replace(
+            ['{api-version}', '{detail}'],
+            [$config->getSquareVersion(), rawurlencode($config->getUserAgentDetail())],
+            self::$userAgent
+        );
 
         Request::timeout($config->getTimeout());
         Request::enableRetries($config->shouldEnableRetries());

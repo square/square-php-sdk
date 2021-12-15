@@ -83,6 +83,11 @@ class CatalogItem implements \JsonSerializable
     private $itemOptions;
 
     /**
+     * @var string[]|null
+     */
+    private $imageIds;
+
+    /**
      * @var string|null
      */
     private $sortName;
@@ -458,6 +463,36 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Image Ids.
+     *
+     * The IDs of images associated with this `CatalogItem` instance.
+     * These images will be shown to customers in Square Online Store.
+     * The first image will show up as the icon for this item in POS.
+     *
+     * @return string[]|null
+     */
+    public function getImageIds(): ?array
+    {
+        return $this->imageIds;
+    }
+
+    /**
+     * Sets Image Ids.
+     *
+     * The IDs of images associated with this `CatalogItem` instance.
+     * These images will be shown to customers in Square Online Store.
+     * The first image will show up as the icon for this item in POS.
+     *
+     * @maps image_ids
+     *
+     * @param string[]|null $imageIds
+     */
+    public function setImageIds(?array $imageIds): void
+    {
+        $this->imageIds = $imageIds;
+    }
+
+    /**
      * Returns Sort Name.
      *
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
@@ -537,6 +572,9 @@ class CatalogItem implements \JsonSerializable
         }
         if (isset($this->itemOptions)) {
             $json['item_options']             = $this->itemOptions;
+        }
+        if (isset($this->imageIds)) {
+            $json['image_ids']                = $this->imageIds;
         }
         if (isset($this->sortName)) {
             $json['sort_name']                = $this->sortName;

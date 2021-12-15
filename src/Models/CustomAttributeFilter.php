@@ -47,8 +47,8 @@ class CustomAttributeFilter implements \JsonSerializable
      * Returns Custom Attribute Definition Id.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `custom_attribute_definition_id`
-     * property value against the the specified id.
+     * `custom_attribute_definition_id` property value against the the specified id.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
      */
     public function getCustomAttributeDefinitionId(): ?string
     {
@@ -59,8 +59,8 @@ class CustomAttributeFilter implements \JsonSerializable
      * Sets Custom Attribute Definition Id.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `custom_attribute_definition_id`
-     * property value against the the specified id.
+     * `custom_attribute_definition_id` property value against the the specified id.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
      *
      * @maps custom_attribute_definition_id
      */
@@ -73,8 +73,8 @@ class CustomAttributeFilter implements \JsonSerializable
      * Returns Key.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `key` property value against
-     * the specified key.
+     * `key` property value against the specified key.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
      */
     public function getKey(): ?string
     {
@@ -85,8 +85,8 @@ class CustomAttributeFilter implements \JsonSerializable
      * Sets Key.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `key` property value against
-     * the specified key.
+     * `key` property value against the specified key.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
      *
      * @maps key
      */
@@ -99,8 +99,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Returns String Filter.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `string_value`  property value
-     * against the specified text.
+     * `string_value`  property value against the specified text.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      */
     public function getStringFilter(): ?string
     {
@@ -111,8 +112,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Sets String Filter.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `string_value`  property value
-     * against the specified text.
+     * `string_value`  property value against the specified text.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      *
      * @maps string_filter
      */
@@ -147,8 +149,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Returns Selection Uids Filter.
      *
      * A query expression to filter items or item variations by matching  their custom attributes'
-     * `selection_uid_values`
-     * values against the specified selection uids.
+     * `selection_uid_values` values against the specified selection uids.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      *
      * @return string[]|null
      */
@@ -161,8 +164,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Sets Selection Uids Filter.
      *
      * A query expression to filter items or item variations by matching  their custom attributes'
-     * `selection_uid_values`
-     * values against the specified selection uids.
+     * `selection_uid_values` values against the specified selection uids.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      *
      * @maps selection_uids_filter
      *
@@ -177,8 +181,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Returns Bool Filter.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `boolean_value` property values
-     * against the specified Boolean expression.
+     * `boolean_value` property values against the specified Boolean expression.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      */
     public function getBoolFilter(): ?bool
     {
@@ -189,8 +194,9 @@ class CustomAttributeFilter implements \JsonSerializable
      * Sets Bool Filter.
      *
      * A query expression to filter items or item variations by matching their custom attributes'
-     * `boolean_value` property values
-     * against the specified Boolean expression.
+     * `boolean_value` property values against the specified Boolean expression.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
      *
      * @maps bool_filter
      */

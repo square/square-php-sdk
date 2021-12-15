@@ -16,7 +16,7 @@ class RevokeTokenResponse implements \JsonSerializable
     /**
      * Returns Success.
      *
-     * If the request is successful, this is true.
+     * If the request is successful, this is `true`.
      */
     public function getSuccess(): ?bool
     {
@@ -26,7 +26,7 @@ class RevokeTokenResponse implements \JsonSerializable
     /**
      * Sets Success.
      *
-     * If the request is successful, this is true.
+     * If the request is successful, this is `true`.
      *
      * @maps success
      */

@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents the hours of operation for a business location.
+ * The hours of operation for a location.
  */
 class BusinessHours implements \JsonSerializable
 {

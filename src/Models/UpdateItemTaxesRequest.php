@@ -35,6 +35,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Returns Item Ids.
      *
      * IDs for the CatalogItems associated with the CatalogTax objects being updated.
+     * No more than 1,000 IDs may be provided.
      *
      * @return string[]
      */
@@ -47,6 +48,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Sets Item Ids.
      *
      * IDs for the CatalogItems associated with the CatalogTax objects being updated.
+     * No more than 1,000 IDs may be provided.
      *
      * @required
      * @maps item_ids
@@ -62,6 +64,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Returns Taxes to Enable.
      *
      * IDs of the CatalogTax objects to enable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
      *
      * @return string[]|null
      */
@@ -74,6 +77,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Sets Taxes to Enable.
      *
      * IDs of the CatalogTax objects to enable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
      *
      * @maps taxes_to_enable
      *
@@ -88,6 +92,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Returns Taxes to Disable.
      *
      * IDs of the CatalogTax objects to disable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
      *
      * @return string[]|null
      */
@@ -100,6 +105,7 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      * Sets Taxes to Disable.
      *
      * IDs of the CatalogTax objects to disable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
      *
      * @maps taxes_to_disable
      *

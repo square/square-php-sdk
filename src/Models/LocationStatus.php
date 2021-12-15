@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The status of the location, whether a location is active or inactive.
+ * A location's status.
  */
 class LocationStatus
 {
@@ -15,8 +15,8 @@ class LocationStatus
     public const ACTIVE = 'ACTIVE';
 
     /**
-     * A location that is not active for business. Inactive locations just provide historical
-     * information, so typically clients limit interaction with or hide these locations.
+     * A location that is not active for business. Inactive locations provide historical
+     * information. Hide inactive locations unless the user has requested to see them.
      */
     public const INACTIVE = 'INACTIVE';
 }

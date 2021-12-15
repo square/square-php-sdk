@@ -68,6 +68,11 @@ class CatalogPricingRule implements \JsonSerializable
     private $excludeStrategy;
 
     /**
+     * @var Money|null
+     */
+    private $minimumOrderSubtotalMoney;
+
+    /**
      * @var string[]|null
      */
     private $customerGroupIdsAny;
@@ -367,6 +372,40 @@ class CatalogPricingRule implements \JsonSerializable
     }
 
     /**
+     * Returns Minimum Order Subtotal Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getMinimumOrderSubtotalMoney(): ?Money
+    {
+        return $this->minimumOrderSubtotalMoney;
+    }
+
+    /**
+     * Sets Minimum Order Subtotal Money.
+     *
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps minimum_order_subtotal_money
+     */
+    public function setMinimumOrderSubtotalMoney(?Money $minimumOrderSubtotalMoney): void
+    {
+        $this->minimumOrderSubtotalMoney = $minimumOrderSubtotalMoney;
+    }
+
+    /**
      * Returns Customer Group Ids Any.
      *
      * A list of IDs of customer groups, the members of which are eligible for discounts specified in this
@@ -418,40 +457,43 @@ class CatalogPricingRule implements \JsonSerializable
     {
         $json = [];
         if (isset($this->name)) {
-            $json['name']                   = $this->name;
+            $json['name']                         = $this->name;
         }
         if (isset($this->timePeriodIds)) {
-            $json['time_period_ids']        = $this->timePeriodIds;
+            $json['time_period_ids']              = $this->timePeriodIds;
         }
         if (isset($this->discountId)) {
-            $json['discount_id']            = $this->discountId;
+            $json['discount_id']                  = $this->discountId;
         }
         if (isset($this->matchProductsId)) {
-            $json['match_products_id']      = $this->matchProductsId;
+            $json['match_products_id']            = $this->matchProductsId;
         }
         if (isset($this->applyProductsId)) {
-            $json['apply_products_id']      = $this->applyProductsId;
+            $json['apply_products_id']            = $this->applyProductsId;
         }
         if (isset($this->excludeProductsId)) {
-            $json['exclude_products_id']    = $this->excludeProductsId;
+            $json['exclude_products_id']          = $this->excludeProductsId;
         }
         if (isset($this->validFromDate)) {
-            $json['valid_from_date']        = $this->validFromDate;
+            $json['valid_from_date']              = $this->validFromDate;
         }
         if (isset($this->validFromLocalTime)) {
-            $json['valid_from_local_time']  = $this->validFromLocalTime;
+            $json['valid_from_local_time']        = $this->validFromLocalTime;
         }
         if (isset($this->validUntilDate)) {
-            $json['valid_until_date']       = $this->validUntilDate;
+            $json['valid_until_date']             = $this->validUntilDate;
         }
         if (isset($this->validUntilLocalTime)) {
-            $json['valid_until_local_time'] = $this->validUntilLocalTime;
+            $json['valid_until_local_time']       = $this->validUntilLocalTime;
         }
         if (isset($this->excludeStrategy)) {
-            $json['exclude_strategy']       = $this->excludeStrategy;
+            $json['exclude_strategy']             = $this->excludeStrategy;
+        }
+        if (isset($this->minimumOrderSubtotalMoney)) {
+            $json['minimum_order_subtotal_money'] = $this->minimumOrderSubtotalMoney;
         }
         if (isset($this->customerGroupIdsAny)) {
-            $json['customer_group_ids_any'] = $this->customerGroupIdsAny;
+            $json['customer_group_ids_any']       = $this->customerGroupIdsAny;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

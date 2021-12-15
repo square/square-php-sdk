@@ -32,6 +32,11 @@ class CatalogImage implements \JsonSerializable
     private $caption;
 
     /**
+     * @var string|null
+     */
+    private $photoStudioOrderId;
+
+    /**
      * Returns Name.
      *
      * The internal name to identify this image in calls to the Square API.
@@ -112,6 +117,30 @@ class CatalogImage implements \JsonSerializable
     }
 
     /**
+     * Returns Photo Studio Order Id.
+     *
+     * The immutable order ID for this image object created by the Photo Studio service in Square Online
+     * Store.
+     */
+    public function getPhotoStudioOrderId(): ?string
+    {
+        return $this->photoStudioOrderId;
+    }
+
+    /**
+     * Sets Photo Studio Order Id.
+     *
+     * The immutable order ID for this image object created by the Photo Studio service in Square Online
+     * Store.
+     *
+     * @maps photo_studio_order_id
+     */
+    public function setPhotoStudioOrderId(?string $photoStudioOrderId): void
+    {
+        $this->photoStudioOrderId = $photoStudioOrderId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -123,13 +152,16 @@ class CatalogImage implements \JsonSerializable
     {
         $json = [];
         if (isset($this->name)) {
-            $json['name']    = $this->name;
+            $json['name']                  = $this->name;
         }
         if (isset($this->url)) {
-            $json['url']     = $this->url;
+            $json['url']                   = $this->url;
         }
         if (isset($this->caption)) {
-            $json['caption'] = $this->caption;
+            $json['caption']               = $this->caption;
+        }
+        if (isset($this->photoStudioOrderId)) {
+            $json['photo_studio_order_id'] = $this->photoStudioOrderId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

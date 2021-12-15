@@ -113,9 +113,9 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * Returns M Include.
      *
-     * A query parameter to specify related information to be included in the response.
+     * An option to include related information in the response.
      *
-     * The supported query parameter values are:
+     * The supported values are:
      *
      * - `actions`: to include scheduled actions on the targeted subscriptions.
      *
@@ -129,9 +129,9 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * Sets M Include.
      *
-     * A query parameter to specify related information to be included in the response.
+     * An option to include related information in the response.
      *
-     * The supported query parameter values are:
+     * The supported values are:
      *
      * - `actions`: to include scheduled actions on the targeted subscriptions.
      *
