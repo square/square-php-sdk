@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `availabilities` | [`?(Availability[])`](/doc/models/availability.md) | Optional | List of slots available for booking. | getAvailabilities(): ?array | setAvailabilities(?array availabilities): void |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `availabilities` | [`?(Availability[])`](/doc/models/availability.md) | Optional | List of appointment slots available for booking. | getAvailabilities(): ?array | setAvailabilities(?array availabilities): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 

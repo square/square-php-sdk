@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * Types of location where service is provided.
+ * Supported types of location where service is provided.
  */
 class BusinessAppointmentSettingsBookingLocationType
 {

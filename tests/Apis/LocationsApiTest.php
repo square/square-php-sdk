@@ -30,7 +30,7 @@ class LocationsApiTest extends TestCase
 
 
     /**
-     * Provides details about all of the seller's locations,
+     * Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
 including those with an inactive status.
      */
     public function testListLocations()

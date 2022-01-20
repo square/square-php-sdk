@@ -55,7 +55,7 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     /**
      * Returns Limit.
      *
-     * The maximum number of results to return.
+     * The maximum number of results to return in a paged response.
      */
     public function getLimit(): ?int
     {
@@ -65,7 +65,7 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     /**
      * Sets Limit.
      *
-     * The maximum number of results to return.
+     * The maximum number of results to return in a paged response.
      *
      * @maps limit
      */
@@ -77,7 +77,8 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * The cursor for paginating through the results.
+     * The pagination cursor from the preceding response to return the next page of the results. Do not set
+     * this when retrieving the first page of the results.
      */
     public function getCursor(): ?string
     {
@@ -87,7 +88,8 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * The cursor for paginating through the results.
+     * The pagination cursor from the preceding response to return the next page of the results. Do not set
+     * this when retrieving the first page of the results.
      *
      * @maps cursor
      */

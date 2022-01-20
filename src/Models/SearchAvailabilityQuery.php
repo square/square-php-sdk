@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Query conditions to search for availabilities of bookings.
+ * The query used to search for buyer-accessible availabilities of bookings.
  */
 class SearchAvailabilityQuery implements \JsonSerializable
 {
@@ -27,7 +27,7 @@ class SearchAvailabilityQuery implements \JsonSerializable
     /**
      * Returns Filter.
      *
-     * A query filter to search for availabilities by.
+     * A query filter to search for buyer-accessible availabilities by.
      */
     public function getFilter(): SearchAvailabilityFilter
     {
@@ -37,7 +37,7 @@ class SearchAvailabilityQuery implements \JsonSerializable
     /**
      * Sets Filter.
      *
-     * A query filter to search for availabilities by.
+     * A query filter to search for buyer-accessible availabilities by.
      *
      * @required
      * @maps filter

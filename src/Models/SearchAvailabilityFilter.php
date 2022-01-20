@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A query filter to search for availabilities by.
+ * A query filter to search for buyer-accessible availabilities by.
  */
 class SearchAvailabilityFilter implements \JsonSerializable
 {
@@ -73,8 +73,9 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Returns Location Id.
      *
-     * The query expression to search for availabilities matching the specified seller location IDs.
-     * This query expression is not applicable when `booking_id` is present.
+     * The query expression to search for buyer-accessible availabilities with their location IDs matching
+     * the specified location ID.
+     * This query expression cannot be set if `booking_id` is set.
      */
     public function getLocationId(): ?string
     {
@@ -84,8 +85,9 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Sets Location Id.
      *
-     * The query expression to search for availabilities matching the specified seller location IDs.
-     * This query expression is not applicable when `booking_id` is present.
+     * The query expression to search for buyer-accessible availabilities with their location IDs matching
+     * the specified location ID.
+     * This query expression cannot be set if `booking_id` is set.
      *
      * @maps location_id
      */
@@ -97,9 +99,12 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Returns Segment Filters.
      *
-     * The list of segment filters to apply. A query with `n` segment filters returns availabilities with
-     * `n` segments per
-     * availability. It is not applicable when `booking_id` is present.
+     * The query expression to search for buyer-accessible availabilities matching the specified list of
+     * segment filters.
+     * If the size of the `segment_filters` list is `n`, the search returns availabilities with `n`
+     * segments per availability.
+     *
+     * This query expression cannot be set if `booking_id` is set.
      *
      * @return SegmentFilter[]|null
      */
@@ -111,9 +116,12 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Sets Segment Filters.
      *
-     * The list of segment filters to apply. A query with `n` segment filters returns availabilities with
-     * `n` segments per
-     * availability. It is not applicable when `booking_id` is present.
+     * The query expression to search for buyer-accessible availabilities matching the specified list of
+     * segment filters.
+     * If the size of the `segment_filters` list is `n`, the search returns availabilities with `n`
+     * segments per availability.
+     *
+     * This query expression cannot be set if `booking_id` is set.
      *
      * @maps segment_filters
      *
@@ -127,10 +135,10 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Returns Booking Id.
      *
-     * The query expression to search for availabilities for an existing booking by matching the specified
-     * `booking_id` value.
+     * The query expression to search for buyer-accessible availabilities for an existing booking by
+     * matching the specified `booking_id` value.
      * This is commonly used to reschedule an appointment.
-     * If this expression is specified, the `location_id` and `segment_filters` expressions are not allowed.
+     * If this expression is set, the `location_id` and `segment_filters` expressions cannot be set.
      */
     public function getBookingId(): ?string
     {
@@ -140,10 +148,10 @@ class SearchAvailabilityFilter implements \JsonSerializable
     /**
      * Sets Booking Id.
      *
-     * The query expression to search for availabilities for an existing booking by matching the specified
-     * `booking_id` value.
+     * The query expression to search for buyer-accessible availabilities for an existing booking by
+     * matching the specified `booking_id` value.
      * This is commonly used to reschedule an appointment.
-     * If this expression is specified, the `location_id` and `segment_filters` expressions are not allowed.
+     * If this expression is set, the `location_id` and `segment_filters` expressions cannot be set.
      *
      * @maps booking_id
      */

@@ -60,7 +60,7 @@ class SquareClient implements ConfigurationInterface
     private $environment = ConfigurationDefaults::ENVIRONMENT;
     private $customUrl = ConfigurationDefaults::CUSTOM_URL;
     private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
-    private $accessTokenManager;
+    private $bearerAuthManager;
     private $authManagers = [];
     private $httpCallback;
 
@@ -117,8 +117,8 @@ class SquareClient implements ConfigurationInterface
             $this->httpCallback = $configOptions['httpCallback'];
         }
 
-        $this->accessTokenManager = new AccessTokenManager($this->accessToken);
-        $this->authManagers['global'] = $this->accessTokenManager;
+        $this->bearerAuthManager = new BearerAuthManager($this->accessToken);
+        $this->authManagers['global'] = $this->bearerAuthManager;
     }
 
     /**
@@ -170,8 +170,8 @@ class SquareClient implements ConfigurationInterface
         if (isset($this->customUrl)) {
             $configMap['customUrl'] = $this->customUrl;
         }
-        if ($this->getAccessTokenCredentials()->getAccessToken() !== null) {
-            $configMap['accessToken'] = $this->getAccessTokenCredentials()->getAccessToken();
+        if ($this->bearerAuthManager->getAccessToken() !== null) {
+            $configMap['accessToken'] = $this->bearerAuthManager->getAccessToken();
         }
         if (isset($this->httpCallback)) {
             $configMap['httpCallback'] = $this->httpCallback;
@@ -258,9 +258,9 @@ class SquareClient implements ConfigurationInterface
         return $this->customUrl;
     }
 
-    public function getAccessTokenCredentials(): ?AccessTokenCredentials
+    public function getBearerAuthCredentials(): ?BearerAuthCredentials
     {
-        return $this->accessTokenManager;
+        return $this->bearerAuthManager;
     }
 
     /**
@@ -268,7 +268,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '17.0.0.20211215';
+        return '17.1.0.20220120';
     }
 
     /**

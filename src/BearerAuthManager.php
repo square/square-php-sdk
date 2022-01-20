@@ -9,16 +9,16 @@ use Square\Http\HttpRequest;
 /**
  * Utility class for authorization and token management.
  */
-class AccessTokenManager implements AuthManagerInterface, AccessTokenCredentials
+class BearerAuthManager implements AuthManagerInterface, BearerAuthCredentials
 {
     private $accessToken;
 
     /**
      * Returns an instance of this class.
      *
-     * @param string|null $accessToken The OAuth 2.0 Access Token to use for API requests.
+     * @param string $accessToken The OAuth 2.0 Access Token to use for API requests.
      */
-    public function __construct(?string $accessToken)
+    public function __construct(string $accessToken)
     {
         $this->accessToken = $accessToken;
     }
@@ -26,7 +26,7 @@ class AccessTokenManager implements AuthManagerInterface, AccessTokenCredentials
     /**
      * String value for accessToken.
      */
-    public function getAccessToken(): ?string
+    public function getAccessToken(): string
     {
         return $this->accessToken;
     }
@@ -34,11 +34,11 @@ class AccessTokenManager implements AuthManagerInterface, AccessTokenCredentials
     /**
      * Checks if provided credentials match with existing ones.
      *
-     * @param string|null $accessToken The OAuth 2.0 Access Token to use for API requests.
+     * @param string $accessToken The OAuth 2.0 Access Token to use for API requests.
      */
-    public function equals(?string $accessToken): bool
+    public function equals(string $accessToken): bool
     {
-        return $accessToken == $this->getAccessToken();
+        return $accessToken == $this->accessToken;
     }
 
     /**

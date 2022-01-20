@@ -8,8 +8,9 @@ class ClientFactory
 {
     public static function create(HttpCallBackCatcher $httpCallback): \Square\SquareClient
     {
-        return (new \Square\SquareClient(static::getConfigurationFromEnvironment()))
+        $client = (new \Square\SquareClient(static::getConfigurationFromEnvironment()))
             ->withConfiguration(static::getTestConfiguration($httpCallback));
+        return $client;
     }
 
     public static function getTestConfiguration(HttpCallBackCatcher $httpCallback): array

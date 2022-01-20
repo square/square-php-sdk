@@ -21,7 +21,7 @@ class SearchAvailabilityResponse implements \JsonSerializable
     /**
      * Returns Availabilities.
      *
-     * List of slots available for booking.
+     * List of appointment slots available for booking.
      *
      * @return Availability[]|null
      */
@@ -33,7 +33,7 @@ class SearchAvailabilityResponse implements \JsonSerializable
     /**
      * Sets Availabilities.
      *
-     * List of slots available for booking.
+     * List of appointment slots available for booking.
      *
      * @maps availabilities
      *
@@ -47,7 +47,7 @@ class SearchAvailabilityResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -59,7 +59,7 @@ class SearchAvailabilityResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @maps errors
      *

@@ -80,9 +80,9 @@ interface ConfigurationInterface
     public function getCustomUrl(): string;
 
     /**
-     * Get the credentials to use with AccessToken
+     * Get the credentials to use with BearerAuth
      */
-    public function getAccessTokenCredentials(): ?AccessTokenCredentials;
+    public function getBearerAuthCredentials(): ?BearerAuthCredentials;
 
     /**
      * Get the base uri for a given server in the current environment.

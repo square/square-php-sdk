@@ -1,7 +1,7 @@
 
 # Search Availability Query
 
-Query conditions to search for availabilities of bookings.
+The query used to search for buyer-accessible availabilities of bookings.
 
 ## Structure
 
@@ -11,7 +11,7 @@ Query conditions to search for availabilities of bookings.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `filter` | [`SearchAvailabilityFilter`](/doc/models/search-availability-filter.md) | Required | A query filter to search for availabilities by. | getFilter(): SearchAvailabilityFilter | setFilter(SearchAvailabilityFilter filter): void |
+| `filter` | [`SearchAvailabilityFilter`](/doc/models/search-availability-filter.md) | Required | A query filter to search for buyer-accessible availabilities by. | getFilter(): SearchAvailabilityFilter | setFilter(SearchAvailabilityFilter filter): void |
 
 ## Example (as JSON)
 
