@@ -44,7 +44,7 @@ class BaseApi
      */
     protected $internalUserAgent;
 
-    private static $userAgent = 'Square-PHP-SDK/17.0.0.20211215';
+    private static $userAgent = 'Square-PHP-SDK/17.1.0.20220120 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
 
     /**
      * Constructor that sets the timeout of requests
@@ -54,6 +54,7 @@ class BaseApi
         $this->config = $config;
         $this->authManagers = $authManagers;
         $this->httpCallBack = $httpCallBack;
+        $this->updateUserAgent();
         $this->internalUserAgent = str_replace(
             ['{api-version}', '{detail}'],
             [$config->getSquareVersion(), rawurlencode($config->getUserAgentDetail())],
@@ -69,6 +70,25 @@ class BaseApi
         Request::retryOnTimeout($config->shouldRetryOnTimeout());
         Request::httpMethodsToRetry($config->getHttpMethodsToRetry());
         Request::httpStatusCodesToRetry($config->getHttpStatusCodesToRetry());
+    }
+
+    /**
+     * Updates the user agent header value.
+     */
+    private function updateUserAgent(): void
+    {
+        if (preg_match('({engine}|{engine-version}|{os-info})', self::$userAgent) === 1) {
+            $placeHolders = [
+                '{engine}' => !empty(zend_version()) ? 'Zend' : '',
+                '{engine-version}' => zend_version(),
+                '{os-info}' => PHP_OS_FAMILY !== 'Unknown' ? PHP_OS_FAMILY . '-' . php_uname('r') : '',
+            ];
+            self::$userAgent = str_replace(
+                array_keys($placeHolders),
+                array_values($placeHolders),
+                self::$userAgent
+            );
+        }
     }
 
     /**

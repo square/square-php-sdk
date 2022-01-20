@@ -196,8 +196,6 @@ $body->getPrePopulateShippingAddress()->setSublocality('sublocality0');
 $body->getPrePopulateShippingAddress()->setAdministrativeDistrictLevel1('CA');
 $body->getPrePopulateShippingAddress()->setPostalCode('94103');
 $body->getPrePopulateShippingAddress()->setCountry(Models\Country::US);
-$body->getPrePopulateShippingAddress()->setFirstName('Jane');
-$body->getPrePopulateShippingAddress()->setLastName('Doe');
 $body->setRedirectUrl('https://merchant.website.com/order-confirm');
 $body_additionalRecipients = [];
 

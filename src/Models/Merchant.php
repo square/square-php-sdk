@@ -47,6 +47,11 @@ class Merchant implements \JsonSerializable
     private $mainLocationId;
 
     /**
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
      * @param string $country
      */
     public function __construct(string $country)
@@ -210,6 +215,32 @@ class Merchant implements \JsonSerializable
     }
 
     /**
+     * Returns Created At.
+     *
+     * The time when the merchant was created, in RFC 3339 format.
+     * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
+     * basics/working-with-dates).
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Sets Created At.
+     *
+     * The time when the merchant was created, in RFC 3339 format.
+     * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
+     * basics/working-with-dates).
+     *
+     * @maps created_at
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -238,6 +269,9 @@ class Merchant implements \JsonSerializable
         }
         if (isset($this->mainLocationId)) {
             $json['main_location_id'] = $this->mainLocationId;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']       = $this->createdAt;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

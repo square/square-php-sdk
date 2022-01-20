@@ -53,10 +53,11 @@ class RefundsApi extends BaseApi
      *        a list of refund status values, see [PaymentRefund]($m/PaymentRefund).
      *
      *        Default: If omitted, refunds are returned regardless of their status.
-     * @param string|null $sourceType If provided, only refunds with the given source type are
-     *        returned.
-     *        - `CARD` - List refunds only for payments where `CARD` was specified as the payment
-     *        source.
+     * @param string|null $sourceType If provided, only returns refunds whose payments have the
+     *        indicated source type.
+     *        Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
+     *        For information about these payment source types, see
+     *        [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      *
      *        Default: If omitted, refunds are returned regardless of the source type.
      * @param int|null $limit The maximum number of results to be returned in a single page. It is

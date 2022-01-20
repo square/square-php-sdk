@@ -22,29 +22,24 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     private $points;
 
     /**
-     * @var Money|null
+     * @var LoyaltyProgramAccrualRuleVisitData|null
      */
-    private $visitMinimumAmountMoney;
+    private $visitData;
 
     /**
-     * @var Money|null
+     * @var LoyaltyProgramAccrualRuleSpendData|null
      */
-    private $spendAmountMoney;
+    private $spendData;
 
     /**
-     * @var string|null
+     * @var LoyaltyProgramAccrualRuleItemVariationData|null
      */
-    private $catalogObjectId;
+    private $itemVariationData;
 
     /**
-     * @var string[]|null
+     * @var LoyaltyProgramAccrualRuleCategoryData|null
      */
-    private $excludedCategoryIds;
-
-    /**
-     * @var string[]|null
-     */
-    private $excludedItemVariationIds;
+    private $categoryData;
 
     /**
      * @param string $accrualType
@@ -102,167 +97,91 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     }
 
     /**
-     * Returns Visit Minimum Amount Money.
+     * Returns Visit Data.
      *
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
+     * Represents additional data for rules with the `VISIT` accrual type.
      */
-    public function getVisitMinimumAmountMoney(): ?Money
+    public function getVisitData(): ?LoyaltyProgramAccrualRuleVisitData
     {
-        return $this->visitMinimumAmountMoney;
+        return $this->visitData;
     }
 
     /**
-     * Sets Visit Minimum Amount Money.
+     * Sets Visit Data.
      *
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
+     * Represents additional data for rules with the `VISIT` accrual type.
      *
-     * @maps visit_minimum_amount_money
+     * @maps visit_data
      */
-    public function setVisitMinimumAmountMoney(?Money $visitMinimumAmountMoney): void
+    public function setVisitData(?LoyaltyProgramAccrualRuleVisitData $visitData): void
     {
-        $this->visitMinimumAmountMoney = $visitMinimumAmountMoney;
+        $this->visitData = $visitData;
     }
 
     /**
-     * Returns Spend Amount Money.
+     * Returns Spend Data.
      *
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
+     * Represents additional data for rules with the `SPEND` accrual type.
      */
-    public function getSpendAmountMoney(): ?Money
+    public function getSpendData(): ?LoyaltyProgramAccrualRuleSpendData
     {
-        return $this->spendAmountMoney;
+        return $this->spendData;
     }
 
     /**
-     * Sets Spend Amount Money.
+     * Sets Spend Data.
      *
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
+     * Represents additional data for rules with the `SPEND` accrual type.
      *
-     * @maps spend_amount_money
+     * @maps spend_data
      */
-    public function setSpendAmountMoney(?Money $spendAmountMoney): void
+    public function setSpendData(?LoyaltyProgramAccrualRuleSpendData $spendData): void
     {
-        $this->spendAmountMoney = $spendAmountMoney;
+        $this->spendData = $spendData;
     }
 
     /**
-     * Returns Catalog Object Id.
+     * Returns Item Variation Data.
      *
-     * When the accrual rule is item-based or category-based, this field specifies the ID
-     * of the [catalog object]($m/CatalogObject) that buyers can purchase to earn points.
-     * If `accrual_type` is `ITEM_VARIATION`, the object is an item variation.
-     * If `accrual_type` is `CATEGORY`, the object is a category.
+     * Represents additional data for rules with the `ITEM_VARIATION` accrual type.
      */
-    public function getCatalogObjectId(): ?string
+    public function getItemVariationData(): ?LoyaltyProgramAccrualRuleItemVariationData
     {
-        return $this->catalogObjectId;
+        return $this->itemVariationData;
     }
 
     /**
-     * Sets Catalog Object Id.
+     * Sets Item Variation Data.
      *
-     * When the accrual rule is item-based or category-based, this field specifies the ID
-     * of the [catalog object]($m/CatalogObject) that buyers can purchase to earn points.
-     * If `accrual_type` is `ITEM_VARIATION`, the object is an item variation.
-     * If `accrual_type` is `CATEGORY`, the object is a category.
+     * Represents additional data for rules with the `ITEM_VARIATION` accrual type.
      *
-     * @maps catalog_object_id
+     * @maps item_variation_data
      */
-    public function setCatalogObjectId(?string $catalogObjectId): void
+    public function setItemVariationData(?LoyaltyProgramAccrualRuleItemVariationData $itemVariationData): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->itemVariationData = $itemVariationData;
     }
 
     /**
-     * Returns Excluded Category Ids.
+     * Returns Category Data.
      *
-     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
-     * lists the IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
-     *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
-     * endpoint to retrieve information about the excluded categories.
-     *
-     * @return string[]|null
+     * Represents additional data for rules with the `CATEGORY` accrual type.
      */
-    public function getExcludedCategoryIds(): ?array
+    public function getCategoryData(): ?LoyaltyProgramAccrualRuleCategoryData
     {
-        return $this->excludedCategoryIds;
+        return $this->categoryData;
     }
 
     /**
-     * Sets Excluded Category Ids.
+     * Sets Category Data.
      *
-     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
-     * lists the IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
+     * Represents additional data for rules with the `CATEGORY` accrual type.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
-     * endpoint to retrieve information about the excluded categories.
-     *
-     * @maps excluded_category_ids
-     *
-     * @param string[]|null $excludedCategoryIds
+     * @maps category_data
      */
-    public function setExcludedCategoryIds(?array $excludedCategoryIds): void
+    public function setCategoryData(?LoyaltyProgramAccrualRuleCategoryData $categoryData): void
     {
-        $this->excludedCategoryIds = $excludedCategoryIds;
-    }
-
-    /**
-     * Returns Excluded Item Variation Ids.
-     *
-     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
-     * lists the IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
-     *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
-     * endpoint to retrieve information about the excluded item variations.
-     *
-     * @return string[]|null
-     */
-    public function getExcludedItemVariationIds(): ?array
-    {
-        return $this->excludedItemVariationIds;
-    }
-
-    /**
-     * Sets Excluded Item Variation Ids.
-     *
-     * When the accrual rule is spend-based (`accrual_type` is `SPEND`), this field
-     * lists the IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
-     *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
-     * endpoint to retrieve information about the excluded item variations.
-     *
-     * @maps excluded_item_variation_ids
-     *
-     * @param string[]|null $excludedItemVariationIds
-     */
-    public function setExcludedItemVariationIds(?array $excludedItemVariationIds): void
-    {
-        $this->excludedItemVariationIds = $excludedItemVariationIds;
+        $this->categoryData = $categoryData;
     }
 
     /**
@@ -276,24 +195,21 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['accrual_type']                    = $this->accrualType;
+        $json['accrual_type']            = $this->accrualType;
         if (isset($this->points)) {
-            $json['points']                      = $this->points;
+            $json['points']              = $this->points;
         }
-        if (isset($this->visitMinimumAmountMoney)) {
-            $json['visit_minimum_amount_money']  = $this->visitMinimumAmountMoney;
+        if (isset($this->visitData)) {
+            $json['visit_data']          = $this->visitData;
         }
-        if (isset($this->spendAmountMoney)) {
-            $json['spend_amount_money']          = $this->spendAmountMoney;
+        if (isset($this->spendData)) {
+            $json['spend_data']          = $this->spendData;
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']           = $this->catalogObjectId;
+        if (isset($this->itemVariationData)) {
+            $json['item_variation_data'] = $this->itemVariationData;
         }
-        if (isset($this->excludedCategoryIds)) {
-            $json['excluded_category_ids']       = $this->excludedCategoryIds;
-        }
-        if (isset($this->excludedItemVariationIds)) {
-            $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
+        if (isset($this->categoryData)) {
+            $json['category_data']       = $this->categoryData;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

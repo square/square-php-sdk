@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a slot available for booking, encapsulating appointment segments, the location and
- * starting time.
+ * Defines an appointment slot that encapsulates the appointment segments, location and  starting time
+ * avaialable for booking.
  */
 class Availability implements \JsonSerializable
 {

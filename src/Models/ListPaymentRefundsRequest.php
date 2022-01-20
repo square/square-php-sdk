@@ -215,9 +215,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     /**
      * Returns Source Type.
      *
-     * If provided, only refunds with the given source type are returned.
-     * - `CARD` - List refunds only for payments where `CARD` was specified as the payment
-     * source.
+     * If provided, only returns refunds whose payments have the indicated source type.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
+     * For information about these payment source types, see
+     * [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      *
      * Default: If omitted, refunds are returned regardless of the source type.
      */
@@ -229,9 +230,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     /**
      * Sets Source Type.
      *
-     * If provided, only refunds with the given source type are returned.
-     * - `CARD` - List refunds only for payments where `CARD` was specified as the payment
-     * source.
+     * If provided, only returns refunds whose payments have the indicated source type.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
+     * For information about these payment source types, see
+     * [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      *
      * Default: If omitted, refunds are returned regardless of the source type.
      *

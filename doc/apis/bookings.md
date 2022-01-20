@@ -25,6 +25,9 @@ $bookingsApi = $client->getBookingsApi();
 
 Retrieve a collection of bookings.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
 ```php
 function listBookings(
     ?int $limit = null,
@@ -79,6 +82,9 @@ if ($apiResponse->isSuccess()) {
 
 Creates a booking.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
+
 ```php
 function createBooking(CreateBookingRequest $body): ApiResponse
 ```
@@ -124,6 +130,9 @@ if ($apiResponse->isSuccess()) {
 # Search Availability
 
 Searches for availabilities for booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
 ```php
 function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
@@ -239,8 +248,8 @@ function listTeamMemberBookingProfiles(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `bookableOnly` | `?bool` | Query, Optional | Indicates whether to include only bookable team members in the returned result (`true`) or not (`false`).<br>**Default**: `false` |
-| `limit` | `?int` | Query, Optional | The maximum number of results to return. |
-| `cursor` | `?string` | Query, Optional | The cursor for paginating through the results. |
+| `limit` | `?int` | Query, Optional | The maximum number of results to return in a paged response. |
+| `cursor` | `?string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
 | `locationId` | `?string` | Query, Optional | Indicates whether to include only team members enabled at the given location in the returned result. |
 
 ## Response Type
@@ -310,6 +319,9 @@ if ($apiResponse->isSuccess()) {
 
 Retrieves a booking.
 
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
 ```php
 function retrieveBooking(string $bookingId): ApiResponse
 ```
@@ -346,6 +358,9 @@ if ($apiResponse->isSuccess()) {
 # Update Booking
 
 Updates a booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```php
 function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiResponse
@@ -394,6 +409,9 @@ if ($apiResponse->isSuccess()) {
 # Cancel Booking
 
 Cancels an existing booking.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```php
 function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiResponse

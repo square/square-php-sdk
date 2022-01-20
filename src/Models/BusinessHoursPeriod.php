@@ -52,7 +52,8 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Returns Start Local Time.
      *
      * The start time of a business hours period, specified in local time using partial-time
-     * RFC 3339 format.
+     * RFC 3339 format. For example, `8:30:00` for a period starting at 8:30 in the morning.
+     * Note that the seconds value will always be :00, but it is appended for conformance to the RFC.
      */
     public function getStartLocalTime(): ?string
     {
@@ -63,7 +64,8 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Sets Start Local Time.
      *
      * The start time of a business hours period, specified in local time using partial-time
-     * RFC 3339 format.
+     * RFC 3339 format. For example, `8:30:00` for a period starting at 8:30 in the morning.
+     * Note that the seconds value will always be :00, but it is appended for conformance to the RFC.
      *
      * @maps start_local_time
      */
@@ -76,7 +78,8 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Returns End Local Time.
      *
      * The end time of a business hours period, specified in local time using partial-time
-     * RFC 3339 format.
+     * RFC 3339 format. For example, `21:00:00` for a period ending at 9:00 in the evening.
+     * Note that the seconds value will always be :00, but it is appended for conformance to the RFC.
      */
     public function getEndLocalTime(): ?string
     {
@@ -87,7 +90,8 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Sets End Local Time.
      *
      * The end time of a business hours period, specified in local time using partial-time
-     * RFC 3339 format.
+     * RFC 3339 format. For example, `21:00:00` for a period ending at 9:00 in the evening.
+     * Note that the seconds value will always be :00, but it is appended for conformance to the RFC.
      *
      * @maps end_local_time
      */

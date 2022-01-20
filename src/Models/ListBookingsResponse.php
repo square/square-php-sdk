@@ -52,7 +52,7 @@ class ListBookingsResponse implements \JsonSerializable
     /**
      * Returns Cursor.
      *
-     * The pagination cursor to be used in the following request to get the next page of the results. Stop
+     * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      */
     public function getCursor(): ?string
@@ -63,7 +63,7 @@ class ListBookingsResponse implements \JsonSerializable
     /**
      * Sets Cursor.
      *
-     * The pagination cursor to be used in the following request to get the next page of the results. Stop
+     * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      *
      * @maps cursor
@@ -76,7 +76,7 @@ class ListBookingsResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -88,7 +88,7 @@ class ListBookingsResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @maps errors
      *

@@ -45,7 +45,7 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -57,7 +57,7 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * Any errors that occurred during the request.
+     * Errors that occurred during the request.
      *
      * @maps errors
      *

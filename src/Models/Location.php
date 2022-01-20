@@ -197,37 +197,9 @@ class Location implements \JsonSerializable
     /**
      * Returns Address.
      *
-     * Represents a postal address in a country. The address format is based
-     * on an [open-source library from Google](https://github.com/google/libaddressinput). For more
-     * information,
-     * see [AddressValidationMetadata](https://github.
-     * com/google/libaddressinput/wiki/AddressValidationMetadata).
-     * This format has dedicated fields for four address components: postal code,
-     * locality (city), administrative district (state, prefecture, or province), and
-     * sublocality (town or village). These components have dedicated fields in the
-     * `Address` object because software sometimes behaves differently based on them.
-     * For example, sales tax software may charge different amounts of sales tax
-     * based on the postal code, and some software is only available in
-     * certain states due to compliance reasons.
-     *
-     * For the remaining address components, the `Address` type provides the
-     * `address_line_1` and `address_line_2` fields for free-form data entry.
-     * These fields are free-form because the remaining address components have
-     * too many variations around the world and typical software does not parse
-     * these components. These fields enable users to enter anything they want.
-     *
-     * Note that, in the current implementation, all other `Address` type fields are blank.
-     * These include `address_line_3`, `sublocality_2`, `sublocality_3`,
-     * `administrative_district_level_2`, `administrative_district_level_3`,
-     * `first_name`, `last_name`, and `organization`.
-     *
-     * When it comes to localization, the seller's language preferences
-     * (see [Language preferences](https://developer.squareup.com/docs/locations-api#location-specific-and-
-     * seller-level-language-preferences))
-     * are ignored for addresses. Even though Square products (such as Square Point of Sale
-     * and the Seller Dashboard) mostly use a seller's language preference in
-     * communication, when it comes to addresses, they will use English for a US address,
-     * Japanese for an address in Japan, and so on.
+     * Represents a postal address in a country.
+     * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
+     * basics/working-with-addresses).
      */
     public function getAddress(): ?Address
     {
@@ -237,37 +209,9 @@ class Location implements \JsonSerializable
     /**
      * Sets Address.
      *
-     * Represents a postal address in a country. The address format is based
-     * on an [open-source library from Google](https://github.com/google/libaddressinput). For more
-     * information,
-     * see [AddressValidationMetadata](https://github.
-     * com/google/libaddressinput/wiki/AddressValidationMetadata).
-     * This format has dedicated fields for four address components: postal code,
-     * locality (city), administrative district (state, prefecture, or province), and
-     * sublocality (town or village). These components have dedicated fields in the
-     * `Address` object because software sometimes behaves differently based on them.
-     * For example, sales tax software may charge different amounts of sales tax
-     * based on the postal code, and some software is only available in
-     * certain states due to compliance reasons.
-     *
-     * For the remaining address components, the `Address` type provides the
-     * `address_line_1` and `address_line_2` fields for free-form data entry.
-     * These fields are free-form because the remaining address components have
-     * too many variations around the world and typical software does not parse
-     * these components. These fields enable users to enter anything they want.
-     *
-     * Note that, in the current implementation, all other `Address` type fields are blank.
-     * These include `address_line_3`, `sublocality_2`, `sublocality_3`,
-     * `administrative_district_level_2`, `administrative_district_level_3`,
-     * `first_name`, `last_name`, and `organization`.
-     *
-     * When it comes to localization, the seller's language preferences
-     * (see [Language preferences](https://developer.squareup.com/docs/locations-api#location-specific-and-
-     * seller-level-language-preferences))
-     * are ignored for addresses. Even though Square products (such as Square Point of Sale
-     * and the Seller Dashboard) mostly use a seller's language preference in
-     * communication, when it comes to addresses, they will use English for a US address,
-     * Japanese for an address in Japan, and so on.
+     * Represents a postal address in a country.
+     * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
+     * basics/working-with-addresses).
      *
      * @maps address
      */
@@ -280,7 +224,7 @@ class Location implements \JsonSerializable
      * Returns Timezone.
      *
      * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
-     * the timezone of the location. For example, `"America/Los_Angeles"`.
+     * the timezone of the location. For example, `America/Los_Angeles`.
      */
     public function getTimezone(): ?string
     {
@@ -291,7 +235,7 @@ class Location implements \JsonSerializable
      * Sets Timezone.
      *
      * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
-     * the timezone of the location. For example, `"America/Los_Angeles"`.
+     * the timezone of the location. For example, `America/Los_Angeles`.
      *
      * @maps timezone
      */
@@ -479,7 +423,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Phone Number.
      *
-     * The phone number of the location in human readable format. For example, `+353 80 0 098 8099`.
+     * The phone number of the location. For example, `+1 855-700-6000`.
      */
     public function getPhoneNumber(): ?string
     {
@@ -489,7 +433,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Phone Number.
      *
-     * The phone number of the location in human readable format. For example, `+353 80 0 098 8099`.
+     * The phone number of the location. For example, `+1 855-700-6000`.
      *
      * @maps phone_number
      */
@@ -501,7 +445,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Business Name.
      *
-     * The business name of the location, visible to the location's customers.
+     * The business name of the location.
      */
     public function getBusinessName(): ?string
     {
@@ -511,7 +455,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Business Name.
      *
-     * The business name of the location, visible to the location's customers.
+     * The business name of the location.
      *
      * @maps business_name
      */
@@ -589,9 +533,8 @@ class Location implements \JsonSerializable
     /**
      * Returns Business Email.
      *
-     * The email address of the location, visible to the location's customers.
-     * This can be unique to the location, and is not always the email address for the business owner or
-     * admin.
+     * The email address of the location. This can be unique to the location, and is not always the email
+     * address for the business owner or admin.
      */
     public function getBusinessEmail(): ?string
     {
@@ -601,9 +544,8 @@ class Location implements \JsonSerializable
     /**
      * Sets Business Email.
      *
-     * The email address of the location, visible to the location's customers.
-     * This can be unique to the location, and is not always the email address for the business owner or
-     * admin.
+     * The email address of the location. This can be unique to the location, and is not always the email
+     * address for the business owner or admin.
      *
      * @maps business_email
      */
@@ -780,8 +722,9 @@ class Location implements \JsonSerializable
      * Returns Mcc.
      *
      * A four-digit number that describes the kind of goods or services sold at the location.
-     * The merchant category code (MCC) of the location is standardized by ISO 18245.
-     * For example, `5045`.
+     * The [merchant category code (MCC)](https://developer.squareup.com/docs/locations-api#initialize-a-
+     * merchant-category-code) of the location as standardized by ISO 18245.
+     * For example, `5045`, for a location that sells computer goods and software.
      */
     public function getMcc(): ?string
     {
@@ -792,8 +735,9 @@ class Location implements \JsonSerializable
      * Sets Mcc.
      *
      * A four-digit number that describes the kind of goods or services sold at the location.
-     * The merchant category code (MCC) of the location is standardized by ISO 18245.
-     * For example, `5045`.
+     * The [merchant category code (MCC)](https://developer.squareup.com/docs/locations-api#initialize-a-
+     * merchant-category-code) of the location as standardized by ISO 18245.
+     * For example, `5045`, for a location that sells computer goods and software.
      *
      * @maps mcc
      */
@@ -833,7 +777,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Tax Ids.
      *
-     * The tax IDs that a Location is operating under.
+     * Identifiers for the location used by various governments for tax purposes.
      */
     public function getTaxIds(): ?TaxIds
     {
@@ -843,7 +787,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Tax Ids.
      *
-     * The tax IDs that a Location is operating under.
+     * Identifiers for the location used by various governments for tax purposes.
      *
      * @maps tax_ids
      */

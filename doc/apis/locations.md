@@ -18,7 +18,7 @@ $locationsApi = $client->getLocationsApi();
 
 # List Locations
 
-Provides details about all of the seller's locations,
+Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
 including those with an inactive status.
 
 ```php
@@ -144,7 +144,7 @@ if ($apiResponse->isSuccess()) {
 
 # Update Location
 
-Updates a location.
+Updates a [location](https://developer.squareup.com/docs/locations-api).
 
 ```php
 function updateLocation(string $locationId, UpdateLocationRequest $body): ApiResponse

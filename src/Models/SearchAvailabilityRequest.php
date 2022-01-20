@@ -24,7 +24,7 @@ class SearchAvailabilityRequest implements \JsonSerializable
     /**
      * Returns Query.
      *
-     * Query conditions to search for availabilities of bookings.
+     * The query used to search for buyer-accessible availabilities of bookings.
      */
     public function getQuery(): SearchAvailabilityQuery
     {
@@ -34,7 +34,7 @@ class SearchAvailabilityRequest implements \JsonSerializable
     /**
      * Sets Query.
      *
-     * Query conditions to search for availabilities of bookings.
+     * The query used to search for buyer-accessible availabilities of bookings.
      *
      * @required
      * @maps query

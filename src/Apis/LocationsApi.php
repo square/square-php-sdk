@@ -23,7 +23,8 @@ class LocationsApi extends BaseApi
     }
 
     /**
-     * Provides details about all of the seller's locations,
+     * Provides details about all of the seller's [locations](https://developer.squareup.
+     * com/docs/locations-api),
      * including those with an inactive status.
      *
      * @return ApiResponse Response from the API call
@@ -223,7 +224,7 @@ class LocationsApi extends BaseApi
     }
 
     /**
-     * Updates a location.
+     * Updates a [location](https://developer.squareup.com/docs/locations-api).
      *
      * @param string $locationId The ID of the location to update.
      * @param \Square\Models\UpdateLocationRequest $body An object containing the fields to POST for
