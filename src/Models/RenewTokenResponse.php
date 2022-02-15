@@ -39,6 +39,11 @@ class RenewTokenResponse implements \JsonSerializable
     private $planId;
 
     /**
+     * @var Error[]|null
+     */
+    private $errors;
+
+    /**
      * Returns Access Token.
      *
      * The renewed access token.
@@ -189,6 +194,34 @@ class RenewTokenResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @return Error[]|null
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * Sets Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @maps errors
+     *
+     * @param Error[]|null $errors
+     */
+    public function setErrors(?array $errors): void
+    {
+        $this->errors = $errors;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -216,6 +249,9 @@ class RenewTokenResponse implements \JsonSerializable
         }
         if (isset($this->planId)) {
             $json['plan_id']         = $this->planId;
+        }
+        if (isset($this->errors)) {
+            $json['errors']          = $this->errors;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -13,7 +13,7 @@ class MerchantStatus
 
     /**
      * A functionally limited merchant account. The merchant can only have limited interaction
-     * via Square APIs. The merchant cannot access the seller dashboard.
+     * via Square APIs. The merchant cannot log in or access the seller dashboard.
      */
     public const INACTIVE = 'INACTIVE';
 }

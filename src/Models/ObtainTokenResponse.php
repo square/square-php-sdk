@@ -54,6 +54,11 @@ class ObtainTokenResponse implements \JsonSerializable
     private $shortLived;
 
     /**
+     * @var Error[]|null
+     */
+    private $errors;
+
+    /**
      * Returns Access Token.
      *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
@@ -274,6 +279,34 @@ class ObtainTokenResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @return Error[]|null
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * Sets Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @maps errors
+     *
+     * @param Error[]|null $errors
+     */
+    public function setErrors(?array $errors): void
+    {
+        $this->errors = $errors;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -310,6 +343,9 @@ class ObtainTokenResponse implements \JsonSerializable
         }
         if (isset($this->shortLived)) {
             $json['short_lived']     = $this->shortLived;
+        }
+        if (isset($this->errors)) {
+            $json['errors']          = $this->errors;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

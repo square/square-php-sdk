@@ -80,6 +80,11 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $teamMemberId;
+
+    /**
+     * @var string|null
+     */
     private $transactionId;
 
     /**
@@ -425,6 +430,30 @@ class InventoryAdjustment implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     *
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * inventory adjustment.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * inventory adjustment.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
+    }
+
+    /**
      * Returns Transaction Id.
      *
      * The Square-generated ID of the [Transaction][#type-transaction] that
@@ -595,6 +624,9 @@ class InventoryAdjustment implements \JsonSerializable
         }
         if (isset($this->employeeId)) {
             $json['employee_id']         = $this->employeeId;
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']      = $this->teamMemberId;
         }
         if (isset($this->transactionId)) {
             $json['transaction_id']      = $this->transactionId;

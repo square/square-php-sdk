@@ -27,6 +27,16 @@ class OrderFulfillment implements \JsonSerializable
     private $state;
 
     /**
+     * @var string|null
+     */
+    private $lineItemApplication;
+
+    /**
+     * @var OrderFulfillmentFulfillmentEntry[]|null
+     */
+    private $entries;
+
+    /**
      * @var array|null
      */
     private $metadata;
@@ -105,6 +115,76 @@ class OrderFulfillment implements \JsonSerializable
     public function setState(?string $state): void
     {
         $this->state = $state;
+    }
+
+    /**
+     * Returns Line Item Application.
+     *
+     * The `line_item_application` describes what order line items this fulfillment applies
+     * to. It can be `ALL` or `ENTRY_LIST` with a supplied list of fulfillment entries.
+     */
+    public function getLineItemApplication(): ?string
+    {
+        return $this->lineItemApplication;
+    }
+
+    /**
+     * Sets Line Item Application.
+     *
+     * The `line_item_application` describes what order line items this fulfillment applies
+     * to. It can be `ALL` or `ENTRY_LIST` with a supplied list of fulfillment entries.
+     *
+     * @maps line_item_application
+     */
+    public function setLineItemApplication(?string $lineItemApplication): void
+    {
+        $this->lineItemApplication = $lineItemApplication;
+    }
+
+    /**
+     * Returns Entries.
+     *
+     * A list of entries pertaining to the fulfillment of an order. Each entry must reference
+     * a valid `uid` for an order line item in the `line_item_uid` field, as well as a `quantity` to
+     * fulfill.
+     *
+     * Multiple entries can reference the same line item `uid`, as long as the total quantity among
+     * all fulfillment entries referencing a single line item does not exceed the quantity of the
+     * order's line item itself.
+     *
+     * An order cannot be marked as `COMPLETED` before all fulfillments are `COMPLETED`,
+     * `CANCELED`, or `FAILED`. Fulfillments can be created and completed independently
+     * before order completion.
+     *
+     * @return OrderFulfillmentFulfillmentEntry[]|null
+     */
+    public function getEntries(): ?array
+    {
+        return $this->entries;
+    }
+
+    /**
+     * Sets Entries.
+     *
+     * A list of entries pertaining to the fulfillment of an order. Each entry must reference
+     * a valid `uid` for an order line item in the `line_item_uid` field, as well as a `quantity` to
+     * fulfill.
+     *
+     * Multiple entries can reference the same line item `uid`, as long as the total quantity among
+     * all fulfillment entries referencing a single line item does not exceed the quantity of the
+     * order's line item itself.
+     *
+     * An order cannot be marked as `COMPLETED` before all fulfillments are `COMPLETED`,
+     * `CANCELED`, or `FAILED`. Fulfillments can be created and completed independently
+     * before order completion.
+     *
+     * @maps entries
+     *
+     * @param OrderFulfillmentFulfillmentEntry[]|null $entries
+     */
+    public function setEntries(?array $entries): void
+    {
+        $this->entries = $entries;
     }
 
     /**
@@ -219,22 +299,28 @@ class OrderFulfillment implements \JsonSerializable
     {
         $json = [];
         if (isset($this->uid)) {
-            $json['uid']              = $this->uid;
+            $json['uid']                   = $this->uid;
         }
         if (isset($this->type)) {
-            $json['type']             = $this->type;
+            $json['type']                  = $this->type;
         }
         if (isset($this->state)) {
-            $json['state']            = $this->state;
+            $json['state']                 = $this->state;
+        }
+        if (isset($this->lineItemApplication)) {
+            $json['line_item_application'] = $this->lineItemApplication;
+        }
+        if (isset($this->entries)) {
+            $json['entries']               = $this->entries;
         }
         if (isset($this->metadata)) {
-            $json['metadata']         = $this->metadata;
+            $json['metadata']              = $this->metadata;
         }
         if (isset($this->pickupDetails)) {
-            $json['pickup_details']   = $this->pickupDetails;
+            $json['pickup_details']        = $this->pickupDetails;
         }
         if (isset($this->shipmentDetails)) {
-            $json['shipment_details'] = $this->shipmentDetails;
+            $json['shipment_details']      = $this->shipmentDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

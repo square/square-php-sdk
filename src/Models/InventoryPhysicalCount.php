@@ -62,6 +62,11 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $teamMemberId;
+
+    /**
+     * @var string|null
+     */
     private $occurredAt;
 
     /**
@@ -286,6 +291,30 @@ class InventoryPhysicalCount implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     *
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * physical count.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     *
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * physical count.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
+    }
+
+    /**
      * Returns Occurred At.
      *
      * A client-generated RFC 3339-formatted timestamp that indicates when
@@ -372,6 +401,9 @@ class InventoryPhysicalCount implements \JsonSerializable
         }
         if (isset($this->employeeId)) {
             $json['employee_id']         = $this->employeeId;
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id']      = $this->teamMemberId;
         }
         if (isset($this->occurredAt)) {
             $json['occurred_at']         = $this->occurredAt;

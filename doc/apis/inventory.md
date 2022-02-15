@@ -143,7 +143,7 @@ $body_changes[0]->getPhysicalCount()->setCatalogObjectType('catalog_object_type4
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
 $body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
 $body_changes[0]->getPhysicalCount()->setQuantity('53');
-$body_changes[0]->getPhysicalCount()->setEmployeeId('LRK57NSQ5X7PUD05');
+$body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
 $body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
 $body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
 $body_changes[0]->getAdjustment()->setId('id6');
@@ -320,7 +320,7 @@ $body_changes[0]->getPhysicalCount()->setCatalogObjectType('catalog_object_type4
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
 $body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
 $body_changes[0]->getPhysicalCount()->setQuantity('53');
-$body_changes[0]->getPhysicalCount()->setEmployeeId('LRK57NSQ5X7PUD05');
+$body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
 $body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
 $body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
 $body_changes[0]->getAdjustment()->setId('id6');

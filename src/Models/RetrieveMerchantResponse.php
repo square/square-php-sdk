@@ -50,7 +50,7 @@ class RetrieveMerchantResponse implements \JsonSerializable
     /**
      * Returns Merchant.
      *
-     * Represents a Square seller.
+     * Represents a business that sells with Square.
      */
     public function getMerchant(): ?Merchant
     {
@@ -60,7 +60,7 @@ class RetrieveMerchantResponse implements \JsonSerializable
     /**
      * Sets Merchant.
      *
-     * Represents a Square seller.
+     * Represents a business that sells with Square.
      *
      * @maps merchant
      */

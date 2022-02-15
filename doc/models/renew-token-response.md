@@ -15,6 +15,7 @@
 | `merchantId` | `?string` | Optional | The ID of the authorizing merchant's business.<br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `191` | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
 | `subscriptionId` | `?string` | Optional | __LEGACY FIELD__. The ID of the merchant subscription associated with<br>the authorization. The ID is only present if the merchant signed up for a subscription<br>during authorization. | getSubscriptionId(): ?string | setSubscriptionId(?string subscriptionId): void |
 | `planId` | `?string` | Optional | __LEGACY FIELD__. The ID of the subscription plan the merchant signed<br>up for. The ID is only present if the merchant signed up for a subscription plan during<br>authorization. | getPlanId(): ?string | setPlanId(?string planId): void |
+| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | An error object that provides details about how creation of the obtain<br>token failed. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 

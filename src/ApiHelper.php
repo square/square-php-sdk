@@ -99,6 +99,21 @@ class ApiHelper
     }
 
     /**
+     * Serialize any given mixed value.
+     *
+     * @param mixed $value Any value to be serialized
+     *
+     * @return string serialized value
+     */
+    public static function serialize($value): string
+    {
+        if (is_string($value)) {
+            return $value;
+        }
+        return json_encode($value);
+    }
+
+    /**
      * Deserialize a Json string
      *
      * @param  string   $json       A valid Json string
@@ -125,24 +140,61 @@ class ApiHelper
     }
 
     /**
-     * Converts a valid json string into an array to send in Api calls.
+     * Decodes a valid json string into an array to send in Api calls.
      *
-     * @param  mixed  $json  Valid string json to be translated into a php array.
+     * @param  mixed  $json         Must be null or array or a valid string json to be translated into a php array.
+     * @param  string $name         Name of the argument whose value is being validated in $json parameter.
+     * @param  bool   $associative  Should check for associative? Default: true.
+     *
      * @return array|null    Returns an array made up of key-value pairs in the provided json string
-     *                       or null, if the provided json is not valid.
+     *                       or throws exception, if the provided json is not valid.
+     * @throws InvalidArgumentException
      */
-    public static function makeArray($json): ?array
+    public static function decodeJson($json, string $name, bool $associative = true): ?array
     {
-        if (is_array($json)) {
+        if (is_null($json) || (is_array($json) && (!$associative || self::isAssociative($json)))) {
             return $json;
         }
-        if (empty($json) || is_numeric($json) || is_bool($json)) {
+        if ($json instanceof stdClass) {
+            $json = json_encode($json);
+        }
+        if (is_string($json)) {
+            $decoded = json_decode($json, true);
+            if (is_array($decoded) && (!$associative || self::isAssociative($decoded))) {
+                return $decoded;
+            }
+        }
+        throw new InvalidArgumentException("Invalid json value for argument: '$name'");
+    }
+
+    /**
+     * Decodes a valid jsonArray string into an array to send in Api calls.
+     *
+     * @param  mixed  $json   Must be null or array or a valid string jsonArray to be translated into a php array.
+     * @param  string $name   Name of the argument whose value is being validated in $json parameter.
+     * @param  bool   $asMap  Should decode as map? Default: false.
+     *
+     * @return array|null    Returns an array made up of key-value pairs in the provided jsonArray string
+     *                       or throws exception, if the provided json is not valid.
+     * @throws InvalidArgumentException
+     */
+    public static function decodeJsonArray($json, string $name, bool $asMap = false): ?array
+    {
+        $decoded = self::decodeJson($json, $name, false);
+        if (is_null($decoded)) {
             return null;
         }
-        if ($json instanceof stdClass) {
-            return json_decode(json_encode($json), true);
+        $isAssociative = self::isAssociative($decoded);
+        if (($asMap && $isAssociative) || (!$asMap && !$isAssociative)) {
+            foreach ($decoded as $value) {
+                if (!is_array($value) || !self::isAssociative($value)) {
+                    throw new InvalidArgumentException("Invalid json value for argument: '$name'");
+                }
+            }
+            return $decoded;
         }
-        return is_string($json) ? json_decode($json, true) : null;
+        $type = $asMap ? 'map' : 'array';
+        throw new InvalidArgumentException("Invalid json $type value for argument: '$name'");
     }
 
     /**

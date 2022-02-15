@@ -112,6 +112,11 @@ class Payment implements \JsonSerializable
     private $walletDetails;
 
     /**
+     * @var BuyNowPayLaterDetails|null
+     */
+    private $buyNowPayLaterDetails;
+
+    /**
      * @var string|null
      */
     private $locationId;
@@ -783,6 +788,28 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Buy Now Pay Later Details.
+     *
+     * Additional details about a Buy Now Pay Later payment type.
+     */
+    public function getBuyNowPayLaterDetails(): ?BuyNowPayLaterDetails
+    {
+        return $this->buyNowPayLaterDetails;
+    }
+
+    /**
+     * Sets Buy Now Pay Later Details.
+     *
+     * Additional details about a Buy Now Pay Later payment type.
+     *
+     * @maps buy_now_pay_later_details
+     */
+    public function setBuyNowPayLaterDetails(?BuyNowPayLaterDetails $buyNowPayLaterDetails): void
+    {
+        $this->buyNowPayLaterDetails = $buyNowPayLaterDetails;
+    }
+
+    /**
      * Returns Location Id.
      *
      * The ID of the location associated with the payment.
@@ -1326,6 +1353,9 @@ class Payment implements \JsonSerializable
         }
         if (isset($this->walletDetails)) {
             $json['wallet_details']                   = $this->walletDetails;
+        }
+        if (isset($this->buyNowPayLaterDetails)) {
+            $json['buy_now_pay_later_details']        = $this->buyNowPayLaterDetails;
         }
         if (isset($this->locationId)) {
             $json['location_id']                      = $this->locationId;
