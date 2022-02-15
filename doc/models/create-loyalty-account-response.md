@@ -12,7 +12,7 @@ A response that includes loyalty account created.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `loyaltyAccount` | [`?LoyaltyAccount`](/doc/models/loyalty-account.md) | Optional | Describes a loyalty account. For more information, see<br>[Manage Loyalty Accounts Using the Loyalty API](https://developer.squareup.com/docs/loyalty-api/overview). | getLoyaltyAccount(): ?LoyaltyAccount | setLoyaltyAccount(?LoyaltyAccount loyaltyAccount): void |
+| `loyaltyAccount` | [`?LoyaltyAccount`](/doc/models/loyalty-account.md) | Optional | Describes a loyalty account in a [loyalty program](/doc/models/loyalty-program.md). For more information, see<br>[Manage Loyalty Accounts Using the Loyalty API](https://developer.squareup.com/docs/loyalty-api/overview). | getLoyaltyAccount(): ?LoyaltyAccount | setLoyaltyAccount(?LoyaltyAccount loyaltyAccount): void |
 
 ## Example (as JSON)
 
@@ -21,6 +21,7 @@ A response that includes loyalty account created.
   "loyalty_account": {
     "balance": 0,
     "created_at": "2020-05-08T21:44:32Z",
+    "customer_id": "QPTXM8PQNX3Q726ZYHPMNP46XC",
     "id": "79b807d2-d786-46a9-933b-918028d7a8c5",
     "lifetime_points": 0,
     "mapping": {

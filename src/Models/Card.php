@@ -279,7 +279,7 @@ class Card implements \JsonSerializable
     /**
      * Returns Customer Id.
      *
-     * The ID of a customer created using the Customers API to be associated with the card.
+     * **Required** The ID of a customer created using the Customers API to be associated with the card.
      */
     public function getCustomerId(): ?string
     {
@@ -289,7 +289,7 @@ class Card implements \JsonSerializable
     /**
      * Sets Customer Id.
      *
-     * The ID of a customer created using the Customers API to be associated with the card.
+     * **Required** The ID of a customer created using the Customers API to be associated with the card.
      *
      * @maps customer_id
      */

@@ -11,7 +11,7 @@ Represents a Square customer profile in the Customer Directory of a Square selle
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `id` | `?string` | Optional | A unique Square-assigned ID for the customer profile. | getId(): ?string | setId(?string id): void |
+| `id` | `?string` | Optional | A unique Square-assigned ID for the customer profile.<br><br>If you need this ID for an API request, use the ID returned when you created the customer profile or call the [SearchCustomers](/doc/apis/customers.md#search-customers)<br>or [ListCustomers](/doc/apis/customers.md#list-customers) endpoint. | getId(): ?string | setId(?string id): void |
 | `createdAt` | `?string` | Optional | The timestamp when the customer profile was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The timestamp when the customer profile was last updated, in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `cards` | [`?(Card[])`](/doc/models/card.md) | Optional | Payment details of the credit, debit, and gift cards stored on file for the customer profile.<br><br>DEPRECATED at version 2021-06-16. Replaced by calling [ListCards](/doc/apis/cards.md#list-cards) (for credit and debit cards on file)<br>or [ListGiftCards](/doc/apis/gift-cards.md#list-gift-cards) (for gift cards on file) and including the `customer_id` query parameter.<br>For more information, see [Migrate to the Cards API and Gift Cards API](https://developer.squareup.com/docs/customers-api/use-the-api/integrate-with-other-services#migrate-customer-cards). | getCards(): ?array | setCards(?array cards): void |
@@ -30,7 +30,7 @@ Represents a Square customer profile in the Customer Directory of a Square selle
 | `groupIds` | `?(string[])` | Optional | The IDs of customer groups the customer belongs to. | getGroupIds(): ?array | setGroupIds(?array groupIds): void |
 | `segmentIds` | `?(string[])` | Optional | The IDs of segments the customer belongs to. | getSegmentIds(): ?array | setSegmentIds(?array segmentIds): void |
 | `version` | `?int` | Optional | The Square-assigned version number of the customer profile. The version number is incremented each time an update is committed to the customer profile, except for changes to customer segment membership and cards on file. | getVersion(): ?int | setVersion(?int version): void |
-| `taxIds` | [`?CustomerTaxIds`](/doc/models/customer-tax-ids.md) | Optional | Represents the tax ID associated with a customer profile. The corresponding `tax_ids` field is available only for customers of sellers in France, Ireland, or the United Kingdom.<br>For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids). | getTaxIds(): ?CustomerTaxIds | setTaxIds(?CustomerTaxIds taxIds): void |
+| `taxIds` | [`?CustomerTaxIds`](/doc/models/customer-tax-ids.md) | Optional | Represents the tax ID associated with a [customer profile](/doc/models/customer.md). The corresponding `tax_ids` field is available only for customers of sellers in EU countries or the United Kingdom.<br>For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it-does#customer-tax-ids). | getTaxIds(): ?CustomerTaxIds | setTaxIds(?CustomerTaxIds taxIds): void |
 
 ## Example (as JSON)
 

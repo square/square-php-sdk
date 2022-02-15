@@ -1,7 +1,7 @@
 {
     "name": "square/square",
     "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
-    "version": "17.1.0.20220120",
+    "version": "17.2.0.20220216",
     "type": "library",
     "keywords": [
         "Square",
@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.2 <8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",

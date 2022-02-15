@@ -14,6 +14,11 @@ class RevokeTokenResponse implements \JsonSerializable
     private $success;
 
     /**
+     * @var Error[]|null
+     */
+    private $errors;
+
+    /**
      * Returns Success.
      *
      * If the request is successful, this is `true`.
@@ -36,6 +41,34 @@ class RevokeTokenResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @return Error[]|null
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * Sets Errors.
+     *
+     * An error object that provides details about how creation of the obtain
+     * token failed.
+     *
+     * @maps errors
+     *
+     * @param Error[]|null $errors
+     */
+    public function setErrors(?array $errors): void
+    {
+        $this->errors = $errors;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -48,6 +81,9 @@ class RevokeTokenResponse implements \JsonSerializable
         $json = [];
         if (isset($this->success)) {
             $json['success'] = $this->success;
+        }
+        if (isset($this->errors)) {
+            $json['errors']  = $this->errors;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

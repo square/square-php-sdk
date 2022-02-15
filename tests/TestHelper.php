@@ -348,4 +348,14 @@ class TestHelper
         $mapper = new JsonMapper();
         return $mapper;
     }
+
+    /**
+     * Apply json_decode on the given value
+     *
+     * @return mixed decoded object from the given string
+     */
+    public static function decode(string $value)
+    {
+        return json_decode($value, true) ?? $value;
+    }
 }

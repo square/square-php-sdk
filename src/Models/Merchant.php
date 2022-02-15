@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a Square seller.
+ * Represents a business that sells with Square.
  */
 class Merchant implements \JsonSerializable
 {
@@ -84,7 +84,7 @@ class Merchant implements \JsonSerializable
     /**
      * Returns Business Name.
      *
-     * The business name of the merchant.
+     * The name of the merchant's overall business.
      */
     public function getBusinessName(): ?string
     {
@@ -94,7 +94,7 @@ class Merchant implements \JsonSerializable
     /**
      * Sets Business Name.
      *
-     * The business name of the merchant.
+     * The name of the merchant's overall business.
      *
      * @maps business_name
      */
@@ -131,7 +131,9 @@ class Merchant implements \JsonSerializable
     /**
      * Returns Language Code.
      *
-     * The language code associated with the merchant account, in BCP 47 format.
+     * The code indicating the [language preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences) of the merchant, in [BCP 47 format](https:
+     * //tools.ietf.org/html/bcp47#appendix-A). For example, `en-US` or `fr-CA`.
      */
     public function getLanguageCode(): ?string
     {
@@ -141,7 +143,9 @@ class Merchant implements \JsonSerializable
     /**
      * Sets Language Code.
      *
-     * The language code associated with the merchant account, in BCP 47 format.
+     * The code indicating the [language preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences) of the merchant, in [BCP 47 format](https:
+     * //tools.ietf.org/html/bcp47#appendix-A). For example, `en-US` or `fr-CA`.
      *
      * @maps language_code
      */
@@ -195,7 +199,8 @@ class Merchant implements \JsonSerializable
     /**
      * Returns Main Location Id.
      *
-     * The ID of the main `Location` for this merchant.
+     * The ID of the [main `Location`](https://developer.squareup.com/docs/locations-api#about-the-main-
+     * location) for this merchant.
      */
     public function getMainLocationId(): ?string
     {
@@ -205,7 +210,8 @@ class Merchant implements \JsonSerializable
     /**
      * Sets Main Location Id.
      *
-     * The ID of the main `Location` for this merchant.
+     * The ID of the [main `Location`](https://developer.squareup.com/docs/locations-api#about-the-main-
+     * location) for this merchant.
      *
      * @maps main_location_id
      */

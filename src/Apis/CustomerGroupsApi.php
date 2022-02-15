@@ -131,7 +131,7 @@ class CustomerGroupsApi extends BaseApi
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         //json encode body
-        $_bodyJson = Request\Body::Json($body);
+        $_bodyJson = ApiHelper::serialize($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
 
@@ -334,7 +334,7 @@ class CustomerGroupsApi extends BaseApi
         $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
 
         //json encode body
-        $_bodyJson = Request\Body::Json($body);
+        $_bodyJson = ApiHelper::serialize($body);
 
         $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
 
