@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -93,8 +94,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListInvoicesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListInvoicesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -106,8 +111,8 @@ class InvoicesApi extends BaseApi
      * You must publish the invoice before Square can process it (send it to the customer's email address
      * or charge the customer’s card on file).
      *
-     * @param \Square\Models\CreateInvoiceRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateInvoiceRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -115,7 +120,7 @@ class InvoicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createInvoice(\Square\Models\CreateInvoiceRequest $body): ApiResponse
+    public function createInvoice(Models\CreateInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/invoices';
@@ -165,8 +170,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -179,8 +188,8 @@ class InvoicesApi extends BaseApi
      * The response is paginated. If truncated, the response includes a `cursor`
      * that you use in a subsequent request to retrieve the next set of invoices.
      *
-     * @param \Square\Models\SearchInvoicesRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\SearchInvoicesRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -188,7 +197,7 @@ class InvoicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchInvoices(\Square\Models\SearchInvoicesRequest $body): ApiResponse
+    public function searchInvoices(Models\SearchInvoicesRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/invoices/search';
@@ -238,8 +247,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchInvoicesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchInvoicesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -313,8 +326,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -378,8 +395,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -394,8 +415,8 @@ class InvoicesApi extends BaseApi
      * additional restrictions.
      *
      * @param string $invoiceId The ID of the invoice to update.
-     * @param \Square\Models\UpdateInvoiceRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateInvoiceRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -403,7 +424,7 @@ class InvoicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateInvoice(string $invoiceId, \Square\Models\UpdateInvoiceRequest $body): ApiResponse
+    public function updateInvoice(string $invoiceId, Models\UpdateInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/invoices/{invoice_id}';
@@ -458,8 +479,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -471,8 +496,8 @@ class InvoicesApi extends BaseApi
      * `CANCELED`, or `FAILED`.
      *
      * @param string $invoiceId The ID of the [invoice]($m/Invoice) to cancel.
-     * @param \Square\Models\CancelInvoiceRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CancelInvoiceRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -480,7 +505,7 @@ class InvoicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function cancelInvoice(string $invoiceId, \Square\Models\CancelInvoiceRequest $body): ApiResponse
+    public function cancelInvoice(string $invoiceId, Models\CancelInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/invoices/{invoice_id}/cancel';
@@ -535,8 +560,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -554,8 +583,8 @@ class InvoicesApi extends BaseApi
      * invoice amount.
      *
      * @param string $invoiceId The ID of the invoice to publish.
-     * @param \Square\Models\PublishInvoiceRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\PublishInvoiceRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -563,7 +592,7 @@ class InvoicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function publishInvoice(string $invoiceId, \Square\Models\PublishInvoiceRequest $body): ApiResponse
+    public function publishInvoice(string $invoiceId, Models\PublishInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/invoices/{invoice_id}/publish';
@@ -618,8 +647,12 @@ class InvoicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\PublishInvoiceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'PublishInvoiceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

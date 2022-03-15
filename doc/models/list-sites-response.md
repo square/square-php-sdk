@@ -11,8 +11,8 @@ Represents a `ListSites` response. The response can include either `sites` or `e
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `sites` | [`?(Site[])`](/doc/models/site.md) | Optional | The sites that belong to the seller. | getSites(): ?array | setSites(?array sites): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `sites` | [`?(Site[])`](../../doc/models/site.md) | Optional | The sites that belong to the seller. | getSites(): ?array | setSites(?array sites): void |
 
 ## Example (as JSON)
 

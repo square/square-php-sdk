@@ -194,8 +194,8 @@ class Customer implements \JsonSerializable
      * and debit cards on file)
      * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
      * `customer_id` query parameter.
-     * For more information, see [Migrate to the Cards API and Gift Cards API](https://developer.squareup.
-     * com/docs/customers-api/use-the-api/integrate-with-other-services#migrate-customer-cards).
+     * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
+     * it-does#migrate-customer-cards).
      *
      * @return Card[]|null
      */
@@ -213,8 +213,8 @@ class Customer implements \JsonSerializable
      * and debit cards on file)
      * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
      * `customer_id` query parameter.
-     * For more information, see [Migrate to the Cards API and Gift Cards API](https://developer.squareup.
-     * com/docs/customers-api/use-the-api/integrate-with-other-services#migrate-customer-cards).
+     * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
+     * it-does#migrate-customer-cards).
      *
      * @maps cards
      *
@@ -228,7 +228,7 @@ class Customer implements \JsonSerializable
     /**
      * Returns Given Name.
      *
-     * The given (i.e., first) name associated with the customer profile.
+     * The given name (that is, the first name) associated with the customer profile.
      */
     public function getGivenName(): ?string
     {
@@ -238,7 +238,7 @@ class Customer implements \JsonSerializable
     /**
      * Sets Given Name.
      *
-     * The given (i.e., first) name associated with the customer profile.
+     * The given name (that is, the first name) associated with the customer profile.
      *
      * @maps given_name
      */
@@ -250,7 +250,7 @@ class Customer implements \JsonSerializable
     /**
      * Returns Family Name.
      *
-     * The family (i.e., last) name associated with the customer profile.
+     * The family name (that is, the last name) associated with the customer profile.
      */
     public function getFamilyName(): ?string
     {
@@ -260,7 +260,7 @@ class Customer implements \JsonSerializable
     /**
      * Sets Family Name.
      *
-     * The family (i.e., last) name associated with the customer profile.
+     * The family name (that is, the last name) associated with the customer profile.
      *
      * @maps family_name
      */
@@ -364,7 +364,8 @@ class Customer implements \JsonSerializable
     /**
      * Returns Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      */
     public function getPhoneNumber(): ?string
     {
@@ -374,7 +375,8 @@ class Customer implements \JsonSerializable
     /**
      * Sets Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      *
      * @maps phone_number
      */
@@ -613,8 +615,9 @@ class Customer implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

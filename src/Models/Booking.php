@@ -229,7 +229,7 @@ class Booking implements \JsonSerializable
      * Returns Location Id.
      *
      * The ID of the [Location]($m/Location) object representing the location where the booked service is
-     * provided.
+     * provided. Once set when the booking is created, its value cannot be changed.
      */
     public function getLocationId(): ?string
     {
@@ -240,7 +240,7 @@ class Booking implements \JsonSerializable
      * Sets Location Id.
      *
      * The ID of the [Location]($m/Location) object representing the location where the booked service is
-     * provided.
+     * provided. Once set when the booking is created, its value cannot be changed.
      *
      * @maps location_id
      */
@@ -469,8 +469,9 @@ class Booking implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

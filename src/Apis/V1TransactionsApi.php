@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -103,8 +104,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClassArray($response->body, 'Square\\Models\\V1Order');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Order', 1);
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -175,8 +175,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1Order');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Order');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -189,8 +188,8 @@ class V1TransactionsApi extends BaseApi
      * @param string $locationId The ID of the order's associated location.
      * @param string $orderId The order's Square-issued ID. You obtain this value from Order objects
      *        returned by the List Orders endpoint
-     * @param \Square\Models\V1UpdateOrderRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\V1UpdateOrderRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -198,11 +197,8 @@ class V1TransactionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateOrder(
-        string $locationId,
-        string $orderId,
-        \Square\Models\V1UpdateOrderRequest $body
-    ): ApiResponse {
+    public function updateOrder(string $locationId, string $orderId, Models\V1UpdateOrderRequest $body): ApiResponse
+    {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
@@ -259,8 +255,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1Order');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Order');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -372,8 +367,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClassArray($response->body, 'Square\\Models\\V1Payment');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Payment', 1);
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -445,8 +439,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1Payment');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Payment');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -544,8 +537,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClassArray($response->body, 'Square\\Models\\V1Refund');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Refund', 1);
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -566,8 +558,8 @@ class V1TransactionsApi extends BaseApi
      * @deprecated
      *
      * @param string $locationId The ID of the original payment's associated location.
-     * @param \Square\Models\V1CreateRefundRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\V1CreateRefundRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -575,7 +567,7 @@ class V1TransactionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createRefund(string $locationId, \Square\Models\V1CreateRefundRequest $body): ApiResponse
+    public function createRefund(string $locationId, Models\V1CreateRefundRequest $body): ApiResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
@@ -632,8 +624,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1Refund');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Refund');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -738,8 +729,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClassArray($response->body, 'Square\\Models\\V1Settlement');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Settlement', 1);
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -826,8 +816,7 @@ class V1TransactionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\V1Settlement');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'V1Settlement');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -1,7 +1,7 @@
 
 # Create Payment Response
 
-Defines the response returned by [CreatePayment](/doc/apis/payments.md#create-payment).
+Defines the response returned by [CreatePayment](../../doc/apis/payments.md#create-payment).
 
 If there are errors processing the request, the `payment` field might not be
 present, or it might be present with a status of `FAILED`.
@@ -14,8 +14,8 @@ present, or it might be present with a status of `FAILED`.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `payment` | [`?Payment`](/doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `payment` | [`?Payment`](../../doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
 
 ## Example (as JSON)
 

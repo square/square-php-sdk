@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `events` | [`?(CashDrawerShiftEvent[])`](/doc/models/cash-drawer-shift-event.md) | Optional | All of the events (payments, refunds, etc.) for a cash drawer during<br>the shift. | getEvents(): ?array | setEvents(?array events): void |
+| `events` | [`?(CashDrawerShiftEvent[])`](../../doc/models/cash-drawer-shift-event.md) | Optional | All of the events (payments, refunds, etc.) for a cash drawer during<br>the shift. | getEvents(): ?array | setEvents(?array events): void |
 | `cursor` | `?string` | Optional | Opaque cursor for fetching the next page. Cursor is not present in<br>the last page of results. | getCursor(): ?string | setCursor(?string cursor): void |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 

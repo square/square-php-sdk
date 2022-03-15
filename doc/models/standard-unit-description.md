@@ -11,7 +11,7 @@ Contains the name and abbreviation for standard measurement unit.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `unit` | [`?MeasurementUnit`](/doc/models/measurement-unit.md) | Optional | Represents a unit of measurement to use with a quantity, such as ounces<br>or inches. Exactly one of the following fields are required: `custom_unit`,<br>`area_unit`, `length_unit`, `volume_unit`, and `weight_unit`. | getUnit(): ?MeasurementUnit | setUnit(?MeasurementUnit unit): void |
+| `unit` | [`?MeasurementUnit`](../../doc/models/measurement-unit.md) | Optional | Represents a unit of measurement to use with a quantity, such as ounces<br>or inches. Exactly one of the following fields are required: `custom_unit`,<br>`area_unit`, `length_unit`, `volume_unit`, and `weight_unit`. | getUnit(): ?MeasurementUnit | setUnit(?MeasurementUnit unit): void |
 | `name` | `?string` | Optional | UI display name of the measurement unit. For example, 'Pound'. | getName(): ?string | setName(?string name): void |
 | `abbreviation` | `?string` | Optional | UI display abbreviation for the measurement unit. For example, 'lb'. | getAbbreviation(): ?string | setAbbreviation(?string abbreviation): void |
 

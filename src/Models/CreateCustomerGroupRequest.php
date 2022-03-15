@@ -34,7 +34,7 @@ class CreateCustomerGroupRequest implements \JsonSerializable
      * Returns Idempotency Key.
      *
      * The idempotency key for the request. For more information, see [Idempotency](https://developer.
-     * squareup.com/docs/basics/api101/idempotency).
+     * squareup.com/docs/build-basics/common-api-patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -45,7 +45,7 @@ class CreateCustomerGroupRequest implements \JsonSerializable
      * Sets Idempotency Key.
      *
      * The idempotency key for the request. For more information, see [Idempotency](https://developer.
-     * squareup.com/docs/basics/api101/idempotency).
+     * squareup.com/docs/build-basics/common-api-patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -89,8 +89,9 @@ class CreateCustomerGroupRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

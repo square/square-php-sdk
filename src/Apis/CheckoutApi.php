@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -28,8 +29,8 @@ class CheckoutApi extends BaseApi
      * payment processing workflow hosted on connect.squareup.com.
      *
      * @param string $locationId The ID of the business location to associate the checkout with.
-     * @param \Square\Models\CreateCheckoutRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateCheckoutRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -37,7 +38,7 @@ class CheckoutApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createCheckout(string $locationId, \Square\Models\CreateCheckoutRequest $body): ApiResponse
+    public function createCheckout(string $locationId, Models\CreateCheckoutRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/locations/{location_id}/checkouts';
@@ -92,8 +93,12 @@ class CheckoutApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateCheckoutResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateCheckoutResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

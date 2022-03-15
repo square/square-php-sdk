@@ -75,9 +75,12 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Catalog Object Type.
      *
-     * The [type]($m/CatalogObjectType) of the
-     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
-     * supported for the `ITEM_VARIATION` type.
+     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     *
+     * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
+     * value.
+     * In addition, it can also read the `"catalog_object_type": "ITEM"` field value that is set by the
+     * Square Restaurants app.
      */
     public function getCatalogObjectType(): ?string
     {
@@ -87,9 +90,12 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Catalog Object Type.
      *
-     * The [type]($m/CatalogObjectType) of the
-     * [CatalogObject]($m/CatalogObject) being tracked. Tracking is only
-     * supported for the `ITEM_VARIATION` type.
+     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     *
+     * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
+     * value.
+     * In addition, it can also read the `"catalog_object_type": "ITEM"` field value that is set by the
+     * Square Restaurants app.
      *
      * @maps catalog_object_type
      */
@@ -232,8 +238,9 @@ class InventoryCount implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

@@ -44,6 +44,7 @@ class SquareClient implements ConfigurationInterface
     private $subscriptions;
     private $team;
     private $terminal;
+    private $vendors;
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
     private $enableRetries = ConfigurationDefaults::ENABLE_RETRIES;
@@ -268,7 +269,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '17.2.0.20220216';
+        return '17.3.0.20220316';
     }
 
     /**
@@ -688,6 +689,17 @@ class SquareClient implements ConfigurationInterface
             $this->terminal = new Apis\TerminalApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->terminal;
+    }
+
+    /**
+     * Returns Vendors Api
+     */
+    public function getVendorsApi(): Apis\VendorsApi
+    {
+        if ($this->vendors == null) {
+            $this->vendors = new Apis\VendorsApi($this, $this->authManagers, $this->httpCallback);
+        }
+        return $this->vendors;
     }
 
     /**

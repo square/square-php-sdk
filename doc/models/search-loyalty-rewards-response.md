@@ -11,8 +11,8 @@ A response that includes the loyalty rewards satisfying the search criteria.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `rewards` | [`?(LoyaltyReward[])`](/doc/models/loyalty-reward.md) | Optional | The loyalty rewards that satisfy the search criteria.<br>These are returned in descending order by `updated_at`. | getRewards(): ?array | setRewards(?array rewards): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `rewards` | [`?(LoyaltyReward[])`](../../doc/models/loyalty-reward.md) | Optional | The loyalty rewards that satisfy the search criteria.<br>These are returned in descending order by `updated_at`. | getRewards(): ?array | setRewards(?array rewards): void |
 | `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent<br>request. If empty, this is the final response. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)

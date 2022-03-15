@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `refund` | [`?TerminalRefund`](/doc/models/terminal-refund.md) | Optional | - | getRefund(): ?TerminalRefund | setRefund(?TerminalRefund refund): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `refund` | [`?TerminalRefund`](../../doc/models/terminal-refund.md) | Optional | - | getRefund(): ?TerminalRefund | setRefund(?TerminalRefund refund): void |
 
 ## Example (as JSON)
 

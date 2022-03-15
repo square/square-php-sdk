@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -31,8 +32,8 @@ class TeamApi extends BaseApi
      * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#createteammember).
      *
-     * @param \Square\Models\CreateTeamMemberRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CreateTeamMemberRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -40,7 +41,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTeamMember(\Square\Models\CreateTeamMemberRequest $body): ApiResponse
+    public function createTeamMember(Models\CreateTeamMemberRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members';
@@ -90,8 +91,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateTeamMemberResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateTeamMemberResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -107,8 +112,8 @@ class TeamApi extends BaseApi
      * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#bulk-create-team-members).
      *
-     * @param \Square\Models\BulkCreateTeamMembersRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\BulkCreateTeamMembersRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -116,7 +121,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function bulkCreateTeamMembers(\Square\Models\BulkCreateTeamMembersRequest $body): ApiResponse
+    public function bulkCreateTeamMembers(Models\BulkCreateTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members/bulk-create';
@@ -166,8 +171,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BulkCreateTeamMembersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BulkCreateTeamMembersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -182,8 +191,8 @@ class TeamApi extends BaseApi
      * Learn about [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#bulk-update-team-members).
      *
-     * @param \Square\Models\BulkUpdateTeamMembersRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\BulkUpdateTeamMembersRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -191,7 +200,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function bulkUpdateTeamMembers(\Square\Models\BulkUpdateTeamMembersRequest $body): ApiResponse
+    public function bulkUpdateTeamMembers(Models\BulkUpdateTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members/bulk-update';
@@ -241,8 +250,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BulkUpdateTeamMembersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BulkUpdateTeamMembersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -252,8 +265,8 @@ class TeamApi extends BaseApi
      * - location IDs
      * - `status`
      *
-     * @param \Square\Models\SearchTeamMembersRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\SearchTeamMembersRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -261,7 +274,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTeamMembers(\Square\Models\SearchTeamMembersRequest $body): ApiResponse
+    public function searchTeamMembers(Models\SearchTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members/search';
@@ -311,8 +324,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchTeamMembersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchTeamMembersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -378,8 +395,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveTeamMemberResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveTeamMemberResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -389,8 +410,8 @@ class TeamApi extends BaseApi
      * com/docs/team/troubleshooting#update-a-team-member).
      *
      * @param string $teamMemberId The ID of the team member to update.
-     * @param \Square\Models\UpdateTeamMemberRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\UpdateTeamMemberRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -398,7 +419,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateTeamMember(string $teamMemberId, \Square\Models\UpdateTeamMemberRequest $body): ApiResponse
+    public function updateTeamMember(string $teamMemberId, Models\UpdateTeamMemberRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members/{team_member_id}';
@@ -453,8 +474,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateTeamMemberResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateTeamMemberResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -521,8 +546,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveWageSettingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveWageSettingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -536,8 +565,8 @@ class TeamApi extends BaseApi
      *
      * @param string $teamMemberId The ID of the team member for which to update the `WageSetting`
      *        object.
-     * @param \Square\Models\UpdateWageSettingRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\UpdateWageSettingRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -545,7 +574,7 @@ class TeamApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateWageSetting(string $teamMemberId, \Square\Models\UpdateWageSettingRequest $body): ApiResponse
+    public function updateWageSetting(string $teamMemberId, Models\UpdateWageSettingRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/team-members/{team_member_id}/wage-setting';
@@ -600,8 +629,12 @@ class TeamApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateWageSettingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateWageSettingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

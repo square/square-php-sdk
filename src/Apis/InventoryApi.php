@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -89,10 +90,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveInventoryAdjustmentResponse'
+            'RetrieveInventoryAdjustmentResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -159,10 +161,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveInventoryAdjustmentResponse'
+            'RetrieveInventoryAdjustmentResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -174,8 +177,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param \Square\Models\BatchChangeInventoryRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\BatchChangeInventoryRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -183,7 +186,7 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function deprecatedBatchChangeInventory(\Square\Models\BatchChangeInventoryRequest $body): ApiResponse
+    public function deprecatedBatchChangeInventory(Models\BatchChangeInventoryRequest $body): ApiResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
@@ -235,8 +238,12 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchChangeInventoryResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BatchChangeInventoryResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -247,8 +254,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param \Square\Models\BatchRetrieveInventoryChangesRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\BatchRetrieveInventoryChangesRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -257,7 +264,7 @@ class InventoryApi extends BaseApi
      * @throws ApiException Thrown if API call fails
      */
     public function deprecatedBatchRetrieveInventoryChanges(
-        \Square\Models\BatchRetrieveInventoryChangesRequest $body
+        Models\BatchRetrieveInventoryChangesRequest $body
     ): ApiResponse {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
@@ -309,10 +316,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\BatchRetrieveInventoryChangesResponse'
+            'BatchRetrieveInventoryChangesResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -324,8 +332,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param \Square\Models\BatchRetrieveInventoryCountsRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\BatchRetrieveInventoryCountsRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -334,7 +342,7 @@ class InventoryApi extends BaseApi
      * @throws ApiException Thrown if API call fails
      */
     public function deprecatedBatchRetrieveInventoryCounts(
-        \Square\Models\BatchRetrieveInventoryCountsRequest $body
+        Models\BatchRetrieveInventoryCountsRequest $body
     ): ApiResponse {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
@@ -386,10 +394,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\BatchRetrieveInventoryCountsResponse'
+            'BatchRetrieveInventoryCountsResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -401,8 +410,8 @@ class InventoryApi extends BaseApi
      * referenced in the request.
      * On failure: returns a list of related errors.
      *
-     * @param \Square\Models\BatchChangeInventoryRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\BatchChangeInventoryRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -410,7 +419,7 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchChangeInventory(\Square\Models\BatchChangeInventoryRequest $body): ApiResponse
+    public function batchChangeInventory(Models\BatchChangeInventoryRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/inventory/changes/batch-create';
@@ -460,8 +469,12 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchChangeInventoryResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BatchChangeInventoryResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -475,8 +488,8 @@ class InventoryApi extends BaseApi
      * BatchRetrieveInventoryChanges is a catch-all query endpoint for queries
      * that cannot be handled by other, simpler endpoints.
      *
-     * @param \Square\Models\BatchRetrieveInventoryChangesRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\BatchRetrieveInventoryChangesRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -484,9 +497,8 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveInventoryChanges(
-        \Square\Models\BatchRetrieveInventoryChangesRequest $body
-    ): ApiResponse {
+    public function batchRetrieveInventoryChanges(Models\BatchRetrieveInventoryChangesRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/inventory/changes/batch-retrieve';
 
@@ -535,10 +547,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\BatchRetrieveInventoryChangesResponse'
+            'BatchRetrieveInventoryChangesResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -556,8 +569,8 @@ class InventoryApi extends BaseApi
      * returned. This allows clients to perform a "sync" operation, for example
      * in response to receiving a Webhook notification.
      *
-     * @param \Square\Models\BatchRetrieveInventoryCountsRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\BatchRetrieveInventoryCountsRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -565,7 +578,7 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveInventoryCounts(\Square\Models\BatchRetrieveInventoryCountsRequest $body): ApiResponse
+    public function batchRetrieveInventoryCounts(Models\BatchRetrieveInventoryCountsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/inventory/counts/batch-retrieve';
@@ -615,10 +628,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\BatchRetrieveInventoryCountsResponse'
+            'BatchRetrieveInventoryCountsResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -690,10 +704,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveInventoryPhysicalCountResponse'
+            'RetrieveInventoryPhysicalCountResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -760,10 +775,11 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveInventoryPhysicalCountResponse'
+            'RetrieveInventoryPhysicalCountResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -829,8 +845,12 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveInventoryTransferResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveInventoryTransferResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -914,8 +934,12 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveInventoryCountResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveInventoryCountResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -1013,8 +1037,12 @@ class InventoryApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveInventoryChangesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveInventoryChangesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -10,20 +10,20 @@ $loyaltyApi = $client->getLoyaltyApi();
 
 ## Methods
 
-* [Create Loyalty Account](/doc/apis/loyalty.md#create-loyalty-account)
-* [Search Loyalty Accounts](/doc/apis/loyalty.md#search-loyalty-accounts)
-* [Retrieve Loyalty Account](/doc/apis/loyalty.md#retrieve-loyalty-account)
-* [Accumulate Loyalty Points](/doc/apis/loyalty.md#accumulate-loyalty-points)
-* [Adjust Loyalty Points](/doc/apis/loyalty.md#adjust-loyalty-points)
-* [Search Loyalty Events](/doc/apis/loyalty.md#search-loyalty-events)
-* [List Loyalty Programs](/doc/apis/loyalty.md#list-loyalty-programs)
-* [Retrieve Loyalty Program](/doc/apis/loyalty.md#retrieve-loyalty-program)
-* [Calculate Loyalty Points](/doc/apis/loyalty.md#calculate-loyalty-points)
-* [Create Loyalty Reward](/doc/apis/loyalty.md#create-loyalty-reward)
-* [Search Loyalty Rewards](/doc/apis/loyalty.md#search-loyalty-rewards)
-* [Delete Loyalty Reward](/doc/apis/loyalty.md#delete-loyalty-reward)
-* [Retrieve Loyalty Reward](/doc/apis/loyalty.md#retrieve-loyalty-reward)
-* [Redeem Loyalty Reward](/doc/apis/loyalty.md#redeem-loyalty-reward)
+* [Create Loyalty Account](../../doc/apis/loyalty.md#create-loyalty-account)
+* [Search Loyalty Accounts](../../doc/apis/loyalty.md#search-loyalty-accounts)
+* [Retrieve Loyalty Account](../../doc/apis/loyalty.md#retrieve-loyalty-account)
+* [Accumulate Loyalty Points](../../doc/apis/loyalty.md#accumulate-loyalty-points)
+* [Adjust Loyalty Points](../../doc/apis/loyalty.md#adjust-loyalty-points)
+* [Search Loyalty Events](../../doc/apis/loyalty.md#search-loyalty-events)
+* [List Loyalty Programs](../../doc/apis/loyalty.md#list-loyalty-programs)
+* [Retrieve Loyalty Program](../../doc/apis/loyalty.md#retrieve-loyalty-program)
+* [Calculate Loyalty Points](../../doc/apis/loyalty.md#calculate-loyalty-points)
+* [Create Loyalty Reward](../../doc/apis/loyalty.md#create-loyalty-reward)
+* [Search Loyalty Rewards](../../doc/apis/loyalty.md#search-loyalty-rewards)
+* [Delete Loyalty Reward](../../doc/apis/loyalty.md#delete-loyalty-reward)
+* [Retrieve Loyalty Reward](../../doc/apis/loyalty.md#retrieve-loyalty-reward)
+* [Redeem Loyalty Reward](../../doc/apis/loyalty.md#redeem-loyalty-reward)
 
 
 # Create Loyalty Account
@@ -38,11 +38,11 @@ function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateLoyaltyAccountRequest`](/doc/models/create-loyalty-account-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateLoyaltyAccountRequest`](../../doc/models/create-loyalty-account-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateLoyaltyAccountResponse`](/doc/models/create-loyalty-account-response.md)
+[`CreateLoyaltyAccountResponse`](../../doc/models/create-loyalty-account-response.md)
 
 ## Example Usage
 
@@ -96,11 +96,11 @@ function searchLoyaltyAccounts(SearchLoyaltyAccountsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchLoyaltyAccountsRequest`](/doc/models/search-loyalty-accounts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchLoyaltyAccountsRequest`](../../doc/models/search-loyalty-accounts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchLoyaltyAccountsResponse`](/doc/models/search-loyalty-accounts-response.md)
+[`SearchLoyaltyAccountsResponse`](../../doc/models/search-loyalty-accounts-response.md)
 
 ## Example Usage
 
@@ -145,11 +145,11 @@ function retrieveLoyaltyAccount(string $accountId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) to retrieve. |
+| `accountId` | `string` | Template, Required | The ID of the [loyalty account](../../doc/models/loyalty-account.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveLoyaltyAccountResponse`](/doc/models/retrieve-loyalty-account-response.md)
+[`RetrieveLoyaltyAccountResponse`](../../doc/models/retrieve-loyalty-account-response.md)
 
 ## Example Usage
 
@@ -179,7 +179,7 @@ Adds points to a loyalty account.
 - If you are not using the Orders API to manage orders,
   you first perform a client-side computation to compute the points.  
   For spend-based and visit-based programs, you can first call
-  [CalculateLoyaltyPoints](/doc/apis/loyalty.md#calculate-loyalty-points) to compute the points  
+  [CalculateLoyaltyPoints](../../doc/apis/loyalty.md#calculate-loyalty-points) to compute the points  
   that you provide to this endpoint.
 
 ```php
@@ -190,12 +190,12 @@ function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsReque
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The [loyalty account](/doc/models/loyalty-account.md) ID to which to add the points. |
-| `body` | [`AccumulateLoyaltyPointsRequest`](/doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `accountId` | `string` | Template, Required | The [loyalty account](../../doc/models/loyalty-account.md) ID to which to add the points. |
+| `body` | [`AccumulateLoyaltyPointsRequest`](../../doc/models/accumulate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`AccumulateLoyaltyPointsResponse`](/doc/models/accumulate-loyalty-points-response.md)
+[`AccumulateLoyaltyPointsResponse`](../../doc/models/accumulate-loyalty-points-response.md)
 
 ## Example Usage
 
@@ -232,7 +232,7 @@ if ($apiResponse->isSuccess()) {
 Adds points to or subtracts points from a buyer's account.
 
 Use this endpoint only when you need to manually adjust points. Otherwise, in your application flow, you call
-[AccumulateLoyaltyPoints](/doc/apis/loyalty.md#accumulate-loyalty-points)
+[AccumulateLoyaltyPoints](../../doc/apis/loyalty.md#accumulate-loyalty-points)
 to add points when a buyer pays for the purchase.
 
 ```php
@@ -243,12 +243,12 @@ function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `accountId` | `string` | Template, Required | The ID of the [loyalty account](/doc/models/loyalty-account.md) in which to adjust the points. |
-| `body` | [`AdjustLoyaltyPointsRequest`](/doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `accountId` | `string` | Template, Required | The ID of the [loyalty account](../../doc/models/loyalty-account.md) in which to adjust the points. |
+| `body` | [`AdjustLoyaltyPointsRequest`](../../doc/models/adjust-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`AdjustLoyaltyPointsResponse`](/doc/models/adjust-loyalty-points-response.md)
+[`AdjustLoyaltyPointsResponse`](../../doc/models/adjust-loyalty-points-response.md)
 
 ## Example Usage
 
@@ -299,11 +299,11 @@ function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchLoyaltyEventsRequest`](/doc/models/search-loyalty-events-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchLoyaltyEventsRequest`](../../doc/models/search-loyalty-events-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchLoyaltyEventsResponse`](/doc/models/search-loyalty-events-response.md)
+[`SearchLoyaltyEventsResponse`](../../doc/models/search-loyalty-events-response.md)
 
 ## Example Usage
 
@@ -355,9 +355,9 @@ if ($apiResponse->isSuccess()) {
 **This endpoint is deprecated.**
 
 Returns a list of loyalty programs in the seller's account.
-Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](../../https://developer.squareup.com/docs/loyalty/overview).
 
-Replaced with [RetrieveLoyaltyProgram](/doc/apis/loyalty.md#retrieve-loyalty-program) when used with the keyword `main`.
+Replaced with [RetrieveLoyaltyProgram](../../doc/apis/loyalty.md#retrieve-loyalty-program) when used with the keyword `main`.
 
 ```php
 function listLoyaltyPrograms(): ApiResponse
@@ -365,7 +365,7 @@ function listLoyaltyPrograms(): ApiResponse
 
 ## Response Type
 
-[`ListLoyaltyProgramsResponse`](/doc/models/list-loyalty-programs-response.md)
+[`ListLoyaltyProgramsResponse`](../../doc/models/list-loyalty-programs-response.md)
 
 ## Example Usage
 
@@ -388,7 +388,7 @@ if ($apiResponse->isSuccess()) {
 
 Retrieves the loyalty program in a seller's account, specified by the program ID or the keyword `main`.
 
-Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
+Loyalty programs define how buyers can earn points and redeem points for rewards. Square sellers can have only one loyalty program, which is created and managed from the Seller Dashboard. For more information, see [Loyalty Program Overview](../../https://developer.squareup.com/docs/loyalty/overview).
 
 ```php
 function retrieveLoyaltyProgram(string $programId): ApiResponse
@@ -402,7 +402,7 @@ function retrieveLoyaltyProgram(string $programId): ApiResponse
 
 ## Response Type
 
-[`RetrieveLoyaltyProgramResponse`](/doc/models/retrieve-loyalty-program-response.md)
+[`RetrieveLoyaltyProgramResponse`](../../doc/models/retrieve-loyalty-program-response.md)
 
 ## Example Usage
 
@@ -445,12 +445,12 @@ function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `programId` | `string` | Template, Required | The [loyalty program](/doc/models/loyalty-program.md) ID, which defines the rules for accruing points. |
-| `body` | [`CalculateLoyaltyPointsRequest`](/doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `programId` | `string` | Template, Required | The [loyalty program](../../doc/models/loyalty-program.md) ID, which defines the rules for accruing points. |
+| `body` | [`CalculateLoyaltyPointsRequest`](../../doc/models/calculate-loyalty-points-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CalculateLoyaltyPointsResponse`](/doc/models/calculate-loyalty-points-response.md)
+[`CalculateLoyaltyPointsResponse`](../../doc/models/calculate-loyalty-points-response.md)
 
 ## Example Usage
 
@@ -495,11 +495,11 @@ function createLoyaltyReward(CreateLoyaltyRewardRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateLoyaltyRewardRequest`](/doc/models/create-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateLoyaltyRewardRequest`](../../doc/models/create-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateLoyaltyRewardResponse`](/doc/models/create-loyalty-reward-response.md)
+[`CreateLoyaltyRewardResponse`](../../doc/models/create-loyalty-reward-response.md)
 
 ## Example Usage
 
@@ -537,12 +537,11 @@ if ($apiResponse->isSuccess()) {
 
 # Search Loyalty Rewards
 
-Searches for loyalty rewards in a loyalty account.
-
-In the current implementation, the endpoint supports search by the reward `status`.
+Searches for loyalty rewards. This endpoint accepts a request with no query filters and returns results for all loyalty accounts.
+If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
 
 If you know a reward ID, use the
-[RetrieveLoyaltyReward](/doc/apis/loyalty.md#retrieve-loyalty-reward) endpoint.
+[RetrieveLoyaltyReward](../../doc/apis/loyalty.md#retrieve-loyalty-reward) endpoint.
 
 Search results are sorted by `updated_at` in descending order.
 
@@ -554,11 +553,11 @@ function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchLoyaltyRewardsRequest`](/doc/models/search-loyalty-rewards-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchLoyaltyRewardsRequest`](../../doc/models/search-loyalty-rewards-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchLoyaltyRewardsResponse`](/doc/models/search-loyalty-rewards-response.md)
+[`SearchLoyaltyRewardsResponse`](../../doc/models/search-loyalty-rewards-response.md)
 
 ## Example Usage
 
@@ -592,7 +591,7 @@ Deletes a loyalty reward by doing the following:
 
 - Returns the loyalty points back to the loyalty account.
 - If an order ID was specified when the reward was created
-  (see [CreateLoyaltyReward](/doc/apis/loyalty.md#create-loyalty-reward)),
+  (see [CreateLoyaltyReward](../../doc/apis/loyalty.md#create-loyalty-reward)),
   it updates the order by removing the reward and related
   discounts.
 
@@ -606,11 +605,11 @@ function deleteLoyaltyReward(string $rewardId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to delete. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to delete. |
 
 ## Response Type
 
-[`DeleteLoyaltyRewardResponse`](/doc/models/delete-loyalty-reward-response.md)
+[`DeleteLoyaltyRewardResponse`](../../doc/models/delete-loyalty-reward-response.md)
 
 ## Example Usage
 
@@ -643,11 +642,11 @@ function retrieveLoyaltyReward(string $rewardId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to retrieve. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveLoyaltyRewardResponse`](/doc/models/retrieve-loyalty-reward-response.md)
+[`RetrieveLoyaltyRewardResponse`](../../doc/models/retrieve-loyalty-reward-response.md)
 
 ## Example Usage
 
@@ -690,12 +689,12 @@ function redeemLoyaltyReward(string $rewardId, RedeemLoyaltyRewardRequest $body)
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](/doc/models/loyalty-reward.md) to redeem. |
-| `body` | [`RedeemLoyaltyRewardRequest`](/doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `rewardId` | `string` | Template, Required | The ID of the [loyalty reward](../../doc/models/loyalty-reward.md) to redeem. |
+| `body` | [`RedeemLoyaltyRewardRequest`](../../doc/models/redeem-loyalty-reward-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`RedeemLoyaltyRewardResponse`](/doc/models/redeem-loyalty-reward-response.md)
+[`RedeemLoyaltyRewardResponse`](../../doc/models/redeem-loyalty-reward-response.md)
 
 ## Example Usage
 

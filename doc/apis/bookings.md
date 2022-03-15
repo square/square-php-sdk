@@ -10,22 +10,22 @@ $bookingsApi = $client->getBookingsApi();
 
 ## Methods
 
-* [List Bookings](/doc/apis/bookings.md#list-bookings)
-* [Create Booking](/doc/apis/bookings.md#create-booking)
-* [Search Availability](/doc/apis/bookings.md#search-availability)
-* [Retrieve Business Booking Profile](/doc/apis/bookings.md#retrieve-business-booking-profile)
-* [List Team Member Booking Profiles](/doc/apis/bookings.md#list-team-member-booking-profiles)
-* [Retrieve Team Member Booking Profile](/doc/apis/bookings.md#retrieve-team-member-booking-profile)
-* [Retrieve Booking](/doc/apis/bookings.md#retrieve-booking)
-* [Update Booking](/doc/apis/bookings.md#update-booking)
-* [Cancel Booking](/doc/apis/bookings.md#cancel-booking)
+* [List Bookings](../../doc/apis/bookings.md#list-bookings)
+* [Create Booking](../../doc/apis/bookings.md#create-booking)
+* [Search Availability](../../doc/apis/bookings.md#search-availability)
+* [Retrieve Business Booking Profile](../../doc/apis/bookings.md#retrieve-business-booking-profile)
+* [List Team Member Booking Profiles](../../doc/apis/bookings.md#list-team-member-booking-profiles)
+* [Retrieve Team Member Booking Profile](../../doc/apis/bookings.md#retrieve-team-member-booking-profile)
+* [Retrieve Booking](../../doc/apis/bookings.md#retrieve-booking)
+* [Update Booking](../../doc/apis/bookings.md#update-booking)
+* [Cancel Booking](../../doc/apis/bookings.md#cancel-booking)
 
 
 # List Bookings
 
 Retrieve a collection of bookings.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
 ```php
@@ -52,7 +52,7 @@ function listBookings(
 
 ## Response Type
 
-[`ListBookingsResponse`](/doc/models/list-bookings-response.md)
+[`ListBookingsResponse`](../../doc/models/list-bookings-response.md)
 
 ## Example Usage
 
@@ -82,7 +82,7 @@ if ($apiResponse->isSuccess()) {
 
 Creates a booking.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```php
@@ -93,11 +93,11 @@ function createBooking(CreateBookingRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateBookingRequest`](/doc/models/create-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateBookingRequest`](../../doc/models/create-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateBookingResponse`](/doc/models/create-booking-response.md)
+[`CreateBookingResponse`](../../doc/models/create-booking-response.md)
 
 ## Example Usage
 
@@ -131,7 +131,7 @@ if ($apiResponse->isSuccess()) {
 
 Searches for availabilities for booking.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
 ```php
@@ -142,11 +142,11 @@ function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchAvailabilityRequest`](/doc/models/search-availability-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchAvailabilityRequest`](../../doc/models/search-availability-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchAvailabilityResponse`](/doc/models/search-availability-response.md)
+[`SearchAvailabilityResponse`](../../doc/models/search-availability-response.md)
 
 ## Example Usage
 
@@ -211,7 +211,7 @@ function retrieveBusinessBookingProfile(): ApiResponse
 
 ## Response Type
 
-[`RetrieveBusinessBookingProfileResponse`](/doc/models/retrieve-business-booking-profile-response.md)
+[`RetrieveBusinessBookingProfileResponse`](../../doc/models/retrieve-business-booking-profile-response.md)
 
 ## Example Usage
 
@@ -254,7 +254,7 @@ function listTeamMemberBookingProfiles(
 
 ## Response Type
 
-[`ListTeamMemberBookingProfilesResponse`](/doc/models/list-team-member-booking-profiles-response.md)
+[`ListTeamMemberBookingProfilesResponse`](../../doc/models/list-team-member-booking-profiles-response.md)
 
 ## Example Usage
 
@@ -294,7 +294,7 @@ function retrieveTeamMemberBookingProfile(string $teamMemberId): ApiResponse
 
 ## Response Type
 
-[`RetrieveTeamMemberBookingProfileResponse`](/doc/models/retrieve-team-member-booking-profile-response.md)
+[`RetrieveTeamMemberBookingProfileResponse`](../../doc/models/retrieve-team-member-booking-profile-response.md)
 
 ## Example Usage
 
@@ -319,7 +319,7 @@ if ($apiResponse->isSuccess()) {
 
 Retrieves a booking.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
 
 ```php
@@ -330,11 +330,11 @@ function retrieveBooking(string $bookingId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-retrieved booking. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-retrieved booking. |
 
 ## Response Type
 
-[`RetrieveBookingResponse`](/doc/models/retrieve-booking-response.md)
+[`RetrieveBookingResponse`](../../doc/models/retrieve-booking-response.md)
 
 ## Example Usage
 
@@ -359,7 +359,7 @@ if ($apiResponse->isSuccess()) {
 
 Updates a booking.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```php
@@ -370,12 +370,12 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-updated booking. |
-| `body` | [`UpdateBookingRequest`](/doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-updated booking. |
+| `body` | [`UpdateBookingRequest`](../../doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateBookingResponse`](/doc/models/update-booking-response.md)
+[`UpdateBookingResponse`](../../doc/models/update-booking-response.md)
 
 ## Example Usage
 
@@ -410,7 +410,7 @@ if ($apiResponse->isSuccess()) {
 
 Cancels an existing booking.
 
-To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.  
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
 ```php
@@ -421,12 +421,12 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](/doc/models/booking.md) object representing the to-be-cancelled booking. |
-| `body` | [`CancelBookingRequest`](/doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-cancelled booking. |
+| `body` | [`CancelBookingRequest`](../../doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CancelBookingResponse`](/doc/models/cancel-booking-response.md)
+[`CancelBookingResponse`](../../doc/models/cancel-booking-response.md)
 
 ## Example Usage
 

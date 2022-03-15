@@ -1,9 +1,9 @@
 
 # Dispute Evidence Created Webhook
 
-Published when evidence is added to a [Dispute](/doc/models/dispute.md)
+Published when evidence is added to a [Dispute](../../doc/models/dispute.md)
 from the Disputes Dashboard in the Seller Dashboard, the Square Point of Sale app,
-or by calling either [CreateDisputeEvidenceFile](/doc/apis/disputes.md#create-dispute-evidence-file) or [CreateDisputeEvidenceText](/doc/apis/disputes.md#create-dispute-evidence-text).
+or by calling either [CreateDisputeEvidenceFile](../../doc/apis/disputes.md#create-dispute-evidence-file) or [CreateDisputeEvidenceText](../../doc/apis/disputes.md#create-dispute-evidence-text).
 
 ## Structure
 
@@ -18,7 +18,7 @@ or by calling either [CreateDisputeEvidenceFile](/doc/apis/disputes.md#create-di
 | `type` | `?string` | Optional | The type of event this represents. | getType(): ?string | setType(?string type): void |
 | `eventId` | `?string` | Optional | A unique ID for the webhook event. | getEventId(): ?string | setEventId(?string eventId): void |
 | `createdAt` | `?string` | Optional | Timestamp of when the webhook event was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
-| `data` | [`?DisputeEvidenceCreatedWebhookData`](/doc/models/dispute-evidence-created-webhook-data.md) | Optional | - | getData(): ?DisputeEvidenceCreatedWebhookData | setData(?DisputeEvidenceCreatedWebhookData data): void |
+| `data` | [`?DisputeEvidenceCreatedWebhookData`](../../doc/models/dispute-evidence-created-webhook-data.md) | Optional | - | getData(): ?DisputeEvidenceCreatedWebhookData | setData(?DisputeEvidenceCreatedWebhookData data): void |
 
 ## Example (as JSON)
 

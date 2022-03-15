@@ -281,8 +281,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Returns Errors.
      *
-     * An error object that provides details about how creation of the obtain
-     * token failed.
+     * Any errors that occurred during the request.
      *
      * @return Error[]|null
      */
@@ -294,8 +293,7 @@ class ObtainTokenResponse implements \JsonSerializable
     /**
      * Sets Errors.
      *
-     * An error object that provides details about how creation of the obtain
-     * token failed.
+     * Any errors that occurred during the request.
      *
      * @maps errors
      *
@@ -312,8 +310,9 @@ class ObtainTokenResponse implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

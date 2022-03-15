@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -89,8 +90,12 @@ class SnippetsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteSnippetResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteSnippetResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -162,8 +167,12 @@ class SnippetsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveSnippetResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveSnippetResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -180,8 +189,8 @@ class SnippetsApi extends BaseApi
      * com/docs/online-api#early-access-program-for-square-online-apis).
      *
      * @param string $siteId The ID of the site where you want to add or update the snippet.
-     * @param \Square\Models\UpsertSnippetRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpsertSnippetRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -189,7 +198,7 @@ class SnippetsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function upsertSnippet(string $siteId, \Square\Models\UpsertSnippetRequest $body): ApiResponse
+    public function upsertSnippet(string $siteId, Models\UpsertSnippetRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/sites/{site_id}/snippet';
@@ -244,8 +253,12 @@ class SnippetsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpsertSnippetResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpsertSnippetResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -445,7 +445,8 @@ class Location implements \JsonSerializable
     /**
      * Returns Business Name.
      *
-     * The business name of the location.
+     * The name of the location's overall business. This name is present on receipts and other customer-
+     * facing branding.
      */
     public function getBusinessName(): ?string
     {
@@ -455,7 +456,8 @@ class Location implements \JsonSerializable
     /**
      * Sets Business Name.
      *
-     * The business name of the location.
+     * The name of the location's overall business. This name is present on receipts and other customer-
+     * facing branding.
      *
      * @maps business_name
      */
@@ -802,8 +804,9 @@ class Location implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

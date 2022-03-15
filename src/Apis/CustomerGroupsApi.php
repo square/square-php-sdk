@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -28,15 +29,15 @@ class CustomerGroupsApi extends BaseApi
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for your original query.
      *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param int|null $limit The maximum number of results to return in a single page. This limit
      *        is advisory. The response might contain more or fewer results.
-     *        The limit is ignored if it is less than 1 or greater than 50. The default value is
-     *        50.
+     *        If the limit is less than 1 or greater than 50, Square returns a `400 VALUE_TOO_LOW`
+     *        or `400 VALUE_TOO_HIGH` error. The default value is 50.
      *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
      *
@@ -94,8 +95,12 @@ class CustomerGroupsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListCustomerGroupsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListCustomerGroupsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -104,8 +109,8 @@ class CustomerGroupsApi extends BaseApi
      *
      * The request must include the `name` value of the group.
      *
-     * @param \Square\Models\CreateCustomerGroupRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateCustomerGroupRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -113,7 +118,7 @@ class CustomerGroupsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createCustomerGroup(\Square\Models\CreateCustomerGroupRequest $body): ApiResponse
+    public function createCustomerGroup(Models\CreateCustomerGroupRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/groups';
@@ -163,8 +168,12 @@ class CustomerGroupsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateCustomerGroupResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateCustomerGroupResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -228,8 +237,12 @@ class CustomerGroupsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteCustomerGroupResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteCustomerGroupResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -293,8 +306,12 @@ class CustomerGroupsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveCustomerGroupResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveCustomerGroupResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -302,8 +319,8 @@ class CustomerGroupsApi extends BaseApi
      * Updates a customer group as identified by the `group_id` value.
      *
      * @param string $groupId The ID of the customer group to update.
-     * @param \Square\Models\UpdateCustomerGroupRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\UpdateCustomerGroupRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -311,7 +328,7 @@ class CustomerGroupsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateCustomerGroup(string $groupId, \Square\Models\UpdateCustomerGroupRequest $body): ApiResponse
+    public function updateCustomerGroup(string $groupId, Models\UpdateCustomerGroupRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/groups/{group_id}';
@@ -366,8 +383,12 @@ class CustomerGroupsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateCustomerGroupResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateCustomerGroupResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

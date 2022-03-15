@@ -10,9 +10,9 @@ $devicesApi = $client->getDevicesApi();
 
 ## Methods
 
-* [List Device Codes](/doc/apis/devices.md#list-device-codes)
-* [Create Device Code](/doc/apis/devices.md#create-device-code)
-* [Get Device Code](/doc/apis/devices.md#get-device-code)
+* [List Device Codes](../../doc/apis/devices.md#list-device-codes)
+* [Create Device Code](../../doc/apis/devices.md#create-device-code)
+* [Get Device Code](../../doc/apis/devices.md#get-device-code)
 
 
 # List Device Codes
@@ -32,14 +32,14 @@ function listDeviceCodes(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>See [Paginating results](../../https://developer.squareup.com/docs/working-with-apis/pagination) for more information. |
 | `locationId` | `?string` | Query, Optional | If specified, only returns DeviceCodes of the specified location.<br>Returns DeviceCodes of all locations if empty. |
-| `productType` | [`?string (ProductType)`](/doc/models/product-type.md) | Query, Optional | If specified, only returns DeviceCodes targeting the specified product type.<br>Returns DeviceCodes of all product types if empty. |
-| `status` | [`?string (DeviceCodeStatus)`](/doc/models/device-code-status.md) | Query, Optional | If specified, returns DeviceCodes with the specified statuses.<br>Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty. |
+| `productType` | [`?string (ProductType)`](../../doc/models/product-type.md) | Query, Optional | If specified, only returns DeviceCodes targeting the specified product type.<br>Returns DeviceCodes of all product types if empty. |
+| `status` | [`?string (DeviceCodeStatus)`](../../doc/models/device-code-status.md) | Query, Optional | If specified, returns DeviceCodes with the specified statuses.<br>Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty. |
 
 ## Response Type
 
-[`ListDeviceCodesResponse`](/doc/models/list-device-codes-response.md)
+[`ListDeviceCodesResponse`](../../doc/models/list-device-codes-response.md)
 
 ## Example Usage
 
@@ -76,11 +76,11 @@ function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateDeviceCodeRequest`](/doc/models/create-device-code-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateDeviceCodeRequest`](../../doc/models/create-device-code-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateDeviceCodeResponse`](/doc/models/create-device-code-response.md)
+[`CreateDeviceCodeResponse`](../../doc/models/create-device-code-response.md)
 
 ## Example Usage
 
@@ -127,7 +127,7 @@ function getDeviceCode(string $id): ApiResponse
 
 ## Response Type
 
-[`GetDeviceCodeResponse`](/doc/models/get-device-code-response.md)
+[`GetDeviceCodeResponse`](../../doc/models/get-device-code-response.md)
 
 ## Example Usage
 

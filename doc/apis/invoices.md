@@ -10,14 +10,14 @@ $invoicesApi = $client->getInvoicesApi();
 
 ## Methods
 
-* [List Invoices](/doc/apis/invoices.md#list-invoices)
-* [Create Invoice](/doc/apis/invoices.md#create-invoice)
-* [Search Invoices](/doc/apis/invoices.md#search-invoices)
-* [Delete Invoice](/doc/apis/invoices.md#delete-invoice)
-* [Get Invoice](/doc/apis/invoices.md#get-invoice)
-* [Update Invoice](/doc/apis/invoices.md#update-invoice)
-* [Cancel Invoice](/doc/apis/invoices.md#cancel-invoice)
-* [Publish Invoice](/doc/apis/invoices.md#publish-invoice)
+* [List Invoices](../../doc/apis/invoices.md#list-invoices)
+* [Create Invoice](../../doc/apis/invoices.md#create-invoice)
+* [Search Invoices](../../doc/apis/invoices.md#search-invoices)
+* [Delete Invoice](../../doc/apis/invoices.md#delete-invoice)
+* [Get Invoice](../../doc/apis/invoices.md#get-invoice)
+* [Update Invoice](../../doc/apis/invoices.md#update-invoice)
+* [Cancel Invoice](../../doc/apis/invoices.md#cancel-invoice)
+* [Publish Invoice](../../doc/apis/invoices.md#publish-invoice)
 
 
 # List Invoices
@@ -35,12 +35,12 @@ function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Query, Required | The ID of the location for which to list invoices. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `limit` | `?int` | Query, Optional | The maximum number of invoices to return (200 is the maximum `limit`).<br>If not provided, the server uses a default limit of 100 invoices. |
 
 ## Response Type
 
-[`ListInvoicesResponse`](/doc/models/list-invoices-response.md)
+[`ListInvoicesResponse`](../../doc/models/list-invoices-response.md)
 
 ## Example Usage
 
@@ -65,7 +65,7 @@ if ($apiResponse->isSuccess()) {
 
 # Create Invoice
 
-Creates a draft [invoice](/doc/models/invoice.md)
+Creates a draft [invoice](../../doc/models/invoice.md)
 for an order created using the Orders API.
 
 A draft invoice remains in your account and no action is taken.
@@ -79,11 +79,11 @@ function createInvoice(CreateInvoiceRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateInvoiceRequest`](/doc/models/create-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateInvoiceRequest`](../../doc/models/create-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateInvoiceResponse`](/doc/models/create-invoice-response.md)
+[`CreateInvoiceResponse`](../../doc/models/create-invoice-response.md)
 
 ## Example Usage
 
@@ -188,11 +188,11 @@ function searchInvoices(SearchInvoicesRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchInvoicesRequest`](/doc/models/search-invoices-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchInvoicesRequest`](../../doc/models/search-invoices-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchInvoicesResponse`](/doc/models/search-invoices-response.md)
+[`SearchInvoicesResponse`](../../doc/models/search-invoices-response.md)
 
 ## Example Usage
 
@@ -242,11 +242,11 @@ function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `invoiceId` | `string` | Template, Required | The ID of the invoice to delete. |
-| `version` | `?int` | Query, Optional | The version of the [invoice](/doc/models/invoice.md) to delete.<br>If you do not know the version, you can call [GetInvoice](/doc/apis/invoices.md#get-invoice) or<br>[ListInvoices](/doc/apis/invoices.md#list-invoices). |
+| `version` | `?int` | Query, Optional | The version of the [invoice](../../doc/models/invoice.md) to delete.<br>If you do not know the version, you can call [GetInvoice](../../doc/apis/invoices.md#get-invoice) or<br>[ListInvoices](../../doc/apis/invoices.md#list-invoices). |
 
 ## Response Type
 
-[`DeleteInvoiceResponse`](/doc/models/delete-invoice-response.md)
+[`DeleteInvoiceResponse`](../../doc/models/delete-invoice-response.md)
 
 ## Example Usage
 
@@ -284,7 +284,7 @@ function getInvoice(string $invoiceId): ApiResponse
 
 ## Response Type
 
-[`GetInvoiceResponse`](/doc/models/get-invoice-response.md)
+[`GetInvoiceResponse`](../../doc/models/get-invoice-response.md)
 
 ## Example Usage
 
@@ -321,11 +321,11 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `invoiceId` | `string` | Template, Required | The ID of the invoice to update. |
-| `body` | [`UpdateInvoiceRequest`](/doc/models/update-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateInvoiceRequest`](../../doc/models/update-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateInvoiceResponse`](/doc/models/update-invoice-response.md)
+[`UpdateInvoiceResponse`](../../doc/models/update-invoice-response.md)
 
 ## Example Usage
 
@@ -395,12 +395,12 @@ function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoiceId` | `string` | Template, Required | The ID of the [invoice](/doc/models/invoice.md) to cancel. |
-| `body` | [`CancelInvoiceRequest`](/doc/models/cancel-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `invoiceId` | `string` | Template, Required | The ID of the [invoice](../../doc/models/invoice.md) to cancel. |
+| `body` | [`CancelInvoiceRequest`](../../doc/models/cancel-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CancelInvoiceResponse`](/doc/models/cancel-invoice-response.md)
+[`CancelInvoiceResponse`](../../doc/models/cancel-invoice-response.md)
 
 ## Example Usage
 
@@ -448,11 +448,11 @@ function publishInvoice(string $invoiceId, PublishInvoiceRequest $body): ApiResp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `invoiceId` | `string` | Template, Required | The ID of the invoice to publish. |
-| `body` | [`PublishInvoiceRequest`](/doc/models/publish-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`PublishInvoiceRequest`](../../doc/models/publish-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`PublishInvoiceResponse`](/doc/models/publish-invoice-response.md)
+[`PublishInvoiceResponse`](../../doc/models/publish-invoice-response.md)
 
 ## Example Usage
 

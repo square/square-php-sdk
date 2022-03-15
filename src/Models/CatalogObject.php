@@ -50,7 +50,7 @@ class CatalogObject implements \JsonSerializable
     private $isDeleted;
 
     /**
-     * @var array|null
+     * @var array<string,CatalogCustomAttributeValue>|null
      */
     private $customAttributeValues;
 
@@ -329,6 +329,8 @@ class CatalogObject implements \JsonSerializable
      * Custom attribute values are intended to store additional information about a catalog object
      * or associations with an entity in another system. Do not use custom attributes
      * to store any sensitive information (personally identifiable information, card details, etc.).
+     *
+     * @return array<string,CatalogCustomAttributeValue>|null
      */
     public function getCustomAttributeValues(): ?array
     {
@@ -363,6 +365,8 @@ class CatalogObject implements \JsonSerializable
      * to store any sensitive information (personally identifiable information, card details, etc.).
      *
      * @maps custom_attribute_values
+     *
+     * @param array<string,CatalogCustomAttributeValue>|null $customAttributeValues
      */
     public function setCustomAttributeValues(?array $customAttributeValues): void
     {
@@ -920,8 +924,9 @@ class CatalogObject implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

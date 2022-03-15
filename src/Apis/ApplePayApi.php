@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -34,8 +35,8 @@ class ApplePayApi extends BaseApi
      * [Add the Apple Pay on the Web Button](https://developer.squareup.com/docs/payment-form/add-digital-
      * wallets/apple-pay).
      *
-     * @param \Square\Models\RegisterDomainRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\RegisterDomainRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -43,7 +44,7 @@ class ApplePayApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function registerDomain(\Square\Models\RegisterDomainRequest $body): ApiResponse
+    public function registerDomain(Models\RegisterDomainRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/apple-pay/domains';
@@ -93,8 +94,12 @@ class ApplePayApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RegisterDomainResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RegisterDomainResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

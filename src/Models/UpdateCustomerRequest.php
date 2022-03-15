@@ -211,7 +211,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      */
     public function getPhoneNumber(): ?string
     {
@@ -221,7 +222,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      *
      * @maps phone_number
      */
@@ -312,9 +314,9 @@ class UpdateCustomerRequest implements \JsonSerializable
      * The current version of the customer profile.
      *
      * As a best practice, you should include this field to enable [optimistic concurrency](https:
-     * //developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control. For more
-     * information, see [Update a customer profile](https://developer.squareup.com/docs/customers-api/use-
-     * the-api/keep-records#update-a-customer-profile).
+     * //developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency) control. For
+     * more information, see [Update a customer profile](https://developer.squareup.com/docs/customers-
+     * api/use-the-api/keep-records#update-a-customer-profile).
      */
     public function getVersion(): ?int
     {
@@ -327,9 +329,9 @@ class UpdateCustomerRequest implements \JsonSerializable
      * The current version of the customer profile.
      *
      * As a best practice, you should include this field to enable [optimistic concurrency](https:
-     * //developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control. For more
-     * information, see [Update a customer profile](https://developer.squareup.com/docs/customers-api/use-
-     * the-api/keep-records#update-a-customer-profile).
+     * //developer.squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency) control. For
+     * more information, see [Update a customer profile](https://developer.squareup.com/docs/customers-
+     * api/use-the-api/keep-records#update-a-customer-profile).
      *
      * @maps version
      */
@@ -372,8 +374,9 @@ class UpdateCustomerRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

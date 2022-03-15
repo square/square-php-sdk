@@ -1,7 +1,7 @@
 
 # Get Payment Refund Response
 
-Defines the response returned by [GetRefund](/doc/apis/refunds.md#get-payment-refund).
+Defines the response returned by [GetRefund](../../doc/apis/refunds.md#get-payment-refund).
 
 Note: If there are errors processing the request, the refund field might not be
 present or it might be present in a FAILED state.
@@ -14,8 +14,8 @@ present or it might be present in a FAILED state.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `refund` | [`?PaymentRefund`](/doc/models/payment-refund.md) | Optional | Represents a refund of a payment made using Square. Contains information about<br>the original payment and the amount of money refunded. | getRefund(): ?PaymentRefund | setRefund(?PaymentRefund refund): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `refund` | [`?PaymentRefund`](../../doc/models/payment-refund.md) | Optional | Represents a refund of a payment made using Square. Contains information about<br>the original payment and the amount of money refunded. | getRefund(): ?PaymentRefund | setRefund(?PaymentRefund refund): void |
 
 ## Example (as JSON)
 

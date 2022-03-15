@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -30,8 +31,8 @@ class SubscriptionsApi extends BaseApi
      * address. The subscription starts immediately, unless the request includes
      * the optional `start_date`. Each individual subscription is associated with a particular location.
      *
-     * @param \Square\Models\CreateSubscriptionRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CreateSubscriptionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -39,7 +40,7 @@ class SubscriptionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createSubscription(\Square\Models\CreateSubscriptionRequest $body): ApiResponse
+    public function createSubscription(Models\CreateSubscriptionRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions';
@@ -89,8 +90,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -114,8 +119,8 @@ class SubscriptionsApi extends BaseApi
      * [Retrieve subscriptions](https://developer.squareup.com/docs/subscriptions-api/overview#retrieve-
      * subscriptions).
      *
-     * @param \Square\Models\SearchSubscriptionsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchSubscriptionsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -123,7 +128,7 @@ class SubscriptionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchSubscriptions(\Square\Models\SearchSubscriptionsRequest $body): ApiResponse
+    public function searchSubscriptions(Models\SearchSubscriptionsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions/search';
@@ -173,8 +178,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchSubscriptionsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchSubscriptionsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -249,8 +258,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -259,8 +272,8 @@ class SubscriptionsApi extends BaseApi
      * `subscription` field values.
      *
      * @param string $subscriptionId The ID of the subscription to update.
-     * @param \Square\Models\UpdateSubscriptionRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\UpdateSubscriptionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -268,10 +281,8 @@ class SubscriptionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateSubscription(
-        string $subscriptionId,
-        \Square\Models\UpdateSubscriptionRequest $body
-    ): ApiResponse {
+    public function updateSubscription(string $subscriptionId, Models\UpdateSubscriptionRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions/{subscription_id}';
 
@@ -325,8 +336,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -392,8 +407,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteSubscriptionActionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteSubscriptionActionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -459,8 +478,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -545,8 +568,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListSubscriptionEventsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListSubscriptionEventsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -554,8 +581,8 @@ class SubscriptionsApi extends BaseApi
      * Schedules a `PAUSE` action to pause an active subscription.
      *
      * @param string $subscriptionId The ID of the subscription to pause.
-     * @param \Square\Models\PauseSubscriptionRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\PauseSubscriptionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -563,10 +590,8 @@ class SubscriptionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function pauseSubscription(
-        string $subscriptionId,
-        \Square\Models\PauseSubscriptionRequest $body
-    ): ApiResponse {
+    public function pauseSubscription(string $subscriptionId, Models\PauseSubscriptionRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions/{subscription_id}/pause';
 
@@ -620,8 +645,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\PauseSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'PauseSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -629,8 +658,8 @@ class SubscriptionsApi extends BaseApi
      * Schedules a `RESUME` action to resume a paused or a deactivated subscription.
      *
      * @param string $subscriptionId The ID of the subscription to resume.
-     * @param \Square\Models\ResumeSubscriptionRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\ResumeSubscriptionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -638,10 +667,8 @@ class SubscriptionsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function resumeSubscription(
-        string $subscriptionId,
-        \Square\Models\ResumeSubscriptionRequest $body
-    ): ApiResponse {
+    public function resumeSubscription(string $subscriptionId, Models\ResumeSubscriptionRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions/{subscription_id}/resume';
 
@@ -695,8 +722,12 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ResumeSubscriptionResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ResumeSubscriptionResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -704,16 +735,14 @@ class SubscriptionsApi extends BaseApi
      * Schedules a `SWAP_PLAN` action to swap a subscription plan in an existing subscription.
      *
      * @param string $subscriptionId The ID of the subscription to swap the subscription plan for.
-     * @param \Square\Models\SwapPlanRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param Models\SwapPlanRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function swapPlan(string $subscriptionId, \Square\Models\SwapPlanRequest $body): ApiResponse
+    public function swapPlan(string $subscriptionId, Models\SwapPlanRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/subscriptions/{subscription_id}/swap-plan';
@@ -768,8 +797,7 @@ class SubscriptionsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SwapPlanResponse');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'SwapPlanResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -8,7 +8,6 @@ use Square\Http\HttpCallBack;
 use Square\Http\HttpResponse;
 use Square\ConfigurationInterface;
 use Square\AuthManagerInterface;
-use apimatic\jsonmapper\JsonMapper;
 use Unirest\Request;
 
 /**
@@ -44,7 +43,7 @@ class BaseApi
      */
     protected $internalUserAgent;
 
-    private static $userAgent = 'Square-PHP-SDK/17.2.0.20220216 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
+    private static $userAgent = 'Square-PHP-SDK/17.3.0.20220316 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
 
     /**
      * Constructor that sets the timeout of requests
@@ -110,17 +109,6 @@ class BaseApi
     public function getHttpCallBack(): ?HttpCallBack
     {
         return $this->httpCallBack;
-    }
-
-    /**
-     * Get a new JsonMapper instance for mapping objects
-     *
-     * @return \apimatic\jsonmapper\JsonMapper JsonMapper instance
-     */
-    protected function getJsonMapper(): JsonMapper
-    {
-        $mapper = new JsonMapper();
-        return $mapper;
     }
 
     /**

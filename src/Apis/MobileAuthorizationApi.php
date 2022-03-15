@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -38,8 +39,8 @@ class MobileAuthorizationApi extends BaseApi
      * [valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-
      * tokens).
      *
-     * @param \Square\Models\CreateMobileAuthorizationCodeRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\CreateMobileAuthorizationCodeRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -47,9 +48,8 @@ class MobileAuthorizationApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createMobileAuthorizationCode(
-        \Square\Models\CreateMobileAuthorizationCodeRequest $body
-    ): ApiResponse {
+    public function createMobileAuthorizationCode(Models\CreateMobileAuthorizationCodeRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/mobile/authorization-code';
 
@@ -98,10 +98,11 @@ class MobileAuthorizationApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\CreateMobileAuthorizationCodeResponse'
+            'CreateMobileAuthorizationCodeResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }

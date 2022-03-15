@@ -1,7 +1,7 @@
 
 # Cancel Payment Response
 
-Defines the response returned by [CancelPayment](/doc/apis/payments.md#cancel-payment).
+Defines the response returned by [CancelPayment](../../doc/apis/payments.md#cancel-payment).
 
 ## Structure
 
@@ -11,8 +11,8 @@ Defines the response returned by [CancelPayment](/doc/apis/payments.md#cancel-pa
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `payment` | [`?Payment`](/doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `payment` | [`?Payment`](../../doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
 
 ## Example (as JSON)
 

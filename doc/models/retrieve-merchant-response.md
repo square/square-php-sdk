@@ -1,7 +1,7 @@
 
 # Retrieve Merchant Response
 
-The response object returned by the [RetrieveMerchant](/doc/apis/merchants.md#retrieve-merchant) endpoint.
+The response object returned by the [RetrieveMerchant](../../doc/apis/merchants.md#retrieve-merchant) endpoint.
 
 ## Structure
 
@@ -11,8 +11,8 @@ The response object returned by the [RetrieveMerchant](/doc/apis/merchants.md#re
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `merchant` | [`?Merchant`](/doc/models/merchant.md) | Optional | Represents a business that sells with Square. | getMerchant(): ?Merchant | setMerchant(?Merchant merchant): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `merchant` | [`?Merchant`](../../doc/models/merchant.md) | Optional | Represents a business that sells with Square. | getMerchant(): ?Merchant | setMerchant(?Merchant merchant): void |
 
 ## Example (as JSON)
 

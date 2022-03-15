@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines an appointment slot that encapsulates the appointment segments, location and  starting time
- * avaialable for booking.
+ * Defines an appointment slot that encapsulates the appointment segments, location and starting time
+ * available for booking.
  */
 class Availability implements \JsonSerializable
 {
@@ -103,8 +103,9 @@ class Availability implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

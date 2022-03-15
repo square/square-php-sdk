@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -26,8 +27,8 @@ class TerminalApi extends BaseApi
      * Creates a Terminal checkout request and sends it to the specified device to take a payment
      * for the requested amount.
      *
-     * @param \Square\Models\CreateTerminalCheckoutRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateTerminalCheckoutRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -35,7 +36,7 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTerminalCheckout(\Square\Models\CreateTerminalCheckoutRequest $body): ApiResponse
+    public function createTerminalCheckout(Models\CreateTerminalCheckoutRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/terminals/checkouts';
@@ -85,16 +86,20 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateTerminalCheckoutResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateTerminalCheckoutResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Retrieves a filtered list of Terminal checkout requests created by the account making the request.
      *
-     * @param \Square\Models\SearchTerminalCheckoutsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchTerminalCheckoutsRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -102,7 +107,7 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTerminalCheckouts(\Square\Models\SearchTerminalCheckoutsRequest $body): ApiResponse
+    public function searchTerminalCheckouts(Models\SearchTerminalCheckoutsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/terminals/checkouts/search';
@@ -152,8 +157,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchTerminalCheckoutsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchTerminalCheckoutsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -217,8 +226,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetTerminalCheckoutResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetTerminalCheckoutResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -282,16 +295,20 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelTerminalCheckoutResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelTerminalCheckoutResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Creates a request to refund an Interac payment completed on a Square Terminal.
      *
-     * @param \Square\Models\CreateTerminalRefundRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateTerminalRefundRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -299,7 +316,7 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTerminalRefund(\Square\Models\CreateTerminalRefundRequest $body): ApiResponse
+    public function createTerminalRefund(Models\CreateTerminalRefundRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/terminals/refunds';
@@ -349,8 +366,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateTerminalRefundResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateTerminalRefundResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -358,8 +379,8 @@ class TerminalApi extends BaseApi
      * Retrieves a filtered list of Interac Terminal refund requests created by the seller making the
      * request.
      *
-     * @param \Square\Models\SearchTerminalRefundsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchTerminalRefundsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -367,7 +388,7 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTerminalRefunds(\Square\Models\SearchTerminalRefundsRequest $body): ApiResponse
+    public function searchTerminalRefunds(Models\SearchTerminalRefundsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/terminals/refunds/search';
@@ -417,8 +438,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchTerminalRefundsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchTerminalRefundsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -482,8 +507,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetTerminalRefundResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetTerminalRefundResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -548,8 +577,12 @@ class TerminalApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelTerminalRefundResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelTerminalRefundResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

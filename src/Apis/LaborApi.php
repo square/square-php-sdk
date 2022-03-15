@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -90,8 +91,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListBreakTypesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListBreakTypesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -111,8 +116,8 @@ class LaborApi extends BaseApi
      * `BreakType` for a location, an `INVALID_REQUEST_ERROR` "Exceeded limit of 3 breaks per location."
      * is returned.
      *
-     * @param \Square\Models\CreateBreakTypeRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CreateBreakTypeRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -120,7 +125,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createBreakType(\Square\Models\CreateBreakTypeRequest $body): ApiResponse
+    public function createBreakType(Models\CreateBreakTypeRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/break-types';
@@ -170,8 +175,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateBreakTypeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateBreakTypeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -237,8 +246,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteBreakTypeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteBreakTypeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -302,8 +315,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetBreakTypeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetBreakTypeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -311,8 +328,8 @@ class LaborApi extends BaseApi
      * Updates an existing `BreakType`.
      *
      * @param string $id The UUID for the `BreakType` being updated.
-     * @param \Square\Models\UpdateBreakTypeRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\UpdateBreakTypeRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -320,7 +337,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateBreakType(string $id, \Square\Models\UpdateBreakTypeRequest $body): ApiResponse
+    public function updateBreakType(string $id, Models\UpdateBreakTypeRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/break-types/{id}';
@@ -375,8 +392,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateBreakTypeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateBreakTypeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -454,8 +475,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListEmployeeWagesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListEmployeeWagesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -523,8 +548,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetEmployeeWageResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetEmployeeWageResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -548,8 +577,8 @@ class LaborApi extends BaseApi
      * is before the `Shift.start_at`, a break `end_at` is after
      * the `Shift.end_at`, or both.
      *
-     * @param \Square\Models\CreateShiftRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateShiftRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -557,7 +586,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createShift(\Square\Models\CreateShiftRequest $body): ApiResponse
+    public function createShift(Models\CreateShiftRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/shifts';
@@ -607,8 +636,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateShiftResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateShiftResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -628,8 +661,8 @@ class LaborApi extends BaseApi
      * - `created_at`.
      * - `updated_at`.
      *
-     * @param \Square\Models\SearchShiftsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\SearchShiftsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -637,7 +670,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchShifts(\Square\Models\SearchShiftsRequest $body): ApiResponse
+    public function searchShifts(Models\SearchShiftsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/shifts/search';
@@ -687,8 +720,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchShiftsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchShiftsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -752,8 +789,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteShiftResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteShiftResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -817,8 +858,7 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetShiftResponse');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'GetShiftResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -832,8 +872,8 @@ class LaborApi extends BaseApi
      * set on each `Break`.
      *
      * @param string $id The ID of the object being updated.
-     * @param \Square\Models\UpdateShiftRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateShiftRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -841,7 +881,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateShift(string $id, \Square\Models\UpdateShiftRequest $body): ApiResponse
+    public function updateShift(string $id, Models\UpdateShiftRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/shifts/{id}';
@@ -896,8 +936,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateShiftResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateShiftResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -972,8 +1016,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListTeamMemberWagesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListTeamMemberWagesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -1037,8 +1085,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetTeamMemberWageResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetTeamMemberWageResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -1104,8 +1156,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListWorkweekConfigsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListWorkweekConfigsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -1113,8 +1169,8 @@ class LaborApi extends BaseApi
      * Updates a `WorkweekConfig`.
      *
      * @param string $id The UUID for the `WorkweekConfig` object being updated.
-     * @param \Square\Models\UpdateWorkweekConfigRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\UpdateWorkweekConfigRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1122,7 +1178,7 @@ class LaborApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateWorkweekConfig(string $id, \Square\Models\UpdateWorkweekConfigRequest $body): ApiResponse
+    public function updateWorkweekConfig(string $id, Models\UpdateWorkweekConfigRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/labor/workweek-configs/{id}';
@@ -1177,8 +1233,12 @@ class LaborApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateWorkweekConfigResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateWorkweekConfigResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

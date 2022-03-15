@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -108,8 +109,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListBookingsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListBookingsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -120,8 +125,8 @@ class BookingsApi extends BaseApi
      * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and
      * `APPOINTMENTS_WRITE` for the OAuth scope.
      *
-     * @param \Square\Models\CreateBookingRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateBookingRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -129,7 +134,7 @@ class BookingsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createBooking(\Square\Models\CreateBookingRequest $body): ApiResponse
+    public function createBooking(Models\CreateBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/bookings';
@@ -179,8 +184,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateBookingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateBookingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -191,8 +200,8 @@ class BookingsApi extends BaseApi
      * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and
      * `APPOINTMENTS_READ` for the OAuth scope.
      *
-     * @param \Square\Models\SearchAvailabilityRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\SearchAvailabilityRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -200,7 +209,7 @@ class BookingsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchAvailability(\Square\Models\SearchAvailabilityRequest $body): ApiResponse
+    public function searchAvailability(Models\SearchAvailabilityRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/bookings/availability/search';
@@ -250,8 +259,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchAvailabilityResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchAvailabilityResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -308,10 +321,11 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveBusinessBookingProfileResponse'
+            'RetrieveBusinessBookingProfileResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -391,10 +405,11 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\ListTeamMemberBookingProfilesResponse'
+            'ListTeamMemberBookingProfilesResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -459,10 +474,11 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\RetrieveTeamMemberBookingProfileResponse'
+            'RetrieveTeamMemberBookingProfileResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -532,8 +548,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveBookingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveBookingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -546,8 +566,8 @@ class BookingsApi extends BaseApi
      *
      * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
      *        to-be-updated booking.
-     * @param \Square\Models\UpdateBookingRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateBookingRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -555,7 +575,7 @@ class BookingsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateBooking(string $bookingId, \Square\Models\UpdateBookingRequest $body): ApiResponse
+    public function updateBooking(string $bookingId, Models\UpdateBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/bookings/{booking_id}';
@@ -610,8 +630,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateBookingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateBookingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -624,8 +648,8 @@ class BookingsApi extends BaseApi
      *
      * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
      *        to-be-cancelled booking.
-     * @param \Square\Models\CancelBookingRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CancelBookingRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -633,7 +657,7 @@ class BookingsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function cancelBooking(string $bookingId, \Square\Models\CancelBookingRequest $body): ApiResponse
+    public function cancelBooking(string $bookingId, Models\CancelBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/bookings/{booking_id}/cancel';
@@ -688,8 +712,12 @@ class BookingsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelBookingResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelBookingResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

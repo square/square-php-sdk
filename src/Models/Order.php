@@ -97,7 +97,7 @@ class Order implements \JsonSerializable
     private $refunds;
 
     /**
-     * @var array|null
+     * @var array<string,string>|null
      */
     private $metadata;
 
@@ -648,6 +648,8 @@ class Order implements \JsonSerializable
      * application.
      *
      * For more information, see  [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
+     *
+     * @return array<string,string>|null
      */
     public function getMetadata(): ?array
     {
@@ -677,6 +679,8 @@ class Order implements \JsonSerializable
      * For more information, see  [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
      *
      * @maps metadata
+     *
+     * @param array<string,string>|null $metadata
      */
     public function setMetadata(?array $metadata): void
     {
@@ -1067,8 +1071,9 @@ class Order implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

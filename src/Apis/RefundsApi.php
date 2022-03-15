@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -137,8 +138,12 @@ class RefundsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListPaymentRefundsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListPaymentRefundsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -148,8 +153,8 @@ class RefundsApi extends BaseApi
      * refund of a cash or external payment. For more information, see
      * [Refund Payment](https://developer.squareup.com/docs/payments-api/refund-payments).
      *
-     * @param \Square\Models\RefundPaymentRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\RefundPaymentRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -157,7 +162,7 @@ class RefundsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function refundPayment(\Square\Models\RefundPaymentRequest $body): ApiResponse
+    public function refundPayment(Models\RefundPaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/refunds';
@@ -207,8 +212,12 @@ class RefundsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RefundPaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RefundPaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -272,8 +281,12 @@ class RefundsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetPaymentRefundResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetPaymentRefundResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

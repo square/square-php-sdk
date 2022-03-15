@@ -2,7 +2,7 @@
 # Update Payment Response
 
 Defines the response returned by
-[UpdatePayment](/doc/apis/payments.md#update-payment).
+[UpdatePayment](../../doc/apis/payments.md#update-payment).
 
 ## Structure
 
@@ -12,8 +12,8 @@ Defines the response returned by
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `payment` | [`?Payment`](/doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `payment` | [`?Payment`](../../doc/models/payment.md) | Optional | Represents a payment processed by the Square API. | getPayment(): ?Payment | setPayment(?Payment payment): void |
 
 ## Example (as JSON)
 

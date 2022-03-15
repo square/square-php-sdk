@@ -7,6 +7,8 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
+use Square\Utils\FileWrapper;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -34,8 +36,8 @@ class CatalogApi extends BaseApi
      * IDs can be deleted. The response will only include IDs that were
      * actually deleted.
      *
-     * @param \Square\Models\BatchDeleteCatalogObjectsRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param Models\BatchDeleteCatalogObjectsRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -43,7 +45,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchDeleteCatalogObjects(\Square\Models\BatchDeleteCatalogObjectsRequest $body): ApiResponse
+    public function batchDeleteCatalogObjects(Models\BatchDeleteCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/batch-delete';
@@ -93,8 +95,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchDeleteCatalogObjectsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BatchDeleteCatalogObjectsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -106,8 +112,8 @@ class CatalogApi extends BaseApi
      * its [CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
      * any [CatalogTax]($m/CatalogTax) objects that apply to it.
      *
-     * @param \Square\Models\BatchRetrieveCatalogObjectsRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\BatchRetrieveCatalogObjectsRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -115,7 +121,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveCatalogObjects(\Square\Models\BatchRetrieveCatalogObjectsRequest $body): ApiResponse
+    public function batchRetrieveCatalogObjects(Models\BatchRetrieveCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/batch-retrieve';
@@ -165,10 +171,11 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\BatchRetrieveCatalogObjectsResponse'
+            'BatchRetrieveCatalogObjectsResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -184,8 +191,8 @@ class CatalogApi extends BaseApi
      * request (items, variations, modifier lists, discounts, and taxes) is no more
      * than 10,000.
      *
-     * @param \Square\Models\BatchUpsertCatalogObjectsRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param Models\BatchUpsertCatalogObjectsRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -193,7 +200,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchUpsertCatalogObjects(\Square\Models\BatchUpsertCatalogObjectsRequest $body): ApiResponse
+    public function batchUpsertCatalogObjects(Models\BatchUpsertCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/batch-upsert';
@@ -243,8 +250,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchUpsertCatalogObjectsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BatchUpsertCatalogObjectsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -259,16 +270,16 @@ class CatalogApi extends BaseApi
      * image file part in
      * JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
      *
-     * @param \Square\Models\CreateCatalogImageRequest|null $request
-     * @param \Square\Utils\FileWrapper|null $imageFile
+     * @param Models\CreateCatalogImageRequest|null $request
+     * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
     public function createCatalogImage(
-        ?\Square\Models\CreateCatalogImageRequest $request = null,
-        ?\Square\Utils\FileWrapper $imageFile = null
+        ?Models\CreateCatalogImageRequest $request = null,
+        ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/images';
@@ -286,7 +297,7 @@ class CatalogApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'  => json_encode($request),
+            'request'    => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -324,8 +335,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateCatalogImageResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateCatalogImageResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -339,8 +354,8 @@ class CatalogApi extends BaseApi
      *
      * @param string $imageId The ID of the `CatalogImage` object to update the encapsulated image
      *        file.
-     * @param \Square\Models\UpdateCatalogImageRequest|null $request
-     * @param \Square\Utils\FileWrapper|null $imageFile
+     * @param Models\UpdateCatalogImageRequest|null $request
+     * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
      *
@@ -348,8 +363,8 @@ class CatalogApi extends BaseApi
      */
     public function updateCatalogImage(
         string $imageId,
-        ?\Square\Models\UpdateCatalogImageRequest $request = null,
-        ?\Square\Utils\FileWrapper $imageFile = null
+        ?Models\UpdateCatalogImageRequest $request = null,
+        ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/images/{image_id}';
@@ -372,7 +387,7 @@ class CatalogApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'  => json_encode($request),
+            'request'    => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -410,8 +425,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateCatalogImageResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateCatalogImageResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -469,8 +488,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CatalogInfoResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CatalogInfoResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -577,16 +600,20 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListCatalogResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListCatalogResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Creates or updates the target [CatalogObject]($m/CatalogObject).
      *
-     * @param \Square\Models\UpsertCatalogObjectRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\UpsertCatalogObjectRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -594,7 +621,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function upsertCatalogObject(\Square\Models\UpsertCatalogObjectRequest $body): ApiResponse
+    public function upsertCatalogObject(Models\UpsertCatalogObjectRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/object';
@@ -644,8 +671,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpsertCatalogObjectResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpsertCatalogObjectResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -718,8 +749,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteCatalogObjectResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteCatalogObjectResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -824,8 +859,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveCatalogObjectResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveCatalogObjectResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -847,8 +886,8 @@ class CatalogApi extends BaseApi
      * items or item variations, whereas `SearchCatalogObjects` does.
      * - The both endpoints have different call conventions, including the query filter formats.
      *
-     * @param \Square\Models\SearchCatalogObjectsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchCatalogObjectsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -856,7 +895,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchCatalogObjects(\Square\Models\SearchCatalogObjectsRequest $body): ApiResponse
+    public function searchCatalogObjects(Models\SearchCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/search';
@@ -906,8 +945,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchCatalogObjectsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchCatalogObjectsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -928,8 +971,8 @@ class CatalogApi extends BaseApi
      * items or item variations, whereas `SearchCatalogObjects` does.
      * - The both endpoints use different call conventions, including the query filter formats.
      *
-     * @param \Square\Models\SearchCatalogItemsRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\SearchCatalogItemsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -937,7 +980,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchCatalogItems(\Square\Models\SearchCatalogItemsRequest $body): ApiResponse
+    public function searchCatalogItems(Models\SearchCatalogItemsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/search-catalog-items';
@@ -987,8 +1030,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchCatalogItemsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchCatalogItemsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -997,8 +1044,8 @@ class CatalogApi extends BaseApi
      * that apply to the targeted [CatalogItem]($m/CatalogItem) without having
      * to perform an upsert on the entire item.
      *
-     * @param \Square\Models\UpdateItemModifierListsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\UpdateItemModifierListsRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1006,7 +1053,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateItemModifierLists(\Square\Models\UpdateItemModifierListsRequest $body): ApiResponse
+    public function updateItemModifierLists(Models\UpdateItemModifierListsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/update-item-modifier-lists';
@@ -1056,8 +1103,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateItemModifierListsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateItemModifierListsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -1066,8 +1117,8 @@ class CatalogApi extends BaseApi
      * targeted [CatalogItem]($m/CatalogItem) without having to perform an
      * upsert on the entire item.
      *
-     * @param \Square\Models\UpdateItemTaxesRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\UpdateItemTaxesRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1075,7 +1126,7 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateItemTaxes(\Square\Models\UpdateItemTaxesRequest $body): ApiResponse
+    public function updateItemTaxes(Models\UpdateItemTaxesRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/catalog/update-item-taxes';
@@ -1125,8 +1176,12 @@ class CatalogApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateItemTaxesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateItemTaxesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

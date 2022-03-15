@@ -49,6 +49,10 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Returns Bank Account.
+     *
+     * Represents a bank account. For more information about
+     * linking a bank account to a Square account, see
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      */
     public function getBankAccount(): ?BankAccount
     {
@@ -57,6 +61,10 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Sets Bank Account.
+     *
+     * Represents a bank account. For more information about
+     * linking a bank account to a Square account, see
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
      *
      * @maps bank_account
      */
@@ -71,8 +79,9 @@ class GetBankAccountResponse implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

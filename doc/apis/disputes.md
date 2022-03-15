@@ -10,15 +10,15 @@ $disputesApi = $client->getDisputesApi();
 
 ## Methods
 
-* [List Disputes](/doc/apis/disputes.md#list-disputes)
-* [Retrieve Dispute](/doc/apis/disputes.md#retrieve-dispute)
-* [Accept Dispute](/doc/apis/disputes.md#accept-dispute)
-* [List Dispute Evidence](/doc/apis/disputes.md#list-dispute-evidence)
-* [Create Dispute Evidence File](/doc/apis/disputes.md#create-dispute-evidence-file)
-* [Create Dispute Evidence Text](/doc/apis/disputes.md#create-dispute-evidence-text)
-* [Delete Dispute Evidence](/doc/apis/disputes.md#delete-dispute-evidence)
-* [Retrieve Dispute Evidence](/doc/apis/disputes.md#retrieve-dispute-evidence)
-* [Submit Evidence](/doc/apis/disputes.md#submit-evidence)
+* [List Disputes](../../doc/apis/disputes.md#list-disputes)
+* [Retrieve Dispute](../../doc/apis/disputes.md#retrieve-dispute)
+* [Accept Dispute](../../doc/apis/disputes.md#accept-dispute)
+* [List Dispute Evidence](../../doc/apis/disputes.md#list-dispute-evidence)
+* [Create Dispute Evidence File](../../doc/apis/disputes.md#create-dispute-evidence-file)
+* [Create Dispute Evidence Text](../../doc/apis/disputes.md#create-dispute-evidence-text)
+* [Delete Dispute Evidence](../../doc/apis/disputes.md#delete-dispute-evidence)
+* [Retrieve Dispute Evidence](../../doc/apis/disputes.md#retrieve-dispute-evidence)
+* [Submit Evidence](../../doc/apis/disputes.md#submit-evidence)
 
 
 # List Disputes
@@ -33,13 +33,13 @@ function listDisputes(?string $cursor = null, ?string $states = null, ?string $l
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
-| `states` | [`?string (DisputeState)`](/doc/models/dispute-state.md) | Query, Optional | The dispute states to filter the result.<br>If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`,<br>or `LOST`). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination). |
+| `states` | [`?string (DisputeState)`](../../doc/models/dispute-state.md) | Query, Optional | The dispute states to filter the result.<br>If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`,<br>or `LOST`). |
 | `locationId` | `?string` | Query, Optional | The ID of the location for which to return a list of disputes. If not specified, the endpoint returns<br>all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all locations. |
 
 ## Response Type
 
-[`ListDisputesResponse`](/doc/models/list-disputes-response.md)
+[`ListDisputesResponse`](../../doc/models/list-disputes-response.md)
 
 ## Example Usage
 
@@ -78,7 +78,7 @@ function retrieveDispute(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`RetrieveDisputeResponse`](/doc/models/retrieve-dispute-response.md)
+[`RetrieveDisputeResponse`](../../doc/models/retrieve-dispute-response.md)
 
 ## Example Usage
 
@@ -119,7 +119,7 @@ function acceptDispute(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`AcceptDisputeResponse`](/doc/models/accept-dispute-response.md)
+[`AcceptDisputeResponse`](../../doc/models/accept-dispute-response.md)
 
 ## Example Usage
 
@@ -153,11 +153,11 @@ function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResp
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `disputeId` | `string` | Template, Required | The ID of the dispute. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>For more information, see [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination). |
 
 ## Response Type
 
-[`ListDisputeEvidenceResponse`](/doc/models/list-dispute-evidence-response.md)
+[`ListDisputeEvidenceResponse`](../../doc/models/list-dispute-evidence-response.md)
 
 ## Example Usage
 
@@ -188,7 +188,7 @@ multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats
 function createDisputeEvidenceFile(
     string $disputeId,
     ?CreateDisputeEvidenceFileRequest $request = null,
-    ?\Square\Utils\FileWrapper $imageFile = null
+    ?FileWrapper $imageFile = null
 ): ApiResponse
 ```
 
@@ -197,12 +197,12 @@ function createDisputeEvidenceFile(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `disputeId` | `string` | Template, Required | The ID of the dispute you want to upload evidence for. |
-| `request` | [`?CreateDisputeEvidenceFileRequest`](/doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
-| `imageFile` | `?\Square\Utils\FileWrapper` | Form, Optional | - |
+| `request` | [`?CreateDisputeEvidenceFileRequest`](../../doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
+| `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type
 
-[`CreateDisputeEvidenceFileResponse`](/doc/models/create-dispute-evidence-file-response.md)
+[`CreateDisputeEvidenceFileResponse`](../../doc/models/create-dispute-evidence-file-response.md)
 
 ## Example Usage
 
@@ -243,11 +243,11 @@ function createDisputeEvidenceText(string $disputeId, CreateDisputeEvidenceTextR
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `disputeId` | `string` | Template, Required | The ID of the dispute you want to upload evidence for. |
-| `body` | [`CreateDisputeEvidenceTextRequest`](/doc/models/create-dispute-evidence-text-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateDisputeEvidenceTextRequest`](../../doc/models/create-dispute-evidence-text-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateDisputeEvidenceTextResponse`](/doc/models/create-dispute-evidence-text-response.md)
+[`CreateDisputeEvidenceTextResponse`](../../doc/models/create-dispute-evidence-text-response.md)
 
 ## Example Usage
 
@@ -280,7 +280,7 @@ if ($apiResponse->isSuccess()) {
 Removes specified evidence from a dispute.
 
 Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-submitting it to the bank using [SubmitEvidence](/doc/apis/disputes.md#submit-evidence).
+submitting it to the bank using [SubmitEvidence](../../doc/apis/disputes.md#submit-evidence).
 
 ```php
 function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
@@ -295,7 +295,7 @@ function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiRespon
 
 ## Response Type
 
-[`DeleteDisputeEvidenceResponse`](/doc/models/delete-dispute-evidence-response.md)
+[`DeleteDisputeEvidenceResponse`](../../doc/models/delete-dispute-evidence-response.md)
 
 ## Example Usage
 
@@ -337,7 +337,7 @@ function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResp
 
 ## Response Type
 
-[`RetrieveDisputeEvidenceResponse`](/doc/models/retrieve-dispute-evidence-response.md)
+[`RetrieveDisputeEvidenceResponse`](../../doc/models/retrieve-dispute-evidence-response.md)
 
 ## Example Usage
 
@@ -364,8 +364,8 @@ if ($apiResponse->isSuccess()) {
 Submits evidence to the cardholder's bank.
 
 Before submitting evidence, Square compiles all available evidence. This includes evidence uploaded
-using the [CreateDisputeEvidenceFile](/doc/apis/disputes.md#create-dispute-evidence-file) and
-[CreateDisputeEvidenceText](/doc/apis/disputes.md#create-dispute-evidence-text) endpoints and
+using the [CreateDisputeEvidenceFile](../../doc/apis/disputes.md#create-dispute-evidence-file) and
+[CreateDisputeEvidenceText](../../doc/apis/disputes.md#create-dispute-evidence-text) endpoints and
 evidence automatically provided by Square, when available.
 
 ```php
@@ -380,7 +380,7 @@ function submitEvidence(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`SubmitEvidenceResponse`](/doc/models/submit-evidence-response.md)
+[`SubmitEvidenceResponse`](../../doc/models/submit-evidence-response.md)
 
 ## Example Usage
 
