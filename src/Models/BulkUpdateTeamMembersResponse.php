@@ -13,7 +13,7 @@ use stdClass;
 class BulkUpdateTeamMembersResponse implements \JsonSerializable
 {
     /**
-     * @var array|null
+     * @var array<string,UpdateTeamMemberResponse>|null
      */
     private $teamMembers;
 
@@ -27,6 +27,8 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
      *
      * The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps to the
      * `UpdateTeamMemberRequest`.
+     *
+     * @return array<string,UpdateTeamMemberResponse>|null
      */
     public function getTeamMembers(): ?array
     {
@@ -40,6 +42,8 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
      * `UpdateTeamMemberRequest`.
      *
      * @maps team_members
+     *
+     * @param array<string,UpdateTeamMemberResponse>|null $teamMembers
      */
     public function setTeamMembers(?array $teamMembers): void
     {
@@ -78,8 +82,9 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

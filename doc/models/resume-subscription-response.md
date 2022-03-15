@@ -2,7 +2,7 @@
 # Resume Subscription Response
 
 Defines output parameters in a response from the
-[ResumeSubscription](/doc/apis/subscriptions.md#resume-subscription) endpoint.
+[ResumeSubscription](../../doc/apis/subscriptions.md#resume-subscription) endpoint.
 
 ## Structure
 
@@ -12,9 +12,9 @@ Defines output parameters in a response from the
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `subscription` | [`?Subscription`](/doc/models/subscription.md) | Optional | Represents a subscription to a subscription plan by a subscriber.<br><br>For an overview of the `Subscription` type, see<br>[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). | getSubscription(): ?Subscription | setSubscription(?Subscription subscription): void |
-| `actions` | [`?(SubscriptionAction[])`](/doc/models/subscription-action.md) | Optional | A list of `RESUME` actions created by the request and scheduled for the subscription. | getActions(): ?array | setActions(?array actions): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `subscription` | [`?Subscription`](../../doc/models/subscription.md) | Optional | Represents a subscription to a subscription plan by a subscriber.<br><br>For an overview of the `Subscription` type, see<br>[Subscription object](../../https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview). | getSubscription(): ?Subscription | setSubscription(?Subscription subscription): void |
+| `actions` | [`?(SubscriptionAction[])`](../../doc/models/subscription-action.md) | Optional | A list of `RESUME` actions created by the request and scheduled for the subscription. | getActions(): ?array | setActions(?array actions): void |
 
 ## Example (as JSON)
 

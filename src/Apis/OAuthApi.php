@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -48,7 +49,7 @@ class OAuthApi extends BaseApi
      *
      * @param string $clientId Your application ID, which is available in the OAuth page in the
      *        [Developer Dashboard](https://developer.squareup.com/apps).
-     * @param \Square\Models\RenewTokenRequest $body An object containing the fields to POST for the
+     * @param Models\RenewTokenRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
@@ -58,11 +59,8 @@ class OAuthApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function renewToken(
-        string $clientId,
-        \Square\Models\RenewTokenRequest $body,
-        string $authorization
-    ): ApiResponse {
+    public function renewToken(string $clientId, Models\RenewTokenRequest $body, string $authorization): ApiResponse
+    {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
@@ -116,8 +114,12 @@ class OAuthApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RenewTokenResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RenewTokenResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -139,8 +141,8 @@ class OAuthApi extends BaseApi
      * Replace `APPLICATION_SECRET` with the application secret on the OAuth
      * page for your application on the Developer Dashboard.
      *
-     * @param \Square\Models\RevokeTokenRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\RevokeTokenRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      * @param string $authorization Client APPLICATION_SECRET
@@ -149,7 +151,7 @@ class OAuthApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function revokeToken(\Square\Models\RevokeTokenRequest $body, string $authorization): ApiResponse
+    public function revokeToken(Models\RevokeTokenRequest $body, string $authorization): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/oauth2/revoke';
@@ -197,8 +199,12 @@ class OAuthApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RevokeTokenResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RevokeTokenResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -221,8 +227,8 @@ class OAuthApi extends BaseApi
      * __Note:__ OAuth tokens should be encrypted and stored on a secure server.
      * Application clients should never interact directly with OAuth tokens.
      *
-     * @param \Square\Models\ObtainTokenRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\ObtainTokenRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -230,7 +236,7 @@ class OAuthApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function obtainToken(\Square\Models\ObtainTokenRequest $body): ApiResponse
+    public function obtainToken(Models\ObtainTokenRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/oauth2/token';
@@ -277,8 +283,12 @@ class OAuthApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ObtainTokenResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ObtainTokenResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

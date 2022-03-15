@@ -15,9 +15,7 @@ class LoyaltyEventType
     public const ACCUMULATE_POINTS = 'ACCUMULATE_POINTS';
 
     /**
-     * A loyalty reward is created. For more information, see
-     * [Loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview/#loyalty-overview-loyalty-
-     * rewards).
+     * A [loyalty reward]($m/LoyaltyReward) is created.
      */
     public const CREATE_REWARD = 'CREATE_REWARD';
 

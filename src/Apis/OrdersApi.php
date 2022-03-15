@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -31,8 +32,8 @@ class OrdersApi extends BaseApi
      *
      * You can modify open orders using the [UpdateOrder]($e/Orders/UpdateOrder) endpoint.
      *
-     * @param \Square\Models\CreateOrderRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateOrderRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -40,7 +41,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createOrder(\Square\Models\CreateOrderRequest $body): ApiResponse
+    public function createOrder(Models\CreateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders';
@@ -90,8 +91,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateOrderResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -100,8 +105,8 @@ class OrdersApi extends BaseApi
      *
      * If a given order ID does not exist, the ID is ignored instead of generating an error.
      *
-     * @param \Square\Models\BatchRetrieveOrdersRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\BatchRetrieveOrdersRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -109,7 +114,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveOrders(\Square\Models\BatchRetrieveOrdersRequest $body): ApiResponse
+    public function batchRetrieveOrders(Models\BatchRetrieveOrdersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/batch-retrieve';
@@ -159,16 +164,20 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\BatchRetrieveOrdersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'BatchRetrieveOrdersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Enables applications to preview order pricing without creating an order.
      *
-     * @param \Square\Models\CalculateOrderRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CalculateOrderRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -176,7 +185,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function calculateOrder(\Square\Models\CalculateOrderRequest $body): ApiResponse
+    public function calculateOrder(Models\CalculateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/calculate';
@@ -226,8 +235,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CalculateOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CalculateOrderResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -236,7 +249,7 @@ class OrdersApi extends BaseApi
      * order has
      * only the core fields (such as line items, taxes, and discounts) copied from the original order.
      *
-     * @param \Square\Models\CloneOrderRequest $body An object containing the fields to POST for the
+     * @param Models\CloneOrderRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
@@ -245,7 +258,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function cloneOrder(\Square\Models\CloneOrderRequest $body): ApiResponse
+    public function cloneOrder(Models\CloneOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/clone';
@@ -295,8 +308,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CloneOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CloneOrderResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -319,8 +336,8 @@ class OrdersApi extends BaseApi
      * orders have a `created_at` value that reflects the time the order was created,
      * not the time it was subsequently transmitted to Square.
      *
-     * @param \Square\Models\SearchOrdersRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\SearchOrdersRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -328,7 +345,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchOrders(\Square\Models\SearchOrdersRequest $body): ApiResponse
+    public function searchOrders(Models\SearchOrdersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/search';
@@ -378,8 +395,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchOrdersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchOrdersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -443,8 +464,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveOrderResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -468,8 +493,8 @@ class OrdersApi extends BaseApi
      * [Pay for Orders](https://developer.squareup.com/docs/orders-api/pay-for-orders).
      *
      * @param string $orderId The ID of the order to update.
-     * @param \Square\Models\UpdateOrderRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateOrderRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -477,7 +502,7 @@ class OrdersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateOrder(string $orderId, \Square\Models\UpdateOrderRequest $body): ApiResponse
+    public function updateOrder(string $orderId, Models\UpdateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/{order_id}';
@@ -532,8 +557,12 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateOrderResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -556,16 +585,14 @@ class OrdersApi extends BaseApi
      * Using a delayed capture payment with `PayOrder` completes the approved payment.
      *
      * @param string $orderId The ID of the order being paid.
-     * @param \Square\Models\PayOrderRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param Models\PayOrderRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function payOrder(string $orderId, \Square\Models\PayOrderRequest $body): ApiResponse
+    public function payOrder(string $orderId, Models\PayOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/orders/{order_id}/pay';
@@ -620,8 +647,7 @@ class OrdersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\PayOrderResponse');
+        $deserializedResponse = ApiHelper::mapClass($_httpRequest, $_httpResponse, $response->body, 'PayOrderResponse');
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

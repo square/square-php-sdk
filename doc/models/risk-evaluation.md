@@ -17,7 +17,7 @@ provide the goods/services or refund the payment).
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `createdAt` | `?string` | Optional | The timestamp when payment risk was evaluated, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
-| `riskLevel` | [`?string (RiskEvaluationRiskLevel)`](/doc/models/risk-evaluation-risk-level.md) | Optional | - | getRiskLevel(): ?string | setRiskLevel(?string riskLevel): void |
+| `riskLevel` | [`?string (RiskEvaluationRiskLevel)`](../../doc/models/risk-evaluation-risk-level.md) | Optional | - | getRiskLevel(): ?string | setRiskLevel(?string riskLevel): void |
 
 ## Example (as JSON)
 

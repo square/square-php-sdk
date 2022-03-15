@@ -12,12 +12,12 @@ use stdClass;
 class BulkCreateTeamMembersRequest implements \JsonSerializable
 {
     /**
-     * @var array
+     * @var array<string,CreateTeamMemberRequest>
      */
     private $teamMembers;
 
     /**
-     * @param array $teamMembers
+     * @param array<string,CreateTeamMemberRequest> $teamMembers
      */
     public function __construct(array $teamMembers)
     {
@@ -29,6 +29,8 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
      *
      * The data used to create the `TeamMember` objects. Each key is the `idempotency_key` that maps to the
      * `CreateTeamMemberRequest`.
+     *
+     * @return array<string,CreateTeamMemberRequest>
      */
     public function getTeamMembers(): array
     {
@@ -43,6 +45,8 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
      *
      * @required
      * @maps team_members
+     *
+     * @param array<string,CreateTeamMemberRequest> $teamMembers
      */
     public function setTeamMembers(array $teamMembers): void
     {
@@ -55,8 +59,9 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

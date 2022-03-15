@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -26,8 +27,8 @@ class LoyaltyApi extends BaseApi
      * Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and a
      * `mapping` with the `phone_number` of the buyer.
      *
-     * @param \Square\Models\CreateLoyaltyAccountRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateLoyaltyAccountRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -35,7 +36,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLoyaltyAccount(\Square\Models\CreateLoyaltyAccountRequest $body): ApiResponse
+    public function createLoyaltyAccount(Models\CreateLoyaltyAccountRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/accounts';
@@ -85,8 +86,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateLoyaltyAccountResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateLoyaltyAccountResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -98,8 +103,8 @@ class LoyaltyApi extends BaseApi
      *
      * Search results are sorted by `created_at` in ascending order.
      *
-     * @param \Square\Models\SearchLoyaltyAccountsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchLoyaltyAccountsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -107,7 +112,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyAccounts(\Square\Models\SearchLoyaltyAccountsRequest $body): ApiResponse
+    public function searchLoyaltyAccounts(Models\SearchLoyaltyAccountsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/accounts/search';
@@ -157,8 +162,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchLoyaltyAccountsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchLoyaltyAccountsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -222,8 +231,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveLoyaltyAccountResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveLoyaltyAccountResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -240,8 +253,8 @@ class LoyaltyApi extends BaseApi
      *
      * @param string $accountId The [loyalty account]($m/LoyaltyAccount) ID to which to add the
      *        points.
-     * @param \Square\Models\AccumulateLoyaltyPointsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\AccumulateLoyaltyPointsRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -251,7 +264,7 @@ class LoyaltyApi extends BaseApi
      */
     public function accumulateLoyaltyPoints(
         string $accountId,
-        \Square\Models\AccumulateLoyaltyPointsRequest $body
+        Models\AccumulateLoyaltyPointsRequest $body
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/accounts/{account_id}/accumulate';
@@ -306,8 +319,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\AccumulateLoyaltyPointsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'AccumulateLoyaltyPointsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -321,8 +338,8 @@ class LoyaltyApi extends BaseApi
      *
      * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) in which to
      *        adjust the points.
-     * @param \Square\Models\AdjustLoyaltyPointsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\AdjustLoyaltyPointsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -330,10 +347,8 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function adjustLoyaltyPoints(
-        string $accountId,
-        \Square\Models\AdjustLoyaltyPointsRequest $body
-    ): ApiResponse {
+    public function adjustLoyaltyPoints(string $accountId, Models\AdjustLoyaltyPointsRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/accounts/{account_id}/adjust';
 
@@ -387,8 +402,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\AdjustLoyaltyPointsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'AdjustLoyaltyPointsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -402,8 +421,8 @@ class LoyaltyApi extends BaseApi
      *
      * Search results are sorted by `created_at` in descending order.
      *
-     * @param \Square\Models\SearchLoyaltyEventsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchLoyaltyEventsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -411,7 +430,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyEvents(\Square\Models\SearchLoyaltyEventsRequest $body): ApiResponse
+    public function searchLoyaltyEvents(Models\SearchLoyaltyEventsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/events/search';
@@ -461,8 +480,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchLoyaltyEventsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchLoyaltyEventsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -530,8 +553,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListLoyaltyProgramsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListLoyaltyProgramsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -601,8 +628,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveLoyaltyProgramResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveLoyaltyProgramResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -622,8 +653,8 @@ class LoyaltyApi extends BaseApi
      *
      * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the rules
      *        for accruing points.
-     * @param \Square\Models\CalculateLoyaltyPointsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CalculateLoyaltyPointsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -631,10 +662,8 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function calculateLoyaltyPoints(
-        string $programId,
-        \Square\Models\CalculateLoyaltyPointsRequest $body
-    ): ApiResponse {
+    public function calculateLoyaltyPoints(string $programId, Models\CalculateLoyaltyPointsRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/programs/{program_id}/calculate';
 
@@ -688,8 +717,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CalculateLoyaltyPointsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CalculateLoyaltyPointsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -703,8 +736,8 @@ class LoyaltyApi extends BaseApi
      * After a reward is created, the points are locked and
      * not available for the buyer to redeem another reward.
      *
-     * @param \Square\Models\CreateLoyaltyRewardRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateLoyaltyRewardRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -712,7 +745,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLoyaltyReward(\Square\Models\CreateLoyaltyRewardRequest $body): ApiResponse
+    public function createLoyaltyReward(Models\CreateLoyaltyRewardRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/rewards';
@@ -762,23 +795,27 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateLoyaltyRewardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateLoyaltyRewardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
-     * Searches for loyalty rewards in a loyalty account.
-     *
-     * In the current implementation, the endpoint supports search by the reward `status`.
+     * Searches for loyalty rewards. This endpoint accepts a request with no query filters and returns
+     * results for all loyalty accounts.
+     * If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
      *
      * If you know a reward ID, use the
      * [RetrieveLoyaltyReward]($e/Loyalty/RetrieveLoyaltyReward) endpoint.
      *
      * Search results are sorted by `updated_at` in descending order.
      *
-     * @param \Square\Models\SearchLoyaltyRewardsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\SearchLoyaltyRewardsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -786,7 +823,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyRewards(\Square\Models\SearchLoyaltyRewardsRequest $body): ApiResponse
+    public function searchLoyaltyRewards(Models\SearchLoyaltyRewardsRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/rewards/search';
@@ -836,8 +873,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchLoyaltyRewardsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchLoyaltyRewardsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -909,8 +950,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteLoyaltyRewardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteLoyaltyRewardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -974,8 +1019,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveLoyaltyRewardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveLoyaltyRewardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -993,8 +1042,8 @@ class LoyaltyApi extends BaseApi
      * to the account.
      *
      * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to redeem.
-     * @param \Square\Models\RedeemLoyaltyRewardRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\RedeemLoyaltyRewardRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1002,7 +1051,7 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function redeemLoyaltyReward(string $rewardId, \Square\Models\RedeemLoyaltyRewardRequest $body): ApiResponse
+    public function redeemLoyaltyReward(string $rewardId, Models\RedeemLoyaltyRewardRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/loyalty/rewards/{reward_id}/redeem';
@@ -1057,8 +1106,12 @@ class LoyaltyApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RedeemLoyaltyRewardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RedeemLoyaltyRewardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

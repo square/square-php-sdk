@@ -7,6 +7,8 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
+use Square\Utils\FileWrapper;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -98,8 +100,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListDisputesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListDisputesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -163,8 +169,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveDisputeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveDisputeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -232,8 +242,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\AcceptDisputeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'AcceptDisputeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -306,8 +320,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListDisputeEvidenceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListDisputeEvidenceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -316,9 +334,9 @@ class DisputesApi extends BaseApi
      * multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
      *
      * @param string $disputeId The ID of the dispute you want to upload evidence for.
-     * @param \Square\Models\CreateDisputeEvidenceFileRequest|null $request Defines the parameters
-     *        for a `CreateDisputeEvidenceFile` request.
-     * @param \Square\Utils\FileWrapper|null $imageFile
+     * @param Models\CreateDisputeEvidenceFileRequest|null $request Defines the parameters for a
+     *        `CreateDisputeEvidenceFile` request.
+     * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
      *
@@ -326,8 +344,8 @@ class DisputesApi extends BaseApi
      */
     public function createDisputeEvidenceFile(
         string $disputeId,
-        ?\Square\Models\CreateDisputeEvidenceFileRequest $request = null,
-        ?\Square\Utils\FileWrapper $imageFile = null
+        ?Models\CreateDisputeEvidenceFileRequest $request = null,
+        ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-files';
@@ -350,7 +368,7 @@ class DisputesApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'  => json_encode($request),
+            'request'    => json_encode($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -388,8 +406,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateDisputeEvidenceFileResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateDisputeEvidenceFileResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -397,8 +419,8 @@ class DisputesApi extends BaseApi
      * Uploads text to use as evidence for a dispute challenge.
      *
      * @param string $disputeId The ID of the dispute you want to upload evidence for.
-     * @param \Square\Models\CreateDisputeEvidenceTextRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param Models\CreateDisputeEvidenceTextRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -408,7 +430,7 @@ class DisputesApi extends BaseApi
      */
     public function createDisputeEvidenceText(
         string $disputeId,
-        \Square\Models\CreateDisputeEvidenceTextRequest $body
+        Models\CreateDisputeEvidenceTextRequest $body
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-text';
@@ -463,8 +485,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateDisputeEvidenceTextResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateDisputeEvidenceTextResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -533,8 +559,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteDisputeEvidenceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteDisputeEvidenceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -603,8 +633,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveDisputeEvidenceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveDisputeEvidenceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -673,8 +707,12 @@ class DisputesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SubmitEvidenceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SubmitEvidenceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

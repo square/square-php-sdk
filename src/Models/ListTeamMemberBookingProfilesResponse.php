@@ -26,7 +26,11 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
     /**
      * Returns Team Member Booking Profiles.
      *
-     * The list of team member booking profiles.
+     * The list of team member booking profiles. The results are returned in the ascending order of the
+     * time
+     * when the team member booking profiles were last updated. Multiple booking profiles updated at the
+     * same time
+     * are further sorted in the ascending order of their IDs.
      *
      * @return TeamMemberBookingProfile[]|null
      */
@@ -38,7 +42,11 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
     /**
      * Sets Team Member Booking Profiles.
      *
-     * The list of team member booking profiles.
+     * The list of team member booking profiles. The results are returned in the ascending order of the
+     * time
+     * when the team member booking profiles were last updated. Multiple booking profiles updated at the
+     * same time
+     * are further sorted in the ascending order of their IDs.
      *
      * @maps team_member_booking_profiles
      *
@@ -105,8 +113,9 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

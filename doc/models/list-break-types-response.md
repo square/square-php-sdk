@@ -13,9 +13,9 @@ the request resulted in errors.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `breakTypes` | [`?(BreakType[])`](/doc/models/break-type.md) | Optional | A page of `BreakType` results. | getBreakTypes(): ?array | setBreakTypes(?array breakTypes): void |
+| `breakTypes` | [`?(BreakType[])`](../../doc/models/break-type.md) | Optional | A page of `BreakType` results. | getBreakTypes(): ?array | setBreakTypes(?array breakTypes): void |
 | `cursor` | `?string` | Optional | The value supplied in the subsequent request to fetch the next page<br>of `BreakType` results. | getCursor(): ?string | setCursor(?string cursor): void |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 

@@ -233,7 +233,7 @@ class TestHelper
         
         return true;
     }
-    
+
     /**
      * Check whether the a list is a subset of another list
      * @param   array   $leftList   Expected List
@@ -255,13 +255,35 @@ class TestHelper
             return array_slice($rightList, 0, count($leftList)) === $leftList;
         } elseif (!$isOrdered && !$allowExtra) {
             return count($leftList) == count($rightList) &&
-                array_intersect($leftList, $rightList) == $leftList;
+                self::intersectArrays($leftList, $rightList) == $leftList;
         } elseif (!$isOrdered && $allowExtra) {
-            return array_intersect($leftList, $rightList) == $leftList;
+            return self::intersectArrays($leftList, $rightList) == $leftList;
         }
         return true;
     }
-    
+
+    /**
+     * Computes the intersection of arrays, even for arrays of arrays
+     *
+     * @param array $leftList  The array with main values to check
+     * @param array $rightList An array to compare values against
+     *
+     * @return array An array containing all the values in leftList whose values exist
+     *               also exists in rightList
+     */
+    public static function intersectArrays(array $leftList, array $rightList): array
+    {
+        return array_map(
+            function ($param) {
+                return self::decode($param, true);
+            },
+            array_intersect(
+                array_map([ApiHelper::class, 'serialize'], $leftList),
+                array_map([ApiHelper::class, 'serialize'], $rightList)
+            )
+        );
+    }
+
     /**
      * Recursively check whether the left headers map is a proper subset of
      * the right headers map. Header keys & values are compared case-insensitive.
@@ -352,10 +374,13 @@ class TestHelper
     /**
      * Apply json_decode on the given value
      *
+     * @param string $value       Value to be decoded
+     * @param bool   $associative Whether to decode as associative array when value is json, Default: false
+     *
      * @return mixed decoded object from the given string
      */
-    public static function decode(string $value)
+    public static function decode(string $value, bool $associative = false)
     {
-        return json_decode($value, true) ?? $value;
+        return json_decode($value, $associative) ?? $value;
     }
 }

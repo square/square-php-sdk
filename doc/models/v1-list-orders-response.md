@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `items` | [`?(V1Order[])`](/doc/models/v1-order.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
+| `items` | [`?(V1Order[])`](../../doc/models/v1-order.md) | Optional | - | getItems(): ?array | setItems(?array items): void |
 
 ## Example (as JSON)
 

@@ -10,29 +10,29 @@ $catalogApi = $client->getCatalogApi();
 
 ## Methods
 
-* [Batch Delete Catalog Objects](/doc/apis/catalog.md#batch-delete-catalog-objects)
-* [Batch Retrieve Catalog Objects](/doc/apis/catalog.md#batch-retrieve-catalog-objects)
-* [Batch Upsert Catalog Objects](/doc/apis/catalog.md#batch-upsert-catalog-objects)
-* [Create Catalog Image](/doc/apis/catalog.md#create-catalog-image)
-* [Update Catalog Image](/doc/apis/catalog.md#update-catalog-image)
-* [Catalog Info](/doc/apis/catalog.md#catalog-info)
-* [List Catalog](/doc/apis/catalog.md#list-catalog)
-* [Upsert Catalog Object](/doc/apis/catalog.md#upsert-catalog-object)
-* [Delete Catalog Object](/doc/apis/catalog.md#delete-catalog-object)
-* [Retrieve Catalog Object](/doc/apis/catalog.md#retrieve-catalog-object)
-* [Search Catalog Objects](/doc/apis/catalog.md#search-catalog-objects)
-* [Search Catalog Items](/doc/apis/catalog.md#search-catalog-items)
-* [Update Item Modifier Lists](/doc/apis/catalog.md#update-item-modifier-lists)
-* [Update Item Taxes](/doc/apis/catalog.md#update-item-taxes)
+* [Batch Delete Catalog Objects](../../doc/apis/catalog.md#batch-delete-catalog-objects)
+* [Batch Retrieve Catalog Objects](../../doc/apis/catalog.md#batch-retrieve-catalog-objects)
+* [Batch Upsert Catalog Objects](../../doc/apis/catalog.md#batch-upsert-catalog-objects)
+* [Create Catalog Image](../../doc/apis/catalog.md#create-catalog-image)
+* [Update Catalog Image](../../doc/apis/catalog.md#update-catalog-image)
+* [Catalog Info](../../doc/apis/catalog.md#catalog-info)
+* [List Catalog](../../doc/apis/catalog.md#list-catalog)
+* [Upsert Catalog Object](../../doc/apis/catalog.md#upsert-catalog-object)
+* [Delete Catalog Object](../../doc/apis/catalog.md#delete-catalog-object)
+* [Retrieve Catalog Object](../../doc/apis/catalog.md#retrieve-catalog-object)
+* [Search Catalog Objects](../../doc/apis/catalog.md#search-catalog-objects)
+* [Search Catalog Items](../../doc/apis/catalog.md#search-catalog-items)
+* [Update Item Modifier Lists](../../doc/apis/catalog.md#update-item-modifier-lists)
+* [Update Item Taxes](../../doc/apis/catalog.md#update-item-taxes)
 
 
 # Batch Delete Catalog Objects
 
-Deletes a set of [CatalogItem](/doc/models/catalog-item.md)s based on the
+Deletes a set of [CatalogItem](../../doc/models/catalog-item.md)s based on the
 provided list of target IDs and returns a set of successfully deleted IDs in
 the response. Deletion is a cascading event such that all children of the
 targeted object are also deleted. For example, deleting a CatalogItem will
-also delete all of its [CatalogItemVariation](/doc/models/catalog-item-variation.md)
+also delete all of its [CatalogItemVariation](../../doc/models/catalog-item-variation.md)
 children.
 
 `BatchDeleteCatalogObjects` succeeds even if only a portion of the targeted
@@ -47,11 +47,11 @@ function batchDeleteCatalogObjects(BatchDeleteCatalogObjectsRequest $body): ApiR
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchDeleteCatalogObjectsRequest`](/doc/models/batch-delete-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchDeleteCatalogObjectsRequest`](../../doc/models/batch-delete-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchDeleteCatalogObjectsResponse`](/doc/models/batch-delete-catalog-objects-response.md)
+[`BatchDeleteCatalogObjectsResponse`](../../doc/models/batch-delete-catalog-objects-response.md)
 
 ## Example Usage
 
@@ -76,11 +76,11 @@ if ($apiResponse->isSuccess()) {
 # Batch Retrieve Catalog Objects
 
 Returns a set of objects based on the provided ID.
-Each [CatalogItem](/doc/models/catalog-item.md) returned in the set includes all of its
+Each [CatalogItem](../../doc/models/catalog-item.md) returned in the set includes all of its
 child information including: all of its
-[CatalogItemVariation](/doc/models/catalog-item-variation.md) objects, references to
-its [CatalogModifierList](/doc/models/catalog-modifier-list.md) objects, and the ids of
-any [CatalogTax](/doc/models/catalog-tax.md) objects that apply to it.
+[CatalogItemVariation](../../doc/models/catalog-item-variation.md) objects, references to
+its [CatalogModifierList](../../doc/models/catalog-modifier-list.md) objects, and the ids of
+any [CatalogTax](../../doc/models/catalog-tax.md) objects that apply to it.
 
 ```php
 function batchRetrieveCatalogObjects(BatchRetrieveCatalogObjectsRequest $body): ApiResponse
@@ -90,11 +90,11 @@ function batchRetrieveCatalogObjects(BatchRetrieveCatalogObjectsRequest $body): 
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchRetrieveCatalogObjectsRequest`](/doc/models/batch-retrieve-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchRetrieveCatalogObjectsRequest`](../../doc/models/batch-retrieve-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchRetrieveCatalogObjectsResponse`](/doc/models/batch-retrieve-catalog-objects-response.md)
+[`BatchRetrieveCatalogObjectsResponse`](../../doc/models/batch-retrieve-catalog-objects-response.md)
 
 ## Example Usage
 
@@ -140,11 +140,11 @@ function batchUpsertCatalogObjects(BatchUpsertCatalogObjectsRequest $body): ApiR
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchUpsertCatalogObjectsRequest`](/doc/models/batch-upsert-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchUpsertCatalogObjectsRequest`](../../doc/models/batch-upsert-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchUpsertCatalogObjectsResponse`](/doc/models/batch-upsert-catalog-objects-response.md)
+[`BatchUpsertCatalogObjectsResponse`](../../doc/models/batch-upsert-catalog-objects-response.md)
 
 ## Example Usage
 
@@ -470,8 +470,8 @@ if ($apiResponse->isSuccess()) {
 
 # Create Catalog Image
 
-Uploads an image file to be represented by a [CatalogImage](/doc/models/catalog-image.md) object that can be linked to an existing
-[CatalogObject](/doc/models/catalog-object.md) instance. The resulting `CatalogImage` is unattached to any `CatalogObject` if the `object_id`
+Uploads an image file to be represented by a [CatalogImage](../../doc/models/catalog-image.md) object that can be linked to an existing
+[CatalogObject](../../doc/models/catalog-object.md) instance. The resulting `CatalogImage` is unattached to any `CatalogObject` if the `object_id`
 is not specified.
 
 This `CreateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
@@ -480,7 +480,7 @@ JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 ```php
 function createCatalogImage(
     ?CreateCatalogImageRequest $request = null,
-    ?\Square\Utils\FileWrapper $imageFile = null
+    ?FileWrapper $imageFile = null
 ): ApiResponse
 ```
 
@@ -488,12 +488,12 @@ function createCatalogImage(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request` | [`?CreateCatalogImageRequest`](/doc/models/create-catalog-image-request.md) | Form, Optional | - |
-| `imageFile` | `?\Square\Utils\FileWrapper` | Form, Optional | - |
+| `request` | [`?CreateCatalogImageRequest`](../../doc/models/create-catalog-image-request.md) | Form, Optional | - |
+| `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type
 
-[`CreateCatalogImageResponse`](/doc/models/create-catalog-image-response.md)
+[`CreateCatalogImageResponse`](../../doc/models/create-catalog-image-response.md)
 
 ## Example Usage
 
@@ -546,7 +546,7 @@ if ($apiResponse->isSuccess()) {
 
 # Update Catalog Image
 
-Uploads a new image file to replace the existing one in the specified [CatalogImage](/doc/models/catalog-image.md) object.
+Uploads a new image file to replace the existing one in the specified [CatalogImage](../../doc/models/catalog-image.md) object.
 
 This `UpdateCatalogImage` endpoint accepts HTTP multipart/form-data requests with a JSON part and an image file part in
 JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
@@ -555,7 +555,7 @@ JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 function updateCatalogImage(
     string $imageId,
     ?UpdateCatalogImageRequest $request = null,
-    ?\Square\Utils\FileWrapper $imageFile = null
+    ?FileWrapper $imageFile = null
 ): ApiResponse
 ```
 
@@ -564,12 +564,12 @@ function updateCatalogImage(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `imageId` | `string` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
-| `request` | [`?UpdateCatalogImageRequest`](/doc/models/update-catalog-image-request.md) | Form, Optional | - |
-| `imageFile` | `?\Square\Utils\FileWrapper` | Form, Optional | - |
+| `request` | [`?UpdateCatalogImageRequest`](../../doc/models/update-catalog-image-request.md) | Form, Optional | - |
+| `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type
 
-[`UpdateCatalogImageResponse`](/doc/models/update-catalog-image-response.md)
+[`UpdateCatalogImageResponse`](../../doc/models/update-catalog-image-response.md)
 
 ## Example Usage
 
@@ -606,7 +606,7 @@ function catalogInfo(): ApiResponse
 
 ## Response Type
 
-[`CatalogInfoResponse`](/doc/models/catalog-info-response.md)
+[`CatalogInfoResponse`](../../doc/models/catalog-info-response.md)
 
 ## Example Usage
 
@@ -627,13 +627,13 @@ if ($apiResponse->isSuccess()) {
 
 # List Catalog
 
-Returns a list of all [CatalogObject](/doc/models/catalog-object.md)s of the specified types in the catalog.
+Returns a list of all [CatalogObject](../../doc/models/catalog-object.md)s of the specified types in the catalog.
 
-The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](/doc/models/catalog-object-type.md) values,
+The `types` parameter is specified as a comma-separated list of the [CatalogObjectType](../../doc/models/catalog-object-type.md) values,
 for example, "`ITEM`, `ITEM_VARIATION`, `MODIFIER`, `MODIFIER_LIST`, `CATEGORY`, `DISCOUNT`, `TAX`, `IMAGE`".
 
 __Important:__ ListCatalog does not return deleted catalog items. To retrieve
-deleted catalog items, use [SearchCatalogObjects](/doc/apis/catalog.md#search-catalog-objects)
+deleted catalog items, use [SearchCatalogObjects](../../doc/apis/catalog.md#search-catalog-objects)
 and set the `include_deleted_objects` attribute value to `true`.
 
 ```php
@@ -644,13 +644,13 @@ function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalo
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `?string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
-| `types` | `?string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](/doc/models/catalog-object-type.md) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,<br>SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
-| `catalogVersion` | `?int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](/doc/models/catalog-object.md)s' `version` attribute.  If not included, results will<br>be from the current version of the catalog. |
+| `cursor` | `?string` | Query, Optional | The pagination cursor returned in the previous response. Leave unset for an initial request.<br>The page size is currently set to be 100.<br>See [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination) for more information. |
+| `types` | `?string` | Query, Optional | An optional case-insensitive, comma-separated list of object types to retrieve.<br><br>The valid values are defined in the [CatalogObjectType](../../doc/models/catalog-object-type.md) enum, for example,<br>`ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,<br>`MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.<br><br>If this is unspecified, the operation returns objects of all the top level types at the version<br>of the Square API used to make the request. Object types that are nested onto other object types<br>are not included in the defaults.<br><br>At the current API version the default object types are:<br>ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,<br>SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,<br>SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS. |
+| `catalogVersion` | `?int` | Query, Optional | The specific version of the catalog objects to be included in the response.<br>This allows you to retrieve historical<br>versions of objects. The specified version value is matched against<br>the [CatalogObject](../../doc/models/catalog-object.md)s' `version` attribute.  If not included, results will<br>be from the current version of the catalog. |
 
 ## Response Type
 
-[`ListCatalogResponse`](/doc/models/list-catalog-response.md)
+[`ListCatalogResponse`](../../doc/models/list-catalog-response.md)
 
 ## Example Usage
 
@@ -675,7 +675,7 @@ if ($apiResponse->isSuccess()) {
 
 # Upsert Catalog Object
 
-Creates or updates the target [CatalogObject](/doc/models/catalog-object.md).
+Creates or updates the target [CatalogObject](../../doc/models/catalog-object.md).
 
 ```php
 function upsertCatalogObject(UpsertCatalogObjectRequest $body): ApiResponse
@@ -685,11 +685,11 @@ function upsertCatalogObject(UpsertCatalogObjectRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`UpsertCatalogObjectRequest`](/doc/models/upsert-catalog-object-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpsertCatalogObjectRequest`](../../doc/models/upsert-catalog-object-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpsertCatalogObjectResponse`](/doc/models/upsert-catalog-object-response.md)
+[`UpsertCatalogObjectResponse`](../../doc/models/upsert-catalog-object-response.md)
 
 ## Example Usage
 
@@ -841,12 +841,12 @@ if ($apiResponse->isSuccess()) {
 
 # Delete Catalog Object
 
-Deletes a single [CatalogObject](/doc/models/catalog-object.md) based on the
+Deletes a single [CatalogObject](../../doc/models/catalog-object.md) based on the
 provided ID and returns the set of successfully deleted IDs in the response.
 Deletion is a cascading event such that all children of the targeted object
-are also deleted. For example, deleting a [CatalogItem](/doc/models/catalog-item.md)
+are also deleted. For example, deleting a [CatalogItem](../../doc/models/catalog-item.md)
 will also delete all of its
-[CatalogItemVariation](/doc/models/catalog-item-variation.md) children.
+[CatalogItemVariation](../../doc/models/catalog-item-variation.md) children.
 
 ```php
 function deleteCatalogObject(string $objectId): ApiResponse
@@ -860,7 +860,7 @@ function deleteCatalogObject(string $objectId): ApiResponse
 
 ## Response Type
 
-[`DeleteCatalogObjectResponse`](/doc/models/delete-catalog-object-response.md)
+[`DeleteCatalogObjectResponse`](../../doc/models/delete-catalog-object-response.md)
 
 ## Example Usage
 
@@ -883,13 +883,13 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Catalog Object
 
-Returns a single [CatalogItem](/doc/models/catalog-item.md) as a
-[CatalogObject](/doc/models/catalog-object.md) based on the provided ID. The returned
-object includes all of the relevant [CatalogItem](/doc/models/catalog-item.md)
-information including: [CatalogItemVariation](/doc/models/catalog-item-variation.md)
+Returns a single [CatalogItem](../../doc/models/catalog-item.md) as a
+[CatalogObject](../../doc/models/catalog-object.md) based on the provided ID. The returned
+object includes all of the relevant [CatalogItem](../../doc/models/catalog-item.md)
+information including: [CatalogItemVariation](../../doc/models/catalog-item-variation.md)
 children, references to its
-[CatalogModifierList](/doc/models/catalog-modifier-list.md) objects, and the ids of
-any [CatalogTax](/doc/models/catalog-tax.md) objects that apply to it.
+[CatalogModifierList](../../doc/models/catalog-modifier-list.md) objects, and the ids of
+any [CatalogTax](../../doc/models/catalog-tax.md) objects that apply to it.
 
 ```php
 function retrieveCatalogObject(
@@ -905,11 +905,11 @@ function retrieveCatalogObject(
 |  --- | --- | --- | --- |
 | `objectId` | `string` | Template, Required | The object ID of any type of catalog objects to be retrieved. |
 | `includeRelatedObjects` | `?bool` | Query, Optional | If `true`, the response will include additional objects that are related to the<br>requested objects. Related objects are defined as any objects referenced by ID by the results in the `objects` field<br>of the response. These objects are put in the `related_objects` field. Setting this to `true` is<br>helpful when the objects are needed for immediate display to a user.<br>This process only goes one level deep. Objects referenced by the related objects will not be included. For example,<br><br>if the `objects` field of the response contains a CatalogItem, its associated<br>CatalogCategory objects, CatalogTax objects, CatalogImage objects and<br>CatalogModifierLists will be returned in the `related_objects` field of the<br>response. If the `objects` field of the response contains a CatalogItemVariation,<br>its parent CatalogItem will be returned in the `related_objects` field of<br>the response.<br><br>Default value: `false`<br>**Default**: `false` |
-| `catalogVersion` | `?int` | Query, Optional | Requests objects as of a specific version of the catalog. This allows you to retrieve historical<br>versions of objects. The value to retrieve a specific version of an object can be found<br>in the version field of [CatalogObject](/doc/models/catalog-object.md)s. If not included, results will<br>be from the current version of the catalog. |
+| `catalogVersion` | `?int` | Query, Optional | Requests objects as of a specific version of the catalog. This allows you to retrieve historical<br>versions of objects. The value to retrieve a specific version of an object can be found<br>in the version field of [CatalogObject](../../doc/models/catalog-object.md)s. If not included, results will<br>be from the current version of the catalog. |
 
 ## Response Type
 
-[`RetrieveCatalogObjectResponse`](/doc/models/retrieve-catalog-object-response.md)
+[`RetrieveCatalogObjectResponse`](../../doc/models/retrieve-catalog-object-response.md)
 
 ## Example Usage
 
@@ -934,10 +934,10 @@ if ($apiResponse->isSuccess()) {
 
 # Search Catalog Objects
 
-Searches for [CatalogObject](/doc/models/catalog-object.md) of any type by matching supported search attribute values,
+Searches for [CatalogObject](../../doc/models/catalog-object.md) of any type by matching supported search attribute values,
 excluding custom attribute values on items or item variations, against one or more of the specified query filters.
 
-This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](/doc/apis/catalog.md#search-catalog-items)
+This (`SearchCatalogObjects`) endpoint differs from the [SearchCatalogItems](../../doc/apis/catalog.md#search-catalog-items)
 endpoint in the following aspects:
 
 - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
@@ -953,11 +953,11 @@ function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchCatalogObjectsRequest`](/doc/models/search-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchCatalogObjectsRequest`](../../doc/models/search-catalog-objects-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchCatalogObjectsResponse`](/doc/models/search-catalog-objects-response.md)
+[`SearchCatalogObjectsResponse`](../../doc/models/search-catalog-objects-response.md)
 
 ## Example Usage
 
@@ -1020,7 +1020,7 @@ if ($apiResponse->isSuccess()) {
 Searches for catalog items or item variations by matching supported search attribute values, including
 custom attribute values, against one or more of the specified query filters.
 
-This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](/doc/apis/catalog.md#search-catalog-objects)
+This (`SearchCatalogItems`) endpoint differs from the [SearchCatalogObjects](../../doc/apis/catalog.md#search-catalog-objects)
 endpoint in the following aspects:
 
 - `SearchCatalogItems` can only search for items or item variations, whereas `SearchCatalogObjects` can search for any type of catalog objects.
@@ -1036,11 +1036,11 @@ function searchCatalogItems(SearchCatalogItemsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchCatalogItemsRequest`](/doc/models/search-catalog-items-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchCatalogItemsRequest`](../../doc/models/search-catalog-items-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchCatalogItemsResponse`](/doc/models/search-catalog-items-response.md)
+[`SearchCatalogItemsResponse`](../../doc/models/search-catalog-items-response.md)
 
 ## Example Usage
 
@@ -1111,8 +1111,8 @@ if ($apiResponse->isSuccess()) {
 
 # Update Item Modifier Lists
 
-Updates the [CatalogModifierList](/doc/models/catalog-modifier-list.md) objects
-that apply to the targeted [CatalogItem](/doc/models/catalog-item.md) without having
+Updates the [CatalogModifierList](../../doc/models/catalog-modifier-list.md) objects
+that apply to the targeted [CatalogItem](../../doc/models/catalog-item.md) without having
 to perform an upsert on the entire item.
 
 ```php
@@ -1123,11 +1123,11 @@ function updateItemModifierLists(UpdateItemModifierListsRequest $body): ApiRespo
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`UpdateItemModifierListsRequest`](/doc/models/update-item-modifier-lists-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateItemModifierListsRequest`](../../doc/models/update-item-modifier-lists-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateItemModifierListsResponse`](/doc/models/update-item-modifier-lists-response.md)
+[`UpdateItemModifierListsResponse`](../../doc/models/update-item-modifier-lists-response.md)
 
 ## Example Usage
 
@@ -1155,8 +1155,8 @@ if ($apiResponse->isSuccess()) {
 
 # Update Item Taxes
 
-Updates the [CatalogTax](/doc/models/catalog-tax.md) objects that apply to the
-targeted [CatalogItem](/doc/models/catalog-item.md) without having to perform an
+Updates the [CatalogTax](../../doc/models/catalog-tax.md) objects that apply to the
+targeted [CatalogItem](../../doc/models/catalog-item.md) without having to perform an
 upsert on the entire item.
 
 ```php
@@ -1167,11 +1167,11 @@ function updateItemTaxes(UpdateItemTaxesRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`UpdateItemTaxesRequest`](/doc/models/update-item-taxes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateItemTaxesRequest`](../../doc/models/update-item-taxes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateItemTaxesResponse`](/doc/models/update-item-taxes-response.md)
+[`UpdateItemTaxesResponse`](../../doc/models/update-item-taxes-response.md)
 
 ## Example Usage
 

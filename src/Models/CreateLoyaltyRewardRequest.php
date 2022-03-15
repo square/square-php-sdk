@@ -35,9 +35,9 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
      * Returns Reward.
      *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
-     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
-     * [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-
-     * rewards).
+     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
+     * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-
+     * api/loyalty-rewards).
      */
     public function getReward(): LoyaltyReward
     {
@@ -48,9 +48,9 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
      * Sets Reward.
      *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
-     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see
-     * [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-
-     * rewards).
+     * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
+     * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-
+     * api/loyalty-rewards).
      *
      * @required
      * @maps reward
@@ -91,8 +91,9 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

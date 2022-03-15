@@ -156,7 +156,7 @@ class DisputeEvidence implements \JsonSerializable
     /**
      * Returns Uploaded At.
      *
-     * The time when the next action is due, in RFC 3339 format.
+     * The time when the evidence was uploaded, in RFC 3339 format.
      */
     public function getUploadedAt(): ?string
     {
@@ -166,7 +166,7 @@ class DisputeEvidence implements \JsonSerializable
     /**
      * Sets Uploaded At.
      *
-     * The time when the next action is due, in RFC 3339 format.
+     * The time when the evidence was uploaded, in RFC 3339 format.
      *
      * @maps uploaded_at
      */
@@ -203,8 +203,9 @@ class DisputeEvidence implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

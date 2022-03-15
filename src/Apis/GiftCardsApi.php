@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -109,8 +110,12 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListGiftCardsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListGiftCardsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -121,8 +126,8 @@ class GiftCardsApi extends BaseApi
      * [Selling gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#selling-
      * square-gift-cards).
      *
-     * @param \Square\Models\CreateGiftCardRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateGiftCardRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -130,7 +135,7 @@ class GiftCardsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createGiftCard(\Square\Models\CreateGiftCardRequest $body): ApiResponse
+    public function createGiftCard(Models\CreateGiftCardRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards';
@@ -180,16 +185,20 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateGiftCardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateGiftCardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Retrieves a gift card using the gift card account number (GAN).
      *
-     * @param \Square\Models\RetrieveGiftCardFromGANRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\RetrieveGiftCardFromGANRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -197,7 +206,7 @@ class GiftCardsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function retrieveGiftCardFromGAN(\Square\Models\RetrieveGiftCardFromGANRequest $body): ApiResponse
+    public function retrieveGiftCardFromGAN(Models\RetrieveGiftCardFromGANRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards/from-gan';
@@ -247,16 +256,20 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveGiftCardFromGANResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveGiftCardFromGANResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
     /**
      * Retrieves a gift card using a secure payment token that represents the gift card.
      *
-     * @param \Square\Models\RetrieveGiftCardFromNonceRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param Models\RetrieveGiftCardFromNonceRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -264,7 +277,7 @@ class GiftCardsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function retrieveGiftCardFromNonce(\Square\Models\RetrieveGiftCardFromNonceRequest $body): ApiResponse
+    public function retrieveGiftCardFromNonce(Models\RetrieveGiftCardFromNonceRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards/from-nonce';
@@ -314,8 +327,12 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveGiftCardFromNonceResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveGiftCardFromNonceResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -323,8 +340,8 @@ class GiftCardsApi extends BaseApi
      * Links a customer to a gift card, which is also referred to as adding a card on file.
      *
      * @param string $giftCardId The ID of the gift card to be linked.
-     * @param \Square\Models\LinkCustomerToGiftCardRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\LinkCustomerToGiftCardRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -332,10 +349,8 @@ class GiftCardsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function linkCustomerToGiftCard(
-        string $giftCardId,
-        \Square\Models\LinkCustomerToGiftCardRequest $body
-    ): ApiResponse {
+    public function linkCustomerToGiftCard(string $giftCardId, Models\LinkCustomerToGiftCardRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards/{gift_card_id}/link-customer';
 
@@ -389,8 +404,12 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\LinkCustomerToGiftCardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'LinkCustomerToGiftCardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -398,8 +417,8 @@ class GiftCardsApi extends BaseApi
      * Unlinks a customer from a gift card, which is also referred to as removing a card on file.
      *
      * @param string $giftCardId The ID of the gift card to be unlinked.
-     * @param \Square\Models\UnlinkCustomerFromGiftCardRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param Models\UnlinkCustomerFromGiftCardRequest $body An object containing the fields to POST
+     *        for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -409,7 +428,7 @@ class GiftCardsApi extends BaseApi
      */
     public function unlinkCustomerFromGiftCard(
         string $giftCardId,
-        \Square\Models\UnlinkCustomerFromGiftCardRequest $body
+        Models\UnlinkCustomerFromGiftCardRequest $body
     ): ApiResponse {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards/{gift_card_id}/unlink-customer';
@@ -464,10 +483,11 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\UnlinkCustomerFromGiftCardResponse'
+            'UnlinkCustomerFromGiftCardResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -532,8 +552,12 @@ class GiftCardsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveGiftCardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveGiftCardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

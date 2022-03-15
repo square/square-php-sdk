@@ -10,9 +10,9 @@ $cashDrawersApi = $client->getCashDrawersApi();
 
 ## Methods
 
-* [List Cash Drawer Shifts](/doc/apis/cash-drawers.md#list-cash-drawer-shifts)
-* [Retrieve Cash Drawer Shift](/doc/apis/cash-drawers.md#retrieve-cash-drawer-shift)
-* [List Cash Drawer Shift Events](/doc/apis/cash-drawers.md#list-cash-drawer-shift-events)
+* [List Cash Drawer Shifts](../../doc/apis/cash-drawers.md#list-cash-drawer-shifts)
+* [Retrieve Cash Drawer Shift](../../doc/apis/cash-drawers.md#retrieve-cash-drawer-shift)
+* [List Cash Drawer Shift Events](../../doc/apis/cash-drawers.md#list-cash-drawer-shift-events)
 
 
 # List Cash Drawer Shifts
@@ -36,7 +36,7 @@ function listCashDrawerShifts(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Query, Required | The ID of the location to query for a list of cash drawer shifts. |
-| `sortOrder` | [`?string (SortOrder)`](/doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
+| `sortOrder` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which cash drawer shifts are listed in the response,<br>based on their opened_at field. Default value: ASC |
 | `beginTime` | `?string` | Query, Optional | The inclusive start time of the query on opened_at, in ISO 8601 format. |
 | `endTime` | `?string` | Query, Optional | The exclusive end date of the query on opened_at, in ISO 8601 format. |
 | `limit` | `?int` | Query, Optional | Number of cash drawer shift events in a page of results (200 by<br>default, 1000 max). |
@@ -44,7 +44,7 @@ function listCashDrawerShifts(
 
 ## Response Type
 
-[`ListCashDrawerShiftsResponse`](/doc/models/list-cash-drawer-shifts-response.md)
+[`ListCashDrawerShiftsResponse`](../../doc/models/list-cash-drawer-shifts-response.md)
 
 ## Example Usage
 
@@ -73,7 +73,7 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Cash Drawer Shift
 
 Provides the summary details for a single cash drawer shift. See
-[ListCashDrawerShiftEvents](/doc/apis/cash-drawers.md#list-cash-drawer-shift-events) for a list of cash drawer shift events.
+[ListCashDrawerShiftEvents](../../doc/apis/cash-drawers.md#list-cash-drawer-shift-events) for a list of cash drawer shift events.
 
 ```php
 function retrieveCashDrawerShift(string $locationId, string $shiftId): ApiResponse
@@ -88,7 +88,7 @@ function retrieveCashDrawerShift(string $locationId, string $shiftId): ApiRespon
 
 ## Response Type
 
-[`RetrieveCashDrawerShiftResponse`](/doc/models/retrieve-cash-drawer-shift-response.md)
+[`RetrieveCashDrawerShiftResponse`](../../doc/models/retrieve-cash-drawer-shift-response.md)
 
 ## Example Usage
 
@@ -134,7 +134,7 @@ function listCashDrawerShiftEvents(
 
 ## Response Type
 
-[`ListCashDrawerShiftEventsResponse`](/doc/models/list-cash-drawer-shift-events-response.md)
+[`ListCashDrawerShiftEventsResponse`](../../doc/models/list-cash-drawer-shift-events-response.md)
 
 ## Example Usage
 

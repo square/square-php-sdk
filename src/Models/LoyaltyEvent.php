@@ -8,8 +8,8 @@ use stdClass;
 
 /**
  * Provides information about a loyalty event.
- * For more information, see [Loyalty events](https://developer.squareup.com/docs/loyalty-
- * api/overview/#loyalty-events).
+ * For more information, see [Search for Balance-Changing Loyalty Events](https://developer.squareup.
+ * com/docs/loyalty-api/loyalty-events).
  */
 class LoyaltyEvent implements \JsonSerializable
 {
@@ -391,8 +391,9 @@ class LoyaltyEvent implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -101,8 +102,12 @@ class DevicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListDeviceCodesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListDeviceCodesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -110,8 +115,8 @@ class DevicesApi extends BaseApi
      * Creates a DeviceCode that can be used to login to a Square Terminal device to enter the connected
      * terminal mode.
      *
-     * @param \Square\Models\CreateDeviceCodeRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CreateDeviceCodeRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -119,7 +124,7 @@ class DevicesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createDeviceCode(\Square\Models\CreateDeviceCodeRequest $body): ApiResponse
+    public function createDeviceCode(Models\CreateDeviceCodeRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/devices/codes';
@@ -169,8 +174,12 @@ class DevicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateDeviceCodeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateDeviceCodeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -234,8 +243,12 @@ class DevicesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetDeviceCodeResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetDeviceCodeResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

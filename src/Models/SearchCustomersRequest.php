@@ -33,8 +33,8 @@ class SearchCustomersRequest implements \JsonSerializable
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -47,8 +47,8 @@ class SearchCustomersRequest implements \JsonSerializable
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps cursor
      */
@@ -62,11 +62,11 @@ class SearchCustomersRequest implements \JsonSerializable
      *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
-     * The limit is ignored if it is less than the minimum or greater than the maximum value. The default
-     * value is 100.
+     * If the specified limit is invalid, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH`
+     * error. The default value is 100.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getLimit(): ?int
     {
@@ -78,11 +78,11 @@ class SearchCustomersRequest implements \JsonSerializable
      *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
-     * The limit is ignored if it is less than the minimum or greater than the maximum value. The default
-     * value is 100.
+     * If the specified limit is invalid, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH`
+     * error. The default value is 100.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps limit
      */
@@ -121,8 +121,9 @@ class SearchCustomersRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

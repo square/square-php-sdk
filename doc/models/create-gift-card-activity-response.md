@@ -12,8 +12,8 @@ The response might contain a set of `Error` objects if the request resulted in e
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `giftCardActivity` | [`?GiftCardActivity`](/doc/models/gift-card-activity.md) | Optional | Represents an action performed on a gift card that affects its state or balance. | getGiftCardActivity(): ?GiftCardActivity | setGiftCardActivity(?GiftCardActivity giftCardActivity): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `giftCardActivity` | [`?GiftCardActivity`](../../doc/models/gift-card-activity.md) | Optional | Represents an action performed on a gift card that affects its state or balance. | getGiftCardActivity(): ?GiftCardActivity | setGiftCardActivity(?GiftCardActivity giftCardActivity): void |
 
 ## Example (as JSON)
 

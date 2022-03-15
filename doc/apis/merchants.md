@@ -10,8 +10,8 @@ $merchantsApi = $client->getMerchantsApi();
 
 ## Methods
 
-* [List Merchants](/doc/apis/merchants.md#list-merchants)
-* [Retrieve Merchant](/doc/apis/merchants.md#retrieve-merchant)
+* [List Merchants](../../doc/apis/merchants.md#list-merchants)
+* [Retrieve Merchant](../../doc/apis/merchants.md#retrieve-merchant)
 
 
 # List Merchants
@@ -24,7 +24,7 @@ with a single `Merchant` object. You can specify your personal access token
 to get your own merchant information or specify an OAuth token to get the
 information for the merchant that granted your application access.
 
-If you know the merchant ID, you can also use the [RetrieveMerchant](/doc/apis/merchants.md#retrieve-merchant)
+If you know the merchant ID, you can also use the [RetrieveMerchant](../../doc/apis/merchants.md#retrieve-merchant)
 endpoint to retrieve the merchant information.
 
 ```php
@@ -39,7 +39,7 @@ function listMerchants(?int $cursor = null): ApiResponse
 
 ## Response Type
 
-[`ListMerchantsResponse`](/doc/models/list-merchants-response.md)
+[`ListMerchantsResponse`](../../doc/models/list-merchants-response.md)
 
 ## Example Usage
 
@@ -76,7 +76,7 @@ function retrieveMerchant(string $merchantId): ApiResponse
 
 ## Response Type
 
-[`RetrieveMerchantResponse`](/doc/models/retrieve-merchant-response.md)
+[`RetrieveMerchantResponse`](../../doc/models/retrieve-merchant-response.md)
 
 ## Example Usage
 

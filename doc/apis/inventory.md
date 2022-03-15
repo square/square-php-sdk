@@ -10,26 +10,26 @@ $inventoryApi = $client->getInventoryApi();
 
 ## Methods
 
-* [Deprecated Retrieve Inventory Adjustment](/doc/apis/inventory.md#deprecated-retrieve-inventory-adjustment)
-* [Retrieve Inventory Adjustment](/doc/apis/inventory.md#retrieve-inventory-adjustment)
-* [Deprecated Batch Change Inventory](/doc/apis/inventory.md#deprecated-batch-change-inventory)
-* [Deprecated Batch Retrieve Inventory Changes](/doc/apis/inventory.md#deprecated-batch-retrieve-inventory-changes)
-* [Deprecated Batch Retrieve Inventory Counts](/doc/apis/inventory.md#deprecated-batch-retrieve-inventory-counts)
-* [Batch Change Inventory](/doc/apis/inventory.md#batch-change-inventory)
-* [Batch Retrieve Inventory Changes](/doc/apis/inventory.md#batch-retrieve-inventory-changes)
-* [Batch Retrieve Inventory Counts](/doc/apis/inventory.md#batch-retrieve-inventory-counts)
-* [Deprecated Retrieve Inventory Physical Count](/doc/apis/inventory.md#deprecated-retrieve-inventory-physical-count)
-* [Retrieve Inventory Physical Count](/doc/apis/inventory.md#retrieve-inventory-physical-count)
-* [Retrieve Inventory Transfer](/doc/apis/inventory.md#retrieve-inventory-transfer)
-* [Retrieve Inventory Count](/doc/apis/inventory.md#retrieve-inventory-count)
-* [Retrieve Inventory Changes](/doc/apis/inventory.md#retrieve-inventory-changes)
+* [Deprecated Retrieve Inventory Adjustment](../../doc/apis/inventory.md#deprecated-retrieve-inventory-adjustment)
+* [Retrieve Inventory Adjustment](../../doc/apis/inventory.md#retrieve-inventory-adjustment)
+* [Deprecated Batch Change Inventory](../../doc/apis/inventory.md#deprecated-batch-change-inventory)
+* [Deprecated Batch Retrieve Inventory Changes](../../doc/apis/inventory.md#deprecated-batch-retrieve-inventory-changes)
+* [Deprecated Batch Retrieve Inventory Counts](../../doc/apis/inventory.md#deprecated-batch-retrieve-inventory-counts)
+* [Batch Change Inventory](../../doc/apis/inventory.md#batch-change-inventory)
+* [Batch Retrieve Inventory Changes](../../doc/apis/inventory.md#batch-retrieve-inventory-changes)
+* [Batch Retrieve Inventory Counts](../../doc/apis/inventory.md#batch-retrieve-inventory-counts)
+* [Deprecated Retrieve Inventory Physical Count](../../doc/apis/inventory.md#deprecated-retrieve-inventory-physical-count)
+* [Retrieve Inventory Physical Count](../../doc/apis/inventory.md#retrieve-inventory-physical-count)
+* [Retrieve Inventory Transfer](../../doc/apis/inventory.md#retrieve-inventory-transfer)
+* [Retrieve Inventory Count](../../doc/apis/inventory.md#retrieve-inventory-count)
+* [Retrieve Inventory Changes](../../doc/apis/inventory.md#retrieve-inventory-changes)
 
 
 # Deprecated Retrieve Inventory Adjustment
 
 **This endpoint is deprecated.**
 
-Deprecated version of [RetrieveInventoryAdjustment](/doc/apis/inventory.md#retrieve-inventory-adjustment) after the endpoint URL
+Deprecated version of [RetrieveInventoryAdjustment](../../doc/apis/inventory.md#retrieve-inventory-adjustment) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -40,11 +40,11 @@ function deprecatedRetrieveInventoryAdjustment(string $adjustmentId): ApiRespons
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](/doc/models/inventory-adjustment.md) to retrieve. |
+| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](../../doc/models/inventory-adjustment.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveInventoryAdjustmentResponse`](/doc/models/retrieve-inventory-adjustment-response.md)
+[`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md)
 
 ## Example Usage
 
@@ -67,7 +67,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Inventory Adjustment
 
-Returns the [InventoryAdjustment](/doc/models/inventory-adjustment.md) object
+Returns the [InventoryAdjustment](../../doc/models/inventory-adjustment.md) object
 with the provided `adjustment_id`.
 
 ```php
@@ -78,11 +78,11 @@ function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](/doc/models/inventory-adjustment.md) to retrieve. |
+| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](../../doc/models/inventory-adjustment.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveInventoryAdjustmentResponse`](/doc/models/retrieve-inventory-adjustment-response.md)
+[`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md)
 
 ## Example Usage
 
@@ -107,7 +107,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchChangeInventory](/doc/apis/inventory.md#batch-change-inventory) after the endpoint URL
+Deprecated version of [BatchChangeInventory](../../doc/apis/inventory.md#batch-change-inventory) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -118,11 +118,11 @@ function deprecatedBatchChangeInventory(BatchChangeInventoryRequest $body): ApiR
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchChangeInventoryRequest`](/doc/models/batch-change-inventory-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchChangeInventoryRequest`](../../doc/models/batch-change-inventory-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchChangeInventoryResponse`](/doc/models/batch-change-inventory-response.md)
+[`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md)
 
 ## Example Usage
 
@@ -192,7 +192,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchRetrieveInventoryChanges](/doc/apis/inventory.md#batch-retrieve-inventory-changes) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryChanges](../../doc/apis/inventory.md#batch-retrieve-inventory-changes) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -203,11 +203,11 @@ function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRe
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchRetrieveInventoryChangesRequest`](/doc/models/batch-retrieve-inventory-changes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchRetrieveInventoryChangesRequest`](../../doc/models/batch-retrieve-inventory-changes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchRetrieveInventoryChangesResponse`](/doc/models/batch-retrieve-inventory-changes-response.md)
+[`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md)
 
 ## Example Usage
 
@@ -238,7 +238,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchRetrieveInventoryCounts](/doc/apis/inventory.md#batch-retrieve-inventory-counts) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryCounts](../../doc/apis/inventory.md#batch-retrieve-inventory-counts) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -249,11 +249,11 @@ function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequ
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchRetrieveInventoryCountsRequest`](/doc/models/batch-retrieve-inventory-counts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchRetrieveInventoryCountsRequest`](../../doc/models/batch-retrieve-inventory-counts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchRetrieveInventoryCountsResponse`](/doc/models/batch-retrieve-inventory-counts-response.md)
+[`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md)
 
 ## Example Usage
 
@@ -295,11 +295,11 @@ function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchChangeInventoryRequest`](/doc/models/batch-change-inventory-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchChangeInventoryRequest`](../../doc/models/batch-change-inventory-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchChangeInventoryResponse`](/doc/models/batch-change-inventory-response.md)
+[`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md)
 
 ## Example Usage
 
@@ -384,11 +384,11 @@ function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $bod
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchRetrieveInventoryChangesRequest`](/doc/models/batch-retrieve-inventory-changes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchRetrieveInventoryChangesRequest`](../../doc/models/batch-retrieve-inventory-changes-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchRetrieveInventoryChangesResponse`](/doc/models/batch-retrieve-inventory-changes-response.md)
+[`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md)
 
 ## Example Usage
 
@@ -418,8 +418,8 @@ if ($apiResponse->isSuccess()) {
 # Batch Retrieve Inventory Counts
 
 Returns current counts for the provided
-[CatalogObject](/doc/models/catalog-object.md)s at the requested
-[Location](/doc/models/location.md)s.
+[CatalogObject](../../doc/models/catalog-object.md)s at the requested
+[Location](../../doc/models/location.md)s.
 
 Results are paginated and sorted in descending order according to their
 `calculated_at` timestamp (newest first).
@@ -437,11 +437,11 @@ function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body)
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`BatchRetrieveInventoryCountsRequest`](/doc/models/batch-retrieve-inventory-counts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`BatchRetrieveInventoryCountsRequest`](../../doc/models/batch-retrieve-inventory-counts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`BatchRetrieveInventoryCountsResponse`](/doc/models/batch-retrieve-inventory-counts-response.md)
+[`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md)
 
 ## Example Usage
 
@@ -471,7 +471,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [RetrieveInventoryPhysicalCount](/doc/apis/inventory.md#retrieve-inventory-physical-count) after the endpoint URL
+Deprecated version of [RetrieveInventoryPhysicalCount](../../doc/apis/inventory.md#retrieve-inventory-physical-count) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -482,11 +482,11 @@ function deprecatedRetrieveInventoryPhysicalCount(string $physicalCountId): ApiR
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](/doc/models/inventory-physical-count.md) to retrieve. |
+| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](../../doc/models/inventory-physical-count.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveInventoryPhysicalCountResponse`](/doc/models/retrieve-inventory-physical-count-response.md)
+[`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md)
 
 ## Example Usage
 
@@ -509,7 +509,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Inventory Physical Count
 
-Returns the [InventoryPhysicalCount](/doc/models/inventory-physical-count.md)
+Returns the [InventoryPhysicalCount](../../doc/models/inventory-physical-count.md)
 object with the provided `physical_count_id`.
 
 ```php
@@ -520,11 +520,11 @@ function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](/doc/models/inventory-physical-count.md) to retrieve. |
+| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](../../doc/models/inventory-physical-count.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveInventoryPhysicalCountResponse`](/doc/models/retrieve-inventory-physical-count-response.md)
+[`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md)
 
 ## Example Usage
 
@@ -547,7 +547,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Inventory Transfer
 
-Returns the [InventoryTransfer](/doc/models/inventory-transfer.md) object
+Returns the [InventoryTransfer](../../doc/models/inventory-transfer.md) object
 with the provided `transfer_id`.
 
 ```php
@@ -558,11 +558,11 @@ function retrieveInventoryTransfer(string $transferId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transferId` | `string` | Template, Required | ID of the [InventoryTransfer](/doc/models/inventory-transfer.md) to retrieve. |
+| `transferId` | `string` | Template, Required | ID of the [InventoryTransfer](../../doc/models/inventory-transfer.md) to retrieve. |
 
 ## Response Type
 
-[`RetrieveInventoryTransferResponse`](/doc/models/retrieve-inventory-transfer-response.md)
+[`RetrieveInventoryTransferResponse`](../../doc/models/retrieve-inventory-transfer-response.md)
 
 ## Example Usage
 
@@ -586,8 +586,8 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Inventory Count
 
 Retrieves the current calculated stock count for a given
-[CatalogObject](/doc/models/catalog-object.md) at a given set of
-[Location](/doc/models/location.md)s. Responses are paginated and unsorted.
+[CatalogObject](../../doc/models/catalog-object.md) at a given set of
+[Location](../../doc/models/location.md)s. Responses are paginated and unsorted.
 For more sophisticated queries, use a batch endpoint.
 
 ```php
@@ -602,13 +602,13 @@ function retrieveInventoryCount(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](/doc/models/catalog-object.md) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](/doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](../../doc/models/catalog-object.md) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](../../doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
 
-[`RetrieveInventoryCountResponse`](/doc/models/retrieve-inventory-count-response.md)
+[`RetrieveInventoryCountResponse`](../../doc/models/retrieve-inventory-count-response.md)
 
 ## Example Usage
 
@@ -636,10 +636,10 @@ if ($apiResponse->isSuccess()) {
 **This endpoint is deprecated.**
 
 Returns a set of physical counts and inventory adjustments for the
-provided [CatalogObject](/doc/models/catalog-object.md) at the requested
-[Location](/doc/models/location.md)s.
+provided [CatalogObject](../../doc/models/catalog-object.md) at the requested
+[Location](../../doc/models/location.md)s.
 
-You can achieve the same result by calling [BatchRetrieveInventoryChanges](/doc/apis/inventory.md#batch-retrieve-inventory-changes)
+You can achieve the same result by calling [BatchRetrieveInventoryChanges](../../doc/apis/inventory.md#batch-retrieve-inventory-changes)
 and having the `catalog_object_ids` list contain a single element of the `CatalogObject` ID.
 
 Results are paginated and sorted in descending order according to their
@@ -661,13 +661,13 @@ function retrieveInventoryChanges(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](/doc/models/catalog-object.md) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](/doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](../../doc/models/catalog-object.md) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](../../doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
 
-[`RetrieveInventoryChangesResponse`](/doc/models/retrieve-inventory-changes-response.md)
+[`RetrieveInventoryChangesResponse`](../../doc/models/retrieve-inventory-changes-response.md)
 
 ## Example Usage
 

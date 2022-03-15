@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `deviceCodes` | [`?(DeviceCode[])`](/doc/models/device-code.md) | Optional | The queried DeviceCode. | getDeviceCodes(): ?array | setDeviceCodes(?array deviceCodes): void |
-| `cursor` | `?string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. This value is present only if the request<br>succeeded and additional results are available.<br><br>See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `deviceCodes` | [`?(DeviceCode[])`](../../doc/models/device-code.md) | Optional | The queried DeviceCode. | getDeviceCodes(): ?array | setDeviceCodes(?array deviceCodes): void |
+| `cursor` | `?string` | Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. This value is present only if the request<br>succeeded and additional results are available.<br><br>See [Paginating results](../../https://developer.squareup.com/docs/working-with-apis/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

@@ -27,6 +27,11 @@ class TaxIds implements \JsonSerializable
     private $frNaf;
 
     /**
+     * @var string|null
+     */
+    private $esNif;
+
+    /**
      * Returns Eu Vat.
      *
      * The EU VAT number for this location. For example, `IE3426675K`.
@@ -105,13 +110,38 @@ class TaxIds implements \JsonSerializable
     }
 
     /**
+     * Returns Es Nif.
+     *
+     * The NIF (Numero de Identificacion Fiscal) number is a 9 character tax identifier used in Spain.
+     * If it is present, it has been validated. For example, `73628495A`.
+     */
+    public function getEsNif(): ?string
+    {
+        return $this->esNif;
+    }
+
+    /**
+     * Sets Es Nif.
+     *
+     * The NIF (Numero de Identificacion Fiscal) number is a 9 character tax identifier used in Spain.
+     * If it is present, it has been validated. For example, `73628495A`.
+     *
+     * @maps es_nif
+     */
+    public function setEsNif(?string $esNif): void
+    {
+        $this->esNif = $esNif;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
@@ -123,6 +153,9 @@ class TaxIds implements \JsonSerializable
         }
         if (isset($this->frNaf)) {
             $json['fr_naf']   = $this->frNaf;
+        }
+        if (isset($this->esNif)) {
+            $json['es_nif']   = $this->esNif;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

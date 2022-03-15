@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -32,15 +33,15 @@ class CustomersApi extends BaseApi
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for your original query.
      *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param int|null $limit The maximum number of results to return in a single page. This limit
      *        is advisory. The response might contain more or fewer results.
-     *        The limit is ignored if it is less than 1 or greater than 100. The default value is
-     *        100.
+     *        If the specified limit is less than 1 or greater than 100, Square returns a `400
+     *        VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default value is 100.
      *
-     *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
-     *        with-apis/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param string|null $sortField Indicates how customers should be sorted. The default value is
      *        `DEFAULT`.
      * @param string|null $sortOrder Indicates whether customers should be sorted in ascending
@@ -111,8 +112,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListCustomersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListCustomersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -128,8 +133,8 @@ class CustomersApi extends BaseApi
      * - `email_address`
      * - `phone_number`
      *
-     * @param \Square\Models\CreateCustomerRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateCustomerRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -137,7 +142,7 @@ class CustomersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createCustomer(\Square\Models\CreateCustomerRequest $body): ApiResponse
+    public function createCustomer(Models\CreateCustomerRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers';
@@ -187,8 +192,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -203,8 +212,8 @@ class CustomersApi extends BaseApi
      * for the search operation in well under 30 seconds. Occasionally, propagation of the new or updated
      * profiles can take closer to one minute or longer, especially during network incidents and outages.
      *
-     * @param \Square\Models\SearchCustomersRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\SearchCustomersRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -212,7 +221,7 @@ class CustomersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchCustomers(\Square\Models\SearchCustomersRequest $body): ApiResponse
+    public function searchCustomers(Models\SearchCustomersRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/search';
@@ -262,8 +271,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\SearchCustomersResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'SearchCustomersResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -281,8 +294,8 @@ class CustomersApi extends BaseApi
      * @param string $customerId The ID of the customer to delete.
      * @param int|null $version The current version of the customer profile. As a best practice, you
      *        should include this parameter to enable [optimistic concurrency](https://developer.
-     *        squareup.com/docs/working-with-apis/optimistic-concurrency) control.  For more
-     *        information, see [Delete a customer profile](https://developer.squareup.
+     *        squareup.com/docs/build-basics/common-api-patterns/optimistic-concurrency) control.
+     *        For more information, see [Delete a customer profile](https://developer.squareup.
      *        com/docs/customers-api/use-the-api/keep-records#delete-customer-profile).
      *
      * @return ApiResponse Response from the API call
@@ -345,8 +358,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -410,8 +427,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -430,8 +451,8 @@ class CustomersApi extends BaseApi
      * or [Gift Cards API]($e/GiftCards).
      *
      * @param string $customerId The ID of the customer to update.
-     * @param \Square\Models\UpdateCustomerRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateCustomerRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -439,7 +460,7 @@ class CustomersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateCustomer(string $customerId, \Square\Models\UpdateCustomerRequest $body): ApiResponse
+    public function updateCustomer(string $customerId, Models\UpdateCustomerRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/customers/{customer_id}';
@@ -494,8 +515,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -509,8 +534,8 @@ class CustomersApi extends BaseApi
      * @deprecated
      *
      * @param string $customerId The Square ID of the customer profile the card is linked to.
-     * @param \Square\Models\CreateCustomerCardRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CreateCustomerCardRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -518,7 +543,7 @@ class CustomersApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createCustomerCard(string $customerId, \Square\Models\CreateCustomerCardRequest $body): ApiResponse
+    public function createCustomerCard(string $customerId, Models\CreateCustomerCardRequest $body): ApiResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
@@ -575,8 +600,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateCustomerCardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateCustomerCardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -646,8 +675,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\DeleteCustomerCardResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'DeleteCustomerCardResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -716,8 +749,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RemoveGroupFromCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RemoveGroupFromCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -786,8 +823,12 @@ class CustomersApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\AddGroupToCustomerResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'AddGroupToCustomerResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

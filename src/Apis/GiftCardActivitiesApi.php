@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -129,8 +130,12 @@ class GiftCardActivitiesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListGiftCardActivitiesResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListGiftCardActivitiesResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -141,8 +146,8 @@ class GiftCardActivitiesApi extends BaseApi
      * [Using activated gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-
      * api#using-activated-gift-cards).
      *
-     * @param \Square\Models\CreateGiftCardActivityRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param Models\CreateGiftCardActivityRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -150,7 +155,7 @@ class GiftCardActivitiesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createGiftCardActivity(\Square\Models\CreateGiftCardActivityRequest $body): ApiResponse
+    public function createGiftCardActivity(Models\CreateGiftCardActivityRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/gift-cards/activities';
@@ -200,8 +205,12 @@ class GiftCardActivitiesApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateGiftCardActivityResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateGiftCardActivityResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -10,22 +10,22 @@ $laborApi = $client->getLaborApi();
 
 ## Methods
 
-* [List Break Types](/doc/apis/labor.md#list-break-types)
-* [Create Break Type](/doc/apis/labor.md#create-break-type)
-* [Delete Break Type](/doc/apis/labor.md#delete-break-type)
-* [Get Break Type](/doc/apis/labor.md#get-break-type)
-* [Update Break Type](/doc/apis/labor.md#update-break-type)
-* [List Employee Wages](/doc/apis/labor.md#list-employee-wages)
-* [Get Employee Wage](/doc/apis/labor.md#get-employee-wage)
-* [Create Shift](/doc/apis/labor.md#create-shift)
-* [Search Shifts](/doc/apis/labor.md#search-shifts)
-* [Delete Shift](/doc/apis/labor.md#delete-shift)
-* [Get Shift](/doc/apis/labor.md#get-shift)
-* [Update Shift](/doc/apis/labor.md#update-shift)
-* [List Team Member Wages](/doc/apis/labor.md#list-team-member-wages)
-* [Get Team Member Wage](/doc/apis/labor.md#get-team-member-wage)
-* [List Workweek Configs](/doc/apis/labor.md#list-workweek-configs)
-* [Update Workweek Config](/doc/apis/labor.md#update-workweek-config)
+* [List Break Types](../../doc/apis/labor.md#list-break-types)
+* [Create Break Type](../../doc/apis/labor.md#create-break-type)
+* [Delete Break Type](../../doc/apis/labor.md#delete-break-type)
+* [Get Break Type](../../doc/apis/labor.md#get-break-type)
+* [Update Break Type](../../doc/apis/labor.md#update-break-type)
+* [List Employee Wages](../../doc/apis/labor.md#list-employee-wages)
+* [Get Employee Wage](../../doc/apis/labor.md#get-employee-wage)
+* [Create Shift](../../doc/apis/labor.md#create-shift)
+* [Search Shifts](../../doc/apis/labor.md#search-shifts)
+* [Delete Shift](../../doc/apis/labor.md#delete-shift)
+* [Get Shift](../../doc/apis/labor.md#get-shift)
+* [Update Shift](../../doc/apis/labor.md#update-shift)
+* [List Team Member Wages](../../doc/apis/labor.md#list-team-member-wages)
+* [Get Team Member Wage](../../doc/apis/labor.md#get-team-member-wage)
+* [List Workweek Configs](../../doc/apis/labor.md#list-workweek-configs)
+* [Update Workweek Config](../../doc/apis/labor.md#update-workweek-config)
 
 
 # List Break Types
@@ -46,7 +46,7 @@ function listBreakTypes(?string $locationId = null, ?int $limit = null, ?string 
 
 ## Response Type
 
-[`ListBreakTypesResponse`](/doc/models/list-break-types-response.md)
+[`ListBreakTypesResponse`](../../doc/models/list-break-types-response.md)
 
 ## Example Usage
 
@@ -94,11 +94,11 @@ function createBreakType(CreateBreakTypeRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateBreakTypeRequest`](/doc/models/create-break-type-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateBreakTypeRequest`](../../doc/models/create-break-type-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateBreakTypeResponse`](/doc/models/create-break-type-response.md)
+[`CreateBreakTypeResponse`](../../doc/models/create-break-type-response.md)
 
 ## Example Usage
 
@@ -154,7 +154,7 @@ function deleteBreakType(string $id): ApiResponse
 
 ## Response Type
 
-[`DeleteBreakTypeResponse`](/doc/models/delete-break-type-response.md)
+[`DeleteBreakTypeResponse`](../../doc/models/delete-break-type-response.md)
 
 ## Example Usage
 
@@ -191,7 +191,7 @@ function getBreakType(string $id): ApiResponse
 
 ## Response Type
 
-[`GetBreakTypeResponse`](/doc/models/get-break-type-response.md)
+[`GetBreakTypeResponse`](../../doc/models/get-break-type-response.md)
 
 ## Example Usage
 
@@ -225,11 +225,11 @@ function updateBreakType(string $id, UpdateBreakTypeRequest $body): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The UUID for the `BreakType` being updated. |
-| `body` | [`UpdateBreakTypeRequest`](/doc/models/update-break-type-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateBreakTypeRequest`](../../doc/models/update-break-type-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateBreakTypeResponse`](/doc/models/update-break-type-response.md)
+[`UpdateBreakTypeResponse`](../../doc/models/update-break-type-response.md)
 
 ## Example Usage
 
@@ -287,7 +287,7 @@ function listEmployeeWages(?string $employeeId = null, ?int $limit = null, ?stri
 
 ## Response Type
 
-[`ListEmployeeWagesResponse`](/doc/models/list-employee-wages-response.md)
+[`ListEmployeeWagesResponse`](../../doc/models/list-employee-wages-response.md)
 
 ## Example Usage
 
@@ -328,7 +328,7 @@ function getEmployeeWage(string $id): ApiResponse
 
 ## Response Type
 
-[`GetEmployeeWageResponse`](/doc/models/get-employee-wage-response.md)
+[`GetEmployeeWageResponse`](../../doc/models/get-employee-wage-response.md)
 
 ## Example Usage
 
@@ -379,11 +379,11 @@ function createShift(CreateShiftRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateShiftRequest`](/doc/models/create-shift-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateShiftRequest`](../../doc/models/create-shift-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateShiftResponse`](/doc/models/create-shift-response.md)
+[`CreateShiftResponse`](../../doc/models/create-shift-response.md)
 
 ## Example Usage
 
@@ -467,11 +467,11 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchShiftsRequest`](/doc/models/search-shifts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchShiftsRequest`](../../doc/models/search-shifts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchShiftsResponse`](/doc/models/search-shifts-response.md)
+[`SearchShiftsResponse`](../../doc/models/search-shifts-response.md)
 
 ## Example Usage
 
@@ -534,7 +534,7 @@ function deleteShift(string $id): ApiResponse
 
 ## Response Type
 
-[`DeleteShiftResponse`](/doc/models/delete-shift-response.md)
+[`DeleteShiftResponse`](../../doc/models/delete-shift-response.md)
 
 ## Example Usage
 
@@ -571,7 +571,7 @@ function getShift(string $id): ApiResponse
 
 ## Response Type
 
-[`GetShiftResponse`](/doc/models/get-shift-response.md)
+[`GetShiftResponse`](../../doc/models/get-shift-response.md)
 
 ## Example Usage
 
@@ -611,11 +611,11 @@ function updateShift(string $id, UpdateShiftRequest $body): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The ID of the object being updated. |
-| `body` | [`UpdateShiftRequest`](/doc/models/update-shift-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateShiftRequest`](../../doc/models/update-shift-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateShiftResponse`](/doc/models/update-shift-response.md)
+[`UpdateShiftResponse`](../../doc/models/update-shift-response.md)
 
 ## Example Usage
 
@@ -695,7 +695,7 @@ function listTeamMemberWages(
 
 ## Response Type
 
-[`ListTeamMemberWagesResponse`](/doc/models/list-team-member-wages-response.md)
+[`ListTeamMemberWagesResponse`](../../doc/models/list-team-member-wages-response.md)
 
 ## Example Usage
 
@@ -734,7 +734,7 @@ function getTeamMemberWage(string $id): ApiResponse
 
 ## Response Type
 
-[`GetTeamMemberWageResponse`](/doc/models/get-team-member-wage-response.md)
+[`GetTeamMemberWageResponse`](../../doc/models/get-team-member-wage-response.md)
 
 ## Example Usage
 
@@ -772,7 +772,7 @@ function listWorkweekConfigs(?int $limit = null, ?string $cursor = null): ApiRes
 
 ## Response Type
 
-[`ListWorkweekConfigsResponse`](/doc/models/list-workweek-configs-response.md)
+[`ListWorkweekConfigsResponse`](../../doc/models/list-workweek-configs-response.md)
 
 ## Example Usage
 
@@ -807,11 +807,11 @@ function updateWorkweekConfig(string $id, UpdateWorkweekConfigRequest $body): Ap
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | The UUID for the `WorkweekConfig` object being updated. |
-| `body` | [`UpdateWorkweekConfigRequest`](/doc/models/update-workweek-config-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`UpdateWorkweekConfigRequest`](../../doc/models/update-workweek-config-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`UpdateWorkweekConfigResponse`](/doc/models/update-workweek-config-response.md)
+[`UpdateWorkweekConfigResponse`](../../doc/models/update-workweek-config-response.md)
 
 ## Example Usage
 

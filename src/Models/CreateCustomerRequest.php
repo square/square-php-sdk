@@ -76,7 +76,7 @@ class CreateCustomerRequest implements \JsonSerializable
      * Returns Idempotency Key.
      *
      * The idempotency key for the request. For more information, see
-     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -87,7 +87,7 @@ class CreateCustomerRequest implements \JsonSerializable
      * Sets Idempotency Key.
      *
      * The idempotency key for the request. For more information, see
-     * [Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+     * [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -235,7 +235,8 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Returns Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      */
     public function getPhoneNumber(): ?string
     {
@@ -245,7 +246,8 @@ class CreateCustomerRequest implements \JsonSerializable
     /**
      * Sets Phone Number.
      *
-     * The 11-digit phone number associated with the customer profile.
+     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
+     * an optional `+` prefix.
      *
      * @maps phone_number
      */
@@ -364,8 +366,9 @@ class CreateCustomerRequest implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

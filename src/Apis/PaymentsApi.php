@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -131,8 +132,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListPaymentsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListPaymentsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -146,8 +151,8 @@ class PaymentsApi extends BaseApi
      * The endpoint creates a
      * `Payment` object and returns it in the response.
      *
-     * @param \Square\Models\CreatePaymentRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreatePaymentRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -155,7 +160,7 @@ class PaymentsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createPayment(\Square\Models\CreatePaymentRequest $body): ApiResponse
+    public function createPayment(Models\CreatePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments';
@@ -205,8 +210,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreatePaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreatePaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -226,8 +235,8 @@ class PaymentsApi extends BaseApi
      * endpoint
      * returns successfully.
      *
-     * @param \Square\Models\CancelPaymentByIdempotencyKeyRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param Models\CancelPaymentByIdempotencyKeyRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -235,9 +244,8 @@ class PaymentsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function cancelPaymentByIdempotencyKey(
-        \Square\Models\CancelPaymentByIdempotencyKeyRequest $body
-    ): ApiResponse {
+    public function cancelPaymentByIdempotencyKey(Models\CancelPaymentByIdempotencyKeyRequest $body): ApiResponse
+    {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments/cancel';
 
@@ -286,10 +294,11 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass(
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
             $response->body,
-            'Square\\Models\\CancelPaymentByIdempotencyKeyResponse'
+            'CancelPaymentByIdempotencyKeyResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -354,8 +363,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\GetPaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'GetPaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -364,8 +377,8 @@ class PaymentsApi extends BaseApi
      * You can update the `amount_money` and `tip_money` using this endpoint.
      *
      * @param string $paymentId The ID of the payment to update.
-     * @param \Square\Models\UpdatePaymentRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdatePaymentRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -373,7 +386,7 @@ class PaymentsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updatePayment(string $paymentId, \Square\Models\UpdatePaymentRequest $body): ApiResponse
+    public function updatePayment(string $paymentId, Models\UpdatePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments/{payment_id}';
@@ -428,8 +441,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdatePaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdatePaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -494,8 +511,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CancelPaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelPaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -506,8 +527,8 @@ class PaymentsApi extends BaseApi
      * You can use this endpoint to complete a payment with the APPROVED `status`.
      *
      * @param string $paymentId The unique ID identifying the payment to be completed.
-     * @param \Square\Models\CompletePaymentRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param Models\CompletePaymentRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -515,7 +536,7 @@ class PaymentsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function completePayment(string $paymentId, \Square\Models\CompletePaymentRequest $body): ApiResponse
+    public function completePayment(string $paymentId, Models\CompletePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/payments/{payment_id}/complete';
@@ -570,8 +591,12 @@ class PaymentsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CompletePaymentResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CompletePaymentResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -11,7 +11,7 @@ Filter events by the order associated with the event.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `orderId` | `string` | Required | The ID of the [order](/doc/models/order.md) associated with the event.<br>**Constraints**: *Minimum Length*: `1` | getOrderId(): string | setOrderId(string orderId): void |
+| `orderId` | `string` | Required | The ID of the [order](../../doc/models/order.md) associated with the event.<br>**Constraints**: *Minimum Length*: `1` | getOrderId(): string | setOrderId(string orderId): void |
 
 ## Example (as JSON)
 

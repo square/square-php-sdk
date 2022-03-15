@@ -13,9 +13,9 @@ Either `errors` or `segments` is present in a given response (never both).
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `segments` | [`?(CustomerSegment[])`](/doc/models/customer-segment.md) | Optional | The list of customer segments belonging to the associated Square account. | getSegments(): ?array | setSegments(?array segments): void |
-| `cursor` | `?string` | Optional | A pagination cursor to be used in subsequent calls to `ListCustomerSegments`<br>to retrieve the next set of query results. The cursor is only present if the request succeeded and<br>additional results are available.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `segments` | [`?(CustomerSegment[])`](../../doc/models/customer-segment.md) | Optional | The list of customer segments belonging to the associated Square account. | getSegments(): ?array | setSegments(?array segments): void |
+| `cursor` | `?string` | Optional | A pagination cursor to be used in subsequent calls to `ListCustomerSegments`<br>to retrieve the next set of query results. The cursor is only present if the request succeeded and<br>additional results are available.<br><br>For more information, see [Pagination](../../https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

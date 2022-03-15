@@ -138,8 +138,8 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      *
      * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
      * are now defined using a catalog pricing rule and other catalog objects. For more information, see
-     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
-     * discount-details).
+     * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
+     * rewards#get-discount-details).
      */
     public function getDefinition(): LoyaltyProgramRewardDefinition
     {
@@ -151,8 +151,8 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      *
      * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
      * are now defined using a catalog pricing rule and other catalog objects. For more information, see
-     * [Get discount details for the reward](https://developer.squareup.com/docs/loyalty-api/overview#get-
-     * discount-details).
+     * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
+     * rewards#get-discount-details).
      *
      * @required
      * @maps definition
@@ -217,8 +217,9 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

@@ -3,7 +3,7 @@
 
 ## FileWrapper
 
-Thrown when there is a network error or HTTP response status code is not okay.
+Wraps file with mime-type and filename to be sent as part of an HTTP request.
 
 ## Constructor Args
 

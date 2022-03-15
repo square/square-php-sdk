@@ -11,8 +11,8 @@ A response that includes the loyalty reward.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `reward` | [`?LoyaltyReward`](/doc/models/loyalty-reward.md) | Optional | Represents a contract to redeem loyalty points for a [reward tier](/doc/models/loyalty-program-reward-tier.md) discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state. For more information, see [Redeem loyalty rewards](https://developer.squareup.com/docs/loyalty-api/overview#redeem-loyalty-rewards). | getReward(): ?LoyaltyReward | setReward(?LoyaltyReward reward): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `reward` | [`?LoyaltyReward`](../../doc/models/loyalty-reward.md) | Optional | Represents a contract to redeem loyalty points for a [reward tier](../../doc/models/loyalty-program-reward-tier.md) discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.<br>For more information, see [Manage loyalty rewards](../../https://developer.squareup.com/docs/loyalty-api/loyalty-rewards). | getReward(): ?LoyaltyReward | setReward(?LoyaltyReward reward): void |
 
 ## Example (as JSON)
 

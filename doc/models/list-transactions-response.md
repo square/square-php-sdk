@@ -2,7 +2,7 @@
 # List Transactions Response
 
 Defines the fields that are included in the response body of
-a request to the [ListTransactions](/doc/apis/transactions.md#list-transactions) endpoint.
+a request to the [ListTransactions](../../doc/apis/transactions.md#list-transactions) endpoint.
 
 One of `errors` or `transactions` is present in a given response (never both).
 
@@ -14,9 +14,9 @@ One of `errors` or `transactions` is present in a given response (never both).
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `transactions` | [`?(Transaction[])`](/doc/models/transaction.md) | Optional | An array of transactions that match your query. | getTransactions(): ?array | setTransactions(?array transactions): void |
-| `cursor` | `?string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `transactions` | [`?(Transaction[])`](../../doc/models/transaction.md) | Optional | An array of transactions that match your query. | getTransactions(): ?array | setTransactions(?array transactions): void |
+| `cursor` | `?string` | Optional | A pagination cursor for retrieving the next set of results,<br>if any remain. Provide this value as the `cursor` parameter in a subsequent<br>request to this endpoint.<br><br>See [Paginating results](../../https://developer.squareup.com/docs/working-with-apis/pagination) for more information. | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

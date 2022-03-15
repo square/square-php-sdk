@@ -88,8 +88,8 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
      * to retrieve the next set of query results. The cursor is only present if the request succeeded and
      * additional results are available.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -103,8 +103,8 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
      * to retrieve the next set of query results. The cursor is only present if the request succeeded and
      * additional results are available.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps cursor
      */
@@ -119,8 +119,9 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
      *        are set. (default: false)
      *
-     * @return mixed
+     * @return array|stdClass
      */
+    #[\ReturnTypeWillChange] // @phan-suppress-current-line PhanUndeclaredClassAttribute for (php < 8.1)
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];

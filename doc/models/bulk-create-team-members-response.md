@@ -11,8 +11,8 @@ Represents a response from a bulk create request containing the created `TeamMem
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `teamMembers` | [`?array`](/doc/models/create-team-member-response.md) | Optional | The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the `CreateTeamMemberRequest`. | getTeamMembers(): ?array | setTeamMembers(?array teamMembers): void |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | The errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `teamMembers` | [`?array<string,CreateTeamMemberResponse>`](../../doc/models/create-team-member-response.md) | Optional | The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the `CreateTeamMemberRequest`. | getTeamMembers(): ?array | setTeamMembers(?array teamMembers): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | The errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 

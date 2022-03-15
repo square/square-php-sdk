@@ -10,14 +10,14 @@ $terminalApi = $client->getTerminalApi();
 
 ## Methods
 
-* [Create Terminal Checkout](/doc/apis/terminal.md#create-terminal-checkout)
-* [Search Terminal Checkouts](/doc/apis/terminal.md#search-terminal-checkouts)
-* [Get Terminal Checkout](/doc/apis/terminal.md#get-terminal-checkout)
-* [Cancel Terminal Checkout](/doc/apis/terminal.md#cancel-terminal-checkout)
-* [Create Terminal Refund](/doc/apis/terminal.md#create-terminal-refund)
-* [Search Terminal Refunds](/doc/apis/terminal.md#search-terminal-refunds)
-* [Get Terminal Refund](/doc/apis/terminal.md#get-terminal-refund)
-* [Cancel Terminal Refund](/doc/apis/terminal.md#cancel-terminal-refund)
+* [Create Terminal Checkout](../../doc/apis/terminal.md#create-terminal-checkout)
+* [Search Terminal Checkouts](../../doc/apis/terminal.md#search-terminal-checkouts)
+* [Get Terminal Checkout](../../doc/apis/terminal.md#get-terminal-checkout)
+* [Cancel Terminal Checkout](../../doc/apis/terminal.md#cancel-terminal-checkout)
+* [Create Terminal Refund](../../doc/apis/terminal.md#create-terminal-refund)
+* [Search Terminal Refunds](../../doc/apis/terminal.md#search-terminal-refunds)
+* [Get Terminal Refund](../../doc/apis/terminal.md#get-terminal-refund)
+* [Cancel Terminal Refund](../../doc/apis/terminal.md#cancel-terminal-refund)
 
 
 # Create Terminal Checkout
@@ -33,11 +33,11 @@ function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiRespons
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateTerminalCheckoutRequest`](/doc/models/create-terminal-checkout-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateTerminalCheckoutRequest`](../../doc/models/create-terminal-checkout-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateTerminalCheckoutResponse`](/doc/models/create-terminal-checkout-response.md)
+[`CreateTerminalCheckoutResponse`](../../doc/models/create-terminal-checkout-response.md)
 
 ## Example Usage
 
@@ -97,11 +97,11 @@ function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiRespo
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchTerminalCheckoutsRequest`](/doc/models/search-terminal-checkouts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchTerminalCheckoutsRequest`](../../doc/models/search-terminal-checkouts-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchTerminalCheckoutsResponse`](/doc/models/search-terminal-checkouts-response.md)
+[`SearchTerminalCheckoutsResponse`](../../doc/models/search-terminal-checkouts-response.md)
 
 ## Example Usage
 
@@ -149,7 +149,7 @@ function getTerminalCheckout(string $checkoutId): ApiResponse
 
 ## Response Type
 
-[`GetTerminalCheckoutResponse`](/doc/models/get-terminal-checkout-response.md)
+[`GetTerminalCheckoutResponse`](../../doc/models/get-terminal-checkout-response.md)
 
 ## Example Usage
 
@@ -186,7 +186,7 @@ function cancelTerminalCheckout(string $checkoutId): ApiResponse
 
 ## Response Type
 
-[`CancelTerminalCheckoutResponse`](/doc/models/cancel-terminal-checkout-response.md)
+[`CancelTerminalCheckoutResponse`](../../doc/models/cancel-terminal-checkout-response.md)
 
 ## Example Usage
 
@@ -219,11 +219,11 @@ function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CreateTerminalRefundRequest`](/doc/models/create-terminal-refund-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`CreateTerminalRefundRequest`](../../doc/models/create-terminal-refund-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`CreateTerminalRefundResponse`](/doc/models/create-terminal-refund-response.md)
+[`CreateTerminalRefundResponse`](../../doc/models/create-terminal-refund-response.md)
 
 ## Example Usage
 
@@ -272,11 +272,11 @@ function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SearchTerminalRefundsRequest`](/doc/models/search-terminal-refunds-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+| `body` | [`SearchTerminalRefundsRequest`](../../doc/models/search-terminal-refunds-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
 
-[`SearchTerminalRefundsResponse`](/doc/models/search-terminal-refunds-response.md)
+[`SearchTerminalRefundsResponse`](../../doc/models/search-terminal-refunds-response.md)
 
 ## Example Usage
 
@@ -324,7 +324,7 @@ function getTerminalRefund(string $terminalRefundId): ApiResponse
 
 ## Response Type
 
-[`GetTerminalRefundResponse`](/doc/models/get-terminal-refund-response.md)
+[`GetTerminalRefundResponse`](../../doc/models/get-terminal-refund-response.md)
 
 ## Example Usage
 
@@ -361,7 +361,7 @@ function cancelTerminalRefund(string $terminalRefundId): ApiResponse
 
 ## Response Type
 
-[`CancelTerminalRefundResponse`](/doc/models/cancel-terminal-refund-response.md)
+[`CancelTerminalRefundResponse`](../../doc/models/cancel-terminal-refund-response.md)
 
 ## Example Usage
 

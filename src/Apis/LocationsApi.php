@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -77,8 +78,12 @@ class LocationsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\ListLocationsResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListLocationsResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -91,8 +96,8 @@ class LocationsApi extends BaseApi
      * are visible to the seller for their own management, so ensure that
      * each location has a sensible and unique name.
      *
-     * @param \Square\Models\CreateLocationRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\CreateLocationRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -100,7 +105,7 @@ class LocationsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLocation(\Square\Models\CreateLocationRequest $body): ApiResponse
+    public function createLocation(Models\CreateLocationRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/locations';
@@ -150,8 +155,12 @@ class LocationsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\CreateLocationResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateLocationResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -218,8 +227,12 @@ class LocationsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\RetrieveLocationResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveLocationResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 
@@ -227,8 +240,8 @@ class LocationsApi extends BaseApi
      * Updates a [location](https://developer.squareup.com/docs/locations-api).
      *
      * @param string $locationId The ID of the location to update.
-     * @param \Square\Models\UpdateLocationRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param Models\UpdateLocationRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -236,7 +249,7 @@ class LocationsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateLocation(string $locationId, \Square\Models\UpdateLocationRequest $body): ApiResponse
+    public function updateLocation(string $locationId, Models\UpdateLocationRequest $body): ApiResponse
     {
         //prepare query string for API call
         $_queryBuilder = '/v2/locations/{location_id}';
@@ -291,8 +304,12 @@ class LocationsApi extends BaseApi
             return ApiResponse::createFromContext($response->body, null, $_httpContext);
         }
 
-        $mapper = $this->getJsonMapper();
-        $deserializedResponse = $mapper->mapClass($response->body, 'Square\\Models\\UpdateLocationResponse');
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'UpdateLocationResponse'
+        );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
 }

@@ -12,9 +12,9 @@ a set of `TeamMemberWage` objects.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `teamMemberWages` | [`?(TeamMemberWage[])`](/doc/models/team-member-wage.md) | Optional | A page of `TeamMemberWage` results. | getTeamMemberWages(): ?array | setTeamMemberWages(?array teamMemberWages): void |
+| `teamMemberWages` | [`?(TeamMemberWage[])`](../../doc/models/team-member-wage.md) | Optional | A page of `TeamMemberWage` results. | getTeamMemberWages(): ?array | setTeamMemberWages(?array teamMemberWages): void |
 | `cursor` | `?string` | Optional | The value supplied in the subsequent request to fetch the next page<br>of `TeamMemberWage` results. | getCursor(): ?string | setCursor(?string cursor): void |
-| `errors` | [`?(Error[])`](/doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 
