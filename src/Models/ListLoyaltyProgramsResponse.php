@@ -23,7 +23,6 @@ class ListLoyaltyProgramsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class ListLoyaltyProgramsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class ListLoyaltyProgramsResponse implements \JsonSerializable
 
     /**
      * Returns Programs.
-     *
      * A list of `LoyaltyProgram` for the merchant.
      *
      * @return LoyaltyProgram[]|null
@@ -61,7 +58,6 @@ class ListLoyaltyProgramsResponse implements \JsonSerializable
 
     /**
      * Sets Programs.
-     *
      * A list of `LoyaltyProgram` for the merchant.
      *
      * @maps programs

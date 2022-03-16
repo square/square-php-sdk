@@ -26,7 +26,6 @@ class LoyaltyEventLocationFilter implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The [location]($m/Location) IDs for loyalty events to query.
      * If multiple values are specified, the endpoint uses
      * a logical OR to combine them.
@@ -40,7 +39,6 @@ class LoyaltyEventLocationFilter implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The [location]($m/Location) IDs for loyalty events to query.
      * If multiple values are specified, the endpoint uses
      * a logical OR to combine them.

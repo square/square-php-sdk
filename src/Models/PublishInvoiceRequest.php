@@ -31,7 +31,6 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version of the [invoice]($m/Invoice) to publish.
      * This must match the current version of the invoice; otherwise, the request is rejected.
      */
@@ -42,7 +41,6 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version of the [invoice]($m/Invoice) to publish.
      * This must match the current version of the invoice; otherwise, the request is rejected.
      *
@@ -56,7 +54,6 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies the `PublishInvoice` request. If you do not
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
@@ -71,7 +68,6 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies the `PublishInvoice` request. If you do not
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.

@@ -23,7 +23,6 @@ class ApplicationDetails implements \JsonSerializable
 
     /**
      * Returns Square Product.
-     *
      * A list of products to return to external callers.
      */
     public function getSquareProduct(): ?string
@@ -33,7 +32,6 @@ class ApplicationDetails implements \JsonSerializable
 
     /**
      * Sets Square Product.
-     *
      * A list of products to return to external callers.
      *
      * @maps square_product
@@ -45,7 +43,6 @@ class ApplicationDetails implements \JsonSerializable
 
     /**
      * Returns Application Id.
-     *
      * The Square ID assigned to the application used to take the payment.
      * Application developers can use this information to identify payments that
      * their application processed.
@@ -61,7 +58,6 @@ class ApplicationDetails implements \JsonSerializable
 
     /**
      * Sets Application Id.
-     *
      * The Square ID assigned to the application used to take the payment.
      * Application developers can use this information to identify payments that
      * their application processed.

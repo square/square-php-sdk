@@ -69,7 +69,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The UUID for this object.
      */
     public function getId(): ?string
@@ -79,7 +78,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The UUID for this object.
      *
      * @maps id
@@ -91,7 +89,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Start At.
-     *
      * RFC 3339; follows the same timezone information as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      */
@@ -102,7 +99,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Start At.
-     *
      * RFC 3339; follows the same timezone information as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      *
@@ -116,7 +112,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns End At.
-     *
      * RFC 3339; follows the same timezone information as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      */
@@ -127,7 +122,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets End At.
-     *
      * RFC 3339; follows the same timezone information as `Shift`. Precision up to
      * the minute is respected; seconds are truncated.
      *
@@ -140,7 +134,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Break Type Id.
-     *
      * The `BreakType` that this `Break` was templated on.
      */
     public function getBreakTypeId(): string
@@ -150,7 +143,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Break Type Id.
-     *
      * The `BreakType` that this `Break` was templated on.
      *
      * @required
@@ -163,7 +155,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * A human-readable name.
      */
     public function getName(): string
@@ -173,7 +164,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * A human-readable name.
      *
      * @required
@@ -186,7 +176,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Expected Duration.
-     *
      * Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
      * the break.
      */
@@ -197,7 +186,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Expected Duration.
-     *
      * Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
      * the break.
      *
@@ -211,7 +199,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Returns Is Paid.
-     *
      * Whether this break counts towards time worked for compensation
      * purposes.
      */
@@ -222,7 +209,6 @@ class MBreak implements \JsonSerializable
 
     /**
      * Sets Is Paid.
-     *
      * Whether this break counts towards time worked for compensation
      * purposes.
      *

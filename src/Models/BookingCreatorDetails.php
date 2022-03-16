@@ -28,7 +28,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Returns Creator Type.
-     *
      * Supported types of a booking creator.
      */
     public function getCreatorType(): ?string
@@ -38,7 +37,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Sets Creator Type.
-     *
      * Supported types of a booking creator.
      *
      * @maps creator_type
@@ -50,7 +48,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The ID of the team member who created the booking, when the booking creator is of the `TEAM_MEMBER`
      * type.
      * Access to this field requires seller-level permissions.
@@ -62,7 +59,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The ID of the team member who created the booking, when the booking creator is of the `TEAM_MEMBER`
      * type.
      * Access to this field requires seller-level permissions.
@@ -76,7 +72,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the customer who created the booking, when the booking creator is of the `CUSTOMER` type.
      * Access to this field requires seller-level permissions.
      */
@@ -87,7 +82,6 @@ class BookingCreatorDetails implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the customer who created the booking, when the booking creator is of the `CUSTOMER` type.
      * Access to this field requires seller-level permissions.
      *

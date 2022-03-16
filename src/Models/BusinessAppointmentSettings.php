@@ -78,7 +78,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Location Types.
-     *
      * Types of the location allowed for bookings.
      * See [BusinessAppointmentSettingsBookingLocationType](#type-
      * businessappointmentsettingsbookinglocationtype) for possible values
@@ -92,7 +91,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Location Types.
-     *
      * Types of the location allowed for bookings.
      * See [BusinessAppointmentSettingsBookingLocationType](#type-
      * businessappointmentsettingsbookinglocationtype) for possible values
@@ -108,7 +106,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Alignment Time.
-     *
      * Time units of a service duration for bookings.
      */
     public function getAlignmentTime(): ?string
@@ -118,7 +115,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Alignment Time.
-     *
      * Time units of a service duration for bookings.
      *
      * @maps alignment_time
@@ -130,7 +126,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Min Booking Lead Time Seconds.
-     *
      * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
      * this far ahead of the booking's starting time.
      */
@@ -141,7 +136,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Min Booking Lead Time Seconds.
-     *
      * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
      * this far ahead of the booking's starting time.
      *
@@ -154,7 +148,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Max Booking Lead Time Seconds.
-     *
      * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
      * this far ahead of the booking's starting time.
      */
@@ -165,7 +158,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Max Booking Lead Time Seconds.
-     *
      * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
      * this far ahead of the booking's starting time.
      *
@@ -178,7 +170,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Any Team Member Booking Enabled.
-     *
      * Indicates whether a customer can choose from all available time slots and have a staff member
      * assigned
      * automatically (`true`) or not (`false`).
@@ -190,7 +181,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Any Team Member Booking Enabled.
-     *
      * Indicates whether a customer can choose from all available time slots and have a staff member
      * assigned
      * automatically (`true`) or not (`false`).
@@ -204,7 +194,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Multiple Service Booking Enabled.
-     *
      * Indicates whether a customer can book multiple services in a single online booking.
      */
     public function getMultipleServiceBookingEnabled(): ?bool
@@ -214,7 +203,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Multiple Service Booking Enabled.
-     *
      * Indicates whether a customer can book multiple services in a single online booking.
      *
      * @maps multiple_service_booking_enabled
@@ -226,7 +214,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Max Appointments Per Day Limit Type.
-     *
      * Types of daily appointment limits.
      */
     public function getMaxAppointmentsPerDayLimitType(): ?string
@@ -236,7 +223,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Max Appointments Per Day Limit Type.
-     *
      * Types of daily appointment limits.
      *
      * @maps max_appointments_per_day_limit_type
@@ -248,7 +234,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Max Appointments Per Day Limit.
-     *
      * The maximum number of daily appointments per team member or per location.
      */
     public function getMaxAppointmentsPerDayLimit(): ?int
@@ -258,7 +243,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Max Appointments Per Day Limit.
-     *
      * The maximum number of daily appointments per team member or per location.
      *
      * @maps max_appointments_per_day_limit
@@ -270,7 +254,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Cancellation Window Seconds.
-     *
      * The cut-off time in seconds for allowing clients to cancel or reschedule an appointment.
      */
     public function getCancellationWindowSeconds(): ?int
@@ -280,7 +263,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Cancellation Window Seconds.
-     *
      * The cut-off time in seconds for allowing clients to cancel or reschedule an appointment.
      *
      * @maps cancellation_window_seconds
@@ -292,7 +274,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Cancellation Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -308,7 +289,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Cancellation Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -326,7 +306,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Cancellation Policy.
-     *
      * The category of the seller’s cancellation policy.
      */
     public function getCancellationPolicy(): ?string
@@ -336,7 +315,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Cancellation Policy.
-     *
      * The category of the seller’s cancellation policy.
      *
      * @maps cancellation_policy
@@ -348,7 +326,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Cancellation Policy Text.
-     *
      * The free-form text of the seller's cancellation policy.
      */
     public function getCancellationPolicyText(): ?string
@@ -358,7 +335,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Cancellation Policy Text.
-     *
      * The free-form text of the seller's cancellation policy.
      *
      * @maps cancellation_policy_text
@@ -370,7 +346,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Skip Booking Flow Staff Selection.
-     *
      * Indicates whether customers has an assigned staff member (`true`) or can select s staff member of
      * their choice (`false`).
      */
@@ -381,7 +356,6 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Skip Booking Flow Staff Selection.
-     *
      * Indicates whether customers has an assigned staff member (`true`) or can select s staff member of
      * their choice (`false`).
      *

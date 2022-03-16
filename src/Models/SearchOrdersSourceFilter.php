@@ -18,7 +18,6 @@ class SearchOrdersSourceFilter implements \JsonSerializable
 
     /**
      * Returns Source Names.
-     *
      * Filters by the [Source]($m/OrderSource) `name`. The filter returns any orders
      * with a `source.name` that matches any of the listed source names.
      *
@@ -33,7 +32,6 @@ class SearchOrdersSourceFilter implements \JsonSerializable
 
     /**
      * Sets Source Names.
-     *
      * Filters by the [Source]($m/OrderSource) `name`. The filter returns any orders
      * with a `source.name` that matches any of the listed source names.
      *

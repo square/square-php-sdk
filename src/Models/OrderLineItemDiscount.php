@@ -78,7 +78,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the discount only within this order.
      */
     public function getUid(): ?string
@@ -88,7 +87,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the discount only within this order.
      *
      * @maps uid
@@ -100,7 +98,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
      */
     public function getCatalogObjectId(): ?string
@@ -110,7 +107,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
      *
      * @maps catalog_object_id
@@ -122,7 +118,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this discount references.
      */
     public function getCatalogVersion(): ?int
@@ -132,7 +127,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this discount references.
      *
      * @maps catalog_version
@@ -144,7 +138,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The discount's name.
      */
     public function getName(): ?string
@@ -154,7 +147,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The discount's name.
      *
      * @maps name
@@ -166,7 +158,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Indicates how the discount is applied to the associated line item or order.
      */
     public function getType(): ?string
@@ -176,7 +167,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Indicates how the discount is applied to the associated line item or order.
      *
      * @maps type
@@ -188,7 +178,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the discount, as a string representation of a decimal number.
      * A value of `7.25` corresponds to a percentage of 7.25%.
      *
@@ -201,7 +190,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the discount, as a string representation of a decimal number.
      * A value of `7.25` corresponds to a percentage of 7.25%.
      *
@@ -216,7 +204,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -232,7 +219,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -250,7 +236,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -266,7 +251,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -284,7 +268,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this discount. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -313,7 +296,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this discount. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -344,7 +326,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Scope.
-     *
      * Indicates whether this is a line-item or order-level discount.
      */
     public function getScope(): ?string
@@ -354,7 +335,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Scope.
-     *
      * Indicates whether this is a line-item or order-level discount.
      *
      * @maps scope
@@ -366,7 +346,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Reward Ids.
-     *
      * The reward IDs corresponding to this discount. The application and
      * specification of discounts that have `reward_ids` are completely controlled by the backing
      * criteria corresponding to the reward tiers of the rewards that are added to the order
@@ -382,7 +361,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Reward Ids.
-     *
      * The reward IDs corresponding to this discount. The application and
      * specification of discounts that have `reward_ids` are completely controlled by the backing
      * criteria corresponding to the reward tiers of the rewards that are added to the order
@@ -400,7 +378,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Pricing Rule Id.
-     *
      * The object ID of a [pricing rule]($m/CatalogPricingRule) to be applied
      * automatically to this discount. The specification and application of the discounts, to
      * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding
@@ -413,7 +390,6 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Pricing Rule Id.
-     *
      * The object ID of a [pricing rule]($m/CatalogPricingRule) to be applied
      * automatically to this discount. The specification and application of the discounts, to
      * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding

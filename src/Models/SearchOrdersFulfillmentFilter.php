@@ -23,7 +23,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment Types.
-     *
      * A list of [fulfillment types]($m/OrderFulfillmentType) to filter
      * for. The list returns orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
@@ -38,7 +37,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment Types.
-     *
      * A list of [fulfillment types]($m/OrderFulfillmentType) to filter
      * for. The list returns orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
@@ -55,7 +53,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment States.
-     *
      * A list of [fulfillment states]($m/OrderFulfillmentState) to filter
      * for. The list returns orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
@@ -70,7 +67,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment States.
-     *
      * A list of [fulfillment states]($m/OrderFulfillmentState) to filter
      * for. The list returns orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.

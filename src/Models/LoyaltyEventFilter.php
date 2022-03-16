@@ -39,7 +39,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Filter.
-     *
      * Filter events by loyalty account.
      */
     public function getLoyaltyAccountFilter(): ?LoyaltyEventLoyaltyAccountFilter
@@ -49,7 +48,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Filter.
-     *
      * Filter events by loyalty account.
      *
      * @maps loyalty_account_filter
@@ -61,7 +59,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Returns Type Filter.
-     *
      * Filter events by event type.
      */
     public function getTypeFilter(): ?LoyaltyEventTypeFilter
@@ -71,7 +68,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Sets Type Filter.
-     *
      * Filter events by event type.
      *
      * @maps type_filter
@@ -83,7 +79,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Returns Date Time Filter.
-     *
      * Filter events by date time range.
      */
     public function getDateTimeFilter(): ?LoyaltyEventDateTimeFilter
@@ -93,7 +88,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Sets Date Time Filter.
-     *
      * Filter events by date time range.
      *
      * @maps date_time_filter
@@ -105,7 +99,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Returns Location Filter.
-     *
      * Filter events by location.
      */
     public function getLocationFilter(): ?LoyaltyEventLocationFilter
@@ -115,7 +108,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Sets Location Filter.
-     *
      * Filter events by location.
      *
      * @maps location_filter
@@ -127,7 +119,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Returns Order Filter.
-     *
      * Filter events by the order associated with the event.
      */
     public function getOrderFilter(): ?LoyaltyEventOrderFilter
@@ -137,7 +128,6 @@ class LoyaltyEventFilter implements \JsonSerializable
 
     /**
      * Sets Order Filter.
-     *
      * Filter events by the order associated with the event.
      *
      * @maps order_filter

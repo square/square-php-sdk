@@ -33,7 +33,6 @@ class CatalogIdMapping implements \JsonSerializable
 
     /**
      * Returns Client Object Id.
-     *
      * The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`.
      */
     public function getClientObjectId(): ?string
@@ -43,7 +42,6 @@ class CatalogIdMapping implements \JsonSerializable
 
     /**
      * Sets Client Object Id.
-     *
      * The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`.
      *
      * @maps client_object_id
@@ -55,7 +53,6 @@ class CatalogIdMapping implements \JsonSerializable
 
     /**
      * Returns Object Id.
-     *
      * The permanent ID for the CatalogObject created by the server.
      */
     public function getObjectId(): ?string
@@ -65,7 +62,6 @@ class CatalogIdMapping implements \JsonSerializable
 
     /**
      * Sets Object Id.
-     *
      * The permanent ID for the CatalogObject created by the server.
      *
      * @maps object_id

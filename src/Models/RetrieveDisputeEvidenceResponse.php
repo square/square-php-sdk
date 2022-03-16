@@ -23,7 +23,6 @@ class RetrieveDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class RetrieveDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

@@ -28,7 +28,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Card.
-     *
      * Indicates whether credit card or debit card payments are accepted. The default value is `false`.
      */
     public function getCard(): ?bool
@@ -38,7 +37,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Card.
-     *
      * Indicates whether credit card or debit card payments are accepted. The default value is `false`.
      *
      * @maps card
@@ -50,7 +48,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Square Gift Card.
-     *
      * Indicates whether Square gift card payments are accepted. The default value is `false`.
      */
     public function getSquareGiftCard(): ?bool
@@ -60,7 +57,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Square Gift Card.
-     *
      * Indicates whether Square gift card payments are accepted. The default value is `false`.
      *
      * @maps square_gift_card
@@ -72,7 +68,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Bank Account.
-     *
      * Indicates whether bank transfer payments are accepted. The default value is `false`.
      *
      * This option is allowed only for invoices that have a single payment request of type `BALANCE`.
@@ -84,7 +79,6 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Bank Account.
-     *
      * Indicates whether bank transfer payments are accepted. The default value is `false`.
      *
      * This option is allowed only for invoices that have a single payment request of type `BALANCE`.

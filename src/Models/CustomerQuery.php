@@ -24,7 +24,6 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Represents a set of `CustomerQuery` filters used to limit the set of
      * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
      */
@@ -35,7 +34,6 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Represents a set of `CustomerQuery` filters used to limit the set of
      * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
      *
@@ -48,7 +46,6 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Returns Sort.
-     *
      * Specifies how searched customers profiles are sorted, including the sort key and sort order.
      */
     public function getSort(): ?CustomerSort
@@ -58,7 +55,6 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Sets Sort.
-     *
      * Specifies how searched customers profiles are sorted, including the sort key and sort order.
      *
      * @maps sort

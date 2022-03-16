@@ -33,7 +33,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The modifier name.  This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
      */
@@ -44,7 +43,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The modifier name.  This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
      *
@@ -57,7 +55,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Returns Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -73,7 +70,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Sets Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -91,7 +87,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * Determines where this `CatalogModifier` appears in the `CatalogModifierList`.
      */
     public function getOrdinal(): ?int
@@ -101,7 +96,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * Determines where this `CatalogModifier` appears in the `CatalogModifierList`.
      *
      * @maps ordinal
@@ -113,7 +107,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Returns Modifier List Id.
-     *
      * The ID of the `CatalogModifierList` associated with this modifier.
      */
     public function getModifierListId(): ?string
@@ -123,7 +116,6 @@ class CatalogModifier implements \JsonSerializable
 
     /**
      * Sets Modifier List Id.
-     *
      * The ID of the `CatalogModifierList` associated with this modifier.
      *
      * @maps modifier_list_id

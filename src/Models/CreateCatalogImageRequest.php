@@ -40,7 +40,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this CreateCatalogImage request.
      * Keys can be any valid string but must be unique for every CreateCatalogImage request.
      *
@@ -54,7 +53,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this CreateCatalogImage request.
      * Keys can be any valid string but must be unique for every CreateCatalogImage request.
      *
@@ -71,7 +69,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Returns Object Id.
-     *
      * Unique ID of the `CatalogObject` to attach this `CatalogImage` object to. Leave this
      * field empty to create unattached images, for example if you are building an integration
      * where an image can be attached to catalog items at a later time.
@@ -83,7 +80,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Sets Object Id.
-     *
      * Unique ID of the `CatalogObject` to attach this `CatalogImage` object to. Leave this
      * field empty to create unattached images, for example if you are building an integration
      * where an image can be attached to catalog items at a later time.
@@ -97,7 +93,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Returns Image.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -120,7 +115,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Sets Image.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -146,7 +140,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Returns Is Primary.
-     *
      * If this is set to `true`, the image created will be the primary, or first image of the object
      * referenced by `object_id`.
      * If the `CatalogObject` already has a primary `CatalogImage`, setting this field to `true` will
@@ -164,7 +157,6 @@ class CreateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Sets Is Primary.
-     *
      * If this is set to `true`, the image created will be the primary, or first image of the object
      * referenced by `object_id`.
      * If the `CatalogObject` already has a primary `CatalogImage`, setting this field to `true` will

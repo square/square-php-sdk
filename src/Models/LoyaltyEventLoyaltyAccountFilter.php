@@ -26,7 +26,6 @@ class LoyaltyEventLoyaltyAccountFilter implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     *
      * The ID of the [loyalty account]($m/LoyaltyAccount) associated with loyalty events.
      */
     public function getLoyaltyAccountId(): string
@@ -36,7 +35,6 @@ class LoyaltyEventLoyaltyAccountFilter implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     *
      * The ID of the [loyalty account]($m/LoyaltyAccount) associated with loyalty events.
      *
      * @required

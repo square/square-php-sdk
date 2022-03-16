@@ -26,7 +26,6 @@ class UpdateWageSettingRequest implements \JsonSerializable
 
     /**
      * Returns Wage Setting.
-     *
      * An object representing a team member's wage information.
      */
     public function getWageSetting(): WageSetting
@@ -36,7 +35,6 @@ class UpdateWageSettingRequest implements \JsonSerializable
 
     /**
      * Sets Wage Setting.
-     *
      * An object representing a team member's wage information.
      *
      * @required

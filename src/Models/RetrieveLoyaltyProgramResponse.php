@@ -23,7 +23,6 @@ class RetrieveLoyaltyProgramResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class RetrieveLoyaltyProgramResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class RetrieveLoyaltyProgramResponse implements \JsonSerializable
 
     /**
      * Returns Program.
-     *
      * Represents a Square loyalty program. Loyalty programs define how buyers can earn points and redeem
      * points for rewards.
      * Square sellers can have only one loyalty program, which is created and managed from the Seller
@@ -64,7 +61,6 @@ class RetrieveLoyaltyProgramResponse implements \JsonSerializable
 
     /**
      * Sets Program.
-     *
      * Represents a Square loyalty program. Loyalty programs define how buyers can earn points and redeem
      * points for rewards.
      * Square sellers can have only one loyalty program, which is created and managed from the Seller

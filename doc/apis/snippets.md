@@ -21,7 +21,7 @@ Removes your snippet from a Square Online site.
 
 You can call [ListSites](../../doc/apis/sites.md#list-sites) to get the IDs of the sites that belong to a seller.
 
-__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](../../https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
+__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
 
 ```php
 function deleteSnippet(string $siteId): ApiResponse
@@ -62,7 +62,7 @@ Retrieves your snippet from a Square Online site. A site can contain snippets fr
 
 You can call [ListSites](../../doc/apis/sites.md#list-sites) to get the IDs of the sites that belong to a seller.
 
-__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](../../https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
+__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
 
 ```php
 function retrieveSnippet(string $siteId): ApiResponse
@@ -104,7 +104,7 @@ The snippet code is appended to the end of the `head` element on every page of t
 
 You can call [ListSites](../../doc/apis/sites.md#list-sites) to get the IDs of the sites that belong to a seller.
 
-__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](../../https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
+__Note:__ Square Online APIs are publicly available as part of an early access program. For more information, see [Early access program for Square Online APIs](https://developer.squareup.com/docs/online-api#early-access-program-for-square-online-apis).
 
 ```php
 function upsertSnippet(string $siteId, UpsertSnippetRequest $body): ApiResponse

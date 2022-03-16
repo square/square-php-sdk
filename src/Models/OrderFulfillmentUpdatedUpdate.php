@@ -28,7 +28,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Returns Fulfillment Uid.
-     *
      * A unique ID that identifies the fulfillment only within this order.
      */
     public function getFulfillmentUid(): ?string
@@ -38,7 +37,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Sets Fulfillment Uid.
-     *
      * A unique ID that identifies the fulfillment only within this order.
      *
      * @maps fulfillment_uid
@@ -50,7 +48,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Returns Old State.
-     *
      * The current state of this fulfillment.
      */
     public function getOldState(): ?string
@@ -60,7 +57,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Sets Old State.
-     *
      * The current state of this fulfillment.
      *
      * @maps old_state
@@ -72,7 +68,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Returns New State.
-     *
      * The current state of this fulfillment.
      */
     public function getNewState(): ?string
@@ -82,7 +77,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 
     /**
      * Sets New State.
-     *
      * The current state of this fulfillment.
      *
      * @maps new_state

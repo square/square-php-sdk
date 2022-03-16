@@ -60,7 +60,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Access Token.
-     *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
      * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
@@ -73,7 +72,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Access Token.
-     *
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
      * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
@@ -88,7 +86,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Token Type.
-     *
      * This value is always _bearer_.
      */
     public function getTokenType(): ?string
@@ -98,7 +95,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Token Type.
-     *
      * This value is always _bearer_.
      *
      * @maps token_type
@@ -110,7 +106,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     *
      * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
      * org/iso/home/standards/iso8601.htm) format.
      */
@@ -121,7 +116,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     *
      * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
      * org/iso/home/standards/iso8601.htm) format.
      *
@@ -134,7 +128,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Merchant Id.
-     *
      * The ID of the authorizing merchant's business.
      */
     public function getMerchantId(): ?string
@@ -144,7 +137,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Merchant Id.
-     *
      * The ID of the authorizing merchant's business.
      *
      * @maps merchant_id
@@ -156,7 +148,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Subscription Id.
-     *
      * __LEGACY FIELD__. The ID of a subscription plan the merchant signed up
      * for. The ID is only present if the merchant signed up for a subscription plan during authorization.
      */
@@ -167,7 +158,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Subscription Id.
-     *
      * __LEGACY FIELD__. The ID of a subscription plan the merchant signed up
      * for. The ID is only present if the merchant signed up for a subscription plan during authorization.
      *
@@ -180,7 +170,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
@@ -192,7 +181,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
@@ -206,7 +194,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Id Token.
-     *
      * The OpenID token belonging to this person. This token is only present if the
      * OPENID scope is included in the authorization request.
      */
@@ -217,7 +204,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Id Token.
-     *
      * The OpenID token belonging to this person. This token is only present if the
      * OPENID scope is included in the authorization request.
      *
@@ -230,7 +216,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Refresh Token.
-     *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
      * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
      * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
@@ -242,7 +227,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Refresh Token.
-     *
      * A refresh token. OAuth refresh tokens are 64 bytes long.
      * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
      * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
@@ -256,7 +240,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Short Lived.
-     *
      * A Boolean indicating that the access token is a short-lived access token.
      * The short-lived access token returned in the response expires in 24 hours.
      */
@@ -267,7 +250,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Short Lived.
-     *
      * A Boolean indicating that the access token is a short-lived access token.
      * The short-lived access token returned in the response expires in 24 hours.
      *
@@ -280,7 +262,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -292,7 +273,6 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

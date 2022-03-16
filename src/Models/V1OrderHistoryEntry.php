@@ -41,7 +41,6 @@ class V1OrderHistoryEntry implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the action was performed, in ISO 8601 format.
      */
     public function getCreatedAt(): ?string
@@ -51,7 +50,6 @@ class V1OrderHistoryEntry implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the action was performed, in ISO 8601 format.
      *
      * @maps created_at

@@ -78,7 +78,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the return service charge only within this order.
      */
     public function getUid(): ?string
@@ -88,7 +87,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the return service charge only within this order.
      *
      * @maps uid
@@ -100,7 +98,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Source Service Charge Uid.
-     *
      * The service charge `uid` from the order containing the original
      * service charge. `source_service_charge_uid` is `null` for
      * unlinked returns.
@@ -112,7 +109,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Source Service Charge Uid.
-     *
      * The service charge `uid` from the order containing the original
      * service charge. `source_service_charge_uid` is `null` for
      * unlinked returns.
@@ -126,7 +122,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the service charge.
      */
     public function getName(): ?string
@@ -136,7 +131,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the service charge.
      *
      * @maps name
@@ -148,7 +142,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID of the associated [OrderServiceCharge]($m/OrderServiceCharge).
      */
     public function getCatalogObjectId(): ?string
@@ -158,7 +151,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID of the associated [OrderServiceCharge]($m/OrderServiceCharge).
      *
      * @maps catalog_object_id
@@ -170,7 +162,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this service charge references.
      */
     public function getCatalogVersion(): ?int
@@ -180,7 +171,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this service charge references.
      *
      * @maps catalog_version
@@ -192,7 +182,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the service charge, as a string representation of
      * a decimal number. For example, a value of `"7.25"` corresponds to a
      * percentage of 7.25%.
@@ -206,7 +195,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the service charge, as a string representation of
      * a decimal number. For example, a value of `"7.25"` corresponds to a
      * percentage of 7.25%.
@@ -222,7 +210,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -238,7 +225,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -256,7 +242,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -272,7 +257,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -290,7 +274,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -306,7 +289,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -324,7 +306,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -340,7 +321,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -358,7 +338,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Calculation Phase.
-     *
      * Represents a phase in the process of calculating order totals.
      * Service charges are applied after the indicated phase.
      *
@@ -372,7 +351,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Calculation Phase.
-     *
      * Represents a phase in the process of calculating order totals.
      * Service charges are applied after the indicated phase.
      *
@@ -388,7 +366,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Taxable.
-     *
      * Indicates whether the surcharge can be taxed. Service charges
      * calculated in the `TOTAL_PHASE` cannot be marked as taxable.
      */
@@ -399,7 +376,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Taxable.
-     *
      * Indicates whether the surcharge can be taxed. Service charges
      * calculated in the `TOTAL_PHASE` cannot be marked as taxable.
      *
@@ -412,7 +388,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Returns Applied Taxes.
-     *
      * The list of references to `OrderReturnTax` entities applied to the
      * `OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`
      * that references the `uid` of a top-level `OrderReturnTax` that is being
@@ -428,7 +403,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
 
     /**
      * Sets Applied Taxes.
-     *
      * The list of references to `OrderReturnTax` entities applied to the
      * `OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`
      * that references the `uid` of a top-level `OrderReturnTax` that is being

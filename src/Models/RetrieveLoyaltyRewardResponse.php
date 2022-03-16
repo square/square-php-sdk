@@ -23,7 +23,6 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Returns Reward.
-     *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
      * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
      * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-
@@ -62,7 +59,6 @@ class RetrieveLoyaltyRewardResponse implements \JsonSerializable
 
     /**
      * Sets Reward.
-     *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
      * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
      * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-

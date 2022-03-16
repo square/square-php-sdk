@@ -26,7 +26,6 @@ class CatalogQueryItemsForTax implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * A set of `CatalogTax` IDs to be used to find associated `CatalogItem`s.
      *
      * @return string[]
@@ -38,7 +37,6 @@ class CatalogQueryItemsForTax implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * A set of `CatalogTax` IDs to be used to find associated `CatalogItem`s.
      *
      * @required

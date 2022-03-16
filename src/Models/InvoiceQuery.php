@@ -31,7 +31,6 @@ class InvoiceQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Describes query filters to apply.
      */
     public function getFilter(): InvoiceFilter
@@ -41,7 +40,6 @@ class InvoiceQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Describes query filters to apply.
      *
      * @required
@@ -54,7 +52,6 @@ class InvoiceQuery implements \JsonSerializable
 
     /**
      * Returns Sort.
-     *
      * Identifies the sort field and sort order.
      */
     public function getSort(): ?InvoiceSort
@@ -64,7 +61,6 @@ class InvoiceQuery implements \JsonSerializable
 
     /**
      * Sets Sort.
-     *
      * Identifies the sort field and sort order.
      *
      * @maps sort

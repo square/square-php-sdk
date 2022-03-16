@@ -35,7 +35,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Returns Allow Tipping.
-     *
      * Indicates whether tipping is enabled for this checkout. Defaults to false.
      */
     public function getAllowTipping(): ?bool
@@ -45,7 +44,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Sets Allow Tipping.
-     *
      * Indicates whether tipping is enabled for this checkout. Defaults to false.
      *
      * @maps allow_tipping
@@ -57,7 +55,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Returns Separate Tip Screen.
-     *
      * Indicates whether tip options should be presented on the screen before presenting
      * the signature screen during card payment. Defaults to false.
      */
@@ -68,7 +65,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Sets Separate Tip Screen.
-     *
      * Indicates whether tip options should be presented on the screen before presenting
      * the signature screen during card payment. Defaults to false.
      *
@@ -81,7 +77,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Returns Custom Tip Field.
-     *
      * Indicates whether custom tip amounts are allowed during the checkout flow. Defaults to false.
      */
     public function getCustomTipField(): ?bool
@@ -91,7 +86,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Sets Custom Tip Field.
-     *
      * Indicates whether custom tip amounts are allowed during the checkout flow. Defaults to false.
      *
      * @maps custom_tip_field
@@ -103,7 +97,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Returns Tip Percentages.
-     *
      * A list of tip percentages that should be presented during the checkout flow, specified as
      * up to 3 non-negative integers from 0 to 100 (inclusive). Defaults to 15, 20, and 25.
      *
@@ -116,7 +109,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Sets Tip Percentages.
-     *
      * A list of tip percentages that should be presented during the checkout flow, specified as
      * up to 3 non-negative integers from 0 to 100 (inclusive). Defaults to 15, 20, and 25.
      *
@@ -131,7 +123,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Returns Smart Tipping.
-     *
      * Enables the "Smart Tip Amounts" behavior.
      * Exact tipping options depend on the region in which the Square seller is active.
      *
@@ -154,7 +145,6 @@ class TipSettings implements \JsonSerializable
 
     /**
      * Sets Smart Tipping.
-     *
      * Enables the "Smart Tip Amounts" behavior.
      * Exact tipping options depend on the region in which the Square seller is active.
      *

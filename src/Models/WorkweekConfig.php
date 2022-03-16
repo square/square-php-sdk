@@ -54,7 +54,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The UUID for this object.
      */
     public function getId(): ?string
@@ -64,7 +63,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The UUID for this object.
      *
      * @maps id
@@ -76,7 +74,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Start of Week.
-     *
      * The days of the week.
      */
     public function getStartOfWeek(): string
@@ -86,7 +83,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Start of Week.
-     *
      * The days of the week.
      *
      * @required
@@ -99,7 +95,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Start of Day Local Time.
-     *
      * The local time at which a business week ends. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
@@ -111,7 +106,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Start of Day Local Time.
-     *
      * The local time at which a business week ends. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
@@ -126,7 +120,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
@@ -139,7 +132,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
@@ -154,7 +146,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getCreatedAt(): ?string
@@ -164,7 +155,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps created_at
@@ -176,7 +166,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getUpdatedAt(): ?string
@@ -186,7 +175,6 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps updated_at

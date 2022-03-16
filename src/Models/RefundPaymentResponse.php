@@ -27,7 +27,6 @@ class RefundPaymentResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -39,7 +38,6 @@ class RefundPaymentResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -53,7 +51,6 @@ class RefundPaymentResponse implements \JsonSerializable
 
     /**
      * Returns Refund.
-     *
      * Represents a refund of a payment made using Square. Contains information about
      * the original payment and the amount of money refunded.
      */
@@ -64,7 +61,6 @@ class RefundPaymentResponse implements \JsonSerializable
 
     /**
      * Sets Refund.
-     *
      * Represents a refund of a payment made using Square. Contains information about
      * the original payment and the amount of money refunded.
      *

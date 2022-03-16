@@ -33,7 +33,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
@@ -48,7 +47,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
@@ -66,7 +64,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Returns Changes.
-     *
      * The set of physical counts and inventory adjustments to be made.
      * Changes are applied based on the client-supplied timestamp and may be sent
      * out of order.
@@ -80,7 +77,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Sets Changes.
-     *
      * The set of physical counts and inventory adjustments to be made.
      * Changes are applied based on the client-supplied timestamp and may be sent
      * out of order.
@@ -96,7 +92,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Returns Ignore Unchanged Counts.
-     *
      * Indicates whether the current physical count should be ignored if
      * the quantity is unchanged since the last physical count. Default: `true`.
      */
@@ -107,7 +102,6 @@ class BatchChangeInventoryRequest implements \JsonSerializable
 
     /**
      * Sets Ignore Unchanged Counts.
-     *
      * Indicates whether the current physical count should be ignored if
      * the quantity is unchanged since the last physical count. Default: `true`.
      *

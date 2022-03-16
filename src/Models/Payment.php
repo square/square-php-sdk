@@ -213,7 +213,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique ID for the payment.
      */
     public function getId(): ?string
@@ -223,7 +222,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique ID for the payment.
      *
      * @maps id
@@ -235,7 +233,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp of when the payment was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -245,7 +242,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp of when the payment was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -257,7 +253,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp of when the payment was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -267,7 +262,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp of when the payment was last updated, in RFC 3339 format.
      *
      * @maps updated_at
@@ -279,7 +273,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -295,7 +288,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -313,7 +305,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -329,7 +320,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -347,7 +337,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -363,7 +352,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -381,7 +369,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns App Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -397,7 +384,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets App Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -415,7 +401,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Approved Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -431,7 +416,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Approved Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -449,7 +433,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Processing Fee.
-     *
      * The processing fees and fee adjustments assessed by Square for this payment.
      *
      * @return ProcessingFee[]|null
@@ -461,7 +444,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Processing Fee.
-     *
      * The processing fees and fee adjustments assessed by Square for this payment.
      *
      * @maps processing_fee
@@ -475,7 +457,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Refunded Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -491,7 +472,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Refunded Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -509,7 +489,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Indicates whether the payment is APPROVED, PENDING, COMPLETED, CANCELED, or FAILED.
      */
     public function getStatus(): ?string
@@ -519,7 +498,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Indicates whether the payment is APPROVED, PENDING, COMPLETED, CANCELED, or FAILED.
      *
      * @maps status
@@ -531,7 +509,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Delay Duration.
-     *
      * The duration of time after the payment's creation when Square automatically applies the
      * `delay_action` to the payment. This automatic `delay_action` applies only to payments that
      * do not reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
@@ -554,7 +531,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Delay Duration.
-     *
      * The duration of time after the payment's creation when Square automatically applies the
      * `delay_action` to the payment. This automatic `delay_action` applies only to payments that
      * do not reach a terminal state (COMPLETED, CANCELED, or FAILED) before the `delay_duration`
@@ -579,7 +555,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Delay Action.
-     *
      * The action to be applied to the payment when the `delay_duration` has elapsed. This field
      * is read-only.
      *
@@ -592,7 +567,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Delay Action.
-     *
      * The action to be applied to the payment when the `delay_duration` has elapsed. This field
      * is read-only.
      *
@@ -607,7 +581,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Delayed Until.
-     *
      * The read-only timestamp of when the `delay_action` is automatically applied,
      * in RFC 3339 format.
      *
@@ -622,7 +595,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Delayed Until.
-     *
      * The read-only timestamp of when the `delay_action` is automatically applied,
      * in RFC 3339 format.
      *
@@ -639,7 +611,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Source Type.
-     *
      * The source type for this payment.
      *
      * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, or
@@ -653,7 +624,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Source Type.
-     *
      * The source type for this payment.
      *
      * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, or
@@ -669,7 +639,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Card Details.
-     *
      * Reflects the current status of a card payment. Contains only non-confidential information.
      */
     public function getCardDetails(): ?CardPaymentDetails
@@ -679,7 +648,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Card Details.
-     *
      * Reflects the current status of a card payment. Contains only non-confidential information.
      *
      * @maps card_details
@@ -691,7 +659,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Cash Details.
-     *
      * Stores details about a cash payment. Contains only non-confidential information. For more
      * information, see
      * [Take Cash Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments).
@@ -703,7 +670,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Cash Details.
-     *
      * Stores details about a cash payment. Contains only non-confidential information. For more
      * information, see
      * [Take Cash Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments).
@@ -717,7 +683,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Bank Account Details.
-     *
      * Additional details about BANK_ACCOUNT type payments.
      */
     public function getBankAccountDetails(): ?BankAccountPaymentDetails
@@ -727,7 +692,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Bank Account Details.
-     *
      * Additional details about BANK_ACCOUNT type payments.
      *
      * @maps bank_account_details
@@ -739,7 +703,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns External Details.
-     *
      * Stores details about an external payment. Contains only non-confidential information.
      * For more information, see
      * [Take External Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-
@@ -752,7 +715,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets External Details.
-     *
      * Stores details about an external payment. Contains only non-confidential information.
      * For more information, see
      * [Take External Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-
@@ -767,7 +729,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Wallet Details.
-     *
      * Additional details about `WALLET` type payments. Contains only non-confidential information.
      */
     public function getWalletDetails(): ?DigitalWalletDetails
@@ -777,7 +738,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Wallet Details.
-     *
      * Additional details about `WALLET` type payments. Contains only non-confidential information.
      *
      * @maps wallet_details
@@ -789,7 +749,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Buy Now Pay Later Details.
-     *
      * Additional details about a Buy Now Pay Later payment type.
      */
     public function getBuyNowPayLaterDetails(): ?BuyNowPayLaterDetails
@@ -799,7 +758,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Buy Now Pay Later Details.
-     *
      * Additional details about a Buy Now Pay Later payment type.
      *
      * @maps buy_now_pay_later_details
@@ -811,7 +769,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location associated with the payment.
      */
     public function getLocationId(): ?string
@@ -821,7 +778,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location associated with the payment.
      *
      * @maps location_id
@@ -833,7 +789,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The ID of the order associated with the payment.
      */
     public function getOrderId(): ?string
@@ -843,7 +798,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The ID of the order associated with the payment.
      *
      * @maps order_id
@@ -855,7 +809,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * An optional ID that associates the payment with an entity in
      * another system.
      */
@@ -866,7 +819,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * An optional ID that associates the payment with an entity in
      * another system.
      *
@@ -879,7 +831,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The [Customer]($m/Customer) ID of the customer associated with the payment.
      */
     public function getCustomerId(): ?string
@@ -889,7 +840,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The [Customer]($m/Customer) ID of the customer associated with the payment.
      *
      * @maps customer_id
@@ -901,7 +851,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     *
      * __Deprecated__: Use `Payment.team_member_id` instead.
      *
      * An optional ID of the employee associated with taking the payment.
@@ -913,7 +862,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     *
      * __Deprecated__: Use `Payment.team_member_id` instead.
      *
      * An optional ID of the employee associated with taking the payment.
@@ -927,7 +875,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
      */
     public function getTeamMemberId(): ?string
@@ -937,7 +884,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
      *
      * @maps team_member_id
@@ -949,7 +895,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Refund Ids.
-     *
      * A list of `refund_id`s identifying refunds for the payment.
      *
      * @return string[]|null
@@ -961,7 +906,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Refund Ids.
-     *
      * A list of `refund_id`s identifying refunds for the payment.
      *
      * @maps refund_ids
@@ -975,7 +919,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Risk Evaluation.
-     *
      * Represents fraud risk information for the associated payment.
      *
      * When you take a payment through Square's Payments API (using the `CreatePayment`
@@ -990,7 +933,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Risk Evaluation.
-     *
      * Represents fraud risk information for the associated payment.
      *
      * When you take a payment through Square's Payments API (using the `CreatePayment`
@@ -1007,7 +949,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Buyer Email Address.
-     *
      * The buyer's email address.
      */
     public function getBuyerEmailAddress(): ?string
@@ -1017,7 +958,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Buyer Email Address.
-     *
      * The buyer's email address.
      *
      * @maps buyer_email_address
@@ -1029,7 +969,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Billing Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -1041,7 +980,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Billing Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -1055,7 +993,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -1067,7 +1004,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -1081,7 +1017,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * An optional note to include when creating a payment.
      */
     public function getNote(): ?string
@@ -1091,7 +1026,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * An optional note to include when creating a payment.
      *
      * @maps note
@@ -1103,7 +1037,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Statement Description Identifier.
-     *
      * Additional payment information that gets added to the customer's card statement
      * as part of the statement description.
      *
@@ -1118,7 +1051,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Statement Description Identifier.
-     *
      * Additional payment information that gets added to the customer's card statement
      * as part of the statement description.
      *
@@ -1135,7 +1067,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Capabilities.
-     *
      * Actions that can be performed on this payment:
      * - `EDIT_AMOUNT_UP` - The payment amount can be edited up.
      * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
@@ -1151,7 +1082,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Capabilities.
-     *
      * Actions that can be performed on this payment:
      * - `EDIT_AMOUNT_UP` - The payment amount can be edited up.
      * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
@@ -1169,7 +1099,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Receipt Number.
-     *
      * The payment's receipt number.
      * The field is missing if a payment is canceled.
      */
@@ -1180,7 +1109,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Receipt Number.
-     *
      * The payment's receipt number.
      * The field is missing if a payment is canceled.
      *
@@ -1193,7 +1121,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Receipt Url.
-     *
      * The URL for the payment's receipt.
      * The field is only populated for COMPLETED payments.
      */
@@ -1204,7 +1131,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Receipt Url.
-     *
      * The URL for the payment's receipt.
      * The field is only populated for COMPLETED payments.
      *
@@ -1217,7 +1143,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Device Details.
-     *
      * Details about the device that took the payment.
      */
     public function getDeviceDetails(): ?DeviceDetails
@@ -1227,7 +1152,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Device Details.
-     *
      * Details about the device that took the payment.
      *
      * @maps device_details
@@ -1239,7 +1163,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Application Details.
-     *
      * Details about the application that took the payment.
      */
     public function getApplicationDetails(): ?ApplicationDetails
@@ -1249,7 +1172,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Application Details.
-     *
      * Details about the application that took the payment.
      *
      * @maps application_details
@@ -1261,7 +1183,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies a specific version of the
      * `Payment` object.
      */
@@ -1272,7 +1193,6 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies a specific version of the
      * `Payment` object.
      *

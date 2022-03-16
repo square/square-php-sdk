@@ -25,7 +25,6 @@ class CreateShiftResponse implements \JsonSerializable
 
     /**
      * Returns Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
@@ -37,7 +36,6 @@ class CreateShiftResponse implements \JsonSerializable
 
     /**
      * Sets Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
@@ -51,7 +49,6 @@ class CreateShiftResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -63,7 +60,6 @@ class CreateShiftResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

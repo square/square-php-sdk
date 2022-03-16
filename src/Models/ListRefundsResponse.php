@@ -31,7 +31,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Refunds.
-     *
      * An array of refunds that match your query.
      *
      * @return Refund[]|null
@@ -69,7 +66,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Refunds.
-     *
      * An array of refunds that match your query.
      *
      * @maps refunds
@@ -83,7 +79,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor for retrieving the next set of results,
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.
@@ -98,7 +93,6 @@ class ListRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor for retrieving the next set of results,
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.

@@ -19,7 +19,6 @@ class CatalogItemOptionForItem implements \JsonSerializable
 
     /**
      * Returns Item Option Id.
-     *
      * The unique id of the item option, used to form the dimensions of the item option matrix in a
      * specified order.
      */
@@ -30,7 +29,6 @@ class CatalogItemOptionForItem implements \JsonSerializable
 
     /**
      * Sets Item Option Id.
-     *
      * The unique id of the item option, used to form the dimensions of the item option matrix in a
      * specified order.
      *

@@ -24,7 +24,6 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The [order]($m/Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
      * Otherwise, specify the `transaction_amount_money`.
@@ -36,7 +35,6 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The [order]($m/Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
      * Otherwise, specify the `transaction_amount_money`.
@@ -50,7 +48,6 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Transaction Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -66,7 +63,6 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Transaction Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

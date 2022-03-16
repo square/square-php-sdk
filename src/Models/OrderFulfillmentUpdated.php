@@ -45,7 +45,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The order's unique ID.
      */
     public function getOrderId(): ?string
@@ -55,7 +54,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The order's unique ID.
      *
      * @maps order_id
@@ -67,7 +65,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -82,7 +79,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -99,7 +95,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      */
     public function getLocationId(): ?string
@@ -109,7 +104,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      *
      * @maps location_id
@@ -121,7 +115,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * The state of the order.
      */
     public function getState(): ?string
@@ -131,7 +124,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * The state of the order.
      *
      * @maps state
@@ -143,7 +135,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -153,7 +144,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -165,7 +155,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp for when the order was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -175,7 +164,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp for when the order was last updated, in RFC 3339 format.
      *
      * @maps updated_at
@@ -187,7 +175,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Returns Fulfillment Update.
-     *
      * The fulfillments that were updated with this version change.
      *
      * @return OrderFulfillmentUpdatedUpdate[]|null
@@ -199,7 +186,6 @@ class OrderFulfillmentUpdated implements \JsonSerializable
 
     /**
      * Sets Fulfillment Update.
-     *
      * The fulfillments that were updated with this version change.
      *
      * @maps fulfillment_update

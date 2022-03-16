@@ -16,7 +16,7 @@ Either `errors` or `customers` is present in a given response (never both).
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `customers` | [`?(Customer[])`](../../doc/models/customer.md) | Optional | An array of `Customer` objects that match the provided query. | getCustomers(): ?array | setCustomers(?array customers): void |
-| `cursor` | `?string` | Optional | A pagination cursor to retrieve the next set of results for the<br>original query. A cursor is only present if the request succeeded and additional results<br>are available.<br><br>For more information, see [Pagination](../../https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `cursor` | `?string` | Optional | A pagination cursor to retrieve the next set of results for the<br>original query. A cursor is only present if the request succeeded and additional results<br>are available.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

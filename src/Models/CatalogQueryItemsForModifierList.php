@@ -26,7 +26,6 @@ class CatalogQueryItemsForModifierList implements \JsonSerializable
 
     /**
      * Returns Modifier List Ids.
-     *
      * A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s.
      *
      * @return string[]
@@ -38,7 +37,6 @@ class CatalogQueryItemsForModifierList implements \JsonSerializable
 
     /**
      * Sets Modifier List Ids.
-     *
      * A set of `CatalogModifierList` IDs to be used to find associated `CatalogItem`s.
      *
      * @required

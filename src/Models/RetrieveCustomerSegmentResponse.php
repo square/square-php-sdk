@@ -26,7 +26,6 @@ class RetrieveCustomerSegmentResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class RetrieveCustomerSegmentResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class RetrieveCustomerSegmentResponse implements \JsonSerializable
 
     /**
      * Returns Segment.
-     *
      * Represents a group of customer profiles that match one or more predefined filter criteria.
      *
      * Segments (also known as Smart Groups) are defined and created within the Customer Directory in the
@@ -65,7 +62,6 @@ class RetrieveCustomerSegmentResponse implements \JsonSerializable
 
     /**
      * Sets Segment.
-     *
      * Represents a group of customer profiles that match one or more predefined filter criteria.
      *
      * Segments (also known as Smart Groups) are defined and created within the Customer Directory in the

@@ -23,7 +23,6 @@ class SearchOrdersQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Filtering criteria to use for a `SearchOrders` request. Multiple filters
      * are ANDed together.
      */
@@ -34,7 +33,6 @@ class SearchOrdersQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Filtering criteria to use for a `SearchOrders` request. Multiple filters
      * are ANDed together.
      *
@@ -47,7 +45,6 @@ class SearchOrdersQuery implements \JsonSerializable
 
     /**
      * Returns Sort.
-     *
      * Sorting criteria for a `SearchOrders` request. Results can only be sorted
      * by a timestamp field.
      */
@@ -58,7 +55,6 @@ class SearchOrdersQuery implements \JsonSerializable
 
     /**
      * Sets Sort.
-     *
      * Sorting criteria for a `SearchOrders` request. Results can only be sorted
      * by a timestamp field.
      *

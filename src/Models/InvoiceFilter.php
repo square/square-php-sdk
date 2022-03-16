@@ -31,7 +31,6 @@ class InvoiceFilter implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * Limits the search to the specified locations. A location is required.
      * In the current implementation, only one location can be specified.
      *
@@ -44,7 +43,6 @@ class InvoiceFilter implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * Limits the search to the specified locations. A location is required.
      * In the current implementation, only one location can be specified.
      *
@@ -60,7 +58,6 @@ class InvoiceFilter implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     *
      * Limits the search to the specified customers, within the specified locations.
      * Specifying a customer is optional. In the current implementation,
      * a maximum of one customer can be specified.
@@ -74,7 +71,6 @@ class InvoiceFilter implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     *
      * Limits the search to the specified customers, within the specified locations.
      * Specifying a customer is optional. In the current implementation,
      * a maximum of one customer can be specified.

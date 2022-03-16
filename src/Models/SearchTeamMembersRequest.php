@@ -28,7 +28,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Represents the parameters in a search for `TeamMember` objects.
      */
     public function getQuery(): ?SearchTeamMembersQuery
@@ -38,7 +37,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Represents the parameters in a search for `TeamMember` objects.
      *
      * @maps query
@@ -50,7 +48,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of `TeamMember` objects in a page (100 by default).
      */
     public function getLimit(): ?int
@@ -60,7 +57,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of `TeamMember` objects in a page (100 by default).
      *
      * @maps limit
@@ -72,7 +68,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The opaque cursor for fetching the next page. For more information, see
      * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      */
@@ -83,7 +78,6 @@ class SearchTeamMembersRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The opaque cursor for fetching the next page. For more information, see
      * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      *

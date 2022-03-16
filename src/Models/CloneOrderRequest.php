@@ -37,7 +37,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The ID of the order to clone.
      */
     public function getOrderId(): string
@@ -47,7 +46,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The ID of the order to clone.
      *
      * @required
@@ -60,7 +58,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * An optional order version for concurrency protection.
      *
      * If a version is provided, it must match the latest stored version of the order to clone.
@@ -73,7 +70,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * An optional order version for concurrency protection.
      *
      * If a version is provided, it must match the latest stored version of the order to clone.
@@ -88,7 +84,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this clone request.
      *
      * If you are unsure whether a particular order was cloned successfully,
@@ -106,7 +101,6 @@ class CloneOrderRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this clone request.
      *
      * If you are unsure whether a particular order was cloned successfully,

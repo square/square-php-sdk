@@ -29,7 +29,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -44,7 +43,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -61,7 +59,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Fields to Clear.
-     *
      * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-
      * notation)
      * fields to clear. For example, `line_items[uid].note`.
@@ -77,7 +74,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Fields to Clear.
-     *
      * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-
      * notation)
      * fields to clear. For example, `line_items[uid].note`.
@@ -95,7 +91,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this update request.
      *
      * If you are unsure whether a particular update was applied to an order successfully,
@@ -113,7 +108,6 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this update request.
      *
      * If you are unsure whether a particular update was applied to an order successfully,

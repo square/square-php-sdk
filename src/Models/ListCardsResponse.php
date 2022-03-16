@@ -32,7 +32,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -44,7 +43,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -58,7 +56,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Returns Cards.
-     *
      * The requested list of `Card`s.
      *
      * @return Card[]|null
@@ -70,7 +67,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Sets Cards.
-     *
      * The requested list of `Card`s.
      *
      * @maps cards
@@ -84,7 +80,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
@@ -97,7 +92,6 @@ class ListCardsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *

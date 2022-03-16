@@ -31,7 +31,6 @@ class SegmentFilter implements \JsonSerializable
 
     /**
      * Returns Service Variation Id.
-     *
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      */
@@ -42,7 +41,6 @@ class SegmentFilter implements \JsonSerializable
 
     /**
      * Sets Service Variation Id.
-     *
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      *
@@ -56,7 +54,6 @@ class SegmentFilter implements \JsonSerializable
 
     /**
      * Returns Team Member Id Filter.
-     *
      * A filter to select resources based on an exact field value. For any given
      * value, the value can only be in one property. Depending on the field, either
      * all properties can be set or only a subset will be available.
@@ -70,7 +67,6 @@ class SegmentFilter implements \JsonSerializable
 
     /**
      * Sets Team Member Id Filter.
-     *
      * A filter to select resources based on an exact field value. For any given
      * value, the value can only be in one property. Depending on the field, either
      * all properties can be set or only a subset will be available.

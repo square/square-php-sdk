@@ -23,7 +23,6 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Responses.
-     *
      * A set of [UpdateVendorResponse]($m/UpdateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-
@@ -65,7 +62,6 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Responses.
-     *
      * A set of [UpdateVendorResponse]($m/UpdateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-

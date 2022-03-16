@@ -23,7 +23,6 @@ class Coordinates implements \JsonSerializable
 
     /**
      * Returns Latitude.
-     *
      * The latitude of the coordinate expressed in degrees.
      */
     public function getLatitude(): ?float
@@ -33,7 +32,6 @@ class Coordinates implements \JsonSerializable
 
     /**
      * Sets Latitude.
-     *
      * The latitude of the coordinate expressed in degrees.
      *
      * @maps latitude
@@ -45,7 +43,6 @@ class Coordinates implements \JsonSerializable
 
     /**
      * Returns Longitude.
-     *
      * The longitude of the coordinate expressed in degrees.
      */
     public function getLongitude(): ?float
@@ -55,7 +52,6 @@ class Coordinates implements \JsonSerializable
 
     /**
      * Sets Longitude.
-     *
      * The longitude of the coordinate expressed in degrees.
      *
      * @maps longitude

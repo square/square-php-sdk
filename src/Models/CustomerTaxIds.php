@@ -21,7 +21,6 @@ class CustomerTaxIds implements \JsonSerializable
 
     /**
      * Returns Eu Vat.
-     *
      * The EU VAT identification number for the customer. For example, `IE3426675K`. The ID can contain
      * alphanumeric characters only.
      */
@@ -32,7 +31,6 @@ class CustomerTaxIds implements \JsonSerializable
 
     /**
      * Sets Eu Vat.
-     *
      * The EU VAT identification number for the customer. For example, `IE3426675K`. The ID can contain
      * alphanumeric characters only.
      *

@@ -20,7 +20,6 @@ class V1Money implements \JsonSerializable
 
     /**
      * Returns Amount.
-     *
      * Amount in the lowest denominated value of this Currency. E.g. in USD
      * these are cents, in JPY they are Yen (which do not have a 'cent' concept).
      */
@@ -31,7 +30,6 @@ class V1Money implements \JsonSerializable
 
     /**
      * Sets Amount.
-     *
      * Amount in the lowest denominated value of this Currency. E.g. in USD
      * these are cents, in JPY they are Yen (which do not have a 'cent' concept).
      *
@@ -44,7 +42,6 @@ class V1Money implements \JsonSerializable
 
     /**
      * Returns Currency Code.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      */
@@ -55,7 +52,6 @@ class V1Money implements \JsonSerializable
 
     /**
      * Sets Currency Code.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *

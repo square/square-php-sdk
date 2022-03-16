@@ -25,7 +25,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * The page size is currently set to be 100.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
@@ -37,7 +36,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * The page size is currently set to be 100.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
@@ -51,7 +49,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Returns Types.
-     *
      * An optional case-insensitive, comma-separated list of object types to retrieve.
      *
      * The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum, for example,
@@ -74,7 +71,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Sets Types.
-     *
      * An optional case-insensitive, comma-separated list of object types to retrieve.
      *
      * The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum, for example,
@@ -99,7 +95,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The specific version of the catalog objects to be included in the response.
      * This allows you to retrieve historical
      * versions of objects. The specified version value is matched against
@@ -113,7 +108,6 @@ class ListCatalogRequest implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The specific version of the catalog objects to be included in the response.
      * This allows you to retrieve historical
      * versions of objects. The specified version value is matched against

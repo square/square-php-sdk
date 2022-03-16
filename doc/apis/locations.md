@@ -18,7 +18,7 @@ $locationsApi = $client->getLocationsApi();
 
 # List Locations
 
-Provides details about all of the seller's [locations](../../https://developer.squareup.com/docs/locations-api),
+Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-api),
 including those with an inactive status.
 
 ```php
@@ -48,7 +48,7 @@ if ($apiResponse->isSuccess()) {
 
 # Create Location
 
-Creates a [location](../../https://developer.squareup.com/docs/locations-api).
+Creates a [location](https://developer.squareup.com/docs/locations-api).
 Creating new locations allows for separate configuration of receipt layouts, item prices,
 and sales reports. Developers can use locations to separate sales activity via applications
 that integrate with Square from sales activity elsewhere in a seller's account.
@@ -106,7 +106,7 @@ if ($apiResponse->isSuccess()) {
 # Retrieve Location
 
 Retrieves details of a single location. Specify "main"
-as the location ID to retrieve details of the [main location](../../https://developer.squareup.com/docs/locations-api#about-the-main-location).
+as the location ID to retrieve details of the [main location](https://developer.squareup.com/docs/locations-api#about-the-main-location).
 
 ```php
 function retrieveLocation(string $locationId): ApiResponse
@@ -143,7 +143,7 @@ if ($apiResponse->isSuccess()) {
 
 # Update Location
 
-Updates a [location](../../https://developer.squareup.com/docs/locations-api).
+Updates a [location](https://developer.squareup.com/docs/locations-api).
 
 ```php
 function updateLocation(string $locationId, UpdateLocationRequest $body): ApiResponse

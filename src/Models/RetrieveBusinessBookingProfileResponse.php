@@ -38,7 +38,6 @@ class RetrieveBusinessBookingProfileResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors that occurred during the request.
      *
      * @return Error[]|null
@@ -50,7 +49,6 @@ class RetrieveBusinessBookingProfileResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors that occurred during the request.
      *
      * @maps errors

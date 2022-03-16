@@ -31,7 +31,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Returns Groups.
-     *
      * A list of customer groups belonging to the current seller.
      *
      * @return CustomerGroup[]|null
@@ -69,7 +66,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Sets Groups.
-     *
      * A list of customer groups belonging to the current seller.
      *
      * @maps groups
@@ -83,7 +79,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
@@ -98,7 +93,6 @@ class ListCustomerGroupsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.

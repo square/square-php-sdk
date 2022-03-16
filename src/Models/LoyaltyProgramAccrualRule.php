@@ -51,7 +51,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Accrual Type.
-     *
      * The type of the accrual rule that defines how buyers can earn points.
      */
     public function getAccrualType(): string
@@ -61,7 +60,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Accrual Type.
-     *
      * The type of the accrual rule that defines how buyers can earn points.
      *
      * @required
@@ -74,7 +72,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The number of points that
      * buyers earn based on the `accrual_type`.
      */
@@ -85,7 +82,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The number of points that
      * buyers earn based on the `accrual_type`.
      *
@@ -98,7 +94,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Visit Data.
-     *
      * Represents additional data for rules with the `VISIT` accrual type.
      */
     public function getVisitData(): ?LoyaltyProgramAccrualRuleVisitData
@@ -108,7 +103,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Visit Data.
-     *
      * Represents additional data for rules with the `VISIT` accrual type.
      *
      * @maps visit_data
@@ -120,7 +114,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Spend Data.
-     *
      * Represents additional data for rules with the `SPEND` accrual type.
      */
     public function getSpendData(): ?LoyaltyProgramAccrualRuleSpendData
@@ -130,7 +123,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Spend Data.
-     *
      * Represents additional data for rules with the `SPEND` accrual type.
      *
      * @maps spend_data
@@ -142,7 +134,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Item Variation Data.
-     *
      * Represents additional data for rules with the `ITEM_VARIATION` accrual type.
      */
     public function getItemVariationData(): ?LoyaltyProgramAccrualRuleItemVariationData
@@ -152,7 +143,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Item Variation Data.
-     *
      * Represents additional data for rules with the `ITEM_VARIATION` accrual type.
      *
      * @maps item_variation_data
@@ -164,7 +154,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Returns Category Data.
-     *
      * Represents additional data for rules with the `CATEGORY` accrual type.
      */
     public function getCategoryData(): ?LoyaltyProgramAccrualRuleCategoryData
@@ -174,7 +163,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
 
     /**
      * Sets Category Data.
-     *
      * Represents additional data for rules with the `CATEGORY` accrual type.
      *
      * @maps category_data

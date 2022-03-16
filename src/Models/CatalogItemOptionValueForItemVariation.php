@@ -26,7 +26,6 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
 
     /**
      * Returns Item Option Id.
-     *
      * The unique id of an item option.
      */
     public function getItemOptionId(): ?string
@@ -36,7 +35,6 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
 
     /**
      * Sets Item Option Id.
-     *
      * The unique id of an item option.
      *
      * @maps item_option_id
@@ -48,7 +46,6 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
 
     /**
      * Returns Item Option Value Id.
-     *
      * The unique id of the selected value for the item option.
      */
     public function getItemOptionValueId(): ?string
@@ -58,7 +55,6 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
 
     /**
      * Sets Item Option Value Id.
-     *
      * The unique id of the selected value for the item option.
      *
      * @maps item_option_value_id

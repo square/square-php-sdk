@@ -29,7 +29,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID of the `BlockedDiscount` within the order.
      */
     public function getUid(): ?string
@@ -39,7 +38,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID of the `BlockedDiscount` within the order.
      *
      * @maps uid
@@ -51,7 +49,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Returns Discount Uid.
-     *
      * The `uid` of the discount that should be blocked. Use this field to block
      * ad hoc discounts. For catalog discounts, use the `discount_catalog_object_id` field.
      */
@@ -62,7 +59,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Sets Discount Uid.
-     *
      * The `uid` of the discount that should be blocked. Use this field to block
      * ad hoc discounts. For catalog discounts, use the `discount_catalog_object_id` field.
      *
@@ -75,7 +71,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Returns Discount Catalog Object Id.
-     *
      * The `catalog_object_id` of the discount that should be blocked.
      * Use this field to block catalog discounts. For ad hoc discounts, use the
      * `discount_uid` field.
@@ -87,7 +82,6 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 
     /**
      * Sets Discount Catalog Object Id.
-     *
      * The `catalog_object_id` of the discount that should be blocked.
      * Use this field to block catalog discounts. For ad hoc discounts, use the
      * `discount_uid` field.

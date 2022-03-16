@@ -20,7 +20,6 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
 
     /**
      * Returns Team Member Booking Profile.
-     *
      * The booking profile of a seller's team member, including the team member's ID, display name,
      * description and whether the team member can be booked as a service provider.
      */
@@ -31,7 +30,6 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
 
     /**
      * Sets Team Member Booking Profile.
-     *
      * The booking profile of a seller's team member, including the team member's ID, display name,
      * description and whether the team member can be booked as a service provider.
      *
@@ -44,7 +42,6 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors that occurred during the request.
      *
      * @return Error[]|null
@@ -56,7 +53,6 @@ class RetrieveTeamMemberBookingProfileResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors that occurred during the request.
      *
      * @maps errors

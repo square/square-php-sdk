@@ -32,7 +32,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Returns All.
-     *
      * A list of terms that must be present on the field of the resource.
      *
      * @return string[]|null
@@ -44,7 +43,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Sets All.
-     *
      * A list of terms that must be present on the field of the resource.
      *
      * @maps all
@@ -58,7 +56,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Returns Any.
-     *
      * A list of terms where at least one of them must be present on the
      * field of the resource.
      *
@@ -71,7 +68,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Sets Any.
-     *
      * A list of terms where at least one of them must be present on the
      * field of the resource.
      *
@@ -86,7 +82,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Returns None.
-     *
      * A list of terms that must not be present on the field the resource
      *
      * @return string[]|null
@@ -98,7 +93,6 @@ class FilterValue implements \JsonSerializable
 
     /**
      * Sets None.
-     *
      * A list of terms that must not be present on the field the resource
      *
      * @maps none

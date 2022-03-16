@@ -27,7 +27,6 @@ class UpdateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Returns Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using
@@ -40,7 +39,6 @@ class UpdateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Sets Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using

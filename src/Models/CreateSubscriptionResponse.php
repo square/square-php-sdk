@@ -24,7 +24,6 @@ class CreateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class CreateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class CreateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see
@@ -64,7 +61,6 @@ class CreateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see

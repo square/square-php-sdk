@@ -29,7 +29,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Returns Team Member Wages.
-     *
      * A page of `TeamMemberWage` results.
      *
      * @return TeamMemberWage[]|null
@@ -41,7 +40,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Sets Team Member Wages.
-     *
      * A page of `TeamMemberWage` results.
      *
      * @maps team_member_wages
@@ -55,7 +53,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `TeamMemberWage` results.
      */
@@ -66,7 +63,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `TeamMemberWage` results.
      *
@@ -79,7 +75,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -91,7 +86,6 @@ class ListTeamMemberWagesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

@@ -43,7 +43,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
      * applicable query filters, and its value length is of Unicode code points.
      */
@@ -54,7 +53,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
      * applicable query filters, and its value length is of Unicode code points.
      *
@@ -67,7 +65,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * Determines where this modifier list appears in a list of `CatalogModifierList` values.
      */
     public function getOrdinal(): ?int
@@ -77,7 +74,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * Determines where this modifier list appears in a list of `CatalogModifierList` values.
      *
      * @maps ordinal
@@ -89,7 +85,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Selection Type.
-     *
      * Indicates whether a CatalogModifierList supports multiple selections.
      */
     public function getSelectionType(): ?string
@@ -99,7 +94,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Selection Type.
-     *
      * Indicates whether a CatalogModifierList supports multiple selections.
      *
      * @maps selection_type
@@ -111,7 +105,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Modifiers.
-     *
      * The options included in the `CatalogModifierList`.
      * You must include at least one `CatalogModifier`.
      * Each CatalogObject must have type `MODIFIER` and contain
@@ -126,7 +119,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Modifiers.
-     *
      * The options included in the `CatalogModifierList`.
      * You must include at least one `CatalogModifier`.
      * Each CatalogObject must have type `MODIFIER` and contain
@@ -143,7 +135,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Image Ids.
-     *
      * The IDs of images associated with this `CatalogModifierList` instance.
      * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
      * applications.
@@ -157,7 +148,6 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Image Ids.
-     *
      * The IDs of images associated with this `CatalogModifierList` instance.
      * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
      * applications.

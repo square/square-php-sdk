@@ -34,7 +34,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -46,7 +45,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -60,7 +58,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Returns Items.
-     *
      * Returned items matching the specified query expressions.
      *
      * @return CatalogObject[]|null
@@ -72,7 +69,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Sets Items.
-     *
      * Returned items matching the specified query expressions.
      *
      * @maps items
@@ -86,7 +82,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * Pagination token used in the next request to return more of the search result.
      */
     public function getCursor(): ?string
@@ -96,7 +91,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * Pagination token used in the next request to return more of the search result.
      *
      * @maps cursor
@@ -108,7 +102,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Returns Matched Variation Ids.
-     *
      * Ids of returned item variations matching the specified query expression.
      *
      * @return string[]|null
@@ -120,7 +113,6 @@ class SearchCatalogItemsResponse implements \JsonSerializable
 
     /**
      * Sets Matched Variation Ids.
-     *
      * Ids of returned item variations matching the specified query expression.
      *
      * @maps matched_variation_ids

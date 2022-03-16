@@ -35,7 +35,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns Catalog Object Ids.
-     *
      * The filter to return results by `CatalogObject` ID.
      * The filter is applicable only when set.  The default is null.
      *
@@ -48,7 +47,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets Catalog Object Ids.
-     *
      * The filter to return results by `CatalogObject` ID.
      * The filter is applicable only when set.  The default is null.
      *
@@ -63,7 +61,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The filter to return results by `Location` ID.
      * This filter is applicable only when set. The default is null.
      *
@@ -76,7 +73,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The filter to return results by `Location` ID.
      * This filter is applicable only when set. The default is null.
      *
@@ -91,7 +87,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns Updated After.
-     *
      * The filter to return results with their `calculated_at` value
      * after the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -103,7 +98,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets Updated After.
-     *
      * The filter to return results with their `calculated_at` value
      * after the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -117,7 +111,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *
@@ -131,7 +124,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *
@@ -147,7 +139,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns States.
-     *
      * The filter to return results by `InventoryState`. The filter is only applicable when set.
      * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
      * The default is null.
@@ -161,7 +152,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets States.
-     *
      * The filter to return results by `InventoryState`. The filter is only applicable when set.
      * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
      * The default is null.

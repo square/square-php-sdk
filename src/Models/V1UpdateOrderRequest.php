@@ -65,7 +65,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Shipped Tracking Number.
-     *
      * The tracking number of the shipment associated with the order. Only valid if action is COMPLETE.
      */
     public function getShippedTrackingNumber(): ?string
@@ -75,7 +74,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Shipped Tracking Number.
-     *
      * The tracking number of the shipment associated with the order. Only valid if action is COMPLETE.
      *
      * @maps shipped_tracking_number
@@ -87,7 +85,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Completed Note.
-     *
      * A merchant-specified note about the completion of the order. Only valid if action is COMPLETE.
      */
     public function getCompletedNote(): ?string
@@ -97,7 +94,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Completed Note.
-     *
      * A merchant-specified note about the completion of the order. Only valid if action is COMPLETE.
      *
      * @maps completed_note
@@ -109,7 +105,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Refunded Note.
-     *
      * A merchant-specified note about the refunding of the order. Only valid if action is REFUND.
      */
     public function getRefundedNote(): ?string
@@ -119,7 +114,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Refunded Note.
-     *
      * A merchant-specified note about the refunding of the order. Only valid if action is REFUND.
      *
      * @maps refunded_note
@@ -131,7 +125,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Canceled Note.
-     *
      * A merchant-specified note about the canceling of the order. Only valid if action is CANCEL.
      */
     public function getCanceledNote(): ?string
@@ -141,7 +134,6 @@ class V1UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Canceled Note.
-     *
      * A merchant-specified note about the canceling of the order. Only valid if action is CANCEL.
      *
      * @maps canceled_note

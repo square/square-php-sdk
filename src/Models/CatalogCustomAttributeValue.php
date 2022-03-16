@@ -56,7 +56,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the custom attribute.
      */
     public function getName(): ?string
@@ -66,7 +65,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the custom attribute.
      *
      * @maps name
@@ -78,7 +76,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns String Value.
-     *
      * The string value of the custom attribute.  Populated if `type` = `STRING`.
      */
     public function getStringValue(): ?string
@@ -88,7 +85,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets String Value.
-     *
      * The string value of the custom attribute.  Populated if `type` = `STRING`.
      *
      * @maps string_value
@@ -100,7 +96,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Definition Id.
-     *
      * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
      * this value belongs to.
      */
@@ -111,7 +106,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Definition Id.
-     *
      * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
      * this value belongs to.
      *
@@ -124,7 +118,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Defines the possible types for a custom attribute.
      */
     public function getType(): ?string
@@ -134,7 +127,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Defines the possible types for a custom attribute.
      *
      * @maps type
@@ -146,7 +138,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Number Value.
-     *
      * Populated if `type` = `NUMBER`. Contains a string
      * representation of a decimal number, using a `.` as the decimal separator.
      */
@@ -157,7 +148,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Number Value.
-     *
      * Populated if `type` = `NUMBER`. Contains a string
      * representation of a decimal number, using a `.` as the decimal separator.
      *
@@ -170,7 +160,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Boolean Value.
-     *
      * A `true` or `false` value. Populated if `type` = `BOOLEAN`.
      */
     public function getBooleanValue(): ?bool
@@ -180,7 +169,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Boolean Value.
-     *
      * A `true` or `false` value. Populated if `type` = `BOOLEAN`.
      *
      * @maps boolean_value
@@ -192,7 +180,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Selection Uid Values.
-     *
      * One or more choices from `allowed_selections`. Populated if `type` = `SELECTION`.
      *
      * @return string[]|null
@@ -204,7 +191,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Selection Uid Values.
-     *
      * One or more choices from `allowed_selections`. Populated if `type` = `SELECTION`.
      *
      * @maps selection_uid_values
@@ -218,7 +204,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Key.
-     *
      * __Read-only.__ A copy of key from the associated `CatalogCustomAttributeDefinition`.
      */
     public function getKey(): ?string
@@ -228,7 +213,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Key.
-     *
      * __Read-only.__ A copy of key from the associated `CatalogCustomAttributeDefinition`.
      *
      * @maps key

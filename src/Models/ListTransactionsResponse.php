@@ -31,7 +31,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Returns Transactions.
-     *
      * An array of transactions that match your query.
      *
      * @return Transaction[]|null
@@ -69,7 +66,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Sets Transactions.
-     *
      * An array of transactions that match your query.
      *
      * @maps transactions
@@ -83,7 +79,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor for retrieving the next set of results,
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.
@@ -98,7 +93,6 @@ class ListTransactionsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor for retrieving the next set of results,
      * if any remain. Provide this value as the `cursor` parameter in a subsequent
      * request to this endpoint.

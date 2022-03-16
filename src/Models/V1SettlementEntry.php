@@ -33,7 +33,6 @@ class V1SettlementEntry implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * The settlement's unique identifier.
      */
     public function getPaymentId(): ?string
@@ -43,7 +42,6 @@ class V1SettlementEntry implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * The settlement's unique identifier.
      *
      * @maps payment_id

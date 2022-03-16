@@ -23,7 +23,6 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Returns Title.
-     *
      * The name of the job performed during this shift. Square
      * labor-reporting UIs might group shifts together by title.
      */
@@ -34,7 +33,6 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Sets Title.
-     *
      * The name of the job performed during this shift. Square
      * labor-reporting UIs might group shifts together by title.
      *
@@ -47,7 +45,6 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Returns Hourly Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -63,7 +60,6 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Sets Hourly Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

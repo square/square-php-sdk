@@ -43,7 +43,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the `Location`. This can include locations that are deactivated.
      */
     public function getLocationId(): ?string
@@ -53,7 +52,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the `Location`. This can include locations that are deactivated.
      *
      * @maps location_id
@@ -65,7 +63,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -81,7 +78,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -99,7 +95,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Pricing Type.
-     *
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      */
     public function getPricingType(): ?string
@@ -109,7 +104,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Pricing Type.
-     *
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      *
      * @maps pricing_type
@@ -121,7 +115,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Track Inventory.
-     *
      * If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`.
      */
     public function getTrackInventory(): ?bool
@@ -131,7 +124,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Track Inventory.
-     *
      * If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`.
      *
      * @maps track_inventory
@@ -143,7 +135,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Inventory Alert Type.
-     *
      * Indicates whether Square should alert the merchant when the inventory quantity of a
      * CatalogItemVariation is low.
      */
@@ -154,7 +145,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Inventory Alert Type.
-     *
      * Indicates whether Square should alert the merchant when the inventory quantity of a
      * CatalogItemVariation is low.
      *
@@ -167,7 +157,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Returns Inventory Alert Threshold.
-     *
      * If the inventory quantity for the variation is less than or equal to this value and
      * `inventory_alert_type`
      * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
@@ -181,7 +170,6 @@ class ItemVariationLocationOverrides implements \JsonSerializable
 
     /**
      * Sets Inventory Alert Threshold.
-     *
      * If the inventory quantity for the variation is less than or equal to this value and
      * `inventory_alert_type`
      * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.

@@ -19,7 +19,6 @@ class DeleteCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The current version of the customer profile.
      *
      * As a best practice, you should include this parameter to enable [optimistic concurrency](https:
@@ -34,7 +33,6 @@ class DeleteCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The current version of the customer profile.
      *
      * As a best practice, you should include this parameter to enable [optimistic concurrency](https:

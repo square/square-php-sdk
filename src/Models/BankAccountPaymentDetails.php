@@ -53,7 +53,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Bank Name.
-     *
      * The name of the bank associated with the bank account.
      */
     public function getBankName(): ?string
@@ -63,7 +62,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Bank Name.
-     *
      * The name of the bank associated with the bank account.
      *
      * @maps bank_name
@@ -75,7 +73,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Transfer Type.
-     *
      * The type of the bank transfer. The type can be `ACH` or `UNKNOWN`.
      */
     public function getTransferType(): ?string
@@ -85,7 +82,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Transfer Type.
-     *
      * The type of the bank transfer. The type can be `ACH` or `UNKNOWN`.
      *
      * @maps transfer_type
@@ -97,7 +93,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Account Ownership Type.
-     *
      * The ownership type of the bank account performing the transfer.
      * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
      */
@@ -108,7 +103,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Account Ownership Type.
-     *
      * The ownership type of the bank account performing the transfer.
      * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
      *
@@ -121,7 +115,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Fingerprint.
-     *
      * Uniquely identifies the bank account for this seller and can be used
      * to determine if payments are from the same bank account.
      */
@@ -132,7 +125,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Fingerprint.
-     *
      * Uniquely identifies the bank account for this seller and can be used
      * to determine if payments are from the same bank account.
      *
@@ -145,7 +137,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Country.
-     *
      * The two-letter ISO code representing the country the bank account is located in.
      */
     public function getCountry(): ?string
@@ -155,7 +146,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Country.
-     *
      * The two-letter ISO code representing the country the bank account is located in.
      *
      * @maps country
@@ -167,7 +157,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Statement Description.
-     *
      * The statement description as sent to the bank.
      */
     public function getStatementDescription(): ?string
@@ -177,7 +166,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Statement Description.
-     *
      * The statement description as sent to the bank.
      *
      * @maps statement_description
@@ -189,7 +177,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Ach Details.
-     *
      * ACH-specific details about `BANK_ACCOUNT` type payments with the `transfer_type` of `ACH`.
      */
     public function getAchDetails(): ?ACHDetails
@@ -199,7 +186,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Ach Details.
-     *
      * ACH-specific details about `BANK_ACCOUNT` type payments with the `transfer_type` of `ACH`.
      *
      * @maps ach_details
@@ -211,7 +197,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -223,7 +208,6 @@ class BankAccountPaymentDetails implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors

@@ -28,7 +28,6 @@ class RiskEvaluation implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when payment risk was evaluated, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -38,7 +37,6 @@ class RiskEvaluation implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when payment risk was evaluated, in RFC 3339 format.
      *
      * @maps created_at

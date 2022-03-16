@@ -38,7 +38,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The item option's display name for the seller. Must be unique across
      * all item options. This is a searchable attribute for use in applicable query filters.
      */
@@ -49,7 +48,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The item option's display name for the seller. Must be unique across
      * all item options. This is a searchable attribute for use in applicable query filters.
      *
@@ -62,7 +60,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Returns Display Name.
-     *
      * The item option's display name for the customer. This is a searchable attribute for use in
      * applicable query filters.
      */
@@ -73,7 +70,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Sets Display Name.
-     *
      * The item option's display name for the customer. This is a searchable attribute for use in
      * applicable query filters.
      *
@@ -86,7 +82,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The item option's human-readable description. Displayed in the Square
      * Point of Sale app for the seller and in the Online Store or on receipts for
      * the buyer. This is a searchable attribute for use in applicable query filters.
@@ -98,7 +93,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The item option's human-readable description. Displayed in the Square
      * Point of Sale app for the seller and in the Online Store or on receipts for
      * the buyer. This is a searchable attribute for use in applicable query filters.
@@ -112,7 +106,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Returns Show Colors.
-     *
      * If true, display colors for entries in `values` when present.
      */
     public function getShowColors(): ?bool
@@ -122,7 +115,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Sets Show Colors.
-     *
      * If true, display colors for entries in `values` when present.
      *
      * @maps show_colors
@@ -134,7 +126,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Returns Values.
-     *
      * A list of CatalogObjects containing the
      * `CatalogItemOptionValue`s for this item.
      *
@@ -147,7 +138,6 @@ class CatalogItemOption implements \JsonSerializable
 
     /**
      * Sets Values.
-     *
      * A list of CatalogObjects containing the
      * `CatalogItemOptionValue`s for this item.
      *

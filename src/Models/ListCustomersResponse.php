@@ -31,7 +31,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Customers.
-     *
      * An array of `Customer` objects that match the provided query.
      *
      * @return Customer[]|null
@@ -69,7 +66,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Customers.
-     *
      * An array of `Customer` objects that match the provided query.
      *
      * @maps customers
@@ -83,7 +79,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for the
      * original query. A cursor is only present if the request succeeded and additional results
      * are available.
@@ -98,7 +93,6 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for the
      * original query. A cursor is only present if the request succeeded and additional results
      * are available.

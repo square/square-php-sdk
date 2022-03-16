@@ -28,7 +28,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Returns Product.
-     *
      * Indicates the Square product used to generate an inventory change.
      */
     public function getProduct(): ?string
@@ -38,7 +37,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Sets Product.
-     *
      * Indicates the Square product used to generate an inventory change.
      *
      * @maps product
@@ -50,7 +48,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Returns Application Id.
-     *
      * Read-only Square ID assigned to the application. Only used for
      * [Product]($m/Product) type `EXTERNAL_API`.
      */
@@ -61,7 +58,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Sets Application Id.
-     *
      * Read-only Square ID assigned to the application. Only used for
      * [Product]($m/Product) type `EXTERNAL_API`.
      *
@@ -74,7 +70,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * Read-only display name assigned to the application
      * (e.g. `"Custom Application"`, `"Square POS 4.74 for Android"`).
      */
@@ -85,7 +80,6 @@ class SourceApplication implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * Read-only display name assigned to the application
      * (e.g. `"Custom Application"`, `"Square POS 4.74 for Android"`).
      *

@@ -23,7 +23,6 @@ class SearchVendorsRequestFilter implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The names of the [Vendor]($m/Vendor) objects to retrieve.
      *
      * @return string[]|null
@@ -35,7 +34,6 @@ class SearchVendorsRequestFilter implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The names of the [Vendor]($m/Vendor) objects to retrieve.
      *
      * @maps name
@@ -49,7 +47,6 @@ class SearchVendorsRequestFilter implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The statuses of the [Vendor]($m/Vendor) objects to retrieve.
      * See [VendorStatus](#type-vendorstatus) for possible values
      *
@@ -62,7 +59,6 @@ class SearchVendorsRequestFilter implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The statuses of the [Vendor]($m/Vendor) objects to retrieve.
      * See [VendorStatus](#type-vendorstatus) for possible values
      *

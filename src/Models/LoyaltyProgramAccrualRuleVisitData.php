@@ -31,7 +31,6 @@ class LoyaltyProgramAccrualRuleVisitData implements \JsonSerializable
 
     /**
      * Returns Minimum Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -47,7 +46,6 @@ class LoyaltyProgramAccrualRuleVisitData implements \JsonSerializable
 
     /**
      * Sets Minimum Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -65,7 +63,6 @@ class LoyaltyProgramAccrualRuleVisitData implements \JsonSerializable
 
     /**
      * Returns Tax Mode.
-     *
      * Indicates how taxes should be treated when calculating the purchase amount used for loyalty points
      * accrual.
      * This setting applies only to `SPEND` accrual rules or `VISIT` accrual rules that have a minimum
@@ -78,7 +75,6 @@ class LoyaltyProgramAccrualRuleVisitData implements \JsonSerializable
 
     /**
      * Sets Tax Mode.
-     *
      * Indicates how taxes should be treated when calculating the purchase amount used for loyalty points
      * accrual.
      * This setting applies only to `SPEND` accrual rules or `VISIT` accrual rules that have a minimum

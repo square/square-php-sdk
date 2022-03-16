@@ -99,7 +99,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The item's name.
      */
     public function getName(): ?string
@@ -109,7 +108,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The item's name.
      *
      * @maps name
@@ -121,7 +119,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The quantity of the item purchased. This can be a decimal value.
      */
     public function getQuantity(): ?float
@@ -131,7 +128,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The quantity of the item purchased. This can be a decimal value.
      *
      * @maps quantity
@@ -161,7 +157,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Item Detail.
-     *
      * V1PaymentItemDetail
      */
     public function getItemDetail(): ?V1PaymentItemDetail
@@ -171,7 +166,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Item Detail.
-     *
      * V1PaymentItemDetail
      *
      * @maps item_detail
@@ -183,7 +177,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Notes.
-     *
      * Notes entered by the merchant about the item at the time of payment, if any.
      */
     public function getNotes(): ?string
@@ -193,7 +186,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Notes.
-     *
      * Notes entered by the merchant about the item at the time of payment, if any.
      *
      * @maps notes
@@ -205,7 +197,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Item Variation Name.
-     *
      * The name of the item variation purchased, if any.
      */
     public function getItemVariationName(): ?string
@@ -215,7 +206,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Item Variation Name.
-     *
      * The name of the item variation purchased, if any.
      *
      * @maps item_variation_name
@@ -317,7 +307,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Taxes.
-     *
      * All taxes applied to this itemization.
      *
      * @return V1PaymentTax[]|null
@@ -329,7 +318,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Taxes.
-     *
      * All taxes applied to this itemization.
      *
      * @maps taxes
@@ -343,7 +331,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Discounts.
-     *
      * All discounts applied to this itemization.
      *
      * @return V1PaymentDiscount[]|null
@@ -355,7 +342,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Discounts.
-     *
      * All discounts applied to this itemization.
      *
      * @maps discounts
@@ -369,7 +355,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Returns Modifiers.
-     *
      * All modifier options applied to this itemization.
      *
      * @return V1PaymentModifier[]|null
@@ -381,7 +366,6 @@ class V1PaymentItemization implements \JsonSerializable
 
     /**
      * Sets Modifiers.
-     *
      * All modifier options applied to this itemization.
      *
      * @maps modifiers

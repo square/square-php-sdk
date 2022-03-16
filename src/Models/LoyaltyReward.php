@@ -71,7 +71,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the loyalty reward.
      */
     public function getId(): ?string
@@ -81,7 +80,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the loyalty reward.
      *
      * @maps id
@@ -93,7 +91,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the loyalty reward.
      */
     public function getStatus(): ?string
@@ -103,7 +100,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the loyalty reward.
      *
      * @maps status
@@ -115,7 +111,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     *
      * The Square-assigned ID of the [loyalty account]($m/LoyaltyAccount) to which the reward belongs.
      */
     public function getLoyaltyAccountId(): string
@@ -125,7 +120,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     *
      * The Square-assigned ID of the [loyalty account]($m/LoyaltyAccount) to which the reward belongs.
      *
      * @required
@@ -138,7 +132,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Reward Tier Id.
-     *
      * The Square-assigned ID of the [reward tier]($m/LoyaltyProgramRewardTier) used to create the reward.
      */
     public function getRewardTierId(): string
@@ -148,7 +141,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Reward Tier Id.
-     *
      * The Square-assigned ID of the [reward tier]($m/LoyaltyProgramRewardTier) used to create the reward.
      *
      * @required
@@ -161,7 +153,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The number of loyalty points used for the reward.
      */
     public function getPoints(): ?int
@@ -171,7 +162,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The number of loyalty points used for the reward.
      *
      * @maps points
@@ -183,7 +173,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The Square-assigned ID of the [order]($m/Order) to which the reward is attached.
      */
     public function getOrderId(): ?string
@@ -193,7 +182,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The Square-assigned ID of the [order]($m/Order) to which the reward is attached.
      *
      * @maps order_id
@@ -205,7 +193,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the reward was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -215,7 +202,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the reward was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -227,7 +213,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp when the reward was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -237,7 +222,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp when the reward was last updated, in RFC 3339 format.
      *
      * @maps updated_at
@@ -249,7 +233,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Returns Redeemed At.
-     *
      * The timestamp when the reward was redeemed, in RFC 3339 format.
      */
     public function getRedeemedAt(): ?string
@@ -259,7 +242,6 @@ class LoyaltyReward implements \JsonSerializable
 
     /**
      * Sets Redeemed At.
-     *
      * The timestamp when the reward was redeemed, in RFC 3339 format.
      *
      * @maps redeemed_at

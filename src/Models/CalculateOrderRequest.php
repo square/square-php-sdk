@@ -28,7 +28,6 @@ class CalculateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -43,7 +42,6 @@ class CalculateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -61,7 +59,6 @@ class CalculateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Proposed Rewards.
-     *
      * Identifies one or more loyalty reward tiers to apply during the order calculation.
      * The discounts defined by the reward tiers are added to the order only to preview the
      * effect of applying the specified rewards. The rewards do not correspond to actual
@@ -77,7 +74,6 @@ class CalculateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Proposed Rewards.
-     *
      * Identifies one or more loyalty reward tiers to apply during the order calculation.
      * The discounts defined by the reward tiers are added to the order only to preview the
      * effect of applying the specified rewards. The rewards do not correspond to actual

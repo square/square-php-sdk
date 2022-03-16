@@ -18,7 +18,6 @@ class BulkRetrieveVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Vendor Ids.
-     *
      * IDs of the [Vendor]($m/Vendor) objects to retrieve.
      *
      * @return string[]|null
@@ -30,7 +29,6 @@ class BulkRetrieveVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Vendor Ids.
-     *
      * IDs of the [Vendor]($m/Vendor) objects to retrieve.
      *
      * @maps vendor_ids

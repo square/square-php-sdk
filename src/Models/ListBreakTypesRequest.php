@@ -28,7 +28,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * Filter the returned `BreakType` results to only those that are associated with the
      * specified location.
      */
@@ -39,7 +38,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * Filter the returned `BreakType` results to only those that are associated with the
      * specified location.
      *
@@ -52,7 +50,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of `BreakType` results to return per page. The number can range between 1
      * and 200. The default is 200.
      */
@@ -63,7 +60,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of `BreakType` results to return per page. The number can range between 1
      * and 200. The default is 200.
      *
@@ -76,7 +72,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pointer to the next page of `BreakType` results to fetch.
      */
     public function getCursor(): ?string
@@ -86,7 +81,6 @@ class ListBreakTypesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pointer to the next page of `BreakType` results to fetch.
      *
      * @maps cursor

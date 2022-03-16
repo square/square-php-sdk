@@ -106,7 +106,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The shift unique ID.
      */
     public function getId(): ?string
@@ -116,7 +115,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The shift unique ID.
      *
      * @maps id
@@ -128,7 +126,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * The current state of a cash drawer shift.
      */
     public function getState(): ?string
@@ -138,7 +135,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * The current state of a cash drawer shift.
      *
      * @maps state
@@ -150,7 +146,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Opened At.
-     *
      * The time when the shift began, in ISO 8601 format.
      */
     public function getOpenedAt(): ?string
@@ -160,7 +155,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Opened At.
-     *
      * The time when the shift began, in ISO 8601 format.
      *
      * @maps opened_at
@@ -172,7 +166,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Ended At.
-     *
      * The time when the shift ended, in ISO 8601 format.
      */
     public function getEndedAt(): ?string
@@ -182,7 +175,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Ended At.
-     *
      * The time when the shift ended, in ISO 8601 format.
      *
      * @maps ended_at
@@ -194,7 +186,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Closed At.
-     *
      * The time when the shift was closed, in ISO 8601 format.
      */
     public function getClosedAt(): ?string
@@ -204,7 +195,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Closed At.
-     *
      * The time when the shift was closed, in ISO 8601 format.
      *
      * @maps closed_at
@@ -216,7 +206,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Employee Ids.
-     *
      * The IDs of all employees that were logged into Square Point of Sale at any
      * point while the cash drawer shift was open.
      *
@@ -229,7 +218,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Employee Ids.
-     *
      * The IDs of all employees that were logged into Square Point of Sale at any
      * point while the cash drawer shift was open.
      *
@@ -244,7 +232,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Opening Employee Id.
-     *
      * The ID of the employee that started the cash drawer shift.
      */
     public function getOpeningEmployeeId(): ?string
@@ -254,7 +241,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Opening Employee Id.
-     *
      * The ID of the employee that started the cash drawer shift.
      *
      * @maps opening_employee_id
@@ -266,7 +252,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Ending Employee Id.
-     *
      * The ID of the employee that ended the cash drawer shift.
      */
     public function getEndingEmployeeId(): ?string
@@ -276,7 +261,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Ending Employee Id.
-     *
      * The ID of the employee that ended the cash drawer shift.
      *
      * @maps ending_employee_id
@@ -288,7 +272,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Closing Employee Id.
-     *
      * The ID of the employee that closed the cash drawer shift by auditing
      * the cash drawer contents.
      */
@@ -299,7 +282,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Closing Employee Id.
-     *
      * The ID of the employee that closed the cash drawer shift by auditing
      * the cash drawer contents.
      *
@@ -312,7 +294,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The free-form text description of a cash drawer by an employee.
      */
     public function getDescription(): ?string
@@ -322,7 +303,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The free-form text description of a cash drawer by an employee.
      *
      * @maps description
@@ -334,7 +314,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Opened Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -350,7 +329,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Opened Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -368,7 +346,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Cash Payment Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -384,7 +361,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Cash Payment Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -402,7 +378,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Cash Refunds Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -418,7 +393,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Cash Refunds Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -436,7 +410,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Cash Paid in Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -452,7 +425,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Cash Paid in Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -470,7 +442,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Cash Paid Out Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -486,7 +457,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Cash Paid Out Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -504,7 +474,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Expected Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -520,7 +489,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Expected Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -538,7 +506,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Returns Closed Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -554,7 +521,6 @@ class CashDrawerShift implements \JsonSerializable
 
     /**
      * Sets Closed Cash Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

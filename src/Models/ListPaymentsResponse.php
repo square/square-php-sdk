@@ -28,7 +28,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Returns Payments.
-     *
      * The requested list of payments.
      *
      * @return Payment[]|null
@@ -66,7 +63,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Sets Payments.
-     *
      * The requested list of payments.
      *
      * @maps payments
@@ -80,7 +76,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
@@ -93,7 +88,6 @@ class ListPaymentsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *

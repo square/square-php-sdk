@@ -23,7 +23,6 @@ class PublishInvoiceResponse implements \JsonSerializable
 
     /**
      * Returns Invoice.
-     *
      * Stores information about an invoice. You use the Invoices API to create and manage
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
      * squareup.com/docs/invoices-api/overview).
@@ -35,7 +34,6 @@ class PublishInvoiceResponse implements \JsonSerializable
 
     /**
      * Sets Invoice.
-     *
      * Stores information about an invoice. You use the Invoices API to create and manage
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
      * squareup.com/docs/invoices-api/overview).
@@ -49,7 +47,6 @@ class PublishInvoiceResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -61,7 +58,6 @@ class PublishInvoiceResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors

@@ -25,7 +25,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Returns Device Codes.
-     *
      * The queried DeviceCode.
      *
      * @return DeviceCode[]|null
@@ -63,7 +60,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Sets Device Codes.
-     *
      * The queried DeviceCode.
      *
      * @maps device_codes
@@ -77,7 +73,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.
@@ -92,7 +87,6 @@ class ListDeviceCodesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint. This value is present only if the request
      * succeeded and additional results are available.

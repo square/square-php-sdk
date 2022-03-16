@@ -116,7 +116,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID for this return line-item entry.
      */
     public function getUid(): ?string
@@ -126,7 +125,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID for this return line-item entry.
      *
      * @maps uid
@@ -138,7 +136,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Source Line Item Uid.
-     *
      * The `uid` of the line item in the original sale order.
      */
     public function getSourceLineItemUid(): ?string
@@ -148,7 +145,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Source Line Item Uid.
-     *
      * The `uid` of the line item in the original sale order.
      *
      * @maps source_line_item_uid
@@ -160,7 +156,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the line item.
      */
     public function getName(): ?string
@@ -170,7 +165,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the line item.
      *
      * @maps name
@@ -182,7 +176,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The quantity returned, formatted as a decimal number.
      * For example, `"3"`.
      *
@@ -196,7 +189,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The quantity returned, formatted as a decimal number.
      * For example, `"3"`.
      *
@@ -213,7 +205,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Quantity Unit.
-     *
      * Contains the measurement unit for a quantity and a precision that
      * specifies the number of digits after the decimal point for decimal quantities.
      */
@@ -224,7 +215,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Quantity Unit.
-     *
      * Contains the measurement unit for a quantity and a precision that
      * specifies the number of digits after the decimal point for decimal quantities.
      *
@@ -237,7 +227,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * The note of the return line item.
      */
     public function getNote(): ?string
@@ -247,7 +236,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * The note of the return line item.
      *
      * @maps note
@@ -259,7 +247,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this return line item.
      */
     public function getCatalogObjectId(): ?string
@@ -269,7 +256,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this return line item.
      *
      * @maps catalog_object_id
@@ -281,7 +267,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this line item references.
      */
     public function getCatalogVersion(): ?int
@@ -291,7 +276,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this line item references.
      *
      * @maps catalog_version
@@ -303,7 +287,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Variation Name.
-     *
      * The name of the variation applied to this return line item.
      */
     public function getVariationName(): ?string
@@ -313,7 +296,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Variation Name.
-     *
      * The name of the variation applied to this return line item.
      *
      * @maps variation_name
@@ -325,7 +307,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Item Type.
-     *
      * Represents the line item type.
      */
     public function getItemType(): ?string
@@ -335,7 +316,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Item Type.
-     *
      * Represents the line item type.
      *
      * @maps item_type
@@ -347,7 +327,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Return Modifiers.
-     *
      * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @return OrderReturnLineItemModifier[]|null
@@ -359,7 +338,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Return Modifiers.
-     *
      * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
      *
      * @maps return_modifiers
@@ -373,7 +351,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Applied Taxes.
-     *
      * The list of references to `OrderReturnTax` entities applied to the return line item. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
      * `OrderReturnTax` applied to the return line item. On reads, the applied amount
@@ -388,7 +365,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Applied Taxes.
-     *
      * The list of references to `OrderReturnTax` entities applied to the return line item. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
      * `OrderReturnTax` applied to the return line item. On reads, the applied amount
@@ -405,7 +381,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Applied Discounts.
-     *
      * The list of references to `OrderReturnDiscount` entities applied to the return line item. Each
      * `OrderLineItemAppliedDiscount` has a `discount_uid` that references the `uid` of a top-level
      * `OrderReturnDiscount` applied to the return line item. On reads, the applied amount
@@ -420,7 +395,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Applied Discounts.
-     *
      * The list of references to `OrderReturnDiscount` entities applied to the return line item. Each
      * `OrderLineItemAppliedDiscount` has a `discount_uid` that references the `uid` of a top-level
      * `OrderReturnDiscount` applied to the return line item. On reads, the applied amount
@@ -437,7 +411,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -453,7 +426,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -471,7 +443,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Variation Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -487,7 +458,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Variation Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -505,7 +475,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Gross Return Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -521,7 +490,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Gross Return Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -539,7 +507,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -555,7 +522,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -573,7 +539,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Total Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -589,7 +554,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Total Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -607,7 +571,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -623,7 +586,6 @@ class OrderReturnLineItem implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

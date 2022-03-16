@@ -31,7 +31,6 @@ class CreateBreakTypeRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string value to ensure the idempotency of the operation.
      */
     public function getIdempotencyKey(): ?string
@@ -41,7 +40,6 @@ class CreateBreakTypeRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string value to ensure the idempotency of the operation.
      *
      * @maps idempotency_key
@@ -53,7 +51,6 @@ class CreateBreakTypeRequest implements \JsonSerializable
 
     /**
      * Returns Break Type.
-     *
      * A defined break template that sets an expectation for possible `Break`
      * instances on a `Shift`.
      */
@@ -64,7 +61,6 @@ class CreateBreakTypeRequest implements \JsonSerializable
 
     /**
      * Sets Break Type.
-     *
      * A defined break template that sets an expectation for possible `Break`
      * instances on a `Shift`.
      *

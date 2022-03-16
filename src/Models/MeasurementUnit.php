@@ -55,7 +55,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Custom Unit.
-     *
      * The information needed to define a custom unit, provided by the seller.
      */
     public function getCustomUnit(): ?MeasurementUnitCustom
@@ -65,7 +64,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Custom Unit.
-     *
      * The information needed to define a custom unit, provided by the seller.
      *
      * @maps custom_unit
@@ -77,7 +75,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Area Unit.
-     *
      * Unit of area used to measure a quantity.
      */
     public function getAreaUnit(): ?string
@@ -87,7 +84,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Area Unit.
-     *
      * Unit of area used to measure a quantity.
      *
      * @maps area_unit
@@ -99,7 +95,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Length Unit.
-     *
      * The unit of length used to measure a quantity.
      */
     public function getLengthUnit(): ?string
@@ -109,7 +104,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Length Unit.
-     *
      * The unit of length used to measure a quantity.
      *
      * @maps length_unit
@@ -121,7 +115,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Volume Unit.
-     *
      * The unit of volume used to measure a quantity.
      */
     public function getVolumeUnit(): ?string
@@ -131,7 +124,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Volume Unit.
-     *
      * The unit of volume used to measure a quantity.
      *
      * @maps volume_unit
@@ -143,7 +135,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Weight Unit.
-     *
      * Unit of weight used to measure a quantity.
      */
     public function getWeightUnit(): ?string
@@ -153,7 +144,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Weight Unit.
-     *
      * Unit of weight used to measure a quantity.
      *
      * @maps weight_unit
@@ -183,7 +173,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Time Unit.
-     *
      * Unit of time used to measure a quantity (a duration).
      */
     public function getTimeUnit(): ?string
@@ -193,7 +182,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Time Unit.
-     *
      * Unit of time used to measure a quantity (a duration).
      *
      * @maps time_unit
@@ -205,7 +193,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Describes the type of this unit and indicates which field contains the unit information. This is an
      * ‘open’ enum.
      */
@@ -216,7 +203,6 @@ class MeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Describes the type of this unit and indicates which field contains the unit information. This is an
      * ‘open’ enum.
      *

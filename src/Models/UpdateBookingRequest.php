@@ -28,7 +28,6 @@ class UpdateBookingRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique key to make this request an idempotent operation.
      */
     public function getIdempotencyKey(): ?string
@@ -38,7 +37,6 @@ class UpdateBookingRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique key to make this request an idempotent operation.
      *
      * @maps idempotency_key
@@ -50,7 +48,6 @@ class UpdateBookingRequest implements \JsonSerializable
 
     /**
      * Returns Booking.
-     *
      * Represents a booking as a time-bound service contract for a seller's staff member to provide a
      * specified service
      * at a given location to a requesting customer in one or more appointment segments.
@@ -62,7 +59,6 @@ class UpdateBookingRequest implements \JsonSerializable
 
     /**
      * Sets Booking.
-     *
      * Represents a booking as a time-bound service contract for a seller's staff member to provide a
      * specified service
      * at a given location to a requesting customer in one or more appointment segments.

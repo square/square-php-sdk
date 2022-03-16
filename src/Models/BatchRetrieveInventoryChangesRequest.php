@@ -45,7 +45,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Catalog Object Ids.
-     *
      * The filter to return results by `CatalogObject` ID.
      * The filter is only applicable when set. The default value is null.
      *
@@ -58,7 +57,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Catalog Object Ids.
-     *
      * The filter to return results by `CatalogObject` ID.
      * The filter is only applicable when set. The default value is null.
      *
@@ -73,7 +71,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The filter to return results by `Location` ID.
      * The filter is only applicable when set. The default value is null.
      *
@@ -86,7 +83,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The filter to return results by `Location` ID.
      * The filter is only applicable when set. The default value is null.
      *
@@ -101,7 +97,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Types.
-     *
      * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
      * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
      *
@@ -114,7 +109,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Types.
-     *
      * The filter to return results by `InventoryChangeType` values other than `TRANSFER`.
      * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
      *
@@ -129,7 +123,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns States.
-     *
      * The filter to return `ADJUSTMENT` query results by
      * `InventoryState`. This filter is only applied when set.
      * The default value is null.
@@ -143,7 +136,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets States.
-     *
      * The filter to return `ADJUSTMENT` query results by
      * `InventoryState`. This filter is only applied when set.
      * The default value is null.
@@ -159,7 +151,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Updated After.
-     *
      * The filter to return results with their `calculated_at` value
      * after the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -171,7 +162,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Updated After.
-     *
      * The filter to return results with their `calculated_at` value
      * after the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -185,7 +175,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Updated Before.
-     *
      * The filter to return results with their `created_at` or `calculated_at` value
      * strictly before the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -197,7 +186,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Updated Before.
-     *
      * The filter to return results with their `created_at` or `calculated_at` value
      * strictly before the given time as specified in an RFC 3339 timestamp.
      * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
@@ -211,7 +199,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *
@@ -225,7 +212,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *

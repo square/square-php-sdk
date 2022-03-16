@@ -68,7 +68,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The unique ID for the team member.
      */
     public function getId(): ?string
@@ -78,7 +77,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The unique ID for the team member.
      *
      * @maps id
@@ -90,7 +88,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A second ID used to associate the team member with an entity in another system.
      */
     public function getReferenceId(): ?string
@@ -100,7 +97,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A second ID used to associate the team member with an entity in another system.
      *
      * @maps reference_id
@@ -112,7 +108,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Is Owner.
-     *
      * Whether the team member is the owner of the Square account.
      */
     public function getIsOwner(): ?bool
@@ -122,7 +117,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Is Owner.
-     *
      * Whether the team member is the owner of the Square account.
      *
      * @maps is_owner
@@ -134,7 +128,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Enumerates the possible statuses the team member can have within a business.
      */
     public function getStatus(): ?string
@@ -144,7 +137,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Enumerates the possible statuses the team member can have within a business.
      *
      * @maps status
@@ -156,7 +148,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Given Name.
-     *
      * The given name (that is, the first name) associated with the team member.
      */
     public function getGivenName(): ?string
@@ -166,7 +157,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Given Name.
-     *
      * The given name (that is, the first name) associated with the team member.
      *
      * @maps given_name
@@ -178,7 +168,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Family Name.
-     *
      * The family name (that is, the last name) associated with the team member.
      */
     public function getFamilyName(): ?string
@@ -188,7 +177,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Family Name.
-     *
      * The family name (that is, the last name) associated with the team member.
      *
      * @maps family_name
@@ -200,7 +188,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The email address associated with the team member.
      */
     public function getEmailAddress(): ?string
@@ -210,7 +197,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The email address associated with the team member.
      *
      * @maps email_address
@@ -222,7 +208,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The team member's phone number, in E.164 format. For example:
      * +14155552671 - the country code is 1 for US
      * +551155256325 - the country code is 55 for BR
@@ -234,7 +219,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The team member's phone number, in E.164 format. For example:
      * +14155552671 - the country code is 1 for US
      * +551155256325 - the country code is 55 for BR
@@ -248,7 +232,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp, in RFC 3339 format, describing when the team member was created.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
@@ -259,7 +242,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp, in RFC 3339 format, describing when the team member was created.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *
@@ -272,7 +254,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp, in RFC 3339 format, describing when the team member was last updated.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
@@ -283,7 +264,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp, in RFC 3339 format, describing when the team member was last updated.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *
@@ -296,7 +276,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Assigned Locations.
-     *
      * An object that represents a team member's assignment to locations.
      */
     public function getAssignedLocations(): ?TeamMemberAssignedLocations
@@ -306,7 +285,6 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Assigned Locations.
-     *
      * An object that represents a team member's assignment to locations.
      *
      * @maps assigned_locations

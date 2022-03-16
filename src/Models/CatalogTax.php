@@ -43,7 +43,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The tax's name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      */
@@ -54,7 +53,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The tax's name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      *
@@ -67,7 +65,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Calculation Phase.
-     *
      * When to calculate the taxes due on a cart.
      */
     public function getCalculationPhase(): ?string
@@ -77,7 +74,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Calculation Phase.
-     *
      * When to calculate the taxes due on a cart.
      *
      * @maps calculation_phase
@@ -89,7 +85,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Inclusion Type.
-     *
      * Whether to the tax amount should be additional to or included in the CatalogItem price.
      */
     public function getInclusionType(): ?string
@@ -99,7 +94,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Inclusion Type.
-     *
      * Whether to the tax amount should be additional to or included in the CatalogItem price.
      *
      * @maps inclusion_type
@@ -111,7 +105,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the tax in decimal form, using a `'.'` as the decimal separator and without a
      * `'%'` sign.
      * A value of `7.5` corresponds to 7.5%.
@@ -123,7 +116,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the tax in decimal form, using a `'.'` as the decimal separator and without a
      * `'%'` sign.
      * A value of `7.5` corresponds to 7.5%.
@@ -137,7 +129,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Applies to Custom Amounts.
-     *
      * If `true`, the fee applies to custom amounts entered into the Square Point of Sale
      * app that are not associated with a particular `CatalogItem`.
      */
@@ -148,7 +139,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Applies to Custom Amounts.
-     *
      * If `true`, the fee applies to custom amounts entered into the Square Point of Sale
      * app that are not associated with a particular `CatalogItem`.
      *
@@ -161,7 +151,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Returns Enabled.
-     *
      * A Boolean flag to indicate whether the tax is displayed as enabled (`true`) in the Square Point of
      * Sale app or not (`false`).
      */
@@ -172,7 +161,6 @@ class CatalogTax implements \JsonSerializable
 
     /**
      * Sets Enabled.
-     *
      * A Boolean flag to indicate whether the tax is displayed as enabled (`true`) in the Square Point of
      * Sale app or not (`false`).
      *

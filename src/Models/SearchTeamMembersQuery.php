@@ -18,7 +18,6 @@ class SearchTeamMembersQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
      * between the individual fields, and `OR` logic is applied within list-based fields.
      * For example, setting this filter value:
@@ -34,7 +33,6 @@ class SearchTeamMembersQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Represents a filter used in a search for `TeamMember` objects. `AND` logic is applied
      * between the individual fields, and `OR` logic is applied within list-based fields.
      * For example, setting this filter value:

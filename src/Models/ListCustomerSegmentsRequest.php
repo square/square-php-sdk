@@ -23,7 +23,6 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by previous calls to `ListCustomerSegments`.
      * This cursor is used to retrieve the next set of query results.
      *
@@ -37,7 +36,6 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by previous calls to `ListCustomerSegments`.
      * This cursor is used to retrieve the next set of query results.
      *
@@ -53,7 +51,6 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is less than 1 or greater than 50, Square returns a `400 VALUE_TOO_LOW` or
@@ -69,7 +66,6 @@ class ListCustomerSegmentsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is less than 1 or greater than 50, Square returns a `400 VALUE_TOO_LOW` or

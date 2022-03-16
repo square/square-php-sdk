@@ -35,7 +35,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The order's unique ID.
      */
     public function getOrderId(): ?string
@@ -45,7 +44,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The order's unique ID.
      *
      * @maps order_id
@@ -57,7 +55,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -72,7 +69,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -89,7 +85,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      */
     public function getLocationId(): ?string
@@ -99,7 +94,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      *
      * @maps location_id
@@ -111,7 +105,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * The state of the order.
      */
     public function getState(): ?string
@@ -121,7 +114,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * The state of the order.
      *
      * @maps state
@@ -133,7 +125,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -143,7 +134,6 @@ class OrderCreated implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format.
      *
      * @maps created_at

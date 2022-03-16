@@ -69,7 +69,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this checkout among others you have created. It can be
      * any valid string but must be unique for every order sent to Square Checkout for a given location ID.
      *
@@ -91,7 +90,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this checkout among others you have created. It can be
      * any valid string but must be unique for every order sent to Square Checkout for a given location ID.
      *
@@ -135,7 +133,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Ask for Shipping Address.
-     *
      * If `true`, Square Checkout collects shipping information on your behalf and stores
      * that information with the transaction information in the Square Seller Dashboard.
      *
@@ -148,7 +145,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Ask for Shipping Address.
-     *
      * If `true`, Square Checkout collects shipping information on your behalf and stores
      * that information with the transaction information in the Square Seller Dashboard.
      *
@@ -163,7 +159,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Merchant Support Email.
-     *
      * The email address to display on the Square Checkout confirmation page
      * and confirmation email that the buyer can use to contact the seller.
      *
@@ -179,7 +174,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Merchant Support Email.
-     *
      * The email address to display on the Square Checkout confirmation page
      * and confirmation email that the buyer can use to contact the seller.
      *
@@ -197,7 +191,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Pre Populate Buyer Email.
-     *
      * If provided, the buyer's email is prepopulated on the checkout page
      * as an editable text field.
      *
@@ -210,7 +203,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Pre Populate Buyer Email.
-     *
      * If provided, the buyer's email is prepopulated on the checkout page
      * as an editable text field.
      *
@@ -225,7 +217,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Pre Populate Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -237,7 +228,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Pre Populate Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -251,7 +241,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Redirect Url.
-     *
      * The URL to redirect to after the checkout is completed with `checkoutId`,
      * `transactionId`, and `referenceId` appended as URL parameters. For example,
      * if the provided redirect URL is `http://www.example.com/order-complete`, a
@@ -274,7 +263,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Redirect Url.
-     *
      * The URL to redirect to after the checkout is completed with `checkoutId`,
      * `transactionId`, and `referenceId` appended as URL parameters. For example,
      * if the provided redirect URL is `http://www.example.com/order-complete`, a
@@ -299,7 +287,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Additional Recipients.
-     *
      * The basic primitive of a multi-party transaction. The value is optional.
      * The transaction facilitated by you can be split from here.
      *
@@ -320,7 +307,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Additional Recipients.
-     *
      * The basic primitive of a multi-party transaction. The value is optional.
      * The transaction facilitated by you can be split from here.
      *
@@ -343,7 +329,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * An optional note to associate with the `checkout` object.
      *
      * This value cannot exceed 60 characters.
@@ -355,7 +340,6 @@ class CreateCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * An optional note to associate with the `checkout` object.
      *
      * This value cannot exceed 60 characters.

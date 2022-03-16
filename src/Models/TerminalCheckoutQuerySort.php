@@ -15,7 +15,6 @@ class TerminalCheckoutQuerySort implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -25,7 +24,6 @@ class TerminalCheckoutQuerySort implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order

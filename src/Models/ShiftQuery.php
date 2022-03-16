@@ -23,7 +23,6 @@ class ShiftQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Defines a filter used in a search for `Shift` records. `AND` logic is
      * used by Square's servers to apply each filter property specified.
      */
@@ -34,7 +33,6 @@ class ShiftQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Defines a filter used in a search for `Shift` records. `AND` logic is
      * used by Square's servers to apply each filter property specified.
      *
@@ -47,7 +45,6 @@ class ShiftQuery implements \JsonSerializable
 
     /**
      * Returns Sort.
-     *
      * Sets the sort order of search results.
      */
     public function getSort(): ?ShiftSort
@@ -57,7 +54,6 @@ class ShiftQuery implements \JsonSerializable
 
     /**
      * Sets Sort.
-     *
      * Sets the sort order of search results.
      *
      * @maps sort

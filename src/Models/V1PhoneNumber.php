@@ -33,7 +33,6 @@ class V1PhoneNumber implements \JsonSerializable
 
     /**
      * Returns Calling Code.
-     *
      * The phone number's international calling code. For US phone numbers, this value is +1.
      */
     public function getCallingCode(): string
@@ -43,7 +42,6 @@ class V1PhoneNumber implements \JsonSerializable
 
     /**
      * Sets Calling Code.
-     *
      * The phone number's international calling code. For US phone numbers, this value is +1.
      *
      * @required
@@ -56,7 +54,6 @@ class V1PhoneNumber implements \JsonSerializable
 
     /**
      * Returns Number.
-     *
      * The phone number.
      */
     public function getNumber(): string
@@ -66,7 +63,6 @@ class V1PhoneNumber implements \JsonSerializable
 
     /**
      * Sets Number.
-     *
      * The phone number.
      *
      * @required

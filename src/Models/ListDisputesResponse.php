@@ -28,7 +28,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Returns Disputes.
-     *
      * The list of disputes.
      *
      * @return Dispute[]|null
@@ -66,7 +63,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Sets Disputes.
-     *
      * The list of disputes.
      *
      * @maps disputes
@@ -80,7 +76,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request.
      * If unset, this is the final response. For more information, see [Pagination](https://developer.
      * squareup.com/docs/basics/api101/pagination).
@@ -92,7 +87,6 @@ class ListDisputesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request.
      * If unset, this is the final response. For more information, see [Pagination](https://developer.
      * squareup.com/docs/basics/api101/pagination).

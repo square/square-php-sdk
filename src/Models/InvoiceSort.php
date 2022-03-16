@@ -23,7 +23,6 @@ class InvoiceSort implements \JsonSerializable
 
     /**
      * Returns Field.
-     *
      * The field to use for sorting.
      */
     public function getField(): string
@@ -33,7 +32,6 @@ class InvoiceSort implements \JsonSerializable
 
     /**
      * Sets Field.
-     *
      * The field to use for sorting.
      *
      * @maps field
@@ -45,7 +43,6 @@ class InvoiceSort implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getOrder(): ?string
@@ -55,7 +52,6 @@ class InvoiceSort implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order

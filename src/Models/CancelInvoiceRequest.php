@@ -26,7 +26,6 @@ class CancelInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version of the [invoice]($m/Invoice) to cancel.
      * If you do not know the version, you can call
      * [GetInvoice]($e/Invoices/GetInvoice) or [ListInvoices]($e/Invoices/ListInvoices).
@@ -38,7 +37,6 @@ class CancelInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version of the [invoice]($m/Invoice) to cancel.
      * If you do not know the version, you can call
      * [GetInvoice]($e/Invoices/GetInvoice) or [ListInvoices]($e/Invoices/ListInvoices).

@@ -23,7 +23,6 @@ class UpdateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this UpdateCatalogImage request.
      * Keys can be any valid string but must be unique for every UpdateCatalogImage request.
      *
@@ -37,7 +36,6 @@ class UpdateCatalogImageRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this UpdateCatalogImage request.
      * Keys can be any valid string but must be unique for every UpdateCatalogImage request.
      *

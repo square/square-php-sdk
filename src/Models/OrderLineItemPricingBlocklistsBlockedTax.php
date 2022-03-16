@@ -29,7 +29,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID of the `BlockedTax` within the order.
      */
     public function getUid(): ?string
@@ -39,7 +38,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID of the `BlockedTax` within the order.
      *
      * @maps uid
@@ -51,7 +49,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Returns Tax Uid.
-     *
      * The `uid` of the tax that should be blocked. Use this field to block
      * ad hoc taxes. For catalog, taxes use the `tax_catalog_object_id` field.
      */
@@ -62,7 +59,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Sets Tax Uid.
-     *
      * The `uid` of the tax that should be blocked. Use this field to block
      * ad hoc taxes. For catalog, taxes use the `tax_catalog_object_id` field.
      *
@@ -75,7 +71,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Returns Tax Catalog Object Id.
-     *
      * The `catalog_object_id` of the tax that should be blocked.
      * Use this field to block catalog taxes. For ad hoc taxes, use the
      * `tax_uid` field.
@@ -87,7 +82,6 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 
     /**
      * Sets Tax Catalog Object Id.
-     *
      * The `catalog_object_id` of the tax that should be blocked.
      * Use this field to block catalog taxes. For ad hoc taxes, use the
      * `tax_uid` field.

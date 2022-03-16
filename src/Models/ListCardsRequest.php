@@ -39,7 +39,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
@@ -52,7 +51,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
@@ -67,7 +65,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * Limit results to cards associated with the customer supplied.
      * By default, all cards owned by the merchant are returned.
      */
@@ -78,7 +75,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * Limit results to cards associated with the customer supplied.
      * By default, all cards owned by the merchant are returned.
      *
@@ -91,7 +87,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Returns Include Disabled.
-     *
      * Includes disabled cards.
      * By default, all enabled cards owned by the merchant are returned.
      */
@@ -102,7 +97,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Sets Include Disabled.
-     *
      * Includes disabled cards.
      * By default, all enabled cards owned by the merchant are returned.
      *
@@ -115,7 +109,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * Limit results to cards associated with the reference_id supplied.
      */
     public function getReferenceId(): ?string
@@ -125,7 +118,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * Limit results to cards associated with the reference_id supplied.
      *
      * @maps reference_id
@@ -137,7 +129,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -147,7 +138,6 @@ class ListCardsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order

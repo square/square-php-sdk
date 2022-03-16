@@ -23,7 +23,6 @@ class CatalogV1Id implements \JsonSerializable
 
     /**
      * Returns Catalog V1 Id.
-     *
      * The ID for an object used in the Square API V1, if the object ID differs from the Square API V2
      * object ID.
      */
@@ -34,7 +33,6 @@ class CatalogV1Id implements \JsonSerializable
 
     /**
      * Sets Catalog V1 Id.
-     *
      * The ID for an object used in the Square API V1, if the object ID differs from the Square API V2
      * object ID.
      *
@@ -47,7 +45,6 @@ class CatalogV1Id implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the `Location` this Connect V1 ID is associated with.
      */
     public function getLocationId(): ?string
@@ -57,7 +54,6 @@ class CatalogV1Id implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the `Location` this Connect V1 ID is associated with.
      *
      * @maps location_id

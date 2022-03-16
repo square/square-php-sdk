@@ -113,7 +113,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique Square-assigned ID for the customer profile.
      *
      * If you need this ID for an API request, use the ID returned when you created the customer profile or
@@ -127,7 +126,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique Square-assigned ID for the customer profile.
      *
      * If you need this ID for an API request, use the ID returned when you created the customer profile or
@@ -143,7 +141,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the customer profile was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -153,7 +150,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the customer profile was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -165,7 +161,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp when the customer profile was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -175,7 +170,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp when the customer profile was last updated, in RFC 3339 format.
      *
      * @maps updated_at
@@ -187,7 +181,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Cards.
-     *
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
      * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
@@ -206,7 +199,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Cards.
-     *
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
      * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
@@ -227,7 +219,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Given Name.
-     *
      * The given name (that is, the first name) associated with the customer profile.
      */
     public function getGivenName(): ?string
@@ -237,7 +228,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Given Name.
-     *
      * The given name (that is, the first name) associated with the customer profile.
      *
      * @maps given_name
@@ -249,7 +239,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Family Name.
-     *
      * The family name (that is, the last name) associated with the customer profile.
      */
     public function getFamilyName(): ?string
@@ -259,7 +248,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Family Name.
-     *
      * The family name (that is, the last name) associated with the customer profile.
      *
      * @maps family_name
@@ -271,7 +259,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Nickname.
-     *
      * A nickname for the customer profile.
      */
     public function getNickname(): ?string
@@ -281,7 +268,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Nickname.
-     *
      * A nickname for the customer profile.
      *
      * @maps nickname
@@ -293,7 +279,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Company Name.
-     *
      * A business name associated with the customer profile.
      */
     public function getCompanyName(): ?string
@@ -303,7 +288,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Company Name.
-     *
      * A business name associated with the customer profile.
      *
      * @maps company_name
@@ -315,7 +299,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The email address associated with the customer profile.
      */
     public function getEmailAddress(): ?string
@@ -325,7 +308,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The email address associated with the customer profile.
      *
      * @maps email_address
@@ -337,7 +319,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -349,7 +330,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -363,7 +343,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
      * an optional `+` prefix.
      */
@@ -374,7 +353,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
      * an optional `+` prefix.
      *
@@ -387,7 +365,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Birthday.
-     *
      * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
      * timezone and time are not allowed.
      * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
@@ -400,7 +377,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Birthday.
-     *
      * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
      * timezone and time are not allowed.
      * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
@@ -415,7 +391,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
      */
@@ -426,7 +401,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
      *
@@ -439,7 +413,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * A custom note associated with the customer profile.
      */
     public function getNote(): ?string
@@ -449,7 +422,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * A custom note associated with the customer profile.
      *
      * @maps note
@@ -461,7 +433,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Preferences.
-     *
      * Represents communication preferences for the customer profile.
      */
     public function getPreferences(): ?CustomerPreferences
@@ -471,7 +442,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Preferences.
-     *
      * Represents communication preferences for the customer profile.
      *
      * @maps preferences
@@ -483,7 +453,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Creation Source.
-     *
      * Indicates the method used to create the customer profile.
      */
     public function getCreationSource(): ?string
@@ -493,7 +462,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Creation Source.
-     *
      * Indicates the method used to create the customer profile.
      *
      * @maps creation_source
@@ -505,7 +473,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Group Ids.
-     *
      * The IDs of customer groups the customer belongs to.
      *
      * @return string[]|null
@@ -517,7 +484,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Group Ids.
-     *
      * The IDs of customer groups the customer belongs to.
      *
      * @maps group_ids
@@ -531,7 +497,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Segment Ids.
-     *
      * The IDs of segments the customer belongs to.
      *
      * @return string[]|null
@@ -543,7 +508,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Segment Ids.
-     *
      * The IDs of segments the customer belongs to.
      *
      * @maps segment_ids
@@ -557,7 +521,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The Square-assigned version number of the customer profile. The version number is incremented each
      * time an update is committed to the customer profile, except for changes to customer segment
      * membership and cards on file.
@@ -569,7 +532,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The Square-assigned version number of the customer profile. The version number is incremented each
      * time an update is committed to the customer profile, except for changes to customer segment
      * membership and cards on file.
@@ -583,7 +545,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding `tax_ids`
      * field is available only for customers of sellers in EU countries or the United Kingdom.
      * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-
@@ -596,7 +557,6 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding `tax_ids`
      * field is available only for customers of sellers in EU countries or the United Kingdom.
      * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-

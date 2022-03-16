@@ -29,7 +29,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
@@ -43,7 +42,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
      *
@@ -59,7 +57,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is invalid, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH`
@@ -75,7 +72,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is invalid, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH`
@@ -93,7 +89,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Represents a query (including filtering criteria, sorting criteria, or both) used to search
      * for customer profiles.
      */
@@ -104,7 +99,6 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Represents a query (including filtering criteria, sorting criteria, or both) used to search
      * for customer profiles.
      *

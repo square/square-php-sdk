@@ -34,7 +34,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When the total number of resulting subscriptions exceeds the limit of a paged response,
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
@@ -49,7 +48,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When the total number of resulting subscriptions exceeds the limit of a paged response,
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
@@ -66,7 +64,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The upper limit on the number of subscriptions to return
      * in a paged response.
      */
@@ -77,7 +74,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The upper limit on the number of subscriptions to return
      * in a paged response.
      *
@@ -90,7 +86,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Represents a query, consisting of specified query expressions, used to search for subscriptions.
      */
     public function getQuery(): ?SearchSubscriptionsQuery
@@ -100,7 +95,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Represents a query, consisting of specified query expressions, used to search for subscriptions.
      *
      * @maps query
@@ -112,7 +106,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Returns M Include.
-     *
      * An option to include related information in the response.
      *
      * The supported values are:
@@ -128,7 +121,6 @@ class SearchSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Sets M Include.
-     *
      * An option to include related information in the response.
      *
      * The supported values are:

@@ -20,7 +20,6 @@ class UpdateCatalogImageResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class UpdateCatalogImageResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -46,7 +44,6 @@ class UpdateCatalogImageResponse implements \JsonSerializable
 
     /**
      * Returns Image.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -69,7 +66,6 @@ class UpdateCatalogImageResponse implements \JsonSerializable
 
     /**
      * Sets Image.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to

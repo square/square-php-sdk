@@ -15,7 +15,6 @@ class DisputeEvidenceCreatedWebhookObject implements \JsonSerializable
 
     /**
      * Returns Object.
-     *
      * Represents a dispute a cardholder initiated with their bank.
      */
     public function getObject(): ?Dispute
@@ -25,7 +24,6 @@ class DisputeEvidenceCreatedWebhookObject implements \JsonSerializable
 
     /**
      * Sets Object.
-     *
      * Represents a dispute a cardholder initiated with their bank.
      *
      * @maps object

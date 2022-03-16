@@ -25,7 +25,6 @@ class CatalogInfoResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class CatalogInfoResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -69,7 +67,6 @@ class CatalogInfoResponse implements \JsonSerializable
 
     /**
      * Returns Standard Unit Description Group.
-     *
      * Group of standard measurement units.
      */
     public function getStandardUnitDescriptionGroup(): ?StandardUnitDescriptionGroup
@@ -79,7 +76,6 @@ class CatalogInfoResponse implements \JsonSerializable
 
     /**
      * Sets Standard Unit Description Group.
-     *
      * Group of standard measurement units.
      *
      * @maps standard_unit_description_group

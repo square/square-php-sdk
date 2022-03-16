@@ -90,7 +90,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The refund's unique ID.
      */
     public function getId(): string
@@ -100,7 +99,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The refund's unique ID.
      *
      * @required
@@ -113,7 +111,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the refund's associated location.
      */
     public function getLocationId(): string
@@ -123,7 +120,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the refund's associated location.
      *
      * @required
@@ -136,7 +132,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Transaction Id.
-     *
      * The ID of the transaction that the refunded tender is part of.
      */
     public function getTransactionId(): string
@@ -146,7 +141,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Transaction Id.
-     *
      * The ID of the transaction that the refunded tender is part of.
      *
      * @required
@@ -159,7 +153,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Tender Id.
-     *
      * The ID of the refunded tender.
      */
     public function getTenderId(): string
@@ -169,7 +162,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Tender Id.
-     *
      * The ID of the refunded tender.
      *
      * @required
@@ -182,7 +174,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp for when the refund was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -192,7 +183,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp for when the refund was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -204,7 +194,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * The reason for the refund being issued.
      */
     public function getReason(): string
@@ -214,7 +203,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * The reason for the refund being issued.
      *
      * @required
@@ -227,7 +215,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -243,7 +230,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -262,7 +248,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Indicates a refund's current status.
      */
     public function getStatus(): string
@@ -272,7 +257,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Indicates a refund's current status.
      *
      * @required
@@ -285,7 +269,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Processing Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -301,7 +284,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Processing Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -319,7 +301,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Returns Additional Recipients.
-     *
      * Additional recipients (other than the merchant) receiving a portion of this refund.
      * For example, fees assessed on a refund of a purchase by a third party integration.
      *
@@ -332,7 +313,6 @@ class Refund implements \JsonSerializable
 
     /**
      * Sets Additional Recipients.
-     *
      * Additional recipients (other than the merchant) receiving a portion of this refund.
      * For example, fees assessed on a refund of a purchase by a third party integration.
      *

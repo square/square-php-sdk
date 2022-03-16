@@ -25,7 +25,6 @@ class DeleteSubscriptionActionResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class DeleteSubscriptionActionResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class DeleteSubscriptionActionResponse implements \JsonSerializable
 
     /**
      * Returns Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see
@@ -65,7 +62,6 @@ class DeleteSubscriptionActionResponse implements \JsonSerializable
 
     /**
      * Sets Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see

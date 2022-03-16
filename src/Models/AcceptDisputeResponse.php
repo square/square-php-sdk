@@ -23,7 +23,6 @@ class AcceptDisputeResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class AcceptDisputeResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class AcceptDisputeResponse implements \JsonSerializable
 
     /**
      * Returns Dispute.
-     *
      * Represents a dispute a cardholder initiated with their bank.
      */
     public function getDispute(): ?Dispute
@@ -59,7 +56,6 @@ class AcceptDisputeResponse implements \JsonSerializable
 
     /**
      * Sets Dispute.
-     *
      * Represents a dispute a cardholder initiated with their bank.
      *
      * @maps dispute

@@ -33,7 +33,6 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
 
     /**
      * Returns Loyalty Account.
-     *
      * Describes a loyalty account in a [loyalty program]($m/LoyaltyProgram). For more information, see
      * [Create and Retrieve Loyalty Accounts](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * accounts).
@@ -45,7 +44,6 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
 
     /**
      * Sets Loyalty Account.
-     *
      * Describes a loyalty account in a [loyalty program]($m/LoyaltyProgram). For more information, see
      * [Create and Retrieve Loyalty Accounts](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * accounts).
@@ -60,7 +58,6 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateLoyaltyAccount` request.
      * Keys can be any valid string, but must be unique for every request.
      */
@@ -71,7 +68,6 @@ class CreateLoyaltyAccountRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateLoyaltyAccount` request.
      * Keys can be any valid string, but must be unique for every request.
      *

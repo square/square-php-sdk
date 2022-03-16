@@ -41,7 +41,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Redeem Activity Id.
-     *
      * The ID for the Redeem activity that needs to be refunded. Hence, the activity it
      * refers to has to be of the REDEEM type.
      */
@@ -52,7 +51,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Redeem Activity Id.
-     *
      * The ID for the Redeem activity that needs to be refunded. Hence, the activity it
      * refers to has to be of the REDEEM type.
      *
@@ -66,7 +64,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -82,7 +79,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -100,7 +96,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square Orders
      * API is not being used.
@@ -112,7 +107,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square Orders
      * API is not being used.
@@ -126,7 +120,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * When the Square Payments API is used, Refund is not called on the Gift Cards API.
      * However, when Square reads a Refund activity from the Gift Cards API, the developer needs to know
      * the
@@ -139,7 +132,6 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * When the Square Payments API is used, Refund is not called on the Gift Cards API.
      * However, when Square reads a Refund activity from the Gift Cards API, the developer needs to know
      * the

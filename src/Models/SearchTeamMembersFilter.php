@@ -34,7 +34,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * When present, filters by team members assigned to the specified locations.
      * When empty, includes team members assigned to any location.
      *
@@ -47,7 +46,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * When present, filters by team members assigned to the specified locations.
      * When empty, includes team members assigned to any location.
      *
@@ -62,7 +60,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Enumerates the possible statuses the team member can have within a business.
      */
     public function getStatus(): ?string
@@ -72,7 +69,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Enumerates the possible statuses the team member can have within a business.
      *
      * @maps status
@@ -84,7 +80,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Returns Is Owner.
-     *
      * When present and set to true, returns the team member who is the owner of the Square account.
      */
     public function getIsOwner(): ?bool
@@ -94,7 +89,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
 
     /**
      * Sets Is Owner.
-     *
      * When present and set to true, returns the team member who is the owner of the Square account.
      *
      * @maps is_owner

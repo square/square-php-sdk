@@ -25,7 +25,6 @@ class UpdateBreakTypeResponse implements \JsonSerializable
 
     /**
      * Returns Break Type.
-     *
      * A defined break template that sets an expectation for possible `Break`
      * instances on a `Shift`.
      */
@@ -36,7 +35,6 @@ class UpdateBreakTypeResponse implements \JsonSerializable
 
     /**
      * Sets Break Type.
-     *
      * A defined break template that sets an expectation for possible `Break`
      * instances on a `Shift`.
      *
@@ -49,7 +47,6 @@ class UpdateBreakTypeResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -61,7 +58,6 @@ class UpdateBreakTypeResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

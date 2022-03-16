@@ -18,7 +18,6 @@ class DisputedPayment implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * Square-generated unique ID of the payment being disputed.
      */
     public function getPaymentId(): ?string
@@ -28,7 +27,6 @@ class DisputedPayment implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * Square-generated unique ID of the payment being disputed.
      *
      * @maps payment_id

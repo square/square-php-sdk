@@ -36,7 +36,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -52,7 +51,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -71,7 +69,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square
      * Payments
@@ -84,7 +81,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square
      * Payments
@@ -99,7 +95,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * When using the Square Payments API, the ID of the payment that was refunded to this gift
      * card.
      */
@@ -110,7 +105,6 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * When using the Square Payments API, the ID of the payment that was refunded to this gift
      * card.
      *

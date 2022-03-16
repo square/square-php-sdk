@@ -44,7 +44,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique Square-generated ID for the segment.
      */
     public function getId(): ?string
@@ -54,7 +53,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique Square-generated ID for the segment.
      *
      * @maps id
@@ -66,7 +64,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the segment.
      */
     public function getName(): string
@@ -76,7 +73,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the segment.
      *
      * @required
@@ -89,7 +85,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the segment was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -99,7 +94,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the segment was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -111,7 +105,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp when the segment was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -121,7 +114,6 @@ class CustomerSegment implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp when the segment was last updated, in RFC 3339 format.
      *
      * @maps updated_at

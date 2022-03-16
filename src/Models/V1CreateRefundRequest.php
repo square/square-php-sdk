@@ -50,7 +50,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * The ID of the payment to refund. If you are creating a `PARTIAL`
      * refund for a split tender payment, instead provide the id of the
      * particular tender you want to refund.
@@ -62,7 +61,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * The ID of the payment to refund. If you are creating a `PARTIAL`
      * refund for a split tender payment, instead provide the id of the
      * particular tender you want to refund.
@@ -96,7 +94,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * The reason for the refund.
      */
     public function getReason(): string
@@ -106,7 +103,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * The reason for the refund.
      *
      * @required
@@ -137,7 +133,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Returns Request Idempotence Key.
-     *
      * An optional key to ensure idempotence if you issue the same PARTIAL refund request more than once.
      */
     public function getRequestIdempotenceKey(): ?string
@@ -147,7 +142,6 @@ class V1CreateRefundRequest implements \JsonSerializable
 
     /**
      * Sets Request Idempotence Key.
-     *
      * An optional key to ensure idempotence if you issue the same PARTIAL refund request more than once.
      *
      * @maps request_idempotence_key

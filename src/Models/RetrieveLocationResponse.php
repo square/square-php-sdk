@@ -24,7 +24,6 @@ class RetrieveLocationResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class RetrieveLocationResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class RetrieveLocationResponse implements \JsonSerializable
 
     /**
      * Returns Location.
-     *
      * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      */
     public function getLocation(): ?Location
@@ -60,7 +57,6 @@ class RetrieveLocationResponse implements \JsonSerializable
 
     /**
      * Sets Location.
-     *
      * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
      *
      * @maps location

@@ -29,7 +29,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered during the request.
      *
      * @return Error[]|null
@@ -41,7 +40,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered during the request.
      *
      * @maps errors
@@ -55,7 +53,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Returns Subscriptions.
-     *
      * The subscriptions matching the specified query expressions.
      *
      * @return Subscription[]|null
@@ -67,7 +64,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Sets Subscriptions.
-     *
      * The subscriptions matching the specified query expressions.
      *
      * @maps subscriptions
@@ -81,7 +77,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When the total number of resulting subscription exceeds the limit of a paged response,
      * the response includes a cursor for you to use in a subsequent request to fetch the next set of
      * results.
@@ -97,7 +92,6 @@ class SearchSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When the total number of resulting subscription exceeds the limit of a paged response,
      * the response includes a cursor for you to use in a subsequent request to fetch the next set of
      * results.

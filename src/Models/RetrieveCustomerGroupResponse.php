@@ -26,7 +26,6 @@ class RetrieveCustomerGroupResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class RetrieveCustomerGroupResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class RetrieveCustomerGroupResponse implements \JsonSerializable
 
     /**
      * Returns Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using
@@ -65,7 +62,6 @@ class RetrieveCustomerGroupResponse implements \JsonSerializable
 
     /**
      * Sets Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using

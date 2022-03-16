@@ -23,7 +23,6 @@ class QuantityRatio implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The whole or fractional quantity as the numerator.
      */
     public function getQuantity(): ?int
@@ -33,7 +32,6 @@ class QuantityRatio implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The whole or fractional quantity as the numerator.
      *
      * @maps quantity
@@ -45,7 +43,6 @@ class QuantityRatio implements \JsonSerializable
 
     /**
      * Returns Quantity Denominator.
-     *
      * The whole or fractional quantity as the denominator.
      * In the case of fractional quantity this field is the denominator and quantity is the numerator.
      * When unspecified, the value is `1`. For example, when `quantity=3` and `quantity_donominator` is
@@ -59,7 +56,6 @@ class QuantityRatio implements \JsonSerializable
 
     /**
      * Sets Quantity Denominator.
-     *
      * The whole or fractional quantity as the denominator.
      * In the case of fractional quantity this field is the denominator and quantity is the numerator.
      * When unspecified, the value is `1`. For example, when `quantity=3` and `quantity_donominator` is

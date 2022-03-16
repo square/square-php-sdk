@@ -41,7 +41,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The location IDs for the orders to query. All locations must belong to
      * the same merchant.
      *
@@ -58,7 +57,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The location IDs for the orders to query. All locations must belong to
      * the same merchant.
      *
@@ -77,7 +75,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
@@ -89,7 +86,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
@@ -103,7 +99,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Contains query criteria for the search.
      */
     public function getQuery(): ?SearchOrdersQuery
@@ -113,7 +108,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Contains query criteria for the search.
      *
      * @maps query
@@ -125,7 +119,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to be returned in a single page. It is
      * possible to receive fewer results than the specified limit on a given page.
      *
@@ -138,7 +131,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to be returned in a single page. It is
      * possible to receive fewer results than the specified limit on a given page.
      *
@@ -153,7 +145,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Return Entries.
-     *
      * A Boolean that controls the format of the search results. If `true`,
      * `SearchOrders` returns [OrderEntry]($m/OrderEntry) objects. If `false`, `SearchOrders`
      * returns complete order objects.
@@ -167,7 +158,6 @@ class SearchOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Return Entries.
-     *
      * A Boolean that controls the format of the search results. If `true`,
      * `SearchOrders` returns [OrderEntry]($m/OrderEntry) objects. If `false`, `SearchOrders`
      * returns complete order objects.

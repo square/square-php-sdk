@@ -45,7 +45,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Indicates how the inventory change was applied to a tracked product quantity.
      */
     public function getType(): ?string
@@ -55,7 +54,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Indicates how the inventory change was applied to a tracked product quantity.
      *
      * @maps type
@@ -67,7 +65,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Physical Count.
-     *
      * Represents the quantity of an item variation that is physically present
      * at a specific location, verified by a seller or a seller's employee. For example,
      * a physical count might come from an employee counting the item variations on
@@ -80,7 +77,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Physical Count.
-     *
      * Represents the quantity of an item variation that is physically present
      * at a specific location, verified by a seller or a seller's employee. For example,
      * a physical count might come from an employee counting the item variations on
@@ -95,7 +91,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Adjustment.
-     *
      * Represents a change in state or quantity of product inventory at a
      * particular time and location.
      */
@@ -106,7 +101,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Adjustment.
-     *
      * Represents a change in state or quantity of product inventory at a
      * particular time and location.
      *
@@ -119,7 +113,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Transfer.
-     *
      * Represents the transfer of a quantity of product inventory at a
      * particular time from one location to another.
      */
@@ -130,7 +123,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Transfer.
-     *
      * Represents the transfer of a quantity of product inventory at a
      * particular time from one location to another.
      *
@@ -143,7 +135,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Measurement Unit.
-     *
      * Represents the unit used to measure a `CatalogItemVariation` and
      * specifies the precision for decimal quantities.
      */
@@ -154,7 +145,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Measurement Unit.
-     *
      * Represents the unit used to measure a `CatalogItemVariation` and
      * specifies the precision for decimal quantities.
      *
@@ -167,7 +157,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Measurement Unit Id.
-     *
      * The ID of the [CatalogMeasurementUnit]($m/CatalogMeasurementUnit) object representing the catalog
      * measurement unit associated with the inventory change.
      */
@@ -178,7 +167,6 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Measurement Unit Id.
-     *
      * The ID of the [CatalogMeasurementUnit]($m/CatalogMeasurementUnit) object representing the catalog
      * measurement unit associated with the inventory change.
      *

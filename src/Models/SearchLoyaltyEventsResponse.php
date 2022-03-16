@@ -29,7 +29,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -41,7 +40,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -55,7 +53,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Returns Events.
-     *
      * The loyalty events that satisfy the search criteria.
      *
      * @return LoyaltyEvent[]|null
@@ -67,7 +64,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Sets Events.
-     *
      * The loyalty events that satisfy the search criteria.
      *
      * @maps events
@@ -81,7 +77,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      * For more information,
@@ -94,7 +89,6 @@ class SearchLoyaltyEventsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      * For more information,

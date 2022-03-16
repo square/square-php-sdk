@@ -23,7 +23,6 @@ class CustomerSort implements \JsonSerializable
 
     /**
      * Returns Field.
-     *
      * Specifies customer attributes as the sort key to customer profiles returned from a search.
      */
     public function getField(): ?string
@@ -33,7 +32,6 @@ class CustomerSort implements \JsonSerializable
 
     /**
      * Sets Field.
-     *
      * Specifies customer attributes as the sort key to customer profiles returned from a search.
      *
      * @maps field
@@ -45,7 +43,6 @@ class CustomerSort implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getOrder(): ?string
@@ -55,7 +52,6 @@ class CustomerSort implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order

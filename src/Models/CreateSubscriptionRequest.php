@@ -81,7 +81,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateSubscription` request.
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
@@ -96,7 +95,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateSubscription` request.
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
@@ -113,7 +111,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location the subscription is associated with.
      */
     public function getLocationId(): string
@@ -123,7 +120,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location the subscription is associated with.
      *
      * @required
@@ -136,7 +132,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     *
      * The ID of the subscription plan created using the Catalog API.
      * For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
@@ -150,7 +145,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     *
      * The ID of the subscription plan created using the Catalog API.
      * For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
@@ -167,7 +161,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the [customer]($m/Customer) subscribing to the subscription plan.
      */
     public function getCustomerId(): string
@@ -177,7 +170,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the [customer]($m/Customer) subscribing to the subscription plan.
      *
      * @required
@@ -190,7 +182,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Start Date.
-     *
      * The `YYYY-MM-DD`-formatted date to start the subscription.
      * If it is unspecified, the subscription starts immediately.
      */
@@ -201,7 +192,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Start Date.
-     *
      * The `YYYY-MM-DD`-formatted date to start the subscription.
      * If it is unspecified, the subscription starts immediately.
      *
@@ -214,7 +204,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Canceled Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the newly created subscription is scheduled for cancellation.
      *
      * This date overrides the cancellation date set in the plan configuration.
@@ -236,7 +225,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Canceled Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the newly created subscription is scheduled for cancellation.
      *
      * This date overrides the cancellation date set in the plan configuration.
@@ -260,7 +248,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Tax Percentage.
-     *
      * The tax to add when billing the subscription.
      * The percentage is expressed in decimal form, using a `'.'` as the decimal
      * separator and without a `'%'` sign. For example, a value of 7.5
@@ -273,7 +260,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Tax Percentage.
-     *
      * The tax to add when billing the subscription.
      * The percentage is expressed in decimal form, using a `'.'` as the decimal
      * separator and without a `'%'` sign. For example, a value of 7.5
@@ -288,7 +274,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Price Override Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -304,7 +289,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Price Override Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -322,7 +306,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Card Id.
-     *
      * The ID of the [subscriber's]($m/Customer) [card]($m/Card) to charge.
      * If it is not specified, the subscriber receives an invoice via email. For an example to
      * create a customer profile for a subscriber and add a card on file, see [Subscriptions
@@ -335,7 +318,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Card Id.
-     *
      * The ID of the [subscriber's]($m/Customer) [card]($m/Card) to charge.
      * If it is not specified, the subscriber receives an invoice via email. For an example to
      * create a customer profile for a subscriber and add a card on file, see [Subscriptions
@@ -350,7 +332,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Timezone.
-     *
      * The timezone that is used in date calculations for the subscription. If unset, defaults to
      * the location timezone. If a timezone is not configured for the location, defaults to
      * "America/New_York".
@@ -365,7 +346,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Timezone.
-     *
      * The timezone that is used in date calculations for the subscription. If unset, defaults to
      * the location timezone. If a timezone is not configured for the location, defaults to
      * "America/New_York".
@@ -382,7 +362,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Source.
-     *
      * The origination details of the subscription.
      */
     public function getSource(): ?SubscriptionSource
@@ -392,7 +371,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Source.
-     *
      * The origination details of the subscription.
      *
      * @maps source

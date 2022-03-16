@@ -49,7 +49,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Creation Source.
-     *
      * The creation source filter.
      *
      * If one or more creation sources are set, customer profiles are included in,
@@ -62,7 +61,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Creation Source.
-     *
      * The creation source filter.
      *
      * If one or more creation sources are set, customer profiles are included in,
@@ -77,7 +75,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -91,7 +88,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -107,7 +103,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -121,7 +116,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -137,7 +131,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -149,7 +142,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -163,7 +155,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -175,7 +166,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -189,7 +179,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -201,7 +190,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A filter to select customers based on exact or fuzzy matching of
      * customer attributes against a specified query. Depending on the customer attributes,
      * the filter can be case-sensitive. This filter can be exact or fuzzy, but it cannot be both.
@@ -215,7 +203,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Returns Group Ids.
-     *
      * A filter to select resources based on an exact field value. For any given
      * value, the value can only be in one property. Depending on the field, either
      * all properties can be set or only a subset will be available.
@@ -229,7 +216,6 @@ class CustomerFilter implements \JsonSerializable
 
     /**
      * Sets Group Ids.
-     *
      * A filter to select resources based on an exact field value. For any given
      * value, the value can only be in one property. Depending on the field, either
      * all properties can be set or only a subset will be available.

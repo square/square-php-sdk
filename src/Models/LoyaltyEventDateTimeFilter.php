@@ -26,7 +26,6 @@ class LoyaltyEventDateTimeFilter implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -40,7 +39,6 @@ class LoyaltyEventDateTimeFilter implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.

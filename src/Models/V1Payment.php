@@ -166,7 +166,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The payment's unique identifier.
      */
     public function getId(): ?string
@@ -176,7 +175,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The payment's unique identifier.
      *
      * @maps id
@@ -188,7 +186,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Merchant Id.
-     *
      * The unique identifier of the merchant that took the payment.
      */
     public function getMerchantId(): ?string
@@ -198,7 +195,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Merchant Id.
-     *
      * The unique identifier of the merchant that took the payment.
      *
      * @maps merchant_id
@@ -210,7 +206,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the payment was created, in ISO 8601 format. Reflects the time of the first payment if
      * the object represents an incomplete partial payment, and the time of the last or complete payment
      * otherwise.
@@ -222,7 +217,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the payment was created, in ISO 8601 format. Reflects the time of the first payment if
      * the object represents an incomplete partial payment, and the time of the last or complete payment
      * otherwise.
@@ -236,7 +230,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Creator Id.
-     *
      * The unique identifier of the Square account that took the payment.
      */
     public function getCreatorId(): ?string
@@ -246,7 +239,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Creator Id.
-     *
      * The unique identifier of the Square account that took the payment.
      *
      * @maps creator_id
@@ -276,7 +268,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Payment Url.
-     *
      * The URL of the payment's detail page in the merchant dashboard. The merchant must be signed in to
      * the merchant dashboard to view this page.
      */
@@ -287,7 +278,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Payment Url.
-     *
      * The URL of the payment's detail page in the merchant dashboard. The merchant must be signed in to
      * the merchant dashboard to view this page.
      *
@@ -300,7 +290,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Receipt Url.
-     *
      * The URL of the receipt for the payment. Note that for split tender
      * payments, this URL corresponds to the receipt for the first tender
      * listed in the payment's tender field. Each Tender object has its own
@@ -314,7 +303,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Receipt Url.
-     *
      * The URL of the receipt for the payment. Note that for split tender
      * payments, this URL corresponds to the receipt for the first tender
      * listed in the payment's tender field. Each Tender object has its own
@@ -546,7 +534,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Inclusive Tax.
-     *
      * All of the inclusive taxes associated with the payment.
      *
      * @return V1PaymentTax[]|null
@@ -558,7 +545,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Inclusive Tax.
-     *
      * All of the inclusive taxes associated with the payment.
      *
      * @maps inclusive_tax
@@ -572,7 +558,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Additive Tax.
-     *
      * All of the additive taxes associated with the payment.
      *
      * @return V1PaymentTax[]|null
@@ -584,7 +569,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Additive Tax.
-     *
      * All of the additive taxes associated with the payment.
      *
      * @maps additive_tax
@@ -598,7 +582,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Tender.
-     *
      * All of the tenders associated with the payment.
      *
      * @return V1Tender[]|null
@@ -610,7 +593,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Tender.
-     *
      * All of the tenders associated with the payment.
      *
      * @maps tender
@@ -624,7 +606,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Refunds.
-     *
      * All of the refunds applied to the payment. Note that the value of all refunds on a payment can
      * exceed the value of all tenders if a merchant chooses to refund money to a tender after previously
      * accepting returned goods as part of an exchange.
@@ -638,7 +619,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Refunds.
-     *
      * All of the refunds applied to the payment. Note that the value of all refunds on a payment can
      * exceed the value of all tenders if a merchant chooses to refund money to a tender after previously
      * accepting returned goods as part of an exchange.
@@ -654,7 +634,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Itemizations.
-     *
      * The items purchased in the payment.
      *
      * @return V1PaymentItemization[]|null
@@ -666,7 +645,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Itemizations.
-     *
      * The items purchased in the payment.
      *
      * @maps itemizations
@@ -698,7 +676,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Surcharges.
-     *
      * A list of all surcharges associated with the payment.
      *
      * @return V1PaymentSurcharge[]|null
@@ -710,7 +687,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Surcharges.
-     *
      * A list of all surcharges associated with the payment.
      *
      * @maps surcharges
@@ -724,7 +700,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Returns Is Partial.
-     *
      * Indicates whether or not the payment is only partially paid for.
      * If true, this payment will have the tenders collected so far, but the
      * itemizations will be empty until the payment is completed.
@@ -736,7 +711,6 @@ class V1Payment implements \JsonSerializable
 
     /**
      * Sets Is Partial.
-     *
      * Indicates whether or not the payment is only partially paid for.
      * If true, this payment will have the tenders collected so far, but the
      * itemizations will be empty until the payment is completed.

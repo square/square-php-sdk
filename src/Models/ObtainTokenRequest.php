@@ -67,7 +67,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Client Id.
-     *
      * The Square-issued ID of your application, which is available in the OAuth page in the
      * [Developer Dashboard](https://developer.squareup.com/apps).
      */
@@ -78,7 +77,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Client Id.
-     *
      * The Square-issued ID of your application, which is available in the OAuth page in the
      * [Developer Dashboard](https://developer.squareup.com/apps).
      *
@@ -92,7 +90,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Client Secret.
-     *
      * The Square-issued application secret for your application, which is available in the OAuth page
      * in the [Developer Dashboard](https://developer.squareup.com/apps).
      */
@@ -103,7 +100,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Client Secret.
-     *
      * The Square-issued application secret for your application, which is available in the OAuth page
      * in the [Developer Dashboard](https://developer.squareup.com/apps).
      *
@@ -117,7 +113,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Code.
-     *
      * The authorization code to exchange.
      * This code is required if `grant_type` is set to `authorization_code` to indicate that
      * the application wants to exchange an authorization code for an OAuth access token.
@@ -129,7 +124,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Code.
-     *
      * The authorization code to exchange.
      * This code is required if `grant_type` is set to `authorization_code` to indicate that
      * the application wants to exchange an authorization code for an OAuth access token.
@@ -143,7 +137,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Redirect Uri.
-     *
      * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
      * //developer.squareup.com/apps).
      */
@@ -154,7 +147,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Redirect Uri.
-     *
      * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
      * //developer.squareup.com/apps).
      *
@@ -167,7 +159,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Grant Type.
-     *
      * Specifies the method to request an OAuth access token.
      * Valid values are `authorization_code`, `refresh_token`, and `migration_token`.
      */
@@ -178,7 +169,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Grant Type.
-     *
      * Specifies the method to request an OAuth access token.
      * Valid values are `authorization_code`, `refresh_token`, and `migration_token`.
      *
@@ -192,7 +182,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Refresh Token.
-     *
      * A valid refresh token for generating a new OAuth access token.
      *
      * A valid refresh token is required if `grant_type` is set to `refresh_token`
@@ -205,7 +194,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Refresh Token.
-     *
      * A valid refresh token for generating a new OAuth access token.
      *
      * A valid refresh token is required if `grant_type` is set to `refresh_token`
@@ -220,7 +208,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Migration Token.
-     *
      * A legacy OAuth access token obtained using a Connect API version prior
      * to 2019-03-13. This parameter is required if `grant_type` is set to
      * `migration_token` to indicate that the application wants to get a replacement
@@ -235,7 +222,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Migration Token.
-     *
      * A legacy OAuth access token obtained using a Connect API version prior
      * to 2019-03-13. This parameter is required if `grant_type` is set to
      * `migration_token` to indicate that the application wants to get a replacement
@@ -252,7 +238,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Scopes.
-     *
      * A JSON list of strings representing the permissions that the application is requesting.
      * For example, "`["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]`".
      *
@@ -269,7 +254,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Scopes.
-     *
      * A JSON list of strings representing the permissions that the application is requesting.
      * For example, "`["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]`".
      *
@@ -288,7 +272,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Short Lived.
-     *
      * A Boolean indicating a request for a short-lived access token.
      *
      * The short-lived access token returned in the response expires in 24 hours.
@@ -300,7 +283,6 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Short Lived.
-     *
      * A Boolean indicating a request for a short-lived access token.
      *
      * The short-lived access token returned in the response expires in 24 hours.

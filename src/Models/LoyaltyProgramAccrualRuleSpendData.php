@@ -43,7 +43,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -59,7 +58,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -78,7 +76,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Returns Excluded Category Ids.
-     *
      * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
      *
      * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
@@ -93,7 +90,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Sets Excluded Category Ids.
-     *
      * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
      *
      * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
@@ -110,7 +106,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Returns Excluded Item Variation Ids.
-     *
      * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
      *
      * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
@@ -125,7 +120,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Sets Excluded Item Variation Ids.
-     *
      * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
      *
      * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
@@ -142,7 +136,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Returns Tax Mode.
-     *
      * Indicates how taxes should be treated when calculating the purchase amount used for loyalty points
      * accrual.
      * This setting applies only to `SPEND` accrual rules or `VISIT` accrual rules that have a minimum
@@ -155,7 +148,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
 
     /**
      * Sets Tax Mode.
-     *
      * Indicates how taxes should be treated when calculating the purchase amount used for loyalty points
      * accrual.
      * This setting applies only to `SPEND` accrual rules or `VISIT` accrual rules that have a minimum

@@ -39,7 +39,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Pause Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the scheduled `PAUSE` action takes place on the subscription.
      *
      * When this date is unspecified or falls within the current billing cycle, the subscription is paused
@@ -52,7 +51,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Pause Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the scheduled `PAUSE` action takes place on the subscription.
      *
      * When this date is unspecified or falls within the current billing cycle, the subscription is paused
@@ -67,7 +65,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Pause Cycle Duration.
-     *
      * The number of billing cycles the subscription will be paused before it is reactivated.
      *
      * When this is set, a `RESUME` action is also scheduled to take place on the subscription at
@@ -81,7 +78,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Pause Cycle Duration.
-     *
      * The number of billing cycles the subscription will be paused before it is reactivated.
      *
      * When this is set, a `RESUME` action is also scheduled to take place on the subscription at
@@ -97,7 +93,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Resume Effective Date.
-     *
      * The date when the subscription is reactivated by a scheduled `RESUME` action.
      * This date must be at least one billing cycle ahead of `pause_effective_date`.
      */
@@ -108,7 +103,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Resume Effective Date.
-     *
      * The date when the subscription is reactivated by a scheduled `RESUME` action.
      * This date must be at least one billing cycle ahead of `pause_effective_date`.
      *
@@ -121,7 +115,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Resume Change Timing.
-     *
      * Supported timings when a pending change, as an action, takes place to a subscription.
      */
     public function getResumeChangeTiming(): ?string
@@ -131,7 +124,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Resume Change Timing.
-     *
      * Supported timings when a pending change, as an action, takes place to a subscription.
      *
      * @maps resume_change_timing
@@ -143,7 +135,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Pause Reason.
-     *
      * The user-provided reason to pause the subscription.
      */
     public function getPauseReason(): ?string
@@ -153,7 +144,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Pause Reason.
-     *
      * The user-provided reason to pause the subscription.
      *
      * @maps pause_reason

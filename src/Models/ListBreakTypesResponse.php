@@ -30,7 +30,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Returns Break Types.
-     *
      * A page of `BreakType` results.
      *
      * @return BreakType[]|null
@@ -42,7 +41,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Sets Break Types.
-     *
      * A page of `BreakType` results.
      *
      * @maps break_types
@@ -56,7 +54,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `BreakType` results.
      */
@@ -67,7 +64,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `BreakType` results.
      *
@@ -80,7 +76,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -92,7 +87,6 @@ class ListBreakTypesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

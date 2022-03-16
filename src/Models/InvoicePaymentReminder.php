@@ -40,7 +40,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A Square-assigned ID that uniquely identifies the reminder within the
      * `InvoicePaymentRequest`.
      */
@@ -51,7 +50,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A Square-assigned ID that uniquely identifies the reminder within the
      * `InvoicePaymentRequest`.
      *
@@ -64,7 +62,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Returns Relative Scheduled Days.
-     *
      * The number of days before (a negative number) or after (a positive number)
      * the payment request `due_date` when the reminder is sent. For example, -3 indicates that
      * the reminder should be sent 3 days before the payment request `due_date`.
@@ -76,7 +73,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Sets Relative Scheduled Days.
-     *
      * The number of days before (a negative number) or after (a positive number)
      * the payment request `due_date` when the reminder is sent. For example, -3 indicates that
      * the reminder should be sent 3 days before the payment request `due_date`.
@@ -90,7 +86,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Returns Message.
-     *
      * The reminder message.
      */
     public function getMessage(): ?string
@@ -100,7 +95,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Sets Message.
-     *
      * The reminder message.
      *
      * @maps message
@@ -112,7 +106,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of a payment request reminder.
      */
     public function getStatus(): ?string
@@ -122,7 +115,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of a payment request reminder.
      *
      * @maps status
@@ -134,7 +126,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Returns Sent At.
-     *
      * If sent, the timestamp when the reminder was sent, in RFC 3339 format.
      */
     public function getSentAt(): ?string
@@ -144,7 +135,6 @@ class InvoicePaymentReminder implements \JsonSerializable
 
     /**
      * Sets Sent At.
-     *
      * If sent, the timestamp when the reminder was sent, in RFC 3339 format.
      *
      * @maps sent_at

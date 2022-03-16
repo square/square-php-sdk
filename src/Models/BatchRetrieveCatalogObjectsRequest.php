@@ -33,7 +33,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Object Ids.
-     *
      * The IDs of the CatalogObjects to be retrieved.
      *
      * @return string[]
@@ -45,7 +44,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Object Ids.
-     *
      * The IDs of the CatalogObjects to be retrieved.
      *
      * @required
@@ -60,7 +58,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are defined as any objects referenced by ID by the results in the
      * `objects` field
@@ -85,7 +82,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are defined as any objects referenced by ID by the results in the
      * `objects` field
@@ -112,7 +108,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The specific version of the catalog objects to be included in the response.
      * This allows you to retrieve historical versions of objects. The specified version value is matched
      * against
@@ -126,7 +121,6 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The specific version of the catalog objects to be included in the response.
      * This allows you to retrieve historical versions of objects. The specified version value is matched
      * against

@@ -25,7 +25,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Refunds.
-     *
      * The requested search result of `TerminalRefund` objects.
      *
      * @return TerminalRefund[]|null
@@ -63,7 +60,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Refunds.
-     *
      * The requested search result of `TerminalRefund` objects.
      *
      * @maps refunds
@@ -77,7 +73,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
@@ -90,7 +85,6 @@ class SearchTerminalRefundsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *

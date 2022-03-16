@@ -43,7 +43,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -55,7 +54,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -69,7 +67,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The merchant-defined name of the tax.
      */
     public function getName(): ?string
@@ -79,7 +76,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The merchant-defined name of the tax.
      *
      * @maps name
@@ -109,7 +105,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Returns Rate.
-     *
      * The rate of the tax, as a string representation of a decimal number. A value of 0.07 corresponds to
      * a rate of 7%.
      */
@@ -120,7 +115,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Sets Rate.
-     *
      * The rate of the tax, as a string representation of a decimal number. A value of 0.07 corresponds to
      * a rate of 7%.
      *
@@ -151,7 +145,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Returns Fee Id.
-     *
      * The ID of the tax, if available. Taxes applied in older versions of Square Register might not have
      * an ID.
      */
@@ -162,7 +155,6 @@ class V1PaymentTax implements \JsonSerializable
 
     /**
      * Sets Fee Id.
-     *
      * The ID of the tax, if available. Taxes applied in older versions of Square Register might not have
      * an ID.
      *

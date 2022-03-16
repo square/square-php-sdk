@@ -37,7 +37,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this request among requests you have sent. If
      * you are unsure whether a particular payment request was completed successfully, you can reattempt
      * it with the same idempotency key without worrying about duplicate payments.
@@ -52,7 +51,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this request among requests you have sent. If
      * you are unsure whether a particular payment request was completed successfully, you can reattempt
      * it with the same idempotency key without worrying about duplicate payments.
@@ -70,7 +68,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Returns Order Version.
-     *
      * The version of the order being paid. If not supplied, the latest version will be paid.
      */
     public function getOrderVersion(): ?int
@@ -80,7 +77,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Sets Order Version.
-     *
      * The version of the order being paid. If not supplied, the latest version will be paid.
      *
      * @maps order_version
@@ -92,7 +88,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Returns Payment Ids.
-     *
      * The IDs of the [payments]($m/Payment) to collect.
      * The payment total must match the order total.
      *
@@ -105,7 +100,6 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Sets Payment Ids.
-     *
      * The IDs of the [payments]($m/Payment) to collect.
      * The payment total must match the order total.
      *

@@ -26,7 +26,6 @@ class BulkCreateVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Vendors.
-     *
      * Specifies a set of new [Vendor](entity:Vendor] objects as represented by a collection of idempotency-
      * key/`Vendor`-object pairs.
      *
@@ -39,7 +38,6 @@ class BulkCreateVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Vendors.
-     *
      * Specifies a set of new [Vendor](entity:Vendor] objects as represented by a collection of idempotency-
      * key/`Vendor`-object pairs.
      *

@@ -29,7 +29,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The ID of the order.
      */
     public function getOrderId(): ?string
@@ -39,7 +38,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The ID of the order.
      *
      * @maps order_id
@@ -51,7 +49,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -66,7 +63,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders that were not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -83,7 +79,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The location ID the order belongs to.
      */
     public function getLocationId(): ?string
@@ -93,7 +88,6 @@ class OrderEntry implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The location ID the order belongs to.
      *
      * @maps location_id

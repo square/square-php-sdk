@@ -25,7 +25,6 @@ class CustomerTextFilter implements \JsonSerializable
 
     /**
      * Returns Exact.
-     *
      * Use the exact filter to select customers whose attributes match exactly the specified query.
      */
     public function getExact(): ?string
@@ -35,7 +34,6 @@ class CustomerTextFilter implements \JsonSerializable
 
     /**
      * Sets Exact.
-     *
      * Use the exact filter to select customers whose attributes match exactly the specified query.
      *
      * @maps exact
@@ -47,7 +45,6 @@ class CustomerTextFilter implements \JsonSerializable
 
     /**
      * Returns Fuzzy.
-     *
      * Use the fuzzy filter to select customers whose attributes match the specified query
      * in a fuzzy manner. When the fuzzy option is used, search queries are tokenized, and then
      * each query token must be matched somewhere in the searched attribute. For single token queries,
@@ -60,7 +57,6 @@ class CustomerTextFilter implements \JsonSerializable
 
     /**
      * Sets Fuzzy.
-     *
      * Use the fuzzy filter to select customers whose attributes match the specified query
      * in a fuzzy manner. When the fuzzy option is used, search queries are tokenized, and then
      * each query token must be matched somewhere in the searched attribute. For single token queries,

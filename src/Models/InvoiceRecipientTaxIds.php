@@ -21,7 +21,6 @@ class InvoiceRecipientTaxIds implements \JsonSerializable
 
     /**
      * Returns Eu Vat.
-     *
      * The EU VAT identification number for the invoice recipient. For example, `IE3426675K`.
      */
     public function getEuVat(): ?string
@@ -31,7 +30,6 @@ class InvoiceRecipientTaxIds implements \JsonSerializable
 
     /**
      * Sets Eu Vat.
-     *
      * The EU VAT identification number for the invoice recipient. For example, `IE3426675K`.
      *
      * @maps eu_vat

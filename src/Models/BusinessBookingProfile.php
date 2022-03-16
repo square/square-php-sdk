@@ -45,7 +45,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Seller Id.
-     *
      * The ID of the seller, obtainable using the Merchants API.
      */
     public function getSellerId(): ?string
@@ -55,7 +54,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Seller Id.
-     *
      * The ID of the seller, obtainable using the Merchants API.
      *
      * @maps seller_id
@@ -67,7 +65,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The RFC 3339 timestamp specifying the booking's creation time.
      */
     public function getCreatedAt(): ?string
@@ -77,7 +74,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The RFC 3339 timestamp specifying the booking's creation time.
      *
      * @maps created_at
@@ -89,7 +85,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Booking Enabled.
-     *
      * Indicates whether the seller is open for booking.
      */
     public function getBookingEnabled(): ?bool
@@ -99,7 +94,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Booking Enabled.
-     *
      * Indicates whether the seller is open for booking.
      *
      * @maps booking_enabled
@@ -111,7 +105,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Customer Timezone Choice.
-     *
      * Choices of customer-facing time zone used for bookings.
      */
     public function getCustomerTimezoneChoice(): ?string
@@ -121,7 +114,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Customer Timezone Choice.
-     *
      * Choices of customer-facing time zone used for bookings.
      *
      * @maps customer_timezone_choice
@@ -133,7 +125,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Booking Policy.
-     *
      * Policies for accepting bookings.
      */
     public function getBookingPolicy(): ?string
@@ -143,7 +134,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Booking Policy.
-     *
      * Policies for accepting bookings.
      *
      * @maps booking_policy
@@ -155,7 +145,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Allow User Cancel.
-     *
      * Indicates whether customers can cancel or reschedule their own bookings (`true`) or not (`false`).
      */
     public function getAllowUserCancel(): ?bool
@@ -165,7 +154,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Allow User Cancel.
-     *
      * Indicates whether customers can cancel or reschedule their own bookings (`true`) or not (`false`).
      *
      * @maps allow_user_cancel
@@ -177,7 +165,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Returns Business Appointment Settings.
-     *
      * The service appointment settings, including where and how the service is provided.
      */
     public function getBusinessAppointmentSettings(): ?BusinessAppointmentSettings
@@ -187,7 +174,6 @@ class BusinessBookingProfile implements \JsonSerializable
 
     /**
      * Sets Business Appointment Settings.
-     *
      * The service appointment settings, including where and how the service is provided.
      *
      * @maps business_appointment_settings

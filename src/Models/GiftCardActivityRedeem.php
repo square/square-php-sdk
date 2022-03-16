@@ -36,7 +36,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -52,7 +51,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -71,7 +69,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * When the Square Payments API is used, Redeem is not called on the Gift Cards API.
      * However, when Square reads a Redeem activity from the Gift Cards API, developers need to know the
      * associated `payment_id`.
@@ -83,7 +80,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * When the Square Payments API is used, Redeem is not called on the Gift Cards API.
      * However, when Square reads a Redeem activity from the Gift Cards API, developers need to know the
      * associated `payment_id`.
@@ -97,7 +93,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square Orders
      * API is not being used.
@@ -109,7 +104,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A client-specified ID to associate an entity, in another system, with this gift card
      * activity. This can be used to track the order or payment related information when the Square Orders
      * API is not being used.

@@ -23,7 +23,6 @@ class CreateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateTeamMember` request.
      * Keys can be any valid string, but must be unique for every request.
      * For more information, see [Idempotency](https://developer.squareup.
@@ -38,7 +37,6 @@ class CreateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateTeamMember` request.
      * Keys can be any valid string, but must be unique for every request.
      * For more information, see [Idempotency](https://developer.squareup.
@@ -55,7 +53,6 @@ class CreateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Returns Team Member.
-     *
      * A record representing an individual team member for a business.
      */
     public function getTeamMember(): ?TeamMember
@@ -65,7 +62,6 @@ class CreateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Sets Team Member.
-     *
      * A record representing an individual team member for a business.
      *
      * @maps team_member

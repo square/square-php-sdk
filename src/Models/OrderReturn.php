@@ -54,7 +54,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the return only within this order.
      */
     public function getUid(): ?string
@@ -64,7 +63,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the return only within this order.
      *
      * @maps uid
@@ -76,7 +74,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Source Order Id.
-     *
      * An order that contains the original sale of these return line items. This is unset
      * for unlinked returns.
      */
@@ -87,7 +84,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Source Order Id.
-     *
      * An order that contains the original sale of these return line items. This is unset
      * for unlinked returns.
      *
@@ -100,7 +96,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Return Line Items.
-     *
      * A collection of line items that are being returned.
      *
      * @return OrderReturnLineItem[]|null
@@ -112,7 +107,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Return Line Items.
-     *
      * A collection of line items that are being returned.
      *
      * @maps return_line_items
@@ -126,7 +120,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Return Service Charges.
-     *
      * A collection of service charges that are being returned.
      *
      * @return OrderReturnServiceCharge[]|null
@@ -138,7 +131,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Return Service Charges.
-     *
      * A collection of service charges that are being returned.
      *
      * @maps return_service_charges
@@ -152,7 +144,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Return Taxes.
-     *
      * A collection of references to taxes being returned for an order, including the total
      * applied tax amount to be returned. The taxes must reference a top-level tax ID from the source
      * order.
@@ -166,7 +157,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Return Taxes.
-     *
      * A collection of references to taxes being returned for an order, including the total
      * applied tax amount to be returned. The taxes must reference a top-level tax ID from the source
      * order.
@@ -182,7 +172,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Return Discounts.
-     *
      * A collection of references to discounts being returned for an order, including the total
      * applied discount amount to be returned. The discounts must reference a top-level discount ID
      * from the source order.
@@ -196,7 +185,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Return Discounts.
-     *
      * A collection of references to discounts being returned for an order, including the total
      * applied discount amount to be returned. The discounts must reference a top-level discount ID
      * from the source order.
@@ -212,7 +200,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Rounding Adjustment.
-     *
      * A rounding adjustment of the money being returned. Commonly used to apply cash rounding
      * when the minimum unit of the account is smaller than the lowest physical denomination of the
      * currency.
@@ -224,7 +211,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Rounding Adjustment.
-     *
      * A rounding adjustment of the money being returned. Commonly used to apply cash rounding
      * when the minimum unit of the account is smaller than the lowest physical denomination of the
      * currency.
@@ -238,7 +224,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Returns Return Amounts.
-     *
      * A collection of various money amounts.
      */
     public function getReturnAmounts(): ?OrderMoneyAmounts
@@ -248,7 +233,6 @@ class OrderReturn implements \JsonSerializable
 
     /**
      * Sets Return Amounts.
-     *
      * A collection of various money amounts.
      *
      * @maps return_amounts

@@ -102,7 +102,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the subscription.
      */
     public function getId(): ?string
@@ -112,7 +111,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the subscription.
      *
      * @maps id
@@ -124,7 +122,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location associated with the subscription.
      */
     public function getLocationId(): ?string
@@ -134,7 +131,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location associated with the subscription.
      *
      * @maps location_id
@@ -146,7 +142,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     *
      * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
      */
     public function getPlanId(): ?string
@@ -156,7 +151,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     *
      * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
      *
      * @maps plan_id
@@ -168,7 +162,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the subscribing [customer]($m/Customer) profile.
      */
     public function getCustomerId(): ?string
@@ -178,7 +171,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the subscribing [customer]($m/Customer) profile.
      *
      * @maps customer_id
@@ -190,7 +182,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Start Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to start the subscription.
      */
     public function getStartDate(): ?string
@@ -200,7 +191,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Start Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to start the subscription.
      *
      * @maps start_date
@@ -212,7 +202,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Canceled Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to cancel the subscription,
      * when the subscription status changes to `CANCELED` and the subscription billing stops.
      *
@@ -227,7 +216,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Canceled Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to cancel the subscription,
      * when the subscription status changes to `CANCELED` and the subscription billing stops.
      *
@@ -244,7 +232,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Charged Through Date.
-     *
      * The `YYYY-MM-DD`-formatted date up to when the subscriber is invoiced for the
      * subscription.
      *
@@ -262,7 +249,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Charged Through Date.
-     *
      * The `YYYY-MM-DD`-formatted date up to when the subscriber is invoiced for the
      * subscription.
      *
@@ -282,7 +268,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Supported subscription statuses.
      */
     public function getStatus(): ?string
@@ -292,7 +277,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Supported subscription statuses.
      *
      * @maps status
@@ -304,7 +288,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Tax Percentage.
-     *
      * The tax amount applied when billing the subscription. The
      * percentage is expressed in decimal form, using a `'.'` as the decimal
      * separator and without a `'%'` sign. For example, a value of `7.5`
@@ -317,7 +300,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Tax Percentage.
-     *
      * The tax amount applied when billing the subscription. The
      * percentage is expressed in decimal form, using a `'.'` as the decimal
      * separator and without a `'%'` sign. For example, a value of `7.5`
@@ -332,7 +314,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Invoice Ids.
-     *
      * The IDs of the [invoices]($m/Invoice) created for the
      * subscription, listed in order when the invoices were created
      * (oldest invoices appear first).
@@ -346,7 +327,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Invoice Ids.
-     *
      * The IDs of the [invoices]($m/Invoice) created for the
      * subscription, listed in order when the invoices were created
      * (oldest invoices appear first).
@@ -362,7 +342,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Price Override Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -378,7 +357,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Price Override Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -396,7 +374,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version of the object. When updating an object, the version
      * supplied must match the version in the database, otherwise the write will
      * be rejected as conflicting.
@@ -408,7 +385,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version of the object. When updating an object, the version
      * supplied must match the version in the database, otherwise the write will
      * be rejected as conflicting.
@@ -422,7 +398,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the subscription was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -432,7 +407,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the subscription was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -444,7 +418,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Card Id.
-     *
      * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
      * used to charge for the subscription.
      */
@@ -455,7 +428,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Card Id.
-     *
      * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
      * used to charge for the subscription.
      *
@@ -468,7 +440,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Timezone.
-     *
      * Timezone that will be used in date calculations for the subscription.
      * Defaults to the timezone of the location based on `location_id`.
      * Format: the IANA Timezone Database identifier for the location timezone (for example,
@@ -481,7 +452,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Timezone.
-     *
      * Timezone that will be used in date calculations for the subscription.
      * Defaults to the timezone of the location based on `location_id`.
      * Format: the IANA Timezone Database identifier for the location timezone (for example,
@@ -496,7 +466,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Source.
-     *
      * The origination details of the subscription.
      */
     public function getSource(): ?SubscriptionSource
@@ -506,7 +475,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Source.
-     *
      * The origination details of the subscription.
      *
      * @maps source
@@ -518,7 +486,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Actions.
-     *
      * The list of scheduled actions on this subscription. It is set only in the response from
      * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) with the query parameter
      * of `include=actions` or from
@@ -534,7 +501,6 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Actions.
-     *
      * The list of scheduled actions on this subscription. It is set only in the response from
      * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) with the query parameter
      * of `include=actions` or from

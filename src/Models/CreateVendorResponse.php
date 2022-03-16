@@ -23,7 +23,6 @@ class CreateVendorResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class CreateVendorResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class CreateVendorResponse implements \JsonSerializable
 
     /**
      * Returns Vendor.
-     *
      * Represents a supplier to a seller.
      */
     public function getVendor(): ?Vendor
@@ -59,7 +56,6 @@ class CreateVendorResponse implements \JsonSerializable
 
     /**
      * Sets Vendor.
-     *
      * Represents a supplier to a seller.
      *
      * @maps vendor

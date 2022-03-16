@@ -40,7 +40,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getOrder(): ?string
@@ -50,7 +49,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
@@ -62,7 +60,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The beginning of the requested reporting period, in ISO 8601 format. If this value is before January
      * 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time
      * minus one year.
@@ -74,7 +71,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The beginning of the requested reporting period, in ISO 8601 format. If this value is before January
      * 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time
      * minus one year.
@@ -88,7 +84,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The end of the requested reporting period, in ISO 8601 format. If this value is more than one year
      * greater than begin_time, this endpoint returns an error. Default value: The current time.
      */
@@ -99,7 +94,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The end of the requested reporting period, in ISO 8601 format. If this value is more than one year
      * greater than begin_time, this endpoint returns an error. Default value: The current time.
      *
@@ -112,7 +106,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of settlements to return in a single response. This value cannot exceed 200.
      */
     public function getLimit(): ?int
@@ -122,7 +115,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of settlements to return in a single response. This value cannot exceed 200.
      *
      * @maps limit
@@ -152,7 +144,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Returns Batch Token.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint.
      */
@@ -163,7 +154,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
 
     /**
      * Sets Batch Token.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint.
      *

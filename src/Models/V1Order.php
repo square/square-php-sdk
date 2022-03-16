@@ -138,7 +138,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -150,7 +149,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -164,7 +162,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The order's unique identifier.
      */
     public function getId(): ?string
@@ -174,7 +171,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The order's unique identifier.
      *
      * @maps id
@@ -186,7 +182,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Buyer Email.
-     *
      * The email address of the order's buyer.
      */
     public function getBuyerEmail(): ?string
@@ -196,7 +191,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Buyer Email.
-     *
      * The email address of the order's buyer.
      *
      * @maps buyer_email
@@ -208,7 +202,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Recipient Name.
-     *
      * The name of the order's buyer.
      */
     public function getRecipientName(): ?string
@@ -218,7 +211,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Recipient Name.
-     *
      * The name of the order's buyer.
      *
      * @maps recipient_name
@@ -230,7 +222,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Recipient Phone Number.
-     *
      * The phone number to use for the order's delivery.
      */
     public function getRecipientPhoneNumber(): ?string
@@ -240,7 +231,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Recipient Phone Number.
-     *
      * The phone number to use for the order's delivery.
      *
      * @maps recipient_phone_number
@@ -270,7 +260,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -282,7 +271,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Shipping Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -386,7 +374,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the order was created, in ISO 8601 format.
      */
     public function getCreatedAt(): ?string
@@ -396,7 +383,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the order was created, in ISO 8601 format.
      *
      * @maps created_at
@@ -408,7 +394,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The time when the order was last modified, in ISO 8601 format.
      */
     public function getUpdatedAt(): ?string
@@ -418,7 +403,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The time when the order was last modified, in ISO 8601 format.
      *
      * @maps updated_at
@@ -430,7 +414,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     *
      * The time when the order expires if no action is taken, in ISO 8601 format.
      */
     public function getExpiresAt(): ?string
@@ -440,7 +423,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     *
      * The time when the order expires if no action is taken, in ISO 8601 format.
      *
      * @maps expires_at
@@ -452,7 +434,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * The unique identifier of the payment associated with the order.
      */
     public function getPaymentId(): ?string
@@ -462,7 +443,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * The unique identifier of the payment associated with the order.
      *
      * @maps payment_id
@@ -474,7 +454,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Buyer Note.
-     *
      * A note provided by the buyer when the order was created, if any.
      */
     public function getBuyerNote(): ?string
@@ -484,7 +463,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Buyer Note.
-     *
      * A note provided by the buyer when the order was created, if any.
      *
      * @maps buyer_note
@@ -496,7 +474,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Completed Note.
-     *
      * A note provided by the merchant when the order's state was set to COMPLETED, if any
      */
     public function getCompletedNote(): ?string
@@ -506,7 +483,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Completed Note.
-     *
      * A note provided by the merchant when the order's state was set to COMPLETED, if any
      *
      * @maps completed_note
@@ -518,7 +494,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Refunded Note.
-     *
      * A note provided by the merchant when the order's state was set to REFUNDED, if any.
      */
     public function getRefundedNote(): ?string
@@ -528,7 +503,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Refunded Note.
-     *
      * A note provided by the merchant when the order's state was set to REFUNDED, if any.
      *
      * @maps refunded_note
@@ -540,7 +514,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Canceled Note.
-     *
      * A note provided by the merchant when the order's state was set to CANCELED, if any.
      */
     public function getCanceledNote(): ?string
@@ -550,7 +523,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Canceled Note.
-     *
      * A note provided by the merchant when the order's state was set to CANCELED, if any.
      *
      * @maps canceled_note
@@ -562,7 +534,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Tender.
-     *
      * A tender represents a discrete monetary exchange. Square represents this
      * exchange as a money object with a specific currency and amount, where the
      * amount is given in the smallest denomination of the given currency.
@@ -593,7 +564,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Tender.
-     *
      * A tender represents a discrete monetary exchange. Square represents this
      * exchange as a money object with a specific currency and amount, where the
      * amount is given in the smallest denomination of the given currency.
@@ -626,7 +596,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Order History.
-     *
      * The history of actions associated with the order.
      *
      * @return V1OrderHistoryEntry[]|null
@@ -638,7 +607,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Order History.
-     *
      * The history of actions associated with the order.
      *
      * @maps order_history
@@ -652,7 +620,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Promo Code.
-     *
      * The promo code provided by the buyer, if any.
      */
     public function getPromoCode(): ?string
@@ -662,7 +629,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Promo Code.
-     *
      * The promo code provided by the buyer, if any.
      *
      * @maps promo_code
@@ -674,7 +640,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Btc Receive Address.
-     *
      * For Bitcoin transactions, the address that the buyer sent Bitcoin to.
      */
     public function getBtcReceiveAddress(): ?string
@@ -684,7 +649,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Btc Receive Address.
-     *
      * For Bitcoin transactions, the address that the buyer sent Bitcoin to.
      *
      * @maps btc_receive_address
@@ -696,7 +660,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Returns Btc Price Satoshi.
-     *
      * For Bitcoin transactions, the price of the buyer's order in satoshi (100 million satoshi equals 1
      * BTC).
      */
@@ -707,7 +670,6 @@ class V1Order implements \JsonSerializable
 
     /**
      * Sets Btc Price Satoshi.
-     *
      * For Bitcoin transactions, the price of the buyer's order in satoshi (100 million satoshi equals 1
      * BTC).
      *

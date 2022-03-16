@@ -39,7 +39,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The ID of the [TeamMember]($m/TeamMember) object for the team member associated with the booking
      * profile.
      */
@@ -50,7 +49,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The ID of the [TeamMember]($m/TeamMember) object for the team member associated with the booking
      * profile.
      *
@@ -63,7 +61,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The description of the team member.
      */
     public function getDescription(): ?string
@@ -73,7 +70,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The description of the team member.
      *
      * @maps description
@@ -85,7 +81,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Returns Display Name.
-     *
      * The display name of the team member.
      */
     public function getDisplayName(): ?string
@@ -95,7 +90,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Sets Display Name.
-     *
      * The display name of the team member.
      *
      * @maps display_name
@@ -107,7 +101,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Returns Is Bookable.
-     *
      * Indicates whether the team member can be booked through the Bookings API or the seller's online
      * booking channel or site (`true) or not (`false`).
      */
@@ -118,7 +111,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Sets Is Bookable.
-     *
      * Indicates whether the team member can be booked through the Bookings API or the seller's online
      * booking channel or site (`true) or not (`false`).
      *
@@ -131,7 +123,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Returns Profile Image Url.
-     *
      * The URL of the team member's image for the bookings profile.
      */
     public function getProfileImageUrl(): ?string
@@ -141,7 +132,6 @@ class TeamMemberBookingProfile implements \JsonSerializable
 
     /**
      * Sets Profile Image Url.
-     *
      * The URL of the team member's image for the bookings profile.
      *
      * @maps profile_image_url

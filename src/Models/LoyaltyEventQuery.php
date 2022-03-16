@@ -18,7 +18,6 @@ class LoyaltyEventQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * The filtering criteria. If the request specifies multiple filters,
      * the endpoint uses a logical AND to evaluate them.
      */
@@ -29,7 +28,6 @@ class LoyaltyEventQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * The filtering criteria. If the request specifies multiple filters,
      * the endpoint uses a logical AND to evaluate them.
      *

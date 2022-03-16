@@ -29,7 +29,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered during the request.
      *
      * @return Error[]|null
@@ -41,7 +40,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered during the request.
      *
      * @maps errors
@@ -55,7 +53,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see
@@ -69,7 +66,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see
@@ -85,7 +81,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Actions.
-     *
      * The list of a `PAUSE` action and a possible `RESUME` action created by the request.
      *
      * @return SubscriptionAction[]|null
@@ -97,7 +92,6 @@ class PauseSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Actions.
-     *
      * The list of a `PAUSE` action and a possible `RESUME` action created by the request.
      *
      * @maps actions

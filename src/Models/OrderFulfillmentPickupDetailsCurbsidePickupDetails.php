@@ -23,7 +23,6 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
 
     /**
      * Returns Curbside Details.
-     *
      * Specific details for curbside pickup, such as parking number and vehicle model.
      */
     public function getCurbsideDetails(): ?string
@@ -33,7 +32,6 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
 
     /**
      * Sets Curbside Details.
-     *
      * Specific details for curbside pickup, such as parking number and vehicle model.
      *
      * @maps curbside_details
@@ -45,7 +43,6 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
 
     /**
      * Returns Buyer Arrived At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the buyer arrived and is waiting for pickup. The timestamp must be in RFC 3339
      * format
@@ -58,7 +55,6 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
 
     /**
      * Sets Buyer Arrived At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the buyer arrived and is waiting for pickup. The timestamp must be in RFC 3339
      * format

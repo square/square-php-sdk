@@ -56,7 +56,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The timestamp for the beginning of the requested reporting period, in RFC 3339 format.
      *
      * Default: The current time minus one year.
@@ -68,7 +67,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The timestamp for the beginning of the requested reporting period, in RFC 3339 format.
      *
      * Default: The current time minus one year.
@@ -82,7 +80,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The timestamp for the end of the requested reporting period, in RFC 3339 format.
      *
      * Default: The current time.
@@ -94,7 +91,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The timestamp for the end of the requested reporting period, in RFC 3339 format.
      *
      * Default: The current time.
@@ -108,7 +104,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order in which results are listed:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
@@ -120,7 +115,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order in which results are listed:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
@@ -134,7 +128,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
@@ -147,7 +140,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
@@ -162,7 +154,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * Limit results to the location supplied. By default, results are returned
      * for all locations associated with the seller.
      */
@@ -173,7 +164,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * Limit results to the location supplied. By default, results are returned
      * for all locations associated with the seller.
      *
@@ -186,7 +176,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * If provided, only refunds with the given status are returned.
      * For a list of refund status values, see [PaymentRefund]($m/PaymentRefund).
      *
@@ -199,7 +188,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * If provided, only refunds with the given status are returned.
      * For a list of refund status values, see [PaymentRefund]($m/PaymentRefund).
      *
@@ -214,7 +202,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Source Type.
-     *
      * If provided, only returns refunds whose payments have the indicated source type.
      * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
      * For information about these payment source types, see
@@ -229,7 +216,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Source Type.
-     *
      * If provided, only returns refunds whose payments have the indicated source type.
      * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
      * For information about these payment source types, see
@@ -246,7 +232,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to be returned in a single page.
      *
      * It is possible to receive fewer results than the specified limit on a given page.
@@ -262,7 +247,6 @@ class ListPaymentRefundsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to be returned in a single page.
      *
      * It is possible to receive fewer results than the specified limit on a given page.

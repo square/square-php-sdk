@@ -47,7 +47,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID for the snippet.
      */
     public function getId(): ?string
@@ -57,7 +56,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID for the snippet.
      *
      * @maps id
@@ -69,7 +67,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Returns Site Id.
-     *
      * The ID of the site that contains the snippet.
      */
     public function getSiteId(): ?string
@@ -79,7 +76,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Sets Site Id.
-     *
      * The ID of the site that contains the snippet.
      *
      * @maps site_id
@@ -91,7 +87,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Returns Content.
-     *
      * The snippet code, which can contain valid HTML, JavaScript, or both.
      */
     public function getContent(): string
@@ -101,7 +96,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Sets Content.
-     *
      * The snippet code, which can contain valid HTML, JavaScript, or both.
      *
      * @required
@@ -114,7 +108,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp of when the snippet was initially added to the site, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -124,7 +117,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp of when the snippet was initially added to the site, in RFC 3339 format.
      *
      * @maps created_at
@@ -136,7 +128,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp of when the snippet was last updated on the site, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -146,7 +137,6 @@ class Snippet implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp of when the snippet was last updated on the site, in RFC 3339 format.
      *
      * @maps updated_at

@@ -31,7 +31,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Returns Segments.
-     *
      * The list of customer segments belonging to the associated Square account.
      *
      * @return CustomerSegment[]|null
@@ -69,7 +66,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Sets Segments.
-     *
      * The list of customer segments belonging to the associated Square account.
      *
      * @maps segments
@@ -83,7 +79,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor to be used in subsequent calls to `ListCustomerSegments`
      * to retrieve the next set of query results. The cursor is only present if the request succeeded and
      * additional results are available.
@@ -98,7 +93,6 @@ class ListCustomerSegmentsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor to be used in subsequent calls to `ListCustomerSegments`
      * to retrieve the next set of query results. The cursor is only present if the request succeeded and
      * additional results are available.

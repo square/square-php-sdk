@@ -20,7 +20,6 @@ class CancelBookingRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique key to make this request an idempotent operation.
      */
     public function getIdempotencyKey(): ?string
@@ -30,7 +29,6 @@ class CancelBookingRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique key to make this request an idempotent operation.
      *
      * @maps idempotency_key
@@ -42,7 +40,6 @@ class CancelBookingRequest implements \JsonSerializable
 
     /**
      * Returns Booking Version.
-     *
      * The revision number for the booking used for optimistic concurrency.
      */
     public function getBookingVersion(): ?int
@@ -52,7 +49,6 @@ class CancelBookingRequest implements \JsonSerializable
 
     /**
      * Sets Booking Version.
-     *
      * The revision number for the booking used for optimistic concurrency.
      *
      * @maps booking_version

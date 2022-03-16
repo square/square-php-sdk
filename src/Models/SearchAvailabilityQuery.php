@@ -26,7 +26,6 @@ class SearchAvailabilityQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * A query filter to search for buyer-accessible availabilities by.
      */
     public function getFilter(): SearchAvailabilityFilter
@@ -36,7 +35,6 @@ class SearchAvailabilityQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * A query filter to search for buyer-accessible availabilities by.
      *
      * @required

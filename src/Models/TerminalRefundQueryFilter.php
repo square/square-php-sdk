@@ -25,7 +25,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Returns Device Id.
-     *
      * `TerminalRefund` objects associated with a specific device. If no device is specified, then all
      * `TerminalRefund` objects for the signed-in account are displayed.
      */
@@ -36,7 +35,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Sets Device Id.
-     *
      * `TerminalRefund` objects associated with a specific device. If no device is specified, then all
      * `TerminalRefund` objects for the signed-in account are displayed.
      *
@@ -49,7 +47,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -63,7 +60,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -79,7 +75,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Filtered results with the desired status of the `TerminalRefund`.
      * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, or `COMPLETED`.
      */
@@ -90,7 +85,6 @@ class TerminalRefundQueryFilter implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Filtered results with the desired status of the `TerminalRefund`.
      * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, or `COMPLETED`.
      *

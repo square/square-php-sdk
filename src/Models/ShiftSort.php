@@ -23,7 +23,6 @@ class ShiftSort implements \JsonSerializable
 
     /**
      * Returns Field.
-     *
      * Enumerates the `Shift` fields to sort on.
      */
     public function getField(): ?string
@@ -33,7 +32,6 @@ class ShiftSort implements \JsonSerializable
 
     /**
      * Sets Field.
-     *
      * Enumerates the `Shift` fields to sort on.
      *
      * @maps field
@@ -45,7 +43,6 @@ class ShiftSort implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getOrder(): ?string
@@ -55,7 +52,6 @@ class ShiftSort implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order

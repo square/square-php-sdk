@@ -46,7 +46,6 @@ class Error implements \JsonSerializable
 
     /**
      * Returns Category.
-     *
      * Indicates which high-level category of error has occurred during a
      * request to the Connect API.
      */
@@ -57,7 +56,6 @@ class Error implements \JsonSerializable
 
     /**
      * Sets Category.
-     *
      * Indicates which high-level category of error has occurred during a
      * request to the Connect API.
      *
@@ -71,7 +69,6 @@ class Error implements \JsonSerializable
 
     /**
      * Returns Code.
-     *
      * Indicates the specific error that occurred during a request to a
      * Square API.
      */
@@ -82,7 +79,6 @@ class Error implements \JsonSerializable
 
     /**
      * Sets Code.
-     *
      * Indicates the specific error that occurred during a request to a
      * Square API.
      *
@@ -96,7 +92,6 @@ class Error implements \JsonSerializable
 
     /**
      * Returns Detail.
-     *
      * A human-readable description of the error for debugging purposes.
      */
     public function getDetail(): ?string
@@ -106,7 +101,6 @@ class Error implements \JsonSerializable
 
     /**
      * Sets Detail.
-     *
      * A human-readable description of the error for debugging purposes.
      *
      * @maps detail
@@ -118,7 +112,6 @@ class Error implements \JsonSerializable
 
     /**
      * Returns Field.
-     *
      * The name of the field provided in the original request (if any) that
      * the error pertains to.
      */
@@ -129,7 +122,6 @@ class Error implements \JsonSerializable
 
     /**
      * Sets Field.
-     *
      * The name of the field provided in the original request (if any) that
      * the error pertains to.
      *

@@ -30,7 +30,6 @@ class UpsertCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * request among all your requests. A common way to create
      * a valid idempotency key is to use a Universally unique
@@ -50,7 +49,6 @@ class UpsertCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * request among all your requests. A common way to create
      * a valid idempotency key is to use a Universally unique
@@ -73,7 +71,6 @@ class UpsertCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Returns Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -96,7 +93,6 @@ class UpsertCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Sets Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to

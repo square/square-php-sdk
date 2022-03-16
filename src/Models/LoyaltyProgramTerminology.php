@@ -33,7 +33,6 @@ class LoyaltyProgramTerminology implements \JsonSerializable
 
     /**
      * Returns One.
-     *
      * A singular unit for a point (for example, 1 point is called 1 star).
      */
     public function getOne(): string
@@ -43,7 +42,6 @@ class LoyaltyProgramTerminology implements \JsonSerializable
 
     /**
      * Sets One.
-     *
      * A singular unit for a point (for example, 1 point is called 1 star).
      *
      * @required
@@ -56,7 +54,6 @@ class LoyaltyProgramTerminology implements \JsonSerializable
 
     /**
      * Returns Other.
-     *
      * A plural unit for point (for example, 10 points is called 10 stars).
      */
     public function getOther(): string
@@ -66,7 +63,6 @@ class LoyaltyProgramTerminology implements \JsonSerializable
 
     /**
      * Sets Other.
-     *
      * A plural unit for point (for example, 10 points is called 10 stars).
      *
      * @required

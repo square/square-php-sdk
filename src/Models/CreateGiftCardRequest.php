@@ -40,7 +40,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies the `CreateGiftCard` request.
      */
     public function getIdempotencyKey(): string
@@ -50,7 +49,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies the `CreateGiftCard` request.
      *
      * @required
@@ -63,7 +61,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The location ID where the gift card that will be created should be registered.
      */
     public function getLocationId(): string
@@ -73,7 +70,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The location ID where the gift card that will be created should be registered.
      *
      * @required
@@ -86,7 +82,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Gift Card.
-     *
      * Represents a Square gift card.
      */
     public function getGiftCard(): GiftCard
@@ -96,7 +91,6 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Gift Card.
-     *
      * Represents a Square gift card.
      *
      * @required

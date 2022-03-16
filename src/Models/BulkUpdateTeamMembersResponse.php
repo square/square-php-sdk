@@ -24,7 +24,6 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Team Members.
-     *
      * The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps to the
      * `UpdateTeamMemberRequest`.
      *
@@ -37,7 +36,6 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Team Members.
-     *
      * The successfully updated `TeamMember` objects. Each key is the `team_member_id` that maps to the
      * `UpdateTeamMemberRequest`.
      *
@@ -52,7 +50,6 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * The errors that occurred during the request.
      *
      * @return Error[]|null
@@ -64,7 +61,6 @@ class BulkUpdateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * The errors that occurred during the request.
      *
      * @maps errors

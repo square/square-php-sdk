@@ -29,7 +29,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Returns Employee Wages.
-     *
      * A page of `EmployeeWage` results.
      *
      * @return EmployeeWage[]|null
@@ -41,7 +40,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Sets Employee Wages.
-     *
      * A page of `EmployeeWage` results.
      *
      * @maps employee_wages
@@ -55,7 +53,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `EmployeeWage` results.
      */
@@ -66,7 +63,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page
      * of `EmployeeWage` results.
      *
@@ -79,7 +75,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -91,7 +86,6 @@ class ListEmployeeWagesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

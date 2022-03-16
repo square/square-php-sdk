@@ -28,7 +28,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * Filter the returned wages to only those that are associated with the
      * specified team member.
      */
@@ -39,7 +38,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * Filter the returned wages to only those that are associated with the
      * specified team member.
      *
@@ -52,7 +50,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of `TeamMemberWage` results to return per page. The number can range between
      * 1 and 200. The default is 200.
      */
@@ -63,7 +60,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of `TeamMemberWage` results to return per page. The number can range between
      * 1 and 200. The default is 200.
      *
@@ -76,7 +72,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pointer to the next page of `EmployeeWage` results to fetch.
      */
     public function getCursor(): ?string
@@ -86,7 +81,6 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pointer to the next page of `EmployeeWage` results to fetch.
      *
      * @maps cursor

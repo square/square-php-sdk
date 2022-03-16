@@ -24,7 +24,6 @@ class RetrieveGiftCardResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class RetrieveGiftCardResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class RetrieveGiftCardResponse implements \JsonSerializable
 
     /**
      * Returns Gift Card.
-     *
      * Represents a Square gift card.
      */
     public function getGiftCard(): ?GiftCard
@@ -60,7 +57,6 @@ class RetrieveGiftCardResponse implements \JsonSerializable
 
     /**
      * Sets Gift Card.
-     *
      * Represents a Square gift card.
      *
      * @maps gift_card

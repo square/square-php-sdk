@@ -34,7 +34,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Returns Label.
-     *
      * The label or title of the custom field. This field is required for a custom field.
      */
     public function getLabel(): ?string
@@ -44,7 +43,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Sets Label.
-     *
      * The label or title of the custom field. This field is required for a custom field.
      *
      * @maps label
@@ -56,7 +54,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Returns Value.
-     *
      * The text of the custom field. If omitted, only the label is rendered.
      */
     public function getValue(): ?string
@@ -66,7 +63,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Sets Value.
-     *
      * The text of the custom field. If omitted, only the label is rendered.
      *
      * @maps value
@@ -78,7 +74,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Returns Placement.
-     *
      * Indicates where to render a custom field on the Square-hosted invoice page and in emailed or PDF
      * copies of the invoice.
      */
@@ -89,7 +84,6 @@ class InvoiceCustomField implements \JsonSerializable
 
     /**
      * Sets Placement.
-     *
      * Indicates where to render a custom field on the Square-hosted invoice page and in emailed or PDF
      * copies of the invoice.
      *

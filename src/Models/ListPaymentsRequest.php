@@ -61,7 +61,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The timestamp for the beginning of the reporting period, in RFC 3339 format.
      * Inclusive. Default: The current time minus one year.
      */
@@ -72,7 +71,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The timestamp for the beginning of the reporting period, in RFC 3339 format.
      * Inclusive. Default: The current time minus one year.
      *
@@ -85,7 +83,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The timestamp for the end of the reporting period, in RFC 3339 format.
      *
      * Default: The current time.
@@ -97,7 +94,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The timestamp for the end of the reporting period, in RFC 3339 format.
      *
      * Default: The current time.
@@ -111,7 +107,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order in which results are listed:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
@@ -123,7 +118,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order in which results are listed:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
@@ -137,7 +131,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
@@ -150,7 +143,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
@@ -165,7 +157,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * Limit results to the location supplied. By default, results are returned
      * for the default (main) location associated with the seller.
      */
@@ -176,7 +167,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * Limit results to the location supplied. By default, results are returned
      * for the default (main) location associated with the seller.
      *
@@ -189,7 +179,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Total.
-     *
      * The exact amount in the `total_money` for a payment.
      */
     public function getTotal(): ?int
@@ -199,7 +188,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Total.
-     *
      * The exact amount in the `total_money` for a payment.
      *
      * @maps total
@@ -211,7 +199,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Last 4.
-     *
      * The last four digits of a payment card.
      */
     public function getLast4(): ?string
@@ -221,7 +208,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Last 4.
-     *
      * The last four digits of a payment card.
      *
      * @maps last_4
@@ -233,7 +219,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Card Brand.
-     *
      * The brand of the payment card (for example, VISA).
      */
     public function getCardBrand(): ?string
@@ -243,7 +228,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Card Brand.
-     *
      * The brand of the payment card (for example, VISA).
      *
      * @maps card_brand
@@ -255,7 +239,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to be returned in a single page.
      * It is possible to receive fewer results than the specified limit on a given page.
      *
@@ -271,7 +254,6 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to be returned in a single page.
      * It is possible to receive fewer results than the specified limit on a given page.
      *

@@ -36,7 +36,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): ?string
@@ -46,7 +45,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @maps loyalty_program_id
@@ -58,7 +56,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The number of points added or removed.
      */
     public function getPoints(): int
@@ -68,7 +65,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The number of points added or removed.
      *
      * @required
@@ -81,7 +77,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * The reason for the adjustment of points.
      */
     public function getReason(): ?string
@@ -91,7 +86,6 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * The reason for the adjustment of points.
      *
      * @maps reason

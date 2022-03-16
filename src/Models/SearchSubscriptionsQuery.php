@@ -18,7 +18,6 @@ class SearchSubscriptionsQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions
      * returned by
      * the [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint.
@@ -30,7 +29,6 @@ class SearchSubscriptionsQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Represents a set of query expressions (filters) to narrow the scope of targeted subscriptions
      * returned by
      * the [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) endpoint.

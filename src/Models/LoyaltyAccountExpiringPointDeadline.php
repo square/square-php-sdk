@@ -33,7 +33,6 @@ class LoyaltyAccountExpiringPointDeadline implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The number of points scheduled to expire at the `expires_at` timestamp.
      */
     public function getPoints(): int
@@ -43,7 +42,6 @@ class LoyaltyAccountExpiringPointDeadline implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The number of points scheduled to expire at the `expires_at` timestamp.
      *
      * @required
@@ -56,7 +54,6 @@ class LoyaltyAccountExpiringPointDeadline implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     *
      * The timestamp of when the points are scheduled to expire, in RFC 3339 format.
      */
     public function getExpiresAt(): string
@@ -66,7 +63,6 @@ class LoyaltyAccountExpiringPointDeadline implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     *
      * The timestamp of when the points are scheduled to expire, in RFC 3339 format.
      *
      * @required

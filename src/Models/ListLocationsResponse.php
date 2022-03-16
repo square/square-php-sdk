@@ -26,7 +26,6 @@ class ListLocationsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class ListLocationsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class ListLocationsResponse implements \JsonSerializable
 
     /**
      * Returns Locations.
-     *
      * The business locations.
      *
      * @return Location[]|null
@@ -64,7 +61,6 @@ class ListLocationsResponse implements \JsonSerializable
 
     /**
      * Sets Locations.
-     *
      * The business locations.
      *
      * @maps locations

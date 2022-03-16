@@ -23,7 +23,6 @@ class ListSitesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class ListSitesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class ListSitesResponse implements \JsonSerializable
 
     /**
      * Returns Sites.
-     *
      * The sites that belong to the seller.
      *
      * @return Site[]|null
@@ -61,7 +58,6 @@ class ListSitesResponse implements \JsonSerializable
 
     /**
      * Sets Sites.
-     *
      * The sites that belong to the seller.
      *
      * @maps sites

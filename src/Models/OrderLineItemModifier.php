@@ -48,7 +48,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the modifier only within this order.
      */
     public function getUid(): ?string
@@ -58,7 +57,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the modifier only within this order.
      *
      * @maps uid
@@ -70,7 +68,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
@@ -80,7 +77,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      *
      * @maps catalog_object_id
@@ -92,7 +88,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this modifier references.
      */
     public function getCatalogVersion(): ?int
@@ -102,7 +97,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this modifier references.
      *
      * @maps catalog_version
@@ -114,7 +108,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the item modifier.
      */
     public function getName(): ?string
@@ -124,7 +117,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the item modifier.
      *
      * @maps name
@@ -136,7 +128,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -152,7 +143,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -170,7 +160,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -186,7 +175,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -204,7 +192,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this order. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -233,7 +220,6 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this order. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it

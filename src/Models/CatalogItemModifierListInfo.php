@@ -46,7 +46,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Returns Modifier List Id.
-     *
      * The ID of the `CatalogModifierList` controlled by this `CatalogModifierListInfo`.
      */
     public function getModifierListId(): string
@@ -56,7 +55,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Sets Modifier List Id.
-     *
      * The ID of the `CatalogModifierList` controlled by this `CatalogModifierListInfo`.
      *
      * @required
@@ -69,7 +67,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Returns Modifier Overrides.
-     *
      * A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is
      * enabled by default.
      *
@@ -82,7 +79,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Sets Modifier Overrides.
-     *
      * A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is
      * enabled by default.
      *
@@ -97,7 +93,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Returns Min Selected Modifiers.
-     *
      * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
      * `CatalogModifierList`.
      */
@@ -108,7 +103,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Sets Min Selected Modifiers.
-     *
      * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
      * `CatalogModifierList`.
      *
@@ -121,7 +115,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Returns Max Selected Modifiers.
-     *
      * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
      * `CatalogModifierList`.
      */
@@ -132,7 +125,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Sets Max Selected Modifiers.
-     *
      * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
      * `CatalogModifierList`.
      *
@@ -145,7 +137,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Returns Enabled.
-     *
      * If `true`, enable this `CatalogModifierList`. The default value is `true`.
      */
     public function getEnabled(): ?bool
@@ -155,7 +146,6 @@ class CatalogItemModifierListInfo implements \JsonSerializable
 
     /**
      * Sets Enabled.
-     *
      * If `true`, enable this `CatalogModifierList`. The default value is `true`.
      *
      * @maps enabled

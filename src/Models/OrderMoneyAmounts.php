@@ -38,7 +38,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -54,7 +53,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -72,7 +70,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Returns Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -88,7 +85,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Sets Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -106,7 +102,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Returns Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -122,7 +117,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Sets Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -140,7 +134,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Returns Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -156,7 +149,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Sets Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -174,7 +166,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Returns Service Charge Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -190,7 +181,6 @@ class OrderMoneyAmounts implements \JsonSerializable
 
     /**
      * Sets Service Charge Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

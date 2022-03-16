@@ -18,7 +18,6 @@ class CatalogTimePeriod implements \JsonSerializable
 
     /**
      * Returns Event.
-     *
      * An iCalendar (RFC 5545) [event](https://tools.ietf.org/html/rfc5545#section-3.6.1), which
      * specifies the name, timing, duration and recurrence of this time period.
      *
@@ -42,7 +41,6 @@ class CatalogTimePeriod implements \JsonSerializable
 
     /**
      * Sets Event.
-     *
      * An iCalendar (RFC 5545) [event](https://tools.ietf.org/html/rfc5545#section-3.6.1), which
      * specifies the name, timing, duration and recurrence of this time period.
      *

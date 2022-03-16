@@ -25,7 +25,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Changes.
-     *
      * The set of inventory changes for the requested object and locations.
      *
      * @return InventoryChange[]|null
@@ -63,7 +60,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Changes.
-     *
      * The set of inventory changes for the requested object and locations.
      *
      * @maps changes
@@ -77,7 +73,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *
@@ -91,7 +86,6 @@ class RetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *

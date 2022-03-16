@@ -61,7 +61,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the gift card.
      */
     public function getId(): ?string
@@ -71,7 +70,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the gift card.
      *
      * @maps id
@@ -83,7 +81,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Indicates the gift card type.
      */
     public function getType(): string
@@ -93,7 +90,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Indicates the gift card type.
      *
      * @required
@@ -106,7 +102,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Gan Source.
-     *
      * Indicates the source that generated the gift card
      * account number (GAN).
      */
@@ -117,7 +112,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Gan Source.
-     *
      * Indicates the source that generated the gift card
      * account number (GAN).
      *
@@ -130,7 +124,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * Indicates the gift card state.
      */
     public function getState(): ?string
@@ -140,7 +133,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * Indicates the gift card state.
      *
      * @maps state
@@ -152,7 +144,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Balance Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -168,7 +159,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Balance Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -186,7 +176,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Gan.
-     *
      * The gift card account number.
      */
     public function getGan(): ?string
@@ -196,7 +185,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Gan.
-     *
      * The gift card account number.
      *
      * @maps gan
@@ -208,7 +196,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the gift card was created, in RFC 3339 format.
      * In the case of a digital gift card, it is the time when you create a card
      * (using the Square Point of Sale application, Seller Dashboard, or Gift Cards API).
@@ -222,7 +209,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the gift card was created, in RFC 3339 format.
      * In the case of a digital gift card, it is the time when you create a card
      * (using the Square Point of Sale application, Seller Dashboard, or Gift Cards API).
@@ -238,7 +224,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     *
      * The IDs of the customers to whom this gift card is linked.
      *
      * @return string[]|null
@@ -250,7 +235,6 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     *
      * The IDs of the customers to whom this gift card is linked.
      *
      * @maps customer_ids

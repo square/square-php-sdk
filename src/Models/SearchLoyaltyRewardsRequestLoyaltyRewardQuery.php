@@ -31,7 +31,6 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     *
      * The ID of the [loyalty account]($m/LoyaltyAccount) to which the loyalty reward belongs.
      */
     public function getLoyaltyAccountId(): string
@@ -41,7 +40,6 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     *
      * The ID of the [loyalty account]($m/LoyaltyAccount) to which the loyalty reward belongs.
      *
      * @required
@@ -54,7 +52,6 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the loyalty reward.
      */
     public function getStatus(): ?string
@@ -64,7 +61,6 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the loyalty reward.
      *
      * @maps status

@@ -34,7 +34,6 @@ class CatalogQueryPrefix implements \JsonSerializable
 
     /**
      * Returns Attribute Name.
-     *
      * The name of the attribute to be searched.
      */
     public function getAttributeName(): string
@@ -44,7 +43,6 @@ class CatalogQueryPrefix implements \JsonSerializable
 
     /**
      * Sets Attribute Name.
-     *
      * The name of the attribute to be searched.
      *
      * @required
@@ -57,7 +55,6 @@ class CatalogQueryPrefix implements \JsonSerializable
 
     /**
      * Returns Attribute Prefix.
-     *
      * The desired prefix of the search attribute value.
      */
     public function getAttributePrefix(): string
@@ -67,7 +64,6 @@ class CatalogQueryPrefix implements \JsonSerializable
 
     /**
      * Sets Attribute Prefix.
-     *
      * The desired prefix of the search attribute value.
      *
      * @required

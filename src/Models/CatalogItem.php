@@ -94,7 +94,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The item's name. This is a searchable attribute for use in applicable query filters, its value must
      * not be empty, and the length is of Unicode code points.
      */
@@ -105,7 +104,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The item's name. This is a searchable attribute for use in applicable query filters, its value must
      * not be empty, and the length is of Unicode code points.
      *
@@ -118,7 +116,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The item's description. This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
      */
@@ -129,7 +126,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The item's description. This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
      *
@@ -142,7 +138,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Abbreviation.
-     *
      * The text of the item's display label in the Square Point of Sale app. Only up to the first five
      * characters of the string are used.
      * This attribute is searchable, and its value length is of Unicode code points.
@@ -154,7 +149,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Abbreviation.
-     *
      * The text of the item's display label in the Square Point of Sale app. Only up to the first five
      * characters of the string are used.
      * This attribute is searchable, and its value length is of Unicode code points.
@@ -168,7 +162,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Label Color.
-     *
      * The color of the item's display label in the Square Point of Sale app. This must be a valid hex
      * color code.
      */
@@ -179,7 +172,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Label Color.
-     *
      * The color of the item's display label in the Square Point of Sale app. This must be a valid hex
      * color code.
      *
@@ -192,7 +184,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Available Online.
-     *
      * If `true`, the item can be added to shipping orders from the merchant's online store.
      */
     public function getAvailableOnline(): ?bool
@@ -202,7 +193,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Available Online.
-     *
      * If `true`, the item can be added to shipping orders from the merchant's online store.
      *
      * @maps available_online
@@ -214,7 +204,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Available for Pickup.
-     *
      * If `true`, the item can be added to pickup orders from the merchant's online store.
      */
     public function getAvailableForPickup(): ?bool
@@ -224,7 +213,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Available for Pickup.
-     *
      * If `true`, the item can be added to pickup orders from the merchant's online store.
      *
      * @maps available_for_pickup
@@ -236,7 +224,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Available Electronically.
-     *
      * If `true`, the item can be added to electronically fulfilled orders from the merchant's online store.
      */
     public function getAvailableElectronically(): ?bool
@@ -246,7 +233,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Available Electronically.
-     *
      * If `true`, the item can be added to electronically fulfilled orders from the merchant's online store.
      *
      * @maps available_electronically
@@ -258,7 +244,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Category Id.
-     *
      * The ID of the item's category, if any.
      */
     public function getCategoryId(): ?string
@@ -268,7 +253,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Category Id.
-     *
      * The ID of the item's category, if any.
      *
      * @maps category_id
@@ -280,7 +264,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * A set of IDs indicating the taxes enabled for
      * this item. When updating an item, any taxes listed here will be added to the item.
      * Taxes may also be added to or deleted from an item using `UpdateItemTaxes`.
@@ -294,7 +277,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * A set of IDs indicating the taxes enabled for
      * this item. When updating an item, any taxes listed here will be added to the item.
      * Taxes may also be added to or deleted from an item using `UpdateItemTaxes`.
@@ -310,7 +292,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Modifier List Info.
-     *
      * A set of `CatalogItemModifierListInfo` objects
      * representing the modifier lists that apply to this item, along with the overrides and min
      * and max limits that are specific to this item. Modifier lists
@@ -325,7 +306,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Modifier List Info.
-     *
      * A set of `CatalogItemModifierListInfo` objects
      * representing the modifier lists that apply to this item, along with the overrides and min
      * and max limits that are specific to this item. Modifier lists
@@ -342,7 +322,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Variations.
-     *
      * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
      * at least one variation.
      *
@@ -355,7 +334,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Variations.
-     *
      * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
      * at least one variation.
      *
@@ -370,7 +348,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Product Type.
-     *
      * The type of a CatalogItem. Connect V2 only allows the creation of `REGULAR` or
      * `APPOINTMENTS_SERVICE` items.
      */
@@ -381,7 +358,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Product Type.
-     *
      * The type of a CatalogItem. Connect V2 only allows the creation of `REGULAR` or
      * `APPOINTMENTS_SERVICE` items.
      *
@@ -394,7 +370,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Skip Modifier Screen.
-     *
      * If `false`, the Square Point of Sale app will present the `CatalogItem`'s
      * details screen immediately, allowing the merchant to choose `CatalogModifier`s
      * before adding the item to the cart.  This is the default behavior.
@@ -412,7 +387,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Skip Modifier Screen.
-     *
      * If `false`, the Square Point of Sale app will present the `CatalogItem`'s
      * details screen immediately, allowing the merchant to choose `CatalogModifier`s
      * before adding the item to the cart.  This is the default behavior.
@@ -432,7 +406,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Item Options.
-     *
      * List of item options IDs for this item. Used to manage and group item
      * variations in a specified order.
      *
@@ -447,7 +420,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Item Options.
-     *
      * List of item options IDs for this item. Used to manage and group item
      * variations in a specified order.
      *
@@ -464,7 +436,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Image Ids.
-     *
      * The IDs of images associated with this `CatalogItem` instance.
      * These images will be shown to customers in Square Online Store.
      * The first image will show up as the icon for this item in POS.
@@ -478,7 +449,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Image Ids.
-     *
      * The IDs of images associated with this `CatalogItem` instance.
      * These images will be shown to customers in Square Online Store.
      * The first image will show up as the icon for this item in POS.
@@ -494,7 +464,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Sort Name.
-     *
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
      * the regular `name` field is used for sorting.
      *
@@ -507,7 +476,6 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Sort Name.
-     *
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
      * the regular `name` field is used for sorting.
      *

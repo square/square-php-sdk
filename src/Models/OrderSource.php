@@ -18,7 +18,6 @@ class OrderSource implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name used to identify the place (physical or digital) that an order originates.
      * If unset, the name defaults to the name of the application that created the order.
      */
@@ -29,7 +28,6 @@ class OrderSource implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name used to identify the place (physical or digital) that an order originates.
      * If unset, the name defaults to the name of the application that created the order.
      *

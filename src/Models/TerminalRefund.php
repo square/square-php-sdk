@@ -90,7 +90,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique ID for this `TerminalRefund`.
      */
     public function getId(): ?string
@@ -100,7 +99,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique ID for this `TerminalRefund`.
      *
      * @maps id
@@ -112,7 +110,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Refund Id.
-     *
      * The reference to the payment refund created by completing this `TerminalRefund`.
      */
     public function getRefundId(): ?string
@@ -122,7 +119,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Refund Id.
-     *
      * The reference to the payment refund created by completing this `TerminalRefund`.
      *
      * @maps refund_id
@@ -134,7 +130,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * The unique ID of the payment being refunded.
      */
     public function getPaymentId(): string
@@ -144,7 +139,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * The unique ID of the payment being refunded.
      *
      * @required
@@ -157,7 +151,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The reference to the Square order ID for the payment identified by the `payment_id`.
      */
     public function getOrderId(): ?string
@@ -167,7 +160,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The reference to the Square order ID for the payment identified by the `payment_id`.
      *
      * @maps order_id
@@ -179,7 +171,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -195,7 +186,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -214,7 +204,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * A description of the reason for the refund.
      * Note: maximum 192 characters
      */
@@ -225,7 +214,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * A description of the reason for the refund.
      * Note: maximum 192 characters
      *
@@ -238,7 +226,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Device Id.
-     *
      * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      */
@@ -249,7 +236,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Device Id.
-     *
      * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      *
@@ -262,7 +248,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Deadline Duration.
-     *
      * The RFC 3339 duration, after which the refund is automatically canceled.
      * A `TerminalRefund` that is `PENDING` is automatically `CANCELED` and has a cancellation reason
      * of `TIMED_OUT`.
@@ -278,7 +263,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Deadline Duration.
-     *
      * The RFC 3339 duration, after which the refund is automatically canceled.
      * A `TerminalRefund` that is `PENDING` is automatically `CANCELED` and has a cancellation reason
      * of `TIMED_OUT`.
@@ -296,7 +280,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the `TerminalRefund`.
      * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
      */
@@ -307,7 +290,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the `TerminalRefund`.
      * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
      *
@@ -338,7 +320,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the `TerminalRefund` was created, as an RFC 3339 timestamp.
      */
     public function getCreatedAt(): ?string
@@ -348,7 +329,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the `TerminalRefund` was created, as an RFC 3339 timestamp.
      *
      * @maps created_at
@@ -360,7 +340,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The time when the `TerminalRefund` was last updated, as an RFC 3339 timestamp.
      */
     public function getUpdatedAt(): ?string
@@ -370,7 +349,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The time when the `TerminalRefund` was last updated, as an RFC 3339 timestamp.
      *
      * @maps updated_at
@@ -382,7 +360,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns App Id.
-     *
      * The ID of the application that created the refund.
      */
     public function getAppId(): ?string
@@ -392,7 +369,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets App Id.
-     *
      * The ID of the application that created the refund.
      *
      * @maps app_id
@@ -404,7 +380,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The location of the device where the `TerminalRefund` was directed.
      */
     public function getLocationId(): ?string
@@ -414,7 +389,6 @@ class TerminalRefund implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The location of the device where the `TerminalRefund` was directed.
      *
      * @maps location_id

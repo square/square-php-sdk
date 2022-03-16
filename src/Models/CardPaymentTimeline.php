@@ -28,7 +28,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Returns Authorized At.
-     *
      * The timestamp when the payment was authorized, in RFC 3339 format.
      */
     public function getAuthorizedAt(): ?string
@@ -38,7 +37,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Sets Authorized At.
-     *
      * The timestamp when the payment was authorized, in RFC 3339 format.
      *
      * @maps authorized_at
@@ -50,7 +48,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Returns Captured At.
-     *
      * The timestamp when the payment was captured, in RFC 3339 format.
      */
     public function getCapturedAt(): ?string
@@ -60,7 +57,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Sets Captured At.
-     *
      * The timestamp when the payment was captured, in RFC 3339 format.
      *
      * @maps captured_at
@@ -72,7 +68,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Returns Voided At.
-     *
      * The timestamp when the payment was voided, in RFC 3339 format.
      */
     public function getVoidedAt(): ?string
@@ -82,7 +77,6 @@ class CardPaymentTimeline implements \JsonSerializable
 
     /**
      * Sets Voided At.
-     *
      * The timestamp when the payment was voided, in RFC 3339 format.
      *
      * @maps voided_at

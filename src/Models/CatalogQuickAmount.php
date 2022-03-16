@@ -43,7 +43,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Determines the type of a specific Quick Amount.
      */
     public function getType(): string
@@ -53,7 +52,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Determines the type of a specific Quick Amount.
      *
      * @required
@@ -66,7 +64,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Returns Amount.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -82,7 +79,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Sets Amount.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -101,7 +97,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Returns Score.
-     *
      * Describes the ranking of the Quick Amount provided by machine learning model, in the range [0, 100].
      * MANUAL type amount will always have score = 100.
      */
@@ -112,7 +107,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Sets Score.
-     *
      * Describes the ranking of the Quick Amount provided by machine learning model, in the range [0, 100].
      * MANUAL type amount will always have score = 100.
      *
@@ -125,7 +119,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * The order in which this Quick Amount should be displayed.
      */
     public function getOrdinal(): ?int
@@ -135,7 +128,6 @@ class CatalogQuickAmount implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * The order in which this Quick Amount should be displayed.
      *
      * @maps ordinal

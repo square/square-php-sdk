@@ -23,7 +23,6 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
 
     /**
      * Returns Max Allowed Selections.
-     *
      * The maximum number of selections that can be set. The maximum value for this
      * attribute is 100. The default value is 1. The value can be modified, but changing the value will
      * not
@@ -37,7 +36,6 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
 
     /**
      * Sets Max Allowed Selections.
-     *
      * The maximum number of selections that can be set. The maximum value for this
      * attribute is 100. The default value is 1. The value can be modified, but changing the value will
      * not
@@ -53,7 +51,6 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
 
     /**
      * Returns Allowed Selections.
-     *
      * The set of valid `CatalogCustomAttributeSelections`. Up to a maximum of 100
      * selections can be defined. Can be modified.
      *
@@ -66,7 +63,6 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
 
     /**
      * Sets Allowed Selections.
-     *
      * The set of valid `CatalogCustomAttributeSelections`. Up to a maximum of 100
      * selections can be defined. Can be modified.
      *

@@ -17,7 +17,7 @@ V1Order
 | `recipientName` | `?string` | Optional | The name of the order's buyer. | getRecipientName(): ?string | setRecipientName(?string recipientName): void |
 | `recipientPhoneNumber` | `?string` | Optional | The phone number to use for the order's delivery. | getRecipientPhoneNumber(): ?string | setRecipientPhoneNumber(?string recipientPhoneNumber): void |
 | `state` | [`?string (V1OrderState)`](../../doc/models/v1-order-state.md) | Optional | - | getState(): ?string | setState(?string state): void |
-| `shippingAddress` | [`?Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](../../https://developer.squareup.com/docs/build-basics/working-with-addresses). | getShippingAddress(): ?Address | setShippingAddress(?Address shippingAddress): void |
+| `shippingAddress` | [`?Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). | getShippingAddress(): ?Address | setShippingAddress(?Address shippingAddress): void |
 | `subtotalMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getSubtotalMoney(): ?V1Money | setSubtotalMoney(?V1Money subtotalMoney): void |
 | `totalShippingMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getTotalShippingMoney(): ?V1Money | setTotalShippingMoney(?V1Money totalShippingMoney): void |
 | `totalTaxMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getTotalTaxMoney(): ?V1Money | setTotalTaxMoney(?V1Money totalTaxMoney): void |

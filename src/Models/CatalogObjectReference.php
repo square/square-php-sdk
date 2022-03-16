@@ -25,7 +25,6 @@ class CatalogObjectReference implements \JsonSerializable
 
     /**
      * Returns Object Id.
-     *
      * The ID of the referenced object.
      */
     public function getObjectId(): ?string
@@ -35,7 +34,6 @@ class CatalogObjectReference implements \JsonSerializable
 
     /**
      * Sets Object Id.
-     *
      * The ID of the referenced object.
      *
      * @maps object_id
@@ -47,7 +45,6 @@ class CatalogObjectReference implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the object.
      */
     public function getCatalogVersion(): ?int
@@ -57,7 +54,6 @@ class CatalogObjectReference implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the object.
      *
      * @maps catalog_version

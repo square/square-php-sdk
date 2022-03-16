@@ -18,7 +18,6 @@ class AfterpayDetails implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * Email address on the buyer's Afterpay account.
      */
     public function getEmailAddress(): ?string
@@ -28,7 +27,6 @@ class AfterpayDetails implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * Email address on the buyer's Afterpay account.
      *
      * @maps email_address

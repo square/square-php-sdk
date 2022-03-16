@@ -24,7 +24,6 @@ class CatalogMeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Measurement Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -36,7 +35,6 @@ class CatalogMeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Measurement Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -50,7 +48,6 @@ class CatalogMeasurementUnit implements \JsonSerializable
 
     /**
      * Returns Precision.
-     *
      * An integer between 0 and 5 that represents the maximum number of
      * positions allowed after the decimal in quantities measured with this unit.
      * For example:
@@ -68,7 +65,6 @@ class CatalogMeasurementUnit implements \JsonSerializable
 
     /**
      * Sets Precision.
-     *
      * An integer between 0 and 5 that represents the maximum number of
      * positions allowed after the decimal in quantities measured with this unit.
      * For example:

@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `objects` | [`?(CatalogObject[])`](../../doc/models/catalog-object.md) | Optional | The created successfully created CatalogObjects. | getObjects(): ?array | setObjects(?array objects): void |
-| `updatedAt` | `?string` | Optional | The database [timestamp](../../https://developer.squareup.com/docs/build-basics/working-with-dates) of this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
+| `updatedAt` | `?string` | Optional | The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z". | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `idMappings` | [`?(CatalogIdMapping[])`](../../doc/models/catalog-id-mapping.md) | Optional | The mapping between client and server IDs for this upsert. | getIdMappings(): ?array | setIdMappings(?array idMappings): void |
 
 ## Example (as JSON)

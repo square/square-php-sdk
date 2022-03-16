@@ -28,7 +28,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Represents a query used to search for loyalty events.
      */
     public function getQuery(): ?LoyaltyEventQuery
@@ -38,7 +37,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Represents a query used to search for loyalty events.
      *
      * @maps query
@@ -50,7 +48,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to include in the response.
      * The last page might contain fewer events.
      * The default is 30 events.
@@ -62,7 +59,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to include in the response.
      * The last page might contain fewer events.
      * The default is 30 events.
@@ -76,7 +72,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
@@ -88,7 +83,6 @@ class SearchLoyaltyEventsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).

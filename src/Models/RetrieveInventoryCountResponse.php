@@ -25,7 +25,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Returns Counts.
-     *
      * The current calculated inventory counts for the requested object and
      * locations.
      *
@@ -64,7 +61,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Sets Counts.
-     *
      * The current calculated inventory counts for the requested object and
      * locations.
      *
@@ -79,7 +75,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *
@@ -93,7 +88,6 @@ class RetrieveInventoryCountResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *

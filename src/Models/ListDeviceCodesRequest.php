@@ -30,7 +30,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
@@ -44,7 +43,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
@@ -60,7 +58,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * If specified, only returns DeviceCodes of the specified location.
      * Returns DeviceCodes of all locations if empty.
      */
@@ -71,7 +68,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * If specified, only returns DeviceCodes of the specified location.
      * Returns DeviceCodes of all locations if empty.
      *
@@ -102,7 +98,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * If specified, returns DeviceCodes with the specified statuses.
      * Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
      * See [DeviceCodeStatus](#type-devicecodestatus) for possible values
@@ -116,7 +111,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * If specified, returns DeviceCodes with the specified statuses.
      * Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
      * See [DeviceCodeStatus](#type-devicecodestatus) for possible values

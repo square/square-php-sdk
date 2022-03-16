@@ -12,7 +12,7 @@ Represents a response from a search request containing a filtered list of `TeamM
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `teamMembers` | [`?(TeamMember[])`](../../doc/models/team-member.md) | Optional | The filtered list of `TeamMember` objects. | getTeamMembers(): ?array | setTeamMembers(?array teamMembers): void |
-| `cursor` | `?string` | Optional | The opaque cursor for fetching the next page. For more information, see<br>[pagination](../../https://developer.squareup.com/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `cursor` | `?string` | Optional | The opaque cursor for fetching the next page. For more information, see<br>[pagination](https://developer.squareup.com/docs/working-with-apis/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | The errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
