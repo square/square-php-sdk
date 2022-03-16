@@ -23,7 +23,6 @@ class BuyNowPayLaterDetails implements \JsonSerializable
 
     /**
      * Returns Brand.
-     *
      * The brand used for the Buy Now Pay Later payment.
      * The brand can be `AFTERPAY` or `UNKNOWN`.
      */
@@ -34,7 +33,6 @@ class BuyNowPayLaterDetails implements \JsonSerializable
 
     /**
      * Sets Brand.
-     *
      * The brand used for the Buy Now Pay Later payment.
      * The brand can be `AFTERPAY` or `UNKNOWN`.
      *
@@ -47,7 +45,6 @@ class BuyNowPayLaterDetails implements \JsonSerializable
 
     /**
      * Returns Afterpay Details.
-     *
      * Additional details about Afterpay payments.
      */
     public function getAfterpayDetails(): ?AfterpayDetails
@@ -57,7 +54,6 @@ class BuyNowPayLaterDetails implements \JsonSerializable
 
     /**
      * Sets Afterpay Details.
-     *
      * Additional details about Afterpay payments.
      *
      * @maps afterpay_details

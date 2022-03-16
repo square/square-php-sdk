@@ -28,7 +28,6 @@ class V1PaymentModifier implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The modifier option's name.
      */
     public function getName(): ?string
@@ -38,7 +37,6 @@ class V1PaymentModifier implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The modifier option's name.
      *
      * @maps name
@@ -68,7 +66,6 @@ class V1PaymentModifier implements \JsonSerializable
 
     /**
      * Returns Modifier Option Id.
-     *
      * The ID of the applied modifier option, if available. Modifier options applied in older versions of
      * Square Register might not have an ID.
      */
@@ -79,7 +76,6 @@ class V1PaymentModifier implements \JsonSerializable
 
     /**
      * Sets Modifier Option Id.
-     *
      * The ID of the applied modifier option, if available. Modifier options applied in older versions of
      * Square Register might not have an ID.
      *

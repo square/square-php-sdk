@@ -47,7 +47,6 @@ class ListEmployeesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The token to be used to retrieve the next page of results.
      */
     public function getCursor(): ?string
@@ -57,7 +56,6 @@ class ListEmployeesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The token to be used to retrieve the next page of results.
      *
      * @maps cursor
@@ -69,7 +67,6 @@ class ListEmployeesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -81,7 +78,6 @@ class ListEmployeesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

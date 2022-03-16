@@ -23,7 +23,6 @@ class SubscriptionEventInfo implements \JsonSerializable
 
     /**
      * Returns Detail.
-     *
      * A human-readable explanation for the event.
      */
     public function getDetail(): ?string
@@ -33,7 +32,6 @@ class SubscriptionEventInfo implements \JsonSerializable
 
     /**
      * Sets Detail.
-     *
      * A human-readable explanation for the event.
      *
      * @maps detail
@@ -45,7 +43,6 @@ class SubscriptionEventInfo implements \JsonSerializable
 
     /**
      * Returns Code.
-     *
      * Supported info codes of a subscription event.
      */
     public function getCode(): ?string
@@ -55,7 +52,6 @@ class SubscriptionEventInfo implements \JsonSerializable
 
     /**
      * Sets Code.
-     *
      * Supported info codes of a subscription event.
      *
      * @maps code

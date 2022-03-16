@@ -31,7 +31,6 @@ class CreateVendorRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) to make this
      * [CreateVendor]($e/Vendors/CreateVendor) call idempotent.
      *
@@ -46,7 +45,6 @@ class CreateVendorRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) to make this
      * [CreateVendor]($e/Vendors/CreateVendor) call idempotent.
      *
@@ -64,7 +62,6 @@ class CreateVendorRequest implements \JsonSerializable
 
     /**
      * Returns Vendor.
-     *
      * Represents a supplier to a seller.
      */
     public function getVendor(): ?Vendor
@@ -74,7 +71,6 @@ class CreateVendorRequest implements \JsonSerializable
 
     /**
      * Sets Vendor.
-     *
      * Represents a supplier to a seller.
      *
      * @maps vendor

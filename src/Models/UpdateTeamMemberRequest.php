@@ -18,7 +18,6 @@ class UpdateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Returns Team Member.
-     *
      * A record representing an individual team member for a business.
      */
     public function getTeamMember(): ?TeamMember
@@ -28,7 +27,6 @@ class UpdateTeamMemberRequest implements \JsonSerializable
 
     /**
      * Sets Team Member.
-     *
      * A record representing an individual team member for a business.
      *
      * @maps team_member

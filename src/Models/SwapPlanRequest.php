@@ -27,7 +27,6 @@ class SwapPlanRequest implements \JsonSerializable
 
     /**
      * Returns New Plan Id.
-     *
      * The ID of the new subscription plan.
      */
     public function getNewPlanId(): string
@@ -37,7 +36,6 @@ class SwapPlanRequest implements \JsonSerializable
 
     /**
      * Sets New Plan Id.
-     *
      * The ID of the new subscription plan.
      *
      * @required

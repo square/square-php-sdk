@@ -31,7 +31,6 @@ class UpdateVendorRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
@@ -46,7 +45,6 @@ class UpdateVendorRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
@@ -63,7 +61,6 @@ class UpdateVendorRequest implements \JsonSerializable
 
     /**
      * Returns Vendor.
-     *
      * Represents a supplier to a seller.
      */
     public function getVendor(): Vendor
@@ -73,7 +70,6 @@ class UpdateVendorRequest implements \JsonSerializable
 
     /**
      * Sets Vendor.
-     *
      * Represents a supplier to a seller.
      *
      * @required

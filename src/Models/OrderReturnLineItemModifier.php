@@ -48,7 +48,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the return modifier only within this order.
      */
     public function getUid(): ?string
@@ -58,7 +57,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the return modifier only within this order.
      *
      * @maps uid
@@ -70,7 +68,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Source Modifier Uid.
-     *
      * The modifier `uid` from the order's line item that contains the
      * original sale of this line item modifier.
      */
@@ -81,7 +78,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Source Modifier Uid.
-     *
      * The modifier `uid` from the order's line item that contains the
      * original sale of this line item modifier.
      *
@@ -94,7 +90,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
@@ -104,7 +99,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
      *
      * @maps catalog_object_id
@@ -116,7 +110,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this line item modifier references.
      */
     public function getCatalogVersion(): ?int
@@ -126,7 +119,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this line item modifier references.
      *
      * @maps catalog_version
@@ -138,7 +130,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the item modifier.
      */
     public function getName(): ?string
@@ -148,7 +139,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the item modifier.
      *
      * @maps name
@@ -160,7 +150,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -176,7 +165,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Base Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -194,7 +182,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -210,7 +197,6 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Total Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

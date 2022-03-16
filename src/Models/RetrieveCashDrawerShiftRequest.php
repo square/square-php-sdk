@@ -23,7 +23,6 @@ class RetrieveCashDrawerShiftRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location to retrieve cash drawer shifts from.
      */
     public function getLocationId(): string
@@ -33,7 +32,6 @@ class RetrieveCashDrawerShiftRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location to retrieve cash drawer shifts from.
      *
      * @required

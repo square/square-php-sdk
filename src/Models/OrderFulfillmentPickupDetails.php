@@ -103,7 +103,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Recipient.
-     *
      * Contains information about the recipient of a fulfillment.
      */
     public function getRecipient(): ?OrderFulfillmentRecipient
@@ -113,7 +112,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Recipient.
-     *
      * Contains information about the recipient of a fulfillment.
      *
      * @maps recipient
@@ -125,7 +123,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when this fulfillment expires if it is not accepted. The timestamp must be in RFC 3339
      * format
@@ -141,7 +138,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when this fulfillment expires if it is not accepted. The timestamp must be in RFC 3339
      * format
@@ -159,7 +155,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Auto Complete Duration.
-     *
      * The duration of time after which an open and accepted pickup fulfillment
      * is automatically moved to the `COMPLETED` state. The duration must be in RFC 3339
      * format (for example, "P1W3D").
@@ -173,7 +168,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Auto Complete Duration.
-     *
      * The duration of time after which an open and accepted pickup fulfillment
      * is automatically moved to the `COMPLETED` state. The duration must be in RFC 3339
      * format (for example, "P1W3D").
@@ -189,7 +183,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Schedule Type.
-     *
      * The schedule type of the pickup fulfillment.
      */
     public function getScheduleType(): ?string
@@ -199,7 +192,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Schedule Type.
-     *
      * The schedule type of the pickup fulfillment.
      *
      * @maps schedule_type
@@ -211,7 +203,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Pickup At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * that represents the start of the pickup window. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
@@ -226,7 +217,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Pickup At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * that represents the start of the pickup window. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
@@ -243,7 +233,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Pickup Window Duration.
-     *
      * The window of time in which the order should be picked up after the `pickup_at` timestamp.
      * Must be in RFC 3339 duration format, e.g., "P1W3D". Can be used as an
      * informational guideline for merchants.
@@ -255,7 +244,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Pickup Window Duration.
-     *
      * The window of time in which the order should be picked up after the `pickup_at` timestamp.
      * Must be in RFC 3339 duration format, e.g., "P1W3D". Can be used as an
      * informational guideline for merchants.
@@ -269,7 +257,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Prep Time Duration.
-     *
      * The duration of time it takes to prepare this fulfillment.
      * The duration must be in RFC 3339 format (for example, "P1W3D").
      */
@@ -280,7 +267,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Prep Time Duration.
-     *
      * The duration of time it takes to prepare this fulfillment.
      * The duration must be in RFC 3339 format (for example, "P1W3D").
      *
@@ -293,7 +279,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * A note meant to provide additional instructions about the pickup
      * fulfillment displayed in the Square Point of Sale application and set by the API.
      */
@@ -304,7 +289,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * A note meant to provide additional instructions about the pickup
      * fulfillment displayed in the Square Point of Sale application and set by the API.
      *
@@ -317,7 +301,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Placed At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was placed. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -329,7 +312,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Placed At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was placed. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -343,7 +325,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Accepted At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was accepted. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -355,7 +336,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Accepted At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was accepted. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -369,7 +349,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Rejected At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was rejected. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -381,7 +360,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Rejected At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was rejected. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -395,7 +373,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Ready At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment is marked as ready for pickup. The timestamp must be in RFC 3339
      * format
@@ -408,7 +385,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Ready At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment is marked as ready for pickup. The timestamp must be in RFC 3339
      * format
@@ -423,7 +399,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Expired At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment expired. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -435,7 +410,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Expired At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment expired. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -449,7 +423,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Picked up At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was picked up by the recipient. The timestamp must be in RFC 3339
      * format
@@ -462,7 +435,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Picked up At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was picked up by the recipient. The timestamp must be in RFC 3339
      * format
@@ -477,7 +449,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Canceled At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was canceled. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -489,7 +460,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Canceled At.
-     *
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * indicating when the fulfillment was canceled. The timestamp must be in RFC 3339 format
      * (for example, "2016-09-04T23:59:33.123Z").
@@ -503,7 +473,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Cancel Reason.
-     *
      * A description of why the pickup was canceled. The maximum length: 100 characters.
      */
     public function getCancelReason(): ?string
@@ -513,7 +482,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Cancel Reason.
-     *
      * A description of why the pickup was canceled. The maximum length: 100 characters.
      *
      * @maps cancel_reason
@@ -525,7 +493,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Is Curbside Pickup.
-     *
      * If set to `true`, indicates that this pickup order is for curbside pickup, not in-store pickup.
      */
     public function getIsCurbsidePickup(): ?bool
@@ -535,7 +502,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Is Curbside Pickup.
-     *
      * If set to `true`, indicates that this pickup order is for curbside pickup, not in-store pickup.
      *
      * @maps is_curbside_pickup
@@ -547,7 +513,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Curbside Pickup Details.
-     *
      * Specific details for curbside pickup.
      */
     public function getCurbsidePickupDetails(): ?OrderFulfillmentPickupDetailsCurbsidePickupDetails
@@ -557,7 +522,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Curbside Pickup Details.
-     *
      * Specific details for curbside pickup.
      *
      * @maps curbside_pickup_details

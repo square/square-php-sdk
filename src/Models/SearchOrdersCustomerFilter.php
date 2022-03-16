@@ -20,7 +20,6 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     *
      * A list of customer IDs to filter by.
      *
      * Max: 10 customer IDs.
@@ -34,7 +33,6 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     *
      * A list of customer IDs to filter by.
      *
      * Max: 10 customer IDs.

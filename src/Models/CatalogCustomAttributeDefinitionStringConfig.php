@@ -18,7 +18,6 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
 
     /**
      * Returns Enforce Uniqueness.
-     *
      * If true, each Custom Attribute instance associated with this Custom Attribute
      * Definition must have a unique value within the seller's catalog. For
      * example, this may be used for a value like a SKU that should not be
@@ -32,7 +31,6 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
 
     /**
      * Sets Enforce Uniqueness.
-     *
      * If true, each Custom Attribute instance associated with this Custom Attribute
      * Definition must have a unique value within the seller's catalog. For
      * example, this may be used for a value like a SKU that should not be

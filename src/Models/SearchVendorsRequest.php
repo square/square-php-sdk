@@ -28,7 +28,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Filter.
-     *
      * Defines supported query expressions to search for vendors by.
      */
     public function getFilter(): ?SearchVendorsRequestFilter
@@ -38,7 +37,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Filter.
-     *
      * Defines supported query expressions to search for vendors by.
      *
      * @maps filter
@@ -50,7 +48,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Sort.
-     *
      * Defines a sorter used to sort results from [SearchVendors]($e/Vendors/SearchVendors).
      */
     public function getSort(): ?SearchVendorsRequestSort
@@ -60,7 +57,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Sort.
-     *
      * Defines a sorter used to sort results from [SearchVendors]($e/Vendors/SearchVendors).
      *
      * @maps sort
@@ -72,7 +68,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *
@@ -86,7 +81,6 @@ class SearchVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
      *

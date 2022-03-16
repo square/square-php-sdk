@@ -34,7 +34,6 @@ class OrderReward implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The identifier of the reward.
      */
     public function getId(): string
@@ -44,7 +43,6 @@ class OrderReward implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The identifier of the reward.
      *
      * @required
@@ -57,7 +55,6 @@ class OrderReward implements \JsonSerializable
 
     /**
      * Returns Reward Tier Id.
-     *
      * The identifier of the reward tier corresponding to this reward.
      */
     public function getRewardTierId(): string
@@ -67,7 +64,6 @@ class OrderReward implements \JsonSerializable
 
     /**
      * Sets Reward Tier Id.
-     *
      * The identifier of the reward tier corresponding to this reward.
      *
      * @required

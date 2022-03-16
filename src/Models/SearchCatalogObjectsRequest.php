@@ -45,7 +45,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
      */
@@ -56,7 +55,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
      *
@@ -69,7 +67,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Object Types.
-     *
      * The desired set of object types to appear in the search results.
      *
      * If this is unspecified, the operation returns objects of all the top level types at the version
@@ -90,7 +87,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Object Types.
-     *
      * The desired set of object types to appear in the search results.
      *
      * If this is unspecified, the operation returns objects of all the top level types at the version
@@ -113,7 +109,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Include Deleted Objects.
-     *
      * If `true`, deleted objects will be included in the results. Deleted objects will have their
      * `is_deleted` field set to `true`.
      */
@@ -124,7 +119,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Include Deleted Objects.
-     *
      * If `true`, deleted objects will be included in the results. Deleted objects will have their
      * `is_deleted` field set to `true`.
      *
@@ -137,7 +131,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are objects that are referenced by object ID by the objects
      * in the response. This is helpful if the objects are being fetched for immediate display to a user.
@@ -161,7 +154,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are objects that are referenced by object ID by the objects
      * in the response. This is helpful if the objects are being fetched for immediate display to a user.
@@ -187,7 +179,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * Return objects modified after this [timestamp](https://developer.squareup.com/docs/build-
      * basics/working-with-dates), in RFC 3339
      * format, e.g., `2016-09-04T23:59:33.123Z`. The timestamp is exclusive - objects with a
@@ -200,7 +191,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * Return objects modified after this [timestamp](https://developer.squareup.com/docs/build-
      * basics/working-with-dates), in RFC 3339
      * format, e.g., `2016-09-04T23:59:33.123Z`. The timestamp is exclusive - objects with a
@@ -215,7 +205,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * A query composed of one or more different types of filters to narrow the scope of targeted objects
      * when calling the `SearchCatalogObjects` endpoint.
      *
@@ -254,7 +243,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * A query composed of one or more different types of filters to narrow the scope of targeted objects
      * when calling the `SearchCatalogObjects` endpoint.
      *
@@ -295,7 +283,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * A limit on the number of results to be returned in a single page. The limit is advisory -
      * the implementation may return more or fewer results. If the supplied limit is negative, zero, or
      * is higher than the maximum limit of 1,000, it will be ignored.
@@ -307,7 +294,6 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * A limit on the number of results to be returned in a single page. The limit is advisory -
      * the implementation may return more or fewer results. If the supplied limit is negative, zero, or
      * is higher than the maximum limit of 1,000, it will be ignored.

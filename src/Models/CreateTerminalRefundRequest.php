@@ -28,7 +28,6 @@ class CreateTerminalRefundRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateRefund` request. Keys can be any valid string but
      * must be unique for every `CreateRefund` request.
      *
@@ -42,7 +41,6 @@ class CreateTerminalRefundRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateRefund` request. Keys can be any valid string but
      * must be unique for every `CreateRefund` request.
      *

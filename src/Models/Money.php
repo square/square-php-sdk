@@ -29,7 +29,6 @@ class Money implements \JsonSerializable
 
     /**
      * Returns Amount.
-     *
      * The amount of money, in the smallest denomination of the currency
      * indicated by `currency`. For example, when `currency` is `USD`, `amount` is
      * in cents. Monetary amounts can be positive or negative. See the specific
@@ -42,7 +41,6 @@ class Money implements \JsonSerializable
 
     /**
      * Sets Amount.
-     *
      * The amount of money, in the smallest denomination of the currency
      * indicated by `currency`. For example, when `currency` is `USD`, `amount` is
      * in cents. Monetary amounts can be positive or negative. See the specific
@@ -57,7 +55,6 @@ class Money implements \JsonSerializable
 
     /**
      * Returns Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      */
@@ -68,7 +65,6 @@ class Money implements \JsonSerializable
 
     /**
      * Sets Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *

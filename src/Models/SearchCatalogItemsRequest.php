@@ -58,7 +58,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Text Filter.
-     *
      * The text filter expression to return items or item variations containing specified text in
      * the `name`, `description`, or `abbreviation` attribute value of an item, or in
      * the `name`, `sku`, or `upc` attribute value of an item variation.
@@ -70,7 +69,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Text Filter.
-     *
      * The text filter expression to return items or item variations containing specified text in
      * the `name`, `description`, or `abbreviation` attribute value of an item, or in
      * the `name`, `sku`, or `upc` attribute value of an item variation.
@@ -84,7 +82,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Category Ids.
-     *
      * The category id query expression to return items containing the specified category IDs.
      *
      * @return string[]|null
@@ -96,7 +93,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Category Ids.
-     *
      * The category id query expression to return items containing the specified category IDs.
      *
      * @maps category_ids
@@ -110,7 +106,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Stock Levels.
-     *
      * The stock-level query expression to return item variations with the specified stock levels.
      * See [SearchCatalogItemsRequestStockLevel](#type-searchcatalogitemsrequeststocklevel) for possible
      * values
@@ -124,7 +119,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Stock Levels.
-     *
      * The stock-level query expression to return item variations with the specified stock levels.
      * See [SearchCatalogItemsRequestStockLevel](#type-searchcatalogitemsrequeststocklevel) for possible
      * values
@@ -140,7 +134,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Enabled Location Ids.
-     *
      * The enabled-location query expression to return items and item variations having specified enabled
      * locations.
      *
@@ -153,7 +146,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Enabled Location Ids.
-     *
      * The enabled-location query expression to return items and item variations having specified enabled
      * locations.
      *
@@ -168,7 +160,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination token, returned in the previous response, used to fetch the next batch of pending
      * results.
      */
@@ -179,7 +170,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination token, returned in the previous response, used to fetch the next batch of pending
      * results.
      *
@@ -192,7 +182,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return per page. The default value is 100.
      */
     public function getLimit(): ?int
@@ -202,7 +191,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return per page. The default value is 100.
      *
      * @maps limit
@@ -214,7 +202,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -224,7 +211,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
@@ -236,7 +222,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Product Types.
-     *
      * The product types query expression to return items or item variations having the specified product
      * types.
      *
@@ -249,7 +234,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Product Types.
-     *
      * The product types query expression to return items or item variations having the specified product
      * types.
      *
@@ -264,7 +248,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Filters.
-     *
      * The customer-attribute filter to return items or item variations matching the specified
      * custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
      * a single call to the [SearchCatalogItems]($e/Catalog/SearchCatalogItems) endpoint.
@@ -278,7 +261,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Filters.
-     *
      * The customer-attribute filter to return items or item variations matching the specified
      * custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
      * a single call to the [SearchCatalogItems]($e/Catalog/SearchCatalogItems) endpoint.

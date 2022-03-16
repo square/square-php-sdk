@@ -43,7 +43,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Accumulate Points.
-     *
      * Provides metadata when the event `type` is `ACCUMULATE_POINTS`.
      */
     public function getAccumulatePoints(): LoyaltyEventAccumulatePoints
@@ -53,7 +52,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Accumulate Points.
-     *
      * Provides metadata when the event `type` is `ACCUMULATE_POINTS`.
      *
      * @required
@@ -66,7 +64,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies the `AccumulateLoyaltyPoints` request.
      * Keys can be any valid string but must be unique for every request.
      */
@@ -77,7 +74,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies the `AccumulateLoyaltyPoints` request.
      * Keys can be any valid string but must be unique for every request.
      *
@@ -91,7 +87,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The [location]($m/Location) where the purchase was made.
      */
     public function getLocationId(): string
@@ -101,7 +96,6 @@ class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The [location]($m/Location) where the purchase was made.
      *
      * @required

@@ -15,7 +15,6 @@ class PaymentOptions implements \JsonSerializable
 
     /**
      * Returns Autocomplete.
-     *
      * Indicates whether the `Payment` objects created from this `TerminalCheckout` are automatically
      * `COMPLETED` or left in an `APPROVED` state for later modification.
      */
@@ -26,7 +25,6 @@ class PaymentOptions implements \JsonSerializable
 
     /**
      * Sets Autocomplete.
-     *
      * Indicates whether the `Payment` objects created from this `TerminalCheckout` are automatically
      * `COMPLETED` or left in an `APPROVED` state for later modification.
      *

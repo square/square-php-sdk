@@ -30,7 +30,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the rounding adjustment only within this order.
      */
     public function getUid(): ?string
@@ -40,7 +39,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the rounding adjustment only within this order.
      *
      * @maps uid
@@ -52,7 +50,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the rounding adjustment from the original sale order.
      */
     public function getName(): ?string
@@ -62,7 +59,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the rounding adjustment from the original sale order.
      *
      * @maps name
@@ -74,7 +70,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -90,7 +85,6 @@ class OrderRoundingAdjustment implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

@@ -50,7 +50,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The Square-generated ID of the
      * [CatalogObject]($m/CatalogObject) being tracked.
      */
@@ -61,7 +60,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The Square-generated ID of the
      * [CatalogObject]($m/CatalogObject) being tracked.
      *
@@ -74,7 +72,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     *
      * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
@@ -89,7 +86,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     *
      * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
@@ -106,7 +102,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      */
     public function getState(): ?string
@@ -116,7 +111,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps state
@@ -128,7 +122,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The Square-generated ID of the [Location]($m/Location) where the related
      * quantity of items is being tracked.
      */
@@ -139,7 +132,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The Square-generated ID of the [Location]($m/Location) where the related
      * quantity of items is being tracked.
      *
@@ -152,7 +144,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The number of items affected by the estimated count as a decimal string.
      * Can support up to 5 digits after the decimal point.
      */
@@ -163,7 +154,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The number of items affected by the estimated count as a decimal string.
      * Can support up to 5 digits after the decimal point.
      *
@@ -176,7 +166,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Calculated At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the most recent physical count or adjustment
      * affecting
      * the estimated count is received.
@@ -188,7 +177,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Calculated At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the most recent physical count or adjustment
      * affecting
      * the estimated count is received.
@@ -202,7 +190,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Is Estimated.
-     *
      * Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory
      * count will not be present in the response of
      * any of these endpoints: [BatchChangeInventory]($e/Inventory/BatchChangeInventory),
@@ -217,7 +204,6 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Is Estimated.
-     *
      * Whether the inventory count is for composed variation (TRUE) or not (FALSE). If true, the inventory
      * count will not be present in the response of
      * any of these endpoints: [BatchChangeInventory]($e/Inventory/BatchChangeInventory),

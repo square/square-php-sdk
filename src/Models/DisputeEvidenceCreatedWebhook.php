@@ -46,7 +46,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Returns Merchant Id.
-     *
      * The ID of the target merchant associated with the event.
      */
     public function getMerchantId(): ?string
@@ -56,7 +55,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Sets Merchant Id.
-     *
      * The ID of the target merchant associated with the event.
      *
      * @maps merchant_id
@@ -68,7 +66,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the target location associated with the event.
      */
     public function getLocationId(): ?string
@@ -78,7 +75,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the target location associated with the event.
      *
      * @maps location_id
@@ -90,7 +86,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * The type of event this represents.
      */
     public function getType(): ?string
@@ -100,7 +95,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * The type of event this represents.
      *
      * @maps type
@@ -112,7 +106,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Returns Event Id.
-     *
      * A unique ID for the webhook event.
      */
     public function getEventId(): ?string
@@ -122,7 +115,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Sets Event Id.
-     *
      * A unique ID for the webhook event.
      *
      * @maps event_id
@@ -134,7 +126,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * Timestamp of when the webhook event was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -144,7 +135,6 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * Timestamp of when the webhook event was created, in RFC 3339 format.
      *
      * @maps created_at

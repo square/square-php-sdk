@@ -65,7 +65,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The unique id for this device code.
      */
     public function getId(): ?string
@@ -75,7 +74,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The unique id for this device code.
      *
      * @maps id
@@ -87,7 +85,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * An optional user-defined name for the device code.
      */
     public function getName(): ?string
@@ -97,7 +94,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * An optional user-defined name for the device code.
      *
      * @maps name
@@ -109,7 +105,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Code.
-     *
      * The unique code that can be used to login.
      */
     public function getCode(): ?string
@@ -119,7 +114,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Code.
-     *
      * The unique code that can be used to login.
      *
      * @maps code
@@ -131,7 +125,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Device Id.
-     *
      * The unique id of the device that used this code. Populated when the device is paired up.
      */
     public function getDeviceId(): ?string
@@ -141,7 +134,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Device Id.
-     *
      * The unique id of the device that used this code. Populated when the device is paired up.
      *
      * @maps device_id
@@ -171,7 +163,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The location assigned to this code.
      */
     public function getLocationId(): ?string
@@ -181,7 +172,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The location assigned to this code.
      *
      * @maps location_id
@@ -193,7 +183,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * DeviceCode.Status enum.
      */
     public function getStatus(): ?string
@@ -203,7 +192,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * DeviceCode.Status enum.
      *
      * @maps status
@@ -215,7 +203,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Pair By.
-     *
      * When this DeviceCode will expire and no longer login. Timestamp in RFC 3339 format.
      */
     public function getPairBy(): ?string
@@ -225,7 +212,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Pair By.
-     *
      * When this DeviceCode will expire and no longer login. Timestamp in RFC 3339 format.
      *
      * @maps pair_by
@@ -237,7 +223,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * When this DeviceCode was created. Timestamp in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -247,7 +232,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * When this DeviceCode was created. Timestamp in RFC 3339 format.
      *
      * @maps created_at
@@ -259,7 +243,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Status Changed At.
-     *
      * When this DeviceCode's status was last changed. Timestamp in RFC 3339 format.
      */
     public function getStatusChangedAt(): ?string
@@ -269,7 +252,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Status Changed At.
-     *
      * When this DeviceCode's status was last changed. Timestamp in RFC 3339 format.
      *
      * @maps status_changed_at
@@ -281,7 +263,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Returns Paired At.
-     *
      * When this DeviceCode was paired. Timestamp in RFC 3339 format.
      */
     public function getPairedAt(): ?string
@@ -291,7 +272,6 @@ class DeviceCode implements \JsonSerializable
 
     /**
      * Sets Paired At.
-     *
      * When this DeviceCode was paired. Timestamp in RFC 3339 format.
      *
      * @maps paired_at

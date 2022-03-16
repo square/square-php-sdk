@@ -32,7 +32,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the mapping.
      */
     public function getId(): ?string
@@ -42,7 +41,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the mapping.
      *
      * @maps id
@@ -54,7 +52,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the mapping was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -64,7 +61,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the mapping was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -76,7 +72,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number of the buyer, in E.164 format. For example, "+14155551111".
      */
     public function getPhoneNumber(): ?string
@@ -86,7 +81,6 @@ class LoyaltyAccountMapping implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number of the buyer, in E.164 format. For example, "+14155551111".
      *
      * @maps phone_number

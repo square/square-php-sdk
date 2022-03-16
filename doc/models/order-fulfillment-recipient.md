@@ -15,7 +15,7 @@ Contains information about the recipient of a fulfillment.
 | `displayName` | `?string` | Optional | The display name of the fulfillment recipient.<br><br>If provided, the display name overrides the value pulled from the customer profile indicated by `customer_id`.<br>**Constraints**: *Maximum Length*: `255` | getDisplayName(): ?string | setDisplayName(?string displayName): void |
 | `emailAddress` | `?string` | Optional | The email address of the fulfillment recipient.<br><br>If provided, the email address overrides the value pulled from the customer profile indicated by `customer_id`.<br>**Constraints**: *Maximum Length*: `255` | getEmailAddress(): ?string | setEmailAddress(?string emailAddress): void |
 | `phoneNumber` | `?string` | Optional | The phone number of the fulfillment recipient.<br><br>If provided, the phone number overrides the value pulled from the customer profile indicated by `customer_id`.<br>**Constraints**: *Maximum Length*: `17` | getPhoneNumber(): ?string | setPhoneNumber(?string phoneNumber): void |
-| `address` | [`?Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](../../https://developer.squareup.com/docs/build-basics/working-with-addresses). | getAddress(): ?Address | setAddress(?Address address): void |
+| `address` | [`?Address`](../../doc/models/address.md) | Optional | Represents a postal address in a country.<br>For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses). | getAddress(): ?Address | setAddress(?Address address): void |
 
 ## Example (as JSON)
 

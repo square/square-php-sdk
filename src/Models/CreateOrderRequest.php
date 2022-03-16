@@ -20,7 +20,6 @@ class CreateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -35,7 +34,6 @@ class CreateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -52,7 +50,6 @@ class CreateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * order among orders you have created.
      *
@@ -70,7 +67,6 @@ class CreateOrderRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * order among orders you have created.
      *

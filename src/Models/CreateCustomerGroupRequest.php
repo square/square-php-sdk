@@ -32,7 +32,6 @@ class CreateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * The idempotency key for the request. For more information, see [Idempotency](https://developer.
      * squareup.com/docs/build-basics/common-api-patterns/idempotency).
      */
@@ -43,7 +42,6 @@ class CreateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * The idempotency key for the request. For more information, see [Idempotency](https://developer.
      * squareup.com/docs/build-basics/common-api-patterns/idempotency).
      *
@@ -56,7 +54,6 @@ class CreateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Returns Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using
@@ -69,7 +66,6 @@ class CreateCustomerGroupRequest implements \JsonSerializable
 
     /**
      * Sets Group.
-     *
      * Represents a group of customer profiles.
      *
      * Customer groups can be created, be modified, and have their membership defined using

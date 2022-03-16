@@ -23,7 +23,6 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
 
     /**
      * Returns Standard Unit Descriptions.
-     *
      * List of standard (non-custom) measurement units in this description group.
      *
      * @return StandardUnitDescription[]|null
@@ -35,7 +34,6 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
 
     /**
      * Sets Standard Unit Descriptions.
-     *
      * List of standard (non-custom) measurement units in this description group.
      *
      * @maps standard_unit_descriptions
@@ -49,7 +47,6 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
 
     /**
      * Returns Language Code.
-     *
      * IETF language tag.
      */
     public function getLanguageCode(): ?string
@@ -59,7 +56,6 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
 
     /**
      * Sets Language Code.
-     *
      * IETF language tag.
      *
      * @maps language_code

@@ -51,7 +51,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique Square-generated ID for the [VendorContact]($m/VendorContact).
      * This field is required when attempting to update a [VendorContact]($m/VendorContact).
      */
@@ -62,7 +61,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique Square-generated ID for the [VendorContact]($m/VendorContact).
      * This field is required when attempting to update a [VendorContact]($m/VendorContact).
      *
@@ -75,7 +73,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the [VendorContact]($m/VendorContact).
      * This field is required when attempting to create a [Vendor]($m/Vendor).
      */
@@ -86,7 +83,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the [VendorContact]($m/VendorContact).
      * This field is required when attempting to create a [Vendor]($m/Vendor).
      *
@@ -99,7 +95,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The email address of the [VendorContact]($m/VendorContact).
      */
     public function getEmailAddress(): ?string
@@ -109,7 +104,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The email address of the [VendorContact]($m/VendorContact).
      *
      * @maps email_address
@@ -121,7 +115,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number of the [VendorContact]($m/VendorContact).
      */
     public function getPhoneNumber(): ?string
@@ -131,7 +124,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number of the [VendorContact]($m/VendorContact).
      *
      * @maps phone_number
@@ -143,7 +135,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Removed.
-     *
      * The state of the [VendorContact]($m/VendorContact).
      */
     public function getRemoved(): ?bool
@@ -153,7 +144,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Removed.
-     *
      * The state of the [VendorContact]($m/VendorContact).
      *
      * @maps removed
@@ -165,7 +155,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * The ordinal of the [VendorContact]($m/VendorContact).
      */
     public function getOrdinal(): int
@@ -175,7 +164,6 @@ class VendorContact implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * The ordinal of the [VendorContact]($m/VendorContact).
      *
      * @required

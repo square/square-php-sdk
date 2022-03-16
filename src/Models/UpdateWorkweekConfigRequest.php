@@ -26,7 +26,6 @@ class UpdateWorkweekConfigRequest implements \JsonSerializable
 
     /**
      * Returns Workweek Config.
-     *
      * Sets the day of the week and hour of the day that a business starts a
      * workweek. This is used to calculate overtime pay.
      */
@@ -37,7 +36,6 @@ class UpdateWorkweekConfigRequest implements \JsonSerializable
 
     /**
      * Sets Workweek Config.
-     *
      * Sets the day of the week and hour of the day that a business starts a
      * workweek. This is used to calculate overtime pay.
      *

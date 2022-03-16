@@ -53,7 +53,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the surcharge.
      */
     public function getName(): ?string
@@ -63,7 +62,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the surcharge.
      *
      * @maps name
@@ -93,7 +91,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Returns Rate.
-     *
      * The amount of the surcharge as a percentage. The percentage is provided as a string representing the
      * decimal equivalent of the percentage. For example, "0.7" corresponds to a 7% surcharge. Exactly one
      * of rate or amount_money should be set.
@@ -105,7 +102,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Sets Rate.
-     *
      * The amount of the surcharge as a percentage. The percentage is provided as a string representing the
      * decimal equivalent of the percentage. For example, "0.7" corresponds to a 7% surcharge. Exactly one
      * of rate or amount_money should be set.
@@ -155,7 +151,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Returns Taxable.
-     *
      * Indicates whether the surcharge is taxable.
      */
     public function getTaxable(): ?bool
@@ -165,7 +160,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Sets Taxable.
-     *
      * Indicates whether the surcharge is taxable.
      *
      * @maps taxable
@@ -177,7 +171,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Returns Taxes.
-     *
      * The list of taxes that should be applied to the surcharge.
      *
      * @return V1PaymentTax[]|null
@@ -189,7 +182,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Sets Taxes.
-     *
      * The list of taxes that should be applied to the surcharge.
      *
      * @maps taxes
@@ -203,7 +195,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Returns Surcharge Id.
-     *
      * A Square-issued unique identifier associated with the surcharge.
      */
     public function getSurchargeId(): ?string
@@ -213,7 +204,6 @@ class V1PaymentSurcharge implements \JsonSerializable
 
     /**
      * Sets Surcharge Id.
-     *
      * A Square-issued unique identifier associated with the surcharge.
      *
      * @maps surcharge_id

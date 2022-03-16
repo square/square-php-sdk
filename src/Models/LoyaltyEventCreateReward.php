@@ -38,7 +38,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     *
      * The ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
@@ -48,7 +47,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     *
      * The ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @required
@@ -61,7 +59,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Returns Reward Id.
-     *
      * The Square-assigned ID of the created [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      */
@@ -72,7 +69,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Sets Reward Id.
-     *
      * The Square-assigned ID of the created [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      *
@@ -85,7 +81,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The loyalty points used to create the reward.
      */
     public function getPoints(): int
@@ -95,7 +90,6 @@ class LoyaltyEventCreateReward implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The loyalty points used to create the reward.
      *
      * @required

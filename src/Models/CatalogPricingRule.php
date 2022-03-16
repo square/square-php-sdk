@@ -79,7 +79,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * User-defined name for the pricing rule. For example, "Buy one get one
      * free" or "10% off".
      */
@@ -90,7 +89,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * User-defined name for the pricing rule. For example, "Buy one get one
      * free" or "10% off".
      *
@@ -103,7 +101,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Time Period Ids.
-     *
      * A list of unique IDs for the catalog time periods when
      * this pricing rule is in effect. If left unset, the pricing rule is always
      * in effect.
@@ -117,7 +114,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Time Period Ids.
-     *
      * A list of unique IDs for the catalog time periods when
      * this pricing rule is in effect. If left unset, the pricing rule is always
      * in effect.
@@ -133,7 +129,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Discount Id.
-     *
      * Unique ID for the `CatalogDiscount` to take off
      * the price of all matched items.
      */
@@ -144,7 +139,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Discount Id.
-     *
      * Unique ID for the `CatalogDiscount` to take off
      * the price of all matched items.
      *
@@ -157,7 +151,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Match Products Id.
-     *
      * Unique ID for the `CatalogProductSet` that will be matched by this rule. A match rule
      * matches within the entire cart, and can match multiple times. This field will always be set.
      */
@@ -168,7 +161,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Match Products Id.
-     *
      * Unique ID for the `CatalogProductSet` that will be matched by this rule. A match rule
      * matches within the entire cart, and can match multiple times. This field will always be set.
      *
@@ -181,7 +173,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Apply Products Id.
-     *
      * __Deprecated__: Please use the `exclude_products_id` field to apply
      * an exclude set instead. Exclude sets allow better control over quantity
      * ranges and offer more flexibility for which matched items receive a discount.
@@ -199,7 +190,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Apply Products Id.
-     *
      * __Deprecated__: Please use the `exclude_products_id` field to apply
      * an exclude set instead. Exclude sets allow better control over quantity
      * ranges and offer more flexibility for which matched items receive a discount.
@@ -219,7 +209,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Exclude Products Id.
-     *
      * `CatalogProductSet` to exclude from the pricing rule.
      * An exclude rule matches within the subset of the cart that fits the match rules (the match set).
      * An exclude rule can only match once in the match set.
@@ -233,7 +222,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Exclude Products Id.
-     *
      * `CatalogProductSet` to exclude from the pricing rule.
      * An exclude rule matches within the subset of the cart that fits the match rules (the match set).
      * An exclude rule can only match once in the match set.
@@ -249,7 +237,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Valid From Date.
-     *
      * Represents the date the Pricing Rule is valid from. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      */
@@ -260,7 +247,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Valid From Date.
-     *
      * Represents the date the Pricing Rule is valid from. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      *
@@ -273,7 +259,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Valid From Local Time.
-     *
      * Represents the local time the pricing rule should be valid from. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
@@ -285,7 +270,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Valid From Local Time.
-     *
      * Represents the local time the pricing rule should be valid from. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
@@ -299,7 +283,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Valid Until Date.
-     *
      * Represents the date the Pricing Rule is valid until. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      */
@@ -310,7 +293,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Valid Until Date.
-     *
      * Represents the date the Pricing Rule is valid until. Represented in RFC 3339 full-date format (YYYY-
      * MM-DD).
      *
@@ -323,7 +305,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Valid Until Local Time.
-     *
      * Represents the local time the pricing rule should be valid until. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
@@ -335,7 +316,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Valid Until Local Time.
-     *
      * Represents the local time the pricing rule should be valid until. Represented in RFC 3339 partial-
      * time format
      * (HH:MM:SS). Partial seconds will be truncated.
@@ -349,7 +329,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Exclude Strategy.
-     *
      * Indicates which products matched by a CatalogPricingRule
      * will be excluded if the pricing rule uses an exclude set.
      */
@@ -360,7 +339,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Exclude Strategy.
-     *
      * Indicates which products matched by a CatalogPricingRule
      * will be excluded if the pricing rule uses an exclude set.
      *
@@ -373,7 +351,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Minimum Order Subtotal Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -389,7 +366,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Minimum Order Subtotal Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -407,7 +383,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Returns Customer Group Ids Any.
-     *
      * A list of IDs of customer groups, the members of which are eligible for discounts specified in this
      * pricing rule.
      * Notice that a group ID is generated by the Customers API.
@@ -426,7 +401,6 @@ class CatalogPricingRule implements \JsonSerializable
 
     /**
      * Sets Customer Group Ids Any.
-     *
      * A list of IDs of customer groups, the members of which are eligible for discounts specified in this
      * pricing rule.
      * Notice that a group ID is generated by the Customers API.

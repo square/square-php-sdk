@@ -23,7 +23,6 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Returns Bank Account.
-     *
      * Represents a bank account. For more information about
      * linking a bank account to a Square account, see
      * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
@@ -61,7 +58,6 @@ class GetBankAccountResponse implements \JsonSerializable
 
     /**
      * Sets Bank Account.
-     *
      * Represents a bank account. For more information about
      * linking a bank account to a Square account, see
      * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).

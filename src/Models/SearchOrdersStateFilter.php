@@ -26,7 +26,6 @@ class SearchOrdersStateFilter implements \JsonSerializable
 
     /**
      * Returns States.
-     *
      * States to filter for.
      * See [OrderState](#type-orderstate) for possible values
      *
@@ -39,7 +38,6 @@ class SearchOrdersStateFilter implements \JsonSerializable
 
     /**
      * Sets States.
-     *
      * States to filter for.
      * See [OrderState](#type-orderstate) for possible values
      *

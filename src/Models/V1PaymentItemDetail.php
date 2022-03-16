@@ -33,7 +33,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Returns Category Name.
-     *
      * The name of the item's merchant-defined category, if any.
      */
     public function getCategoryName(): ?string
@@ -43,7 +42,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Sets Category Name.
-     *
      * The name of the item's merchant-defined category, if any.
      *
      * @maps category_name
@@ -55,7 +53,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Returns Sku.
-     *
      * The item's merchant-defined SKU, if any.
      */
     public function getSku(): ?string
@@ -65,7 +62,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Sets Sku.
-     *
      * The item's merchant-defined SKU, if any.
      *
      * @maps sku
@@ -77,7 +73,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Returns Item Id.
-     *
      * The unique ID of the item purchased, if any.
      */
     public function getItemId(): ?string
@@ -87,7 +82,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Sets Item Id.
-     *
      * The unique ID of the item purchased, if any.
      *
      * @maps item_id
@@ -99,7 +93,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Returns Item Variation Id.
-     *
      * The unique ID of the item variation purchased, if any.
      */
     public function getItemVariationId(): ?string
@@ -109,7 +102,6 @@ class V1PaymentItemDetail implements \JsonSerializable
 
     /**
      * Sets Item Variation Id.
-     *
      * The unique ID of the item variation purchased, if any.
      *
      * @maps item_variation_id

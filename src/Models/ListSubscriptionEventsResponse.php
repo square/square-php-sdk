@@ -29,7 +29,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered during the request.
      *
      * @return Error[]|null
@@ -41,7 +40,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered during the request.
      *
      * @maps errors
@@ -55,7 +53,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Returns Subscription Events.
-     *
      * The retrieved subscription events.
      *
      * @return SubscriptionEvent[]|null
@@ -67,7 +64,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Sets Subscription Events.
-     *
      * The retrieved subscription events.
      *
      * @maps subscription_events
@@ -81,7 +77,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When the total number of resulting subscription events exceeds the limit of a paged response,
      * the response includes a cursor for you to use in a subsequent request to fetch the next set of
      * events.
@@ -97,7 +92,6 @@ class ListSubscriptionEventsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When the total number of resulting subscription events exceeds the limit of a paged response,
      * the response includes a cursor for you to use in a subsequent request to fetch the next set of
      * events.

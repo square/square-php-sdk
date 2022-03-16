@@ -32,7 +32,6 @@ class SearchOrdersSort implements \JsonSerializable
 
     /**
      * Returns Sort Field.
-     *
      * Specifies which timestamp to use to sort `SearchOrder` results.
      */
     public function getSortField(): string
@@ -42,7 +41,6 @@ class SearchOrdersSort implements \JsonSerializable
 
     /**
      * Sets Sort Field.
-     *
      * Specifies which timestamp to use to sort `SearchOrder` results.
      *
      * @required
@@ -55,7 +53,6 @@ class SearchOrdersSort implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -65,7 +62,6 @@ class SearchOrdersSort implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order

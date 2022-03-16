@@ -45,7 +45,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Definition Id.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `custom_attribute_definition_id` property value against the the specified id.
      * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
@@ -57,7 +56,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Definition Id.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `custom_attribute_definition_id` property value against the the specified id.
      * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
@@ -71,7 +69,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Key.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `key` property value against the specified key.
      * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
@@ -83,7 +80,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Key.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `key` property value against the specified key.
      * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
@@ -97,7 +93,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns String Filter.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `string_value`  property value against the specified text.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
@@ -110,7 +105,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets String Filter.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `string_value`  property value against the specified text.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
@@ -125,7 +119,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Number Filter.
-     *
      * The range of a number value between the specified lower and upper bounds.
      */
     public function getNumberFilter(): ?Range
@@ -135,7 +128,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Number Filter.
-     *
      * The range of a number value between the specified lower and upper bounds.
      *
      * @maps number_filter
@@ -147,7 +139,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Selection Uids Filter.
-     *
      * A query expression to filter items or item variations by matching  their custom attributes'
      * `selection_uid_values` values against the specified selection uids.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
@@ -162,7 +153,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Selection Uids Filter.
-     *
      * A query expression to filter items or item variations by matching  their custom attributes'
      * `selection_uid_values` values against the specified selection uids.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
@@ -179,7 +169,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Bool Filter.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `boolean_value` property values against the specified Boolean expression.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
@@ -192,7 +181,6 @@ class CustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Bool Filter.
-     *
      * A query expression to filter items or item variations by matching their custom attributes'
      * `boolean_value` property values against the specified Boolean expression.
      * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be

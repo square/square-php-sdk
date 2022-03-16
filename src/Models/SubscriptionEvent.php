@@ -52,7 +52,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The ID of the subscription event.
      */
     public function getId(): string
@@ -62,7 +61,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The ID of the subscription event.
      *
      * @required
@@ -75,7 +73,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Returns Subscription Event Type.
-     *
      * Supported types of an event occurred to a subscription.
      */
     public function getSubscriptionEventType(): string
@@ -85,7 +82,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Sets Subscription Event Type.
-     *
      * Supported types of an event occurred to a subscription.
      *
      * @required
@@ -98,7 +94,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Returns Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred.
      */
     public function getEffectiveDate(): string
@@ -108,7 +103,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Sets Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) when the subscription event occurred.
      *
      * @required
@@ -121,7 +115,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     *
      * The ID of the subscription plan associated with the subscription.
      */
     public function getPlanId(): string
@@ -131,7 +124,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     *
      * The ID of the subscription plan associated with the subscription.
      *
      * @required
@@ -144,7 +136,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Returns Info.
-     *
      * Provides information about the subscription event.
      */
     public function getInfo(): ?SubscriptionEventInfo
@@ -154,7 +145,6 @@ class SubscriptionEvent implements \JsonSerializable
 
     /**
      * Sets Info.
-     *
      * Provides information about the subscription event.
      *
      * @maps info

@@ -26,7 +26,6 @@ class UpdateShiftRequest implements \JsonSerializable
 
     /**
      * Returns Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
@@ -38,7 +37,6 @@ class UpdateShiftRequest implements \JsonSerializable
 
     /**
      * Sets Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.

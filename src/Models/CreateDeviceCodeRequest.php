@@ -30,7 +30,6 @@ class CreateDeviceCodeRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this CreateDeviceCode request. Keys can
      * be any valid string but must be unique for every CreateDeviceCode request.
      *
@@ -44,7 +43,6 @@ class CreateDeviceCodeRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this CreateDeviceCode request. Keys can
      * be any valid string but must be unique for every CreateDeviceCode request.
      *

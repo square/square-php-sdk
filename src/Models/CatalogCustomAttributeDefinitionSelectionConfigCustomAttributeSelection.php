@@ -31,7 +31,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
 
     /**
      * Returns Uid.
-     *
      * Unique ID set by Square.
      */
     public function getUid(): ?string
@@ -41,7 +40,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
 
     /**
      * Sets Uid.
-     *
      * Unique ID set by Square.
      *
      * @maps uid
@@ -53,7 +51,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
 
     /**
      * Returns Name.
-     *
      * Selection name, unique within `allowed_selections`.
      */
     public function getName(): string
@@ -63,7 +60,6 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
 
     /**
      * Sets Name.
-     *
      * Selection name, unique within `allowed_selections`.
      *
      * @required

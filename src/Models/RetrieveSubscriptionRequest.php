@@ -19,7 +19,6 @@ class RetrieveSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns M Include.
-     *
      * A query parameter to specify related information to be included in the response.
      *
      * The supported query parameter values are:
@@ -33,7 +32,6 @@ class RetrieveSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets M Include.
-     *
      * A query parameter to specify related information to be included in the response.
      *
      * The supported query parameter values are:

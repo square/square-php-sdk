@@ -52,7 +52,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * User-defined name for the product set. For example, "Clearance Items"
      * or "Winter Sale Items".
      */
@@ -63,7 +62,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * User-defined name for the product set. For example, "Clearance Items"
      * or "Winter Sale Items".
      *
@@ -76,7 +74,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Product Ids Any.
-     *
      * Unique IDs for any `CatalogObject` included in this product set. Any
      * number of these catalog objects can be in an order for a pricing rule to apply.
      *
@@ -97,7 +94,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Product Ids Any.
-     *
      * Unique IDs for any `CatalogObject` included in this product set. Any
      * number of these catalog objects can be in an order for a pricing rule to apply.
      *
@@ -120,7 +116,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Product Ids All.
-     *
      * Unique IDs for any `CatalogObject` included in this product set.
      * All objects in this set must be included in an order for a pricing rule to apply.
      *
@@ -137,7 +132,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Product Ids All.
-     *
      * Unique IDs for any `CatalogObject` included in this product set.
      * All objects in this set must be included in an order for a pricing rule to apply.
      *
@@ -156,7 +150,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Quantity Exact.
-     *
      * If set, there must be exactly this many items from `products_any` or `products_all`
      * in the cart for the discount to apply.
      *
@@ -169,7 +162,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Quantity Exact.
-     *
      * If set, there must be exactly this many items from `products_any` or `products_all`
      * in the cart for the discount to apply.
      *
@@ -184,7 +176,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Quantity Min.
-     *
      * If set, there must be at least this many items from `products_any` or `products_all`
      * in a cart for the discount to apply. See `quantity_exact`. Defaults to 0 if
      * `quantity_exact`, `quantity_min` and `quantity_max` are all unspecified.
@@ -196,7 +187,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Quantity Min.
-     *
      * If set, there must be at least this many items from `products_any` or `products_all`
      * in a cart for the discount to apply. See `quantity_exact`. Defaults to 0 if
      * `quantity_exact`, `quantity_min` and `quantity_max` are all unspecified.
@@ -210,7 +200,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns Quantity Max.
-     *
      * If set, the pricing rule will apply to a maximum of this many items from
      * `products_any` or `products_all`.
      */
@@ -221,7 +210,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets Quantity Max.
-     *
      * If set, the pricing rule will apply to a maximum of this many items from
      * `products_any` or `products_all`.
      *
@@ -234,7 +222,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Returns All Products.
-     *
      * If set to `true`, the product set will include every item in the catalog.
      * Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
      */
@@ -245,7 +232,6 @@ class CatalogProductSet implements \JsonSerializable
 
     /**
      * Sets All Products.
-     *
      * If set to `true`, the product set will include every item in the catalog.
      * Only one of `product_ids_all`, `product_ids_any`, or `all_products` can be set.
      *

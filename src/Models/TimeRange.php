@@ -27,7 +27,6 @@ class TimeRange implements \JsonSerializable
 
     /**
      * Returns Start At.
-     *
      * A datetime value in RFC 3339 format indicating when the time range
      * starts.
      */
@@ -38,7 +37,6 @@ class TimeRange implements \JsonSerializable
 
     /**
      * Sets Start At.
-     *
      * A datetime value in RFC 3339 format indicating when the time range
      * starts.
      *
@@ -51,7 +49,6 @@ class TimeRange implements \JsonSerializable
 
     /**
      * Returns End At.
-     *
      * A datetime value in RFC 3339 format indicating when the time range
      * ends.
      */
@@ -62,7 +59,6 @@ class TimeRange implements \JsonSerializable
 
     /**
      * Sets End At.
-     *
      * A datetime value in RFC 3339 format indicating when the time range
      * ends.
      *

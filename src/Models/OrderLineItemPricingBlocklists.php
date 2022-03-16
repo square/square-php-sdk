@@ -26,7 +26,6 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
 
     /**
      * Returns Blocked Discounts.
-     *
      * A list of discounts blocked from applying to the line item.
      * Discounts can be blocked by the `discount_uid` (for ad hoc discounts) or
      * the `discount_catalog_object_id` (for catalog discounts).
@@ -40,7 +39,6 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
 
     /**
      * Sets Blocked Discounts.
-     *
      * A list of discounts blocked from applying to the line item.
      * Discounts can be blocked by the `discount_uid` (for ad hoc discounts) or
      * the `discount_catalog_object_id` (for catalog discounts).
@@ -56,7 +54,6 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
 
     /**
      * Returns Blocked Taxes.
-     *
      * A list of taxes blocked from applying to the line item.
      * Taxes can be blocked by the `tax_uid` (for ad hoc taxes) or
      * the `tax_catalog_object_id` (for catalog taxes).
@@ -70,7 +67,6 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
 
     /**
      * Sets Blocked Taxes.
-     *
      * A list of taxes blocked from applying to the line item.
      * Taxes can be blocked by the `tax_uid` (for ad hoc taxes) or
      * the `tax_catalog_object_id` (for catalog taxes).

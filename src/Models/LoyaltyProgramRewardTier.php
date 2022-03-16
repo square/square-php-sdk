@@ -66,7 +66,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the reward tier.
      */
     public function getId(): string
@@ -76,7 +75,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the reward tier.
      *
      * @required
@@ -89,7 +87,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The points exchanged for the reward tier.
      */
     public function getPoints(): int
@@ -99,7 +96,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The points exchanged for the reward tier.
      *
      * @required
@@ -112,7 +108,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the reward tier.
      */
     public function getName(): string
@@ -122,7 +117,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the reward tier.
      *
      * @required
@@ -135,7 +129,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Definition.
-     *
      * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
      * are now defined using a catalog pricing rule and other catalog objects. For more information, see
      * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
@@ -148,7 +141,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Definition.
-     *
      * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
      * are now defined using a catalog pricing rule and other catalog objects. For more information, see
      * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
@@ -164,7 +156,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the reward tier was created, in RFC 3339 format.
      */
     public function getCreatedAt(): string
@@ -174,7 +165,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the reward tier was created, in RFC 3339 format.
      *
      * @required
@@ -187,7 +177,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Returns Pricing Rule Reference.
-     *
      * A reference to a Catalog object at a specific version. In general this is
      * used as an entry point into a graph of catalog objects, where the objects exist
      * at a specific version.
@@ -199,7 +188,6 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
 
     /**
      * Sets Pricing Rule Reference.
-     *
      * A reference to a Catalog object at a specific version. In general this is
      * used as an entry point into a graph of catalog objects, where the objects exist
      * at a specific version.

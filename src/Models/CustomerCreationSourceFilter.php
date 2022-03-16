@@ -26,7 +26,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
 
     /**
      * Returns Values.
-     *
      * The list of creation sources used as filtering criteria.
      * See [CustomerCreationSource](#type-customercreationsource) for possible values
      *
@@ -39,7 +38,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
 
     /**
      * Sets Values.
-     *
      * The list of creation sources used as filtering criteria.
      * See [CustomerCreationSource](#type-customercreationsource) for possible values
      *
@@ -54,7 +52,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
 
     /**
      * Returns Rule.
-     *
      * Indicates whether customers should be included in, or excluded from,
      * the result set when they match the filtering criteria.
      */
@@ -65,7 +62,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
 
     /**
      * Sets Rule.
-     *
      * Indicates whether customers should be included in, or excluded from,
      * the result set when they match the filtering criteria.
      *

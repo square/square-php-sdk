@@ -24,7 +24,6 @@ class BatchRetrieveOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Orders.
-     *
      * The requested orders. This will omit any requested orders that do not exist.
      *
      * @return Order[]|null
@@ -36,7 +35,6 @@ class BatchRetrieveOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Orders.
-     *
      * The requested orders. This will omit any requested orders that do not exist.
      *
      * @maps orders
@@ -50,7 +48,6 @@ class BatchRetrieveOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -62,7 +59,6 @@ class BatchRetrieveOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

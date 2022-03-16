@@ -43,7 +43,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The settlement's unique identifier.
      */
     public function getId(): ?string
@@ -53,7 +52,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The settlement's unique identifier.
      *
      * @maps id
@@ -101,7 +99,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Returns Initiated At.
-     *
      * The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format.
      */
     public function getInitiatedAt(): ?string
@@ -111,7 +108,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Sets Initiated At.
-     *
      * The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format.
      *
      * @maps initiated_at
@@ -123,7 +119,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Returns Bank Account Id.
-     *
      * The Square-issued unique identifier for the bank account associated with the settlement.
      */
     public function getBankAccountId(): ?string
@@ -133,7 +128,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Sets Bank Account Id.
-     *
      * The Square-issued unique identifier for the bank account associated with the settlement.
      *
      * @maps bank_account_id
@@ -145,7 +139,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Returns Entries.
-     *
      * The entries included in this settlement.
      *
      * @return V1SettlementEntry[]|null
@@ -157,7 +150,6 @@ class V1Settlement implements \JsonSerializable
 
     /**
      * Sets Entries.
-     *
      * The entries included in this settlement.
      *
      * @maps entries

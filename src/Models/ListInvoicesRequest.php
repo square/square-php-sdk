@@ -36,7 +36,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location for which to list invoices.
      */
     public function getLocationId(): string
@@ -46,7 +45,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location for which to list invoices.
      *
      * @required
@@ -59,7 +57,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *
@@ -73,7 +70,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *
@@ -89,7 +85,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of invoices to return (200 is the maximum `limit`).
      * If not provided, the server uses a default limit of 100 invoices.
      */
@@ -100,7 +95,6 @@ class ListInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of invoices to return (200 is the maximum `limit`).
      * If not provided, the server uses a default limit of 100 invoices.
      *

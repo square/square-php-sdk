@@ -61,7 +61,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the customer. This is the customer profile ID that
      * you provide when creating a draft invoice.
      */
@@ -72,7 +71,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the customer. This is the customer profile ID that
      * you provide when creating a draft invoice.
      *
@@ -85,7 +83,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Given Name.
-     *
      * The recipient's given (that is, first) name.
      */
     public function getGivenName(): ?string
@@ -95,7 +92,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Given Name.
-     *
      * The recipient's given (that is, first) name.
      *
      * @maps given_name
@@ -107,7 +103,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Family Name.
-     *
      * The recipient's family (that is, last) name.
      */
     public function getFamilyName(): ?string
@@ -117,7 +112,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Family Name.
-     *
      * The recipient's family (that is, last) name.
      *
      * @maps family_name
@@ -129,7 +123,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The recipient's email address.
      */
     public function getEmailAddress(): ?string
@@ -139,7 +132,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The recipient's email address.
      *
      * @maps email_address
@@ -151,7 +143,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -163,7 +154,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -177,7 +167,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The recipient's phone number.
      */
     public function getPhoneNumber(): ?string
@@ -187,7 +176,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The recipient's phone number.
      *
      * @maps phone_number
@@ -199,7 +187,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Company Name.
-     *
      * The name of the recipient's company.
      */
     public function getCompanyName(): ?string
@@ -209,7 +196,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Company Name.
-     *
      * The name of the recipient's company.
      *
      * @maps company_name
@@ -221,7 +207,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * Represents the tax IDs for an invoice recipient. The country of the seller account determines
      * whether the corresponding `tax_ids` field is available for the customer. For more information,
      * see [Invoice recipient tax IDs](https://developer.squareup.com/docs/invoices-api/overview#recipient-
@@ -234,7 +219,6 @@ class InvoiceRecipient implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * Represents the tax IDs for an invoice recipient. The country of the seller account determines
      * whether the corresponding `tax_ids` field is available for the customer. For more information,
      * see [Invoice recipient tax IDs](https://developer.squareup.com/docs/invoices-api/overview#recipient-

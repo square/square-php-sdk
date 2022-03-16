@@ -63,7 +63,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique Square-generated ID for the [Vendor]($m/Vendor).
      * This field is required when attempting to update a [Vendor]($m/Vendor).
      */
@@ -74,7 +73,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique Square-generated ID for the [Vendor]($m/Vendor).
      * This field is required when attempting to update a [Vendor]($m/Vendor).
      *
@@ -87,7 +85,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the
      * [Vendor]($m/Vendor) was created.
      */
@@ -98,7 +95,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the
      * [Vendor]($m/Vendor) was created.
      *
@@ -111,7 +107,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the
      * [Vendor]($m/Vendor) was last updated.
      */
@@ -122,7 +117,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the
      * [Vendor]($m/Vendor) was last updated.
      *
@@ -135,7 +129,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the [Vendor]($m/Vendor).
      * This field is required when attempting to create or update a [Vendor]($m/Vendor).
      */
@@ -146,7 +139,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the [Vendor]($m/Vendor).
      * This field is required when attempting to create or update a [Vendor]($m/Vendor).
      *
@@ -159,7 +151,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -171,7 +162,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -185,7 +175,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Contacts.
-     *
      * The contacts of the [Vendor]($m/Vendor).
      *
      * @return VendorContact[]|null
@@ -197,7 +186,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Contacts.
-     *
      * The contacts of the [Vendor]($m/Vendor).
      *
      * @maps contacts
@@ -211,7 +199,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Account Number.
-     *
      * The account number of the [Vendor]($m/Vendor).
      */
     public function getAccountNumber(): ?string
@@ -221,7 +208,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Account Number.
-     *
      * The account number of the [Vendor]($m/Vendor).
      *
      * @maps account_number
@@ -233,7 +219,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * A note detailing information about the [Vendor]($m/Vendor).
      */
     public function getNote(): ?string
@@ -243,7 +228,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * A note detailing information about the [Vendor]($m/Vendor).
      *
      * @maps note
@@ -255,7 +239,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version of the [Vendor]($m/Vendor).
      */
     public function getVersion(): ?int
@@ -265,7 +248,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version of the [Vendor]($m/Vendor).
      *
      * @maps version
@@ -277,7 +259,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the [Vendor]($m/Vendor),
      * whether a [Vendor]($m/Vendor) is active or inactive.
      */
@@ -288,7 +269,6 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the [Vendor]($m/Vendor),
      * whether a [Vendor]($m/Vendor) is active or inactive.
      *

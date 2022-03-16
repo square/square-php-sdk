@@ -20,7 +20,6 @@ class RetrieveInventoryAdjustmentResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class RetrieveInventoryAdjustmentResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -46,7 +44,6 @@ class RetrieveInventoryAdjustmentResponse implements \JsonSerializable
 
     /**
      * Returns Adjustment.
-     *
      * Represents a change in state or quantity of product inventory at a
      * particular time and location.
      */
@@ -57,7 +54,6 @@ class RetrieveInventoryAdjustmentResponse implements \JsonSerializable
 
     /**
      * Sets Adjustment.
-     *
      * Represents a change in state or quantity of product inventory at a
      * particular time and location.
      *

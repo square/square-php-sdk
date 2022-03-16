@@ -20,7 +20,6 @@ class RetrieveEmployeeResponse implements \JsonSerializable
 
     /**
      * Returns Employee.
-     *
      * An employee object that is used by the external API.
      */
     public function getEmployee(): ?Employee
@@ -30,7 +29,6 @@ class RetrieveEmployeeResponse implements \JsonSerializable
 
     /**
      * Sets Employee.
-     *
      * An employee object that is used by the external API.
      *
      * @maps employee
@@ -42,7 +40,6 @@ class RetrieveEmployeeResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -54,7 +51,6 @@ class RetrieveEmployeeResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

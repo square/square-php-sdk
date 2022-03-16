@@ -28,7 +28,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Team Members.
-     *
      * The filtered list of `TeamMember` objects.
      *
      * @return TeamMember[]|null
@@ -40,7 +39,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Team Members.
-     *
      * The filtered list of `TeamMember` objects.
      *
      * @maps team_members
@@ -54,7 +52,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The opaque cursor for fetching the next page. For more information, see
      * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      */
@@ -65,7 +62,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The opaque cursor for fetching the next page. For more information, see
      * [pagination](https://developer.squareup.com/docs/working-with-apis/pagination).
      *
@@ -78,7 +74,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * The errors that occurred during the request.
      *
      * @return Error[]|null
@@ -90,7 +85,6 @@ class SearchTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * The errors that occurred during the request.
      *
      * @maps errors

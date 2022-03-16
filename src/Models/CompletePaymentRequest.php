@@ -22,7 +22,6 @@ class CompletePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies the current `Payment`
      * version that the caller expects. If the server has a different version of the Payment,
      * the update fails and a response with a VERSION_MISMATCH error is returned.
@@ -34,7 +33,6 @@ class CompletePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies the current `Payment`
      * version that the caller expects. If the server has a different version of the Payment,
      * the update fails and a response with a VERSION_MISMATCH error is returned.

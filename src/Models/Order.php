@@ -176,7 +176,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The order's unique ID.
      */
     public function getId(): ?string
@@ -186,7 +185,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The order's unique ID.
      *
      * @maps id
@@ -198,7 +196,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      */
     public function getLocationId(): string
@@ -208,7 +205,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the seller location that this order is associated with.
      *
      * @required
@@ -221,7 +217,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * A client-specified ID to associate an entity in another system
      * with this order.
      */
@@ -232,7 +227,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * A client-specified ID to associate an entity in another system
      * with this order.
      *
@@ -245,7 +239,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Source.
-     *
      * Represents the origination details of an order.
      */
     public function getSource(): ?OrderSource
@@ -255,7 +248,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Source.
-     *
      * Represents the origination details of an order.
      *
      * @maps source
@@ -267,7 +259,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the [customer]($m/Customer) associated with the order.
      *
      * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
@@ -284,7 +275,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the [customer]($m/Customer) associated with the order.
      *
      * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
@@ -303,7 +293,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Line Items.
-     *
      * The line items included in the order.
      *
      * @return OrderLineItem[]|null
@@ -315,7 +304,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Line Items.
-     *
      * The line items included in the order.
      *
      * @maps line_items
@@ -329,7 +317,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Taxes.
-     *
      * The list of all taxes associated with the order.
      *
      * Taxes can be scoped to either `ORDER` or `LINE_ITEM`. For taxes with `LINE_ITEM` scope, an
@@ -351,7 +338,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Taxes.
-     *
      * The list of all taxes associated with the order.
      *
      * Taxes can be scoped to either `ORDER` or `LINE_ITEM`. For taxes with `LINE_ITEM` scope, an
@@ -375,7 +361,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Discounts.
-     *
      * The list of all discounts associated with the order.
      *
      * Discounts can be scoped to either `ORDER` or `LINE_ITEM`. For discounts scoped to `LINE_ITEM`,
@@ -396,7 +381,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Discounts.
-     *
      * The list of all discounts associated with the order.
      *
      * Discounts can be scoped to either `ORDER` or `LINE_ITEM`. For discounts scoped to `LINE_ITEM`,
@@ -419,7 +403,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Service Charges.
-     *
      * A list of service charges applied to the order.
      *
      * @return OrderServiceCharge[]|null
@@ -431,7 +414,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Service Charges.
-     *
      * A list of service charges applied to the order.
      *
      * @maps service_charges
@@ -445,7 +427,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Fulfillments.
-     *
      * Details about order fulfillment.
      *
      * Orders can only be created with at most one fulfillment. However, orders returned
@@ -460,7 +441,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Fulfillments.
-     *
      * Details about order fulfillment.
      *
      * Orders can only be created with at most one fulfillment. However, orders returned
@@ -477,7 +457,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Returns.
-     *
      * A collection of items from sale orders being returned in this one. Normally part of an
      * itemized return or exchange. There is exactly one `Return` object per sale `Order` being
      * referenced.
@@ -491,7 +470,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Returns.
-     *
      * A collection of items from sale orders being returned in this one. Normally part of an
      * itemized return or exchange. There is exactly one `Return` object per sale `Order` being
      * referenced.
@@ -507,7 +485,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Return Amounts.
-     *
      * A collection of various money amounts.
      */
     public function getReturnAmounts(): ?OrderMoneyAmounts
@@ -517,7 +494,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Return Amounts.
-     *
      * A collection of various money amounts.
      *
      * @maps return_amounts
@@ -529,7 +505,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Net Amounts.
-     *
      * A collection of various money amounts.
      */
     public function getNetAmounts(): ?OrderMoneyAmounts
@@ -539,7 +514,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Net Amounts.
-     *
      * A collection of various money amounts.
      *
      * @maps net_amounts
@@ -551,7 +525,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Rounding Adjustment.
-     *
      * A rounding adjustment of the money being returned. Commonly used to apply cash rounding
      * when the minimum unit of the account is smaller than the lowest physical denomination of the
      * currency.
@@ -563,7 +536,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Rounding Adjustment.
-     *
      * A rounding adjustment of the money being returned. Commonly used to apply cash rounding
      * when the minimum unit of the account is smaller than the lowest physical denomination of the
      * currency.
@@ -577,7 +549,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Tenders.
-     *
      * The tenders that were used to pay for the order.
      *
      * @return Tender[]|null
@@ -589,7 +560,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Tenders.
-     *
      * The tenders that were used to pay for the order.
      *
      * @maps tenders
@@ -603,7 +573,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Refunds.
-     *
      * The refunds that are part of this order.
      *
      * @return Refund[]|null
@@ -615,7 +584,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Refunds.
-     *
      * The refunds that are part of this order.
      *
      * @maps refunds
@@ -629,7 +597,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this order. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -658,7 +625,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this order. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -689,7 +655,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format (for example, "2016-09-04T23:59:33.
      * 123Z").
      */
@@ -700,7 +665,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp for when the order was created, in RFC 3339 format (for example, "2016-09-04T23:59:33.
      * 123Z").
      *
@@ -713,7 +677,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp for when the order was last updated, in RFC 3339 format (for example, "2016-09-04T23:
      * 59:33.123Z").
      */
@@ -724,7 +687,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp for when the order was last updated, in RFC 3339 format (for example, "2016-09-04T23:
      * 59:33.123Z").
      *
@@ -737,7 +699,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Closed At.
-     *
      * The timestamp for when the order reached a terminal [state]($m/OrderState), in RFC 3339 format (for
      * example "2016-09-04T23:59:33.123Z").
      */
@@ -748,7 +709,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Closed At.
-     *
      * The timestamp for when the order reached a terminal [state]($m/OrderState), in RFC 3339 format (for
      * example "2016-09-04T23:59:33.123Z").
      *
@@ -761,7 +721,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * The state of the order.
      */
     public function getState(): ?string
@@ -771,7 +730,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * The state of the order.
      *
      * @maps state
@@ -783,7 +741,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -798,7 +755,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version number, which is incremented each time an update is committed to the order.
      * Orders not created through the API do not include a version number and
      * therefore cannot be updated.
@@ -815,7 +771,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -831,7 +786,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -849,7 +803,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -865,7 +818,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -883,7 +835,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Total Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -899,7 +850,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Total Discount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -917,7 +867,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Total Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -933,7 +882,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Total Tip Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -951,7 +899,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Total Service Charge Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -967,7 +914,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Total Service Charge Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -985,7 +931,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Ticket Name.
-     *
      * A short-term identifier for the order (such as a customer first name, table number, or
      * auto-generated order number that resets daily). For orders created in Square Point of Sale, the
      * `ticket_name` is
@@ -999,7 +944,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Ticket Name.
-     *
      * A short-term identifier for the order (such as a customer first name, table number, or
      * auto-generated order number that resets daily). For orders created in Square Point of Sale, the
      * `ticket_name` is
@@ -1015,7 +959,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Pricing Options.
-     *
      * Pricing options for an order. The options affect how the order's price is calculated.
      * They can be used, for example, to apply automatic price adjustments that are based on preconfigured
      * [pricing rules]($m/CatalogPricingRule).
@@ -1027,7 +970,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Pricing Options.
-     *
      * Pricing options for an order. The options affect how the order's price is calculated.
      * They can be used, for example, to apply automatic price adjustments that are based on preconfigured
      * [pricing rules]($m/CatalogPricingRule).
@@ -1041,7 +983,6 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Rewards.
-     *
      * A set-like list of Rewards that have been added to the Order.
      *
      * @return OrderReward[]|null
@@ -1053,7 +994,6 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Rewards.
-     *
      * A set-like list of Rewards that have been added to the Order.
      *
      * @maps rewards

@@ -20,7 +20,6 @@ class TerminalDeviceCheckoutOptions implements \JsonSerializable
 
     /**
      * Returns Skip Receipt Screen.
-     *
      * Instructs the device to skip the receipt screen. Defaults to false.
      */
     public function getSkipReceiptScreen(): ?bool
@@ -30,7 +29,6 @@ class TerminalDeviceCheckoutOptions implements \JsonSerializable
 
     /**
      * Sets Skip Receipt Screen.
-     *
      * Instructs the device to skip the receipt screen. Defaults to false.
      *
      * @maps skip_receipt_screen

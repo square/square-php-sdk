@@ -13,7 +13,7 @@ A request to search for loyalty rewards.
 |  --- | --- | --- | --- | --- | --- |
 | `query` | [`?SearchLoyaltyRewardsRequestLoyaltyRewardQuery`](../../doc/models/search-loyalty-rewards-request-loyalty-reward-query.md) | Optional | The set of search requirements. | getQuery(): ?SearchLoyaltyRewardsRequestLoyaltyRewardQuery | setQuery(?SearchLoyaltyRewardsRequestLoyaltyRewardQuery query): void |
 | `limit` | `?int` | Optional | The maximum number of results to return in the response. The default value is 30.<br>**Constraints**: `>= 1`, `<= 30` | getLimit(): ?int | setLimit(?int limit): void |
-| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to<br>this endpoint. Provide this to retrieve the next set of<br>results for the original query.<br>For more information,<br>see [Pagination](../../https://developer.squareup.com/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `cursor` | `?string` | Optional | A pagination cursor returned by a previous call to<br>this endpoint. Provide this to retrieve the next set of<br>results for the original query.<br>For more information,<br>see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

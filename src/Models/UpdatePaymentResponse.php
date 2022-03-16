@@ -24,7 +24,6 @@ class UpdatePaymentResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class UpdatePaymentResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class UpdatePaymentResponse implements \JsonSerializable
 
     /**
      * Returns Payment.
-     *
      * Represents a payment processed by the Square API.
      */
     public function getPayment(): ?Payment
@@ -60,7 +57,6 @@ class UpdatePaymentResponse implements \JsonSerializable
 
     /**
      * Sets Payment.
-     *
      * Represents a payment processed by the Square API.
      *
      * @maps payment

@@ -25,7 +25,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Returns Team Member Booking Profiles.
-     *
      * The list of team member booking profiles. The results are returned in the ascending order of the
      * time
      * when the team member booking profiles were last updated. Multiple booking profiles updated at the
@@ -41,7 +40,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Sets Team Member Booking Profiles.
-     *
      * The list of team member booking profiles. The results are returned in the ascending order of the
      * time
      * when the team member booking profiles were last updated. Multiple booking profiles updated at the
@@ -59,7 +57,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      */
@@ -70,7 +67,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      *
@@ -83,7 +79,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors that occurred during the request.
      *
      * @return Error[]|null
@@ -95,7 +90,6 @@ class ListTeamMemberBookingProfilesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors that occurred during the request.
      *
      * @maps errors

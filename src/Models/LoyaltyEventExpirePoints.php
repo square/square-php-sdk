@@ -33,7 +33,6 @@ class LoyaltyEventExpirePoints implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
@@ -43,7 +42,6 @@ class LoyaltyEventExpirePoints implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @required
@@ -56,7 +54,6 @@ class LoyaltyEventExpirePoints implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The number of points expired.
      */
     public function getPoints(): int
@@ -66,7 +63,6 @@ class LoyaltyEventExpirePoints implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The number of points expired.
      *
      * @required

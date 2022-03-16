@@ -53,7 +53,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the fulfillment only within this order.
      */
     public function getUid(): ?string
@@ -63,7 +62,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the fulfillment only within this order.
      *
      * @maps uid
@@ -75,7 +73,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * The type of fulfillment.
      */
     public function getType(): ?string
@@ -85,7 +82,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * The type of fulfillment.
      *
      * @maps type
@@ -97,7 +93,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * The current state of this fulfillment.
      */
     public function getState(): ?string
@@ -107,7 +102,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * The current state of this fulfillment.
      *
      * @maps state
@@ -119,7 +113,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Line Item Application.
-     *
      * The `line_item_application` describes what order line items this fulfillment applies
      * to. It can be `ALL` or `ENTRY_LIST` with a supplied list of fulfillment entries.
      */
@@ -130,7 +123,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Line Item Application.
-     *
      * The `line_item_application` describes what order line items this fulfillment applies
      * to. It can be `ALL` or `ENTRY_LIST` with a supplied list of fulfillment entries.
      *
@@ -143,7 +135,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Entries.
-     *
      * A list of entries pertaining to the fulfillment of an order. Each entry must reference
      * a valid `uid` for an order line item in the `line_item_uid` field, as well as a `quantity` to
      * fulfill.
@@ -165,7 +156,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Entries.
-     *
      * A list of entries pertaining to the fulfillment of an order. Each entry must reference
      * a valid `uid` for an order line item in the `line_item_uid` field, as well as a `quantity` to
      * fulfill.
@@ -189,7 +179,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this fulfillment. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -218,7 +207,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this fulfillment. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -249,7 +237,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Pickup Details.
-     *
      * Contains details necessary to fulfill a pickup order.
      */
     public function getPickupDetails(): ?OrderFulfillmentPickupDetails
@@ -259,7 +246,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Pickup Details.
-     *
      * Contains details necessary to fulfill a pickup order.
      *
      * @maps pickup_details
@@ -271,7 +257,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Returns Shipment Details.
-     *
      * Contains the details necessary to fulfill a shipment order.
      */
     public function getShipmentDetails(): ?OrderFulfillmentShipmentDetails
@@ -281,7 +266,6 @@ class OrderFulfillment implements \JsonSerializable
 
     /**
      * Sets Shipment Details.
-     *
      * Contains the details necessary to fulfill a shipment order.
      *
      * @maps shipment_details

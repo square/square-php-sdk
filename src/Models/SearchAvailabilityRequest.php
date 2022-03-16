@@ -23,7 +23,6 @@ class SearchAvailabilityRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * The query used to search for buyer-accessible availabilities of bookings.
      */
     public function getQuery(): SearchAvailabilityQuery
@@ -33,7 +32,6 @@ class SearchAvailabilityRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * The query used to search for buyer-accessible availabilities of bookings.
      *
      * @required

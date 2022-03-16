@@ -74,7 +74,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Given Name.
-     *
      * The given name (that is, the first name) associated with the customer profile.
      */
     public function getGivenName(): ?string
@@ -84,7 +83,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Given Name.
-     *
      * The given name (that is, the first name) associated with the customer profile.
      *
      * @maps given_name
@@ -96,7 +94,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Family Name.
-     *
      * The family name (that is, the last name) associated with the customer profile.
      */
     public function getFamilyName(): ?string
@@ -106,7 +103,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Family Name.
-     *
      * The family name (that is, the last name) associated with the customer profile.
      *
      * @maps family_name
@@ -118,7 +114,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Company Name.
-     *
      * A business name associated with the customer profile.
      */
     public function getCompanyName(): ?string
@@ -128,7 +123,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Company Name.
-     *
      * A business name associated with the customer profile.
      *
      * @maps company_name
@@ -140,7 +134,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Nickname.
-     *
      * A nickname for the customer profile.
      */
     public function getNickname(): ?string
@@ -150,7 +143,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Nickname.
-     *
      * A nickname for the customer profile.
      *
      * @maps nickname
@@ -162,7 +154,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The email address associated with the customer profile.
      */
     public function getEmailAddress(): ?string
@@ -172,7 +163,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The email address associated with the customer profile.
      *
      * @maps email_address
@@ -184,7 +174,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -196,7 +185,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -210,7 +198,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
      * an optional `+` prefix.
      */
@@ -221,7 +208,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
      * an optional `+` prefix.
      *
@@ -234,7 +220,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
      */
@@ -245,7 +230,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
      *
@@ -258,7 +242,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Note.
-     *
      * A custom note associated with the customer profile.
      */
     public function getNote(): ?string
@@ -268,7 +251,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Note.
-     *
      * A custom note associated with the customer profile.
      *
      * @maps note
@@ -280,7 +262,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Birthday.
-     *
      * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
      * timezone and time are not allowed.
      * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
@@ -294,7 +275,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Birthday.
-     *
      * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
      * timezone and time are not allowed.
      * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
@@ -310,7 +290,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The current version of the customer profile.
      *
      * As a best practice, you should include this field to enable [optimistic concurrency](https:
@@ -325,7 +304,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The current version of the customer profile.
      *
      * As a best practice, you should include this field to enable [optimistic concurrency](https:
@@ -342,7 +320,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding `tax_ids`
      * field is available only for customers of sellers in EU countries or the United Kingdom.
      * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-
@@ -355,7 +332,6 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding `tax_ids`
      * field is available only for customers of sellers in EU countries or the United Kingdom.
      * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-

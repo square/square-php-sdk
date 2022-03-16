@@ -55,7 +55,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Address Line 1.
-     *
      * The first line of the address.
      *
      * Fields that start with `address_line` provide the address's most specific
@@ -70,7 +69,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Address Line 1.
-     *
      * The first line of the address.
      *
      * Fields that start with `address_line` provide the address's most specific
@@ -87,7 +85,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Address Line 2.
-     *
      * The second line of the address, if any.
      */
     public function getAddressLine2(): ?string
@@ -97,7 +94,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Address Line 2.
-     *
      * The second line of the address, if any.
      *
      * @maps address_line_2
@@ -109,7 +105,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Address Line 3.
-     *
      * The third line of the address, if any.
      */
     public function getAddressLine3(): ?string
@@ -119,7 +114,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Address Line 3.
-     *
      * The third line of the address, if any.
      *
      * @maps address_line_3
@@ -131,7 +125,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Locality.
-     *
      * The city or town of the address. For a full list of field meanings by country, see [Working with
      * Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
      */
@@ -142,7 +135,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Locality.
-     *
      * The city or town of the address. For a full list of field meanings by country, see [Working with
      * Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
      *
@@ -155,7 +147,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Sublocality.
-     *
      * A civil region within the address's `locality`, if any.
      */
     public function getSublocality(): ?string
@@ -165,7 +156,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Sublocality.
-     *
      * A civil region within the address's `locality`, if any.
      *
      * @maps sublocality
@@ -177,7 +167,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Administrative District Level 1.
-     *
      * A civil entity within the address's country. In the US, this
      * is the state. For a full list of field meanings by country, see [Working with Addresses](https:
      * //developer.squareup.com/docs/build-basics/working-with-addresses).
@@ -189,7 +178,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Administrative District Level 1.
-     *
      * A civil entity within the address's country. In the US, this
      * is the state. For a full list of field meanings by country, see [Working with Addresses](https:
      * //developer.squareup.com/docs/build-basics/working-with-addresses).
@@ -203,7 +191,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Postal Code.
-     *
      * The address's postal code. For a full list of field meanings by country, see [Working with
      * Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
      */
@@ -214,7 +201,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Postal Code.
-     *
      * The address's postal code. For a full list of field meanings by country, see [Working with
      * Addresses](https://developer.squareup.com/docs/build-basics/working-with-addresses).
      *
@@ -227,7 +213,6 @@ class Address implements \JsonSerializable
 
     /**
      * Returns Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      */
@@ -238,7 +223,6 @@ class Address implements \JsonSerializable
 
     /**
      * Sets Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      *

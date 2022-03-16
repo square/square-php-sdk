@@ -24,7 +24,6 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Returns Points.
-     *
      * The points that the buyer can earn from a specified purchase.
      */
     public function getPoints(): ?int
@@ -60,7 +57,6 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Sets Points.
-     *
      * The points that the buyer can earn from a specified purchase.
      *
      * @maps points

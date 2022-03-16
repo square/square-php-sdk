@@ -114,7 +114,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Item Id.
-     *
      * The ID of the `CatalogItem` associated with this item variation.
      */
     public function getItemId(): ?string
@@ -124,7 +123,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Item Id.
-     *
      * The ID of the `CatalogItem` associated with this item variation.
      *
      * @maps item_id
@@ -136,7 +134,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The item variation's name. This is a searchable attribute for use in applicable query filters, and
      * its value length is of Unicode code points.
      */
@@ -147,7 +144,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The item variation's name. This is a searchable attribute for use in applicable query filters, and
      * its value length is of Unicode code points.
      *
@@ -160,7 +156,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Sku.
-     *
      * The item variation's SKU, if any. This is a searchable attribute for use in applicable query filters.
      */
     public function getSku(): ?string
@@ -170,7 +165,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Sku.
-     *
      * The item variation's SKU, if any. This is a searchable attribute for use in applicable query filters.
      *
      * @maps sku
@@ -182,7 +176,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Upc.
-     *
      * The universal product code (UPC) of the item variation, if any. This is a searchable attribute for
      * use in applicable query filters.
      *
@@ -201,7 +194,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Upc.
-     *
      * The universal product code (UPC) of the item variation, if any. This is a searchable attribute for
      * use in applicable query filters.
      *
@@ -222,7 +214,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * The order in which this item variation should be displayed. This value is read-only. On writes, the
      * ordinal
      * for each item variation within a parent `CatalogItem` is set according to the item variations's
@@ -235,7 +226,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * The order in which this item variation should be displayed. This value is read-only. On writes, the
      * ordinal
      * for each item variation within a parent `CatalogItem` is set according to the item variations's
@@ -250,7 +240,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Pricing Type.
-     *
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      */
     public function getPricingType(): ?string
@@ -260,7 +249,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Pricing Type.
-     *
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      *
      * @maps pricing_type
@@ -272,7 +260,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -288,7 +275,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -306,7 +292,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Location Overrides.
-     *
      * Per-location price and inventory overrides.
      *
      * @return ItemVariationLocationOverrides[]|null
@@ -318,7 +303,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Location Overrides.
-     *
      * Per-location price and inventory overrides.
      *
      * @maps location_overrides
@@ -332,7 +316,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Track Inventory.
-     *
      * If `true`, inventory tracking is active for the variation.
      */
     public function getTrackInventory(): ?bool
@@ -342,7 +325,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Track Inventory.
-     *
      * If `true`, inventory tracking is active for the variation.
      *
      * @maps track_inventory
@@ -354,7 +336,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Inventory Alert Type.
-     *
      * Indicates whether Square should alert the merchant when the inventory quantity of a
      * CatalogItemVariation is low.
      */
@@ -365,7 +346,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Inventory Alert Type.
-     *
      * Indicates whether Square should alert the merchant when the inventory quantity of a
      * CatalogItemVariation is low.
      *
@@ -378,7 +358,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Inventory Alert Threshold.
-     *
      * If the inventory quantity for the variation is less than or equal to this value and
      * `inventory_alert_type`
      * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
@@ -392,7 +371,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Inventory Alert Threshold.
-     *
      * If the inventory quantity for the variation is less than or equal to this value and
      * `inventory_alert_type`
      * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
@@ -408,7 +386,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns User Data.
-     *
      * Arbitrary user metadata to associate with the item variation. This attribute value length is of
      * Unicode code points.
      */
@@ -419,7 +396,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets User Data.
-     *
      * Arbitrary user metadata to associate with the item variation. This attribute value length is of
      * Unicode code points.
      *
@@ -432,7 +408,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Service Duration.
-     *
      * If the `CatalogItem` that owns this item variation is of type
      * `APPOINTMENTS_SERVICE`, then this is the duration of the service in milliseconds. For
      * example, a 30 minute appointment would have the value `1800000`, which is equal to
@@ -445,7 +420,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Service Duration.
-     *
      * If the `CatalogItem` that owns this item variation is of type
      * `APPOINTMENTS_SERVICE`, then this is the duration of the service in milliseconds. For
      * example, a 30 minute appointment would have the value `1800000`, which is equal to
@@ -460,7 +434,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Available for Booking.
-     *
      * If the `CatalogItem` that owns this item variation is of type
      * `APPOINTMENTS_SERVICE`, a bool representing whether this service is available for booking.
      */
@@ -471,7 +444,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Available for Booking.
-     *
      * If the `CatalogItem` that owns this item variation is of type
      * `APPOINTMENTS_SERVICE`, a bool representing whether this service is available for booking.
      *
@@ -484,7 +456,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Item Option Values.
-     *
      * List of item option values associated with this item variation. Listed
      * in the same order as the item options of the parent item.
      *
@@ -497,7 +468,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Item Option Values.
-     *
      * List of item option values associated with this item variation. Listed
      * in the same order as the item options of the parent item.
      *
@@ -512,7 +482,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Measurement Unit Id.
-     *
      * ID of the ‘CatalogMeasurementUnit’ that is used to measure the quantity
      * sold of this item variation. If left unset, the item will be sold in
      * whole quantities.
@@ -524,7 +493,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Measurement Unit Id.
-     *
      * ID of the ‘CatalogMeasurementUnit’ that is used to measure the quantity
      * sold of this item variation. If left unset, the item will be sold in
      * whole quantities.
@@ -538,7 +506,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Stockable.
-     *
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
      * For backward compatibility missing values will be interpreted as TRUE.
      */
@@ -549,7 +516,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Stockable.
-     *
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
      * For backward compatibility missing values will be interpreted as TRUE.
      *
@@ -562,7 +528,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Image Ids.
-     *
      * The IDs of images associated with this `CatalogItemVariation` instance.
      * These images will be shown to customers in Square Online Store.
      *
@@ -575,7 +540,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Image Ids.
-     *
      * The IDs of images associated with this `CatalogItemVariation` instance.
      * These images will be shown to customers in Square Online Store.
      *
@@ -590,7 +554,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Team Member Ids.
-     *
      * Tokens of employees that can perform the service represented by this variation. Only valid for
      * variations of type `APPOINTMENTS_SERVICE`.
      *
@@ -603,7 +566,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Team Member Ids.
-     *
      * Tokens of employees that can perform the service represented by this variation. Only valid for
      * variations of type `APPOINTMENTS_SERVICE`.
      *
@@ -618,7 +580,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Returns Stockable Conversion.
-     *
      * Represents the rule of conversion between a stockable
      * [CatalogItemVariation]($m/CatalogItemVariation)
      * and a non-stockable sell-by or receive-by `CatalogItemVariation` that
@@ -631,7 +592,6 @@ class CatalogItemVariation implements \JsonSerializable
 
     /**
      * Sets Stockable Conversion.
-     *
      * Represents the rule of conversion between a stockable
      * [CatalogItemVariation]($m/CatalogItemVariation)
      * and a non-stockable sell-by or receive-by `CatalogItemVariation` that

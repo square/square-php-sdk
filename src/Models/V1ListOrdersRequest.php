@@ -25,7 +25,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getOrder(): ?string
@@ -35,7 +34,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
@@ -47,7 +45,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of payments to return in a single response. This value cannot exceed 200.
      */
     public function getLimit(): ?int
@@ -57,7 +54,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of payments to return in a single response. This value cannot exceed 200.
      *
      * @maps limit
@@ -69,7 +65,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Returns Batch Token.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint.
      */
@@ -80,7 +75,6 @@ class V1ListOrdersRequest implements \JsonSerializable
 
     /**
      * Sets Batch Token.
-     *
      * A pagination cursor to retrieve the next set of results for your
      * original query to the endpoint.
      *

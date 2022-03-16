@@ -30,7 +30,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -42,7 +41,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -56,7 +54,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Objects.
-     *
      * The created successfully created CatalogObjects.
      *
      * @return CatalogObject[]|null
@@ -68,7 +65,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Objects.
-     *
      * The created successfully created CatalogObjects.
      *
      * @maps objects
@@ -82,7 +78,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of
      * this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
      */
@@ -93,7 +88,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates) of
      * this update in RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
      *
@@ -106,7 +100,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Id Mappings.
-     *
      * The mapping between client and server IDs for this upsert.
      *
      * @return CatalogIdMapping[]|null
@@ -118,7 +111,6 @@ class BatchUpsertCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Id Mappings.
-     *
      * The mapping between client and server IDs for this upsert.
      *
      * @maps id_mappings

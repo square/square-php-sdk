@@ -43,7 +43,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The location ID for a recipient (other than the merchant) receiving a portion of this tender.
      */
     public function getLocationId(): string
@@ -53,7 +52,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The location ID for a recipient (other than the merchant) receiving a portion of this tender.
      *
      * @required
@@ -66,7 +64,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The description of the additional recipient.
      */
     public function getDescription(): ?string
@@ -76,7 +73,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The description of the additional recipient.
      *
      * @maps description
@@ -88,7 +84,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -104,7 +99,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -123,7 +117,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Returns Receivable Id.
-     *
      * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
      * by the server.
      */
@@ -134,7 +127,6 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Sets Receivable Id.
-     *
      * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
      * by the server.
      *

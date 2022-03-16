@@ -29,7 +29,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Returns Start At.
-     *
      * The RFC 3339 timestamp specifying the beginning time of the slot available for booking.
      */
     public function getStartAt(): ?string
@@ -39,7 +38,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Sets Start At.
-     *
      * The RFC 3339 timestamp specifying the beginning time of the slot available for booking.
      *
      * @maps start_at
@@ -51,7 +49,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location available for booking.
      */
     public function getLocationId(): ?string
@@ -61,7 +58,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location available for booking.
      *
      * @maps location_id
@@ -73,7 +69,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Returns Appointment Segments.
-     *
      * The list of appointment segments available for booking
      *
      * @return AppointmentSegment[]|null
@@ -85,7 +80,6 @@ class Availability implements \JsonSerializable
 
     /**
      * Sets Appointment Segments.
-     *
      * The list of appointment segments available for booking
      *
      * @maps appointment_segments

@@ -121,7 +121,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * The merchant-specified reason for the refund.
      */
     public function getReason(): ?string
@@ -131,7 +130,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * The merchant-specified reason for the refund.
      *
      * @maps reason
@@ -215,7 +213,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Refunded Additive Tax.
-     *
      * All of the additive taxes associated with the refund.
      *
      * @return V1PaymentTax[]|null
@@ -227,7 +224,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Refunded Additive Tax.
-     *
      * All of the additive taxes associated with the refund.
      *
      * @maps refunded_additive_tax
@@ -259,7 +255,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Refunded Inclusive Tax.
-     *
      * All of the inclusive taxes associated with the refund.
      *
      * @return V1PaymentTax[]|null
@@ -271,7 +266,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Refunded Inclusive Tax.
-     *
      * All of the inclusive taxes associated with the refund.
      *
      * @maps refunded_inclusive_tax
@@ -339,7 +333,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Refunded Surcharges.
-     *
      * A list of all surcharges associated with the refund.
      *
      * @return V1PaymentSurcharge[]|null
@@ -351,7 +344,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Refunded Surcharges.
-     *
      * A list of all surcharges associated with the refund.
      *
      * @maps refunded_surcharges
@@ -365,7 +357,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the merchant initiated the refund for Square to process, in ISO 8601 format.
      */
     public function getCreatedAt(): ?string
@@ -375,7 +366,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the merchant initiated the refund for Square to process, in ISO 8601 format.
      *
      * @maps created_at
@@ -387,7 +377,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Processed At.
-     *
      * The time when Square processed the refund on behalf of the merchant, in ISO 8601 format.
      */
     public function getProcessedAt(): ?string
@@ -397,7 +386,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Processed At.
-     *
      * The time when Square processed the refund on behalf of the merchant, in ISO 8601 format.
      *
      * @maps processed_at
@@ -409,7 +397,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * A Square-issued ID associated with the refund. For single-tender refunds, payment_id is the ID of
      * the original payment ID. For split-tender refunds, payment_id is the ID of the original tender. For
      * exchange-based refunds (is_exchange == true), payment_id is the ID of the original payment ID even
@@ -422,7 +409,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * A Square-issued ID associated with the refund. For single-tender refunds, payment_id is the ID of
      * the original payment ID. For split-tender refunds, payment_id is the ID of the original tender. For
      * exchange-based refunds (is_exchange == true), payment_id is the ID of the original payment ID even
@@ -455,7 +441,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Returns Is Exchange.
-     *
      * Indicates whether or not the refund is associated with an exchange. If is_exchange is true, the
      * refund reflects the value of goods returned in the exchange not the total money refunded.
      */
@@ -466,7 +451,6 @@ class V1Refund implements \JsonSerializable
 
     /**
      * Sets Is Exchange.
-     *
      * Indicates whether or not the refund is associated with an exchange. If is_exchange is true, the
      * refund reflects the value of goods returned in the exchange not the total money refunded.
      *

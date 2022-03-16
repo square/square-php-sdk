@@ -30,7 +30,6 @@ class CreateTerminalCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateCheckout` request. Keys can be any valid string but
      * must be unique for every `CreateCheckout` request.
      *
@@ -44,7 +43,6 @@ class CreateTerminalCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateCheckout` request. Keys can be any valid string but
      * must be unique for every `CreateCheckout` request.
      *

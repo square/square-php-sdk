@@ -33,7 +33,6 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Returns Reward.
-     *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
      * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
      * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-
@@ -46,7 +45,6 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Sets Reward.
-     *
      * Represents a contract to redeem loyalty points for a [reward tier]($m/LoyaltyProgramRewardTier)
      * discount. Loyalty rewards can be in an ISSUED, REDEEMED, or DELETED state.
      * For more information, see [Manage loyalty rewards](https://developer.squareup.com/docs/loyalty-
@@ -62,7 +60,6 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `CreateLoyaltyReward` request.
      * Keys can be any valid string, but must be unique for every request.
      */
@@ -73,7 +70,6 @@ class CreateLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `CreateLoyaltyReward` request.
      * Keys can be any valid string, but must be unique for every request.
      *

@@ -35,7 +35,6 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the plan.
      */
     public function getName(): string
@@ -45,7 +44,6 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the plan.
      *
      * @required
@@ -58,7 +56,6 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Returns Phases.
-     *
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
      * @return SubscriptionPhase[]
@@ -70,7 +67,6 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Sets Phases.
-     *
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
      *
      * @required

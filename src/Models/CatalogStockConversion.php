@@ -46,7 +46,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Returns Stockable Item Variation Id.
-     *
      * References to the stockable [CatalogItemVariation]($m/CatalogItemVariation)
      * for this stock conversion. Selling, receiving or recounting the non-stockable
      * `CatalogItemVariation`
@@ -61,7 +60,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Sets Stockable Item Variation Id.
-     *
      * References to the stockable [CatalogItemVariation]($m/CatalogItemVariation)
      * for this stock conversion. Selling, receiving or recounting the non-stockable
      * `CatalogItemVariation`
@@ -79,7 +77,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Returns Stockable Quantity.
-     *
      * The quantity of the stockable item variation (as identified by `stockable_item_variation_id`)
      * equivalent to the non-stockable item variation quantity (as specified in `nonstockable_quantity`)
      * as defined by this stock conversion.  It accepts a decimal number in a string format that can take
@@ -92,7 +89,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Sets Stockable Quantity.
-     *
      * The quantity of the stockable item variation (as identified by `stockable_item_variation_id`)
      * equivalent to the non-stockable item variation quantity (as specified in `nonstockable_quantity`)
      * as defined by this stock conversion.  It accepts a decimal number in a string format that can take
@@ -108,7 +104,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Returns Nonstockable Quantity.
-     *
      * The converted equivalent quantity of the non-stockable
      * [CatalogItemVariation]($m/CatalogItemVariation)
      * in its measurement unit. The `stockable_quantity` value and this `nonstockable_quantity` value
@@ -125,7 +120,6 @@ class CatalogStockConversion implements \JsonSerializable
 
     /**
      * Sets Nonstockable Quantity.
-     *
      * The converted equivalent quantity of the non-stockable
      * [CatalogItemVariation]($m/CatalogItemVariation)
      * in its measurement unit. The `stockable_quantity` value and this `nonstockable_quantity` value

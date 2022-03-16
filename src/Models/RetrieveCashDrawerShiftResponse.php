@@ -20,7 +20,6 @@ class RetrieveCashDrawerShiftResponse implements \JsonSerializable
 
     /**
      * Returns Cash Drawer Shift.
-     *
      * This model gives the details of a cash drawer shift.
      * The cash_payment_money, cash_refund_money, cash_paid_in_money,
      * and cash_paid_out_money fields are all computed by summing their respective
@@ -33,7 +32,6 @@ class RetrieveCashDrawerShiftResponse implements \JsonSerializable
 
     /**
      * Sets Cash Drawer Shift.
-     *
      * This model gives the details of a cash drawer shift.
      * The cash_payment_money, cash_refund_money, cash_paid_in_money,
      * and cash_paid_out_money fields are all computed by summing their respective
@@ -48,7 +46,6 @@ class RetrieveCashDrawerShiftResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -60,7 +57,6 @@ class RetrieveCashDrawerShiftResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

@@ -48,7 +48,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the Employee being retrieved.
      */
     public function getStatus(): ?string
@@ -58,7 +57,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the Employee being retrieved.
      *
      * @maps status
@@ -70,7 +68,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The number of employees to be returned on each page.
      */
     public function getLimit(): ?int
@@ -80,7 +77,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The number of employees to be returned on each page.
      *
      * @maps limit
@@ -92,7 +88,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The token required to retrieve the specified page of results.
      */
     public function getCursor(): ?string
@@ -102,7 +97,6 @@ class ListEmployeesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The token required to retrieve the specified page of results.
      *
      * @maps cursor

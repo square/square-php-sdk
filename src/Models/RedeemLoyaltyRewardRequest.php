@@ -33,7 +33,6 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `RedeemLoyaltyReward` request.
      * Keys can be any valid string, but must be unique for every request.
      */
@@ -44,7 +43,6 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `RedeemLoyaltyReward` request.
      * Keys can be any valid string, but must be unique for every request.
      *
@@ -58,7 +56,6 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the [location]($m/Location) where the reward is redeemed.
      */
     public function getLocationId(): string
@@ -68,7 +65,6 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the [location]($m/Location) where the reward is redeemed.
      *
      * @required

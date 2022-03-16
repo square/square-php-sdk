@@ -48,7 +48,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Returns Job Title.
-     *
      * The title of the job.
      */
     public function getJobTitle(): string
@@ -58,7 +57,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Sets Job Title.
-     *
      * The title of the job.
      *
      * @required
@@ -71,7 +69,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Returns Pay Type.
-     *
      * Enumerates the possible pay types that a job can be assigned.
      */
     public function getPayType(): string
@@ -81,7 +78,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Sets Pay Type.
-     *
      * Enumerates the possible pay types that a job can be assigned.
      *
      * @required
@@ -94,7 +90,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Returns Hourly Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -110,7 +105,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Sets Hourly Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -128,7 +122,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Returns Annual Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -144,7 +137,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Sets Annual Rate.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -162,7 +154,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Returns Weekly Hours.
-     *
      * The planned hours per week for the job. Set if the job `PayType` is `SALARY`.
      */
     public function getWeeklyHours(): ?int
@@ -172,7 +163,6 @@ class JobAssignment implements \JsonSerializable
 
     /**
      * Sets Weekly Hours.
-     *
      * The planned hours per week for the job. Set if the job `PayType` is `SALARY`.
      *
      * @maps weekly_hours

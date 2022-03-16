@@ -19,7 +19,6 @@ class CreateMobileAuthorizationCodeRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The Square location ID that the authorization code should be tied to.
      */
     public function getLocationId(): ?string
@@ -29,7 +28,6 @@ class CreateMobileAuthorizationCodeRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The Square location ID that the authorization code should be tied to.
      *
      * @maps location_id

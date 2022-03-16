@@ -25,7 +25,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -74,7 +71,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -99,7 +95,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Related Objects.
-     *
      * A list of `CatalogObject`s referenced by the object in the `object` field.
      *
      * @return CatalogObject[]|null
@@ -111,7 +106,6 @@ class RetrieveCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Related Objects.
-     *
      * A list of `CatalogObject`s referenced by the object in the `object` field.
      *
      * @maps related_objects

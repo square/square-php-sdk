@@ -15,7 +15,6 @@ class RenewTokenRequest implements \JsonSerializable
 
     /**
      * Returns Access Token.
-     *
      * The token you want to renew.
      */
     public function getAccessToken(): ?string
@@ -25,7 +24,6 @@ class RenewTokenRequest implements \JsonSerializable
 
     /**
      * Sets Access Token.
-     *
      * The token you want to renew.
      *
      * @maps access_token

@@ -26,7 +26,6 @@ class UpdateCustomerResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class UpdateCustomerResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class UpdateCustomerResponse implements \JsonSerializable
 
     /**
      * Returns Customer.
-     *
      * Represents a Square customer profile in the Customer Directory of a Square seller.
      */
     public function getCustomer(): ?Customer
@@ -62,7 +59,6 @@ class UpdateCustomerResponse implements \JsonSerializable
 
     /**
      * Sets Customer.
-     *
      * Represents a Square customer profile in the Customer Directory of a Square seller.
      *
      * @maps customer

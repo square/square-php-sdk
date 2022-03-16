@@ -24,7 +24,6 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Returns Wage Setting.
-     *
      * An object representing a team member's wage information.
      */
     public function getWageSetting(): ?WageSetting
@@ -34,7 +33,6 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Sets Wage Setting.
-     *
      * An object representing a team member's wage information.
      *
      * @maps wage_setting
@@ -46,7 +44,6 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * The errors that occurred during the request.
      *
      * @return Error[]|null
@@ -58,7 +55,6 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * The errors that occurred during the request.
      *
      * @maps errors

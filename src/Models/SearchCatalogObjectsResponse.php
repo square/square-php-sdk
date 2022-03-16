@@ -35,7 +35,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -47,7 +46,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -61,7 +59,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset, this is the final response.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
      */
@@ -72,7 +69,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset, this is the final response.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
      *
@@ -85,7 +81,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Objects.
-     *
      * The CatalogObjects returned.
      *
      * @return CatalogObject[]|null
@@ -97,7 +92,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Objects.
-     *
      * The CatalogObjects returned.
      *
      * @maps objects
@@ -111,7 +105,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Related Objects.
-     *
      * A list of CatalogObjects referenced by the objects in the `objects` field.
      *
      * @return CatalogObject[]|null
@@ -123,7 +116,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Related Objects.
-     *
      * A list of CatalogObjects referenced by the objects in the `objects` field.
      *
      * @maps related_objects
@@ -137,7 +129,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Latest Time.
-     *
      * When the associated product catalog was last updated. Will
      * match the value for `end_time` or `cursor` if either field is included in the `SearchCatalog`
      * request.
@@ -149,7 +140,6 @@ class SearchCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Latest Time.
-     *
      * When the associated product catalog was last updated. Will
      * match the value for `end_time` or `cursor` if either field is included in the `SearchCatalog`
      * request.

@@ -23,7 +23,6 @@ class TenderCashDetails implements \JsonSerializable
 
     /**
      * Returns Buyer Tendered Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -39,7 +38,6 @@ class TenderCashDetails implements \JsonSerializable
 
     /**
      * Sets Buyer Tendered Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -57,7 +55,6 @@ class TenderCashDetails implements \JsonSerializable
 
     /**
      * Returns Change Back Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -73,7 +70,6 @@ class TenderCashDetails implements \JsonSerializable
 
     /**
      * Sets Change Back Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

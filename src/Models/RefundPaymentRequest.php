@@ -58,7 +58,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `RefundPayment` request. The key can be any valid string
      * but must be unique for every `RefundPayment` request.
      *
@@ -72,7 +71,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `RefundPayment` request. The key can be any valid string
      * but must be unique for every `RefundPayment` request.
      *
@@ -89,7 +87,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -105,7 +102,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -124,7 +120,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns App Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -140,7 +135,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets App Fee Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -158,7 +152,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     *
      * The unique ID of the payment being refunded. Must be provided and non-empty.
      */
     public function getPaymentId(): ?string
@@ -168,7 +161,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     *
      * The unique ID of the payment being refunded. Must be provided and non-empty.
      *
      * @maps payment_id
@@ -180,7 +172,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Reason.
-     *
      * A description of the reason for the refund.
      */
     public function getReason(): ?string
@@ -190,7 +181,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Reason.
-     *
      * A description of the reason for the refund.
      *
      * @maps reason
@@ -202,7 +192,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Payment Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies the current `Payment`
      * version that the caller expects. If the server has a different version of the Payment,
      * the update fails and a response with a VERSION_MISMATCH error is returned.
@@ -215,7 +204,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Payment Version Token.
-     *
      * Used for optimistic concurrency. This opaque token identifies the current `Payment`
      * version that the caller expects. If the server has a different version of the Payment,
      * the update fails and a response with a VERSION_MISMATCH error is returned.
@@ -230,7 +218,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * An optional [TeamMember]($m/TeamMember) ID to associate with this refund.
      */
     public function getTeamMemberId(): ?string
@@ -240,7 +227,6 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * An optional [TeamMember]($m/TeamMember) ID to associate with this refund.
      *
      * @maps team_member_id

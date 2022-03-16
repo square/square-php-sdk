@@ -25,7 +25,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Items.
-     *
      * A collection of CashDrawerShiftSummary objects for shifts that match
      * the query.
      *
@@ -38,7 +37,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Items.
-     *
      * A collection of CashDrawerShiftSummary objects for shifts that match
      * the query.
      *
@@ -53,7 +51,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * Opaque cursor for fetching the next page of results. Cursor is not
      * present in the last page of results.
      */
@@ -64,7 +61,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * Opaque cursor for fetching the next page of results. Cursor is not
      * present in the last page of results.
      *
@@ -77,7 +73,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -89,7 +84,6 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

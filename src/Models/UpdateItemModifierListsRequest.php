@@ -33,7 +33,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Returns Item Ids.
-     *
      * The IDs of the catalog items associated with the CatalogModifierList objects being updated.
      *
      * @return string[]
@@ -45,7 +44,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Sets Item Ids.
-     *
      * The IDs of the catalog items associated with the CatalogModifierList objects being updated.
      *
      * @required
@@ -60,7 +58,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Returns Modifier Lists to Enable.
-     *
      * The IDs of the CatalogModifierList objects to enable for the CatalogItem.
      * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
      *
@@ -73,7 +70,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Sets Modifier Lists to Enable.
-     *
      * The IDs of the CatalogModifierList objects to enable for the CatalogItem.
      * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
      *
@@ -88,7 +84,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Returns Modifier Lists to Disable.
-     *
      * The IDs of the CatalogModifierList objects to disable for the CatalogItem.
      * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
      *
@@ -101,7 +96,6 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
 
     /**
      * Sets Modifier Lists to Disable.
-     *
      * The IDs of the CatalogModifierList objects to disable for the CatalogItem.
      * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
      *

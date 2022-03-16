@@ -24,7 +24,6 @@ class ResumeSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Resume Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the subscription reactivated.
      */
     public function getResumeEffectiveDate(): ?string
@@ -34,7 +33,6 @@ class ResumeSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Resume Effective Date.
-     *
      * The `YYYY-MM-DD`-formatted date when the subscription reactivated.
      *
      * @maps resume_effective_date
@@ -46,7 +44,6 @@ class ResumeSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Resume Change Timing.
-     *
      * Supported timings when a pending change, as an action, takes place to a subscription.
      */
     public function getResumeChangeTiming(): ?string
@@ -56,7 +53,6 @@ class ResumeSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Resume Change Timing.
-     *
      * Supported timings when a pending change, as an action, takes place to a subscription.
      *
      * @maps resume_change_timing

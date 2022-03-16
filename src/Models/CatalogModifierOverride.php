@@ -31,7 +31,6 @@ class CatalogModifierOverride implements \JsonSerializable
 
     /**
      * Returns Modifier Id.
-     *
      * The ID of the `CatalogModifier` whose default behavior is being overridden.
      */
     public function getModifierId(): string
@@ -41,7 +40,6 @@ class CatalogModifierOverride implements \JsonSerializable
 
     /**
      * Sets Modifier Id.
-     *
      * The ID of the `CatalogModifier` whose default behavior is being overridden.
      *
      * @required
@@ -54,7 +52,6 @@ class CatalogModifierOverride implements \JsonSerializable
 
     /**
      * Returns On by Default.
-     *
      * If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
      */
     public function getOnByDefault(): ?bool
@@ -64,7 +61,6 @@ class CatalogModifierOverride implements \JsonSerializable
 
     /**
      * Sets On by Default.
-     *
      * If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
      *
      * @maps on_by_default

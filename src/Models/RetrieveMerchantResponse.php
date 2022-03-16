@@ -23,7 +23,6 @@ class RetrieveMerchantResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class RetrieveMerchantResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class RetrieveMerchantResponse implements \JsonSerializable
 
     /**
      * Returns Merchant.
-     *
      * Represents a business that sells with Square.
      */
     public function getMerchant(): ?Merchant
@@ -59,7 +56,6 @@ class RetrieveMerchantResponse implements \JsonSerializable
 
     /**
      * Sets Merchant.
-     *
      * Represents a business that sells with Square.
      *
      * @maps merchant

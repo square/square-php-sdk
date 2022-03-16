@@ -27,7 +27,6 @@ class RegisterDomainRequest implements \JsonSerializable
 
     /**
      * Returns Domain Name.
-     *
      * A domain name as described in RFC-1034 that will be registered with ApplePay.
      */
     public function getDomainName(): string
@@ -37,7 +36,6 @@ class RegisterDomainRequest implements \JsonSerializable
 
     /**
      * Sets Domain Name.
-     *
      * A domain name as described in RFC-1034 that will be registered with ApplePay.
      *
      * @required

@@ -88,7 +88,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The UUID for this object.
      */
     public function getId(): ?string
@@ -98,7 +97,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The UUID for this object.
      *
      * @maps id
@@ -110,7 +108,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     *
      * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
      * instead.
      */
@@ -121,7 +118,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     *
      * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
      * instead.
      *
@@ -134,7 +130,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location this shift occurred at. The location should be based on
      * where the employee clocked in.
      */
@@ -145,7 +140,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location this shift occurred at. The location should be based on
      * where the employee clocked in.
      *
@@ -158,7 +152,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Timezone.
-     *
      * The read-only convenience value that is calculated from the location based
      * on the `location_id`. Format: the IANA timezone database identifier for the
      * location timezone.
@@ -170,7 +163,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Timezone.
-     *
      * The read-only convenience value that is calculated from the location based
      * on the `location_id`. Format: the IANA timezone database identifier for the
      * location timezone.
@@ -184,7 +176,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Start At.
-     *
      * RFC 3339; shifted to the location timezone + offset. Precision up to the
      * minute is respected; seconds are truncated.
      */
@@ -195,7 +186,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Start At.
-     *
      * RFC 3339; shifted to the location timezone + offset. Precision up to the
      * minute is respected; seconds are truncated.
      *
@@ -209,7 +199,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns End At.
-     *
      * RFC 3339; shifted to the timezone + offset. Precision up to the minute is
      * respected; seconds are truncated.
      */
@@ -220,7 +209,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets End At.
-     *
      * RFC 3339; shifted to the timezone + offset. Precision up to the minute is
      * respected; seconds are truncated.
      *
@@ -233,7 +221,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Wage.
-     *
      * The hourly wage rate used to compensate an employee for this shift.
      */
     public function getWage(): ?ShiftWage
@@ -243,7 +230,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Wage.
-     *
      * The hourly wage rate used to compensate an employee for this shift.
      *
      * @maps wage
@@ -255,7 +241,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Breaks.
-     *
      * A list of all the paid or unpaid breaks that were taken during this shift.
      *
      * @return MBreak[]|null
@@ -267,7 +252,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Breaks.
-     *
      * A list of all the paid or unpaid breaks that were taken during this shift.
      *
      * @maps breaks
@@ -281,7 +265,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Enumerates the possible status of a `Shift`.
      */
     public function getStatus(): ?string
@@ -291,7 +274,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Enumerates the possible status of a `Shift`.
      *
      * @maps status
@@ -303,7 +285,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
@@ -316,7 +297,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write; potentially overwriting data from another
@@ -331,7 +311,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getCreatedAt(): ?string
@@ -341,7 +320,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps created_at
@@ -353,7 +331,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      */
     public function getUpdatedAt(): ?string
@@ -363,7 +340,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * A read-only timestamp in RFC 3339 format; presented in UTC.
      *
      * @maps updated_at
@@ -375,7 +351,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26".
      */
     public function getTeamMemberId(): ?string
@@ -385,7 +360,6 @@ class Shift implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26".
      *
      * @maps team_member_id

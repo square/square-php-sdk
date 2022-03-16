@@ -24,7 +24,6 @@ class CreateCheckoutResponse implements \JsonSerializable
 
     /**
      * Returns Checkout.
-     *
      * Square Checkout lets merchants accept online payments for supported
      * payment types using a checkout workflow hosted on squareup.com.
      */
@@ -35,7 +34,6 @@ class CreateCheckoutResponse implements \JsonSerializable
 
     /**
      * Sets Checkout.
-     *
      * Square Checkout lets merchants accept online payments for supported
      * payment types using a checkout workflow hosted on squareup.com.
      *
@@ -48,7 +46,6 @@ class CreateCheckoutResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -60,7 +57,6 @@ class CreateCheckoutResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

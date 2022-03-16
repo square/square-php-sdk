@@ -38,7 +38,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The customer ID of the customer associated with the fulfillment.
      *
      * If `customer_id` is provided, the fulfillment recipient's `display_name`,
@@ -55,7 +54,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The customer ID of the customer associated with the fulfillment.
      *
      * If `customer_id` is provided, the fulfillment recipient's `display_name`,
@@ -74,7 +72,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Returns Display Name.
-     *
      * The display name of the fulfillment recipient.
      *
      * If provided, the display name overrides the value pulled from the customer profile indicated by
@@ -87,7 +84,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Sets Display Name.
-     *
      * The display name of the fulfillment recipient.
      *
      * If provided, the display name overrides the value pulled from the customer profile indicated by
@@ -102,7 +98,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     *
      * The email address of the fulfillment recipient.
      *
      * If provided, the email address overrides the value pulled from the customer profile indicated by
@@ -115,7 +110,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     *
      * The email address of the fulfillment recipient.
      *
      * If provided, the email address overrides the value pulled from the customer profile indicated by
@@ -130,7 +124,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number of the fulfillment recipient.
      *
      * If provided, the phone number overrides the value pulled from the customer profile indicated by
@@ -143,7 +136,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number of the fulfillment recipient.
      *
      * If provided, the phone number overrides the value pulled from the customer profile indicated by
@@ -158,7 +150,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -170,7 +161,6 @@ class OrderFulfillmentRecipient implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).

@@ -28,7 +28,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Returns Merchant.
-     *
      * The requested `Merchant` entities.
      *
      * @return Merchant[]|null
@@ -66,7 +63,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Sets Merchant.
-     *
      * The requested `Merchant` entities.
      *
      * @maps merchant
@@ -80,7 +76,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * If the  response is truncated, the cursor to use in next  request to fetch next set of objects.
      */
     public function getCursor(): ?int
@@ -90,7 +85,6 @@ class ListMerchantsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * If the  response is truncated, the cursor to use in next  request to fetch next set of objects.
      *
      * @maps cursor

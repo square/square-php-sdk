@@ -43,7 +43,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The unique ID of the `TeamMember` whom this wage setting describes.
      */
     public function getTeamMemberId(): ?string
@@ -53,7 +52,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The unique ID of the `TeamMember` whom this wage setting describes.
      *
      * @maps team_member_id
@@ -65,7 +63,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Job Assignments.
-     *
      * Required. The ordered list of jobs that the team member is assigned to.
      * The first job assignment is considered the team member's primary job.
      *
@@ -80,7 +77,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Job Assignments.
-     *
      * Required. The ordered list of jobs that the team member is assigned to.
      * The first job assignment is considered the team member's primary job.
      *
@@ -97,7 +93,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Is Overtime Exempt.
-     *
      * Whether the team member is exempt from the overtime rules of the seller's country.
      */
     public function getIsOvertimeExempt(): ?bool
@@ -107,7 +102,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Is Overtime Exempt.
-     *
      * Whether the team member is exempt from the overtime rules of the seller's country.
      *
      * @maps is_overtime_exempt
@@ -119,7 +113,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write, potentially overwriting data from another write. For more information,
@@ -133,7 +126,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write, potentially overwriting data from another write. For more information,
@@ -149,7 +141,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
@@ -160,7 +151,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *
@@ -173,7 +163,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      */
@@ -184,7 +173,6 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
      * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
      *

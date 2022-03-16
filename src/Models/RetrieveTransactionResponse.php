@@ -26,7 +26,6 @@ class RetrieveTransactionResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class RetrieveTransactionResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class RetrieveTransactionResponse implements \JsonSerializable
 
     /**
      * Returns Transaction.
-     *
      * Represents a transaction processed with Square, either with the
      * Connect API or with Square Point of Sale.
      *
@@ -66,7 +63,6 @@ class RetrieveTransactionResponse implements \JsonSerializable
 
     /**
      * Sets Transaction.
-     *
      * Represents a transaction processed with Square, either with the
      * Connect API or with Square Point of Sale.
      *

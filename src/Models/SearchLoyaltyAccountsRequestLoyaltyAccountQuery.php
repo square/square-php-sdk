@@ -23,7 +23,6 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
 
     /**
      * Returns Mappings.
-     *
      * The set of mappings to use in the loyalty account search.
      *
      * This cannot be combined with `customer_ids`.
@@ -39,7 +38,6 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
 
     /**
      * Sets Mappings.
-     *
      * The set of mappings to use in the loyalty account search.
      *
      * This cannot be combined with `customer_ids`.
@@ -57,7 +55,6 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
 
     /**
      * Returns Customer Ids.
-     *
      * The set of customer IDs to use in the loyalty account search.
      *
      * This cannot be combined with `mappings`.
@@ -73,7 +70,6 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
 
     /**
      * Sets Customer Ids.
-     *
      * The set of customer IDs to use in the loyalty account search.
      *
      * This cannot be combined with `mappings`.

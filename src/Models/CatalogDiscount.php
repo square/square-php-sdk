@@ -53,7 +53,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The discount name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      */
@@ -64,7 +63,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The discount name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      *
@@ -77,7 +75,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Discount Type.
-     *
      * How to apply a CatalogDiscount to a CatalogItem.
      */
     public function getDiscountType(): ?string
@@ -87,7 +84,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Discount Type.
-     *
      * How to apply a CatalogDiscount to a CatalogItem.
      *
      * @maps discount_type
@@ -99,7 +95,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the discount as a string representation of a decimal number, using a `.` as the
      * decimal
      * separator and without a `%` sign. A value of `7.5` corresponds to `7.5%`. Specify a percentage of
@@ -115,7 +110,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the discount as a string representation of a decimal number, using a `.` as the
      * decimal
      * separator and without a `%` sign. A value of `7.5` corresponds to `7.5%`. Specify a percentage of
@@ -133,7 +127,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -149,7 +142,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -167,7 +159,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Pin Required.
-     *
      * Indicates whether a mobile staff member needs to enter their PIN to apply the
      * discount to a payment in the Square Point of Sale app.
      */
@@ -178,7 +169,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Pin Required.
-     *
      * Indicates whether a mobile staff member needs to enter their PIN to apply the
      * discount to a payment in the Square Point of Sale app.
      *
@@ -191,7 +181,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Label Color.
-     *
      * The color of the discount display label in the Square Point of Sale app. This must be a valid hex
      * color code.
      */
@@ -202,7 +191,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Label Color.
-     *
      * The color of the discount display label in the Square Point of Sale app. This must be a valid hex
      * color code.
      *
@@ -233,7 +221,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Returns Maximum Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -249,7 +236,6 @@ class CatalogDiscount implements \JsonSerializable
 
     /**
      * Sets Maximum Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

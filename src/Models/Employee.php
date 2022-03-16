@@ -63,7 +63,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * UUID for this object.
      */
     public function getId(): ?string
@@ -73,7 +72,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * UUID for this object.
      *
      * @maps id
@@ -85,7 +83,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns First Name.
-     *
      * The employee's first name.
      */
     public function getFirstName(): ?string
@@ -95,7 +92,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets First Name.
-     *
      * The employee's first name.
      *
      * @maps first_name
@@ -107,7 +103,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Last Name.
-     *
      * The employee's last name.
      */
     public function getLastName(): ?string
@@ -117,7 +112,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Last Name.
-     *
      * The employee's last name.
      *
      * @maps last_name
@@ -129,7 +123,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Email.
-     *
      * The employee's email address
      */
     public function getEmail(): ?string
@@ -139,7 +132,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Email.
-     *
      * The employee's email address
      *
      * @maps email
@@ -151,7 +143,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The employee's phone number in E.164 format, i.e. "+12125554250"
      */
     public function getPhoneNumber(): ?string
@@ -161,7 +152,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The employee's phone number in E.164 format, i.e. "+12125554250"
      *
      * @maps phone_number
@@ -173,7 +163,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * A list of location IDs where this employee has access to.
      *
      * @return string[]|null
@@ -185,7 +174,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * A list of location IDs where this employee has access to.
      *
      * @maps location_ids
@@ -199,7 +187,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the Employee being retrieved.
      */
     public function getStatus(): ?string
@@ -209,7 +196,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the Employee being retrieved.
      *
      * @maps status
@@ -221,7 +207,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Is Owner.
-     *
      * Whether this employee is the owner of the merchant. Each merchant
      * has one owner employee, and that employee has full authority over
      * the account.
@@ -233,7 +218,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Is Owner.
-     *
      * Whether this employee is the owner of the merchant. Each merchant
      * has one owner employee, and that employee has full authority over
      * the account.
@@ -247,7 +231,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * A read-only timestamp in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -257,7 +240,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * A read-only timestamp in RFC 3339 format.
      *
      * @maps created_at
@@ -269,7 +251,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * A read-only timestamp in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -279,7 +260,6 @@ class Employee implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * A read-only timestamp in RFC 3339 format.
      *
      * @maps updated_at

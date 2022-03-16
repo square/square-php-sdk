@@ -4,7 +4,7 @@
 Represents a subscription to a subscription plan by a subscriber.
 
 For an overview of the `Subscription` type, see
-[Subscription object](../../https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview).
+[Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-object-overview).
 
 ## Structure
 
@@ -24,7 +24,7 @@ For an overview of the `Subscription` type, see
 | `status` | [`?string (SubscriptionStatus)`](../../doc/models/subscription-status.md) | Optional | Supported subscription statuses. | getStatus(): ?string | setStatus(?string status): void |
 | `taxPercentage` | `?string` | Optional | The tax amount applied when billing the subscription. The<br>percentage is expressed in decimal form, using a `'.'` as the decimal<br>separator and without a `'%'` sign. For example, a value of `7.5`<br>corresponds to 7.5%. | getTaxPercentage(): ?string | setTaxPercentage(?string taxPercentage): void |
 | `invoiceIds` | `?(string[])` | Optional | The IDs of the [invoices](../../doc/models/invoice.md) created for the<br>subscription, listed in order when the invoices were created<br>(oldest invoices appear first). | getInvoiceIds(): ?array | setInvoiceIds(?array invoiceIds): void |
-| `priceOverrideMoney` | [`?Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](../../https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getPriceOverrideMoney(): ?Money | setPriceOverrideMoney(?Money priceOverrideMoney): void |
+| `priceOverrideMoney` | [`?Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getPriceOverrideMoney(): ?Money | setPriceOverrideMoney(?Money priceOverrideMoney): void |
 | `version` | `?int` | Optional | The version of the object. When updating an object, the version<br>supplied must match the version in the database, otherwise the write will<br>be rejected as conflicting. | getVersion(): ?int | setVersion(?int version): void |
 | `createdAt` | `?string` | Optional | The timestamp when the subscription was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `cardId` | `?string` | Optional | The ID of the [subscriber's](../../doc/models/customer.md) [card](../../doc/models/card.md)<br>used to charge for the subscription. | getCardId(): ?string | setCardId(?string cardId): void |

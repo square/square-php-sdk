@@ -28,7 +28,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * The set of search requirements.
      */
     public function getQuery(): ?SearchLoyaltyRewardsRequestLoyaltyRewardQuery
@@ -38,7 +37,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * The set of search requirements.
      *
      * @maps query
@@ -50,7 +48,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return in the response. The default value is 30.
      */
     public function getLimit(): ?int
@@ -60,7 +57,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return in the response. The default value is 30.
      *
      * @maps limit
@@ -72,7 +68,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to
      * this endpoint. Provide this to retrieve the next set of
      * results for the original query.
@@ -86,7 +81,6 @@ class SearchLoyaltyRewardsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to
      * this endpoint. Provide this to retrieve the next set of
      * results for the original query.

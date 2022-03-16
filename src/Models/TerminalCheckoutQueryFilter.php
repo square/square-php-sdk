@@ -25,7 +25,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Returns Device Id.
-     *
      * The `TerminalCheckout` objects associated with a specific device. If no device is specified, then
      * all
      * `TerminalCheckout` objects for the merchant are displayed.
@@ -37,7 +36,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Sets Device Id.
-     *
      * The `TerminalCheckout` objects associated with a specific device. If no device is specified, then
      * all
      * `TerminalCheckout` objects for the merchant are displayed.
@@ -51,7 +49,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -65,7 +62,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -81,7 +77,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Filtered results with the desired status of the `TerminalCheckout`.
      * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
      */
@@ -92,7 +87,6 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Filtered results with the desired status of the `TerminalCheckout`.
      * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
      *

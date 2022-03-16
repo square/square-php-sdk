@@ -36,7 +36,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * Describes query criteria for searching invoices.
      */
     public function getQuery(): InvoiceQuery
@@ -46,7 +45,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * Describes query criteria for searching invoices.
      *
      * @required
@@ -59,7 +57,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of invoices to return (200 is the maximum `limit`).
      * If not provided, the server uses a default limit of 100 invoices.
      */
@@ -70,7 +67,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of invoices to return (200 is the maximum `limit`).
      * If not provided, the server uses a default limit of 100 invoices.
      *
@@ -83,7 +79,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *
@@ -97,7 +92,6 @@ class SearchInvoicesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *

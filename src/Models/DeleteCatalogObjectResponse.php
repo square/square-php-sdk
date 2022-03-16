@@ -25,7 +25,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Deleted Object Ids.
-     *
      * The IDs of all catalog objects deleted by this request.
      * Multiple IDs may be returned when associated objects are also deleted, for example
      * a catalog item variation will be deleted (and its ID included in this field)
@@ -66,7 +63,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Deleted Object Ids.
-     *
      * The IDs of all catalog objects deleted by this request.
      * Multiple IDs may be returned when associated objects are also deleted, for example
      * a catalog item variation will be deleted (and its ID included in this field)
@@ -83,7 +79,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Deleted At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * of this deletion in RFC 3339 format, e.g., `2016-09-04T23:59:33.123Z`.
      */
@@ -94,7 +89,6 @@ class DeleteCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Deleted At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * of this deletion in RFC 3339 format, e.g., `2016-09-04T23:59:33.123Z`.
      *

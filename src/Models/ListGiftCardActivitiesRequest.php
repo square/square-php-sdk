@@ -54,7 +54,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Gift Card Id.
-     *
      * If a gift card ID is provided, the endpoint returns activities related
      * to the specified gift card. Otherwise, the endpoint returns all gift card activities for
      * the seller.
@@ -66,7 +65,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Gift Card Id.
-     *
      * If a gift card ID is provided, the endpoint returns activities related
      * to the specified gift card. Otherwise, the endpoint returns all gift card activities for
      * the seller.
@@ -80,7 +78,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * If a [type]($m/GiftCardActivityType) is provided, the endpoint returns gift card activities of the
      * specified type.
      * Otherwise, the endpoint returns all types of gift card activities.
@@ -92,7 +89,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * If a [type]($m/GiftCardActivityType) is provided, the endpoint returns gift card activities of the
      * specified type.
      * Otherwise, the endpoint returns all types of gift card activities.
@@ -106,7 +102,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * If a location ID is provided, the endpoint returns gift card activities for the specified location.
      * Otherwise, the endpoint returns gift card activities for all locations.
      */
@@ -117,7 +112,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * If a location ID is provided, the endpoint returns gift card activities for the specified location.
      * Otherwise, the endpoint returns gift card activities for all locations.
      *
@@ -130,7 +124,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The timestamp for the beginning of the reporting period, in RFC 3339 format.
      * This start time is inclusive. The default value is the current time minus one year.
      */
@@ -141,7 +134,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The timestamp for the beginning of the reporting period, in RFC 3339 format.
      * This start time is inclusive. The default value is the current time minus one year.
      *
@@ -154,7 +146,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The timestamp for the end of the reporting period, in RFC 3339 format.
      * This end time is inclusive. The default value is the current time.
      */
@@ -165,7 +156,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The timestamp for the end of the reporting period, in RFC 3339 format.
      * This end time is inclusive. The default value is the current time.
      *
@@ -178,7 +168,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * If a limit is provided, the endpoint returns the specified number
      * of results (or fewer) per page. The maximum value is 100. The default value is 50.
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
@@ -191,7 +180,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * If a limit is provided, the endpoint returns the specified number
      * of results (or fewer) per page. The maximum value is 100. The default value is 50.
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
@@ -206,7 +194,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      * If a cursor is not provided, the endpoint returns the first page of the results.
@@ -220,7 +207,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      * If a cursor is not provided, the endpoint returns the first page of the results.
@@ -236,7 +222,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order in which the endpoint returns the activities, based on `created_at`.
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
@@ -248,7 +233,6 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order in which the endpoint returns the activities, based on `created_at`.
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).

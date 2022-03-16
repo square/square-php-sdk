@@ -28,7 +28,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Returns Evidence.
-     *
      * The list of evidence previously uploaded to the specified dispute.
      *
      * @return DisputeEvidence[]|null
@@ -40,7 +39,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Sets Evidence.
-     *
      * The list of evidence previously uploaded to the specified dispute.
      *
      * @maps evidence
@@ -54,7 +52,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -66,7 +63,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -80,7 +76,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request.
      * If unset, this is the final response. For more information, see [Pagination](https://developer.
      * squareup.com/docs/basics/api101/pagination).
@@ -92,7 +87,6 @@ class ListDisputeEvidenceResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request.
      * If unset, this is the final response. For more information, see [Pagination](https://developer.
      * squareup.com/docs/basics/api101/pagination).

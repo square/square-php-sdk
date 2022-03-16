@@ -25,7 +25,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Returns Counts.
-     *
      * The current counts for all objects referenced in the request.
      *
      * @return InventoryCount[]|null
@@ -63,7 +60,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Sets Counts.
-     *
      * The current counts for all objects referenced in the request.
      *
      * @maps counts
@@ -77,7 +73,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Returns Changes.
-     *
      * Changes created for the request.
      *
      * @return InventoryChange[]|null
@@ -89,7 +84,6 @@ class BatchChangeInventoryResponse implements \JsonSerializable
 
     /**
      * Sets Changes.
-     *
      * Changes created for the request.
      *
      * @maps changes

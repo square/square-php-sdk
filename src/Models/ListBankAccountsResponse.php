@@ -28,7 +28,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information on errors encountered during the request.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Returns Bank Accounts.
-     *
      * List of BankAccounts associated with this account.
      *
      * @return BankAccount[]|null
@@ -66,7 +63,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Sets Bank Accounts.
-     *
      * List of BankAccounts associated with this account.
      *
      * @maps bank_accounts
@@ -80,7 +76,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can
      * use in a subsequent request to fetch next set of bank accounts.
      * If empty, this is the final response.
@@ -95,7 +90,6 @@ class ListBankAccountsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can
      * use in a subsequent request to fetch next set of bank accounts.
      * If empty, this is the final response.

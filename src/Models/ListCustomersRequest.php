@@ -34,7 +34,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *
@@ -48,7 +47,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
      *
@@ -64,7 +62,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is less than 1 or greater than 100, Square returns a `400 VALUE_TOO_LOW` or
@@ -80,7 +77,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return in a single page. This limit is advisory. The response might
      * contain more or fewer results.
      * If the specified limit is less than 1 or greater than 100, Square returns a `400 VALUE_TOO_LOW` or
@@ -98,7 +94,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Sort Field.
-     *
      * Specifies customer attributes as the sort key to customer profiles returned from a search.
      */
     public function getSortField(): ?string
@@ -108,7 +103,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Sort Field.
-     *
      * Specifies customer attributes as the sort key to customer profiles returned from a search.
      *
      * @maps sort_field
@@ -120,7 +114,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -130,7 +123,6 @@ class ListCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order

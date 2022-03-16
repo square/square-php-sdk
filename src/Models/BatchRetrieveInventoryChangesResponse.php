@@ -25,7 +25,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Changes.
-     *
      * The current calculated inventory changes for the requested objects
      * and locations.
      *
@@ -64,7 +61,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Changes.
-     *
      * The current calculated inventory changes for the requested objects
      * and locations.
      *
@@ -79,7 +75,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for
@@ -92,7 +87,6 @@ class BatchRetrieveInventoryChangesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for

@@ -25,7 +25,6 @@ class GetTeamMemberWageResponse implements \JsonSerializable
 
     /**
      * Returns Team Member Wage.
-     *
      * The hourly wage rate that a team member earns on a `Shift` for doing the job
      * specified by the `title` property of this object.
      */
@@ -36,7 +35,6 @@ class GetTeamMemberWageResponse implements \JsonSerializable
 
     /**
      * Sets Team Member Wage.
-     *
      * The hourly wage rate that a team member earns on a `Shift` for doing the job
      * specified by the `title` property of this object.
      *
@@ -49,7 +47,6 @@ class GetTeamMemberWageResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -61,7 +58,6 @@ class GetTeamMemberWageResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

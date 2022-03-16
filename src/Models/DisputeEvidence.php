@@ -45,7 +45,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Evidence Id.
-     *
      * The Square-generated ID of the evidence.
      */
     public function getEvidenceId(): ?string
@@ -55,7 +54,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Evidence Id.
-     *
      * The Square-generated ID of the evidence.
      *
      * @maps evidence_id
@@ -67,7 +65,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-generated ID of the evidence.
      */
     public function getId(): ?string
@@ -77,7 +74,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-generated ID of the evidence.
      *
      * @maps id
@@ -89,7 +85,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Dispute Id.
-     *
      * The ID of the dispute the evidence is associated with.
      */
     public function getDisputeId(): ?string
@@ -99,7 +94,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Dispute Id.
-     *
      * The ID of the dispute the evidence is associated with.
      *
      * @maps dispute_id
@@ -111,7 +105,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Evidence File.
-     *
      * A file to be uploaded as dispute evidence.
      */
     public function getEvidenceFile(): ?DisputeEvidenceFile
@@ -121,7 +114,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Evidence File.
-     *
      * A file to be uploaded as dispute evidence.
      *
      * @maps evidence_file
@@ -133,7 +125,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Evidence Text.
-     *
      * Raw text
      */
     public function getEvidenceText(): ?string
@@ -143,7 +134,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Evidence Text.
-     *
      * Raw text
      *
      * @maps evidence_text
@@ -155,7 +145,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Uploaded At.
-     *
      * The time when the evidence was uploaded, in RFC 3339 format.
      */
     public function getUploadedAt(): ?string
@@ -165,7 +154,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Uploaded At.
-     *
      * The time when the evidence was uploaded, in RFC 3339 format.
      *
      * @maps uploaded_at
@@ -177,7 +165,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Returns Evidence Type.
-     *
      * The type of the dispute evidence.
      */
     public function getEvidenceType(): ?string
@@ -187,7 +174,6 @@ class DisputeEvidence implements \JsonSerializable
 
     /**
      * Sets Evidence Type.
-     *
      * The type of the dispute evidence.
      *
      * @maps evidence_type

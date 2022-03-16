@@ -15,7 +15,6 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Object Ids.
-     *
      * The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects
      * in the graph that depend on that object will be deleted as well (for example, deleting a
      * CatalogItem will delete its CatalogItemVariation.
@@ -29,7 +28,6 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Object Ids.
-     *
      * The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects
      * in the graph that depend on that object will be deleted as well (for example, deleting a
      * CatalogItem will delete its CatalogItemVariation.

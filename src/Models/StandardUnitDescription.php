@@ -28,7 +28,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Returns Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -40,7 +39,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Sets Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -54,7 +52,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * UI display name of the measurement unit. For example, 'Pound'.
      */
     public function getName(): ?string
@@ -64,7 +61,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * UI display name of the measurement unit. For example, 'Pound'.
      *
      * @maps name
@@ -76,7 +72,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Returns Abbreviation.
-     *
      * UI display abbreviation for the measurement unit. For example, 'lb'.
      */
     public function getAbbreviation(): ?string
@@ -86,7 +81,6 @@ class StandardUnitDescription implements \JsonSerializable
 
     /**
      * Sets Abbreviation.
-     *
      * UI display abbreviation for the measurement unit. For example, 'lb'.
      *
      * @maps abbreviation

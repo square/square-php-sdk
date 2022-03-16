@@ -26,7 +26,6 @@ class CatalogObjectBatch implements \JsonSerializable
 
     /**
      * Returns Objects.
-     *
      * A list of CatalogObjects belonging to this batch.
      *
      * @return CatalogObject[]
@@ -38,7 +37,6 @@ class CatalogObjectBatch implements \JsonSerializable
 
     /**
      * Sets Objects.
-     *
      * A list of CatalogObjects belonging to this batch.
      *
      * @required

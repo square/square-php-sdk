@@ -23,7 +23,6 @@ class BulkCreateVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class BulkCreateVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class BulkCreateVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Responses.
-     *
      * A set of [CreateVendorResponse]($m/CreateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by
@@ -66,7 +63,6 @@ class BulkCreateVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Responses.
-     *
      * A set of [CreateVendorResponse]($m/CreateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by

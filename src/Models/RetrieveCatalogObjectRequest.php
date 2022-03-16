@@ -20,7 +20,6 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Returns Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are defined as any objects referenced by ID by the results in the
      * `objects` field
@@ -45,7 +44,6 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Sets Include Related Objects.
-     *
      * If `true`, the response will include additional objects that are related to the
      * requested objects. Related objects are defined as any objects referenced by ID by the results in the
      * `objects` field
@@ -72,7 +70,6 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * Requests objects as of a specific version of the catalog. This allows you to retrieve historical
      * versions of objects. The value to retrieve a specific version of an object can be found
      * in the version field of [CatalogObject]($m/CatalogObject)s. If not included, results will
@@ -85,7 +82,6 @@ class RetrieveCatalogObjectRequest implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * Requests objects as of a specific version of the catalog. This allows you to retrieve historical
      * versions of objects. The value to retrieve a specific version of an object can be found
      * in the version field of [CatalogObject]($m/CatalogObject)s. If not included, results will

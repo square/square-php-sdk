@@ -18,7 +18,6 @@ class CatalogQueryItemsForItemOptions implements \JsonSerializable
 
     /**
      * Returns Item Option Ids.
-     *
      * A set of `CatalogItemOption` IDs to be used to find associated
      * `CatalogItem`s. All Items that contain all of the given Item Options (in any order)
      * will be returned.
@@ -32,7 +31,6 @@ class CatalogQueryItemsForItemOptions implements \JsonSerializable
 
     /**
      * Sets Item Option Ids.
-     *
      * A set of `CatalogItemOption` IDs to be used to find associated
      * `CatalogItem`s. All Items that contain all of the given Item Options (in any order)
      * will be returned.

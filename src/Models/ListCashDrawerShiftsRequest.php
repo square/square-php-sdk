@@ -48,7 +48,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The ID of the location to query for a list of cash drawer shifts.
      */
     public function getLocationId(): string
@@ -58,7 +57,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The ID of the location to query for a list of cash drawer shifts.
      *
      * @required
@@ -71,7 +69,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -81,7 +78,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
@@ -93,7 +89,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The inclusive start time of the query on opened_at, in ISO 8601 format.
      */
     public function getBeginTime(): ?string
@@ -103,7 +98,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The inclusive start time of the query on opened_at, in ISO 8601 format.
      *
      * @maps begin_time
@@ -115,7 +109,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The exclusive end date of the query on opened_at, in ISO 8601 format.
      */
     public function getEndTime(): ?string
@@ -125,7 +118,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The exclusive end date of the query on opened_at, in ISO 8601 format.
      *
      * @maps end_time
@@ -137,7 +129,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * Number of cash drawer shift events in a page of results (200 by
      * default, 1000 max).
      */
@@ -148,7 +139,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * Number of cash drawer shift events in a page of results (200 by
      * default, 1000 max).
      *
@@ -161,7 +151,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * Opaque cursor for fetching the next page of results.
      */
     public function getCursor(): ?string
@@ -171,7 +160,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * Opaque cursor for fetching the next page of results.
      *
      * @maps cursor

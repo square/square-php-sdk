@@ -33,7 +33,6 @@ class MeasurementUnitCustom implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the custom unit, for example "bushel".
      */
     public function getName(): string
@@ -43,7 +42,6 @@ class MeasurementUnitCustom implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the custom unit, for example "bushel".
      *
      * @required
@@ -56,7 +54,6 @@ class MeasurementUnitCustom implements \JsonSerializable
 
     /**
      * Returns Abbreviation.
-     *
      * The abbreviation of the custom unit, such as "bsh" (bushel). This appears
      * in the cart for the Point of Sale app, and in reports.
      */
@@ -67,7 +64,6 @@ class MeasurementUnitCustom implements \JsonSerializable
 
     /**
      * Sets Abbreviation.
-     *
      * The abbreviation of the custom unit, such as "bsh" (bushel). This appears
      * in the cart for the Point of Sale app, and in reports.
      *

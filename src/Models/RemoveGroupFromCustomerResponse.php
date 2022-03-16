@@ -20,7 +20,6 @@ class RemoveGroupFromCustomerResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class RemoveGroupFromCustomerResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

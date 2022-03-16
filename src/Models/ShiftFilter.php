@@ -59,7 +59,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * Fetch shifts for the specified location.
      *
      * @return string[]
@@ -71,7 +70,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * Fetch shifts for the specified location.
      *
      * @required
@@ -86,7 +84,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Employee Ids.
-     *
      * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
      * instead.
      *
@@ -99,7 +96,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Employee Ids.
-     *
      * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
      * instead.
      *
@@ -114,7 +110,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Specifies the `status` of `Shift` records to be returned.
      */
     public function getStatus(): ?string
@@ -124,7 +119,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Specifies the `status` of `Shift` records to be returned.
      *
      * @maps status
@@ -136,7 +130,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Start.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -150,7 +143,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Start.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -166,7 +158,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns End.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -180,7 +171,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets End.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -196,7 +186,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Workday.
-     *
      * A `Shift` search query filter parameter that sets a range of days that
      * a `Shift` must start or end in before passing the filter condition.
      */
@@ -207,7 +196,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Workday.
-     *
      * A `Shift` search query filter parameter that sets a range of days that
      * a `Shift` must start or end in before passing the filter condition.
      *
@@ -220,7 +208,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Returns Team Member Ids.
-     *
      * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26".
      *
      * @return string[]
@@ -232,7 +219,6 @@ class ShiftFilter implements \JsonSerializable
 
     /**
      * Sets Team Member Ids.
-     *
      * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26".
      *
      * @required

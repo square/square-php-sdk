@@ -30,7 +30,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Shifts.
-     *
      * Shifts.
      *
      * @return Shift[]|null
@@ -42,7 +41,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Shifts.
-     *
      * Shifts.
      *
      * @maps shifts
@@ -56,7 +54,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * An opaque cursor for fetching the next page.
      */
     public function getCursor(): ?string
@@ -66,7 +63,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * An opaque cursor for fetching the next page.
      *
      * @maps cursor
@@ -78,7 +74,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -90,7 +85,6 @@ class SearchShiftsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

@@ -34,7 +34,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Returns Measurement Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -46,7 +45,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Sets Measurement Unit.
-     *
      * Represents a unit of measurement to use with a quantity, such as ounces
      * or inches. Exactly one of the following fields are required: `custom_unit`,
      * `area_unit`, `length_unit`, `volume_unit`, and `weight_unit`.
@@ -60,7 +58,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Returns Precision.
-     *
      * For non-integer quantities, represents the number of digits after the decimal point that are
      * recorded for this quantity.
      *
@@ -75,7 +72,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Sets Precision.
-     *
      * For non-integer quantities, represents the number of digits after the decimal point that are
      * recorded for this quantity.
      *
@@ -92,7 +88,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing the
      * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
      *
@@ -105,7 +100,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing the
      * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
      *
@@ -120,7 +114,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this measurement unit references.
      *
      * This field is set when this is a catalog-backed measurement unit.
@@ -132,7 +125,6 @@ class OrderQuantityUnit implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this measurement unit references.
      *
      * This field is set when this is a catalog-backed measurement unit.

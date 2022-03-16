@@ -73,7 +73,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the loyalty account.
      */
     public function getId(): ?string
@@ -83,7 +82,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the loyalty account.
      *
      * @maps id
@@ -95,7 +93,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
      */
     public function getProgramId(): string
@@ -105,7 +102,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Program Id.
-     *
      * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
      *
      * @required
@@ -118,7 +114,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Balance.
-     *
      * The available point balance in the loyalty account. If points are scheduled to expire, they are
      * listed in the `expiring_point_deadlines` field.
      *
@@ -133,7 +128,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Balance.
-     *
      * The available point balance in the loyalty account. If points are scheduled to expire, they are
      * listed in the `expiring_point_deadlines` field.
      *
@@ -150,7 +144,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Lifetime Points.
-     *
      * The total points accrued during the lifetime of the account.
      */
     public function getLifetimePoints(): ?int
@@ -160,7 +153,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Lifetime Points.
-     *
      * The total points accrued during the lifetime of the account.
      *
      * @maps lifetime_points
@@ -172,7 +164,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
      */
     public function getCustomerId(): ?string
@@ -182,7 +173,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
      *
      * @maps customer_id
@@ -194,7 +184,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Enrolled At.
-     *
      * The timestamp when the buyer joined the loyalty program, in RFC 3339 format. This field is used to
      * display the **Enrolled On** or **Member Since** date in first-party Square products.
      *
@@ -216,7 +205,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Enrolled At.
-     *
      * The timestamp when the buyer joined the loyalty program, in RFC 3339 format. This field is used to
      * display the **Enrolled On** or **Member Since** date in first-party Square products.
      *
@@ -240,7 +228,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the loyalty account was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -250,7 +237,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the loyalty account was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -262,7 +248,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp when the loyalty account was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -272,7 +257,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp when the loyalty account was last updated, in RFC 3339 format.
      *
      * @maps updated_at
@@ -284,7 +268,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Mapping.
-     *
      * Represents the mapping that associates a loyalty account with a buyer.
      *
      * Currently, a loyalty account can only be mapped to a buyer by phone number. For more information,
@@ -298,7 +281,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Mapping.
-     *
      * Represents the mapping that associates a loyalty account with a buyer.
      *
      * Currently, a loyalty account can only be mapped to a buyer by phone number. For more information,
@@ -314,7 +296,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Expiring Point Deadlines.
-     *
      * The schedule for when points expire in the loyalty account balance. This field is present only if
      * the account has points that are scheduled to expire.
      *
@@ -329,7 +310,6 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Expiring Point Deadlines.
-     *
      * The schedule for when points expire in the loyalty account balance. This field is present only if
      * the account has points that are scheduled to expire.
      *

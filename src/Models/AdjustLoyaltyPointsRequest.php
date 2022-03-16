@@ -33,7 +33,6 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `AdjustLoyaltyPoints` request.
      * Keys can be any valid string, but must be unique for every request.
      */
@@ -44,7 +43,6 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `AdjustLoyaltyPoints` request.
      * Keys can be any valid string, but must be unique for every request.
      *
@@ -58,7 +56,6 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Adjust Points.
-     *
      * Provides metadata when the event `type` is `ADJUST_POINTS`.
      */
     public function getAdjustPoints(): LoyaltyEventAdjustPoints
@@ -68,7 +65,6 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Adjust Points.
-     *
      * Provides metadata when the event `type` is `ADJUST_POINTS`.
      *
      * @required

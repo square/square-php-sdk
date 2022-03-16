@@ -65,7 +65,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Batch Upsert Max Objects Per Batch.
-     *
      * The maximum number of objects that may appear within a single batch in a
      * `/v2/catalog/batch-upsert` request.
      */
@@ -76,7 +75,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Batch Upsert Max Objects Per Batch.
-     *
      * The maximum number of objects that may appear within a single batch in a
      * `/v2/catalog/batch-upsert` request.
      *
@@ -89,7 +87,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Batch Upsert Max Total Objects.
-     *
      * The maximum number of objects that may appear across all batches in a
      * `/v2/catalog/batch-upsert` request.
      */
@@ -100,7 +97,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Batch Upsert Max Total Objects.
-     *
      * The maximum number of objects that may appear across all batches in a
      * `/v2/catalog/batch-upsert` request.
      *
@@ -113,7 +109,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Batch Retrieve Max Object Ids.
-     *
      * The maximum number of object IDs that may appear in a `/v2/catalog/batch-retrieve`
      * request.
      */
@@ -124,7 +119,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Batch Retrieve Max Object Ids.
-     *
      * The maximum number of object IDs that may appear in a `/v2/catalog/batch-retrieve`
      * request.
      *
@@ -137,7 +131,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Search Max Page Limit.
-     *
      * The maximum number of results that may be returned in a page of a
      * `/v2/catalog/search` response.
      */
@@ -148,7 +141,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Search Max Page Limit.
-     *
      * The maximum number of results that may be returned in a page of a
      * `/v2/catalog/search` response.
      *
@@ -161,7 +153,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Batch Delete Max Object Ids.
-     *
      * The maximum number of object IDs that may be included in a single
      * `/v2/catalog/batch-delete` request.
      */
@@ -172,7 +163,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Batch Delete Max Object Ids.
-     *
      * The maximum number of object IDs that may be included in a single
      * `/v2/catalog/batch-delete` request.
      *
@@ -185,7 +175,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Taxes Max Item Ids.
-     *
      * The maximum number of item IDs that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      */
@@ -196,7 +185,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Taxes Max Item Ids.
-     *
      * The maximum number of item IDs that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      *
@@ -209,7 +197,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Taxes Max Taxes to Enable.
-     *
      * The maximum number of tax IDs to be enabled that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      */
@@ -220,7 +207,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Taxes Max Taxes to Enable.
-     *
      * The maximum number of tax IDs to be enabled that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      *
@@ -233,7 +219,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Taxes Max Taxes to Disable.
-     *
      * The maximum number of tax IDs to be disabled that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      */
@@ -244,7 +229,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Taxes Max Taxes to Disable.
-     *
      * The maximum number of tax IDs to be disabled that may be included in a single
      * `/v2/catalog/update-item-taxes` request.
      *
@@ -257,7 +241,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Modifier Lists Max Item Ids.
-     *
      * The maximum number of item IDs that may be included in a single
      * `/v2/catalog/update-item-modifier-lists` request.
      */
@@ -268,7 +251,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Modifier Lists Max Item Ids.
-     *
      * The maximum number of item IDs that may be included in a single
      * `/v2/catalog/update-item-modifier-lists` request.
      *
@@ -281,7 +263,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Modifier Lists Max Modifier Lists to Enable.
-     *
      * The maximum number of modifier list IDs to be enabled that may be included in
      * a single `/v2/catalog/update-item-modifier-lists` request.
      */
@@ -292,7 +273,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Modifier Lists Max Modifier Lists to Enable.
-     *
      * The maximum number of modifier list IDs to be enabled that may be included in
      * a single `/v2/catalog/update-item-modifier-lists` request.
      *
@@ -306,7 +286,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Returns Update Item Modifier Lists Max Modifier Lists to Disable.
-     *
      * The maximum number of modifier list IDs to be disabled that may be included in
      * a single `/v2/catalog/update-item-modifier-lists` request.
      */
@@ -317,7 +296,6 @@ class CatalogInfoResponseLimits implements \JsonSerializable
 
     /**
      * Sets Update Item Modifier Lists Max Modifier Lists to Disable.
-     *
      * The maximum number of modifier list IDs to be disabled that may be included in
      * a single `/v2/catalog/update-item-modifier-lists` request.
      *

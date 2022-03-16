@@ -20,7 +20,6 @@ class Device implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The device's Square-issued ID.
      */
     public function getId(): ?string
@@ -30,7 +29,6 @@ class Device implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The device's Square-issued ID.
      *
      * @maps id
@@ -42,7 +40,6 @@ class Device implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The device's merchant-specified name.
      */
     public function getName(): ?string
@@ -52,7 +49,6 @@ class Device implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The device's merchant-specified name.
      *
      * @maps name

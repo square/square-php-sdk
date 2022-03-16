@@ -28,7 +28,6 @@ class V1PaymentDiscount implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The discount's name.
      */
     public function getName(): ?string
@@ -38,7 +37,6 @@ class V1PaymentDiscount implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The discount's name.
      *
      * @maps name
@@ -68,7 +66,6 @@ class V1PaymentDiscount implements \JsonSerializable
 
     /**
      * Returns Discount Id.
-     *
      * The ID of the applied discount, if available. Discounts applied in older versions of Square Register
      * might not have an ID.
      */
@@ -79,7 +76,6 @@ class V1PaymentDiscount implements \JsonSerializable
 
     /**
      * Sets Discount Id.
-     *
      * The ID of the applied discount, if available. Discounts applied in older versions of Square Register
      * might not have an ID.
      *

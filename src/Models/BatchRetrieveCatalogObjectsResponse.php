@@ -25,7 +25,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Objects.
-     *
      * A list of [CatalogObject]($m/CatalogObject)s returned.
      *
      * @return CatalogObject[]|null
@@ -63,7 +60,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Objects.
-     *
      * A list of [CatalogObject]($m/CatalogObject)s returned.
      *
      * @maps objects
@@ -77,7 +73,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Returns Related Objects.
-     *
      * A list of [CatalogObject]($m/CatalogObject)s referenced by the object in the `objects` field.
      *
      * @return CatalogObject[]|null
@@ -89,7 +84,6 @@ class BatchRetrieveCatalogObjectsResponse implements \JsonSerializable
 
     /**
      * Sets Related Objects.
-     *
      * A list of [CatalogObject]($m/CatalogObject)s referenced by the object in the `objects` field.
      *
      * @maps related_objects

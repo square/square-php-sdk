@@ -23,7 +23,6 @@ class RetrieveTeamMemberResponse implements \JsonSerializable
 
     /**
      * Returns Team Member.
-     *
      * A record representing an individual team member for a business.
      */
     public function getTeamMember(): ?TeamMember
@@ -33,7 +32,6 @@ class RetrieveTeamMemberResponse implements \JsonSerializable
 
     /**
      * Sets Team Member.
-     *
      * A record representing an individual team member for a business.
      *
      * @maps team_member
@@ -45,7 +43,6 @@ class RetrieveTeamMemberResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * The errors that occurred during the request.
      *
      * @return Error[]|null
@@ -57,7 +54,6 @@ class RetrieveTeamMemberResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * The errors that occurred during the request.
      *
      * @maps errors

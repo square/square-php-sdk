@@ -171,7 +171,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Possible types of CatalogObjects returned from the catalog, each
      * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
      */
@@ -182,7 +181,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Possible types of CatalogObjects returned from the catalog, each
      * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
      *
@@ -196,7 +194,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * An identifier to reference this object in the catalog. When a new `CatalogObject`
      * is inserted, the client should set the id to a temporary identifier starting with
      * a "`#`" character. Other objects being inserted or updated within the same request
@@ -212,7 +209,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * An identifier to reference this object in the catalog. When a new `CatalogObject`
      * is inserted, the client should set the id to a temporary identifier starting with
      * a "`#`" character. Other objects being inserted or updated within the same request
@@ -231,7 +227,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * Last modification [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
      * would indicate the UTC time (denoted by `Z`) of August 15, 2016 at 23:59:33 and 123 milliseconds.
@@ -243,7 +238,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * Last modification [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * in RFC 3339 format, e.g., `"2016-08-15T23:59:33.123Z"`
      * would indicate the UTC time (denoted by `Z`) of August 15, 2016 at 23:59:33 and 123 milliseconds.
@@ -257,7 +251,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Version.
-     *
      * The version of the object. When updating an object, the version supplied
      * must match the version in the database, otherwise the write will be rejected as conflicting.
      */
@@ -268,7 +261,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Version.
-     *
      * The version of the object. When updating an object, the version supplied
      * must match the version in the database, otherwise the write will be rejected as conflicting.
      *
@@ -281,7 +273,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Is Deleted.
-     *
      * If `true`, the object has been deleted from the database. Must be `false` for new objects
      * being inserted. When deleted, the `updated_at` field will equal the deletion time.
      */
@@ -292,7 +283,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Is Deleted.
-     *
      * If `true`, the object has been deleted from the database. Must be `false` for new objects
      * being inserted. When deleted, the `updated_at` field will equal the deletion time.
      *
@@ -305,7 +295,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Values.
-     *
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
      * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
@@ -339,7 +328,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Values.
-     *
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
      * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
@@ -375,7 +363,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Catalog V1 Ids.
-     *
      * The Connect v1 IDs for this object at each location where it is present, where they
      * differ from the object's Connect V2 ID. The field will only be present for objects that
      * have been created or modified by legacy APIs.
@@ -389,7 +376,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Catalog V1 Ids.
-     *
      * The Connect v1 IDs for this object at each location where it is present, where they
      * differ from the object's Connect V2 ID. The field will only be present for objects that
      * have been created or modified by legacy APIs.
@@ -405,7 +391,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Present at All Locations.
-     *
      * If `true`, this object is present at all locations (including future locations), except where
      * specified in
      * the `absent_at_location_ids` field. If `false`, this object is not present at any locations
@@ -419,7 +404,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Present at All Locations.
-     *
      * If `true`, this object is present at all locations (including future locations), except where
      * specified in
      * the `absent_at_location_ids` field. If `false`, this object is not present at any locations
@@ -435,7 +419,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Present at Location Ids.
-     *
      * A list of locations where the object is present, even if `present_at_all_locations` is `false`.
      * This can include locations that are deactivated.
      *
@@ -448,7 +431,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Present at Location Ids.
-     *
      * A list of locations where the object is present, even if `present_at_all_locations` is `false`.
      * This can include locations that are deactivated.
      *
@@ -463,7 +445,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Absent at Location Ids.
-     *
      * A list of locations where the object is not present, even if `present_at_all_locations` is `true`.
      * This can include locations that are deactivated.
      *
@@ -476,7 +457,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Absent at Location Ids.
-     *
      * A list of locations where the object is not present, even if `present_at_all_locations` is `true`.
      * This can include locations that are deactivated.
      *
@@ -491,7 +471,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Item Data.
-     *
      * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in the
      * catalog.
      */
@@ -502,7 +481,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Item Data.
-     *
      * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in the
      * catalog.
      *
@@ -515,7 +493,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Category Data.
-     *
      * A category to which a `CatalogItem` instance belongs.
      */
     public function getCategoryData(): ?CatalogCategory
@@ -525,7 +502,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Category Data.
-     *
      * A category to which a `CatalogItem` instance belongs.
      *
      * @maps category_data
@@ -537,7 +513,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Item Variation Data.
-     *
      * An item variation (i.e., product) in the Catalog object model. Each item
      * may have a maximum of 250 item variations.
      */
@@ -548,7 +523,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Item Variation Data.
-     *
      * An item variation (i.e., product) in the Catalog object model. Each item
      * may have a maximum of 250 item variations.
      *
@@ -561,7 +535,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Tax Data.
-     *
      * A tax applicable to an item.
      */
     public function getTaxData(): ?CatalogTax
@@ -571,7 +544,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Tax Data.
-     *
      * A tax applicable to an item.
      *
      * @maps tax_data
@@ -583,7 +555,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Discount Data.
-     *
      * A discount applicable to items.
      */
     public function getDiscountData(): ?CatalogDiscount
@@ -593,7 +564,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Discount Data.
-     *
      * A discount applicable to items.
      *
      * @maps discount_data
@@ -605,7 +575,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Modifier List Data.
-     *
      * A list of modifiers applicable to items at the time of sale.
      *
      * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
@@ -620,7 +589,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Modifier List Data.
-     *
      * A list of modifiers applicable to items at the time of sale.
      *
      * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
@@ -637,7 +605,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Modifier Data.
-     *
      * A modifier applicable to items at the time of sale.
      */
     public function getModifierData(): ?CatalogModifier
@@ -647,7 +614,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Modifier Data.
-     *
      * A modifier applicable to items at the time of sale.
      *
      * @maps modifier_data
@@ -659,7 +625,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Time Period Data.
-     *
      * Represents a time period - either a single period or a repeating period.
      */
     public function getTimePeriodData(): ?CatalogTimePeriod
@@ -669,7 +634,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Time Period Data.
-     *
      * Represents a time period - either a single period or a repeating period.
      *
      * @maps time_period_data
@@ -681,7 +645,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Product Set Data.
-     *
      * Represents a collection of catalog objects for the purpose of applying a
      * `PricingRule`. Including a catalog object will include all of its subtypes.
      * For example, including a category in a product set will include all of its
@@ -695,7 +658,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Product Set Data.
-     *
      * Represents a collection of catalog objects for the purpose of applying a
      * `PricingRule`. Including a catalog object will include all of its subtypes.
      * For example, including a category in a product set will include all of its
@@ -711,7 +673,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Pricing Rule Data.
-     *
      * Defines how discounts are automatically applied to a set of items that match the pricing rule
      * during the active time period.
      */
@@ -722,7 +683,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Pricing Rule Data.
-     *
      * Defines how discounts are automatically applied to a set of items that match the pricing rule
      * during the active time period.
      *
@@ -735,7 +695,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Image Data.
-     *
      * An image file to use in Square catalogs. It can be associated with
      * `CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, and `CatalogModifierList` objects.
      * Only the images on items and item variations are exposed in Dashboard.
@@ -750,7 +709,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Image Data.
-     *
      * An image file to use in Square catalogs. It can be associated with
      * `CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, and `CatalogModifierList` objects.
      * Only the images on items and item variations are exposed in Dashboard.
@@ -767,7 +725,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Measurement Unit Data.
-     *
      * Represents the unit used to measure a `CatalogItemVariation` and
      * specifies the precision for decimal quantities.
      */
@@ -778,7 +735,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Measurement Unit Data.
-     *
      * Represents the unit used to measure a `CatalogItemVariation` and
      * specifies the precision for decimal quantities.
      *
@@ -791,7 +747,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Subscription Plan Data.
-     *
      * Describes a subscription plan. For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
      * plan).
@@ -803,7 +758,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Subscription Plan Data.
-     *
      * Describes a subscription plan. For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
      * plan).
@@ -817,7 +771,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Item Option Data.
-     *
      * A group of variations for a `CatalogItem`.
      */
     public function getItemOptionData(): ?CatalogItemOption
@@ -827,7 +780,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Item Option Data.
-     *
      * A group of variations for a `CatalogItem`.
      *
      * @maps item_option_data
@@ -839,7 +791,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Item Option Value Data.
-     *
      * An enumerated value that can link a
      * `CatalogItemVariation` to an item option as one of
      * its item option values.
@@ -851,7 +802,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Item Option Value Data.
-     *
      * An enumerated value that can link a
      * `CatalogItemVariation` to an item option as one of
      * its item option values.
@@ -865,7 +815,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Definition Data.
-     *
      * Contains information defining a custom attribute. Custom attributes are
      * intended to store additional information about a catalog object or to associate a
      * catalog object with an entity in another system. Do not use custom attributes
@@ -880,7 +829,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Definition Data.
-     *
      * Contains information defining a custom attribute. Custom attributes are
      * intended to store additional information about a catalog object or to associate a
      * catalog object with an entity in another system. Do not use custom attributes
@@ -898,7 +846,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Quick Amounts Settings Data.
-     *
      * A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts.
      */
     public function getQuickAmountsSettingsData(): ?CatalogQuickAmountsSettings
@@ -908,7 +855,6 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Quick Amounts Settings Data.
-     *
      * A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts.
      *
      * @maps quick_amounts_settings_data

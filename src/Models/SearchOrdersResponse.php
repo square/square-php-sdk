@@ -34,7 +34,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Order Entries.
-     *
      * A list of [OrderEntries]($m/OrderEntry) that fit the query
      * conditions. The list is populated only if `return_entries` is set to `true` in the request.
      *
@@ -47,7 +46,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Order Entries.
-     *
      * A list of [OrderEntries]($m/OrderEntry) that fit the query
      * conditions. The list is populated only if `return_entries` is set to `true` in the request.
      *
@@ -62,7 +60,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Orders.
-     *
      * A list of
      * [Order]($m/Order) objects that match the query conditions. The list is populated only if
      * `return_entries` is set to `false` in the request.
@@ -76,7 +73,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Orders.
-     *
      * A list of
      * [Order]($m/Order) objects that match the query conditions. The list is populated only if
      * `return_entries` is set to `false` in the request.
@@ -92,7 +88,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
@@ -104,7 +99,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
@@ -118,7 +112,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * [Errors]($m/Error) encountered during the search.
      *
      * @return Error[]|null
@@ -130,7 +123,6 @@ class SearchOrdersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * [Errors]($m/Error) encountered during the search.
      *
      * @maps errors

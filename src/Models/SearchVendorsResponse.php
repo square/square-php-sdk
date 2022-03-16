@@ -28,7 +28,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors encountered when the request fails.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Vendors.
-     *
      * The [Vendor]($m/Vendor) objects matching the specified search filter.
      *
      * @return Vendor[]|null
@@ -66,7 +63,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Vendors.
-     *
      * The [Vendor]($m/Vendor) objects matching the specified search filter.
      *
      * @maps vendors
@@ -80,7 +76,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *
@@ -94,7 +89,6 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If unset,
      * this is the final response.
      *

@@ -24,7 +24,6 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Returns Gift Card Activity.
-     *
      * Represents an action performed on a gift card that affects its state or balance.
      */
     public function getGiftCardActivity(): ?GiftCardActivity
@@ -60,7 +57,6 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Sets Gift Card Activity.
-     *
      * Represents an action performed on a gift card that affects its state or balance.
      *
      * @maps gift_card_activity

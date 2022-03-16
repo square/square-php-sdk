@@ -28,7 +28,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     *
      * The parameters of a `Shift` search query, which includes filter and sort options.
      */
     public function getQuery(): ?ShiftQuery
@@ -38,7 +37,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     *
      * The parameters of a `Shift` search query, which includes filter and sort options.
      *
      * @maps query
@@ -50,7 +48,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The number of resources in a page (200 by default).
      */
     public function getLimit(): ?int
@@ -60,7 +57,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The number of resources in a page (200 by default).
      *
      * @maps limit
@@ -72,7 +68,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * An opaque cursor for fetching the next page.
      */
     public function getCursor(): ?string
@@ -82,7 +77,6 @@ class SearchShiftsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * An opaque cursor for fetching the next page.
      *
      * @maps cursor

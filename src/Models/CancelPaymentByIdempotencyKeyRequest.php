@@ -27,7 +27,6 @@ class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * The `idempotency_key` identifying the payment to be canceled.
      */
     public function getIdempotencyKey(): string
@@ -37,7 +36,6 @@ class CancelPaymentByIdempotencyKeyRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * The `idempotency_key` identifying the payment to be canceled.
      *
      * @required

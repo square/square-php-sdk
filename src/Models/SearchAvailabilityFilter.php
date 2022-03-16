@@ -41,7 +41,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Returns Start at Range.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -55,7 +54,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Sets Start at Range.
-     *
      * Represents a generic time range. The start and end values are
      * represented in RFC 3339 format. Time ranges are customized to be
      * inclusive or exclusive based on the needs of a particular endpoint.
@@ -72,7 +70,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The query expression to search for buyer-accessible availabilities with their location IDs matching
      * the specified location ID.
      * This query expression cannot be set if `booking_id` is set.
@@ -84,7 +81,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The query expression to search for buyer-accessible availabilities with their location IDs matching
      * the specified location ID.
      * This query expression cannot be set if `booking_id` is set.
@@ -98,7 +94,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Returns Segment Filters.
-     *
      * The query expression to search for buyer-accessible availabilities matching the specified list of
      * segment filters.
      * If the size of the `segment_filters` list is `n`, the search returns availabilities with `n`
@@ -115,7 +110,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Sets Segment Filters.
-     *
      * The query expression to search for buyer-accessible availabilities matching the specified list of
      * segment filters.
      * If the size of the `segment_filters` list is `n`, the search returns availabilities with `n`
@@ -134,7 +128,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Returns Booking Id.
-     *
      * The query expression to search for buyer-accessible availabilities for an existing booking by
      * matching the specified `booking_id` value.
      * This is commonly used to reschedule an appointment.
@@ -147,7 +140,6 @@ class SearchAvailabilityFilter implements \JsonSerializable
 
     /**
      * Sets Booking Id.
-     *
      * The query expression to search for buyer-accessible availabilities for an existing booking by
      * matching the specified `booking_id` value.
      * This is commonly used to reschedule an appointment.

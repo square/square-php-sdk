@@ -83,7 +83,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the service charge only within this order.
      */
     public function getUid(): ?string
@@ -93,7 +92,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the service charge only within this order.
      *
      * @maps uid
@@ -105,7 +103,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the service charge.
      */
     public function getName(): ?string
@@ -115,7 +112,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the service charge.
      *
      * @maps name
@@ -127,7 +123,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
      */
     public function getCatalogObjectId(): ?string
@@ -137,7 +132,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
      *
      * @maps catalog_object_id
@@ -149,7 +143,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this service charge references.
      */
     public function getCatalogVersion(): ?int
@@ -159,7 +152,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this service charge references.
      *
      * @maps catalog_version
@@ -171,7 +163,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The service charge percentage as a string representation of a
      * decimal number. For example, `"7.25"` indicates a service charge of 7.25%.
      *
@@ -184,7 +175,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The service charge percentage as a string representation of a
      * decimal number. For example, `"7.25"` indicates a service charge of 7.25%.
      *
@@ -199,7 +189,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -215,7 +204,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -233,7 +221,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -249,7 +236,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -267,7 +253,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -283,7 +268,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Total Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -301,7 +285,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -317,7 +300,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Total Tax Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -335,7 +317,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Calculation Phase.
-     *
      * Represents a phase in the process of calculating order totals.
      * Service charges are applied after the indicated phase.
      *
@@ -349,7 +330,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Calculation Phase.
-     *
      * Represents a phase in the process of calculating order totals.
      * Service charges are applied after the indicated phase.
      *
@@ -365,7 +345,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Taxable.
-     *
      * Indicates whether the service charge can be taxed. If set to `true`,
      * order-level taxes automatically apply to the service charge. Note that
      * service charges calculated in the `TOTAL_PHASE` cannot be marked as taxable.
@@ -377,7 +356,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Taxable.
-     *
      * Indicates whether the service charge can be taxed. If set to `true`,
      * order-level taxes automatically apply to the service charge. Note that
      * service charges calculated in the `TOTAL_PHASE` cannot be marked as taxable.
@@ -391,7 +369,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Applied Taxes.
-     *
      * The list of references to the taxes applied to this service charge. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
      * `OrderLineItemTax` that is being applied to this service charge. On reads, the amount applied
@@ -414,7 +391,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Applied Taxes.
-     *
      * The list of references to the taxes applied to this service charge. Each
      * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
      * `OrderLineItemTax` that is being applied to this service charge. On reads, the amount applied
@@ -439,7 +415,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this service charge. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -468,7 +443,6 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this service charge. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it

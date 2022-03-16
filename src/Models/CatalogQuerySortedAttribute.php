@@ -36,7 +36,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Returns Attribute Name.
-     *
      * The attribute whose value is used as the sort key.
      */
     public function getAttributeName(): string
@@ -46,7 +45,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Sets Attribute Name.
-     *
      * The attribute whose value is used as the sort key.
      *
      * @required
@@ -59,7 +57,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Returns Initial Attribute Value.
-     *
      * The first attribute value to be returned by the query. Ascending sorts will return only
      * objects with this value or greater, while descending sorts will return only objects with this value
      * or less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts).
@@ -71,7 +68,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Sets Initial Attribute Value.
-     *
      * The first attribute value to be returned by the query. Ascending sorts will return only
      * objects with this value or greater, while descending sorts will return only objects with this value
      * or less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts).
@@ -85,7 +81,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -95,7 +90,6 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order

@@ -23,7 +23,6 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Returns Assignment Type.
-     *
      * Enumerates the possible assignment types that the team member can have.
      */
     public function getAssignmentType(): ?string
@@ -33,7 +32,6 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Sets Assignment Type.
-     *
      * Enumerates the possible assignment types that the team member can have.
      *
      * @maps assignment_type
@@ -45,7 +43,6 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The locations that the team member is assigned to.
      *
      * @return string[]|null
@@ -57,7 +54,6 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The locations that the team member is assigned to.
      *
      * @maps location_ids

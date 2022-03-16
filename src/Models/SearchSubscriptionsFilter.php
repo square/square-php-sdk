@@ -30,7 +30,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     *
      * A filter to select subscriptions based on the subscribing customer IDs.
      *
      * @return string[]|null
@@ -42,7 +41,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     *
      * A filter to select subscriptions based on the subscribing customer IDs.
      *
      * @maps customer_ids
@@ -56,7 +54,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * A filter to select subscriptions based on the location.
      *
      * @return string[]|null
@@ -68,7 +65,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * A filter to select subscriptions based on the location.
      *
      * @maps location_ids
@@ -82,7 +78,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Returns Source Names.
-     *
      * A filter to select subscriptions based on the source application.
      *
      * @return string[]|null
@@ -94,7 +89,6 @@ class SearchSubscriptionsFilter implements \JsonSerializable
 
     /**
      * Sets Source Names.
-     *
      * A filter to select subscriptions based on the source application.
      *
      * @maps source_names

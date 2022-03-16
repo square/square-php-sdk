@@ -62,7 +62,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the returned tax only within this order.
      */
     public function getUid(): ?string
@@ -72,7 +71,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the returned tax only within this order.
      *
      * @maps uid
@@ -84,7 +82,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Source Tax Uid.
-     *
      * The tax `uid` from the order that contains the original tax charge.
      */
     public function getSourceTaxUid(): ?string
@@ -94,7 +91,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Source Tax Uid.
-     *
      * The tax `uid` from the order that contains the original tax charge.
      *
      * @maps source_tax_uid
@@ -106,7 +102,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      */
     public function getCatalogObjectId(): ?string
@@ -116,7 +111,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      *
      * @maps catalog_object_id
@@ -128,7 +122,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this tax references.
      */
     public function getCatalogVersion(): ?int
@@ -138,7 +131,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this tax references.
      *
      * @maps catalog_version
@@ -150,7 +142,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The tax's name.
      */
     public function getName(): ?string
@@ -160,7 +151,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The tax's name.
      *
      * @maps name
@@ -172,7 +162,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Indicates how the tax is applied to the associated line item or order.
      */
     public function getType(): ?string
@@ -182,7 +171,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Indicates how the tax is applied to the associated line item or order.
      *
      * @maps type
@@ -194,7 +182,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the tax, as a string representation of a decimal number.
      * For example, a value of `"7.25"` corresponds to a percentage of 7.25%.
      */
@@ -205,7 +192,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the tax, as a string representation of a decimal number.
      * For example, a value of `"7.25"` corresponds to a percentage of 7.25%.
      *
@@ -218,7 +204,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -234,7 +219,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -252,7 +236,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Returns Scope.
-     *
      * Indicates whether this is a line-item or order-level tax.
      */
     public function getScope(): ?string
@@ -262,7 +245,6 @@ class OrderReturnTax implements \JsonSerializable
 
     /**
      * Sets Scope.
-     *
      * Indicates whether this is a line-item or order-level tax.
      *
      * @maps scope

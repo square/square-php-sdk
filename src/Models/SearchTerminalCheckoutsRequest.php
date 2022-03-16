@@ -43,7 +43,6 @@ class SearchTerminalCheckoutsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
@@ -55,7 +54,6 @@ class SearchTerminalCheckoutsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
@@ -69,7 +67,6 @@ class SearchTerminalCheckoutsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * Limits the number of results returned for a single request.
      */
     public function getLimit(): ?int
@@ -79,7 +76,6 @@ class SearchTerminalCheckoutsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * Limits the number of results returned for a single request.
      *
      * @maps limit

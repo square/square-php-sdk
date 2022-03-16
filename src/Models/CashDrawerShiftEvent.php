@@ -40,7 +40,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The unique ID of the event.
      */
     public function getId(): ?string
@@ -50,7 +49,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The unique ID of the event.
      *
      * @maps id
@@ -62,7 +60,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     *
      * The ID of the employee that created the event.
      */
     public function getEmployeeId(): ?string
@@ -72,7 +69,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     *
      * The ID of the employee that created the event.
      *
      * @maps employee_id
@@ -84,7 +80,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Event Type.
-     *
      * The types of events on a CashDrawerShift.
      * Each event type represents an employee action on the actual cash drawer
      * represented by a CashDrawerShift.
@@ -96,7 +91,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Event Type.
-     *
      * The types of events on a CashDrawerShift.
      * Each event type represents an employee action on the actual cash drawer
      * represented by a CashDrawerShift.
@@ -110,7 +104,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Event Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -126,7 +119,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Event Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -144,7 +136,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The event time in ISO 8601 format.
      */
     public function getCreatedAt(): ?string
@@ -154,7 +145,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The event time in ISO 8601 format.
      *
      * @maps created_at
@@ -166,7 +156,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * An optional description of the event, entered by the employee that
      * created the event.
      */
@@ -177,7 +166,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * An optional description of the event, entered by the employee that
      * created the event.
      *

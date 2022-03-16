@@ -30,7 +30,6 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * request among all your requests. A common way to create
      * a valid idempotency key is to use a Universally unique
@@ -50,7 +49,6 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A value you specify that uniquely identifies this
      * request among all your requests. A common way to create
      * a valid idempotency key is to use a Universally unique
@@ -73,7 +71,6 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Returns Batches.
-     *
      * A batch of CatalogObjects to be inserted/updated atomically.
      * The objects within a batch will be inserted in an all-or-nothing fashion, i.e., if an error occurs
      * attempting to insert or update an object within a batch, the entire batch will be rejected. However,
@@ -109,7 +106,6 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
 
     /**
      * Sets Batches.
-     *
      * A batch of CatalogObjects to be inserted/updated atomically.
      * The objects within a batch will be inserted in an all-or-nothing fashion, i.e., if an error occurs
      * attempting to insert or update an object within a batch, the entire batch will be rejected. However,

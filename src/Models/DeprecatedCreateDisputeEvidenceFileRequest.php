@@ -36,7 +36,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
      * with-apis/idempotency).
      */
@@ -47,7 +46,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
      * with-apis/idempotency).
      *
@@ -61,7 +59,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Returns Evidence Type.
-     *
      * The type of the dispute evidence.
      */
     public function getEvidenceType(): ?string
@@ -71,7 +68,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Sets Evidence Type.
-     *
      * The type of the dispute evidence.
      *
      * @maps evidence_type
@@ -83,7 +79,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Returns Content Type.
-     *
      * The MIME type of the uploaded file.
      * The type can be image/heic, image/heif, image/jpeg, application/pdf, image/png, or image/tiff.
      */
@@ -94,7 +89,6 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
 
     /**
      * Sets Content Type.
-     *
      * The MIME type of the uploaded file.
      * The type can be image/heic, image/heif, image/jpeg, application/pdf, image/png, or image/tiff.
      *

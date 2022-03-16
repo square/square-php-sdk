@@ -45,7 +45,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the fulfillment entry only within this order.
      */
     public function getUid(): ?string
@@ -55,7 +54,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the fulfillment entry only within this order.
      *
      * @maps uid
@@ -67,7 +65,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Returns Line Item Uid.
-     *
      * The `uid` from the order line item.
      */
     public function getLineItemUid(): string
@@ -77,7 +74,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Sets Line Item Uid.
-     *
      * The `uid` from the order line item.
      *
      * @required
@@ -90,7 +86,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The quantity of the line item being fulfilled, formatted as a decimal number.
      * For example, `"3"`.
      *
@@ -104,7 +99,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The quantity of the line item being fulfilled, formatted as a decimal number.
      * For example, `"3"`.
      *
@@ -121,7 +115,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this fulfillment entry. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -150,7 +143,6 @@ class OrderFulfillmentFulfillmentEntry implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this fulfillment entry. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it

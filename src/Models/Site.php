@@ -43,7 +43,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the site.
      */
     public function getId(): ?string
@@ -53,7 +52,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the site.
      *
      * @maps id
@@ -65,7 +63,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Site Title.
-     *
      * The title of the site.
      */
     public function getSiteTitle(): ?string
@@ -75,7 +72,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Site Title.
-     *
      * The title of the site.
      *
      * @maps site_title
@@ -87,7 +83,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Domain.
-     *
      * The domain of the site (without the protocol). For example, `mysite1.square.site`.
      */
     public function getDomain(): ?string
@@ -97,7 +92,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Domain.
-     *
      * The domain of the site (without the protocol). For example, `mysite1.square.site`.
      *
      * @maps domain
@@ -109,7 +103,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Is Published.
-     *
      * Indicates whether the site is published.
      */
     public function getIsPublished(): ?bool
@@ -119,7 +112,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Is Published.
-     *
      * Indicates whether the site is published.
      *
      * @maps is_published
@@ -131,7 +123,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp of when the site was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
@@ -141,7 +132,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp of when the site was created, in RFC 3339 format.
      *
      * @maps created_at
@@ -153,7 +143,6 @@ class Site implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp of when the site was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
@@ -163,7 +152,6 @@ class Site implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp of when the site was last updated, in RFC 3339 format.
      *
      * @maps updated_at

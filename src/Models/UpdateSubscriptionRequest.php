@@ -19,7 +19,6 @@ class UpdateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see
@@ -33,7 +32,6 @@ class UpdateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Subscription.
-     *
      * Represents a subscription to a subscription plan by a subscriber.
      *
      * For an overview of the `Subscription` type, see

@@ -28,7 +28,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -40,7 +39,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -54,7 +52,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Returns Rewards.
-     *
      * The loyalty rewards that satisfy the search criteria.
      * These are returned in descending order by `updated_at`.
      *
@@ -67,7 +64,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Sets Rewards.
-     *
      * The loyalty rewards that satisfy the search criteria.
      * These are returned in descending order by `updated_at`.
      *
@@ -82,7 +78,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      */
@@ -93,7 +88,6 @@ class SearchLoyaltyRewardsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent
      * request. If empty, this is the final response.
      *

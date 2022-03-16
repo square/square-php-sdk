@@ -29,7 +29,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -41,7 +40,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -55,7 +53,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Returns Gift Card Activities.
-     *
      * The requested gift card activities or an empty object if none are found.
      *
      * @return GiftCardActivity[]|null
@@ -67,7 +64,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Sets Gift Card Activities.
-     *
      * The requested gift card activities or an empty object if none are found.
      *
      * @maps gift_card_activities
@@ -81,7 +77,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can use in a
      * subsequent request to retrieve the next set of activities. If a cursor is not present, this is
      * the final response.
@@ -95,7 +90,6 @@ class ListGiftCardActivitiesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can use in a
      * subsequent request to retrieve the next set of activities. If a cursor is not present, this is
      * the final response.

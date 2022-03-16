@@ -37,7 +37,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Returns Attribute Name.
-     *
      * The name of the attribute to be searched.
      */
     public function getAttributeName(): string
@@ -47,7 +46,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Sets Attribute Name.
-     *
      * The name of the attribute to be searched.
      *
      * @required
@@ -60,7 +58,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Returns Attribute Min Value.
-     *
      * The desired minimum value for the search attribute (inclusive).
      */
     public function getAttributeMinValue(): ?int
@@ -70,7 +67,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Sets Attribute Min Value.
-     *
      * The desired minimum value for the search attribute (inclusive).
      *
      * @maps attribute_min_value
@@ -82,7 +78,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Returns Attribute Max Value.
-     *
      * The desired maximum value for the search attribute (inclusive).
      */
     public function getAttributeMaxValue(): ?int
@@ -92,7 +87,6 @@ class CatalogQueryRange implements \JsonSerializable
 
     /**
      * Sets Attribute Max Value.
-     *
      * The desired maximum value for the search attribute (inclusive).
      *
      * @maps attribute_max_value

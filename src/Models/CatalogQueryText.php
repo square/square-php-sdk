@@ -27,7 +27,6 @@ class CatalogQueryText implements \JsonSerializable
 
     /**
      * Returns Keywords.
-     *
      * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters are ignored.
      *
      * @return string[]
@@ -39,7 +38,6 @@ class CatalogQueryText implements \JsonSerializable
 
     /**
      * Sets Keywords.
-     *
      * A list of 1, 2, or 3 search keywords. Keywords with fewer than 3 characters are ignored.
      *
      * @required

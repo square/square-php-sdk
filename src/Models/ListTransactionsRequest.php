@@ -36,7 +36,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     *
      * The beginning of the requested reporting period, in RFC 3339 format.
      *
      * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
@@ -51,7 +50,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     *
      * The beginning of the requested reporting period, in RFC 3339 format.
      *
      * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
@@ -68,7 +66,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     *
      * The end of the requested reporting period, in RFC 3339 format.
      *
      * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
@@ -83,7 +80,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     *
      * The end of the requested reporting period, in RFC 3339 format.
      *
      * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
@@ -100,7 +96,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      */
     public function getSortOrder(): ?string
@@ -110,7 +105,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     *
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
@@ -122,7 +116,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *
@@ -136,7 +129,6 @@ class ListTransactionsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for your original query.
      *

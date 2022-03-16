@@ -24,7 +24,6 @@ class AdjustLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -36,7 +35,6 @@ class AdjustLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -50,7 +48,6 @@ class AdjustLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Returns Event.
-     *
      * Provides information about a loyalty event.
      * For more information, see [Search for Balance-Changing Loyalty Events](https://developer.squareup.
      * com/docs/loyalty-api/loyalty-events).
@@ -62,7 +59,6 @@ class AdjustLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Sets Event.
-     *
      * Provides information about a loyalty event.
      * For more information, see [Search for Balance-Changing Loyalty Events](https://developer.squareup.
      * com/docs/loyalty-api/loyalty-events).

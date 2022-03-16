@@ -20,7 +20,6 @@ class RetrieveInventoryPhysicalCountResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class RetrieveInventoryPhysicalCountResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -46,7 +44,6 @@ class RetrieveInventoryPhysicalCountResponse implements \JsonSerializable
 
     /**
      * Returns Count.
-     *
      * Represents the quantity of an item variation that is physically present
      * at a specific location, verified by a seller or a seller's employee. For example,
      * a physical count might come from an employee counting the item variations on
@@ -59,7 +56,6 @@ class RetrieveInventoryPhysicalCountResponse implements \JsonSerializable
 
     /**
      * Sets Count.
-     *
      * Represents the quantity of an item variation that is physically present
      * at a specific location, verified by a seller or a seller's employee. For example,
      * a physical count might come from an employee counting the item variations on

@@ -148,7 +148,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A short, generated string of letters and numbers that uniquely identifies this location instance.
      */
     public function getId(): ?string
@@ -158,7 +157,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A short, generated string of letters and numbers that uniquely identifies this location instance.
      *
      * @maps id
@@ -170,7 +168,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The name of the location.
      * This information appears in the dashboard as the nickname.
      * A location name must be unique within a seller account.
@@ -182,7 +179,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The name of the location.
      * This information appears in the dashboard as the nickname.
      * A location name must be unique within a seller account.
@@ -196,7 +192,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -208,7 +203,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Address.
-     *
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
      * basics/working-with-addresses).
@@ -222,7 +216,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Timezone.
-     *
      * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
      * the timezone of the location. For example, `America/Los_Angeles`.
      */
@@ -233,7 +226,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Timezone.
-     *
      * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
      * the timezone of the location. For example, `America/Los_Angeles`.
      *
@@ -246,7 +238,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Capabilities.
-     *
      * The Square features that are enabled for the location.
      * See [LocationCapability]($m/LocationCapability) for possible values.
      * See [LocationCapability](#type-locationcapability) for possible values
@@ -260,7 +251,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Capabilities.
-     *
      * The Square features that are enabled for the location.
      * See [LocationCapability]($m/LocationCapability) for possible values.
      * See [LocationCapability](#type-locationcapability) for possible values
@@ -276,7 +266,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * A location's status.
      */
     public function getStatus(): ?string
@@ -286,7 +275,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * A location's status.
      *
      * @maps status
@@ -298,7 +286,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the location was created, in RFC 3339 format.
      * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
      * basics/working-with-dates).
@@ -310,7 +297,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the location was created, in RFC 3339 format.
      * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
      * basics/working-with-dates).
@@ -324,7 +310,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Merchant Id.
-     *
      * The ID of the merchant that owns the location.
      */
     public function getMerchantId(): ?string
@@ -334,7 +319,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Merchant Id.
-     *
      * The ID of the merchant that owns the location.
      *
      * @maps merchant_id
@@ -346,7 +330,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      */
@@ -357,7 +340,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      *
@@ -370,7 +352,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Language Code.
-     *
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
      * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
@@ -383,7 +364,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Language Code.
-     *
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
      * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
@@ -398,7 +378,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      */
@@ -409,7 +388,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *
@@ -422,7 +400,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     *
      * The phone number of the location. For example, `+1 855-700-6000`.
      */
     public function getPhoneNumber(): ?string
@@ -432,7 +409,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     *
      * The phone number of the location. For example, `+1 855-700-6000`.
      *
      * @maps phone_number
@@ -444,7 +420,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Business Name.
-     *
      * The name of the location's overall business. This name is present on receipts and other customer-
      * facing branding.
      */
@@ -455,7 +430,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Business Name.
-     *
      * The name of the location's overall business. This name is present on receipts and other customer-
      * facing branding.
      *
@@ -468,7 +442,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * A location's type.
      */
     public function getType(): ?string
@@ -478,7 +451,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * A location's type.
      *
      * @maps type
@@ -490,7 +462,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Website Url.
-     *
      * The website URL of the location.  For example, `https://squareup.com`.
      */
     public function getWebsiteUrl(): ?string
@@ -500,7 +471,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Website Url.
-     *
      * The website URL of the location.  For example, `https://squareup.com`.
      *
      * @maps website_url
@@ -512,7 +482,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Business Hours.
-     *
      * The hours of operation for a location.
      */
     public function getBusinessHours(): ?BusinessHours
@@ -522,7 +491,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Business Hours.
-     *
      * The hours of operation for a location.
      *
      * @maps business_hours
@@ -534,7 +502,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Business Email.
-     *
      * The email address of the location. This can be unique to the location, and is not always the email
      * address for the business owner or admin.
      */
@@ -545,7 +512,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Business Email.
-     *
      * The email address of the location. This can be unique to the location, and is not always the email
      * address for the business owner or admin.
      *
@@ -558,7 +524,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * The description of the location. For example, `Main Street location`.
      */
     public function getDescription(): ?string
@@ -568,7 +533,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * The description of the location. For example, `Main Street location`.
      *
      * @maps description
@@ -580,7 +544,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Twitter Username.
-     *
      * The Twitter username of the location without the '@' symbol. For example, `Square`.
      */
     public function getTwitterUsername(): ?string
@@ -590,7 +553,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Twitter Username.
-     *
      * The Twitter username of the location without the '@' symbol. For example, `Square`.
      *
      * @maps twitter_username
@@ -602,7 +564,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Instagram Username.
-     *
      * The Instagram username of the location without the '@' symbol. For example, `square`.
      */
     public function getInstagramUsername(): ?string
@@ -612,7 +573,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Instagram Username.
-     *
      * The Instagram username of the location without the '@' symbol. For example, `square`.
      *
      * @maps instagram_username
@@ -624,7 +584,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Facebook Url.
-     *
      * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example,
      * `https://www.facebook.com/square`.
      */
@@ -635,7 +594,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Facebook Url.
-     *
      * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example,
      * `https://www.facebook.com/square`.
      *
@@ -648,7 +606,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Coordinates.
-     *
      * Latitude and longitude coordinates.
      */
     public function getCoordinates(): ?Coordinates
@@ -658,7 +615,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Coordinates.
-     *
      * Latitude and longitude coordinates.
      *
      * @maps coordinates
@@ -670,7 +626,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Logo Url.
-     *
      * The URL of the logo image for the location. When configured in the Seller
      * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
      * that Square generates on behalf of the Seller. This image should have a roughly square (1:1) aspect
@@ -684,7 +639,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Logo Url.
-     *
      * The URL of the logo image for the location. When configured in the Seller
      * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
      * that Square generates on behalf of the Seller. This image should have a roughly square (1:1) aspect
@@ -700,7 +654,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Pos Background Url.
-     *
      * The URL of the Point of Sale background image for the location.
      */
     public function getPosBackgroundUrl(): ?string
@@ -710,7 +663,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Pos Background Url.
-     *
      * The URL of the Point of Sale background image for the location.
      *
      * @maps pos_background_url
@@ -722,7 +674,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Mcc.
-     *
      * A four-digit number that describes the kind of goods or services sold at the location.
      * The [merchant category code (MCC)](https://developer.squareup.com/docs/locations-api#initialize-a-
      * merchant-category-code) of the location as standardized by ISO 18245.
@@ -735,7 +686,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Mcc.
-     *
      * A four-digit number that describes the kind of goods or services sold at the location.
      * The [merchant category code (MCC)](https://developer.squareup.com/docs/locations-api#initialize-a-
      * merchant-category-code) of the location as standardized by ISO 18245.
@@ -750,7 +700,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Full Format Logo Url.
-     *
      * The URL of a full-format logo image for the location. When configured in the Seller
      * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
      * that Square generates on behalf of the Seller. This image can be wider than it is tall,
@@ -763,7 +712,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Full Format Logo Url.
-     *
      * The URL of a full-format logo image for the location. When configured in the Seller
      * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
      * that Square generates on behalf of the Seller. This image can be wider than it is tall,
@@ -778,7 +726,6 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Tax Ids.
-     *
      * Identifiers for the location used by various governments for tax purposes.
      */
     public function getTaxIds(): ?TaxIds
@@ -788,7 +735,6 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Tax Ids.
-     *
      * Identifiers for the location used by various governments for tax purposes.
      *
      * @maps tax_ids

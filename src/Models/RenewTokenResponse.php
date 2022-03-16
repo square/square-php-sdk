@@ -45,7 +45,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Access Token.
-     *
      * The renewed access token.
      * This value might be different from the `access_token` you provided in your request.
      * You provide this token in a header with every request to Connect API endpoints.
@@ -59,7 +58,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Access Token.
-     *
      * The renewed access token.
      * This value might be different from the `access_token` you provided in your request.
      * You provide this token in a header with every request to Connect API endpoints.
@@ -75,7 +73,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Token Type.
-     *
      * This value is always _bearer_.
      */
     public function getTokenType(): ?string
@@ -85,7 +82,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Token Type.
-     *
      * This value is always _bearer_.
      *
      * @maps token_type
@@ -97,7 +93,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     *
      * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
      * org/iso/home/standards/iso8601.htm) format.
      */
@@ -108,7 +103,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     *
      * The date when the `access_token` expires, in [ISO 8601](http://www.iso.
      * org/iso/home/standards/iso8601.htm) format.
      *
@@ -121,7 +115,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Merchant Id.
-     *
      * The ID of the authorizing merchant's business.
      */
     public function getMerchantId(): ?string
@@ -131,7 +124,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Merchant Id.
-     *
      * The ID of the authorizing merchant's business.
      *
      * @maps merchant_id
@@ -143,7 +135,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Subscription Id.
-     *
      * __LEGACY FIELD__. The ID of the merchant subscription associated with
      * the authorization. The ID is only present if the merchant signed up for a subscription
      * during authorization.
@@ -155,7 +146,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Subscription Id.
-     *
      * __LEGACY FIELD__. The ID of the merchant subscription associated with
      * the authorization. The ID is only present if the merchant signed up for a subscription
      * during authorization.
@@ -169,7 +159,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
@@ -181,7 +170,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     *
      * __LEGACY FIELD__. The ID of the subscription plan the merchant signed
      * up for. The ID is only present if the merchant signed up for a subscription plan during
      * authorization.
@@ -195,7 +183,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -207,7 +194,6 @@ class RenewTokenResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

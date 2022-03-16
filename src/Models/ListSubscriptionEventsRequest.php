@@ -25,7 +25,6 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When the total number of resulting subscription events exceeds the limit of a paged response,
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
@@ -40,7 +39,6 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When the total number of resulting subscription events exceeds the limit of a paged response,
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
@@ -57,7 +55,6 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The upper limit on the number of subscription events to return
      * in a paged response.
      */
@@ -68,7 +65,6 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The upper limit on the number of subscription events to return
      * in a paged response.
      *

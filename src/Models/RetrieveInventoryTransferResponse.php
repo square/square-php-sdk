@@ -20,7 +20,6 @@ class RetrieveInventoryTransferResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class RetrieveInventoryTransferResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -46,7 +44,6 @@ class RetrieveInventoryTransferResponse implements \JsonSerializable
 
     /**
      * Returns Transfer.
-     *
      * Represents the transfer of a quantity of product inventory at a
      * particular time from one location to another.
      */
@@ -57,7 +54,6 @@ class RetrieveInventoryTransferResponse implements \JsonSerializable
 
     /**
      * Sets Transfer.
-     *
      * Represents the transfer of a quantity of product inventory at a
      * particular time from one location to another.
      *

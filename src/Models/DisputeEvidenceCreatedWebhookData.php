@@ -25,7 +25,6 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Name of the affected dispute's type.
      */
     public function getType(): ?string
@@ -35,7 +34,6 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Name of the affected dispute's type.
      *
      * @maps type
@@ -47,7 +45,6 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * ID of the affected dispute.
      */
     public function getId(): ?string
@@ -57,7 +54,6 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * ID of the affected dispute.
      *
      * @maps id

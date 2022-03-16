@@ -41,7 +41,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the applied discount only within this order.
      */
     public function getUid(): ?string
@@ -51,7 +50,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the applied discount only within this order.
      *
      * @maps uid
@@ -63,7 +61,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Returns Discount Uid.
-     *
      * The `uid` of the discount that the applied discount represents. It must
      * reference a discount present in the `order.discounts` field.
      *
@@ -77,7 +74,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Sets Discount Uid.
-     *
      * The `uid` of the discount that the applied discount represents. It must
      * reference a discount present in the `order.discounts` field.
      *
@@ -94,7 +90,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -110,7 +105,6 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

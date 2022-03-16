@@ -37,7 +37,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Returns Option.
-     *
      * Determines a seller's option on Quick Amounts feature.
      */
     public function getOption(): string
@@ -47,7 +46,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Sets Option.
-     *
      * Determines a seller's option on Quick Amounts feature.
      *
      * @required
@@ -60,7 +58,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Returns Eligible for Auto Amounts.
-     *
      * Represents location's eligibility for auto amounts
      * The boolean should be consistent with whether there are AUTO amounts in the `amounts`.
      */
@@ -71,7 +68,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Sets Eligible for Auto Amounts.
-     *
      * Represents location's eligibility for auto amounts
      * The boolean should be consistent with whether there are AUTO amounts in the `amounts`.
      *
@@ -84,7 +80,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Returns Amounts.
-     *
      * Represents a set of Quick Amounts at this location.
      *
      * @return CatalogQuickAmount[]|null
@@ -96,7 +91,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
 
     /**
      * Sets Amounts.
-     *
      * Represents a set of Quick Amounts at this location.
      *
      * @maps amounts

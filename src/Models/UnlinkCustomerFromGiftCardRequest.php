@@ -26,7 +26,6 @@ class UnlinkCustomerFromGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the customer to unlink from the gift card.
      */
     public function getCustomerId(): string
@@ -36,7 +35,6 @@ class UnlinkCustomerFromGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the customer to unlink from the gift card.
      *
      * @required

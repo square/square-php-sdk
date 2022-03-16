@@ -23,7 +23,6 @@ class UpsertSnippetResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class UpsertSnippetResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class UpsertSnippetResponse implements \JsonSerializable
 
     /**
      * Returns Snippet.
-     *
      * Represents the snippet that is added to a Square Online site. The snippet code is injected into the
      * `head` element of all pages on the site, except for checkout pages.
      */
@@ -60,7 +57,6 @@ class UpsertSnippetResponse implements \JsonSerializable
 
     /**
      * Sets Snippet.
-     *
      * Represents the snippet that is added to a Square Online site. The snippet code is injected into the
      * `head` element of all pages on the site, except for checkout pages.
      *

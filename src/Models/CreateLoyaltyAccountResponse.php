@@ -23,7 +23,6 @@ class CreateLoyaltyAccountResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -35,7 +34,6 @@ class CreateLoyaltyAccountResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -49,7 +47,6 @@ class CreateLoyaltyAccountResponse implements \JsonSerializable
 
     /**
      * Returns Loyalty Account.
-     *
      * Describes a loyalty account in a [loyalty program]($m/LoyaltyProgram). For more information, see
      * [Create and Retrieve Loyalty Accounts](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * accounts).
@@ -61,7 +58,6 @@ class CreateLoyaltyAccountResponse implements \JsonSerializable
 
     /**
      * Sets Loyalty Account.
-     *
      * Describes a loyalty account in a [loyalty program]($m/LoyaltyProgram). For more information, see
      * [Create and Retrieve Loyalty Accounts](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * accounts).

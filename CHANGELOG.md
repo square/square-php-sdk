@@ -2,6 +2,12 @@
 
 For general API and SDK changelogs, see  [Square APIs and SDKs Release Notes](https://developer.squareup.com/docs/changelog/connect).
 
+## Version 17.3.0.20220316 (2022-03-16)
+### Added
+
+* Now supports PHP 8.1
+
+
 ## Version 17.0.0.20211215 (2021-12-15)
 ### API updates
 

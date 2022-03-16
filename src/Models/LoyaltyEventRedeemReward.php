@@ -36,7 +36,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     *
      * The ID of the [loyalty program]($m/LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
@@ -46,7 +45,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     *
      * The ID of the [loyalty program]($m/LoyaltyProgram).
      *
      * @required
@@ -59,7 +57,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Reward Id.
-     *
      * The ID of the redeemed [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      */
@@ -70,7 +67,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Reward Id.
-     *
      * The ID of the redeemed [loyalty reward]($m/LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      *
@@ -83,7 +79,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The ID of the [order]($m/Order) that redeemed the reward.
      * This field is returned only if the Orders API is used to process orders.
      */
@@ -94,7 +89,6 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The ID of the [order]($m/Order) that redeemed the reward.
      * This field is returned only if the Orders API is used to process orders.
      *

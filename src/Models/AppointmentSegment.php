@@ -66,7 +66,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Duration Minutes.
-     *
      * The time span in minutes of an appointment segment.
      */
     public function getDurationMinutes(): int
@@ -76,7 +75,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Duration Minutes.
-     *
      * The time span in minutes of an appointment segment.
      *
      * @required
@@ -89,7 +87,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Service Variation Id.
-     *
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      */
@@ -100,7 +97,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Service Variation Id.
-     *
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      *
@@ -114,7 +110,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The ID of the [TeamMember]($m/TeamMember) object representing the team member booked in this segment.
      */
     public function getTeamMemberId(): string
@@ -124,7 +119,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The ID of the [TeamMember]($m/TeamMember) object representing the team member booked in this segment.
      *
      * @required
@@ -137,7 +131,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Service Variation Version.
-     *
      * The current version of the item variation representing the service booked in this segment.
      */
     public function getServiceVariationVersion(): int
@@ -147,7 +140,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Service Variation Version.
-     *
      * The current version of the item variation representing the service booked in this segment.
      *
      * @required
@@ -160,7 +152,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Intermission Minutes.
-     *
      * Time between the end of this segment and the beginning of the subsequent segment.
      */
     public function getIntermissionMinutes(): ?int
@@ -170,7 +161,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Intermission Minutes.
-     *
      * Time between the end of this segment and the beginning of the subsequent segment.
      *
      * @maps intermission_minutes
@@ -182,7 +172,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Any Team Member.
-     *
      * Whether the customer accepts any team member, instead of a specific one, to serve this segment.
      */
     public function getAnyTeamMember(): ?bool
@@ -192,7 +181,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Any Team Member.
-     *
      * Whether the customer accepts any team member, instead of a specific one, to serve this segment.
      *
      * @maps any_team_member
@@ -204,7 +192,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Returns Resource Ids.
-     *
      * The IDs of the seller-accessible resources used for this appointment segment.
      *
      * @return string[]|null
@@ -216,7 +203,6 @@ class AppointmentSegment implements \JsonSerializable
 
     /**
      * Sets Resource Ids.
-     *
      * The IDs of the seller-accessible resources used for this appointment segment.
      *
      * @maps resource_ids

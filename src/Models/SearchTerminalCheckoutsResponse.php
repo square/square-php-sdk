@@ -25,7 +25,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Returns Checkouts.
-     *
      * The requested search result of `TerminalCheckout` objects.
      *
      * @return TerminalCheckout[]|null
@@ -63,7 +60,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Sets Checkouts.
-     *
      * The requested search result of `TerminalCheckout` objects.
      *
      * @maps checkouts
@@ -77,7 +73,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
@@ -90,7 +85,6 @@ class SearchTerminalCheckoutsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *

@@ -24,7 +24,6 @@ class DateRange implements \JsonSerializable
 
     /**
      * Returns Start Date.
-     *
      * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
      * extended format for calendar dates.
      * The beginning of a date range (inclusive).
@@ -36,7 +35,6 @@ class DateRange implements \JsonSerializable
 
     /**
      * Sets Start Date.
-     *
      * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
      * extended format for calendar dates.
      * The beginning of a date range (inclusive).
@@ -50,7 +48,6 @@ class DateRange implements \JsonSerializable
 
     /**
      * Returns End Date.
-     *
      * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
      * extended format for calendar dates.
      * The end of a date range (inclusive).
@@ -62,7 +59,6 @@ class DateRange implements \JsonSerializable
 
     /**
      * Sets End Date.
-     *
      * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
      * extended format for calendar dates.
      * The end of a date range (inclusive).

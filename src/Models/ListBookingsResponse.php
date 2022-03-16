@@ -25,7 +25,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Returns Bookings.
-     *
      * The list of targeted bookings.
      *
      * @return Booking[]|null
@@ -37,7 +36,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Sets Bookings.
-     *
      * The list of targeted bookings.
      *
      * @maps bookings
@@ -51,7 +49,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      */
@@ -62,7 +59,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor to be used in the subsequent request to get the next page of the results. Stop
      * retrieving the next page of the results when the cursor is not set.
      *
@@ -75,7 +71,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Errors that occurred during the request.
      *
      * @return Error[]|null
@@ -87,7 +82,6 @@ class ListBookingsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Errors that occurred during the request.
      *
      * @maps errors

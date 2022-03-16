@@ -31,7 +31,6 @@ class CreateShiftRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string value to ensure the idempotency of the operation.
      */
     public function getIdempotencyKey(): ?string
@@ -41,7 +40,6 @@ class CreateShiftRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string value to ensure the idempotency of the operation.
      *
      * @maps idempotency_key
@@ -53,7 +51,6 @@ class CreateShiftRequest implements \JsonSerializable
 
     /**
      * Returns Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.
@@ -65,7 +62,6 @@ class CreateShiftRequest implements \JsonSerializable
 
     /**
      * Sets Shift.
-     *
      * A record of the hourly rate, start, and end times for a single work shift
      * for an employee. This might include a record of the start and end times for breaks
      * taken during the shift.

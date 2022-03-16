@@ -93,7 +93,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-assigned ID of the loyalty program. Updates to
      * the loyalty program do not modify the identifier.
      */
@@ -104,7 +103,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-assigned ID of the loyalty program. Updates to
      * the loyalty program do not modify the identifier.
      *
@@ -118,7 +116,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * Indicates whether the program is currently active.
      */
     public function getStatus(): string
@@ -128,7 +125,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * Indicates whether the program is currently active.
      *
      * @required
@@ -141,7 +137,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Reward Tiers.
-     *
      * The list of rewards for buyers, sorted by ascending points.
      *
      * @return LoyaltyProgramRewardTier[]
@@ -153,7 +148,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Reward Tiers.
-     *
      * The list of rewards for buyers, sorted by ascending points.
      *
      * @required
@@ -168,7 +162,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Expiration Policy.
-     *
      * Describes when the loyalty program expires.
      */
     public function getExpirationPolicy(): ?LoyaltyProgramExpirationPolicy
@@ -178,7 +171,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Expiration Policy.
-     *
      * Describes when the loyalty program expires.
      *
      * @maps expiration_policy
@@ -190,7 +182,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Terminology.
-     *
      * Represents the naming used for loyalty points.
      */
     public function getTerminology(): LoyaltyProgramTerminology
@@ -200,7 +191,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Terminology.
-     *
      * Represents the naming used for loyalty points.
      *
      * @required
@@ -213,7 +203,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     *
      * The [locations]($m/Location) at which the program is active.
      *
      * @return string[]
@@ -225,7 +214,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     *
      * The [locations]($m/Location) at which the program is active.
      *
      * @required
@@ -240,7 +228,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The timestamp when the program was created, in RFC 3339 format.
      */
     public function getCreatedAt(): string
@@ -250,7 +237,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The timestamp when the program was created, in RFC 3339 format.
      *
      * @required
@@ -263,7 +249,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The timestamp when the reward was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): string
@@ -273,7 +258,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The timestamp when the reward was last updated, in RFC 3339 format.
      *
      * @required
@@ -286,7 +270,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Accrual Rules.
-     *
      * Defines how buyers can earn loyalty points.
      *
      * @return LoyaltyProgramAccrualRule[]
@@ -298,7 +281,6 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Accrual Rules.
-     *
      * Defines how buyers can earn loyalty points.
      *
      * @required

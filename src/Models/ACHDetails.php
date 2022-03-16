@@ -28,7 +28,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Returns Routing Number.
-     *
      * The routing number for the bank account.
      */
     public function getRoutingNumber(): ?string
@@ -38,7 +37,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Sets Routing Number.
-     *
      * The routing number for the bank account.
      *
      * @maps routing_number
@@ -50,7 +48,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Returns Account Number Suffix.
-     *
      * The last few digits of the bank account number.
      */
     public function getAccountNumberSuffix(): ?string
@@ -60,7 +57,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Sets Account Number Suffix.
-     *
      * The last few digits of the bank account number.
      *
      * @maps account_number_suffix
@@ -72,7 +68,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Returns Account Type.
-     *
      * The type of the bank account performing the transfer. The account type can be `CHECKING`,
      * `SAVINGS`, or `UNKNOWN`.
      */
@@ -83,7 +78,6 @@ class ACHDetails implements \JsonSerializable
 
     /**
      * Sets Account Type.
-     *
      * The type of the bank account performing the transfer. The account type can be `CHECKING`,
      * `SAVINGS`, or `UNKNOWN`.
      *

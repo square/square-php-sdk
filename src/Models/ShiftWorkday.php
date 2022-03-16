@@ -29,7 +29,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Returns Date Range.
-     *
      * A range defined by two dates. Used for filtering a query for Connect v2
      * objects that have date properties.
      */
@@ -40,7 +39,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Sets Date Range.
-     *
      * A range defined by two dates. Used for filtering a query for Connect v2
      * objects that have date properties.
      *
@@ -53,7 +51,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Returns Match Shifts By.
-     *
      * Defines the logic used to apply a workday filter.
      */
     public function getMatchShiftsBy(): ?string
@@ -63,7 +60,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Sets Match Shifts By.
-     *
      * Defines the logic used to apply a workday filter.
      *
      * @maps match_shifts_by
@@ -75,7 +71,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Returns Default Timezone.
-     *
      * Location-specific timezones convert workdays to datetime filters.
      * Every location included in the query must have a timezone or this field
      * must be provided as a fallback. Format: the IANA timezone database
@@ -88,7 +83,6 @@ class ShiftWorkday implements \JsonSerializable
 
     /**
      * Sets Default Timezone.
-     *
      * Location-specific timezones convert workdays to datetime filters.
      * Every location included in the query must have a timezone or this field
      * must be provided as a fallback. Format: the IANA timezone database

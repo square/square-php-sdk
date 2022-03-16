@@ -18,7 +18,6 @@ class CustomerPreferences implements \JsonSerializable
 
     /**
      * Returns Email Unsubscribed.
-     *
      * Indicates whether the customer has unsubscribed from marketing campaign emails. A value of `true`
      * means that the customer chose to opt out of email marketing from the current Square seller or from
      * all Square sellers. This value is read-only from the Customers API.
@@ -30,7 +29,6 @@ class CustomerPreferences implements \JsonSerializable
 
     /**
      * Sets Email Unsubscribed.
-     *
      * Indicates whether the customer has unsubscribed from marketing campaign emails. A value of `true`
      * means that the customer chose to opt out of email marketing from the current Square seller or from
      * all Square sellers. This value is read-only from the Customers API.

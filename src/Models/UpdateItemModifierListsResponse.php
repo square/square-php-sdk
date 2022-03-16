@@ -20,7 +20,6 @@ class UpdateItemModifierListsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -32,7 +31,6 @@ class UpdateItemModifierListsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -46,7 +44,6 @@ class UpdateItemModifierListsResponse implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-date) of this
      * update in RFC 3339 format, e.g., `2016-09-04T23:59:33.123Z`.
      */
@@ -57,7 +54,6 @@ class UpdateItemModifierListsResponse implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     *
      * The database [timestamp](https://developer.squareup.com/docs/build-basics/working-with-date) of this
      * update in RFC 3339 format, e.g., `2016-09-04T23:59:33.123Z`.
      *

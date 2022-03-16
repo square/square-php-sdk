@@ -24,7 +24,6 @@ class UpdateOrderResponse implements \JsonSerializable
 
     /**
      * Returns Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -39,7 +38,6 @@ class UpdateOrderResponse implements \JsonSerializable
 
     /**
      * Sets Order.
-     *
      * Contains all information related to a single order to process with Square,
      * including line items that specify the products to purchase. `Order` objects also
      * include information about any associated tenders, refunds, and returns.
@@ -56,7 +54,6 @@ class UpdateOrderResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -68,7 +65,6 @@ class UpdateOrderResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

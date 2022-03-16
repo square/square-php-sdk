@@ -28,7 +28,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Returns Invoices.
-     *
      * The list of invoices returned by the search.
      *
      * @return Invoice[]|null
@@ -40,7 +39,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Sets Invoices.
-     *
      * The list of invoices returned by the search.
      *
      * @maps invoices
@@ -54,7 +52,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can use in a
      * subsequent request to fetch the next set of invoices. If empty, this is the final
      * response.
@@ -68,7 +65,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * When a response is truncated, it includes a cursor that you can use in a
      * subsequent request to fetch the next set of invoices. If empty, this is the final
      * response.
@@ -84,7 +80,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @return Error[]|null
@@ -96,7 +91,6 @@ class SearchInvoicesResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Information about errors encountered during the request.
      *
      * @maps errors

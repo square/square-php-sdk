@@ -39,7 +39,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns State Filter.
-     *
      * Filter by the current order `state`.
      */
     public function getStateFilter(): ?SearchOrdersStateFilter
@@ -49,7 +48,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets State Filter.
-     *
      * Filter by the current order `state`.
      *
      * @maps state_filter
@@ -61,7 +59,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns Date Time Filter.
-     *
      * Filter for `Order` objects based on whether their `CREATED_AT`,
      * `CLOSED_AT`, or `UPDATED_AT` timestamps fall within a specified time range.
      * You can specify the time range and which timestamp to filter for. You can filter
@@ -85,7 +82,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets Date Time Filter.
-     *
      * Filter for `Order` objects based on whether their `CREATED_AT`,
      * `CLOSED_AT`, or `UPDATED_AT` timestamps fall within a specified time range.
      * You can specify the time range and which timestamp to filter for. You can filter
@@ -111,7 +107,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment Filter.
-     *
      * Filter based on [order fulfillment]($m/OrderFulfillment) information.
      */
     public function getFulfillmentFilter(): ?SearchOrdersFulfillmentFilter
@@ -121,7 +116,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment Filter.
-     *
      * Filter based on [order fulfillment]($m/OrderFulfillment) information.
      *
      * @maps fulfillment_filter
@@ -133,7 +127,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns Source Filter.
-     *
      * A filter based on order `source` information.
      */
     public function getSourceFilter(): ?SearchOrdersSourceFilter
@@ -143,7 +136,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets Source Filter.
-     *
      * A filter based on order `source` information.
      *
      * @maps source_filter
@@ -155,7 +147,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns Customer Filter.
-     *
      * A filter based on the order `customer_id` and any tender `customer_id`
      * associated with the order. It does not filter based on the
      * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.
@@ -167,7 +158,6 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets Customer Filter.
-     *
      * A filter based on the order `customer_id` and any tender `customer_id`
      * associated with the order. It does not filter based on the
      * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.

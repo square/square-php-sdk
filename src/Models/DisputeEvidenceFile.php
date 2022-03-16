@@ -23,7 +23,6 @@ class DisputeEvidenceFile implements \JsonSerializable
 
     /**
      * Returns Filename.
-     *
      * The file name including the file extension. For example: "receipt.tiff".
      */
     public function getFilename(): ?string
@@ -33,7 +32,6 @@ class DisputeEvidenceFile implements \JsonSerializable
 
     /**
      * Sets Filename.
-     *
      * The file name including the file extension. For example: "receipt.tiff".
      *
      * @maps filename
@@ -45,7 +43,6 @@ class DisputeEvidenceFile implements \JsonSerializable
 
     /**
      * Returns Filetype.
-     *
      * Dispute evidence files must be application/pdf, image/heic, image/heif, image/jpeg, image/png, or
      * image/tiff formats.
      */
@@ -56,7 +53,6 @@ class DisputeEvidenceFile implements \JsonSerializable
 
     /**
      * Sets Filetype.
-     *
      * Dispute evidence files must be application/pdf, image/heic, image/heif, image/jpeg, image/png, or
      * image/tiff formats.
      *

@@ -50,7 +50,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * The Square-assigned ID of the subscription phase. This field cannot be changed after a
      * `SubscriptionPhase` is created.
      */
@@ -61,7 +60,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * The Square-assigned ID of the subscription phase. This field cannot be changed after a
      * `SubscriptionPhase` is created.
      *
@@ -74,7 +72,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Returns Cadence.
-     *
      * Determines the billing cadence of a [Subscription]($m/Subscription)
      */
     public function getCadence(): string
@@ -84,7 +81,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Sets Cadence.
-     *
      * Determines the billing cadence of a [Subscription]($m/Subscription)
      *
      * @required
@@ -97,7 +93,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Returns Periods.
-     *
      * The number of `cadence`s the phase lasts. If not set, the phase never ends. Only the last phase can
      * be indefinite. This field cannot be changed after a `SubscriptionPhase` is created.
      */
@@ -108,7 +103,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Sets Periods.
-     *
      * The number of `cadence`s the phase lasts. If not set, the phase never ends. Only the last phase can
      * be indefinite. This field cannot be changed after a `SubscriptionPhase` is created.
      *
@@ -121,7 +115,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Returns Recurring Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -137,7 +130,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Sets Recurring Price Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -156,7 +148,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This
      * field cannot be changed after a `SubscriptionPhase` is created.
      */
@@ -167,7 +158,6 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This
      * field cannot be changed after a `SubscriptionPhase` is created.
      *

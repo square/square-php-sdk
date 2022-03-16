@@ -20,7 +20,6 @@ class CashDrawerDevice implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The device Square-issued ID
      */
     public function getId(): ?string
@@ -30,7 +29,6 @@ class CashDrawerDevice implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The device Square-issued ID
      *
      * @maps id
@@ -42,7 +40,6 @@ class CashDrawerDevice implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The device merchant-specified name.
      */
     public function getName(): ?string
@@ -52,7 +49,6 @@ class CashDrawerDevice implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The device merchant-specified name.
      *
      * @maps name

@@ -76,7 +76,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * A unique Square-generated ID for the
      * [InventoryPhysicalCount]($m/InventoryPhysicalCount).
      */
@@ -87,7 +86,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * A unique Square-generated ID for the
      * [InventoryPhysicalCount]($m/InventoryPhysicalCount).
      *
@@ -100,7 +98,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * An optional ID provided by the application to tie the
      * [InventoryPhysicalCount]($m/InventoryPhysicalCount) to an external
      * system.
@@ -112,7 +109,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * An optional ID provided by the application to tie the
      * [InventoryPhysicalCount]($m/InventoryPhysicalCount) to an external
      * system.
@@ -126,7 +122,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The Square-generated ID of the
      * [CatalogObject]($m/CatalogObject) being tracked.
      */
@@ -137,7 +132,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The Square-generated ID of the
      * [CatalogObject]($m/CatalogObject) being tracked.
      *
@@ -150,7 +144,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     *
      * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
@@ -165,7 +158,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     *
      * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
@@ -182,7 +174,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns State.
-     *
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      */
     public function getState(): ?string
@@ -192,7 +183,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets State.
-     *
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps state
@@ -204,7 +194,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * The Square-generated ID of the [Location]($m/Location) where the related
      * quantity of items is being tracked.
      */
@@ -215,7 +204,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * The Square-generated ID of the [Location]($m/Location) where the related
      * quantity of items is being tracked.
      *
@@ -228,7 +216,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Quantity.
-     *
      * The number of items affected by the physical count as a decimal string.
      * The number can support up to 5 digits after the decimal point.
      */
@@ -239,7 +226,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Quantity.
-     *
      * The number of items affected by the physical count as a decimal string.
      * The number can support up to 5 digits after the decimal point.
      *
@@ -252,7 +238,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Source.
-     *
      * Provides information about the application used to generate a change.
      */
     public function getSource(): ?SourceApplication
@@ -262,7 +247,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Source.
-     *
      * Provides information about the application used to generate a change.
      *
      * @maps source
@@ -274,7 +258,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     *
      * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * physical count.
      */
@@ -285,7 +268,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     *
      * The Square-generated ID of the [Employee]($m/Employee) responsible for the
      * physical count.
      *
@@ -298,7 +280,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     *
      * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
      * physical count.
      */
@@ -309,7 +290,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     *
      * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
      * physical count.
      *
@@ -322,7 +302,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Occurred At.
-     *
      * A client-generated RFC 3339-formatted timestamp that indicates when
      * the physical count was examined. For physical count updates, the `occurred_at`
      * timestamp cannot be older than 24 hours or in the future relative to the
@@ -335,7 +314,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Occurred At.
-     *
      * A client-generated RFC 3339-formatted timestamp that indicates when
      * the physical count was examined. For physical count updates, the `occurred_at`
      * timestamp cannot be older than 24 hours or in the future relative to the
@@ -350,7 +328,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the physical count is received.
      */
     public function getCreatedAt(): ?string
@@ -360,7 +337,6 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * An RFC 3339-formatted timestamp that indicates when the physical count is received.
      *
      * @maps created_at

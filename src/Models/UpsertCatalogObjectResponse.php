@@ -25,7 +25,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -37,7 +36,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -51,7 +49,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Catalog Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -74,7 +71,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Catalog Object.
-     *
      * The wrapper object for the catalog entries of a given object type.
      *
      * Depending on the `type` attribute value, a `CatalogObject` instance assumes a type-specific data to
@@ -99,7 +95,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Returns Id Mappings.
-     *
      * The mapping between client and server IDs for this upsert.
      *
      * @return CatalogIdMapping[]|null
@@ -111,7 +106,6 @@ class UpsertCatalogObjectResponse implements \JsonSerializable
 
     /**
      * Sets Id Mappings.
-     *
      * The mapping between client and server IDs for this upsert.
      *
      * @maps id_mappings

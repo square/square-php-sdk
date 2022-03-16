@@ -23,7 +23,6 @@ class CatalogCategory implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The category name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      */
@@ -34,7 +33,6 @@ class CatalogCategory implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The category name. This is a searchable attribute for use in applicable query filters, and its value
      * length is of Unicode code points.
      *
@@ -47,7 +45,6 @@ class CatalogCategory implements \JsonSerializable
 
     /**
      * Returns Image Ids.
-     *
      * The IDs of images associated with this `CatalogCategory` instance.
      * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
      * applications.
@@ -61,7 +58,6 @@ class CatalogCategory implements \JsonSerializable
 
     /**
      * Sets Image Ids.
-     *
      * The IDs of images associated with this `CatalogCategory` instance.
      * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
      * applications.

@@ -18,7 +18,6 @@ class DigitalWalletDetails implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the `WALLET` payment. The status can be `AUTHORIZED`, `CAPTURED`, `VOIDED`, or
      * `FAILED`.
      */
@@ -29,7 +28,6 @@ class DigitalWalletDetails implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the `WALLET` payment. The status can be `AUTHORIZED`, `CAPTURED`, `VOIDED`, or
      * `FAILED`.
      *

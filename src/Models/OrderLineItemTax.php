@@ -67,7 +67,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * A unique ID that identifies the tax only within this order.
      */
     public function getUid(): ?string
@@ -77,7 +76,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * A unique ID that identifies the tax only within this order.
      *
      * @maps uid
@@ -89,7 +87,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      */
     public function getCatalogObjectId(): ?string
@@ -99,7 +96,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     *
      * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
      *
      * @maps catalog_object_id
@@ -111,7 +107,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Catalog Version.
-     *
      * The version of the catalog object that this tax references.
      */
     public function getCatalogVersion(): ?int
@@ -121,7 +116,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Catalog Version.
-     *
      * The version of the catalog object that this tax references.
      *
      * @maps catalog_version
@@ -133,7 +127,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * The tax's name.
      */
     public function getName(): ?string
@@ -143,7 +136,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * The tax's name.
      *
      * @maps name
@@ -155,7 +147,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Type.
-     *
      * Indicates how the tax is applied to the associated line item or order.
      */
     public function getType(): ?string
@@ -165,7 +156,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Type.
-     *
      * Indicates how the tax is applied to the associated line item or order.
      *
      * @maps type
@@ -177,7 +167,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Percentage.
-     *
      * The percentage of the tax, as a string representation of a decimal
      * number. For example, a value of `"7.25"` corresponds to a percentage of
      * 7.25%.
@@ -189,7 +178,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Percentage.
-     *
      * The percentage of the tax, as a string representation of a decimal
      * number. For example, a value of `"7.25"` corresponds to a percentage of
      * 7.25%.
@@ -203,7 +191,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     *
      * Application-defined data attached to this tax. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -232,7 +219,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     *
      * Application-defined data attached to this tax. Metadata fields are intended
      * to store descriptive references or associations with an entity in another system or store brief
      * information about the object. Square does not process this field; it only stores and returns it
@@ -263,7 +249,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -279,7 +264,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Applied Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -297,7 +281,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Scope.
-     *
      * Indicates whether this is a line-item or order-level tax.
      */
     public function getScope(): ?string
@@ -307,7 +290,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Scope.
-     *
      * Indicates whether this is a line-item or order-level tax.
      *
      * @maps scope
@@ -319,7 +301,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Auto Applied.
-     *
      * Determines whether the tax was automatically applied to the order based on
      * the catalog configuration. For an example, see
      * [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-
@@ -332,7 +313,6 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Auto Applied.
-     *
      * Determines whether the tax was automatically applied to the order based on
      * the catalog configuration. For an example, see
      * [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-

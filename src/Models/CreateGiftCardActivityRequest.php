@@ -33,7 +33,6 @@ class CreateGiftCardActivityRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies the `CreateGiftCardActivity` request.
      */
     public function getIdempotencyKey(): string
@@ -43,7 +42,6 @@ class CreateGiftCardActivityRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies the `CreateGiftCardActivity` request.
      *
      * @required
@@ -56,7 +54,6 @@ class CreateGiftCardActivityRequest implements \JsonSerializable
 
     /**
      * Returns Gift Card Activity.
-     *
      * Represents an action performed on a gift card that affects its state or balance.
      */
     public function getGiftCardActivity(): GiftCardActivity
@@ -66,7 +63,6 @@ class CreateGiftCardActivityRequest implements \JsonSerializable
 
     /**
      * Sets Gift Card Activity.
-     *
      * Represents an action performed on a gift card that affects its state or balance.
      *
      * @required

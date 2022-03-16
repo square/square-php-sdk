@@ -26,7 +26,6 @@ class RegisterDomainResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -38,7 +37,6 @@ class RegisterDomainResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -52,7 +50,6 @@ class RegisterDomainResponse implements \JsonSerializable
 
     /**
      * Returns Status.
-     *
      * The status of the domain registration.
      */
     public function getStatus(): ?string
@@ -62,7 +59,6 @@ class RegisterDomainResponse implements \JsonSerializable
 
     /**
      * Sets Status.
-     *
      * The status of the domain registration.
      *
      * @maps status

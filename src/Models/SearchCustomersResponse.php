@@ -31,7 +31,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -43,7 +42,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors
@@ -57,7 +55,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Customers.
-     *
      * An array of `Customer` objects that match a query.
      *
      * @return Customer[]|null
@@ -69,7 +66,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Customers.
-     *
      * An array of `Customer` objects that match a query.
      *
      * @maps customers
@@ -83,7 +79,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * A pagination cursor that can be used during subsequent calls
      * to `SearchCustomers` to retrieve the next set of results associated
      * with the original query. Pagination cursors are only present when
@@ -99,7 +94,6 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * A pagination cursor that can be used during subsequent calls
      * to `SearchCustomers` to retrieve the next set of results associated
      * with the original query. Pagination cursors are only present when

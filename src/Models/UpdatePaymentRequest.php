@@ -32,7 +32,6 @@ class UpdatePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Payment.
-     *
      * Represents a payment processed by the Square API.
      */
     public function getPayment(): ?Payment
@@ -42,7 +41,6 @@ class UpdatePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Payment.
-     *
      * Represents a payment processed by the Square API.
      *
      * @maps payment
@@ -54,7 +52,6 @@ class UpdatePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies this `UpdatePayment` request. Keys can be any valid string
      * but must be unique for every `UpdatePayment` request.
      *
@@ -68,7 +65,6 @@ class UpdatePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies this `UpdatePayment` request. Keys can be any valid string
      * but must be unique for every `UpdatePayment` request.
      *

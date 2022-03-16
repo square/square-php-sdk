@@ -84,7 +84,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Uid.
-     *
      * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
      */
     public function getUid(): ?string
@@ -94,7 +93,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Uid.
-     *
      * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
      *
      * @maps uid
@@ -106,7 +104,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Request Method.
-     *
      * Specifies the action for Square to take for processing the invoice. For example,
      * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
      * version 2021-01-21. The corresponding `request_method` field is replaced by the
@@ -119,7 +116,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Request Method.
-     *
      * Specifies the action for Square to take for processing the invoice. For example,
      * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
      * version 2021-01-21. The corresponding `request_method` field is replaced by the
@@ -134,7 +130,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Request Type.
-     *
      * Indicates the type of the payment request. For more information, see
      * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      */
@@ -145,7 +140,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Request Type.
-     *
      * Indicates the type of the payment request. For more information, see
      * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
@@ -158,7 +152,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Due Date.
-     *
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
      * field
      * is required to create a payment request.
@@ -176,7 +169,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Due Date.
-     *
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
      * field
      * is required to create a payment request.
@@ -196,7 +188,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Fixed Amount Requested Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -212,7 +203,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Fixed Amount Requested Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -230,7 +220,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Percentage Requested.
-     *
      * Specifies the amount for the payment request in percentage:
      *
      * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order's total amount.
@@ -248,7 +237,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Percentage Requested.
-     *
      * Specifies the amount for the payment request in percentage:
      *
      * - When the payment `request_type` is `DEPOSIT`, it is the percentage of the order's total amount.
@@ -268,7 +256,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Tipping Enabled.
-     *
      * If set to true, the Square-hosted invoice page (the `public_url` field of the invoice)
      * provides a place for the customer to pay a tip.
      *
@@ -282,7 +269,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Tipping Enabled.
-     *
      * If set to true, the Square-hosted invoice page (the `public_url` field of the invoice)
      * provides a place for the customer to pay a tip.
      *
@@ -298,7 +284,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Automatic Payment Source.
-     *
      * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
      */
     public function getAutomaticPaymentSource(): ?string
@@ -308,7 +293,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Automatic Payment Source.
-     *
      * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
      *
      * @maps automatic_payment_source
@@ -320,7 +304,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Card Id.
-     *
      * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
      * file for a customer,
      * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
@@ -332,7 +315,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Card Id.
-     *
      * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
      * file for a customer,
      * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
@@ -346,7 +328,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Reminders.
-     *
      * A list of one or more reminders to send for the payment request.
      *
      * @return InvoicePaymentReminder[]|null
@@ -358,7 +339,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Reminders.
-     *
      * A list of one or more reminders to send for the payment request.
      *
      * @maps reminders
@@ -372,7 +352,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Computed Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -388,7 +367,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Computed Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -406,7 +384,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Total Completed Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -422,7 +399,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Total Completed Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -440,7 +416,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Rounding Adjustment Included Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -456,7 +431,6 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Rounding Adjustment Included Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the

@@ -30,7 +30,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Returns Workweek Configs.
-     *
      * A page of `EmployeeWage` results.
      *
      * @return WorkweekConfig[]|null
@@ -42,7 +41,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Sets Workweek Configs.
-     *
      * A page of `EmployeeWage` results.
      *
      * @maps workweek_configs
@@ -56,7 +54,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page of
      * `EmployeeWage` results.
      */
@@ -67,7 +64,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The value supplied in the subsequent request to fetch the next page of
      * `EmployeeWage` results.
      *
@@ -80,7 +76,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @return Error[]|null
@@ -92,7 +87,6 @@ class ListWorkweekConfigsResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * Any errors that occurred during the request.
      *
      * @maps errors

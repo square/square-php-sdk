@@ -24,7 +24,6 @@ class BulkCreateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Team Members.
-     *
      * The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the
      * `CreateTeamMemberRequest`.
      *
@@ -37,7 +36,6 @@ class BulkCreateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Team Members.
-     *
      * The successfully created `TeamMember` objects. Each key is the `idempotency_key` that maps to the
      * `CreateTeamMemberRequest`.
      *
@@ -52,7 +50,6 @@ class BulkCreateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     *
      * The errors that occurred during the request.
      *
      * @return Error[]|null
@@ -64,7 +61,6 @@ class BulkCreateTeamMembersResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     *
      * The errors that occurred during the request.
      *
      * @maps errors

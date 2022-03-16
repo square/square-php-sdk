@@ -26,7 +26,6 @@ class LinkCustomerToGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     *
      * The ID of the customer to link to the gift card.
      */
     public function getCustomerId(): string
@@ -36,7 +35,6 @@ class LinkCustomerToGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     *
      * The ID of the customer to link to the gift card.
      *
      * @required

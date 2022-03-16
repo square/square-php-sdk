@@ -31,7 +31,6 @@ class CreateInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Invoice.
-     *
      * Stores information about an invoice. You use the Invoices API to create and manage
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
      * squareup.com/docs/invoices-api/overview).
@@ -43,7 +42,6 @@ class CreateInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Invoice.
-     *
      * Stores information about an invoice. You use the Invoices API to create and manage
      * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
      * squareup.com/docs/invoices-api/overview).
@@ -58,7 +56,6 @@ class CreateInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     *
      * A unique string that identifies the `CreateInvoice` request. If you do not
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
@@ -73,7 +70,6 @@ class CreateInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     *
      * A unique string that identifies the `CreateInvoice` request. If you do not
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.

@@ -38,7 +38,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Returns Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -54,7 +53,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Sets Amount Money.
-     *
      * Represents an amount of money. `Money` fields can be signed or unsigned.
      * Fields that do not explicitly define whether they are signed or unsigned are
      * considered unsigned and can only hold positive amounts. For signed fields, the
@@ -72,7 +70,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     *
      * The ID of the order associated with the activity.
      * This is required if your application uses the Square Orders API.
      */
@@ -83,7 +80,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     *
      * The ID of the order associated with the activity.
      * This is required if your application uses the Square Orders API.
      *
@@ -96,7 +92,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Returns Line Item Uid.
-     *
      * The `line_item_uid` of the gift card line item in an order.
      * This is required if your application uses the Square Orders API.
      */
@@ -107,7 +102,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Sets Line Item Uid.
-     *
      * The `line_item_uid` of the gift card line item in an order.
      * This is required if your application uses the Square Orders API.
      *
@@ -120,7 +114,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     *
      * If your application does not use the Square Orders API, you can optionally use this field
      * to associate the gift card activity with a client-side entity.
      */
@@ -131,7 +124,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     *
      * If your application does not use the Square Orders API, you can optionally use this field
      * to associate the gift card activity with a client-side entity.
      *
@@ -144,7 +136,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Returns Buyer Payment Instrument Ids.
-     *
      * Required if your application does not use the Square Orders API.
      * This is a list of client-provided payment instrument IDs.
      * Square uses this information to perform compliance checks.
@@ -160,7 +151,6 @@ class GiftCardActivityActivate implements \JsonSerializable
 
     /**
      * Sets Buyer Payment Instrument Ids.
-     *
      * Required if your application does not use the Square Orders API.
      * This is a list of client-provided payment instrument IDs.
      * Square uses this information to perform compliance checks.

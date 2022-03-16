@@ -30,7 +30,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Returns Bookable Only.
-     *
      * Indicates whether to include only bookable team members in the returned result (`true`) or not
      * (`false`).
      */
@@ -41,7 +40,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Sets Bookable Only.
-     *
      * Indicates whether to include only bookable team members in the returned result (`true`) or not
      * (`false`).
      *
@@ -54,7 +52,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
-     *
      * The maximum number of results to return in a paged response.
      */
     public function getLimit(): ?int
@@ -64,7 +61,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
-     *
      * The maximum number of results to return in a paged response.
      *
      * @maps limit
@@ -76,7 +72,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Returns Cursor.
-     *
      * The pagination cursor from the preceding response to return the next page of the results. Do not set
      * this when retrieving the first page of the results.
      */
@@ -87,7 +82,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Sets Cursor.
-     *
      * The pagination cursor from the preceding response to return the next page of the results. Do not set
      * this when retrieving the first page of the results.
      *
@@ -100,7 +94,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     *
      * Indicates whether to include only team members enabled at the given location in the returned result.
      */
     public function getLocationId(): ?string
@@ -110,7 +103,6 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     *
      * Indicates whether to include only team members enabled at the given location in the returned result.
      *
      * @maps location_id

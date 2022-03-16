@@ -40,7 +40,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Returns Item Option Id.
-     *
      * Unique ID of the associated item option.
      */
     public function getItemOptionId(): ?string
@@ -50,7 +49,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Sets Item Option Id.
-     *
      * Unique ID of the associated item option.
      *
      * @maps item_option_id
@@ -62,7 +60,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Returns Name.
-     *
      * Name of this item option value. This is a searchable attribute for use in applicable query filters.
      */
     public function getName(): ?string
@@ -72,7 +69,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Sets Name.
-     *
      * Name of this item option value. This is a searchable attribute for use in applicable query filters.
      *
      * @maps name
@@ -84,7 +80,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Returns Description.
-     *
      * A human-readable description for the option value. This is a searchable attribute for use in
      * applicable query filters.
      */
@@ -95,7 +90,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Sets Description.
-     *
      * A human-readable description for the option value. This is a searchable attribute for use in
      * applicable query filters.
      *
@@ -108,7 +102,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Returns Color.
-     *
      * The HTML-supported hex color for the item option (e.g., "#ff8d4e85").
      * Only displayed if `show_colors` is enabled on the parent `ItemOption`. When
      * left unset, `color` defaults to white ("#ffffff") when `show_colors` is
@@ -121,7 +114,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Sets Color.
-     *
      * The HTML-supported hex color for the item option (e.g., "#ff8d4e85").
      * Only displayed if `show_colors` is enabled on the parent `ItemOption`. When
      * left unset, `color` defaults to white ("#ffffff") when `show_colors` is
@@ -136,7 +128,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     *
      * Determines where this option value appears in a list of option values.
      */
     public function getOrdinal(): ?int
@@ -146,7 +137,6 @@ class CatalogItemOptionValue implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     *
      * Determines where this option value appears in a list of option values.
      *
      * @maps ordinal

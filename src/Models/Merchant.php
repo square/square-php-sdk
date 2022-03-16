@@ -61,7 +61,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Id.
-     *
      * The Square-issued ID of the merchant.
      */
     public function getId(): ?string
@@ -71,7 +70,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Id.
-     *
      * The Square-issued ID of the merchant.
      *
      * @maps id
@@ -83,7 +81,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Business Name.
-     *
      * The name of the merchant's overall business.
      */
     public function getBusinessName(): ?string
@@ -93,7 +90,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Business Name.
-     *
      * The name of the merchant's overall business.
      *
      * @maps business_name
@@ -105,7 +101,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      */
@@ -116,7 +111,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Country.
-     *
      * Indicates the country associated with another entity, such as a business.
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      *
@@ -130,7 +124,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Language Code.
-     *
      * The code indicating the [language preferences](https://developer.squareup.com/docs/build-
      * basics/general-considerations/language-preferences) of the merchant, in [BCP 47 format](https:
      * //tools.ietf.org/html/bcp47#appendix-A). For example, `en-US` or `fr-CA`.
@@ -142,7 +135,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Language Code.
-     *
      * The code indicating the [language preferences](https://developer.squareup.com/docs/build-
      * basics/general-considerations/language-preferences) of the merchant, in [BCP 47 format](https:
      * //tools.ietf.org/html/bcp47#appendix-A). For example, `en-US` or `fr-CA`.
@@ -156,7 +148,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      */
@@ -167,7 +158,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Currency.
-     *
      * Indicates the associated currency for an amount of money. Values correspond
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *
@@ -198,7 +188,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Main Location Id.
-     *
      * The ID of the [main `Location`](https://developer.squareup.com/docs/locations-api#about-the-main-
      * location) for this merchant.
      */
@@ -209,7 +198,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Main Location Id.
-     *
      * The ID of the [main `Location`](https://developer.squareup.com/docs/locations-api#about-the-main-
      * location) for this merchant.
      *
@@ -222,7 +210,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Returns Created At.
-     *
      * The time when the merchant was created, in RFC 3339 format.
      * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
      * basics/working-with-dates).
@@ -234,7 +221,6 @@ class Merchant implements \JsonSerializable
 
     /**
      * Sets Created At.
-     *
      * The time when the merchant was created, in RFC 3339 format.
      * For more information, see [Working with Dates](https://developer.squareup.com/docs/build-
      * basics/working-with-dates).
