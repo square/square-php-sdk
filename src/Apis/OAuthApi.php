@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -64,15 +64,12 @@ class OAuthApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/oauth2/clients/{client_id}/access-token/renew';
+        $_queryUrl = $this->config->getBaseUri() . '/oauth2/clients/{client_id}/access-token/renew';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'client_id'     => $clientId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -154,10 +151,7 @@ class OAuthApi extends BaseApi
     public function revokeToken(Models\RevokeTokenRequest $body, string $authorization): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/oauth2/revoke';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/oauth2/revoke';
 
         //prepare headers
         $_headers = [
@@ -239,10 +233,7 @@ class OAuthApi extends BaseApi
     public function obtainToken(Models\ObtainTokenRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/oauth2/token';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/oauth2/token';
 
         //prepare headers
         $_headers = [

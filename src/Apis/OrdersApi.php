@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -44,10 +44,7 @@ class OrdersApi extends BaseApi
     public function createOrder(Models\CreateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders';
 
         //prepare headers
         $_headers = [
@@ -117,10 +114,7 @@ class OrdersApi extends BaseApi
     public function batchRetrieveOrders(Models\BatchRetrieveOrdersRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/batch-retrieve';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/batch-retrieve';
 
         //prepare headers
         $_headers = [
@@ -188,10 +182,7 @@ class OrdersApi extends BaseApi
     public function calculateOrder(Models\CalculateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/calculate';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/calculate';
 
         //prepare headers
         $_headers = [
@@ -261,10 +252,7 @@ class OrdersApi extends BaseApi
     public function cloneOrder(Models\CloneOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/clone';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/clone';
 
         //prepare headers
         $_headers = [
@@ -348,10 +336,7 @@ class OrdersApi extends BaseApi
     public function searchOrders(Models\SearchOrdersRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/search';
 
         //prepare headers
         $_headers = [
@@ -416,15 +401,12 @@ class OrdersApi extends BaseApi
     public function retrieveOrder(string $orderId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/{order_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/{order_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'order_id' => $orderId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -505,15 +487,12 @@ class OrdersApi extends BaseApi
     public function updateOrder(string $orderId, Models\UpdateOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/{order_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/{order_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'order_id'     => $orderId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -581,7 +560,7 @@ class OrdersApi extends BaseApi
      * Any approved payments that reference the same `order_id` not specified in the
      * `payment_ids` is canceled.
      * - Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-
-     * payments#delayed-capture).
+     * payments/card-payments/delayed-capture).
      * Using a delayed capture payment with `PayOrder` completes the approved payment.
      *
      * @param string $orderId The ID of the order being paid.
@@ -595,15 +574,12 @@ class OrdersApi extends BaseApi
     public function payOrder(string $orderId, Models\PayOrderRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/orders/{order_id}/pay';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/orders/{order_id}/pay';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'order_id'     => $orderId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

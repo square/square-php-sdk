@@ -51,6 +51,7 @@ $body_checkout_deviceOptions = new Models\DeviceCheckoutOptions(
     $body_checkout_deviceOptions_deviceId
 );
 $body_checkout_deviceOptions->setSkipReceiptScreen(false);
+$body_checkout_deviceOptions->setCollectSignature(false);
 $body_checkout_deviceOptions->setTipSettings(new Models\TipSettings);
 $body_checkout_deviceOptions->getTipSettings()->setAllowTipping(false);
 $body_checkout_deviceOptions->getTipSettings()->setSeparateTipScreen(false);
@@ -87,7 +88,7 @@ if ($apiResponse->isSuccess()) {
 
 # Search Terminal Checkouts
 
-Retrieves a filtered list of Terminal checkout requests created by the account making the request.
+Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
 
 ```php
 function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiResponse
@@ -135,7 +136,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Terminal Checkout
 
-Retrieves a Terminal checkout request by `checkout_id`.
+Retrieves a Terminal checkout request by `checkout_id`. Terminal checkout requests are available for 30 days.
 
 ```php
 function getTerminalCheckout(string $checkoutId): ApiResponse
@@ -209,7 +210,7 @@ if ($apiResponse->isSuccess()) {
 
 # Create Terminal Refund
 
-Creates a request to refund an Interac payment completed on a Square Terminal.
+Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see [Refunds API](../../doc/apis/refunds.md).
 
 ```php
 function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
@@ -236,15 +237,19 @@ $body_refund_paymentId = '5O5OvgkcNUhl7JBuINflcjKqUzXZY';
 $body_refund_amountMoney = new Models\Money;
 $body_refund_amountMoney->setAmount(111);
 $body_refund_amountMoney->setCurrency(Models\Currency::CAD);
+$body_refund_reason = 'Returning items';
+$body_refund_deviceId = 'f72dfb8e-4d65-4e56-aade-ec3fb8d33291';
 $body->setRefund(new Models\TerminalRefund(
     $body_refund_paymentId,
-    $body_refund_amountMoney
+    $body_refund_amountMoney,
+    $body_refund_reason,
+    $body_refund_deviceId
 ));
 $body->getRefund()->setId('id4');
 $body->getRefund()->setRefundId('refund_id8');
 $body->getRefund()->setOrderId('order_id8');
-$body->getRefund()->setReason('Returning items');
-$body->getRefund()->setDeviceId('f72dfb8e-4d65-4e56-aade-ec3fb8d33291');
+$body->getRefund()->setDeadlineDuration('deadline_duration6');
+$body->getRefund()->setStatus('status6');
 
 $apiResponse = $terminalApi->createTerminalRefund($body);
 
@@ -262,7 +267,7 @@ if ($apiResponse->isSuccess()) {
 
 # Search Terminal Refunds
 
-Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request.
+Retrieves a filtered list of Interac Terminal refund requests created by the seller making the request. Terminal refund requests are available for 30 days.
 
 ```php
 function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
@@ -310,7 +315,7 @@ if ($apiResponse->isSuccess()) {
 
 # Get Terminal Refund
 
-Retrieves an Interac Terminal refund object by ID.
+Retrieves an Interac Terminal refund object by ID. Terminal refund objects are available for 30 days.
 
 ```php
 function getTerminalRefund(string $terminalRefundId): ApiResponse

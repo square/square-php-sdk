@@ -91,7 +91,7 @@ class Tender implements \JsonSerializable
 
     /**
      * Returns Id.
-     * The tender's unique ID.
+     * The tender's unique ID. It is the associated payment ID.
      */
     public function getId(): ?string
     {
@@ -100,7 +100,7 @@ class Tender implements \JsonSerializable
 
     /**
      * Sets Id.
-     * The tender's unique ID.
+     * The tender's unique ID. It is the associated payment ID.
      *
      * @maps id
      */

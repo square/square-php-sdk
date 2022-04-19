@@ -6,6 +6,9 @@ namespace Square\Models;
 
 use stdClass;
 
+/**
+ * Represents a checkout processed by the Square Terminal.
+ */
 class TerminalCheckout implements \JsonSerializable
 {
     /**
@@ -176,6 +179,7 @@ class TerminalCheckout implements \JsonSerializable
      * Returns Note.
      * An optional note to associate with the checkout, as well as with any payments used to complete the
      * checkout.
+     * Note: maximum 500 characters
      */
     public function getNote(): ?string
     {
@@ -186,6 +190,7 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Note.
      * An optional note to associate with the checkout, as well as with any payments used to complete the
      * checkout.
+     * Note: maximum 500 characters
      *
      * @maps note
      */

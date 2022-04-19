@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -76,10 +76,10 @@ class PaymentsApi extends BaseApi
         ?int $limit = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
             'sort_order'  => $sortOrder,
@@ -90,9 +90,6 @@ class PaymentsApi extends BaseApi
             'card_brand'  => $cardBrand,
             'limit'       => $limit,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -163,10 +160,7 @@ class PaymentsApi extends BaseApi
     public function createPayment(Models\CreatePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments';
 
         //prepare headers
         $_headers = [
@@ -247,10 +241,7 @@ class PaymentsApi extends BaseApi
     public function cancelPaymentByIdempotencyKey(Models\CancelPaymentByIdempotencyKeyRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments/cancel';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/cancel';
 
         //prepare headers
         $_headers = [
@@ -315,15 +306,12 @@ class PaymentsApi extends BaseApi
     public function getPayment(string $paymentId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments/{payment_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'payment_id' => $paymentId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -389,15 +377,12 @@ class PaymentsApi extends BaseApi
     public function updatePayment(string $paymentId, Models\UpdatePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments/{payment_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'payment_id'   => $paymentId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -463,15 +448,12 @@ class PaymentsApi extends BaseApi
     public function cancelPayment(string $paymentId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments/{payment_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'payment_id' => $paymentId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -539,15 +521,12 @@ class PaymentsApi extends BaseApi
     public function completePayment(string $paymentId, Models\CompletePaymentRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/payments/{payment_id}/complete';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}/complete';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'payment_id'   => $paymentId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

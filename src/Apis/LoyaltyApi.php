@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -39,10 +39,7 @@ class LoyaltyApi extends BaseApi
     public function createLoyaltyAccount(Models\CreateLoyaltyAccountRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/accounts';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts';
 
         //prepare headers
         $_headers = [
@@ -115,10 +112,7 @@ class LoyaltyApi extends BaseApi
     public function searchLoyaltyAccounts(Models\SearchLoyaltyAccountsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/accounts/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/search';
 
         //prepare headers
         $_headers = [
@@ -183,15 +177,12 @@ class LoyaltyApi extends BaseApi
     public function retrieveLoyaltyAccount(string $accountId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/accounts/{account_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'account_id' => $accountId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -267,15 +258,12 @@ class LoyaltyApi extends BaseApi
         Models\AccumulateLoyaltyPointsRequest $body
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/accounts/{account_id}/accumulate';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}/accumulate';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'account_id'   => $accountId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -350,15 +338,12 @@ class LoyaltyApi extends BaseApi
     public function adjustLoyaltyPoints(string $accountId, Models\AdjustLoyaltyPointsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/accounts/{account_id}/adjust';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}/adjust';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'account_id'   => $accountId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -433,10 +418,7 @@ class LoyaltyApi extends BaseApi
     public function searchLoyaltyEvents(Models\SearchLoyaltyEventsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/events/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/events/search';
 
         //prepare headers
         $_headers = [
@@ -510,10 +492,7 @@ class LoyaltyApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/programs';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs';
 
         //prepare headers
         $_headers = [
@@ -580,15 +559,12 @@ class LoyaltyApi extends BaseApi
     public function retrieveLoyaltyProgram(string $programId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/programs/{program_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'program_id' => $programId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -665,15 +641,12 @@ class LoyaltyApi extends BaseApi
     public function calculateLoyaltyPoints(string $programId, Models\CalculateLoyaltyPointsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/programs/{program_id}/calculate';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/calculate';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'program_id'   => $programId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -748,10 +721,7 @@ class LoyaltyApi extends BaseApi
     public function createLoyaltyReward(Models\CreateLoyaltyRewardRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/rewards';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards';
 
         //prepare headers
         $_headers = [
@@ -826,10 +796,7 @@ class LoyaltyApi extends BaseApi
     public function searchLoyaltyRewards(Models\SearchLoyaltyRewardsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/rewards/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/search';
 
         //prepare headers
         $_headers = [
@@ -902,15 +869,12 @@ class LoyaltyApi extends BaseApi
     public function deleteLoyaltyReward(string $rewardId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/rewards/{reward_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'reward_id' => $rewardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -971,15 +935,12 @@ class LoyaltyApi extends BaseApi
     public function retrieveLoyaltyReward(string $rewardId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/rewards/{reward_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'reward_id' => $rewardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -1054,15 +1015,12 @@ class LoyaltyApi extends BaseApi
     public function redeemLoyaltyReward(string $rewardId, Models\RedeemLoyaltyRewardRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/loyalty/rewards/{reward_id}/redeem';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}/redeem';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'reward_id'    => $rewardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

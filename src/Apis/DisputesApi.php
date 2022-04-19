@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Utils\FileWrapper;
 use Square\Http\ApiResponse;
@@ -50,17 +50,14 @@ class DisputesApi extends BaseApi
         ?string $locationId = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'      => $cursor,
             'states'      => $states,
             'location_id' => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -121,15 +118,12 @@ class DisputesApi extends BaseApi
     public function retrieveDispute(string $disputeId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id' => $disputeId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -194,15 +188,12 @@ class DisputesApi extends BaseApi
     public function acceptDispute(string $disputeId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/accept';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/accept';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id' => $disputeId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -267,20 +258,17 @@ class DisputesApi extends BaseApi
     public function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/evidence';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id' => $disputeId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'     => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -348,15 +336,12 @@ class DisputesApi extends BaseApi
         ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-files';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/evidence-files';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id' => $disputeId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -368,7 +353,7 @@ class DisputesApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'    => json_encode($request),
+            'request'    => ApiHelper::serialize($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -433,15 +418,12 @@ class DisputesApi extends BaseApi
         Models\CreateDisputeEvidenceTextRequest $body
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence-text';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/evidence-text';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id'   => $disputeId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -510,16 +492,13 @@ class DisputesApi extends BaseApi
     public function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id'  => $disputeId,
             'evidence_id' => $evidenceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -584,16 +563,13 @@ class DisputesApi extends BaseApi
     public function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/evidence/{evidence_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id'  => $disputeId,
             'evidence_id' => $evidenceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -659,15 +635,12 @@ class DisputesApi extends BaseApi
     public function submitEvidence(string $disputeId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/disputes/{dispute_id}/submit-evidence';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/disputes/{dispute_id}/submit-evidence';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'dispute_id' => $disputeId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

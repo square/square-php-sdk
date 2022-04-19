@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents an output from a call to [RetrieveVendor.]($e/Vendors/RetrieveVendor)
+ * Represents an output from a call to [RetrieveVendor]($e/Vendors/RetrieveVendor).
  */
 class RetrieveVendorResponse implements \JsonSerializable
 {

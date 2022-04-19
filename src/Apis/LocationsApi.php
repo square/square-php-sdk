@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -35,10 +35,7 @@ class LocationsApi extends BaseApi
     public function listLocations(): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations';
 
         //prepare headers
         $_headers = [
@@ -90,10 +87,10 @@ class LocationsApi extends BaseApi
     /**
      * Creates a [location](https://developer.squareup.com/docs/locations-api).
      * Creating new locations allows for separate configuration of receipt layouts, item prices,
-     * and sales reports. Developers can use locations to separate sales activity via applications
+     * and sales reports. Developers can use locations to separate sales activity through applications
      * that integrate with Square from sales activity elsewhere in a seller's account.
-     * Locations created programmatically with the Locations API will last forever and
-     * are visible to the seller for their own management, so ensure that
+     * Locations created programmatically with the Locations API last forever and
+     * are visible to the seller for their own management. Therefore, ensure that
      * each location has a sensible and unique name.
      *
      * @param Models\CreateLocationRequest $body An object containing the fields to POST for the
@@ -108,10 +105,7 @@ class LocationsApi extends BaseApi
     public function createLocation(Models\CreateLocationRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations';
 
         //prepare headers
         $_headers = [
@@ -179,15 +173,12 @@ class LocationsApi extends BaseApi
     public function retrieveLocation(string $locationId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id' => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -252,15 +243,12 @@ class LocationsApi extends BaseApi
     public function updateLocation(string $locationId, Models\UpdateLocationRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id'  => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

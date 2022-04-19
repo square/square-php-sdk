@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -43,15 +43,12 @@ class MerchantsApi extends BaseApi
     public function listMerchants(?int $cursor = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/merchants';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/merchants';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor' => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -114,15 +111,12 @@ class MerchantsApi extends BaseApi
     public function retrieveMerchant(string $merchantId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/merchants/{merchant_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/merchants/{merchant_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'merchant_id' => $merchantId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

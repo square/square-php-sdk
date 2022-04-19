@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Utils\FileWrapper;
 use Square\Http\ApiResponse;
@@ -48,10 +48,7 @@ class CatalogApi extends BaseApi
     public function batchDeleteCatalogObjects(Models\BatchDeleteCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/batch-delete';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-delete';
 
         //prepare headers
         $_headers = [
@@ -124,10 +121,7 @@ class CatalogApi extends BaseApi
     public function batchRetrieveCatalogObjects(Models\BatchRetrieveCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/batch-retrieve';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-retrieve';
 
         //prepare headers
         $_headers = [
@@ -203,10 +197,7 @@ class CatalogApi extends BaseApi
     public function batchUpsertCatalogObjects(Models\BatchUpsertCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/batch-upsert';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-upsert';
 
         //prepare headers
         $_headers = [
@@ -282,10 +273,7 @@ class CatalogApi extends BaseApi
         ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/images';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/images';
 
         //prepare headers
         $_headers = [
@@ -297,7 +285,7 @@ class CatalogApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'    => json_encode($request),
+            'request'    => ApiHelper::serialize($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -367,15 +355,12 @@ class CatalogApi extends BaseApi
         ?FileWrapper $imageFile = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/images/{image_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/images/{image_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'image_id'   => $imageId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -387,7 +372,7 @@ class CatalogApi extends BaseApi
 
         //prepare parameters
         $_parameters = [
-            'request'    => json_encode($request),
+            'request'    => ApiHelper::serialize($request),
             'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
         ];
 
@@ -445,10 +430,7 @@ class CatalogApi extends BaseApi
     public function catalogInfo(): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/info';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/info';
 
         //prepare headers
         $_headers = [
@@ -550,17 +532,14 @@ class CatalogApi extends BaseApi
         ?int $catalogVersion = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/list';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/list';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'          => $cursor,
             'types'           => $types,
             'catalog_version' => $catalogVersion,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -624,10 +603,7 @@ class CatalogApi extends BaseApi
     public function upsertCatalogObject(Models\UpsertCatalogObjectRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/object';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object';
 
         //prepare headers
         $_headers = [
@@ -701,15 +677,12 @@ class CatalogApi extends BaseApi
     public function deleteCatalogObject(string $objectId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/object/{object_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object/{object_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'object_id' => $objectId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -804,22 +777,19 @@ class CatalogApi extends BaseApi
         ?int $catalogVersion = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/object/{object_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object/{object_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'object_id'               => $objectId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'include_related_objects' => (null != $includeRelatedObjects) ?
                 var_export($includeRelatedObjects, true) : false,
             'catalog_version'         => $catalogVersion,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -898,10 +868,7 @@ class CatalogApi extends BaseApi
     public function searchCatalogObjects(Models\SearchCatalogObjectsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/search';
 
         //prepare headers
         $_headers = [
@@ -983,10 +950,7 @@ class CatalogApi extends BaseApi
     public function searchCatalogItems(Models\SearchCatalogItemsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/search-catalog-items';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/search-catalog-items';
 
         //prepare headers
         $_headers = [
@@ -1056,10 +1020,7 @@ class CatalogApi extends BaseApi
     public function updateItemModifierLists(Models\UpdateItemModifierListsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/update-item-modifier-lists';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/update-item-modifier-lists';
 
         //prepare headers
         $_headers = [
@@ -1129,10 +1090,7 @@ class CatalogApi extends BaseApi
     public function updateItemTaxes(Models\UpdateItemTaxesRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/catalog/update-item-taxes';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/update-item-taxes';
 
         //prepare headers
         $_headers = [

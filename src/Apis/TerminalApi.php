@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -39,10 +39,7 @@ class TerminalApi extends BaseApi
     public function createTerminalCheckout(Models\CreateTerminalCheckoutRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/checkouts';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts';
 
         //prepare headers
         $_headers = [
@@ -96,7 +93,9 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Retrieves a filtered list of Terminal checkout requests created by the account making the request.
+     * Returns a filtered list of Terminal checkout requests created by the application making the request.
+     * Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned.
+     * Terminal checkout requests are available for 30 days.
      *
      * @param Models\SearchTerminalCheckoutsRequest $body An object containing the fields to POST
      *        for the request.
@@ -110,10 +109,7 @@ class TerminalApi extends BaseApi
     public function searchTerminalCheckouts(Models\SearchTerminalCheckoutsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/checkouts/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/search';
 
         //prepare headers
         $_headers = [
@@ -167,7 +163,8 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Retrieves a Terminal checkout request by `checkout_id`.
+     * Retrieves a Terminal checkout request by `checkout_id`. Terminal checkout requests are available
+     * for 30 days.
      *
      * @param string $checkoutId The unique ID for the desired `TerminalCheckout`.
      *
@@ -178,15 +175,12 @@ class TerminalApi extends BaseApi
     public function getTerminalCheckout(string $checkoutId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/checkouts/{checkout_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/{checkout_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'checkout_id' => $checkoutId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -247,15 +241,12 @@ class TerminalApi extends BaseApi
     public function cancelTerminalCheckout(string $checkoutId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/checkouts/{checkout_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/{checkout_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'checkout_id' => $checkoutId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -305,7 +296,10 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Creates a request to refund an Interac payment completed on a Square Terminal.
+     * Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac
+     * payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds
+     * for Terminal payments should use the Refunds API. For more information, see [Refunds
+     * API]($e/Refunds).
      *
      * @param Models\CreateTerminalRefundRequest $body An object containing the fields to POST for
      *        the request.
@@ -319,10 +313,7 @@ class TerminalApi extends BaseApi
     public function createTerminalRefund(Models\CreateTerminalRefundRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/refunds';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds';
 
         //prepare headers
         $_headers = [
@@ -377,7 +368,7 @@ class TerminalApi extends BaseApi
 
     /**
      * Retrieves a filtered list of Interac Terminal refund requests created by the seller making the
-     * request.
+     * request. Terminal refund requests are available for 30 days.
      *
      * @param Models\SearchTerminalRefundsRequest $body An object containing the fields to POST for
      *        the request.
@@ -391,10 +382,7 @@ class TerminalApi extends BaseApi
     public function searchTerminalRefunds(Models\SearchTerminalRefundsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/refunds/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds/search';
 
         //prepare headers
         $_headers = [
@@ -448,7 +436,8 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Retrieves an Interac Terminal refund object by ID.
+     * Retrieves an Interac Terminal refund object by ID. Terminal refund objects are available for 30
+     * days.
      *
      * @param string $terminalRefundId The unique ID for the desired `TerminalRefund`.
      *
@@ -459,15 +448,12 @@ class TerminalApi extends BaseApi
     public function getTerminalRefund(string $terminalRefundId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/refunds/{terminal_refund_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds/{terminal_refund_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'terminal_refund_id' => $terminalRefundId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -529,15 +515,13 @@ class TerminalApi extends BaseApi
     public function cancelTerminalRefund(string $terminalRefundId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/terminals/refunds/{terminal_refund_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/terminals/refunds/{terminal_refund_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'terminal_refund_id' => $terminalRefundId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

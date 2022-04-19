@@ -684,6 +684,11 @@ class ErrorCode
     public const RESERVATION_DECLINED = 'RESERVATION_DECLINED';
 
     /**
+     * The body parameter is not recognized by the requested endpoint.
+     */
+    public const UNKNOWN_BODY_PARAMETER = 'UNKNOWN_BODY_PARAMETER';
+
+    /**
      * Not Found - a general error occurred.
      */
     public const NOT_FOUND = 'NOT_FOUND';

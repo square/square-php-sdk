@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -41,17 +41,14 @@ class LaborApi extends BaseApi
     public function listBreakTypes(?string $locationId = null, ?int $limit = null, ?string $cursor = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/break-types';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/break-types';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'location_id' => $locationId,
             'limit'       => $limit,
             'cursor'      => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -128,10 +125,7 @@ class LaborApi extends BaseApi
     public function createBreakType(Models\CreateBreakTypeRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/break-types';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/break-types';
 
         //prepare headers
         $_headers = [
@@ -198,15 +192,12 @@ class LaborApi extends BaseApi
     public function deleteBreakType(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/break-types/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/break-types/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -267,15 +258,12 @@ class LaborApi extends BaseApi
     public function getBreakType(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/break-types/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/break-types/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -340,15 +328,12 @@ class LaborApi extends BaseApi
     public function updateBreakType(string $id, Models\UpdateBreakTypeRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/break-types/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/break-types/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id'           => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -425,17 +410,14 @@ class LaborApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/employee-wages';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/employee-wages';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'employee_id' => $employeeId,
             'limit'       => $limit,
             'cursor'      => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -500,15 +482,12 @@ class LaborApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/employee-wages/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/employee-wages/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -589,10 +568,7 @@ class LaborApi extends BaseApi
     public function createShift(Models\CreateShiftRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/shifts';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/shifts';
 
         //prepare headers
         $_headers = [
@@ -673,10 +649,7 @@ class LaborApi extends BaseApi
     public function searchShifts(Models\SearchShiftsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/shifts/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/shifts/search';
 
         //prepare headers
         $_headers = [
@@ -741,15 +714,12 @@ class LaborApi extends BaseApi
     public function deleteShift(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/shifts/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/shifts/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -810,15 +780,12 @@ class LaborApi extends BaseApi
     public function getShift(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/shifts/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/shifts/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -884,15 +851,12 @@ class LaborApi extends BaseApi
     public function updateShift(string $id, Models\UpdateShiftRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/shifts/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/shifts/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id'           => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -966,17 +930,14 @@ class LaborApi extends BaseApi
         ?string $cursor = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/team-member-wages';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/team-member-wages';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
             'limit'          => $limit,
             'cursor'         => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -1037,15 +998,12 @@ class LaborApi extends BaseApi
     public function getTeamMemberWage(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/team-member-wages/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/team-member-wages/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -1107,16 +1065,13 @@ class LaborApi extends BaseApi
     public function listWorkweekConfigs(?int $limit = null, ?string $cursor = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/workweek-configs';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/workweek-configs';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'limit'  => $limit,
             'cursor' => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -1181,15 +1136,12 @@ class LaborApi extends BaseApi
     public function updateWorkweekConfig(string $id, Models\UpdateWorkweekConfigRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/labor/workweek-configs/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/labor/workweek-configs/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id'           => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

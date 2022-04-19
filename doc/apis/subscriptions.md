@@ -314,7 +314,6 @@ if ($apiResponse->isSuccess()) {
 # List Subscription Events
 
 Lists all events for a specific subscription.
-In the current implementation, only `START_SUBSCRIPTION` and `STOP_SUBSCRIPTION` (when the subscription was canceled) events are returned.
 
 ```php
 function listSubscriptionEvents(string $subscriptionId, ?string $cursor = null, ?int $limit = null): ApiResponse

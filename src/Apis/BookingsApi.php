@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -56,10 +56,10 @@ class BookingsApi extends BaseApi
         ?string $startAtMax = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'limit'          => $limit,
             'cursor'         => $cursor,
             'team_member_id' => $teamMemberId,
@@ -67,9 +67,6 @@ class BookingsApi extends BaseApi
             'start_at_min'   => $startAtMin,
             'start_at_max'   => $startAtMax,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -137,10 +134,7 @@ class BookingsApi extends BaseApi
     public function createBooking(Models\CreateBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings';
 
         //prepare headers
         $_headers = [
@@ -212,10 +206,7 @@ class BookingsApi extends BaseApi
     public function searchAvailability(Models\SearchAvailabilityRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/availability/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/availability/search';
 
         //prepare headers
         $_headers = [
@@ -278,10 +269,7 @@ class BookingsApi extends BaseApi
     public function retrieveBusinessBookingProfile(): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/business-booking-profile';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/business-booking-profile';
 
         //prepare headers
         $_headers = [
@@ -353,19 +341,16 @@ class BookingsApi extends BaseApi
         ?string $locationId = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/team-member-booking-profiles';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/team-member-booking-profiles';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'bookable_only' => (null != $bookableOnly) ?
                 var_export($bookableOnly, true) : false,
             'limit'         => $limit,
             'cursor'        => $cursor,
             'location_id'   => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -426,15 +411,13 @@ class BookingsApi extends BaseApi
     public function retrieveTeamMemberBookingProfile(string $teamMemberId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/team-member-booking-profiles/{team_member_id}';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/bookings/team-member-booking-profiles/{team_member_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -500,15 +483,12 @@ class BookingsApi extends BaseApi
     public function retrieveBooking(string $bookingId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/{booking_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/{booking_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'booking_id' => $bookingId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -578,15 +558,12 @@ class BookingsApi extends BaseApi
     public function updateBooking(string $bookingId, Models\UpdateBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/{booking_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/{booking_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'booking_id'   => $bookingId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -660,15 +637,12 @@ class BookingsApi extends BaseApi
     public function cancelBooking(string $bookingId, Models\CancelBookingRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bookings/{booking_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bookings/{booking_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'booking_id'   => $bookingId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

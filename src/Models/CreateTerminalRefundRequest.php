@@ -57,6 +57,8 @@ class CreateTerminalRefundRequest implements \JsonSerializable
 
     /**
      * Returns Refund.
+     * Represents a payment refund processed by the Square Terminal. Only supports Interac (Canadian debit
+     * network) payment refunds.
      */
     public function getRefund(): ?TerminalRefund
     {
@@ -65,6 +67,8 @@ class CreateTerminalRefundRequest implements \JsonSerializable
 
     /**
      * Sets Refund.
+     * Represents a payment refund processed by the Square Terminal. Only supports Interac (Canadian debit
+     * network) payment refunds.
      *
      * @maps refund
      */
