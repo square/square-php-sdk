@@ -1,7 +1,7 @@
 
 # Update Location Response
 
-Response object returned by the [UpdateLocation](../../doc/apis/locations.md#update-location) endpoint.
+The response object returned by the [UpdateLocation](../../doc/apis/locations.md#update-location) endpoint.
 
 ## Structure
 
@@ -11,8 +11,8 @@ Response object returned by the [UpdateLocation](../../doc/apis/locations.md#upd
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `location` | [`?Location`](../../doc/models/location.md) | Optional | Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api). | getLocation(): ?Location | setLocation(?Location location): void |
+| `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
+| `location` | [`?Location`](../../doc/models/location.md) | Optional | Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api). | getLocation(): ?Location | setLocation(?Location location): void |
 
 ## Example (as JSON)
 

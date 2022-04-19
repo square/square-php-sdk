@@ -105,6 +105,7 @@ $body = new Models\BatchRetrieveCatalogObjectsRequest(
 );
 $body->setIncludeRelatedObjects(true);
 $body->setCatalogVersion(118);
+$body->setIncludeDeletedObjects(false);
 
 $apiResponse = $catalogApi->batchRetrieveCatalogObjects($body);
 

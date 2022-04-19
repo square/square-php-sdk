@@ -42,6 +42,16 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     private $inventoryAlertThreshold;
 
     /**
+     * @var bool|null
+     */
+    private $soldOut;
+
+    /**
+     * @var string|null
+     */
+    private $soldOutValidUntil;
+
+    /**
      * Returns Location Id.
      * The ID of the `Location`. This can include locations that are deactivated.
      */
@@ -184,6 +194,72 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     }
 
     /**
+     * Returns Sold Out.
+     * Indicates whether the overridden item variation is sold out at the specified location.
+     *
+     * When inventory tracking is enabled on the item variation either globally or at the specified
+     * location,
+     * the item variation is automatically marked as sold out when its inventory count reaches zero. The
+     * seller
+     * can manually set the item variation as sold out even when the inventory count is greater than zero.
+     * Attempts by an application to set this attribute are ignored. Regardless how the sold-out status is
+     * set,
+     * applications should treat its inventory count as zero when this attribute value is `true`.
+     */
+    public function getSoldOut(): ?bool
+    {
+        return $this->soldOut;
+    }
+
+    /**
+     * Sets Sold Out.
+     * Indicates whether the overridden item variation is sold out at the specified location.
+     *
+     * When inventory tracking is enabled on the item variation either globally or at the specified
+     * location,
+     * the item variation is automatically marked as sold out when its inventory count reaches zero. The
+     * seller
+     * can manually set the item variation as sold out even when the inventory count is greater than zero.
+     * Attempts by an application to set this attribute are ignored. Regardless how the sold-out status is
+     * set,
+     * applications should treat its inventory count as zero when this attribute value is `true`.
+     *
+     * @maps sold_out
+     */
+    public function setSoldOut(?bool $soldOut): void
+    {
+        $this->soldOut = $soldOut;
+    }
+
+    /**
+     * Returns Sold Out Valid Until.
+     * The seller-assigned timestamp, of the RFC 3339 format, to indicate when this sold-out variation
+     * becomes available again at the specified location. Attempts by an application to set this attribute
+     * are ignored.
+     * When the current time is later than this attribute value, the affected item variation is no longer
+     * sold out.
+     */
+    public function getSoldOutValidUntil(): ?string
+    {
+        return $this->soldOutValidUntil;
+    }
+
+    /**
+     * Sets Sold Out Valid Until.
+     * The seller-assigned timestamp, of the RFC 3339 format, to indicate when this sold-out variation
+     * becomes available again at the specified location. Attempts by an application to set this attribute
+     * are ignored.
+     * When the current time is later than this attribute value, the affected item variation is no longer
+     * sold out.
+     *
+     * @maps sold_out_valid_until
+     */
+    public function setSoldOutValidUntil(?string $soldOutValidUntil): void
+    {
+        $this->soldOutValidUntil = $soldOutValidUntil;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -212,6 +288,12 @@ class ItemVariationLocationOverrides implements \JsonSerializable
         }
         if (isset($this->inventoryAlertThreshold)) {
             $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
+        }
+        if (isset($this->soldOut)) {
+            $json['sold_out']                  = $this->soldOut;
+        }
+        if (isset($this->soldOutValidUntil)) {
+            $json['sold_out_valid_until']      = $this->soldOutValidUntil;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

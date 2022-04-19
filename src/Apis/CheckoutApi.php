@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -41,15 +41,12 @@ class CheckoutApi extends BaseApi
     public function createCheckout(string $locationId, Models\CreateCheckoutRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/checkouts';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}/checkouts';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id'  => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

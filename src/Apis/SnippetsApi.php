@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -42,15 +42,12 @@ class SnippetsApi extends BaseApi
     public function deleteSnippet(string $siteId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/sites/{site_id}/snippet';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/sites/{site_id}/snippet';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'site_id' => $siteId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -119,15 +116,12 @@ class SnippetsApi extends BaseApi
     public function retrieveSnippet(string $siteId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/sites/{site_id}/snippet';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/sites/{site_id}/snippet';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'site_id' => $siteId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -201,15 +195,12 @@ class SnippetsApi extends BaseApi
     public function upsertSnippet(string $siteId, Models\UpsertSnippetRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/sites/{site_id}/snippet';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/sites/{site_id}/snippet';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'site_id'      => $siteId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

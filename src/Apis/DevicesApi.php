@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -51,18 +51,15 @@ class DevicesApi extends BaseApi
         ?string $status = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/devices/codes';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/devices/codes';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'       => $cursor,
             'location_id'  => $locationId,
             'product_type' => $productType,
             'status'       => $status,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -127,10 +124,7 @@ class DevicesApi extends BaseApi
     public function createDeviceCode(Models\CreateDeviceCodeRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/devices/codes';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/devices/codes';
 
         //prepare headers
         $_headers = [
@@ -195,15 +189,12 @@ class DevicesApi extends BaseApi
     public function getDeviceCode(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/devices/codes/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/devices/codes/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

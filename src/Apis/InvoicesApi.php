@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -44,17 +44,14 @@ class InvoicesApi extends BaseApi
     public function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'location_id' => $locationId,
             'cursor'      => $cursor,
             'limit'       => $limit,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -123,10 +120,7 @@ class InvoicesApi extends BaseApi
     public function createInvoice(Models\CreateInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices';
 
         //prepare headers
         $_headers = [
@@ -200,10 +194,7 @@ class InvoicesApi extends BaseApi
     public function searchInvoices(Models\SearchInvoicesRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/search';
 
         //prepare headers
         $_headers = [
@@ -273,20 +264,17 @@ class InvoicesApi extends BaseApi
     public function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/{invoice_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/{invoice_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'invoice_id' => $invoiceId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'version'    => $version,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -347,15 +335,12 @@ class InvoicesApi extends BaseApi
     public function getInvoice(string $invoiceId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/{invoice_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/{invoice_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'invoice_id' => $invoiceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -427,15 +412,12 @@ class InvoicesApi extends BaseApi
     public function updateInvoice(string $invoiceId, Models\UpdateInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/{invoice_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/{invoice_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'invoice_id'   => $invoiceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -508,15 +490,12 @@ class InvoicesApi extends BaseApi
     public function cancelInvoice(string $invoiceId, Models\CancelInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/{invoice_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/{invoice_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'invoice_id'   => $invoiceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -595,15 +574,12 @@ class InvoicesApi extends BaseApi
     public function publishInvoice(string $invoiceId, Models\PublishInvoiceRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/invoices/{invoice_id}/publish';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/invoices/{invoice_id}/publish';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'invoice_id'   => $invoiceId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

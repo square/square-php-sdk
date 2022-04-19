@@ -1,7 +1,7 @@
 
 # Search Vendors Request
 
-Represents an input into a call to [SearchVendors.](../../doc/apis/vendors.md#search-vendors)
+Represents an input into a call to [SearchVendors](../../doc/apis/vendors.md#search-vendors).
 
 ## Structure
 

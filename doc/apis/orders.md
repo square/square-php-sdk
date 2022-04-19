@@ -116,9 +116,7 @@ $body_order_lineItems_1_modifiers[0]->setUid('uid1');
 $body_order_lineItems_1_modifiers[0]->setCatalogObjectId('CHQX7Y4KY6N5KINJKZCFURPZ');
 $body_order_lineItems_1_modifiers[0]->setCatalogVersion(69);
 $body_order_lineItems_1_modifiers[0]->setName('name1');
-$body_order_lineItems_1_modifiers[0]->setBasePriceMoney(new Models\Money);
-$body_order_lineItems_1_modifiers[0]->getBasePriceMoney()->setAmount(53);
-$body_order_lineItems_1_modifiers[0]->getBasePriceMoney()->setCurrency(Models\Currency::TTD);
+$body_order_lineItems_1_modifiers[0]->setQuantity('quantity7');
 $body_order_lineItems[1]->setModifiers($body_order_lineItems_1_modifiers);
 
 $body_order_lineItems_1_appliedDiscounts = [];
@@ -672,7 +670,7 @@ To be used with `PayOrder`, a payment must:
 - Reference the order by specifying the `order_id` when [creating the payment](../../doc/apis/payments.md#create-payment).
   Any approved payments that reference the same `order_id` not specified in the
   `payment_ids` is canceled.
-- Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments#delayed-capture).
+- Be approved with [delayed capture](https://developer.squareup.com/docs/payments-api/take-payments/card-payments/delayed-capture).
   Using a delayed capture payment with `PayOrder` completes the approved payment.
 
 ```php

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -54,10 +54,10 @@ class CardsApi extends BaseApi
         ?string $sortOrder = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/cards';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/cards';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'           => $cursor,
             'customer_id'      => $customerId,
             'include_disabled' => (null != $includeDisabled) ?
@@ -65,9 +65,6 @@ class CardsApi extends BaseApi
             'reference_id'     => $referenceId,
             'sort_order'       => $sortOrder,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -131,10 +128,7 @@ class CardsApi extends BaseApi
     public function createCard(Models\CreateCardRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/cards';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/cards';
 
         //prepare headers
         $_headers = [
@@ -199,15 +193,12 @@ class CardsApi extends BaseApi
     public function retrieveCard(string $cardId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/cards/{card_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/cards/{card_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'card_id' => $cardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -269,15 +260,12 @@ class CardsApi extends BaseApi
     public function disableCard(string $cardId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/cards/{card_id}/disable';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/cards/{card_id}/disable';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'card_id' => $cardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

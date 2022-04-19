@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -70,23 +70,20 @@ class TransactionsApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/transactions';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}/transactions';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id' => $locationId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
             'sort_order'  => $sortOrder,
             'cursor'      => $cursor,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -152,16 +149,14 @@ class TransactionsApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/transactions/{transaction_id}';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/locations/{location_id}/transactions/{transaction_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -233,16 +228,14 @@ class TransactionsApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/transactions/{transaction_id}/capture';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/locations/{location_id}/transactions/{transaction_id}/capture';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -314,16 +307,14 @@ class TransactionsApi extends BaseApi
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
         //prepare query string for API call
-        $_queryBuilder = '/v2/locations/{location_id}/transactions/{transaction_id}/void';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/locations/{location_id}/transactions/{transaction_id}/void';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'location_id'    => $locationId,
             'transaction_id' => $transactionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

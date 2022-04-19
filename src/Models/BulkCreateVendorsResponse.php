@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents an output from a call to [BulkCreateVendors.]($e/Vendors/BulkCreateVendors)
+ * Represents an output from a call to [BulkCreateVendors]($e/Vendors/BulkCreateVendors).
  */
 class BulkCreateVendorsResponse implements \JsonSerializable
 {
@@ -50,8 +50,8 @@ class BulkCreateVendorsResponse implements \JsonSerializable
      * A set of [CreateVendorResponse]($m/CreateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by
-     * a collection of idempotency-key/`Vendor`-object or idempotency-key/error-object pairs. The impotency
-     * keys correspond to those specified
+     * a collection of idempotency-key/`Vendor`-object or idempotency-key/error-object pairs. The
+     * idempotency keys correspond to those specified
      * in the input.
      *
      * @return array<string,CreateVendorResponse>|null
@@ -66,8 +66,8 @@ class BulkCreateVendorsResponse implements \JsonSerializable
      * A set of [CreateVendorResponse]($m/CreateVendorResponse) objects encapsulating successfully created
      * [Vendor]($m/Vendor)
      * objects or error responses for failed attempts. The set is represented by
-     * a collection of idempotency-key/`Vendor`-object or idempotency-key/error-object pairs. The impotency
-     * keys correspond to those specified
+     * a collection of idempotency-key/`Vendor`-object or idempotency-key/error-object pairs. The
+     * idempotency keys correspond to those specified
      * in the input.
      *
      * @maps responses

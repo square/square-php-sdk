@@ -18,8 +18,7 @@ class BusinessHours implements \JsonSerializable
 
     /**
      * Returns Periods.
-     * The list of time periods during which the business is open. There may be at most 10
-     * periods per day.
+     * The list of time periods during which the business is open. There can be at most 10 periods per day.
      *
      * @return BusinessHoursPeriod[]|null
      */
@@ -30,8 +29,7 @@ class BusinessHours implements \JsonSerializable
 
     /**
      * Sets Periods.
-     * The list of time periods during which the business is open. There may be at most 10
-     * periods per day.
+     * The list of time periods during which the business is open. There can be at most 10 periods per day.
      *
      * @maps periods
      *

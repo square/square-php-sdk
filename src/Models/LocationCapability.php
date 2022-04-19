@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models;
 
 /**
- * The capabilities a location may have.
+ * The capabilities a location might have.
  */
 class LocationCapability
 {

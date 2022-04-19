@@ -24,6 +24,11 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     private $catalogVersion;
 
     /**
+     * @var bool|null
+     */
+    private $includeDeletedObjects;
+
+    /**
      * @param string[] $objectIds
      */
     public function __construct(array $objectIds)
@@ -135,6 +140,28 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Include Deleted Objects.
+     * Indicates whether to include (`true`) or not (`false`) in the response deleted objects, namely,
+     * those with the `is_deleted` attribute set to `true`.
+     */
+    public function getIncludeDeletedObjects(): ?bool
+    {
+        return $this->includeDeletedObjects;
+    }
+
+    /**
+     * Sets Include Deleted Objects.
+     * Indicates whether to include (`true`) or not (`false`) in the response deleted objects, namely,
+     * those with the `is_deleted` attribute set to `true`.
+     *
+     * @maps include_deleted_objects
+     */
+    public function setIncludeDeletedObjects(?bool $includeDeletedObjects): void
+    {
+        $this->includeDeletedObjects = $includeDeletedObjects;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -152,6 +179,9 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
         }
         if (isset($this->catalogVersion)) {
             $json['catalog_version']         = $this->catalogVersion;
+        }
+        if (isset($this->includeDeletedObjects)) {
+            $json['include_deleted_objects'] = $this->includeDeletedObjects;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

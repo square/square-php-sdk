@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -58,19 +58,16 @@ class GiftCardsApi extends BaseApi
         ?string $customerId = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'type'        => $type,
             'state'       => $state,
             'limit'       => $limit,
             'cursor'      => $cursor,
             'customer_id' => $customerId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -138,10 +135,7 @@ class GiftCardsApi extends BaseApi
     public function createGiftCard(Models\CreateGiftCardRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards';
 
         //prepare headers
         $_headers = [
@@ -209,10 +203,7 @@ class GiftCardsApi extends BaseApi
     public function retrieveGiftCardFromGAN(Models\RetrieveGiftCardFromGANRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards/from-gan';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards/from-gan';
 
         //prepare headers
         $_headers = [
@@ -280,10 +271,7 @@ class GiftCardsApi extends BaseApi
     public function retrieveGiftCardFromNonce(Models\RetrieveGiftCardFromNonceRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards/from-nonce';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards/from-nonce';
 
         //prepare headers
         $_headers = [
@@ -352,15 +340,12 @@ class GiftCardsApi extends BaseApi
     public function linkCustomerToGiftCard(string $giftCardId, Models\LinkCustomerToGiftCardRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards/{gift_card_id}/link-customer';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards/{gift_card_id}/link-customer';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'gift_card_id' => $giftCardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -431,15 +416,12 @@ class GiftCardsApi extends BaseApi
         Models\UnlinkCustomerFromGiftCardRequest $body
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards/{gift_card_id}/unlink-customer';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards/{gift_card_id}/unlink-customer';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'gift_card_id' => $giftCardId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -504,15 +486,12 @@ class GiftCardsApi extends BaseApi
     public function retrieveGiftCard(string $id): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/gift-cards/{id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/gift-cards/{id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'id' => $id,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

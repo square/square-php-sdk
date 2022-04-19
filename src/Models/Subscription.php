@@ -316,7 +316,7 @@ class Subscription implements \JsonSerializable
      * Returns Invoice Ids.
      * The IDs of the [invoices]($m/Invoice) created for the
      * subscription, listed in order when the invoices were created
-     * (oldest invoices appear first).
+     * (newest invoices appear first).
      *
      * @return string[]|null
      */
@@ -329,7 +329,7 @@ class Subscription implements \JsonSerializable
      * Sets Invoice Ids.
      * The IDs of the [invoices]($m/Invoice) created for the
      * subscription, listed in order when the invoices were created
-     * (oldest invoices appear first).
+     * (newest invoices appear first).
      *
      * @maps invoice_ids
      *

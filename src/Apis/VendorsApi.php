@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -38,10 +38,7 @@ class VendorsApi extends BaseApi
     public function bulkCreateVendors(Models\BulkCreateVendorsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/bulk-create';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/bulk-create';
 
         //prepare headers
         $_headers = [
@@ -109,10 +106,7 @@ class VendorsApi extends BaseApi
     public function bulkRetrieveVendors(Models\BulkRetrieveVendorsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/bulk-retrieve';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/bulk-retrieve';
 
         //prepare headers
         $_headers = [
@@ -180,10 +174,7 @@ class VendorsApi extends BaseApi
     public function bulkUpdateVendors(Models\BulkUpdateVendorsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/bulk-update';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/bulk-update';
 
         //prepare headers
         $_headers = [
@@ -251,10 +242,7 @@ class VendorsApi extends BaseApi
     public function createVendor(Models\CreateVendorRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/create';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/create';
 
         //prepare headers
         $_headers = [
@@ -323,10 +311,7 @@ class VendorsApi extends BaseApi
     public function searchVendors(Models\SearchVendorsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/search';
 
         //prepare headers
         $_headers = [
@@ -391,15 +376,12 @@ class VendorsApi extends BaseApi
     public function retrieveVendor(string $vendorId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/{vendor_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/{vendor_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'vendor_id' => $vendorId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -464,15 +446,12 @@ class VendorsApi extends BaseApi
     public function updateVendor(Models\UpdateVendorRequest $body, string $vendorId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/vendors/{vendor_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/vendors/{vendor_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'vendor_id'    => $vendorId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

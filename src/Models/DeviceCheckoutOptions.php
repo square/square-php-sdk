@@ -19,6 +19,11 @@ class DeviceCheckoutOptions implements \JsonSerializable
     private $skipReceiptScreen;
 
     /**
+     * @var bool|null
+     */
+    private $collectSignature;
+
+    /**
      * @var TipSettings|null
      */
     private $tipSettings;
@@ -77,6 +82,26 @@ class DeviceCheckoutOptions implements \JsonSerializable
     }
 
     /**
+     * Returns Collect Signature.
+     * Indicates that signature collection is desired during checkout. Defaults to false.
+     */
+    public function getCollectSignature(): ?bool
+    {
+        return $this->collectSignature;
+    }
+
+    /**
+     * Sets Collect Signature.
+     * Indicates that signature collection is desired during checkout. Defaults to false.
+     *
+     * @maps collect_signature
+     */
+    public function setCollectSignature(?bool $collectSignature): void
+    {
+        $this->collectSignature = $collectSignature;
+    }
+
+    /**
      * Returns Tip Settings.
      */
     public function getTipSettings(): ?TipSettings
@@ -109,6 +134,9 @@ class DeviceCheckoutOptions implements \JsonSerializable
         $json['device_id']               = $this->deviceId;
         if (isset($this->skipReceiptScreen)) {
             $json['skip_receipt_screen'] = $this->skipReceiptScreen;
+        }
+        if (isset($this->collectSignature)) {
+            $json['collect_signature']   = $this->collectSignature;
         }
         if (isset($this->tipSettings)) {
             $json['tip_settings']        = $this->tipSettings;

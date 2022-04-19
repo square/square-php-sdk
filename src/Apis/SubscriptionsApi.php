@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -43,10 +43,7 @@ class SubscriptionsApi extends BaseApi
     public function createSubscription(Models\CreateSubscriptionRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions';
 
         //prepare headers
         $_headers = [
@@ -131,10 +128,7 @@ class SubscriptionsApi extends BaseApi
     public function searchSubscriptions(Models\SearchSubscriptionsRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/search';
 
         //prepare headers
         $_headers = [
@@ -205,20 +199,17 @@ class SubscriptionsApi extends BaseApi
     public function retrieveSubscription(string $subscriptionId, ?string $mInclude = null): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'include'         => $mInclude,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -284,15 +275,12 @@ class SubscriptionsApi extends BaseApi
     public function updateSubscription(string $subscriptionId, Models\UpdateSubscriptionRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -358,16 +346,14 @@ class SubscriptionsApi extends BaseApi
     public function deleteSubscriptionAction(string $subscriptionId, string $actionId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/actions/{action_id}';
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/subscriptions/{subscription_id}/actions/{action_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
             'action_id'       => $actionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -430,15 +416,12 @@ class SubscriptionsApi extends BaseApi
     public function cancelSubscription(string $subscriptionId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/cancel';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}/cancel';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -489,8 +472,6 @@ class SubscriptionsApi extends BaseApi
 
     /**
      * Lists all events for a specific subscription.
-     * In the current implementation, only `START_SUBSCRIPTION` and `STOP_SUBSCRIPTION` (when the
-     * subscription was canceled) events are returned.
      *
      * @param string $subscriptionId The ID of the subscription to retrieve the events for.
      * @param string|null $cursor When the total number of resulting subscription events exceeds the
@@ -514,21 +495,18 @@ class SubscriptionsApi extends BaseApi
         ?int $limit = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/events';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}/events';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'          => $cursor,
             'limit'           => $limit,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -593,15 +571,12 @@ class SubscriptionsApi extends BaseApi
     public function pauseSubscription(string $subscriptionId, Models\PauseSubscriptionRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/pause';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}/pause';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -670,15 +645,12 @@ class SubscriptionsApi extends BaseApi
     public function resumeSubscription(string $subscriptionId, Models\ResumeSubscriptionRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/resume';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}/resume';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -745,15 +717,12 @@ class SubscriptionsApi extends BaseApi
     public function swapPlan(string $subscriptionId, Models\SwapPlanRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/subscriptions/{subscription_id}/swap-plan';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/subscriptions/{subscription_id}/swap-plan';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'subscription_id' => $subscriptionId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

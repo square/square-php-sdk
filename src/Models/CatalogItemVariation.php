@@ -95,6 +95,11 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * @var bool|null
      */
+    private $sellable;
+
+    /**
+     * @var bool|null
+     */
     private $stockable;
 
     /**
@@ -505,9 +510,28 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Sellable.
+     * Whether this variation can be sold.
+     */
+    public function getSellable(): ?bool
+    {
+        return $this->sellable;
+    }
+
+    /**
+     * Sets Sellable.
+     * Whether this variation can be sold.
+     *
+     * @maps sellable
+     */
+    public function setSellable(?bool $sellable): void
+    {
+        $this->sellable = $sellable;
+    }
+
+    /**
      * Returns Stockable.
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
-     * For backward compatibility missing values will be interpreted as TRUE.
      */
     public function getStockable(): ?bool
     {
@@ -517,7 +541,6 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Stockable.
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
-     * For backward compatibility missing values will be interpreted as TRUE.
      *
      * @maps stockable
      */
@@ -663,6 +686,9 @@ class CatalogItemVariation implements \JsonSerializable
         }
         if (isset($this->measurementUnitId)) {
             $json['measurement_unit_id']       = $this->measurementUnitId;
+        }
+        if (isset($this->sellable)) {
+            $json['sellable']                  = $this->sellable;
         }
         if (isset($this->stockable)) {
             $json['stockable']                 = $this->stockable;

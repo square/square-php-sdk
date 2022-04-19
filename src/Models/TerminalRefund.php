@@ -6,6 +6,10 @@ namespace Square\Models;
 
 use stdClass;
 
+/**
+ * Represents a payment refund processed by the Square Terminal. Only supports Interac (Canadian debit
+ * network) payment refunds.
+ */
 class TerminalRefund implements \JsonSerializable
 {
     /**
@@ -34,12 +38,12 @@ class TerminalRefund implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var string
      */
     private $reason;
 
     /**
-     * @var string|null
+     * @var string
      */
     private $deviceId;
 
@@ -81,11 +85,15 @@ class TerminalRefund implements \JsonSerializable
     /**
      * @param string $paymentId
      * @param Money $amountMoney
+     * @param string $reason
+     * @param string $deviceId
      */
-    public function __construct(string $paymentId, Money $amountMoney)
+    public function __construct(string $paymentId, Money $amountMoney, string $reason, string $deviceId)
     {
         $this->paymentId = $paymentId;
         $this->amountMoney = $amountMoney;
+        $this->reason = $reason;
+        $this->deviceId = $deviceId;
     }
 
     /**
@@ -205,9 +213,8 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Reason.
      * A description of the reason for the refund.
-     * Note: maximum 192 characters
      */
-    public function getReason(): ?string
+    public function getReason(): string
     {
         return $this->reason;
     }
@@ -215,11 +222,11 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Reason.
      * A description of the reason for the refund.
-     * Note: maximum 192 characters
      *
+     * @required
      * @maps reason
      */
-    public function setReason(?string $reason): void
+    public function setReason(string $reason): void
     {
         $this->reason = $reason;
     }
@@ -229,7 +236,7 @@ class TerminalRefund implements \JsonSerializable
      * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      */
-    public function getDeviceId(): ?string
+    public function getDeviceId(): string
     {
         return $this->deviceId;
     }
@@ -239,9 +246,10 @@ class TerminalRefund implements \JsonSerializable
      * The unique ID of the device intended for this `TerminalRefund`.
      * The Id can be retrieved from /v2/devices api.
      *
+     * @required
      * @maps device_id
      */
-    public function setDeviceId(?string $deviceId): void
+    public function setDeviceId(string $deviceId): void
     {
         $this->deviceId = $deviceId;
     }
@@ -281,7 +289,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Returns Status.
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, or `COMPLETED`.
      */
     public function getStatus(): ?string
     {
@@ -291,7 +299,7 @@ class TerminalRefund implements \JsonSerializable
     /**
      * Sets Status.
      * The status of the `TerminalRefund`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, or `COMPLETED`.
      *
      * @maps status
      */
@@ -421,12 +429,8 @@ class TerminalRefund implements \JsonSerializable
             $json['order_id']          = $this->orderId;
         }
         $json['amount_money']          = $this->amountMoney;
-        if (isset($this->reason)) {
-            $json['reason']            = $this->reason;
-        }
-        if (isset($this->deviceId)) {
-            $json['device_id']         = $this->deviceId;
-        }
+        $json['reason']                = $this->reason;
+        $json['device_id']             = $this->deviceId;
         if (isset($this->deadlineDuration)) {
             $json['deadline_duration'] = $this->deadlineDuration;
         }

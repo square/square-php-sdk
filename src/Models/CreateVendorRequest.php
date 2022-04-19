@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents an input to a call to [CreateVendor.]($e/Vendors/CreateVendor)
+ * Represents an input to a call to [CreateVendor]($e/Vendors/CreateVendor).
  */
 class CreateVendorRequest implements \JsonSerializable
 {

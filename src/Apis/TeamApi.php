@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -44,10 +44,7 @@ class TeamApi extends BaseApi
     public function createTeamMember(Models\CreateTeamMemberRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members';
 
         //prepare headers
         $_headers = [
@@ -124,10 +121,7 @@ class TeamApi extends BaseApi
     public function bulkCreateTeamMembers(Models\BulkCreateTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/bulk-create';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/bulk-create';
 
         //prepare headers
         $_headers = [
@@ -203,10 +197,7 @@ class TeamApi extends BaseApi
     public function bulkUpdateTeamMembers(Models\BulkUpdateTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/bulk-update';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/bulk-update';
 
         //prepare headers
         $_headers = [
@@ -277,10 +268,7 @@ class TeamApi extends BaseApi
     public function searchTeamMembers(Models\SearchTeamMembersRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/search';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/search';
 
         //prepare headers
         $_headers = [
@@ -347,15 +335,12 @@ class TeamApi extends BaseApi
     public function retrieveTeamMember(string $teamMemberId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/{team_member_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/{team_member_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -422,15 +407,12 @@ class TeamApi extends BaseApi
     public function updateTeamMember(string $teamMemberId, Models\UpdateTeamMemberRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/{team_member_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/{team_member_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -498,15 +480,12 @@ class TeamApi extends BaseApi
     public function retrieveWageSetting(string $teamMemberId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/{team_member_id}/wage-setting';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/{team_member_id}/wage-setting';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -577,15 +556,12 @@ class TeamApi extends BaseApi
     public function updateWageSetting(string $teamMemberId, Models\UpdateWageSettingRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/team-members/{team_member_id}/wage-setting';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/team-members/{team_member_id}/wage-setting';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'team_member_id' => $teamMemberId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -48,17 +48,14 @@ class BankAccountsApi extends BaseApi
         ?string $locationId = null
     ): ApiResponse {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bank-accounts';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bank-accounts';
 
-        //process optional query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryBuilder, [
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'      => $cursor,
             'limit'       => $limit,
             'location_id' => $locationId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -123,15 +120,12 @@ class BankAccountsApi extends BaseApi
     public function getBankAccountByV1Id(string $v1BankAccountId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bank-accounts/by-v1-id/{v1_bank_account_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bank-accounts/by-v1-id/{v1_bank_account_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'v1_bank_account_id' => $v1BankAccountId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [
@@ -193,15 +187,12 @@ class BankAccountsApi extends BaseApi
     public function getBankAccount(string $bankAccountId): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/v2/bank-accounts/{bank_account_id}';
+        $_queryUrl = $this->config->getBaseUri() . '/v2/bank-accounts/{bank_account_id}';
 
-        //process optional query parameters
-        $_queryBuilder = ApiHelper::appendUrlWithTemplateParameters($_queryBuilder, [
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
             'bank_account_id' => $bankAccountId,
         ]);
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
 
         //prepare headers
         $_headers = [

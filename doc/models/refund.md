@@ -13,7 +13,7 @@ Represents a refund processed for a Square transaction.
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `string` | Required | The refund's unique ID.<br>**Constraints**: *Maximum Length*: `255` | getId(): string | setId(string id): void |
 | `locationId` | `string` | Required | The ID of the refund's associated location.<br>**Constraints**: *Maximum Length*: `50` | getLocationId(): string | setLocationId(string locationId): void |
-| `transactionId` | `string` | Required | The ID of the transaction that the refunded tender is part of.<br>**Constraints**: *Maximum Length*: `192` | getTransactionId(): string | setTransactionId(string transactionId): void |
+| `transactionId` | `?string` | Optional | The ID of the transaction that the refunded tender is part of.<br>**Constraints**: *Maximum Length*: `192` | getTransactionId(): ?string | setTransactionId(?string transactionId): void |
 | `tenderId` | `string` | Required | The ID of the refunded tender.<br>**Constraints**: *Maximum Length*: `192` | getTenderId(): string | setTenderId(string tenderId): void |
 | `createdAt` | `?string` | Optional | The timestamp for when the refund was created, in RFC 3339 format.<br>**Constraints**: *Maximum Length*: `32` | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `reason` | `string` | Required | The reason for the refund being issued.<br>**Constraints**: *Maximum Length*: `192` | getReason(): string | setReason(string reason): void |

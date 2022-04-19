@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
+ * Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api).
  */
 class Location implements \JsonSerializable
 {
@@ -148,7 +148,7 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Id.
-     * A short, generated string of letters and numbers that uniquely identifies this location instance.
+     * A short generated string of letters and numbers that uniquely identifies this location instance.
      */
     public function getId(): ?string
     {
@@ -157,7 +157,7 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Id.
-     * A short, generated string of letters and numbers that uniquely identifies this location instance.
+     * A short generated string of letters and numbers that uniquely identifies this location instance.
      *
      * @maps id
      */
@@ -169,7 +169,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Name.
      * The name of the location.
-     * This information appears in the dashboard as the nickname.
+     * This information appears in the Seller Dashboard as the nickname.
      * A location name must be unique within a seller account.
      */
     public function getName(): ?string
@@ -180,7 +180,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Name.
      * The name of the location.
-     * This information appears in the dashboard as the nickname.
+     * This information appears in the Seller Dashboard as the nickname.
      * A location name must be unique within a seller account.
      *
      * @maps name
@@ -216,8 +216,8 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Timezone.
-     * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
-     * the timezone of the location. For example, `America/Los_Angeles`.
+     * The [IANA time zone](https://www.iana.org/time-zones) identifier for
+     * the time zone of the location. For example, `America/Los_Angeles`.
      */
     public function getTimezone(): ?string
     {
@@ -226,8 +226,8 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Timezone.
-     * The [IANA Timezone](https://www.iana.org/time-zones) identifier for
-     * the timezone of the location. For example, `America/Los_Angeles`.
+     * The [IANA time zone](https://www.iana.org/time-zones) identifier for
+     * the time zone of the location. For example, `America/Los_Angeles`.
      *
      * @maps timezone
      */
@@ -502,8 +502,8 @@ class Location implements \JsonSerializable
 
     /**
      * Returns Business Email.
-     * The email address of the location. This can be unique to the location, and is not always the email
-     * address for the business owner or admin.
+     * The email address of the location. This can be unique to the location and is not always the email
+     * address for the business owner or administrator.
      */
     public function getBusinessEmail(): ?string
     {
@@ -512,8 +512,8 @@ class Location implements \JsonSerializable
 
     /**
      * Sets Business Email.
-     * The email address of the location. This can be unique to the location, and is not always the email
-     * address for the business owner or admin.
+     * The email address of the location. This can be unique to the location and is not always the email
+     * address for the business owner or administrator.
      *
      * @maps business_email
      */
@@ -627,10 +627,9 @@ class Location implements \JsonSerializable
     /**
      * Returns Logo Url.
      * The URL of the logo image for the location. When configured in the Seller
-     * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
-     * that Square generates on behalf of the Seller. This image should have a roughly square (1:1) aspect
-     * ratio
-     * and is recommended to be at least 200x200 pixels.
+     * Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that
+     * Square generates on behalf of the seller.
+     * This image should have a roughly square (1:1) aspect ratio and should be at least 200x200 pixels.
      */
     public function getLogoUrl(): ?string
     {
@@ -640,10 +639,9 @@ class Location implements \JsonSerializable
     /**
      * Sets Logo Url.
      * The URL of the logo image for the location. When configured in the Seller
-     * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
-     * that Square generates on behalf of the Seller. This image should have a roughly square (1:1) aspect
-     * ratio
-     * and is recommended to be at least 200x200 pixels.
+     * Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that
+     * Square generates on behalf of the seller.
+     * This image should have a roughly square (1:1) aspect ratio and should be at least 200x200 pixels.
      *
      * @maps logo_url
      */
@@ -701,9 +699,9 @@ class Location implements \JsonSerializable
     /**
      * Returns Full Format Logo Url.
      * The URL of a full-format logo image for the location. When configured in the Seller
-     * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
-     * that Square generates on behalf of the Seller. This image can be wider than it is tall,
-     * and is recommended to be at least 1280x648 pixels.
+     * Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that
+     * Square generates on behalf of the seller.
+     * This image can be wider than it is tall and should be at least 1280x648 pixels.
      */
     public function getFullFormatLogoUrl(): ?string
     {
@@ -713,9 +711,9 @@ class Location implements \JsonSerializable
     /**
      * Sets Full Format Logo Url.
      * The URL of a full-format logo image for the location. When configured in the Seller
-     * dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices)
-     * that Square generates on behalf of the Seller. This image can be wider than it is tall,
-     * and is recommended to be at least 1280x648 pixels.
+     * Dashboard (Receipts section), the logo appears on transactions (such as receipts and invoices) that
+     * Square generates on behalf of the seller.
+     * This image can be wider than it is tall and should be at least 1280x648 pixels.
      *
      * @maps full_format_logo_url
      */

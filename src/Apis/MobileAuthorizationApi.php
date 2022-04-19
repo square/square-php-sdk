@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Square\Exceptions\ApiException;
-use Square\ApiHelper;
 use Square\ConfigurationInterface;
+use Square\ApiHelper;
 use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
@@ -51,10 +51,7 @@ class MobileAuthorizationApi extends BaseApi
     public function createMobileAuthorizationCode(Models\CreateMobileAuthorizationCodeRequest $body): ApiResponse
     {
         //prepare query string for API call
-        $_queryBuilder = '/mobile/authorization-code';
-
-        //validate and preprocess url
-        $_queryUrl = ApiHelper::cleanUrl($this->config->getBaseUri() . $_queryBuilder);
+        $_queryUrl = $this->config->getBaseUri() . '/mobile/authorization-code';
 
         //prepare headers
         $_headers = [

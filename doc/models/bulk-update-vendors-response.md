@@ -1,7 +1,7 @@
 
 # Bulk Update Vendors Response
 
-Represents an output from a call to [BulkUpdateVendors.](../../doc/apis/vendors.md#bulk-update-vendors)
+Represents an output from a call to [BulkUpdateVendors](../../doc/apis/vendors.md#bulk-update-vendors).
 
 ## Structure
 

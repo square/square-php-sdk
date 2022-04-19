@@ -67,28 +67,28 @@ class ApiHelper
     }
 
     /**
-     * Appends the given set of parameters to the given query string
+     * Appends the given set of parameters to the given query string.
      *
-     * @param    string  $queryBuilder   The query url string to append the parameters
-     * @param    array   $parameters     The parameters to append
+     * @param string $queryUrl   The query url string to append the parameters
+     * @param array  $parameters The parameters to append
      */
-    public static function appendUrlWithQueryParameters(string &$queryBuilder, array $parameters): void
+    public static function appendUrlWithQueryParameters(string &$queryUrl, array $parameters): void
     {
         //perform parameter validation
-        if (is_null($queryBuilder) || !is_string($queryBuilder)) {
+        if (is_null($queryUrl) || !is_string($queryUrl)) {
             throw new InvalidArgumentException('Given value for parameter "queryBuilder" is invalid.');
         }
         if (is_null($parameters)) {
             return;
         }
         //does the query string already has parameters
-        $hasParams = (strrpos($queryBuilder, '?') > 0);
+        $hasParams = (strrpos($queryUrl, '?') > 0);
 
         //if already has parameters, use the &amp; to append new parameters
-        $queryBuilder .= (($hasParams) ? '&' : '?');
+        $queryUrl .= (($hasParams) ? '&' : '?');
 
         //append parameters
-        $queryBuilder .= http_build_query($parameters);
+        $queryUrl .= http_build_query($parameters);
     }
 
     /**
@@ -140,7 +140,8 @@ class ApiHelper
         string $namespace = 'Square\Models'
     ) {
         try {
-            self::getJsonMapper()->mapClass(json_decode(json_encode($json)), "$namespace\\$classname");
+            $value = empty($json) ? new stdClass() : json_decode(json_encode($json));
+            self::getJsonMapper()->mapClass($value, "$namespace\\$classname");
         } catch (\Exception $e) {
             throw new InvalidArgumentException($e->getMessage());
         }
@@ -280,11 +281,11 @@ class ApiHelper
      *
      * @param mixed $value Any value to be serialized
      *
-     * @return string serialized value
+     * @return string|null serialized value
      */
-    public static function serialize($value): string
+    public static function serialize($value): ?string
     {
-        if (is_string($value)) {
+        if (is_string($value) || is_null($value)) {
             return $value;
         }
         return json_encode($value);
@@ -372,35 +373,6 @@ class ApiHelper
         }
         $type = $asMap ? 'map' : 'array';
         throw new InvalidArgumentException("Invalid json $type value for argument: '$name'");
-    }
-
-    /**
-     * Validates and processes the given Url
-     *
-     * @param    string  $url The given Url to process
-     *
-     * @return   string       Pre-processed Url as string
-     */
-    public static function cleanUrl(string $url): string
-    {
-        //perform parameter validation
-        if (is_null($url) || !is_string($url)) {
-            throw new InvalidArgumentException('Invalid Url.');
-        }
-        //ensure that the urls are absolute
-        $matchCount = preg_match("#^(https?://[^/]+)#", $url, $matches);
-        if ($matchCount == 0) {
-            throw new InvalidArgumentException('Invalid Url format.');
-        }
-        //get the http protocol match
-        $protocol = $matches[1];
-
-        //remove redundant forward slashes
-        $query = substr($url, strlen($protocol));
-        $query = preg_replace("#//+#", "/", $query);
-
-        //return process url
-        return $protocol . $query;
     }
 
     /**

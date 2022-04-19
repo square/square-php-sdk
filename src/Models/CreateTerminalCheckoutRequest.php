@@ -59,6 +59,7 @@ class CreateTerminalCheckoutRequest implements \JsonSerializable
 
     /**
      * Returns Checkout.
+     * Represents a checkout processed by the Square Terminal.
      */
     public function getCheckout(): TerminalCheckout
     {
@@ -67,6 +68,7 @@ class CreateTerminalCheckoutRequest implements \JsonSerializable
 
     /**
      * Sets Checkout.
+     * Represents a checkout processed by the Square Terminal.
      *
      * @required
      * @maps checkout

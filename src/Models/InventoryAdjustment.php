@@ -433,7 +433,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Transaction Id.
-     * The Square-generated ID of the [Transaction][#type-transaction] that
+     * The Square-generated ID of the [Transaction]($m/Transaction) that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      */
@@ -444,7 +444,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Transaction Id.
-     * The Square-generated ID of the [Transaction][#type-transaction] that
+     * The Square-generated ID of the [Transaction]($m/Transaction) that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      *
@@ -457,7 +457,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Refund Id.
-     * The Square-generated ID of the [Refund][#type-refund] that
+     * The Square-generated ID of the [Refund]($m/Refund) that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      */
@@ -468,7 +468,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Refund Id.
-     * The Square-generated ID of the [Refund][#type-refund] that
+     * The Square-generated ID of the [Refund]($m/Refund) that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      *

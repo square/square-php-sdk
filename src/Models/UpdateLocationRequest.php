@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Request object for the [UpdateLocation]($e/Locations/UpdateLocation) endpoint.
+ * The request object for the [UpdateLocation]($e/Locations/UpdateLocation) endpoint.
  */
 class UpdateLocationRequest implements \JsonSerializable
 {
@@ -18,7 +18,7 @@ class UpdateLocationRequest implements \JsonSerializable
 
     /**
      * Returns Location.
-     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
+     * Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api).
      */
     public function getLocation(): ?Location
     {
@@ -27,7 +27,7 @@ class UpdateLocationRequest implements \JsonSerializable
 
     /**
      * Sets Location.
-     * Represents one of a business's [locations](https://developer.squareup.com/docs/locations-api).
+     * Represents one of a business' [locations](https://developer.squareup.com/docs/locations-api).
      *
      * @maps location
      */

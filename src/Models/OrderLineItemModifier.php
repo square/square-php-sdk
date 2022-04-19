@@ -32,6 +32,11 @@ class OrderLineItemModifier implements \JsonSerializable
     private $name;
 
     /**
+     * @var string|null
+     */
+    private $quantity;
+
+    /**
      * @var Money|null
      */
     private $basePriceMoney;
@@ -124,6 +129,38 @@ class OrderLineItemModifier implements \JsonSerializable
     public function setName(?string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * Returns Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     */
+    public function getQuantity(): ?string
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Sets Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     *
+     * @maps quantity
+     */
+    public function setQuantity(?string $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 
     /**
@@ -271,6 +308,9 @@ class OrderLineItemModifier implements \JsonSerializable
         }
         if (isset($this->name)) {
             $json['name']              = $this->name;
+        }
+        if (isset($this->quantity)) {
+            $json['quantity']          = $this->quantity;
         }
         if (isset($this->basePriceMoney)) {
             $json['base_price_money']  = $this->basePriceMoney;
