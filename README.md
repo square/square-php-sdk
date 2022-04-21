@@ -66,6 +66,7 @@ php composer.phar run test
 * [Checkout]
 * [Apple Pay]
 * [Cards]
+* [Payouts]
 
 ### Terminal
 * [Terminal]
@@ -165,5 +166,6 @@ php composer.phar run test
 [Sites]: doc/apis/sites.md
 [Snippets]: doc/apis/snippets.md
 [Cards]: doc/api/cards.md
+[Payouts]: doc/api/payouts.md
 [Gift Cards]: doc/api/gift-cards.md
 [Gift Card Activities]: doc/api/gift-card-activities.md
