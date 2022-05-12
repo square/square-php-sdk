@@ -40,6 +40,7 @@ class TenderCardDetails implements \JsonSerializable
      * Indicates the card transaction's current status.
      *
      * @maps status
+     * @factory \Square\Models\TenderCardDetailsStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -82,6 +83,7 @@ class TenderCardDetails implements \JsonSerializable
      * Indicates the method used to enter the card's details.
      *
      * @maps entry_method
+     * @factory \Square\Models\TenderCardDetailsEntryMethod::checkValue
      */
     public function setEntryMethod(?string $entryMethod): void
     {
@@ -101,13 +103,13 @@ class TenderCardDetails implements \JsonSerializable
     {
         $json = [];
         if (isset($this->status)) {
-            $json['status']       = $this->status;
+            $json['status']       = TenderCardDetailsStatus::checkValue($this->status);
         }
         if (isset($this->card)) {
             $json['card']         = $this->card;
         }
         if (isset($this->entryMethod)) {
-            $json['entry_method'] = $this->entryMethod;
+            $json['entry_method'] = TenderCardDetailsEntryMethod::checkValue($this->entryMethod);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

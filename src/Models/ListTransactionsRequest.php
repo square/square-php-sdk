@@ -108,6 +108,7 @@ class ListTransactionsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
+     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -161,7 +162,7 @@ class ListTransactionsRequest implements \JsonSerializable
             $json['end_time']   = $this->endTime;
         }
         if (isset($this->sortOrder)) {
-            $json['sort_order'] = $this->sortOrder;
+            $json['sort_order'] = SortOrder::checkValue($this->sortOrder);
         }
         if (isset($this->cursor)) {
             $json['cursor']     = $this->cursor;

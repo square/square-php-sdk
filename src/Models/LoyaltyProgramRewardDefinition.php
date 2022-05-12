@@ -76,6 +76,7 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
      *
      * @required
      * @maps scope
+     * @factory \Square\Models\LoyaltyProgramRewardDefinitionScope::checkValue
      */
     public function setScope(string $scope): void
     {
@@ -103,6 +104,7 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
      *
      * @required
      * @maps discount_type
+     * @factory \Square\Models\LoyaltyProgramRewardDefinitionType::checkValue
      */
     public function setDiscountType(string $discountType): void
     {
@@ -245,8 +247,8 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['scope']                    = $this->scope;
-        $json['discount_type']            = $this->discountType;
+        $json['scope']                    = LoyaltyProgramRewardDefinitionScope::checkValue($this->scope);
+        $json['discount_type']            = LoyaltyProgramRewardDefinitionType::checkValue($this->discountType);
         if (isset($this->percentageDiscount)) {
             $json['percentage_discount']  = $this->percentageDiscount;
         }

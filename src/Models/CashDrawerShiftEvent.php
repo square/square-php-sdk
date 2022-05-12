@@ -96,6 +96,7 @@ class CashDrawerShiftEvent implements \JsonSerializable
      * represented by a CashDrawerShift.
      *
      * @maps event_type
+     * @factory \Square\Models\CashDrawerEventType::checkValue
      */
     public function setEventType(?string $eventType): void
     {
@@ -195,7 +196,7 @@ class CashDrawerShiftEvent implements \JsonSerializable
             $json['employee_id'] = $this->employeeId;
         }
         if (isset($this->eventType)) {
-            $json['event_type']  = $this->eventType;
+            $json['event_type']  = CashDrawerEventType::checkValue($this->eventType);
         }
         if (isset($this->eventMoney)) {
             $json['event_money'] = $this->eventMoney;

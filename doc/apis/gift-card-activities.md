@@ -54,16 +54,7 @@ function listGiftCardActivities(
 ## Example Usage
 
 ```php
-$giftCardId = 'gift_card_id8';
-$type = 'type0';
-$locationId = 'location_id4';
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$limit = 172;
-$cursor = 'cursor6';
-$sortOrder = 'sort_order0';
-
-$apiResponse = $giftCardActivitiesApi->listGiftCardActivities($giftCardId, $type, $locationId, $beginTime, $endTime, $limit, $cursor, $sortOrder);
+$apiResponse = $giftCardActivitiesApi->listGiftCardActivities();
 
 if ($apiResponse->isSuccess()) {
     $listGiftCardActivitiesResponse = $apiResponse->getResult();
@@ -79,9 +70,9 @@ if ($apiResponse->isSuccess()) {
 
 # Create Gift Card Activity
 
-Creates a gift card activity. For more information, see
-[GiftCardActivity](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#giftcardactivity) and
-[Using activated gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#using-activated-gift-cards).
+Creates a gift card activity to manage the balance or state of a [gift card](../../doc/models/gift-card.md).
+For example, you create an `ACTIVATE` activity to activate a gift card with an initial balance
+before the gift card can be used.
 
 ```php
 function createGiftCardActivity(CreateGiftCardActivityRequest $body): ApiResponse
@@ -107,21 +98,10 @@ $body_giftCardActivity = new Models\GiftCardActivity(
     $body_giftCardActivity_type,
     $body_giftCardActivity_locationId
 );
-$body_giftCardActivity->setId('id2');
-$body_giftCardActivity->setCreatedAt('created_at0');
 $body_giftCardActivity->setGiftCardId('gftc:6d55a72470d940c6ba09c0ab8ad08d20');
-$body_giftCardActivity->setGiftCardGan('gift_card_gan8');
-$body_giftCardActivity->setGiftCardBalanceMoney(new Models\Money);
-$body_giftCardActivity->getGiftCardBalanceMoney()->setAmount(88);
-$body_giftCardActivity->getGiftCardBalanceMoney()->setCurrency(Models\Currency::ANG);
 $body_giftCardActivity->setActivateActivityDetails(new Models\GiftCardActivityActivate);
-$body_giftCardActivity->getActivateActivityDetails()->setAmountMoney(new Models\Money);
-$body_giftCardActivity->getActivateActivityDetails()->getAmountMoney()->setAmount(10);
-$body_giftCardActivity->getActivateActivityDetails()->getAmountMoney()->setCurrency(Models\Currency::MXV);
 $body_giftCardActivity->getActivateActivityDetails()->setOrderId('jJNGHm4gLI6XkFbwtiSLqK72KkAZY');
 $body_giftCardActivity->getActivateActivityDetails()->setLineItemUid('eIWl7X0nMuO9Ewbh0ChIx');
-$body_giftCardActivity->getActivateActivityDetails()->setReferenceId('reference_id4');
-$body_giftCardActivity->getActivateActivityDetails()->setBuyerPaymentInstrumentIds(['buyer_payment_instrument_ids4', 'buyer_payment_instrument_ids5', 'buyer_payment_instrument_ids6']);
 $body = new Models\CreateGiftCardActivityRequest(
     $body_idempotencyKey,
     $body_giftCardActivity

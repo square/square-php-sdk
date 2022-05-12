@@ -32,6 +32,16 @@ class TerminalCheckout implements \JsonSerializable
     private $note;
 
     /**
+     * @var string|null
+     */
+    private $orderId;
+
+    /**
+     * @var PaymentOptions|null
+     */
+    private $paymentOptions;
+
+    /**
      * @var DeviceCheckoutOptions
      */
     private $deviceOptions;
@@ -85,6 +95,11 @@ class TerminalCheckout implements \JsonSerializable
      * @var string|null
      */
     private $customerId;
+
+    /**
+     * @var Money|null
+     */
+    private $appFeeMoney;
 
     /**
      * @param Money $amountMoney
@@ -200,6 +215,44 @@ class TerminalCheckout implements \JsonSerializable
     }
 
     /**
+     * Returns Order Id.
+     * The reference to the Square order ID for the checkout request.
+     */
+    public function getOrderId(): ?string
+    {
+        return $this->orderId;
+    }
+
+    /**
+     * Sets Order Id.
+     * The reference to the Square order ID for the checkout request.
+     *
+     * @maps order_id
+     */
+    public function setOrderId(?string $orderId): void
+    {
+        $this->orderId = $orderId;
+    }
+
+    /**
+     * Returns Payment Options.
+     */
+    public function getPaymentOptions(): ?PaymentOptions
+    {
+        return $this->paymentOptions;
+    }
+
+    /**
+     * Sets Payment Options.
+     *
+     * @maps payment_options
+     */
+    public function setPaymentOptions(?PaymentOptions $paymentOptions): void
+    {
+        $this->paymentOptions = $paymentOptions;
+    }
+
+    /**
      * Returns Device Options.
      */
     public function getDeviceOptions(): DeviceCheckoutOptions
@@ -284,6 +337,7 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Cancel Reason.
      *
      * @maps cancel_reason
+     * @factory \Square\Models\ActionCancelReason::checkValue
      */
     public function setCancelReason(?string $cancelReason): void
     {
@@ -406,6 +460,7 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Payment Type.
      *
      * @maps payment_type
+     * @factory \Square\Models\CheckoutOptionsPaymentType::checkValue
      */
     public function setPaymentType(?string $paymentType): void
     {
@@ -433,6 +488,38 @@ class TerminalCheckout implements \JsonSerializable
     }
 
     /**
+     * Returns App Fee Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getAppFeeMoney(): ?Money
+    {
+        return $this->appFeeMoney;
+    }
+
+    /**
+     * Sets App Fee Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps app_fee_money
+     */
+    public function setAppFeeMoney(?Money $appFeeMoney): void
+    {
+        $this->appFeeMoney = $appFeeMoney;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -454,6 +541,12 @@ class TerminalCheckout implements \JsonSerializable
         if (isset($this->note)) {
             $json['note']              = $this->note;
         }
+        if (isset($this->orderId)) {
+            $json['order_id']          = $this->orderId;
+        }
+        if (isset($this->paymentOptions)) {
+            $json['payment_options']   = $this->paymentOptions;
+        }
         $json['device_options']        = $this->deviceOptions;
         if (isset($this->deadlineDuration)) {
             $json['deadline_duration'] = $this->deadlineDuration;
@@ -462,7 +555,7 @@ class TerminalCheckout implements \JsonSerializable
             $json['status']            = $this->status;
         }
         if (isset($this->cancelReason)) {
-            $json['cancel_reason']     = $this->cancelReason;
+            $json['cancel_reason']     = ActionCancelReason::checkValue($this->cancelReason);
         }
         if (isset($this->paymentIds)) {
             $json['payment_ids']       = $this->paymentIds;
@@ -480,10 +573,13 @@ class TerminalCheckout implements \JsonSerializable
             $json['location_id']       = $this->locationId;
         }
         if (isset($this->paymentType)) {
-            $json['payment_type']      = $this->paymentType;
+            $json['payment_type']      = CheckoutOptionsPaymentType::checkValue($this->paymentType);
         }
         if (isset($this->customerId)) {
             $json['customer_id']       = $this->customerId;
+        }
+        if (isset($this->appFeeMoney)) {
+            $json['app_fee_money']     = $this->appFeeMoney;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

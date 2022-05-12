@@ -33,29 +33,34 @@ cd square-php-sdk
 ```
 
 Next, make sure you've downloaded Composer, following the instructions [here](https://getcomposer.org/download/)
-and then run the following command from the directory containing `composer.json`:
+and then run the following command from the root of the repository:
 
-```
+```sh
 composer install
 ```
 
-
-Before running the tests, find a sandbox token in your [Developer Dashboard] and set a `SQUARE_ACCESS_TOKEN` environment variable.
-
-```sh
-$dotenv = Dotenv::create(__DIR__);
-$dotenv->load();
-$timeout = getenv('SQUARE_TIMEOUT');
-$accessToken = getenv('SQUARE_ACCESS_TOKEN');
-$environment = getenv('SQUARE_ENVIRONMENT');
-$baseUrl = getenv('SQUARE_BASE_URL');
-```
-
-And run the tests.
+Before running the tests, find a sandbox token in your [Developer Dashboard] and set environment variables:
 
 ```sh
-php composer.phar run test
+export SQUARE_ACCESS_TOKEN=mytoken
+export SQUARE_ENVIRONMENT=sandbox
 ```
+
+Run the tests:
+
+```sh
+composer run test
+```
+
+All environment variables:
+* `SQUARE_TIMEOUT` - number
+* `SQUARE_NUMBER_OF_RETRIES` - number
+* `SQUARE_MAXIMUM_RETRY_WAIT_TIME` - number
+* `SQUARE_SQUARE_VERSION` - string
+* `SQUARE_USER_AGENT_DETAIL` - string
+* `SQUARE_CUSTOM_URL` - string
+* `SQUARE_ACCESS_TOKEN` - string
+* `SQUARE_ENVIRONMENT` - string - one of production, sandbox, custom
 
 ## SDK Reference
 
@@ -86,6 +91,7 @@ php composer.phar run test
 
 ### Customers
 * [Customers]
+* [Customer Custom Attributes]
 * [Customer Groups]
 * [Customer Segments]
 
@@ -104,6 +110,7 @@ php composer.phar run test
 * [Locations]
 * [Devices]
 * [Cash Drawers]
+* [Vendors]
 
 ### Team
 * [Team]
@@ -137,7 +144,9 @@ php composer.phar run test
 [Disputes]: doc/apis/disputes.md
 [Terminal]: doc/apis/terminal.md
 [Cash Drawers]: doc/apis/cash-drawers.md
+[Vendors]: doc/apis/vendors.md
 [Customer Groups]: doc/apis/customer-groups.md
+[Customer Custom Attributes]: doc/apis/customer-custom-attributes.md
 [Customer Segments]: doc/apis/customer-segments.md
 [Bank Accounts]: doc/apis/bank-accounts.md
 [Payments]: doc/apis/payments.md

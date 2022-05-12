@@ -195,6 +195,7 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
      * The schedule type of the pickup fulfillment.
      *
      * @maps schedule_type
+     * @factory \Square\Models\OrderFulfillmentPickupDetailsScheduleType::checkValue
      */
     public function setScheduleType(?string $scheduleType): void
     {
@@ -554,7 +555,10 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
             $json['auto_complete_duration']  = $this->autoCompleteDuration;
         }
         if (isset($this->scheduleType)) {
-            $json['schedule_type']           = $this->scheduleType;
+            $json['schedule_type']           =
+                OrderFulfillmentPickupDetailsScheduleType::checkValue(
+                    $this->scheduleType
+                );
         }
         if (isset($this->pickupAt)) {
             $json['pickup_at']               = $this->pickupAt;

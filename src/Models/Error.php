@@ -61,6 +61,7 @@ class Error implements \JsonSerializable
      *
      * @required
      * @maps category
+     * @factory \Square\Models\ErrorCategory::checkValue
      */
     public function setCategory(string $category): void
     {
@@ -84,6 +85,7 @@ class Error implements \JsonSerializable
      *
      * @required
      * @maps code
+     * @factory \Square\Models\ErrorCode::checkValue
      */
     public function setCode(string $code): void
     {
@@ -144,8 +146,8 @@ class Error implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['category']   = $this->category;
-        $json['code']       = $this->code;
+        $json['category']   = ErrorCategory::checkValue($this->category);
+        $json['code']       = ErrorCode::checkValue($this->code);
         if (isset($this->detail)) {
             $json['detail'] = $this->detail;
         }

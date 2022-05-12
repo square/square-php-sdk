@@ -53,11 +53,8 @@ function listOrders(
 
 ```php
 $locationId = 'location_id4';
-$order = Models\SortOrder::DESC;
-$limit = 172;
-$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listOrders($locationId, $order, $limit, $batchToken);
+$apiResponse = $v1TransactionsApi->listOrders($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -143,10 +140,6 @@ $body_action = Models\V1UpdateOrderRequestAction::REFUND;
 $body = new Models\V1UpdateOrderRequest(
     $body_action
 );
-$body->setShippedTrackingNumber('shipped_tracking_number6');
-$body->setCompletedNote('completed_note6');
-$body->setRefundedNote('refunded_note0');
-$body->setCanceledNote('canceled_note4');
 
 $apiResponse = $v1TransactionsApi->updateOrder($locationId, $orderId, $body);
 
@@ -210,14 +203,9 @@ function listPayments(
 
 ```php
 $locationId = 'location_id4';
-$order = Models\SortOrder::DESC;
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$limit = 172;
-$batchToken = 'batch_token2';
 $includePartial = false;
 
-$apiResponse = $v1TransactionsApi->listPayments($locationId, $order, $beginTime, $endTime, $limit, $batchToken, $includePartial);
+$apiResponse = $v1TransactionsApi->listPayments($locationId, null, null, null, null, null, $includePartial);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -308,13 +296,8 @@ function listRefunds(
 
 ```php
 $locationId = 'location_id4';
-$order = Models\SortOrder::DESC;
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$limit = 172;
-$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listRefunds($locationId, $order, $beginTime, $endTime, $limit, $batchToken);
+$apiResponse = $v1TransactionsApi->listRefunds($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Refund = $apiResponse->getResult();
@@ -372,10 +355,6 @@ $body = new Models\V1CreateRefundRequest(
     $body_type,
     $body_reason
 );
-$body->setRefundedMoney(new Models\V1Money);
-$body->getRefundedMoney()->setAmount(222);
-$body->getRefundedMoney()->setCurrencyCode(Models\Currency::CLF);
-$body->setRequestIdempotenceKey('request_idempotence_key2');
 
 $apiResponse = $v1TransactionsApi->createRefund($locationId, $body);
 
@@ -434,14 +413,8 @@ function listSettlements(
 
 ```php
 $locationId = 'location_id4';
-$order = Models\SortOrder::DESC;
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$limit = 172;
-$status = Models\V1ListSettlementsRequestStatus::SENT;
-$batchToken = 'batch_token2';
 
-$apiResponse = $v1TransactionsApi->listSettlements($locationId, $order, $beginTime, $endTime, $limit, $status, $batchToken);
+$apiResponse = $v1TransactionsApi->listSettlements($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Settlement = $apiResponse->getResult();

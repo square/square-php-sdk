@@ -52,15 +52,7 @@ function listPayouts(
 ## Example Usage
 
 ```php
-$locationId = 'location_id4';
-$status = Models\PayoutStatus::PAID;
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$sortOrder = Models\SortOrder::DESC;
-$cursor = 'cursor6';
-$limit = 172;
-
-$apiResponse = $payoutsApi->listPayouts($locationId, $status, $beginTime, $endTime, $sortOrder, $cursor, $limit);
+$apiResponse = $payoutsApi->listPayouts();
 
 if ($apiResponse->isSuccess()) {
     $listPayoutsResponse = $apiResponse->getResult();
@@ -143,11 +135,8 @@ function listPayoutEntries(
 
 ```php
 $payoutId = 'payout_id6';
-$sortOrder = Models\SortOrder::DESC;
-$cursor = 'cursor6';
-$limit = 172;
 
-$apiResponse = $payoutsApi->listPayoutEntries($payoutId, $sortOrder, $cursor, $limit);
+$apiResponse = $payoutsApi->listPayoutEntries($payoutId);
 
 if ($apiResponse->isSuccess()) {
     $listPayoutEntriesResponse = $apiResponse->getResult();

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * Possible types of CatalogObjects returned from the catalog, each
  * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
@@ -136,4 +139,39 @@ class CatalogObjectType
      * The quick-amounts-settings-specific data must be set on the `quick_amounts_settings_data` field.
      */
     public const QUICK_AMOUNTS_SETTINGS = 'QUICK_AMOUNTS_SETTINGS';
+
+    private const _ALL_VALUES = [
+        self::ITEM,
+        self::IMAGE,
+        self::CATEGORY,
+        self::ITEM_VARIATION,
+        self::TAX,
+        self::DISCOUNT,
+        self::MODIFIER_LIST,
+        self::MODIFIER,
+        self::PRICING_RULE,
+        self::PRODUCT_SET,
+        self::TIME_PERIOD,
+        self::MEASUREMENT_UNIT,
+        self::SUBSCRIPTION_PLAN,
+        self::ITEM_OPTION,
+        self::ITEM_OPTION_VAL,
+        self::CUSTOM_ATTRIBUTE_DEFINITION,
+        self::QUICK_AMOUNTS_SETTINGS,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

@@ -57,6 +57,7 @@ class V1UpdateOrderRequest implements \JsonSerializable
      *
      * @required
      * @maps action
+     * @factory \Square\Models\V1UpdateOrderRequestAction::checkValue
      */
     public function setAction(string $action): void
     {
@@ -155,7 +156,7 @@ class V1UpdateOrderRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['action']                      = $this->action;
+        $json['action']                      = V1UpdateOrderRequestAction::checkValue($this->action);
         if (isset($this->shippedTrackingNumber)) {
             $json['shipped_tracking_number'] = $this->shippedTrackingNumber;
         }

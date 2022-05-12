@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square;
 
 use apimatic\jsonmapper\JsonMapper;
+use Exception;
 use InvalidArgumentException;
 use JsonSerializable;
 use Square\Exceptions\ApiException;
@@ -118,7 +119,7 @@ class ApiHelper
         try {
             return $dimension == 0 ? self::getJsonMapper()->mapClass($value, "$namespace\\$classname")
                 : self::getJsonMapper()->mapClassArray($value, "$namespace\\$classname", $dimension);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new ApiException($e->getMessage(), $request, $response);
         }
     }
@@ -142,7 +143,7 @@ class ApiHelper
         try {
             $value = empty($json) ? new stdClass() : json_decode(json_encode($json));
             self::getJsonMapper()->mapClass($value, "$namespace\\$classname");
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new InvalidArgumentException($e->getMessage());
         }
     }
@@ -172,7 +173,7 @@ class ApiHelper
     ) {
         try {
             return self::getJsonMapper()->mapFor($value, $types, $namespace, $facMethods);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new ApiException($e->getMessage(), $request, $response);
         }
     }
@@ -203,10 +204,35 @@ class ApiHelper
         try {
             $value = self::applySerializationMethods($value, $serializationMethods);
             self::getJsonMapper()->mapFor(json_decode(json_encode($value)), $types, $namespace, $facMethods);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new InvalidArgumentException($e->getMessage());
         }
         return $value;
+    }
+
+    /**
+     * Ensures that all the given values are present in given Enum.
+     *
+     * @param array|null|int|string $value      Value or a list of values to be checked
+     * @param string                $enumName   Enum to be checked with given value
+     * @param array                 $enumValues An array with all possible enum values
+     *
+     * @throws Exception Throws exception if any given value is not in given Enum
+     */
+    public static function checkValueInEnum($value, string $enumName, array $enumValues): void
+    {
+        if (is_null($value)) {
+            return;
+        }
+        if (is_array($value)) {
+            foreach ($value as $v) {
+                self::checkValueInEnum($v, $enumName, $enumValues);
+            }
+            return;
+        }
+        if (!in_array($value, $enumValues, true)) {
+            throw new Exception("$value is invalid for $enumName.");
+        }
     }
 
     /**
@@ -216,21 +242,22 @@ class ApiHelper
      * @param string $start string to be appended at the start of the extracted type, Default: ''
      * @param string $end   string to be appended at the end of the extracted type, Default: ''
      *
-     * @return string Returns the inner class of an array concatenated with its dimensions
+     * @return string Returns the type that could be mapped on the given value.
      */
     private static function getType($value, string $start = '', string $end = ''): string
     {
-        if (is_array($value) && !self::isAssociative($value)) {
-            // if value is indexed array
-            if (empty($value)) {
-                return 'array';
+        if (is_array($value)) {
+            if (self::isAssociative($value)) {
+                // if value is associative array
+                $start .= 'array<string,';
+                $end = '>' . $end;
+            } else {
+                // if value is indexed array
+                if (empty($value)) {
+                    return 'array';
+                }
+                $end = '[]' . $end;
             }
-            $end = '[]' . $end;
-            return self::getType(array_pop($value), $start, $end);
-        } elseif (is_array($value) && self::isAssociative($value)) {
-            // if value is associative array
-            $start .= 'array<string,';
-            $end = '>' . $end;
             return self::getType(array_pop($value), $start, $end);
         } elseif (is_object($value)) {
             $type = get_class($value); // returns full path of class
@@ -242,9 +269,8 @@ class ApiHelper
             }
             $type = substr($type, $slashPos);
             return $start . $type . $end;
-        } else {
-            return $start . gettype($value) . $end;
         }
+        return $start . gettype($value) . $end;
     }
 
     /**
@@ -364,12 +390,9 @@ class ApiHelper
         }
         $isAssociative = self::isAssociative($decoded);
         if (($asMap && $isAssociative) || (!$asMap && !$isAssociative)) {
-            foreach ($decoded as $value) {
-                if (!is_array($value) || !self::isAssociative($value)) {
-                    throw new InvalidArgumentException("Invalid json value for argument: '$name'");
-                }
-            }
-            return $decoded;
+            return array_map(function ($v) use ($name) {
+                return self::decodeJson($v, $name);
+            }, $decoded);
         }
         $type = $asMap ? 'map' : 'array';
         throw new InvalidArgumentException("Invalid json $type value for argument: '$name'");

@@ -96,8 +96,8 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Definition Id.
-     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
-     * this value belongs to.
+     * The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition) this value
+     * belongs to.
      */
     public function getCustomAttributeDefinitionId(): ?string
     {
@@ -106,8 +106,8 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Definition Id.
-     * __Read-only.__ The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
-     * this value belongs to.
+     * The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition) this value
+     * belongs to.
      *
      * @maps custom_attribute_definition_id
      */
@@ -130,6 +130,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
      * Defines the possible types for a custom attribute.
      *
      * @maps type
+     * @factory \Square\Models\CatalogCustomAttributeDefinitionType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -204,7 +205,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Key.
-     * __Read-only.__ A copy of key from the associated `CatalogCustomAttributeDefinition`.
+     * A copy of key from the associated `CatalogCustomAttributeDefinition`.
      */
     public function getKey(): ?string
     {
@@ -213,7 +214,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Key.
-     * __Read-only.__ A copy of key from the associated `CatalogCustomAttributeDefinition`.
+     * A copy of key from the associated `CatalogCustomAttributeDefinition`.
      *
      * @maps key
      */
@@ -244,7 +245,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
             $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
         }
         if (isset($this->type)) {
-            $json['type']                           = $this->type;
+            $json['type']                           = CatalogCustomAttributeDefinitionType::checkValue($this->type);
         }
         if (isset($this->numberValue)) {
             $json['number_value']                   = $this->numberValue;

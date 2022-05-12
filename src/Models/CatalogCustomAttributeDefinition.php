@@ -103,6 +103,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\CatalogCustomAttributeDefinitionType::checkValue
      */
     public function setType(string $type): void
     {
@@ -158,7 +159,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Returns Source Application.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      */
     public function getSourceApplication(): ?SourceApplication
     {
@@ -167,7 +168,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Sets Source Application.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      *
      * @maps source_application
      */
@@ -197,6 +198,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      *
      * @required
      * @maps allowed_object_types
+     * @factory \Square\Models\CatalogObjectType::checkValue
      *
      * @param string[] $allowedObjectTypes
      */
@@ -223,6 +225,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * of Sale applications and Square Dashboard).
      *
      * @maps seller_visibility
+     * @factory \Square\Models\CatalogCustomAttributeDefinitionSellerVisibility::checkValue
      */
     public function setSellerVisibility(?string $sellerVisibility): void
     {
@@ -245,6 +248,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      * creating application.
      *
      * @maps app_visibility
+     * @factory \Square\Models\CatalogCustomAttributeDefinitionAppVisibility::checkValue
      */
     public function setAppVisibility(?string $appVisibility): void
     {
@@ -311,7 +315,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Usage Count.
-     * __Read-only.__ The number of custom attributes that reference this
+     * The number of custom attributes that reference this
      * custom attribute definition. Set by the server in response to a ListCatalog
      * request with `include_counts` set to `true`.  If the actual count is greater
      * than 100, `custom_attribute_usage_count` will be set to `100`.
@@ -323,7 +327,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Usage Count.
-     * __Read-only.__ The number of custom attributes that reference this
+     * The number of custom attributes that reference this
      * custom attribute definition. Set by the server in response to a ListCatalog
      * request with `include_counts` set to `true`.  If the actual count is greater
      * than 100, `custom_attribute_usage_count` will be set to `100`.
@@ -373,7 +377,7 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['type']                             = $this->type;
+        $json['type']                             = CatalogCustomAttributeDefinitionType::checkValue($this->type);
         $json['name']                             = $this->name;
         if (isset($this->description)) {
             $json['description']                  = $this->description;
@@ -381,12 +385,18 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
         if (isset($this->sourceApplication)) {
             $json['source_application']           = $this->sourceApplication;
         }
-        $json['allowed_object_types']             = $this->allowedObjectTypes;
+        $json['allowed_object_types']             = CatalogObjectType::checkValue($this->allowedObjectTypes);
         if (isset($this->sellerVisibility)) {
-            $json['seller_visibility']            = $this->sellerVisibility;
+            $json['seller_visibility']            =
+                CatalogCustomAttributeDefinitionSellerVisibility::checkValue(
+                    $this->sellerVisibility
+                );
         }
         if (isset($this->appVisibility)) {
-            $json['app_visibility']               = $this->appVisibility;
+            $json['app_visibility']               =
+                CatalogCustomAttributeDefinitionAppVisibility::checkValue(
+                    $this->appVisibility
+                );
         }
         if (isset($this->stringConfig)) {
             $json['string_config']                = $this->stringConfig;

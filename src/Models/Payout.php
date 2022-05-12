@@ -112,6 +112,7 @@ class Payout implements \JsonSerializable
      * Payout status types
      *
      * @maps status
+     * @factory \Square\Models\PayoutStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -275,6 +276,7 @@ class Payout implements \JsonSerializable
      * and will show up as one of the payout entries in a future BATCH payout.
      *
      * @maps type
+     * @factory \Square\Models\PayoutType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -341,7 +343,7 @@ class Payout implements \JsonSerializable
         $json = [];
         $json['id']               = $this->id;
         if (isset($this->status)) {
-            $json['status']       = $this->status;
+            $json['status']       = PayoutStatus::checkValue($this->status);
         }
         $json['location_id']      = $this->locationId;
         if (isset($this->createdAt)) {
@@ -360,7 +362,7 @@ class Payout implements \JsonSerializable
             $json['version']      = $this->version;
         }
         if (isset($this->type)) {
-            $json['type']         = $this->type;
+            $json['type']         = PayoutType::checkValue($this->type);
         }
         if (isset($this->payoutFee)) {
             $json['payout_fee']   = $this->payoutFee;

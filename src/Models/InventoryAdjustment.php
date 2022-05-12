@@ -167,6 +167,7 @@ class InventoryAdjustment implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps from_state
+     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setFromState(?string $fromState): void
     {
@@ -187,6 +188,7 @@ class InventoryAdjustment implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps to_state
+     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setToState(?string $toState): void
     {
@@ -369,7 +371,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Source.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      */
     public function getSource(): ?SourceApplication
     {
@@ -378,7 +380,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Source.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      *
      * @maps source
      */
@@ -564,10 +566,10 @@ class InventoryAdjustment implements \JsonSerializable
             $json['reference_id']        = $this->referenceId;
         }
         if (isset($this->fromState)) {
-            $json['from_state']          = $this->fromState;
+            $json['from_state']          = InventoryState::checkValue($this->fromState);
         }
         if (isset($this->toState)) {
-            $json['to_state']            = $this->toState;
+            $json['to_state']            = InventoryState::checkValue($this->toState);
         }
         if (isset($this->locationId)) {
             $json['location_id']         = $this->locationId;

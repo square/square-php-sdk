@@ -55,12 +55,8 @@ function listTransactions(
 
 ```php
 $locationId = 'location_id4';
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$sortOrder = Models\SortOrder::DESC;
-$cursor = 'cursor6';
 
-$apiResponse = $transactionsApi->listTransactions($locationId, $beginTime, $endTime, $sortOrder, $cursor);
+$apiResponse = $transactionsApi->listTransactions($locationId);
 
 if ($apiResponse->isSuccess()) {
     $listTransactionsResponse = $apiResponse->getResult();

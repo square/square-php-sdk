@@ -211,6 +211,7 @@ class Transaction implements \JsonSerializable
      * Indicates the Square product used to process a transaction.
      *
      * @maps product
+     * @factory \Square\Models\TransactionProduct::checkValue
      */
     public function setProduct(?string $product): void
     {
@@ -330,7 +331,7 @@ class Transaction implements \JsonSerializable
             $json['reference_id']     = $this->referenceId;
         }
         if (isset($this->product)) {
-            $json['product']          = $this->product;
+            $json['product']          = TransactionProduct::checkValue($this->product);
         }
         if (isset($this->clientId)) {
             $json['client_id']        = $this->clientId;

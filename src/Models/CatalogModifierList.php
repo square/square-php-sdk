@@ -97,6 +97,7 @@ class CatalogModifierList implements \JsonSerializable
      * Indicates whether a CatalogModifierList supports multiple selections.
      *
      * @maps selection_type
+     * @factory \Square\Models\CatalogModifierListSelectionType::checkValue
      */
     public function setSelectionType(?string $selectionType): void
     {
@@ -180,7 +181,7 @@ class CatalogModifierList implements \JsonSerializable
             $json['ordinal']        = $this->ordinal;
         }
         if (isset($this->selectionType)) {
-            $json['selection_type'] = $this->selectionType;
+            $json['selection_type'] = CatalogModifierListSelectionType::checkValue($this->selectionType);
         }
         if (isset($this->modifiers)) {
             $json['modifiers']      = $this->modifiers;

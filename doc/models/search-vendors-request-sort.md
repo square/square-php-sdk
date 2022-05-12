@@ -18,8 +18,8 @@ Defines a sorter used to sort results from [SearchVendors](../../doc/apis/vendor
 
 ```json
 {
-  "field": "NAME",
-  "order": "DESC"
+  "field": null,
+  "order": null
 }
 ```
 

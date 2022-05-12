@@ -126,6 +126,7 @@ class Card implements \JsonSerializable
      * Indicates a card's brand, such as `VISA` or `MASTERCARD`.
      *
      * @maps card_brand
+     * @factory \Square\Models\CardBrand::checkValue
      */
     public function setCardBrand(?string $cardBrand): void
     {
@@ -358,6 +359,7 @@ class Card implements \JsonSerializable
      * Indicates a card's type, such as `CREDIT` or `DEBIT`.
      *
      * @maps card_type
+     * @factory \Square\Models\CardType::checkValue
      */
     public function setCardType(?string $cardType): void
     {
@@ -378,6 +380,7 @@ class Card implements \JsonSerializable
      * Indicates a card's prepaid type, such as `NOT_PREPAID` or `PREPAID`.
      *
      * @maps prepaid_type
+     * @factory \Square\Models\CardPrepaidType::checkValue
      */
     public function setPrepaidType(?string $prepaidType): void
     {
@@ -448,7 +451,7 @@ class Card implements \JsonSerializable
             $json['id']              = $this->id;
         }
         if (isset($this->cardBrand)) {
-            $json['card_brand']      = $this->cardBrand;
+            $json['card_brand']      = CardBrand::checkValue($this->cardBrand);
         }
         if (isset($this->last4)) {
             $json['last_4']          = $this->last4;
@@ -481,10 +484,10 @@ class Card implements \JsonSerializable
             $json['enabled']         = $this->enabled;
         }
         if (isset($this->cardType)) {
-            $json['card_type']       = $this->cardType;
+            $json['card_type']       = CardType::checkValue($this->cardType);
         }
         if (isset($this->prepaidType)) {
-            $json['prepaid_type']    = $this->prepaidType;
+            $json['prepaid_type']    = CardPrepaidType::checkValue($this->prepaidType);
         }
         if (isset($this->bin)) {
             $json['bin']             = $this->bin;

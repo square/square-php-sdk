@@ -99,6 +99,7 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
      *
      * @maps object_types
+     * @factory \Square\Models\CatalogObjectType::checkValue
      *
      * @param string[]|null $objectTypes
      */
@@ -321,7 +322,7 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
             $json['cursor']                  = $this->cursor;
         }
         if (isset($this->objectTypes)) {
-            $json['object_types']            = $this->objectTypes;
+            $json['object_types']            = CatalogObjectType::checkValue($this->objectTypes);
         }
         if (isset($this->includeDeletedObjects)) {
             $json['include_deleted_objects'] = $this->includeDeletedObjects;

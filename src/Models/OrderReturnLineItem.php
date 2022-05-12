@@ -319,6 +319,7 @@ class OrderReturnLineItem implements \JsonSerializable
      * Represents the line item type.
      *
      * @maps item_type
+     * @factory \Square\Models\OrderLineItemItemType::checkValue
      */
     public function setItemType(?string $itemType): void
     {
@@ -639,7 +640,7 @@ class OrderReturnLineItem implements \JsonSerializable
             $json['variation_name']              = $this->variationName;
         }
         if (isset($this->itemType)) {
-            $json['item_type']                   = $this->itemType;
+            $json['item_type']                   = OrderLineItemItemType::checkValue($this->itemType);
         }
         if (isset($this->returnModifiers)) {
             $json['return_modifiers']            = $this->returnModifiers;

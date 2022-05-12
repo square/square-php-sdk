@@ -96,6 +96,7 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * businessappointmentsettingsbookinglocationtype) for possible values
      *
      * @maps location_types
+     * @factory \Square\Models\BusinessAppointmentSettingsBookingLocationType::checkValue
      *
      * @param string[]|null $locationTypes
      */
@@ -118,6 +119,7 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * Time units of a service duration for bookings.
      *
      * @maps alignment_time
+     * @factory \Square\Models\BusinessAppointmentSettingsAlignmentTime::checkValue
      */
     public function setAlignmentTime(?string $alignmentTime): void
     {
@@ -226,6 +228,7 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * Types of daily appointment limits.
      *
      * @maps max_appointments_per_day_limit_type
+     * @factory \Square\Models\BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType::checkValue
      */
     public function setMaxAppointmentsPerDayLimitType(?string $maxAppointmentsPerDayLimitType): void
     {
@@ -318,6 +321,7 @@ class BusinessAppointmentSettings implements \JsonSerializable
      * The category of the seller’s cancellation policy.
      *
      * @maps cancellation_policy
+     * @factory \Square\Models\BusinessAppointmentSettingsCancellationPolicy::checkValue
      */
     public function setCancellationPolicy(?string $cancellationPolicy): void
     {
@@ -379,10 +383,16 @@ class BusinessAppointmentSettings implements \JsonSerializable
     {
         $json = [];
         if (isset($this->locationTypes)) {
-            $json['location_types']                      = $this->locationTypes;
+            $json['location_types']                      =
+                BusinessAppointmentSettingsBookingLocationType::checkValue(
+                    $this->locationTypes
+                );
         }
         if (isset($this->alignmentTime)) {
-            $json['alignment_time']                      = $this->alignmentTime;
+            $json['alignment_time']                      =
+                BusinessAppointmentSettingsAlignmentTime::checkValue(
+                    $this->alignmentTime
+                );
         }
         if (isset($this->minBookingLeadTimeSeconds)) {
             $json['min_booking_lead_time_seconds']       = $this->minBookingLeadTimeSeconds;
@@ -397,7 +407,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
             $json['multiple_service_booking_enabled']    = $this->multipleServiceBookingEnabled;
         }
         if (isset($this->maxAppointmentsPerDayLimitType)) {
-            $json['max_appointments_per_day_limit_type'] = $this->maxAppointmentsPerDayLimitType;
+            $json['max_appointments_per_day_limit_type'] =
+                BusinessAppointmentSettingsMaxAppointmentsPerDayLimitType::checkValue(
+                    $this->maxAppointmentsPerDayLimitType
+                );
         }
         if (isset($this->maxAppointmentsPerDayLimit)) {
             $json['max_appointments_per_day_limit']      = $this->maxAppointmentsPerDayLimit;
@@ -409,7 +422,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
             $json['cancellation_fee_money']              = $this->cancellationFeeMoney;
         }
         if (isset($this->cancellationPolicy)) {
-            $json['cancellation_policy']                 = $this->cancellationPolicy;
+            $json['cancellation_policy']                 =
+                BusinessAppointmentSettingsCancellationPolicy::checkValue(
+                    $this->cancellationPolicy
+                );
         }
         if (isset($this->cancellationPolicyText)) {
             $json['cancellation_policy_text']            = $this->cancellationPolicyText;

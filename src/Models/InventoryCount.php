@@ -114,6 +114,7 @@ class InventoryCount implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps state
+     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -237,7 +238,7 @@ class InventoryCount implements \JsonSerializable
             $json['catalog_object_type'] = $this->catalogObjectType;
         }
         if (isset($this->state)) {
-            $json['state']               = $this->state;
+            $json['state']               = InventoryState::checkValue($this->state);
         }
         if (isset($this->locationId)) {
             $json['location_id']         = $this->locationId;

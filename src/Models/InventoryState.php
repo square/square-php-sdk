@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * Indicates the state of a tracked item quantity in the lifecycle of goods.
  */
@@ -103,4 +106,37 @@ class InventoryState
      * client to use the appropriate version of the Square API supporting this state.
      */
     public const SUPPORTED_BY_NEWER_VERSION = 'SUPPORTED_BY_NEWER_VERSION';
+
+    private const _ALL_VALUES = [
+        self::CUSTOM,
+        self::IN_STOCK,
+        self::SOLD,
+        self::RETURNED_BY_CUSTOMER,
+        self::RESERVED_FOR_SALE,
+        self::SOLD_ONLINE,
+        self::ORDERED_FROM_VENDOR,
+        self::RECEIVED_FROM_VENDOR,
+        self::IN_TRANSIT_TO,
+        self::NONE,
+        self::WASTE,
+        self::UNLINKED_RETURN,
+        self::COMPOSED,
+        self::DECOMPOSED,
+        self::SUPPORTED_BY_NEWER_VERSION,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

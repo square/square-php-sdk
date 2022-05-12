@@ -129,10 +129,6 @@ $body_snippet_content = '<script>var js = 1;</script>';
 $body_snippet = new Models\Snippet(
     $body_snippet_content
 );
-$body_snippet->setId('id4');
-$body_snippet->setSiteId('site_id0');
-$body_snippet->setCreatedAt('created_at8');
-$body_snippet->setUpdatedAt('updated_at0');
 $body = new Models\UpsertSnippetRequest(
     $body_snippet
 );

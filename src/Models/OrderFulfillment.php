@@ -85,6 +85,7 @@ class OrderFulfillment implements \JsonSerializable
      * The type of fulfillment.
      *
      * @maps type
+     * @factory \Square\Models\OrderFulfillmentType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -105,6 +106,7 @@ class OrderFulfillment implements \JsonSerializable
      * The current state of this fulfillment.
      *
      * @maps state
+     * @factory \Square\Models\OrderFulfillmentState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -127,6 +129,7 @@ class OrderFulfillment implements \JsonSerializable
      * to. It can be `ALL` or `ENTRY_LIST` with a supplied list of fulfillment entries.
      *
      * @maps line_item_application
+     * @factory \Square\Models\OrderFulfillmentFulfillmentLineItemApplication::checkValue
      */
     public function setLineItemApplication(?string $lineItemApplication): void
     {
@@ -291,13 +294,16 @@ class OrderFulfillment implements \JsonSerializable
             $json['uid']                   = $this->uid;
         }
         if (isset($this->type)) {
-            $json['type']                  = $this->type;
+            $json['type']                  = OrderFulfillmentType::checkValue($this->type);
         }
         if (isset($this->state)) {
-            $json['state']                 = $this->state;
+            $json['state']                 = OrderFulfillmentState::checkValue($this->state);
         }
         if (isset($this->lineItemApplication)) {
-            $json['line_item_application'] = $this->lineItemApplication;
+            $json['line_item_application'] =
+                OrderFulfillmentFulfillmentLineItemApplication::checkValue(
+                    $this->lineItemApplication
+                );
         }
         if (isset($this->entries)) {
             $json['entries']               = $this->entries;

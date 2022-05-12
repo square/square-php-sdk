@@ -147,6 +147,7 @@ class Booking implements \JsonSerializable
      * Supported booking statuses.
      *
      * @maps status
+     * @factory \Square\Models\BookingStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -385,6 +386,7 @@ class Booking implements \JsonSerializable
      * Supported types of location where service is provided.
      *
      * @maps location_type
+     * @factory \Square\Models\BusinessAppointmentSettingsBookingLocationType::checkValue
      */
     public function setLocationType(?string $locationType): void
     {
@@ -425,6 +427,7 @@ class Booking implements \JsonSerializable
      * Supported sources a booking was created from.
      *
      * @maps source
+     * @factory \Square\Models\BookingBookingSource::checkValue
      */
     public function setSource(?string $source): void
     {
@@ -450,7 +453,7 @@ class Booking implements \JsonSerializable
             $json['version']                 = $this->version;
         }
         if (isset($this->status)) {
-            $json['status']                  = $this->status;
+            $json['status']                  = BookingStatus::checkValue($this->status);
         }
         if (isset($this->createdAt)) {
             $json['created_at']              = $this->createdAt;
@@ -483,13 +486,16 @@ class Booking implements \JsonSerializable
             $json['all_day']                 = $this->allDay;
         }
         if (isset($this->locationType)) {
-            $json['location_type']           = $this->locationType;
+            $json['location_type']           =
+                BusinessAppointmentSettingsBookingLocationType::checkValue(
+                    $this->locationType
+                );
         }
         if (isset($this->creatorDetails)) {
             $json['creator_details']         = $this->creatorDetails;
         }
         if (isset($this->source)) {
-            $json['source']                  = $this->source;
+            $json['source']                  = BookingBookingSource::checkValue($this->source);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

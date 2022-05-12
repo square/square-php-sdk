@@ -337,6 +337,7 @@ class OrderServiceCharge implements \JsonSerializable
      * api/how-it-works#how-totals-are-calculated)
      *
      * @maps calculation_phase
+     * @factory \Square\Models\OrderServiceChargeCalculationPhase::checkValue
      */
     public function setCalculationPhase(?string $calculationPhase): void
     {
@@ -483,6 +484,7 @@ class OrderServiceCharge implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
+     * @factory \Square\Models\OrderServiceChargeType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -529,7 +531,7 @@ class OrderServiceCharge implements \JsonSerializable
             $json['total_tax_money']   = $this->totalTaxMoney;
         }
         if (isset($this->calculationPhase)) {
-            $json['calculation_phase'] = $this->calculationPhase;
+            $json['calculation_phase'] = OrderServiceChargeCalculationPhase::checkValue($this->calculationPhase);
         }
         if (isset($this->taxable)) {
             $json['taxable']           = $this->taxable;
@@ -541,7 +543,7 @@ class OrderServiceCharge implements \JsonSerializable
             $json['metadata']          = $this->metadata;
         }
         if (isset($this->type)) {
-            $json['type']              = $this->type;
+            $json['type']              = OrderServiceChargeType::checkValue($this->type);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

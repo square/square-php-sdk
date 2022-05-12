@@ -35,6 +35,7 @@ class SearchVendorsRequestSort implements \JsonSerializable
      * The field to sort the returned [Vendor]($m/Vendor) objects by.
      *
      * @maps field
+     * @factory \Square\Models\SearchVendorsRequestSortField::checkValue
      */
     public function setField(?string $field): void
     {
@@ -55,6 +56,7 @@ class SearchVendorsRequestSort implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
+     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setOrder(?string $order): void
     {
@@ -74,10 +76,10 @@ class SearchVendorsRequestSort implements \JsonSerializable
     {
         $json = [];
         if (isset($this->field)) {
-            $json['field'] = $this->field;
+            $json['field'] = SearchVendorsRequestSortField::checkValue($this->field);
         }
         if (isset($this->order)) {
-            $json['order'] = $this->order;
+            $json['order'] = SortOrder::checkValue($this->order);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

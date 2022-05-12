@@ -231,6 +231,7 @@ class PayoutEntry implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
+     * @factory \Square\Models\ActivityType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -724,7 +725,7 @@ class PayoutEntry implements \JsonSerializable
             $json['effective_at']                                 = $this->effectiveAt;
         }
         if (isset($this->type)) {
-            $json['type']                                         = $this->type;
+            $json['type']                                         = ActivityType::checkValue($this->type);
         }
         if (isset($this->grossAmountMoney)) {
             $json['gross_amount_money']                           = $this->grossAmountMoney;

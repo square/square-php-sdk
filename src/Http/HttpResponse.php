@@ -14,21 +14,21 @@ class HttpResponse
      *
      * @var int
      */
-    private $statusCode = null;
+    private $statusCode;
 
     /**
      * Headers received
      *
      * @var array
      */
-    private $headers = null;
+    private $headers;
 
     /**
      * Raw body of the response
      *
      * @var string
      */
-    private $rawBody = null;
+    private $rawBody;
 
     /**
      * Create a new instance of a HttpResponse

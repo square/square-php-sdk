@@ -48,13 +48,9 @@ function listCards(
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$customerId = 'customer_id8';
 $includeDisabled = false;
-$referenceId = 'reference_id2';
-$sortOrder = Models\SortOrder::DESC;
 
-$apiResponse = $cardsApi->listCards($cursor, $customerId, $includeDisabled, $referenceId, $sortOrder);
+$apiResponse = $cardsApi->listCards(null, null, $includeDisabled);
 
 if ($apiResponse->isSuccess()) {
     $listCardsResponse = $apiResponse->getResult();
@@ -92,18 +88,11 @@ function createCard(CreateCardRequest $body): ApiResponse
 $body_idempotencyKey = '4935a656-a929-4792-b97c-8848be85c27c';
 $body_sourceId = 'cnon:uIbfJXhXETSP197M3GB';
 $body_card = new Models\Card;
-$body_card->setId('id0');
-$body_card->setCardBrand(Models\CardBrand::INTERAC);
-$body_card->setLast4('last_42');
-$body_card->setExpMonth(236);
-$body_card->setExpYear(60);
 $body_card->setCardholderName('Amelia Earhart');
 $body_card->setBillingAddress(new Models\Address);
 $body_card->getBillingAddress()->setAddressLine1('500 Electric Ave');
 $body_card->getBillingAddress()->setAddressLine2('Suite 600');
-$body_card->getBillingAddress()->setAddressLine3('address_line_34');
 $body_card->getBillingAddress()->setLocality('New York');
-$body_card->getBillingAddress()->setSublocality('sublocality8');
 $body_card->getBillingAddress()->setAdministrativeDistrictLevel1('NY');
 $body_card->getBillingAddress()->setPostalCode('10003');
 $body_card->getBillingAddress()->setCountry(Models\Country::US);
@@ -114,7 +103,6 @@ $body = new Models\CreateCardRequest(
     $body_sourceId,
     $body_card
 );
-$body->setVerificationToken('verification_token0');
 
 $apiResponse = $cardsApi->createCard($body);
 

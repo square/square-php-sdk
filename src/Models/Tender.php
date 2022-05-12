@@ -322,6 +322,7 @@ class Tender implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\TenderType::checkValue
      */
     public function setType(string $type): void
     {
@@ -455,7 +456,7 @@ class Tender implements \JsonSerializable
         if (isset($this->customerId)) {
             $json['customer_id']           = $this->customerId;
         }
-        $json['type']                      = $this->type;
+        $json['type']                      = TenderType::checkValue($this->type);
         if (isset($this->cardDetails)) {
             $json['card_details']          = $this->cardDetails;
         }

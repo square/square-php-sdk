@@ -44,6 +44,11 @@ class BusinessBookingProfile implements \JsonSerializable
     private $businessAppointmentSettings;
 
     /**
+     * @var bool|null
+     */
+    private $supportSellerLevelWrites;
+
+    /**
      * Returns Seller Id.
      * The ID of the seller, obtainable using the Merchants API.
      */
@@ -117,6 +122,7 @@ class BusinessBookingProfile implements \JsonSerializable
      * Choices of customer-facing time zone used for bookings.
      *
      * @maps customer_timezone_choice
+     * @factory \Square\Models\BusinessBookingProfileCustomerTimezoneChoice::checkValue
      */
     public function setCustomerTimezoneChoice(?string $customerTimezoneChoice): void
     {
@@ -137,6 +143,7 @@ class BusinessBookingProfile implements \JsonSerializable
      * Policies for accepting bookings.
      *
      * @maps booking_policy
+     * @factory \Square\Models\BusinessBookingProfileBookingPolicy::checkValue
      */
     public function setBookingPolicy(?string $bookingPolicy): void
     {
@@ -184,6 +191,28 @@ class BusinessBookingProfile implements \JsonSerializable
     }
 
     /**
+     * Returns Support Seller Level Writes.
+     * Indicates whether the seller's subscription to Square Appointments supports creating, updating or
+     * canceling an appointment through the API (`true`) or not (`false`) using seller permission.
+     */
+    public function getSupportSellerLevelWrites(): ?bool
+    {
+        return $this->supportSellerLevelWrites;
+    }
+
+    /**
+     * Sets Support Seller Level Writes.
+     * Indicates whether the seller's subscription to Square Appointments supports creating, updating or
+     * canceling an appointment through the API (`true`) or not (`false`) using seller permission.
+     *
+     * @maps support_seller_level_writes
+     */
+    public function setSupportSellerLevelWrites(?bool $supportSellerLevelWrites): void
+    {
+        $this->supportSellerLevelWrites = $supportSellerLevelWrites;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -205,16 +234,25 @@ class BusinessBookingProfile implements \JsonSerializable
             $json['booking_enabled']               = $this->bookingEnabled;
         }
         if (isset($this->customerTimezoneChoice)) {
-            $json['customer_timezone_choice']      = $this->customerTimezoneChoice;
+            $json['customer_timezone_choice']      =
+                BusinessBookingProfileCustomerTimezoneChoice::checkValue(
+                    $this->customerTimezoneChoice
+                );
         }
         if (isset($this->bookingPolicy)) {
-            $json['booking_policy']                = $this->bookingPolicy;
+            $json['booking_policy']                =
+                BusinessBookingProfileBookingPolicy::checkValue(
+                    $this->bookingPolicy
+                );
         }
         if (isset($this->allowUserCancel)) {
             $json['allow_user_cancel']             = $this->allowUserCancel;
         }
         if (isset($this->businessAppointmentSettings)) {
             $json['business_appointment_settings'] = $this->businessAppointmentSettings;
+        }
+        if (isset($this->supportSellerLevelWrites)) {
+            $json['support_seller_level_writes']   = $this->supportSellerLevelWrites;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

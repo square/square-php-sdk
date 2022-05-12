@@ -358,6 +358,7 @@ class OrderReturnServiceCharge implements \JsonSerializable
      * api/how-it-works#how-totals-are-calculated)
      *
      * @maps calculation_phase
+     * @factory \Square\Models\OrderServiceChargeCalculationPhase::checkValue
      */
     public function setCalculationPhase(?string $calculationPhase): void
     {
@@ -461,7 +462,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
             $json['total_tax_money']           = $this->totalTaxMoney;
         }
         if (isset($this->calculationPhase)) {
-            $json['calculation_phase']         = $this->calculationPhase;
+            $json['calculation_phase']         =
+                OrderServiceChargeCalculationPhase::checkValue(
+                    $this->calculationPhase
+                );
         }
         if (isset($this->taxable)) {
             $json['taxable']                   = $this->taxable;

@@ -246,8 +246,8 @@ class CreateCheckoutRequest implements \JsonSerializable
      * if the provided redirect URL is `http://www.example.com/order-complete`, a
      * successful transaction redirects the customer to:
      *
-     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
-     * transactionId=xxxxxx</code></pre>
+     * `http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
+     * transactionId=xxxxxx`
      *
      * If you do not provide a redirect URL, Square Checkout displays an order
      * confirmation page on your behalf; however, it is strongly recommended that
@@ -268,8 +268,8 @@ class CreateCheckoutRequest implements \JsonSerializable
      * if the provided redirect URL is `http://www.example.com/order-complete`, a
      * successful transaction redirects the customer to:
      *
-     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
-     * transactionId=xxxxxx</code></pre>
+     * `http://www.example.com/order-complete?checkoutId=xxxxxx&amp;referenceId=xxxxxx&amp;
+     * transactionId=xxxxxx`
      *
      * If you do not provide a redirect URL, Square Checkout displays an order
      * confirmation page on your behalf; however, it is strongly recommended that

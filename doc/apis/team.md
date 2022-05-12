@@ -50,9 +50,7 @@ function createTeamMember(CreateTeamMemberRequest $body): ApiResponse
 $body = new Models\CreateTeamMemberRequest;
 $body->setIdempotencyKey('idempotency-key-0');
 $body->setTeamMember(new Models\TeamMember);
-$body->getTeamMember()->setId('id2');
 $body->getTeamMember()->setReferenceId('reference_id_1');
-$body->getTeamMember()->setIsOwner(false);
 $body->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
 $body->getTeamMember()->setGivenName('Joe');
 $body->getTeamMember()->setFamilyName('Doe');
@@ -205,9 +203,7 @@ $body->setQuery(new Models\SearchTeamMembersQuery);
 $body->getQuery()->setFilter(new Models\SearchTeamMembersFilter);
 $body->getQuery()->getFilter()->setLocationIds(['0G5P3VGACMMQZ']);
 $body->getQuery()->getFilter()->setStatus(Models\TeamMemberStatus::ACTIVE);
-$body->getQuery()->getFilter()->setIsOwner(false);
 $body->setLimit(10);
-$body->setCursor('cursor0');
 
 $apiResponse = $teamApi->searchTeamMembers($body);
 
@@ -287,9 +283,7 @@ function updateTeamMember(string $teamMemberId, UpdateTeamMemberRequest $body): 
 $teamMemberId = 'team_member_id0';
 $body = new Models\UpdateTeamMemberRequest;
 $body->setTeamMember(new Models\TeamMember);
-$body->getTeamMember()->setId('id2');
 $body->getTeamMember()->setReferenceId('reference_id_1');
-$body->getTeamMember()->setIsOwner(false);
 $body->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
 $body->getTeamMember()->setGivenName('Joe');
 $body->getTeamMember()->setFamilyName('Doe');
@@ -380,7 +374,6 @@ function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body)
 ```php
 $teamMemberId = 'team_member_id0';
 $body_wageSetting = new Models\WageSetting;
-$body_wageSetting->setTeamMemberId('team_member_id2');
 $body_wageSetting_jobAssignments = [];
 
 $body_wageSetting_jobAssignments_0_jobTitle = 'Manager';
@@ -389,9 +382,6 @@ $body_wageSetting_jobAssignments[0] = new Models\JobAssignment(
     $body_wageSetting_jobAssignments_0_jobTitle,
     $body_wageSetting_jobAssignments_0_payType
 );
-$body_wageSetting_jobAssignments[0]->setHourlyRate(new Models\Money);
-$body_wageSetting_jobAssignments[0]->getHourlyRate()->setAmount(117);
-$body_wageSetting_jobAssignments[0]->getHourlyRate()->setCurrency(Models\Currency::ERN);
 $body_wageSetting_jobAssignments[0]->setAnnualRate(new Models\Money);
 $body_wageSetting_jobAssignments[0]->getAnnualRate()->setAmount(3000000);
 $body_wageSetting_jobAssignments[0]->getAnnualRate()->setCurrency(Models\Currency::USD);
@@ -406,15 +396,9 @@ $body_wageSetting_jobAssignments[1] = new Models\JobAssignment(
 $body_wageSetting_jobAssignments[1]->setHourlyRate(new Models\Money);
 $body_wageSetting_jobAssignments[1]->getHourlyRate()->setAmount(1200);
 $body_wageSetting_jobAssignments[1]->getHourlyRate()->setCurrency(Models\Currency::USD);
-$body_wageSetting_jobAssignments[1]->setAnnualRate(new Models\Money);
-$body_wageSetting_jobAssignments[1]->getAnnualRate()->setAmount(58);
-$body_wageSetting_jobAssignments[1]->getAnnualRate()->setCurrency(Models\Currency::DZD);
-$body_wageSetting_jobAssignments[1]->setWeeklyHours(226);
 $body_wageSetting->setJobAssignments($body_wageSetting_jobAssignments);
 
 $body_wageSetting->setIsOvertimeExempt(true);
-$body_wageSetting->setVersion(122);
-$body_wageSetting->setCreatedAt('created_at0');
 $body = new Models\UpdateWageSettingRequest(
     $body_wageSetting
 );

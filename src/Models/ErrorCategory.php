@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * Indicates which high-level category of error has occurred during a
  * request to the Connect API.
@@ -55,4 +58,29 @@ class ErrorCategory
      * An error occurred when checking a merchant subscription status
      */
     public const MERCHANT_SUBSCRIPTION_ERROR = 'MERCHANT_SUBSCRIPTION_ERROR';
+
+    private const _ALL_VALUES = [
+        self::API_ERROR,
+        self::AUTHENTICATION_ERROR,
+        self::INVALID_REQUEST_ERROR,
+        self::RATE_LIMIT_ERROR,
+        self::PAYMENT_METHOD_ERROR,
+        self::REFUND_ERROR,
+        self::MERCHANT_SUBSCRIPTION_ERROR,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

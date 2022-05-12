@@ -277,6 +277,7 @@ class Shift implements \JsonSerializable
      * Enumerates the possible status of a `Shift`.
      *
      * @maps status
+     * @factory \Square\Models\ShiftStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -404,7 +405,7 @@ class Shift implements \JsonSerializable
             $json['breaks']         = $this->breaks;
         }
         if (isset($this->status)) {
-            $json['status']         = $this->status;
+            $json['status']         = ShiftStatus::checkValue($this->status);
         }
         if (isset($this->version)) {
             $json['version']        = $this->version;

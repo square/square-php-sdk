@@ -149,6 +149,7 @@ class V1PaymentItemization implements \JsonSerializable
      * Sets Itemization Type.
      *
      * @maps itemization_type
+     * @factory \Square\Models\V1PaymentItemizationItemizationType::checkValue
      */
     public function setItemizationType(?string $itemizationType): void
     {
@@ -396,7 +397,7 @@ class V1PaymentItemization implements \JsonSerializable
             $json['quantity']              = $this->quantity;
         }
         if (isset($this->itemizationType)) {
-            $json['itemization_type']      = $this->itemizationType;
+            $json['itemization_type']      = V1PaymentItemizationItemizationType::checkValue($this->itemizationType);
         }
         if (isset($this->itemDetail)) {
             $json['item_detail']           = $this->itemDetail;

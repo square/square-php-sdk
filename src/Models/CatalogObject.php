@@ -186,6 +186,7 @@ class CatalogObject implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\CatalogObjectType::checkValue
      */
     public function setType(string $type): void
     {
@@ -513,8 +514,24 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Item Variation Data.
-     * An item variation (i.e., product) in the Catalog object model. Each item
-     * may have a maximum of 250 item variations.
+     * An item variation, representing a product for sale, in the Catalog object model. Each
+     * [item]($m/CatalogItem) must have at least one
+     * item variation and can have at most 250 item variations.
+     *
+     * An item variation can be sellable, stockable, or both if it has a unit of measure for its count for
+     * the sold number of the variation, the stocked
+     * number of the variation, or both. For example, when a variation representing wine is stocked and
+     * sold by the bottle, the variation is both
+     * stockable and sellable. But when a variation of the wine is sold by the glass, the sold units cannot
+     * be used as a measure of the stocked units. This by-the-glass
+     * variation is sellable, but not stockable. To accurately keep track of the wine's inventory count at
+     * any time, the sellable count must be
+     * converted to stockable count. Typically, the seller defines this unit conversion. For example, 1
+     * bottle equals 5 glasses. The Square API exposes
+     * the `stockable_conversion` property on the variation to specify the conversion. Thus, when two
+     * glasses of the wine are sold, the sellable count
+     * decreases by 2, and the stockable count automatically decreases by 0.4 bottle according to the
+     * conversion.
      */
     public function getItemVariationData(): ?CatalogItemVariation
     {
@@ -523,8 +540,24 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Item Variation Data.
-     * An item variation (i.e., product) in the Catalog object model. Each item
-     * may have a maximum of 250 item variations.
+     * An item variation, representing a product for sale, in the Catalog object model. Each
+     * [item]($m/CatalogItem) must have at least one
+     * item variation and can have at most 250 item variations.
+     *
+     * An item variation can be sellable, stockable, or both if it has a unit of measure for its count for
+     * the sold number of the variation, the stocked
+     * number of the variation, or both. For example, when a variation representing wine is stocked and
+     * sold by the bottle, the variation is both
+     * stockable and sellable. But when a variation of the wine is sold by the glass, the sold units cannot
+     * be used as a measure of the stocked units. This by-the-glass
+     * variation is sellable, but not stockable. To accurately keep track of the wine's inventory count at
+     * any time, the sellable count must be
+     * converted to stockable count. Typically, the seller defines this unit conversion. For example, 1
+     * bottle equals 5 glasses. The Square API exposes
+     * the `stockable_conversion` property on the variation to specify the conversion. Thus, when two
+     * glasses of the wine are sold, the sellable count
+     * decreases by 2, and the stockable count automatically decreases by 0.4 bottle according to the
+     * conversion.
      *
      * @maps item_variation_data
      */
@@ -876,7 +909,7 @@ class CatalogObject implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['type']                                 = $this->type;
+        $json['type']                                 = CatalogObjectType::checkValue($this->type);
         $json['id']                                   = $this->id;
         if (isset($this->updatedAt)) {
             $json['updated_at']                       = $this->updatedAt;

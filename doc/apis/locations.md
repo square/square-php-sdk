@@ -75,18 +75,12 @@ function createLocation(CreateLocationRequest $body): ApiResponse
 ```php
 $body = new Models\CreateLocationRequest;
 $body->setLocation(new Models\Location);
-$body->getLocation()->setId('id0');
 $body->getLocation()->setName('Midtown');
 $body->getLocation()->setAddress(new Models\Address);
 $body->getLocation()->getAddress()->setAddressLine1('1234 Peachtree St. NE');
-$body->getLocation()->getAddress()->setAddressLine2('address_line_26');
-$body->getLocation()->getAddress()->setAddressLine3('address_line_32');
 $body->getLocation()->getAddress()->setLocality('Atlanta');
-$body->getLocation()->getAddress()->setSublocality('sublocality6');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
 $body->getLocation()->getAddress()->setPostalCode('30309');
-$body->getLocation()->setTimezone('timezone0');
-$body->getLocation()->setCapabilities([Models\LocationCapability::AUTOMATIC_TRANSFERS, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::AUTOMATIC_TRANSFERS]);
 $body->getLocation()->setDescription('Midtown Atlanta store');
 
 $apiResponse = $locationsApi->createLocation($body);
@@ -166,16 +160,6 @@ function updateLocation(string $locationId, UpdateLocationRequest $body): ApiRes
 $locationId = 'location_id4';
 $body = new Models\UpdateLocationRequest;
 $body->setLocation(new Models\Location);
-$body->getLocation()->setId('id0');
-$body->getLocation()->setName('name0');
-$body->getLocation()->setAddress(new Models\Address);
-$body->getLocation()->getAddress()->setAddressLine1('address_line_16');
-$body->getLocation()->getAddress()->setAddressLine2('address_line_26');
-$body->getLocation()->getAddress()->setAddressLine3('address_line_32');
-$body->getLocation()->getAddress()->setLocality('locality6');
-$body->getLocation()->getAddress()->setSublocality('sublocality6');
-$body->getLocation()->setTimezone('timezone0');
-$body->getLocation()->setCapabilities([Models\LocationCapability::AUTOMATIC_TRANSFERS, Models\LocationCapability::CREDIT_CARD_PROCESSING, Models\LocationCapability::AUTOMATIC_TRANSFERS]);
 $body->getLocation()->setBusinessHours(new Models\BusinessHours);
 $body_location_businessHours_periods = [];
 

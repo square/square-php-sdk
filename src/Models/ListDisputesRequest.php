@@ -74,6 +74,7 @@ class ListDisputesRequest implements \JsonSerializable
      * See [DisputeState](#type-disputestate) for possible values
      *
      * @maps states
+     * @factory \Square\Models\DisputeState::checkValue
      *
      * @param string[]|null $states
      */
@@ -124,7 +125,7 @@ class ListDisputesRequest implements \JsonSerializable
             $json['cursor']      = $this->cursor;
         }
         if (isset($this->states)) {
-            $json['states']      = $this->states;
+            $json['states']      = DisputeState::checkValue($this->states);
         }
         if (isset($this->locationId)) {
             $json['location_id'] = $this->locationId;

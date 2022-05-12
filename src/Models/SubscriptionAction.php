@@ -65,6 +65,7 @@ class SubscriptionAction implements \JsonSerializable
      * Supported types of an action as a pending change to a subscription.
      *
      * @maps type
+     * @factory \Square\Models\SubscriptionActionType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -127,7 +128,7 @@ class SubscriptionAction implements \JsonSerializable
             $json['id']             = $this->id;
         }
         if (isset($this->type)) {
-            $json['type']           = $this->type;
+            $json['type']           = SubscriptionActionType::checkValue($this->type);
         }
         if (isset($this->effectiveDate)) {
             $json['effective_date'] = $this->effectiveDate;

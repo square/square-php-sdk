@@ -85,6 +85,7 @@ class SubscriptionPhase implements \JsonSerializable
      *
      * @required
      * @maps cadence
+     * @factory \Square\Models\SubscriptionCadence::checkValue
      */
     public function setCadence(string $cadence): void
     {
@@ -183,7 +184,7 @@ class SubscriptionPhase implements \JsonSerializable
         if (isset($this->uid)) {
             $json['uid']               = $this->uid;
         }
-        $json['cadence']               = $this->cadence;
+        $json['cadence']               = SubscriptionCadence::checkValue($this->cadence);
         if (isset($this->periods)) {
             $json['periods']           = $this->periods;
         }

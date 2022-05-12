@@ -57,16 +57,7 @@ function listPaymentRefunds(
 ## Example Usage
 
 ```php
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$sortOrder = 'sort_order0';
-$cursor = 'cursor6';
-$locationId = 'location_id4';
-$status = 'status8';
-$sourceType = 'source_type0';
-$limit = 172;
-
-$apiResponse = $refundsApi->listPaymentRefunds($beginTime, $endTime, $sortOrder, $cursor, $locationId, $status, $sourceType, $limit);
+$apiResponse = $refundsApi->listPaymentRefunds();
 
 if ($apiResponse->isSuccess()) {
     $listPaymentRefundsResponse = $apiResponse->getResult();
@@ -117,8 +108,6 @@ $body->getAppFeeMoney()->setAmount(10);
 $body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
 $body->setPaymentId('R2B3Z8WMVt3EAmzYWLZvz7Y69EbZY');
 $body->setReason('Example');
-$body->setPaymentVersionToken('payment_version_token6');
-$body->setTeamMemberId('team_member_id4');
 
 $apiResponse = $refundsApi->refundPayment($body);
 

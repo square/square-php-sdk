@@ -82,6 +82,7 @@ class JobAssignment implements \JsonSerializable
      *
      * @required
      * @maps pay_type
+     * @factory \Square\Models\JobAssignmentPayType::checkValue
      */
     public function setPayType(string $payType): void
     {
@@ -185,7 +186,7 @@ class JobAssignment implements \JsonSerializable
     {
         $json = [];
         $json['job_title']        = $this->jobTitle;
-        $json['pay_type']         = $this->payType;
+        $json['pay_type']         = JobAssignmentPayType::checkValue($this->payType);
         if (isset($this->hourlyRate)) {
             $json['hourly_rate']  = $this->hourlyRate;
         }

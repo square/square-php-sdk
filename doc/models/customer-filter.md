@@ -24,30 +24,13 @@ customers returned by the [SearchCustomers](../../doc/apis/customers.md#search-c
 
 ```json
 {
-  "creation_source": {
-    "values": [
-      "THIRD_PARTY_IMPORT",
-      "THIRD_PARTY",
-      "TERMINAL"
-    ],
-    "rule": "INCLUDE"
-  },
-  "created_at": {
-    "start_at": "start_at4",
-    "end_at": "end_at8"
-  },
-  "updated_at": {
-    "start_at": "start_at6",
-    "end_at": "end_at6"
-  },
-  "email_address": {
-    "exact": "exact2",
-    "fuzzy": "fuzzy8"
-  },
-  "phone_number": {
-    "exact": "exact2",
-    "fuzzy": "fuzzy8"
-  }
+  "creation_source": null,
+  "created_at": null,
+  "updated_at": null,
+  "email_address": null,
+  "phone_number": null,
+  "reference_id": null,
+  "group_ids": null
 }
 ```
 

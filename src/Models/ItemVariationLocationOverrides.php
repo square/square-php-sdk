@@ -117,6 +117,7 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      *
      * @maps pricing_type
+     * @factory \Square\Models\CatalogPricingType::checkValue
      */
     public function setPricingType(?string $pricingType): void
     {
@@ -159,6 +160,7 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      * CatalogItemVariation is low.
      *
      * @maps inventory_alert_type
+     * @factory \Square\Models\InventoryAlertType::checkValue
      */
     public function setInventoryAlertType(?string $inventoryAlertType): void
     {
@@ -278,13 +280,13 @@ class ItemVariationLocationOverrides implements \JsonSerializable
             $json['price_money']               = $this->priceMoney;
         }
         if (isset($this->pricingType)) {
-            $json['pricing_type']              = $this->pricingType;
+            $json['pricing_type']              = CatalogPricingType::checkValue($this->pricingType);
         }
         if (isset($this->trackInventory)) {
             $json['track_inventory']           = $this->trackInventory;
         }
         if (isset($this->inventoryAlertType)) {
-            $json['inventory_alert_type']      = $this->inventoryAlertType;
+            $json['inventory_alert_type']      = InventoryAlertType::checkValue($this->inventoryAlertType);
         }
         if (isset($this->inventoryAlertThreshold)) {
             $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;

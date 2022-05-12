@@ -67,8 +67,8 @@ class CustomersApi extends BaseApi
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'     => $cursor,
             'limit'      => $limit,
-            'sort_field' => $sortField,
-            'sort_order' => $sortOrder,
+            'sort_field' => Models\CustomerSortField::checkValue($sortField),
+            'sort_order' => Models\SortOrder::checkValue($sortOrder),
         ]);
 
         //prepare headers

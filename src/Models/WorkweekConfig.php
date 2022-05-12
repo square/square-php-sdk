@@ -87,6 +87,7 @@ class WorkweekConfig implements \JsonSerializable
      *
      * @required
      * @maps start_of_week
+     * @factory \Square\Models\Weekday::checkValue
      */
     public function setStartOfWeek(string $startOfWeek): void
     {
@@ -199,7 +200,7 @@ class WorkweekConfig implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                  = $this->id;
         }
-        $json['start_of_week']           = $this->startOfWeek;
+        $json['start_of_week']           = Weekday::checkValue($this->startOfWeek);
         $json['start_of_day_local_time'] = $this->startOfDayLocalTime;
         if (isset($this->version)) {
             $json['version']             = $this->version;

@@ -71,6 +71,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
      * The type of the dispute evidence.
      *
      * @maps evidence_type
+     * @factory \Square\Models\DisputeEvidenceType::checkValue
      */
     public function setEvidenceType(?string $evidenceType): void
     {
@@ -113,7 +114,7 @@ class CreateDisputeEvidenceFileRequest implements \JsonSerializable
         $json = [];
         $json['idempotency_key']   = $this->idempotencyKey;
         if (isset($this->evidenceType)) {
-            $json['evidence_type'] = $this->evidenceType;
+            $json['evidence_type'] = DisputeEvidenceType::checkValue($this->evidenceType);
         }
         if (isset($this->contentType)) {
             $json['content_type']  = $this->contentType;

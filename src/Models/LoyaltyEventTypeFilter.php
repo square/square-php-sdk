@@ -47,6 +47,7 @@ class LoyaltyEventTypeFilter implements \JsonSerializable
      *
      * @required
      * @maps types
+     * @factory \Square\Models\LoyaltyEventType::checkValue
      *
      * @param string[] $types
      */
@@ -67,7 +68,7 @@ class LoyaltyEventTypeFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['types'] = $this->types;
+        $json['types'] = LoyaltyEventType::checkValue($this->types);
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });
