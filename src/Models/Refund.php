@@ -257,6 +257,7 @@ class Refund implements \JsonSerializable
      *
      * @required
      * @maps status
+     * @factory \Square\Models\RefundStatus::checkValue
      */
     public function setStatus(string $status): void
     {
@@ -344,7 +345,7 @@ class Refund implements \JsonSerializable
         }
         $json['reason']                    = $this->reason;
         $json['amount_money']              = $this->amountMoney;
-        $json['status']                    = $this->status;
+        $json['status']                    = RefundStatus::checkValue($this->status);
         if (isset($this->processingFeeMoney)) {
             $json['processing_fee_money']  = $this->processingFeeMoney;
         }

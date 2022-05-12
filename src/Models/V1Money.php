@@ -56,6 +56,7 @@ class V1Money implements \JsonSerializable
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *
      * @maps currency_code
+     * @factory \Square\Models\Currency::checkValue
      */
     public function setCurrencyCode(?string $currencyCode): void
     {
@@ -78,7 +79,7 @@ class V1Money implements \JsonSerializable
             $json['amount']        = $this->amount;
         }
         if (isset($this->currencyCode)) {
-            $json['currency_code'] = $this->currencyCode;
+            $json['currency_code'] = Currency::checkValue($this->currencyCode);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

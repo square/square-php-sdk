@@ -130,6 +130,7 @@ class LoyaltyEvent implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\LoyaltyEventType::checkValue
      */
     public function setType(string $type): void
     {
@@ -313,6 +314,7 @@ class LoyaltyEvent implements \JsonSerializable
      *
      * @required
      * @maps source
+     * @factory \Square\Models\LoyaltyEventSource::checkValue
      */
     public function setSource(string $source): void
     {
@@ -372,7 +374,7 @@ class LoyaltyEvent implements \JsonSerializable
     {
         $json = [];
         $json['id']                    = $this->id;
-        $json['type']                  = $this->type;
+        $json['type']                  = LoyaltyEventType::checkValue($this->type);
         $json['created_at']            = $this->createdAt;
         if (isset($this->accumulatePoints)) {
             $json['accumulate_points'] = $this->accumulatePoints;
@@ -393,7 +395,7 @@ class LoyaltyEvent implements \JsonSerializable
         if (isset($this->locationId)) {
             $json['location_id']       = $this->locationId;
         }
-        $json['source']                = $this->source;
+        $json['source']                = LoyaltyEventSource::checkValue($this->source);
         if (isset($this->expirePoints)) {
             $json['expire_points']     = $this->expirePoints;
         }

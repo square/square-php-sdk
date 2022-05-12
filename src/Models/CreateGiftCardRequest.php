@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to create a gift card.
+ * Represents a [CreateGiftCard]($e/GiftCards/CreateGiftCard) request.
  */
 class CreateGiftCardRequest implements \JsonSerializable
 {
@@ -40,7 +40,8 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     * A unique string that identifies the `CreateGiftCard` request.
+     * A unique identifier for this request, used to ensure idempotency. For more information,
+     * see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
      */
     public function getIdempotencyKey(): string
     {
@@ -49,7 +50,8 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     * A unique string that identifies the `CreateGiftCard` request.
+     * A unique identifier for this request, used to ensure idempotency. For more information,
+     * see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency).
      *
      * @required
      * @maps idempotency_key
@@ -61,7 +63,8 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The location ID where the gift card that will be created should be registered.
+     * The ID of the [location]($m/Location) where the gift card should be registered for
+     * reporting purposes. Gift cards can be redeemed at any of the seller's locations.
      */
     public function getLocationId(): string
     {
@@ -70,7 +73,8 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The location ID where the gift card that will be created should be registered.
+     * The ID of the [location]($m/Location) where the gift card should be registered for
+     * reporting purposes. Gift cards can be redeemed at any of the seller's locations.
      *
      * @required
      * @maps location_id

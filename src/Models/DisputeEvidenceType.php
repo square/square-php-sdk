@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * The type of the dispute evidence.
  */
@@ -146,4 +149,37 @@ class DisputeEvidenceType
      * Use when uploading evidence as a string.
      */
     public const TRACKING_NUMBER = 'TRACKING_NUMBER';
+
+    private const _ALL_VALUES = [
+        self::GENERIC_EVIDENCE,
+        self::ONLINE_OR_APP_ACCESS_LOG,
+        self::AUTHORIZATION_DOCUMENTATION,
+        self::CANCELLATION_OR_REFUND_DOCUMENTATION,
+        self::CARDHOLDER_COMMUNICATION,
+        self::CARDHOLDER_INFORMATION,
+        self::PURCHASE_ACKNOWLEDGEMENT,
+        self::DUPLICATE_CHARGE_DOCUMENTATION,
+        self::PRODUCT_OR_SERVICE_DESCRIPTION,
+        self::RECEIPT,
+        self::SERVICE_RECEIVED_DOCUMENTATION,
+        self::PROOF_OF_DELIVERY_DOCUMENTATION,
+        self::RELATED_TRANSACTION_DOCUMENTATION,
+        self::REBUTTAL_EXPLANATION,
+        self::TRACKING_NUMBER,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

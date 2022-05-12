@@ -33,6 +33,7 @@ class V1OrderHistoryEntry implements \JsonSerializable
      * Sets Action.
      *
      * @maps action
+     * @factory \Square\Models\V1OrderHistoryEntryAction::checkValue
      */
     public function setAction(?string $action): void
     {
@@ -72,7 +73,7 @@ class V1OrderHistoryEntry implements \JsonSerializable
     {
         $json = [];
         if (isset($this->action)) {
-            $json['action']     = $this->action;
+            $json['action']     = V1OrderHistoryEntryAction::checkValue($this->action);
         }
         if (isset($this->createdAt)) {
             $json['created_at'] = $this->createdAt;

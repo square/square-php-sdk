@@ -46,10 +46,8 @@ function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = 
 
 ```php
 $locationId = 'location_id4';
-$cursor = 'cursor6';
-$limit = 172;
 
-$apiResponse = $invoicesApi->listInvoices($locationId, $cursor, $limit);
+$apiResponse = $invoicesApi->listInvoices($locationId);
 
 if ($apiResponse->isSuccess()) {
     $listInvoicesResponse = $apiResponse->getResult();
@@ -89,41 +87,22 @@ function createInvoice(CreateInvoiceRequest $body): ApiResponse
 
 ```php
 $body_invoice = new Models\Invoice;
-$body_invoice->setId('id0');
-$body_invoice->setVersion(38);
 $body_invoice->setLocationId('ES0RJRZYEC39A');
 $body_invoice->setOrderId('CAISENgvlJ6jLWAzERDzjyHVybY');
 $body_invoice->setPrimaryRecipient(new Models\InvoiceRecipient);
 $body_invoice->getPrimaryRecipient()->setCustomerId('JDKYHBWT1D4F8MFH63DBMEN8Y4');
-$body_invoice->getPrimaryRecipient()->setGivenName('given_name6');
-$body_invoice->getPrimaryRecipient()->setFamilyName('family_name8');
-$body_invoice->getPrimaryRecipient()->setEmailAddress('email_address2');
-$body_invoice->getPrimaryRecipient()->setAddress(new Models\Address);
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine1('address_line_10');
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine2('address_line_20');
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine3('address_line_36');
-$body_invoice->getPrimaryRecipient()->getAddress()->setLocality('locality0');
-$body_invoice->getPrimaryRecipient()->getAddress()->setSublocality('sublocality0');
 $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
-$body_invoice_paymentRequests[0]->setUid('uid4');
-$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SMS_CHARGE_CARD_ON_FILE);
 $body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::BALANCE);
 $body_invoice_paymentRequests[0]->setDueDate('2030-01-24');
-$body_invoice_paymentRequests[0]->setFixedAmountRequestedMoney(new Models\Money);
-$body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setAmount(52);
-$body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setCurrency(Models\Currency::USS);
 $body_invoice_paymentRequests[0]->setTippingEnabled(true);
 $body_invoice_paymentRequests[0]->setAutomaticPaymentSource(Models\InvoiceAutomaticPaymentSource::NONE);
 $body_invoice_paymentRequests_0_reminders = [];
 
 $body_invoice_paymentRequests_0_reminders[0] = new Models\InvoicePaymentReminder;
-$body_invoice_paymentRequests_0_reminders[0]->setUid('uid2');
 $body_invoice_paymentRequests_0_reminders[0]->setRelativeScheduledDays(-1);
 $body_invoice_paymentRequests_0_reminders[0]->setMessage('Your invoice is due tomorrow');
-$body_invoice_paymentRequests_0_reminders[0]->setStatus(Models\InvoicePaymentReminderStatus::PENDING);
-$body_invoice_paymentRequests_0_reminders[0]->setSentAt('sent_at2');
 $body_invoice_paymentRequests[0]->setReminders($body_invoice_paymentRequests_0_reminders);
 
 $body_invoice->setPaymentRequests($body_invoice_paymentRequests);
@@ -210,8 +189,6 @@ $body_query->getSort()->setOrder(Models\SortOrder::DESC);
 $body = new Models\SearchInvoicesRequest(
     $body_query
 );
-$body->setLimit(164);
-$body->setCursor('cursor0');
 
 $apiResponse = $invoicesApi->searchInvoices($body);
 
@@ -252,9 +229,8 @@ function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
 
 ```php
 $invoiceId = 'invoice_id0';
-$version = 172;
 
-$apiResponse = $invoicesApi->deleteInvoice($invoiceId, $version);
+$apiResponse = $invoicesApi->deleteInvoice($invoiceId);
 
 if ($apiResponse->isSuccess()) {
     $deleteInvoiceResponse = $apiResponse->getResult();
@@ -332,31 +308,10 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 ```php
 $invoiceId = 'invoice_id0';
 $body_invoice = new Models\Invoice;
-$body_invoice->setId('id0');
-$body_invoice->setVersion(38);
-$body_invoice->setLocationId('location_id4');
-$body_invoice->setOrderId('order_id6');
-$body_invoice->setPrimaryRecipient(new Models\InvoiceRecipient);
-$body_invoice->getPrimaryRecipient()->setCustomerId('customer_id2');
-$body_invoice->getPrimaryRecipient()->setGivenName('given_name6');
-$body_invoice->getPrimaryRecipient()->setFamilyName('family_name8');
-$body_invoice->getPrimaryRecipient()->setEmailAddress('email_address2');
-$body_invoice->getPrimaryRecipient()->setAddress(new Models\Address);
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine1('address_line_10');
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine2('address_line_20');
-$body_invoice->getPrimaryRecipient()->getAddress()->setAddressLine3('address_line_36');
-$body_invoice->getPrimaryRecipient()->getAddress()->setLocality('locality0');
-$body_invoice->getPrimaryRecipient()->getAddress()->setSublocality('sublocality0');
 $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
 $body_invoice_paymentRequests[0]->setUid('2da7964f-f3d2-4f43-81e8-5aa220bf3355');
-$body_invoice_paymentRequests[0]->setRequestMethod(Models\InvoiceRequestMethod::SMS_CHARGE_CARD_ON_FILE);
-$body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::DEPOSIT);
-$body_invoice_paymentRequests[0]->setDueDate('due_date2');
-$body_invoice_paymentRequests[0]->setFixedAmountRequestedMoney(new Models\Money);
-$body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setAmount(52);
-$body_invoice_paymentRequests[0]->getFixedAmountRequestedMoney()->setCurrency(Models\Currency::USS);
 $body_invoice_paymentRequests[0]->setTippingEnabled(false);
 $body_invoice->setPaymentRequests($body_invoice_paymentRequests);
 

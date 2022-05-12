@@ -55,7 +55,7 @@ class DisputesApi extends BaseApi
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'      => $cursor,
-            'states'      => $states,
+            'states'      => Models\DisputeState::checkValue($states),
             'location_id' => $locationId,
         ]);
 

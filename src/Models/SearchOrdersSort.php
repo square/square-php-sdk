@@ -45,6 +45,7 @@ class SearchOrdersSort implements \JsonSerializable
      *
      * @required
      * @maps sort_field
+     * @factory \Square\Models\SearchOrdersSortField::checkValue
      */
     public function setSortField(string $sortField): void
     {
@@ -65,6 +66,7 @@ class SearchOrdersSort implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
+     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -83,9 +85,9 @@ class SearchOrdersSort implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['sort_field']     = $this->sortField;
+        $json['sort_field']     = SearchOrdersSortField::checkValue($this->sortField);
         if (isset($this->sortOrder)) {
-            $json['sort_order'] = $this->sortOrder;
+            $json['sort_order'] = SortOrder::checkValue($this->sortOrder);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

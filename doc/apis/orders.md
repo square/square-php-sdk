@@ -52,36 +52,14 @@ $body_order_locationId = '057P5VYJ4A5X1';
 $body->setOrder(new Models\Order(
     $body_order_locationId
 ));
-$body->getOrder()->setId('id0');
 $body->getOrder()->setReferenceId('my-order-001');
-$body->getOrder()->setSource(new Models\OrderSource);
-$body->getOrder()->getSource()->setName('name6');
-$body->getOrder()->setCustomerId('customer_id8');
 $body_order_lineItems = [];
 
 $body_order_lineItems_0_quantity = '1';
 $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
-$body_order_lineItems[0]->setUid('uid1');
 $body_order_lineItems[0]->setName('New York Strip Steak');
-$body_order_lineItems[0]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[0]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name = 'name9';
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation1';
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_INCH);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_KILOMETER);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
-$body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
-$body_order_lineItems[0]->setNote('note3');
-$body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
 $body_order_lineItems[0]->setBasePriceMoney(new Models\Money);
 $body_order_lineItems[0]->getBasePriceMoney()->setAmount(1599);
 $body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
@@ -90,33 +68,11 @@ $body_order_lineItems_1_quantity = '2';
 $body_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_lineItems_1_quantity
 );
-$body_order_lineItems[1]->setUid('uid0');
-$body_order_lineItems[1]->setName('name0');
-$body_order_lineItems[1]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[1]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name = 'name8';
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation0';
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_ACRE);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::IMPERIAL_INCH);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
-$body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
-$body_order_lineItems[1]->setNote('note4');
 $body_order_lineItems[1]->setCatalogObjectId('BEMYCSMIJL46OCDV4KYIKXIB');
 $body_order_lineItems_1_modifiers = [];
 
 $body_order_lineItems_1_modifiers[0] = new Models\OrderLineItemModifier;
-$body_order_lineItems_1_modifiers[0]->setUid('uid1');
 $body_order_lineItems_1_modifiers[0]->setCatalogObjectId('CHQX7Y4KY6N5KINJKZCFURPZ');
-$body_order_lineItems_1_modifiers[0]->setCatalogVersion(69);
-$body_order_lineItems_1_modifiers[0]->setName('name1');
-$body_order_lineItems_1_modifiers[0]->setQuantity('quantity7');
 $body_order_lineItems[1]->setModifiers($body_order_lineItems_1_modifiers);
 
 $body_order_lineItems_1_appliedDiscounts = [];
@@ -125,10 +81,6 @@ $body_order_lineItems_1_appliedDiscounts_0_discountUid = 'one-dollar-off';
 $body_order_lineItems_1_appliedDiscounts[0] = new Models\OrderLineItemAppliedDiscount(
     $body_order_lineItems_1_appliedDiscounts_0_discountUid
 );
-$body_order_lineItems_1_appliedDiscounts[0]->setUid('uid4');
-$body_order_lineItems_1_appliedDiscounts[0]->setAppliedMoney(new Models\Money);
-$body_order_lineItems_1_appliedDiscounts[0]->getAppliedMoney()->setAmount(164);
-$body_order_lineItems_1_appliedDiscounts[0]->getAppliedMoney()->setCurrency(Models\Currency::CUC);
 $body_order_lineItems[1]->setAppliedDiscounts($body_order_lineItems_1_appliedDiscounts);
 
 $body->getOrder()->setLineItems($body_order_lineItems);
@@ -137,10 +89,7 @@ $body_order_taxes = [];
 
 $body_order_taxes[0] = new Models\OrderLineItemTax;
 $body_order_taxes[0]->setUid('state-sales-tax');
-$body_order_taxes[0]->setCatalogObjectId('catalog_object_id1');
-$body_order_taxes[0]->setCatalogVersion(189);
 $body_order_taxes[0]->setName('State Sales Tax');
-$body_order_taxes[0]->setType(Models\OrderLineItemTaxType::UNKNOWN_TAX);
 $body_order_taxes[0]->setPercentage('9');
 $body_order_taxes[0]->setScope(Models\OrderLineItemTaxScope::ORDER);
 $body->getOrder()->setTaxes($body_order_taxes);
@@ -149,27 +98,18 @@ $body_order_discounts = [];
 
 $body_order_discounts[0] = new Models\OrderLineItemDiscount;
 $body_order_discounts[0]->setUid('labor-day-sale');
-$body_order_discounts[0]->setCatalogObjectId('catalog_object_id5');
-$body_order_discounts[0]->setCatalogVersion(89);
 $body_order_discounts[0]->setName('Labor Day Sale');
-$body_order_discounts[0]->setType(Models\OrderLineItemDiscountType::FIXED_PERCENTAGE);
 $body_order_discounts[0]->setPercentage('5');
 $body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 
 $body_order_discounts[1] = new Models\OrderLineItemDiscount;
 $body_order_discounts[1]->setUid('membership-discount');
 $body_order_discounts[1]->setCatalogObjectId('DB7L55ZH2BGWI4H23ULIWOQ7');
-$body_order_discounts[1]->setCatalogVersion(90);
-$body_order_discounts[1]->setName('name2');
-$body_order_discounts[1]->setType(Models\OrderLineItemDiscountType::FIXED_AMOUNT);
 $body_order_discounts[1]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 
 $body_order_discounts[2] = new Models\OrderLineItemDiscount;
 $body_order_discounts[2]->setUid('one-dollar-off');
-$body_order_discounts[2]->setCatalogObjectId('catalog_object_id7');
-$body_order_discounts[2]->setCatalogVersion(91);
 $body_order_discounts[2]->setName('Sale - $1.00 off');
-$body_order_discounts[2]->setType(Models\OrderLineItemDiscountType::VARIABLE_PERCENTAGE);
 $body_order_discounts[2]->setAmountMoney(new Models\Money);
 $body_order_discounts[2]->getAmountMoney()->setAmount(100);
 $body_order_discounts[2]->getAmountMoney()->setCurrency(Models\Currency::USD);
@@ -260,36 +200,13 @@ $body_order_locationId = 'D7AVYMEAPJ3A3';
 $body_order = new Models\Order(
     $body_order_locationId
 );
-$body_order->setId('id0');
-$body_order->setReferenceId('reference_id8');
-$body_order->setSource(new Models\OrderSource);
-$body_order->getSource()->setName('name6');
-$body_order->setCustomerId('customer_id8');
 $body_order_lineItems = [];
 
 $body_order_lineItems_0_quantity = '1';
 $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
-$body_order_lineItems[0]->setUid('uid1');
 $body_order_lineItems[0]->setName('Item 1');
-$body_order_lineItems[0]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[0]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name = 'name9';
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation1';
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_INCH);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_KILOMETER);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
-$body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
-$body_order_lineItems[0]->setNote('note3');
-$body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
 $body_order_lineItems[0]->setBasePriceMoney(new Models\Money);
 $body_order_lineItems[0]->getBasePriceMoney()->setAmount(500);
 $body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
@@ -298,25 +215,7 @@ $body_order_lineItems_1_quantity = '2';
 $body_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_lineItems_1_quantity
 );
-$body_order_lineItems[1]->setUid('uid0');
 $body_order_lineItems[1]->setName('Item 2');
-$body_order_lineItems[1]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[1]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name = 'name8';
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation0';
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_ACRE);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::IMPERIAL_INCH);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
-$body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
-$body_order_lineItems[1]->setNote('note4');
-$body_order_lineItems[1]->setCatalogObjectId('catalog_object_id6');
 $body_order_lineItems[1]->setBasePriceMoney(new Models\Money);
 $body_order_lineItems[1]->getBasePriceMoney()->setAmount(300);
 $body_order_lineItems[1]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
@@ -325,11 +224,7 @@ $body_order->setLineItems($body_order_lineItems);
 $body_order_discounts = [];
 
 $body_order_discounts[0] = new Models\OrderLineItemDiscount;
-$body_order_discounts[0]->setUid('uid1');
-$body_order_discounts[0]->setCatalogObjectId('catalog_object_id5');
-$body_order_discounts[0]->setCatalogVersion(89);
 $body_order_discounts[0]->setName('50% Off');
-$body_order_discounts[0]->setType(Models\OrderLineItemDiscountType::FIXED_PERCENTAGE);
 $body_order_discounts[0]->setPercentage('50');
 $body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 $body_order->setDiscounts($body_order_discounts);
@@ -337,30 +232,6 @@ $body_order->setDiscounts($body_order_discounts);
 $body = new Models\CalculateOrderRequest(
     $body_order
 );
-$body_proposedRewards = [];
-
-$body_proposedRewards_0_id = 'id6';
-$body_proposedRewards_0_rewardTierId = 'reward_tier_id2';
-$body_proposedRewards[0] = new Models\OrderReward(
-    $body_proposedRewards_0_id,
-    $body_proposedRewards_0_rewardTierId
-);
-
-$body_proposedRewards_1_id = 'id7';
-$body_proposedRewards_1_rewardTierId = 'reward_tier_id3';
-$body_proposedRewards[1] = new Models\OrderReward(
-    $body_proposedRewards_1_id,
-    $body_proposedRewards_1_rewardTierId
-);
-
-$body_proposedRewards_2_id = 'id8';
-$body_proposedRewards_2_rewardTierId = 'reward_tier_id4';
-$body_proposedRewards[2] = new Models\OrderReward(
-    $body_proposedRewards_2_id,
-    $body_proposedRewards_2_rewardTierId
-);
-$body->setProposedRewards($body_proposedRewards);
-
 
 $apiResponse = $ordersApi->calculateOrder($body);
 
@@ -458,7 +329,6 @@ function searchOrders(SearchOrdersRequest $body): ApiResponse
 ```php
 $body = new Models\SearchOrdersRequest;
 $body->setLocationIds(['057P5VYJ4A5X1', '18YC4JDH91E1H']);
-$body->setCursor('cursor0');
 $body->setQuery(new Models\SearchOrdersQuery);
 $body->getQuery()->setFilter(new Models\SearchOrdersFilter);
 $body_query_filter_stateFilter_states = [Models\OrderState::COMPLETED];
@@ -466,22 +336,9 @@ $body->getQuery()->getFilter()->setStateFilter(new Models\SearchOrdersStateFilte
     $body_query_filter_stateFilter_states
 ));
 $body->getQuery()->getFilter()->setDateTimeFilter(new Models\SearchOrdersDateTimeFilter);
-$body->getQuery()->getFilter()->getDateTimeFilter()->setCreatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getDateTimeFilter()->getCreatedAt()->setStartAt('start_at8');
-$body->getQuery()->getFilter()->getDateTimeFilter()->getCreatedAt()->setEndAt('end_at4');
-$body->getQuery()->getFilter()->getDateTimeFilter()->setUpdatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getDateTimeFilter()->getUpdatedAt()->setStartAt('start_at6');
-$body->getQuery()->getFilter()->getDateTimeFilter()->getUpdatedAt()->setEndAt('end_at6');
 $body->getQuery()->getFilter()->getDateTimeFilter()->setClosedAt(new Models\TimeRange);
 $body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setStartAt('2018-03-03T20:00:00+00:00');
 $body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setEndAt('2019-03-04T21:54:45+00:00');
-$body->getQuery()->getFilter()->setFulfillmentFilter(new Models\SearchOrdersFulfillmentFilter);
-$body->getQuery()->getFilter()->getFulfillmentFilter()->setFulfillmentTypes([Models\OrderFulfillmentType::SHIPMENT]);
-$body->getQuery()->getFilter()->getFulfillmentFilter()->setFulfillmentStates([Models\OrderFulfillmentState::CANCELED, Models\OrderFulfillmentState::FAILED]);
-$body->getQuery()->getFilter()->setSourceFilter(new Models\SearchOrdersSourceFilter);
-$body->getQuery()->getFilter()->getSourceFilter()->setSourceNames(['source_names8']);
-$body->getQuery()->getFilter()->setCustomerFilter(new Models\SearchOrdersCustomerFilter);
-$body->getQuery()->getFilter()->getCustomerFilter()->setCustomerIds(['customer_ids5', 'customer_ids6']);
 $body_query_sort_sortField = Models\SearchOrdersSortField::CLOSED_AT;
 $body->getQuery()->setSort(new Models\SearchOrdersSort(
     $body_query_sort_sortField
@@ -579,68 +436,6 @@ function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
 ```php
 $orderId = 'order_id6';
 $body = new Models\UpdateOrderRequest;
-$body_order_locationId = 'location_id4';
-$body->setOrder(new Models\Order(
-    $body_order_locationId
-));
-$body->getOrder()->setId('id0');
-$body->getOrder()->setReferenceId('reference_id8');
-$body->getOrder()->setSource(new Models\OrderSource);
-$body->getOrder()->getSource()->setName('name6');
-$body->getOrder()->setCustomerId('customer_id8');
-$body_order_lineItems = [];
-
-$body_order_lineItems_0_quantity = 'quantity7';
-$body_order_lineItems[0] = new Models\OrderLineItem(
-    $body_order_lineItems_0_quantity
-);
-$body_order_lineItems[0]->setUid('uid1');
-$body_order_lineItems[0]->setName('name1');
-$body_order_lineItems[0]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[0]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name = 'name9';
-$body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation1';
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_0_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_INCH);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_KILOMETER);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_QUART);
-$body_order_lineItems[0]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_MILLIGRAM);
-$body_order_lineItems[0]->getQuantityUnit()->setPrecision(189);
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogObjectId('catalog_object_id1');
-$body_order_lineItems[0]->getQuantityUnit()->setCatalogVersion(133);
-$body_order_lineItems[0]->setNote('note3');
-$body_order_lineItems[0]->setCatalogObjectId('catalog_object_id5');
-
-$body_order_lineItems_1_quantity = 'quantity6';
-$body_order_lineItems[1] = new Models\OrderLineItem(
-    $body_order_lineItems_1_quantity
-);
-$body_order_lineItems[1]->setUid('uid0');
-$body_order_lineItems[1]->setName('name0');
-$body_order_lineItems[1]->setQuantityUnit(new Models\OrderQuantityUnit);
-$body_order_lineItems[1]->getQuantityUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name = 'name8';
-$body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation = 'abbreviation0';
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_name,
-    $body_order_lineItems_1_quantityUnit_measurementUnit_customUnit_abbreviation
-));
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_ACRE);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::IMPERIAL_INCH);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::GENERIC_PINT);
-$body_order_lineItems[1]->getQuantityUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::METRIC_GRAM);
-$body_order_lineItems[1]->getQuantityUnit()->setPrecision(188);
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogObjectId('catalog_object_id0');
-$body_order_lineItems[1]->getQuantityUnit()->setCatalogVersion(134);
-$body_order_lineItems[1]->setNote('note4');
-$body_order_lineItems[1]->setCatalogObjectId('catalog_object_id6');
-$body->getOrder()->setLineItems($body_order_lineItems);
-
-$body->setFieldsToClear(['fields_to_clear7', 'fields_to_clear8']);
-$body->setIdempotencyKey('idempotency_key2');
 
 $apiResponse = $ordersApi->updateOrder($orderId, $body);
 
@@ -696,7 +491,6 @@ $body_idempotencyKey = 'c043a359-7ad9-4136-82a9-c3f1d66dcbff';
 $body = new Models\PayOrderRequest(
     $body_idempotencyKey
 );
-$body->setOrderVersion(82);
 $body->setPaymentIds(['EnZdNAlWCmfh6Mt5FMNST1o7taB', '0LRiVlbXVwe8ozu4KbZxd12mvaB']);
 
 $apiResponse = $ordersApi->payOrder($orderId, $body);

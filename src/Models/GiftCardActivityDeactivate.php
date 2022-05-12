@@ -37,6 +37,7 @@ class GiftCardActivityDeactivate implements \JsonSerializable
      *
      * @required
      * @maps reason
+     * @factory \Square\Models\GiftCardActivityDeactivateReason::checkValue
      */
     public function setReason(string $reason): void
     {
@@ -55,7 +56,7 @@ class GiftCardActivityDeactivate implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['reason'] = $this->reason;
+        $json['reason'] = GiftCardActivityDeactivateReason::checkValue($this->reason);
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

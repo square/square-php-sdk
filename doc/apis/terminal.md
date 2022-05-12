@@ -10,6 +10,10 @@ $terminalApi = $client->getTerminalApi();
 
 ## Methods
 
+* [Create Terminal Action](../../doc/apis/terminal.md#create-terminal-action)
+* [Search Terminal Actions](../../doc/apis/terminal.md#search-terminal-actions)
+* [Get Terminal Action](../../doc/apis/terminal.md#get-terminal-action)
+* [Cancel Terminal Action](../../doc/apis/terminal.md#cancel-terminal-action)
 * [Create Terminal Checkout](../../doc/apis/terminal.md#create-terminal-checkout)
 * [Search Terminal Checkouts](../../doc/apis/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/apis/terminal.md#get-terminal-checkout)
@@ -18,6 +22,175 @@ $terminalApi = $client->getTerminalApi();
 * [Search Terminal Refunds](../../doc/apis/terminal.md#search-terminal-refunds)
 * [Get Terminal Refund](../../doc/apis/terminal.md#get-terminal-refund)
 * [Cancel Terminal Refund](../../doc/apis/terminal.md#cancel-terminal-refund)
+
+
+# Create Terminal Action
+
+Creates a Terminal action request and sends it to the specified device to take a payment
+for the requested amount.
+
+```php
+function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`CreateTerminalActionRequest`](../../doc/models/create-terminal-action-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`CreateTerminalActionResponse`](../../doc/models/create-terminal-action-response.md)
+
+## Example Usage
+
+```php
+$body_idempotencyKey = 'thahn-70e75c10-47f7-4ab6-88cc-aaa4076d065e';
+$body_action = new Models\TerminalAction;
+$body_action->setDeviceId('{{DEVICE_ID}}');
+$body_action->setDeadlineDuration('PT5M');
+$body_action->setType(Models\TerminalActionActionType::SAVE_CARD);
+$body_action_saveCardOptions_customerId = '{{CUSTOMER_ID}}';
+$body_action->setSaveCardOptions(new Models\SaveCardOptions(
+    $body_action_saveCardOptions_customerId
+));
+$body_action->getSaveCardOptions()->setReferenceId('user-id-1');
+$body = new Models\CreateTerminalActionRequest(
+    $body_idempotencyKey,
+    $body_action
+);
+
+$apiResponse = $terminalApi->createTerminalAction($body);
+
+if ($apiResponse->isSuccess()) {
+    $createTerminalActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Search Terminal Actions
+
+Retrieves a filtered list of Terminal action requests created by the account making the request. Terminal action requests are available for 30 days.
+
+```php
+function searchTerminalActions(SearchTerminalActionsRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`SearchTerminalActionsRequest`](../../doc/models/search-terminal-actions-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+[`SearchTerminalActionsResponse`](../../doc/models/search-terminal-actions-response.md)
+
+## Example Usage
+
+```php
+$body = new Models\SearchTerminalActionsRequest;
+$body->setQuery(new Models\TerminalActionQuery);
+$body->getQuery()->setFilter(new Models\TerminalActionQueryFilter);
+$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
+$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2022-04-01T00:00:00.000Z');
+$body->getQuery()->setSort(new Models\TerminalActionQuerySort);
+$body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
+$body->setLimit(2);
+
+$apiResponse = $terminalApi->searchTerminalActions($body);
+
+if ($apiResponse->isSuccess()) {
+    $searchTerminalActionsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Get Terminal Action
+
+Retrieves a Terminal action request by `action_id`. Terminal action requests are available for 30 days.
+
+```php
+function getTerminalAction(string $actionId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+
+## Response Type
+
+[`GetTerminalActionResponse`](../../doc/models/get-terminal-action-response.md)
+
+## Example Usage
+
+```php
+$actionId = 'action_id6';
+
+$apiResponse = $terminalApi->getTerminalAction($actionId);
+
+if ($apiResponse->isSuccess()) {
+    $getTerminalActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Cancel Terminal Action
+
+Cancels a Terminal action request if the status of the request permits it.
+
+```php
+function cancelTerminalAction(string $actionId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+
+## Response Type
+
+[`CancelTerminalActionResponse`](../../doc/models/cancel-terminal-action-response.md)
+
+## Example Usage
+
+```php
+$actionId = 'action_id6';
+
+$apiResponse = $terminalApi->cancelTerminalAction($actionId);
+
+if ($apiResponse->isSuccess()) {
+    $cancelTerminalActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
 
 
 # Create Terminal Checkout
@@ -50,23 +223,12 @@ $body_checkout_deviceOptions_deviceId = 'dbb5d83a-7838-11ea-bc55-0242ac130003';
 $body_checkout_deviceOptions = new Models\DeviceCheckoutOptions(
     $body_checkout_deviceOptions_deviceId
 );
-$body_checkout_deviceOptions->setSkipReceiptScreen(false);
-$body_checkout_deviceOptions->setCollectSignature(false);
-$body_checkout_deviceOptions->setTipSettings(new Models\TipSettings);
-$body_checkout_deviceOptions->getTipSettings()->setAllowTipping(false);
-$body_checkout_deviceOptions->getTipSettings()->setSeparateTipScreen(false);
-$body_checkout_deviceOptions->getTipSettings()->setCustomTipField(false);
-$body_checkout_deviceOptions->getTipSettings()->setTipPercentages([148, 149, 150]);
-$body_checkout_deviceOptions->getTipSettings()->setSmartTipping(false);
 $body_checkout = new Models\TerminalCheckout(
     $body_checkout_amountMoney,
     $body_checkout_deviceOptions
 );
-$body_checkout->setId('id8');
 $body_checkout->setReferenceId('id11572');
 $body_checkout->setNote('A brief note');
-$body_checkout->setDeadlineDuration('deadline_duration0');
-$body_checkout->setStatus('status0');
 $body = new Models\CreateTerminalCheckoutRequest(
     $body_idempotencyKey,
     $body_checkout
@@ -110,14 +272,7 @@ function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiRespo
 $body = new Models\SearchTerminalCheckoutsRequest;
 $body->setQuery(new Models\TerminalCheckoutQuery);
 $body->getQuery()->setFilter(new Models\TerminalCheckoutQueryFilter);
-$body->getQuery()->getFilter()->setDeviceId('device_id8');
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('start_at2');
-$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('end_at0');
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
-$body->getQuery()->setSort(new Models\TerminalCheckoutQuerySort);
-$body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
-$body->setCursor('cursor0');
 $body->setLimit(2);
 
 $apiResponse = $terminalApi->searchTerminalCheckouts($body);
@@ -245,11 +400,6 @@ $body->setRefund(new Models\TerminalRefund(
     $body_refund_reason,
     $body_refund_deviceId
 ));
-$body->getRefund()->setId('id4');
-$body->getRefund()->setRefundId('refund_id8');
-$body->getRefund()->setOrderId('order_id8');
-$body->getRefund()->setDeadlineDuration('deadline_duration6');
-$body->getRefund()->setStatus('status6');
 
 $apiResponse = $terminalApi->createTerminalRefund($body);
 
@@ -289,14 +439,7 @@ function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
 $body = new Models\SearchTerminalRefundsRequest;
 $body->setQuery(new Models\TerminalRefundQuery);
 $body->getQuery()->setFilter(new Models\TerminalRefundQueryFilter);
-$body->getQuery()->getFilter()->setDeviceId('device_id8');
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('start_at2');
-$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('end_at0');
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
-$body->getQuery()->setSort(new Models\TerminalRefundQuerySort);
-$body->getQuery()->getSort()->setSortOrder('sort_order8');
-$body->setCursor('cursor0');
 $body->setLimit(1);
 
 $apiResponse = $terminalApi->searchTerminalRefunds($body);

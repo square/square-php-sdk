@@ -465,6 +465,7 @@ class Customer implements \JsonSerializable
      * Indicates the method used to create the customer profile.
      *
      * @maps creation_source
+     * @factory \Square\Models\CustomerCreationSource::checkValue
      */
     public function setCreationSource(?string $creationSource): void
     {
@@ -627,7 +628,7 @@ class Customer implements \JsonSerializable
             $json['preferences']     = $this->preferences;
         }
         if (isset($this->creationSource)) {
-            $json['creation_source'] = $this->creationSource;
+            $json['creation_source'] = CustomerCreationSource::checkValue($this->creationSource);
         }
         if (isset($this->groupIds)) {
             $json['group_ids']       = $this->groupIds;

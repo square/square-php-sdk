@@ -186,6 +186,7 @@ class InventoryPhysicalCount implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps state
+     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -238,7 +239,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Source.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      */
     public function getSource(): ?SourceApplication
     {
@@ -247,7 +248,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Source.
-     * Provides information about the application used to generate a change.
+     * Represents information about the application used to generate a change.
      *
      * @maps source
      */
@@ -371,7 +372,7 @@ class InventoryPhysicalCount implements \JsonSerializable
             $json['catalog_object_type'] = $this->catalogObjectType;
         }
         if (isset($this->state)) {
-            $json['state']               = $this->state;
+            $json['state']               = InventoryState::checkValue($this->state);
         }
         if (isset($this->locationId)) {
             $json['location_id']         = $this->locationId;

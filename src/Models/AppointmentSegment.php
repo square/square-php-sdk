@@ -12,7 +12,7 @@ use stdClass;
 class AppointmentSegment implements \JsonSerializable
 {
     /**
-     * @var int
+     * @var int|null
      */
     private $durationMinutes;
 
@@ -47,18 +47,12 @@ class AppointmentSegment implements \JsonSerializable
     private $resourceIds;
 
     /**
-     * @param int $durationMinutes
      * @param string $serviceVariationId
      * @param string $teamMemberId
      * @param int $serviceVariationVersion
      */
-    public function __construct(
-        int $durationMinutes,
-        string $serviceVariationId,
-        string $teamMemberId,
-        int $serviceVariationVersion
-    ) {
-        $this->durationMinutes = $durationMinutes;
+    public function __construct(string $serviceVariationId, string $teamMemberId, int $serviceVariationVersion)
+    {
         $this->serviceVariationId = $serviceVariationId;
         $this->teamMemberId = $teamMemberId;
         $this->serviceVariationVersion = $serviceVariationVersion;
@@ -68,7 +62,7 @@ class AppointmentSegment implements \JsonSerializable
      * Returns Duration Minutes.
      * The time span in minutes of an appointment segment.
      */
-    public function getDurationMinutes(): int
+    public function getDurationMinutes(): ?int
     {
         return $this->durationMinutes;
     }
@@ -77,10 +71,9 @@ class AppointmentSegment implements \JsonSerializable
      * Sets Duration Minutes.
      * The time span in minutes of an appointment segment.
      *
-     * @required
      * @maps duration_minutes
      */
-    public function setDurationMinutes(int $durationMinutes): void
+    public function setDurationMinutes(?int $durationMinutes): void
     {
         $this->durationMinutes = $durationMinutes;
     }
@@ -226,7 +219,9 @@ class AppointmentSegment implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['duration_minutes']          = $this->durationMinutes;
+        if (isset($this->durationMinutes)) {
+            $json['duration_minutes']      = $this->durationMinutes;
+        }
         $json['service_variation_id']      = $this->serviceVariationId;
         $json['team_member_id']            = $this->teamMemberId;
         $json['service_variation_version'] = $this->serviceVariationVersion;

@@ -44,11 +44,7 @@ function listDisputes(?string $cursor = null, ?string $states = null, ?string $l
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$states = Models\DisputeState::INQUIRY_EVIDENCE_REQUIRED;
-$locationId = 'location_id4';
-
-$apiResponse = $disputesApi->listDisputes($cursor, $states, $locationId);
+$apiResponse = $disputesApi->listDisputes();
 
 if ($apiResponse->isSuccess()) {
     $listDisputesResponse = $apiResponse->getResult();
@@ -163,9 +159,8 @@ function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResp
 
 ```php
 $disputeId = 'dispute_id2';
-$cursor = 'cursor6';
 
-$apiResponse = $disputesApi->listDisputeEvidence($disputeId, $cursor);
+$apiResponse = $disputesApi->listDisputeEvidence($disputeId);
 
 if ($apiResponse->isSuccess()) {
     $listDisputeEvidenceResponse = $apiResponse->getResult();
@@ -208,15 +203,8 @@ function createDisputeEvidenceFile(
 
 ```php
 $disputeId = 'dispute_id2';
-$request_idempotencyKey = 'idempotency_key2';
-$request = new Models\CreateDisputeEvidenceFileRequest(
-    $request_idempotencyKey
-);
-$request->setEvidenceType(Models\DisputeEvidenceType::REBUTTAL_EXPLANATION);
-$request->setContentType('content_type0');
-$imageFile = 'dummy_file';
 
-$apiResponse = $disputesApi->createDisputeEvidenceFile($disputeId, $request, $imageFile);
+$apiResponse = $disputesApi->createDisputeEvidenceFile($disputeId);
 
 if ($apiResponse->isSuccess()) {
     $createDisputeEvidenceFileResponse = $apiResponse->getResult();

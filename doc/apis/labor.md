@@ -51,11 +51,7 @@ function listBreakTypes(?string $locationId = null, ?int $limit = null, ?string 
 ## Example Usage
 
 ```php
-$locationId = 'location_id4';
-$limit = 172;
-$cursor = 'cursor6';
-
-$apiResponse = $laborApi->listBreakTypes($locationId, $limit, $cursor);
+$apiResponse = $laborApi->listBreakTypes();
 
 if ($apiResponse->isSuccess()) {
     $listBreakTypesResponse = $apiResponse->getResult();
@@ -113,10 +109,6 @@ $body_breakType = new Models\BreakType(
     $body_breakType_expectedDuration,
     $body_breakType_isPaid
 );
-$body_breakType->setId('id2');
-$body_breakType->setVersion(124);
-$body_breakType->setCreatedAt('created_at0');
-$body_breakType->setUpdatedAt('updated_at8');
 $body = new Models\CreateBreakTypeRequest(
     $body_breakType
 );
@@ -245,10 +237,7 @@ $body_breakType = new Models\BreakType(
     $body_breakType_expectedDuration,
     $body_breakType_isPaid
 );
-$body_breakType->setId('id2');
 $body_breakType->setVersion(1);
-$body_breakType->setCreatedAt('created_at0');
-$body_breakType->setUpdatedAt('updated_at8');
 $body = new Models\UpdateBreakTypeRequest(
     $body_breakType
 );
@@ -292,11 +281,7 @@ function listEmployeeWages(?string $employeeId = null, ?int $limit = null, ?stri
 ## Example Usage
 
 ```php
-$employeeId = 'employee_id0';
-$limit = 172;
-$cursor = 'cursor6';
-
-$apiResponse = $laborApi->listEmployeeWages($employeeId, $limit, $cursor);
+$apiResponse = $laborApi->listEmployeeWages();
 
 if ($apiResponse->isSuccess()) {
     $listEmployeeWagesResponse = $apiResponse->getResult();
@@ -392,10 +377,7 @@ $body_shift_startAt = '2019-01-25T03:11:00-05:00';
 $body_shift = new Models\Shift(
     $body_shift_startAt
 );
-$body_shift->setId('id8');
-$body_shift->setEmployeeId('employee_id2');
 $body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setTimezone('timezone2');
 $body_shift->setEndAt('2019-01-25T13:11:00-05:00');
 $body_shift->setWage(new Models\ShiftWage);
 $body_shift->getWage()->setTitle('Barista');
@@ -416,7 +398,6 @@ $body_shift_breaks[0] = new Models\MBreak(
     $body_shift_breaks_0_expectedDuration,
     $body_shift_breaks_0_isPaid
 );
-$body_shift_breaks[0]->setId('id4');
 $body_shift_breaks[0]->setEndAt('2019-01-25T06:16:00-05:00');
 $body_shift->setBreaks($body_shift_breaks);
 
@@ -477,32 +458,6 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 
 ```php
 $body = new Models\SearchShiftsRequest;
-$body->setQuery(new Models\ShiftQuery);
-$body_query_filter_locationIds = ['location_ids2'];
-$body_query_filter_teamMemberIds = ['team_member_ids9', 'team_member_ids0'];
-$body->getQuery()->setFilter(new Models\ShiftFilter(
-    $body_query_filter_locationIds,
-    $body_query_filter_teamMemberIds
-));
-$body->getQuery()->getFilter()->setEmployeeIds(['employee_ids7']);
-$body->getQuery()->getFilter()->setStatus(Models\ShiftFilterStatus::OPEN);
-$body->getQuery()->getFilter()->setStart(new Models\TimeRange);
-$body->getQuery()->getFilter()->getStart()->setStartAt('start_at8');
-$body->getQuery()->getFilter()->getStart()->setEndAt('end_at4');
-$body->getQuery()->getFilter()->setEnd(new Models\TimeRange);
-$body->getQuery()->getFilter()->getEnd()->setStartAt('start_at2');
-$body->getQuery()->getFilter()->getEnd()->setEndAt('end_at0');
-$body->getQuery()->getFilter()->setWorkday(new Models\ShiftWorkday);
-$body->getQuery()->getFilter()->getWorkday()->setDateRange(new Models\DateRange);
-$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setStartDate('start_date8');
-$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setEndDate('end_date4');
-$body->getQuery()->getFilter()->getWorkday()->setMatchShiftsBy(Models\ShiftWorkdayMatcher::START_AT);
-$body->getQuery()->getFilter()->getWorkday()->setDefaultTimezone('default_timezone8');
-$body->getQuery()->setSort(new Models\ShiftSort);
-$body->getQuery()->getSort()->setField(Models\ShiftSortField::CREATED_AT);
-$body->getQuery()->getSort()->setOrder(Models\SortOrder::DESC);
-$body->setLimit(164);
-$body->setCursor('cursor0');
 
 $apiResponse = $laborApi->searchShifts($body);
 
@@ -625,10 +580,7 @@ $body_shift_startAt = '2019-01-25T03:11:00-05:00';
 $body_shift = new Models\Shift(
     $body_shift_startAt
 );
-$body_shift->setId('id8');
-$body_shift->setEmployeeId('employee_id2');
 $body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setTimezone('timezone2');
 $body_shift->setEndAt('2019-01-25T13:11:00-05:00');
 $body_shift->setWage(new Models\ShiftWage);
 $body_shift->getWage()->setTitle('Bartender');
@@ -700,11 +652,7 @@ function listTeamMemberWages(
 ## Example Usage
 
 ```php
-$teamMemberId = 'team_member_id0';
-$limit = 172;
-$cursor = 'cursor6';
-
-$apiResponse = $laborApi->listTeamMemberWages($teamMemberId, $limit, $cursor);
+$apiResponse = $laborApi->listTeamMemberWages();
 
 if ($apiResponse->isSuccess()) {
     $listTeamMemberWagesResponse = $apiResponse->getResult();
@@ -777,10 +725,7 @@ function listWorkweekConfigs(?int $limit = null, ?string $cursor = null): ApiRes
 ## Example Usage
 
 ```php
-$limit = 172;
-$cursor = 'cursor6';
-
-$apiResponse = $laborApi->listWorkweekConfigs($limit, $cursor);
+$apiResponse = $laborApi->listWorkweekConfigs();
 
 if ($apiResponse->isSuccess()) {
     $listWorkweekConfigsResponse = $apiResponse->getResult();
@@ -823,10 +768,7 @@ $body_workweekConfig = new Models\WorkweekConfig(
     $body_workweekConfig_startOfWeek,
     $body_workweekConfig_startOfDayLocalTime
 );
-$body_workweekConfig->setId('id4');
 $body_workweekConfig->setVersion(10);
-$body_workweekConfig->setCreatedAt('created_at2');
-$body_workweekConfig->setUpdatedAt('updated_at0');
 $body = new Models\UpdateWorkweekConfigRequest(
     $body_workweekConfig
 );

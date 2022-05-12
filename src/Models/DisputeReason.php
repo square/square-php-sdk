@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * The list of possible reasons why a cardholder might initiate a
  * dispute with their bank.
@@ -78,4 +81,31 @@ class DisputeReason
      * For more information, see [What Is EMV?](https://squareup.com/emv)
      */
     public const EMV_LIABILITY_SHIFT = 'EMV_LIABILITY_SHIFT';
+
+    private const _ALL_VALUES = [
+        self::AMOUNT_DIFFERS,
+        self::CANCELLED,
+        self::DUPLICATE,
+        self::NO_KNOWLEDGE,
+        self::NOT_AS_DESCRIBED,
+        self::NOT_RECEIVED,
+        self::PAID_BY_OTHER_MEANS,
+        self::CUSTOMER_REQUESTS_CREDIT,
+        self::EMV_LIABILITY_SHIFT,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

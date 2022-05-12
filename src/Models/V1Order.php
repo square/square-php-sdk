@@ -252,6 +252,7 @@ class V1Order implements \JsonSerializable
      * Sets State.
      *
      * @maps state
+     * @factory \Square\Models\V1OrderState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -708,7 +709,7 @@ class V1Order implements \JsonSerializable
             $json['recipient_phone_number'] = $this->recipientPhoneNumber;
         }
         if (isset($this->state)) {
-            $json['state']                  = $this->state;
+            $json['state']                  = V1OrderState::checkValue($this->state);
         }
         if (isset($this->shippingAddress)) {
             $json['shipping_address']       = $this->shippingAddress;

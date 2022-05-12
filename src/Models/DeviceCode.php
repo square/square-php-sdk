@@ -195,6 +195,7 @@ class DeviceCode implements \JsonSerializable
      * DeviceCode.Status enum.
      *
      * @maps status
+     * @factory \Square\Models\DeviceCodeStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -310,7 +311,7 @@ class DeviceCode implements \JsonSerializable
             $json['location_id']       = $this->locationId;
         }
         if (isset($this->status)) {
-            $json['status']            = $this->status;
+            $json['status']            = DeviceCodeStatus::checkValue($this->status);
         }
         if (isset($this->pairBy)) {
             $json['pair_by']           = $this->pairBy;

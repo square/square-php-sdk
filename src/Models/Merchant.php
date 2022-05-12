@@ -116,6 +116,7 @@ class Merchant implements \JsonSerializable
      *
      * @required
      * @maps country
+     * @factory \Square\Models\Country::checkValue
      */
     public function setCountry(string $country): void
     {
@@ -162,6 +163,7 @@ class Merchant implements \JsonSerializable
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *
      * @maps currency
+     * @factory \Square\Models\Currency::checkValue
      */
     public function setCurrency(?string $currency): void
     {
@@ -180,6 +182,7 @@ class Merchant implements \JsonSerializable
      * Sets Status.
      *
      * @maps status
+     * @factory \Square\Models\MerchantStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -250,15 +253,15 @@ class Merchant implements \JsonSerializable
         if (isset($this->businessName)) {
             $json['business_name']    = $this->businessName;
         }
-        $json['country']              = $this->country;
+        $json['country']              = Country::checkValue($this->country);
         if (isset($this->languageCode)) {
             $json['language_code']    = $this->languageCode;
         }
         if (isset($this->currency)) {
-            $json['currency']         = $this->currency;
+            $json['currency']         = Currency::checkValue($this->currency);
         }
         if (isset($this->status)) {
-            $json['status']           = $this->status;
+            $json['status']           = MerchantStatus::checkValue($this->status);
         }
         if (isset($this->mainLocationId)) {
             $json['main_location_id'] = $this->mainLocationId;

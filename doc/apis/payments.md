@@ -63,17 +63,7 @@ function listPayments(
 ## Example Usage
 
 ```php
-$beginTime = 'begin_time2';
-$endTime = 'end_time2';
-$sortOrder = 'sort_order0';
-$cursor = 'cursor6';
-$locationId = 'location_id4';
-$total = 10;
-$last4 = 'last_42';
-$cardBrand = 'card_brand6';
-$limit = 172;
-
-$apiResponse = $paymentsApi->listPayments($beginTime, $endTime, $sortOrder, $cursor, $locationId, $total, $last4, $cardBrand, $limit);
+$apiResponse = $paymentsApi->listPayments();
 
 if ($apiResponse->isSuccess()) {
     $listPaymentsResponse = $apiResponse->getResult();
@@ -125,15 +115,10 @@ $body = new Models\CreatePaymentRequest(
     $body_idempotencyKey,
     $body_amountMoney
 );
-$body->setTipMoney(new Models\Money);
-$body->getTipMoney()->setAmount(198);
-$body->getTipMoney()->setCurrency(Models\Currency::CHF);
 $body->setAppFeeMoney(new Models\Money);
 $body->getAppFeeMoney()->setAmount(10);
 $body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
-$body->setDelayDuration('delay_duration6');
 $body->setAutocomplete(true);
-$body->setOrderId('order_id0');
 $body->setCustomerId('W92WH6P11H4Z77CTET0RNTGFW8');
 $body->setLocationId('L88917AVBK2S5');
 $body->setReferenceId('123456');
@@ -269,9 +254,6 @@ $body = new Models\UpdatePaymentRequest(
     $body_idempotencyKey
 );
 $body->setPayment(new Models\Payment);
-$body->getPayment()->setId('id2');
-$body->getPayment()->setCreatedAt('created_at0');
-$body->getPayment()->setUpdatedAt('updated_at8');
 $body->getPayment()->setAmountMoney(new Models\Money);
 $body->getPayment()->getAmountMoney()->setAmount(1000);
 $body->getPayment()->getAmountMoney()->setCurrency(Models\Currency::USD);
@@ -359,7 +341,6 @@ function completePayment(string $paymentId, CompletePaymentRequest $body): ApiRe
 ```php
 $paymentId = 'payment_id0';
 $body = new Models\CompletePaymentRequest;
-$body->setVersionToken('version_token2');
 
 $apiResponse = $paymentsApi->completePayment($paymentId, $body);
 

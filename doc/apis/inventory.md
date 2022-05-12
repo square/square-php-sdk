@@ -136,40 +136,13 @@ $body_changes = [];
 $body_changes[0] = new Models\InventoryChange;
 $body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
 $body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount);
-$body_changes[0]->getPhysicalCount()->setId('id0');
 $body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
 $body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
-$body_changes[0]->getPhysicalCount()->setCatalogObjectType('catalog_object_type4');
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
 $body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
 $body_changes[0]->getPhysicalCount()->setQuantity('53');
 $body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
 $body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
-$body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
-$body_changes[0]->getAdjustment()->setId('id6');
-$body_changes[0]->getAdjustment()->setReferenceId('reference_id4');
-$body_changes[0]->getAdjustment()->setFromState(Models\InventoryState::SOLD);
-$body_changes[0]->getAdjustment()->setToState(Models\InventoryState::SOLD_ONLINE);
-$body_changes[0]->getAdjustment()->setLocationId('location_id0');
-$body_changes[0]->setTransfer(new Models\InventoryTransfer);
-$body_changes[0]->getTransfer()->setId('id0');
-$body_changes[0]->getTransfer()->setReferenceId('reference_id8');
-$body_changes[0]->getTransfer()->setState(Models\InventoryState::UNLINKED_RETURN);
-$body_changes[0]->getTransfer()->setFromLocationId('from_location_id2');
-$body_changes[0]->getTransfer()->setToLocationId('to_location_id2');
-$body_changes[0]->setMeasurementUnit(new Models\CatalogMeasurementUnit);
-$body_changes[0]->getMeasurementUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_changes_0_measurementUnit_measurementUnit_customUnit_name = 'name0';
-$body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation = 'abbreviation2';
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_changes_0_measurementUnit_measurementUnit_customUnit_name,
-    $body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation
-));
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_FOOT);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_METER);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::METRIC_MILLILITER);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::IMPERIAL_WEIGHT_OUNCE);
-$body_changes[0]->getMeasurementUnit()->setPrecision(26);
 $body->setChanges($body_changes);
 
 $body->setIgnoreUnchangedCounts(true);
@@ -262,8 +235,6 @@ $body = new Models\BatchRetrieveInventoryCountsRequest;
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
-$body->setCursor('cursor0');
-$body->setStates([Models\InventoryState::SUPPORTED_BY_NEWER_VERSION]);
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryCounts($body);
 
@@ -313,40 +284,13 @@ $body_changes = [];
 $body_changes[0] = new Models\InventoryChange;
 $body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
 $body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount);
-$body_changes[0]->getPhysicalCount()->setId('id0');
 $body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
 $body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
-$body_changes[0]->getPhysicalCount()->setCatalogObjectType('catalog_object_type4');
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
 $body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
 $body_changes[0]->getPhysicalCount()->setQuantity('53');
 $body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
 $body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
-$body_changes[0]->setAdjustment(new Models\InventoryAdjustment);
-$body_changes[0]->getAdjustment()->setId('id6');
-$body_changes[0]->getAdjustment()->setReferenceId('reference_id4');
-$body_changes[0]->getAdjustment()->setFromState(Models\InventoryState::SOLD);
-$body_changes[0]->getAdjustment()->setToState(Models\InventoryState::SOLD_ONLINE);
-$body_changes[0]->getAdjustment()->setLocationId('location_id0');
-$body_changes[0]->setTransfer(new Models\InventoryTransfer);
-$body_changes[0]->getTransfer()->setId('id0');
-$body_changes[0]->getTransfer()->setReferenceId('reference_id8');
-$body_changes[0]->getTransfer()->setState(Models\InventoryState::UNLINKED_RETURN);
-$body_changes[0]->getTransfer()->setFromLocationId('from_location_id2');
-$body_changes[0]->getTransfer()->setToLocationId('to_location_id2');
-$body_changes[0]->setMeasurementUnit(new Models\CatalogMeasurementUnit);
-$body_changes[0]->getMeasurementUnit()->setMeasurementUnit(new Models\MeasurementUnit);
-$body_changes_0_measurementUnit_measurementUnit_customUnit_name = 'name0';
-$body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation = 'abbreviation2';
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setCustomUnit(new Models\MeasurementUnitCustom(
-    $body_changes_0_measurementUnit_measurementUnit_customUnit_name,
-    $body_changes_0_measurementUnit_measurementUnit_customUnit_abbreviation
-));
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setAreaUnit(Models\MeasurementUnitArea::IMPERIAL_SQUARE_FOOT);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setLengthUnit(Models\MeasurementUnitLength::METRIC_METER);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setVolumeUnit(Models\MeasurementUnitVolume::METRIC_MILLILITER);
-$body_changes[0]->getMeasurementUnit()->getMeasurementUnit()->setWeightUnit(Models\MeasurementUnitWeight::IMPERIAL_WEIGHT_OUNCE);
-$body_changes[0]->getMeasurementUnit()->setPrecision(26);
 $body->setChanges($body_changes);
 
 $body->setIgnoreUnchangedCounts(true);
@@ -450,8 +394,6 @@ $body = new Models\BatchRetrieveInventoryCountsRequest;
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
-$body->setCursor('cursor0');
-$body->setStates([Models\InventoryState::SUPPORTED_BY_NEWER_VERSION]);
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);
 
@@ -614,10 +556,8 @@ function retrieveInventoryCount(
 
 ```php
 $catalogObjectId = 'catalog_object_id6';
-$locationIds = 'location_ids0';
-$cursor = 'cursor6';
 
-$apiResponse = $inventoryApi->retrieveInventoryCount($catalogObjectId, $locationIds, $cursor);
+$apiResponse = $inventoryApi->retrieveInventoryCount($catalogObjectId);
 
 if ($apiResponse->isSuccess()) {
     $retrieveInventoryCountResponse = $apiResponse->getResult();
@@ -673,10 +613,8 @@ function retrieveInventoryChanges(
 
 ```php
 $catalogObjectId = 'catalog_object_id6';
-$locationIds = 'location_ids0';
-$cursor = 'cursor6';
 
-$apiResponse = $inventoryApi->retrieveInventoryChanges($catalogObjectId, $locationIds, $cursor);
+$apiResponse = $inventoryApi->retrieveInventoryChanges($catalogObjectId);
 
 if ($apiResponse->isSuccess()) {
     $retrieveInventoryChangesResponse = $apiResponse->getResult();

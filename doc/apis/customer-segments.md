@@ -36,10 +36,7 @@ function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiRe
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$limit = 172;
-
-$apiResponse = $customerSegmentsApi->listCustomerSegments($cursor, $limit);
+$apiResponse = $customerSegmentsApi->listCustomerSegments();
 
 if ($apiResponse->isSuccess()) {
     $listCustomerSegmentsResponse = $apiResponse->getResult();

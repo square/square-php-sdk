@@ -63,6 +63,7 @@ class ShiftWorkday implements \JsonSerializable
      * Defines the logic used to apply a workday filter.
      *
      * @maps match_shifts_by
+     * @factory \Square\Models\ShiftWorkdayMatcher::checkValue
      */
     public function setMatchShiftsBy(?string $matchShiftsBy): void
     {
@@ -111,7 +112,7 @@ class ShiftWorkday implements \JsonSerializable
             $json['date_range']       = $this->dateRange;
         }
         if (isset($this->matchShiftsBy)) {
-            $json['match_shifts_by']  = $this->matchShiftsBy;
+            $json['match_shifts_by']  = ShiftWorkdayMatcher::checkValue($this->matchShiftsBy);
         }
         if (isset($this->defaultTimezone)) {
             $json['default_timezone'] = $this->defaultTimezone;

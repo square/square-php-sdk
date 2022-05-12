@@ -345,15 +345,15 @@ class CatalogInfoResponseLimits implements \JsonSerializable
         }
         if (isset($this->updateItemModifierListsMaxItemIds)) {
             $json['update_item_modifier_lists_max_item_ids']                  =
-            $this->updateItemModifierListsMaxItemIds;
+                $this->updateItemModifierListsMaxItemIds;
         }
         if (isset($this->updateItemModifierListsMaxModifierListsToEnable)) {
             $json['update_item_modifier_lists_max_modifier_lists_to_enable']  =
-            $this->updateItemModifierListsMaxModifierListsToEnable;
+                $this->updateItemModifierListsMaxModifierListsToEnable;
         }
         if (isset($this->updateItemModifierListsMaxModifierListsToDisable)) {
             $json['update_item_modifier_lists_max_modifier_lists_to_disable'] =
-            $this->updateItemModifierListsMaxModifierListsToDisable;
+                $this->updateItemModifierListsMaxModifierListsToDisable;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

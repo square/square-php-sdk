@@ -1,0 +1,49 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Square\Models;
+
+use Exception;
+use Square\ApiHelper;
+
+/**
+ * Enumeration of visibility-filter values used to set the ability to view custom attributes or custom
+ * attribute definitions.
+ */
+class VisibilityFilter
+{
+    /**
+     * All custom attributes or custom attribute definitions.
+     */
+    public const ALL = 'ALL';
+
+    /**
+     * All custom attributes or custom attribute definitions with the `visibility` field set to
+     * `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     */
+    public const READ = 'READ';
+
+    /**
+     * All custom attributes or custom attribute definitions with the `visibility` field set to
+     * `VISIBILITY_READ_WRITE_VALUES`.
+     */
+    public const READ_WRITE = 'READ_WRITE';
+
+    private const _ALL_VALUES = [self::ALL, self::READ, self::READ_WRITE];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
+}

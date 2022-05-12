@@ -193,6 +193,7 @@ class BankAccount implements \JsonSerializable
      *
      * @required
      * @maps country
+     * @factory \Square\Models\Country::checkValue
      */
     public function setCountry(string $country): void
     {
@@ -216,6 +217,7 @@ class BankAccount implements \JsonSerializable
      *
      * @required
      * @maps currency
+     * @factory \Square\Models\Currency::checkValue
      */
     public function setCurrency(string $currency): void
     {
@@ -237,6 +239,7 @@ class BankAccount implements \JsonSerializable
      *
      * @required
      * @maps account_type
+     * @factory \Square\Models\BankAccountType::checkValue
      */
     public function setAccountType(string $accountType): void
     {
@@ -390,6 +393,7 @@ class BankAccount implements \JsonSerializable
      *
      * @required
      * @maps status
+     * @factory \Square\Models\BankAccountStatus::checkValue
      */
     public function setStatus(string $status): void
     {
@@ -520,9 +524,9 @@ class BankAccount implements \JsonSerializable
         $json = [];
         $json['id']                                       = $this->id;
         $json['account_number_suffix']                    = $this->accountNumberSuffix;
-        $json['country']                                  = $this->country;
-        $json['currency']                                 = $this->currency;
-        $json['account_type']                             = $this->accountType;
+        $json['country']                                  = Country::checkValue($this->country);
+        $json['currency']                                 = Currency::checkValue($this->currency);
+        $json['account_type']                             = BankAccountType::checkValue($this->accountType);
         $json['holder_name']                              = $this->holderName;
         $json['primary_bank_identification_number']       = $this->primaryBankIdentificationNumber;
         if (isset($this->secondaryBankIdentificationNumber)) {
@@ -537,7 +541,7 @@ class BankAccount implements \JsonSerializable
         if (isset($this->locationId)) {
             $json['location_id']                          = $this->locationId;
         }
-        $json['status']                                   = $this->status;
+        $json['status']                                   = BankAccountStatus::checkValue($this->status);
         $json['creditable']                               = $this->creditable;
         $json['debitable']                                = $this->debitable;
         if (isset($this->fingerprint)) {

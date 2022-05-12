@@ -58,7 +58,6 @@ $body = new Models\CreateSubscriptionRequest(
 );
 $body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
 $body->setStartDate('2021-10-20');
-$body->setCanceledDate('canceled_date0');
 $body->setTaxPercentage('5');
 $body->setPriceOverrideMoney(new Models\Money);
 $body->getPriceOverrideMoney()->setAmount(100);
@@ -120,14 +119,11 @@ function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
 
 ```php
 $body = new Models\SearchSubscriptionsRequest;
-$body->setCursor('cursor0');
-$body->setLimit(164);
 $body->setQuery(new Models\SearchSubscriptionsQuery);
 $body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter);
 $body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
 $body->getQuery()->getFilter()->setLocationIds(['S8GWD5R9QB376']);
 $body->getQuery()->getFilter()->setSourceNames(['My App']);
-$body->setMInclude(['include4', 'include5', 'include6']);
 
 $apiResponse = $subscriptionsApi->searchSubscriptions($body);
 
@@ -166,9 +162,8 @@ function retrieveSubscription(string $subscriptionId, ?string $mInclude = null):
 
 ```php
 $subscriptionId = 'subscription_id0';
-$mInclude = 'include2';
 
-$apiResponse = $subscriptionsApi->retrieveSubscription($subscriptionId, $mInclude);
+$apiResponse = $subscriptionsApi->retrieveSubscription($subscriptionId);
 
 if ($apiResponse->isSuccess()) {
     $retrieveSubscriptionResponse = $apiResponse->getResult();
@@ -208,11 +203,6 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 $subscriptionId = 'subscription_id0';
 $body = new Models\UpdateSubscriptionRequest;
 $body->setSubscription(new Models\Subscription);
-$body->getSubscription()->setId('id8');
-$body->getSubscription()->setLocationId('location_id2');
-$body->getSubscription()->setPlanId('plan_id0');
-$body->getSubscription()->setCustomerId('customer_id6');
-$body->getSubscription()->setStartDate('start_date2');
 $body->getSubscription()->setTaxPercentage('null');
 $body->getSubscription()->setPriceOverrideMoney(new Models\Money);
 $body->getSubscription()->getPriceOverrideMoney()->setAmount(2000);
@@ -335,10 +325,8 @@ function listSubscriptionEvents(string $subscriptionId, ?string $cursor = null, 
 
 ```php
 $subscriptionId = 'subscription_id0';
-$cursor = 'cursor6';
-$limit = 172;
 
-$apiResponse = $subscriptionsApi->listSubscriptionEvents($subscriptionId, $cursor, $limit);
+$apiResponse = $subscriptionsApi->listSubscriptionEvents($subscriptionId);
 
 if ($apiResponse->isSuccess()) {
     $listSubscriptionEventsResponse = $apiResponse->getResult();
@@ -376,11 +364,6 @@ function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $bod
 ```php
 $subscriptionId = 'subscription_id0';
 $body = new Models\PauseSubscriptionRequest;
-$body->setPauseEffectiveDate('pause_effective_date6');
-$body->setPauseCycleDuration(94);
-$body->setResumeEffectiveDate('resume_effective_date4');
-$body->setResumeChangeTiming(Models\ChangeTiming::IMMEDIATE);
-$body->setPauseReason('pause_reason2');
 
 $apiResponse = $subscriptionsApi->pauseSubscription($subscriptionId, $body);
 
@@ -420,8 +403,6 @@ function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $b
 ```php
 $subscriptionId = 'subscription_id0';
 $body = new Models\ResumeSubscriptionRequest;
-$body->setResumeEffectiveDate('resume_effective_date4');
-$body->setResumeChangeTiming(Models\ChangeTiming::IMMEDIATE);
 
 $apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId, $body);
 

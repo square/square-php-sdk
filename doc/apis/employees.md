@@ -45,12 +45,7 @@ function listEmployees(
 ## Example Usage
 
 ```php
-$locationId = 'location_id4';
-$status = Models\EmployeeStatus::ACTIVE;
-$limit = 172;
-$cursor = 'cursor6';
-
-$apiResponse = $employeesApi->listEmployees($locationId, $status, $limit, $cursor);
+$apiResponse = $employeesApi->listEmployees();
 
 if ($apiResponse->isSuccess()) {
     $listEmployeesResponse = $apiResponse->getResult();

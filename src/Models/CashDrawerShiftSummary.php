@@ -93,6 +93,7 @@ class CashDrawerShiftSummary implements \JsonSerializable
      * The current state of a cash drawer shift.
      *
      * @maps state
+     * @factory \Square\Models\CashDrawerShiftState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -291,7 +292,7 @@ class CashDrawerShiftSummary implements \JsonSerializable
             $json['id']                  = $this->id;
         }
         if (isset($this->state)) {
-            $json['state']               = $this->state;
+            $json['state']               = CashDrawerShiftState::checkValue($this->state);
         }
         if (isset($this->openedAt)) {
             $json['opened_at']           = $this->openedAt;

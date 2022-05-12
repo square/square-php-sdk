@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 class ActivityType
 {
     /**
@@ -185,4 +188,56 @@ class ActivityType
      * Refunded fees from a third-party platform.
      */
     public const THIRD_PARTY_FEE_REFUND = 'THIRD_PARTY_FEE_REFUND';
+
+    private const _ALL_VALUES = [
+        self::ADJUSTMENT,
+        self::APP_FEE_REFUND,
+        self::APP_FEE_REVENUE,
+        self::AUTOMATIC_SAVINGS,
+        self::AUTOMATIC_SAVINGS_REVERSED,
+        self::CHARGE,
+        self::DEPOSIT_FEE,
+        self::DISPUTE,
+        self::ESCHEATMENT,
+        self::FEE,
+        self::FREE_PROCESSING,
+        self::HOLD_ADJUSTMENT,
+        self::INITIAL_BALANCE_CHANGE,
+        self::MONEY_TRANSFER,
+        self::MONEY_TRANSFER_REVERSAL,
+        self::OPEN_DISPUTE,
+        self::OTHER,
+        self::OTHER_ADJUSTMENT,
+        self::PAID_SERVICE_FEE,
+        self::PAID_SERVICE_FEE_REFUND,
+        self::REDEMPTION_CODE,
+        self::REFUND,
+        self::RELEASE_ADJUSTMENT,
+        self::RESERVE_HOLD,
+        self::RESERVE_RELEASE,
+        self::RETURNED_PAYOUT,
+        self::SQUARE_CAPITAL_PAYMENT,
+        self::SQUARE_CAPITAL_REVERSED_PAYMENT,
+        self::SUBSCRIPTION_FEE,
+        self::SUBSCRIPTION_FEE_PAID_REFUND,
+        self::SUBSCRIPTION_FEE_REFUND,
+        self::TAX_ON_FEE,
+        self::THIRD_PARTY_FEE,
+        self::THIRD_PARTY_FEE_REFUND,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

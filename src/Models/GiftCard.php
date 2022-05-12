@@ -94,6 +94,7 @@ class GiftCard implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\GiftCardType::checkValue
      */
     public function setType(string $type): void
     {
@@ -116,6 +117,7 @@ class GiftCard implements \JsonSerializable
      * account number (GAN).
      *
      * @maps gan_source
+     * @factory \Square\Models\GiftCardGANSource::checkValue
      */
     public function setGanSource(?string $ganSource): void
     {
@@ -136,6 +138,7 @@ class GiftCard implements \JsonSerializable
      * Indicates the gift card state.
      *
      * @maps state
+     * @factory \Square\Models\GiftCardStatus::checkValue
      */
     public function setState(?string $state): void
     {
@@ -176,7 +179,8 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Gan.
-     * The gift card account number.
+     * The gift card account number (GAN). Buyers can use the GAN to make purchases or check
+     * the gift card balance.
      */
     public function getGan(): ?string
     {
@@ -185,7 +189,8 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Gan.
-     * The gift card account number.
+     * The gift card account number (GAN). Buyers can use the GAN to make purchases or check
+     * the gift card balance.
      *
      * @maps gan
      */
@@ -224,7 +229,7 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     * The IDs of the customers to whom this gift card is linked.
+     * The IDs of the [customer profiles]($m/Customer) to whom this gift card is linked.
      *
      * @return string[]|null
      */
@@ -235,7 +240,7 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     * The IDs of the customers to whom this gift card is linked.
+     * The IDs of the [customer profiles]($m/Customer) to whom this gift card is linked.
      *
      * @maps customer_ids
      *
@@ -261,12 +266,12 @@ class GiftCard implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']            = $this->id;
         }
-        $json['type']              = $this->type;
+        $json['type']              = GiftCardType::checkValue($this->type);
         if (isset($this->ganSource)) {
-            $json['gan_source']    = $this->ganSource;
+            $json['gan_source']    = GiftCardGANSource::checkValue($this->ganSource);
         }
         if (isset($this->state)) {
-            $json['state']         = $this->state;
+            $json['state']         = GiftCardStatus::checkValue($this->state);
         }
         if (isset($this->balanceMoney)) {
             $json['balance_money'] = $this->balanceMoney;

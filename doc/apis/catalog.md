@@ -104,8 +104,6 @@ $body = new Models\BatchRetrieveCatalogObjectsRequest(
     $body_objectIds
 );
 $body->setIncludeRelatedObjects(true);
-$body->setCatalogVersion(118);
-$body->setIncludeDeletedObjects(false);
 
 $apiResponse = $catalogApi->batchRetrieveCatalogObjects($body);
 
@@ -161,40 +159,10 @@ $body_batches_0_objects[0] = new Models\CatalogObject(
     $body_batches_0_objects_0_type,
     $body_batches_0_objects_0_id
 );
-$body_batches_0_objects[0]->setUpdatedAt('updated_at6');
-$body_batches_0_objects[0]->setVersion(252);
-$body_batches_0_objects[0]->setIsDeleted(false);
-$body_batches_0_objects_0_customAttributeValues = [];
-
-$body_batches_0_objects_0_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_0_customAttributeValues['key0']->setName('name1');
-$body_batches_0_objects_0_customAttributeValues['key0']->setStringValue('string_value5');
-$body_batches_0_objects_0_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id1');
-$body_batches_0_objects_0_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::SELECTION);
-$body_batches_0_objects_0_customAttributeValues['key0']->setNumberValue('number_value1');
-
-$body_batches_0_objects_0_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_0_customAttributeValues['key1']->setName('name0');
-$body_batches_0_objects_0_customAttributeValues['key1']->setStringValue('string_value4');
-$body_batches_0_objects_0_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id2');
-$body_batches_0_objects_0_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
-$body_batches_0_objects_0_customAttributeValues['key1']->setNumberValue('number_value0');
-$body_batches_0_objects[0]->setCustomAttributeValues($body_batches_0_objects_0_customAttributeValues);
-
-$body_batches_0_objects_0_catalogV1Ids = [];
-
-$body_batches_0_objects_0_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_0_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id4');
-$body_batches_0_objects_0_catalogV1Ids[0]->setLocationId('location_id4');
-$body_batches_0_objects[0]->setCatalogV1Ids($body_batches_0_objects_0_catalogV1Ids);
-
 $body_batches_0_objects[0]->setPresentAtAllLocations(true);
 $body_batches_0_objects[0]->setItemData(new Models\CatalogItem);
 $body_batches_0_objects[0]->getItemData()->setName('Tea');
 $body_batches_0_objects[0]->getItemData()->setDescription('Hot Leaf Juice');
-$body_batches_0_objects[0]->getItemData()->setAbbreviation('abbreviation0');
-$body_batches_0_objects[0]->getItemData()->setLabelColor('label_color0');
-$body_batches_0_objects[0]->getItemData()->setAvailableOnline(false);
 $body_batches_0_objects[0]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[0]->getItemData()->setTaxIds(['#SalesTax']);
 $body_batches_0_objects_0_itemData_variations = [];
@@ -205,33 +173,6 @@ $body_batches_0_objects_0_itemData_variations[0] = new Models\CatalogObject(
     $body_batches_0_objects_0_itemData_variations_0_type,
     $body_batches_0_objects_0_itemData_variations_0_id
 );
-$body_batches_0_objects_0_itemData_variations[0]->setUpdatedAt('updated_at5');
-$body_batches_0_objects_0_itemData_variations[0]->setVersion(99);
-$body_batches_0_objects_0_itemData_variations[0]->setIsDeleted(true);
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues = [];
-
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0']->setName('name0');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0']->setStringValue('string_value4');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id2');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key0']->setNumberValue('number_value0');
-
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1']->setName('name1');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1']->setStringValue('string_value5');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id1');
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::SELECTION);
-$body_batches_0_objects_0_itemData_variations_0_customAttributeValues['key1']->setNumberValue('number_value1');
-$body_batches_0_objects_0_itemData_variations[0]->setCustomAttributeValues($body_batches_0_objects_0_itemData_variations_0_customAttributeValues);
-
-$body_batches_0_objects_0_itemData_variations_0_catalogV1Ids = [];
-
-$body_batches_0_objects_0_itemData_variations_0_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_0_itemData_variations_0_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id3');
-$body_batches_0_objects_0_itemData_variations_0_catalogV1Ids[0]->setLocationId('location_id3');
-$body_batches_0_objects_0_itemData_variations[0]->setCatalogV1Ids($body_batches_0_objects_0_itemData_variations_0_catalogV1Ids);
-
 $body_batches_0_objects_0_itemData_variations[0]->setPresentAtAllLocations(true);
 $body_batches_0_objects[0]->getItemData()->setVariations($body_batches_0_objects_0_itemData_variations);
 
@@ -242,37 +183,10 @@ $body_batches_0_objects[1] = new Models\CatalogObject(
     $body_batches_0_objects_1_type,
     $body_batches_0_objects_1_id
 );
-$body_batches_0_objects[1]->setUpdatedAt('updated_at7');
-$body_batches_0_objects[1]->setVersion(253);
-$body_batches_0_objects[1]->setIsDeleted(true);
-$body_batches_0_objects_1_customAttributeValues = [];
-
-$body_batches_0_objects_1_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_1_customAttributeValues['key0']->setName('name2');
-$body_batches_0_objects_1_customAttributeValues['key0']->setStringValue('string_value6');
-$body_batches_0_objects_1_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id0');
-$body_batches_0_objects_1_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::NUMBER);
-$body_batches_0_objects_1_customAttributeValues['key0']->setNumberValue('number_value2');
-$body_batches_0_objects[1]->setCustomAttributeValues($body_batches_0_objects_1_customAttributeValues);
-
-$body_batches_0_objects_1_catalogV1Ids = [];
-
-$body_batches_0_objects_1_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id5');
-$body_batches_0_objects_1_catalogV1Ids[0]->setLocationId('location_id5');
-
-$body_batches_0_objects_1_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id6');
-$body_batches_0_objects_1_catalogV1Ids[1]->setLocationId('location_id6');
-$body_batches_0_objects[1]->setCatalogV1Ids($body_batches_0_objects_1_catalogV1Ids);
-
 $body_batches_0_objects[1]->setPresentAtAllLocations(true);
 $body_batches_0_objects[1]->setItemData(new Models\CatalogItem);
 $body_batches_0_objects[1]->getItemData()->setName('Coffee');
 $body_batches_0_objects[1]->getItemData()->setDescription('Hot Bean Juice');
-$body_batches_0_objects[1]->getItemData()->setAbbreviation('abbreviation9');
-$body_batches_0_objects[1]->getItemData()->setLabelColor('label_color9');
-$body_batches_0_objects[1]->getItemData()->setAvailableOnline(true);
 $body_batches_0_objects[1]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[1]->getItemData()->setTaxIds(['#SalesTax']);
 $body_batches_0_objects_1_itemData_variations = [];
@@ -283,30 +197,6 @@ $body_batches_0_objects_1_itemData_variations[0] = new Models\CatalogObject(
     $body_batches_0_objects_1_itemData_variations_0_type,
     $body_batches_0_objects_1_itemData_variations_0_id
 );
-$body_batches_0_objects_1_itemData_variations[0]->setUpdatedAt('updated_at4');
-$body_batches_0_objects_1_itemData_variations[0]->setVersion(100);
-$body_batches_0_objects_1_itemData_variations[0]->setIsDeleted(false);
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues = [];
-
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0']->setName('name9');
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0']->setStringValue('string_value3');
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id3');
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_batches_0_objects_1_itemData_variations_0_customAttributeValues['key0']->setNumberValue('number_value9');
-$body_batches_0_objects_1_itemData_variations[0]->setCustomAttributeValues($body_batches_0_objects_1_itemData_variations_0_customAttributeValues);
-
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids = [];
-
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id4');
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[0]->setLocationId('location_id4');
-
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id5');
-$body_batches_0_objects_1_itemData_variations_0_catalogV1Ids[1]->setLocationId('location_id5');
-$body_batches_0_objects_1_itemData_variations[0]->setCatalogV1Ids($body_batches_0_objects_1_itemData_variations_0_catalogV1Ids);
-
 $body_batches_0_objects_1_itemData_variations[0]->setPresentAtAllLocations(true);
 
 $body_batches_0_objects_1_itemData_variations_1_type = Models\CatalogObjectType::ITEM_VARIATION;
@@ -315,48 +205,6 @@ $body_batches_0_objects_1_itemData_variations[1] = new Models\CatalogObject(
     $body_batches_0_objects_1_itemData_variations_1_type,
     $body_batches_0_objects_1_itemData_variations_1_id
 );
-$body_batches_0_objects_1_itemData_variations[1]->setUpdatedAt('updated_at3');
-$body_batches_0_objects_1_itemData_variations[1]->setVersion(101);
-$body_batches_0_objects_1_itemData_variations[1]->setIsDeleted(true);
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues = [];
-
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0']->setName('name8');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0']->setStringValue('string_value2');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id4');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::NUMBER);
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key0']->setNumberValue('number_value8');
-
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1']->setName('name9');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1']->setStringValue('string_value3');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id3');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key1']->setNumberValue('number_value9');
-
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2']->setName('name0');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2']->setStringValue('string_value4');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2']->setCustomAttributeDefinitionId('custom_attribute_definition_id2');
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
-$body_batches_0_objects_1_itemData_variations_1_customAttributeValues['key2']->setNumberValue('number_value0');
-$body_batches_0_objects_1_itemData_variations[1]->setCustomAttributeValues($body_batches_0_objects_1_itemData_variations_1_customAttributeValues);
-
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids = [];
-
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id5');
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[0]->setLocationId('location_id5');
-
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id6');
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[1]->setLocationId('location_id6');
-
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[2] = new Models\CatalogV1Id;
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[2]->setCatalogV1Id('catalog_v1_id7');
-$body_batches_0_objects_1_itemData_variations_1_catalogV1Ids[2]->setLocationId('location_id7');
-$body_batches_0_objects_1_itemData_variations[1]->setCatalogV1Ids($body_batches_0_objects_1_itemData_variations_1_catalogV1Ids);
-
 $body_batches_0_objects_1_itemData_variations[1]->setPresentAtAllLocations(true);
 $body_batches_0_objects[1]->getItemData()->setVariations($body_batches_0_objects_1_itemData_variations);
 
@@ -367,48 +215,6 @@ $body_batches_0_objects[2] = new Models\CatalogObject(
     $body_batches_0_objects_2_type,
     $body_batches_0_objects_2_id
 );
-$body_batches_0_objects[2]->setUpdatedAt('updated_at8');
-$body_batches_0_objects[2]->setVersion(254);
-$body_batches_0_objects[2]->setIsDeleted(false);
-$body_batches_0_objects_2_customAttributeValues = [];
-
-$body_batches_0_objects_2_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_2_customAttributeValues['key0']->setName('name3');
-$body_batches_0_objects_2_customAttributeValues['key0']->setStringValue('string_value7');
-$body_batches_0_objects_2_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id9');
-$body_batches_0_objects_2_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_batches_0_objects_2_customAttributeValues['key0']->setNumberValue('number_value3');
-
-$body_batches_0_objects_2_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_2_customAttributeValues['key1']->setName('name2');
-$body_batches_0_objects_2_customAttributeValues['key1']->setStringValue('string_value6');
-$body_batches_0_objects_2_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id0');
-$body_batches_0_objects_2_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::NUMBER);
-$body_batches_0_objects_2_customAttributeValues['key1']->setNumberValue('number_value2');
-
-$body_batches_0_objects_2_customAttributeValues['key2'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_2_customAttributeValues['key2']->setName('name1');
-$body_batches_0_objects_2_customAttributeValues['key2']->setStringValue('string_value5');
-$body_batches_0_objects_2_customAttributeValues['key2']->setCustomAttributeDefinitionId('custom_attribute_definition_id1');
-$body_batches_0_objects_2_customAttributeValues['key2']->setType(Models\CatalogCustomAttributeDefinitionType::SELECTION);
-$body_batches_0_objects_2_customAttributeValues['key2']->setNumberValue('number_value1');
-$body_batches_0_objects[2]->setCustomAttributeValues($body_batches_0_objects_2_customAttributeValues);
-
-$body_batches_0_objects_2_catalogV1Ids = [];
-
-$body_batches_0_objects_2_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_2_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id6');
-$body_batches_0_objects_2_catalogV1Ids[0]->setLocationId('location_id6');
-
-$body_batches_0_objects_2_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_batches_0_objects_2_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id7');
-$body_batches_0_objects_2_catalogV1Ids[1]->setLocationId('location_id7');
-
-$body_batches_0_objects_2_catalogV1Ids[2] = new Models\CatalogV1Id;
-$body_batches_0_objects_2_catalogV1Ids[2]->setCatalogV1Id('catalog_v1_id8');
-$body_batches_0_objects_2_catalogV1Ids[2]->setLocationId('location_id8');
-$body_batches_0_objects[2]->setCatalogV1Ids($body_batches_0_objects_2_catalogV1Ids);
-
 $body_batches_0_objects[2]->setPresentAtAllLocations(true);
 
 $body_batches_0_objects_3_type = Models\CatalogObjectType::TAX;
@@ -417,33 +223,6 @@ $body_batches_0_objects[3] = new Models\CatalogObject(
     $body_batches_0_objects_3_type,
     $body_batches_0_objects_3_id
 );
-$body_batches_0_objects[3]->setUpdatedAt('updated_at9');
-$body_batches_0_objects[3]->setVersion(255);
-$body_batches_0_objects[3]->setIsDeleted(true);
-$body_batches_0_objects_3_customAttributeValues = [];
-
-$body_batches_0_objects_3_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_3_customAttributeValues['key0']->setName('name4');
-$body_batches_0_objects_3_customAttributeValues['key0']->setStringValue('string_value8');
-$body_batches_0_objects_3_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id8');
-$body_batches_0_objects_3_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
-$body_batches_0_objects_3_customAttributeValues['key0']->setNumberValue('number_value4');
-
-$body_batches_0_objects_3_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_batches_0_objects_3_customAttributeValues['key1']->setName('name3');
-$body_batches_0_objects_3_customAttributeValues['key1']->setStringValue('string_value7');
-$body_batches_0_objects_3_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id9');
-$body_batches_0_objects_3_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_batches_0_objects_3_customAttributeValues['key1']->setNumberValue('number_value3');
-$body_batches_0_objects[3]->setCustomAttributeValues($body_batches_0_objects_3_customAttributeValues);
-
-$body_batches_0_objects_3_catalogV1Ids = [];
-
-$body_batches_0_objects_3_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_batches_0_objects_3_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id7');
-$body_batches_0_objects_3_catalogV1Ids[0]->setLocationId('location_id7');
-$body_batches_0_objects[3]->setCatalogV1Ids($body_batches_0_objects_3_catalogV1Ids);
-
 $body_batches_0_objects[3]->setPresentAtAllLocations(true);
 
 $body_batches[0] = new Models\CatalogObjectBatch(
@@ -506,32 +285,13 @@ $request_image = new Models\CatalogObject(
     $request_image_type,
     $request_image_id
 );
-$request_image->setUpdatedAt('updated_at4');
-$request_image->setVersion(68);
-$request_image->setIsDeleted(false);
-$request_image_customAttributeValues = [];
-
-$request_image_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-
-$request_image_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-$request_image->setCustomAttributeValues($request_image_customAttributeValues);
-
-$request_image_catalogV1Ids = [];
-
-$request_image_catalogV1Ids[0] = new Models\CatalogV1Id;
-$request_image_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id4');
-$request_image_catalogV1Ids[0]->setLocationId('location_id4');
-$request_image->setCatalogV1Ids($request_image_catalogV1Ids);
-
 $request = new Models\CreateCatalogImageRequest(
     $request_idempotencyKey,
     $request_image
 );
 $request->setObjectId('ND6EA5AAJEO5WL3JNNIAQA32');
-$request->setIsPrimary(false);
-$imageFile = 'dummy_file';
 
-$apiResponse = $catalogApi->createCatalogImage($request, $imageFile);
+$apiResponse = $catalogApi->createCatalogImage($request);
 
 if ($apiResponse->isSuccess()) {
     $createCatalogImageResponse = $apiResponse->getResult();
@@ -580,9 +340,8 @@ $request_idempotencyKey = '528dea59-7bfb-43c1-bd48-4a6bba7dd61f86';
 $request = new Models\UpdateCatalogImageRequest(
     $request_idempotencyKey
 );
-$imageFile = 'dummy_file';
 
-$apiResponse = $catalogApi->updateCatalogImage($imageId, $request, $imageFile);
+$apiResponse = $catalogApi->updateCatalogImage($imageId, $request);
 
 if ($apiResponse->isSuccess()) {
     $updateCatalogImageResponse = $apiResponse->getResult();
@@ -656,11 +415,7 @@ function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalo
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$types = 'types6';
-$catalogVersion = 126;
-
-$apiResponse = $catalogApi->listCatalog($cursor, $types, $catalogVersion);
+$apiResponse = $catalogApi->listCatalog();
 
 if ($apiResponse->isSuccess()) {
     $listCatalogResponse = $apiResponse->getResult();
@@ -702,39 +457,10 @@ $body_object = new Models\CatalogObject(
     $body_object_type,
     $body_object_id
 );
-$body_object->setUpdatedAt('updated_at8');
-$body_object->setVersion(252);
-$body_object->setIsDeleted(false);
-$body_object_customAttributeValues = [];
-
-$body_object_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-
-$body_object_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-
-$body_object_customAttributeValues[''] = new Models\CatalogCustomAttributeValue;
-$body_object->setCustomAttributeValues($body_object_customAttributeValues);
-
-$body_object_catalogV1Ids = [];
-
-$body_object_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_object_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id0');
-$body_object_catalogV1Ids[0]->setLocationId('location_id0');
-
-$body_object_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_object_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id1');
-$body_object_catalogV1Ids[1]->setLocationId('location_id1');
-
-$body_object_catalogV1Ids[2] = new Models\CatalogV1Id;
-$body_object_catalogV1Ids[2]->setCatalogV1Id('catalog_v1_id2');
-$body_object_catalogV1Ids[2]->setLocationId('location_id2');
-$body_object->setCatalogV1Ids($body_object_catalogV1Ids);
-
 $body_object->setItemData(new Models\CatalogItem);
 $body_object->getItemData()->setName('Cocoa');
 $body_object->getItemData()->setDescription('Hot Chocolate');
 $body_object->getItemData()->setAbbreviation('Ch');
-$body_object->getItemData()->setLabelColor('label_color4');
-$body_object->getItemData()->setAvailableOnline(false);
 $body_object_itemData_variations = [];
 
 $body_object_itemData_variations_0_type = Models\CatalogObjectType::ITEM_VARIATION;
@@ -743,33 +469,6 @@ $body_object_itemData_variations[0] = new Models\CatalogObject(
     $body_object_itemData_variations_0_type,
     $body_object_itemData_variations_0_id
 );
-$body_object_itemData_variations[0]->setUpdatedAt('updated_at9');
-$body_object_itemData_variations[0]->setVersion(69);
-$body_object_itemData_variations[0]->setIsDeleted(true);
-$body_object_itemData_variations_0_customAttributeValues = [];
-
-$body_object_itemData_variations_0_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_object_itemData_variations_0_customAttributeValues['key0']->setName('name4');
-$body_object_itemData_variations_0_customAttributeValues['key0']->setStringValue('string_value8');
-$body_object_itemData_variations_0_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id8');
-$body_object_itemData_variations_0_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::NUMBER);
-$body_object_itemData_variations_0_customAttributeValues['key0']->setNumberValue('number_value4');
-
-$body_object_itemData_variations_0_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_object_itemData_variations_0_customAttributeValues['key1']->setName('name5');
-$body_object_itemData_variations_0_customAttributeValues['key1']->setStringValue('string_value9');
-$body_object_itemData_variations_0_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id7');
-$body_object_itemData_variations_0_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_object_itemData_variations_0_customAttributeValues['key1']->setNumberValue('number_value5');
-$body_object_itemData_variations[0]->setCustomAttributeValues($body_object_itemData_variations_0_customAttributeValues);
-
-$body_object_itemData_variations_0_catalogV1Ids = [];
-
-$body_object_itemData_variations_0_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_object_itemData_variations_0_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id9');
-$body_object_itemData_variations_0_catalogV1Ids[0]->setLocationId('location_id9');
-$body_object_itemData_variations[0]->setCatalogV1Ids($body_object_itemData_variations_0_catalogV1Ids);
-
 
 $body_object_itemData_variations_1_type = Models\CatalogObjectType::ITEM_VARIATION;
 $body_object_itemData_variations_1_id = '#Large';
@@ -777,48 +476,6 @@ $body_object_itemData_variations[1] = new Models\CatalogObject(
     $body_object_itemData_variations_1_type,
     $body_object_itemData_variations_1_id
 );
-$body_object_itemData_variations[1]->setUpdatedAt('updated_at0');
-$body_object_itemData_variations[1]->setVersion(68);
-$body_object_itemData_variations[1]->setIsDeleted(false);
-$body_object_itemData_variations_1_customAttributeValues = [];
-
-$body_object_itemData_variations_1_customAttributeValues['key0'] = new Models\CatalogCustomAttributeValue;
-$body_object_itemData_variations_1_customAttributeValues['key0']->setName('name5');
-$body_object_itemData_variations_1_customAttributeValues['key0']->setStringValue('string_value9');
-$body_object_itemData_variations_1_customAttributeValues['key0']->setCustomAttributeDefinitionId('custom_attribute_definition_id7');
-$body_object_itemData_variations_1_customAttributeValues['key0']->setType(Models\CatalogCustomAttributeDefinitionType::BOOLEAN);
-$body_object_itemData_variations_1_customAttributeValues['key0']->setNumberValue('number_value5');
-
-$body_object_itemData_variations_1_customAttributeValues['key1'] = new Models\CatalogCustomAttributeValue;
-$body_object_itemData_variations_1_customAttributeValues['key1']->setName('name6');
-$body_object_itemData_variations_1_customAttributeValues['key1']->setStringValue('string_value0');
-$body_object_itemData_variations_1_customAttributeValues['key1']->setCustomAttributeDefinitionId('custom_attribute_definition_id6');
-$body_object_itemData_variations_1_customAttributeValues['key1']->setType(Models\CatalogCustomAttributeDefinitionType::STRING);
-$body_object_itemData_variations_1_customAttributeValues['key1']->setNumberValue('number_value6');
-
-$body_object_itemData_variations_1_customAttributeValues['key2'] = new Models\CatalogCustomAttributeValue;
-$body_object_itemData_variations_1_customAttributeValues['key2']->setName('name7');
-$body_object_itemData_variations_1_customAttributeValues['key2']->setStringValue('string_value1');
-$body_object_itemData_variations_1_customAttributeValues['key2']->setCustomAttributeDefinitionId('custom_attribute_definition_id5');
-$body_object_itemData_variations_1_customAttributeValues['key2']->setType(Models\CatalogCustomAttributeDefinitionType::SELECTION);
-$body_object_itemData_variations_1_customAttributeValues['key2']->setNumberValue('number_value7');
-$body_object_itemData_variations[1]->setCustomAttributeValues($body_object_itemData_variations_1_customAttributeValues);
-
-$body_object_itemData_variations_1_catalogV1Ids = [];
-
-$body_object_itemData_variations_1_catalogV1Ids[0] = new Models\CatalogV1Id;
-$body_object_itemData_variations_1_catalogV1Ids[0]->setCatalogV1Id('catalog_v1_id8');
-$body_object_itemData_variations_1_catalogV1Ids[0]->setLocationId('location_id8');
-
-$body_object_itemData_variations_1_catalogV1Ids[1] = new Models\CatalogV1Id;
-$body_object_itemData_variations_1_catalogV1Ids[1]->setCatalogV1Id('catalog_v1_id9');
-$body_object_itemData_variations_1_catalogV1Ids[1]->setLocationId('location_id9');
-
-$body_object_itemData_variations_1_catalogV1Ids[2] = new Models\CatalogV1Id;
-$body_object_itemData_variations_1_catalogV1Ids[2]->setCatalogV1Id('catalog_v1_id0');
-$body_object_itemData_variations_1_catalogV1Ids[2]->setLocationId('location_id0');
-$body_object_itemData_variations[1]->setCatalogV1Ids($body_object_itemData_variations_1_catalogV1Ids);
-
 $body_object->getItemData()->setVariations($body_object_itemData_variations);
 
 $body = new Models\UpsertCatalogObjectRequest(
@@ -917,9 +574,8 @@ function retrieveCatalogObject(
 ```php
 $objectId = 'object_id8';
 $includeRelatedObjects = false;
-$catalogVersion = 126;
 
-$apiResponse = $catalogApi->retrieveCatalogObject($objectId, $includeRelatedObjects, $catalogVersion);
+$apiResponse = $catalogApi->retrieveCatalogObject($objectId, $includeRelatedObjects);
 
 if ($apiResponse->isSuccess()) {
     $retrieveCatalogObjectResponse = $apiResponse->getResult();
@@ -964,42 +620,14 @@ function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
 
 ```php
 $body = new Models\SearchCatalogObjectsRequest;
-$body->setCursor('cursor0');
 $body->setObjectTypes([Models\CatalogObjectType::ITEM]);
-$body->setIncludeDeletedObjects(false);
-$body->setIncludeRelatedObjects(false);
-$body->setBeginTime('begin_time4');
 $body->setQuery(new Models\CatalogQuery);
-$body_query_sortedAttributeQuery_attributeName = 'attribute_name6';
-$body->getQuery()->setSortedAttributeQuery(new Models\CatalogQuerySortedAttribute(
-    $body_query_sortedAttributeQuery_attributeName
-));
-$body->getQuery()->getSortedAttributeQuery()->setInitialAttributeValue('initial_attribute_value4');
-$body->getQuery()->getSortedAttributeQuery()->setSortOrder(Models\SortOrder::DESC);
-$body_query_exactQuery_attributeName = 'attribute_name2';
-$body_query_exactQuery_attributeValue = 'attribute_value2';
-$body->getQuery()->setExactQuery(new Models\CatalogQueryExact(
-    $body_query_exactQuery_attributeName,
-    $body_query_exactQuery_attributeValue
-));
-$body_query_setQuery_attributeName = 'attribute_name8';
-$body_query_setQuery_attributeValues = ['attribute_values0'];
-$body->getQuery()->setSetQuery(new Models\CatalogQuerySet(
-    $body_query_setQuery_attributeName,
-    $body_query_setQuery_attributeValues
-));
 $body_query_prefixQuery_attributeName = 'name';
 $body_query_prefixQuery_attributePrefix = 'tea';
 $body->getQuery()->setPrefixQuery(new Models\CatalogQueryPrefix(
     $body_query_prefixQuery_attributeName,
     $body_query_prefixQuery_attributePrefix
 ));
-$body_query_rangeQuery_attributeName = 'attribute_name6';
-$body->getQuery()->setRangeQuery(new Models\CatalogQueryRange(
-    $body_query_rangeQuery_attributeName
-));
-$body->getQuery()->getRangeQuery()->setAttributeMinValue(14);
-$body->getQuery()->getRangeQuery()->setAttributeMaxValue(180);
 $body->setLimit(100);
 
 $apiResponse = $catalogApi->searchCatalogObjects($body);
@@ -1051,7 +679,6 @@ $body->setTextFilter('red');
 $body->setCategoryIds(['WINE_CATEGORY_ID']);
 $body->setStockLevels([Models\SearchCatalogItemsRequestStockLevel::OUT, Models\SearchCatalogItemsRequestStockLevel::LOW]);
 $body->setEnabledLocationIds(['ATL_LOCATION_ID']);
-$body->setCursor('cursor0');
 $body->setLimit(100);
 $body->setSortOrder(Models\SortOrder::ASC);
 $body->setProductTypes([Models\CatalogItemProductType::REGULAR]);
@@ -1059,40 +686,20 @@ $body_customAttributeFilters = [];
 
 $body_customAttributeFilters[0] = new Models\CustomAttributeFilter;
 $body_customAttributeFilters[0]->setCustomAttributeDefinitionId('VEGAN_DEFINITION_ID');
-$body_customAttributeFilters[0]->setKey('key2');
-$body_customAttributeFilters[0]->setStringFilter('string_filter4');
-$body_customAttributeFilters[0]->setNumberFilter(new Models\Range);
-$body_customAttributeFilters[0]->getNumberFilter()->setMin('min0');
-$body_customAttributeFilters[0]->getNumberFilter()->setMax('max2');
-$body_customAttributeFilters[0]->setSelectionUidsFilter(['selection_uids_filter2', 'selection_uids_filter3']);
 $body_customAttributeFilters[0]->setBoolFilter(true);
 
 $body_customAttributeFilters[1] = new Models\CustomAttributeFilter;
 $body_customAttributeFilters[1]->setCustomAttributeDefinitionId('BRAND_DEFINITION_ID');
-$body_customAttributeFilters[1]->setKey('key3');
 $body_customAttributeFilters[1]->setStringFilter('Dark Horse');
-$body_customAttributeFilters[1]->setNumberFilter(new Models\Range);
-$body_customAttributeFilters[1]->getNumberFilter()->setMin('min1');
-$body_customAttributeFilters[1]->getNumberFilter()->setMax('max1');
-$body_customAttributeFilters[1]->setSelectionUidsFilter(['selection_uids_filter1']);
 
 $body_customAttributeFilters[2] = new Models\CustomAttributeFilter;
-$body_customAttributeFilters[2]->setCustomAttributeDefinitionId('custom_attribute_definition_id8');
 $body_customAttributeFilters[2]->setKey('VINTAGE');
-$body_customAttributeFilters[2]->setStringFilter('string_filter6');
 $body_customAttributeFilters[2]->setNumberFilter(new Models\Range);
 $body_customAttributeFilters[2]->getNumberFilter()->setMin('2017');
 $body_customAttributeFilters[2]->getNumberFilter()->setMax('2018');
-$body_customAttributeFilters[2]->setSelectionUidsFilter(['selection_uids_filter0', 'selection_uids_filter1', 'selection_uids_filter2']);
 
 $body_customAttributeFilters[3] = new Models\CustomAttributeFilter;
 $body_customAttributeFilters[3]->setCustomAttributeDefinitionId('VARIETAL_DEFINITION_ID');
-$body_customAttributeFilters[3]->setKey('key5');
-$body_customAttributeFilters[3]->setStringFilter('string_filter7');
-$body_customAttributeFilters[3]->setNumberFilter(new Models\Range);
-$body_customAttributeFilters[3]->getNumberFilter()->setMin('min3');
-$body_customAttributeFilters[3]->getNumberFilter()->setMax('max9');
-$body_customAttributeFilters[3]->setSelectionUidsFilter(['selection_uids_filter9', 'selection_uids_filter0']);
 $body->setCustomAttributeFilters($body_customAttributeFilters);
 
 

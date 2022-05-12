@@ -7,6 +7,7 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ConfigurationInterface;
 use Square\ApiHelper;
+use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -81,7 +82,7 @@ class TransactionsApi extends BaseApi
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
-            'sort_order'  => $sortOrder,
+            'sort_order'  => Models\SortOrder::checkValue($sortOrder),
             'cursor'      => $cursor,
         ]);
 

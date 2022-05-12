@@ -38,11 +38,7 @@ function listBankAccounts(?string $cursor = null, ?int $limit = null, ?string $l
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$limit = 172;
-$locationId = 'location_id4';
-
-$apiResponse = $bankAccountsApi->listBankAccounts($cursor, $limit, $locationId);
+$apiResponse = $bankAccountsApi->listBankAccounts();
 
 if ($apiResponse->isSuccess()) {
     $listBankAccountsResponse = $apiResponse->getResult();

@@ -178,17 +178,6 @@ $body_idempotencyKey = 'idempotency_key2';
 $body = new Models\CreateVendorRequest(
     $body_idempotencyKey
 );
-$body->setVendor(new Models\Vendor);
-$body->getVendor()->setId('id2');
-$body->getVendor()->setCreatedAt('created_at0');
-$body->getVendor()->setUpdatedAt('updated_at8');
-$body->getVendor()->setName('name2');
-$body->getVendor()->setAddress(new Models\Address);
-$body->getVendor()->getAddress()->setAddressLine1('address_line_18');
-$body->getVendor()->getAddress()->setAddressLine2('address_line_28');
-$body->getVendor()->getAddress()->setAddressLine3('address_line_34');
-$body->getVendor()->getAddress()->setLocality('locality8');
-$body->getVendor()->getAddress()->setSublocality('sublocality8');
 
 $apiResponse = $vendorsApi->createVendor($body);
 
@@ -226,13 +215,6 @@ function searchVendors(SearchVendorsRequest $body): ApiResponse
 
 ```php
 $body = new Models\SearchVendorsRequest;
-$body->setFilter(new Models\SearchVendorsRequestFilter);
-$body->getFilter()->setName(['name8', 'name9']);
-$body->getFilter()->setStatus([Models\VendorStatus::ACTIVE]);
-$body->setSort(new Models\SearchVendorsRequestSort);
-$body->getSort()->setField(Models\SearchVendorsRequestSortField::NAME);
-$body->getSort()->setOrder(Models\SortOrder::DESC);
-$body->setCursor('cursor0');
 
 $apiResponse = $vendorsApi->searchVendors($body);
 
@@ -309,15 +291,7 @@ function updateVendor(UpdateVendorRequest $body, string $vendorId): ApiResponse
 ```php
 $body_vendor = new Models\Vendor;
 $body_vendor->setId('INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4');
-$body_vendor->setCreatedAt('created_at0');
-$body_vendor->setUpdatedAt('updated_at8');
 $body_vendor->setName('Jack\'s Chicken Shack');
-$body_vendor->setAddress(new Models\Address);
-$body_vendor->getAddress()->setAddressLine1('address_line_18');
-$body_vendor->getAddress()->setAddressLine2('address_line_28');
-$body_vendor->getAddress()->setAddressLine3('address_line_34');
-$body_vendor->getAddress()->setLocality('locality8');
-$body_vendor->getAddress()->setSublocality('sublocality8');
 $body_vendor->setVersion(1);
 $body_vendor->setStatus(Models\VendorStatus::ACTIVE);
 $body = new Models\UpdateVendorRequest(

@@ -58,7 +58,7 @@ class V1TransactionsApi extends BaseApi
 
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'order'       => $order,
+            'order'       => Models\SortOrder::checkValue($order),
             'limit'       => $limit,
             'batch_token' => $batchToken,
         ]);
@@ -308,7 +308,7 @@ class V1TransactionsApi extends BaseApi
 
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'order'           => $order,
+            'order'           => Models\SortOrder::checkValue($order),
             'begin_time'      => $beginTime,
             'end_time'        => $endTime,
             'limit'           => $limit,
@@ -474,7 +474,7 @@ class V1TransactionsApi extends BaseApi
 
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'order'       => $order,
+            'order'       => Models\SortOrder::checkValue($order),
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
             'limit'       => $limit,
@@ -659,11 +659,11 @@ class V1TransactionsApi extends BaseApi
 
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'order'       => $order,
+            'order'       => Models\SortOrder::checkValue($order),
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
             'limit'       => $limit,
-            'status'      => $status,
+            'status'      => Models\V1ListSettlementsRequestStatus::checkValue($status),
             'batch_token' => $batchToken,
         ]);
 

@@ -177,6 +177,7 @@ class DisputeEvidence implements \JsonSerializable
      * The type of the dispute evidence.
      *
      * @maps evidence_type
+     * @factory \Square\Models\DisputeEvidenceType::checkValue
      */
     public function setEvidenceType(?string $evidenceType): void
     {
@@ -214,7 +215,7 @@ class DisputeEvidence implements \JsonSerializable
             $json['uploaded_at']   = $this->uploadedAt;
         }
         if (isset($this->evidenceType)) {
-            $json['evidence_type'] = $this->evidenceType;
+            $json['evidence_type'] = DisputeEvidenceType::checkValue($this->evidenceType);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

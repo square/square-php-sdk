@@ -137,11 +137,9 @@ class GiftCardActivitiesApi extends BaseApi
     }
 
     /**
-     * Creates a gift card activity. For more information, see
-     * [GiftCardActivity](https://developer.squareup.com/docs/gift-cards/using-gift-cards-
-     * api#giftcardactivity) and
-     * [Using activated gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-
-     * api#using-activated-gift-cards).
+     * Creates a gift card activity to manage the balance or state of a [gift card]($m/GiftCard).
+     * For example, you create an `ACTIVATE` activity to activate a gift card with an initial balance
+     * before the gift card can be used.
      *
      * @param Models\CreateGiftCardActivityRequest $body An object containing the fields to POST for
      *        the request.

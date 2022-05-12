@@ -21,6 +21,7 @@ class SquareClient implements ConfigurationInterface
     private $cashDrawers;
     private $catalog;
     private $customers;
+    private $customerCustomAttributes;
     private $customerGroups;
     private $customerSegments;
     private $devices;
@@ -270,7 +271,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '18.0.0.20220420';
+        return '19.0.0.20220512';
     }
 
     /**
@@ -421,6 +422,21 @@ class SquareClient implements ConfigurationInterface
             $this->customers = new Apis\CustomersApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->customers;
+    }
+
+    /**
+     * Returns Customer Custom Attributes Api
+     */
+    public function getCustomerCustomAttributesApi(): Apis\CustomerCustomAttributesApi
+    {
+        if ($this->customerCustomAttributes == null) {
+            $this->customerCustomAttributes = new Apis\CustomerCustomAttributesApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
+        }
+        return $this->customerCustomAttributes;
     }
 
     /**

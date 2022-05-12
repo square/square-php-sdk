@@ -127,6 +127,7 @@ class OrderFulfillmentUpdated implements \JsonSerializable
      * The state of the order.
      *
      * @maps state
+     * @factory \Square\Models\OrderState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -219,7 +220,7 @@ class OrderFulfillmentUpdated implements \JsonSerializable
             $json['location_id']        = $this->locationId;
         }
         if (isset($this->state)) {
-            $json['state']              = $this->state;
+            $json['state']              = OrderState::checkValue($this->state);
         }
         if (isset($this->createdAt)) {
             $json['created_at']         = $this->createdAt;

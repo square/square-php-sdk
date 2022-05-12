@@ -199,6 +199,7 @@ class Employee implements \JsonSerializable
      * The status of the Employee being retrieved.
      *
      * @maps status
+     * @factory \Square\Models\EmployeeStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -300,7 +301,7 @@ class Employee implements \JsonSerializable
             $json['location_ids'] = $this->locationIds;
         }
         if (isset($this->status)) {
-            $json['status']       = $this->status;
+            $json['status']       = EmployeeStatus::checkValue($this->status);
         }
         if (isset($this->isOwner)) {
             $json['is_owner']     = $this->isOwner;

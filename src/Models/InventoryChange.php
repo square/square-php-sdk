@@ -57,6 +57,7 @@ class InventoryChange implements \JsonSerializable
      * Indicates how the inventory change was applied to a tracked product quantity.
      *
      * @maps type
+     * @factory \Square\Models\InventoryChangeType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -190,7 +191,7 @@ class InventoryChange implements \JsonSerializable
     {
         $json = [];
         if (isset($this->type)) {
-            $json['type']                = $this->type;
+            $json['type']                = InventoryChangeType::checkValue($this->type);
         }
         if (isset($this->physicalCount)) {
             $json['physical_count']      = $this->physicalCount;

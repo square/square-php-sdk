@@ -44,12 +44,7 @@ function listDeviceCodes(
 ## Example Usage
 
 ```php
-$cursor = 'cursor6';
-$locationId = 'location_id4';
-$productType = Models\ProductType::TERMINAL_API;
-$status = Models\DeviceCodeStatus::UNKNOWN;
-
-$apiResponse = $devicesApi->listDeviceCodes($cursor, $locationId, $productType, $status);
+$apiResponse = $devicesApi->listDeviceCodes();
 
 if ($apiResponse->isSuccess()) {
     $listDeviceCodesResponse = $apiResponse->getResult();
@@ -87,10 +82,7 @@ function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
 ```php
 $body_idempotencyKey = '01bb00a6-0c86-4770-94ed-f5fca973cd56';
 $body_deviceCode = new Models\DeviceCode;
-$body_deviceCode->setId('id0');
 $body_deviceCode->setName('Counter 1');
-$body_deviceCode->setCode('code8');
-$body_deviceCode->setDeviceId('device_id6');
 $body_deviceCode->setLocationId('B5E4484SHHNYH');
 $body = new Models\CreateDeviceCodeRequest(
     $body_idempotencyKey,

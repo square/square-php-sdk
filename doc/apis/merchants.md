@@ -44,9 +44,7 @@ function listMerchants(?int $cursor = null): ApiResponse
 ## Example Usage
 
 ```php
-$cursor = 210;
-
-$apiResponse = $merchantsApi->listMerchants($cursor);
+$apiResponse = $merchantsApi->listMerchants();
 
 if ($apiResponse->isSuccess()) {
     $listMerchantsResponse = $apiResponse->getResult();

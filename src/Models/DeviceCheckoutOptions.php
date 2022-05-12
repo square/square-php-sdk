@@ -29,6 +29,11 @@ class DeviceCheckoutOptions implements \JsonSerializable
     private $tipSettings;
 
     /**
+     * @var bool|null
+     */
+    private $showItemizedCart;
+
+    /**
      * @param string $deviceId
      */
     public function __construct(string $deviceId)
@@ -120,6 +125,28 @@ class DeviceCheckoutOptions implements \JsonSerializable
     }
 
     /**
+     * Returns Show Itemized Cart.
+     * Show the itemization screen prior to taking a payment. This field is only meaningful when the
+     * checkout includes an order ID. Defaults to true.
+     */
+    public function getShowItemizedCart(): ?bool
+    {
+        return $this->showItemizedCart;
+    }
+
+    /**
+     * Sets Show Itemized Cart.
+     * Show the itemization screen prior to taking a payment. This field is only meaningful when the
+     * checkout includes an order ID. Defaults to true.
+     *
+     * @maps show_itemized_cart
+     */
+    public function setShowItemizedCart(?bool $showItemizedCart): void
+    {
+        $this->showItemizedCart = $showItemizedCart;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -140,6 +167,9 @@ class DeviceCheckoutOptions implements \JsonSerializable
         }
         if (isset($this->tipSettings)) {
             $json['tip_settings']        = $this->tipSettings;
+        }
+        if (isset($this->showItemizedCart)) {
+            $json['show_itemized_cart']  = $this->showItemizedCart;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

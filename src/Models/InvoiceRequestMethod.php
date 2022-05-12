@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * Specifies the action for Square to take for processing the invoice. For example,
  * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
@@ -77,4 +80,29 @@ class InvoiceRequestMethod
      * You cannot set `SMS_CHARGE_BANK_ON_FILE` as a request method using the Invoices API.
      */
     public const SMS_CHARGE_BANK_ON_FILE = 'SMS_CHARGE_BANK_ON_FILE';
+
+    private const _ALL_VALUES = [
+        self::EMAIL,
+        self::CHARGE_CARD_ON_FILE,
+        self::SHARE_MANUALLY,
+        self::CHARGE_BANK_ON_FILE,
+        self::SMS,
+        self::SMS_CHARGE_CARD_ON_FILE,
+        self::SMS_CHARGE_BANK_ON_FILE,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }

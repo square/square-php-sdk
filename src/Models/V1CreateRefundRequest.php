@@ -86,6 +86,7 @@ class V1CreateRefundRequest implements \JsonSerializable
      *
      * @required
      * @maps type
+     * @factory \Square\Models\V1CreateRefundRequestType::checkValue
      */
     public function setType(string $type): void
     {
@@ -164,7 +165,7 @@ class V1CreateRefundRequest implements \JsonSerializable
     {
         $json = [];
         $json['payment_id']                  = $this->paymentId;
-        $json['type']                        = $this->type;
+        $json['type']                        = V1CreateRefundRequestType::checkValue($this->type);
         $json['reason']                      = $this->reason;
         if (isset($this->refundedMoney)) {
             $json['refunded_money']          = $this->refundedMoney;

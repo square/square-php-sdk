@@ -50,6 +50,7 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      *
      * @required
      * @maps option
+     * @factory \Square\Models\CatalogQuickAmountsSettingsOption::checkValue
      */
     public function setOption(string $option): void
     {
@@ -114,7 +115,7 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['option']                        = $this->option;
+        $json['option']                        = CatalogQuickAmountsSettingsOption::checkValue($this->option);
         if (isset($this->eligibleForAutoAmounts)) {
             $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts;
         }

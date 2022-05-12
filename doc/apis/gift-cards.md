@@ -51,13 +51,7 @@ function listGiftCards(
 ## Example Usage
 
 ```php
-$type = 'type0';
-$state = 'state4';
-$limit = 172;
-$cursor = 'cursor6';
-$customerId = 'customer_id8';
-
-$apiResponse = $giftCardsApi->listGiftCards($type, $state, $limit, $cursor, $customerId);
+$apiResponse = $giftCardsApi->listGiftCards();
 
 if ($apiResponse->isSuccess()) {
     $listGiftCardsResponse = $apiResponse->getResult();
@@ -73,9 +67,9 @@ if ($apiResponse->isSuccess()) {
 
 # Create Gift Card
 
-Creates a digital gift card or registers a physical (plastic) gift card. You must activate the gift card before
-it can be used for payment. For more information, see
-[Selling gift cards](https://developer.squareup.com/docs/gift-cards/using-gift-cards-api#selling-square-gift-cards).
+Creates a digital gift card or registers a physical (plastic) gift card. After the gift card
+is created, you must call [CreateGiftCardActivity](../../doc/apis/gift-card-activities.md#create-gift-card-activity)
+to activate the card with an initial balance before it can be used for payment.
 
 ```php
 function createGiftCard(CreateGiftCardRequest $body): ApiResponse
@@ -100,13 +94,6 @@ $body_giftCard_type = Models\GiftCardType::DIGITAL;
 $body_giftCard = new Models\GiftCard(
     $body_giftCard_type
 );
-$body_giftCard->setId('id4');
-$body_giftCard->setGanSource(Models\GiftCardGANSource::SQUARE);
-$body_giftCard->setState(Models\GiftCardStatus::ACTIVE);
-$body_giftCard->setBalanceMoney(new Models\Money);
-$body_giftCard->getBalanceMoney()->setAmount(2);
-$body_giftCard->getBalanceMoney()->setCurrency(Models\Currency::DOP);
-$body_giftCard->setGan('gan0');
 $body = new Models\CreateGiftCardRequest(
     $body_idempotencyKey,
     $body_locationId,
@@ -293,7 +280,7 @@ if ($apiResponse->isSuccess()) {
 
 # Retrieve Gift Card
 
-Retrieves a gift card using its ID.
+Retrieves a gift card using the gift card ID.
 
 ```php
 function retrieveGiftCard(string $id): ApiResponse

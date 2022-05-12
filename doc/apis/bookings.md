@@ -57,14 +57,7 @@ function listBookings(
 ## Example Usage
 
 ```php
-$limit = 172;
-$cursor = 'cursor6';
-$teamMemberId = 'team_member_id0';
-$locationId = 'location_id4';
-$startAtMin = 'start_at_min8';
-$startAtMax = 'start_at_max8';
-
-$apiResponse = $bookingsApi->listBookings($limit, $cursor, $teamMemberId, $locationId, $startAtMin, $startAtMax);
+$apiResponse = $bookingsApi->listBookings();
 
 if ($apiResponse->isSuccess()) {
     $listBookingsResponse = $apiResponse->getResult();
@@ -85,6 +78,9 @@ Creates a booking.
 To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
+For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to *Appointments Plus*
+or *Appointments Premium*.
+
 ```php
 function createBooking(CreateBookingRequest $body): ApiResponse
 ```
@@ -103,15 +99,9 @@ function createBooking(CreateBookingRequest $body): ApiResponse
 
 ```php
 $body_booking = new Models\Booking;
-$body_booking->setId('id8');
-$body_booking->setVersion(148);
-$body_booking->setStatus(Models\BookingStatus::ACCEPTED);
-$body_booking->setCreatedAt('created_at6');
-$body_booking->setUpdatedAt('updated_at4');
 $body = new Models\CreateBookingRequest(
     $body_booking
 );
-$body->setIdempotencyKey('idempotency_key2');
 
 $apiResponse = $bookingsApi->createBooking($body);
 
@@ -152,34 +142,9 @@ function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
 
 ```php
 $body_query_filter_startAtRange = new Models\TimeRange;
-$body_query_filter_startAtRange->setStartAt('start_at8');
-$body_query_filter_startAtRange->setEndAt('end_at4');
 $body_query_filter = new Models\SearchAvailabilityFilter(
     $body_query_filter_startAtRange
 );
-$body_query_filter->setLocationId('location_id6');
-$body_query_filter_segmentFilters = [];
-
-$body_query_filter_segmentFilters_0_serviceVariationId = 'service_variation_id8';
-$body_query_filter_segmentFilters[0] = new Models\SegmentFilter(
-    $body_query_filter_segmentFilters_0_serviceVariationId
-);
-$body_query_filter_segmentFilters[0]->setTeamMemberIdFilter(new Models\FilterValue);
-$body_query_filter_segmentFilters[0]->getTeamMemberIdFilter()->setAll(['all7']);
-$body_query_filter_segmentFilters[0]->getTeamMemberIdFilter()->setAny(['any0', 'any1']);
-$body_query_filter_segmentFilters[0]->getTeamMemberIdFilter()->setNone(['none5']);
-
-$body_query_filter_segmentFilters_1_serviceVariationId = 'service_variation_id7';
-$body_query_filter_segmentFilters[1] = new Models\SegmentFilter(
-    $body_query_filter_segmentFilters_1_serviceVariationId
-);
-$body_query_filter_segmentFilters[1]->setTeamMemberIdFilter(new Models\FilterValue);
-$body_query_filter_segmentFilters[1]->getTeamMemberIdFilter()->setAll(['all6', 'all7', 'all8']);
-$body_query_filter_segmentFilters[1]->getTeamMemberIdFilter()->setAny(['any1', 'any2', 'any3']);
-$body_query_filter_segmentFilters[1]->getTeamMemberIdFilter()->setNone(['none6', 'none7']);
-$body_query_filter->setSegmentFilters($body_query_filter_segmentFilters);
-
-$body_query_filter->setBookingId('booking_id6');
 $body_query = new Models\SearchAvailabilityQuery(
     $body_query_filter
 );
@@ -260,11 +225,8 @@ function listTeamMemberBookingProfiles(
 
 ```php
 $bookableOnly = false;
-$limit = 172;
-$cursor = 'cursor6';
-$locationId = 'location_id4';
 
-$apiResponse = $bookingsApi->listTeamMemberBookingProfiles($bookableOnly, $limit, $cursor, $locationId);
+$apiResponse = $bookingsApi->listTeamMemberBookingProfiles($bookableOnly);
 
 if ($apiResponse->isSuccess()) {
     $listTeamMemberBookingProfilesResponse = $apiResponse->getResult();
@@ -362,6 +324,9 @@ Updates a booking.
 To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
+For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to *Appointments Plus*
+or *Appointments Premium*.
+
 ```php
 function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiResponse
 ```
@@ -382,15 +347,9 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 ```php
 $bookingId = 'booking_id4';
 $body_booking = new Models\Booking;
-$body_booking->setId('id8');
-$body_booking->setVersion(148);
-$body_booking->setStatus(Models\BookingStatus::ACCEPTED);
-$body_booking->setCreatedAt('created_at6');
-$body_booking->setUpdatedAt('updated_at4');
 $body = new Models\UpdateBookingRequest(
     $body_booking
 );
-$body->setIdempotencyKey('idempotency_key2');
 
 $apiResponse = $bookingsApi->updateBooking($bookingId, $body);
 
@@ -413,6 +372,9 @@ Cancels an existing booking.
 To call this endpoint with buyer-level permissions, set `APPOINTMENTS_WRITE` for the OAuth scope.
 To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_WRITE` and `APPOINTMENTS_WRITE` for the OAuth scope.
 
+For calls to this endpoint with seller-level permissions to succeed, the seller must have subscribed to *Appointments Plus*
+or *Appointments Premium*.
+
 ```php
 function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiResponse
 ```
@@ -433,8 +395,6 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 ```php
 $bookingId = 'booking_id4';
 $body = new Models\CancelBookingRequest;
-$body->setIdempotencyKey('idempotency_key2');
-$body->setBookingVersion(8);
 
 $apiResponse = $bookingsApi->cancelBooking($bookingId, $body);
 

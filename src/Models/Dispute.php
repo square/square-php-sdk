@@ -179,6 +179,7 @@ class Dispute implements \JsonSerializable
      * dispute with their bank.
      *
      * @maps reason
+     * @factory \Square\Models\DisputeReason::checkValue
      */
     public function setReason(?string $reason): void
     {
@@ -199,6 +200,7 @@ class Dispute implements \JsonSerializable
      * The list of possible dispute states.
      *
      * @maps state
+     * @factory \Square\Models\DisputeState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -283,6 +285,7 @@ class Dispute implements \JsonSerializable
      * Indicates a card's brand, such as `VISA` or `MASTERCARD`.
      *
      * @maps card_brand
+     * @factory \Square\Models\CardBrand::checkValue
      */
     public function setCardBrand(?string $cardBrand): void
     {
@@ -451,10 +454,10 @@ class Dispute implements \JsonSerializable
             $json['amount_money']     = $this->amountMoney;
         }
         if (isset($this->reason)) {
-            $json['reason']           = $this->reason;
+            $json['reason']           = DisputeReason::checkValue($this->reason);
         }
         if (isset($this->state)) {
-            $json['state']            = $this->state;
+            $json['state']            = DisputeState::checkValue($this->state);
         }
         if (isset($this->dueAt)) {
             $json['due_at']           = $this->dueAt;
@@ -466,7 +469,7 @@ class Dispute implements \JsonSerializable
             $json['evidence_ids']     = $this->evidenceIds;
         }
         if (isset($this->cardBrand)) {
-            $json['card_brand']       = $this->cardBrand;
+            $json['card_brand']       = CardBrand::checkValue($this->cardBrand);
         }
         if (isset($this->createdAt)) {
             $json['created_at']       = $this->createdAt;

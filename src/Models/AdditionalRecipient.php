@@ -117,8 +117,8 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Returns Receivable Id.
-     * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
-     * by the server.
+     * The unique ID for the RETIRED `AdditionalRecipientReceivable` object. This field should be empty for
+     * any `AdditionalRecipient` objects created after the retirement.
      */
     public function getReceivableId(): ?string
     {
@@ -127,8 +127,8 @@ class AdditionalRecipient implements \JsonSerializable
 
     /**
      * Sets Receivable Id.
-     * The unique ID for this [AdditionalRecipientReceivable]($m/AdditionalRecipientReceivable), assigned
-     * by the server.
+     * The unique ID for the RETIRED `AdditionalRecipientReceivable` object. This field should be empty for
+     * any `AdditionalRecipient` objects created after the retirement.
      *
      * @maps receivable_id
      */

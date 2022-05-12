@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
+use Exception;
+use Square\ApiHelper;
+
 /**
  * Unit of area used to measure a quantity.
  */
@@ -48,4 +51,30 @@ class MeasurementUnitArea
      * The area is measured in square kilometers.
      */
     public const METRIC_SQUARE_KILOMETER = 'METRIC_SQUARE_KILOMETER';
+
+    private const _ALL_VALUES = [
+        self::IMPERIAL_ACRE,
+        self::IMPERIAL_SQUARE_INCH,
+        self::IMPERIAL_SQUARE_FOOT,
+        self::IMPERIAL_SQUARE_YARD,
+        self::IMPERIAL_SQUARE_MILE,
+        self::METRIC_SQUARE_CENTIMETER,
+        self::METRIC_SQUARE_METER,
+        self::METRIC_SQUARE_KILOMETER,
+    ];
+
+    /**
+     * Ensures that all the given values are present in this Enum.
+     *
+     * @param array|null|string $value Value or a list of values to be checked
+     *
+     * @return array|null|string Input value(s), if all are a part of this Enum
+     *
+     * @throws Exception Throws exception if any given value is not in this Enum
+     */
+    public static function checkValue($value)
+    {
+        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
+        return $value;
+    }
 }
