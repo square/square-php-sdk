@@ -6,6 +6,7 @@ namespace Square\Models;
 
 use Exception;
 use Square\ApiHelper;
+use stdClass;
 
 /**
  * Indicates the country associated with another entity, such as a business.
@@ -1519,7 +1520,7 @@ class Country
     /**
      * Ensures that all the given values are present in this Enum.
      *
-     * @param array|null|string $value Value or a list of values to be checked
+     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
      *
      * @return array|null|string Input value(s), if all are a part of this Enum
      *
@@ -1527,6 +1528,7 @@ class Country
      */
     public static function checkValue($value)
     {
+        $value = json_decode(json_encode($value), true); // converts stdClass into array
         ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
         return $value;
     }

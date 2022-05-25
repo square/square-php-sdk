@@ -531,7 +531,7 @@ class CatalogItemVariation implements \JsonSerializable
      * Returns Sellable.
      * Whether this variation can be sold. The inventory count of a sellable variation indicates
      * the number of units available for sale. When a variation is both stockable and sellable,
-     * its sellable inventory count can be smaller than or equal to its stocable count.
+     * its sellable inventory count can be smaller than or equal to its stockable count.
      */
     public function getSellable(): ?bool
     {
@@ -542,7 +542,7 @@ class CatalogItemVariation implements \JsonSerializable
      * Sets Sellable.
      * Whether this variation can be sold. The inventory count of a sellable variation indicates
      * the number of units available for sale. When a variation is both stockable and sellable,
-     * its sellable inventory count can be smaller than or equal to its stocable count.
+     * its sellable inventory count can be smaller than or equal to its stockable count.
      *
      * @maps sellable
      */
@@ -554,8 +554,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Returns Stockable.
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
-     * The inventory count of a stockable variation keeps track of the number of units of this variation in
-     * stock
+     * When a variation is both stockable and sellable, the inventory count of a stockable variation keeps
+     * track of the number of units of this variation in stock
      * and is not an indicator of the number of units of the variation that can be sold.
      */
     public function getStockable(): ?bool
@@ -566,8 +566,8 @@ class CatalogItemVariation implements \JsonSerializable
     /**
      * Sets Stockable.
      * Whether stock is counted directly on this variation (TRUE) or only on its components (FALSE).
-     * The inventory count of a stockable variation keeps track of the number of units of this variation in
-     * stock
+     * When a variation is both stockable and sellable, the inventory count of a stockable variation keeps
+     * track of the number of units of this variation in stock
      * and is not an indicator of the number of units of the variation that can be sold.
      *
      * @maps stockable

@@ -1,7 +1,7 @@
 {
     "name": "square/square",
     "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
-    "version": "19.0.0.20220512",
+    "version": "19.0.1.20220512",
     "type": "library",
     "keywords": [
         "Square",
@@ -23,7 +23,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "apimatic/unirest-php": "^2.2.2",
-        "apimatic/jsonmapper": "^3.0.0"
+        "apimatic/jsonmapper": "^3.0.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
