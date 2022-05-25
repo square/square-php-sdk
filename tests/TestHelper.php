@@ -38,23 +38,25 @@ class TestHelper
 
     /**
      * Recursively check whether the leftTree is a proper subset of the right tree
-     * @param   array   $leftTree       Left tree
-     * @param   array   $rightTree      Right tree
+     * @param   mixed   $leftTree       Left tree
+     * @param   mixed   $rightTree      Right tree
      * @param   boolean $checkValues    Check primitive values for equality?
      * @param   boolean $allowExtra     Are extra elements allowed in right array?
      * @param   boolean $isOrdered      Should elements in right be compared in order to left?
      * @return  boolean                 True if leftTree is a subset of rightTree
      */
     public static function isProperSubsetOf(
-        array $leftTree = null,
-        array $rightTree = null,
+        $leftTree,
+        $rightTree,
         $checkValues,
         $allowExtra,
         $isOrdered
     ) {
-    
         if ($leftTree == null) {
             return true;
+        }
+        if (!is_array($leftTree) && !is_array($rightTree)) {
+            return $leftTree === $rightTree;
         }
 
         for ($iterator = new \ArrayIterator($leftTree); $iterator->valid(); $iterator->next()) {

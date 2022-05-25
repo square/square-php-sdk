@@ -284,17 +284,22 @@ class ApiHelper
      */
     public static function applySerializationMethods($value, array $serializationMethods)
     {
-        $type = self::getType($value);
+        $type = empty($serializationMethods) ? null : self::getType($value);
         $error = null;
         foreach ($serializationMethods as $method) {
             $method = explode(' ', $method);
-            if (is_callable($method[0]) && $type == $method[1]) {
-                try {
+            try {
+                if (is_callable($method[0]) && $type == $method[1]) {
                     return call_user_func($method[0], $value);
-                } catch (\Throwable $e) {
-                    $error = $e;
                 }
+            } catch (\Throwable $e) {
+                $error = $e;
             }
+        }
+        if (is_array($value)) {
+            return array_map(function ($v) use ($serializationMethods) {
+                return self::applySerializationMethods($v, $serializationMethods);
+            }, $value);
         }
         if (isset($error)) {
             throw new InvalidArgumentException($error->getMessage());
