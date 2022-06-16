@@ -29,7 +29,7 @@ class SubscriptionPhase implements \JsonSerializable
     private $periods;
 
     /**
-     * @var Money
+     * @var Money|null
      */
     private $recurringPriceMoney;
 
@@ -40,12 +40,10 @@ class SubscriptionPhase implements \JsonSerializable
 
     /**
      * @param string $cadence
-     * @param Money $recurringPriceMoney
      */
-    public function __construct(string $cadence, Money $recurringPriceMoney)
+    public function __construct(string $cadence)
     {
         $this->cadence = $cadence;
-        $this->recurringPriceMoney = $recurringPriceMoney;
     }
 
     /**
@@ -124,7 +122,7 @@ class SubscriptionPhase implements \JsonSerializable
      * monetary-amounts)
      * for more information.
      */
-    public function getRecurringPriceMoney(): Money
+    public function getRecurringPriceMoney(): ?Money
     {
         return $this->recurringPriceMoney;
     }
@@ -139,10 +137,9 @@ class SubscriptionPhase implements \JsonSerializable
      * monetary-amounts)
      * for more information.
      *
-     * @required
      * @maps recurring_price_money
      */
-    public function setRecurringPriceMoney(Money $recurringPriceMoney): void
+    public function setRecurringPriceMoney(?Money $recurringPriceMoney): void
     {
         $this->recurringPriceMoney = $recurringPriceMoney;
     }
@@ -182,15 +179,17 @@ class SubscriptionPhase implements \JsonSerializable
     {
         $json = [];
         if (isset($this->uid)) {
-            $json['uid']               = $this->uid;
+            $json['uid']                   = $this->uid;
         }
-        $json['cadence']               = SubscriptionCadence::checkValue($this->cadence);
+        $json['cadence']                   = SubscriptionCadence::checkValue($this->cadence);
         if (isset($this->periods)) {
-            $json['periods']           = $this->periods;
+            $json['periods']               = $this->periods;
         }
-        $json['recurring_price_money'] = $this->recurringPriceMoney;
+        if (isset($this->recurringPriceMoney)) {
+            $json['recurring_price_money'] = $this->recurringPriceMoney;
+        }
         if (isset($this->ordinal)) {
-            $json['ordinal']           = $this->ordinal;
+            $json['ordinal']               = $this->ordinal;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

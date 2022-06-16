@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Present only when `GiftCardActivityType` is UNBLOCK.
+ * Represents details about an `UNBLOCK` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityUnblock implements \JsonSerializable
 {
@@ -18,6 +18,7 @@ class GiftCardActivityUnblock implements \JsonSerializable
 
     /**
      * Returns Reason.
+     * Indicates the reason for unblocking a [gift card]($m/GiftCard).
      */
     public function getReason(): string
     {
@@ -26,6 +27,7 @@ class GiftCardActivityUnblock implements \JsonSerializable
 
     /**
      * Sets Reason.
+     * Indicates the reason for unblocking a [gift card]($m/GiftCard).
      *
      * @maps reason
      */

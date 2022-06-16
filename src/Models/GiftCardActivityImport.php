@@ -7,8 +7,9 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a gift card activity of the IMPORT type and the `GiftCardGANSource` is OTHER
- * (a third-party gift card).
+ * Represents details about an `IMPORT` [gift card activity type]($m/GiftCardActivityType).
+ * This activity type is used when Square imports a third-party gift card, in which case the
+ * `gan_source` of the gift card is set to `OTHER`.
  */
 class GiftCardActivityImport implements \JsonSerializable
 {

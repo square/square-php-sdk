@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a gift card activity of the BLOCK type.
+ * Represents details about a `BLOCK` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityBlock implements \JsonSerializable
 {
@@ -18,6 +18,7 @@ class GiftCardActivityBlock implements \JsonSerializable
 
     /**
      * Returns Reason.
+     * Indicates the reason for blocking a [gift card]($m/GiftCard).
      */
     public function getReason(): string
     {
@@ -26,6 +27,7 @@ class GiftCardActivityBlock implements \JsonSerializable
 
     /**
      * Sets Reason.
+     * Indicates the reason for blocking a [gift card]($m/GiftCard).
      *
      * @maps reason
      */

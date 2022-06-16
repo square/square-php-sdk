@@ -1,7 +1,7 @@
 
 # Gift Card Activity Activate
 
-Describes a gift card activity of the ACTIVATE type.
+Represents details about an `ACTIVATE` [gift card activity type](../../doc/models/gift-card-activity-type.md).
 
 ## Structure
 
@@ -12,10 +12,10 @@ Describes a gift card activity of the ACTIVATE type.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `amountMoney` | [`?Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getAmountMoney(): ?Money | setAmountMoney(?Money amountMoney): void |
-| `orderId` | `?string` | Optional | The ID of the order associated with the activity.<br>This is required if your application uses the Square Orders API. | getOrderId(): ?string | setOrderId(?string orderId): void |
-| `lineItemUid` | `?string` | Optional | The `line_item_uid` of the gift card line item in an order.<br>This is required if your application uses the Square Orders API. | getLineItemUid(): ?string | setLineItemUid(?string lineItemUid): void |
-| `referenceId` | `?string` | Optional | If your application does not use the Square Orders API, you can optionally use this field<br>to associate the gift card activity with a client-side entity. | getReferenceId(): ?string | setReferenceId(?string referenceId): void |
-| `buyerPaymentInstrumentIds` | `?(string[])` | Optional | Required if your application does not use the Square Orders API.<br>This is a list of client-provided payment instrument IDs.<br>Square uses this information to perform compliance checks.<br>If you use the Square Orders API, Square has the necessary instrument IDs to perform necessary<br>compliance checks. | getBuyerPaymentInstrumentIds(): ?array | setBuyerPaymentInstrumentIds(?array buyerPaymentInstrumentIds): void |
+| `orderId` | `?string` | Optional | The ID of the [order](../../doc/models/order.md) that contains the `GIFT_CARD` line item.<br><br>Applications that use the Square Orders API to process orders must specify the order ID<br>[CreateGiftCardActivity](../../doc/apis/gift-card-activities.md#create-gift-card-activity) request. | getOrderId(): ?string | setOrderId(?string orderId): void |
+| `lineItemUid` | `?string` | Optional | The UID of the `GIFT_CARD` line item in the order that represents the gift card purchase.<br><br>Applications that use the Square Orders API to process orders must specify the line item UID<br>in the [CreateGiftCardActivity](../../doc/apis/gift-card-activities.md#create-gift-card-activity) request. | getLineItemUid(): ?string | setLineItemUid(?string lineItemUid): void |
+| `referenceId` | `?string` | Optional | A client-specified ID that associates the gift card activity with an entity in another system.<br><br>Applications that use a custom order processing system can use this field to track information<br>related to an order or payment. | getReferenceId(): ?string | setReferenceId(?string referenceId): void |
+| `buyerPaymentInstrumentIds` | `?(string[])` | Optional | The payment instrument IDs used to process the gift card purchase, such as a credit card ID<br>or bank account ID.<br><br>Applications that use a custom order processing system must specify payment instrument IDs in<br>the [CreateGiftCardActivity](../../doc/apis/gift-card-activities.md#create-gift-card-activity) request.<br>Square uses this information to perform compliance checks.<br><br>For applications that use the Square Orders API to process payments, Square has the necessary<br>instrument IDs to perform compliance checks. | getBuyerPaymentInstrumentIds(): ?array | setBuyerPaymentInstrumentIds(?array buyerPaymentInstrumentIds): void |
 
 ## Example (as JSON)
 

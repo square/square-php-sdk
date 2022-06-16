@@ -43,6 +43,11 @@ class CreatePaymentRequest implements \JsonSerializable
     private $delayDuration;
 
     /**
+     * @var string|null
+     */
+    private $delayAction;
+
+    /**
      * @var bool|null
      */
     private $autocomplete;
@@ -294,12 +299,13 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Delay Duration.
-     * The duration of time after the payment's creation when Square automatically cancels the
-     * payment. This automatic cancellation applies only to payments that do not reach a terminal state
-     * (COMPLETED, CANCELED, or FAILED) before the `delay_duration` time period.
+     * The duration of time after the payment's creation when Square automatically
+     * either completes or cancels the payment depending on the `delay_action` field value.
+     * For more information, see
+     * [Time threshold](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments/delayed-capture#time-threshold).
      *
-     * This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
-     * of 1 minute.
+     * This parameter should be specified as a time duration, in RFC 3339 format.
      *
      * Note: This feature is only supported for card payments. This parameter can only be set for a
      * delayed
@@ -317,12 +323,13 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Delay Duration.
-     * The duration of time after the payment's creation when Square automatically cancels the
-     * payment. This automatic cancellation applies only to payments that do not reach a terminal state
-     * (COMPLETED, CANCELED, or FAILED) before the `delay_duration` time period.
+     * The duration of time after the payment's creation when Square automatically
+     * either completes or cancels the payment depending on the `delay_action` field value.
+     * For more information, see
+     * [Time threshold](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments/delayed-capture#time-threshold).
      *
-     * This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
-     * of 1 minute.
+     * This parameter should be specified as a time duration, in RFC 3339 format.
      *
      * Note: This feature is only supported for card payments. This parameter can only be set for a
      * delayed
@@ -338,6 +345,36 @@ class CreatePaymentRequest implements \JsonSerializable
     public function setDelayDuration(?string $delayDuration): void
     {
         $this->delayDuration = $delayDuration;
+    }
+
+    /**
+     * Returns Delay Action.
+     * The action to be applied to the payment when the `delay_duration` has elapsed. The action must be
+     * CANCEL or COMPLETE. For more information, see
+     * [Time Threshold](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments/delayed-capture#time-threshold).
+     *
+     * Default: CANCEL
+     */
+    public function getDelayAction(): ?string
+    {
+        return $this->delayAction;
+    }
+
+    /**
+     * Sets Delay Action.
+     * The action to be applied to the payment when the `delay_duration` has elapsed. The action must be
+     * CANCEL or COMPLETE. For more information, see
+     * [Time Threshold](https://developer.squareup.com/docs/payments-api/take-payments/card-
+     * payments/delayed-capture#time-threshold).
+     *
+     * Default: CANCEL
+     *
+     * @maps delay_action
+     */
+    public function setDelayAction(?string $delayAction): void
+    {
+        $this->delayAction = $delayAction;
     }
 
     /**
@@ -749,6 +786,9 @@ class CreatePaymentRequest implements \JsonSerializable
         }
         if (isset($this->delayDuration)) {
             $json['delay_duration']                   = $this->delayDuration;
+        }
+        if (isset($this->delayAction)) {
+            $json['delay_action']                     = $this->delayAction;
         }
         if (isset($this->autocomplete)) {
             $json['autocomplete']                     = $this->autocomplete;

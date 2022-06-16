@@ -74,8 +74,8 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * are not included in the defaults.
      *
      * At the current API version the default object types are:
-     * ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,
-     * SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
+     * ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,
+     * PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
      * SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
      *
      * @return string[]|null
@@ -94,8 +94,8 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * are not included in the defaults.
      *
      * At the current API version the default object types are:
-     * ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,
-     * SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
+     * ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,
+     * PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
      * SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
      *
      * @maps object_types

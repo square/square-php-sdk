@@ -2,6 +2,9 @@
 
 For general API and SDK changelogs, see  [Square APIs and SDKs Release Notes](https://developer.squareup.com/docs/changelog/connect).
 
+## Version 19.0.1.20220512 (2022-05-12)
+- Fixed [Op Cache can break response types](https://github.com/square/square-php-sdk/issues/80)
+
 ## Version 17.3.0.20220316 (2022-03-16)
 ### Added
 

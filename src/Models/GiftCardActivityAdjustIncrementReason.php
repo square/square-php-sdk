@@ -8,10 +8,13 @@ use Exception;
 use Square\ApiHelper;
 use stdClass;
 
+/**
+ * Indicates the reason for adding money to a [gift card]($m/GiftCard).
+ */
 class GiftCardActivityAdjustIncrementReason
 {
     /**
-     * Seller gifted a complimentary gift card balance increase.
+     * The seller gifted a complimentary gift card balance increase.
      */
     public const COMPLIMENTARY = 'COMPLIMENTARY';
 

@@ -511,8 +511,8 @@ class CatalogApi extends BaseApi
      *        are not included in the defaults.
      *
      *        At the current API version the default object types are:
-     *        ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST, DINING_OPTION, TAX_EXEMPTION,
-     *        SERVICE_CHARGE, PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
+     *        ITEM, CATEGORY, TAX, DISCOUNT, MODIFIER_LIST,
+     *        PRICING_RULE, PRODUCT_SET, TIME_PERIOD, MEASUREMENT_UNIT,
      *        SUBSCRIPTION_PLAN, ITEM_OPTION, CUSTOM_ATTRIBUTE_DEFINITION, QUICK_AMOUNT_SETTINGS.
      * @param int|null $catalogVersion The specific version of the catalog objects to be included in
      *        the response.

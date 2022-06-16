@@ -555,10 +555,9 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Delay Action.
-     * The action to be applied to the payment when the `delay_duration` has elapsed. This field
-     * is read-only.
+     * The action to be applied to the payment when the `delay_duration` has elapsed.
      *
-     * Current values include `CANCEL`.
+     * Current values include `CANCEL` and `COMPLETE`.
      */
     public function getDelayAction(): ?string
     {
@@ -567,10 +566,9 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Delay Action.
-     * The action to be applied to the payment when the `delay_duration` has elapsed. This field
-     * is read-only.
+     * The action to be applied to the payment when the `delay_duration` has elapsed.
      *
-     * Current values include `CANCEL`.
+     * Current values include `CANCEL` and `COMPLETE`.
      *
      * @maps delay_action
      */
@@ -1072,6 +1070,7 @@ class Payment implements \JsonSerializable
      * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
      * - `EDIT_TIP_AMOUNT_UP` - The tip amount can be edited up.
      * - `EDIT_TIP_AMOUNT_DOWN` - The tip amount can be edited down.
+     * - `EDIT_DELAY_ACTION` - The delay_action can be edited.
      *
      * @return string[]|null
      */
@@ -1087,6 +1086,7 @@ class Payment implements \JsonSerializable
      * - `EDIT_AMOUNT_DOWN` - The payment amount can be edited down.
      * - `EDIT_TIP_AMOUNT_UP` - The tip amount can be edited up.
      * - `EDIT_TIP_AMOUNT_DOWN` - The tip amount can be edited down.
+     * - `EDIT_DELAY_ACTION` - The delay_action can be edited.
      *
      * @maps capabilities
      *
