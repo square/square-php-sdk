@@ -6,6 +6,9 @@ namespace Square\Models;
 
 use stdClass;
 
+/**
+ * Represents an action processed by the Square Terminal.
+ */
 class TerminalAction implements \JsonSerializable
 {
     /**
@@ -57,6 +60,11 @@ class TerminalAction implements \JsonSerializable
      * @var SaveCardOptions|null
      */
     private $saveCardOptions;
+
+    /**
+     * @var DeviceMetadata|null
+     */
+    private $deviceMetadata;
 
     /**
      * Returns Id.
@@ -277,6 +285,24 @@ class TerminalAction implements \JsonSerializable
     }
 
     /**
+     * Returns Device Metadata.
+     */
+    public function getDeviceMetadata(): ?DeviceMetadata
+    {
+        return $this->deviceMetadata;
+    }
+
+    /**
+     * Sets Device Metadata.
+     *
+     * @maps device_metadata
+     */
+    public function setDeviceMetadata(?DeviceMetadata $deviceMetadata): void
+    {
+        $this->deviceMetadata = $deviceMetadata;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -317,6 +343,9 @@ class TerminalAction implements \JsonSerializable
         }
         if (isset($this->saveCardOptions)) {
             $json['save_card_options'] = $this->saveCardOptions;
+        }
+        if (isset($this->deviceMetadata)) {
+            $json['device_metadata']   = $this->deviceMetadata;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

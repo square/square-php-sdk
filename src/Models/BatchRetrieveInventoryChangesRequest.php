@@ -44,6 +44,11 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     private $cursor;
 
     /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
      * Returns Catalog Object Ids.
      * The filter to return results by `CatalogObject` ID.
      * The filter is only applicable when set. The default value is null.
@@ -228,6 +233,24 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Limit.
+     */
+    public function getLimit(): ?int
+    {
+        return $this->limit;
+    }
+
+    /**
+     * Sets Limit.
+     *
+     * @maps limit
+     */
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -259,6 +282,9 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
         }
         if (isset($this->cursor)) {
             $json['cursor']             = $this->cursor;
+        }
+        if (isset($this->limit)) {
+            $json['limit']              = $this->limit;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

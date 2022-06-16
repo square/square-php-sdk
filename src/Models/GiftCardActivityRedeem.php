@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Present only when `GiftCardActivityType` is REDEEM.
+ * Represents details about a `REDEEM` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityRedeem implements \JsonSerializable
 {
@@ -25,6 +25,11 @@ class GiftCardActivityRedeem implements \JsonSerializable
      * @var string|null
      */
     private $referenceId;
+
+    /**
+     * @var string|null
+     */
+    private $status;
 
     /**
      * @param Money $amountMoney
@@ -69,9 +74,8 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     * When the Square Payments API is used, Redeem is not called on the Gift Cards API.
-     * However, when Square reads a Redeem activity from the Gift Cards API, developers need to know the
-     * associated `payment_id`.
+     * The ID of the payment that represents the gift card redemption. Square populates this field
+     * if the payment was processed by Square.
      */
     public function getPaymentId(): ?string
     {
@@ -80,9 +84,8 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     * When the Square Payments API is used, Redeem is not called on the Gift Cards API.
-     * However, when Square reads a Redeem activity from the Gift Cards API, developers need to know the
-     * associated `payment_id`.
+     * The ID of the payment that represents the gift card redemption. Square populates this field
+     * if the payment was processed by Square.
      *
      * @maps payment_id
      */
@@ -93,9 +96,10 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square Orders
-     * API is not being used.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     *
+     * Applications that use a custom payment processing system can use this field to track information
+     * related to an order or payment.
      */
     public function getReferenceId(): ?string
     {
@@ -104,15 +108,43 @@ class GiftCardActivityRedeem implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square Orders
-     * API is not being used.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     *
+     * Applications that use a custom payment processing system can use this field to track information
+     * related to an order or payment.
      *
      * @maps reference_id
      */
     public function setReferenceId(?string $referenceId): void
     {
         $this->referenceId = $referenceId;
+    }
+
+    /**
+     * Returns Status.
+     * Indicates the status of a [gift card]($m/GiftCard) redemption. This status is relevant only for
+     * redemptions made from Square products (such as Square Point of Sale) because Square products use a
+     * two-state process. Gift cards redeemed using the Gift Card Activities API always have a `COMPLETED`
+     * status.
+     */
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    /**
+     * Sets Status.
+     * Indicates the status of a [gift card]($m/GiftCard) redemption. This status is relevant only for
+     * redemptions made from Square products (such as Square Point of Sale) because Square products use a
+     * two-state process. Gift cards redeemed using the Gift Card Activities API always have a `COMPLETED`
+     * status.
+     *
+     * @maps status
+     * @factory \Square\Models\GiftCardActivityRedeemStatus::checkValue
+     */
+    public function setStatus(?string $status): void
+    {
+        $this->status = $status;
     }
 
     /**
@@ -133,6 +165,9 @@ class GiftCardActivityRedeem implements \JsonSerializable
         }
         if (isset($this->referenceId)) {
             $json['reference_id'] = $this->referenceId;
+        }
+        if (isset($this->status)) {
+            $json['status']       = GiftCardActivityRedeemStatus::checkValue($this->status);
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

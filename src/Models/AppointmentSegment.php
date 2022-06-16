@@ -17,7 +17,7 @@ class AppointmentSegment implements \JsonSerializable
     private $durationMinutes;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $serviceVariationId;
 
@@ -27,7 +27,7 @@ class AppointmentSegment implements \JsonSerializable
     private $teamMemberId;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $serviceVariationVersion;
 
@@ -47,15 +47,11 @@ class AppointmentSegment implements \JsonSerializable
     private $resourceIds;
 
     /**
-     * @param string $serviceVariationId
      * @param string $teamMemberId
-     * @param int $serviceVariationVersion
      */
-    public function __construct(string $serviceVariationId, string $teamMemberId, int $serviceVariationVersion)
+    public function __construct(string $teamMemberId)
     {
-        $this->serviceVariationId = $serviceVariationId;
         $this->teamMemberId = $teamMemberId;
-        $this->serviceVariationVersion = $serviceVariationVersion;
     }
 
     /**
@@ -83,7 +79,7 @@ class AppointmentSegment implements \JsonSerializable
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      */
-    public function getServiceVariationId(): string
+    public function getServiceVariationId(): ?string
     {
         return $this->serviceVariationId;
     }
@@ -93,10 +89,9 @@ class AppointmentSegment implements \JsonSerializable
      * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
      * in this segment.
      *
-     * @required
      * @maps service_variation_id
      */
-    public function setServiceVariationId(string $serviceVariationId): void
+    public function setServiceVariationId(?string $serviceVariationId): void
     {
         $this->serviceVariationId = $serviceVariationId;
     }
@@ -126,7 +121,7 @@ class AppointmentSegment implements \JsonSerializable
      * Returns Service Variation Version.
      * The current version of the item variation representing the service booked in this segment.
      */
-    public function getServiceVariationVersion(): int
+    public function getServiceVariationVersion(): ?int
     {
         return $this->serviceVariationVersion;
     }
@@ -135,10 +130,9 @@ class AppointmentSegment implements \JsonSerializable
      * Sets Service Variation Version.
      * The current version of the item variation representing the service booked in this segment.
      *
-     * @required
      * @maps service_variation_version
      */
-    public function setServiceVariationVersion(int $serviceVariationVersion): void
+    public function setServiceVariationVersion(?int $serviceVariationVersion): void
     {
         $this->serviceVariationVersion = $serviceVariationVersion;
     }
@@ -220,19 +214,23 @@ class AppointmentSegment implements \JsonSerializable
     {
         $json = [];
         if (isset($this->durationMinutes)) {
-            $json['duration_minutes']      = $this->durationMinutes;
+            $json['duration_minutes']          = $this->durationMinutes;
         }
-        $json['service_variation_id']      = $this->serviceVariationId;
-        $json['team_member_id']            = $this->teamMemberId;
-        $json['service_variation_version'] = $this->serviceVariationVersion;
+        if (isset($this->serviceVariationId)) {
+            $json['service_variation_id']      = $this->serviceVariationId;
+        }
+        $json['team_member_id']                = $this->teamMemberId;
+        if (isset($this->serviceVariationVersion)) {
+            $json['service_variation_version'] = $this->serviceVariationVersion;
+        }
         if (isset($this->intermissionMinutes)) {
-            $json['intermission_minutes']  = $this->intermissionMinutes;
+            $json['intermission_minutes']      = $this->intermissionMinutes;
         }
         if (isset($this->anyTeamMember)) {
-            $json['any_team_member']       = $this->anyTeamMember;
+            $json['any_team_member']           = $this->anyTeamMember;
         }
         if (isset($this->resourceIds)) {
-            $json['resource_ids']          = $this->resourceIds;
+            $json['resource_ids']              = $this->resourceIds;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Present only when `GiftCardActivityType` is UNLINKED_ACTIVITY_REFUND.
+ * Represents details about an `UNLINKED_ACTIVITY_REFUND` [gift card activity
+ * type]($m/GiftCardActivityType).
  */
 class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 {
@@ -69,10 +70,7 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square
-     * Payments
-     * API is not being used.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
      */
     public function getReferenceId(): ?string
     {
@@ -81,10 +79,7 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     * A client-specified ID to associate an entity, in another system, with this gift card
-     * activity. This can be used to track the order or payment related information when the Square
-     * Payments
-     * API is not being used.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
      *
      * @maps reference_id
      */
@@ -95,8 +90,7 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Returns Payment Id.
-     * When using the Square Payments API, the ID of the payment that was refunded to this gift
-     * card.
+     * The ID of the refunded payment. This field is not used starting in Square version 2022-06-16.
      */
     public function getPaymentId(): ?string
     {
@@ -105,8 +99,7 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
 
     /**
      * Sets Payment Id.
-     * When using the Square Payments API, the ID of the payment that was refunded to this gift
-     * card.
+     * The ID of the refunded payment. This field is not used starting in Square version 2022-06-16.
      *
      * @maps payment_id
      */

@@ -48,7 +48,10 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Returns Gift Card Activity.
-     * Represents an action performed on a gift card that affects its state or balance.
+     * Represents an action performed on a [gift card]($m/GiftCard) that affects its state or balance.
+     * A gift card activity contains information about a specific activity type. For example, a `REDEEM`
+     * activity
+     * includes a `redeem_activity_details` field that contains information about the redemption.
      */
     public function getGiftCardActivity(): ?GiftCardActivity
     {
@@ -57,7 +60,10 @@ class CreateGiftCardActivityResponse implements \JsonSerializable
 
     /**
      * Sets Gift Card Activity.
-     * Represents an action performed on a gift card that affects its state or balance.
+     * Represents an action performed on a [gift card]($m/GiftCard) that affects its state or balance.
+     * A gift card activity contains information about a specific activity type. For example, a `REDEEM`
+     * activity
+     * includes a `redeem_activity_details` field that contains information about the redemption.
      *
      * @maps gift_card_activity
      */

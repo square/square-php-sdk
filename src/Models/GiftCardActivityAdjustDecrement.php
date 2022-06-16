@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a gift card activity of the ADJUST_DECREMENT type.
+ * Represents details about an `ADJUST_DECREMENT` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityAdjustDecrement implements \JsonSerializable
 {
@@ -66,6 +66,7 @@ class GiftCardActivityAdjustDecrement implements \JsonSerializable
 
     /**
      * Returns Reason.
+     * Indicates the reason for deducting money from a [gift card]($m/GiftCard).
      */
     public function getReason(): string
     {
@@ -74,6 +75,7 @@ class GiftCardActivityAdjustDecrement implements \JsonSerializable
 
     /**
      * Sets Reason.
+     * Indicates the reason for deducting money from a [gift card]($m/GiftCard).
      *
      * @required
      * @maps reason

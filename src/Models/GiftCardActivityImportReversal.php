@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Present only when GiftCardActivityType is IMPORT_REVERSAL and GiftCardGANSource is OTHER
+ * Represents details about an `IMPORT_REVERSAL` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityImportReversal implements \JsonSerializable
 {

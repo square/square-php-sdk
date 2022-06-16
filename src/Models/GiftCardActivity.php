@@ -7,7 +7,10 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents an action performed on a gift card that affects its state or balance.
+ * Represents an action performed on a [gift card]($m/GiftCard) that affects its state or balance.
+ * A gift card activity contains information about a specific activity type. For example, a `REDEEM`
+ * activity
+ * includes a `redeem_activity_details` field that contains information about the redemption.
  */
 class GiftCardActivity implements \JsonSerializable
 {
@@ -123,7 +126,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Id.
-     * The unique ID of the gift card activity.
+     * The Square-assigned ID of the gift card activity.
      */
     public function getId(): ?string
     {
@@ -132,7 +135,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Id.
-     * The unique ID of the gift card activity.
+     * The Square-assigned ID of the gift card activity.
      *
      * @maps id
      */
@@ -143,7 +146,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Type.
-     * Indicates the gift card activity type.
+     * Indicates the type of [gift card activity]($m/GiftCardActivity).
      */
     public function getType(): string
     {
@@ -152,7 +155,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Type.
-     * Indicates the gift card activity type.
+     * Indicates the type of [gift card activity]($m/GiftCardActivity).
      *
      * @required
      * @maps type
@@ -165,7 +168,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the location at which the activity occurred.
+     * The ID of the [business location]($m/Location) where the activity occurred.
      */
     public function getLocationId(): string
     {
@@ -174,7 +177,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the location at which the activity occurred.
+     * The ID of the [business location]($m/Location) where the activity occurred.
      *
      * @required
      * @maps location_id
@@ -206,7 +209,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Gift Card Id.
-     * The gift card ID. The ID is not required if a GAN is present.
+     * The gift card ID. When creating a gift card activity, `gift_card_id` is not required if
+     * `gift_card_gan` is specified.
      */
     public function getGiftCardId(): ?string
     {
@@ -215,7 +219,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Gift Card Id.
-     * The gift card ID. The ID is not required if a GAN is present.
+     * The gift card ID. When creating a gift card activity, `gift_card_id` is not required if
+     * `gift_card_gan` is specified.
      *
      * @maps gift_card_id
      */
@@ -226,7 +231,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Gift Card Gan.
-     * The gift card GAN. The GAN is not required if `gift_card_id` is present.
+     * The gift card account number (GAN). When creating a gift card activity, `gift_card_gan`
+     * is not required if `gift_card_id` is specified.
      */
     public function getGiftCardGan(): ?string
     {
@@ -235,7 +241,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Gift Card Gan.
-     * The gift card GAN. The GAN is not required if `gift_card_id` is present.
+     * The gift card account number (GAN). When creating a gift card activity, `gift_card_gan`
+     * is not required if `gift_card_id` is specified.
      *
      * @maps gift_card_gan
      */
@@ -278,7 +285,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Load Activity Details.
-     * Present only when `GiftCardActivityType` is LOAD.
+     * Represents details about a `LOAD` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getLoadActivityDetails(): ?GiftCardActivityLoad
     {
@@ -287,7 +294,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Load Activity Details.
-     * Present only when `GiftCardActivityType` is LOAD.
+     * Represents details about a `LOAD` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps load_activity_details
      */
@@ -298,7 +305,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Activate Activity Details.
-     * Describes a gift card activity of the ACTIVATE type.
+     * Represents details about an `ACTIVATE` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getActivateActivityDetails(): ?GiftCardActivityActivate
     {
@@ -307,7 +314,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Activate Activity Details.
-     * Describes a gift card activity of the ACTIVATE type.
+     * Represents details about an `ACTIVATE` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps activate_activity_details
      */
@@ -318,7 +325,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Redeem Activity Details.
-     * Present only when `GiftCardActivityType` is REDEEM.
+     * Represents details about a `REDEEM` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getRedeemActivityDetails(): ?GiftCardActivityRedeem
     {
@@ -327,7 +334,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Redeem Activity Details.
-     * Present only when `GiftCardActivityType` is REDEEM.
+     * Represents details about a `REDEEM` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps redeem_activity_details
      */
@@ -338,7 +345,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Clear Balance Activity Details.
-     * Describes a gift card activity of the CLEAR_BALANCE type.
+     * Represents details about a `CLEAR_BALANCE` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getClearBalanceActivityDetails(): ?GiftCardActivityClearBalance
     {
@@ -347,7 +354,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Clear Balance Activity Details.
-     * Describes a gift card activity of the CLEAR_BALANCE type.
+     * Represents details about a `CLEAR_BALANCE` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps clear_balance_activity_details
      */
@@ -358,7 +365,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Deactivate Activity Details.
-     * Describes a gift card activity of the DEACTIVATE type.
+     * Represents details about a `DEACTIVATE` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getDeactivateActivityDetails(): ?GiftCardActivityDeactivate
     {
@@ -367,7 +374,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Deactivate Activity Details.
-     * Describes a gift card activity of the DEACTIVATE type.
+     * Represents details about a `DEACTIVATE` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps deactivate_activity_details
      */
@@ -378,7 +385,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Adjust Increment Activity Details.
-     * Describes a gift card activity of the ADJUST_INCREMENT type.
+     * Represents details about an `ADJUST_INCREMENT` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getAdjustIncrementActivityDetails(): ?GiftCardActivityAdjustIncrement
     {
@@ -387,7 +394,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Adjust Increment Activity Details.
-     * Describes a gift card activity of the ADJUST_INCREMENT type.
+     * Represents details about an `ADJUST_INCREMENT` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps adjust_increment_activity_details
      */
@@ -399,7 +406,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Adjust Decrement Activity Details.
-     * Describes a gift card activity of the ADJUST_DECREMENT type.
+     * Represents details about an `ADJUST_DECREMENT` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getAdjustDecrementActivityDetails(): ?GiftCardActivityAdjustDecrement
     {
@@ -408,7 +415,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Adjust Decrement Activity Details.
-     * Describes a gift card activity of the ADJUST_DECREMENT type.
+     * Represents details about an `ADJUST_DECREMENT` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps adjust_decrement_activity_details
      */
@@ -420,7 +427,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Refund Activity Details.
-     * Present only when `GiftCardActivityType` is REFUND.
+     * Represents details about a `REFUND` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getRefundActivityDetails(): ?GiftCardActivityRefund
     {
@@ -429,7 +436,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Refund Activity Details.
-     * Present only when `GiftCardActivityType` is REFUND.
+     * Represents details about a `REFUND` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps refund_activity_details
      */
@@ -440,7 +447,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Unlinked Activity Refund Activity Details.
-     * Present only when `GiftCardActivityType` is UNLINKED_ACTIVITY_REFUND.
+     * Represents details about an `UNLINKED_ACTIVITY_REFUND` [gift card activity
+     * type]($m/GiftCardActivityType).
      */
     public function getUnlinkedActivityRefundActivityDetails(): ?GiftCardActivityUnlinkedActivityRefund
     {
@@ -449,7 +457,8 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Unlinked Activity Refund Activity Details.
-     * Present only when `GiftCardActivityType` is UNLINKED_ACTIVITY_REFUND.
+     * Represents details about an `UNLINKED_ACTIVITY_REFUND` [gift card activity
+     * type]($m/GiftCardActivityType).
      *
      * @maps unlinked_activity_refund_activity_details
      */
@@ -461,8 +470,9 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Import Activity Details.
-     * Describes a gift card activity of the IMPORT type and the `GiftCardGANSource` is OTHER
-     * (a third-party gift card).
+     * Represents details about an `IMPORT` [gift card activity type]($m/GiftCardActivityType).
+     * This activity type is used when Square imports a third-party gift card, in which case the
+     * `gan_source` of the gift card is set to `OTHER`.
      */
     public function getImportActivityDetails(): ?GiftCardActivityImport
     {
@@ -471,8 +481,9 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Import Activity Details.
-     * Describes a gift card activity of the IMPORT type and the `GiftCardGANSource` is OTHER
-     * (a third-party gift card).
+     * Represents details about an `IMPORT` [gift card activity type]($m/GiftCardActivityType).
+     * This activity type is used when Square imports a third-party gift card, in which case the
+     * `gan_source` of the gift card is set to `OTHER`.
      *
      * @maps import_activity_details
      */
@@ -483,7 +494,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Block Activity Details.
-     * Describes a gift card activity of the BLOCK type.
+     * Represents details about a `BLOCK` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getBlockActivityDetails(): ?GiftCardActivityBlock
     {
@@ -492,7 +503,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Block Activity Details.
-     * Describes a gift card activity of the BLOCK type.
+     * Represents details about a `BLOCK` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps block_activity_details
      */
@@ -503,7 +514,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Unblock Activity Details.
-     * Present only when `GiftCardActivityType` is UNBLOCK.
+     * Represents details about an `UNBLOCK` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getUnblockActivityDetails(): ?GiftCardActivityUnblock
     {
@@ -512,7 +523,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Unblock Activity Details.
-     * Present only when `GiftCardActivityType` is UNBLOCK.
+     * Represents details about an `UNBLOCK` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps unblock_activity_details
      */
@@ -523,7 +534,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Import Reversal Activity Details.
-     * Present only when GiftCardActivityType is IMPORT_REVERSAL and GiftCardGANSource is OTHER
+     * Represents details about an `IMPORT_REVERSAL` [gift card activity type]($m/GiftCardActivityType).
      */
     public function getImportReversalActivityDetails(): ?GiftCardActivityImportReversal
     {
@@ -532,7 +543,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Import Reversal Activity Details.
-     * Present only when GiftCardActivityType is IMPORT_REVERSAL and GiftCardGANSource is OTHER
+     * Represents details about an `IMPORT_REVERSAL` [gift card activity type]($m/GiftCardActivityType).
      *
      * @maps import_reversal_activity_details
      */

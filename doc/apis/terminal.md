@@ -26,8 +26,7 @@ $terminalApi = $client->getTerminalApi();
 
 # Create Terminal Action
 
-Creates a Terminal action request and sends it to the specified device to take a payment
-for the requested amount.
+Creates a Terminal action request and sends it to the specified device.
 
 ```php
 function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse

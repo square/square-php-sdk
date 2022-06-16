@@ -8,6 +8,9 @@ use Exception;
 use Square\ApiHelper;
 use stdClass;
 
+/**
+ * Indicates the reason for unblocking a [gift card]($m/GiftCard).
+ */
 class GiftCardActivityUnblockReason
 {
     /**

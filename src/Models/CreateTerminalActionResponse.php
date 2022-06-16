@@ -44,6 +44,7 @@ class CreateTerminalActionResponse implements \JsonSerializable
 
     /**
      * Returns Action.
+     * Represents an action processed by the Square Terminal.
      */
     public function getAction(): ?TerminalAction
     {
@@ -52,6 +53,7 @@ class CreateTerminalActionResponse implements \JsonSerializable
 
     /**
      * Sets Action.
+     * Represents an action processed by the Square Terminal.
      *
      * @maps action
      */

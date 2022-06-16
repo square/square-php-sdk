@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a gift card activity of the DEACTIVATE type.
+ * Represents details about a `DEACTIVATE` [gift card activity type]($m/GiftCardActivityType).
  */
 class GiftCardActivityDeactivate implements \JsonSerializable
 {
@@ -26,6 +26,7 @@ class GiftCardActivityDeactivate implements \JsonSerializable
 
     /**
      * Returns Reason.
+     * Indicates the reason for deactivating a [gift card]($m/GiftCard).
      */
     public function getReason(): string
     {
@@ -34,6 +35,7 @@ class GiftCardActivityDeactivate implements \JsonSerializable
 
     /**
      * Sets Reason.
+     * Indicates the reason for deactivating a [gift card]($m/GiftCard).
      *
      * @required
      * @maps reason

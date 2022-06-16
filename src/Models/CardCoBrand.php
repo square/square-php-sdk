@@ -9,26 +9,17 @@ use Square\ApiHelper;
 use stdClass;
 
 /**
- * Indicates the reason for deactivating a [gift card]($m/GiftCard).
+ * Indicates the brand for a co-branded card.
  */
-class GiftCardActivityDeactivateReason
+class CardCoBrand
 {
-    /**
-     * The seller suspects suspicious activity.
-     */
-    public const SUSPICIOUS_ACTIVITY = 'SUSPICIOUS_ACTIVITY';
+    public const UNKNOWN = 'UNKNOWN';
 
-    /**
-     * The gift card was deactivated for an unknown reason.
-     */
-    public const UNKNOWN_REASON = 'UNKNOWN_REASON';
+    public const AFTERPAY = 'AFTERPAY';
 
-    /**
-     * A chargeback on the gift card purchase (or the gift card load) was ruled in favor of the buyer.
-     */
-    public const CHARGEBACK_DEACTIVATE = 'CHARGEBACK_DEACTIVATE';
+    public const CLEARPAY = 'CLEARPAY';
 
-    private const _ALL_VALUES = [self::SUSPICIOUS_ACTIVITY, self::UNKNOWN_REASON, self::CHARGEBACK_DEACTIVATE];
+    private const _ALL_VALUES = [self::UNKNOWN, self::AFTERPAY, self::CLEARPAY];
 
     /**
      * Ensures that all the given values are present in this Enum.
