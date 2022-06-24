@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a response from a retrieve request containing the specified `WageSetting` object or
- * error messages.
+ * Represents a response from a retrieve request containing the specified `WageSetting` object or error
+ * messages.
  */
 class RetrieveWageSettingResponse implements \JsonSerializable
 {

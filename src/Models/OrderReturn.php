@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * The set of line items, service charges, taxes, discounts, tips, and other items being returned in
- * an order.
+ * The set of line items, service charges, taxes, discounts, tips, and other items being returned in an
+ * order.
  */
 class OrderReturn implements \JsonSerializable
 {

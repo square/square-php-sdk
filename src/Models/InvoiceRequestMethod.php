@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * Specifies the action for Square to take for processing the invoice. For example,
  * email the invoice, charge a customer's card on file, or do nothing. DEPRECATED at
@@ -61,8 +57,7 @@ class InvoiceRequestMethod
     public const SMS = 'SMS';
 
     /**
-     * Directs Square to charge the card on file on the `due_date` specified in the payment request and
-     * to
+     * Directs Square to charge the card on file on the `due_date` specified in the payment request and to
      * use SMS (text message) to send invoices and receipts.
      *
      * You cannot set `SMS_CHARGE_CARD_ON_FILE` as a request method using the Invoices API.
@@ -81,30 +76,4 @@ class InvoiceRequestMethod
      * You cannot set `SMS_CHARGE_BANK_ON_FILE` as a request method using the Invoices API.
      */
     public const SMS_CHARGE_BANK_ON_FILE = 'SMS_CHARGE_BANK_ON_FILE';
-
-    private const _ALL_VALUES = [
-        self::EMAIL,
-        self::CHARGE_CARD_ON_FILE,
-        self::SHARE_MANUALLY,
-        self::CHARGE_BANK_ON_FILE,
-        self::SMS,
-        self::SMS_CHARGE_CARD_ON_FILE,
-        self::SMS_CHARGE_BANK_ON_FILE,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

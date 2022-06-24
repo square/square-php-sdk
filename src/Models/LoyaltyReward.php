@@ -103,7 +103,6 @@ class LoyaltyReward implements \JsonSerializable
      * The status of the loyalty reward.
      *
      * @maps status
-     * @factory \Square\Models\LoyaltyRewardStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -268,7 +267,7 @@ class LoyaltyReward implements \JsonSerializable
             $json['id']             = $this->id;
         }
         if (isset($this->status)) {
-            $json['status']         = LoyaltyRewardStatus::checkValue($this->status);
+            $json['status']         = $this->status;
         }
         $json['loyalty_account_id'] = $this->loyaltyAccountId;
         $json['reward_tier_id']     = $this->rewardTierId;

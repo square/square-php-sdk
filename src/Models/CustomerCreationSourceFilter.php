@@ -42,7 +42,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
      * See [CustomerCreationSource](#type-customercreationsource) for possible values
      *
      * @maps values
-     * @factory \Square\Models\CustomerCreationSource::checkValue
      *
      * @param string[]|null $values
      */
@@ -67,7 +66,6 @@ class CustomerCreationSourceFilter implements \JsonSerializable
      * the result set when they match the filtering criteria.
      *
      * @maps rule
-     * @factory \Square\Models\CustomerInclusionExclusion::checkValue
      */
     public function setRule(?string $rule): void
     {
@@ -87,10 +85,10 @@ class CustomerCreationSourceFilter implements \JsonSerializable
     {
         $json = [];
         if (isset($this->values)) {
-            $json['values'] = CustomerCreationSource::checkValue($this->values);
+            $json['values'] = $this->values;
         }
         if (isset($this->rule)) {
-            $json['rule']   = CustomerInclusionExclusion::checkValue($this->rule);
+            $json['rule']   = $this->rule;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

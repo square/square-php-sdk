@@ -56,7 +56,6 @@ class CatalogQuickAmount implements \JsonSerializable
      *
      * @required
      * @maps type
-     * @factory \Square\Models\CatalogQuickAmountType::checkValue
      */
     public function setType(string $type): void
     {
@@ -150,7 +149,7 @@ class CatalogQuickAmount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['type']        = CatalogQuickAmountType::checkValue($this->type);
+        $json['type']        = $this->type;
         $json['amount']      = $this->amount;
         if (isset($this->score)) {
             $json['score']   = $this->score;

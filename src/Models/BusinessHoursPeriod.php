@@ -40,7 +40,6 @@ class BusinessHoursPeriod implements \JsonSerializable
      * Indicates the specific day  of the week.
      *
      * @maps day_of_week
-     * @factory \Square\Models\DayOfWeek::checkValue
      */
     public function setDayOfWeek(?string $dayOfWeek): void
     {
@@ -108,7 +107,7 @@ class BusinessHoursPeriod implements \JsonSerializable
     {
         $json = [];
         if (isset($this->dayOfWeek)) {
-            $json['day_of_week']      = DayOfWeek::checkValue($this->dayOfWeek);
+            $json['day_of_week']      = $this->dayOfWeek;
         }
         if (isset($this->startLocalTime)) {
             $json['start_local_time'] = $this->startLocalTime;

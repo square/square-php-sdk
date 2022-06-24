@@ -72,7 +72,6 @@ class SearchTeamMembersFilter implements \JsonSerializable
      * Enumerates the possible statuses the team member can have within a business.
      *
      * @maps status
-     * @factory \Square\Models\TeamMemberStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -115,7 +114,7 @@ class SearchTeamMembersFilter implements \JsonSerializable
             $json['location_ids'] = $this->locationIds;
         }
         if (isset($this->status)) {
-            $json['status']       = TeamMemberStatus::checkValue($this->status);
+            $json['status']       = $this->status;
         }
         if (isset($this->isOwner)) {
             $json['is_owner']     = $this->isOwner;

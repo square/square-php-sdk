@@ -90,7 +90,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
      * Sets Product Type.
      *
      * @maps product_type
-     * @factory \Square\Models\ProductType::checkValue
      */
     public function setProductType(?string $productType): void
     {
@@ -117,7 +116,6 @@ class ListDeviceCodesRequest implements \JsonSerializable
      * See [DeviceCodeStatus](#type-devicecodestatus) for possible values
      *
      * @maps status
-     * @factory \Square\Models\DeviceCodeStatus::checkValue
      *
      * @param string[]|null $status
      */
@@ -145,10 +143,10 @@ class ListDeviceCodesRequest implements \JsonSerializable
             $json['location_id']  = $this->locationId;
         }
         if (isset($this->productType)) {
-            $json['product_type'] = ProductType::checkValue($this->productType);
+            $json['product_type'] = $this->productType;
         }
         if (isset($this->status)) {
-            $json['status']       = DeviceCodeStatus::checkValue($this->status);
+            $json['status']       = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

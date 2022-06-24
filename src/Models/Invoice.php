@@ -321,7 +321,6 @@ class Invoice implements \JsonSerializable
      * Indicates how Square delivers the [invoice]($m/Invoice) to the customer.
      *
      * @maps delivery_method
-     * @factory \Square\Models\InvoiceDeliveryMethod::checkValue
      */
     public function setDeliveryMethod(?string $deliveryMethod): void
     {
@@ -494,7 +493,6 @@ class Invoice implements \JsonSerializable
      * Indicates the status of an invoice.
      *
      * @maps status
-     * @factory \Square\Models\InvoiceStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -742,7 +740,7 @@ class Invoice implements \JsonSerializable
             $json['payment_requests']          = $this->paymentRequests;
         }
         if (isset($this->deliveryMethod)) {
-            $json['delivery_method']           = InvoiceDeliveryMethod::checkValue($this->deliveryMethod);
+            $json['delivery_method']           = $this->deliveryMethod;
         }
         if (isset($this->invoiceNumber)) {
             $json['invoice_number']            = $this->invoiceNumber;
@@ -763,7 +761,7 @@ class Invoice implements \JsonSerializable
             $json['next_payment_amount_money'] = $this->nextPaymentAmountMoney;
         }
         if (isset($this->status)) {
-            $json['status']                    = InvoiceStatus::checkValue($this->status);
+            $json['status']                    = $this->status;
         }
         if (isset($this->timezone)) {
             $json['timezone']                  = $this->timezone;

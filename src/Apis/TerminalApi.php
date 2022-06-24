@@ -433,8 +433,8 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Retrieves a Terminal checkout request by `checkout_id`. Terminal checkout requests are available
-     * for 30 days.
+     * Retrieves a Terminal checkout request by `checkout_id`. Terminal checkout requests are available for
+     * 30 days.
      *
      * @param string $checkoutId The unique ID for the desired `TerminalCheckout`.
      *
@@ -706,8 +706,7 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Retrieves an Interac Terminal refund object by ID. Terminal refund objects are available for 30
-     * days.
+     * Retrieves an Interac Terminal refund object by ID. Terminal refund objects are available for 30 days.
      *
      * @param string $terminalRefundId The unique ID for the desired `TerminalRefund`.
      *
@@ -773,8 +772,8 @@ class TerminalApi extends BaseApi
     }
 
     /**
-     * Cancels an Interac Terminal refund request by refund request ID if the status of the request
-     * permits it.
+     * Cancels an Interac Terminal refund request by refund request ID if the status of the request permits
+     * it.
      *
      * @param string $terminalRefundId The unique ID for the desired `TerminalRefund`.
      *

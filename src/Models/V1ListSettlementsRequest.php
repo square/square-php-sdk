@@ -52,7 +52,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setOrder(?string $order): void
     {
@@ -137,7 +136,6 @@ class V1ListSettlementsRequest implements \JsonSerializable
      * Sets Status.
      *
      * @maps status
-     * @factory \Square\Models\V1ListSettlementsRequestStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -179,7 +177,7 @@ class V1ListSettlementsRequest implements \JsonSerializable
     {
         $json = [];
         if (isset($this->order)) {
-            $json['order']       = SortOrder::checkValue($this->order);
+            $json['order']       = $this->order;
         }
         if (isset($this->beginTime)) {
             $json['begin_time']  = $this->beginTime;
@@ -191,7 +189,7 @@ class V1ListSettlementsRequest implements \JsonSerializable
             $json['limit']       = $this->limit;
         }
         if (isset($this->status)) {
-            $json['status']      = V1ListSettlementsRequestStatus::checkValue($this->status);
+            $json['status']      = $this->status;
         }
         if (isset($this->batchToken)) {
             $json['batch_token'] = $this->batchToken;

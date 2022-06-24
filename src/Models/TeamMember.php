@@ -140,7 +140,6 @@ class TeamMember implements \JsonSerializable
      * Enumerates the possible statuses the team member can have within a business.
      *
      * @maps status
-     * @factory \Square\Models\TeamMemberStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -317,7 +316,7 @@ class TeamMember implements \JsonSerializable
             $json['is_owner']           = $this->isOwner;
         }
         if (isset($this->status)) {
-            $json['status']             = TeamMemberStatus::checkValue($this->status);
+            $json['status']             = $this->status;
         }
         if (isset($this->givenName)) {
             $json['given_name']         = $this->givenName;

@@ -273,7 +273,6 @@ class CatalogItemVariation implements \JsonSerializable
      * Indicates whether the price of a CatalogItemVariation should be entered manually at the time of sale.
      *
      * @maps pricing_type
-     * @factory \Square\Models\CatalogPricingType::checkValue
      */
     public function setPricingType(?string $pricingType): void
     {
@@ -372,7 +371,6 @@ class CatalogItemVariation implements \JsonSerializable
      * CatalogItemVariation is low.
      *
      * @maps inventory_alert_type
-     * @factory \Square\Models\InventoryAlertType::checkValue
      */
     public function setInventoryAlertType(?string $inventoryAlertType): void
     {
@@ -683,7 +681,7 @@ class CatalogItemVariation implements \JsonSerializable
             $json['ordinal']                   = $this->ordinal;
         }
         if (isset($this->pricingType)) {
-            $json['pricing_type']              = CatalogPricingType::checkValue($this->pricingType);
+            $json['pricing_type']              = $this->pricingType;
         }
         if (isset($this->priceMoney)) {
             $json['price_money']               = $this->priceMoney;
@@ -695,7 +693,7 @@ class CatalogItemVariation implements \JsonSerializable
             $json['track_inventory']           = $this->trackInventory;
         }
         if (isset($this->inventoryAlertType)) {
-            $json['inventory_alert_type']      = InventoryAlertType::checkValue($this->inventoryAlertType);
+            $json['inventory_alert_type']      = $this->inventoryAlertType;
         }
         if (isset($this->inventoryAlertThreshold)) {
             $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;

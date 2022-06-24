@@ -186,7 +186,6 @@ class CatalogObject implements \JsonSerializable
      *
      * @required
      * @maps type
-     * @factory \Square\Models\CatalogObjectType::checkValue
      */
     public function setType(string $type): void
     {
@@ -909,7 +908,7 @@ class CatalogObject implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['type']                                 = CatalogObjectType::checkValue($this->type);
+        $json['type']                                 = $this->type;
         $json['id']                                   = $this->id;
         if (isset($this->updatedAt)) {
             $json['updated_at']                       = $this->updatedAt;

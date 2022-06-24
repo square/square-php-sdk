@@ -159,7 +159,6 @@ class OrderLineItemTax implements \JsonSerializable
      * Indicates how the tax is applied to the associated line item or order.
      *
      * @maps type
-     * @factory \Square\Models\OrderLineItemTaxType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -294,7 +293,6 @@ class OrderLineItemTax implements \JsonSerializable
      * Indicates whether this is a line-item or order-level tax.
      *
      * @maps scope
-     * @factory \Square\Models\OrderLineItemTaxScope::checkValue
      */
     public function setScope(?string $scope): void
     {
@@ -352,7 +350,7 @@ class OrderLineItemTax implements \JsonSerializable
             $json['name']              = $this->name;
         }
         if (isset($this->type)) {
-            $json['type']              = OrderLineItemTaxType::checkValue($this->type);
+            $json['type']              = $this->type;
         }
         if (isset($this->percentage)) {
             $json['percentage']        = $this->percentage;
@@ -364,7 +362,7 @@ class OrderLineItemTax implements \JsonSerializable
             $json['applied_money']     = $this->appliedMoney;
         }
         if (isset($this->scope)) {
-            $json['scope']             = OrderLineItemTaxScope::checkValue($this->scope);
+            $json['scope']             = $this->scope;
         }
         if (isset($this->autoApplied)) {
             $json['auto_applied']      = $this->autoApplied;

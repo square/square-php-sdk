@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * The query filter to return the search result(s) by exact match of the specified `attribute_name`
- * and any of
+ * The query filter to return the search result(s) by exact match of the specified `attribute_name` and
+ * any of
  * the `attribute_values`.
  */
 class CatalogQuerySet implements \JsonSerializable

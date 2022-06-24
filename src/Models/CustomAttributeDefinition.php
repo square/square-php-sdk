@@ -222,7 +222,6 @@ class CustomAttributeDefinition implements \JsonSerializable
      * and custom attribute definition.
      *
      * @maps visibility
-     * @factory \Square\Models\CustomAttributeDefinitionVisibility::checkValue
      */
     public function setVisibility(?string $visibility): void
     {
@@ -345,7 +344,7 @@ class CustomAttributeDefinition implements \JsonSerializable
             $json['source_application'] = $this->sourceApplication;
         }
         if (isset($this->visibility)) {
-            $json['visibility']         = CustomAttributeDefinitionVisibility::checkValue($this->visibility);
+            $json['visibility']         = $this->visibility;
         }
         if (isset($this->version)) {
             $json['version']            = $this->version;

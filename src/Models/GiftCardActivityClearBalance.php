@@ -39,7 +39,6 @@ class GiftCardActivityClearBalance implements \JsonSerializable
      *
      * @required
      * @maps reason
-     * @factory \Square\Models\GiftCardActivityClearBalanceReason::checkValue
      */
     public function setReason(string $reason): void
     {
@@ -58,7 +57,7 @@ class GiftCardActivityClearBalance implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['reason'] = GiftCardActivityClearBalanceReason::checkValue($this->reason);
+        $json['reason'] = $this->reason;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

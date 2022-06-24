@@ -47,7 +47,6 @@ class V1ListRefundsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setOrder(?string $order): void
     {
@@ -161,7 +160,7 @@ class V1ListRefundsRequest implements \JsonSerializable
     {
         $json = [];
         if (isset($this->order)) {
-            $json['order']       = SortOrder::checkValue($this->order);
+            $json['order']       = $this->order;
         }
         if (isset($this->beginTime)) {
             $json['begin_time']  = $this->beginTime;

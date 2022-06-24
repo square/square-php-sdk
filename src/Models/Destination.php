@@ -35,7 +35,6 @@ class Destination implements \JsonSerializable
      * List of possible destinations against which a payout can be made.
      *
      * @maps type
-     * @factory \Square\Models\DestinationType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -75,7 +74,7 @@ class Destination implements \JsonSerializable
     {
         $json = [];
         if (isset($this->type)) {
-            $json['type'] = DestinationType::checkValue($this->type);
+            $json['type'] = $this->type;
         }
         if (isset($this->id)) {
             $json['id']   = $this->id;

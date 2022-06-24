@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * Possible types of CatalogObjects returned from the catalog, each
  * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
@@ -78,15 +74,15 @@ class CatalogObjectType
     public const PRICING_RULE = 'PRICING_RULE';
 
     /**
-     * The `CatalogObject` instance is of the [CatalogProductSet]($m/CatalogProductSet) type and
-     * represents a product set.
+     * The `CatalogObject` instance is of the [CatalogProductSet]($m/CatalogProductSet) type and represents
+     * a product set.
      * The product-set-specific data will be stored in the `product_set_data` field.
      */
     public const PRODUCT_SET = 'PRODUCT_SET';
 
     /**
-     * The `CatalogObject` instance is of the [CatalogTimePeriod]($m/CatalogTimePeriod) type and
-     * represents a time period.
+     * The `CatalogObject` instance is of the [CatalogTimePeriod]($m/CatalogTimePeriod) type and represents
+     * a time period.
      * The time-period-specific data must be set on the `time_period_data` field.
      */
     public const TIME_PERIOD = 'TIME_PERIOD';
@@ -107,8 +103,8 @@ class CatalogObjectType
     public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
 
     /**
-     * The `CatalogObject` instance is of the [CatalogItemOption]($m/CatalogItemOption) type and
-     * represents a list of options (such as a color or size of a T-shirt)
+     * The `CatalogObject` instance is of the [CatalogItemOption]($m/CatalogItemOption) type and represents
+     * a list of options (such as a color or size of a T-shirt)
      * that can be assigned to item variations. The item-option-specific data must be on the
      * `item_option_data` field.
      */
@@ -132,48 +128,11 @@ class CatalogObjectType
     public const CUSTOM_ATTRIBUTE_DEFINITION = 'CUSTOM_ATTRIBUTE_DEFINITION';
 
     /**
-     * The `CatalogObject` instance is of the
-     * [CatalogQuickAmountsSettings]($m/CatalogQuickAmountsSettings) type and represents settings to
-     * configure preset charges for quick payments at each location.
+     * The `CatalogObject` instance is of the [CatalogQuickAmountsSettings]($m/CatalogQuickAmountsSettings)
+     * type and represents settings to configure preset charges for quick payments at each location.
      * For example, a location may have a list of both AUTO and MANUAL quick amounts that are set to
      * DISABLED.
      * The quick-amounts-settings-specific data must be set on the `quick_amounts_settings_data` field.
      */
     public const QUICK_AMOUNTS_SETTINGS = 'QUICK_AMOUNTS_SETTINGS';
-
-    private const _ALL_VALUES = [
-        self::ITEM,
-        self::IMAGE,
-        self::CATEGORY,
-        self::ITEM_VARIATION,
-        self::TAX,
-        self::DISCOUNT,
-        self::MODIFIER_LIST,
-        self::MODIFIER,
-        self::PRICING_RULE,
-        self::PRODUCT_SET,
-        self::TIME_PERIOD,
-        self::MEASUREMENT_UNIT,
-        self::SUBSCRIPTION_PLAN,
-        self::ITEM_OPTION,
-        self::ITEM_OPTION_VAL,
-        self::CUSTOM_ATTRIBUTE_DEFINITION,
-        self::QUICK_AMOUNTS_SETTINGS,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

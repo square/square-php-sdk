@@ -87,7 +87,6 @@ class MeasurementUnit implements \JsonSerializable
      * Unit of area used to measure a quantity.
      *
      * @maps area_unit
-     * @factory \Square\Models\MeasurementUnitArea::checkValue
      */
     public function setAreaUnit(?string $areaUnit): void
     {
@@ -108,7 +107,6 @@ class MeasurementUnit implements \JsonSerializable
      * The unit of length used to measure a quantity.
      *
      * @maps length_unit
-     * @factory \Square\Models\MeasurementUnitLength::checkValue
      */
     public function setLengthUnit(?string $lengthUnit): void
     {
@@ -129,7 +127,6 @@ class MeasurementUnit implements \JsonSerializable
      * The unit of volume used to measure a quantity.
      *
      * @maps volume_unit
-     * @factory \Square\Models\MeasurementUnitVolume::checkValue
      */
     public function setVolumeUnit(?string $volumeUnit): void
     {
@@ -150,7 +147,6 @@ class MeasurementUnit implements \JsonSerializable
      * Unit of weight used to measure a quantity.
      *
      * @maps weight_unit
-     * @factory \Square\Models\MeasurementUnitWeight::checkValue
      */
     public function setWeightUnit(?string $weightUnit): void
     {
@@ -169,7 +165,6 @@ class MeasurementUnit implements \JsonSerializable
      * Sets Generic Unit.
      *
      * @maps generic_unit
-     * @factory \Square\Models\MeasurementUnitGeneric::checkValue
      */
     public function setGenericUnit(?string $genericUnit): void
     {
@@ -190,7 +185,6 @@ class MeasurementUnit implements \JsonSerializable
      * Unit of time used to measure a quantity (a duration).
      *
      * @maps time_unit
-     * @factory \Square\Models\MeasurementUnitTime::checkValue
      */
     public function setTimeUnit(?string $timeUnit): void
     {
@@ -213,7 +207,6 @@ class MeasurementUnit implements \JsonSerializable
      * ‘open’ enum.
      *
      * @maps type
-     * @factory \Square\Models\MeasurementUnitUnitType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -236,25 +229,25 @@ class MeasurementUnit implements \JsonSerializable
             $json['custom_unit']  = $this->customUnit;
         }
         if (isset($this->areaUnit)) {
-            $json['area_unit']    = MeasurementUnitArea::checkValue($this->areaUnit);
+            $json['area_unit']    = $this->areaUnit;
         }
         if (isset($this->lengthUnit)) {
-            $json['length_unit']  = MeasurementUnitLength::checkValue($this->lengthUnit);
+            $json['length_unit']  = $this->lengthUnit;
         }
         if (isset($this->volumeUnit)) {
-            $json['volume_unit']  = MeasurementUnitVolume::checkValue($this->volumeUnit);
+            $json['volume_unit']  = $this->volumeUnit;
         }
         if (isset($this->weightUnit)) {
-            $json['weight_unit']  = MeasurementUnitWeight::checkValue($this->weightUnit);
+            $json['weight_unit']  = $this->weightUnit;
         }
         if (isset($this->genericUnit)) {
-            $json['generic_unit'] = MeasurementUnitGeneric::checkValue($this->genericUnit);
+            $json['generic_unit'] = $this->genericUnit;
         }
         if (isset($this->timeUnit)) {
-            $json['time_unit']    = MeasurementUnitTime::checkValue($this->timeUnit);
+            $json['time_unit']    = $this->timeUnit;
         }
         if (isset($this->type)) {
-            $json['type']         = MeasurementUnitUnitType::checkValue($this->type);
+            $json['type']         = $this->type;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

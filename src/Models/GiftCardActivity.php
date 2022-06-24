@@ -159,7 +159,6 @@ class GiftCardActivity implements \JsonSerializable
      *
      * @required
      * @maps type
-     * @factory \Square\Models\GiftCardActivityType::checkValue
      */
     public function setType(string $type): void
     {
@@ -568,7 +567,7 @@ class GiftCardActivity implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                                        = $this->id;
         }
-        $json['type']                                          = GiftCardActivityType::checkValue($this->type);
+        $json['type']                                          = $this->type;
         $json['location_id']                                   = $this->locationId;
         if (isset($this->createdAt)) {
             $json['created_at']                                = $this->createdAt;

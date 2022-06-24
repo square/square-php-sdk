@@ -118,7 +118,6 @@ class InvoicePaymentReminder implements \JsonSerializable
      * The status of a payment request reminder.
      *
      * @maps status
-     * @factory \Square\Models\InvoicePaymentReminderStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -167,7 +166,7 @@ class InvoicePaymentReminder implements \JsonSerializable
             $json['message']                 = $this->message;
         }
         if (isset($this->status)) {
-            $json['status']                  = InvoicePaymentReminderStatus::checkValue($this->status);
+            $json['status']                  = $this->status;
         }
         if (isset($this->sentAt)) {
             $json['sent_at']                 = $this->sentAt;

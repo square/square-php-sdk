@@ -57,8 +57,8 @@ class DevicesApi extends BaseApi
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'       => $cursor,
             'location_id'  => $locationId,
-            'product_type' => Models\ProductType::checkValue($productType),
-            'status'       => Models\DeviceCodeStatus::checkValue($status),
+            'product_type' => $productType,
+            'status'       => $status,
         ]);
 
         //prepare headers

@@ -124,7 +124,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      * values
      *
      * @maps stock_levels
-     * @factory \Square\Models\SearchCatalogItemsRequestStockLevel::checkValue
      *
      * @param string[]|null $stockLevels
      */
@@ -215,7 +214,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -240,7 +238,6 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      * types.
      *
      * @maps product_types
-     * @factory \Square\Models\CatalogItemProductType::checkValue
      *
      * @param string[]|null $productTypes
      */
@@ -296,7 +293,7 @@ class SearchCatalogItemsRequest implements \JsonSerializable
             $json['category_ids']             = $this->categoryIds;
         }
         if (isset($this->stockLevels)) {
-            $json['stock_levels']             = SearchCatalogItemsRequestStockLevel::checkValue($this->stockLevels);
+            $json['stock_levels']             = $this->stockLevels;
         }
         if (isset($this->enabledLocationIds)) {
             $json['enabled_location_ids']     = $this->enabledLocationIds;
@@ -308,10 +305,10 @@ class SearchCatalogItemsRequest implements \JsonSerializable
             $json['limit']                    = $this->limit;
         }
         if (isset($this->sortOrder)) {
-            $json['sort_order']               = SortOrder::checkValue($this->sortOrder);
+            $json['sort_order']               = $this->sortOrder;
         }
         if (isset($this->productTypes)) {
-            $json['product_types']            = CatalogItemProductType::checkValue($this->productTypes);
+            $json['product_types']            = $this->productTypes;
         }
         if (isset($this->customAttributeFilters)) {
             $json['custom_attribute_filters'] = $this->customAttributeFilters;

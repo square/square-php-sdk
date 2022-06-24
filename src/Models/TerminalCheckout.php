@@ -337,7 +337,6 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Cancel Reason.
      *
      * @maps cancel_reason
-     * @factory \Square\Models\ActionCancelReason::checkValue
      */
     public function setCancelReason(?string $cancelReason): void
     {
@@ -460,7 +459,6 @@ class TerminalCheckout implements \JsonSerializable
      * Sets Payment Type.
      *
      * @maps payment_type
-     * @factory \Square\Models\CheckoutOptionsPaymentType::checkValue
      */
     public function setPaymentType(?string $paymentType): void
     {
@@ -555,7 +553,7 @@ class TerminalCheckout implements \JsonSerializable
             $json['status']            = $this->status;
         }
         if (isset($this->cancelReason)) {
-            $json['cancel_reason']     = ActionCancelReason::checkValue($this->cancelReason);
+            $json['cancel_reason']     = $this->cancelReason;
         }
         if (isset($this->paymentIds)) {
             $json['payment_ids']       = $this->paymentIds;
@@ -573,7 +571,7 @@ class TerminalCheckout implements \JsonSerializable
             $json['location_id']       = $this->locationId;
         }
         if (isset($this->paymentType)) {
-            $json['payment_type']      = CheckoutOptionsPaymentType::checkValue($this->paymentType);
+            $json['payment_type']      = $this->paymentType;
         }
         if (isset($this->customerId)) {
             $json['customer_id']       = $this->customerId;

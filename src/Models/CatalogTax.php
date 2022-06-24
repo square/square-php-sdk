@@ -77,7 +77,6 @@ class CatalogTax implements \JsonSerializable
      * When to calculate the taxes due on a cart.
      *
      * @maps calculation_phase
-     * @factory \Square\Models\TaxCalculationPhase::checkValue
      */
     public function setCalculationPhase(?string $calculationPhase): void
     {
@@ -98,7 +97,6 @@ class CatalogTax implements \JsonSerializable
      * Whether to the tax amount should be additional to or included in the CatalogItem price.
      *
      * @maps inclusion_type
-     * @factory \Square\Models\TaxInclusionType::checkValue
      */
     public function setInclusionType(?string $inclusionType): void
     {
@@ -189,10 +187,10 @@ class CatalogTax implements \JsonSerializable
             $json['name']                      = $this->name;
         }
         if (isset($this->calculationPhase)) {
-            $json['calculation_phase']         = TaxCalculationPhase::checkValue($this->calculationPhase);
+            $json['calculation_phase']         = $this->calculationPhase;
         }
         if (isset($this->inclusionType)) {
-            $json['inclusion_type']            = TaxInclusionType::checkValue($this->inclusionType);
+            $json['inclusion_type']            = $this->inclusionType;
         }
         if (isset($this->percentage)) {
             $json['percentage']                = $this->percentage;

@@ -40,7 +40,6 @@ class SourceApplication implements \JsonSerializable
      * Indicates the Square product used to generate a change.
      *
      * @maps product
-     * @factory \Square\Models\Product::checkValue
      */
     public function setProduct(?string $product): void
     {
@@ -104,7 +103,7 @@ class SourceApplication implements \JsonSerializable
     {
         $json = [];
         if (isset($this->product)) {
-            $json['product']        = Product::checkValue($this->product);
+            $json['product']        = $this->product;
         }
         if (isset($this->applicationId)) {
             $json['application_id'] = $this->applicationId;

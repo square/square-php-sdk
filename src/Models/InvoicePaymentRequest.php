@@ -122,7 +122,6 @@ class InvoicePaymentRequest implements \JsonSerializable
      * `Invoice.delivery_method` and `InvoicePaymentRequest.automatic_payment_source` fields.
      *
      * @maps request_method
-     * @factory \Square\Models\InvoiceRequestMethod::checkValue
      */
     public function setRequestMethod(?string $requestMethod): void
     {
@@ -145,7 +144,6 @@ class InvoicePaymentRequest implements \JsonSerializable
      * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
      *
      * @maps request_type
-     * @factory \Square\Models\InvoiceRequestType::checkValue
      */
     public function setRequestType(?string $requestType): void
     {
@@ -298,7 +296,6 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Indicates the automatic payment method for an [invoice payment request]($m/InvoicePaymentRequest).
      *
      * @maps automatic_payment_source
-     * @factory \Square\Models\InvoiceAutomaticPaymentSource::checkValue
      */
     public function setAutomaticPaymentSource(?string $automaticPaymentSource): void
     {
@@ -465,10 +462,10 @@ class InvoicePaymentRequest implements \JsonSerializable
             $json['uid']                                = $this->uid;
         }
         if (isset($this->requestMethod)) {
-            $json['request_method']                     = InvoiceRequestMethod::checkValue($this->requestMethod);
+            $json['request_method']                     = $this->requestMethod;
         }
         if (isset($this->requestType)) {
-            $json['request_type']                       = InvoiceRequestType::checkValue($this->requestType);
+            $json['request_type']                       = $this->requestType;
         }
         if (isset($this->dueDate)) {
             $json['due_date']                           = $this->dueDate;
@@ -483,10 +480,7 @@ class InvoicePaymentRequest implements \JsonSerializable
             $json['tipping_enabled']                    = $this->tippingEnabled;
         }
         if (isset($this->automaticPaymentSource)) {
-            $json['automatic_payment_source']           =
-                InvoiceAutomaticPaymentSource::checkValue(
-                    $this->automaticPaymentSource
-                );
+            $json['automatic_payment_source']           = $this->automaticPaymentSource;
         }
         if (isset($this->cardId)) {
             $json['card_id']                            = $this->cardId;

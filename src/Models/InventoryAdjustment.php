@@ -167,7 +167,6 @@ class InventoryAdjustment implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps from_state
-     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setFromState(?string $fromState): void
     {
@@ -188,7 +187,6 @@ class InventoryAdjustment implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps to_state
-     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setToState(?string $toState): void
     {
@@ -566,10 +564,10 @@ class InventoryAdjustment implements \JsonSerializable
             $json['reference_id']        = $this->referenceId;
         }
         if (isset($this->fromState)) {
-            $json['from_state']          = InventoryState::checkValue($this->fromState);
+            $json['from_state']          = $this->fromState;
         }
         if (isset($this->toState)) {
-            $json['to_state']            = InventoryState::checkValue($this->toState);
+            $json['to_state']            = $this->toState;
         }
         if (isset($this->locationId)) {
             $json['location_id']         = $this->locationId;

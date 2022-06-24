@@ -82,7 +82,6 @@ class ListPayoutsRequest implements \JsonSerializable
      * Payout status types
      *
      * @maps status
-     * @factory \Square\Models\PayoutStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -147,7 +146,6 @@ class ListPayoutsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -226,7 +224,7 @@ class ListPayoutsRequest implements \JsonSerializable
             $json['location_id'] = $this->locationId;
         }
         if (isset($this->status)) {
-            $json['status']      = PayoutStatus::checkValue($this->status);
+            $json['status']      = $this->status;
         }
         if (isset($this->beginTime)) {
             $json['begin_time']  = $this->beginTime;
@@ -235,7 +233,7 @@ class ListPayoutsRequest implements \JsonSerializable
             $json['end_time']    = $this->endTime;
         }
         if (isset($this->sortOrder)) {
-            $json['sort_order']  = SortOrder::checkValue($this->sortOrder);
+            $json['sort_order']  = $this->sortOrder;
         }
         if (isset($this->cursor)) {
             $json['cursor']      = $this->cursor;

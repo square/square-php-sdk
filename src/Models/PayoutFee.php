@@ -92,7 +92,6 @@ class PayoutFee implements \JsonSerializable
      * Represents the type of payout fee that can incur as part of a payout.
      *
      * @maps type
-     * @factory \Square\Models\PayoutFeeType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -118,7 +117,7 @@ class PayoutFee implements \JsonSerializable
             $json['effective_at'] = $this->effectiveAt;
         }
         if (isset($this->type)) {
-            $json['type']         = PayoutFeeType::checkValue($this->type);
+            $json['type']         = $this->type;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

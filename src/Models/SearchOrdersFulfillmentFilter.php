@@ -43,7 +43,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      * See [OrderFulfillmentType](#type-orderfulfillmenttype) for possible values
      *
      * @maps fulfillment_types
-     * @factory \Square\Models\OrderFulfillmentType::checkValue
      *
      * @param string[]|null $fulfillmentTypes
      */
@@ -74,7 +73,6 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      * See [OrderFulfillmentState](#type-orderfulfillmentstate) for possible values
      *
      * @maps fulfillment_states
-     * @factory \Square\Models\OrderFulfillmentState::checkValue
      *
      * @param string[]|null $fulfillmentStates
      */
@@ -96,10 +94,10 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     {
         $json = [];
         if (isset($this->fulfillmentTypes)) {
-            $json['fulfillment_types']  = OrderFulfillmentType::checkValue($this->fulfillmentTypes);
+            $json['fulfillment_types']  = $this->fulfillmentTypes;
         }
         if (isset($this->fulfillmentStates)) {
-            $json['fulfillment_states'] = OrderFulfillmentState::checkValue($this->fulfillmentStates);
+            $json['fulfillment_states'] = $this->fulfillmentStates;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

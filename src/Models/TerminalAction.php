@@ -174,7 +174,6 @@ class TerminalAction implements \JsonSerializable
      * Sets Cancel Reason.
      *
      * @maps cancel_reason
-     * @factory \Square\Models\ActionCancelReason::checkValue
      */
     public function setCancelReason(?string $cancelReason): void
     {
@@ -257,7 +256,6 @@ class TerminalAction implements \JsonSerializable
      * ‘open’ enum.
      *
      * @maps type
-     * @factory \Square\Models\TerminalActionActionType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -327,7 +325,7 @@ class TerminalAction implements \JsonSerializable
             $json['status']            = $this->status;
         }
         if (isset($this->cancelReason)) {
-            $json['cancel_reason']     = ActionCancelReason::checkValue($this->cancelReason);
+            $json['cancel_reason']     = $this->cancelReason;
         }
         if (isset($this->createdAt)) {
             $json['created_at']        = $this->createdAt;
@@ -339,7 +337,7 @@ class TerminalAction implements \JsonSerializable
             $json['app_id']            = $this->appId;
         }
         if (isset($this->type)) {
-            $json['type']              = TerminalActionActionType::checkValue($this->type);
+            $json['type']              = $this->type;
         }
         if (isset($this->saveCardOptions)) {
             $json['save_card_options'] = $this->saveCardOptions;

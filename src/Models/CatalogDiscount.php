@@ -87,7 +87,6 @@ class CatalogDiscount implements \JsonSerializable
      * How to apply a CatalogDiscount to a CatalogItem.
      *
      * @maps discount_type
-     * @factory \Square\Models\CatalogDiscountType::checkValue
      */
     public function setDiscountType(?string $discountType): void
     {
@@ -214,7 +213,6 @@ class CatalogDiscount implements \JsonSerializable
      * Sets Modify Tax Basis.
      *
      * @maps modify_tax_basis
-     * @factory \Square\Models\CatalogDiscountModifyTaxBasis::checkValue
      */
     public function setModifyTaxBasis(?string $modifyTaxBasis): void
     {
@@ -269,7 +267,7 @@ class CatalogDiscount implements \JsonSerializable
             $json['name']                 = $this->name;
         }
         if (isset($this->discountType)) {
-            $json['discount_type']        = CatalogDiscountType::checkValue($this->discountType);
+            $json['discount_type']        = $this->discountType;
         }
         if (isset($this->percentage)) {
             $json['percentage']           = $this->percentage;
@@ -284,7 +282,7 @@ class CatalogDiscount implements \JsonSerializable
             $json['label_color']          = $this->labelColor;
         }
         if (isset($this->modifyTaxBasis)) {
-            $json['modify_tax_basis']     = CatalogDiscountModifyTaxBasis::checkValue($this->modifyTaxBasis);
+            $json['modify_tax_basis']     = $this->modifyTaxBasis;
         }
         if (isset($this->maximumAmountMoney)) {
             $json['maximum_amount_money'] = $this->maximumAmountMoney;

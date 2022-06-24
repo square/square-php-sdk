@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines the fields that are included in the response body for requests to the
- * `ListCustomerSegments` endpoint.
+ * Defines the fields that are included in the response body for requests to the `ListCustomerSegments`
+ * endpoint.
  *
  * Either `errors` or `segments` is present in a given response (never both).
  */

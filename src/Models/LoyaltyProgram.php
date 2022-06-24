@@ -129,7 +129,6 @@ class LoyaltyProgram implements \JsonSerializable
      *
      * @required
      * @maps status
-     * @factory \Square\Models\LoyaltyProgramStatus::checkValue
      */
     public function setStatus(string $status): void
     {
@@ -307,7 +306,7 @@ class LoyaltyProgram implements \JsonSerializable
     {
         $json = [];
         $json['id']                    = $this->id;
-        $json['status']                = LoyaltyProgramStatus::checkValue($this->status);
+        $json['status']                = $this->status;
         $json['reward_tiers']          = $this->rewardTiers;
         if (isset($this->expirationPolicy)) {
             $json['expiration_policy'] = $this->expirationPolicy;

@@ -86,7 +86,6 @@ class SubscriptionEvent implements \JsonSerializable
      *
      * @required
      * @maps subscription_event_type
-     * @factory \Square\Models\SubscriptionEventSubscriptionEventType::checkValue
      */
     public function setSubscriptionEventType(string $subscriptionEventType): void
     {
@@ -168,10 +167,7 @@ class SubscriptionEvent implements \JsonSerializable
     {
         $json = [];
         $json['id']                      = $this->id;
-        $json['subscription_event_type'] =
-            SubscriptionEventSubscriptionEventType::checkValue(
-                $this->subscriptionEventType
-            );
+        $json['subscription_event_type'] = $this->subscriptionEventType;
         $json['effective_date']          = $this->effectiveDate;
         $json['plan_id']                 = $this->planId;
         if (isset($this->info)) {

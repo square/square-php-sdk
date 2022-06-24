@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * The unit of length used to measure a quantity.
  */
@@ -52,31 +48,4 @@ class MeasurementUnitLength
      * The length is measured in kilometers.
      */
     public const METRIC_KILOMETER = 'METRIC_KILOMETER';
-
-    private const _ALL_VALUES = [
-        self::IMPERIAL_INCH,
-        self::IMPERIAL_FOOT,
-        self::IMPERIAL_YARD,
-        self::IMPERIAL_MILE,
-        self::METRIC_MILLIMETER,
-        self::METRIC_CENTIMETER,
-        self::METRIC_METER,
-        self::METRIC_KILOMETER,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

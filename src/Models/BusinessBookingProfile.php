@@ -122,7 +122,6 @@ class BusinessBookingProfile implements \JsonSerializable
      * Choices of customer-facing time zone used for bookings.
      *
      * @maps customer_timezone_choice
-     * @factory \Square\Models\BusinessBookingProfileCustomerTimezoneChoice::checkValue
      */
     public function setCustomerTimezoneChoice(?string $customerTimezoneChoice): void
     {
@@ -143,7 +142,6 @@ class BusinessBookingProfile implements \JsonSerializable
      * Policies for accepting bookings.
      *
      * @maps booking_policy
-     * @factory \Square\Models\BusinessBookingProfileBookingPolicy::checkValue
      */
     public function setBookingPolicy(?string $bookingPolicy): void
     {
@@ -234,16 +232,10 @@ class BusinessBookingProfile implements \JsonSerializable
             $json['booking_enabled']               = $this->bookingEnabled;
         }
         if (isset($this->customerTimezoneChoice)) {
-            $json['customer_timezone_choice']      =
-                BusinessBookingProfileCustomerTimezoneChoice::checkValue(
-                    $this->customerTimezoneChoice
-                );
+            $json['customer_timezone_choice']      = $this->customerTimezoneChoice;
         }
         if (isset($this->bookingPolicy)) {
-            $json['booking_policy']                =
-                BusinessBookingProfileBookingPolicy::checkValue(
-                    $this->bookingPolicy
-                );
+            $json['booking_policy']                = $this->bookingPolicy;
         }
         if (isset($this->allowUserCancel)) {
             $json['allow_user_cancel']             = $this->allowUserCancel;

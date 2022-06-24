@@ -79,7 +79,6 @@ class GiftCardActivityAdjustIncrement implements \JsonSerializable
      *
      * @required
      * @maps reason
-     * @factory \Square\Models\GiftCardActivityAdjustIncrementReason::checkValue
      */
     public function setReason(string $reason): void
     {
@@ -99,7 +98,7 @@ class GiftCardActivityAdjustIncrement implements \JsonSerializable
     {
         $json = [];
         $json['amount_money'] = $this->amountMoney;
-        $json['reason']       = GiftCardActivityAdjustIncrementReason::checkValue($this->reason);
+        $json['reason']       = $this->reason;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

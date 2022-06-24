@@ -81,7 +81,6 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -184,7 +183,7 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
         $json = [];
         $json['location_id']    = $this->locationId;
         if (isset($this->sortOrder)) {
-            $json['sort_order'] = SortOrder::checkValue($this->sortOrder);
+            $json['sort_order'] = $this->sortOrder;
         }
         if (isset($this->beginTime)) {
             $json['begin_time'] = $this->beginTime;
