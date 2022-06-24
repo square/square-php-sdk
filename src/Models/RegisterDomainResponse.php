@@ -62,7 +62,6 @@ class RegisterDomainResponse implements \JsonSerializable
      * The status of the domain registration.
      *
      * @maps status
-     * @factory \Square\Models\RegisterDomainResponseStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -85,7 +84,7 @@ class RegisterDomainResponse implements \JsonSerializable
             $json['errors'] = $this->errors;
         }
         if (isset($this->status)) {
-            $json['status'] = RegisterDomainResponseStatus::checkValue($this->status);
+            $json['status'] = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -268,7 +268,7 @@ function createCatalogImage(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request` | [`?CreateCatalogImageRequest`](../../doc/models/create-catalog-image-request.md) | Form, Optional | - |
+| `request` | [`?CreateCatalogImageRequest`](../../doc/models/create-catalog-image-request.md) | Form (JSON-Encoded), Optional | - |
 | `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type
@@ -325,7 +325,7 @@ function updateCatalogImage(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `imageId` | `string` | Template, Required | The ID of the `CatalogImage` object to update the encapsulated image file. |
-| `request` | [`?UpdateCatalogImageRequest`](../../doc/models/update-catalog-image-request.md) | Form, Optional | - |
+| `request` | [`?UpdateCatalogImageRequest`](../../doc/models/update-catalog-image-request.md) | Form (JSON-Encoded), Optional | - |
 | `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type

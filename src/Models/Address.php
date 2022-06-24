@@ -227,7 +227,6 @@ class Address implements \JsonSerializable
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      *
      * @maps country
-     * @factory \Square\Models\Country::checkValue
      */
     public function setCountry(?string $country): void
     {
@@ -268,7 +267,7 @@ class Address implements \JsonSerializable
             $json['postal_code']                     = $this->postalCode;
         }
         if (isset($this->country)) {
-            $json['country']                         = Country::checkValue($this->country);
+            $json['country']                         = $this->country;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

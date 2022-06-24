@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * Indicates the method used to create the customer profile.
  */
@@ -127,42 +123,4 @@ class CustomerCreationSource
      * process.
      */
     public const UNMERGE_RECOVERY = 'UNMERGE_RECOVERY';
-
-    private const _ALL_VALUES = [
-        self::OTHER,
-        self::APPOINTMENTS,
-        self::COUPON,
-        self::DELETION_RECOVERY,
-        self::DIRECTORY,
-        self::EGIFTING,
-        self::EMAIL_COLLECTION,
-        self::FEEDBACK,
-        self::IMPORT,
-        self::INVOICES,
-        self::LOYALTY,
-        self::MARKETING,
-        self::MERGE,
-        self::ONLINE_STORE,
-        self::INSTANT_PROFILE,
-        self::TERMINAL,
-        self::THIRD_PARTY,
-        self::THIRD_PARTY_IMPORT,
-        self::UNMERGE_RECOVERY,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

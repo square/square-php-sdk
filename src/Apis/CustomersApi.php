@@ -67,8 +67,8 @@ class CustomersApi extends BaseApi
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'cursor'     => $cursor,
             'limit'      => $limit,
-            'sort_field' => Models\CustomerSortField::checkValue($sortField),
-            'sort_order' => Models\SortOrder::checkValue($sortOrder),
+            'sort_field' => $sortField,
+            'sort_order' => $sortOrder,
         ]);
 
         //prepare headers
@@ -272,8 +272,8 @@ class CustomersApi extends BaseApi
     }
 
     /**
-     * Deletes a customer profile from a business. This operation also unlinks any associated cards on
-     * file.
+     * Deletes a customer profile from a business. This operation also unlinks any associated cards on file.
+     *
      *
      * As a best practice, you should include the `version` field in the request to enable [optimistic
      * concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-concurrency) control.

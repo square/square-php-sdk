@@ -63,7 +63,6 @@ class V1SettlementEntry implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
-     * @factory \Square\Models\V1SettlementEntryType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -122,7 +121,7 @@ class V1SettlementEntry implements \JsonSerializable
             $json['payment_id']   = $this->paymentId;
         }
         if (isset($this->type)) {
-            $json['type']         = V1SettlementEntryType::checkValue($this->type);
+            $json['type']         = $this->type;
         }
         if (isset($this->amountMoney)) {
             $json['amount_money'] = $this->amountMoney;

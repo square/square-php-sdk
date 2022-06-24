@@ -170,7 +170,6 @@ class OrderLineItemDiscount implements \JsonSerializable
      * Indicates how the discount is applied to the associated line item or order.
      *
      * @maps type
-     * @factory \Square\Models\OrderLineItemDiscountType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -339,7 +338,6 @@ class OrderLineItemDiscount implements \JsonSerializable
      * Indicates whether this is a line-item or order-level discount.
      *
      * @maps scope
-     * @factory \Square\Models\OrderLineItemDiscountScope::checkValue
      */
     public function setScope(?string $scope): void
     {
@@ -429,7 +427,7 @@ class OrderLineItemDiscount implements \JsonSerializable
             $json['name']              = $this->name;
         }
         if (isset($this->type)) {
-            $json['type']              = OrderLineItemDiscountType::checkValue($this->type);
+            $json['type']              = $this->type;
         }
         if (isset($this->percentage)) {
             $json['percentage']        = $this->percentage;
@@ -444,7 +442,7 @@ class OrderLineItemDiscount implements \JsonSerializable
             $json['metadata']          = $this->metadata;
         }
         if (isset($this->scope)) {
-            $json['scope']             = OrderLineItemDiscountScope::checkValue($this->scope);
+            $json['scope']             = $this->scope;
         }
         if (isset($this->rewardIds)) {
             $json['reward_ids']        = $this->rewardIds;

@@ -116,7 +116,6 @@ class TerminalActionQueryFilter implements \JsonSerializable
      * ‘open’ enum.
      *
      * @maps type
-     * @factory \Square\Models\TerminalActionActionType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -145,7 +144,7 @@ class TerminalActionQueryFilter implements \JsonSerializable
             $json['status']     = $this->status;
         }
         if (isset($this->type)) {
-            $json['type']       = TerminalActionActionType::checkValue($this->type);
+            $json['type']       = $this->type;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

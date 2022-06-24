@@ -125,30 +125,6 @@ class ApiHelper
     }
 
     /**
-     * Try mapping the class onto the value,
-     * If mapping failed due to the invalid oneOf or anyOf types,
-     * throw ApiException
-     *
-     * @param array  $json      value to be verified against the types
-     * @param string $classname name of the class to map
-     * @param string $namespace namespace name for the model classes, Default: global namespace
-     *
-     * @throws InvalidArgumentException
-     */
-    public static function verifyClass(
-        array $json,
-        string $classname,
-        string $namespace = 'Square\Models'
-    ) {
-        try {
-            $value = empty($json) ? new stdClass() : json_decode(json_encode($json));
-            self::getJsonMapper()->mapClass($value, "$namespace\\$classname");
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
-        }
-    }
-
-    /**
      * Map the types onto the value,
      * If mapping failed due to the invalid oneOf or anyOf types,
      * throw ApiException
@@ -179,17 +155,14 @@ class ApiHelper
     }
 
     /**
-     * Try mapping the types onto the value,
-     * If mapping failed due to the invalid oneOf or anyOf types,
-     * throw InvalidArgumentException
+     * Checks if type of the given value is present in the type group, also updates the value when
+     * $serializationMethods for the value's type are given.
      *
-     * @param mixed    $value                value to be verified against the types
-     * @param string   $types                types to be mapped in format OneOf(...) or AnyOf(...)
-     * @param string[] $serializationMethods Specify methods required for serialization instead of json_encode,
-     *                                       should be a string path to the accessible method along with the type,
-     *                                       separated by a space.
-     * @param string[] $facMethods           Specify if any methods are required to map this value into any type
-     * @param string   $namespace            namespace name for the model classes, Default: global namespace
+     * @param mixed    $value                  value to be verified against the types
+     * @param string   $types                  types to be mapped in format OneOf(...) or AnyOf(...)
+     * @param string[] $serializationMethods   Specify methods required for serialization of specific types in
+     *                                         in the type group, should be an array in the format:
+     *                                         ['path/to/method argumentType', ...]. Default: []
      *
      * @return mixed
      * @throws InvalidArgumentException
@@ -197,17 +170,28 @@ class ApiHelper
     public static function verifyTypes(
         $value,
         string $types,
-        array $serializationMethods = [],
-        array $facMethods = [],
-        string $namespace = 'Square\Models'
+        array $serializationMethods = []
     ) {
         try {
-            $value = self::applySerializationMethods($value, $serializationMethods);
-            self::getJsonMapper()->mapFor(json_decode(json_encode($value)), $types, $namespace, $facMethods);
+            return self::getJsonMapper()->checkTypeGroupFor($types, $value, $serializationMethods);
         } catch (Exception $e) {
             throw new InvalidArgumentException($e->getMessage());
         }
-        return $value;
+    }
+
+    /**
+     * Serialize any given mixed value.
+     *
+     * @param mixed $value Any value to be serialized
+     *
+     * @return string|null serialized value
+     */
+    public static function serialize($value): ?string
+    {
+        if (is_string($value) || is_null($value)) {
+            return $value;
+        }
+        return json_encode($value);
     }
 
     /**
@@ -233,93 +217,6 @@ class ApiHelper
         if (!in_array($value, $enumValues, true)) {
             throw new Exception("$value is invalid for $enumName.");
         }
-    }
-
-    /**
-     * Extract type from any given value.
-     *
-     * @param mixed  $value should be an array to be checked for inner type
-     * @param string $start string to be appended at the start of the extracted type, Default: ''
-     * @param string $end   string to be appended at the end of the extracted type, Default: ''
-     *
-     * @return string Returns the type that could be mapped on the given value.
-     */
-    private static function getType($value, string $start = '', string $end = ''): string
-    {
-        if (is_array($value)) {
-            if (self::isAssociative($value)) {
-                // if value is associative array
-                $start .= 'array<string,';
-                $end = '>' . $end;
-            } else {
-                // if value is indexed array
-                if (empty($value)) {
-                    return 'array';
-                }
-                $end = '[]' . $end;
-            }
-            return self::getType(array_pop($value), $start, $end);
-        } elseif (is_object($value)) {
-            $type = get_class($value); // returns full path of class
-            $slashPos = strrpos($type, '\\');
-            if ($slashPos !== false) {
-                $slashPos++; // to get the type after last slash
-            } else {
-                $slashPos = 0; // if did not have any slashes
-            }
-            $type = substr($type, $slashPos);
-            return $start . $type . $end;
-        }
-        return $start . gettype($value) . $end;
-    }
-
-    /**
-     * Apply serialization methods onto any given value.
-     *
-     * @param mixed    $value                Any value to be serialized
-     * @param string[] $serializationMethods Specify methods required for serialization instead of json_encode,
-     *                                       should be a string path to the accessible method along with the type,
-     *                                       separated by a space.
-     * @return mixed value after applying serialization method if applicable
-     */
-    public static function applySerializationMethods($value, array $serializationMethods)
-    {
-        $type = empty($serializationMethods) ? null : self::getType($value);
-        $error = null;
-        foreach ($serializationMethods as $method) {
-            $method = explode(' ', $method);
-            try {
-                if (is_callable($method[0]) && $type == $method[1]) {
-                    return call_user_func($method[0], $value);
-                }
-            } catch (\Throwable $e) {
-                $error = $e;
-            }
-        }
-        if (is_array($value)) {
-            return array_map(function ($v) use ($serializationMethods) {
-                return self::applySerializationMethods($v, $serializationMethods);
-            }, $value);
-        }
-        if (isset($error)) {
-            throw new InvalidArgumentException($error->getMessage());
-        }
-        return $value;
-    }
-
-    /**
-     * Serialize any given mixed value.
-     *
-     * @param mixed $value Any value to be serialized
-     *
-     * @return string|null serialized value
-     */
-    public static function serialize($value): ?string
-    {
-        if (is_string($value) || is_null($value)) {
-            return $value;
-        }
-        return json_encode($value);
     }
 
     /**

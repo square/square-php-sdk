@@ -256,7 +256,6 @@ class Location implements \JsonSerializable
      * See [LocationCapability](#type-locationcapability) for possible values
      *
      * @maps capabilities
-     * @factory \Square\Models\LocationCapability::checkValue
      *
      * @param string[]|null $capabilities
      */
@@ -279,7 +278,6 @@ class Location implements \JsonSerializable
      * A location's status.
      *
      * @maps status
-     * @factory \Square\Models\LocationStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -346,7 +344,6 @@ class Location implements \JsonSerializable
      * Values are in [ISO 3166-1-alpha-2 format](http://www.iso.org/iso/home/standards/country_codes.htm).
      *
      * @maps country
-     * @factory \Square\Models\Country::checkValue
      */
     public function setCountry(?string $country): void
     {
@@ -395,7 +392,6 @@ class Location implements \JsonSerializable
      * to [ISO 4217](https://wikipedia.org/wiki/ISO_4217).
      *
      * @maps currency
-     * @factory \Square\Models\Currency::checkValue
      */
     public function setCurrency(?string $currency): void
     {
@@ -458,7 +454,6 @@ class Location implements \JsonSerializable
      * A location's type.
      *
      * @maps type
-     * @factory \Square\Models\LocationType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -772,10 +767,10 @@ class Location implements \JsonSerializable
             $json['timezone']             = $this->timezone;
         }
         if (isset($this->capabilities)) {
-            $json['capabilities']         = LocationCapability::checkValue($this->capabilities);
+            $json['capabilities']         = $this->capabilities;
         }
         if (isset($this->status)) {
-            $json['status']               = LocationStatus::checkValue($this->status);
+            $json['status']               = $this->status;
         }
         if (isset($this->createdAt)) {
             $json['created_at']           = $this->createdAt;
@@ -784,13 +779,13 @@ class Location implements \JsonSerializable
             $json['merchant_id']          = $this->merchantId;
         }
         if (isset($this->country)) {
-            $json['country']              = Country::checkValue($this->country);
+            $json['country']              = $this->country;
         }
         if (isset($this->languageCode)) {
             $json['language_code']        = $this->languageCode;
         }
         if (isset($this->currency)) {
-            $json['currency']             = Currency::checkValue($this->currency);
+            $json['currency']             = $this->currency;
         }
         if (isset($this->phoneNumber)) {
             $json['phone_number']         = $this->phoneNumber;
@@ -799,7 +794,7 @@ class Location implements \JsonSerializable
             $json['business_name']        = $this->businessName;
         }
         if (isset($this->type)) {
-            $json['type']                 = LocationType::checkValue($this->type);
+            $json['type']                 = $this->type;
         }
         if (isset($this->websiteUrl)) {
             $json['website_url']          = $this->websiteUrl;

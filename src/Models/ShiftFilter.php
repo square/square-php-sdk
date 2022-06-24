@@ -122,7 +122,6 @@ class ShiftFilter implements \JsonSerializable
      * Specifies the `status` of `Shift` records to be returned.
      *
      * @maps status
-     * @factory \Square\Models\ShiftFilterStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -249,7 +248,7 @@ class ShiftFilter implements \JsonSerializable
             $json['employee_ids'] = $this->employeeIds;
         }
         if (isset($this->status)) {
-            $json['status']       = ShiftFilterStatus::checkValue($this->status);
+            $json['status']       = $this->status;
         }
         if (isset($this->start)) {
             $json['start']        = $this->start;

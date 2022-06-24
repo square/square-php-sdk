@@ -60,7 +60,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
      * The current state of this fulfillment.
      *
      * @maps old_state
-     * @factory \Square\Models\OrderFulfillmentState::checkValue
      */
     public function setOldState(?string $oldState): void
     {
@@ -81,7 +80,6 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
      * The current state of this fulfillment.
      *
      * @maps new_state
-     * @factory \Square\Models\OrderFulfillmentState::checkValue
      */
     public function setNewState(?string $newState): void
     {
@@ -104,10 +102,10 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
             $json['fulfillment_uid'] = $this->fulfillmentUid;
         }
         if (isset($this->oldState)) {
-            $json['old_state']       = OrderFulfillmentState::checkValue($this->oldState);
+            $json['old_state']       = $this->oldState;
         }
         if (isset($this->newState)) {
-            $json['new_state']       = OrderFulfillmentState::checkValue($this->newState);
+            $json['new_state']       = $this->newState;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

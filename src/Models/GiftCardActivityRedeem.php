@@ -140,7 +140,6 @@ class GiftCardActivityRedeem implements \JsonSerializable
      * status.
      *
      * @maps status
-     * @factory \Square\Models\GiftCardActivityRedeemStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -167,7 +166,7 @@ class GiftCardActivityRedeem implements \JsonSerializable
             $json['reference_id'] = $this->referenceId;
         }
         if (isset($this->status)) {
-            $json['status']       = GiftCardActivityRedeemStatus::checkValue($this->status);
+            $json['status']       = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

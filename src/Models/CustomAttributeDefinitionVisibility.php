@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * The level of permission that a seller or other applications requires to
  * view this custom attribute definition.
@@ -34,26 +30,4 @@ class CustomAttributeDefinitionVisibility
      * can only be edited or deleted by the application that created it.
      */
     public const VISIBILITY_READ_WRITE_VALUES = 'VISIBILITY_READ_WRITE_VALUES';
-
-    private const _ALL_VALUES = [
-        self::VISIBILITY_HIDDEN,
-        self::VISIBILITY_READ_ONLY,
-        self::VISIBILITY_READ_WRITE_VALUES,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

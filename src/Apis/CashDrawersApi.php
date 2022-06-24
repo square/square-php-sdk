@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ConfigurationInterface;
 use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -57,7 +56,7 @@ class CashDrawersApi extends BaseApi
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'location_id' => $locationId,
-            'sort_order'  => Models\SortOrder::checkValue($sortOrder),
+            'sort_order'  => $sortOrder,
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
             'limit'       => $limit,

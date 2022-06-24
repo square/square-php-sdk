@@ -35,7 +35,6 @@ class TeamMemberAssignedLocations implements \JsonSerializable
      * Enumerates the possible assignment types that the team member can have.
      *
      * @maps assignment_type
-     * @factory \Square\Models\TeamMemberAssignedLocationsAssignmentType::checkValue
      */
     public function setAssignmentType(?string $assignmentType): void
     {
@@ -79,7 +78,7 @@ class TeamMemberAssignedLocations implements \JsonSerializable
     {
         $json = [];
         if (isset($this->assignmentType)) {
-            $json['assignment_type'] = TeamMemberAssignedLocationsAssignmentType::checkValue($this->assignmentType);
+            $json['assignment_type'] = $this->assignmentType;
         }
         if (isset($this->locationIds)) {
             $json['location_ids']    = $this->locationIds;

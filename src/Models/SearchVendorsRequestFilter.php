@@ -63,7 +63,6 @@ class SearchVendorsRequestFilter implements \JsonSerializable
      * See [VendorStatus](#type-vendorstatus) for possible values
      *
      * @maps status
-     * @factory \Square\Models\VendorStatus::checkValue
      *
      * @param string[]|null $status
      */
@@ -88,7 +87,7 @@ class SearchVendorsRequestFilter implements \JsonSerializable
             $json['name']   = $this->name;
         }
         if (isset($this->status)) {
-            $json['status'] = VendorStatus::checkValue($this->status);
+            $json['status'] = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

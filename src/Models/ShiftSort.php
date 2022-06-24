@@ -35,7 +35,6 @@ class ShiftSort implements \JsonSerializable
      * Enumerates the `Shift` fields to sort on.
      *
      * @maps field
-     * @factory \Square\Models\ShiftSortField::checkValue
      */
     public function setField(?string $field): void
     {
@@ -56,7 +55,6 @@ class ShiftSort implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setOrder(?string $order): void
     {
@@ -76,10 +74,10 @@ class ShiftSort implements \JsonSerializable
     {
         $json = [];
         if (isset($this->field)) {
-            $json['field'] = ShiftSortField::checkValue($this->field);
+            $json['field'] = $this->field;
         }
         if (isset($this->order)) {
-            $json['order'] = SortOrder::checkValue($this->order);
+            $json['order'] = $this->order;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

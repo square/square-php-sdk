@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Square\Exceptions\ApiException;
 use Square\ConfigurationInterface;
 use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
 use Square\Http\HttpRequest;
 use Square\Http\HttpResponse;
@@ -72,10 +71,10 @@ class PayoutsApi extends BaseApi
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
             'location_id' => $locationId,
-            'status'      => Models\PayoutStatus::checkValue($status),
+            'status'      => $status,
             'begin_time'  => $beginTime,
             'end_time'    => $endTime,
-            'sort_order'  => Models\SortOrder::checkValue($sortOrder),
+            'sort_order'  => $sortOrder,
             'cursor'      => $cursor,
             'limit'       => $limit,
         ]);
@@ -233,7 +232,7 @@ class PayoutsApi extends BaseApi
 
         //process query parameters
         ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'sort_order' => Models\SortOrder::checkValue($sortOrder),
+            'sort_order' => $sortOrder,
             'cursor'     => $cursor,
             'limit'      => $limit,
         ]);

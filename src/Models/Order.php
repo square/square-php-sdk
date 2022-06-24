@@ -733,7 +733,6 @@ class Order implements \JsonSerializable
      * The state of the order.
      *
      * @maps state
-     * @factory \Square\Models\OrderState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -1077,7 +1076,7 @@ class Order implements \JsonSerializable
             $json['closed_at']                  = $this->closedAt;
         }
         if (isset($this->state)) {
-            $json['state']                      = OrderState::checkValue($this->state);
+            $json['state']                      = $this->state;
         }
         if (isset($this->version)) {
             $json['version']                    = $this->version;

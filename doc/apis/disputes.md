@@ -192,7 +192,7 @@ function createDisputeEvidenceFile(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `disputeId` | `string` | Template, Required | The ID of the dispute you want to upload evidence for. |
-| `request` | [`?CreateDisputeEvidenceFileRequest`](../../doc/models/create-dispute-evidence-file-request.md) | Form, Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
+| `request` | [`?CreateDisputeEvidenceFileRequest`](../../doc/models/create-dispute-evidence-file-request.md) | Form (JSON-Encoded), Optional | Defines the parameters for a `CreateDisputeEvidenceFile` request. |
 | `imageFile` | `?FileWrapper` | Form, Optional | - |
 
 ## Response Type

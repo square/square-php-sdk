@@ -137,7 +137,6 @@ class V1PaymentTax implements \JsonSerializable
      * Sets Inclusion Type.
      *
      * @maps inclusion_type
-     * @factory \Square\Models\V1PaymentTaxInclusionType::checkValue
      */
     public function setInclusionType(?string $inclusionType): void
     {
@@ -191,7 +190,7 @@ class V1PaymentTax implements \JsonSerializable
             $json['rate']           = $this->rate;
         }
         if (isset($this->inclusionType)) {
-            $json['inclusion_type'] = V1PaymentTaxInclusionType::checkValue($this->inclusionType);
+            $json['inclusion_type'] = $this->inclusionType;
         }
         if (isset($this->feeId)) {
             $json['fee_id']         = $this->feeId;

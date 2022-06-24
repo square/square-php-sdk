@@ -64,7 +64,6 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
      *
      * @required
      * @maps accrual_type
-     * @factory \Square\Models\LoyaltyProgramAccrualRuleType::checkValue
      */
     public function setAccrualType(string $accrualType): void
     {
@@ -185,7 +184,7 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['accrual_type']            = LoyaltyProgramAccrualRuleType::checkValue($this->accrualType);
+        $json['accrual_type']            = $this->accrualType;
         if (isset($this->points)) {
             $json['points']              = $this->points;
         }

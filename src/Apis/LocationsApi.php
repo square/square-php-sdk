@@ -24,8 +24,8 @@ class LocationsApi extends BaseApi
     }
 
     /**
-     * Provides details about all of the seller's [locations](https://developer.squareup.
-     * com/docs/locations-api),
+     * Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-
+     * api),
      * including those with an inactive status.
      *
      * @return ApiResponse Response from the API call

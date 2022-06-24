@@ -63,7 +63,7 @@ class CardsApi extends BaseApi
             'include_disabled' => (null != $includeDisabled) ?
                 var_export($includeDisabled, true) : false,
             'reference_id'     => $referenceId,
-            'sort_order'       => Models\SortOrder::checkValue($sortOrder),
+            'sort_order'       => $sortOrder,
         ]);
 
         //prepare headers

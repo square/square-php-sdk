@@ -296,8 +296,8 @@ class VendorsApi extends BaseApi
     }
 
     /**
-     * Searches for vendors using a filter against supported [Vendor]($m/Vendor) properties and a
-     * supported sorter.
+     * Searches for vendors using a filter against supported [Vendor]($m/Vendor) properties and a supported
+     * sorter.
      *
      * @param Models\SearchVendorsRequest $body An object containing the fields to POST for the
      *        request.

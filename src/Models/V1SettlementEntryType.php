@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 class V1SettlementEntryType
 {
     /**
@@ -26,9 +22,9 @@ class V1SettlementEntryType
     public const CHARGE = 'CHARGE';
 
     /**
-     * Square offers Free Payments Processing for a variety of business scenarios including seller
-     * referral or when we want to apologize for a bug, customer service, repricing complication, etc. This
-     * entry represents a credit to the merchant for the purposes of Free Processing.
+     * Square offers Free Payments Processing for a variety of business scenarios including seller referral
+     * or when we want to apologize for a bug, customer service, repricing complication, etc. This entry
+     * represents a credit to the merchant for the purposes of Free Processing.
      */
     public const FREE_PROCESSING = 'FREE_PROCESSING';
 
@@ -69,8 +65,8 @@ class V1SettlementEntryType
     public const SQUARE_CAPITAL_ADVANCE = 'SQUARE_CAPITAL_ADVANCE';
 
     /**
-     * Capital merchant cash advance (MCA) assessment. These are, generally, proportional to the
-     * merchant's sales but may be issued for other reasons related to the MCA.
+     * Capital merchant cash advance (MCA) assessment. These are, generally, proportional to the merchant's
+     * sales but may be issued for other reasons related to the MCA.
      */
     public const SQUARE_CAPITAL_PAYMENT = 'SQUARE_CAPITAL_PAYMENT';
 
@@ -116,44 +112,4 @@ class V1SettlementEntryType
      * Settlements to or withdrawals from the Square Card (an asset)
      */
     public const SQUARE_CARD = 'SQUARE_CARD';
-
-    private const _ALL_VALUES = [
-        self::ADJUSTMENT,
-        self::BALANCE_CHARGE,
-        self::CHARGE,
-        self::FREE_PROCESSING,
-        self::HOLD_ADJUSTMENT,
-        self::PAID_SERVICE_FEE,
-        self::PAID_SERVICE_FEE_REFUND,
-        self::REDEMPTION_CODE,
-        self::REFUND,
-        self::RETURNED_PAYOUT,
-        self::SQUARE_CAPITAL_ADVANCE,
-        self::SQUARE_CAPITAL_PAYMENT,
-        self::SQUARE_CAPITAL_REVERSED_PAYMENT,
-        self::SUBSCRIPTION_FEE,
-        self::SUBSCRIPTION_FEE_REFUND,
-        self::OTHER,
-        self::INCENTED_PAYMENT,
-        self::RETURNED_ACH_ENTRY,
-        self::RETURNED_SQUARE_275,
-        self::SQUARE_275,
-        self::SQUARE_CARD,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

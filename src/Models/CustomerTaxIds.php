@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding
- * `tax_ids` field is available only for customers of sellers in EU countries or the United Kingdom.
+ * Represents the tax ID associated with a [customer profile]($m/Customer). The corresponding `tax_ids`
+ * field is available only for customers of sellers in EU countries or the United Kingdom.
  * For more information, see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-
  * it-does#customer-tax-ids).
  */

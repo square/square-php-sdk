@@ -155,7 +155,6 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      *
      * @required
      * @maps tax_mode
-     * @factory \Square\Models\LoyaltyProgramAccrualRuleTaxMode::checkValue
      */
     public function setTaxMode(string $taxMode): void
     {
@@ -181,7 +180,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
         if (isset($this->excludedItemVariationIds)) {
             $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
         }
-        $json['tax_mode']                        = LoyaltyProgramAccrualRuleTaxMode::checkValue($this->taxMode);
+        $json['tax_mode']                        = $this->taxMode;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

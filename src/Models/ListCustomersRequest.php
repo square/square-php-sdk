@@ -106,7 +106,6 @@ class ListCustomersRequest implements \JsonSerializable
      * Specifies customer attributes as the sort key to customer profiles returned from a search.
      *
      * @maps sort_field
-     * @factory \Square\Models\CustomerSortField::checkValue
      */
     public function setSortField(?string $sortField): void
     {
@@ -127,7 +126,6 @@ class ListCustomersRequest implements \JsonSerializable
      * The order (e.g., chronological or alphabetical) in which results from a request are returned.
      *
      * @maps sort_order
-     * @factory \Square\Models\SortOrder::checkValue
      */
     public function setSortOrder(?string $sortOrder): void
     {
@@ -153,10 +151,10 @@ class ListCustomersRequest implements \JsonSerializable
             $json['limit']      = $this->limit;
         }
         if (isset($this->sortField)) {
-            $json['sort_field'] = CustomerSortField::checkValue($this->sortField);
+            $json['sort_field'] = $this->sortField;
         }
         if (isset($this->sortOrder)) {
-            $json['sort_order'] = SortOrder::checkValue($this->sortOrder);
+            $json['sort_order'] = $this->sortOrder;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -88,7 +88,6 @@ class InvoiceCustomField implements \JsonSerializable
      * copies of the invoice.
      *
      * @maps placement
-     * @factory \Square\Models\InvoiceCustomFieldPlacement::checkValue
      */
     public function setPlacement(?string $placement): void
     {
@@ -114,7 +113,7 @@ class InvoiceCustomField implements \JsonSerializable
             $json['value']     = $this->value;
         }
         if (isset($this->placement)) {
-            $json['placement'] = InvoiceCustomFieldPlacement::checkValue($this->placement);
+            $json['placement'] = $this->placement;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

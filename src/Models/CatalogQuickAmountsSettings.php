@@ -7,8 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A parent Catalog Object model represents a set of Quick Amounts and the settings control the
- * amounts.
+ * A parent Catalog Object model represents a set of Quick Amounts and the settings control the amounts.
  */
 class CatalogQuickAmountsSettings implements \JsonSerializable
 {
@@ -50,7 +49,6 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      *
      * @required
      * @maps option
-     * @factory \Square\Models\CatalogQuickAmountsSettingsOption::checkValue
      */
     public function setOption(string $option): void
     {
@@ -115,7 +113,7 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['option']                        = CatalogQuickAmountsSettingsOption::checkValue($this->option);
+        $json['option']                        = $this->option;
         if (isset($this->eligibleForAutoAmounts)) {
             $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts;
         }

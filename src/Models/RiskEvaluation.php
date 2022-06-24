@@ -58,7 +58,6 @@ class RiskEvaluation implements \JsonSerializable
      * Sets Risk Level.
      *
      * @maps risk_level
-     * @factory \Square\Models\RiskEvaluationRiskLevel::checkValue
      */
     public function setRiskLevel(?string $riskLevel): void
     {
@@ -81,7 +80,7 @@ class RiskEvaluation implements \JsonSerializable
             $json['created_at'] = $this->createdAt;
         }
         if (isset($this->riskLevel)) {
-            $json['risk_level'] = RiskEvaluationRiskLevel::checkValue($this->riskLevel);
+            $json['risk_level'] = $this->riskLevel;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

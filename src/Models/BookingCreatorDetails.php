@@ -40,7 +40,6 @@ class BookingCreatorDetails implements \JsonSerializable
      * Supported types of a booking creator.
      *
      * @maps creator_type
-     * @factory \Square\Models\BookingCreatorDetailsCreatorType::checkValue
      */
     public function setCreatorType(?string $creatorType): void
     {
@@ -106,7 +105,7 @@ class BookingCreatorDetails implements \JsonSerializable
     {
         $json = [];
         if (isset($this->creatorType)) {
-            $json['creator_type']   = BookingCreatorDetailsCreatorType::checkValue($this->creatorType);
+            $json['creator_type']   = $this->creatorType;
         }
         if (isset($this->teamMemberId)) {
             $json['team_member_id'] = $this->teamMemberId;

@@ -60,7 +60,6 @@ class ListEmployeesRequest implements \JsonSerializable
      * The status of the Employee being retrieved.
      *
      * @maps status
-     * @factory \Square\Models\EmployeeStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -123,7 +122,7 @@ class ListEmployeesRequest implements \JsonSerializable
             $json['location_id'] = $this->locationId;
         }
         if (isset($this->status)) {
-            $json['status']      = EmployeeStatus::checkValue($this->status);
+            $json['status']      = $this->status;
         }
         if (isset($this->limit)) {
             $json['limit']       = $this->limit;

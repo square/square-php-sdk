@@ -162,7 +162,6 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      * The default is null.
      *
      * @maps states
-     * @factory \Square\Models\InventoryState::checkValue
      *
      * @param string[]|null $states
      */
@@ -214,7 +213,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
             $json['cursor']             = $this->cursor;
         }
         if (isset($this->states)) {
-            $json['states']             = InventoryState::checkValue($this->states);
+            $json['states']             = $this->states;
         }
         if (isset($this->limit)) {
             $json['limit']              = $this->limit;

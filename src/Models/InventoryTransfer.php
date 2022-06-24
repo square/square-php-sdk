@@ -135,7 +135,6 @@ class InventoryTransfer implements \JsonSerializable
      * Indicates the state of a tracked item quantity in the lifecycle of goods.
      *
      * @maps state
-     * @factory \Square\Models\InventoryState::checkValue
      */
     public function setState(?string $state): void
     {
@@ -391,7 +390,7 @@ class InventoryTransfer implements \JsonSerializable
             $json['reference_id']        = $this->referenceId;
         }
         if (isset($this->state)) {
-            $json['state']               = InventoryState::checkValue($this->state);
+            $json['state']               = $this->state;
         }
         if (isset($this->fromLocationId)) {
             $json['from_location_id']    = $this->fromLocationId;

@@ -94,7 +94,6 @@ class GiftCard implements \JsonSerializable
      *
      * @required
      * @maps type
-     * @factory \Square\Models\GiftCardType::checkValue
      */
     public function setType(string $type): void
     {
@@ -117,7 +116,6 @@ class GiftCard implements \JsonSerializable
      * account number (GAN).
      *
      * @maps gan_source
-     * @factory \Square\Models\GiftCardGANSource::checkValue
      */
     public function setGanSource(?string $ganSource): void
     {
@@ -138,7 +136,6 @@ class GiftCard implements \JsonSerializable
      * Indicates the gift card state.
      *
      * @maps state
-     * @factory \Square\Models\GiftCardStatus::checkValue
      */
     public function setState(?string $state): void
     {
@@ -266,12 +263,12 @@ class GiftCard implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']            = $this->id;
         }
-        $json['type']              = GiftCardType::checkValue($this->type);
+        $json['type']              = $this->type;
         if (isset($this->ganSource)) {
-            $json['gan_source']    = GiftCardGANSource::checkValue($this->ganSource);
+            $json['gan_source']    = $this->ganSource;
         }
         if (isset($this->state)) {
-            $json['state']         = GiftCardStatus::checkValue($this->state);
+            $json['state']         = $this->state;
         }
         if (isset($this->balanceMoney)) {
             $json['balance_money'] = $this->balanceMoney;

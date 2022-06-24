@@ -113,7 +113,6 @@ class V1Refund implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
-     * @factory \Square\Models\V1RefundType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -475,7 +474,7 @@ class V1Refund implements \JsonSerializable
     {
         $json = [];
         if (isset($this->type)) {
-            $json['type']                          = V1RefundType::checkValue($this->type);
+            $json['type']                          = $this->type;
         }
         if (isset($this->reason)) {
             $json['reason']                        = $this->reason;

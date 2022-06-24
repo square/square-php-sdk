@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * Indicates the Square product used to generate a change.
  */
@@ -62,33 +58,4 @@ class Product
      * A Square product that does not match any other value.
      */
     public const OTHER = 'OTHER';
-
-    private const _ALL_VALUES = [
-        self::SQUARE_POS,
-        self::EXTERNAL_API,
-        self::BILLING,
-        self::APPOINTMENTS,
-        self::INVOICES,
-        self::ONLINE_STORE,
-        self::PAYROLL,
-        self::DASHBOARD,
-        self::ITEM_LIBRARY_IMPORT,
-        self::OTHER,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

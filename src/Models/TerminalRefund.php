@@ -320,7 +320,6 @@ class TerminalRefund implements \JsonSerializable
      * Sets Cancel Reason.
      *
      * @maps cancel_reason
-     * @factory \Square\Models\ActionCancelReason::checkValue
      */
     public function setCancelReason(?string $cancelReason): void
     {
@@ -439,7 +438,7 @@ class TerminalRefund implements \JsonSerializable
             $json['status']            = $this->status;
         }
         if (isset($this->cancelReason)) {
-            $json['cancel_reason']     = ActionCancelReason::checkValue($this->cancelReason);
+            $json['cancel_reason']     = $this->cancelReason;
         }
         if (isset($this->createdAt)) {
             $json['created_at']        = $this->createdAt;

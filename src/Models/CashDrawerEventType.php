@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Square\Models;
 
-use Exception;
-use Square\ApiHelper;
-use stdClass;
-
 /**
  * The types of events on a CashDrawerShift.
  * Each event type represents an employee action on the actual cash drawer
@@ -76,32 +72,4 @@ class CashDrawerEventType
      * A CashDrawerEvent of this type must not have a negative amount.
      */
     public const PAID_OUT = 'PAID_OUT';
-
-    private const _ALL_VALUES = [
-        self::NO_SALE,
-        self::CASH_TENDER_PAYMENT,
-        self::OTHER_TENDER_PAYMENT,
-        self::CASH_TENDER_CANCELLED_PAYMENT,
-        self::OTHER_TENDER_CANCELLED_PAYMENT,
-        self::CASH_TENDER_REFUND,
-        self::OTHER_TENDER_REFUND,
-        self::PAID_IN,
-        self::PAID_OUT,
-    ];
-
-    /**
-     * Ensures that all the given values are present in this Enum.
-     *
-     * @param array|stdClass|null|string $value Value or a list/map of values to be checked
-     *
-     * @return array|null|string Input value(s), if all are a part of this Enum
-     *
-     * @throws Exception Throws exception if any given value is not in this Enum
-     */
-    public static function checkValue($value)
-    {
-        $value = json_decode(json_encode($value), true); // converts stdClass into array
-        ApiHelper::checkValueInEnum($value, self::class, self::_ALL_VALUES);
-        return $value;
-    }
 }

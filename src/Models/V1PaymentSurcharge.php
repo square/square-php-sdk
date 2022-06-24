@@ -143,7 +143,6 @@ class V1PaymentSurcharge implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
-     * @factory \Square\Models\V1PaymentSurchargeType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -239,7 +238,7 @@ class V1PaymentSurcharge implements \JsonSerializable
             $json['amount_money']  = $this->amountMoney;
         }
         if (isset($this->type)) {
-            $json['type']          = V1PaymentSurchargeType::checkValue($this->type);
+            $json['type']          = $this->type;
         }
         if (isset($this->taxable)) {
             $json['taxable']       = $this->taxable;

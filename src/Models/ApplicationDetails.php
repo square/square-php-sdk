@@ -35,7 +35,6 @@ class ApplicationDetails implements \JsonSerializable
      * A list of products to return to external callers.
      *
      * @maps square_product
-     * @factory \Square\Models\ApplicationDetailsExternalSquareProduct::checkValue
      */
     public function setSquareProduct(?string $squareProduct): void
     {
@@ -87,7 +86,7 @@ class ApplicationDetails implements \JsonSerializable
     {
         $json = [];
         if (isset($this->squareProduct)) {
-            $json['square_product'] = ApplicationDetailsExternalSquareProduct::checkValue($this->squareProduct);
+            $json['square_product'] = $this->squareProduct;
         }
         if (isset($this->applicationId)) {
             $json['application_id'] = $this->applicationId;

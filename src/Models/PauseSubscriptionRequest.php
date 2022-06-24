@@ -127,7 +127,6 @@ class PauseSubscriptionRequest implements \JsonSerializable
      * Supported timings when a pending change, as an action, takes place to a subscription.
      *
      * @maps resume_change_timing
-     * @factory \Square\Models\ChangeTiming::checkValue
      */
     public function setResumeChangeTiming(?string $resumeChangeTiming): void
     {
@@ -176,7 +175,7 @@ class PauseSubscriptionRequest implements \JsonSerializable
             $json['resume_effective_date'] = $this->resumeEffectiveDate;
         }
         if (isset($this->resumeChangeTiming)) {
-            $json['resume_change_timing']  = ChangeTiming::checkValue($this->resumeChangeTiming);
+            $json['resume_change_timing']  = $this->resumeChangeTiming;
         }
         if (isset($this->pauseReason)) {
             $json['pause_reason']          = $this->pauseReason;

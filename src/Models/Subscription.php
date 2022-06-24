@@ -280,7 +280,6 @@ class Subscription implements \JsonSerializable
      * Supported subscription statuses.
      *
      * @maps status
-     * @factory \Square\Models\SubscriptionStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -551,7 +550,7 @@ class Subscription implements \JsonSerializable
             $json['charged_through_date'] = $this->chargedThroughDate;
         }
         if (isset($this->status)) {
-            $json['status']               = SubscriptionStatus::checkValue($this->status);
+            $json['status']               = $this->status;
         }
         if (isset($this->taxPercentage)) {
             $json['tax_percentage']       = $this->taxPercentage;

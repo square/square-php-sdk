@@ -144,7 +144,6 @@ class V1Tender implements \JsonSerializable
      * Sets Type.
      *
      * @maps type
-     * @factory \Square\Models\V1TenderType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -225,7 +224,6 @@ class V1Tender implements \JsonSerializable
      * The brand of a credit card.
      *
      * @maps card_brand
-     * @factory \Square\Models\V1TenderCardBrand::checkValue
      */
     public function setCardBrand(?string $cardBrand): void
     {
@@ -264,7 +262,6 @@ class V1Tender implements \JsonSerializable
      * Sets Entry Method.
      *
      * @maps entry_method
-     * @factory \Square\Models\V1TenderEntryMethod::checkValue
      */
     public function setEntryMethod(?string $entryMethod): void
     {
@@ -445,7 +442,7 @@ class V1Tender implements \JsonSerializable
             $json['id']                = $this->id;
         }
         if (isset($this->type)) {
-            $json['type']              = V1TenderType::checkValue($this->type);
+            $json['type']              = $this->type;
         }
         if (isset($this->name)) {
             $json['name']              = $this->name;
@@ -457,13 +454,13 @@ class V1Tender implements \JsonSerializable
             $json['receipt_url']       = $this->receiptUrl;
         }
         if (isset($this->cardBrand)) {
-            $json['card_brand']        = V1TenderCardBrand::checkValue($this->cardBrand);
+            $json['card_brand']        = $this->cardBrand;
         }
         if (isset($this->panSuffix)) {
             $json['pan_suffix']        = $this->panSuffix;
         }
         if (isset($this->entryMethod)) {
-            $json['entry_method']      = V1TenderEntryMethod::checkValue($this->entryMethod);
+            $json['entry_method']      = $this->entryMethod;
         }
         if (isset($this->paymentNote)) {
             $json['payment_note']      = $this->paymentNote;

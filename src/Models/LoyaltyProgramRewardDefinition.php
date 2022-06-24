@@ -7,8 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount
- * details
+ * Provides details about the reward tier discount. DEPRECATED at version 2020-12-16. Discount details
  * are now defined using a catalog pricing rule and other catalog objects. For more information, see
  * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
  * rewards#get-discount-details).
@@ -76,7 +75,6 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
      *
      * @required
      * @maps scope
-     * @factory \Square\Models\LoyaltyProgramRewardDefinitionScope::checkValue
      */
     public function setScope(string $scope): void
     {
@@ -104,7 +102,6 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
      *
      * @required
      * @maps discount_type
-     * @factory \Square\Models\LoyaltyProgramRewardDefinitionType::checkValue
      */
     public function setDiscountType(string $discountType): void
     {
@@ -247,8 +244,8 @@ class LoyaltyProgramRewardDefinition implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['scope']                    = LoyaltyProgramRewardDefinitionScope::checkValue($this->scope);
-        $json['discount_type']            = LoyaltyProgramRewardDefinitionType::checkValue($this->discountType);
+        $json['scope']                    = $this->scope;
+        $json['discount_type']            = $this->discountType;
         if (isset($this->percentageDiscount)) {
             $json['percentage_discount']  = $this->percentageDiscount;
         }

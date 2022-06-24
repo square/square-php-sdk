@@ -343,7 +343,6 @@ class CatalogPricingRule implements \JsonSerializable
      * will be excluded if the pricing rule uses an exclude set.
      *
      * @maps exclude_strategy
-     * @factory \Square\Models\ExcludeStrategy::checkValue
      */
     public function setExcludeStrategy(?string $excludeStrategy): void
     {
@@ -463,7 +462,7 @@ class CatalogPricingRule implements \JsonSerializable
             $json['valid_until_local_time']       = $this->validUntilLocalTime;
         }
         if (isset($this->excludeStrategy)) {
-            $json['exclude_strategy']             = ExcludeStrategy::checkValue($this->excludeStrategy);
+            $json['exclude_strategy']             = $this->excludeStrategy;
         }
         if (isset($this->minimumOrderSubtotalMoney)) {
             $json['minimum_order_subtotal_money'] = $this->minimumOrderSubtotalMoney;

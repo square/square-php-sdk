@@ -55,7 +55,6 @@ class SubscriptionEventInfo implements \JsonSerializable
      * Supported info codes of a subscription event.
      *
      * @maps code
-     * @factory \Square\Models\SubscriptionEventInfoCode::checkValue
      */
     public function setCode(?string $code): void
     {
@@ -78,7 +77,7 @@ class SubscriptionEventInfo implements \JsonSerializable
             $json['detail'] = $this->detail;
         }
         if (isset($this->code)) {
-            $json['code']   = SubscriptionEventInfoCode::checkValue($this->code);
+            $json['code']   = $this->code;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

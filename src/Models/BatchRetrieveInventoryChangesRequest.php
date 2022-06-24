@@ -118,7 +118,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      * The default value is `[PHYSICAL_COUNT, ADJUSTMENT]`.
      *
      * @maps types
-     * @factory \Square\Models\InventoryChangeType::checkValue
      *
      * @param string[]|null $types
      */
@@ -147,7 +146,6 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
      * The default value is null.
      *
      * @maps states
-     * @factory \Square\Models\InventoryState::checkValue
      *
      * @param string[]|null $states
      */
@@ -269,10 +267,10 @@ class BatchRetrieveInventoryChangesRequest implements \JsonSerializable
             $json['location_ids']       = $this->locationIds;
         }
         if (isset($this->types)) {
-            $json['types']              = InventoryChangeType::checkValue($this->types);
+            $json['types']              = $this->types;
         }
         if (isset($this->states)) {
-            $json['states']             = InventoryState::checkValue($this->states);
+            $json['states']             = $this->states;
         }
         if (isset($this->updatedAfter)) {
             $json['updated_after']      = $this->updatedAfter;

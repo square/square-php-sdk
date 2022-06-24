@@ -43,7 +43,6 @@ class SearchOrdersStateFilter implements \JsonSerializable
      *
      * @required
      * @maps states
-     * @factory \Square\Models\OrderState::checkValue
      *
      * @param string[] $states
      */
@@ -64,7 +63,7 @@ class SearchOrdersStateFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['states'] = OrderState::checkValue($this->states);
+        $json['states'] = $this->states;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

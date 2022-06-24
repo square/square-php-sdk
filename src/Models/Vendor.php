@@ -273,7 +273,6 @@ class Vendor implements \JsonSerializable
      * whether a [Vendor]($m/Vendor) is active or inactive.
      *
      * @maps status
-     * @factory \Square\Models\VendorStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -320,7 +319,7 @@ class Vendor implements \JsonSerializable
             $json['version']        = $this->version;
         }
         if (isset($this->status)) {
-            $json['status']         = VendorStatus::checkValue($this->status);
+            $json['status']         = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

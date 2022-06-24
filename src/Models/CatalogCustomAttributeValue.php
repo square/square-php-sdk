@@ -130,7 +130,6 @@ class CatalogCustomAttributeValue implements \JsonSerializable
      * Defines the possible types for a custom attribute.
      *
      * @maps type
-     * @factory \Square\Models\CatalogCustomAttributeDefinitionType::checkValue
      */
     public function setType(?string $type): void
     {
@@ -245,7 +244,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
             $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
         }
         if (isset($this->type)) {
-            $json['type']                           = CatalogCustomAttributeDefinitionType::checkValue($this->type);
+            $json['type']                           = $this->type;
         }
         if (isset($this->numberValue)) {
             $json['number_value']                   = $this->numberValue;

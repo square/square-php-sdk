@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in
- * the catalog.
+ * A [CatalogObject]($m/CatalogObject) instance of the `ITEM` type, also referred to as an item, in the
+ * catalog.
  */
 class CatalogItem implements \JsonSerializable
 {
@@ -362,7 +362,6 @@ class CatalogItem implements \JsonSerializable
      * `APPOINTMENTS_SERVICE` items.
      *
      * @maps product_type
-     * @factory \Square\Models\CatalogItemProductType::checkValue
      */
     public function setProductType(?string $productType): void
     {
@@ -535,7 +534,7 @@ class CatalogItem implements \JsonSerializable
             $json['variations']               = $this->variations;
         }
         if (isset($this->productType)) {
-            $json['product_type']             = CatalogItemProductType::checkValue($this->productType);
+            $json['product_type']             = $this->productType;
         }
         if (isset($this->skipModifierScreen)) {
             $json['skip_modifier_screen']     = $this->skipModifierScreen;

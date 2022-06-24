@@ -236,8 +236,8 @@ class OrdersApi extends BaseApi
     }
 
     /**
-     * Creates a new order, in the `DRAFT` state, by duplicating an existing order. The newly created
-     * order has
+     * Creates a new order, in the `DRAFT` state, by duplicating an existing order. The newly created order
+     * has
      * only the core fields (such as line items, taxes, and discounts) copied from the original order.
      *
      * @param Models\CloneOrderRequest $body An object containing the fields to POST for the

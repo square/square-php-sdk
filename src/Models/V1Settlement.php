@@ -73,7 +73,6 @@ class V1Settlement implements \JsonSerializable
      * Sets Status.
      *
      * @maps status
-     * @factory \Square\Models\V1SettlementStatus::checkValue
      */
     public function setStatus(?string $status): void
     {
@@ -178,7 +177,7 @@ class V1Settlement implements \JsonSerializable
             $json['id']              = $this->id;
         }
         if (isset($this->status)) {
-            $json['status']          = V1SettlementStatus::checkValue($this->status);
+            $json['status']          = $this->status;
         }
         if (isset($this->totalMoney)) {
             $json['total_money']     = $this->totalMoney;
