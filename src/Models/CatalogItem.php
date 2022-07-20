@@ -93,6 +93,16 @@ class CatalogItem implements \JsonSerializable
     private $sortName;
 
     /**
+     * @var string|null
+     */
+    private $descriptionHtml;
+
+    /**
+     * @var string|null
+     */
+    private $descriptionPlaintext;
+
+    /**
      * Returns Name.
      * The item's name. This is a searchable attribute for use in applicable query filters, its value must
      * not be empty, and the length is of Unicode code points.
@@ -118,6 +128,16 @@ class CatalogItem implements \JsonSerializable
      * Returns Description.
      * The item's description. This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
+     *
+     * Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use
+     * `description_html` to set the description
+     * of the [CatalogItem]($m/CatalogItem) instance.  The `description` and `description_html` field
+     * values are kept in sync. If you try to
+     * set the both fields, the `description_html` text value overwrites the `description` value. Updates
+     * in one field are also reflected in the other,
+     * except for when you use an early version before Square API 2022-07-20 and `description_html` is set
+     * to blank, setting the `description` value to null
+     * does not nullify `description_html`.
      */
     public function getDescription(): ?string
     {
@@ -128,6 +148,16 @@ class CatalogItem implements \JsonSerializable
      * Sets Description.
      * The item's description. This is a searchable attribute for use in applicable query filters, and its
      * value length is of Unicode code points.
+     *
+     * Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use
+     * `description_html` to set the description
+     * of the [CatalogItem]($m/CatalogItem) instance.  The `description` and `description_html` field
+     * values are kept in sync. If you try to
+     * set the both fields, the `description_html` text value overwrites the `description` value. Updates
+     * in one field are also reflected in the other,
+     * except for when you use an early version before Square API 2022-07-20 and `description_html` is set
+     * to blank, setting the `description` value to null
+     * does not nullify `description_html`.
      *
      * @maps description
      */
@@ -489,6 +519,96 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Description Html.
+     * The item's description as expressed in valid HTML elements. The length of this field value,
+     * including those of HTML tags,
+     * is of Unicode points. With application query filters, the text values of the HTML elements and
+     * attributes are searchable. Invalid or
+     * unsupported HTML elements or attributes are ignored.
+     *
+     * Supported HTML elements include:
+     * - `a`: Link. Supports linking to website URLs, email address, and telephone numbers.
+     * - `b`, `strong`:  Bold text
+     * - `br`: Line break
+     * - `code`: Computer code
+     * - `div`: Section
+     * - `h1-h6`: Headings
+     * - `i`, `em`: Italics
+     * - `li`: List element
+     * - `ol`: Numbered list
+     * - `p`: Paragraph
+     * - `ul`: Bullet list
+     * - `u`: Underline
+     *
+     *
+     * Supported HTML attributes include:
+     * - `align`: Alignment of the text content
+     * - `href`: Link destination
+     * - `rel`: Relationship between link's target and source
+     * - `target`: Place to open the linked document
+     */
+    public function getDescriptionHtml(): ?string
+    {
+        return $this->descriptionHtml;
+    }
+
+    /**
+     * Sets Description Html.
+     * The item's description as expressed in valid HTML elements. The length of this field value,
+     * including those of HTML tags,
+     * is of Unicode points. With application query filters, the text values of the HTML elements and
+     * attributes are searchable. Invalid or
+     * unsupported HTML elements or attributes are ignored.
+     *
+     * Supported HTML elements include:
+     * - `a`: Link. Supports linking to website URLs, email address, and telephone numbers.
+     * - `b`, `strong`:  Bold text
+     * - `br`: Line break
+     * - `code`: Computer code
+     * - `div`: Section
+     * - `h1-h6`: Headings
+     * - `i`, `em`: Italics
+     * - `li`: List element
+     * - `ol`: Numbered list
+     * - `p`: Paragraph
+     * - `ul`: Bullet list
+     * - `u`: Underline
+     *
+     *
+     * Supported HTML attributes include:
+     * - `align`: Alignment of the text content
+     * - `href`: Link destination
+     * - `rel`: Relationship between link's target and source
+     * - `target`: Place to open the linked document
+     *
+     * @maps description_html
+     */
+    public function setDescriptionHtml(?string $descriptionHtml): void
+    {
+        $this->descriptionHtml = $descriptionHtml;
+    }
+
+    /**
+     * Returns Description Plaintext.
+     * A server-generated plaintext version of the `description_html` field, without formatting tags.
+     */
+    public function getDescriptionPlaintext(): ?string
+    {
+        return $this->descriptionPlaintext;
+    }
+
+    /**
+     * Sets Description Plaintext.
+     * A server-generated plaintext version of the `description_html` field, without formatting tags.
+     *
+     * @maps description_plaintext
+     */
+    public function setDescriptionPlaintext(?string $descriptionPlaintext): void
+    {
+        $this->descriptionPlaintext = $descriptionPlaintext;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -547,6 +667,12 @@ class CatalogItem implements \JsonSerializable
         }
         if (isset($this->sortName)) {
             $json['sort_name']                = $this->sortName;
+        }
+        if (isset($this->descriptionHtml)) {
+            $json['description_html']         = $this->descriptionHtml;
+        }
+        if (isset($this->descriptionPlaintext)) {
+            $json['description_plaintext']    = $this->descriptionPlaintext;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

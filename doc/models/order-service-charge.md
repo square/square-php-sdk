@@ -12,7 +12,7 @@ Represents a service charge applied to an order.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `uid` | `?string` | Optional | A unique ID that identifies the service charge only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
-| `name` | `?string` | Optional | The name of the service charge.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
+| `name` | `?string` | Optional | The name of the service charge.<br>**Constraints**: *Maximum Length*: `512` | getName(): ?string | setName(?string name): void |
 | `catalogObjectId` | `?string` | Optional | The catalog object ID referencing the service charge [CatalogObject](../../doc/models/catalog-object.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
 | `catalogVersion` | `?int` | Optional | The version of the catalog object that this service charge references. | getCatalogVersion(): ?int | setCatalogVersion(?int catalogVersion): void |
 | `percentage` | `?string` | Optional | The service charge percentage as a string representation of a<br>decimal number. For example, `"7.25"` indicates a service charge of 7.25%.<br><br>Exactly 1 of `percentage` or `amount_money` should be set.<br>**Constraints**: *Maximum Length*: `10` | getPercentage(): ?string | setPercentage(?string percentage): void |

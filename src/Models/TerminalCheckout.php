@@ -216,7 +216,7 @@ class TerminalCheckout implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The reference to the Square order ID for the checkout request.
+     * The reference to the Square order ID for the checkout request. Supported only in the US.
      */
     public function getOrderId(): ?string
     {
@@ -225,7 +225,7 @@ class TerminalCheckout implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The reference to the Square order ID for the checkout request.
+     * The reference to the Square order ID for the checkout request. Supported only in the US.
      *
      * @maps order_id
      */

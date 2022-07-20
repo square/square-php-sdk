@@ -172,6 +172,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Returns Limit.
+     * The number of [records]($m/InventoryCount) to return.
      */
     public function getLimit(): ?int
     {
@@ -180,6 +181,7 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 
     /**
      * Sets Limit.
+     * The number of [records]($m/InventoryCount) to return.
      *
      * @maps limit
      */

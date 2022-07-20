@@ -373,12 +373,12 @@ function createShift(CreateShiftRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_shift_startAt = '2019-01-25T03:11:00-05:00';
+$body_shift_startAt = '2019-01-25T08:11:00+00:00';
 $body_shift = new Models\Shift(
     $body_shift_startAt
 );
 $body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setEndAt('2019-01-25T13:11:00-05:00');
+$body_shift->setEndAt('2019-01-25T18:11:00+00:00');
 $body_shift->setWage(new Models\ShiftWage);
 $body_shift->getWage()->setTitle('Barista');
 $body_shift->getWage()->setHourlyRate(new Models\Money);
@@ -386,7 +386,7 @@ $body_shift->getWage()->getHourlyRate()->setAmount(1100);
 $body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
 $body_shift_breaks = [];
 
-$body_shift_breaks_0_startAt = '2019-01-25T06:11:00-05:00';
+$body_shift_breaks_0_startAt = '2019-01-25T11:11:00+00:00';
 $body_shift_breaks_0_breakTypeId = 'REGS1EQR1TPZ5';
 $body_shift_breaks_0_name = 'Tea Break';
 $body_shift_breaks_0_expectedDuration = 'PT5M';
@@ -398,7 +398,7 @@ $body_shift_breaks[0] = new Models\MBreak(
     $body_shift_breaks_0_expectedDuration,
     $body_shift_breaks_0_isPaid
 );
-$body_shift_breaks[0]->setEndAt('2019-01-25T06:16:00-05:00');
+$body_shift_breaks[0]->setEndAt('2019-01-25T11:16:00+00:00');
 $body_shift->setBreaks($body_shift_breaks);
 
 $body_shift->setTeamMemberId('ormj0jJJZ5OZIzxrZYJI');
@@ -458,6 +458,15 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 
 ```php
 $body = new Models\SearchShiftsRequest;
+$body->setQuery(new Models\ShiftQuery);
+$body->getQuery()->setFilter(new Models\ShiftFilter);
+$body->getQuery()->getFilter()->setWorkday(new Models\ShiftWorkday);
+$body->getQuery()->getFilter()->getWorkday()->setDateRange(new Models\DateRange);
+$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setStartDate('2019-01-20');
+$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setEndDate('2019-02-03');
+$body->getQuery()->getFilter()->getWorkday()->setMatchShiftsBy(Models\ShiftWorkdayMatcher::START_AT);
+$body->getQuery()->getFilter()->getWorkday()->setDefaultTimezone('America/Los_Angeles');
+$body->setLimit(100);
 
 $apiResponse = $laborApi->searchShifts($body);
 
@@ -576,12 +585,12 @@ function updateShift(string $id, UpdateShiftRequest $body): ApiResponse
 
 ```php
 $id = 'id0';
-$body_shift_startAt = '2019-01-25T03:11:00-05:00';
+$body_shift_startAt = '2019-01-25T08:11:00+00:00';
 $body_shift = new Models\Shift(
     $body_shift_startAt
 );
 $body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setEndAt('2019-01-25T13:11:00-05:00');
+$body_shift->setEndAt('2019-01-25T18:11:00+00:00');
 $body_shift->setWage(new Models\ShiftWage);
 $body_shift->getWage()->setTitle('Bartender');
 $body_shift->getWage()->setHourlyRate(new Models\Money);
@@ -589,7 +598,7 @@ $body_shift->getWage()->getHourlyRate()->setAmount(1500);
 $body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
 $body_shift_breaks = [];
 
-$body_shift_breaks_0_startAt = '2019-01-25T06:11:00-05:00';
+$body_shift_breaks_0_startAt = '2019-01-25T11:11:00+00:00';
 $body_shift_breaks_0_breakTypeId = 'REGS1EQR1TPZ5';
 $body_shift_breaks_0_name = 'Tea Break';
 $body_shift_breaks_0_expectedDuration = 'PT5M';
@@ -602,7 +611,7 @@ $body_shift_breaks[0] = new Models\MBreak(
     $body_shift_breaks_0_isPaid
 );
 $body_shift_breaks[0]->setId('X7GAQYVVRRG6P');
-$body_shift_breaks[0]->setEndAt('2019-01-25T06:16:00-05:00');
+$body_shift_breaks[0]->setEndAt('2019-01-25T11:16:00+00:00');
 $body_shift->setBreaks($body_shift_breaks);
 
 $body_shift->setVersion(1);

@@ -165,8 +165,8 @@ $body->getQuery()->getFilter()->setCreationSource(new Models\CustomerCreationSou
 $body->getQuery()->getFilter()->getCreationSource()->setValues([Models\CustomerCreationSource::THIRD_PARTY]);
 $body->getQuery()->getFilter()->getCreationSource()->setRule(Models\CustomerInclusionExclusion::INCLUDE_);
 $body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2018-01-01T00:00:00-00:00');
-$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('2018-02-01T00:00:00-00:00');
+$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2018-01-01T00:00:00+00:00');
+$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('2018-02-01T00:00:00+00:00');
 $body->getQuery()->getFilter()->setEmailAddress(new Models\CustomerTextFilter);
 $body->getQuery()->getFilter()->getEmailAddress()->setFuzzy('example.com');
 $body->getQuery()->getFilter()->setGroupIds(new Models\FilterValue);

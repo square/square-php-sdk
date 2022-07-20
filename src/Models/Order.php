@@ -167,6 +167,11 @@ class Order implements \JsonSerializable
     private $rewards;
 
     /**
+     * @var Money|null
+     */
+    private $netAmountDueMoney;
+
+    /**
      * @param string $locationId
      */
     public function __construct(string $locationId)
@@ -1006,6 +1011,38 @@ class Order implements \JsonSerializable
     }
 
     /**
+     * Returns Net Amount Due Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getNetAmountDueMoney(): ?Money
+    {
+        return $this->netAmountDueMoney;
+    }
+
+    /**
+     * Sets Net Amount Due Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps net_amount_due_money
+     */
+    public function setNetAmountDueMoney(?Money $netAmountDueMoney): void
+    {
+        $this->netAmountDueMoney = $netAmountDueMoney;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -1104,6 +1141,9 @@ class Order implements \JsonSerializable
         }
         if (isset($this->rewards)) {
             $json['rewards']                    = $this->rewards;
+        }
+        if (isset($this->netAmountDueMoney)) {
+            $json['net_amount_due_money']       = $this->netAmountDueMoney;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -10,13 +10,12 @@ namespace Square\Models;
 class OrderFulfillmentType
 {
     /**
-     * A fulfillment to be picked up from a physical [location]($m/Location)
-     * by a recipient.
+     * A recipient to pick up the fulfillment from a physical [location]($m/Location).
      */
     public const PICKUP = 'PICKUP';
 
     /**
-     * A fulfillment to be shipped by a shipping carrier.
+     * A shipping carrier to ship the fulfillment.
      */
     public const SHIPMENT = 'SHIPMENT';
 }

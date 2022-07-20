@@ -354,8 +354,8 @@ class Location implements \JsonSerializable
      * Returns Language Code.
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
-     * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
-     * api#location-language-code).
+     * For more information, see [Language Preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences).
      */
     public function getLanguageCode(): ?string
     {
@@ -366,8 +366,8 @@ class Location implements \JsonSerializable
      * Sets Language Code.
      * The language associated with the location, in
      * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
-     * For more information, see [Location language code](https://developer.squareup.com/docs/locations-
-     * api#location-language-code).
+     * For more information, see [Language Preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences).
      *
      * @maps language_code
      */

@@ -186,7 +186,6 @@ class CustomersTest extends TestCase
         $this->assertEquals($data->getKey(), 'favorite-drink');
         $this->assertEquals($data->getName(), 'Favorite Drink');
         $this->assertEquals($data->getDescription(), 'The customer\'s favorite drink');
-        $this->assertNotNull($data->getSourceApplication()->getApplicationId());
         $this->assertEquals($data->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');
         $this->assertEquals($data->getVersion(), 1);
         $expectedSchema = json_decode('{ "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String" }');
@@ -215,7 +214,6 @@ class CustomersTest extends TestCase
         $this->assertEquals($data->getKey(), 'favorite-drink');
         $this->assertEquals($data->getName(), 'Preferred Drink');
         $this->assertEquals($data->getDescription(), 'The customer\'s favorite drink');
-        $this->assertNotNull($data->getSourceApplication()->getApplicationId());
         $this->assertEquals($data->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');
         $this->assertEquals($data->getVersion(), 2);
         $expectedSchema = json_decode('{ "$ref": "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String" }');

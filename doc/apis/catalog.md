@@ -162,7 +162,6 @@ $body_batches_0_objects[0] = new Models\CatalogObject(
 $body_batches_0_objects[0]->setPresentAtAllLocations(true);
 $body_batches_0_objects[0]->setItemData(new Models\CatalogItem);
 $body_batches_0_objects[0]->getItemData()->setName('Tea');
-$body_batches_0_objects[0]->getItemData()->setDescription('Hot Leaf Juice');
 $body_batches_0_objects[0]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[0]->getItemData()->setTaxIds(['#SalesTax']);
 $body_batches_0_objects_0_itemData_variations = [];
@@ -176,6 +175,7 @@ $body_batches_0_objects_0_itemData_variations[0] = new Models\CatalogObject(
 $body_batches_0_objects_0_itemData_variations[0]->setPresentAtAllLocations(true);
 $body_batches_0_objects[0]->getItemData()->setVariations($body_batches_0_objects_0_itemData_variations);
 
+$body_batches_0_objects[0]->getItemData()->setDescriptionHtml('<p><strong>Hot</strong> Leaf Juice</p>');
 
 $body_batches_0_objects_1_type = Models\CatalogObjectType::ITEM;
 $body_batches_0_objects_1_id = '#Coffee';
@@ -186,7 +186,6 @@ $body_batches_0_objects[1] = new Models\CatalogObject(
 $body_batches_0_objects[1]->setPresentAtAllLocations(true);
 $body_batches_0_objects[1]->setItemData(new Models\CatalogItem);
 $body_batches_0_objects[1]->getItemData()->setName('Coffee');
-$body_batches_0_objects[1]->getItemData()->setDescription('Hot Bean Juice');
 $body_batches_0_objects[1]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[1]->getItemData()->setTaxIds(['#SalesTax']);
 $body_batches_0_objects_1_itemData_variations = [];
@@ -208,6 +207,7 @@ $body_batches_0_objects_1_itemData_variations[1] = new Models\CatalogObject(
 $body_batches_0_objects_1_itemData_variations[1]->setPresentAtAllLocations(true);
 $body_batches_0_objects[1]->getItemData()->setVariations($body_batches_0_objects_1_itemData_variations);
 
+$body_batches_0_objects[1]->getItemData()->setDescriptionHtml('<p>Hot <em>Bean Juice</em></p>');
 
 $body_batches_0_objects_2_type = Models\CatalogObjectType::CATEGORY;
 $body_batches_0_objects_2_id = '#Beverages';
@@ -459,7 +459,6 @@ $body_object = new Models\CatalogObject(
 );
 $body_object->setItemData(new Models\CatalogItem);
 $body_object->getItemData()->setName('Cocoa');
-$body_object->getItemData()->setDescription('Hot Chocolate');
 $body_object->getItemData()->setAbbreviation('Ch');
 $body_object_itemData_variations = [];
 
@@ -478,6 +477,7 @@ $body_object_itemData_variations[1] = new Models\CatalogObject(
 );
 $body_object->getItemData()->setVariations($body_object_itemData_variations);
 
+$body_object->getItemData()->setDescriptionHtml('<p><strong>Hot</strong> Chocolate</p>');
 $body = new Models\UpsertCatalogObjectRequest(
     $body_idempotencyKey,
     $body_object

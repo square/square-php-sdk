@@ -50,7 +50,7 @@ class DigitalWalletDetails implements \JsonSerializable
 
     /**
      * Returns Brand.
-     * The brand used for the `WALLET` payment. The brand can be `CASH_APP` or `UNKNOWN`.
+     * The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY` or `UNKNOWN`.
      */
     public function getBrand(): ?string
     {
@@ -59,7 +59,7 @@ class DigitalWalletDetails implements \JsonSerializable
 
     /**
      * Sets Brand.
-     * The brand used for the `WALLET` payment. The brand can be `CASH_APP` or `UNKNOWN`.
+     * The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY` or `UNKNOWN`.
      *
      * @maps brand
      */
