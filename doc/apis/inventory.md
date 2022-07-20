@@ -190,8 +190,8 @@ $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['C6W5YS5QM06F5']);
 $body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
 $body->setStates([Models\InventoryState::IN_STOCK]);
-$body->setUpdatedAfter('2016-11-01T00:00:00.000Z');
-$body->setUpdatedBefore('2016-12-01T00:00:00.000Z');
+$body->setUpdatedAfter('2016-11-01T00:00:00Z');
+$body->setUpdatedBefore('2016-12-01T00:00:00Z');
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryChanges($body);
 
@@ -234,7 +234,7 @@ function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequ
 $body = new Models\BatchRetrieveInventoryCountsRequest;
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
-$body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
+$body->setUpdatedAfter('2016-11-16T00:00:00Z');
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryCounts($body);
 
@@ -342,8 +342,8 @@ $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['C6W5YS5QM06F5']);
 $body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
 $body->setStates([Models\InventoryState::IN_STOCK]);
-$body->setUpdatedAfter('2016-11-01T00:00:00.000Z');
-$body->setUpdatedBefore('2016-12-01T00:00:00.000Z');
+$body->setUpdatedAfter('2016-11-01T00:00:00Z');
+$body->setUpdatedBefore('2016-12-01T00:00:00Z');
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryChanges($body);
 
@@ -393,7 +393,7 @@ function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body)
 $body = new Models\BatchRetrieveInventoryCountsRequest;
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
-$body->setUpdatedAfter('2016-11-16T00:00:00.000Z');
+$body->setUpdatedAfter('2016-11-16T00:00:00Z');
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);
 

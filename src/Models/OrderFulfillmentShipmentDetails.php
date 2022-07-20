@@ -88,7 +88,7 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
 
     /**
      * Returns Recipient.
-     * Contains information about the recipient of a fulfillment.
+     * Information about the fulfillment recipient.
      */
     public function getRecipient(): ?OrderFulfillmentRecipient
     {
@@ -97,7 +97,7 @@ class OrderFulfillmentShipmentDetails implements \JsonSerializable
 
     /**
      * Sets Recipient.
-     * Contains information about the recipient of a fulfillment.
+     * Information about the fulfillment recipient.
      *
      * @maps recipient
      */

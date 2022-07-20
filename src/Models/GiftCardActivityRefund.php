@@ -35,7 +35,10 @@ class GiftCardActivityRefund implements \JsonSerializable
      * Returns Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
      * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
-     * represents a redemption made by the same gift card.
+     * represents a redemption made by the same gift card. Note that you must use `RefundPayment` when
+     * refunding a
+     * gift card payment made using the Payments API, Square Point of Sale, or the Seller Dashboard to the
+     * same gift card.
      *
      * Applications that use a custom payment processing system can use this field in a
      * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity)
@@ -50,7 +53,10 @@ class GiftCardActivityRefund implements \JsonSerializable
      * Sets Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
      * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
-     * represents a redemption made by the same gift card.
+     * represents a redemption made by the same gift card. Note that you must use `RefundPayment` when
+     * refunding a
+     * gift card payment made using the Payments API, Square Point of Sale, or the Seller Dashboard to the
+     * same gift card.
      *
      * Applications that use a custom payment processing system can use this field in a
      * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity)
@@ -97,10 +103,9 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     * A client-specified ID that associates the gift card activity with an entity in another system.
+     * A client-specified ID that associates the gift card activity with an order, payment, or other entity.
      *
-     * Applications that use a custom payment processing system can use this field to track information
-     * related to an order or payment.
+     * This field can be used to track information related to Square entities or entities in another system.
      */
     public function getReferenceId(): ?string
     {
@@ -109,10 +114,9 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     * A client-specified ID that associates the gift card activity with an entity in another system.
+     * A client-specified ID that associates the gift card activity with an order, payment, or other entity.
      *
-     * Applications that use a custom payment processing system can use this field to track information
-     * related to an order or payment.
+     * This field can be used to track information related to Square entities or entities in another system.
      *
      * @maps reference_id
      */
@@ -124,11 +128,12 @@ class GiftCardActivityRefund implements \JsonSerializable
     /**
      * Returns Payment Id.
      * The ID of the refunded payment. Square populates this field if the refund is for a
-     * payment processed by Square. The payment source can be the same gift card or a cross-tender payment
-     * from a
-     * credit card or a different gift card. Cross-tender payments can only be refunded from Square Point
-     * of Sale
-     * or other Square products.
+     * payment processed by Square and one of the following conditions is true:
+     *
+     * - The Refunds API is used to refund a gift card payment to the same gift card.
+     * - A seller initiated the refund from Square Point of Sale or the Seller Dashboard. The payment
+     * source can be the
+     * same gift card or a cross-tender payment from a credit card or a different gift card.
      */
     public function getPaymentId(): ?string
     {
@@ -138,11 +143,12 @@ class GiftCardActivityRefund implements \JsonSerializable
     /**
      * Sets Payment Id.
      * The ID of the refunded payment. Square populates this field if the refund is for a
-     * payment processed by Square. The payment source can be the same gift card or a cross-tender payment
-     * from a
-     * credit card or a different gift card. Cross-tender payments can only be refunded from Square Point
-     * of Sale
-     * or other Square products.
+     * payment processed by Square and one of the following conditions is true:
+     *
+     * - The Refunds API is used to refund a gift card payment to the same gift card.
+     * - A seller initiated the refund from Square Point of Sale or the Seller Dashboard. The payment
+     * source can be the
+     * same gift card or a cross-tender payment from a credit card or a different gift card.
      *
      * @maps payment_id
      */

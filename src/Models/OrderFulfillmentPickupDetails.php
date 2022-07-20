@@ -103,7 +103,7 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Recipient.
-     * Contains information about the recipient of a fulfillment.
+     * Information about the fulfillment recipient.
      */
     public function getRecipient(): ?OrderFulfillmentRecipient
     {
@@ -112,7 +112,7 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Recipient.
-     * Contains information about the recipient of a fulfillment.
+     * Information about the fulfillment recipient.
      *
      * @maps recipient
      */
@@ -279,7 +279,7 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Returns Note.
-     * A note meant to provide additional instructions about the pickup
+     * A note to provide additional instructions about the pickup
      * fulfillment displayed in the Square Point of Sale application and set by the API.
      */
     public function getNote(): ?string
@@ -289,7 +289,7 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
 
     /**
      * Sets Note.
-     * A note meant to provide additional instructions about the pickup
+     * A note to provide additional instructions about the pickup
      * fulfillment displayed in the Square Point of Sale application and set by the API.
      *
      * @maps note

@@ -21,6 +21,9 @@ class GiftCardActivityClearBalanceReason
 
     /**
      * The gift card balance was cleared for an unknown reason.
+     *
+     * This reason is read-only and cannot be used to create a `CLEAR_BALANCE` activity using the Gift Card
+     * Activities API.
      */
     public const UNKNOWN_REASON = 'UNKNOWN_REASON';
 }

@@ -99,7 +99,7 @@ $body = new Models\SearchTerminalActionsRequest;
 $body->setQuery(new Models\TerminalActionQuery);
 $body->getQuery()->setFilter(new Models\TerminalActionQueryFilter);
 $body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2022-04-01T00:00:00.000Z');
+$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2022-04-01T00:00:00Z');
 $body->getQuery()->setSort(new Models\TerminalActionQuerySort);
 $body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
 $body->setLimit(2);

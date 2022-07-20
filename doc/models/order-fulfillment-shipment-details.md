@@ -11,7 +11,7 @@ Contains the details necessary to fulfill a shipment order.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `recipient` | [`?OrderFulfillmentRecipient`](../../doc/models/order-fulfillment-recipient.md) | Optional | Contains information about the recipient of a fulfillment. | getRecipient(): ?OrderFulfillmentRecipient | setRecipient(?OrderFulfillmentRecipient recipient): void |
+| `recipient` | [`?OrderFulfillmentRecipient`](../../doc/models/order-fulfillment-recipient.md) | Optional | Information about the fulfillment recipient. | getRecipient(): ?OrderFulfillmentRecipient | setRecipient(?OrderFulfillmentRecipient recipient): void |
 | `carrier` | `?string` | Optional | The shipping carrier being used to ship this fulfillment (such as UPS, FedEx, or USPS).<br>**Constraints**: *Maximum Length*: `50` | getCarrier(): ?string | setCarrier(?string carrier): void |
 | `shippingNote` | `?string` | Optional | A note with additional information for the shipping carrier.<br>**Constraints**: *Maximum Length*: `500` | getShippingNote(): ?string | setShippingNote(?string shippingNote): void |
 | `shippingType` | `?string` | Optional | A description of the type of shipping product purchased from the carrier<br>(such as First Class, Priority, or Express).<br>**Constraints**: *Maximum Length*: `50` | getShippingType(): ?string | setShippingType(?string shippingType): void |

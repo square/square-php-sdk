@@ -34,11 +34,6 @@ class CustomAttributeDefinition implements \JsonSerializable
     private $description;
 
     /**
-     * @var SourceApplication|null
-     */
-    private $sourceApplication;
-
-    /**
      * @var string|null
      */
     private $visibility;
@@ -183,26 +178,6 @@ class CustomAttributeDefinition implements \JsonSerializable
     }
 
     /**
-     * Returns Source Application.
-     * Represents information about the application used to generate a change.
-     */
-    public function getSourceApplication(): ?SourceApplication
-    {
-        return $this->sourceApplication;
-    }
-
-    /**
-     * Sets Source Application.
-     * Represents information about the application used to generate a change.
-     *
-     * @maps source_application
-     */
-    public function setSourceApplication(?SourceApplication $sourceApplication): void
-    {
-        $this->sourceApplication = $sourceApplication;
-    }
-
-    /**
      * Returns Visibility.
      * The level of permission that a seller or other applications requires to
      * view this custom attribute definition.
@@ -329,31 +304,28 @@ class CustomAttributeDefinition implements \JsonSerializable
     {
         $json = [];
         if (isset($this->key)) {
-            $json['key']                = $this->key;
+            $json['key']         = $this->key;
         }
         if (isset($this->schema)) {
-            $json['schema']             = ApiHelper::decodeJson($this->schema, 'schema');
+            $json['schema']      = ApiHelper::decodeJson($this->schema, 'schema');
         }
         if (isset($this->name)) {
-            $json['name']               = $this->name;
+            $json['name']        = $this->name;
         }
         if (isset($this->description)) {
-            $json['description']        = $this->description;
-        }
-        if (isset($this->sourceApplication)) {
-            $json['source_application'] = $this->sourceApplication;
+            $json['description'] = $this->description;
         }
         if (isset($this->visibility)) {
-            $json['visibility']         = $this->visibility;
+            $json['visibility']  = $this->visibility;
         }
         if (isset($this->version)) {
-            $json['version']            = $this->version;
+            $json['version']     = $this->version;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']         = $this->updatedAt;
+            $json['updated_at']  = $this->updatedAt;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']         = $this->createdAt;
+            $json['created_at']  = $this->createdAt;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
