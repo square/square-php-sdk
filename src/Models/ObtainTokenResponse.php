@@ -59,6 +59,21 @@ class ObtainTokenResponse implements \JsonSerializable
     private $errors;
 
     /**
+     * @var string|null
+     */
+    private $refreshTokenExpiresAt;
+
+    /**
+     * @var string|null
+     */
+    private $appSubscriptionId;
+
+    /**
+     * @var string|null
+     */
+    private $appPlanId;
+
+    /**
      * Returns Access Token.
      * A valid OAuth access token. OAuth access tokens are 64 bytes long.
      * Provide the access token in a header with every request to Connect API
@@ -285,6 +300,76 @@ class ObtainTokenResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Refresh Token Expires At.
+     * The date when the `refresh_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
+     */
+    public function getRefreshTokenExpiresAt(): ?string
+    {
+        return $this->refreshTokenExpiresAt;
+    }
+
+    /**
+     * Sets Refresh Token Expires At.
+     * The date when the `refresh_token` expires, in [ISO 8601](http://www.iso.
+     * org/iso/home/standards/iso8601.htm) format.
+     *
+     * @maps refresh_token_expires_at
+     */
+    public function setRefreshTokenExpiresAt(?string $refreshTokenExpiresAt): void
+    {
+        $this->refreshTokenExpiresAt = $refreshTokenExpiresAt;
+    }
+
+    /**
+     * Returns App Subscription Id.
+     * The subscription id of a v2 subscription the merchant signed up
+     * for. The subscription id is only present if the merchant signed up for a subscription during
+     * authorization.
+     */
+    public function getAppSubscriptionId(): ?string
+    {
+        return $this->appSubscriptionId;
+    }
+
+    /**
+     * Sets App Subscription Id.
+     * The subscription id of a v2 subscription the merchant signed up
+     * for. The subscription id is only present if the merchant signed up for a subscription during
+     * authorization.
+     *
+     * @maps app_subscription_id
+     */
+    public function setAppSubscriptionId(?string $appSubscriptionId): void
+    {
+        $this->appSubscriptionId = $appSubscriptionId;
+    }
+
+    /**
+     * Returns App Plan Id.
+     * The plan id of a v2 subscription plan the merchant signed up
+     * for. The plan id is only present if the merchant signed up for a subscription plan during
+     * authorization.
+     */
+    public function getAppPlanId(): ?string
+    {
+        return $this->appPlanId;
+    }
+
+    /**
+     * Sets App Plan Id.
+     * The plan id of a v2 subscription plan the merchant signed up
+     * for. The plan id is only present if the merchant signed up for a subscription plan during
+     * authorization.
+     *
+     * @maps app_plan_id
+     */
+    public function setAppPlanId(?string $appPlanId): void
+    {
+        $this->appPlanId = $appPlanId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -297,34 +382,43 @@ class ObtainTokenResponse implements \JsonSerializable
     {
         $json = [];
         if (isset($this->accessToken)) {
-            $json['access_token']    = $this->accessToken;
+            $json['access_token']             = $this->accessToken;
         }
         if (isset($this->tokenType)) {
-            $json['token_type']      = $this->tokenType;
+            $json['token_type']               = $this->tokenType;
         }
         if (isset($this->expiresAt)) {
-            $json['expires_at']      = $this->expiresAt;
+            $json['expires_at']               = $this->expiresAt;
         }
         if (isset($this->merchantId)) {
-            $json['merchant_id']     = $this->merchantId;
+            $json['merchant_id']              = $this->merchantId;
         }
         if (isset($this->subscriptionId)) {
-            $json['subscription_id'] = $this->subscriptionId;
+            $json['subscription_id']          = $this->subscriptionId;
         }
         if (isset($this->planId)) {
-            $json['plan_id']         = $this->planId;
+            $json['plan_id']                  = $this->planId;
         }
         if (isset($this->idToken)) {
-            $json['id_token']        = $this->idToken;
+            $json['id_token']                 = $this->idToken;
         }
         if (isset($this->refreshToken)) {
-            $json['refresh_token']   = $this->refreshToken;
+            $json['refresh_token']            = $this->refreshToken;
         }
         if (isset($this->shortLived)) {
-            $json['short_lived']     = $this->shortLived;
+            $json['short_lived']              = $this->shortLived;
         }
         if (isset($this->errors)) {
-            $json['errors']          = $this->errors;
+            $json['errors']                   = $this->errors;
+        }
+        if (isset($this->refreshTokenExpiresAt)) {
+            $json['refresh_token_expires_at'] = $this->refreshTokenExpiresAt;
+        }
+        if (isset($this->appSubscriptionId)) {
+            $json['app_subscription_id']      = $this->appSubscriptionId;
+        }
+        if (isset($this->appPlanId)) {
+            $json['app_plan_id']              = $this->appPlanId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -54,6 +54,11 @@ class ObtainTokenRequest implements \JsonSerializable
     private $shortLived;
 
     /**
+     * @var string|null
+     */
+    private $codeVerifier;
+
+    /**
      * @param string $clientId
      * @param string $clientSecret
      * @param string $grantType
@@ -295,6 +300,28 @@ class ObtainTokenRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Code Verifier.
+     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * `code_challenge` associated with the `authorization_code`.
+     */
+    public function getCodeVerifier(): ?string
+    {
+        return $this->codeVerifier;
+    }
+
+    /**
+     * Sets Code Verifier.
+     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * `code_challenge` associated with the `authorization_code`.
+     *
+     * @maps code_verifier
+     */
+    public function setCodeVerifier(?string $codeVerifier): void
+    {
+        $this->codeVerifier = $codeVerifier;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -326,6 +353,9 @@ class ObtainTokenRequest implements \JsonSerializable
         }
         if (isset($this->shortLived)) {
             $json['short_lived']     = $this->shortLived;
+        }
+        if (isset($this->codeVerifier)) {
+            $json['code_verifier']   = $this->codeVerifier;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
