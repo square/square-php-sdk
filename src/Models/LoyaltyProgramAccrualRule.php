@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Defines an accrual rule, which is how buyers can earn points.
+ * Represents an accrual rule, which defines how buyers can earn points from the base [loyalty
+ * program]($m/LoyaltyProgram).
  */
 class LoyaltyProgramAccrualRule implements \JsonSerializable
 {

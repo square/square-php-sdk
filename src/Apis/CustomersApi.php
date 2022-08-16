@@ -14,7 +14,6 @@ use Square\Http\HttpResponse;
 use Square\Http\HttpMethod;
 use Square\Http\HttpContext;
 use Square\Http\HttpCallBack;
-use Unirest\Request;
 
 class CustomersApi extends BaseApi
 {
@@ -91,7 +90,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -168,7 +167,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -196,7 +195,8 @@ class CustomersApi extends BaseApi
     }
 
     /**
-     * Searches the customer profiles associated with a Square account using a supported query filter.
+     * Searches the customer profiles associated with a Square account using one or more supported query
+     * filters.
      *
      * Calling `SearchCustomers` without any explicit query filter returns all
      * customer profiles ordered alphabetically based on `given_name` and
@@ -244,7 +244,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -328,7 +328,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -394,7 +394,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -479,7 +479,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -561,7 +561,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -633,7 +633,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -704,7 +704,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -775,7 +775,7 @@ class CustomersApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

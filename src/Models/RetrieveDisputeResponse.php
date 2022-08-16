@@ -47,7 +47,8 @@ class RetrieveDisputeResponse implements \JsonSerializable
 
     /**
      * Returns Dispute.
-     * Represents a dispute a cardholder initiated with their bank.
+     * Represents a [dispute](https://developer.squareup.com/docs/disputes-api/overview) a cardholder
+     * initiated with their bank.
      */
     public function getDispute(): ?Dispute
     {
@@ -56,7 +57,8 @@ class RetrieveDisputeResponse implements \JsonSerializable
 
     /**
      * Sets Dispute.
-     * Represents a dispute a cardholder initiated with their bank.
+     * Represents a [dispute](https://developer.squareup.com/docs/disputes-api/overview) a cardholder
+     * initiated with their bank.
      *
      * @maps dispute
      */

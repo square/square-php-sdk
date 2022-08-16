@@ -36,4 +36,9 @@ class CheckoutOptionsPaymentType
      * allows them to select a specific FeliCa brand or select the check balance screen.
      */
     public const FELICA_ALL = 'FELICA_ALL';
+
+    /**
+     * Launches the PayPay checkout screen for the buyer to complete.
+     */
+    public const PAYPAY = 'PAYPAY';
 }

@@ -44,6 +44,16 @@ class CheckoutOptions implements \JsonSerializable
     private $acceptedPaymentMethods;
 
     /**
+     * @var Money|null
+     */
+    private $appFeeMoney;
+
+    /**
+     * @var ShippingFee|null
+     */
+    private $shippingFee;
+
+    /**
      * Returns Allow Tipping.
      * Indicates whether the payment allows tipping.
      */
@@ -190,6 +200,56 @@ class CheckoutOptions implements \JsonSerializable
     }
 
     /**
+     * Returns App Fee Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getAppFeeMoney(): ?Money
+    {
+        return $this->appFeeMoney;
+    }
+
+    /**
+     * Sets App Fee Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps app_fee_money
+     */
+    public function setAppFeeMoney(?Money $appFeeMoney): void
+    {
+        $this->appFeeMoney = $appFeeMoney;
+    }
+
+    /**
+     * Returns Shipping Fee.
+     */
+    public function getShippingFee(): ?ShippingFee
+    {
+        return $this->shippingFee;
+    }
+
+    /**
+     * Sets Shipping Fee.
+     *
+     * @maps shipping_fee
+     */
+    public function setShippingFee(?ShippingFee $shippingFee): void
+    {
+        $this->shippingFee = $shippingFee;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -221,6 +281,12 @@ class CheckoutOptions implements \JsonSerializable
         }
         if (isset($this->acceptedPaymentMethods)) {
             $json['accepted_payment_methods'] = $this->acceptedPaymentMethods;
+        }
+        if (isset($this->appFeeMoney)) {
+            $json['app_fee_money']            = $this->appFeeMoney;
+        }
+        if (isset($this->shippingFee)) {
+            $json['shipping_fee']             = $this->shippingFee;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

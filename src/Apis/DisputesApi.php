@@ -15,7 +15,6 @@ use Square\Http\HttpResponse;
 use Square\Http\HttpMethod;
 use Square\Http\HttpContext;
 use Square\Http\HttpCallBack;
-use Unirest\Request;
 
 class DisputesApi extends BaseApi
 {
@@ -31,14 +30,10 @@ class DisputesApi extends BaseApi
      *        Provide this cursor to retrieve the next set of results for the original query.
      *        For more information, see [Pagination](https://developer.squareup.
      *        com/docs/basics/api101/pagination).
-     * @param string|null $states The dispute states to filter the result. If not specified, the
-     *        endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
-     *        `WON`,
-     *        or `LOST`).
+     * @param string|null $states The dispute states used to filter the result. If not specified,
+     *        the endpoint returns all disputes.
      * @param string|null $locationId The ID of the location for which to return a list of disputes.
-     *        If not specified, the endpoint returns
-     *        all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`)
-     *        associated with all locations.
+     *        If not specified, the endpoint returns disputes associated with all locations.
      *
      * @return ApiResponse Response from the API call
      *
@@ -79,7 +74,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -145,7 +140,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -215,7 +210,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -248,8 +243,8 @@ class DisputesApi extends BaseApi
      * @param string $disputeId The ID of the dispute.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
      *
@@ -290,7 +285,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -321,7 +316,7 @@ class DisputesApi extends BaseApi
      * Uploads a file to use as evidence in a dispute challenge. The endpoint accepts HTTP
      * multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats.
      *
-     * @param string $disputeId The ID of the dispute you want to upload evidence for.
+     * @param string $disputeId The ID of the dispute for which you want to upload evidence.
      * @param Models\CreateDisputeEvidenceFileRequest|null $request Defines the parameters for a
      *        `CreateDisputeEvidenceFile` request.
      * @param FileWrapper|null $imageFile
@@ -369,10 +364,10 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post(
+            $response = self::$request->post(
                 $_httpRequest->getQueryUrl(),
                 $_httpRequest->getHeaders(),
-                Request::buildHTTPCurlQuery($_parameters)
+                \Unirest\Request::buildHTTPCurlQuery($_parameters)
             );
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
@@ -403,7 +398,7 @@ class DisputesApi extends BaseApi
     /**
      * Uploads text to use as evidence for a dispute challenge.
      *
-     * @param string $disputeId The ID of the dispute you want to upload evidence for.
+     * @param string $disputeId The ID of the dispute for which you want to upload evidence.
      * @param Models\CreateDisputeEvidenceTextRequest $body An object containing the fields to POST
      *        for the request.
      *
@@ -449,7 +444,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -478,11 +473,9 @@ class DisputesApi extends BaseApi
 
     /**
      * Removes specified evidence from a dispute.
+     * Square does not send the bank any evidence that is removed.
      *
-     * Square does not send the bank any evidence that is removed. Also, you cannot remove evidence after
-     * submitting it to the bank using [SubmitEvidence]($e/Disputes/SubmitEvidence).
-     *
-     * @param string $disputeId The ID of the dispute you want to remove evidence from.
+     * @param string $disputeId The ID of the dispute from which you want to remove evidence.
      * @param string $evidenceId The ID of the evidence you want to remove.
      *
      * @return ApiResponse Response from the API call
@@ -520,7 +513,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -548,12 +541,13 @@ class DisputesApi extends BaseApi
     }
 
     /**
-     * Returns the evidence metadata specified by the evidence ID in the request URL path
+     * Returns the metadata for the evidence specified in the request URL path.
      *
-     * You must maintain a copy of the evidence you upload if you want to reference it later. You cannot
-     * download the evidence after you upload it.
+     * You must maintain a copy of any evidence uploaded if you want to reference it later. Evidence cannot
+     * be downloaded after you upload it.
      *
-     * @param string $disputeId The ID of the dispute that you want to retrieve evidence from.
+     * @param string $disputeId The ID of the dispute from which you want to retrieve evidence
+     *        metadata.
      * @param string $evidenceId The ID of the evidence to retrieve.
      *
      * @return ApiResponse Response from the API call
@@ -591,7 +585,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -621,12 +615,13 @@ class DisputesApi extends BaseApi
     /**
      * Submits evidence to the cardholder's bank.
      *
-     * Before submitting evidence, Square compiles all available evidence. This includes evidence uploaded
+     * The evidence submitted by this endpoint includes evidence uploaded
      * using the [CreateDisputeEvidenceFile]($e/Disputes/CreateDisputeEvidenceFile) and
      * [CreateDisputeEvidenceText]($e/Disputes/CreateDisputeEvidenceText) endpoints and
-     * evidence automatically provided by Square, when available.
+     * evidence automatically provided by Square, when available. Evidence cannot be removed from
+     * a dispute after submission.
      *
-     * @param string $disputeId The ID of the dispute that you want to submit evidence for.
+     * @param string $disputeId The ID of the dispute for which you want to submit evidence.
      *
      * @return ApiResponse Response from the API call
      *
@@ -662,7 +657,7 @@ class DisputesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

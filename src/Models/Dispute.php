@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a dispute a cardholder initiated with their bank.
+ * Represents a [dispute](https://developer.squareup.com/docs/disputes-api/overview) a cardholder
+ * initiated with their bank.
  */
 class Dispute implements \JsonSerializable
 {
@@ -207,7 +208,8 @@ class Dispute implements \JsonSerializable
 
     /**
      * Returns Due At.
-     * The time when the next action is due, in RFC 3339 format.
+     * The deadline by which the seller must respond to the dispute, in [RFC 3339 format](https://developer.
+     * squareup.com/docs/build-basics/common-data-types/working-with-dates).
      */
     public function getDueAt(): ?string
     {
@@ -216,7 +218,8 @@ class Dispute implements \JsonSerializable
 
     /**
      * Sets Due At.
-     * The time when the next action is due, in RFC 3339 format.
+     * The deadline by which the seller must respond to the dispute, in [RFC 3339 format](https://developer.
+     * squareup.com/docs/build-basics/common-data-types/working-with-dates).
      *
      * @maps due_at
      */

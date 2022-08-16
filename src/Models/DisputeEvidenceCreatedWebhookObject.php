@@ -15,7 +15,8 @@ class DisputeEvidenceCreatedWebhookObject implements \JsonSerializable
 
     /**
      * Returns Object.
-     * Represents a dispute a cardholder initiated with their bank.
+     * Represents a [dispute](https://developer.squareup.com/docs/disputes-api/overview) a cardholder
+     * initiated with their bank.
      */
     public function getObject(): ?Dispute
     {
@@ -24,7 +25,8 @@ class DisputeEvidenceCreatedWebhookObject implements \JsonSerializable
 
     /**
      * Sets Object.
-     * Represents a dispute a cardholder initiated with their bank.
+     * Represents a [dispute](https://developer.squareup.com/docs/disputes-api/overview) a cardholder
+     * initiated with their bank.
      *
      * @maps object
      */

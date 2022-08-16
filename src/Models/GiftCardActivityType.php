@@ -47,21 +47,21 @@ class GiftCardActivityType
     public const ADJUST_DECREMENT = 'ADJUST_DECREMENT';
 
     /**
-     * Added money to a gift card from a refunded transaction. The refund might be linked to
+     * Added money to a gift card from a refunded transaction. A `REFUND` activity might be linked to
      * a Square payment, depending on how the payment and refund are processed. For example:
-     * - A gift card payment processed by Square can be refunded to the same gift card.
-     * - A cross-tender payment processed by Square can be refunded to a gift card. The cross-tender
-     * payment source can be a credit card or different gift card.
-     * - A payment processed with a custom processing system (instead of the Square Payments API) can
-     * be refunded to a gift card.
+     * - A gift card payment processed by Square can be refunded to the same gift card using Square Point
+     * of Sale,
+     * the Square Seller Dashboard, or the Refunds API.
+     * - A cross-tender payment processed by Square can be refunded to a gift card using Square Point of
+     * Sale or the
+     * Square Seller Dashboard. The payment source might be a credit card or different gift card.
+     * - A payment processed using a custom payment processing system can be refunded to the same gift card.
      */
     public const REFUND = 'REFUND';
 
     /**
-     * Added money to a gift card from a refunded transaction that is not linked to the gift card.
-     *
-     * This activity type is included for backward compatibility and should not be used to create a refund.
-     * Instead, use the `REFUND` activity type.
+     * Added money to a gift card from a refunded transaction that was processed using a custom payment
+     * processing system and not linked to the gift card.
      */
     public const UNLINKED_ACTIVITY_REFUND = 'UNLINKED_ACTIVITY_REFUND';
 

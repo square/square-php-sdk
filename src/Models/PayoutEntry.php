@@ -634,6 +634,7 @@ class PayoutEntry implements \JsonSerializable
     /**
      * Returns Type Square Capital Reversed Payment Details.
      */
+    // phpcs:ignore
     public function getTypeSquareCapitalReversedPaymentDetails(): ?PaymentBalanceActivitySquareCapitalReversedPaymentDetail
     {
         return $this->typeSquareCapitalReversedPaymentDetails;

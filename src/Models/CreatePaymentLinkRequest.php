@@ -41,11 +41,6 @@ class CreatePaymentLinkRequest implements \JsonSerializable
     /**
      * @var string|null
      */
-    private $source;
-
-    /**
-     * @var string|null
-     */
     private $paymentNote;
 
     /**
@@ -199,26 +194,6 @@ class CreatePaymentLinkRequest implements \JsonSerializable
     }
 
     /**
-     * Returns Source.
-     * The application that created the payment link.
-     */
-    public function getSource(): ?string
-    {
-        return $this->source;
-    }
-
-    /**
-     * Sets Source.
-     * The application that created the payment link.
-     *
-     * @maps source
-     */
-    public function setSource(?string $source): void
-    {
-        $this->source = $source;
-    }
-
-    /**
      * Returns Payment Note.
      * A note for the payment. After processing the payment, Square adds this note to the resulting
      * `Payment`.
@@ -269,9 +244,6 @@ class CreatePaymentLinkRequest implements \JsonSerializable
         }
         if (isset($this->prePopulatedData)) {
             $json['pre_populated_data'] = $this->prePopulatedData;
-        }
-        if (isset($this->source)) {
-            $json['source']             = $this->source;
         }
         if (isset($this->paymentNote)) {
             $json['payment_note']       = $this->paymentNote;

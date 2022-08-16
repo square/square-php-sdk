@@ -42,7 +42,7 @@ class LoyaltyProgram implements \JsonSerializable
     private $terminology;
 
     /**
-     * @var string[]
+     * @var string[]|null
      */
     private $locationIds;
 
@@ -66,7 +66,6 @@ class LoyaltyProgram implements \JsonSerializable
      * @param string $status
      * @param LoyaltyProgramRewardTier[] $rewardTiers
      * @param LoyaltyProgramTerminology $terminology
-     * @param string[] $locationIds
      * @param string $createdAt
      * @param string $updatedAt
      * @param LoyaltyProgramAccrualRule[] $accrualRules
@@ -76,7 +75,6 @@ class LoyaltyProgram implements \JsonSerializable
         string $status,
         array $rewardTiers,
         LoyaltyProgramTerminology $terminology,
-        array $locationIds,
         string $createdAt,
         string $updatedAt,
         array $accrualRules
@@ -85,7 +83,6 @@ class LoyaltyProgram implements \JsonSerializable
         $this->status = $status;
         $this->rewardTiers = $rewardTiers;
         $this->terminology = $terminology;
-        $this->locationIds = $locationIds;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
         $this->accrualRules = $accrualRules;
@@ -205,9 +202,9 @@ class LoyaltyProgram implements \JsonSerializable
      * Returns Location Ids.
      * The [locations]($m/Location) at which the program is active.
      *
-     * @return string[]
+     * @return string[]|null
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): ?array
     {
         return $this->locationIds;
     }
@@ -216,12 +213,11 @@ class LoyaltyProgram implements \JsonSerializable
      * Sets Location Ids.
      * The [locations]($m/Location) at which the program is active.
      *
-     * @required
      * @maps location_ids
      *
-     * @param string[] $locationIds
+     * @param string[]|null $locationIds
      */
-    public function setLocationIds(array $locationIds): void
+    public function setLocationIds(?array $locationIds): void
     {
         $this->locationIds = $locationIds;
     }
@@ -270,7 +266,9 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Accrual Rules.
-     * Defines how buyers can earn loyalty points.
+     * Defines how buyers can earn loyalty points from the base loyalty program.
+     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
      *
      * @return LoyaltyProgramAccrualRule[]
      */
@@ -281,7 +279,9 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Accrual Rules.
-     * Defines how buyers can earn loyalty points.
+     * Defines how buyers can earn loyalty points from the base loyalty program.
+     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
      *
      * @required
      * @maps accrual_rules
@@ -312,7 +312,9 @@ class LoyaltyProgram implements \JsonSerializable
             $json['expiration_policy'] = $this->expirationPolicy;
         }
         $json['terminology']           = $this->terminology;
-        $json['location_ids']          = $this->locationIds;
+        if (isset($this->locationIds)) {
+            $json['location_ids']      = $this->locationIds;
+        }
         $json['created_at']            = $this->createdAt;
         $json['updated_at']            = $this->updatedAt;
         $json['accrual_rules']         = $this->accrualRules;

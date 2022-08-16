@@ -14,7 +14,6 @@ use Square\Http\HttpResponse;
 use Square\Http\HttpMethod;
 use Square\Http\HttpContext;
 use Square\Http\HttpCallBack;
-use Unirest\Request;
 
 class LoyaltyApi extends BaseApi
 {
@@ -65,7 +64,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -138,7 +137,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -204,7 +203,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -232,20 +231,25 @@ class LoyaltyApi extends BaseApi
     }
 
     /**
-     * Adds points earned from the base loyalty program to a loyalty account.
+     * Adds points earned from a purchase to a [loyalty account]($m/LoyaltyAccount).
      *
-     * - If you are using the Orders API to manage orders, you only provide the `order_id`.
-     * The endpoint reads the order to compute points to add to the buyer's account.
-     * - If you are not using the Orders API to manage orders,
-     * you first perform a client-side computation to compute the points.
-     * For spend-based and visit-based programs, you can first call
-     * [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) to compute the points
-     * that you provide to this endpoint.
+     * - If you are using the Orders API to manage orders, provide the `order_id`. Square reads the order
+     * to compute the points earned from both the base loyalty program and an associated
+     * [loyalty promotion]($m/LoyaltyPromotion). For purchases that qualify for multiple accrual
+     * rules, Square computes points based on the accrual rule that grants the most points.
+     * For purchases that qualify for multiple promotions, Square computes points based on the most
+     * recently created promotion. A purchase must first qualify for program points to be eligible for
+     * promotion points.
      *
-     * This endpoint excludes additional points earned from loyalty promotions.
+     * - If you are not using the Orders API to manage orders, provide `points` with the number of points
+     * to add.
+     * You must first perform a client-side computation of the points earned from the loyalty program and
+     * loyalty promotion. For spend-based and visit-based programs, you can call
+     * [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints)
+     * to compute the points earned from the loyalty program (but not points earned from a loyalty
+     * promotion).
      *
-     * @param string $accountId The [loyalty account]($m/LoyaltyAccount) ID to which to add the
-     *        points.
+     * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
      * @param Models\AccumulateLoyaltyPointsRequest $body An object containing the fields to POST
      *        for the request.
      *
@@ -291,7 +295,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -326,8 +330,7 @@ class LoyaltyApi extends BaseApi
      * [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints)
      * to add points when a buyer pays for the purchase.
      *
-     * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) in which to
-     *        adjust the points.
+     * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
      * @param Models\AdjustLoyaltyPointsRequest $body An object containing the fields to POST for
      *        the request.
      *
@@ -371,7 +374,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -446,7 +449,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -516,7 +519,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -588,7 +591,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -616,21 +619,29 @@ class LoyaltyApi extends BaseApi
     }
 
     /**
-     * Calculates the points a purchase earns from the base loyalty program.
+     * Calculates the number of points a buyer can earn from a purchase. Applications might call this
+     * endpoint
+     * to display the points to the buyer.
      *
-     * - If you are using the Orders API to manage orders, you provide the `order_id` in the request. The
-     * endpoint calculates the points by reading the order.
-     * - If you are not using the Orders API to manage orders, you provide the purchase amount in
-     * the request for the endpoint to calculate the points.
+     * - If you are using the Orders API to manage orders, provide the `order_id` and (optional)
+     * `loyalty_account_id`.
+     * Square reads the order to compute the points earned from the base loyalty program and an associated
+     * [loyalty promotion]($m/LoyaltyPromotion).
      *
-     * An application might call this endpoint to show the points that a buyer can earn with the
-     * specific purchase.
+     * - If you are not using the Orders API to manage orders, provide `transaction_amount_money` with the
+     * purchase amount. Square uses this amount to calculate the points earned from the base loyalty
+     * program,
+     * but not points earned from a loyalty promotion. For spend-based and visit-based programs, the
+     * `tax_mode`
+     * setting of the accrual rule indicates how taxes should be treated for loyalty points accrual.
+     * If the purchase qualifies for program points, call
+     * [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions) and perform a client-side computation
+     * to calculate whether the purchase also qualifies for promotion points. For more information, see
+     * [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-
+     * promotions#calculate-promotion-points).
      *
-     * For spend-based and visit-based programs, the `tax_mode` setting of the accrual rule indicates how
-     * taxes should be treated for loyalty points accrual.
-     *
-     * @param string $programId The [loyalty program]($m/LoyaltyProgram) ID, which defines the rules
-     *        for accruing points.
+     * @param string $programId The ID of the [loyalty program]($m/LoyaltyProgram), which defines
+     *        the rules for accruing points.
      * @param Models\CalculateLoyaltyPointsRequest $body An object containing the fields to POST for
      *        the request.
      *
@@ -674,7 +685,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -697,6 +708,335 @@ class LoyaltyApi extends BaseApi
             $_httpResponse,
             $response->body,
             'CalculateLoyaltyPointsResponse'
+        );
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Lists the loyalty promotions associated with a [loyalty program]($m/LoyaltyProgram).
+     * Results are sorted by the `created_at` date in descending order (newest to oldest).
+     *
+     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram). To get the
+     *        program ID,
+     *        call [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) using the `main`
+     *        keyword.
+     * @param string|null $status The status to filter the results by. If a status is provided, only
+     *        loyalty promotions
+     *        with the specified status are returned. Otherwise, all loyalty promotions associated
+     *        with
+     *        the loyalty program are returned.
+     * @param string|null $cursor The cursor returned in the paged response from the previous call
+     *        to this endpoint.
+     *        Provide this cursor to retrieve the next page of results for your original request.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
+     * @param int|null $limit The maximum number of results to return in a single paged response.
+     *        The minimum value is 1 and the maximum value is 30. The default value is 30.
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function listLoyaltyPromotions(
+        string $programId,
+        ?string $status = null,
+        ?string $cursor = null,
+        ?int $limit = null
+    ): ApiResponse {
+        //prepare query string for API call
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/promotions';
+
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
+            'program_id' => $programId,
+        ]);
+
+        //process query parameters
+        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
+            'status'     => $status,
+            'cursor'     => $cursor,
+            'limit'      => $limit,
+        ]);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => $this->internalUserAgent,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion()
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'ListLoyaltyPromotionsResponse'
+        );
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Creates a loyalty promotion for a [loyalty program]($m/LoyaltyProgram). A loyalty promotion
+     * enables buyers to earn points in addition to those earned from the base loyalty program.
+     *
+     * This endpoint sets the loyalty promotion to the `ACTIVE` or `SCHEDULED` status, depending on the
+     * `available_time` setting. A loyalty program can have a maximum of 10 loyalty promotions with an
+     * `ACTIVE` or `SCHEDULED` status.
+     *
+     * @param string $programId The ID of the [loyalty program]($m/LoyaltyProgram) to associate with
+     *        the promotion.
+     *        To get the program ID, call
+     *        [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram)
+     *        using the `main` keyword.
+     * @param Models\CreateLoyaltyPromotionRequest $body An object containing the fields to POST for
+     *        the request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function createLoyaltyPromotion(string $programId, Models\CreateLoyaltyPromotionRequest $body): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/promotions';
+
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
+            'program_id'   => $programId,
+        ]);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => $this->internalUserAgent,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion(),
+            'Content-Type'    => 'application/json'
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        //json encode body
+        $_bodyJson = ApiHelper::serialize($body);
+
+        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CreateLoyaltyPromotionResponse'
+        );
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Retrieves a loyalty promotion.
+     *
+     * @param string $promotionId The ID of the [loyalty promotion]($m/LoyaltyPromotion) to
+     *        retrieve.
+     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram). To get the
+     *        program ID,
+     *        call [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) using the `main`
+     *        keyword.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function retrieveLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}';
+
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
+            'promotion_id' => $promotionId,
+            'program_id'   => $programId,
+        ]);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => $this->internalUserAgent,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion()
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'RetrieveLoyaltyPromotionResponse'
+        );
+        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+    }
+
+    /**
+     * Cancels a loyalty promotion. Use this endpoint to cancel an `ACTIVE` promotion earlier than the
+     * end date, cancel an `ACTIVE` promotion when an end date is not specified, or cancel a `SCHEDULED`
+     * promotion.
+     * Because updating a promotion is not supported, you can also use this endpoint to cancel a promotion
+     * before
+     * you create a new one.
+     *
+     * This endpoint sets the loyalty promotion to the `CANCELED` state
+     *
+     * @param string $promotionId The ID of the [loyalty promotion]($m/LoyaltyPromotion) to cancel.
+     *        You can cancel a
+     *        promotion that has an `ACTIVE` or `SCHEDULED` status.
+     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram).
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function cancelLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
+    {
+        //prepare query string for API call
+        $_queryUrl = $this->config->getBaseUri() .
+            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}/cancel';
+
+        //process template parameters
+        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
+            'promotion_id' => $promotionId,
+            'program_id'   => $programId,
+        ]);
+
+        //prepare headers
+        $_headers = [
+            'user-agent'    => $this->internalUserAgent,
+            'Accept'        => 'application/json',
+            'Square-Version' => $this->config->getSquareVersion()
+        ];
+        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+
+        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+
+        // Apply authorization to request
+        $this->getAuthManager('global')->apply($_httpRequest);
+
+        //call on-before Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        // and invoke the API call request to fetch the response
+        try {
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+        } catch (\Unirest\Exception $ex) {
+            throw new ApiException($ex->getMessage(), $_httpRequest);
+        }
+
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        if (!$this->isValidResponse($_httpResponse)) {
+            return ApiResponse::createFromContext($response->body, null, $_httpContext);
+        }
+
+        $deserializedResponse = ApiHelper::mapClass(
+            $_httpRequest,
+            $_httpResponse,
+            $response->body,
+            'CancelLoyaltyPromotionResponse'
         );
         return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
     }
@@ -749,7 +1089,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -824,7 +1164,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -898,7 +1238,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -964,7 +1304,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -1048,7 +1388,7 @@ class LoyaltyApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

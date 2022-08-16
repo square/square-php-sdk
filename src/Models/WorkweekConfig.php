@@ -95,7 +95,7 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Returns Start of Day Local Time.
-     * The local time at which a business week ends. Represented as a
+     * The local time at which a business week starts. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
      */
@@ -106,7 +106,7 @@ class WorkweekConfig implements \JsonSerializable
 
     /**
      * Sets Start of Day Local Time.
-     * The local time at which a business week ends. Represented as a
+     * The local time at which a business week starts. Represented as a
      * string in `HH:MM` format (`HH:MM:SS` is also accepted, but seconds are
      * truncated).
      *

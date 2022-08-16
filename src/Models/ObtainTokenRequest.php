@@ -14,7 +14,7 @@ class ObtainTokenRequest implements \JsonSerializable
     private $clientId;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $clientSecret;
 
@@ -60,13 +60,11 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * @param string $clientId
-     * @param string $clientSecret
      * @param string $grantType
      */
-    public function __construct(string $clientId, string $clientSecret, string $grantType)
+    public function __construct(string $clientId, string $grantType)
     {
         $this->clientId = $clientId;
-        $this->clientSecret = $clientSecret;
         $this->grantType = $grantType;
     }
 
@@ -96,9 +94,12 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Returns Client Secret.
      * The Square-issued application secret for your application, which is available in the OAuth page
-     * in the [Developer Dashboard](https://developer.squareup.com/apps).
+     * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
+     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
+     * squareup.com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
      */
-    public function getClientSecret(): string
+    public function getClientSecret(): ?string
     {
         return $this->clientSecret;
     }
@@ -106,12 +107,14 @@ class ObtainTokenRequest implements \JsonSerializable
     /**
      * Sets Client Secret.
      * The Square-issued application secret for your application, which is available in the OAuth page
-     * in the [Developer Dashboard](https://developer.squareup.com/apps).
+     * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
+     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
+     * squareup.com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
      *
-     * @required
      * @maps client_secret
      */
-    public function setClientSecret(string $clientSecret): void
+    public function setClientSecret(?string $clientSecret): void
     {
         $this->clientSecret = $clientSecret;
     }
@@ -334,7 +337,9 @@ class ObtainTokenRequest implements \JsonSerializable
     {
         $json = [];
         $json['client_id']           = $this->clientId;
-        $json['client_secret']       = $this->clientSecret;
+        if (isset($this->clientSecret)) {
+            $json['client_secret']   = $this->clientSecret;
+        }
         if (isset($this->code)) {
             $json['code']            = $this->code;
         }

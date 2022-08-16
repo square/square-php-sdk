@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to adjust (add or subtract) points manually.
+ * Represents an [AdjustLoyaltyPoints]($e/Loyalty/AdjustLoyaltyPoints) request.
  */
 class AdjustLoyaltyPointsRequest implements \JsonSerializable
 {
@@ -20,6 +20,11 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
      * @var LoyaltyEventAdjustPoints
      */
     private $adjustPoints;
+
+    /**
+     * @var bool|null
+     */
+    private $allowNegativeBalance;
 
     /**
      * @param string $idempotencyKey
@@ -76,6 +81,34 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Allow Negative Balance.
+     * Indicates whether to allow a negative adjustment to result in a negative balance. If `true`, a
+     * negative
+     * balance is allowed when subtracting points. If `false`, Square returns a `BAD_REQUEST` error when
+     * subtracting
+     * the specified number of points would result in a negative balance. The default value is `false`.
+     */
+    public function getAllowNegativeBalance(): ?bool
+    {
+        return $this->allowNegativeBalance;
+    }
+
+    /**
+     * Sets Allow Negative Balance.
+     * Indicates whether to allow a negative adjustment to result in a negative balance. If `true`, a
+     * negative
+     * balance is allowed when subtracting points. If `false`, Square returns a `BAD_REQUEST` error when
+     * subtracting
+     * the specified number of points would result in a negative balance. The default value is `false`.
+     *
+     * @maps allow_negative_balance
+     */
+    public function setAllowNegativeBalance(?bool $allowNegativeBalance): void
+    {
+        $this->allowNegativeBalance = $allowNegativeBalance;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -87,8 +120,11 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['idempotency_key'] = $this->idempotencyKey;
-        $json['adjust_points']   = $this->adjustPoints;
+        $json['idempotency_key']            = $this->idempotencyKey;
+        $json['adjust_points']              = $this->adjustPoints;
+        if (isset($this->allowNegativeBalance)) {
+            $json['allow_negative_balance'] = $this->allowNegativeBalance;
+        }
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

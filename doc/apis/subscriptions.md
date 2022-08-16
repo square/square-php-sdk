@@ -65,7 +65,6 @@ $body->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
 $body->setCardId('ccof:qy5x8hHGYsgLrp4Q4GB');
 $body->setTimezone('America/Los_Angeles');
 $body->setSource(new Models\SubscriptionSource);
-$body->getSource()->setName('My App');
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 
@@ -435,7 +434,7 @@ function swapPlan(string $subscriptionId, SwapPlanRequest $body): ApiResponse
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body_newPlanId = 'new_plan_id2';
+$body_newPlanId = null;
 $body = new Models\SwapPlanRequest(
     $body_newPlanId
 );

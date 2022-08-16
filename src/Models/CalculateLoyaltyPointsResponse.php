@@ -7,8 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A response that includes the points that the buyer can earn from
- * a specified purchase.
+ * Represents a [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) response.
  */
 class CalculateLoyaltyPointsResponse implements \JsonSerializable
 {
@@ -21,6 +20,11 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
      * @var int|null
      */
     private $points;
+
+    /**
+     * @var int|null
+     */
+    private $promotionPoints;
 
     /**
      * Returns Errors.
@@ -48,8 +52,7 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Returns Points.
-     * The points that the buyer can earn from a specified purchase.
-     * This value does not include additional points earned from a loyalty promotion.
+     * The number of points that the buyer can earn from the base loyalty program.
      */
     public function getPoints(): ?int
     {
@@ -58,14 +61,37 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
 
     /**
      * Sets Points.
-     * The points that the buyer can earn from a specified purchase.
-     * This value does not include additional points earned from a loyalty promotion.
+     * The number of points that the buyer can earn from the base loyalty program.
      *
      * @maps points
      */
     public function setPoints(?int $points): void
     {
         $this->points = $points;
+    }
+
+    /**
+     * Returns Promotion Points.
+     * The number of points that the buyer can earn from a loyalty promotion. To be eligible
+     * to earn promotion points, the purchase must first qualify for program points. When `order_id`
+     * is not provided in the request, this value is always 0.
+     */
+    public function getPromotionPoints(): ?int
+    {
+        return $this->promotionPoints;
+    }
+
+    /**
+     * Sets Promotion Points.
+     * The number of points that the buyer can earn from a loyalty promotion. To be eligible
+     * to earn promotion points, the purchase must first qualify for program points. When `order_id`
+     * is not provided in the request, this value is always 0.
+     *
+     * @maps promotion_points
+     */
+    public function setPromotionPoints(?int $promotionPoints): void
+    {
+        $this->promotionPoints = $promotionPoints;
     }
 
     /**
@@ -81,10 +107,13 @@ class CalculateLoyaltyPointsResponse implements \JsonSerializable
     {
         $json = [];
         if (isset($this->errors)) {
-            $json['errors'] = $this->errors;
+            $json['errors']           = $this->errors;
         }
         if (isset($this->points)) {
-            $json['points'] = $this->points;
+            $json['points']           = $this->points;
+        }
+        if (isset($this->promotionPoints)) {
+            $json['promotion_points'] = $this->promotionPoints;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

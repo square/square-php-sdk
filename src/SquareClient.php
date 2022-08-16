@@ -47,6 +47,7 @@ class SquareClient implements ConfigurationInterface
     private $team;
     private $terminal;
     private $vendors;
+    private $webhookSubscriptions;
 
     private $timeout = ConfigurationDefaults::TIMEOUT;
     private $enableRetries = ConfigurationDefaults::ENABLE_RETRIES;
@@ -271,7 +272,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '20.1.0.20220720';
+        return '21.0.0.20220817';
     }
 
     /**
@@ -728,6 +729,21 @@ class SquareClient implements ConfigurationInterface
             $this->vendors = new Apis\VendorsApi($this, $this->authManagers, $this->httpCallback);
         }
         return $this->vendors;
+    }
+
+    /**
+     * Returns Webhook Subscriptions Api
+     */
+    public function getWebhookSubscriptionsApi(): Apis\WebhookSubscriptionsApi
+    {
+        if ($this->webhookSubscriptions == null) {
+            $this->webhookSubscriptions = new Apis\WebhookSubscriptionsApi(
+                $this,
+                $this->authManagers,
+                $this->httpCallback
+            );
+        }
+        return $this->webhookSubscriptions;
     }
 
     /**

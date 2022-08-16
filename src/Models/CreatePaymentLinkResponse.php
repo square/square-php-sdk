@@ -19,6 +19,11 @@ class CreatePaymentLinkResponse implements \JsonSerializable
     private $paymentLink;
 
     /**
+     * @var PaymentLinkRelatedResources|null
+     */
+    private $relatedResources;
+
+    /**
      * Returns Errors.
      * Any errors that occurred during the request.
      *
@@ -61,6 +66,24 @@ class CreatePaymentLinkResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Related Resources.
+     */
+    public function getRelatedResources(): ?PaymentLinkRelatedResources
+    {
+        return $this->relatedResources;
+    }
+
+    /**
+     * Sets Related Resources.
+     *
+     * @maps related_resources
+     */
+    public function setRelatedResources(?PaymentLinkRelatedResources $relatedResources): void
+    {
+        $this->relatedResources = $relatedResources;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -73,10 +96,13 @@ class CreatePaymentLinkResponse implements \JsonSerializable
     {
         $json = [];
         if (isset($this->errors)) {
-            $json['errors']       = $this->errors;
+            $json['errors']            = $this->errors;
         }
         if (isset($this->paymentLink)) {
-            $json['payment_link'] = $this->paymentLink;
+            $json['payment_link']      = $this->paymentLink;
+        }
+        if (isset($this->relatedResources)) {
+            $json['related_resources'] = $this->relatedResources;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

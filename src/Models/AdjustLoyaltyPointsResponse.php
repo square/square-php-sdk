@@ -7,8 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A response that includes the loyalty event that
- * resulted from the successful API call.
+ * Represents an [AdjustLoyaltyPoints]($e/Loyalty/AdjustLoyaltyPoints) request.
  */
 class AdjustLoyaltyPointsResponse implements \JsonSerializable
 {

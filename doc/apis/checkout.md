@@ -20,6 +20,8 @@ $checkoutApi = $client->getCheckoutApi();
 
 # Create Checkout
 
+**This endpoint is deprecated.**
+
 Links a `checkoutId` to a `checkout_page_url` that customers are
 directed to in order to provide their payment information using a
 payment processing workflow hosted on connect.squareup.com.
@@ -137,6 +139,8 @@ $body->getPrePopulateShippingAddress()->setLocality('San Francisco');
 $body->getPrePopulateShippingAddress()->setAdministrativeDistrictLevel1('CA');
 $body->getPrePopulateShippingAddress()->setPostalCode('94103');
 $body->getPrePopulateShippingAddress()->setCountry(Models\Country::US);
+$body->getPrePopulateShippingAddress()->setFirstName('Jane');
+$body->getPrePopulateShippingAddress()->setLastName('Doe');
 $body->setRedirectUrl('https://merchant.website.com/order-confirm');
 $body_additionalRecipients = [];
 

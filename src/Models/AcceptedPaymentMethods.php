@@ -30,7 +30,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Apple Pay.
-     * Whether Apple Pay is accepted at checkout
+     * Whether Apple Pay is accepted at checkout.
      */
     public function getApplePay(): ?bool
     {
@@ -39,7 +39,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Apple Pay.
-     * Whether Apple Pay is accepted at checkout
+     * Whether Apple Pay is accepted at checkout.
      *
      * @maps apple_pay
      */
@@ -50,7 +50,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Google Pay.
-     * Whether Google Pay is accepted at checkout
+     * Whether Google Pay is accepted at checkout.
      */
     public function getGooglePay(): ?bool
     {
@@ -59,7 +59,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Google Pay.
-     * Whether Google Pay is accepted at checkout
+     * Whether Google Pay is accepted at checkout.
      *
      * @maps google_pay
      */
@@ -70,7 +70,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Cash App Pay.
-     * Whether Cash App Pay is accepted at checkout
+     * Whether Cash App Pay is accepted at checkout.
      */
     public function getCashAppPay(): ?bool
     {
@@ -79,7 +79,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Cash App Pay.
-     * Whether Cash App Pay is accepted at checkout
+     * Whether Cash App Pay is accepted at checkout.
      *
      * @maps cash_app_pay
      */
@@ -90,7 +90,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Afterpay Clearpay.
-     * Whether Afterpay/Clearpay is accepted at checkout
+     * Whether Afterpay/Clearpay is accepted at checkout.
      */
     public function getAfterpayClearpay(): ?bool
     {
@@ -99,7 +99,7 @@ class AcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Afterpay Clearpay.
-     * Whether Afterpay/Clearpay is accepted at checkout
+     * Whether Afterpay/Clearpay is accepted at checkout.
      *
      * @maps afterpay_clearpay
      */

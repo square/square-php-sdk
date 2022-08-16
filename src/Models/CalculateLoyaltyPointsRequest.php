@@ -7,8 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to calculate the points that a buyer can earn from
- * a specified purchase.
+ * Represents a [CalculateLoyaltyPoints]($e/Loyalty/CalculateLoyaltyPoints) request.
  */
 class CalculateLoyaltyPointsRequest implements \JsonSerializable
 {
@@ -21,6 +20,11 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      * @var Money|null
      */
     private $transactionAmountMoney;
+
+    /**
+     * @var string|null
+     */
+    private $loyaltyAccountId;
 
     /**
      * Returns Order Id.
@@ -79,6 +83,46 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Loyalty Account Id.
+     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * if your application uses the Orders API to process orders.
+     *
+     * If specified, the `promotion_points` field in the response shows the number of points the buyer
+     * would
+     * earn from the purchase. In this case, Square uses the account ID to determine whether the
+     * promotion's
+     * `trigger_limit` (the maximum number of times that a buyer can trigger the promotion) has been
+     * reached.
+     * If not specified, the `promotion_points` field shows the number of points the purchase qualifies
+     * for regardless of the trigger limit.
+     */
+    public function getLoyaltyAccountId(): ?string
+    {
+        return $this->loyaltyAccountId;
+    }
+
+    /**
+     * Sets Loyalty Account Id.
+     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * if your application uses the Orders API to process orders.
+     *
+     * If specified, the `promotion_points` field in the response shows the number of points the buyer
+     * would
+     * earn from the purchase. In this case, Square uses the account ID to determine whether the
+     * promotion's
+     * `trigger_limit` (the maximum number of times that a buyer can trigger the promotion) has been
+     * reached.
+     * If not specified, the `promotion_points` field shows the number of points the purchase qualifies
+     * for regardless of the trigger limit.
+     *
+     * @maps loyalty_account_id
+     */
+    public function setLoyaltyAccountId(?string $loyaltyAccountId): void
+    {
+        $this->loyaltyAccountId = $loyaltyAccountId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -95,6 +139,9 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
         }
         if (isset($this->transactionAmountMoney)) {
             $json['transaction_amount_money'] = $this->transactionAmountMoney;
+        }
+        if (isset($this->loyaltyAccountId)) {
+            $json['loyalty_account_id']       = $this->loyaltyAccountId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

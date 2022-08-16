@@ -14,7 +14,6 @@ use Square\Http\HttpResponse;
 use Square\Http\HttpMethod;
 use Square\Http\HttpContext;
 use Square\Http\HttpCallBack;
-use Unirest\Request;
 
 class CustomerCustomAttributesApi extends BaseApi
 {
@@ -24,11 +23,14 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Lists the customer-related custom attribute definitions that belong to a Square seller account.
+     * Lists the customer-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong
+     * to a Square seller account.
      *
      * When all response pages are retrieved, the results include all custom attribute definitions
      * that are visible to the requesting application, including those that are created by other
-     * applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     * applications and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that
+     * seller-defined custom attributes (also known as custom fields) are always set to
+     * `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param int|null $limit The maximum number of results to return in a single paged response.
      *        This limit is advisory.
@@ -77,7 +79,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -105,8 +107,9 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Creates a customer-related custom attribute definition for a Square seller account. Use this
-     * endpoint to define a custom attribute that can be associated with customer profiles.
+     * Creates a customer-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square
+     * seller account.
+     * Use this endpoint to define a custom attribute that can be associated with customer profiles.
      *
      * A custom attribute definition specifies the `key`, `visibility`, `schema`, and other properties
      * for a custom attribute. After the definition is created, you can call
@@ -156,7 +159,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -184,7 +187,8 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Deletes a customer-related custom attribute definition from a Square seller account.
+     * Deletes a customer-related [custom attribute definition]($m/CustomAttributeDefinition) from a Square
+     * seller account.
      *
      * Deleting a custom attribute definition also deletes the corresponding custom attribute from
      * all customer profiles in the seller's Customer Directory.
@@ -227,7 +231,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -255,10 +259,13 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Retrieves a customer-related custom attribute definition from a Square seller account.
+     * Retrieves a customer-related [custom attribute definition]($m/CustomAttributeDefinition) from a
+     * Square seller account.
      *
      * To retrieve a custom attribute definition created by another application, the `visibility`
-     * setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     * setting must be `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined
+     * custom attributes
+     * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param string $key The key of the custom attribute definition to retrieve. If the requesting
      *        application
@@ -310,7 +317,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -338,7 +345,8 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Updates a customer-related custom attribute definition for a Square seller account.
+     * Updates a customer-related [custom attribute definition]($m/CustomAttributeDefinition) for a Square
+     * seller account.
      *
      * Use this endpoint to update the following fields: `name`, `description`, `visibility`, or the
      * `schema` for a `Selection` data type.
@@ -392,7 +400,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -420,7 +428,7 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Creates or updates custom attributes for customer profiles as a bulk operation.
+     * Creates or updates [custom attributes]($m/CustomAttribute) for customer profiles as a bulk operation.
      *
      * Use this endpoint to set the value of one or more custom attributes for one or more customer
      * profiles.
@@ -435,7 +443,8 @@ class CustomerCustomAttributesApi extends BaseApi
      * of the corresponding request.
      *
      * To create or update a custom attribute owned by another application, the `visibility` setting
-     * must be `VISIBILITY_READ_WRITE_VALUES`.
+     * must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
+     * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param Models\BulkUpsertCustomerCustomAttributesRequest $body An object containing the fields
      *        to POST for the request.
@@ -476,7 +485,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -504,7 +513,7 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Lists the custom attributes associated with a customer profile.
+     * Lists the [custom attributes]($m/CustomAttribute) associated with a customer profile.
      *
      * You can use the `with_definitions` query parameter to also retrieve custom attribute definitions
      * in the same call.
@@ -579,7 +588,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -607,10 +616,11 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Deletes a custom attribute associated with a customer profile.
+     * Deletes a [custom attribute]($m/CustomAttribute) associated with a customer profile.
      *
      * To delete a custom attribute owned by another application, the `visibility` setting must be
-     * `VISIBILITY_READ_WRITE_VALUES`.
+     * `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
+     * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param string $customerId The ID of the target [customer profile]($m/Customer).
      * @param string $key The key of the custom attribute to delete. This key must match the `key`
@@ -655,7 +665,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -683,13 +693,15 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Retrieves a custom attribute associated with a customer profile.
+     * Retrieves a [custom attribute]($m/CustomAttribute) associated with a customer profile.
      *
      * You can use the `with_definition` query parameter to also retrieve the custom attribute definition
      * in the same call.
      *
      * To retrieve a custom attribute owned by another application, the `visibility` setting must be
-     * `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     * `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom
+     * attributes
+     * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param string $customerId The ID of the target [customer profile]($m/Customer).
      * @param string $key The key of the custom attribute to retrieve. This key must match the `key`
@@ -758,7 +770,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -786,7 +798,7 @@ class CustomerCustomAttributesApi extends BaseApi
     }
 
     /**
-     * Creates or updates a custom attribute for a customer profile.
+     * Creates or updates a [custom attribute]($m/CustomAttribute) for a customer profile.
      *
      * Use this endpoint to set the value of a custom attribute for a specified customer profile.
      * A custom attribute is based on a custom attribute definition in a Square seller account, which
@@ -795,7 +807,8 @@ class CustomerCustomAttributesApi extends BaseApi
      * efinition) endpoint.
      *
      * To create or update a custom attribute owned by another application, the `visibility` setting
-     * must be `VISIBILITY_READ_WRITE_VALUES`.
+     * must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
+     * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
      * @param string $customerId The ID of the target [customer profile]($m/Customer).
      * @param string $key The key of the custom attribute to create or update. This key must match
@@ -851,7 +864,7 @@ class CustomerCustomAttributesApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

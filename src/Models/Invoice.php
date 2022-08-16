@@ -8,8 +8,8 @@ use stdClass;
 
 /**
  * Stores information about an invoice. You use the Invoices API to create and manage
- * invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.
- * squareup.com/docs/invoices-api/overview).
+ * invoices. For more information, see [Invoices API Overview](https://developer.squareup.
+ * com/docs/invoices-api/overview).
  */
 class Invoice implements \JsonSerializable
 {
@@ -267,7 +267,8 @@ class Invoice implements \JsonSerializable
      *
      * This field is required when creating an invoice. It must contain at least one payment request.
      * All payment requests for the invoice must equal the total order amount. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+     * invoices#payment-requests).
      *
      * Adding `INSTALLMENT` payment requests to an invoice requires an
      * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
@@ -292,7 +293,8 @@ class Invoice implements \JsonSerializable
      *
      * This field is required when creating an invoice. It must contain at least one payment request.
      * All payment requests for the invoice must equal the total order amount. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+     * invoices#payment-requests).
      *
      * Adding `INSTALLMENT` payment requests to an invoice requires an
      * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-

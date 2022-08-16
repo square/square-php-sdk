@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A request to accumulate points for a purchase.
+ * Represents an [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints) request.
  */
 class AccumulateLoyaltyPointsRequest implements \JsonSerializable
 {
