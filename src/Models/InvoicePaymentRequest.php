@@ -9,7 +9,8 @@ use stdClass;
 /**
  * Represents a payment request for an [invoice]($m/Invoice). Invoices can specify a maximum
  * of 13 payment requests, with up to 12 `INSTALLMENT` request types. For more information,
- * see [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+ * see [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+ * invoices#payment-requests).
  *
  * Adding `INSTALLMENT` payment requests to an invoice requires an
  * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
@@ -131,7 +132,8 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Returns Request Type.
      * Indicates the type of the payment request. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+     * invoices#payment-requests).
      */
     public function getRequestType(): ?string
     {
@@ -141,7 +143,8 @@ class InvoicePaymentRequest implements \JsonSerializable
     /**
      * Sets Request Type.
      * Indicates the type of the payment request. For more information, see
-     * [Payment requests](https://developer.squareup.com/docs/invoices-api/overview#payment-requests).
+     * [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+     * invoices#payment-requests).
      *
      * @maps request_type
      */
@@ -154,7 +157,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Due Date.
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
      * field
-     * is required to create a payment request.
+     * is required to create a payment request. If an `automatic_payment_source` is defined for the request,
+     * Square
+     * charges the payment source on this date.
      *
      * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
      * `timezone`
@@ -171,7 +176,9 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Due Date.
      * The due date (in the invoice's time zone) for the payment request, in `YYYY-MM-DD` format. This
      * field
-     * is required to create a payment request.
+     * is required to create a payment request. If an `automatic_payment_source` is defined for the request,
+     * Square
+     * charges the payment source on this date.
      *
      * After this date, the invoice becomes overdue. For example, a payment `due_date` of 2021-03-09 with a
      * `timezone`

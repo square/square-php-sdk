@@ -355,6 +355,12 @@ class ErrorCode
     public const INVALID_CARD = 'INVALID_CARD';
 
     /**
+     * The payment was declined because there was a payment amount mismatch.
+     * The money amount Square was expecting does not match the amount provided.
+     */
+    public const PAYMENT_AMOUNT_MISMATCH = 'PAYMENT_AMOUNT_MISMATCH';
+
+    /**
      * Square received a decline without any additional information.
      * If the payment information seems correct, the buyer can contact their
      * issuer to ask for more information.
@@ -525,7 +531,7 @@ class ErrorCode
     public const CARD_TOKEN_EXPIRED = 'CARD_TOKEN_EXPIRED';
 
     /**
-     * The provided card token (nonce) was already used to process payment.
+     * The provided card token (nonce) was already used to process the payment or refund.
      */
     public const CARD_TOKEN_USED = 'CARD_TOKEN_USED';
 
@@ -550,8 +556,9 @@ class ErrorCode
     public const REFUND_ALREADY_PENDING = 'REFUND_ALREADY_PENDING';
 
     /**
-     * The payment is not refundable. For example, a previous refund has
-     * already been rejected and no new refunds can be accepted.
+     * The payment is not refundable. For example, the payment has been disputed and is no longer eligible
+     * for
+     * refunds.
      */
     public const PAYMENT_NOT_REFUNDABLE = 'PAYMENT_NOT_REFUNDABLE';
 

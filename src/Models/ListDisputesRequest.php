@@ -52,10 +52,7 @@ class ListDisputesRequest implements \JsonSerializable
 
     /**
      * Returns States.
-     * The dispute states to filter the result.
-     * If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
-     * `WON`,
-     * or `LOST`).
+     * The dispute states used to filter the result. If not specified, the endpoint returns all disputes.
      * See [DisputeState](#type-disputestate) for possible values
      *
      * @return string[]|null
@@ -67,10 +64,7 @@ class ListDisputesRequest implements \JsonSerializable
 
     /**
      * Sets States.
-     * The dispute states to filter the result.
-     * If not specified, the endpoint returns all open disputes (the dispute status is not `INQUIRY_CLOSED`,
-     * `WON`,
-     * or `LOST`).
+     * The dispute states used to filter the result. If not specified, the endpoint returns all disputes.
      * See [DisputeState](#type-disputestate) for possible values
      *
      * @maps states
@@ -84,10 +78,8 @@ class ListDisputesRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the location for which to return a list of disputes. If not specified, the endpoint
-     * returns
-     * all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
-     * locations.
+     * The ID of the location for which to return a list of disputes.
+     * If not specified, the endpoint returns disputes associated with all locations.
      */
     public function getLocationId(): ?string
     {
@@ -96,10 +88,8 @@ class ListDisputesRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the location for which to return a list of disputes. If not specified, the endpoint
-     * returns
-     * all open disputes (the dispute status is not `INQUIRY_CLOSED`, `WON`, or `LOST`) associated with all
-     * locations.
+     * The ID of the location for which to return a list of disputes.
+     * If not specified, the endpoint returns disputes associated with all locations.
      *
      * @maps location_id
      */

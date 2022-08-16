@@ -37,13 +37,21 @@ class BaseApi
     private $httpCallBack;
 
     /**
+     * UniRest Request instance associated with this controller
+     *
+     * @var Request|null
+     */
+    protected static $request;
+
+
+    /**
      * User-Agent header value to be sent with API calls.
      *
      * @var string
      */
     protected $internalUserAgent;
 
-    private static $userAgent = 'Square-PHP-SDK/20.1.0.20220720 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
+    private static $userAgent = 'Square-PHP-SDK/21.0.0.20220817 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
 
     /**
      * Constructor that sets the timeout of requests
@@ -53,22 +61,26 @@ class BaseApi
         $this->config = $config;
         $this->authManagers = $authManagers;
         $this->httpCallBack = $httpCallBack;
+
+        if (is_null(self::$request)) {
+            self::$request = new Request();
+        }
+
         $this->updateUserAgent();
         $this->internalUserAgent = str_replace(
             ['{api-version}', '{detail}'],
             [$config->getSquareVersion(), rawurlencode($config->getUserAgentDetail())],
             self::$userAgent
         );
-
-        Request::timeout($config->getTimeout());
-        Request::enableRetries($config->shouldEnableRetries());
-        Request::maxNumberOfRetries($config->getNumberOfRetries());
-        Request::retryInterval($config->getRetryInterval());
-        Request::backoffFactor($config->getBackOffFactor());
-        Request::maximumRetryWaitTime($config->getMaximumRetryWaitTime());
-        Request::retryOnTimeout($config->shouldRetryOnTimeout());
-        Request::httpMethodsToRetry($config->getHttpMethodsToRetry());
-        Request::httpStatusCodesToRetry($config->getHttpStatusCodesToRetry());
+        self::$request->timeout($config->getTimeout());
+        self::$request->enableRetries($config->shouldEnableRetries());
+        self::$request->maxNumberOfRetries($config->getNumberOfRetries());
+        self::$request->retryInterval($config->getRetryInterval());
+        self::$request->backoffFactor($config->getBackOffFactor());
+        self::$request->maximumRetryWaitTime($config->getMaximumRetryWaitTime());
+        self::$request->retryOnTimeout($config->shouldRetryOnTimeout());
+        self::$request->httpMethodsToRetry($config->getHttpMethodsToRetry());
+        self::$request->httpStatusCodesToRetry($config->getHttpStatusCodesToRetry());
     }
 
     /**

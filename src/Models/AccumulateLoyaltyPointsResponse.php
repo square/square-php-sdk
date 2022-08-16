@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A response containing the resulting loyalty event.
+ * Represents an [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints) response.
  */
 class AccumulateLoyaltyPointsResponse implements \JsonSerializable
 {
@@ -20,6 +20,11 @@ class AccumulateLoyaltyPointsResponse implements \JsonSerializable
      * @var LoyaltyEvent|null
      */
     private $event;
+
+    /**
+     * @var LoyaltyEvent[]|null
+     */
+    private $events;
 
     /**
      * Returns Errors.
@@ -70,6 +75,34 @@ class AccumulateLoyaltyPointsResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Events.
+     * The resulting loyalty events. The `ACCUMULATE_POINTS` event is always included.
+     * When using the Orders API, the `ACCUMULATE_PROMOTION_POINTS` event is included
+     * if the purchase also qualifies for a loyalty promotion.
+     *
+     * @return LoyaltyEvent[]|null
+     */
+    public function getEvents(): ?array
+    {
+        return $this->events;
+    }
+
+    /**
+     * Sets Events.
+     * The resulting loyalty events. The `ACCUMULATE_POINTS` event is always included.
+     * When using the Orders API, the `ACCUMULATE_PROMOTION_POINTS` event is included
+     * if the purchase also qualifies for a loyalty promotion.
+     *
+     * @maps events
+     *
+     * @param LoyaltyEvent[]|null $events
+     */
+    public function setEvents(?array $events): void
+    {
+        $this->events = $events;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -86,6 +119,9 @@ class AccumulateLoyaltyPointsResponse implements \JsonSerializable
         }
         if (isset($this->event)) {
             $json['event']  = $this->event;
+        }
+        if (isset($this->events)) {
+            $json['events'] = $this->events;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

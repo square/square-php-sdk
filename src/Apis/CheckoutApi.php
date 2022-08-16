@@ -14,7 +14,6 @@ use Square\Http\HttpResponse;
 use Square\Http\HttpMethod;
 use Square\Http\HttpContext;
 use Square\Http\HttpCallBack;
-use Unirest\Request;
 
 class CheckoutApi extends BaseApi
 {
@@ -35,6 +34,8 @@ class CheckoutApi extends BaseApi
      * We recommend that you use the new [CreatePaymentLink]($e/Checkout/CreatePaymentLink)
      * endpoint in place of this previously released endpoint.
      *
+     * @deprecated
+     *
      * @param string $locationId The ID of the business location to associate the checkout with.
      * @param Models\CreateCheckoutRequest $body An object containing the fields to POST for the
      *        request.
@@ -47,6 +48,8 @@ class CheckoutApi extends BaseApi
      */
     public function createCheckout(string $locationId, Models\CreateCheckoutRequest $body): ApiResponse
     {
+        trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
+
         //prepare query string for API call
         $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}/checkouts';
 
@@ -79,7 +82,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -157,7 +160,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -226,7 +229,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -292,7 +295,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -358,7 +361,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
+            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }
@@ -434,7 +437,7 @@ class CheckoutApi extends BaseApi
 
         // and invoke the API call request to fetch the response
         try {
-            $response = Request::put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
+            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
         } catch (\Unirest\Exception $ex) {
             throw new ApiException($ex->getMessage(), $_httpRequest);
         }

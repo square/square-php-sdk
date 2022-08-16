@@ -11,13 +11,14 @@ The response returned by the `CreateInvoice` request.
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `invoice` | [`?Invoice`](../../doc/models/invoice.md) | Optional | Stores information about an invoice. You use the Invoices API to create and manage<br>invoices. For more information, see [Manage Invoices Using the Invoices API](https://developer.squareup.com/docs/invoices-api/overview). | getInvoice(): ?Invoice | setInvoice(?Invoice invoice): void |
+| `invoice` | [`?Invoice`](../../doc/models/invoice.md) | Optional | Stores information about an invoice. You use the Invoices API to create and manage<br>invoices. For more information, see [Invoices API Overview](https://developer.squareup.com/docs/invoices-api/overview). | getInvoice(): ?Invoice | setInvoice(?Invoice invoice): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
 
 ```json
 {
+  "errors": [],
   "invoice": {
     "accepted_payment_methods": {
       "bank_account": false,

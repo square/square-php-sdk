@@ -1,7 +1,7 @@
 
 # Accumulate Loyalty Points Request
 
-A request to accumulate points for a purchase.
+Represents an [AccumulateLoyaltyPoints](../../doc/apis/loyalty.md#accumulate-loyalty-points) request.
 
 ## Structure
 

@@ -177,13 +177,12 @@ function obtainToken(ObtainTokenRequest $body): ApiResponse
 
 ```php
 $body_clientId = 'APPLICATION_ID';
-$body_clientSecret = 'APPLICATION_SECRET';
 $body_grantType = 'authorization_code';
 $body = new Models\ObtainTokenRequest(
     $body_clientId,
-    $body_clientSecret,
     $body_grantType
 );
+$body->setClientSecret('APPLICATION_SECRET');
 $body->setCode('CODE_FROM_AUTHORIZE');
 
 $apiResponse = $oAuthApi->obtainToken($body);

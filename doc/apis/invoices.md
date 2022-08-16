@@ -308,6 +308,7 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 ```php
 $invoiceId = 'invoice_id0';
 $body_invoice = new Models\Invoice;
+$body_invoice->setVersion(1);
 $body_invoice_paymentRequests = [];
 
 $body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;

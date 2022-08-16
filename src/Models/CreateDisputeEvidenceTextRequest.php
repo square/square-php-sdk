@@ -38,8 +38,8 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
-     * with-apis/idempotency).
+     * A unique key identifying the request. For more information, see [Idempotency](https://developer.
+     * squareup.com/docs/working-with-apis/idempotency).
      */
     public function getIdempotencyKey(): string
     {
@@ -48,8 +48,8 @@ class CreateDisputeEvidenceTextRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     * The Unique ID. For more information, see [Idempotency](https://developer.squareup.com/docs/working-
-     * with-apis/idempotency).
+     * A unique key identifying the request. For more information, see [Idempotency](https://developer.
+     * squareup.com/docs/working-with-apis/idempotency).
      *
      * @required
      * @maps idempotency_key

@@ -35,14 +35,11 @@ class GiftCardActivityRefund implements \JsonSerializable
      * Returns Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
      * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
-     * represents a redemption made by the same gift card. Note that you must use `RefundPayment` when
-     * refunding a
-     * gift card payment made using the Payments API, Square Point of Sale, or the Seller Dashboard to the
-     * same gift card.
+     * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
+     * to refund a gift card payment to the same gift card if the payment was processed by Square.
      *
-     * Applications that use a custom payment processing system can use this field in a
-     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity)
-     * request to link a refund with a `REDEEM` activity for the same gift card.
+     * For applications that use a custom payment processing system, this field is required when creating
+     * a `REFUND` activity. The provided `REDEEM` activity ID must be linked to the same gift card.
      */
     public function getRedeemActivityId(): ?string
     {
@@ -53,14 +50,11 @@ class GiftCardActivityRefund implements \JsonSerializable
      * Sets Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
      * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
-     * represents a redemption made by the same gift card. Note that you must use `RefundPayment` when
-     * refunding a
-     * gift card payment made using the Payments API, Square Point of Sale, or the Seller Dashboard to the
-     * same gift card.
+     * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
+     * to refund a gift card payment to the same gift card if the payment was processed by Square.
      *
-     * Applications that use a custom payment processing system can use this field in a
-     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity)
-     * request to link a refund with a `REDEEM` activity for the same gift card.
+     * For applications that use a custom payment processing system, this field is required when creating
+     * a `REFUND` activity. The provided `REDEEM` activity ID must be linked to the same gift card.
      *
      * @maps redeem_activity_id
      */
@@ -103,9 +97,7 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Returns Reference Id.
-     * A client-specified ID that associates the gift card activity with an order, payment, or other entity.
-     *
-     * This field can be used to track information related to Square entities or entities in another system.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
      */
     public function getReferenceId(): ?string
     {
@@ -114,9 +106,7 @@ class GiftCardActivityRefund implements \JsonSerializable
 
     /**
      * Sets Reference Id.
-     * A client-specified ID that associates the gift card activity with an order, payment, or other entity.
-     *
-     * This field can be used to track information related to Square entities or entities in another system.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
      *
      * @maps reference_id
      */

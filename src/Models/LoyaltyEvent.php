@@ -79,6 +79,11 @@ class LoyaltyEvent implements \JsonSerializable
     private $otherEvent;
 
     /**
+     * @var LoyaltyEventAccumulatePromotionPoints|null
+     */
+    private $accumulatePromotionPoints;
+
+    /**
      * @param string $id
      * @param string $type
      * @param string $createdAt
@@ -259,7 +264,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) in which the event occurred.
+     * The ID of the [loyalty account]($m/LoyaltyAccount) associated with the event.
      */
     public function getLoyaltyAccountId(): string
     {
@@ -268,7 +273,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) in which the event occurred.
+     * The ID of the [loyalty account]($m/LoyaltyAccount) associated with the event.
      *
      * @required
      * @maps loyalty_account_id
@@ -360,6 +365,27 @@ class LoyaltyEvent implements \JsonSerializable
     }
 
     /**
+     * Returns Accumulate Promotion Points.
+     * Provides metadata when the event `type` is `ACCUMULATE_PROMOTION_POINTS`.
+     */
+    public function getAccumulatePromotionPoints(): ?LoyaltyEventAccumulatePromotionPoints
+    {
+        return $this->accumulatePromotionPoints;
+    }
+
+    /**
+     * Sets Accumulate Promotion Points.
+     * Provides metadata when the event `type` is `ACCUMULATE_PROMOTION_POINTS`.
+     *
+     * @maps accumulate_promotion_points
+     */
+    public function setAccumulatePromotionPoints(
+        ?LoyaltyEventAccumulatePromotionPoints $accumulatePromotionPoints
+    ): void {
+        $this->accumulatePromotionPoints = $accumulatePromotionPoints;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -371,34 +397,37 @@ class LoyaltyEvent implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                    = $this->id;
-        $json['type']                  = $this->type;
-        $json['created_at']            = $this->createdAt;
+        $json['id']                              = $this->id;
+        $json['type']                            = $this->type;
+        $json['created_at']                      = $this->createdAt;
         if (isset($this->accumulatePoints)) {
-            $json['accumulate_points'] = $this->accumulatePoints;
+            $json['accumulate_points']           = $this->accumulatePoints;
         }
         if (isset($this->createReward)) {
-            $json['create_reward']     = $this->createReward;
+            $json['create_reward']               = $this->createReward;
         }
         if (isset($this->redeemReward)) {
-            $json['redeem_reward']     = $this->redeemReward;
+            $json['redeem_reward']               = $this->redeemReward;
         }
         if (isset($this->deleteReward)) {
-            $json['delete_reward']     = $this->deleteReward;
+            $json['delete_reward']               = $this->deleteReward;
         }
         if (isset($this->adjustPoints)) {
-            $json['adjust_points']     = $this->adjustPoints;
+            $json['adjust_points']               = $this->adjustPoints;
         }
-        $json['loyalty_account_id']    = $this->loyaltyAccountId;
+        $json['loyalty_account_id']              = $this->loyaltyAccountId;
         if (isset($this->locationId)) {
-            $json['location_id']       = $this->locationId;
+            $json['location_id']                 = $this->locationId;
         }
-        $json['source']                = $this->source;
+        $json['source']                          = $this->source;
         if (isset($this->expirePoints)) {
-            $json['expire_points']     = $this->expirePoints;
+            $json['expire_points']               = $this->expirePoints;
         }
         if (isset($this->otherEvent)) {
-            $json['other_event']       = $this->otherEvent;
+            $json['other_event']                 = $this->otherEvent;
+        }
+        if (isset($this->accumulatePromotionPoints)) {
+            $json['accumulate_promotion_points'] = $this->accumulatePromotionPoints;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

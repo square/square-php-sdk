@@ -10,7 +10,8 @@ namespace Square\Models;
 class LoyaltyEventType
 {
     /**
-     * Points are added to a loyalty account for a purchase.
+     * Points are added to a loyalty account for a purchase that
+     * qualified for points based on an [accrual rule]($m/LoyaltyProgramAccrualRule).
      */
     public const ACCUMULATE_POINTS = 'ACCUMULATE_POINTS';
 
@@ -44,4 +45,10 @@ class LoyaltyEventType
      * Some other loyalty event occurred.
      */
     public const OTHER = 'OTHER';
+
+    /**
+     * Points are added to a loyalty account for a purchase that
+     * qualified for a [loyalty promotion]($m/LoyaltyPromotion).
+     */
+    public const ACCUMULATE_PROMOTION_POINTS = 'ACCUMULATE_PROMOTION_POINTS';
 }
