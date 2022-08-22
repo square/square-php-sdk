@@ -22,9 +22,14 @@ class BuyNowPayLaterDetails implements \JsonSerializable
     private $afterpayDetails;
 
     /**
+     * @var ClearpayDetails|null
+     */
+    private $clearpayDetails;
+
+    /**
      * Returns Brand.
      * The brand used for the Buy Now Pay Later payment.
-     * The brand can be `AFTERPAY` or `UNKNOWN`.
+     * The brand can be `AFTERPAY`, `CLEARPAY` or `UNKNOWN`.
      */
     public function getBrand(): ?string
     {
@@ -34,7 +39,7 @@ class BuyNowPayLaterDetails implements \JsonSerializable
     /**
      * Sets Brand.
      * The brand used for the Buy Now Pay Later payment.
-     * The brand can be `AFTERPAY` or `UNKNOWN`.
+     * The brand can be `AFTERPAY`, `CLEARPAY` or `UNKNOWN`.
      *
      * @maps brand
      */
@@ -64,6 +69,26 @@ class BuyNowPayLaterDetails implements \JsonSerializable
     }
 
     /**
+     * Returns Clearpay Details.
+     * Additional details about Clearpay payments.
+     */
+    public function getClearpayDetails(): ?ClearpayDetails
+    {
+        return $this->clearpayDetails;
+    }
+
+    /**
+     * Sets Clearpay Details.
+     * Additional details about Clearpay payments.
+     *
+     * @maps clearpay_details
+     */
+    public function setClearpayDetails(?ClearpayDetails $clearpayDetails): void
+    {
+        $this->clearpayDetails = $clearpayDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -80,6 +105,9 @@ class BuyNowPayLaterDetails implements \JsonSerializable
         }
         if (isset($this->afterpayDetails)) {
             $json['afterpay_details'] = $this->afterpayDetails;
+        }
+        if (isset($this->clearpayDetails)) {
+            $json['clearpay_details'] = $this->clearpayDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
