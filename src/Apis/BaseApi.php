@@ -51,7 +51,7 @@ class BaseApi
      */
     protected $internalUserAgent;
 
-    private static $userAgent = 'Square-PHP-SDK/21.0.0.20220817 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
+    private static $userAgent = 'Square-PHP-SDK/21.1.0.20220823 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}';
 
     /**
      * Constructor that sets the timeout of requests
