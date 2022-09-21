@@ -6,6 +6,15 @@
 
 Use this library to integrate Square payments into your app and grow your business with Square APIs including Catalog, Customers, Employees, Inventory, Labor, Locations, and Orders.
 
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Quickstart](#quickstart)
+* [Usage](#usage)
+* [Tests](#tests)
+* [SDK Reference](#sdk-reference)
+* [Deprecated APIs](#deprecated-apis)
+
+
 ## Requirements
 
 Use of the Square PHP SDK requires:
@@ -123,16 +132,18 @@ All environment variables:
 * [Sites]
 * [Snippets]
 
-### Authorization APIs
+### Authorization
 * [Mobile Authorization]
 * [OAuth]
 
-### Deprecated APIs
-* [Employees]
-* [V1 Employees]
-* [V1 Transactions]
-* [V1 Items]
-* [Transactions]
+## Deprecated APIs
+
+The following Square APIs are [deprecated](https://developer.squareup.com/docs/build-basics/api-lifecycle):
+
+* [Employees] - replaced by the [Team] API. For more information, see [Migrate from the Employees API](https://developer.squareup.com/docs/team/migrate-from-v2-employees).
+ 
+* [Transactions] - replaced by the [Orders] and [Payments] APIs.  For more information, see [Migrate from the Transactions API](https://developer.squareup.com/docs/payments-api/migrate-from-transactions-api).
+
 
 [//]: # "Link anchor definitions"
 [Square Logo]: https://docs.connect.squareup.com/images/github/github-square-logo.svg
@@ -153,7 +164,6 @@ All environment variables:
 [Checkout]: doc/apis/checkout.md
 [Catalog]: doc/apis/catalog.md
 [Customers]: doc/apis/customers.md
-[Employees]: doc/apis/employees.md
 [Inventory]: doc/apis/inventory.md
 [Labor]: doc/apis/labor.md
 [Loyalty]: doc/apis/loyalty.md
@@ -167,14 +177,12 @@ All environment variables:
 [Subscriptions]: doc/apis/subscriptions.md
 [Mobile Authorization]: doc/apis/mobile-authorization.md
 [OAuth]: doc/apis/o-auth.md
-[V1 Employees]: doc/apis/v1-employees.md
-[V1 Transactions]: doc/apis/v1-transactions.md
-[V1 Items]: doc/apis/v1-items.md
 [Team]: doc/apis/team.md
-[Transactions]: doc/apis/transactions.md
 [Sites]: doc/apis/sites.md
 [Snippets]: doc/apis/snippets.md
 [Cards]: doc/api/cards.md
 [Payouts]: doc/api/payouts.md
 [Gift Cards]: doc/api/gift-cards.md
 [Gift Card Activities]: doc/api/gift-card-activities.md
+[Employees]: doc/apis/employees.md
+[Transactions]: doc/apis/transactions.md

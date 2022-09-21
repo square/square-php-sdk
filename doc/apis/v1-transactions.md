@@ -10,25 +10,25 @@ $v1TransactionsApi = $client->getV1TransactionsApi();
 
 ## Methods
 
-* [List Orders](../../doc/apis/v1-transactions.md#list-orders)
-* [Retrieve Order](../../doc/apis/v1-transactions.md#retrieve-order)
-* [Update Order](../../doc/apis/v1-transactions.md#update-order)
-* [List Payments](../../doc/apis/v1-transactions.md#list-payments)
-* [Retrieve Payment](../../doc/apis/v1-transactions.md#retrieve-payment)
-* [List Refunds](../../doc/apis/v1-transactions.md#list-refunds)
-* [Create Refund](../../doc/apis/v1-transactions.md#create-refund)
-* [List Settlements](../../doc/apis/v1-transactions.md#list-settlements)
-* [Retrieve Settlement](../../doc/apis/v1-transactions.md#retrieve-settlement)
+* [V1 List Orders](../../doc/apis/v1-transactions.md#v1-list-orders)
+* [V1 Retrieve Order](../../doc/apis/v1-transactions.md#v1-retrieve-order)
+* [V1 Update Order](../../doc/apis/v1-transactions.md#v1-update-order)
+* [V1 List Payments](../../doc/apis/v1-transactions.md#v1-list-payments)
+* [V1 Retrieve Payment](../../doc/apis/v1-transactions.md#v1-retrieve-payment)
+* [V1 List Refunds](../../doc/apis/v1-transactions.md#v1-list-refunds)
+* [V1 Create Refund](../../doc/apis/v1-transactions.md#v1-create-refund)
+* [V1 List Settlements](../../doc/apis/v1-transactions.md#v1-list-settlements)
+* [V1 Retrieve Settlement](../../doc/apis/v1-transactions.md#v1-retrieve-settlement)
 
 
-# List Orders
+# V1 List Orders
 
 **This endpoint is deprecated.**
 
 Provides summary information for a merchant's online store orders.
 
 ```php
-function listOrders(
+function v1ListOrders(
     string $locationId,
     ?string $order = null,
     ?int $limit = null,
@@ -54,7 +54,7 @@ function listOrders(
 ```php
 $locationId = 'location_id4';
 
-$apiResponse = $v1TransactionsApi->listOrders($locationId);
+$apiResponse = $v1TransactionsApi->v1ListOrders($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -68,14 +68,14 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Retrieve Order
+# V1 Retrieve Order
 
 **This endpoint is deprecated.**
 
 Provides comprehensive information for a single online store order, including the order's history.
 
 ```php
-function retrieveOrder(string $locationId, string $orderId): ApiResponse
+function v1RetrieveOrder(string $locationId, string $orderId): ApiResponse
 ```
 
 ## Parameters
@@ -95,7 +95,7 @@ function retrieveOrder(string $locationId, string $orderId): ApiResponse
 $locationId = 'location_id4';
 $orderId = 'order_id6';
 
-$apiResponse = $v1TransactionsApi->retrieveOrder($locationId, $orderId);
+$apiResponse = $v1TransactionsApi->v1RetrieveOrder($locationId, $orderId);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -109,14 +109,14 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Update Order
+# V1 Update Order
 
 **This endpoint is deprecated.**
 
 Updates the details of an online store order. Every update you perform on an order corresponds to one of three actions:
 
 ```php
-function updateOrder(string $locationId, string $orderId, V1UpdateOrderRequest $body): ApiResponse
+function v1UpdateOrder(string $locationId, string $orderId, V1UpdateOrderRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -141,7 +141,7 @@ $body = new Models\V1UpdateOrderRequest(
     $body_action
 );
 
-$apiResponse = $v1TransactionsApi->updateOrder($locationId, $orderId, $body);
+$apiResponse = $v1TransactionsApi->v1UpdateOrder($locationId, $orderId, $body);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -155,7 +155,7 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# List Payments
+# V1 List Payments
 
 **This endpoint is deprecated.**
 
@@ -172,7 +172,7 @@ list an offline payment chronologically between online payments that
 were seen in a previous request.
 
 ```php
-function listPayments(
+function v1ListPayments(
     string $locationId,
     ?string $order = null,
     ?string $beginTime = null,
@@ -205,7 +205,7 @@ function listPayments(
 $locationId = 'location_id4';
 $includePartial = false;
 
-$apiResponse = $v1TransactionsApi->listPayments($locationId, null, null, null, null, null, $includePartial);
+$apiResponse = $v1TransactionsApi->v1ListPayments($locationId, null, null, null, null, null, $includePartial);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -219,14 +219,14 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Retrieve Payment
+# V1 Retrieve Payment
 
 **This endpoint is deprecated.**
 
 Provides comprehensive information for a single payment.
 
 ```php
-function retrievePayment(string $locationId, string $paymentId): ApiResponse
+function v1RetrievePayment(string $locationId, string $paymentId): ApiResponse
 ```
 
 ## Parameters
@@ -246,7 +246,7 @@ function retrievePayment(string $locationId, string $paymentId): ApiResponse
 $locationId = 'location_id4';
 $paymentId = 'payment_id0';
 
-$apiResponse = $v1TransactionsApi->retrievePayment($locationId, $paymentId);
+$apiResponse = $v1TransactionsApi->v1RetrievePayment($locationId, $paymentId);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -260,14 +260,14 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# List Refunds
+# V1 List Refunds
 
 **This endpoint is deprecated.**
 
 Provides the details for all refunds initiated by a merchant or any of the merchant's mobile staff during a date range. Date ranges cannot exceed one year in length.
 
 ```php
-function listRefunds(
+function v1ListRefunds(
     string $locationId,
     ?string $order = null,
     ?string $beginTime = null,
@@ -297,7 +297,7 @@ function listRefunds(
 ```php
 $locationId = 'location_id4';
 
-$apiResponse = $v1TransactionsApi->listRefunds($locationId);
+$apiResponse = $v1TransactionsApi->v1ListRefunds($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Refund = $apiResponse->getResult();
@@ -311,7 +311,7 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Create Refund
+# V1 Create Refund
 
 **This endpoint is deprecated.**
 
@@ -329,7 +329,7 @@ purposes, you can create fake cash payments in Square Point of Sale and
 refund them.
 
 ```php
-function createRefund(string $locationId, V1CreateRefundRequest $body): ApiResponse
+function v1CreateRefund(string $locationId, V1CreateRefundRequest $body): ApiResponse
 ```
 
 ## Parameters
@@ -356,7 +356,7 @@ $body = new Models\V1CreateRefundRequest(
     $body_reason
 );
 
-$apiResponse = $v1TransactionsApi->createRefund($locationId, $body);
+$apiResponse = $v1TransactionsApi->v1CreateRefund($locationId, $body);
 
 if ($apiResponse->isSuccess()) {
     $v1Refund = $apiResponse->getResult();
@@ -370,7 +370,7 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# List Settlements
+# V1 List Settlements
 
 **This endpoint is deprecated.**
 
@@ -382,7 +382,7 @@ ranges cannot exceed one year in length.
 information.
 
 ```php
-function listSettlements(
+function v1ListSettlements(
     string $locationId,
     ?string $order = null,
     ?string $beginTime = null,
@@ -414,7 +414,7 @@ function listSettlements(
 ```php
 $locationId = 'location_id4';
 
-$apiResponse = $v1TransactionsApi->listSettlements($locationId);
+$apiResponse = $v1TransactionsApi->v1ListSettlements($locationId);
 
 if ($apiResponse->isSuccess()) {
     $v1Settlement = $apiResponse->getResult();
@@ -428,7 +428,7 @@ if ($apiResponse->isSuccess()) {
 ```
 
 
-# Retrieve Settlement
+# V1 Retrieve Settlement
 
 **This endpoint is deprecated.**
 
@@ -451,7 +451,7 @@ a bank account within 3 business days, but in exceptional cases it may
 take longer.
 
 ```php
-function retrieveSettlement(string $locationId, string $settlementId): ApiResponse
+function v1RetrieveSettlement(string $locationId, string $settlementId): ApiResponse
 ```
 
 ## Parameters
@@ -471,7 +471,7 @@ function retrieveSettlement(string $locationId, string $settlementId): ApiRespon
 $locationId = 'location_id4';
 $settlementId = 'settlement_id0';
 
-$apiResponse = $v1TransactionsApi->retrieveSettlement($locationId, $settlementId);
+$apiResponse = $v1TransactionsApi->v1RetrieveSettlement($locationId, $settlementId);
 
 if ($apiResponse->isSuccess()) {
     $v1Settlement = $apiResponse->getResult();

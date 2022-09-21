@@ -44,11 +44,14 @@ class CustomersTest extends TestCase
      */
     protected static $httpResponse;
 
+    private static $key;
+
     /**
      * Setup test class
      */
     public static function setUpBeforeClass(): void
     {
+        self::$key = 'favorite-drink_' . phpversion();
         self::$httpResponse = new HttpCallBackCatcher();
         self::$controller = ClientFactory::create(self::$httpResponse)->getCustomersApi();
         self::$customAttributesController = ClientFactory::create(self::$httpResponse)->getCustomerCustomAttributesApi();
@@ -151,7 +154,7 @@ class CustomersTest extends TestCase
     // Delete the `favorite-drink` definition if it exists
     public function testCleanupCustomerCustomAttributeDefinition()
     {
-        $response = self::$customAttributesController->deleteCustomerCustomAttributeDefinition('favorite-drink');
+        $response = self::$customAttributesController->deleteCustomerCustomAttributeDefinition(self::$key);
         $result = $response->getResult();
         assert($result instanceof DeleteCustomerCustomAttributeDefinitionResponse);
 
@@ -167,8 +170,8 @@ class CustomersTest extends TestCase
     public function testCreateCustomerCustomAttributeDefinition(): ?CustomAttributeDefinition
     {
         $definition = new CustomAttributeDefinition;
-        $definition->setKey('favorite-drink');
-        $definition->setName('Favorite Drink');
+        $definition->setKey(self::$key);
+        $definition->setName('Favorite Drink' . phpversion());
         $definition->setDescription('The customer\'s favorite drink');
         $definition->setVisibility(CustomAttributeDefinitionVisibility::VISIBILITY_READ_WRITE_VALUES);
         $definition->setSchema('{"$ref":"https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String"}');
@@ -183,8 +186,8 @@ class CustomersTest extends TestCase
         $this->assertTrue($response->isSuccess());
         $this->assertEquals($response->getStatusCode(), 200);
         $this->assertNull($responseResult->getErrors());
-        $this->assertEquals($data->getKey(), 'favorite-drink');
-        $this->assertEquals($data->getName(), 'Favorite Drink');
+        $this->assertEquals($data->getKey(), self::$key);
+        $this->assertEquals($data->getName(), 'Favorite Drink' . phpversion());
         $this->assertEquals($data->getDescription(), 'The customer\'s favorite drink');
         $this->assertEquals($data->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');
         $this->assertEquals($data->getVersion(), 1);
@@ -199,7 +202,7 @@ class CustomersTest extends TestCase
      */
     public function testUpdateCustomerCustomAttributeDefinition(CustomAttributeDefinition $created): ?CustomAttributeDefinition
     {
-        $created->setName('Preferred Drink');
+        $created->setName('Preferred Drink' . phpversion());
         $updateRequest = new UpdateCustomerCustomAttributeDefinitionRequest($created);
 
         $response = self::$customAttributesController->updateCustomerCustomAttributeDefinition($created->getKey(), $updateRequest);
@@ -211,8 +214,8 @@ class CustomersTest extends TestCase
         $this->assertTrue($response->isSuccess());
         $this->assertEquals($response->getStatusCode(), 200);
         $this->assertNull($responseResult->getErrors());
-        $this->assertEquals($data->getKey(), 'favorite-drink');
-        $this->assertEquals($data->getName(), 'Preferred Drink');
+        $this->assertEquals($data->getKey(), self::$key);
+        $this->assertEquals($data->getName(), 'Preferred Drink' . phpversion());
         $this->assertEquals($data->getDescription(), 'The customer\'s favorite drink');
         $this->assertEquals($data->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');
         $this->assertEquals($data->getVersion(), 2);
@@ -243,7 +246,7 @@ class CustomersTest extends TestCase
         assert($responseResult instanceof UpsertCustomerCustomAttributeResponse);
         $this->assertNull($responseResult->getErrors());
         $result = $responseResult->getCustomAttribute();
-        $this->assertEquals($result->getKey(), 'favorite-drink');
+        $this->assertEquals($result->getKey(), self::$key);
         $this->assertEquals($result->getValue(), 'Double-shot breve');
         $this->assertEquals($result->getVersion(), 1);
         $this->assertEquals($result->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');
@@ -274,7 +277,7 @@ class CustomersTest extends TestCase
         assert($responseResult instanceof UpsertCustomerCustomAttributeResponse);
         $this->assertNull($responseResult->getErrors());
         $result = $responseResult->getCustomAttribute();
-        $this->assertEquals($result->getKey(), 'favorite-drink');
+        $this->assertEquals($result->getKey(), self::$key);
         $this->assertEquals($result->getValue(), 'Black coffee');
         $this->assertEquals($result->getVersion(), 2);
         $this->assertEquals($result->getVisibility(), 'VISIBILITY_READ_WRITE_VALUES');

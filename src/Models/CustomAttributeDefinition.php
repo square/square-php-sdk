@@ -103,9 +103,10 @@ class CustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Returns Schema.
-     * The JSON schema for the custom attribute definition. For more information about the schema,
+     * The JSON schema for the custom attribute definition, which determines the data type of the
+     * corresponding custom attributes. For more information,
      * see [Custom Attributes Overview](https://developer.squareup.
-     * com/docs/devtools/customattributes/overview).
+     * com/docs/devtools/customattributes/overview). This field is required when creating a definition.
      *
      * @return mixed
      */
@@ -116,9 +117,10 @@ class CustomAttributeDefinition implements \JsonSerializable
 
     /**
      * Sets Schema.
-     * The JSON schema for the custom attribute definition. For more information about the schema,
+     * The JSON schema for the custom attribute definition, which determines the data type of the
+     * corresponding custom attributes. For more information,
      * see [Custom Attributes Overview](https://developer.squareup.
-     * com/docs/devtools/customattributes/overview).
+     * com/docs/devtools/customattributes/overview). This field is required when creating a definition.
      *
      * @maps schema
      *
