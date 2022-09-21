@@ -78,7 +78,7 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Returns Status.
      * Filtered results with the desired status of the `TerminalCheckout`.
-     * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -88,7 +88,7 @@ class TerminalCheckoutQueryFilter implements \JsonSerializable
     /**
      * Sets Status.
      * Filtered results with the desired status of the `TerminalCheckout`.
-     * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */

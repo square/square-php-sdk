@@ -143,7 +143,7 @@ class TerminalAction implements \JsonSerializable
     /**
      * Returns Status.
      * The status of the `TerminalAction`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -153,7 +153,7 @@ class TerminalAction implements \JsonSerializable
     /**
      * Sets Status.
      * The status of the `TerminalAction`.
-     * Options: `PENDING`, `IN_PROGRESS`, `CANCELED`, `COMPLETED`
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */

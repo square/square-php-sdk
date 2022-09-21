@@ -81,7 +81,7 @@ class TerminalActionQueryFilter implements \JsonSerializable
     /**
      * Returns Status.
      * Filter results with the desired status of the `TerminalAction`
-     * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      */
     public function getStatus(): ?string
     {
@@ -91,7 +91,7 @@ class TerminalActionQueryFilter implements \JsonSerializable
     /**
      * Sets Status.
      * Filter results with the desired status of the `TerminalAction`
-     * Options: PENDING, IN_PROGRESS, CANCELED, COMPLETED
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, `COMPLETED`
      *
      * @maps status
      */

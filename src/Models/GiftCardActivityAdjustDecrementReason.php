@@ -10,18 +10,24 @@ namespace Square\Models;
 class GiftCardActivityAdjustDecrementReason
 {
     /**
-     * The seller determined suspicious activity by the buyer.
+     * The balance was decreased because the seller detected suspicious or fraudulent activity
+     * on the gift card.
      */
     public const SUSPICIOUS_ACTIVITY = 'SUSPICIOUS_ACTIVITY';
 
     /**
-     * The seller previously increased the gift card balance by accident.
+     * The balance was decreased to reverse an unintentional balance increase.
      */
     public const BALANCE_ACCIDENTALLY_INCREASED = 'BALANCE_ACCIDENTALLY_INCREASED';
 
     /**
-     * The seller decreased the gift card balance to
-     * accommodate support issues.
+     * The balance was decreased to accommodate support issues.
      */
     public const SUPPORT_ISSUE = 'SUPPORT_ISSUE';
+
+    /**
+     * The balance was decreased because the order used to purchase or reload the
+     * gift card was refunded.
+     */
+    public const PURCHASE_WAS_REFUNDED = 'PURCHASE_WAS_REFUNDED';
 }
