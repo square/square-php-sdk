@@ -4,30 +4,50 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\AccumulateLoyaltyPointsRequest;
+use Square\Models\AccumulateLoyaltyPointsResponse;
+use Square\Models\AdjustLoyaltyPointsRequest;
+use Square\Models\AdjustLoyaltyPointsResponse;
+use Square\Models\CalculateLoyaltyPointsRequest;
+use Square\Models\CalculateLoyaltyPointsResponse;
+use Square\Models\CancelLoyaltyPromotionResponse;
+use Square\Models\CreateLoyaltyAccountRequest;
+use Square\Models\CreateLoyaltyAccountResponse;
+use Square\Models\CreateLoyaltyPromotionRequest;
+use Square\Models\CreateLoyaltyPromotionResponse;
+use Square\Models\CreateLoyaltyRewardRequest;
+use Square\Models\CreateLoyaltyRewardResponse;
+use Square\Models\DeleteLoyaltyRewardResponse;
+use Square\Models\ListLoyaltyProgramsResponse;
+use Square\Models\ListLoyaltyPromotionsResponse;
+use Square\Models\RedeemLoyaltyRewardRequest;
+use Square\Models\RedeemLoyaltyRewardResponse;
+use Square\Models\RetrieveLoyaltyAccountResponse;
+use Square\Models\RetrieveLoyaltyProgramResponse;
+use Square\Models\RetrieveLoyaltyPromotionResponse;
+use Square\Models\RetrieveLoyaltyRewardResponse;
+use Square\Models\SearchLoyaltyAccountsRequest;
+use Square\Models\SearchLoyaltyAccountsResponse;
+use Square\Models\SearchLoyaltyEventsRequest;
+use Square\Models\SearchLoyaltyEventsResponse;
+use Square\Models\SearchLoyaltyRewardsRequest;
+use Square\Models\SearchLoyaltyRewardsResponse;
 
 class LoyaltyApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Creates a loyalty account. To create a loyalty account, you must provide the `program_id` and a
      * `mapping` with the `phone_number` of the buyer.
      *
-     * @param Models\CreateLoyaltyAccountRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateLoyaltyAccountRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -35,60 +55,15 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLoyaltyAccount(Models\CreateLoyaltyAccountRequest $body): ApiResponse
+    public function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/accounts')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateLoyaltyAccountResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateLoyaltyAccountResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -99,8 +74,8 @@ class LoyaltyApi extends BaseApi
      *
      * Search results are sorted by `created_at` in ascending order.
      *
-     * @param Models\SearchLoyaltyAccountsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchLoyaltyAccountsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -108,60 +83,15 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyAccounts(Models\SearchLoyaltyAccountsRequest $body): ApiResponse
+    public function searchLoyaltyAccounts(SearchLoyaltyAccountsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/accounts/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchLoyaltyAccountsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchLoyaltyAccountsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -175,59 +105,13 @@ class LoyaltyApi extends BaseApi
      */
     public function retrieveLoyaltyAccount(string $accountId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/loyalty/accounts/{account_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('account_id', $accountId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'account_id' => $accountId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveLoyaltyAccountResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveLoyaltyAccountResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -252,8 +136,8 @@ class LoyaltyApi extends BaseApi
      * promotions#calculate-promotion-points).
      *
      * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
-     * @param Models\AccumulateLoyaltyPointsRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param AccumulateLoyaltyPointsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -261,67 +145,19 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function accumulateLoyaltyPoints(
-        string $accountId,
-        Models\AccumulateLoyaltyPointsRequest $body
-    ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}/accumulate';
+    public function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/accounts/{account_id}/accumulate')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('account_id', $accountId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'account_id'   => $accountId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(AccumulateLoyaltyPointsResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'AccumulateLoyaltyPointsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -333,8 +169,8 @@ class LoyaltyApi extends BaseApi
      * to add points when a buyer pays for the purchase.
      *
      * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
-     * @param Models\AdjustLoyaltyPointsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param AdjustLoyaltyPointsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -342,65 +178,19 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function adjustLoyaltyPoints(string $accountId, Models\AdjustLoyaltyPointsRequest $body): ApiResponse
+    public function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/accounts/{account_id}/adjust';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/accounts/{account_id}/adjust')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('account_id', $accountId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'account_id'   => $accountId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(AdjustLoyaltyPointsResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'AdjustLoyaltyPointsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -413,8 +203,8 @@ class LoyaltyApi extends BaseApi
      *
      * Search results are sorted by `created_at` in descending order.
      *
-     * @param Models\SearchLoyaltyEventsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchLoyaltyEventsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -422,60 +212,15 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyEvents(Models\SearchLoyaltyEventsRequest $body): ApiResponse
+    public function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/events/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/events/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchLoyaltyEventsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchLoyaltyEventsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -498,54 +243,11 @@ class LoyaltyApi extends BaseApi
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/loyalty/programs')->auth('global');
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(ListLoyaltyProgramsResponse::class)->returnApiResponse();
 
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListLoyaltyProgramsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -565,59 +267,13 @@ class LoyaltyApi extends BaseApi
      */
     public function retrieveLoyaltyProgram(string $programId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/loyalty/programs/{program_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('program_id', $programId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'program_id' => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveLoyaltyProgramResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveLoyaltyProgramResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -644,8 +300,8 @@ class LoyaltyApi extends BaseApi
      *
      * @param string $programId The ID of the [loyalty program]($m/LoyaltyProgram), which defines
      *        the rules for accruing points.
-     * @param Models\CalculateLoyaltyPointsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CalculateLoyaltyPointsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -653,65 +309,19 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function calculateLoyaltyPoints(string $programId, Models\CalculateLoyaltyPointsRequest $body): ApiResponse
+    public function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/calculate';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/programs/{program_id}/calculate')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('program_id', $programId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'program_id'   => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CalculateLoyaltyPointsResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CalculateLoyaltyPointsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -747,66 +357,18 @@ class LoyaltyApi extends BaseApi
         ?string $cursor = null,
         ?int $limit = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/promotions';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/loyalty/programs/{program_id}/promotions')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('program_id', $programId),
+                QueryParam::init('status', $status),
+                QueryParam::init('cursor', $cursor),
+                QueryParam::init('limit', $limit)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'program_id' => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(ListLoyaltyPromotionsResponse::class)->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'status'     => $status,
-            'cursor'     => $cursor,
-            'limit'      => $limit,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListLoyaltyPromotionsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -822,8 +384,8 @@ class LoyaltyApi extends BaseApi
      *        To get the program ID, call
      *        [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram)
      *        using the `main` keyword.
-     * @param Models\CreateLoyaltyPromotionRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateLoyaltyPromotionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -831,65 +393,19 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLoyaltyPromotion(string $programId, Models\CreateLoyaltyPromotionRequest $body): ApiResponse
+    public function createLoyaltyPromotion(string $programId, CreateLoyaltyPromotionRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/programs/{program_id}/promotions';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/programs/{program_id}/promotions')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('program_id', $programId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'program_id'   => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CreateLoyaltyPromotionResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateLoyaltyPromotionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -908,61 +424,19 @@ class LoyaltyApi extends BaseApi
      */
     public function retrieveLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('promotion_id', $promotionId),
+                TemplateParam::init('program_id', $programId)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'promotion_id' => $promotionId,
-            'program_id'   => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveLoyaltyPromotionResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveLoyaltyPromotionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -986,61 +460,19 @@ class LoyaltyApi extends BaseApi
      */
     public function cancelLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}/cancel';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/loyalty/programs/{program_id}/promotions/{promotion_id}/cancel'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('promotion_id', $promotionId),
+                TemplateParam::init('program_id', $programId)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'promotion_id' => $promotionId,
-            'program_id'   => $programId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CancelLoyaltyPromotionResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelLoyaltyPromotionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1053,8 +485,8 @@ class LoyaltyApi extends BaseApi
      * After a reward is created, the points are locked and
      * not available for the buyer to redeem another reward.
      *
-     * @param Models\CreateLoyaltyRewardRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateLoyaltyRewardRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1062,60 +494,15 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLoyaltyReward(Models\CreateLoyaltyRewardRequest $body): ApiResponse
+    public function createLoyaltyReward(CreateLoyaltyRewardRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/rewards')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateLoyaltyRewardResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateLoyaltyRewardResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1128,8 +515,8 @@ class LoyaltyApi extends BaseApi
      *
      * Search results are sorted by `updated_at` in descending order.
      *
-     * @param Models\SearchLoyaltyRewardsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchLoyaltyRewardsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1137,60 +524,15 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchLoyaltyRewards(Models\SearchLoyaltyRewardsRequest $body): ApiResponse
+    public function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/rewards/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchLoyaltyRewardsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchLoyaltyRewardsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1212,59 +554,13 @@ class LoyaltyApi extends BaseApi
      */
     public function deleteLoyaltyReward(string $rewardId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::DELETE, '/v2/loyalty/rewards/{reward_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('reward_id', $rewardId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'reward_id' => $rewardId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(DeleteLoyaltyRewardResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'DeleteLoyaltyRewardResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1278,59 +574,13 @@ class LoyaltyApi extends BaseApi
      */
     public function retrieveLoyaltyReward(string $rewardId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/loyalty/rewards/{reward_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('reward_id', $rewardId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'reward_id' => $rewardId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveLoyaltyRewardResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveLoyaltyRewardResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1347,8 +597,8 @@ class LoyaltyApi extends BaseApi
      * to the account.
      *
      * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to redeem.
-     * @param Models\RedeemLoyaltyRewardRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param RedeemLoyaltyRewardRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -1356,64 +606,18 @@ class LoyaltyApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function redeemLoyaltyReward(string $rewardId, Models\RedeemLoyaltyRewardRequest $body): ApiResponse
+    public function redeemLoyaltyReward(string $rewardId, RedeemLoyaltyRewardRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/loyalty/rewards/{reward_id}/redeem';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/loyalty/rewards/{reward_id}/redeem')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('reward_id', $rewardId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'reward_id'    => $rewardId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RedeemLoyaltyRewardResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RedeemLoyaltyRewardResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

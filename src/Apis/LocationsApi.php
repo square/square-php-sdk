@@ -4,24 +4,21 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\CreateLocationRequest;
+use Square\Models\CreateLocationResponse;
+use Square\Models\ListLocationsResponse;
+use Square\Models\RetrieveLocationResponse;
+use Square\Models\UpdateLocationRequest;
+use Square\Models\UpdateLocationResponse;
 
 class LocationsApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Provides details about all of the seller's [locations](https://developer.squareup.com/docs/locations-
      * api),
@@ -33,54 +30,11 @@ class LocationsApi extends BaseApi
      */
     public function listLocations(): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/locations';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/locations')->auth('global');
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(ListLocationsResponse::class)->returnApiResponse();
 
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListLocationsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -92,69 +46,22 @@ class LocationsApi extends BaseApi
      * are visible to the seller for their own management. Therefore, ensure that
      * each location has a sensible and unique name.
      *
-     * @param Models\CreateLocationRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param CreateLocationRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createLocation(Models\CreateLocationRequest $body): ApiResponse
+    public function createLocation(CreateLocationRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/locations';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/locations')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateLocationResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateLocationResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -171,132 +78,38 @@ class LocationsApi extends BaseApi
      */
     public function retrieveLocation(string $locationId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/locations/{location_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('location_id', $locationId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'location_id' => $locationId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveLocationResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveLocationResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
      * Updates a [location](https://developer.squareup.com/docs/locations-api).
      *
      * @param string $locationId The ID of the location to update.
-     * @param Models\UpdateLocationRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param UpdateLocationRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateLocation(string $locationId, Models\UpdateLocationRequest $body): ApiResponse
+    public function updateLocation(string $locationId, UpdateLocationRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/locations/{location_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::PUT, '/v2/locations/{location_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('location_id', $locationId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'location_id'  => $locationId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(UpdateLocationResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdateLocationResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

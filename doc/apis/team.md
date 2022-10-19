@@ -47,16 +47,16 @@ function createTeamMember(CreateTeamMemberRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateTeamMemberRequest;
+$body = new Models\CreateTeamMemberRequest();
 $body->setIdempotencyKey('idempotency-key-0');
-$body->setTeamMember(new Models\TeamMember);
+$body->setTeamMember(new Models\TeamMember());
 $body->getTeamMember()->setReferenceId('reference_id_1');
 $body->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
 $body->getTeamMember()->setGivenName('Joe');
 $body->getTeamMember()->setFamilyName('Doe');
 $body->getTeamMember()->setEmailAddress('joe_doe@gmail.com');
 $body->getTeamMember()->setPhoneNumber('+14159283333');
-$body->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations);
+$body->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
 $body->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::EXPLICIT_LOCATIONS);
 $body->getTeamMember()->getAssignedLocations()->setLocationIds(['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']);
 
@@ -102,9 +102,9 @@ function bulkCreateTeamMembers(BulkCreateTeamMembersRequest $body): ApiResponse
 ```php
 $body_teamMembers = [];
 
-$body_teamMembers[''] = new Models\CreateTeamMemberRequest;
+$body_teamMembers[''] = new Models\CreateTeamMemberRequest();
 
-$body_teamMembers[''] = new Models\CreateTeamMemberRequest;
+$body_teamMembers[''] = new Models\CreateTeamMemberRequest();
 
 $body = new Models\BulkCreateTeamMembersRequest(
     $body_teamMembers
@@ -151,9 +151,9 @@ function bulkUpdateTeamMembers(BulkUpdateTeamMembersRequest $body): ApiResponse
 ```php
 $body_teamMembers = [];
 
-$body_teamMembers[''] = new Models\UpdateTeamMemberRequest;
+$body_teamMembers[''] = new Models\UpdateTeamMemberRequest();
 
-$body_teamMembers[''] = new Models\UpdateTeamMemberRequest;
+$body_teamMembers[''] = new Models\UpdateTeamMemberRequest();
 
 $body = new Models\BulkUpdateTeamMembersRequest(
     $body_teamMembers
@@ -198,9 +198,9 @@ function searchTeamMembers(SearchTeamMembersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchTeamMembersRequest;
-$body->setQuery(new Models\SearchTeamMembersQuery);
-$body->getQuery()->setFilter(new Models\SearchTeamMembersFilter);
+$body = new Models\SearchTeamMembersRequest();
+$body->setQuery(new Models\SearchTeamMembersQuery());
+$body->getQuery()->setFilter(new Models\SearchTeamMembersFilter());
 $body->getQuery()->getFilter()->setLocationIds(['0G5P3VGACMMQZ']);
 $body->getQuery()->getFilter()->setStatus(Models\TeamMemberStatus::ACTIVE);
 $body->setLimit(10);
@@ -281,15 +281,15 @@ function updateTeamMember(string $teamMemberId, UpdateTeamMemberRequest $body): 
 
 ```php
 $teamMemberId = 'team_member_id0';
-$body = new Models\UpdateTeamMemberRequest;
-$body->setTeamMember(new Models\TeamMember);
+$body = new Models\UpdateTeamMemberRequest();
+$body->setTeamMember(new Models\TeamMember());
 $body->getTeamMember()->setReferenceId('reference_id_1');
 $body->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
 $body->getTeamMember()->setGivenName('Joe');
 $body->getTeamMember()->setFamilyName('Doe');
 $body->getTeamMember()->setEmailAddress('joe_doe@gmail.com');
 $body->getTeamMember()->setPhoneNumber('+14159283333');
-$body->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations);
+$body->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
 $body->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::EXPLICIT_LOCATIONS);
 $body->getTeamMember()->getAssignedLocations()->setLocationIds(['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']);
 
@@ -373,7 +373,7 @@ function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body)
 
 ```php
 $teamMemberId = 'team_member_id0';
-$body_wageSetting = new Models\WageSetting;
+$body_wageSetting = new Models\WageSetting();
 $body_wageSetting_jobAssignments = [];
 
 $body_wageSetting_jobAssignments_0_jobTitle = 'Manager';
@@ -382,7 +382,7 @@ $body_wageSetting_jobAssignments[0] = new Models\JobAssignment(
     $body_wageSetting_jobAssignments_0_jobTitle,
     $body_wageSetting_jobAssignments_0_payType
 );
-$body_wageSetting_jobAssignments[0]->setAnnualRate(new Models\Money);
+$body_wageSetting_jobAssignments[0]->setAnnualRate(new Models\Money());
 $body_wageSetting_jobAssignments[0]->getAnnualRate()->setAmount(3000000);
 $body_wageSetting_jobAssignments[0]->getAnnualRate()->setCurrency(Models\Currency::USD);
 $body_wageSetting_jobAssignments[0]->setWeeklyHours(40);
@@ -393,7 +393,7 @@ $body_wageSetting_jobAssignments[1] = new Models\JobAssignment(
     $body_wageSetting_jobAssignments_1_jobTitle,
     $body_wageSetting_jobAssignments_1_payType
 );
-$body_wageSetting_jobAssignments[1]->setHourlyRate(new Models\Money);
+$body_wageSetting_jobAssignments[1]->setHourlyRate(new Models\Money());
 $body_wageSetting_jobAssignments[1]->getHourlyRate()->setAmount(1200);
 $body_wageSetting_jobAssignments[1]->getHourlyRate()->setCurrency(Models\Currency::USD);
 $body_wageSetting->setJobAssignments($body_wageSetting_jobAssignments);

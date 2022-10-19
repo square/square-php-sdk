@@ -14,6 +14,11 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetail implements \JsonSerializab
     private $paymentId;
 
     /**
+     * @var string|null
+     */
+    private $refundId;
+
+    /**
      * Returns Payment Id.
      * The ID of the payment associated with this activity.
      */
@@ -34,6 +39,26 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetail implements \JsonSerializab
     }
 
     /**
+     * Returns Refund Id.
+     * The public refund id associated with this activity.
+     */
+    public function getRefundId(): ?string
+    {
+        return $this->refundId;
+    }
+
+    /**
+     * Sets Refund Id.
+     * The public refund id associated with this activity.
+     *
+     * @maps refund_id
+     */
+    public function setRefundId(?string $refundId): void
+    {
+        $this->refundId = $refundId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -47,6 +72,9 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetail implements \JsonSerializab
         $json = [];
         if (isset($this->paymentId)) {
             $json['payment_id'] = $this->paymentId;
+        }
+        if (isset($this->refundId)) {
+            $json['refund_id']  = $this->refundId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -1,6 +1,8 @@
 <?php
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 use Square\Exceptions\ApiException;
 use Square\Exceptions;
 use Square\ApiHelper;
@@ -40,7 +42,7 @@ class OrdersTest extends TestCase
     protected static $Locations;
 
     /**
-     * @var HttpCallBackCatcher Callback
+     * @var CallbackCatcher Callback
      */
     protected static $httpResponse;
 
@@ -49,7 +51,7 @@ class OrdersTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        self::$httpResponse = new HttpCallBackCatcher();
+        self::$httpResponse = new CallbackCatcher();
         $client = ClientFactory::create(self::$httpResponse);
         self::$controller = $client->getOrdersApi();
         self::$Locations = $client->getLocationsApi();

@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Square;
 
-use Square\Http\HttpRequest;
+use Core\Authentication\CoreAuth;
+use Core\Request\Parameters\HeaderParam;
 
 /**
  * Utility class for authorization and token management.
  */
-class BearerAuthManager implements AuthManagerInterface, BearerAuthCredentials
+class BearerAuthManager extends CoreAuth implements BearerAuthCredentials
 {
     private $accessToken;
 
@@ -20,6 +21,7 @@ class BearerAuthManager implements AuthManagerInterface, BearerAuthCredentials
      */
     public function __construct(string $accessToken)
     {
+        parent::__construct(HeaderParam::init('Authorization', 'Bearer ' . $accessToken)->required());
         $this->accessToken = $accessToken;
     }
 
@@ -39,13 +41,5 @@ class BearerAuthManager implements AuthManagerInterface, BearerAuthCredentials
     public function equals(string $accessToken): bool
     {
         return $accessToken == $this->accessToken;
-    }
-
-    /**
-     * Adds authentication to the given HttpRequest.
-     */
-    public function apply(HttpRequest $httpRequest)
-    {
-        $httpRequest->addHeader('Authorization', 'Bearer ' . $this->accessToken);
     }
 }

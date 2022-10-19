@@ -2,6 +2,8 @@
 
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 use Square\Models\Address;
 use Square\Models\CreateCustomerCustomAttributeDefinitionRequest;
 use Square\Models\CreateCustomerCustomAttributeDefinitionResponse;
@@ -40,7 +42,7 @@ class CustomersTest extends TestCase
     protected static $Locations;
 
     /**
-     * @var HttpCallBackCatcher Callback
+     * @var CallbackCatcher Callback
      */
     protected static $httpResponse;
 
@@ -52,7 +54,7 @@ class CustomersTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         self::$key = 'favorite-drink_' . phpversion();
-        self::$httpResponse = new HttpCallBackCatcher();
+        self::$httpResponse = new CallbackCatcher();
         self::$controller = ClientFactory::create(self::$httpResponse)->getCustomersApi();
         self::$customAttributesController = ClientFactory::create(self::$httpResponse)->getCustomerCustomAttributesApi();
     }

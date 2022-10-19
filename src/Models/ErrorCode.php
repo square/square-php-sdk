@@ -568,6 +568,11 @@ class ErrorCode
     public const REFUND_DECLINED = 'REFUND_DECLINED';
 
     /**
+     * The Square account does not have the permissions to process this refund.
+     */
+    public const INSUFFICIENT_PERMISSIONS_FOR_REFUND = 'INSUFFICIENT_PERMISSIONS_FOR_REFUND';
+
+    /**
      * Generic error - the provided card data is invalid.
      */
     public const INVALID_CARD_DATA = 'INVALID_CARD_DATA';
@@ -703,7 +708,7 @@ class ErrorCode
     /**
      * Square could not find the associated Apple Pay certificate.
      */
-    public const APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND     =
+    public const APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND =
         'APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND';
 
     /**

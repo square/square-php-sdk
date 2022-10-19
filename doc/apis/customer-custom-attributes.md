@@ -96,7 +96,7 @@ function createCustomerCustomAttributeDefinition(
 ## Example Usage
 
 ```php
-$body_customAttributeDefinition = new Models\CustomAttributeDefinition;
+$body_customAttributeDefinition = new Models\CustomAttributeDefinition();
 $body_customAttributeDefinition->setKey('favoritemovie');
 $body_customAttributeDefinition->setName('Favorite Movie');
 $body_customAttributeDefinition->setDescription('The favorite movie of the customer.');
@@ -235,7 +235,7 @@ function updateCustomerCustomAttributeDefinition(
 
 ```php
 $key = 'key0';
-$body_customAttributeDefinition = new Models\CustomAttributeDefinition;
+$body_customAttributeDefinition = new Models\CustomAttributeDefinition();
 $body_customAttributeDefinition->setDescription('Update the description as desired.');
 $body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_READ_ONLY);
 $body = new Models\UpdateCustomerCustomAttributeDefinitionRequest(
@@ -293,35 +293,35 @@ function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRe
 $body_values = [];
 
 $body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute;
+$body_values__customAttribute = new Models\CustomAttribute();
 $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
     $body_values__customerId,
     $body_values__customAttribute
 );
 
 $body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute;
+$body_values__customAttribute = new Models\CustomAttribute();
 $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
     $body_values__customerId,
     $body_values__customAttribute
 );
 
 $body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute;
+$body_values__customAttribute = new Models\CustomAttribute();
 $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
     $body_values__customerId,
     $body_values__customAttribute
 );
 
 $body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute;
+$body_values__customAttribute = new Models\CustomAttribute();
 $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
     $body_values__customerId,
     $body_values__customAttribute
 );
 
 $body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute;
+$body_values__customAttribute = new Models\CustomAttribute();
 $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
     $body_values__customerId,
     $body_values__customAttribute
@@ -532,7 +532,7 @@ function upsertCustomerCustomAttribute(
 ```php
 $customerId = 'customer_id8';
 $key = 'key0';
-$body_customAttribute = new Models\CustomAttribute;
+$body_customAttribute = new Models\CustomAttribute();
 $body_customAttribute->setValue('"Dune"');
 $body = new Models\UpsertCustomerCustomAttributeRequest(
     $body_customAttribute

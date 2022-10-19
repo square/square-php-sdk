@@ -51,7 +51,7 @@ function createCheckout(string $locationId, CreateCheckoutRequest $body): ApiRes
 ```php
 $locationId = 'location_id4';
 $body_idempotencyKey = '86ae1696-b1e3-4328-af6d-f1e04d947ad6';
-$body_order = new Models\CreateOrderRequest;
+$body_order = new Models\CreateOrderRequest();
 $body_order_order_locationId = 'location_id';
 $body_order->setOrder(new Models\Order(
     $body_order_order_locationId
@@ -81,7 +81,7 @@ $body_order_order_lineItems_0_appliedDiscounts[0] = new Models\OrderLineItemAppl
 );
 $body_order_order_lineItems[0]->setAppliedDiscounts($body_order_order_lineItems_0_appliedDiscounts);
 
-$body_order_order_lineItems[0]->setBasePriceMoney(new Models\Money);
+$body_order_order_lineItems[0]->setBasePriceMoney(new Models\Money());
 $body_order_order_lineItems[0]->getBasePriceMoney()->setAmount(1500);
 $body_order_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
@@ -90,7 +90,7 @@ $body_order_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_order_lineItems_1_quantity
 );
 $body_order_order_lineItems[1]->setName('Slim Jeans');
-$body_order_order_lineItems[1]->setBasePriceMoney(new Models\Money);
+$body_order_order_lineItems[1]->setBasePriceMoney(new Models\Money());
 $body_order_order_lineItems[1]->getBasePriceMoney()->setAmount(2500);
 $body_order_order_lineItems[1]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
@@ -99,14 +99,14 @@ $body_order_order_lineItems[2] = new Models\OrderLineItem(
     $body_order_order_lineItems_2_quantity
 );
 $body_order_order_lineItems[2]->setName('Woven Sweater');
-$body_order_order_lineItems[2]->setBasePriceMoney(new Models\Money);
+$body_order_order_lineItems[2]->setBasePriceMoney(new Models\Money());
 $body_order_order_lineItems[2]->getBasePriceMoney()->setAmount(3500);
 $body_order_order_lineItems[2]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 $body_order->getOrder()->setLineItems($body_order_order_lineItems);
 
 $body_order_order_taxes = [];
 
-$body_order_order_taxes[0] = new Models\OrderLineItemTax;
+$body_order_order_taxes[0] = new Models\OrderLineItemTax();
 $body_order_order_taxes[0]->setUid('38ze1696-z1e3-5628-af6d-f1e04d947fg3');
 $body_order_order_taxes[0]->setType(Models\OrderLineItemTaxType::INCLUSIVE);
 $body_order_order_taxes[0]->setPercentage('7.75');
@@ -115,10 +115,10 @@ $body_order->getOrder()->setTaxes($body_order_order_taxes);
 
 $body_order_order_discounts = [];
 
-$body_order_order_discounts[0] = new Models\OrderLineItemDiscount;
+$body_order_order_discounts[0] = new Models\OrderLineItemDiscount();
 $body_order_order_discounts[0]->setUid('56ae1696-z1e3-9328-af6d-f1e04d947gd4');
 $body_order_order_discounts[0]->setType(Models\OrderLineItemDiscountType::FIXED_AMOUNT);
-$body_order_order_discounts[0]->setAmountMoney(new Models\Money);
+$body_order_order_discounts[0]->setAmountMoney(new Models\Money());
 $body_order_order_discounts[0]->getAmountMoney()->setAmount(100);
 $body_order_order_discounts[0]->getAmountMoney()->setCurrency(Models\Currency::USD);
 $body_order_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
@@ -132,7 +132,7 @@ $body = new Models\CreateCheckoutRequest(
 $body->setAskForShippingAddress(true);
 $body->setMerchantSupportEmail('merchant+support@website.com');
 $body->setPrePopulateBuyerEmail('example@email.com');
-$body->setPrePopulateShippingAddress(new Models\Address);
+$body->setPrePopulateShippingAddress(new Models\Address());
 $body->getPrePopulateShippingAddress()->setAddressLine1('1455 Market St.');
 $body->getPrePopulateShippingAddress()->setAddressLine2('Suite 600');
 $body->getPrePopulateShippingAddress()->setLocality('San Francisco');
@@ -225,10 +225,10 @@ function createPaymentLink(CreatePaymentLinkRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreatePaymentLinkRequest;
+$body = new Models\CreatePaymentLinkRequest();
 $body->setIdempotencyKey('cd9e25dc-d9f2-4430-aedb-61605070e95f');
 $body_quickPay_name = 'Auto Detailing';
-$body_quickPay_priceMoney = new Models\Money;
+$body_quickPay_priceMoney = new Models\Money();
 $body_quickPay_priceMoney->setAmount(10000);
 $body_quickPay_priceMoney->setCurrency(Models\Currency::USD);
 $body_quickPay_locationId = 'A9Y43N9ABXZBP';
@@ -355,7 +355,7 @@ $body_paymentLink_version = 1;
 $body_paymentLink = new Models\PaymentLink(
     $body_paymentLink_version
 );
-$body_paymentLink->setCheckoutOptions(new Models\CheckoutOptions);
+$body_paymentLink->setCheckoutOptions(new Models\CheckoutOptions());
 $body_paymentLink->getCheckoutOptions()->setAskForShippingAddress(true);
 $body = new Models\UpdatePaymentLinkRequest(
     $body_paymentLink

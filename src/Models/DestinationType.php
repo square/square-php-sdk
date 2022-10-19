@@ -22,8 +22,7 @@ class DestinationType
     public const SQUARE_BALANCE = 'SQUARE_BALANCE';
 
     /**
-     * Square Checking or Savings account (US), Square Card (CA), Square Current account (UK),
-     * Square Compte Courant (FR), Cuenta Corriente Square (ES)
+     * Square Checking or Savings account (US), Square Card (CA)
      */
     public const SQUARE_STORED_BALANCE = 'SQUARE_STORED_BALANCE';
 }

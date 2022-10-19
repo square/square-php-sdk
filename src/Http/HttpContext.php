@@ -4,37 +4,13 @@ declare(strict_types=1);
 
 namespace Square\Http;
 
+use Core\Types\Sdk\CoreContext;
+
 /**
  * Represents an HTTP call in context
  */
-class HttpContext
+class HttpContext extends CoreContext
 {
-    /**
-     * Http request sent
-     *
-     * @var HttpRequest
-     */
-    private $request = null;
-
-    /**
-     * Http response recevied
-     *
-     * @var HttpResponse
-     */
-    private $response = null;
-
-    /**
-     * Create an instance of HttpContext for an Http Call
-     *
-     * @param HttpRequest  $request  Request first sent on http call
-     * @param HttpResponse $response Response received from http call
-     */
-    public function __construct(HttpRequest $request, HttpResponse $response)
-    {
-        $this->request = $request;
-        $this->response = $response;
-    }
-
     /**
      * Returns the HTTP Request
      *

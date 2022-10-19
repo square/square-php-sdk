@@ -47,7 +47,7 @@ function createOrder(CreateOrderRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateOrderRequest;
+$body = new Models\CreateOrderRequest();
 $body_order_locationId = '057P5VYJ4A5X1';
 $body->setOrder(new Models\Order(
     $body_order_locationId
@@ -60,7 +60,7 @@ $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
 $body_order_lineItems[0]->setName('New York Strip Steak');
-$body_order_lineItems[0]->setBasePriceMoney(new Models\Money);
+$body_order_lineItems[0]->setBasePriceMoney(new Models\Money());
 $body_order_lineItems[0]->getBasePriceMoney()->setAmount(1599);
 $body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
@@ -71,7 +71,7 @@ $body_order_lineItems[1] = new Models\OrderLineItem(
 $body_order_lineItems[1]->setCatalogObjectId('BEMYCSMIJL46OCDV4KYIKXIB');
 $body_order_lineItems_1_modifiers = [];
 
-$body_order_lineItems_1_modifiers[0] = new Models\OrderLineItemModifier;
+$body_order_lineItems_1_modifiers[0] = new Models\OrderLineItemModifier();
 $body_order_lineItems_1_modifiers[0]->setCatalogObjectId('CHQX7Y4KY6N5KINJKZCFURPZ');
 $body_order_lineItems[1]->setModifiers($body_order_lineItems_1_modifiers);
 
@@ -87,7 +87,7 @@ $body->getOrder()->setLineItems($body_order_lineItems);
 
 $body_order_taxes = [];
 
-$body_order_taxes[0] = new Models\OrderLineItemTax;
+$body_order_taxes[0] = new Models\OrderLineItemTax();
 $body_order_taxes[0]->setUid('state-sales-tax');
 $body_order_taxes[0]->setName('State Sales Tax');
 $body_order_taxes[0]->setPercentage('9');
@@ -96,21 +96,21 @@ $body->getOrder()->setTaxes($body_order_taxes);
 
 $body_order_discounts = [];
 
-$body_order_discounts[0] = new Models\OrderLineItemDiscount;
+$body_order_discounts[0] = new Models\OrderLineItemDiscount();
 $body_order_discounts[0]->setUid('labor-day-sale');
 $body_order_discounts[0]->setName('Labor Day Sale');
 $body_order_discounts[0]->setPercentage('5');
 $body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 
-$body_order_discounts[1] = new Models\OrderLineItemDiscount;
+$body_order_discounts[1] = new Models\OrderLineItemDiscount();
 $body_order_discounts[1]->setUid('membership-discount');
 $body_order_discounts[1]->setCatalogObjectId('DB7L55ZH2BGWI4H23ULIWOQ7');
 $body_order_discounts[1]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 
-$body_order_discounts[2] = new Models\OrderLineItemDiscount;
+$body_order_discounts[2] = new Models\OrderLineItemDiscount();
 $body_order_discounts[2]->setUid('one-dollar-off');
 $body_order_discounts[2]->setName('Sale - $1.00 off');
-$body_order_discounts[2]->setAmountMoney(new Models\Money);
+$body_order_discounts[2]->setAmountMoney(new Models\Money());
 $body_order_discounts[2]->getAmountMoney()->setAmount(100);
 $body_order_discounts[2]->getAmountMoney()->setCurrency(Models\Currency::USD);
 $body_order_discounts[2]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
@@ -207,7 +207,7 @@ $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
 $body_order_lineItems[0]->setName('Item 1');
-$body_order_lineItems[0]->setBasePriceMoney(new Models\Money);
+$body_order_lineItems[0]->setBasePriceMoney(new Models\Money());
 $body_order_lineItems[0]->getBasePriceMoney()->setAmount(500);
 $body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
@@ -216,14 +216,14 @@ $body_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_lineItems_1_quantity
 );
 $body_order_lineItems[1]->setName('Item 2');
-$body_order_lineItems[1]->setBasePriceMoney(new Models\Money);
+$body_order_lineItems[1]->setBasePriceMoney(new Models\Money());
 $body_order_lineItems[1]->getBasePriceMoney()->setAmount(300);
 $body_order_lineItems[1]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 $body_order->setLineItems($body_order_lineItems);
 
 $body_order_discounts = [];
 
-$body_order_discounts[0] = new Models\OrderLineItemDiscount;
+$body_order_discounts[0] = new Models\OrderLineItemDiscount();
 $body_order_discounts[0]->setName('50% Off');
 $body_order_discounts[0]->setPercentage('50');
 $body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
@@ -327,16 +327,16 @@ function searchOrders(SearchOrdersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchOrdersRequest;
+$body = new Models\SearchOrdersRequest();
 $body->setLocationIds(['057P5VYJ4A5X1', '18YC4JDH91E1H']);
-$body->setQuery(new Models\SearchOrdersQuery);
-$body->getQuery()->setFilter(new Models\SearchOrdersFilter);
+$body->setQuery(new Models\SearchOrdersQuery());
+$body->getQuery()->setFilter(new Models\SearchOrdersFilter());
 $body_query_filter_stateFilter_states = [Models\OrderState::COMPLETED];
 $body->getQuery()->getFilter()->setStateFilter(new Models\SearchOrdersStateFilter(
     $body_query_filter_stateFilter_states
 ));
-$body->getQuery()->getFilter()->setDateTimeFilter(new Models\SearchOrdersDateTimeFilter);
-$body->getQuery()->getFilter()->getDateTimeFilter()->setClosedAt(new Models\TimeRange);
+$body->getQuery()->getFilter()->setDateTimeFilter(new Models\SearchOrdersDateTimeFilter());
+$body->getQuery()->getFilter()->getDateTimeFilter()->setClosedAt(new Models\TimeRange());
 $body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setStartAt('2018-03-03T20:00:00+00:00');
 $body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setEndAt('2019-03-04T21:54:45+00:00');
 $body_query_sort_sortField = Models\SearchOrdersSortField::CLOSED_AT;
@@ -435,7 +435,7 @@ function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
 
 ```php
 $orderId = 'order_id6';
-$body = new Models\UpdateOrderRequest;
+$body = new Models\UpdateOrderRequest();
 
 $apiResponse = $ordersApi->updateOrder($orderId, $body);
 

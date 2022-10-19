@@ -4,29 +4,38 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\CancelTerminalActionResponse;
+use Square\Models\CancelTerminalCheckoutResponse;
+use Square\Models\CancelTerminalRefundResponse;
+use Square\Models\CreateTerminalActionRequest;
+use Square\Models\CreateTerminalActionResponse;
+use Square\Models\CreateTerminalCheckoutRequest;
+use Square\Models\CreateTerminalCheckoutResponse;
+use Square\Models\CreateTerminalRefundRequest;
+use Square\Models\CreateTerminalRefundResponse;
+use Square\Models\GetTerminalActionResponse;
+use Square\Models\GetTerminalCheckoutResponse;
+use Square\Models\GetTerminalRefundResponse;
+use Square\Models\SearchTerminalActionsRequest;
+use Square\Models\SearchTerminalActionsResponse;
+use Square\Models\SearchTerminalCheckoutsRequest;
+use Square\Models\SearchTerminalCheckoutsResponse;
+use Square\Models\SearchTerminalRefundsRequest;
+use Square\Models\SearchTerminalRefundsResponse;
 
 class TerminalApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Creates a Terminal action request and sends it to the specified device.
      *
-     * @param Models\CreateTerminalActionRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateTerminalActionRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -34,68 +43,23 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTerminalAction(Models\CreateTerminalActionRequest $body): ApiResponse
+    public function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/actions';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/actions')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateTerminalActionResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateTerminalActionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
      * Retrieves a filtered list of Terminal action requests created by the account making the request.
      * Terminal action requests are available for 30 days.
      *
-     * @param Models\SearchTerminalActionsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchTerminalActionsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -103,60 +67,15 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTerminalActions(Models\SearchTerminalActionsRequest $body): ApiResponse
+    public function searchTerminalActions(SearchTerminalActionsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/actions/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/actions/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchTerminalActionsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchTerminalActionsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -171,59 +90,13 @@ class TerminalApi extends BaseApi
      */
     public function getTerminalAction(string $actionId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/actions/{action_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/terminals/actions/{action_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('action_id', $actionId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'action_id' => $actionId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(GetTerminalActionResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'GetTerminalActionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -237,67 +110,21 @@ class TerminalApi extends BaseApi
      */
     public function cancelTerminalAction(string $actionId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/actions/{action_id}/cancel';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/actions/{action_id}/cancel')
+            ->auth('global')
+            ->parameters(TemplateParam::init('action_id', $actionId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'action_id' => $actionId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CancelTerminalActionResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelTerminalActionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
      * Creates a Terminal checkout request and sends it to the specified device to take a payment
      * for the requested amount.
      *
-     * @param Models\CreateTerminalCheckoutRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateTerminalCheckoutRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -305,60 +132,15 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTerminalCheckout(Models\CreateTerminalCheckoutRequest $body): ApiResponse
+    public function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/checkouts')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateTerminalCheckoutResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateTerminalCheckoutResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -366,8 +148,8 @@ class TerminalApi extends BaseApi
      * Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned.
      * Terminal checkout requests are available for 30 days.
      *
-     * @param Models\SearchTerminalCheckoutsRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param SearchTerminalCheckoutsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -375,60 +157,15 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTerminalCheckouts(Models\SearchTerminalCheckoutsRequest $body): ApiResponse
+    public function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/checkouts/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchTerminalCheckoutsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchTerminalCheckoutsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -443,59 +180,13 @@ class TerminalApi extends BaseApi
      */
     public function getTerminalCheckout(string $checkoutId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/{checkout_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/terminals/checkouts/{checkout_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('checkout_id', $checkoutId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'checkout_id' => $checkoutId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(GetTerminalCheckoutResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'GetTerminalCheckoutResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -509,59 +200,13 @@ class TerminalApi extends BaseApi
      */
     public function cancelTerminalCheckout(string $checkoutId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/checkouts/{checkout_id}/cancel';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/checkouts/{checkout_id}/cancel')
+            ->auth('global')
+            ->parameters(TemplateParam::init('checkout_id', $checkoutId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'checkout_id' => $checkoutId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CancelTerminalCheckoutResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelTerminalCheckoutResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -570,8 +215,8 @@ class TerminalApi extends BaseApi
      * for Terminal payments should use the Refunds API. For more information, see [Refunds
      * API]($e/Refunds).
      *
-     * @param Models\CreateTerminalRefundRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param CreateTerminalRefundRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -579,68 +224,23 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createTerminalRefund(Models\CreateTerminalRefundRequest $body): ApiResponse
+    public function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/refunds')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreateTerminalRefundResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateTerminalRefundResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
      * Retrieves a filtered list of Interac Terminal refund requests created by the seller making the
      * request. Terminal refund requests are available for 30 days.
      *
-     * @param Models\SearchTerminalRefundsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchTerminalRefundsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -648,60 +248,15 @@ class TerminalApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchTerminalRefunds(Models\SearchTerminalRefundsRequest $body): ApiResponse
+    public function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/refunds/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchTerminalRefundsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchTerminalRefundsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -715,59 +270,13 @@ class TerminalApi extends BaseApi
      */
     public function getTerminalRefund(string $terminalRefundId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/terminals/refunds/{terminal_refund_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/terminals/refunds/{terminal_refund_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('terminal_refund_id', $terminalRefundId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'terminal_refund_id' => $terminalRefundId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(GetTerminalRefundResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'       => $this->internalUserAgent,
-            'Accept'           => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'GetTerminalRefundResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -782,59 +291,13 @@ class TerminalApi extends BaseApi
      */
     public function cancelTerminalRefund(string $terminalRefundId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/terminals/refunds/{terminal_refund_id}/cancel';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/terminals/refunds/{terminal_refund_id}/cancel'
+        )->auth('global')->parameters(TemplateParam::init('terminal_refund_id', $terminalRefundId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'terminal_refund_id' => $terminalRefundId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CancelTerminalRefundResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'       => $this->internalUserAgent,
-            'Accept'           => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelTerminalRefundResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

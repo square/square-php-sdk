@@ -580,7 +580,8 @@ class Invoice implements \JsonSerializable
 
     /**
      * Returns Accepted Payment Methods.
-     * The payment methods that customers can use to pay an invoice on the Square-hosted invoice page.
+     * The payment methods that customers can use to pay an [invoice]($m/Invoice) on the Square-hosted
+     * invoice payment page.
      */
     public function getAcceptedPaymentMethods(): ?InvoiceAcceptedPaymentMethods
     {
@@ -589,7 +590,8 @@ class Invoice implements \JsonSerializable
 
     /**
      * Sets Accepted Payment Methods.
-     * The payment methods that customers can use to pay an invoice on the Square-hosted invoice page.
+     * The payment methods that customers can use to pay an [invoice]($m/Invoice) on the Square-hosted
+     * invoice payment page.
      *
      * @maps accepted_payment_methods
      */

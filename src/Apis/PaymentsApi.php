@@ -4,24 +4,27 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\CancelPaymentByIdempotencyKeyRequest;
+use Square\Models\CancelPaymentByIdempotencyKeyResponse;
+use Square\Models\CancelPaymentResponse;
+use Square\Models\CompletePaymentRequest;
+use Square\Models\CompletePaymentResponse;
+use Square\Models\CreatePaymentRequest;
+use Square\Models\CreatePaymentResponse;
+use Square\Models\GetPaymentResponse;
+use Square\Models\ListPaymentsResponse;
+use Square\Models\UpdatePaymentRequest;
+use Square\Models\UpdatePaymentResponse;
 
 class PaymentsApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Retrieves a list of payments taken by the account making the request.
      *
@@ -74,67 +77,23 @@ class PaymentsApi extends BaseApi
         ?string $cardBrand = null,
         ?int $limit = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/payments')
+            ->auth('global')
+            ->parameters(
+                QueryParam::init('begin_time', $beginTime),
+                QueryParam::init('end_time', $endTime),
+                QueryParam::init('sort_order', $sortOrder),
+                QueryParam::init('cursor', $cursor),
+                QueryParam::init('location_id', $locationId),
+                QueryParam::init('total', $total),
+                QueryParam::init('last_4', $last4),
+                QueryParam::init('card_brand', $cardBrand),
+                QueryParam::init('limit', $limit)
+            );
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'begin_time'  => $beginTime,
-            'end_time'    => $endTime,
-            'sort_order'  => $sortOrder,
-            'cursor'      => $cursor,
-            'location_id' => $locationId,
-            'total'       => $total,
-            'last_4'      => $last4,
-            'card_brand'  => $cardBrand,
-            'limit'       => $limit,
-        ]);
+        $_resHandler = $this->responseHandler()->type(ListPaymentsResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListPaymentsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -147,69 +106,22 @@ class PaymentsApi extends BaseApi
      * The endpoint creates a
      * `Payment` object and returns it in the response.
      *
-     * @param Models\CreatePaymentRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param CreatePaymentRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function createPayment(Models\CreatePaymentRequest $body): ApiResponse
+    public function createPayment(CreatePaymentRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/payments')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CreatePaymentResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreatePaymentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -228,8 +140,8 @@ class PaymentsApi extends BaseApi
      * endpoint
      * returns successfully.
      *
-     * @param Models\CancelPaymentByIdempotencyKeyRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param CancelPaymentByIdempotencyKeyRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -237,60 +149,17 @@ class PaymentsApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function cancelPaymentByIdempotencyKey(Models\CancelPaymentByIdempotencyKeyRequest $body): ApiResponse
+    public function cancelPaymentByIdempotencyKey(CancelPaymentByIdempotencyKeyRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/cancel';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/payments/cancel')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()
+            ->type(CancelPaymentByIdempotencyKeyResponse::class)
+            ->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelPaymentByIdempotencyKeyResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -304,59 +173,13 @@ class PaymentsApi extends BaseApi
      */
     public function getPayment(string $paymentId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/payments/{payment_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('payment_id', $paymentId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'payment_id' => $paymentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(GetPaymentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'GetPaymentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -364,74 +187,26 @@ class PaymentsApi extends BaseApi
      * You can update the `amount_money` and `tip_money` using this endpoint.
      *
      * @param string $paymentId The ID of the payment to update.
-     * @param Models\UpdatePaymentRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param UpdatePaymentRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updatePayment(string $paymentId, Models\UpdatePaymentRequest $body): ApiResponse
+    public function updatePayment(string $paymentId, UpdatePaymentRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::PUT, '/v2/payments/{payment_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('payment_id', $paymentId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'payment_id'   => $paymentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(UpdatePaymentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdatePaymentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -446,59 +221,13 @@ class PaymentsApi extends BaseApi
      */
     public function cancelPayment(string $paymentId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}/cancel';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/payments/{payment_id}/cancel')
+            ->auth('global')
+            ->parameters(TemplateParam::init('payment_id', $paymentId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'payment_id' => $paymentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CancelPaymentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CancelPaymentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -508,73 +237,25 @@ class PaymentsApi extends BaseApi
      * You can use this endpoint to complete a payment with the APPROVED `status`.
      *
      * @param string $paymentId The unique ID identifying the payment to be completed.
-     * @param Models\CompletePaymentRequest $body An object containing the fields to POST for the
-     *        request.
-     *
+     * @param CompletePaymentRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function completePayment(string $paymentId, Models\CompletePaymentRequest $body): ApiResponse
+    public function completePayment(string $paymentId, CompletePaymentRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/payments/{payment_id}/complete';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/payments/{payment_id}/complete')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('payment_id', $paymentId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'payment_id'   => $paymentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(CompletePaymentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CompletePaymentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

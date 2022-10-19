@@ -2,6 +2,8 @@
 
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 use Square\Exceptions\ApiException;
 use Square\Exceptions;
 use Square\ApiHelper;
@@ -27,7 +29,7 @@ class PaymentsTest extends TestCase
     protected static $controller;
 
     /**
-     * @var HttpCallBackCatcher Callback
+     * @var CallbackCatcher Callback
      */
     protected static $httpResponse;
 
@@ -36,7 +38,7 @@ class PaymentsTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        self::$httpResponse = new HttpCallBackCatcher();
+        self::$httpResponse = new CallbackCatcher();
         self::$controller =  ClientFactory::create(self::$httpResponse)->getPaymentsApi();
     }
 

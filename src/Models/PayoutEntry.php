@@ -48,6 +48,16 @@ class PayoutEntry implements \JsonSerializable
     private $netAmountMoney;
 
     /**
+     * @var PaymentBalanceActivityAppFeeRevenueDetail|null
+     */
+    private $typeAppFeeRevenueDetails;
+
+    /**
+     * @var PaymentBalanceActivityAppFeeRefundDetail|null
+     */
+    private $typeAppFeeRefundDetails;
+
+    /**
      * @var PaymentBalanceActivityAutomaticSavingsDetail|null
      */
     private $typeAutomaticSavingsDetails;
@@ -331,6 +341,44 @@ class PayoutEntry implements \JsonSerializable
     public function setNetAmountMoney(?Money $netAmountMoney): void
     {
         $this->netAmountMoney = $netAmountMoney;
+    }
+
+    /**
+     * Returns Type App Fee Revenue Details.
+     */
+    public function getTypeAppFeeRevenueDetails(): ?PaymentBalanceActivityAppFeeRevenueDetail
+    {
+        return $this->typeAppFeeRevenueDetails;
+    }
+
+    /**
+     * Sets Type App Fee Revenue Details.
+     *
+     * @maps type_app_fee_revenue_details
+     */
+    public function setTypeAppFeeRevenueDetails(
+        ?PaymentBalanceActivityAppFeeRevenueDetail $typeAppFeeRevenueDetails
+    ): void {
+        $this->typeAppFeeRevenueDetails = $typeAppFeeRevenueDetails;
+    }
+
+    /**
+     * Returns Type App Fee Refund Details.
+     */
+    public function getTypeAppFeeRefundDetails(): ?PaymentBalanceActivityAppFeeRefundDetail
+    {
+        return $this->typeAppFeeRefundDetails;
+    }
+
+    /**
+     * Sets Type App Fee Refund Details.
+     *
+     * @maps type_app_fee_refund_details
+     */
+    public function setTypeAppFeeRefundDetails(
+        ?PaymentBalanceActivityAppFeeRefundDetail $typeAppFeeRefundDetails
+    ): void {
+        $this->typeAppFeeRefundDetails = $typeAppFeeRefundDetails;
     }
 
     /**
@@ -735,6 +783,12 @@ class PayoutEntry implements \JsonSerializable
         }
         if (isset($this->netAmountMoney)) {
             $json['net_amount_money']                             = $this->netAmountMoney;
+        }
+        if (isset($this->typeAppFeeRevenueDetails)) {
+            $json['type_app_fee_revenue_details']                 = $this->typeAppFeeRevenueDetails;
+        }
+        if (isset($this->typeAppFeeRefundDetails)) {
+            $json['type_app_fee_refund_details']                  = $this->typeAppFeeRefundDetails;
         }
         if (isset($this->typeAutomaticSavingsDetails)) {
             $json['type_automatic_savings_details']               = $this->typeAutomaticSavingsDetails;

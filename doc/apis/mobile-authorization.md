@@ -41,7 +41,7 @@ function createMobileAuthorizationCode(CreateMobileAuthorizationCodeRequest $bod
 ## Example Usage
 
 ```php
-$body = new Models\CreateMobileAuthorizationCodeRequest;
+$body = new Models\CreateMobileAuthorizationCodeRequest();
 $body->setLocationId('YOUR_LOCATION_ID');
 
 $apiResponse = $mobileAuthorizationApi->createMobileAuthorizationCode($body);

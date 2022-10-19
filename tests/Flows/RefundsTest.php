@@ -2,6 +2,8 @@
 
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 use Square\ApiHelper;
 use Square\Apis\PaymentsApi;
 use Square\Apis\RefundsApi;
@@ -33,7 +35,7 @@ class RefundsTest extends TestCase
     protected static $paymentsController;
 
     /**
-     * @var HttpCallBackCatcher Callback
+     * @var CallbackCatcher Callback
      */
     protected static $httpResponse;
 
@@ -42,7 +44,7 @@ class RefundsTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        self::$httpResponse = new HttpCallBackCatcher();
+        self::$httpResponse = new CallbackCatcher();
         $client = ClientFactory::create(self::$httpResponse);
         self::$controller = $client->getRefundsApi();
         self::$paymentsController = $client->getPaymentsApi();

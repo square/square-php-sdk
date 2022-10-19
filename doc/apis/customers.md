@@ -99,18 +99,18 @@ function createCustomer(CreateCustomerRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateCustomerRequest;
+$body = new Models\CreateCustomerRequest();
 $body->setGivenName('Amelia');
 $body->setFamilyName('Earhart');
 $body->setEmailAddress('Amelia.Earhart@example.com');
-$body->setAddress(new Models\Address);
+$body->setAddress(new Models\Address());
 $body->getAddress()->setAddressLine1('500 Electric Ave');
 $body->getAddress()->setAddressLine2('Suite 600');
 $body->getAddress()->setLocality('New York');
 $body->getAddress()->setAdministrativeDistrictLevel1('NY');
 $body->getAddress()->setPostalCode('10003');
 $body->getAddress()->setCountry(Models\Country::US);
-$body->setPhoneNumber('1-212-555-4240');
+$body->setPhoneNumber('+1-212-555-4240');
 $body->setReferenceId('YOUR_REFERENCE_ID');
 $body->setNote('a customer');
 
@@ -157,21 +157,21 @@ function searchCustomers(SearchCustomersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchCustomersRequest;
+$body = new Models\SearchCustomersRequest();
 $body->setLimit(2);
-$body->setQuery(new Models\CustomerQuery);
-$body->getQuery()->setFilter(new Models\CustomerFilter);
-$body->getQuery()->getFilter()->setCreationSource(new Models\CustomerCreationSourceFilter);
+$body->setQuery(new Models\CustomerQuery());
+$body->getQuery()->setFilter(new Models\CustomerFilter());
+$body->getQuery()->getFilter()->setCreationSource(new Models\CustomerCreationSourceFilter());
 $body->getQuery()->getFilter()->getCreationSource()->setValues([Models\CustomerCreationSource::THIRD_PARTY]);
 $body->getQuery()->getFilter()->getCreationSource()->setRule(Models\CustomerInclusionExclusion::INCLUDE_);
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
+$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange());
 $body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2018-01-01T00:00:00+00:00');
 $body->getQuery()->getFilter()->getCreatedAt()->setEndAt('2018-02-01T00:00:00+00:00');
-$body->getQuery()->getFilter()->setEmailAddress(new Models\CustomerTextFilter);
+$body->getQuery()->getFilter()->setEmailAddress(new Models\CustomerTextFilter());
 $body->getQuery()->getFilter()->getEmailAddress()->setFuzzy('example.com');
-$body->getQuery()->getFilter()->setGroupIds(new Models\FilterValue);
+$body->getQuery()->getFilter()->setGroupIds(new Models\FilterValue());
 $body->getQuery()->getFilter()->getGroupIds()->setAll(['545AXB44B4XXWMVQ4W8SBT3HHF']);
-$body->getQuery()->setSort(new Models\CustomerSort);
+$body->getQuery()->setSort(new Models\CustomerSort());
 $body->getQuery()->getSort()->setField(Models\CustomerSortField::CREATED_AT);
 $body->getQuery()->getSort()->setOrder(Models\SortOrder::ASC);
 
@@ -297,7 +297,7 @@ function updateCustomer(string $customerId, UpdateCustomerRequest $body): ApiRes
 
 ```php
 $customerId = 'customer_id8';
-$body = new Models\UpdateCustomerRequest;
+$body = new Models\UpdateCustomerRequest();
 $body->setEmailAddress('New.Amelia.Earhart@example.com');
 $body->setPhoneNumber('');
 $body->setNote('updated customer note');
@@ -350,7 +350,7 @@ $body_cardNonce = 'YOUR_CARD_NONCE';
 $body = new Models\CreateCustomerCardRequest(
     $body_cardNonce
 );
-$body->setBillingAddress(new Models\Address);
+$body->setBillingAddress(new Models\Address());
 $body->getBillingAddress()->setAddressLine1('500 Electric Ave');
 $body->getBillingAddress()->setAddressLine2('Suite 600');
 $body->getBillingAddress()->setLocality('New York');

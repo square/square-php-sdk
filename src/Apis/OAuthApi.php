@@ -4,24 +4,21 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\ObtainTokenRequest;
+use Square\Models\ObtainTokenResponse;
+use Square\Models\RenewTokenRequest;
+use Square\Models\RenewTokenResponse;
+use Square\Models\RevokeTokenRequest;
+use Square\Models\RevokeTokenResponse;
 
 class OAuthApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * `RenewToken` is deprecated. For information about refreshing OAuth access tokens, see
      * [Migrate from Renew to Refresh OAuth Tokens](https://developer.squareup.com/docs/oauth-api/migrate-
@@ -48,75 +45,29 @@ class OAuthApi extends BaseApi
      *
      * @param string $clientId Your application ID, which is available in the OAuth page in the
      *        [Developer Dashboard](https://developer.squareup.com/apps).
-     * @param Models\RenewTokenRequest $body An object containing the fields to POST for the
-     *        request.
-     *
-     *        See the corresponding object definition for field details.
+     * @param RenewTokenRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function renewToken(string $clientId, Models\RenewTokenRequest $body, string $authorization): ApiResponse
+    public function renewToken(string $clientId, RenewTokenRequest $body, string $authorization): ApiResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/oauth2/clients/{client_id}/access-token/renew';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/clients/{client_id}/access-token/renew')
+            ->parameters(
+                TemplateParam::init('client_id', $clientId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body),
+                HeaderParam::init('Authorization', $authorization)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'client_id'     => $clientId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RenewTokenResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json',
-            'Authorization'   => $authorization
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RenewTokenResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -137,68 +88,26 @@ class OAuthApi extends BaseApi
      * Replace `APPLICATION_SECRET` with the application secret on the OAuth
      * page for your application on the Developer Dashboard.
      *
-     * @param Models\RevokeTokenRequest $body An object containing the fields to POST for the
-     *        request.
-     *
-     *        See the corresponding object definition for field details.
+     * @param RevokeTokenRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function revokeToken(Models\RevokeTokenRequest $body, string $authorization): ApiResponse
+    public function revokeToken(RevokeTokenRequest $body, string $authorization): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/oauth2/revoke';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/revoke')
+            ->parameters(
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body),
+                HeaderParam::init('Authorization', $authorization)
+            );
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json',
-            'Authorization'   => $authorization
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(RevokeTokenResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RevokeTokenResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -220,65 +129,20 @@ class OAuthApi extends BaseApi
      * __Note:__ OAuth tokens should be encrypted and stored on a secure server.
      * Application clients should never interact directly with OAuth tokens.
      *
-     * @param Models\ObtainTokenRequest $body An object containing the fields to POST for the
-     *        request.
-     *
-     *        See the corresponding object definition for field details.
+     * @param ObtainTokenRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function obtainToken(Models\ObtainTokenRequest $body): ApiResponse
+    public function obtainToken(ObtainTokenRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/oauth2/token';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/token')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(ObtainTokenResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ObtainTokenResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

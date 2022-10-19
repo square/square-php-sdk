@@ -379,9 +379,9 @@ $body_shift = new Models\Shift(
 );
 $body_shift->setLocationId('PAA1RJZZKXBFG');
 $body_shift->setEndAt('2019-01-25T18:11:00+00:00');
-$body_shift->setWage(new Models\ShiftWage);
+$body_shift->setWage(new Models\ShiftWage());
 $body_shift->getWage()->setTitle('Barista');
-$body_shift->getWage()->setHourlyRate(new Models\Money);
+$body_shift->getWage()->setHourlyRate(new Models\Money());
 $body_shift->getWage()->getHourlyRate()->setAmount(1100);
 $body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
 $body_shift_breaks = [];
@@ -457,11 +457,11 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchShiftsRequest;
-$body->setQuery(new Models\ShiftQuery);
-$body->getQuery()->setFilter(new Models\ShiftFilter);
-$body->getQuery()->getFilter()->setWorkday(new Models\ShiftWorkday);
-$body->getQuery()->getFilter()->getWorkday()->setDateRange(new Models\DateRange);
+$body = new Models\SearchShiftsRequest();
+$body->setQuery(new Models\ShiftQuery());
+$body->getQuery()->setFilter(new Models\ShiftFilter());
+$body->getQuery()->getFilter()->setWorkday(new Models\ShiftWorkday());
+$body->getQuery()->getFilter()->getWorkday()->setDateRange(new Models\DateRange());
 $body->getQuery()->getFilter()->getWorkday()->getDateRange()->setStartDate('2019-01-20');
 $body->getQuery()->getFilter()->getWorkday()->getDateRange()->setEndDate('2019-02-03');
 $body->getQuery()->getFilter()->getWorkday()->setMatchShiftsBy(Models\ShiftWorkdayMatcher::START_AT);
@@ -591,9 +591,9 @@ $body_shift = new Models\Shift(
 );
 $body_shift->setLocationId('PAA1RJZZKXBFG');
 $body_shift->setEndAt('2019-01-25T18:11:00+00:00');
-$body_shift->setWage(new Models\ShiftWage);
+$body_shift->setWage(new Models\ShiftWage());
 $body_shift->getWage()->setTitle('Bartender');
-$body_shift->getWage()->setHourlyRate(new Models\Money);
+$body_shift->getWage()->setHourlyRate(new Models\Money());
 $body_shift->getWage()->getHourlyRate()->setAmount(1500);
 $body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
 $body_shift_breaks = [];

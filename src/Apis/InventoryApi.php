@@ -4,24 +4,27 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\BatchChangeInventoryRequest;
+use Square\Models\BatchChangeInventoryResponse;
+use Square\Models\BatchRetrieveInventoryChangesRequest;
+use Square\Models\BatchRetrieveInventoryChangesResponse;
+use Square\Models\BatchRetrieveInventoryCountsRequest;
+use Square\Models\BatchRetrieveInventoryCountsResponse;
+use Square\Models\RetrieveInventoryAdjustmentResponse;
+use Square\Models\RetrieveInventoryChangesResponse;
+use Square\Models\RetrieveInventoryCountResponse;
+use Square\Models\RetrieveInventoryPhysicalCountResponse;
+use Square\Models\RetrieveInventoryTransferResponse;
 
 class InventoryApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Deprecated version of [RetrieveInventoryAdjustment]($e/Inventory/RetrieveInventoryAdjustment) after
      * the endpoint URL
@@ -40,59 +43,13 @@ class InventoryApi extends BaseApi
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/adjustment/{adjustment_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/inventory/adjustment/{adjustment_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('adjustment_id', $adjustmentId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'adjustment_id' => $adjustmentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveInventoryAdjustmentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryAdjustmentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -108,59 +65,13 @@ class InventoryApi extends BaseApi
      */
     public function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/adjustments/{adjustment_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/inventory/adjustments/{adjustment_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('adjustment_id', $adjustmentId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'adjustment_id' => $adjustmentId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveInventoryAdjustmentResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryAdjustmentResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -170,8 +81,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param Models\BatchChangeInventoryRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param BatchChangeInventoryRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -179,62 +90,17 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function deprecatedBatchChangeInventory(Models\BatchChangeInventoryRequest $body): ApiResponse
+    public function deprecatedBatchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/batch-change';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/batch-change')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchChangeInventoryResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchChangeInventoryResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -244,8 +110,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param Models\BatchRetrieveInventoryChangesRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param BatchRetrieveInventoryChangesRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -253,63 +119,19 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function deprecatedBatchRetrieveInventoryChanges(
-        Models\BatchRetrieveInventoryChangesRequest $body
-    ): ApiResponse {
+    public function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $body): ApiResponse
+    {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/batch-retrieve-changes';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/batch-retrieve-changes')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()
+            ->type(BatchRetrieveInventoryChangesResponse::class)
+            ->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchRetrieveInventoryChangesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -319,8 +141,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param Models\BatchRetrieveInventoryCountsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param BatchRetrieveInventoryCountsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -328,63 +150,17 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function deprecatedBatchRetrieveInventoryCounts(
-        Models\BatchRetrieveInventoryCountsRequest $body
-    ): ApiResponse {
+    public function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body): ApiResponse
+    {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/batch-retrieve-counts';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/batch-retrieve-counts')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchRetrieveInventoryCountsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchRetrieveInventoryCountsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -394,8 +170,8 @@ class InventoryApi extends BaseApi
      * referenced in the request.
      * On failure: returns a list of related errors.
      *
-     * @param Models\BatchChangeInventoryRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param BatchChangeInventoryRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -403,60 +179,15 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchChangeInventory(Models\BatchChangeInventoryRequest $body): ApiResponse
+    public function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/changes/batch-create';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/changes/batch-create')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchChangeInventoryResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchChangeInventoryResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -469,8 +200,8 @@ class InventoryApi extends BaseApi
      * BatchRetrieveInventoryChanges is a catch-all query endpoint for queries
      * that cannot be handled by other, simpler endpoints.
      *
-     * @param Models\BatchRetrieveInventoryChangesRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param BatchRetrieveInventoryChangesRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -478,60 +209,17 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveInventoryChanges(Models\BatchRetrieveInventoryChangesRequest $body): ApiResponse
+    public function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/changes/batch-retrieve';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/changes/batch-retrieve')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()
+            ->type(BatchRetrieveInventoryChangesResponse::class)
+            ->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchRetrieveInventoryChangesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -547,8 +235,8 @@ class InventoryApi extends BaseApi
      * returned. This allows clients to perform a "sync" operation, for example
      * in response to receiving a Webhook notification.
      *
-     * @param Models\BatchRetrieveInventoryCountsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param BatchRetrieveInventoryCountsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -556,60 +244,15 @@ class InventoryApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveInventoryCounts(Models\BatchRetrieveInventoryCountsRequest $body): ApiResponse
+    public function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/counts/batch-retrieve';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/inventory/counts/batch-retrieve')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchRetrieveInventoryCountsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchRetrieveInventoryCountsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -630,59 +273,16 @@ class InventoryApi extends BaseApi
     {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/physical-count/{physical_count_id}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/inventory/physical-count/{physical_count_id}'
+        )->auth('global')->parameters(TemplateParam::init('physical_count_id', $physicalCountId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'physical_count_id' => $physicalCountId,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(RetrieveInventoryPhysicalCountResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'      => $this->internalUserAgent,
-            'Accept'          => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryPhysicalCountResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -698,60 +298,16 @@ class InventoryApi extends BaseApi
      */
     public function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/inventory/physical-counts/{physical_count_id}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/inventory/physical-counts/{physical_count_id}'
+        )->auth('global')->parameters(TemplateParam::init('physical_count_id', $physicalCountId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'physical_count_id' => $physicalCountId,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(RetrieveInventoryPhysicalCountResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'      => $this->internalUserAgent,
-            'Accept'          => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryPhysicalCountResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -766,59 +322,13 @@ class InventoryApi extends BaseApi
      */
     public function retrieveInventoryTransfer(string $transferId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/transfers/{transfer_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/inventory/transfers/{transfer_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('transfer_id', $transferId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'transfer_id' => $transferId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveInventoryTransferResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryTransferResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -846,65 +356,17 @@ class InventoryApi extends BaseApi
         ?string $locationIds = null,
         ?string $cursor = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/{catalog_object_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/inventory/{catalog_object_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('catalog_object_id', $catalogObjectId),
+                QueryParam::init('location_ids', $locationIds),
+                QueryParam::init('cursor', $cursor)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'catalog_object_id' => $catalogObjectId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveInventoryCountResponse::class)->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'location_ids'      => $locationIds,
-            'cursor'            => $cursor,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'      => $this->internalUserAgent,
-            'Accept'          => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryCountResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -946,64 +408,16 @@ class InventoryApi extends BaseApi
     ): ApiResponse {
         trigger_error('Method ' . __METHOD__ . ' is deprecated.', E_USER_DEPRECATED);
 
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/inventory/{catalog_object_id}/changes';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/inventory/{catalog_object_id}/changes')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('catalog_object_id', $catalogObjectId),
+                QueryParam::init('location_ids', $locationIds),
+                QueryParam::init('cursor', $cursor)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'catalog_object_id' => $catalogObjectId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveInventoryChangesResponse::class)->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'location_ids'      => $locationIds,
-            'cursor'            => $cursor,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'      => $this->internalUserAgent,
-            'Accept'          => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveInventoryChangesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

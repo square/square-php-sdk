@@ -86,21 +86,21 @@ function createInvoice(CreateInvoiceRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_invoice = new Models\Invoice;
+$body_invoice = new Models\Invoice();
 $body_invoice->setLocationId('ES0RJRZYEC39A');
 $body_invoice->setOrderId('CAISENgvlJ6jLWAzERDzjyHVybY');
-$body_invoice->setPrimaryRecipient(new Models\InvoiceRecipient);
+$body_invoice->setPrimaryRecipient(new Models\InvoiceRecipient());
 $body_invoice->getPrimaryRecipient()->setCustomerId('JDKYHBWT1D4F8MFH63DBMEN8Y4');
 $body_invoice_paymentRequests = [];
 
-$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
+$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest();
 $body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::BALANCE);
 $body_invoice_paymentRequests[0]->setDueDate('2030-01-24');
 $body_invoice_paymentRequests[0]->setTippingEnabled(true);
 $body_invoice_paymentRequests[0]->setAutomaticPaymentSource(Models\InvoiceAutomaticPaymentSource::NONE);
 $body_invoice_paymentRequests_0_reminders = [];
 
-$body_invoice_paymentRequests_0_reminders[0] = new Models\InvoicePaymentReminder;
+$body_invoice_paymentRequests_0_reminders[0] = new Models\InvoicePaymentReminder();
 $body_invoice_paymentRequests_0_reminders[0]->setRelativeScheduledDays(-1);
 $body_invoice_paymentRequests_0_reminders[0]->setMessage('Your invoice is due tomorrow');
 $body_invoice_paymentRequests[0]->setReminders($body_invoice_paymentRequests_0_reminders);
@@ -112,18 +112,19 @@ $body_invoice->setInvoiceNumber('inv-100');
 $body_invoice->setTitle('Event Planning Services');
 $body_invoice->setDescription('We appreciate your business!');
 $body_invoice->setScheduledAt('2030-01-13T10:00:00Z');
-$body_invoice->setAcceptedPaymentMethods(new Models\InvoiceAcceptedPaymentMethods);
+$body_invoice->setAcceptedPaymentMethods(new Models\InvoiceAcceptedPaymentMethods());
 $body_invoice->getAcceptedPaymentMethods()->setCard(true);
 $body_invoice->getAcceptedPaymentMethods()->setSquareGiftCard(false);
 $body_invoice->getAcceptedPaymentMethods()->setBankAccount(false);
+$body_invoice->getAcceptedPaymentMethods()->setBuyNowPayLater(false);
 $body_invoice_customFields = [];
 
-$body_invoice_customFields[0] = new Models\InvoiceCustomField;
+$body_invoice_customFields[0] = new Models\InvoiceCustomField();
 $body_invoice_customFields[0]->setLabel('Event Reference Number');
 $body_invoice_customFields[0]->setValue('Ref. #1234');
 $body_invoice_customFields[0]->setPlacement(Models\InvoiceCustomFieldPlacement::ABOVE_LINE_ITEMS);
 
-$body_invoice_customFields[1] = new Models\InvoiceCustomField;
+$body_invoice_customFields[1] = new Models\InvoiceCustomField();
 $body_invoice_customFields[1]->setLabel('Terms of Service');
 $body_invoice_customFields[1]->setValue('The terms of service are...');
 $body_invoice_customFields[1]->setPlacement(Models\InvoiceCustomFieldPlacement::BELOW_LINE_ITEMS);
@@ -185,7 +186,7 @@ $body_query_filter->setCustomerIds(['JDKYHBWT1D4F8MFH63DBMEN8Y4']);
 $body_query = new Models\InvoiceQuery(
     $body_query_filter
 );
-$body_query->setSort(new Models\InvoiceSort);
+$body_query->setSort(new Models\InvoiceSort());
 $body_query->getSort()->setOrder(Models\SortOrder::DESC);
 $body = new Models\SearchInvoicesRequest(
     $body_query
@@ -308,11 +309,11 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 
 ```php
 $invoiceId = 'invoice_id0';
-$body_invoice = new Models\Invoice;
+$body_invoice = new Models\Invoice();
 $body_invoice->setVersion(1);
 $body_invoice_paymentRequests = [];
 
-$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest;
+$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest();
 $body_invoice_paymentRequests[0]->setUid('2da7964f-f3d2-4f43-81e8-5aa220bf3355');
 $body_invoice_paymentRequests[0]->setTippingEnabled(false);
 $body_invoice->setPaymentRequests($body_invoice_paymentRequests);

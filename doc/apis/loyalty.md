@@ -55,7 +55,7 @@ $body_loyaltyAccount_programId = 'd619f755-2d17-41f3-990d-c04ecedd64dd';
 $body_loyaltyAccount = new Models\LoyaltyAccount(
     $body_loyaltyAccount_programId
 );
-$body_loyaltyAccount->setMapping(new Models\LoyaltyAccountMapping);
+$body_loyaltyAccount->setMapping(new Models\LoyaltyAccountMapping());
 $body_loyaltyAccount->getMapping()->setPhoneNumber('+14155551234');
 $body_idempotencyKey = 'ec78c477-b1c3-4899-a209-a4e71337c996';
 $body = new Models\CreateLoyaltyAccountRequest(
@@ -102,11 +102,11 @@ function searchLoyaltyAccounts(SearchLoyaltyAccountsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchLoyaltyAccountsRequest;
-$body->setQuery(new Models\SearchLoyaltyAccountsRequestLoyaltyAccountQuery);
+$body = new Models\SearchLoyaltyAccountsRequest();
+$body->setQuery(new Models\SearchLoyaltyAccountsRequestLoyaltyAccountQuery());
 $body_query_mappings = [];
 
-$body_query_mappings[0] = new Models\LoyaltyAccountMapping;
+$body_query_mappings[0] = new Models\LoyaltyAccountMapping();
 $body_query_mappings[0]->setPhoneNumber('+14155551234');
 $body->getQuery()->setMappings($body_query_mappings);
 
@@ -199,7 +199,7 @@ function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsReque
 
 ```php
 $accountId = 'account_id2';
-$body_accumulatePoints = new Models\LoyaltyEventAccumulatePoints;
+$body_accumulatePoints = new Models\LoyaltyEventAccumulatePoints();
 $body_accumulatePoints->setOrderId('RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY');
 $body_idempotencyKey = '58b90739-c3e8-4b11-85f7-e636d48d72cb';
 $body_locationId = 'P034NEENMD09F';
@@ -303,9 +303,9 @@ function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchLoyaltyEventsRequest;
-$body->setQuery(new Models\LoyaltyEventQuery);
-$body->getQuery()->setFilter(new Models\LoyaltyEventFilter);
+$body = new Models\SearchLoyaltyEventsRequest();
+$body->setQuery(new Models\LoyaltyEventQuery());
+$body->getQuery()->setFilter(new Models\LoyaltyEventFilter());
 $body_query_filter_orderFilter_orderId = 'PyATxhYLfsMqpVkcKJITPydgEYfZY';
 $body->getQuery()->getFilter()->setOrderFilter(new Models\LoyaltyEventOrderFilter(
     $body_query_filter_orderFilter_orderId
@@ -436,7 +436,7 @@ function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest
 
 ```php
 $programId = 'program_id0';
-$body = new Models\CalculateLoyaltyPointsRequest;
+$body = new Models\CalculateLoyaltyPointsRequest();
 $body->setOrderId('RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY');
 $body->setLoyaltyAccountId('79b807d2-d786-46a9-933b-918028d7a8c5');
 
@@ -740,7 +740,7 @@ function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchLoyaltyRewardsRequest;
+$body = new Models\SearchLoyaltyRewardsRequest();
 $body_query_loyaltyAccountId = '5adcb100-07f1-4ee7-b8c6-6bb9ebc474bd';
 $body->setQuery(new Models\SearchLoyaltyRewardsRequestLoyaltyRewardQuery(
     $body_query_loyaltyAccountId

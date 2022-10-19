@@ -107,7 +107,7 @@ function createPayment(CreatePaymentRequest $body): ApiResponse
 ```php
 $body_sourceId = 'ccof:GaJGNaZa8x4OgDJn4GB';
 $body_idempotencyKey = '7b0f3ec5-086a-4871-8f13-3c81b3875218';
-$body_amountMoney = new Models\Money;
+$body_amountMoney = new Models\Money();
 $body_amountMoney->setAmount(1000);
 $body_amountMoney->setCurrency(Models\Currency::USD);
 $body = new Models\CreatePaymentRequest(
@@ -115,7 +115,7 @@ $body = new Models\CreatePaymentRequest(
     $body_idempotencyKey,
     $body_amountMoney
 );
-$body->setAppFeeMoney(new Models\Money);
+$body->setAppFeeMoney(new Models\Money());
 $body->getAppFeeMoney()->setAmount(10);
 $body->getAppFeeMoney()->setCurrency(Models\Currency::USD);
 $body->setAutocomplete(true);
@@ -253,11 +253,11 @@ $body_idempotencyKey = '956f8b13-e4ec-45d6-85e8-d1d95ef0c5de';
 $body = new Models\UpdatePaymentRequest(
     $body_idempotencyKey
 );
-$body->setPayment(new Models\Payment);
-$body->getPayment()->setAmountMoney(new Models\Money);
+$body->setPayment(new Models\Payment());
+$body->getPayment()->setAmountMoney(new Models\Money());
 $body->getPayment()->getAmountMoney()->setAmount(1000);
 $body->getPayment()->getAmountMoney()->setCurrency(Models\Currency::USD);
-$body->getPayment()->setTipMoney(new Models\Money);
+$body->getPayment()->setTipMoney(new Models\Money());
 $body->getPayment()->getTipMoney()->setAmount(100);
 $body->getPayment()->getTipMoney()->setCurrency(Models\Currency::USD);
 $body->getPayment()->setVersionToken('ODhwVQ35xwlzRuoZEwKXucfu7583sPTzK48c5zoGd0g6o');
@@ -340,7 +340,7 @@ function completePayment(string $paymentId, CompletePaymentRequest $body): ApiRe
 
 ```php
 $paymentId = 'payment_id0';
-$body = new Models\CompletePaymentRequest;
+$body = new Models\CompletePaymentRequest();
 
 $apiResponse = $paymentsApi->completePayment($paymentId, $body);
 

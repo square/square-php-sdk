@@ -28,6 +28,21 @@ class PaymentRefund implements \JsonSerializable
     private $locationId;
 
     /**
+     * @var bool|null
+     */
+    private $unlinked;
+
+    /**
+     * @var string|null
+     */
+    private $destinationType;
+
+    /**
+     * @var DestinationDetails|null
+     */
+    private $destinationDetails;
+
+    /**
      * @var Money
      */
     private $amountMoney;
@@ -149,6 +164,70 @@ class PaymentRefund implements \JsonSerializable
     public function setLocationId(?string $locationId): void
     {
         $this->locationId = $locationId;
+    }
+
+    /**
+     * Returns Unlinked.
+     * Flag indicating whether or not the refund is linked to an existing payment in Square.
+     */
+    public function getUnlinked(): ?bool
+    {
+        return $this->unlinked;
+    }
+
+    /**
+     * Sets Unlinked.
+     * Flag indicating whether or not the refund is linked to an existing payment in Square.
+     *
+     * @maps unlinked
+     */
+    public function setUnlinked(?bool $unlinked): void
+    {
+        $this->unlinked = $unlinked;
+    }
+
+    /**
+     * Returns Destination Type.
+     * The destination type for this refund.
+     *
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, or `EXTERNAL`.
+     */
+    public function getDestinationType(): ?string
+    {
+        return $this->destinationType;
+    }
+
+    /**
+     * Sets Destination Type.
+     * The destination type for this refund.
+     *
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, or `EXTERNAL`.
+     *
+     * @maps destination_type
+     */
+    public function setDestinationType(?string $destinationType): void
+    {
+        $this->destinationType = $destinationType;
+    }
+
+    /**
+     * Returns Destination Details.
+     * Details about a refund's destination.
+     */
+    public function getDestinationDetails(): ?DestinationDetails
+    {
+        return $this->destinationDetails;
+    }
+
+    /**
+     * Sets Destination Details.
+     * Details about a refund's destination.
+     *
+     * @maps destination_details
+     */
+    public function setDestinationDetails(?DestinationDetails $destinationDetails): void
+    {
+        $this->destinationDetails = $destinationDetails;
     }
 
     /**
@@ -372,37 +451,46 @@ class PaymentRefund implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                 = $this->id;
+        $json['id']                      = $this->id;
         if (isset($this->status)) {
-            $json['status']         = $this->status;
+            $json['status']              = $this->status;
         }
         if (isset($this->locationId)) {
-            $json['location_id']    = $this->locationId;
+            $json['location_id']         = $this->locationId;
         }
-        $json['amount_money']       = $this->amountMoney;
+        if (isset($this->unlinked)) {
+            $json['unlinked']            = $this->unlinked;
+        }
+        if (isset($this->destinationType)) {
+            $json['destination_type']    = $this->destinationType;
+        }
+        if (isset($this->destinationDetails)) {
+            $json['destination_details'] = $this->destinationDetails;
+        }
+        $json['amount_money']            = $this->amountMoney;
         if (isset($this->appFeeMoney)) {
-            $json['app_fee_money']  = $this->appFeeMoney;
+            $json['app_fee_money']       = $this->appFeeMoney;
         }
         if (isset($this->processingFee)) {
-            $json['processing_fee'] = $this->processingFee;
+            $json['processing_fee']      = $this->processingFee;
         }
         if (isset($this->paymentId)) {
-            $json['payment_id']     = $this->paymentId;
+            $json['payment_id']          = $this->paymentId;
         }
         if (isset($this->orderId)) {
-            $json['order_id']       = $this->orderId;
+            $json['order_id']            = $this->orderId;
         }
         if (isset($this->reason)) {
-            $json['reason']         = $this->reason;
+            $json['reason']              = $this->reason;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']     = $this->createdAt;
+            $json['created_at']          = $this->createdAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']     = $this->updatedAt;
+            $json['updated_at']          = $this->updatedAt;
         }
         if (isset($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId;
+            $json['team_member_id']      = $this->teamMemberId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

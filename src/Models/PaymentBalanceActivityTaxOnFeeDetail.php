@@ -14,6 +14,11 @@ class PaymentBalanceActivityTaxOnFeeDetail implements \JsonSerializable
     private $paymentId;
 
     /**
+     * @var string|null
+     */
+    private $taxRateDescription;
+
+    /**
      * Returns Payment Id.
      * The ID of the payment associated with this activity.
      */
@@ -34,6 +39,26 @@ class PaymentBalanceActivityTaxOnFeeDetail implements \JsonSerializable
     }
 
     /**
+     * Returns Tax Rate Description.
+     * The description of the tax rate being applied. For example: "GST", "HST".
+     */
+    public function getTaxRateDescription(): ?string
+    {
+        return $this->taxRateDescription;
+    }
+
+    /**
+     * Sets Tax Rate Description.
+     * The description of the tax rate being applied. For example: "GST", "HST".
+     *
+     * @maps tax_rate_description
+     */
+    public function setTaxRateDescription(?string $taxRateDescription): void
+    {
+        $this->taxRateDescription = $taxRateDescription;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -46,7 +71,10 @@ class PaymentBalanceActivityTaxOnFeeDetail implements \JsonSerializable
     {
         $json = [];
         if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+            $json['payment_id']           = $this->paymentId;
+        }
+        if (isset($this->taxRateDescription)) {
+            $json['tax_rate_description'] = $this->taxRateDescription;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -42,9 +42,9 @@ function bulkCreateVendors(BulkCreateVendorsRequest $body): ApiResponse
 ```php
 $body_vendors = [];
 
-$body_vendors[''] = new Models\Vendor;
+$body_vendors[''] = new Models\Vendor();
 
-$body_vendors[''] = new Models\Vendor;
+$body_vendors[''] = new Models\Vendor();
 
 $body = new Models\BulkCreateVendorsRequest(
     $body_vendors
@@ -85,7 +85,7 @@ function bulkRetrieveVendors(BulkRetrieveVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\BulkRetrieveVendorsRequest;
+$body = new Models\BulkRetrieveVendorsRequest();
 $body->setVendorIds(['INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4']);
 
 $apiResponse = $vendorsApi->bulkRetrieveVendors($body);
@@ -125,12 +125,12 @@ function bulkUpdateVendors(BulkUpdateVendorsRequest $body): ApiResponse
 ```php
 $body_vendors = [];
 
-$body_vendors__vendor = new Models\Vendor;
+$body_vendors__vendor = new Models\Vendor();
 $body_vendors[''] = new Models\UpdateVendorRequest(
     $body_vendors__vendor
 );
 
-$body_vendors__vendor = new Models\Vendor;
+$body_vendors__vendor = new Models\Vendor();
 $body_vendors[''] = new Models\UpdateVendorRequest(
     $body_vendors__vendor
 );
@@ -214,7 +214,7 @@ function searchVendors(SearchVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchVendorsRequest;
+$body = new Models\SearchVendorsRequest();
 
 $apiResponse = $vendorsApi->searchVendors($body);
 
@@ -289,7 +289,7 @@ function updateVendor(UpdateVendorRequest $body, string $vendorId): ApiResponse
 ## Example Usage
 
 ```php
-$body_vendor = new Models\Vendor;
+$body_vendor = new Models\Vendor();
 $body_vendor->setId('INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4');
 $body_vendor->setName('Jack\'s Chicken Shack');
 $body_vendor->setVersion(1);

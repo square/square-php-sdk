@@ -6,6 +6,4 @@
 $vendor_dir = getenv('COMPOSER_VENDOR_DIR') ?: 'vendor';
 
 require __DIR__.'/../' . $vendor_dir . '/autoload.php';
-require __DIR__.'/HttpCallBackCatcher.php';
-require __DIR__.'/TestHelper.php';
 require __DIR__.'/ClientFactory.php';

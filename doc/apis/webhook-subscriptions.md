@@ -121,7 +121,7 @@ function createWebhookSubscription(CreateWebhookSubscriptionRequest $body): ApiR
 ## Example Usage
 
 ```php
-$body_subscription = new Models\WebhookSubscription;
+$body_subscription = new Models\WebhookSubscription();
 $body_subscription->setName('Example Webhook Subscription');
 $body_subscription->setEventTypes(['payment.created', 'payment.updated']);
 $body_subscription->setNotificationUrl('https://example-webhook-url.com');
@@ -242,8 +242,8 @@ function updateWebhookSubscription(string $subscriptionId, UpdateWebhookSubscrip
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\UpdateWebhookSubscriptionRequest;
-$body->setSubscription(new Models\WebhookSubscription);
+$body = new Models\UpdateWebhookSubscriptionRequest();
+$body->setSubscription(new Models\WebhookSubscription());
 $body->getSubscription()->setName('Updated Example Webhook Subscription');
 $body->getSubscription()->setEnabled(false);
 
@@ -287,7 +287,7 @@ function updateWebhookSubscriptionSignatureKey(
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\UpdateWebhookSubscriptionSignatureKeyRequest;
+$body = new Models\UpdateWebhookSubscriptionSignatureKeyRequest();
 $body->setIdempotencyKey('ed80ae6b-0654-473b-bbab-a39aee89a60d');
 
 $apiResponse = $webhookSubscriptionsApi->updateWebhookSubscriptionSignatureKey($subscriptionId, $body);
@@ -327,7 +327,7 @@ function testWebhookSubscription(string $subscriptionId, TestWebhookSubscription
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\TestWebhookSubscriptionRequest;
+$body = new Models\TestWebhookSubscriptionRequest();
 $body->setEventType('payment.created');
 
 $apiResponse = $webhookSubscriptionsApi->testWebhookSubscription($subscriptionId, $body);

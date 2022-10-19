@@ -87,9 +87,9 @@ function createCard(CreateCardRequest $body): ApiResponse
 ```php
 $body_idempotencyKey = '4935a656-a929-4792-b97c-8848be85c27c';
 $body_sourceId = 'cnon:uIbfJXhXETSP197M3GB';
-$body_card = new Models\Card;
+$body_card = new Models\Card();
 $body_card->setCardholderName('Amelia Earhart');
-$body_card->setBillingAddress(new Models\Address);
+$body_card->setBillingAddress(new Models\Address());
 $body_card->getBillingAddress()->setAddressLine1('500 Electric Ave');
 $body_card->getBillingAddress()->setAddressLine2('Suite 600');
 $body_card->getBillingAddress()->setLocality('New York');
