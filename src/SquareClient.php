@@ -4,262 +4,261 @@ declare(strict_types=1);
 
 namespace Square;
 
-use Square\Apis;
+use Core\ClientBuilder;
+use Core\Request\Parameters\AdditionalHeaderParams;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\TemplateParam;
+use Core\Utils\CoreHelper;
+use Square\Apis\ApplePayApi;
+use Square\Apis\BankAccountsApi;
+use Square\Apis\BookingsApi;
+use Square\Apis\CardsApi;
+use Square\Apis\CashDrawersApi;
+use Square\Apis\CatalogApi;
+use Square\Apis\CheckoutApi;
+use Square\Apis\CustomerCustomAttributesApi;
+use Square\Apis\CustomerGroupsApi;
+use Square\Apis\CustomersApi;
+use Square\Apis\CustomerSegmentsApi;
+use Square\Apis\DevicesApi;
+use Square\Apis\DisputesApi;
+use Square\Apis\EmployeesApi;
+use Square\Apis\GiftCardActivitiesApi;
+use Square\Apis\GiftCardsApi;
+use Square\Apis\InventoryApi;
+use Square\Apis\InvoicesApi;
+use Square\Apis\LaborApi;
+use Square\Apis\LocationsApi;
+use Square\Apis\LoyaltyApi;
+use Square\Apis\MerchantsApi;
+use Square\Apis\MobileAuthorizationApi;
+use Square\Apis\OAuthApi;
+use Square\Apis\OrdersApi;
+use Square\Apis\PaymentsApi;
+use Square\Apis\PayoutsApi;
+use Square\Apis\RefundsApi;
+use Square\Apis\SitesApi;
+use Square\Apis\SnippetsApi;
+use Square\Apis\SubscriptionsApi;
+use Square\Apis\TeamApi;
+use Square\Apis\TerminalApi;
+use Square\Apis\TransactionsApi;
+use Square\Apis\V1TransactionsApi;
+use Square\Apis\VendorsApi;
+use Square\Apis\WebhookSubscriptionsApi;
+use Square\Utils\CompatibilityConverter;
+use Unirest\Configuration;
+use Unirest\HttpClient;
 
-/**
- * Square client class
- */
 class SquareClient implements ConfigurationInterface
 {
     private $mobileAuthorization;
+
     private $oAuth;
+
     private $v1Transactions;
+
     private $applePay;
+
     private $bankAccounts;
+
     private $bookings;
+
     private $cards;
+
     private $cashDrawers;
+
     private $catalog;
+
     private $customers;
+
     private $customerCustomAttributes;
+
     private $customerGroups;
+
     private $customerSegments;
+
     private $devices;
+
     private $disputes;
+
     private $employees;
+
     private $giftCards;
+
     private $giftCardActivities;
+
     private $inventory;
+
     private $invoices;
+
     private $labor;
+
     private $locations;
+
     private $checkout;
+
     private $transactions;
+
     private $loyalty;
+
     private $merchants;
+
     private $orders;
+
     private $payments;
+
     private $payouts;
+
     private $refunds;
+
     private $sites;
+
     private $snippets;
+
     private $subscriptions;
+
     private $team;
+
     private $terminal;
+
     private $vendors;
+
     private $webhookSubscriptions;
 
-    private $timeout = ConfigurationDefaults::TIMEOUT;
-    private $enableRetries = ConfigurationDefaults::ENABLE_RETRIES;
-    private $numberOfRetries = ConfigurationDefaults::NUMBER_OF_RETRIES;
-    private $retryInterval = ConfigurationDefaults::RETRY_INTERVAL;
-    private $backOffFactor = ConfigurationDefaults::BACK_OFF_FACTOR;
-    private $maximumRetryWaitTime = ConfigurationDefaults::MAXIMUM_RETRY_WAIT_TIME;
-    private $retryOnTimeout = ConfigurationDefaults::RETRY_ON_TIMEOUT;
-    private $httpStatusCodesToRetry = ConfigurationDefaults::HTTP_STATUS_CODES_TO_RETRY;
-    private $httpMethodsToRetry = ConfigurationDefaults::HTTP_METHODS_TO_RETRY;
-    private $squareVersion = ConfigurationDefaults::SQUARE_VERSION;
-    private $additionalHeaders = ConfigurationDefaults::ADDITIONAL_HEADERS;
-    private $userAgentDetail = ConfigurationDefaults::USER_AGENT_DETAIL;
-    private $environment = ConfigurationDefaults::ENVIRONMENT;
-    private $customUrl = ConfigurationDefaults::CUSTOM_URL;
-    private $accessToken = ConfigurationDefaults::ACCESS_TOKEN;
     private $bearerAuthManager;
-    private $authManagers = [];
-    private $httpCallback;
 
-    public function __construct(array $configOptions = null)
+    private $config;
+
+    private $client;
+
+    /**
+     * @see SquareClientBuilder::init()
+     * @see SquareClientBuilder::build()
+     *
+     * @param array $config
+     */
+    public function __construct(array $config = [])
     {
-        if (isset($configOptions['timeout'])) {
-            $this->timeout = $configOptions['timeout'];
-        }
-        if (isset($configOptions['enableRetries'])) {
-            $this->enableRetries = $configOptions['enableRetries'];
-        }
-        if (isset($configOptions['numberOfRetries'])) {
-            $this->numberOfRetries = $configOptions['numberOfRetries'];
-        }
-        if (isset($configOptions['retryInterval'])) {
-            $this->retryInterval = $configOptions['retryInterval'];
-        }
-        if (isset($configOptions['backOffFactor'])) {
-            $this->backOffFactor = $configOptions['backOffFactor'];
-        }
-        if (isset($configOptions['maximumRetryWaitTime'])) {
-            $this->maximumRetryWaitTime = $configOptions['maximumRetryWaitTime'];
-        }
-        if (isset($configOptions['retryOnTimeout'])) {
-            $this->retryOnTimeout = $configOptions['retryOnTimeout'];
-        }
-        if (isset($configOptions['httpStatusCodesToRetry'])) {
-            $this->httpStatusCodesToRetry = $configOptions['httpStatusCodesToRetry'];
-        }
-        if (isset($configOptions['httpMethodsToRetry'])) {
-            $this->httpMethodsToRetry = $configOptions['httpMethodsToRetry'];
-        }
-        if (isset($configOptions['squareVersion'])) {
-            $this->squareVersion = $configOptions['squareVersion'];
-        }
-        if (isset($configOptions['additionalHeaders'])) {
-            ApiHelper::assertHeaders($configOptions['additionalHeaders']);
-            $this->additionalHeaders = $configOptions['additionalHeaders'];
-        }
-        if (isset($configOptions['userAgentDetail'])) {
-            $this->assertUserAgentDetail($configOptions['userAgentDetail']);
-            $this->userAgentDetail = $configOptions['userAgentDetail'];
-        }
-        if (isset($configOptions['environment'])) {
-            $this->environment = $configOptions['environment'];
-        }
-        if (isset($configOptions['customUrl'])) {
-            $this->customUrl = $configOptions['customUrl'];
-        }
-        if (isset($configOptions['accessToken'])) {
-            $this->accessToken = $configOptions['accessToken'];
-        }
-        if (isset($configOptions['httpCallback'])) {
-            $this->httpCallback = $configOptions['httpCallback'];
-        }
-
-        $this->bearerAuthManager = new BearerAuthManager($this->accessToken);
-        $this->authManagers['global'] = $this->bearerAuthManager;
+        $this->config = array_merge(ConfigurationDefaults::_ALL, CoreHelper::clone($config));
+        $this->bearerAuthManager = new BearerAuthManager(
+            $this->config['accessToken'] ?? ConfigurationDefaults::ACCESS_TOKEN
+        );
+        $this->validateConfig();
+        $this->client = ClientBuilder::init(new HttpClient(Configuration::init($this)))
+            ->converter(new CompatibilityConverter())
+            ->jsonHelper(ApiHelper::getJsonHelper())
+            ->apiCallback($this->config['httpCallback'] ?? null)
+            ->userAgent(
+                'Square-PHP-SDK/23.0.0.20221019 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+            )
+            ->userAgentConfig(
+                [
+                    '{api-version}' => $this->getSquareVersion(),
+                    '{detail}' => rawurlencode($this->getUserAgentDetail())
+                ]
+            )
+            ->globalConfig($this->getGlobalConfiguration())
+            ->globalRuntimeParam(AdditionalHeaderParams::init($this->getAdditionalHeaders()))
+            ->serverUrls(self::ENVIRONMENT_MAP[$this->getEnvironment()], Server::DEFAULT_)
+            ->authManagers(['global' => $this->bearerAuthManager])
+            ->build();
     }
 
     /**
-     * Get the client configuration as an associative array
+     * Create a builder with the current client's configurations.
+     *
+     * @return SquareClientBuilder SquareClientBuilder instance
      */
-    public function getConfiguration(): array
+    public function toBuilder(): SquareClientBuilder
     {
-        $configMap = [];
-
-        if (isset($this->timeout)) {
-            $configMap['timeout'] = $this->timeout;
-        }
-        if (isset($this->enableRetries)) {
-            $configMap['enableRetries'] = $this->enableRetries;
-        }
-        if (isset($this->numberOfRetries)) {
-            $configMap['numberOfRetries'] = $this->numberOfRetries;
-        }
-        if (isset($this->retryInterval)) {
-            $configMap['retryInterval'] = $this->retryInterval;
-        }
-        if (isset($this->backOffFactor)) {
-            $configMap['backOffFactor'] = $this->backOffFactor;
-        }
-        if (isset($this->maximumRetryWaitTime)) {
-            $configMap['maximumRetryWaitTime'] = $this->maximumRetryWaitTime;
-        }
-        if (isset($this->retryOnTimeout)) {
-            $configMap['retryOnTimeout'] = $this->retryOnTimeout;
-        }
-        if (isset($this->httpStatusCodesToRetry)) {
-            $configMap['httpStatusCodesToRetry'] = $this->httpStatusCodesToRetry;
-        }
-        if (isset($this->httpMethodsToRetry)) {
-            $configMap['httpMethodsToRetry'] = $this->httpMethodsToRetry;
-        }
-        if (isset($this->squareVersion)) {
-            $configMap['squareVersion'] = $this->squareVersion;
-        }
-        if (isset($this->additionalHeaders)) {
-            $configMap['additionalHeaders'] = $this->additionalHeaders;
-        }
-        if (isset($this->userAgentDetail)) {
-            $configMap['userAgentDetail'] = $this->userAgentDetail;
-        }
-        if (isset($this->environment)) {
-            $configMap['environment'] = $this->environment;
-        }
-        if (isset($this->customUrl)) {
-            $configMap['customUrl'] = $this->customUrl;
-        }
-        if ($this->bearerAuthManager->getAccessToken() !== null) {
-            $configMap['accessToken'] = $this->bearerAuthManager->getAccessToken();
-        }
-        if (isset($this->httpCallback)) {
-            $configMap['httpCallback'] = $this->httpCallback;
-        }
-
-        return $configMap;
-    }
-
-    /**
-     * Clone this client and override given configuration options
-     */
-    public function withConfiguration(array $configOptions): self
-    {
-        return new self(\array_merge($this->getConfiguration(), $configOptions));
+        return SquareClientBuilder::init()
+            ->timeout($this->getTimeout())
+            ->enableRetries($this->shouldEnableRetries())
+            ->numberOfRetries($this->getNumberOfRetries())
+            ->retryInterval($this->getRetryInterval())
+            ->backOffFactor($this->getBackOffFactor())
+            ->maximumRetryWaitTime($this->getMaximumRetryWaitTime())
+            ->retryOnTimeout($this->shouldRetryOnTimeout())
+            ->httpStatusCodesToRetry($this->getHttpStatusCodesToRetry())
+            ->httpMethodsToRetry($this->getHttpMethodsToRetry())
+            ->squareVersion($this->getSquareVersion())
+            ->additionalHeaders($this->getAdditionalHeaders())
+            ->userAgentDetail($this->getUserAgentDetail())
+            ->environment($this->getEnvironment())
+            ->customUrl($this->getCustomUrl())
+            ->accessToken($this->bearerAuthManager->getAccessToken())
+            ->httpCallback($this->config['httpCallback'] ?? null);
     }
 
     public function getTimeout(): int
     {
-        return $this->timeout;
+        return $this->config['timeout'] ?? ConfigurationDefaults::TIMEOUT;
     }
 
     public function shouldEnableRetries(): bool
     {
-        return $this->enableRetries;
+        return $this->config['enableRetries'] ?? ConfigurationDefaults::ENABLE_RETRIES;
     }
 
     public function getNumberOfRetries(): int
     {
-        return $this->numberOfRetries;
+        return $this->config['numberOfRetries'] ?? ConfigurationDefaults::NUMBER_OF_RETRIES;
     }
 
     public function getRetryInterval(): float
     {
-        return $this->retryInterval;
+        return $this->config['retryInterval'] ?? ConfigurationDefaults::RETRY_INTERVAL;
     }
 
     public function getBackOffFactor(): float
     {
-        return $this->backOffFactor;
+        return $this->config['backOffFactor'] ?? ConfigurationDefaults::BACK_OFF_FACTOR;
     }
 
     public function getMaximumRetryWaitTime(): int
     {
-        return $this->maximumRetryWaitTime;
+        return $this->config['maximumRetryWaitTime'] ?? ConfigurationDefaults::MAXIMUM_RETRY_WAIT_TIME;
     }
 
     public function shouldRetryOnTimeout(): bool
     {
-        return $this->retryOnTimeout;
+        return $this->config['retryOnTimeout'] ?? ConfigurationDefaults::RETRY_ON_TIMEOUT;
     }
 
     public function getHttpStatusCodesToRetry(): array
     {
-        return $this->httpStatusCodesToRetry;
+        return $this->config['httpStatusCodesToRetry'] ?? ConfigurationDefaults::HTTP_STATUS_CODES_TO_RETRY;
     }
 
     public function getHttpMethodsToRetry(): array
     {
-        return $this->httpMethodsToRetry;
+        return $this->config['httpMethodsToRetry'] ?? ConfigurationDefaults::HTTP_METHODS_TO_RETRY;
     }
 
     public function getSquareVersion(): string
     {
-        return $this->squareVersion;
+        return $this->config['squareVersion'] ?? ConfigurationDefaults::SQUARE_VERSION;
     }
 
     public function getAdditionalHeaders(): array
     {
-        return $this->additionalHeaders;
+        return $this->config['additionalHeaders'] ?? ConfigurationDefaults::ADDITIONAL_HEADERS;
     }
 
     public function getUserAgentDetail(): string
     {
-        return $this->userAgentDetail;
+        return $this->config['userAgentDetail'] ?? ConfigurationDefaults::USER_AGENT_DETAIL;
     }
 
     public function getEnvironment(): string
     {
-        return $this->environment;
+        return $this->config['environment'] ?? ConfigurationDefaults::ENVIRONMENT;
     }
 
     public function getCustomUrl(): string
     {
-        return $this->customUrl;
+        return $this->config['customUrl'] ?? ConfigurationDefaults::CUSTOM_URL;
     }
 
     public function getBearerAuthCredentials(): ?BearerAuthCredentials
@@ -268,56 +267,62 @@ class SquareClient implements ConfigurationInterface
     }
 
     /**
+     * Get the client configuration as an associative array
+     *
+     * @see SquareClientBuilder::getConfiguration()
+     */
+    public function getConfiguration(): array
+    {
+        return $this->toBuilder()->getConfiguration();
+    }
+
+    /**
+     * Clone this client and override given configuration options
+     *
+     * @see SquareClientBuilder::build()
+     */
+    public function withConfiguration(array $config): self
+    {
+        return new self(array_merge($this->config, $config));
+    }
+
+    /**
      * Get current SDK version
      */
     public function getSdkVersion(): string
     {
-        return '22.0.0.20220921';
+        return '23.0.0.20221019';
     }
 
     /**
-     * Checks userAgentDetail's value, and throw exception if exceeding length limit
-     *
-     * @param string $userAgentDetail user agent detail value to be checked
-     *
-     * @throws \InvalidArgumentException
+     * Validate required configuration variables
      */
-    private function assertUserAgentDetail(string $userAgentDetail): void
+    private function validateConfig(): void
     {
-        if (strlen($userAgentDetail) > 128) {
-            throw new \InvalidArgumentException('The length of user-agent detail should not exceed 128 characters.');
-        }
+        SquareClientBuilder::init()
+            ->additionalHeaders($this->getAdditionalHeaders())
+            ->userAgentDetail($this->getUserAgentDetail());
     }
 
     /**
-     * Get the base uri for a given server in the current environment
+     * Get the base uri for a given server in the current environment.
      *
-     * @param  string $server Server name
+     * @param string $server Server name
      *
-     * @return string         Base URI
+     * @return string Base URI
      */
     public function getBaseUri(string $server = Server::DEFAULT_): string
     {
-        return ApiHelper::appendUrlWithTemplateParameters(
-            static::ENVIRONMENT_MAP[$this->environment][$server],
-            [
-                'custom_url' => $this->customUrl,
-            ],
-            false
-        );
+        return $this->client->getGlobalRequest($server)->getQueryUrl();
     }
 
     /**
      * Returns Mobile Authorization Api
      */
-    public function getMobileAuthorizationApi(): Apis\MobileAuthorizationApi
+    public function getMobileAuthorizationApi(): MobileAuthorizationApi
     {
         if ($this->mobileAuthorization == null) {
-            $this->mobileAuthorization = new Apis\MobileAuthorizationApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->mobileAuthorization = new MobileAuthorizationApi($this->client);
         }
         return $this->mobileAuthorization;
     }
@@ -325,10 +330,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns O Auth Api
      */
-    public function getOAuthApi(): Apis\OAuthApi
+    public function getOAuthApi(): OAuthApi
     {
         if ($this->oAuth == null) {
-            $this->oAuth = new Apis\OAuthApi($this, $this->authManagers, $this->httpCallback);
+            $this->oAuth = new OAuthApi($this->client);
         }
         return $this->oAuth;
     }
@@ -336,14 +341,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns V1 Transactions Api
      */
-    public function getV1TransactionsApi(): Apis\V1TransactionsApi
+    public function getV1TransactionsApi(): V1TransactionsApi
     {
         if ($this->v1Transactions == null) {
-            $this->v1Transactions = new Apis\V1TransactionsApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->v1Transactions = new V1TransactionsApi($this->client);
         }
         return $this->v1Transactions;
     }
@@ -351,10 +352,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Apple Pay Api
      */
-    public function getApplePayApi(): Apis\ApplePayApi
+    public function getApplePayApi(): ApplePayApi
     {
         if ($this->applePay == null) {
-            $this->applePay = new Apis\ApplePayApi($this, $this->authManagers, $this->httpCallback);
+            $this->applePay = new ApplePayApi($this->client);
         }
         return $this->applePay;
     }
@@ -362,10 +363,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Bank Accounts Api
      */
-    public function getBankAccountsApi(): Apis\BankAccountsApi
+    public function getBankAccountsApi(): BankAccountsApi
     {
         if ($this->bankAccounts == null) {
-            $this->bankAccounts = new Apis\BankAccountsApi($this, $this->authManagers, $this->httpCallback);
+            $this->bankAccounts = new BankAccountsApi($this->client);
         }
         return $this->bankAccounts;
     }
@@ -373,10 +374,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Bookings Api
      */
-    public function getBookingsApi(): Apis\BookingsApi
+    public function getBookingsApi(): BookingsApi
     {
         if ($this->bookings == null) {
-            $this->bookings = new Apis\BookingsApi($this, $this->authManagers, $this->httpCallback);
+            $this->bookings = new BookingsApi($this->client);
         }
         return $this->bookings;
     }
@@ -384,10 +385,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Cards Api
      */
-    public function getCardsApi(): Apis\CardsApi
+    public function getCardsApi(): CardsApi
     {
         if ($this->cards == null) {
-            $this->cards = new Apis\CardsApi($this, $this->authManagers, $this->httpCallback);
+            $this->cards = new CardsApi($this->client);
         }
         return $this->cards;
     }
@@ -395,10 +396,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Cash Drawers Api
      */
-    public function getCashDrawersApi(): Apis\CashDrawersApi
+    public function getCashDrawersApi(): CashDrawersApi
     {
         if ($this->cashDrawers == null) {
-            $this->cashDrawers = new Apis\CashDrawersApi($this, $this->authManagers, $this->httpCallback);
+            $this->cashDrawers = new CashDrawersApi($this->client);
         }
         return $this->cashDrawers;
     }
@@ -406,10 +407,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Catalog Api
      */
-    public function getCatalogApi(): Apis\CatalogApi
+    public function getCatalogApi(): CatalogApi
     {
         if ($this->catalog == null) {
-            $this->catalog = new Apis\CatalogApi($this, $this->authManagers, $this->httpCallback);
+            $this->catalog = new CatalogApi($this->client);
         }
         return $this->catalog;
     }
@@ -417,10 +418,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Customers Api
      */
-    public function getCustomersApi(): Apis\CustomersApi
+    public function getCustomersApi(): CustomersApi
     {
         if ($this->customers == null) {
-            $this->customers = new Apis\CustomersApi($this, $this->authManagers, $this->httpCallback);
+            $this->customers = new CustomersApi($this->client);
         }
         return $this->customers;
     }
@@ -428,14 +429,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Customer Custom Attributes Api
      */
-    public function getCustomerCustomAttributesApi(): Apis\CustomerCustomAttributesApi
+    public function getCustomerCustomAttributesApi(): CustomerCustomAttributesApi
     {
         if ($this->customerCustomAttributes == null) {
-            $this->customerCustomAttributes = new Apis\CustomerCustomAttributesApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->customerCustomAttributes = new CustomerCustomAttributesApi($this->client);
         }
         return $this->customerCustomAttributes;
     }
@@ -443,14 +440,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Customer Groups Api
      */
-    public function getCustomerGroupsApi(): Apis\CustomerGroupsApi
+    public function getCustomerGroupsApi(): CustomerGroupsApi
     {
         if ($this->customerGroups == null) {
-            $this->customerGroups = new Apis\CustomerGroupsApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->customerGroups = new CustomerGroupsApi($this->client);
         }
         return $this->customerGroups;
     }
@@ -458,14 +451,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Customer Segments Api
      */
-    public function getCustomerSegmentsApi(): Apis\CustomerSegmentsApi
+    public function getCustomerSegmentsApi(): CustomerSegmentsApi
     {
         if ($this->customerSegments == null) {
-            $this->customerSegments = new Apis\CustomerSegmentsApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->customerSegments = new CustomerSegmentsApi($this->client);
         }
         return $this->customerSegments;
     }
@@ -473,10 +462,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Devices Api
      */
-    public function getDevicesApi(): Apis\DevicesApi
+    public function getDevicesApi(): DevicesApi
     {
         if ($this->devices == null) {
-            $this->devices = new Apis\DevicesApi($this, $this->authManagers, $this->httpCallback);
+            $this->devices = new DevicesApi($this->client);
         }
         return $this->devices;
     }
@@ -484,10 +473,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Disputes Api
      */
-    public function getDisputesApi(): Apis\DisputesApi
+    public function getDisputesApi(): DisputesApi
     {
         if ($this->disputes == null) {
-            $this->disputes = new Apis\DisputesApi($this, $this->authManagers, $this->httpCallback);
+            $this->disputes = new DisputesApi($this->client);
         }
         return $this->disputes;
     }
@@ -495,10 +484,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Employees Api
      */
-    public function getEmployeesApi(): Apis\EmployeesApi
+    public function getEmployeesApi(): EmployeesApi
     {
         if ($this->employees == null) {
-            $this->employees = new Apis\EmployeesApi($this, $this->authManagers, $this->httpCallback);
+            $this->employees = new EmployeesApi($this->client);
         }
         return $this->employees;
     }
@@ -506,10 +495,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Gift Cards Api
      */
-    public function getGiftCardsApi(): Apis\GiftCardsApi
+    public function getGiftCardsApi(): GiftCardsApi
     {
         if ($this->giftCards == null) {
-            $this->giftCards = new Apis\GiftCardsApi($this, $this->authManagers, $this->httpCallback);
+            $this->giftCards = new GiftCardsApi($this->client);
         }
         return $this->giftCards;
     }
@@ -517,14 +506,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Gift Card Activities Api
      */
-    public function getGiftCardActivitiesApi(): Apis\GiftCardActivitiesApi
+    public function getGiftCardActivitiesApi(): GiftCardActivitiesApi
     {
         if ($this->giftCardActivities == null) {
-            $this->giftCardActivities = new Apis\GiftCardActivitiesApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->giftCardActivities = new GiftCardActivitiesApi($this->client);
         }
         return $this->giftCardActivities;
     }
@@ -532,10 +517,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Inventory Api
      */
-    public function getInventoryApi(): Apis\InventoryApi
+    public function getInventoryApi(): InventoryApi
     {
         if ($this->inventory == null) {
-            $this->inventory = new Apis\InventoryApi($this, $this->authManagers, $this->httpCallback);
+            $this->inventory = new InventoryApi($this->client);
         }
         return $this->inventory;
     }
@@ -543,10 +528,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Invoices Api
      */
-    public function getInvoicesApi(): Apis\InvoicesApi
+    public function getInvoicesApi(): InvoicesApi
     {
         if ($this->invoices == null) {
-            $this->invoices = new Apis\InvoicesApi($this, $this->authManagers, $this->httpCallback);
+            $this->invoices = new InvoicesApi($this->client);
         }
         return $this->invoices;
     }
@@ -554,10 +539,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Labor Api
      */
-    public function getLaborApi(): Apis\LaborApi
+    public function getLaborApi(): LaborApi
     {
         if ($this->labor == null) {
-            $this->labor = new Apis\LaborApi($this, $this->authManagers, $this->httpCallback);
+            $this->labor = new LaborApi($this->client);
         }
         return $this->labor;
     }
@@ -565,10 +550,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Locations Api
      */
-    public function getLocationsApi(): Apis\LocationsApi
+    public function getLocationsApi(): LocationsApi
     {
         if ($this->locations == null) {
-            $this->locations = new Apis\LocationsApi($this, $this->authManagers, $this->httpCallback);
+            $this->locations = new LocationsApi($this->client);
         }
         return $this->locations;
     }
@@ -576,10 +561,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Checkout Api
      */
-    public function getCheckoutApi(): Apis\CheckoutApi
+    public function getCheckoutApi(): CheckoutApi
     {
         if ($this->checkout == null) {
-            $this->checkout = new Apis\CheckoutApi($this, $this->authManagers, $this->httpCallback);
+            $this->checkout = new CheckoutApi($this->client);
         }
         return $this->checkout;
     }
@@ -587,10 +572,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Transactions Api
      */
-    public function getTransactionsApi(): Apis\TransactionsApi
+    public function getTransactionsApi(): TransactionsApi
     {
         if ($this->transactions == null) {
-            $this->transactions = new Apis\TransactionsApi($this, $this->authManagers, $this->httpCallback);
+            $this->transactions = new TransactionsApi($this->client);
         }
         return $this->transactions;
     }
@@ -598,10 +583,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Loyalty Api
      */
-    public function getLoyaltyApi(): Apis\LoyaltyApi
+    public function getLoyaltyApi(): LoyaltyApi
     {
         if ($this->loyalty == null) {
-            $this->loyalty = new Apis\LoyaltyApi($this, $this->authManagers, $this->httpCallback);
+            $this->loyalty = new LoyaltyApi($this->client);
         }
         return $this->loyalty;
     }
@@ -609,10 +594,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Merchants Api
      */
-    public function getMerchantsApi(): Apis\MerchantsApi
+    public function getMerchantsApi(): MerchantsApi
     {
         if ($this->merchants == null) {
-            $this->merchants = new Apis\MerchantsApi($this, $this->authManagers, $this->httpCallback);
+            $this->merchants = new MerchantsApi($this->client);
         }
         return $this->merchants;
     }
@@ -620,10 +605,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Orders Api
      */
-    public function getOrdersApi(): Apis\OrdersApi
+    public function getOrdersApi(): OrdersApi
     {
         if ($this->orders == null) {
-            $this->orders = new Apis\OrdersApi($this, $this->authManagers, $this->httpCallback);
+            $this->orders = new OrdersApi($this->client);
         }
         return $this->orders;
     }
@@ -631,10 +616,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Payments Api
      */
-    public function getPaymentsApi(): Apis\PaymentsApi
+    public function getPaymentsApi(): PaymentsApi
     {
         if ($this->payments == null) {
-            $this->payments = new Apis\PaymentsApi($this, $this->authManagers, $this->httpCallback);
+            $this->payments = new PaymentsApi($this->client);
         }
         return $this->payments;
     }
@@ -642,10 +627,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Payouts Api
      */
-    public function getPayoutsApi(): Apis\PayoutsApi
+    public function getPayoutsApi(): PayoutsApi
     {
         if ($this->payouts == null) {
-            $this->payouts = new Apis\PayoutsApi($this, $this->authManagers, $this->httpCallback);
+            $this->payouts = new PayoutsApi($this->client);
         }
         return $this->payouts;
     }
@@ -653,10 +638,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Refunds Api
      */
-    public function getRefundsApi(): Apis\RefundsApi
+    public function getRefundsApi(): RefundsApi
     {
         if ($this->refunds == null) {
-            $this->refunds = new Apis\RefundsApi($this, $this->authManagers, $this->httpCallback);
+            $this->refunds = new RefundsApi($this->client);
         }
         return $this->refunds;
     }
@@ -664,10 +649,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Sites Api
      */
-    public function getSitesApi(): Apis\SitesApi
+    public function getSitesApi(): SitesApi
     {
         if ($this->sites == null) {
-            $this->sites = new Apis\SitesApi($this, $this->authManagers, $this->httpCallback);
+            $this->sites = new SitesApi($this->client);
         }
         return $this->sites;
     }
@@ -675,10 +660,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Snippets Api
      */
-    public function getSnippetsApi(): Apis\SnippetsApi
+    public function getSnippetsApi(): SnippetsApi
     {
         if ($this->snippets == null) {
-            $this->snippets = new Apis\SnippetsApi($this, $this->authManagers, $this->httpCallback);
+            $this->snippets = new SnippetsApi($this->client);
         }
         return $this->snippets;
     }
@@ -686,14 +671,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Subscriptions Api
      */
-    public function getSubscriptionsApi(): Apis\SubscriptionsApi
+    public function getSubscriptionsApi(): SubscriptionsApi
     {
         if ($this->subscriptions == null) {
-            $this->subscriptions = new Apis\SubscriptionsApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->subscriptions = new SubscriptionsApi($this->client);
         }
         return $this->subscriptions;
     }
@@ -701,10 +682,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Team Api
      */
-    public function getTeamApi(): Apis\TeamApi
+    public function getTeamApi(): TeamApi
     {
         if ($this->team == null) {
-            $this->team = new Apis\TeamApi($this, $this->authManagers, $this->httpCallback);
+            $this->team = new TeamApi($this->client);
         }
         return $this->team;
     }
@@ -712,10 +693,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Terminal Api
      */
-    public function getTerminalApi(): Apis\TerminalApi
+    public function getTerminalApi(): TerminalApi
     {
         if ($this->terminal == null) {
-            $this->terminal = new Apis\TerminalApi($this, $this->authManagers, $this->httpCallback);
+            $this->terminal = new TerminalApi($this->client);
         }
         return $this->terminal;
     }
@@ -723,10 +704,10 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Vendors Api
      */
-    public function getVendorsApi(): Apis\VendorsApi
+    public function getVendorsApi(): VendorsApi
     {
         if ($this->vendors == null) {
-            $this->vendors = new Apis\VendorsApi($this, $this->authManagers, $this->httpCallback);
+            $this->vendors = new VendorsApi($this->client);
         }
         return $this->vendors;
     }
@@ -734,32 +715,33 @@ class SquareClient implements ConfigurationInterface
     /**
      * Returns Webhook Subscriptions Api
      */
-    public function getWebhookSubscriptionsApi(): Apis\WebhookSubscriptionsApi
+    public function getWebhookSubscriptionsApi(): WebhookSubscriptionsApi
     {
         if ($this->webhookSubscriptions == null) {
-            $this->webhookSubscriptions = new Apis\WebhookSubscriptionsApi(
-                $this,
-                $this->authManagers,
-                $this->httpCallback
-            );
+            $this->webhookSubscriptions = new WebhookSubscriptionsApi($this->client);
         }
         return $this->webhookSubscriptions;
     }
 
     /**
-     * A map of all baseurls used in different environments and servers
+     * Get the defined global configurations
+     */
+    private function getGlobalConfiguration(): array
+    {
+        return [
+            TemplateParam::init('custom_url', $this->getCustomUrl())->dontEncode(),
+            HeaderParam::init('Square-Version', $this->getSquareVersion())
+        ];
+    }
+
+    /**
+     * A map of all base urls used in different environments and servers
      *
      * @var array
      */
     private const ENVIRONMENT_MAP = [
-        Environment::PRODUCTION => [
-            Server::DEFAULT_ => 'https://connect.squareup.com',
-        ],
-        Environment::SANDBOX => [
-            Server::DEFAULT_ => 'https://connect.squareupsandbox.com',
-        ],
-        Environment::CUSTOM => [
-            Server::DEFAULT_ => '{custom_url}',
-        ],
+        Environment::PRODUCTION => [Server::DEFAULT_ => 'https://connect.squareup.com'],
+        Environment::SANDBOX => [Server::DEFAULT_ => 'https://connect.squareupsandbox.com'],
+        Environment::CUSTOM => [Server::DEFAULT_ => '{custom_url}']
     ];
 }

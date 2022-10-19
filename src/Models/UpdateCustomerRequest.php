@@ -75,6 +75,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Given Name.
      * The given name (that is, the first name) associated with the customer profile.
+     *
+     * The maximum length for this value is 300 characters.
      */
     public function getGivenName(): ?string
     {
@@ -84,6 +86,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Given Name.
      * The given name (that is, the first name) associated with the customer profile.
+     *
+     * The maximum length for this value is 300 characters.
      *
      * @maps given_name
      */
@@ -95,6 +99,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Family Name.
      * The family name (that is, the last name) associated with the customer profile.
+     *
+     * The maximum length for this value is 300 characters.
      */
     public function getFamilyName(): ?string
     {
@@ -104,6 +110,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Family Name.
      * The family name (that is, the last name) associated with the customer profile.
+     *
+     * The maximum length for this value is 300 characters.
      *
      * @maps family_name
      */
@@ -115,6 +123,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Company Name.
      * A business name associated with the customer profile.
+     *
+     * The maximum length for this value is 500 characters.
      */
     public function getCompanyName(): ?string
     {
@@ -124,6 +134,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Company Name.
      * A business name associated with the customer profile.
+     *
+     * The maximum length for this value is 500 characters.
      *
      * @maps company_name
      */
@@ -135,6 +147,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Nickname.
      * A nickname for the customer profile.
+     *
+     * The maximum length for this value is 100 characters.
      */
     public function getNickname(): ?string
     {
@@ -144,6 +158,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Nickname.
      * A nickname for the customer profile.
+     *
+     * The maximum length for this value is 100 characters.
      *
      * @maps nickname
      */
@@ -155,6 +171,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Returns Email Address.
      * The email address associated with the customer profile.
+     *
+     * The maximum length for this value is 254 characters.
      */
     public function getEmailAddress(): ?string
     {
@@ -164,6 +182,8 @@ class UpdateCustomerRequest implements \JsonSerializable
     /**
      * Sets Email Address.
      * The email address associated with the customer profile.
+     *
+     * The maximum length for this value is 254 characters.
      *
      * @maps email_address
      */
@@ -198,8 +218,11 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
-     * an optional `+` prefix.
+     * The phone number associated with the customer profile. The phone number must be valid and can
+     * contain
+     * 9–16 digits, with an optional `+` prefix and country code. For more information, see
+     * [Customer phone numbers](https://developer.squareup.com/docs/customers-api/use-the-api/keep-
+     * records#phone-number).
      */
     public function getPhoneNumber(): ?string
     {
@@ -208,8 +231,11 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
-     * an optional `+` prefix.
+     * The phone number associated with the customer profile. The phone number must be valid and can
+     * contain
+     * 9–16 digits, with an optional `+` prefix and country code. For more information, see
+     * [Customer phone numbers](https://developer.squareup.com/docs/customers-api/use-the-api/keep-
+     * records#phone-number).
      *
      * @maps phone_number
      */
@@ -222,6 +248,8 @@ class UpdateCustomerRequest implements \JsonSerializable
      * Returns Reference Id.
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
+     *
+     * The maximum length for this value is 100 characters.
      */
     public function getReferenceId(): ?string
     {
@@ -232,6 +260,8 @@ class UpdateCustomerRequest implements \JsonSerializable
      * Sets Reference Id.
      * An optional second ID used to associate the customer profile with an
      * entity in another system.
+     *
+     * The maximum length for this value is 100 characters.
      *
      * @maps reference_id
      */
@@ -262,11 +292,10 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Returns Birthday.
-     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
-     * timezone and time are not allowed.
-     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
-     * 00-00:00` represents a birthday on September 21, 1998.
-     * You can also specify this value in `YYYY-MM-DD` format.
+     * The birthday associated with the customer profile, in `YYYY-MM-DD` or `MM-DD` format. For example,
+     * specify `1998-09-21` for September 21, 1998, or `09-21` for September 21. Birthdays are returned in
+     * `YYYY-MM-DD`
+     * format, where `YYYY` is the specified birth year or `0000` if a birth year is not specified.
      */
     public function getBirthday(): ?string
     {
@@ -275,11 +304,10 @@ class UpdateCustomerRequest implements \JsonSerializable
 
     /**
      * Sets Birthday.
-     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
-     * timezone and time are not allowed.
-     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
-     * 00-00:00` represents a birthday on September 21, 1998.
-     * You can also specify this value in `YYYY-MM-DD` format.
+     * The birthday associated with the customer profile, in `YYYY-MM-DD` or `MM-DD` format. For example,
+     * specify `1998-09-21` for September 21, 1998, or `09-21` for September 21. Birthdays are returned in
+     * `YYYY-MM-DD`
+     * format, where `YYYY` is the specified birth year or `0000` if a birth year is not specified.
      *
      * @maps birthday
      */

@@ -56,7 +56,7 @@ function batchDeleteCatalogObjects(BatchDeleteCatalogObjectsRequest $body): ApiR
 ## Example Usage
 
 ```php
-$body = new Models\BatchDeleteCatalogObjectsRequest;
+$body = new Models\BatchDeleteCatalogObjectsRequest();
 $body->setObjectIds(['W62UWFY35CWMYGVWK6TWJDNI', 'AA27W3M2GGTF3H6AVPNB77CK']);
 
 $apiResponse = $catalogApi->batchDeleteCatalogObjects($body);
@@ -160,7 +160,7 @@ $body_batches_0_objects[0] = new Models\CatalogObject(
     $body_batches_0_objects_0_id
 );
 $body_batches_0_objects[0]->setPresentAtAllLocations(true);
-$body_batches_0_objects[0]->setItemData(new Models\CatalogItem);
+$body_batches_0_objects[0]->setItemData(new Models\CatalogItem());
 $body_batches_0_objects[0]->getItemData()->setName('Tea');
 $body_batches_0_objects[0]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[0]->getItemData()->setTaxIds(['#SalesTax']);
@@ -184,7 +184,7 @@ $body_batches_0_objects[1] = new Models\CatalogObject(
     $body_batches_0_objects_1_id
 );
 $body_batches_0_objects[1]->setPresentAtAllLocations(true);
-$body_batches_0_objects[1]->setItemData(new Models\CatalogItem);
+$body_batches_0_objects[1]->setItemData(new Models\CatalogItem());
 $body_batches_0_objects[1]->getItemData()->setName('Coffee');
 $body_batches_0_objects[1]->getItemData()->setCategoryId('#Beverages');
 $body_batches_0_objects[1]->getItemData()->setTaxIds(['#SalesTax']);
@@ -457,7 +457,7 @@ $body_object = new Models\CatalogObject(
     $body_object_type,
     $body_object_id
 );
-$body_object->setItemData(new Models\CatalogItem);
+$body_object->setItemData(new Models\CatalogItem());
 $body_object->getItemData()->setName('Cocoa');
 $body_object->getItemData()->setAbbreviation('Ch');
 $body_object_itemData_variations = [];
@@ -619,9 +619,9 @@ function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchCatalogObjectsRequest;
+$body = new Models\SearchCatalogObjectsRequest();
 $body->setObjectTypes([Models\CatalogObjectType::ITEM]);
-$body->setQuery(new Models\CatalogQuery);
+$body->setQuery(new Models\CatalogQuery());
 $body_query_prefixQuery_attributeName = 'name';
 $body_query_prefixQuery_attributePrefix = 'tea';
 $body->getQuery()->setPrefixQuery(new Models\CatalogQueryPrefix(
@@ -674,7 +674,7 @@ function searchCatalogItems(SearchCatalogItemsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchCatalogItemsRequest;
+$body = new Models\SearchCatalogItemsRequest();
 $body->setTextFilter('red');
 $body->setCategoryIds(['WINE_CATEGORY_ID']);
 $body->setStockLevels([Models\SearchCatalogItemsRequestStockLevel::OUT, Models\SearchCatalogItemsRequestStockLevel::LOW]);
@@ -684,21 +684,21 @@ $body->setSortOrder(Models\SortOrder::ASC);
 $body->setProductTypes([Models\CatalogItemProductType::REGULAR]);
 $body_customAttributeFilters = [];
 
-$body_customAttributeFilters[0] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[0] = new Models\CustomAttributeFilter();
 $body_customAttributeFilters[0]->setCustomAttributeDefinitionId('VEGAN_DEFINITION_ID');
 $body_customAttributeFilters[0]->setBoolFilter(true);
 
-$body_customAttributeFilters[1] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[1] = new Models\CustomAttributeFilter();
 $body_customAttributeFilters[1]->setCustomAttributeDefinitionId('BRAND_DEFINITION_ID');
 $body_customAttributeFilters[1]->setStringFilter('Dark Horse');
 
-$body_customAttributeFilters[2] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[2] = new Models\CustomAttributeFilter();
 $body_customAttributeFilters[2]->setKey('VINTAGE');
-$body_customAttributeFilters[2]->setNumberFilter(new Models\Range);
+$body_customAttributeFilters[2]->setNumberFilter(new Models\Range());
 $body_customAttributeFilters[2]->getNumberFilter()->setMin('2017');
 $body_customAttributeFilters[2]->getNumberFilter()->setMax('2018');
 
-$body_customAttributeFilters[3] = new Models\CustomAttributeFilter;
+$body_customAttributeFilters[3] = new Models\CustomAttributeFilter();
 $body_customAttributeFilters[3]->setCustomAttributeDefinitionId('VARIETAL_DEFINITION_ID');
 $body->setCustomAttributeFilters($body_customAttributeFilters);
 

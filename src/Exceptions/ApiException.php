@@ -4,31 +4,32 @@ declare(strict_types=1);
 
 namespace Square\Exceptions;
 
+use CoreInterfaces\Sdk\ExceptionInterface;
 use Square\Http\HttpResponse;
 use Square\Http\HttpRequest;
 
 /**
  * Thrown when there is a network error or HTTP response status code is not okay.
  */
-class ApiException extends \Exception implements Exception
+class ApiException extends \Exception implements ExceptionInterface
 {
     /**
      * HTTP request
      *
-     * @var \Square\Http\HttpRequest
+     * @var HttpRequest
      */
     private $request;
 
     /**
      * HTTP response
      *
-     * @var \Square\Http\HttpResponse|null
+     * @var HttpResponse|null
      */
     private $response;
 
     /**
      * @param string $reason the reason for raising an exception
-     * @param \Square\Http\HttpRequest $request
+     * @param HttpRequest $request
      */
     public function __construct(string $reason, HttpRequest $request, ?HttpResponse $response = null)
     {

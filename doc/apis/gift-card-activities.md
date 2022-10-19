@@ -99,7 +99,7 @@ $body_giftCardActivity = new Models\GiftCardActivity(
     $body_giftCardActivity_locationId
 );
 $body_giftCardActivity->setGiftCardId('gftc:6d55a72470d940c6ba09c0ab8ad08d20');
-$body_giftCardActivity->setActivateActivityDetails(new Models\GiftCardActivityActivate);
+$body_giftCardActivity->setActivateActivityDetails(new Models\GiftCardActivityActivate());
 $body_giftCardActivity->getActivateActivityDetails()->setOrderId('jJNGHm4gLI6XkFbwtiSLqK72KkAZY');
 $body_giftCardActivity->getActivateActivityDetails()->setLineItemUid('eIWl7X0nMuO9Ewbh0ChIx');
 $body = new Models\CreateGiftCardActivityRequest(

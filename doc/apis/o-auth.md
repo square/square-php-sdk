@@ -61,7 +61,7 @@ function renewToken(string $clientId, RenewTokenRequest $body, string $authoriza
 
 ```php
 $clientId = 'client_id8';
-$body = new Models\RenewTokenRequest;
+$body = new Models\RenewTokenRequest();
 $body->setAccessToken('ACCESS_TOKEN');
 $authorization = 'Client CLIENT_SECRET';
 
@@ -118,7 +118,7 @@ function revokeToken(RevokeTokenRequest $body, string $authorization): ApiRespon
 ## Example Usage
 
 ```php
-$body = new Models\RevokeTokenRequest;
+$body = new Models\RevokeTokenRequest();
 $body->setClientId('CLIENT_ID');
 $body->setAccessToken('ACCESS_TOKEN');
 $authorization = 'Client CLIENT_SECRET';

@@ -27,7 +27,7 @@ class ConfigurationDefaults
 
     public const HTTP_METHODS_TO_RETRY = ['GET', 'PUT'];
 
-    public const SQUARE_VERSION = '2022-09-21';
+    public const SQUARE_VERSION = '2022-10-19';
 
     public const ADDITIONAL_HEADERS = [];
 
@@ -38,4 +38,25 @@ class ConfigurationDefaults
     public const CUSTOM_URL = 'https://connect.squareup.com';
 
     public const ACCESS_TOKEN = '';
+
+    /**
+     * @var array Associative list of all default configurations
+     */
+    public const _ALL = [
+        'timeout' => self::TIMEOUT,
+        'enableRetries' => self::ENABLE_RETRIES,
+        'numberOfRetries' => self::NUMBER_OF_RETRIES,
+        'retryInterval' => self::RETRY_INTERVAL,
+        'backOffFactor' => self::BACK_OFF_FACTOR,
+        'maximumRetryWaitTime' => self::MAXIMUM_RETRY_WAIT_TIME,
+        'retryOnTimeout' => self::RETRY_ON_TIMEOUT,
+        'httpStatusCodesToRetry' => self::HTTP_STATUS_CODES_TO_RETRY,
+        'httpMethodsToRetry' => self::HTTP_METHODS_TO_RETRY,
+        'squareVersion' => self::SQUARE_VERSION,
+        'additionalHeaders' => self::ADDITIONAL_HEADERS,
+        'userAgentDetail' => self::USER_AGENT_DETAIL,
+        'environment' => self::ENVIRONMENT,
+        'customUrl' => self::CUSTOM_URL,
+        'accessToken' => self::ACCESS_TOKEN
+    ];
 }

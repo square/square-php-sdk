@@ -4,24 +4,30 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\BulkUpsertCustomerCustomAttributesRequest;
+use Square\Models\BulkUpsertCustomerCustomAttributesResponse;
+use Square\Models\CreateCustomerCustomAttributeDefinitionRequest;
+use Square\Models\CreateCustomerCustomAttributeDefinitionResponse;
+use Square\Models\DeleteCustomerCustomAttributeDefinitionResponse;
+use Square\Models\DeleteCustomerCustomAttributeResponse;
+use Square\Models\ListCustomerCustomAttributeDefinitionsResponse;
+use Square\Models\ListCustomerCustomAttributesResponse;
+use Square\Models\RetrieveCustomerCustomAttributeDefinitionResponse;
+use Square\Models\RetrieveCustomerCustomAttributeResponse;
+use Square\Models\UpdateCustomerCustomAttributeDefinitionRequest;
+use Square\Models\UpdateCustomerCustomAttributeDefinitionResponse;
+use Square\Models\UpsertCustomerCustomAttributeRequest;
+use Square\Models\UpsertCustomerCustomAttributeResponse;
 
 class CustomerCustomAttributesApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Lists the customer-related [custom attribute definitions]($m/CustomAttributeDefinition) that belong
      * to a Square seller account.
@@ -50,60 +56,15 @@ class CustomerCustomAttributesApi extends BaseApi
      */
     public function listCustomerCustomAttributeDefinitions(?int $limit = null, ?string $cursor = null): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attribute-definitions';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/customers/custom-attribute-definitions')
+            ->auth('global')
+            ->parameters(QueryParam::init('limit', $limit), QueryParam::init('cursor', $cursor));
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'limit'  => $limit,
-            'cursor' => $cursor,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(ListCustomerCustomAttributeDefinitionsResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListCustomerCustomAttributeDefinitionsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -120,8 +81,8 @@ class CustomerCustomAttributesApi extends BaseApi
      * Sellers can view all custom attributes in exported customer data, including those set to
      * `VISIBILITY_HIDDEN`.
      *
-     * @param Models\CreateCustomerCustomAttributeDefinitionRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param CreateCustomerCustomAttributeDefinitionRequest $body An object containing the fields
+     *        to POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -130,60 +91,17 @@ class CustomerCustomAttributesApi extends BaseApi
      * @throws ApiException Thrown if API call fails
      */
     public function createCustomerCustomAttributeDefinition(
-        Models\CreateCustomerCustomAttributeDefinitionRequest $body
+        CreateCustomerCustomAttributeDefinitionRequest $body
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attribute-definitions';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/customers/custom-attribute-definitions')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()
+            ->type(CreateCustomerCustomAttributeDefinitionResponse::class)
+            ->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateCustomerCustomAttributeDefinitionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -203,59 +121,16 @@ class CustomerCustomAttributesApi extends BaseApi
      */
     public function deleteCustomerCustomAttributeDefinition(string $key): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attribute-definitions/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::DELETE,
+            '/v2/customers/custom-attribute-definitions/{key}'
+        )->auth('global')->parameters(TemplateParam::init('key', $key));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'key' => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(DeleteCustomerCustomAttributeDefinitionResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'DeleteCustomerCustomAttributeDefinitionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -284,64 +159,16 @@ class CustomerCustomAttributesApi extends BaseApi
      */
     public function retrieveCustomerCustomAttributeDefinition(string $key, ?int $version = null): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attribute-definitions/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/customers/custom-attribute-definitions/{key}'
+        )->auth('global')->parameters(TemplateParam::init('key', $key), QueryParam::init('version', $version));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'key'     => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(RetrieveCustomerCustomAttributeDefinitionResponse::class)
+            ->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'version' => $version,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveCustomerCustomAttributeDefinitionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -355,8 +182,8 @@ class CustomerCustomAttributesApi extends BaseApi
      * all custom attributes in exported customer data, including those set to `VISIBILITY_HIDDEN`.
      *
      * @param string $key The key of the custom attribute definition to update.
-     * @param Models\UpdateCustomerCustomAttributeDefinitionRequest $body An object containing the
-     *        fields to POST for the request.
+     * @param UpdateCustomerCustomAttributeDefinitionRequest $body An object containing the fields
+     *        to POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -366,65 +193,24 @@ class CustomerCustomAttributesApi extends BaseApi
      */
     public function updateCustomerCustomAttributeDefinition(
         string $key,
-        Models\UpdateCustomerCustomAttributeDefinitionRequest $body
+        UpdateCustomerCustomAttributeDefinitionRequest $body
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attribute-definitions/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::PUT,
+            '/v2/customers/custom-attribute-definitions/{key}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('key', $key),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'key'          => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(UpdateCustomerCustomAttributeDefinitionResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->put($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdateCustomerCustomAttributeDefinitionResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -446,8 +232,8 @@ class CustomerCustomAttributesApi extends BaseApi
      * must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param Models\BulkUpsertCustomerCustomAttributesRequest $body An object containing the fields
-     *        to POST for the request.
+     * @param BulkUpsertCustomerCustomAttributesRequest $body An object containing the fields to
+     *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -455,61 +241,17 @@ class CustomerCustomAttributesApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function bulkUpsertCustomerCustomAttributes(
-        Models\BulkUpsertCustomerCustomAttributesRequest $body
-    ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/custom-attributes/bulk-upsert';
+    public function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/customers/custom-attributes/bulk-upsert')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()
+            ->type(BulkUpsertCustomerCustomAttributesResponse::class)
+            ->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BulkUpsertCustomerCustomAttributesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -552,67 +294,18 @@ class CustomerCustomAttributesApi extends BaseApi
         ?string $cursor = null,
         ?bool $withDefinitions = false
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/customers/{customer_id}/custom-attributes';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/customers/{customer_id}/custom-attributes')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('customer_id', $customerId),
+                QueryParam::init('limit', $limit),
+                QueryParam::init('cursor', $cursor),
+                QueryParam::init('with_definitions', $withDefinitions)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'customer_id'      => $customerId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(ListCustomerCustomAttributesResponse::class)->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'limit'            => $limit,
-            'cursor'           => $cursor,
-            'with_definitions' => (null != $withDefinitions) ?
-                var_export($withDefinitions, true) : false,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'     => $this->internalUserAgent,
-            'Accept'         => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListCustomerCustomAttributesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -635,61 +328,18 @@ class CustomerCustomAttributesApi extends BaseApi
      */
     public function deleteCustomerCustomAttribute(string $customerId, string $key): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/customers/{customer_id}/custom-attributes/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::DELETE,
+            '/v2/customers/{customer_id}/custom-attributes/{key}'
+        )
+            ->auth('global')
+            ->parameters(TemplateParam::init('customer_id', $customerId), TemplateParam::init('key', $key));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'customer_id' => $customerId,
-            'key'         => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(DeleteCustomerCustomAttributeResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'DeleteCustomerCustomAttributeResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -733,68 +383,23 @@ class CustomerCustomAttributesApi extends BaseApi
         ?bool $withDefinition = false,
         ?int $version = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/customers/{customer_id}/custom-attributes/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/customers/{customer_id}/custom-attributes/{key}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('customer_id', $customerId),
+                TemplateParam::init('key', $key),
+                QueryParam::init('with_definition', $withDefinition),
+                QueryParam::init('version', $version)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'customer_id'     => $customerId,
-            'key'             => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(RetrieveCustomerCustomAttributeResponse::class)
+            ->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'with_definition' => (null != $withDefinition) ?
-                var_export($withDefinition, true) : false,
-            'version'         => $version,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveCustomerCustomAttributeResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -816,8 +421,8 @@ class CustomerCustomAttributesApi extends BaseApi
      *        custom attribute definition in the Square seller account. If the requesting
      *        application is not
      *        the definition owner, you must use the qualified key.
-     * @param Models\UpsertCustomerCustomAttributeRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param UpsertCustomerCustomAttributeRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -828,66 +433,24 @@ class CustomerCustomAttributesApi extends BaseApi
     public function upsertCustomerCustomAttribute(
         string $customerId,
         string $key,
-        Models\UpsertCustomerCustomAttributeRequest $body
+        UpsertCustomerCustomAttributeRequest $body
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() .
-            '/v2/customers/{customer_id}/custom-attributes/{key}';
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/customers/{customer_id}/custom-attributes/{key}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('customer_id', $customerId),
+                TemplateParam::init('key', $key),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'customer_id'  => $customerId,
-            'key'          => $key,
-        ]);
+        $_resHandler = $this->responseHandler()
+            ->type(UpsertCustomerCustomAttributeResponse::class)
+            ->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpsertCustomerCustomAttributeResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

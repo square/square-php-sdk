@@ -158,7 +158,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
      * The duration of time after which an open and accepted pickup fulfillment
      * is automatically moved to the `COMPLETED` state. The duration must be in RFC 3339
      * format (for example, "P1W3D").
-     *
      * If not set, this pickup fulfillment remains accepted until it is canceled or completed.
      */
     public function getAutoCompleteDuration(): ?string
@@ -171,7 +170,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
      * The duration of time after which an open and accepted pickup fulfillment
      * is automatically moved to the `COMPLETED` state. The duration must be in RFC 3339
      * format (for example, "P1W3D").
-     *
      * If not set, this pickup fulfillment remains accepted until it is canceled or completed.
      *
      * @maps auto_complete_duration
@@ -206,7 +204,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * that represents the start of the pickup window. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
-     *
      * For fulfillments with the schedule type `ASAP`, this is automatically set
      * to the current time plus the expected duration to prepare the fulfillment.
      */
@@ -220,7 +217,6 @@ class OrderFulfillmentPickupDetails implements \JsonSerializable
      * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
      * that represents the start of the pickup window. Must be in RFC 3339 timestamp format, e.g.,
      * "2016-09-04T23:59:33.123Z".
-     *
      * For fulfillments with the schedule type `ASAP`, this is automatically set
      * to the current time plus the expected duration to prepare the fulfillment.
      *

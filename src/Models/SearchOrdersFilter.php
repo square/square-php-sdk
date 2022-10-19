@@ -107,7 +107,7 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment Filter.
-     * Filter based on [order fulfillment]($m/OrderFulfillment) information.
+     * Filter based on [order fulfillment]($m/Fulfillment) information.
      */
     public function getFulfillmentFilter(): ?SearchOrdersFulfillmentFilter
     {
@@ -116,7 +116,7 @@ class SearchOrdersFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment Filter.
-     * Filter based on [order fulfillment]($m/OrderFulfillment) information.
+     * Filter based on [order fulfillment]($m/Fulfillment) information.
      *
      * @maps fulfillment_filter
      */
@@ -149,7 +149,7 @@ class SearchOrdersFilter implements \JsonSerializable
      * Returns Customer Filter.
      * A filter based on the order `customer_id` and any tender `customer_id`
      * associated with the order. It does not filter based on the
-     * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.
+     * [FulfillmentRecipient]($m/FulfillmentRecipient) `customer_id`.
      */
     public function getCustomerFilter(): ?SearchOrdersCustomerFilter
     {
@@ -160,7 +160,7 @@ class SearchOrdersFilter implements \JsonSerializable
      * Sets Customer Filter.
      * A filter based on the order `customer_id` and any tender `customer_id`
      * associated with the order. It does not filter based on the
-     * [FulfillmentRecipient]($m/OrderFulfillmentRecipient) `customer_id`.
+     * [FulfillmentRecipient]($m/FulfillmentRecipient) `customer_id`.
      *
      * @maps customer_filter
      */

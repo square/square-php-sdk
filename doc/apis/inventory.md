@@ -133,9 +133,9 @@ $body = new Models\BatchChangeInventoryRequest(
 );
 $body_changes = [];
 
-$body_changes[0] = new Models\InventoryChange;
+$body_changes[0] = new Models\InventoryChange();
 $body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
-$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount);
+$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount());
 $body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
 $body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
@@ -185,7 +185,7 @@ function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRe
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryChangesRequest;
+$body = new Models\BatchRetrieveInventoryChangesRequest();
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['C6W5YS5QM06F5']);
 $body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
@@ -231,7 +231,7 @@ function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequ
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryCountsRequest;
+$body = new Models\BatchRetrieveInventoryCountsRequest();
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00Z');
@@ -281,9 +281,9 @@ $body = new Models\BatchChangeInventoryRequest(
 );
 $body_changes = [];
 
-$body_changes[0] = new Models\InventoryChange;
+$body_changes[0] = new Models\InventoryChange();
 $body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
-$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount);
+$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount());
 $body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
 $body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
 $body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
@@ -337,7 +337,7 @@ function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $bod
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryChangesRequest;
+$body = new Models\BatchRetrieveInventoryChangesRequest();
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['C6W5YS5QM06F5']);
 $body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
@@ -390,7 +390,7 @@ function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body)
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryCountsRequest;
+$body = new Models\BatchRetrieveInventoryCountsRequest();
 $body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
 $body->setLocationIds(['59TNP9SA8VGDA']);
 $body->setUpdatedAfter('2016-11-16T00:00:00Z');

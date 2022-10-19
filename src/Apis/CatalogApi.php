@@ -4,25 +4,42 @@ declare(strict_types=1);
 
 namespace Square\Apis;
 
+use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\FormParam;
+use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
+use Core\Request\Parameters\TemplateParam;
+use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Exceptions\ApiException;
-use Square\ConfigurationInterface;
-use Square\ApiHelper;
-use Square\Models;
-use Square\Utils\FileWrapper;
 use Square\Http\ApiResponse;
-use Square\Http\HttpRequest;
-use Square\Http\HttpResponse;
-use Square\Http\HttpMethod;
-use Square\Http\HttpContext;
-use Square\Http\HttpCallBack;
+use Square\Models\BatchDeleteCatalogObjectsRequest;
+use Square\Models\BatchDeleteCatalogObjectsResponse;
+use Square\Models\BatchRetrieveCatalogObjectsRequest;
+use Square\Models\BatchRetrieveCatalogObjectsResponse;
+use Square\Models\BatchUpsertCatalogObjectsRequest;
+use Square\Models\BatchUpsertCatalogObjectsResponse;
+use Square\Models\CatalogInfoResponse;
+use Square\Models\CreateCatalogImageRequest;
+use Square\Models\CreateCatalogImageResponse;
+use Square\Models\DeleteCatalogObjectResponse;
+use Square\Models\ListCatalogResponse;
+use Square\Models\RetrieveCatalogObjectResponse;
+use Square\Models\SearchCatalogItemsRequest;
+use Square\Models\SearchCatalogItemsResponse;
+use Square\Models\SearchCatalogObjectsRequest;
+use Square\Models\SearchCatalogObjectsResponse;
+use Square\Models\UpdateCatalogImageRequest;
+use Square\Models\UpdateCatalogImageResponse;
+use Square\Models\UpdateItemModifierListsRequest;
+use Square\Models\UpdateItemModifierListsResponse;
+use Square\Models\UpdateItemTaxesRequest;
+use Square\Models\UpdateItemTaxesResponse;
+use Square\Models\UpsertCatalogObjectRequest;
+use Square\Models\UpsertCatalogObjectResponse;
+use Square\Utils\FileWrapper;
 
 class CatalogApi extends BaseApi
 {
-    public function __construct(ConfigurationInterface $config, array $authManagers, ?HttpCallBack $httpCallBack)
-    {
-        parent::__construct($config, $authManagers, $httpCallBack);
-    }
-
     /**
      * Deletes a set of [CatalogItem]($m/CatalogItem)s based on the
      * provided list of target IDs and returns a set of successfully deleted IDs in
@@ -35,8 +52,8 @@ class CatalogApi extends BaseApi
      * IDs can be deleted. The response will only include IDs that were
      * actually deleted.
      *
-     * @param Models\BatchDeleteCatalogObjectsRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param BatchDeleteCatalogObjectsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -44,60 +61,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchDeleteCatalogObjects(Models\BatchDeleteCatalogObjectsRequest $body): ApiResponse
+    public function batchDeleteCatalogObjects(BatchDeleteCatalogObjectsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-delete';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/batch-delete')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchDeleteCatalogObjectsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchDeleteCatalogObjectsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -108,8 +80,8 @@ class CatalogApi extends BaseApi
      * its [CatalogModifierList]($m/CatalogModifierList) objects, and the ids of
      * any [CatalogTax]($m/CatalogTax) objects that apply to it.
      *
-     * @param Models\BatchRetrieveCatalogObjectsRequest $body An object containing the fields to
-     *        POST for the request.
+     * @param BatchRetrieveCatalogObjectsRequest $body An object containing the fields to POST for
+     *        the request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -117,60 +89,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchRetrieveCatalogObjects(Models\BatchRetrieveCatalogObjectsRequest $body): ApiResponse
+    public function batchRetrieveCatalogObjects(BatchRetrieveCatalogObjectsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-retrieve';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/batch-retrieve')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchRetrieveCatalogObjectsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchRetrieveCatalogObjectsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -184,8 +111,8 @@ class CatalogApi extends BaseApi
      * request (items, variations, modifier lists, discounts, and taxes) is no more
      * than 10,000.
      *
-     * @param Models\BatchUpsertCatalogObjectsRequest $body An object containing the fields to POST
-     *        for the request.
+     * @param BatchUpsertCatalogObjectsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -193,60 +120,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function batchUpsertCatalogObjects(Models\BatchUpsertCatalogObjectsRequest $body): ApiResponse
+    public function batchUpsertCatalogObjects(BatchUpsertCatalogObjectsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/batch-upsert';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/batch-upsert')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(BatchUpsertCatalogObjectsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'BatchUpsertCatalogObjectsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -260,7 +142,7 @@ class CatalogApi extends BaseApi
      * image file part in
      * JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
      *
-     * @param Models\CreateCatalogImageRequest|null $request
+     * @param CreateCatalogImageRequest|null $request
      * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
@@ -268,67 +150,19 @@ class CatalogApi extends BaseApi
      * @throws ApiException Thrown if API call fails
      */
     public function createCatalogImage(
-        ?Models\CreateCatalogImageRequest $request = null,
+        ?CreateCatalogImageRequest $request = null,
         ?FileWrapper $imageFile = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/images';
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //prepare parameters
-        $_parameters = [
-            'request'    => ApiHelper::serialize($request),
-            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
-        ];
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl, $_parameters);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post(
-                $_httpRequest->getQueryUrl(),
-                $_httpRequest->getHeaders(),
-                \Unirest\Request::buildHTTPCurlQuery($_parameters)
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/images')
+            ->auth('global')
+            ->parameters(
+                FormParam::init('request', $request)->encodingHeader('Content-Type', 'application/json; charset=utf-8'),
+                FormParam::init('image_file', $imageFile)->encodingHeader('Content-Type', 'image/jpeg')
             );
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
 
+        $_resHandler = $this->responseHandler()->type(CreateCatalogImageResponse::class)->returnApiResponse();
 
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CreateCatalogImageResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -341,7 +175,7 @@ class CatalogApi extends BaseApi
      *
      * @param string $imageId The ID of the `CatalogImage` object to update the encapsulated image
      *        file.
-     * @param Models\UpdateCatalogImageRequest|null $request
+     * @param UpdateCatalogImageRequest|null $request
      * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
@@ -350,72 +184,20 @@ class CatalogApi extends BaseApi
      */
     public function updateCatalogImage(
         string $imageId,
-        ?Models\UpdateCatalogImageRequest $request = null,
+        ?UpdateCatalogImageRequest $request = null,
         ?FileWrapper $imageFile = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/images/{image_id}';
-
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'image_id'   => $imageId,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //prepare parameters
-        $_parameters = [
-            'request'    => ApiHelper::serialize($request),
-            'image_file' => $imageFile === null ? null : $imageFile->createCurlFileInstance('image/jpeg')
-        ];
-
-        $_httpRequest = new HttpRequest(HttpMethod::PUT, $_headers, $_queryUrl, $_parameters);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->put(
-                $_httpRequest->getQueryUrl(),
-                $_httpRequest->getHeaders(),
-                \Unirest\Request::buildHTTPCurlQuery($_parameters)
+        $_reqBuilder = $this->requestBuilder(RequestMethod::PUT, '/v2/catalog/images/{image_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('image_id', $imageId),
+                FormParam::init('request', $request)->encodingHeader('Content-Type', 'application/json; charset=utf-8'),
+                FormParam::init('image_file', $imageFile)->encodingHeader('Content-Type', 'image/jpeg')
             );
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
 
+        $_resHandler = $this->responseHandler()->type(UpdateCatalogImageResponse::class)->returnApiResponse();
 
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdateCatalogImageResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -428,54 +210,11 @@ class CatalogApi extends BaseApi
      */
     public function catalogInfo(): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/info';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/catalog/info')->auth('global');
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(CatalogInfoResponse::class)->returnApiResponse();
 
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'CatalogInfoResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -530,68 +269,24 @@ class CatalogApi extends BaseApi
         ?string $types = null,
         ?int $catalogVersion = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/list';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/catalog/list')
+            ->auth('global')
+            ->parameters(
+                QueryParam::init('cursor', $cursor),
+                QueryParam::init('types', $types),
+                QueryParam::init('catalog_version', $catalogVersion)
+            );
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'cursor'          => $cursor,
-            'types'           => $types,
-            'catalog_version' => $catalogVersion,
-        ]);
+        $_resHandler = $this->responseHandler()->type(ListCatalogResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'ListCatalogResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
      * Creates or updates the target [CatalogObject]($m/CatalogObject).
      *
-     * @param Models\UpsertCatalogObjectRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param UpsertCatalogObjectRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -599,60 +294,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function upsertCatalogObject(Models\UpsertCatalogObjectRequest $body): ApiResponse
+    public function upsertCatalogObject(UpsertCatalogObjectRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/object')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(UpsertCatalogObjectResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpsertCatalogObjectResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -675,59 +325,13 @@ class CatalogApi extends BaseApi
      */
     public function deleteCatalogObject(string $objectId): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object/{object_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::DELETE, '/v2/catalog/object/{object_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('object_id', $objectId));
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'object_id' => $objectId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(DeleteCatalogObjectResponse::class)->returnApiResponse();
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::DELETE, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->delete($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'DeleteCatalogObjectResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -775,66 +379,17 @@ class CatalogApi extends BaseApi
         ?bool $includeRelatedObjects = false,
         ?int $catalogVersion = null
     ): ApiResponse {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/object/{object_id}';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/catalog/object/{object_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('object_id', $objectId),
+                QueryParam::init('include_related_objects', $includeRelatedObjects),
+                QueryParam::init('catalog_version', $catalogVersion)
+            );
 
-        //process template parameters
-        $_queryUrl = ApiHelper::appendUrlWithTemplateParameters($_queryUrl, [
-            'object_id'               => $objectId,
-        ]);
+        $_resHandler = $this->responseHandler()->type(RetrieveCatalogObjectResponse::class)->returnApiResponse();
 
-        //process query parameters
-        ApiHelper::appendUrlWithQueryParameters($_queryUrl, [
-            'include_related_objects' => (null != $includeRelatedObjects) ?
-                var_export($includeRelatedObjects, true) : false,
-            'catalog_version'         => $catalogVersion,
-        ]);
-
-        //prepare headers
-        $_headers = [
-            'user-agent'            => $this->internalUserAgent,
-            'Accept'                => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion()
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->get($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders());
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'RetrieveCatalogObjectResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -855,8 +410,8 @@ class CatalogApi extends BaseApi
      * items or item variations, whereas `SearchCatalogObjects` does.
      * - The both endpoints have different call conventions, including the query filter formats.
      *
-     * @param Models\SearchCatalogObjectsRequest $body An object containing the fields to POST for
-     *        the request.
+     * @param SearchCatalogObjectsRequest $body An object containing the fields to POST for the
+     *        request.
      *
      *        See the corresponding object definition for field details.
      *
@@ -864,60 +419,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchCatalogObjects(Models\SearchCatalogObjectsRequest $body): ApiResponse
+    public function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/search';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/search')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchCatalogObjectsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchCatalogObjectsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -937,7 +447,7 @@ class CatalogApi extends BaseApi
      * items or item variations, whereas `SearchCatalogObjects` does.
      * - The both endpoints use different call conventions, including the query filter formats.
      *
-     * @param Models\SearchCatalogItemsRequest $body An object containing the fields to POST for the
+     * @param SearchCatalogItemsRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
@@ -946,60 +456,15 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function searchCatalogItems(Models\SearchCatalogItemsRequest $body): ApiResponse
+    public function searchCatalogItems(SearchCatalogItemsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/search-catalog-items';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/search-catalog-items')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(SearchCatalogItemsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'SearchCatalogItemsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 
     /**
@@ -1007,77 +472,7 @@ class CatalogApi extends BaseApi
      * that apply to the targeted [CatalogItem]($m/CatalogItem) without having
      * to perform an upsert on the entire item.
      *
-     * @param Models\UpdateItemModifierListsRequest $body An object containing the fields to POST
-     *        for the request.
-     *
-     *        See the corresponding object definition for field details.
-     *
-     * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
-     */
-    public function updateItemModifierLists(Models\UpdateItemModifierListsRequest $body): ApiResponse
-    {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/update-item-modifier-lists';
-
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
-
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
-
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
-
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
-
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdateItemModifierListsResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
-    }
-
-    /**
-     * Updates the [CatalogTax]($m/CatalogTax) objects that apply to the
-     * targeted [CatalogItem]($m/CatalogItem) without having to perform an
-     * upsert on the entire item.
-     *
-     * @param Models\UpdateItemTaxesRequest $body An object containing the fields to POST for the
+     * @param UpdateItemModifierListsRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
@@ -1086,59 +481,37 @@ class CatalogApi extends BaseApi
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function updateItemTaxes(Models\UpdateItemTaxesRequest $body): ApiResponse
+    public function updateItemModifierLists(UpdateItemModifierListsRequest $body): ApiResponse
     {
-        //prepare query string for API call
-        $_queryUrl = $this->config->getBaseUri() . '/v2/catalog/update-item-taxes';
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/update-item-modifier-lists')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        //prepare headers
-        $_headers = [
-            'user-agent'    => $this->internalUserAgent,
-            'Accept'        => 'application/json',
-            'Square-Version' => $this->config->getSquareVersion(),
-            'Content-Type'    => 'application/json'
-        ];
-        $_headers = ApiHelper::mergeHeaders($_headers, $this->config->getAdditionalHeaders());
+        $_resHandler = $this->responseHandler()->type(UpdateItemModifierListsResponse::class)->returnApiResponse();
 
-        //json encode body
-        $_bodyJson = ApiHelper::serialize($body);
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
 
-        $_httpRequest = new HttpRequest(HttpMethod::POST, $_headers, $_queryUrl);
+    /**
+     * Updates the [CatalogTax]($m/CatalogTax) objects that apply to the
+     * targeted [CatalogItem]($m/CatalogItem) without having to perform an
+     * upsert on the entire item.
+     *
+     * @param UpdateItemTaxesRequest $body An object containing the fields to POST for the request.
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function updateItemTaxes(UpdateItemTaxesRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/catalog/update-item-taxes')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        // Apply authorization to request
-        $this->getAuthManager('global')->apply($_httpRequest);
+        $_resHandler = $this->responseHandler()->type(UpdateItemTaxesResponse::class)->returnApiResponse();
 
-        //call on-before Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
-        }
-
-        // and invoke the API call request to fetch the response
-        try {
-            $response = self::$request->post($_httpRequest->getQueryUrl(), $_httpRequest->getHeaders(), $_bodyJson);
-        } catch (\Unirest\Exception $ex) {
-            throw new ApiException($ex->getMessage(), $_httpRequest);
-        }
-
-
-        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
-        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
-
-        //call on-after Http callback
-        if ($this->getHttpCallBack() != null) {
-            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
-        }
-
-        if (!$this->isValidResponse($_httpResponse)) {
-            return ApiResponse::createFromContext($response->body, null, $_httpContext);
-        }
-
-        $deserializedResponse = ApiHelper::mapClass(
-            $_httpRequest,
-            $_httpResponse,
-            $response->body,
-            'UpdateItemTaxesResponse'
-        );
-        return ApiResponse::createFromContext($response->body, $deserializedResponse, $_httpContext);
+        return $this->execute($_reqBuilder, $_resHandler);
     }
 }

@@ -4,23 +4,26 @@ declare(strict_types=1);
 
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 class ClientFactory
 {
-    public static function create(HttpCallBackCatcher $httpCallback): \Square\SquareClient
+    public static function create(CallbackCatcher $httpCallback): \Square\SquareClient
     {
-        $client = (new \Square\SquareClient(static::getConfigurationFromEnvironment()))
-            ->withConfiguration(static::getTestConfiguration($httpCallback));
-        return $client;
+        $clientBuilder = \Square\SquareClientBuilder::init();
+        $clientBuilder = self::addConfigurationFromEnvironment($clientBuilder);
+        $clientBuilder = self::addTestConfiguration($clientBuilder);
+        return $clientBuilder->httpCallback($httpCallback)->build();
     }
 
-    public static function getTestConfiguration(HttpCallBackCatcher $httpCallback): array
+    public static function addTestConfiguration(\Square\SquareClientBuilder $builder): \Square\SquareClientBuilder
     {
-        return ['httpCallback' => $httpCallback];
+        return $builder;
     }
 
-    public static function getConfigurationFromEnvironment(): array
-    {
-        $config = [];
+    public static function addConfigurationFromEnvironment(
+        \Square\SquareClientBuilder $builder
+    ): \Square\SquareClientBuilder {
         $timeout = getenv('SQUARE_TIMEOUT');
         $numberOfRetries = getenv('SQUARE_NUMBER_OF_RETRIES');
         $maximumRetryWaitTime = getenv('SQUARE_MAXIMUM_RETRY_WAIT_TIME');
@@ -31,37 +34,37 @@ class ClientFactory
         $accessToken = getenv('SQUARE_ACCESS_TOKEN');
 
         if ($timeout !== false && \is_numeric($timeout)) {
-            $config['timeout'] = intval($timeout);
+            $builder->timeout(intval($timeout));
         }
 
         if ($numberOfRetries !== false && \is_numeric($numberOfRetries)) {
-            $config['numberOfRetries'] = intval($numberOfRetries);
+            $builder->numberOfRetries(intval($numberOfRetries));
         }
 
         if ($maximumRetryWaitTime !== false && \is_numeric($maximumRetryWaitTime)) {
-            $config['maximumRetryWaitTime'] = intval($maximumRetryWaitTime);
+            $builder->maximumRetryWaitTime(intval($maximumRetryWaitTime));
         }
 
         if ($squareVersion !== false) {
-            $config['squareVersion'] = $squareVersion;
+            $builder->squareVersion($squareVersion);
         }
 
         if ($userAgentDetail !== false) {
-            $config['userAgentDetail'] = $userAgentDetail;
+            $builder->userAgentDetail($userAgentDetail);
         }
 
         if ($environment !== false) {
-            $config['environment'] = $environment;
+            $builder->environment($environment);
         }
 
         if ($customUrl !== false) {
-            $config['customUrl'] = $customUrl;
+            $builder->customUrl($customUrl);
         }
 
         if ($accessToken !== false) {
-            $config['accessToken'] = $accessToken;
+            $builder->accessToken($accessToken);
         }
 
-        return $config;
+        return $builder;
     }
 }

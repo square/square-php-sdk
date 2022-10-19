@@ -2,6 +2,8 @@
 
 namespace Square\Tests;
 
+use Core\Types\CallbackCatcher;
+
 use Square\APIException;
 use Square\APIHelper;
 use Square\Exceptions;
@@ -21,7 +23,7 @@ class MobileAuthorizationTest extends TestCase
     protected static $controller;
 
     /**
-     * @var HttpCallBackCatcher Callback
+     * @var CallbackCatcher Callback
      */
     protected static $httpResponse;
 
@@ -35,7 +37,7 @@ class MobileAuthorizationTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        self::$httpResponse = new HttpCallBackCatcher();
+        self::$httpResponse = new CallbackCatcher();
         $client = ClientFactory::create(self::$httpResponse);
         self::$controller = $client->getMobileAuthorizationApi();
         self::$Locations = $client->getLocationsApi();

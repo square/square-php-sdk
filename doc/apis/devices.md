@@ -81,7 +81,7 @@ function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
 
 ```php
 $body_idempotencyKey = '01bb00a6-0c86-4770-94ed-f5fca973cd56';
-$body_deviceCode = new Models\DeviceCode;
+$body_deviceCode = new Models\DeviceCode();
 $body_deviceCode->setName('Counter 1');
 $body_deviceCode->setLocationId('B5E4484SHHNYH');
 $body = new Models\CreateDeviceCodeRequest(

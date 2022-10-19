@@ -98,7 +98,7 @@ function createBooking(CreateBookingRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_booking = new Models\Booking;
+$body_booking = new Models\Booking();
 $body = new Models\CreateBookingRequest(
     $body_booking
 );
@@ -141,7 +141,7 @@ function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_query_filter_startAtRange = new Models\TimeRange;
+$body_query_filter_startAtRange = new Models\TimeRange();
 $body_query_filter = new Models\SearchAvailabilityFilter(
     $body_query_filter_startAtRange
 );
@@ -346,7 +346,7 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 
 ```php
 $bookingId = 'booking_id4';
-$body_booking = new Models\Booking;
+$body_booking = new Models\Booking();
 $body = new Models\UpdateBookingRequest(
     $body_booking
 );
@@ -394,7 +394,7 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 
 ```php
 $bookingId = 'booking_id4';
-$body = new Models\CancelBookingRequest;
+$body = new Models\CancelBookingRequest();
 
 $apiResponse = $bookingsApi->cancelBooking($bookingId, $body);
 

@@ -4,54 +4,19 @@ declare(strict_types=1);
 
 namespace Square\Http;
 
+use Core\Types\Sdk\CoreApiResponse;
+use Square\ApiHelper;
+use Square\Models\Error;
+
 /**
  * Holds the result of an API call.
  */
-class ApiResponse
+class ApiResponse extends CoreApiResponse
 {
-    /**
-     * @var HttpRequest
-     */
-    private $request;
-
-    /**
-     * @var int|null
-     */
-    private $statusCode = null;
-
-    /**
-     * @var string|null
-     */
-    private $reasonPhrase = null;
-
-    /**
-     * @var array|null
-     */
-    private $headers = null;
-
-    /**
-     * @var mixed
-     */
-    private $result = null;
-
-    /**
-     * @var mixed
-     */
-    private $body = null;
-
-    /**
-     * @var \Square\Models\Error[]
-     */
-    private $errors = null;
-
-    /**
-     * @var mixed
-     */
-    private $cursor = null;
-
     /**
      * Create a new instance of this class with the given context and result.
      *
+     * @param mixed $decodedBody Decoded response body
      * @param mixed $result Deserialized result from the response
      * @param HttpContext $context Http context
      */
@@ -63,27 +28,33 @@ class ApiResponse
         $headers = $context->getResponse()->getHeaders();
         $body = $context->getResponse()->getRawBody();
 
-        if (!\is_array($decodedBody)) {
+        if (!is_array($decodedBody)) {
             $decodedBody = (array) $decodedBody;
         }
-
         $cursor = $decodedBody['cursor'] ?? null;
         $errors = [];
-
         if ($statusCode >= 400 && $statusCode < 600) {
             if (isset($decodedBody['errors'])) {
-                $mapper = new \apimatic\jsonmapper\JsonMapper();
-                $errors = $mapper->mapClassArray($decodedBody['errors'], '\\Square\\Models\\Error');
+                $errors = ApiHelper::getJsonHelper()->mapClass($decodedBody['errors'], Error::class, 1);
             } else {
-                $error = new \Square\Models\Error('V1_ERROR', $decodedBody['type'] ?? 'Unknown');
+                $error = new Error('V1_ERROR', $decodedBody['type'] ?? 'Unknown');
                 $error->setDetail($decodedBody['message'] ?? null);
                 $error->setField($decodedBody['field'] ?? null);
                 $errors = [$error];
             }
         }
-
         return new self($request, $statusCode, $reasonPhrase, $headers, $result, $body, $errors, $cursor);
     }
+
+    /**
+     * @var Error[]
+     */
+    private $errors;
+
+    /**
+     * @var mixed
+     */
+    private $cursor;
 
     /**
      * @param HttpRequest $request
@@ -92,7 +63,7 @@ class ApiResponse
      * @param array|null $headers
      * @param mixed $result
      * @param mixed $body
-     * @param \Square\Models\Error[] $errors
+     * @param Error[] $errors
      * @param mixed $cursor
      */
     public function __construct(
@@ -105,72 +76,15 @@ class ApiResponse
         array $errors,
         $cursor
     ) {
-        $this->request = $request;
-        $this->statusCode = $statusCode;
-        $this->reasonPhrase = $reasonPhrase;
-        $this->headers = $headers;
-        $this->result = $result;
-        $this->body = $body;
+        parent::__construct($request, $statusCode, $reasonPhrase, $headers, $result, $body);
         $this->errors = $errors;
         $this->cursor = $cursor;
     }
 
     /**
-     * Returns the original request that resulted in this response.
-     */
-    public function getRequest(): HttpRequest
-    {
-        return $this->request;
-    }
-
-    /**
-     * Returns the response status code.
-     */
-    public function getStatusCode(): ?int
-    {
-        return $this->statusCode;
-    }
-
-    /**
-     * Returns the HTTP reason phrase from the response.
-     */
-    public function getReasonPhrase(): ?string
-    {
-        return $this->reasonPhrase;
-    }
-
-    /**
-     * Returns the response headers.
-     */
-    public function getHeaders(): ?array
-    {
-        return $this->headers;
-    }
-
-    /**
-     * Returns the response data.
-     *
-     * @return mixed
-     */
-    public function getResult()
-    {
-        return $this->result;
-    }
-
-    /**
-     * Returns the original body from the response.
-     *
-     * @return mixed
-     */
-    public function getBody()
-    {
-        return $this->body;
-    }
-
-    /**
      * Returns the errors if any.
      *
-     * @return \Square\Models\Error[]
+     * @return Error[]
      */
     public function getErrors(): array
     {
@@ -188,18 +102,10 @@ class ApiResponse
     }
 
     /**
-     * Is response OK?
+     * Returns the original request that resulted in this response.
      */
-    public function isSuccess(): bool
+    public function getRequest(): HttpRequest
     {
-        return isset($this->statusCode) && $this->statusCode >= 200 && $this->statusCode < 300;
-    }
-
-    /**
-     * Is response missing or not OK?
-     */
-    public function isError(): bool
-    {
-        return !$this->isSuccess();
+        return $this->request;
     }
 }

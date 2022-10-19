@@ -62,7 +62,7 @@ class Order implements \JsonSerializable
     private $serviceCharges;
 
     /**
-     * @var OrderFulfillment[]|null
+     * @var Fulfillment[]|null
      */
     private $fulfillments;
 
@@ -437,7 +437,7 @@ class Order implements \JsonSerializable
      * Orders can only be created with at most one fulfillment. However, orders returned
      * by the API might contain multiple fulfillments.
      *
-     * @return OrderFulfillment[]|null
+     * @return Fulfillment[]|null
      */
     public function getFulfillments(): ?array
     {
@@ -453,7 +453,7 @@ class Order implements \JsonSerializable
      *
      * @maps fulfillments
      *
-     * @param OrderFulfillment[]|null $fulfillments
+     * @param Fulfillment[]|null $fulfillments
      */
     public function setFulfillments(?array $fulfillments): void
     {

@@ -18,4 +18,9 @@ class LocationCapability
      * The capability to receive automatic transfers from Square.
      */
     public const AUTOMATIC_TRANSFERS = 'AUTOMATIC_TRANSFERS';
+
+    /**
+     * The capability to process unlinked refunds with Square.
+     */
+    public const UNLINKED_REFUNDS = 'UNLINKED_REFUNDS';
 }

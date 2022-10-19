@@ -73,10 +73,10 @@ function createLocation(CreateLocationRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateLocationRequest;
-$body->setLocation(new Models\Location);
+$body = new Models\CreateLocationRequest();
+$body->setLocation(new Models\Location());
 $body->getLocation()->setName('Midtown');
-$body->getLocation()->setAddress(new Models\Address);
+$body->getLocation()->setAddress(new Models\Address());
 $body->getLocation()->getAddress()->setAddressLine1('1234 Peachtree St. NE');
 $body->getLocation()->getAddress()->setLocality('Atlanta');
 $body->getLocation()->getAddress()->setAdministrativeDistrictLevel1('GA');
@@ -158,22 +158,22 @@ function updateLocation(string $locationId, UpdateLocationRequest $body): ApiRes
 
 ```php
 $locationId = 'location_id4';
-$body = new Models\UpdateLocationRequest;
-$body->setLocation(new Models\Location);
-$body->getLocation()->setBusinessHours(new Models\BusinessHours);
+$body = new Models\UpdateLocationRequest();
+$body->setLocation(new Models\Location());
+$body->getLocation()->setBusinessHours(new Models\BusinessHours());
 $body_location_businessHours_periods = [];
 
-$body_location_businessHours_periods[0] = new Models\BusinessHoursPeriod;
+$body_location_businessHours_periods[0] = new Models\BusinessHoursPeriod();
 $body_location_businessHours_periods[0]->setDayOfWeek(Models\DayOfWeek::FRI);
 $body_location_businessHours_periods[0]->setStartLocalTime('07:00');
 $body_location_businessHours_periods[0]->setEndLocalTime('18:00');
 
-$body_location_businessHours_periods[1] = new Models\BusinessHoursPeriod;
+$body_location_businessHours_periods[1] = new Models\BusinessHoursPeriod();
 $body_location_businessHours_periods[1]->setDayOfWeek(Models\DayOfWeek::SAT);
 $body_location_businessHours_periods[1]->setStartLocalTime('07:00');
 $body_location_businessHours_periods[1]->setEndLocalTime('18:00');
 
-$body_location_businessHours_periods[2] = new Models\BusinessHoursPeriod;
+$body_location_businessHours_periods[2] = new Models\BusinessHoursPeriod();
 $body_location_businessHours_periods[2]->setDayOfWeek(Models\DayOfWeek::SUN);
 $body_location_businessHours_periods[2]->setStartLocalTime('09:00');
 $body_location_businessHours_periods[2]->setEndLocalTime('15:00');

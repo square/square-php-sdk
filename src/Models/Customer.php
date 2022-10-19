@@ -343,8 +343,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Phone Number.
-     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
-     * an optional `+` prefix.
+     * The phone number associated with the customer profile.
      */
     public function getPhoneNumber(): ?string
     {
@@ -353,8 +352,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Phone Number.
-     * The phone number associated with the customer profile. A phone number can contain 9–16 digits, with
-     * an optional `+` prefix.
+     * The phone number associated with the customer profile.
      *
      * @maps phone_number
      */
@@ -365,10 +363,9 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Birthday.
-     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
-     * timezone and time are not allowed.
-     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
-     * 00-00:00` represents a birthday on September 21, 1998.
+     * The birthday associated with the customer profile, in `YYYY-MM-DD` format. For example, `1998-09-
+     * 21`
+     * represents September 21, 1998, and `0000-09-21` represents September 21 (without a birth year).
      */
     public function getBirthday(): ?string
     {
@@ -377,10 +374,9 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Birthday.
-     * The birthday associated with the customer profile, in RFC 3339 format. The year is optional. The
-     * timezone and time are not allowed.
-     * For example, `0000-09-21T00:00:00-00:00` represents a birthday on September 21 and `1998-09-21T00:00:
-     * 00-00:00` represents a birthday on September 21, 1998.
+     * The birthday associated with the customer profile, in `YYYY-MM-DD` format. For example, `1998-09-
+     * 21`
+     * represents September 21, 1998, and `0000-09-21` represents September 21 (without a birth year).
      *
      * @maps birthday
      */

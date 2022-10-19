@@ -59,12 +59,12 @@ $body = new Models\CreateSubscriptionRequest(
 $body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
 $body->setStartDate('2021-10-20');
 $body->setTaxPercentage('5');
-$body->setPriceOverrideMoney(new Models\Money);
+$body->setPriceOverrideMoney(new Models\Money());
 $body->getPriceOverrideMoney()->setAmount(100);
 $body->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
 $body->setCardId('ccof:qy5x8hHGYsgLrp4Q4GB');
 $body->setTimezone('America/Los_Angeles');
-$body->setSource(new Models\SubscriptionSource);
+$body->setSource(new Models\SubscriptionSource());
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 
@@ -117,9 +117,9 @@ function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchSubscriptionsRequest;
-$body->setQuery(new Models\SearchSubscriptionsQuery);
-$body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter);
+$body = new Models\SearchSubscriptionsRequest();
+$body->setQuery(new Models\SearchSubscriptionsQuery());
+$body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter());
 $body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
 $body->getQuery()->getFilter()->setLocationIds(['S8GWD5R9QB376']);
 $body->getQuery()->getFilter()->setSourceNames(['My App']);
@@ -200,7 +200,7 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\UpdateSubscriptionRequest;
+$body = new Models\UpdateSubscriptionRequest();
 
 $apiResponse = $subscriptionsApi->updateSubscription($subscriptionId, $body);
 
@@ -356,7 +356,7 @@ function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $bod
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\PauseSubscriptionRequest;
+$body = new Models\PauseSubscriptionRequest();
 
 $apiResponse = $subscriptionsApi->pauseSubscription($subscriptionId, $body);
 
@@ -395,7 +395,7 @@ function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $b
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\ResumeSubscriptionRequest;
+$body = new Models\ResumeSubscriptionRequest();
 
 $apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId, $body);
 

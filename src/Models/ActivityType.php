@@ -185,4 +185,9 @@ class ActivityType
      * Refunded fees from a third-party platform.
      */
     public const THIRD_PARTY_FEE_REFUND = 'THIRD_PARTY_FEE_REFUND';
+
+    /**
+     * Balance change due to money transfer.
+     */
+    public const PAYOUT = 'PAYOUT';
 }

@@ -46,7 +46,7 @@ function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse
 
 ```php
 $body_idempotencyKey = 'thahn-70e75c10-47f7-4ab6-88cc-aaa4076d065e';
-$body_action = new Models\TerminalAction;
+$body_action = new Models\TerminalAction();
 $body_action->setDeviceId('{{DEVICE_ID}}');
 $body_action->setDeadlineDuration('PT5M');
 $body_action->setType(Models\TerminalActionActionType::SAVE_CARD);
@@ -95,12 +95,12 @@ function searchTerminalActions(SearchTerminalActionsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalActionsRequest;
-$body->setQuery(new Models\TerminalActionQuery);
-$body->getQuery()->setFilter(new Models\TerminalActionQueryFilter);
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange);
+$body = new Models\SearchTerminalActionsRequest();
+$body->setQuery(new Models\TerminalActionQuery());
+$body->getQuery()->setFilter(new Models\TerminalActionQueryFilter());
+$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange());
 $body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2022-04-01T00:00:00Z');
-$body->getQuery()->setSort(new Models\TerminalActionQuerySort);
+$body->getQuery()->setSort(new Models\TerminalActionQuerySort());
 $body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
 $body->setLimit(2);
 
@@ -215,7 +215,7 @@ function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiRespons
 
 ```php
 $body_idempotencyKey = '28a0c3bc-7839-11ea-bc55-0242ac130003';
-$body_checkout_amountMoney = new Models\Money;
+$body_checkout_amountMoney = new Models\Money();
 $body_checkout_amountMoney->setAmount(2610);
 $body_checkout_amountMoney->setCurrency(Models\Currency::USD);
 $body_checkout_deviceOptions_deviceId = 'dbb5d83a-7838-11ea-bc55-0242ac130003';
@@ -268,9 +268,9 @@ function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiRespo
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalCheckoutsRequest;
-$body->setQuery(new Models\TerminalCheckoutQuery);
-$body->getQuery()->setFilter(new Models\TerminalCheckoutQueryFilter);
+$body = new Models\SearchTerminalCheckoutsRequest();
+$body->setQuery(new Models\TerminalCheckoutQuery());
+$body->getQuery()->setFilter(new Models\TerminalCheckoutQueryFilter());
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
 $body->setLimit(2);
 
@@ -388,7 +388,7 @@ $body = new Models\CreateTerminalRefundRequest(
     $body_idempotencyKey
 );
 $body_refund_paymentId = '5O5OvgkcNUhl7JBuINflcjKqUzXZY';
-$body_refund_amountMoney = new Models\Money;
+$body_refund_amountMoney = new Models\Money();
 $body_refund_amountMoney->setAmount(111);
 $body_refund_amountMoney->setCurrency(Models\Currency::CAD);
 $body_refund_reason = 'Returning items';
@@ -435,9 +435,9 @@ function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalRefundsRequest;
-$body->setQuery(new Models\TerminalRefundQuery);
-$body->getQuery()->setFilter(new Models\TerminalRefundQueryFilter);
+$body = new Models\SearchTerminalRefundsRequest();
+$body->setQuery(new Models\TerminalRefundQuery());
+$body->getQuery()->setFilter(new Models\TerminalRefundQueryFilter());
 $body->getQuery()->getFilter()->setStatus('COMPLETED');
 $body->setLimit(1);
 
