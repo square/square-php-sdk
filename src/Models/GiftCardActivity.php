@@ -35,14 +35,14 @@ class GiftCardActivity implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $giftCardId;
+    private $giftCardId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $giftCardGan;
+    private $giftCardGan = [];
 
     /**
      * @var Money|null
@@ -213,7 +213,10 @@ class GiftCardActivity implements \JsonSerializable
      */
     public function getGiftCardId(): ?string
     {
-        return $this->giftCardId;
+        if (count($this->giftCardId) == 0) {
+            return null;
+        }
+        return $this->giftCardId['value'];
     }
 
     /**
@@ -225,7 +228,17 @@ class GiftCardActivity implements \JsonSerializable
      */
     public function setGiftCardId(?string $giftCardId): void
     {
-        $this->giftCardId = $giftCardId;
+        $this->giftCardId['value'] = $giftCardId;
+    }
+
+    /**
+     * Unsets Gift Card Id.
+     * The gift card ID. When creating a gift card activity, `gift_card_id` is not required if
+     * `gift_card_gan` is specified.
+     */
+    public function unsetGiftCardId(): void
+    {
+        $this->giftCardId = [];
     }
 
     /**
@@ -235,7 +248,10 @@ class GiftCardActivity implements \JsonSerializable
      */
     public function getGiftCardGan(): ?string
     {
-        return $this->giftCardGan;
+        if (count($this->giftCardGan) == 0) {
+            return null;
+        }
+        return $this->giftCardGan['value'];
     }
 
     /**
@@ -247,7 +263,17 @@ class GiftCardActivity implements \JsonSerializable
      */
     public function setGiftCardGan(?string $giftCardGan): void
     {
-        $this->giftCardGan = $giftCardGan;
+        $this->giftCardGan['value'] = $giftCardGan;
+    }
+
+    /**
+     * Unsets Gift Card Gan.
+     * The gift card account number (GAN). When creating a gift card activity, `gift_card_gan`
+     * is not required if `gift_card_id` is specified.
+     */
+    public function unsetGiftCardGan(): void
+    {
+        $this->giftCardGan = [];
     }
 
     /**
@@ -572,11 +598,11 @@ class GiftCardActivity implements \JsonSerializable
         if (isset($this->createdAt)) {
             $json['created_at']                                = $this->createdAt;
         }
-        if (isset($this->giftCardId)) {
-            $json['gift_card_id']                              = $this->giftCardId;
+        if (!empty($this->giftCardId)) {
+            $json['gift_card_id']                              = $this->giftCardId['value'];
         }
-        if (isset($this->giftCardGan)) {
-            $json['gift_card_gan']                             = $this->giftCardGan;
+        if (!empty($this->giftCardGan)) {
+            $json['gift_card_gan']                             = $this->giftCardGan['value'];
         }
         if (isset($this->giftCardBalanceMoney)) {
             $json['gift_card_balance_money']                   = $this->giftCardBalanceMoney;

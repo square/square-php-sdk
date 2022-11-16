@@ -19,19 +19,19 @@ class Shift implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $timezone;
+    private $timezone = [];
 
     /**
      * @var string
@@ -39,9 +39,9 @@ class Shift implements \JsonSerializable
     private $startAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endAt;
+    private $endAt = [];
 
     /**
      * @var ShiftWage|null
@@ -49,9 +49,9 @@ class Shift implements \JsonSerializable
     private $wage;
 
     /**
-     * @var MBreak[]|null
+     * @var array
      */
-    private $breaks;
+    private $breaks = [];
 
     /**
      * @var string|null
@@ -74,9 +74,9 @@ class Shift implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
      * @param string $startAt
@@ -113,7 +113,10 @@ class Shift implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -125,7 +128,17 @@ class Shift implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id`
+     * instead.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -135,7 +148,10 @@ class Shift implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -147,7 +163,17 @@ class Shift implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location this shift occurred at. The location should be based on
+     * where the employee clocked in.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -158,7 +184,10 @@ class Shift implements \JsonSerializable
      */
     public function getTimezone(): ?string
     {
-        return $this->timezone;
+        if (count($this->timezone) == 0) {
+            return null;
+        }
+        return $this->timezone['value'];
     }
 
     /**
@@ -171,7 +200,18 @@ class Shift implements \JsonSerializable
      */
     public function setTimezone(?string $timezone): void
     {
-        $this->timezone = $timezone;
+        $this->timezone['value'] = $timezone;
+    }
+
+    /**
+     * Unsets Timezone.
+     * The read-only convenience value that is calculated from the location based
+     * on the `location_id`. Format: the IANA timezone database identifier for the
+     * location timezone.
+     */
+    public function unsetTimezone(): void
+    {
+        $this->timezone = [];
     }
 
     /**
@@ -204,7 +244,10 @@ class Shift implements \JsonSerializable
      */
     public function getEndAt(): ?string
     {
-        return $this->endAt;
+        if (count($this->endAt) == 0) {
+            return null;
+        }
+        return $this->endAt['value'];
     }
 
     /**
@@ -216,7 +259,17 @@ class Shift implements \JsonSerializable
      */
     public function setEndAt(?string $endAt): void
     {
-        $this->endAt = $endAt;
+        $this->endAt['value'] = $endAt;
+    }
+
+    /**
+     * Unsets End At.
+     * RFC 3339; shifted to the timezone + offset. Precision up to the minute is
+     * respected; seconds are truncated.
+     */
+    public function unsetEndAt(): void
+    {
+        $this->endAt = [];
     }
 
     /**
@@ -247,7 +300,10 @@ class Shift implements \JsonSerializable
      */
     public function getBreaks(): ?array
     {
-        return $this->breaks;
+        if (count($this->breaks) == 0) {
+            return null;
+        }
+        return $this->breaks['value'];
     }
 
     /**
@@ -260,7 +316,16 @@ class Shift implements \JsonSerializable
      */
     public function setBreaks(?array $breaks): void
     {
-        $this->breaks = $breaks;
+        $this->breaks['value'] = $breaks;
+    }
+
+    /**
+     * Unsets Breaks.
+     * A list of all the paid or unpaid breaks that were taken during this shift.
+     */
+    public function unsetBreaks(): void
+    {
+        $this->breaks = [];
     }
 
     /**
@@ -355,7 +420,10 @@ class Shift implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -366,7 +434,16 @@ class Shift implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26".
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -384,24 +461,24 @@ class Shift implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']             = $this->id;
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id']    = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id']    = $this->employeeId['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']    = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']    = $this->locationId['value'];
         }
-        if (isset($this->timezone)) {
-            $json['timezone']       = $this->timezone;
+        if (!empty($this->timezone)) {
+            $json['timezone']       = $this->timezone['value'];
         }
         $json['start_at']           = $this->startAt;
-        if (isset($this->endAt)) {
-            $json['end_at']         = $this->endAt;
+        if (!empty($this->endAt)) {
+            $json['end_at']         = $this->endAt['value'];
         }
         if (isset($this->wage)) {
             $json['wage']           = $this->wage;
         }
-        if (isset($this->breaks)) {
-            $json['breaks']         = $this->breaks;
+        if (!empty($this->breaks)) {
+            $json['breaks']         = $this->breaks['value'];
         }
         if (isset($this->status)) {
             $json['status']         = $this->status;
@@ -415,8 +492,8 @@ class Shift implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']     = $this->updatedAt;
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

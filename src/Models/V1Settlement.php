@@ -27,19 +27,19 @@ class V1Settlement implements \JsonSerializable
     private $totalMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $initiatedAt;
+    private $initiatedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $bankAccountId;
+    private $bankAccountId = [];
 
     /**
-     * @var V1SettlementEntry[]|null
+     * @var array
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Returns Id.
@@ -103,7 +103,10 @@ class V1Settlement implements \JsonSerializable
      */
     public function getInitiatedAt(): ?string
     {
-        return $this->initiatedAt;
+        if (count($this->initiatedAt) == 0) {
+            return null;
+        }
+        return $this->initiatedAt['value'];
     }
 
     /**
@@ -114,7 +117,16 @@ class V1Settlement implements \JsonSerializable
      */
     public function setInitiatedAt(?string $initiatedAt): void
     {
-        $this->initiatedAt = $initiatedAt;
+        $this->initiatedAt['value'] = $initiatedAt;
+    }
+
+    /**
+     * Unsets Initiated At.
+     * The time when the settlement was submitted for deposit or withdrawal, in ISO 8601 format.
+     */
+    public function unsetInitiatedAt(): void
+    {
+        $this->initiatedAt = [];
     }
 
     /**
@@ -123,7 +135,10 @@ class V1Settlement implements \JsonSerializable
      */
     public function getBankAccountId(): ?string
     {
-        return $this->bankAccountId;
+        if (count($this->bankAccountId) == 0) {
+            return null;
+        }
+        return $this->bankAccountId['value'];
     }
 
     /**
@@ -134,7 +149,16 @@ class V1Settlement implements \JsonSerializable
      */
     public function setBankAccountId(?string $bankAccountId): void
     {
-        $this->bankAccountId = $bankAccountId;
+        $this->bankAccountId['value'] = $bankAccountId;
+    }
+
+    /**
+     * Unsets Bank Account Id.
+     * The Square-issued unique identifier for the bank account associated with the settlement.
+     */
+    public function unsetBankAccountId(): void
+    {
+        $this->bankAccountId = [];
     }
 
     /**
@@ -145,7 +169,10 @@ class V1Settlement implements \JsonSerializable
      */
     public function getEntries(): ?array
     {
-        return $this->entries;
+        if (count($this->entries) == 0) {
+            return null;
+        }
+        return $this->entries['value'];
     }
 
     /**
@@ -158,7 +185,16 @@ class V1Settlement implements \JsonSerializable
      */
     public function setEntries(?array $entries): void
     {
-        $this->entries = $entries;
+        $this->entries['value'] = $entries;
+    }
+
+    /**
+     * Unsets Entries.
+     * The entries included in this settlement.
+     */
+    public function unsetEntries(): void
+    {
+        $this->entries = [];
     }
 
     /**
@@ -182,14 +218,14 @@ class V1Settlement implements \JsonSerializable
         if (isset($this->totalMoney)) {
             $json['total_money']     = $this->totalMoney;
         }
-        if (isset($this->initiatedAt)) {
-            $json['initiated_at']    = $this->initiatedAt;
+        if (!empty($this->initiatedAt)) {
+            $json['initiated_at']    = $this->initiatedAt['value'];
         }
-        if (isset($this->bankAccountId)) {
-            $json['bank_account_id'] = $this->bankAccountId;
+        if (!empty($this->bankAccountId)) {
+            $json['bank_account_id'] = $this->bankAccountId['value'];
         }
-        if (isset($this->entries)) {
-            $json['entries']         = $this->entries;
+        if (!empty($this->entries)) {
+            $json['entries']         = $this->entries['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

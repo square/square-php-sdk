@@ -12,14 +12,14 @@ use stdClass;
 class CatalogCategory implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $imageIds;
+    private $imageIds = [];
 
     /**
      * Returns Name.
@@ -28,7 +28,10 @@ class CatalogCategory implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -40,7 +43,17 @@ class CatalogCategory implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The category name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -53,7 +66,10 @@ class CatalogCategory implements \JsonSerializable
      */
     public function getImageIds(): ?array
     {
-        return $this->imageIds;
+        if (count($this->imageIds) == 0) {
+            return null;
+        }
+        return $this->imageIds['value'];
     }
 
     /**
@@ -68,7 +84,18 @@ class CatalogCategory implements \JsonSerializable
      */
     public function setImageIds(?array $imageIds): void
     {
-        $this->imageIds = $imageIds;
+        $this->imageIds['value'] = $imageIds;
+    }
+
+    /**
+     * Unsets Image Ids.
+     * The IDs of images associated with this `CatalogCategory` instance.
+     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * applications.
+     */
+    public function unsetImageIds(): void
+    {
+        $this->imageIds = [];
     }
 
     /**
@@ -83,11 +110,11 @@ class CatalogCategory implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']      = $this->name;
+        if (!empty($this->name)) {
+            $json['name']      = $this->name['value'];
         }
-        if (isset($this->imageIds)) {
-            $json['image_ids'] = $this->imageIds;
+        if (!empty($this->imageIds)) {
+            $json['image_ids'] = $this->imageIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

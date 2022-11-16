@@ -18,9 +18,9 @@ use stdClass;
 class SearchTeamMembersFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
      * @var string|null
@@ -28,9 +28,9 @@ class SearchTeamMembersFilter implements \JsonSerializable
     private $status;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isOwner;
+    private $isOwner = [];
 
     /**
      * Returns Location Ids.
@@ -41,7 +41,10 @@ class SearchTeamMembersFilter implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -55,7 +58,17 @@ class SearchTeamMembersFilter implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * When present, filters by team members assigned to the specified locations.
+     * When empty, includes team members assigned to any location.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -84,7 +97,10 @@ class SearchTeamMembersFilter implements \JsonSerializable
      */
     public function getIsOwner(): ?bool
     {
-        return $this->isOwner;
+        if (count($this->isOwner) == 0) {
+            return null;
+        }
+        return $this->isOwner['value'];
     }
 
     /**
@@ -95,7 +111,16 @@ class SearchTeamMembersFilter implements \JsonSerializable
      */
     public function setIsOwner(?bool $isOwner): void
     {
-        $this->isOwner = $isOwner;
+        $this->isOwner['value'] = $isOwner;
+    }
+
+    /**
+     * Unsets Is Owner.
+     * When present and set to true, returns the team member who is the owner of the Square account.
+     */
+    public function unsetIsOwner(): void
+    {
+        $this->isOwner = [];
     }
 
     /**
@@ -110,14 +135,14 @@ class SearchTeamMembersFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationIds)) {
-            $json['location_ids'] = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds['value'];
         }
         if (isset($this->status)) {
             $json['status']       = $this->status;
         }
-        if (isset($this->isOwner)) {
-            $json['is_owner']     = $this->isOwner;
+        if (!empty($this->isOwner)) {
+            $json['is_owner']     = $this->isOwner['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

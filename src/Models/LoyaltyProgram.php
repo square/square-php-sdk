@@ -17,12 +17,12 @@ use stdClass;
 class LoyaltyProgram implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $status;
 
@@ -42,17 +42,17 @@ class LoyaltyProgram implements \JsonSerializable
     private $terminology;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
-     * @var string
+     * @var string|null
      */
     private $createdAt;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $updatedAt;
 
@@ -62,29 +62,14 @@ class LoyaltyProgram implements \JsonSerializable
     private $accrualRules;
 
     /**
-     * @param string $id
-     * @param string $status
      * @param LoyaltyProgramRewardTier[] $rewardTiers
      * @param LoyaltyProgramTerminology $terminology
-     * @param string $createdAt
-     * @param string $updatedAt
      * @param LoyaltyProgramAccrualRule[] $accrualRules
      */
-    public function __construct(
-        string $id,
-        string $status,
-        array $rewardTiers,
-        LoyaltyProgramTerminology $terminology,
-        string $createdAt,
-        string $updatedAt,
-        array $accrualRules
-    ) {
-        $this->id = $id;
-        $this->status = $status;
+    public function __construct(array $rewardTiers, LoyaltyProgramTerminology $terminology, array $accrualRules)
+    {
         $this->rewardTiers = $rewardTiers;
         $this->terminology = $terminology;
-        $this->createdAt = $createdAt;
-        $this->updatedAt = $updatedAt;
         $this->accrualRules = $accrualRules;
     }
 
@@ -93,7 +78,7 @@ class LoyaltyProgram implements \JsonSerializable
      * The Square-assigned ID of the loyalty program. Updates to
      * the loyalty program do not modify the identifier.
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -103,10 +88,9 @@ class LoyaltyProgram implements \JsonSerializable
      * The Square-assigned ID of the loyalty program. Updates to
      * the loyalty program do not modify the identifier.
      *
-     * @required
      * @maps id
      */
-    public function setId(string $id): void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
@@ -115,7 +99,7 @@ class LoyaltyProgram implements \JsonSerializable
      * Returns Status.
      * Indicates whether the program is currently active.
      */
-    public function getStatus(): string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
@@ -124,10 +108,9 @@ class LoyaltyProgram implements \JsonSerializable
      * Sets Status.
      * Indicates whether the program is currently active.
      *
-     * @required
      * @maps status
      */
-    public function setStatus(string $status): void
+    public function setStatus(?string $status): void
     {
         $this->status = $status;
     }
@@ -206,7 +189,10 @@ class LoyaltyProgram implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -219,14 +205,23 @@ class LoyaltyProgram implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * The [locations]($m/Location) at which the program is active.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
      * Returns Created At.
      * The timestamp when the program was created, in RFC 3339 format.
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
@@ -235,10 +230,9 @@ class LoyaltyProgram implements \JsonSerializable
      * Sets Created At.
      * The timestamp when the program was created, in RFC 3339 format.
      *
-     * @required
      * @maps created_at
      */
-    public function setCreatedAt(string $createdAt): void
+    public function setCreatedAt(?string $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -247,7 +241,7 @@ class LoyaltyProgram implements \JsonSerializable
      * Returns Updated At.
      * The timestamp when the reward was last updated, in RFC 3339 format.
      */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->updatedAt;
     }
@@ -256,10 +250,9 @@ class LoyaltyProgram implements \JsonSerializable
      * Sets Updated At.
      * The timestamp when the reward was last updated, in RFC 3339 format.
      *
-     * @required
      * @maps updated_at
      */
-    public function setUpdatedAt(string $updatedAt): void
+    public function setUpdatedAt(?string $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
@@ -305,18 +298,26 @@ class LoyaltyProgram implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                    = $this->id;
-        $json['status']                = $this->status;
+        if (isset($this->id)) {
+            $json['id']                = $this->id;
+        }
+        if (isset($this->status)) {
+            $json['status']            = $this->status;
+        }
         $json['reward_tiers']          = $this->rewardTiers;
         if (isset($this->expirationPolicy)) {
             $json['expiration_policy'] = $this->expirationPolicy;
         }
         $json['terminology']           = $this->terminology;
-        if (isset($this->locationIds)) {
-            $json['location_ids']      = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids']      = $this->locationIds['value'];
         }
-        $json['created_at']            = $this->createdAt;
-        $json['updated_at']            = $this->updatedAt;
+        if (isset($this->createdAt)) {
+            $json['created_at']        = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']        = $this->updatedAt;
+        }
         $json['accrual_rules']         = $this->accrualRules;
         $json = array_filter($json, function ($val) {
             return $val !== null;

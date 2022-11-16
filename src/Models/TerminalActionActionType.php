@@ -17,7 +17,14 @@ class TerminalActionActionType
     public const PING = 'PING';
 
     /**
-     * Represents a request to save a card for future card-on-file use.
+     * Represents a request to save a card for future card-on-file use. Details are contained
+     * in the `save_card_options` object.
      */
     public const SAVE_CARD = 'SAVE_CARD';
+
+    /**
+     * The action represents a request to display the receipt screen options. Details are
+     * contained in the `receipt_options` object.
+     */
+    public const RECEIPT = 'RECEIPT';
 }

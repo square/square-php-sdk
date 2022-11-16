@@ -12,14 +12,14 @@ use stdClass;
 class DigitalWalletDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $brand;
+    private $brand = [];
 
     /**
      * @var CashAppDetails|null
@@ -33,7 +33,10 @@ class DigitalWalletDetails implements \JsonSerializable
      */
     public function getStatus(): ?string
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -45,7 +48,17 @@ class DigitalWalletDetails implements \JsonSerializable
      */
     public function setStatus(?string $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * The status of the `WALLET` payment. The status can be `AUTHORIZED`, `CAPTURED`, `VOIDED`, or
+     * `FAILED`.
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -54,7 +67,10 @@ class DigitalWalletDetails implements \JsonSerializable
      */
     public function getBrand(): ?string
     {
-        return $this->brand;
+        if (count($this->brand) == 0) {
+            return null;
+        }
+        return $this->brand['value'];
     }
 
     /**
@@ -65,7 +81,16 @@ class DigitalWalletDetails implements \JsonSerializable
      */
     public function setBrand(?string $brand): void
     {
-        $this->brand = $brand;
+        $this->brand['value'] = $brand;
+    }
+
+    /**
+     * Unsets Brand.
+     * The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY` or `UNKNOWN`.
+     */
+    public function unsetBrand(): void
+    {
+        $this->brand = [];
     }
 
     /**
@@ -100,11 +125,11 @@ class DigitalWalletDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->status)) {
-            $json['status']           = $this->status;
+        if (!empty($this->status)) {
+            $json['status']           = $this->status['value'];
         }
-        if (isset($this->brand)) {
-            $json['brand']            = $this->brand;
+        if (!empty($this->brand)) {
+            $json['brand']            = $this->brand['value'];
         }
         if (isset($this->cashAppDetails)) {
             $json['cash_app_details'] = $this->cashAppDetails;

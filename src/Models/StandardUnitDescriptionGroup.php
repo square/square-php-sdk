@@ -12,14 +12,14 @@ use stdClass;
 class StandardUnitDescriptionGroup implements \JsonSerializable
 {
     /**
-     * @var StandardUnitDescription[]|null
+     * @var array
      */
-    private $standardUnitDescriptions;
+    private $standardUnitDescriptions = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $languageCode;
+    private $languageCode = [];
 
     /**
      * Returns Standard Unit Descriptions.
@@ -29,7 +29,10 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
      */
     public function getStandardUnitDescriptions(): ?array
     {
-        return $this->standardUnitDescriptions;
+        if (count($this->standardUnitDescriptions) == 0) {
+            return null;
+        }
+        return $this->standardUnitDescriptions['value'];
     }
 
     /**
@@ -42,7 +45,16 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
      */
     public function setStandardUnitDescriptions(?array $standardUnitDescriptions): void
     {
-        $this->standardUnitDescriptions = $standardUnitDescriptions;
+        $this->standardUnitDescriptions['value'] = $standardUnitDescriptions;
+    }
+
+    /**
+     * Unsets Standard Unit Descriptions.
+     * List of standard (non-custom) measurement units in this description group.
+     */
+    public function unsetStandardUnitDescriptions(): void
+    {
+        $this->standardUnitDescriptions = [];
     }
 
     /**
@@ -51,7 +63,10 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
      */
     public function getLanguageCode(): ?string
     {
-        return $this->languageCode;
+        if (count($this->languageCode) == 0) {
+            return null;
+        }
+        return $this->languageCode['value'];
     }
 
     /**
@@ -62,7 +77,16 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
      */
     public function setLanguageCode(?string $languageCode): void
     {
-        $this->languageCode = $languageCode;
+        $this->languageCode['value'] = $languageCode;
+    }
+
+    /**
+     * Unsets Language Code.
+     * IETF language tag.
+     */
+    public function unsetLanguageCode(): void
+    {
+        $this->languageCode = [];
     }
 
     /**
@@ -77,11 +101,11 @@ class StandardUnitDescriptionGroup implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->standardUnitDescriptions)) {
-            $json['standard_unit_descriptions'] = $this->standardUnitDescriptions;
+        if (!empty($this->standardUnitDescriptions)) {
+            $json['standard_unit_descriptions'] = $this->standardUnitDescriptions['value'];
         }
-        if (isset($this->languageCode)) {
-            $json['language_code']              = $this->languageCode;
+        if (!empty($this->languageCode)) {
+            $json['language_code']              = $this->languageCode['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

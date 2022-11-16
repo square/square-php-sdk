@@ -17,9 +17,9 @@ class TeamMemberAssignedLocations implements \JsonSerializable
     private $assignmentType;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
      * Returns Assignment Type.
@@ -49,7 +49,10 @@ class TeamMemberAssignedLocations implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -62,7 +65,16 @@ class TeamMemberAssignedLocations implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * The locations that the team member is assigned to.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -80,8 +92,8 @@ class TeamMemberAssignedLocations implements \JsonSerializable
         if (isset($this->assignmentType)) {
             $json['assignment_type'] = $this->assignmentType;
         }
-        if (isset($this->locationIds)) {
-            $json['location_ids']    = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids']    = $this->locationIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

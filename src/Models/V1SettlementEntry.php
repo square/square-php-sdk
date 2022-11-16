@@ -12,9 +12,9 @@ use stdClass;
 class V1SettlementEntry implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
      * @var string|null
@@ -37,7 +37,10 @@ class V1SettlementEntry implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -48,7 +51,16 @@ class V1SettlementEntry implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The settlement's unique identifier.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -117,8 +129,8 @@ class V1SettlementEntry implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id']   = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']   = $this->paymentId['value'];
         }
         if (isset($this->type)) {
             $json['type']         = $this->type;

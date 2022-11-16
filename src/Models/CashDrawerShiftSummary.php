@@ -25,24 +25,24 @@ class CashDrawerShiftSummary implements \JsonSerializable
     private $state;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $openedAt;
+    private $openedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endedAt;
+    private $endedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $closedAt;
+    private $closedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * @var Money|null
@@ -105,7 +105,10 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function getOpenedAt(): ?string
     {
-        return $this->openedAt;
+        if (count($this->openedAt) == 0) {
+            return null;
+        }
+        return $this->openedAt['value'];
     }
 
     /**
@@ -116,7 +119,16 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function setOpenedAt(?string $openedAt): void
     {
-        $this->openedAt = $openedAt;
+        $this->openedAt['value'] = $openedAt;
+    }
+
+    /**
+     * Unsets Opened At.
+     * The shift start time in ISO 8601 format.
+     */
+    public function unsetOpenedAt(): void
+    {
+        $this->openedAt = [];
     }
 
     /**
@@ -125,7 +137,10 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function getEndedAt(): ?string
     {
-        return $this->endedAt;
+        if (count($this->endedAt) == 0) {
+            return null;
+        }
+        return $this->endedAt['value'];
     }
 
     /**
@@ -136,7 +151,16 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function setEndedAt(?string $endedAt): void
     {
-        $this->endedAt = $endedAt;
+        $this->endedAt['value'] = $endedAt;
+    }
+
+    /**
+     * Unsets Ended At.
+     * The shift end time in ISO 8601 format.
+     */
+    public function unsetEndedAt(): void
+    {
+        $this->endedAt = [];
     }
 
     /**
@@ -145,7 +169,10 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function getClosedAt(): ?string
     {
-        return $this->closedAt;
+        if (count($this->closedAt) == 0) {
+            return null;
+        }
+        return $this->closedAt['value'];
     }
 
     /**
@@ -156,7 +183,16 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function setClosedAt(?string $closedAt): void
     {
-        $this->closedAt = $closedAt;
+        $this->closedAt['value'] = $closedAt;
+    }
+
+    /**
+     * Unsets Closed At.
+     * The shift close time in ISO 8601 format.
+     */
+    public function unsetClosedAt(): void
+    {
+        $this->closedAt = [];
     }
 
     /**
@@ -165,7 +201,10 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -176,7 +215,16 @@ class CashDrawerShiftSummary implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * An employee free-text description of a cash drawer shift.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -293,17 +341,17 @@ class CashDrawerShiftSummary implements \JsonSerializable
         if (isset($this->state)) {
             $json['state']               = $this->state;
         }
-        if (isset($this->openedAt)) {
-            $json['opened_at']           = $this->openedAt;
+        if (!empty($this->openedAt)) {
+            $json['opened_at']           = $this->openedAt['value'];
         }
-        if (isset($this->endedAt)) {
-            $json['ended_at']            = $this->endedAt;
+        if (!empty($this->endedAt)) {
+            $json['ended_at']            = $this->endedAt['value'];
         }
-        if (isset($this->closedAt)) {
-            $json['closed_at']           = $this->closedAt;
+        if (!empty($this->closedAt)) {
+            $json['closed_at']           = $this->closedAt['value'];
         }
-        if (isset($this->description)) {
-            $json['description']         = $this->description;
+        if (!empty($this->description)) {
+            $json['description']         = $this->description['value'];
         }
         if (isset($this->openedCashMoney)) {
             $json['opened_cash_money']   = $this->openedCashMoney;

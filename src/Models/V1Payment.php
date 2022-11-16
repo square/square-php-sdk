@@ -35,9 +35,9 @@ class V1Payment implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantId;
+    private $merchantId = [];
 
     /**
      * @var string|null
@@ -45,9 +45,9 @@ class V1Payment implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $creatorId;
+    private $creatorId = [];
 
     /**
      * @var Device|null
@@ -55,14 +55,14 @@ class V1Payment implements \JsonSerializable
     private $device;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentUrl;
+    private $paymentUrl = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $receiptUrl;
+    private $receiptUrl = [];
 
     /**
      * @var V1Money|null
@@ -125,29 +125,29 @@ class V1Payment implements \JsonSerializable
     private $netSalesMoney;
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $inclusiveTax;
+    private $inclusiveTax = [];
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $additiveTax;
+    private $additiveTax = [];
 
     /**
-     * @var V1Tender[]|null
+     * @var array
      */
-    private $tender;
+    private $tender = [];
 
     /**
-     * @var V1Refund[]|null
+     * @var array
      */
-    private $refunds;
+    private $refunds = [];
 
     /**
-     * @var V1PaymentItemization[]|null
+     * @var array
      */
-    private $itemizations;
+    private $itemizations = [];
 
     /**
      * @var V1Money|null
@@ -155,14 +155,14 @@ class V1Payment implements \JsonSerializable
     private $surchargeMoney;
 
     /**
-     * @var V1PaymentSurcharge[]|null
+     * @var array
      */
-    private $surcharges;
+    private $surcharges = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isPartial;
+    private $isPartial = [];
 
     /**
      * Returns Id.
@@ -190,7 +190,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getMerchantId(): ?string
     {
-        return $this->merchantId;
+        if (count($this->merchantId) == 0) {
+            return null;
+        }
+        return $this->merchantId['value'];
     }
 
     /**
@@ -201,7 +204,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setMerchantId(?string $merchantId): void
     {
-        $this->merchantId = $merchantId;
+        $this->merchantId['value'] = $merchantId;
+    }
+
+    /**
+     * Unsets Merchant Id.
+     * The unique identifier of the merchant that took the payment.
+     */
+    public function unsetMerchantId(): void
+    {
+        $this->merchantId = [];
     }
 
     /**
@@ -234,7 +246,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getCreatorId(): ?string
     {
-        return $this->creatorId;
+        if (count($this->creatorId) == 0) {
+            return null;
+        }
+        return $this->creatorId['value'];
     }
 
     /**
@@ -245,7 +260,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setCreatorId(?string $creatorId): void
     {
-        $this->creatorId = $creatorId;
+        $this->creatorId['value'] = $creatorId;
+    }
+
+    /**
+     * Unsets Creator Id.
+     * The unique identifier of the Square account that took the payment.
+     */
+    public function unsetCreatorId(): void
+    {
+        $this->creatorId = [];
     }
 
     /**
@@ -273,7 +297,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getPaymentUrl(): ?string
     {
-        return $this->paymentUrl;
+        if (count($this->paymentUrl) == 0) {
+            return null;
+        }
+        return $this->paymentUrl['value'];
     }
 
     /**
@@ -285,7 +312,17 @@ class V1Payment implements \JsonSerializable
      */
     public function setPaymentUrl(?string $paymentUrl): void
     {
-        $this->paymentUrl = $paymentUrl;
+        $this->paymentUrl['value'] = $paymentUrl;
+    }
+
+    /**
+     * Unsets Payment Url.
+     * The URL of the payment's detail page in the merchant dashboard. The merchant must be signed in to
+     * the merchant dashboard to view this page.
+     */
+    public function unsetPaymentUrl(): void
+    {
+        $this->paymentUrl = [];
     }
 
     /**
@@ -298,7 +335,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getReceiptUrl(): ?string
     {
-        return $this->receiptUrl;
+        if (count($this->receiptUrl) == 0) {
+            return null;
+        }
+        return $this->receiptUrl['value'];
     }
 
     /**
@@ -313,7 +353,20 @@ class V1Payment implements \JsonSerializable
      */
     public function setReceiptUrl(?string $receiptUrl): void
     {
-        $this->receiptUrl = $receiptUrl;
+        $this->receiptUrl['value'] = $receiptUrl;
+    }
+
+    /**
+     * Unsets Receipt Url.
+     * The URL of the receipt for the payment. Note that for split tender
+     * payments, this URL corresponds to the receipt for the first tender
+     * listed in the payment's tender field. Each Tender object has its own
+     * receipt_url field you can use to get the other receipts associated with
+     * a split tender payment.
+     */
+    public function unsetReceiptUrl(): void
+    {
+        $this->receiptUrl = [];
     }
 
     /**
@@ -540,7 +593,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getInclusiveTax(): ?array
     {
-        return $this->inclusiveTax;
+        if (count($this->inclusiveTax) == 0) {
+            return null;
+        }
+        return $this->inclusiveTax['value'];
     }
 
     /**
@@ -553,7 +609,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setInclusiveTax(?array $inclusiveTax): void
     {
-        $this->inclusiveTax = $inclusiveTax;
+        $this->inclusiveTax['value'] = $inclusiveTax;
+    }
+
+    /**
+     * Unsets Inclusive Tax.
+     * All of the inclusive taxes associated with the payment.
+     */
+    public function unsetInclusiveTax(): void
+    {
+        $this->inclusiveTax = [];
     }
 
     /**
@@ -564,7 +629,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getAdditiveTax(): ?array
     {
-        return $this->additiveTax;
+        if (count($this->additiveTax) == 0) {
+            return null;
+        }
+        return $this->additiveTax['value'];
     }
 
     /**
@@ -577,7 +645,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setAdditiveTax(?array $additiveTax): void
     {
-        $this->additiveTax = $additiveTax;
+        $this->additiveTax['value'] = $additiveTax;
+    }
+
+    /**
+     * Unsets Additive Tax.
+     * All of the additive taxes associated with the payment.
+     */
+    public function unsetAdditiveTax(): void
+    {
+        $this->additiveTax = [];
     }
 
     /**
@@ -588,7 +665,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getTender(): ?array
     {
-        return $this->tender;
+        if (count($this->tender) == 0) {
+            return null;
+        }
+        return $this->tender['value'];
     }
 
     /**
@@ -601,7 +681,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setTender(?array $tender): void
     {
-        $this->tender = $tender;
+        $this->tender['value'] = $tender;
+    }
+
+    /**
+     * Unsets Tender.
+     * All of the tenders associated with the payment.
+     */
+    public function unsetTender(): void
+    {
+        $this->tender = [];
     }
 
     /**
@@ -614,7 +703,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getRefunds(): ?array
     {
-        return $this->refunds;
+        if (count($this->refunds) == 0) {
+            return null;
+        }
+        return $this->refunds['value'];
     }
 
     /**
@@ -629,7 +721,18 @@ class V1Payment implements \JsonSerializable
      */
     public function setRefunds(?array $refunds): void
     {
-        $this->refunds = $refunds;
+        $this->refunds['value'] = $refunds;
+    }
+
+    /**
+     * Unsets Refunds.
+     * All of the refunds applied to the payment. Note that the value of all refunds on a payment can
+     * exceed the value of all tenders if a merchant chooses to refund money to a tender after previously
+     * accepting returned goods as part of an exchange.
+     */
+    public function unsetRefunds(): void
+    {
+        $this->refunds = [];
     }
 
     /**
@@ -640,7 +743,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getItemizations(): ?array
     {
-        return $this->itemizations;
+        if (count($this->itemizations) == 0) {
+            return null;
+        }
+        return $this->itemizations['value'];
     }
 
     /**
@@ -653,7 +759,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setItemizations(?array $itemizations): void
     {
-        $this->itemizations = $itemizations;
+        $this->itemizations['value'] = $itemizations;
+    }
+
+    /**
+     * Unsets Itemizations.
+     * The items purchased in the payment.
+     */
+    public function unsetItemizations(): void
+    {
+        $this->itemizations = [];
     }
 
     /**
@@ -682,7 +797,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getSurcharges(): ?array
     {
-        return $this->surcharges;
+        if (count($this->surcharges) == 0) {
+            return null;
+        }
+        return $this->surcharges['value'];
     }
 
     /**
@@ -695,7 +813,16 @@ class V1Payment implements \JsonSerializable
      */
     public function setSurcharges(?array $surcharges): void
     {
-        $this->surcharges = $surcharges;
+        $this->surcharges['value'] = $surcharges;
+    }
+
+    /**
+     * Unsets Surcharges.
+     * A list of all surcharges associated with the payment.
+     */
+    public function unsetSurcharges(): void
+    {
+        $this->surcharges = [];
     }
 
     /**
@@ -706,7 +833,10 @@ class V1Payment implements \JsonSerializable
      */
     public function getIsPartial(): ?bool
     {
-        return $this->isPartial;
+        if (count($this->isPartial) == 0) {
+            return null;
+        }
+        return $this->isPartial['value'];
     }
 
     /**
@@ -719,7 +849,18 @@ class V1Payment implements \JsonSerializable
      */
     public function setIsPartial(?bool $isPartial): void
     {
-        $this->isPartial = $isPartial;
+        $this->isPartial['value'] = $isPartial;
+    }
+
+    /**
+     * Unsets Is Partial.
+     * Indicates whether or not the payment is only partially paid for.
+     * If true, this payment will have the tenders collected so far, but the
+     * itemizations will be empty until the payment is completed.
+     */
+    public function unsetIsPartial(): void
+    {
+        $this->isPartial = [];
     }
 
     /**
@@ -737,23 +878,23 @@ class V1Payment implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                     = $this->id;
         }
-        if (isset($this->merchantId)) {
-            $json['merchant_id']            = $this->merchantId;
+        if (!empty($this->merchantId)) {
+            $json['merchant_id']            = $this->merchantId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']             = $this->createdAt;
         }
-        if (isset($this->creatorId)) {
-            $json['creator_id']             = $this->creatorId;
+        if (!empty($this->creatorId)) {
+            $json['creator_id']             = $this->creatorId['value'];
         }
         if (isset($this->device)) {
             $json['device']                 = $this->device;
         }
-        if (isset($this->paymentUrl)) {
-            $json['payment_url']            = $this->paymentUrl;
+        if (!empty($this->paymentUrl)) {
+            $json['payment_url']            = $this->paymentUrl['value'];
         }
-        if (isset($this->receiptUrl)) {
-            $json['receipt_url']            = $this->receiptUrl;
+        if (!empty($this->receiptUrl)) {
+            $json['receipt_url']            = $this->receiptUrl['value'];
         }
         if (isset($this->inclusiveTaxMoney)) {
             $json['inclusive_tax_money']    = $this->inclusiveTaxMoney;
@@ -791,29 +932,29 @@ class V1Payment implements \JsonSerializable
         if (isset($this->netSalesMoney)) {
             $json['net_sales_money']        = $this->netSalesMoney;
         }
-        if (isset($this->inclusiveTax)) {
-            $json['inclusive_tax']          = $this->inclusiveTax;
+        if (!empty($this->inclusiveTax)) {
+            $json['inclusive_tax']          = $this->inclusiveTax['value'];
         }
-        if (isset($this->additiveTax)) {
-            $json['additive_tax']           = $this->additiveTax;
+        if (!empty($this->additiveTax)) {
+            $json['additive_tax']           = $this->additiveTax['value'];
         }
-        if (isset($this->tender)) {
-            $json['tender']                 = $this->tender;
+        if (!empty($this->tender)) {
+            $json['tender']                 = $this->tender['value'];
         }
-        if (isset($this->refunds)) {
-            $json['refunds']                = $this->refunds;
+        if (!empty($this->refunds)) {
+            $json['refunds']                = $this->refunds['value'];
         }
-        if (isset($this->itemizations)) {
-            $json['itemizations']           = $this->itemizations;
+        if (!empty($this->itemizations)) {
+            $json['itemizations']           = $this->itemizations['value'];
         }
         if (isset($this->surchargeMoney)) {
             $json['surcharge_money']        = $this->surchargeMoney;
         }
-        if (isset($this->surcharges)) {
-            $json['surcharges']             = $this->surcharges;
+        if (!empty($this->surcharges)) {
+            $json['surcharges']             = $this->surcharges['value'];
         }
-        if (isset($this->isPartial)) {
-            $json['is_partial']             = $this->isPartial;
+        if (!empty($this->isPartial)) {
+            $json['is_partial']             = $this->isPartial['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -13,19 +13,19 @@ use stdClass;
 class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $discountUid;
+    private $discountUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $discountCatalogObjectId;
+    private $discountCatalogObjectId = [];
 
     /**
      * Returns Uid.
@@ -33,7 +33,10 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -44,7 +47,16 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID of the `BlockedDiscount` within the order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function getDiscountUid(): ?string
     {
-        return $this->discountUid;
+        if (count($this->discountUid) == 0) {
+            return null;
+        }
+        return $this->discountUid['value'];
     }
 
     /**
@@ -66,7 +81,17 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function setDiscountUid(?string $discountUid): void
     {
-        $this->discountUid = $discountUid;
+        $this->discountUid['value'] = $discountUid;
+    }
+
+    /**
+     * Unsets Discount Uid.
+     * The `uid` of the discount that should be blocked. Use this field to block
+     * ad hoc discounts. For catalog discounts, use the `discount_catalog_object_id` field.
+     */
+    public function unsetDiscountUid(): void
+    {
+        $this->discountUid = [];
     }
 
     /**
@@ -77,7 +102,10 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function getDiscountCatalogObjectId(): ?string
     {
-        return $this->discountCatalogObjectId;
+        if (count($this->discountCatalogObjectId) == 0) {
+            return null;
+        }
+        return $this->discountCatalogObjectId['value'];
     }
 
     /**
@@ -90,7 +118,18 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
      */
     public function setDiscountCatalogObjectId(?string $discountCatalogObjectId): void
     {
-        $this->discountCatalogObjectId = $discountCatalogObjectId;
+        $this->discountCatalogObjectId['value'] = $discountCatalogObjectId;
+    }
+
+    /**
+     * Unsets Discount Catalog Object Id.
+     * The `catalog_object_id` of the discount that should be blocked.
+     * Use this field to block catalog discounts. For ad hoc discounts, use the
+     * `discount_uid` field.
+     */
+    public function unsetDiscountCatalogObjectId(): void
+    {
+        $this->discountCatalogObjectId = [];
     }
 
     /**
@@ -105,14 +144,14 @@ class OrderLineItemPricingBlocklistsBlockedDiscount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                        = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                        = $this->uid['value'];
         }
-        if (isset($this->discountUid)) {
-            $json['discount_uid']               = $this->discountUid;
+        if (!empty($this->discountUid)) {
+            $json['discount_uid']               = $this->discountUid['value'];
         }
-        if (isset($this->discountCatalogObjectId)) {
-            $json['discount_catalog_object_id'] = $this->discountCatalogObjectId;
+        if (!empty($this->discountCatalogObjectId)) {
+            $json['discount_catalog_object_id'] = $this->discountCatalogObjectId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

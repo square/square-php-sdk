@@ -17,14 +17,14 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
     private $option;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $eligibleForAutoAmounts;
+    private $eligibleForAutoAmounts = [];
 
     /**
-     * @var CatalogQuickAmount[]|null
+     * @var array
      */
-    private $amounts;
+    private $amounts = [];
 
     /**
      * @param string $option
@@ -62,7 +62,10 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      */
     public function getEligibleForAutoAmounts(): ?bool
     {
-        return $this->eligibleForAutoAmounts;
+        if (count($this->eligibleForAutoAmounts) == 0) {
+            return null;
+        }
+        return $this->eligibleForAutoAmounts['value'];
     }
 
     /**
@@ -74,7 +77,17 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      */
     public function setEligibleForAutoAmounts(?bool $eligibleForAutoAmounts): void
     {
-        $this->eligibleForAutoAmounts = $eligibleForAutoAmounts;
+        $this->eligibleForAutoAmounts['value'] = $eligibleForAutoAmounts;
+    }
+
+    /**
+     * Unsets Eligible for Auto Amounts.
+     * Represents location's eligibility for auto amounts
+     * The boolean should be consistent with whether there are AUTO amounts in the `amounts`.
+     */
+    public function unsetEligibleForAutoAmounts(): void
+    {
+        $this->eligibleForAutoAmounts = [];
     }
 
     /**
@@ -85,7 +98,10 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      */
     public function getAmounts(): ?array
     {
-        return $this->amounts;
+        if (count($this->amounts) == 0) {
+            return null;
+        }
+        return $this->amounts['value'];
     }
 
     /**
@@ -98,7 +114,16 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
      */
     public function setAmounts(?array $amounts): void
     {
-        $this->amounts = $amounts;
+        $this->amounts['value'] = $amounts;
+    }
+
+    /**
+     * Unsets Amounts.
+     * Represents a set of Quick Amounts at this location.
+     */
+    public function unsetAmounts(): void
+    {
+        $this->amounts = [];
     }
 
     /**
@@ -114,11 +139,11 @@ class CatalogQuickAmountsSettings implements \JsonSerializable
     {
         $json = [];
         $json['option']                        = $this->option;
-        if (isset($this->eligibleForAutoAmounts)) {
-            $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts;
+        if (!empty($this->eligibleForAutoAmounts)) {
+            $json['eligible_for_auto_amounts'] = $this->eligibleForAutoAmounts['value'];
         }
-        if (isset($this->amounts)) {
-            $json['amounts']                   = $this->amounts;
+        if (!empty($this->amounts)) {
+            $json['amounts']                   = $this->amounts['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -17,19 +17,19 @@ class Site implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $siteTitle;
+    private $siteTitle = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $domain;
+    private $domain = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isPublished;
+    private $isPublished = [];
 
     /**
      * @var string|null
@@ -67,7 +67,10 @@ class Site implements \JsonSerializable
      */
     public function getSiteTitle(): ?string
     {
-        return $this->siteTitle;
+        if (count($this->siteTitle) == 0) {
+            return null;
+        }
+        return $this->siteTitle['value'];
     }
 
     /**
@@ -78,7 +81,16 @@ class Site implements \JsonSerializable
      */
     public function setSiteTitle(?string $siteTitle): void
     {
-        $this->siteTitle = $siteTitle;
+        $this->siteTitle['value'] = $siteTitle;
+    }
+
+    /**
+     * Unsets Site Title.
+     * The title of the site.
+     */
+    public function unsetSiteTitle(): void
+    {
+        $this->siteTitle = [];
     }
 
     /**
@@ -87,7 +99,10 @@ class Site implements \JsonSerializable
      */
     public function getDomain(): ?string
     {
-        return $this->domain;
+        if (count($this->domain) == 0) {
+            return null;
+        }
+        return $this->domain['value'];
     }
 
     /**
@@ -98,7 +113,16 @@ class Site implements \JsonSerializable
      */
     public function setDomain(?string $domain): void
     {
-        $this->domain = $domain;
+        $this->domain['value'] = $domain;
+    }
+
+    /**
+     * Unsets Domain.
+     * The domain of the site (without the protocol). For example, `mysite1.square.site`.
+     */
+    public function unsetDomain(): void
+    {
+        $this->domain = [];
     }
 
     /**
@@ -107,7 +131,10 @@ class Site implements \JsonSerializable
      */
     public function getIsPublished(): ?bool
     {
-        return $this->isPublished;
+        if (count($this->isPublished) == 0) {
+            return null;
+        }
+        return $this->isPublished['value'];
     }
 
     /**
@@ -118,7 +145,16 @@ class Site implements \JsonSerializable
      */
     public function setIsPublished(?bool $isPublished): void
     {
-        $this->isPublished = $isPublished;
+        $this->isPublished['value'] = $isPublished;
+    }
+
+    /**
+     * Unsets Is Published.
+     * Indicates whether the site is published.
+     */
+    public function unsetIsPublished(): void
+    {
+        $this->isPublished = [];
     }
 
     /**
@@ -176,14 +212,14 @@ class Site implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']           = $this->id;
         }
-        if (isset($this->siteTitle)) {
-            $json['site_title']   = $this->siteTitle;
+        if (!empty($this->siteTitle)) {
+            $json['site_title']   = $this->siteTitle['value'];
         }
-        if (isset($this->domain)) {
-            $json['domain']       = $this->domain;
+        if (!empty($this->domain)) {
+            $json['domain']       = $this->domain['value'];
         }
-        if (isset($this->isPublished)) {
-            $json['is_published'] = $this->isPublished;
+        if (!empty($this->isPublished)) {
+            $json['is_published'] = $this->isPublished['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']   = $this->createdAt;

@@ -17,9 +17,9 @@ class TeamMember implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var bool|null
@@ -32,24 +32,24 @@ class TeamMember implements \JsonSerializable
     private $status;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $givenName;
+    private $givenName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $familyName;
+    private $familyName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $emailAddress;
+    private $emailAddress = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
      * @var string|null
@@ -92,7 +92,10 @@ class TeamMember implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -103,7 +106,16 @@ class TeamMember implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A second ID used to associate the team member with an entity in another system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -152,7 +164,10 @@ class TeamMember implements \JsonSerializable
      */
     public function getGivenName(): ?string
     {
-        return $this->givenName;
+        if (count($this->givenName) == 0) {
+            return null;
+        }
+        return $this->givenName['value'];
     }
 
     /**
@@ -163,7 +178,16 @@ class TeamMember implements \JsonSerializable
      */
     public function setGivenName(?string $givenName): void
     {
-        $this->givenName = $givenName;
+        $this->givenName['value'] = $givenName;
+    }
+
+    /**
+     * Unsets Given Name.
+     * The given name (that is, the first name) associated with the team member.
+     */
+    public function unsetGivenName(): void
+    {
+        $this->givenName = [];
     }
 
     /**
@@ -172,7 +196,10 @@ class TeamMember implements \JsonSerializable
      */
     public function getFamilyName(): ?string
     {
-        return $this->familyName;
+        if (count($this->familyName) == 0) {
+            return null;
+        }
+        return $this->familyName['value'];
     }
 
     /**
@@ -183,7 +210,16 @@ class TeamMember implements \JsonSerializable
      */
     public function setFamilyName(?string $familyName): void
     {
-        $this->familyName = $familyName;
+        $this->familyName['value'] = $familyName;
+    }
+
+    /**
+     * Unsets Family Name.
+     * The family name (that is, the last name) associated with the team member.
+     */
+    public function unsetFamilyName(): void
+    {
+        $this->familyName = [];
     }
 
     /**
@@ -192,7 +228,10 @@ class TeamMember implements \JsonSerializable
      */
     public function getEmailAddress(): ?string
     {
-        return $this->emailAddress;
+        if (count($this->emailAddress) == 0) {
+            return null;
+        }
+        return $this->emailAddress['value'];
     }
 
     /**
@@ -203,7 +242,16 @@ class TeamMember implements \JsonSerializable
      */
     public function setEmailAddress(?string $emailAddress): void
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress['value'] = $emailAddress;
+    }
+
+    /**
+     * Unsets Email Address.
+     * The email address associated with the team member.
+     */
+    public function unsetEmailAddress(): void
+    {
+        $this->emailAddress = [];
     }
 
     /**
@@ -214,7 +262,10 @@ class TeamMember implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -227,7 +278,18 @@ class TeamMember implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The team member's phone number, in E.164 format. For example:
+     * +14155552671 - the country code is 1 for US
+     * +551155256325 - the country code is 55 for BR
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -309,8 +371,8 @@ class TeamMember implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                 = $this->id;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']       = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']       = $this->referenceId['value'];
         }
         if (isset($this->isOwner)) {
             $json['is_owner']           = $this->isOwner;
@@ -318,17 +380,17 @@ class TeamMember implements \JsonSerializable
         if (isset($this->status)) {
             $json['status']             = $this->status;
         }
-        if (isset($this->givenName)) {
-            $json['given_name']         = $this->givenName;
+        if (!empty($this->givenName)) {
+            $json['given_name']         = $this->givenName['value'];
         }
-        if (isset($this->familyName)) {
-            $json['family_name']        = $this->familyName;
+        if (!empty($this->familyName)) {
+            $json['family_name']        = $this->familyName['value'];
         }
-        if (isset($this->emailAddress)) {
-            $json['email_address']      = $this->emailAddress;
+        if (!empty($this->emailAddress)) {
+            $json['email_address']      = $this->emailAddress['value'];
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number']       = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number']       = $this->phoneNumber['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']         = $this->createdAt;

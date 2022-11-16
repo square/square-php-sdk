@@ -14,14 +14,14 @@ use stdClass;
 class CatalogObjectReference implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $objectId;
+    private $objectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
      * Returns Object Id.
@@ -29,7 +29,10 @@ class CatalogObjectReference implements \JsonSerializable
      */
     public function getObjectId(): ?string
     {
-        return $this->objectId;
+        if (count($this->objectId) == 0) {
+            return null;
+        }
+        return $this->objectId['value'];
     }
 
     /**
@@ -40,7 +43,16 @@ class CatalogObjectReference implements \JsonSerializable
      */
     public function setObjectId(?string $objectId): void
     {
-        $this->objectId = $objectId;
+        $this->objectId['value'] = $objectId;
+    }
+
+    /**
+     * Unsets Object Id.
+     * The ID of the referenced object.
+     */
+    public function unsetObjectId(): void
+    {
+        $this->objectId = [];
     }
 
     /**
@@ -49,7 +61,10 @@ class CatalogObjectReference implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -60,7 +75,16 @@ class CatalogObjectReference implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the object.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -75,11 +99,11 @@ class CatalogObjectReference implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->objectId)) {
-            $json['object_id']       = $this->objectId;
+        if (!empty($this->objectId)) {
+            $json['object_id']       = $this->objectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version'] = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version'] = $this->catalogVersion['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

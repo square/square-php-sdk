@@ -17,9 +17,9 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
     private $attributeName;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $initialAttributeValue;
+    private $initialAttributeValue = [];
 
     /**
      * @var string|null
@@ -63,7 +63,10 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
      */
     public function getInitialAttributeValue(): ?string
     {
-        return $this->initialAttributeValue;
+        if (count($this->initialAttributeValue) == 0) {
+            return null;
+        }
+        return $this->initialAttributeValue['value'];
     }
 
     /**
@@ -76,7 +79,18 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
      */
     public function setInitialAttributeValue(?string $initialAttributeValue): void
     {
-        $this->initialAttributeValue = $initialAttributeValue;
+        $this->initialAttributeValue['value'] = $initialAttributeValue;
+    }
+
+    /**
+     * Unsets Initial Attribute Value.
+     * The first attribute value to be returned by the query. Ascending sorts will return only
+     * objects with this value or greater, while descending sorts will return only objects with this value
+     * or less. If unset, start at the beginning (for ascending sorts) or end (for descending sorts).
+     */
+    public function unsetInitialAttributeValue(): void
+    {
+        $this->initialAttributeValue = [];
     }
 
     /**
@@ -112,8 +126,8 @@ class CatalogQuerySortedAttribute implements \JsonSerializable
     {
         $json = [];
         $json['attribute_name']              = $this->attributeName;
-        if (isset($this->initialAttributeValue)) {
-            $json['initial_attribute_value'] = $this->initialAttributeValue;
+        if (!empty($this->initialAttributeValue)) {
+            $json['initial_attribute_value'] = $this->initialAttributeValue['value'];
         }
         if (isset($this->sortOrder)) {
             $json['sort_order']              = $this->sortOrder;

@@ -9,24 +9,24 @@ use stdClass;
 class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $bookableOnly;
+    private $bookableOnly = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * Returns Bookable Only.
@@ -35,7 +35,10 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function getBookableOnly(): ?bool
     {
-        return $this->bookableOnly;
+        if (count($this->bookableOnly) == 0) {
+            return null;
+        }
+        return $this->bookableOnly['value'];
     }
 
     /**
@@ -47,7 +50,17 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function setBookableOnly(?bool $bookableOnly): void
     {
-        $this->bookableOnly = $bookableOnly;
+        $this->bookableOnly['value'] = $bookableOnly;
+    }
+
+    /**
+     * Unsets Bookable Only.
+     * Indicates whether to include only bookable team members in the returned result (`true`) or not
+     * (`false`).
+     */
+    public function unsetBookableOnly(): void
+    {
+        $this->bookableOnly = [];
     }
 
     /**
@@ -56,7 +69,10 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -67,7 +83,16 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to return in a paged response.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -77,7 +102,10 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -89,7 +117,17 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * The pagination cursor from the preceding response to return the next page of the results. Do not set
+     * this when retrieving the first page of the results.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -98,7 +136,10 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -109,7 +150,16 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * Indicates whether to include only team members enabled at the given location in the returned result.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -124,17 +174,17 @@ class ListTeamMemberBookingProfilesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->bookableOnly)) {
-            $json['bookable_only'] = $this->bookableOnly;
+        if (!empty($this->bookableOnly)) {
+            $json['bookable_only'] = $this->bookableOnly['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']         = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']         = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']        = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']        = $this->cursor['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']   = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']   = $this->locationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

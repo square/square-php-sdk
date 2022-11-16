@@ -9,9 +9,9 @@ use stdClass;
 class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $type;
+    private $type = [];
 
     /**
      * @var string|null
@@ -29,7 +29,10 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
      */
     public function getType(): ?string
     {
-        return $this->type;
+        if (count($this->type) == 0) {
+            return null;
+        }
+        return $this->type['value'];
     }
 
     /**
@@ -40,7 +43,16 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
      */
     public function setType(?string $type): void
     {
-        $this->type = $type;
+        $this->type['value'] = $type;
+    }
+
+    /**
+     * Unsets Type.
+     * Name of the affected dispute's type.
+     */
+    public function unsetType(): void
+    {
+        $this->type = [];
     }
 
     /**
@@ -93,8 +105,8 @@ class DisputeEvidenceCreatedWebhookData implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->type)) {
-            $json['type']   = $this->type;
+        if (!empty($this->type)) {
+            $json['type']   = $this->type['value'];
         }
         if (isset($this->id)) {
             $json['id']     = $this->id;

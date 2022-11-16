@@ -14,29 +14,29 @@ use stdClass;
 class CatalogItemOptionValue implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemOptionId;
+    private $itemOptionId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $color;
+    private $color = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $ordinal;
+    private $ordinal = [];
 
     /**
      * Returns Item Option Id.
@@ -44,7 +44,10 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function getItemOptionId(): ?string
     {
-        return $this->itemOptionId;
+        if (count($this->itemOptionId) == 0) {
+            return null;
+        }
+        return $this->itemOptionId['value'];
     }
 
     /**
@@ -55,7 +58,16 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function setItemOptionId(?string $itemOptionId): void
     {
-        $this->itemOptionId = $itemOptionId;
+        $this->itemOptionId['value'] = $itemOptionId;
+    }
+
+    /**
+     * Unsets Item Option Id.
+     * Unique ID of the associated item option.
+     */
+    public function unsetItemOptionId(): void
+    {
+        $this->itemOptionId = [];
     }
 
     /**
@@ -64,7 +76,10 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -75,7 +90,16 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * Name of this item option value. This is a searchable attribute for use in applicable query filters.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -85,7 +109,10 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -97,7 +124,17 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * A human-readable description for the option value. This is a searchable attribute for use in
+     * applicable query filters.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -109,7 +146,10 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function getColor(): ?string
     {
-        return $this->color;
+        if (count($this->color) == 0) {
+            return null;
+        }
+        return $this->color['value'];
     }
 
     /**
@@ -123,7 +163,19 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function setColor(?string $color): void
     {
-        $this->color = $color;
+        $this->color['value'] = $color;
+    }
+
+    /**
+     * Unsets Color.
+     * The HTML-supported hex color for the item option (e.g., "#ff8d4e85").
+     * Only displayed if `show_colors` is enabled on the parent `ItemOption`. When
+     * left unset, `color` defaults to white ("#ffffff") when `show_colors` is
+     * enabled on the parent `ItemOption`.
+     */
+    public function unsetColor(): void
+    {
+        $this->color = [];
     }
 
     /**
@@ -132,7 +184,10 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function getOrdinal(): ?int
     {
-        return $this->ordinal;
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
     }
 
     /**
@@ -143,7 +198,16 @@ class CatalogItemOptionValue implements \JsonSerializable
      */
     public function setOrdinal(?int $ordinal): void
     {
-        $this->ordinal = $ordinal;
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * Determines where this option value appears in a list of option values.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
     }
 
     /**
@@ -158,20 +222,20 @@ class CatalogItemOptionValue implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->itemOptionId)) {
-            $json['item_option_id'] = $this->itemOptionId;
+        if (!empty($this->itemOptionId)) {
+            $json['item_option_id'] = $this->itemOptionId['value'];
         }
-        if (isset($this->name)) {
-            $json['name']           = $this->name;
+        if (!empty($this->name)) {
+            $json['name']           = $this->name['value'];
         }
-        if (isset($this->description)) {
-            $json['description']    = $this->description;
+        if (!empty($this->description)) {
+            $json['description']    = $this->description['value'];
         }
-        if (isset($this->color)) {
-            $json['color']          = $this->color;
+        if (!empty($this->color)) {
+            $json['color']          = $this->color['value'];
         }
-        if (isset($this->ordinal)) {
-            $json['ordinal']        = $this->ordinal;
+        if (!empty($this->ordinal)) {
+            $json['ordinal']        = $this->ordinal['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

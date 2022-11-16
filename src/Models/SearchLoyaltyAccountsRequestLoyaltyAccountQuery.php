@@ -12,14 +12,14 @@ use stdClass;
 class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializable
 {
     /**
-     * @var LoyaltyAccountMapping[]|null
+     * @var array
      */
-    private $mappings;
+    private $mappings = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $customerIds;
+    private $customerIds = [];
 
     /**
      * Returns Mappings.
@@ -33,7 +33,10 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
      */
     public function getMappings(): ?array
     {
-        return $this->mappings;
+        if (count($this->mappings) == 0) {
+            return null;
+        }
+        return $this->mappings['value'];
     }
 
     /**
@@ -50,7 +53,20 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
      */
     public function setMappings(?array $mappings): void
     {
-        $this->mappings = $mappings;
+        $this->mappings['value'] = $mappings;
+    }
+
+    /**
+     * Unsets Mappings.
+     * The set of mappings to use in the loyalty account search.
+     *
+     * This cannot be combined with `customer_ids`.
+     *
+     * Max: 30 mappings
+     */
+    public function unsetMappings(): void
+    {
+        $this->mappings = [];
     }
 
     /**
@@ -65,7 +81,10 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
      */
     public function getCustomerIds(): ?array
     {
-        return $this->customerIds;
+        if (count($this->customerIds) == 0) {
+            return null;
+        }
+        return $this->customerIds['value'];
     }
 
     /**
@@ -82,7 +101,20 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
      */
     public function setCustomerIds(?array $customerIds): void
     {
-        $this->customerIds = $customerIds;
+        $this->customerIds['value'] = $customerIds;
+    }
+
+    /**
+     * Unsets Customer Ids.
+     * The set of customer IDs to use in the loyalty account search.
+     *
+     * This cannot be combined with `mappings`.
+     *
+     * Max: 30 customer IDs
+     */
+    public function unsetCustomerIds(): void
+    {
+        $this->customerIds = [];
     }
 
     /**
@@ -97,11 +129,11 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery implements \JsonSerializab
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->mappings)) {
-            $json['mappings']     = $this->mappings;
+        if (!empty($this->mappings)) {
+            $json['mappings']     = $this->mappings['value'];
         }
-        if (isset($this->customerIds)) {
-            $json['customer_ids'] = $this->customerIds;
+        if (!empty($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

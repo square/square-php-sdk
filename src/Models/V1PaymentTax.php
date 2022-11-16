@@ -12,14 +12,14 @@ use stdClass;
 class V1PaymentTax implements \JsonSerializable
 {
     /**
-     * @var Error[]|null
+     * @var array
      */
-    private $errors;
+    private $errors = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var V1Money|null
@@ -27,9 +27,9 @@ class V1PaymentTax implements \JsonSerializable
     private $appliedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $rate;
+    private $rate = [];
 
     /**
      * @var string|null
@@ -37,9 +37,9 @@ class V1PaymentTax implements \JsonSerializable
     private $inclusionType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $feeId;
+    private $feeId = [];
 
     /**
      * Returns Errors.
@@ -49,7 +49,10 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function getErrors(): ?array
     {
-        return $this->errors;
+        if (count($this->errors) == 0) {
+            return null;
+        }
+        return $this->errors['value'];
     }
 
     /**
@@ -62,7 +65,16 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function setErrors(?array $errors): void
     {
-        $this->errors = $errors;
+        $this->errors['value'] = $errors;
+    }
+
+    /**
+     * Unsets Errors.
+     * Any errors that occurred during the request.
+     */
+    public function unsetErrors(): void
+    {
+        $this->errors = [];
     }
 
     /**
@@ -71,7 +83,10 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -82,7 +97,16 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The merchant-defined name of the tax.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -110,7 +134,10 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function getRate(): ?string
     {
-        return $this->rate;
+        if (count($this->rate) == 0) {
+            return null;
+        }
+        return $this->rate['value'];
     }
 
     /**
@@ -122,7 +149,17 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function setRate(?string $rate): void
     {
-        $this->rate = $rate;
+        $this->rate['value'] = $rate;
+    }
+
+    /**
+     * Unsets Rate.
+     * The rate of the tax, as a string representation of a decimal number. A value of 0.07 corresponds to
+     * a rate of 7%.
+     */
+    public function unsetRate(): void
+    {
+        $this->rate = [];
     }
 
     /**
@@ -150,7 +187,10 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function getFeeId(): ?string
     {
-        return $this->feeId;
+        if (count($this->feeId) == 0) {
+            return null;
+        }
+        return $this->feeId['value'];
     }
 
     /**
@@ -162,7 +202,17 @@ class V1PaymentTax implements \JsonSerializable
      */
     public function setFeeId(?string $feeId): void
     {
-        $this->feeId = $feeId;
+        $this->feeId['value'] = $feeId;
+    }
+
+    /**
+     * Unsets Fee Id.
+     * The ID of the tax, if available. Taxes applied in older versions of Square Register might not have
+     * an ID.
+     */
+    public function unsetFeeId(): void
+    {
+        $this->feeId = [];
     }
 
     /**
@@ -177,23 +227,23 @@ class V1PaymentTax implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->errors)) {
-            $json['errors']         = $this->errors;
+        if (!empty($this->errors)) {
+            $json['errors']         = $this->errors['value'];
         }
-        if (isset($this->name)) {
-            $json['name']           = $this->name;
+        if (!empty($this->name)) {
+            $json['name']           = $this->name['value'];
         }
         if (isset($this->appliedMoney)) {
             $json['applied_money']  = $this->appliedMoney;
         }
-        if (isset($this->rate)) {
-            $json['rate']           = $this->rate;
+        if (!empty($this->rate)) {
+            $json['rate']           = $this->rate['value'];
         }
         if (isset($this->inclusionType)) {
             $json['inclusion_type'] = $this->inclusionType;
         }
-        if (isset($this->feeId)) {
-            $json['fee_id']         = $this->feeId;
+        if (!empty($this->feeId)) {
+            $json['fee_id']         = $this->feeId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

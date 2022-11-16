@@ -30,7 +30,7 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     /**
      * @var string[]|null
      */
-    private $mInclude;
+    private $include;
 
     /**
      * Returns Cursor.
@@ -105,7 +105,7 @@ class SearchSubscriptionsRequest implements \JsonSerializable
     }
 
     /**
-     * Returns M Include.
+     * Returns Include.
      * An option to include related information in the response.
      *
      * The supported values are:
@@ -114,13 +114,13 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      *
      * @return string[]|null
      */
-    public function getMInclude(): ?array
+    public function getInclude(): ?array
     {
-        return $this->mInclude;
+        return $this->include;
     }
 
     /**
-     * Sets M Include.
+     * Sets Include.
      * An option to include related information in the response.
      *
      * The supported values are:
@@ -129,11 +129,11 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      *
      * @maps include
      *
-     * @param string[]|null $mInclude
+     * @param string[]|null $include
      */
-    public function setMInclude(?array $mInclude): void
+    public function setInclude(?array $include): void
     {
-        $this->mInclude = $mInclude;
+        $this->include = $include;
     }
 
     /**
@@ -157,8 +157,8 @@ class SearchSubscriptionsRequest implements \JsonSerializable
         if (isset($this->query)) {
             $json['query']   = $this->query;
         }
-        if (isset($this->mInclude)) {
-            $json['include'] = $this->mInclude;
+        if (isset($this->include)) {
+            $json['include'] = $this->include;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

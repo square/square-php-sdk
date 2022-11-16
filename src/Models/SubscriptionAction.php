@@ -22,14 +22,14 @@ class SubscriptionAction implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $effectiveDate;
+    private $effectiveDate = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $newPlanId;
+    private $newPlanId = [];
 
     /**
      * Returns Id.
@@ -77,7 +77,10 @@ class SubscriptionAction implements \JsonSerializable
      */
     public function getEffectiveDate(): ?string
     {
-        return $this->effectiveDate;
+        if (count($this->effectiveDate) == 0) {
+            return null;
+        }
+        return $this->effectiveDate['value'];
     }
 
     /**
@@ -88,7 +91,16 @@ class SubscriptionAction implements \JsonSerializable
      */
     public function setEffectiveDate(?string $effectiveDate): void
     {
-        $this->effectiveDate = $effectiveDate;
+        $this->effectiveDate['value'] = $effectiveDate;
+    }
+
+    /**
+     * Unsets Effective Date.
+     * The `YYYY-MM-DD`-formatted date when the action occurs on the subscription.
+     */
+    public function unsetEffectiveDate(): void
+    {
+        $this->effectiveDate = [];
     }
 
     /**
@@ -97,7 +109,10 @@ class SubscriptionAction implements \JsonSerializable
      */
     public function getNewPlanId(): ?string
     {
-        return $this->newPlanId;
+        if (count($this->newPlanId) == 0) {
+            return null;
+        }
+        return $this->newPlanId['value'];
     }
 
     /**
@@ -108,7 +123,16 @@ class SubscriptionAction implements \JsonSerializable
      */
     public function setNewPlanId(?string $newPlanId): void
     {
-        $this->newPlanId = $newPlanId;
+        $this->newPlanId['value'] = $newPlanId;
+    }
+
+    /**
+     * Unsets New Plan Id.
+     * The target subscription plan a subscription switches to, for a `SWAP_PLAN` action.
+     */
+    public function unsetNewPlanId(): void
+    {
+        $this->newPlanId = [];
     }
 
     /**
@@ -129,11 +153,11 @@ class SubscriptionAction implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']           = $this->type;
         }
-        if (isset($this->effectiveDate)) {
-            $json['effective_date'] = $this->effectiveDate;
+        if (!empty($this->effectiveDate)) {
+            $json['effective_date'] = $this->effectiveDate['value'];
         }
-        if (isset($this->newPlanId)) {
-            $json['new_plan_id']    = $this->newPlanId;
+        if (!empty($this->newPlanId)) {
+            $json['new_plan_id']    = $this->newPlanId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

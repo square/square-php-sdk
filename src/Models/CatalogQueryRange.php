@@ -18,14 +18,14 @@ class CatalogQueryRange implements \JsonSerializable
     private $attributeName;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $attributeMinValue;
+    private $attributeMinValue = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $attributeMaxValue;
+    private $attributeMaxValue = [];
 
     /**
      * @param string $attributeName
@@ -62,7 +62,10 @@ class CatalogQueryRange implements \JsonSerializable
      */
     public function getAttributeMinValue(): ?int
     {
-        return $this->attributeMinValue;
+        if (count($this->attributeMinValue) == 0) {
+            return null;
+        }
+        return $this->attributeMinValue['value'];
     }
 
     /**
@@ -73,7 +76,16 @@ class CatalogQueryRange implements \JsonSerializable
      */
     public function setAttributeMinValue(?int $attributeMinValue): void
     {
-        $this->attributeMinValue = $attributeMinValue;
+        $this->attributeMinValue['value'] = $attributeMinValue;
+    }
+
+    /**
+     * Unsets Attribute Min Value.
+     * The desired minimum value for the search attribute (inclusive).
+     */
+    public function unsetAttributeMinValue(): void
+    {
+        $this->attributeMinValue = [];
     }
 
     /**
@@ -82,7 +94,10 @@ class CatalogQueryRange implements \JsonSerializable
      */
     public function getAttributeMaxValue(): ?int
     {
-        return $this->attributeMaxValue;
+        if (count($this->attributeMaxValue) == 0) {
+            return null;
+        }
+        return $this->attributeMaxValue['value'];
     }
 
     /**
@@ -93,7 +108,16 @@ class CatalogQueryRange implements \JsonSerializable
      */
     public function setAttributeMaxValue(?int $attributeMaxValue): void
     {
-        $this->attributeMaxValue = $attributeMaxValue;
+        $this->attributeMaxValue['value'] = $attributeMaxValue;
+    }
+
+    /**
+     * Unsets Attribute Max Value.
+     * The desired maximum value for the search attribute (inclusive).
+     */
+    public function unsetAttributeMaxValue(): void
+    {
+        $this->attributeMaxValue = [];
     }
 
     /**
@@ -109,11 +133,11 @@ class CatalogQueryRange implements \JsonSerializable
     {
         $json = [];
         $json['attribute_name']          = $this->attributeName;
-        if (isset($this->attributeMinValue)) {
-            $json['attribute_min_value'] = $this->attributeMinValue;
+        if (!empty($this->attributeMinValue)) {
+            $json['attribute_min_value'] = $this->attributeMinValue['value'];
         }
-        if (isset($this->attributeMaxValue)) {
-            $json['attribute_max_value'] = $this->attributeMaxValue;
+        if (!empty($this->attributeMaxValue)) {
+            $json['attribute_max_value'] = $this->attributeMaxValue['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

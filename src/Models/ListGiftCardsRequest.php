@@ -13,29 +13,29 @@ use stdClass;
 class ListGiftCardsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $type;
+    private $type = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $state;
+    private $state = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
      * Returns Type.
@@ -44,7 +44,10 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function getType(): ?string
     {
-        return $this->type;
+        if (count($this->type) == 0) {
+            return null;
+        }
+        return $this->type['value'];
     }
 
     /**
@@ -56,7 +59,17 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function setType(?string $type): void
     {
-        $this->type = $type;
+        $this->type['value'] = $type;
+    }
+
+    /**
+     * Unsets Type.
+     * If a [type]($m/GiftCardType) is provided, the endpoint returns gift cards of the specified type.
+     * Otherwise, the endpoint returns gift cards of all types.
+     */
+    public function unsetType(): void
+    {
+        $this->type = [];
     }
 
     /**
@@ -67,7 +80,10 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function getState(): ?string
     {
-        return $this->state;
+        if (count($this->state) == 0) {
+            return null;
+        }
+        return $this->state['value'];
     }
 
     /**
@@ -80,7 +96,18 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function setState(?string $state): void
     {
-        $this->state = $state;
+        $this->state['value'] = $state;
+    }
+
+    /**
+     * Unsets State.
+     * If a [state]($m/GiftCardStatus) is provided, the endpoint returns the gift cards in the specified
+     * state.
+     * Otherwise, the endpoint returns the gift cards of all states.
+     */
+    public function unsetState(): void
+    {
+        $this->state = [];
     }
 
     /**
@@ -92,7 +119,10 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -106,7 +136,19 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * If a limit is provided, the endpoint returns only the specified number of results per page.
+     * The maximum value is 50. The default value is 30.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -119,7 +161,10 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -134,7 +179,20 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * If a cursor is not provided, the endpoint returns the first page of the results.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -144,7 +202,10 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -156,7 +217,17 @@ class ListGiftCardsRequest implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * If a customer ID is provided, the endpoint returns only the gift cards linked to the specified
+     * customer.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -171,20 +242,20 @@ class ListGiftCardsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->type)) {
-            $json['type']        = $this->type;
+        if (!empty($this->type)) {
+            $json['type']        = $this->type['value'];
         }
-        if (isset($this->state)) {
-            $json['state']       = $this->state;
+        if (!empty($this->state)) {
+            $json['state']       = $this->state['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']       = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']       = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']      = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']      = $this->cursor['value'];
         }
-        if (isset($this->customerId)) {
-            $json['customer_id'] = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id'] = $this->customerId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

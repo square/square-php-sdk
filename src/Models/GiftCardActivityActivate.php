@@ -17,24 +17,24 @@ class GiftCardActivityActivate implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $lineItemUid;
+    private $lineItemUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $buyerPaymentInstrumentIds;
+    private $buyerPaymentInstrumentIds = [];
 
     /**
      * Returns Amount Money.
@@ -77,7 +77,10 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -91,7 +94,19 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the [order]($m/Order) that contains the `GIFT_CARD` line item.
+     *
+     * Applications that use the Square Orders API to process orders must specify the order ID
+     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -103,7 +118,10 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function getLineItemUid(): ?string
     {
-        return $this->lineItemUid;
+        if (count($this->lineItemUid) == 0) {
+            return null;
+        }
+        return $this->lineItemUid['value'];
     }
 
     /**
@@ -117,7 +135,19 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function setLineItemUid(?string $lineItemUid): void
     {
-        $this->lineItemUid = $lineItemUid;
+        $this->lineItemUid['value'] = $lineItemUid;
+    }
+
+    /**
+     * Unsets Line Item Uid.
+     * The UID of the `GIFT_CARD` line item in the order that represents the gift card purchase.
+     *
+     * Applications that use the Square Orders API to process orders must specify the line item UID
+     * in the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     */
+    public function unsetLineItemUid(): void
+    {
+        $this->lineItemUid = [];
     }
 
     /**
@@ -129,7 +159,10 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -143,7 +176,19 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     *
+     * Applications that use a custom order processing system can use this field to track information
+     * related to an order or payment.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -162,7 +207,10 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function getBuyerPaymentInstrumentIds(): ?array
     {
-        return $this->buyerPaymentInstrumentIds;
+        if (count($this->buyerPaymentInstrumentIds) == 0) {
+            return null;
+        }
+        return $this->buyerPaymentInstrumentIds['value'];
     }
 
     /**
@@ -183,7 +231,24 @@ class GiftCardActivityActivate implements \JsonSerializable
      */
     public function setBuyerPaymentInstrumentIds(?array $buyerPaymentInstrumentIds): void
     {
-        $this->buyerPaymentInstrumentIds = $buyerPaymentInstrumentIds;
+        $this->buyerPaymentInstrumentIds['value'] = $buyerPaymentInstrumentIds;
+    }
+
+    /**
+     * Unsets Buyer Payment Instrument Ids.
+     * The payment instrument IDs used to process the gift card purchase, such as a credit card ID
+     * or bank account ID.
+     *
+     * Applications that use a custom order processing system must specify payment instrument IDs in
+     * the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * Square uses this information to perform compliance checks.
+     *
+     * For applications that use the Square Orders API to process payments, Square has the necessary
+     * instrument IDs to perform compliance checks.
+     */
+    public function unsetBuyerPaymentInstrumentIds(): void
+    {
+        $this->buyerPaymentInstrumentIds = [];
     }
 
     /**
@@ -201,17 +266,17 @@ class GiftCardActivityActivate implements \JsonSerializable
         if (isset($this->amountMoney)) {
             $json['amount_money']                 = $this->amountMoney;
         }
-        if (isset($this->orderId)) {
-            $json['order_id']                     = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']                     = $this->orderId['value'];
         }
-        if (isset($this->lineItemUid)) {
-            $json['line_item_uid']                = $this->lineItemUid;
+        if (!empty($this->lineItemUid)) {
+            $json['line_item_uid']                = $this->lineItemUid['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']                 = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']                 = $this->referenceId['value'];
         }
-        if (isset($this->buyerPaymentInstrumentIds)) {
-            $json['buyer_payment_instrument_ids'] = $this->buyerPaymentInstrumentIds;
+        if (!empty($this->buyerPaymentInstrumentIds)) {
+            $json['buyer_payment_instrument_ids'] = $this->buyerPaymentInstrumentIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

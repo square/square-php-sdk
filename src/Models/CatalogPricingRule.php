@@ -13,54 +13,54 @@ use stdClass;
 class CatalogPricingRule implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $timePeriodIds;
+    private $timePeriodIds = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $discountId;
+    private $discountId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $matchProductsId;
+    private $matchProductsId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $applyProductsId;
+    private $applyProductsId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $excludeProductsId;
+    private $excludeProductsId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $validFromDate;
+    private $validFromDate = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $validFromLocalTime;
+    private $validFromLocalTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $validUntilDate;
+    private $validUntilDate = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $validUntilLocalTime;
+    private $validUntilLocalTime = [];
 
     /**
      * @var string|null
@@ -73,9 +73,9 @@ class CatalogPricingRule implements \JsonSerializable
     private $minimumOrderSubtotalMoney;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $customerGroupIdsAny;
+    private $customerGroupIdsAny = [];
 
     /**
      * Returns Name.
@@ -84,7 +84,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -96,7 +99,17 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * User-defined name for the pricing rule. For example, "Buy one get one
+     * free" or "10% off".
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -109,7 +122,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getTimePeriodIds(): ?array
     {
-        return $this->timePeriodIds;
+        if (count($this->timePeriodIds) == 0) {
+            return null;
+        }
+        return $this->timePeriodIds['value'];
     }
 
     /**
@@ -124,7 +140,18 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setTimePeriodIds(?array $timePeriodIds): void
     {
-        $this->timePeriodIds = $timePeriodIds;
+        $this->timePeriodIds['value'] = $timePeriodIds;
+    }
+
+    /**
+     * Unsets Time Period Ids.
+     * A list of unique IDs for the catalog time periods when
+     * this pricing rule is in effect. If left unset, the pricing rule is always
+     * in effect.
+     */
+    public function unsetTimePeriodIds(): void
+    {
+        $this->timePeriodIds = [];
     }
 
     /**
@@ -134,7 +161,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getDiscountId(): ?string
     {
-        return $this->discountId;
+        if (count($this->discountId) == 0) {
+            return null;
+        }
+        return $this->discountId['value'];
     }
 
     /**
@@ -146,7 +176,17 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setDiscountId(?string $discountId): void
     {
-        $this->discountId = $discountId;
+        $this->discountId['value'] = $discountId;
+    }
+
+    /**
+     * Unsets Discount Id.
+     * Unique ID for the `CatalogDiscount` to take off
+     * the price of all matched items.
+     */
+    public function unsetDiscountId(): void
+    {
+        $this->discountId = [];
     }
 
     /**
@@ -156,7 +196,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getMatchProductsId(): ?string
     {
-        return $this->matchProductsId;
+        if (count($this->matchProductsId) == 0) {
+            return null;
+        }
+        return $this->matchProductsId['value'];
     }
 
     /**
@@ -168,7 +211,17 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setMatchProductsId(?string $matchProductsId): void
     {
-        $this->matchProductsId = $matchProductsId;
+        $this->matchProductsId['value'] = $matchProductsId;
+    }
+
+    /**
+     * Unsets Match Products Id.
+     * Unique ID for the `CatalogProductSet` that will be matched by this rule. A match rule
+     * matches within the entire cart, and can match multiple times. This field will always be set.
+     */
+    public function unsetMatchProductsId(): void
+    {
+        $this->matchProductsId = [];
     }
 
     /**
@@ -185,7 +238,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getApplyProductsId(): ?string
     {
-        return $this->applyProductsId;
+        if (count($this->applyProductsId) == 0) {
+            return null;
+        }
+        return $this->applyProductsId['value'];
     }
 
     /**
@@ -204,7 +260,24 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setApplyProductsId(?string $applyProductsId): void
     {
-        $this->applyProductsId = $applyProductsId;
+        $this->applyProductsId['value'] = $applyProductsId;
+    }
+
+    /**
+     * Unsets Apply Products Id.
+     * __Deprecated__: Please use the `exclude_products_id` field to apply
+     * an exclude set instead. Exclude sets allow better control over quantity
+     * ranges and offer more flexibility for which matched items receive a discount.
+     *
+     * `CatalogProductSet` to apply the pricing to.
+     * An apply rule matches within the subset of the cart that fits the match rules (the match set).
+     * An apply rule can only match once in the match set.
+     * If not supplied, the pricing will be applied to all products in the match set.
+     * Other products retain their base price, or a price generated by other rules.
+     */
+    public function unsetApplyProductsId(): void
+    {
+        $this->applyProductsId = [];
     }
 
     /**
@@ -217,7 +290,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getExcludeProductsId(): ?string
     {
-        return $this->excludeProductsId;
+        if (count($this->excludeProductsId) == 0) {
+            return null;
+        }
+        return $this->excludeProductsId['value'];
     }
 
     /**
@@ -232,7 +308,20 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setExcludeProductsId(?string $excludeProductsId): void
     {
-        $this->excludeProductsId = $excludeProductsId;
+        $this->excludeProductsId['value'] = $excludeProductsId;
+    }
+
+    /**
+     * Unsets Exclude Products Id.
+     * `CatalogProductSet` to exclude from the pricing rule.
+     * An exclude rule matches within the subset of the cart that fits the match rules (the match set).
+     * An exclude rule can only match once in the match set.
+     * If not supplied, the pricing will be applied to all products in the match set.
+     * Other products retain their base price, or a price generated by other rules.
+     */
+    public function unsetExcludeProductsId(): void
+    {
+        $this->excludeProductsId = [];
     }
 
     /**
@@ -242,7 +331,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getValidFromDate(): ?string
     {
-        return $this->validFromDate;
+        if (count($this->validFromDate) == 0) {
+            return null;
+        }
+        return $this->validFromDate['value'];
     }
 
     /**
@@ -254,7 +346,17 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setValidFromDate(?string $validFromDate): void
     {
-        $this->validFromDate = $validFromDate;
+        $this->validFromDate['value'] = $validFromDate;
+    }
+
+    /**
+     * Unsets Valid From Date.
+     * Represents the date the Pricing Rule is valid from. Represented in RFC 3339 full-date format (YYYY-
+     * MM-DD).
+     */
+    public function unsetValidFromDate(): void
+    {
+        $this->validFromDate = [];
     }
 
     /**
@@ -265,7 +367,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getValidFromLocalTime(): ?string
     {
-        return $this->validFromLocalTime;
+        if (count($this->validFromLocalTime) == 0) {
+            return null;
+        }
+        return $this->validFromLocalTime['value'];
     }
 
     /**
@@ -278,7 +383,18 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setValidFromLocalTime(?string $validFromLocalTime): void
     {
-        $this->validFromLocalTime = $validFromLocalTime;
+        $this->validFromLocalTime['value'] = $validFromLocalTime;
+    }
+
+    /**
+     * Unsets Valid From Local Time.
+     * Represents the local time the pricing rule should be valid from. Represented in RFC 3339 partial-
+     * time format
+     * (HH:MM:SS). Partial seconds will be truncated.
+     */
+    public function unsetValidFromLocalTime(): void
+    {
+        $this->validFromLocalTime = [];
     }
 
     /**
@@ -288,7 +404,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getValidUntilDate(): ?string
     {
-        return $this->validUntilDate;
+        if (count($this->validUntilDate) == 0) {
+            return null;
+        }
+        return $this->validUntilDate['value'];
     }
 
     /**
@@ -300,7 +419,17 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setValidUntilDate(?string $validUntilDate): void
     {
-        $this->validUntilDate = $validUntilDate;
+        $this->validUntilDate['value'] = $validUntilDate;
+    }
+
+    /**
+     * Unsets Valid Until Date.
+     * Represents the date the Pricing Rule is valid until. Represented in RFC 3339 full-date format (YYYY-
+     * MM-DD).
+     */
+    public function unsetValidUntilDate(): void
+    {
+        $this->validUntilDate = [];
     }
 
     /**
@@ -311,7 +440,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getValidUntilLocalTime(): ?string
     {
-        return $this->validUntilLocalTime;
+        if (count($this->validUntilLocalTime) == 0) {
+            return null;
+        }
+        return $this->validUntilLocalTime['value'];
     }
 
     /**
@@ -324,7 +456,18 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setValidUntilLocalTime(?string $validUntilLocalTime): void
     {
-        $this->validUntilLocalTime = $validUntilLocalTime;
+        $this->validUntilLocalTime['value'] = $validUntilLocalTime;
+    }
+
+    /**
+     * Unsets Valid Until Local Time.
+     * Represents the local time the pricing rule should be valid until. Represented in RFC 3339 partial-
+     * time format
+     * (HH:MM:SS). Partial seconds will be truncated.
+     */
+    public function unsetValidUntilLocalTime(): void
+    {
+        $this->validUntilLocalTime = [];
     }
 
     /**
@@ -396,7 +539,10 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function getCustomerGroupIdsAny(): ?array
     {
-        return $this->customerGroupIdsAny;
+        if (count($this->customerGroupIdsAny) == 0) {
+            return null;
+        }
+        return $this->customerGroupIdsAny['value'];
     }
 
     /**
@@ -416,7 +562,23 @@ class CatalogPricingRule implements \JsonSerializable
      */
     public function setCustomerGroupIdsAny(?array $customerGroupIdsAny): void
     {
-        $this->customerGroupIdsAny = $customerGroupIdsAny;
+        $this->customerGroupIdsAny['value'] = $customerGroupIdsAny;
+    }
+
+    /**
+     * Unsets Customer Group Ids Any.
+     * A list of IDs of customer groups, the members of which are eligible for discounts specified in this
+     * pricing rule.
+     * Notice that a group ID is generated by the Customers API.
+     * If this field is not set, the specified discount applies to matched products sold to anyone whether
+     * the buyer
+     * has a customer profile created or not. If this `customer_group_ids_any` field is set, the specified
+     * discount
+     * applies only to matched products sold to customers belonging to the specified customer groups.
+     */
+    public function unsetCustomerGroupIdsAny(): void
+    {
+        $this->customerGroupIdsAny = [];
     }
 
     /**
@@ -431,35 +593,35 @@ class CatalogPricingRule implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']                         = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                         = $this->name['value'];
         }
-        if (isset($this->timePeriodIds)) {
-            $json['time_period_ids']              = $this->timePeriodIds;
+        if (!empty($this->timePeriodIds)) {
+            $json['time_period_ids']              = $this->timePeriodIds['value'];
         }
-        if (isset($this->discountId)) {
-            $json['discount_id']                  = $this->discountId;
+        if (!empty($this->discountId)) {
+            $json['discount_id']                  = $this->discountId['value'];
         }
-        if (isset($this->matchProductsId)) {
-            $json['match_products_id']            = $this->matchProductsId;
+        if (!empty($this->matchProductsId)) {
+            $json['match_products_id']            = $this->matchProductsId['value'];
         }
-        if (isset($this->applyProductsId)) {
-            $json['apply_products_id']            = $this->applyProductsId;
+        if (!empty($this->applyProductsId)) {
+            $json['apply_products_id']            = $this->applyProductsId['value'];
         }
-        if (isset($this->excludeProductsId)) {
-            $json['exclude_products_id']          = $this->excludeProductsId;
+        if (!empty($this->excludeProductsId)) {
+            $json['exclude_products_id']          = $this->excludeProductsId['value'];
         }
-        if (isset($this->validFromDate)) {
-            $json['valid_from_date']              = $this->validFromDate;
+        if (!empty($this->validFromDate)) {
+            $json['valid_from_date']              = $this->validFromDate['value'];
         }
-        if (isset($this->validFromLocalTime)) {
-            $json['valid_from_local_time']        = $this->validFromLocalTime;
+        if (!empty($this->validFromLocalTime)) {
+            $json['valid_from_local_time']        = $this->validFromLocalTime['value'];
         }
-        if (isset($this->validUntilDate)) {
-            $json['valid_until_date']             = $this->validUntilDate;
+        if (!empty($this->validUntilDate)) {
+            $json['valid_until_date']             = $this->validUntilDate['value'];
         }
-        if (isset($this->validUntilLocalTime)) {
-            $json['valid_until_local_time']       = $this->validUntilLocalTime;
+        if (!empty($this->validUntilLocalTime)) {
+            $json['valid_until_local_time']       = $this->validUntilLocalTime['value'];
         }
         if (isset($this->excludeStrategy)) {
             $json['exclude_strategy']             = $this->excludeStrategy;
@@ -467,8 +629,8 @@ class CatalogPricingRule implements \JsonSerializable
         if (isset($this->minimumOrderSubtotalMoney)) {
             $json['minimum_order_subtotal_money'] = $this->minimumOrderSubtotalMoney;
         }
-        if (isset($this->customerGroupIdsAny)) {
-            $json['customer_group_ids_any']       = $this->customerGroupIdsAny;
+        if (!empty($this->customerGroupIdsAny)) {
+            $json['customer_group_ids_any']       = $this->customerGroupIdsAny['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

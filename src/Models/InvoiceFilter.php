@@ -17,9 +17,9 @@ class InvoiceFilter implements \JsonSerializable
     private $locationIds;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $customerIds;
+    private $customerIds = [];
 
     /**
      * @param string[] $locationIds
@@ -66,7 +66,10 @@ class InvoiceFilter implements \JsonSerializable
      */
     public function getCustomerIds(): ?array
     {
-        return $this->customerIds;
+        if (count($this->customerIds) == 0) {
+            return null;
+        }
+        return $this->customerIds['value'];
     }
 
     /**
@@ -81,7 +84,18 @@ class InvoiceFilter implements \JsonSerializable
      */
     public function setCustomerIds(?array $customerIds): void
     {
-        $this->customerIds = $customerIds;
+        $this->customerIds['value'] = $customerIds;
+    }
+
+    /**
+     * Unsets Customer Ids.
+     * Limits the search to the specified customers, within the specified locations.
+     * Specifying a customer is optional. In the current implementation,
+     * a maximum of one customer can be specified.
+     */
+    public function unsetCustomerIds(): void
+    {
+        $this->customerIds = [];
     }
 
     /**
@@ -97,8 +111,8 @@ class InvoiceFilter implements \JsonSerializable
     {
         $json = [];
         $json['location_ids']     = $this->locationIds;
-        if (isset($this->customerIds)) {
-            $json['customer_ids'] = $this->customerIds;
+        if (!empty($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

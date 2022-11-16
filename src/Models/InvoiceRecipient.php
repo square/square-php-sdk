@@ -20,9 +20,9 @@ use stdClass;
 class InvoiceRecipient implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
      * @var string|null
@@ -66,7 +66,10 @@ class InvoiceRecipient implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -78,7 +81,17 @@ class InvoiceRecipient implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The ID of the customer. This is the customer profile ID that
+     * you provide when creating a draft invoice.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -243,8 +256,8 @@ class InvoiceRecipient implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->customerId)) {
-            $json['customer_id']   = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']   = $this->customerId['value'];
         }
         if (isset($this->givenName)) {
             $json['given_name']    = $this->givenName;

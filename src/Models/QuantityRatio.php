@@ -12,14 +12,14 @@ use stdClass;
 class QuantityRatio implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $quantityDenominator;
+    private $quantityDenominator = [];
 
     /**
      * Returns Quantity.
@@ -27,7 +27,10 @@ class QuantityRatio implements \JsonSerializable
      */
     public function getQuantity(): ?int
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class QuantityRatio implements \JsonSerializable
      */
     public function setQuantity(?int $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The whole or fractional quantity as the numerator.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -51,7 +63,10 @@ class QuantityRatio implements \JsonSerializable
      */
     public function getQuantityDenominator(): ?int
     {
-        return $this->quantityDenominator;
+        if (count($this->quantityDenominator) == 0) {
+            return null;
+        }
+        return $this->quantityDenominator['value'];
     }
 
     /**
@@ -66,7 +81,20 @@ class QuantityRatio implements \JsonSerializable
      */
     public function setQuantityDenominator(?int $quantityDenominator): void
     {
-        $this->quantityDenominator = $quantityDenominator;
+        $this->quantityDenominator['value'] = $quantityDenominator;
+    }
+
+    /**
+     * Unsets Quantity Denominator.
+     * The whole or fractional quantity as the denominator.
+     * In the case of fractional quantity this field is the denominator and quantity is the numerator.
+     * When unspecified, the value is `1`. For example, when `quantity=3` and `quantity_donominator` is
+     * unspecified,
+     * the quantity ratio is `3` or `3/1`.
+     */
+    public function unsetQuantityDenominator(): void
+    {
+        $this->quantityDenominator = [];
     }
 
     /**
@@ -81,11 +109,11 @@ class QuantityRatio implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->quantity)) {
-            $json['quantity']             = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']             = $this->quantity['value'];
         }
-        if (isset($this->quantityDenominator)) {
-            $json['quantity_denominator'] = $this->quantityDenominator;
+        if (!empty($this->quantityDenominator)) {
+            $json['quantity_denominator'] = $this->quantityDenominator['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

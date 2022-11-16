@@ -9,59 +9,59 @@ use stdClass;
 class CatalogInfoResponseLimits implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $batchUpsertMaxObjectsPerBatch;
+    private $batchUpsertMaxObjectsPerBatch = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $batchUpsertMaxTotalObjects;
+    private $batchUpsertMaxTotalObjects = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $batchRetrieveMaxObjectIds;
+    private $batchRetrieveMaxObjectIds = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $searchMaxPageLimit;
+    private $searchMaxPageLimit = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $batchDeleteMaxObjectIds;
+    private $batchDeleteMaxObjectIds = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemTaxesMaxItemIds;
+    private $updateItemTaxesMaxItemIds = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemTaxesMaxTaxesToEnable;
+    private $updateItemTaxesMaxTaxesToEnable = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemTaxesMaxTaxesToDisable;
+    private $updateItemTaxesMaxTaxesToDisable = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemModifierListsMaxItemIds;
+    private $updateItemModifierListsMaxItemIds = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemModifierListsMaxModifierListsToEnable;
+    private $updateItemModifierListsMaxModifierListsToEnable = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $updateItemModifierListsMaxModifierListsToDisable;
+    private $updateItemModifierListsMaxModifierListsToDisable = [];
 
     /**
      * Returns Batch Upsert Max Objects Per Batch.
@@ -70,7 +70,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getBatchUpsertMaxObjectsPerBatch(): ?int
     {
-        return $this->batchUpsertMaxObjectsPerBatch;
+        if (count($this->batchUpsertMaxObjectsPerBatch) == 0) {
+            return null;
+        }
+        return $this->batchUpsertMaxObjectsPerBatch['value'];
     }
 
     /**
@@ -82,7 +85,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setBatchUpsertMaxObjectsPerBatch(?int $batchUpsertMaxObjectsPerBatch): void
     {
-        $this->batchUpsertMaxObjectsPerBatch = $batchUpsertMaxObjectsPerBatch;
+        $this->batchUpsertMaxObjectsPerBatch['value'] = $batchUpsertMaxObjectsPerBatch;
+    }
+
+    /**
+     * Unsets Batch Upsert Max Objects Per Batch.
+     * The maximum number of objects that may appear within a single batch in a
+     * `/v2/catalog/batch-upsert` request.
+     */
+    public function unsetBatchUpsertMaxObjectsPerBatch(): void
+    {
+        $this->batchUpsertMaxObjectsPerBatch = [];
     }
 
     /**
@@ -92,7 +105,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getBatchUpsertMaxTotalObjects(): ?int
     {
-        return $this->batchUpsertMaxTotalObjects;
+        if (count($this->batchUpsertMaxTotalObjects) == 0) {
+            return null;
+        }
+        return $this->batchUpsertMaxTotalObjects['value'];
     }
 
     /**
@@ -104,7 +120,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setBatchUpsertMaxTotalObjects(?int $batchUpsertMaxTotalObjects): void
     {
-        $this->batchUpsertMaxTotalObjects = $batchUpsertMaxTotalObjects;
+        $this->batchUpsertMaxTotalObjects['value'] = $batchUpsertMaxTotalObjects;
+    }
+
+    /**
+     * Unsets Batch Upsert Max Total Objects.
+     * The maximum number of objects that may appear across all batches in a
+     * `/v2/catalog/batch-upsert` request.
+     */
+    public function unsetBatchUpsertMaxTotalObjects(): void
+    {
+        $this->batchUpsertMaxTotalObjects = [];
     }
 
     /**
@@ -114,7 +140,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getBatchRetrieveMaxObjectIds(): ?int
     {
-        return $this->batchRetrieveMaxObjectIds;
+        if (count($this->batchRetrieveMaxObjectIds) == 0) {
+            return null;
+        }
+        return $this->batchRetrieveMaxObjectIds['value'];
     }
 
     /**
@@ -126,7 +155,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setBatchRetrieveMaxObjectIds(?int $batchRetrieveMaxObjectIds): void
     {
-        $this->batchRetrieveMaxObjectIds = $batchRetrieveMaxObjectIds;
+        $this->batchRetrieveMaxObjectIds['value'] = $batchRetrieveMaxObjectIds;
+    }
+
+    /**
+     * Unsets Batch Retrieve Max Object Ids.
+     * The maximum number of object IDs that may appear in a `/v2/catalog/batch-retrieve`
+     * request.
+     */
+    public function unsetBatchRetrieveMaxObjectIds(): void
+    {
+        $this->batchRetrieveMaxObjectIds = [];
     }
 
     /**
@@ -136,7 +175,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getSearchMaxPageLimit(): ?int
     {
-        return $this->searchMaxPageLimit;
+        if (count($this->searchMaxPageLimit) == 0) {
+            return null;
+        }
+        return $this->searchMaxPageLimit['value'];
     }
 
     /**
@@ -148,7 +190,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setSearchMaxPageLimit(?int $searchMaxPageLimit): void
     {
-        $this->searchMaxPageLimit = $searchMaxPageLimit;
+        $this->searchMaxPageLimit['value'] = $searchMaxPageLimit;
+    }
+
+    /**
+     * Unsets Search Max Page Limit.
+     * The maximum number of results that may be returned in a page of a
+     * `/v2/catalog/search` response.
+     */
+    public function unsetSearchMaxPageLimit(): void
+    {
+        $this->searchMaxPageLimit = [];
     }
 
     /**
@@ -158,7 +210,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getBatchDeleteMaxObjectIds(): ?int
     {
-        return $this->batchDeleteMaxObjectIds;
+        if (count($this->batchDeleteMaxObjectIds) == 0) {
+            return null;
+        }
+        return $this->batchDeleteMaxObjectIds['value'];
     }
 
     /**
@@ -170,7 +225,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setBatchDeleteMaxObjectIds(?int $batchDeleteMaxObjectIds): void
     {
-        $this->batchDeleteMaxObjectIds = $batchDeleteMaxObjectIds;
+        $this->batchDeleteMaxObjectIds['value'] = $batchDeleteMaxObjectIds;
+    }
+
+    /**
+     * Unsets Batch Delete Max Object Ids.
+     * The maximum number of object IDs that may be included in a single
+     * `/v2/catalog/batch-delete` request.
+     */
+    public function unsetBatchDeleteMaxObjectIds(): void
+    {
+        $this->batchDeleteMaxObjectIds = [];
     }
 
     /**
@@ -180,7 +245,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemTaxesMaxItemIds(): ?int
     {
-        return $this->updateItemTaxesMaxItemIds;
+        if (count($this->updateItemTaxesMaxItemIds) == 0) {
+            return null;
+        }
+        return $this->updateItemTaxesMaxItemIds['value'];
     }
 
     /**
@@ -192,7 +260,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setUpdateItemTaxesMaxItemIds(?int $updateItemTaxesMaxItemIds): void
     {
-        $this->updateItemTaxesMaxItemIds = $updateItemTaxesMaxItemIds;
+        $this->updateItemTaxesMaxItemIds['value'] = $updateItemTaxesMaxItemIds;
+    }
+
+    /**
+     * Unsets Update Item Taxes Max Item Ids.
+     * The maximum number of item IDs that may be included in a single
+     * `/v2/catalog/update-item-taxes` request.
+     */
+    public function unsetUpdateItemTaxesMaxItemIds(): void
+    {
+        $this->updateItemTaxesMaxItemIds = [];
     }
 
     /**
@@ -202,7 +280,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemTaxesMaxTaxesToEnable(): ?int
     {
-        return $this->updateItemTaxesMaxTaxesToEnable;
+        if (count($this->updateItemTaxesMaxTaxesToEnable) == 0) {
+            return null;
+        }
+        return $this->updateItemTaxesMaxTaxesToEnable['value'];
     }
 
     /**
@@ -214,7 +295,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setUpdateItemTaxesMaxTaxesToEnable(?int $updateItemTaxesMaxTaxesToEnable): void
     {
-        $this->updateItemTaxesMaxTaxesToEnable = $updateItemTaxesMaxTaxesToEnable;
+        $this->updateItemTaxesMaxTaxesToEnable['value'] = $updateItemTaxesMaxTaxesToEnable;
+    }
+
+    /**
+     * Unsets Update Item Taxes Max Taxes to Enable.
+     * The maximum number of tax IDs to be enabled that may be included in a single
+     * `/v2/catalog/update-item-taxes` request.
+     */
+    public function unsetUpdateItemTaxesMaxTaxesToEnable(): void
+    {
+        $this->updateItemTaxesMaxTaxesToEnable = [];
     }
 
     /**
@@ -224,7 +315,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemTaxesMaxTaxesToDisable(): ?int
     {
-        return $this->updateItemTaxesMaxTaxesToDisable;
+        if (count($this->updateItemTaxesMaxTaxesToDisable) == 0) {
+            return null;
+        }
+        return $this->updateItemTaxesMaxTaxesToDisable['value'];
     }
 
     /**
@@ -236,7 +330,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setUpdateItemTaxesMaxTaxesToDisable(?int $updateItemTaxesMaxTaxesToDisable): void
     {
-        $this->updateItemTaxesMaxTaxesToDisable = $updateItemTaxesMaxTaxesToDisable;
+        $this->updateItemTaxesMaxTaxesToDisable['value'] = $updateItemTaxesMaxTaxesToDisable;
+    }
+
+    /**
+     * Unsets Update Item Taxes Max Taxes to Disable.
+     * The maximum number of tax IDs to be disabled that may be included in a single
+     * `/v2/catalog/update-item-taxes` request.
+     */
+    public function unsetUpdateItemTaxesMaxTaxesToDisable(): void
+    {
+        $this->updateItemTaxesMaxTaxesToDisable = [];
     }
 
     /**
@@ -246,7 +350,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemModifierListsMaxItemIds(): ?int
     {
-        return $this->updateItemModifierListsMaxItemIds;
+        if (count($this->updateItemModifierListsMaxItemIds) == 0) {
+            return null;
+        }
+        return $this->updateItemModifierListsMaxItemIds['value'];
     }
 
     /**
@@ -258,7 +365,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function setUpdateItemModifierListsMaxItemIds(?int $updateItemModifierListsMaxItemIds): void
     {
-        $this->updateItemModifierListsMaxItemIds = $updateItemModifierListsMaxItemIds;
+        $this->updateItemModifierListsMaxItemIds['value'] = $updateItemModifierListsMaxItemIds;
+    }
+
+    /**
+     * Unsets Update Item Modifier Lists Max Item Ids.
+     * The maximum number of item IDs that may be included in a single
+     * `/v2/catalog/update-item-modifier-lists` request.
+     */
+    public function unsetUpdateItemModifierListsMaxItemIds(): void
+    {
+        $this->updateItemModifierListsMaxItemIds = [];
     }
 
     /**
@@ -268,7 +385,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemModifierListsMaxModifierListsToEnable(): ?int
     {
-        return $this->updateItemModifierListsMaxModifierListsToEnable;
+        if (count($this->updateItemModifierListsMaxModifierListsToEnable) == 0) {
+            return null;
+        }
+        return $this->updateItemModifierListsMaxModifierListsToEnable['value'];
     }
 
     /**
@@ -281,7 +401,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function setUpdateItemModifierListsMaxModifierListsToEnable(
         ?int $updateItemModifierListsMaxModifierListsToEnable
     ): void {
-        $this->updateItemModifierListsMaxModifierListsToEnable = $updateItemModifierListsMaxModifierListsToEnable;
+        $this->updateItemModifierListsMaxModifierListsToEnable['value'] = $updateItemModifierListsMaxModifierListsToEnable;
+    }
+
+    /**
+     * Unsets Update Item Modifier Lists Max Modifier Lists to Enable.
+     * The maximum number of modifier list IDs to be enabled that may be included in
+     * a single `/v2/catalog/update-item-modifier-lists` request.
+     */
+    public function unsetUpdateItemModifierListsMaxModifierListsToEnable(): void
+    {
+        $this->updateItemModifierListsMaxModifierListsToEnable = [];
     }
 
     /**
@@ -291,7 +421,10 @@ class CatalogInfoResponseLimits implements \JsonSerializable
      */
     public function getUpdateItemModifierListsMaxModifierListsToDisable(): ?int
     {
-        return $this->updateItemModifierListsMaxModifierListsToDisable;
+        if (count($this->updateItemModifierListsMaxModifierListsToDisable) == 0) {
+            return null;
+        }
+        return $this->updateItemModifierListsMaxModifierListsToDisable['value'];
     }
 
     /**
@@ -304,7 +437,17 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function setUpdateItemModifierListsMaxModifierListsToDisable(
         ?int $updateItemModifierListsMaxModifierListsToDisable
     ): void {
-        $this->updateItemModifierListsMaxModifierListsToDisable = $updateItemModifierListsMaxModifierListsToDisable;
+        $this->updateItemModifierListsMaxModifierListsToDisable['value'] = $updateItemModifierListsMaxModifierListsToDisable;
+    }
+
+    /**
+     * Unsets Update Item Modifier Lists Max Modifier Lists to Disable.
+     * The maximum number of modifier list IDs to be disabled that may be included in
+     * a single `/v2/catalog/update-item-modifier-lists` request.
+     */
+    public function unsetUpdateItemModifierListsMaxModifierListsToDisable(): void
+    {
+        $this->updateItemModifierListsMaxModifierListsToDisable = [];
     }
 
     /**
@@ -319,41 +462,47 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->batchUpsertMaxObjectsPerBatch)) {
-            $json['batch_upsert_max_objects_per_batch']                       = $this->batchUpsertMaxObjectsPerBatch;
+        if (!empty($this->batchUpsertMaxObjectsPerBatch)) {
+            $json['batch_upsert_max_objects_per_batch']                       =
+                $this->batchUpsertMaxObjectsPerBatch['value'];
         }
-        if (isset($this->batchUpsertMaxTotalObjects)) {
-            $json['batch_upsert_max_total_objects']                           = $this->batchUpsertMaxTotalObjects;
+        if (!empty($this->batchUpsertMaxTotalObjects)) {
+            $json['batch_upsert_max_total_objects']                           =
+                $this->batchUpsertMaxTotalObjects['value'];
         }
-        if (isset($this->batchRetrieveMaxObjectIds)) {
-            $json['batch_retrieve_max_object_ids']                            = $this->batchRetrieveMaxObjectIds;
+        if (!empty($this->batchRetrieveMaxObjectIds)) {
+            $json['batch_retrieve_max_object_ids']                            =
+                $this->batchRetrieveMaxObjectIds['value'];
         }
-        if (isset($this->searchMaxPageLimit)) {
-            $json['search_max_page_limit']                                    = $this->searchMaxPageLimit;
+        if (!empty($this->searchMaxPageLimit)) {
+            $json['search_max_page_limit']                                    = $this->searchMaxPageLimit['value'];
         }
-        if (isset($this->batchDeleteMaxObjectIds)) {
-            $json['batch_delete_max_object_ids']                              = $this->batchDeleteMaxObjectIds;
+        if (!empty($this->batchDeleteMaxObjectIds)) {
+            $json['batch_delete_max_object_ids']                              = $this->batchDeleteMaxObjectIds['value'];
         }
-        if (isset($this->updateItemTaxesMaxItemIds)) {
-            $json['update_item_taxes_max_item_ids']                           = $this->updateItemTaxesMaxItemIds;
+        if (!empty($this->updateItemTaxesMaxItemIds)) {
+            $json['update_item_taxes_max_item_ids']                           =
+                $this->updateItemTaxesMaxItemIds['value'];
         }
-        if (isset($this->updateItemTaxesMaxTaxesToEnable)) {
-            $json['update_item_taxes_max_taxes_to_enable']                    = $this->updateItemTaxesMaxTaxesToEnable;
+        if (!empty($this->updateItemTaxesMaxTaxesToEnable)) {
+            $json['update_item_taxes_max_taxes_to_enable']                    =
+                $this->updateItemTaxesMaxTaxesToEnable['value'];
         }
-        if (isset($this->updateItemTaxesMaxTaxesToDisable)) {
-            $json['update_item_taxes_max_taxes_to_disable']                   = $this->updateItemTaxesMaxTaxesToDisable;
+        if (!empty($this->updateItemTaxesMaxTaxesToDisable)) {
+            $json['update_item_taxes_max_taxes_to_disable']                   =
+                $this->updateItemTaxesMaxTaxesToDisable['value'];
         }
-        if (isset($this->updateItemModifierListsMaxItemIds)) {
+        if (!empty($this->updateItemModifierListsMaxItemIds)) {
             $json['update_item_modifier_lists_max_item_ids']                  =
-                $this->updateItemModifierListsMaxItemIds;
+                $this->updateItemModifierListsMaxItemIds['value'];
         }
-        if (isset($this->updateItemModifierListsMaxModifierListsToEnable)) {
+        if (!empty($this->updateItemModifierListsMaxModifierListsToEnable)) {
             $json['update_item_modifier_lists_max_modifier_lists_to_enable']  =
-                $this->updateItemModifierListsMaxModifierListsToEnable;
+                $this->updateItemModifierListsMaxModifierListsToEnable['value'];
         }
-        if (isset($this->updateItemModifierListsMaxModifierListsToDisable)) {
+        if (!empty($this->updateItemModifierListsMaxModifierListsToDisable)) {
             $json['update_item_modifier_lists_max_modifier_lists_to_disable'] =
-                $this->updateItemModifierListsMaxModifierListsToDisable;
+                $this->updateItemModifierListsMaxModifierListsToDisable['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

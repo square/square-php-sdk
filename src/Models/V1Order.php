@@ -12,9 +12,9 @@ use stdClass;
 class V1Order implements \JsonSerializable
 {
     /**
-     * @var Error[]|null
+     * @var array
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * @var string|null
@@ -22,19 +22,19 @@ class V1Order implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerEmail;
+    private $buyerEmail = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $recipientName;
+    private $recipientName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $recipientPhoneNumber;
+    private $recipientPhoneNumber = [];
 
     /**
      * @var string|null
@@ -82,34 +82,34 @@ class V1Order implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $expiresAt;
+    private $expiresAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerNote;
+    private $buyerNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $completedNote;
+    private $completedNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $refundedNote;
+    private $refundedNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $canceledNote;
+    private $canceledNote = [];
 
     /**
      * @var V1Tender|null
@@ -117,24 +117,24 @@ class V1Order implements \JsonSerializable
     private $tender;
 
     /**
-     * @var V1OrderHistoryEntry[]|null
+     * @var array
      */
-    private $orderHistory;
+    private $orderHistory = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $promoCode;
+    private $promoCode = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $btcReceiveAddress;
+    private $btcReceiveAddress = [];
 
     /**
-     * @var float|null
+     * @var array
      */
-    private $btcPriceSatoshi;
+    private $btcPriceSatoshi = [];
 
     /**
      * Returns Errors.
@@ -144,7 +144,10 @@ class V1Order implements \JsonSerializable
      */
     public function getErrors(): ?array
     {
-        return $this->errors;
+        if (count($this->errors) == 0) {
+            return null;
+        }
+        return $this->errors['value'];
     }
 
     /**
@@ -157,7 +160,16 @@ class V1Order implements \JsonSerializable
      */
     public function setErrors(?array $errors): void
     {
-        $this->errors = $errors;
+        $this->errors['value'] = $errors;
+    }
+
+    /**
+     * Unsets Errors.
+     * Any errors that occurred during the request.
+     */
+    public function unsetErrors(): void
+    {
+        $this->errors = [];
     }
 
     /**
@@ -186,7 +198,10 @@ class V1Order implements \JsonSerializable
      */
     public function getBuyerEmail(): ?string
     {
-        return $this->buyerEmail;
+        if (count($this->buyerEmail) == 0) {
+            return null;
+        }
+        return $this->buyerEmail['value'];
     }
 
     /**
@@ -197,7 +212,16 @@ class V1Order implements \JsonSerializable
      */
     public function setBuyerEmail(?string $buyerEmail): void
     {
-        $this->buyerEmail = $buyerEmail;
+        $this->buyerEmail['value'] = $buyerEmail;
+    }
+
+    /**
+     * Unsets Buyer Email.
+     * The email address of the order's buyer.
+     */
+    public function unsetBuyerEmail(): void
+    {
+        $this->buyerEmail = [];
     }
 
     /**
@@ -206,7 +230,10 @@ class V1Order implements \JsonSerializable
      */
     public function getRecipientName(): ?string
     {
-        return $this->recipientName;
+        if (count($this->recipientName) == 0) {
+            return null;
+        }
+        return $this->recipientName['value'];
     }
 
     /**
@@ -217,7 +244,16 @@ class V1Order implements \JsonSerializable
      */
     public function setRecipientName(?string $recipientName): void
     {
-        $this->recipientName = $recipientName;
+        $this->recipientName['value'] = $recipientName;
+    }
+
+    /**
+     * Unsets Recipient Name.
+     * The name of the order's buyer.
+     */
+    public function unsetRecipientName(): void
+    {
+        $this->recipientName = [];
     }
 
     /**
@@ -226,7 +262,10 @@ class V1Order implements \JsonSerializable
      */
     public function getRecipientPhoneNumber(): ?string
     {
-        return $this->recipientPhoneNumber;
+        if (count($this->recipientPhoneNumber) == 0) {
+            return null;
+        }
+        return $this->recipientPhoneNumber['value'];
     }
 
     /**
@@ -237,7 +276,16 @@ class V1Order implements \JsonSerializable
      */
     public function setRecipientPhoneNumber(?string $recipientPhoneNumber): void
     {
-        $this->recipientPhoneNumber = $recipientPhoneNumber;
+        $this->recipientPhoneNumber['value'] = $recipientPhoneNumber;
+    }
+
+    /**
+     * Unsets Recipient Phone Number.
+     * The phone number to use for the order's delivery.
+     */
+    public function unsetRecipientPhoneNumber(): void
+    {
+        $this->recipientPhoneNumber = [];
     }
 
     /**
@@ -418,7 +466,10 @@ class V1Order implements \JsonSerializable
      */
     public function getExpiresAt(): ?string
     {
-        return $this->expiresAt;
+        if (count($this->expiresAt) == 0) {
+            return null;
+        }
+        return $this->expiresAt['value'];
     }
 
     /**
@@ -429,7 +480,16 @@ class V1Order implements \JsonSerializable
      */
     public function setExpiresAt(?string $expiresAt): void
     {
-        $this->expiresAt = $expiresAt;
+        $this->expiresAt['value'] = $expiresAt;
+    }
+
+    /**
+     * Unsets Expires At.
+     * The time when the order expires if no action is taken, in ISO 8601 format.
+     */
+    public function unsetExpiresAt(): void
+    {
+        $this->expiresAt = [];
     }
 
     /**
@@ -438,7 +498,10 @@ class V1Order implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -449,7 +512,16 @@ class V1Order implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The unique identifier of the payment associated with the order.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -458,7 +530,10 @@ class V1Order implements \JsonSerializable
      */
     public function getBuyerNote(): ?string
     {
-        return $this->buyerNote;
+        if (count($this->buyerNote) == 0) {
+            return null;
+        }
+        return $this->buyerNote['value'];
     }
 
     /**
@@ -469,7 +544,16 @@ class V1Order implements \JsonSerializable
      */
     public function setBuyerNote(?string $buyerNote): void
     {
-        $this->buyerNote = $buyerNote;
+        $this->buyerNote['value'] = $buyerNote;
+    }
+
+    /**
+     * Unsets Buyer Note.
+     * A note provided by the buyer when the order was created, if any.
+     */
+    public function unsetBuyerNote(): void
+    {
+        $this->buyerNote = [];
     }
 
     /**
@@ -478,7 +562,10 @@ class V1Order implements \JsonSerializable
      */
     public function getCompletedNote(): ?string
     {
-        return $this->completedNote;
+        if (count($this->completedNote) == 0) {
+            return null;
+        }
+        return $this->completedNote['value'];
     }
 
     /**
@@ -489,7 +576,16 @@ class V1Order implements \JsonSerializable
      */
     public function setCompletedNote(?string $completedNote): void
     {
-        $this->completedNote = $completedNote;
+        $this->completedNote['value'] = $completedNote;
+    }
+
+    /**
+     * Unsets Completed Note.
+     * A note provided by the merchant when the order's state was set to COMPLETED, if any
+     */
+    public function unsetCompletedNote(): void
+    {
+        $this->completedNote = [];
     }
 
     /**
@@ -498,7 +594,10 @@ class V1Order implements \JsonSerializable
      */
     public function getRefundedNote(): ?string
     {
-        return $this->refundedNote;
+        if (count($this->refundedNote) == 0) {
+            return null;
+        }
+        return $this->refundedNote['value'];
     }
 
     /**
@@ -509,7 +608,16 @@ class V1Order implements \JsonSerializable
      */
     public function setRefundedNote(?string $refundedNote): void
     {
-        $this->refundedNote = $refundedNote;
+        $this->refundedNote['value'] = $refundedNote;
+    }
+
+    /**
+     * Unsets Refunded Note.
+     * A note provided by the merchant when the order's state was set to REFUNDED, if any.
+     */
+    public function unsetRefundedNote(): void
+    {
+        $this->refundedNote = [];
     }
 
     /**
@@ -518,7 +626,10 @@ class V1Order implements \JsonSerializable
      */
     public function getCanceledNote(): ?string
     {
-        return $this->canceledNote;
+        if (count($this->canceledNote) == 0) {
+            return null;
+        }
+        return $this->canceledNote['value'];
     }
 
     /**
@@ -529,7 +640,16 @@ class V1Order implements \JsonSerializable
      */
     public function setCanceledNote(?string $canceledNote): void
     {
-        $this->canceledNote = $canceledNote;
+        $this->canceledNote['value'] = $canceledNote;
+    }
+
+    /**
+     * Unsets Canceled Note.
+     * A note provided by the merchant when the order's state was set to CANCELED, if any.
+     */
+    public function unsetCanceledNote(): void
+    {
+        $this->canceledNote = [];
     }
 
     /**
@@ -602,7 +722,10 @@ class V1Order implements \JsonSerializable
      */
     public function getOrderHistory(): ?array
     {
-        return $this->orderHistory;
+        if (count($this->orderHistory) == 0) {
+            return null;
+        }
+        return $this->orderHistory['value'];
     }
 
     /**
@@ -615,7 +738,16 @@ class V1Order implements \JsonSerializable
      */
     public function setOrderHistory(?array $orderHistory): void
     {
-        $this->orderHistory = $orderHistory;
+        $this->orderHistory['value'] = $orderHistory;
+    }
+
+    /**
+     * Unsets Order History.
+     * The history of actions associated with the order.
+     */
+    public function unsetOrderHistory(): void
+    {
+        $this->orderHistory = [];
     }
 
     /**
@@ -624,7 +756,10 @@ class V1Order implements \JsonSerializable
      */
     public function getPromoCode(): ?string
     {
-        return $this->promoCode;
+        if (count($this->promoCode) == 0) {
+            return null;
+        }
+        return $this->promoCode['value'];
     }
 
     /**
@@ -635,7 +770,16 @@ class V1Order implements \JsonSerializable
      */
     public function setPromoCode(?string $promoCode): void
     {
-        $this->promoCode = $promoCode;
+        $this->promoCode['value'] = $promoCode;
+    }
+
+    /**
+     * Unsets Promo Code.
+     * The promo code provided by the buyer, if any.
+     */
+    public function unsetPromoCode(): void
+    {
+        $this->promoCode = [];
     }
 
     /**
@@ -644,7 +788,10 @@ class V1Order implements \JsonSerializable
      */
     public function getBtcReceiveAddress(): ?string
     {
-        return $this->btcReceiveAddress;
+        if (count($this->btcReceiveAddress) == 0) {
+            return null;
+        }
+        return $this->btcReceiveAddress['value'];
     }
 
     /**
@@ -655,7 +802,16 @@ class V1Order implements \JsonSerializable
      */
     public function setBtcReceiveAddress(?string $btcReceiveAddress): void
     {
-        $this->btcReceiveAddress = $btcReceiveAddress;
+        $this->btcReceiveAddress['value'] = $btcReceiveAddress;
+    }
+
+    /**
+     * Unsets Btc Receive Address.
+     * For Bitcoin transactions, the address that the buyer sent Bitcoin to.
+     */
+    public function unsetBtcReceiveAddress(): void
+    {
+        $this->btcReceiveAddress = [];
     }
 
     /**
@@ -665,7 +821,10 @@ class V1Order implements \JsonSerializable
      */
     public function getBtcPriceSatoshi(): ?float
     {
-        return $this->btcPriceSatoshi;
+        if (count($this->btcPriceSatoshi) == 0) {
+            return null;
+        }
+        return $this->btcPriceSatoshi['value'];
     }
 
     /**
@@ -677,7 +836,17 @@ class V1Order implements \JsonSerializable
      */
     public function setBtcPriceSatoshi(?float $btcPriceSatoshi): void
     {
-        $this->btcPriceSatoshi = $btcPriceSatoshi;
+        $this->btcPriceSatoshi['value'] = $btcPriceSatoshi;
+    }
+
+    /**
+     * Unsets Btc Price Satoshi.
+     * For Bitcoin transactions, the price of the buyer's order in satoshi (100 million satoshi equals 1
+     * BTC).
+     */
+    public function unsetBtcPriceSatoshi(): void
+    {
+        $this->btcPriceSatoshi = [];
     }
 
     /**
@@ -692,20 +861,20 @@ class V1Order implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->errors)) {
-            $json['errors']                 = $this->errors;
+        if (!empty($this->errors)) {
+            $json['errors']                 = $this->errors['value'];
         }
         if (isset($this->id)) {
             $json['id']                     = $this->id;
         }
-        if (isset($this->buyerEmail)) {
-            $json['buyer_email']            = $this->buyerEmail;
+        if (!empty($this->buyerEmail)) {
+            $json['buyer_email']            = $this->buyerEmail['value'];
         }
-        if (isset($this->recipientName)) {
-            $json['recipient_name']         = $this->recipientName;
+        if (!empty($this->recipientName)) {
+            $json['recipient_name']         = $this->recipientName['value'];
         }
-        if (isset($this->recipientPhoneNumber)) {
-            $json['recipient_phone_number'] = $this->recipientPhoneNumber;
+        if (!empty($this->recipientPhoneNumber)) {
+            $json['recipient_phone_number'] = $this->recipientPhoneNumber['value'];
         }
         if (isset($this->state)) {
             $json['state']                  = $this->state;
@@ -734,38 +903,38 @@ class V1Order implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']             = $this->updatedAt;
         }
-        if (isset($this->expiresAt)) {
-            $json['expires_at']             = $this->expiresAt;
+        if (!empty($this->expiresAt)) {
+            $json['expires_at']             = $this->expiresAt['value'];
         }
-        if (isset($this->paymentId)) {
-            $json['payment_id']             = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']             = $this->paymentId['value'];
         }
-        if (isset($this->buyerNote)) {
-            $json['buyer_note']             = $this->buyerNote;
+        if (!empty($this->buyerNote)) {
+            $json['buyer_note']             = $this->buyerNote['value'];
         }
-        if (isset($this->completedNote)) {
-            $json['completed_note']         = $this->completedNote;
+        if (!empty($this->completedNote)) {
+            $json['completed_note']         = $this->completedNote['value'];
         }
-        if (isset($this->refundedNote)) {
-            $json['refunded_note']          = $this->refundedNote;
+        if (!empty($this->refundedNote)) {
+            $json['refunded_note']          = $this->refundedNote['value'];
         }
-        if (isset($this->canceledNote)) {
-            $json['canceled_note']          = $this->canceledNote;
+        if (!empty($this->canceledNote)) {
+            $json['canceled_note']          = $this->canceledNote['value'];
         }
         if (isset($this->tender)) {
             $json['tender']                 = $this->tender;
         }
-        if (isset($this->orderHistory)) {
-            $json['order_history']          = $this->orderHistory;
+        if (!empty($this->orderHistory)) {
+            $json['order_history']          = $this->orderHistory['value'];
         }
-        if (isset($this->promoCode)) {
-            $json['promo_code']             = $this->promoCode;
+        if (!empty($this->promoCode)) {
+            $json['promo_code']             = $this->promoCode['value'];
         }
-        if (isset($this->btcReceiveAddress)) {
-            $json['btc_receive_address']    = $this->btcReceiveAddress;
+        if (!empty($this->btcReceiveAddress)) {
+            $json['btc_receive_address']    = $this->btcReceiveAddress['value'];
         }
-        if (isset($this->btcPriceSatoshi)) {
-            $json['btc_price_satoshi']      = $this->btcPriceSatoshi;
+        if (!empty($this->btcPriceSatoshi)) {
+            $json['btc_price_satoshi']      = $this->btcPriceSatoshi['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

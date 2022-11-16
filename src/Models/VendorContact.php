@@ -17,24 +17,24 @@ class VendorContact implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $emailAddress;
+    private $emailAddress = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $removed;
+    private $removed = [];
 
     /**
      * @var int
@@ -78,7 +78,10 @@ class VendorContact implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -90,7 +93,17 @@ class VendorContact implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the [VendorContact]($m/VendorContact).
+     * This field is required when attempting to create a [Vendor]($m/Vendor).
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -99,7 +112,10 @@ class VendorContact implements \JsonSerializable
      */
     public function getEmailAddress(): ?string
     {
-        return $this->emailAddress;
+        if (count($this->emailAddress) == 0) {
+            return null;
+        }
+        return $this->emailAddress['value'];
     }
 
     /**
@@ -110,7 +126,16 @@ class VendorContact implements \JsonSerializable
      */
     public function setEmailAddress(?string $emailAddress): void
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress['value'] = $emailAddress;
+    }
+
+    /**
+     * Unsets Email Address.
+     * The email address of the [VendorContact]($m/VendorContact).
+     */
+    public function unsetEmailAddress(): void
+    {
+        $this->emailAddress = [];
     }
 
     /**
@@ -119,7 +144,10 @@ class VendorContact implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -130,7 +158,16 @@ class VendorContact implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The phone number of the [VendorContact]($m/VendorContact).
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -139,7 +176,10 @@ class VendorContact implements \JsonSerializable
      */
     public function getRemoved(): ?bool
     {
-        return $this->removed;
+        if (count($this->removed) == 0) {
+            return null;
+        }
+        return $this->removed['value'];
     }
 
     /**
@@ -150,7 +190,16 @@ class VendorContact implements \JsonSerializable
      */
     public function setRemoved(?bool $removed): void
     {
-        $this->removed = $removed;
+        $this->removed['value'] = $removed;
+    }
+
+    /**
+     * Unsets Removed.
+     * The state of the [VendorContact]($m/VendorContact).
+     */
+    public function unsetRemoved(): void
+    {
+        $this->removed = [];
     }
 
     /**
@@ -189,17 +238,17 @@ class VendorContact implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']            = $this->id;
         }
-        if (isset($this->name)) {
-            $json['name']          = $this->name;
+        if (!empty($this->name)) {
+            $json['name']          = $this->name['value'];
         }
-        if (isset($this->emailAddress)) {
-            $json['email_address'] = $this->emailAddress;
+        if (!empty($this->emailAddress)) {
+            $json['email_address'] = $this->emailAddress['value'];
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number']  = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number']  = $this->phoneNumber['value'];
         }
-        if (isset($this->removed)) {
-            $json['removed']       = $this->removed;
+        if (!empty($this->removed)) {
+            $json['removed']       = $this->removed['value'];
         }
         $json['ordinal']           = $this->ordinal;
         $json = array_filter($json, function ($val) {

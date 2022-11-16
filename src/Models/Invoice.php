@@ -24,14 +24,14 @@ class Invoice implements \JsonSerializable
     private $version;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * @var InvoiceRecipient|null
@@ -39,9 +39,9 @@ class Invoice implements \JsonSerializable
     private $primaryRecipient;
 
     /**
-     * @var InvoicePaymentRequest[]|null
+     * @var array
      */
-    private $paymentRequests;
+    private $paymentRequests = [];
 
     /**
      * @var string|null
@@ -49,24 +49,24 @@ class Invoice implements \JsonSerializable
     private $deliveryMethod;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $invoiceNumber;
+    private $invoiceNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $title;
+    private $title = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $scheduledAt;
+    private $scheduledAt = [];
 
     /**
      * @var string|null
@@ -104,9 +104,9 @@ class Invoice implements \JsonSerializable
     private $acceptedPaymentMethods;
 
     /**
-     * @var InvoiceCustomField[]|null
+     * @var array
      */
-    private $customFields;
+    private $customFields = [];
 
     /**
      * @var string|null
@@ -114,19 +114,19 @@ class Invoice implements \JsonSerializable
     private $subscriptionId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $saleOrServiceDate;
+    private $saleOrServiceDate = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentConditions;
+    private $paymentConditions = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $storePaymentMethodEnabled;
+    private $storePaymentMethodEnabled = [];
 
     /**
      * Returns Id.
@@ -179,7 +179,10 @@ class Invoice implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -193,7 +196,19 @@ class Invoice implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location that this invoice is associated with.
+     *
+     * If specified in a `CreateInvoice` request, the value must match the `location_id` of the associated
+     * order.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -206,7 +221,10 @@ class Invoice implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -221,7 +239,20 @@ class Invoice implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the [order]($m/Order) for which the invoice is created.
+     * This field is required when creating an invoice, and the order must be in the `OPEN` state.
+     *
+     * To view the line items and other information for the associated order, call the
+     * [RetrieveOrder]($e/Orders/RetrieveOrder) endpoint using the order ID.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -283,7 +314,10 @@ class Invoice implements \JsonSerializable
      */
     public function getPaymentRequests(): ?array
     {
-        return $this->paymentRequests;
+        if (count($this->paymentRequests) == 0) {
+            return null;
+        }
+        return $this->paymentRequests['value'];
     }
 
     /**
@@ -311,7 +345,31 @@ class Invoice implements \JsonSerializable
      */
     public function setPaymentRequests(?array $paymentRequests): void
     {
-        $this->paymentRequests = $paymentRequests;
+        $this->paymentRequests['value'] = $paymentRequests;
+    }
+
+    /**
+     * Unsets Payment Requests.
+     * The payment schedule for the invoice, represented by one or more payment requests that
+     * define payment settings, such as amount due and due date. An invoice supports the following payment
+     * request combinations:
+     * - One balance
+     * - One deposit with one balance
+     * - 2–12 installments
+     * - One deposit with 2–12 installments
+     *
+     * This field is required when creating an invoice. It must contain at least one payment request.
+     * All payment requests for the invoice must equal the total order amount. For more information, see
+     * [Configuring payment requests](https://developer.squareup.com/docs/invoices-api/create-publish-
+     * invoices#payment-requests).
+     *
+     * Adding `INSTALLMENT` payment requests to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
+     */
+    public function unsetPaymentRequests(): void
+    {
+        $this->paymentRequests = [];
     }
 
     /**
@@ -344,7 +402,10 @@ class Invoice implements \JsonSerializable
      */
     public function getInvoiceNumber(): ?string
     {
-        return $this->invoiceNumber;
+        if (count($this->invoiceNumber) == 0) {
+            return null;
+        }
+        return $this->invoiceNumber['value'];
     }
 
     /**
@@ -359,7 +420,20 @@ class Invoice implements \JsonSerializable
      */
     public function setInvoiceNumber(?string $invoiceNumber): void
     {
-        $this->invoiceNumber = $invoiceNumber;
+        $this->invoiceNumber['value'] = $invoiceNumber;
+    }
+
+    /**
+     * Unsets Invoice Number.
+     * A user-friendly invoice number that is displayed on the invoice. The value is unique within a
+     * location.
+     * If not provided when creating an invoice, Square assigns a value.
+     * It increments from 1 and is padded with zeros making it 7 characters long
+     * (for example, 0000001 and 0000002).
+     */
+    public function unsetInvoiceNumber(): void
+    {
+        $this->invoiceNumber = [];
     }
 
     /**
@@ -368,7 +442,10 @@ class Invoice implements \JsonSerializable
      */
     public function getTitle(): ?string
     {
-        return $this->title;
+        if (count($this->title) == 0) {
+            return null;
+        }
+        return $this->title['value'];
     }
 
     /**
@@ -379,7 +456,16 @@ class Invoice implements \JsonSerializable
      */
     public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        $this->title['value'] = $title;
+    }
+
+    /**
+     * Unsets Title.
+     * The title of the invoice, which is displayed on the invoice.
+     */
+    public function unsetTitle(): void
+    {
+        $this->title = [];
     }
 
     /**
@@ -388,7 +474,10 @@ class Invoice implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -399,7 +488,16 @@ class Invoice implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * The description of the invoice, which is displayed on the invoice.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -412,7 +510,10 @@ class Invoice implements \JsonSerializable
      */
     public function getScheduledAt(): ?string
     {
-        return $this->scheduledAt;
+        if (count($this->scheduledAt) == 0) {
+            return null;
+        }
+        return $this->scheduledAt['value'];
     }
 
     /**
@@ -427,7 +528,20 @@ class Invoice implements \JsonSerializable
      */
     public function setScheduledAt(?string $scheduledAt): void
     {
-        $this->scheduledAt = $scheduledAt;
+        $this->scheduledAt['value'] = $scheduledAt;
+    }
+
+    /**
+     * Unsets Scheduled At.
+     * The timestamp when the invoice is scheduled for processing, in RFC 3339 format.
+     * After the invoice is published, Square processes the invoice on the specified date,
+     * according to the delivery method and payment request settings.
+     *
+     * If the field is not set, Square processes the invoice immediately after it is published.
+     */
+    public function unsetScheduledAt(): void
+    {
+        $this->scheduledAt = [];
     }
 
     /**
@@ -615,7 +729,10 @@ class Invoice implements \JsonSerializable
      */
     public function getCustomFields(): ?array
     {
-        return $this->customFields;
+        if (count($this->customFields) == 0) {
+            return null;
+        }
+        return $this->customFields['value'];
     }
 
     /**
@@ -635,7 +752,23 @@ class Invoice implements \JsonSerializable
      */
     public function setCustomFields(?array $customFields): void
     {
-        $this->customFields = $customFields;
+        $this->customFields['value'] = $customFields;
+    }
+
+    /**
+     * Unsets Custom Fields.
+     * Additional seller-defined fields that are displayed on the invoice. For more information, see
+     * [Custom fields](https://developer.squareup.com/docs/invoices-api/overview#custom-fields).
+     *
+     * Adding custom fields to an invoice requires an
+     * [Invoices Plus subscription](https://developer.squareup.com/docs/invoices-api/overview#invoices-plus-
+     * subscription).
+     *
+     * Max: 2 custom fields
+     */
+    public function unsetCustomFields(): void
+    {
+        $this->customFields = [];
     }
 
     /**
@@ -667,7 +800,10 @@ class Invoice implements \JsonSerializable
      */
     public function getSaleOrServiceDate(): ?string
     {
-        return $this->saleOrServiceDate;
+        if (count($this->saleOrServiceDate) == 0) {
+            return null;
+        }
+        return $this->saleOrServiceDate['value'];
     }
 
     /**
@@ -679,7 +815,17 @@ class Invoice implements \JsonSerializable
      */
     public function setSaleOrServiceDate(?string $saleOrServiceDate): void
     {
-        $this->saleOrServiceDate = $saleOrServiceDate;
+        $this->saleOrServiceDate['value'] = $saleOrServiceDate;
+    }
+
+    /**
+     * Unsets Sale or Service Date.
+     * The date of the sale or the date that the service is rendered, in `YYYY-MM-DD` format.
+     * This field can be used to specify a past or future date which is displayed on the invoice.
+     */
+    public function unsetSaleOrServiceDate(): void
+    {
+        $this->saleOrServiceDate = [];
     }
 
     /**
@@ -696,7 +842,10 @@ class Invoice implements \JsonSerializable
      */
     public function getPaymentConditions(): ?string
     {
-        return $this->paymentConditions;
+        if (count($this->paymentConditions) == 0) {
+            return null;
+        }
+        return $this->paymentConditions['value'];
     }
 
     /**
@@ -715,7 +864,24 @@ class Invoice implements \JsonSerializable
      */
     public function setPaymentConditions(?string $paymentConditions): void
     {
-        $this->paymentConditions = $paymentConditions;
+        $this->paymentConditions['value'] = $paymentConditions;
+    }
+
+    /**
+     * Unsets Payment Conditions.
+     * **France only.** The payment terms and conditions that are displayed on the invoice. For more
+     * information,
+     * see [Payment conditions](https://developer.squareup.com/docs/invoices-api/overview#payment-
+     * conditions).
+     *
+     * For countries other than France, Square returns an `INVALID_REQUEST_ERROR` with a `BAD_REQUEST` code
+     * and
+     * "Payment conditions are not supported for this location's country" detail if this field is included
+     * in `CreateInvoice` or `UpdateInvoice` requests.
+     */
+    public function unsetPaymentConditions(): void
+    {
+        $this->paymentConditions = [];
     }
 
     /**
@@ -729,7 +895,10 @@ class Invoice implements \JsonSerializable
      */
     public function getStorePaymentMethodEnabled(): ?bool
     {
-        return $this->storePaymentMethodEnabled;
+        if (count($this->storePaymentMethodEnabled) == 0) {
+            return null;
+        }
+        return $this->storePaymentMethodEnabled['value'];
     }
 
     /**
@@ -745,7 +914,21 @@ class Invoice implements \JsonSerializable
      */
     public function setStorePaymentMethodEnabled(?bool $storePaymentMethodEnabled): void
     {
-        $this->storePaymentMethodEnabled = $storePaymentMethodEnabled;
+        $this->storePaymentMethodEnabled['value'] = $storePaymentMethodEnabled;
+    }
+
+    /**
+     * Unsets Store Payment Method Enabled.
+     * Indicates whether to allow a customer to save a credit or debit card as a card on file or a bank
+     * transfer as a
+     * bank account on file. If `true`, Square displays a __Save my card on file__ or __Save my bank on
+     * file__ checkbox on the
+     * invoice payment page. Stored payment information can be used for future automatic payments. The
+     * default value is `false`.
+     */
+    public function unsetStorePaymentMethodEnabled(): void
+    {
+        $this->storePaymentMethodEnabled = [];
     }
 
     /**
@@ -766,32 +949,32 @@ class Invoice implements \JsonSerializable
         if (isset($this->version)) {
             $json['version']                      = $this->version;
         }
-        if (isset($this->locationId)) {
-            $json['location_id']                  = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']                  = $this->locationId['value'];
         }
-        if (isset($this->orderId)) {
-            $json['order_id']                     = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']                     = $this->orderId['value'];
         }
         if (isset($this->primaryRecipient)) {
             $json['primary_recipient']            = $this->primaryRecipient;
         }
-        if (isset($this->paymentRequests)) {
-            $json['payment_requests']             = $this->paymentRequests;
+        if (!empty($this->paymentRequests)) {
+            $json['payment_requests']             = $this->paymentRequests['value'];
         }
         if (isset($this->deliveryMethod)) {
             $json['delivery_method']              = $this->deliveryMethod;
         }
-        if (isset($this->invoiceNumber)) {
-            $json['invoice_number']               = $this->invoiceNumber;
+        if (!empty($this->invoiceNumber)) {
+            $json['invoice_number']               = $this->invoiceNumber['value'];
         }
-        if (isset($this->title)) {
-            $json['title']                        = $this->title;
+        if (!empty($this->title)) {
+            $json['title']                        = $this->title['value'];
         }
-        if (isset($this->description)) {
-            $json['description']                  = $this->description;
+        if (!empty($this->description)) {
+            $json['description']                  = $this->description['value'];
         }
-        if (isset($this->scheduledAt)) {
-            $json['scheduled_at']                 = $this->scheduledAt;
+        if (!empty($this->scheduledAt)) {
+            $json['scheduled_at']                 = $this->scheduledAt['value'];
         }
         if (isset($this->publicUrl)) {
             $json['public_url']                   = $this->publicUrl;
@@ -814,20 +997,20 @@ class Invoice implements \JsonSerializable
         if (isset($this->acceptedPaymentMethods)) {
             $json['accepted_payment_methods']     = $this->acceptedPaymentMethods;
         }
-        if (isset($this->customFields)) {
-            $json['custom_fields']                = $this->customFields;
+        if (!empty($this->customFields)) {
+            $json['custom_fields']                = $this->customFields['value'];
         }
         if (isset($this->subscriptionId)) {
             $json['subscription_id']              = $this->subscriptionId;
         }
-        if (isset($this->saleOrServiceDate)) {
-            $json['sale_or_service_date']         = $this->saleOrServiceDate;
+        if (!empty($this->saleOrServiceDate)) {
+            $json['sale_or_service_date']         = $this->saleOrServiceDate['value'];
         }
-        if (isset($this->paymentConditions)) {
-            $json['payment_conditions']           = $this->paymentConditions;
+        if (!empty($this->paymentConditions)) {
+            $json['payment_conditions']           = $this->paymentConditions['value'];
         }
-        if (isset($this->storePaymentMethodEnabled)) {
-            $json['store_payment_method_enabled'] = $this->storePaymentMethodEnabled;
+        if (!empty($this->storePaymentMethodEnabled)) {
+            $json['store_payment_method_enabled'] = $this->storePaymentMethodEnabled['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

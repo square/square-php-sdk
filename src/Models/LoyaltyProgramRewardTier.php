@@ -14,7 +14,7 @@ use stdClass;
 class LoyaltyProgramRewardTier implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $id;
 
@@ -24,17 +24,17 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     private $points;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $name;
 
     /**
-     * @var LoyaltyProgramRewardDefinition
+     * @var LoyaltyProgramRewardDefinition|null
      */
     private $definition;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $createdAt;
 
@@ -44,31 +44,18 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     private $pricingRuleReference;
 
     /**
-     * @param string $id
      * @param int $points
-     * @param string $name
-     * @param LoyaltyProgramRewardDefinition $definition
-     * @param string $createdAt
      */
-    public function __construct(
-        string $id,
-        int $points,
-        string $name,
-        LoyaltyProgramRewardDefinition $definition,
-        string $createdAt
-    ) {
-        $this->id = $id;
+    public function __construct(int $points)
+    {
         $this->points = $points;
-        $this->name = $name;
-        $this->definition = $definition;
-        $this->createdAt = $createdAt;
     }
 
     /**
      * Returns Id.
      * The Square-assigned ID of the reward tier.
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -77,10 +64,9 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * Sets Id.
      * The Square-assigned ID of the reward tier.
      *
-     * @required
      * @maps id
      */
-    public function setId(string $id): void
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
@@ -110,7 +96,7 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * Returns Name.
      * The name of the reward tier.
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -119,10 +105,9 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * Sets Name.
      * The name of the reward tier.
      *
-     * @required
      * @maps name
      */
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
@@ -134,7 +119,7 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * rewards#get-discount-details).
      */
-    public function getDefinition(): LoyaltyProgramRewardDefinition
+    public function getDefinition(): ?LoyaltyProgramRewardDefinition
     {
         return $this->definition;
     }
@@ -146,10 +131,9 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * [Getting discount details for a reward tier](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * rewards#get-discount-details).
      *
-     * @required
      * @maps definition
      */
-    public function setDefinition(LoyaltyProgramRewardDefinition $definition): void
+    public function setDefinition(?LoyaltyProgramRewardDefinition $definition): void
     {
         $this->definition = $definition;
     }
@@ -158,7 +142,7 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * Returns Created At.
      * The timestamp when the reward tier was created, in RFC 3339 format.
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
@@ -167,10 +151,9 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * Sets Created At.
      * The timestamp when the reward tier was created, in RFC 3339 format.
      *
-     * @required
      * @maps created_at
      */
-    public function setCreatedAt(string $createdAt): void
+    public function setCreatedAt(?string $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -211,11 +194,19 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                         = $this->id;
+        if (isset($this->id)) {
+            $json['id']                     = $this->id;
+        }
         $json['points']                     = $this->points;
-        $json['name']                       = $this->name;
-        $json['definition']                 = $this->definition;
-        $json['created_at']                 = $this->createdAt;
+        if (isset($this->name)) {
+            $json['name']                   = $this->name;
+        }
+        if (isset($this->definition)) {
+            $json['definition']             = $this->definition;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']             = $this->createdAt;
+        }
         if (isset($this->pricingRuleReference)) {
             $json['pricing_rule_reference'] = $this->pricingRuleReference;
         }

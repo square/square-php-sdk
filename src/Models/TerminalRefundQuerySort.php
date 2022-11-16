@@ -9,9 +9,9 @@ use stdClass;
 class TerminalRefundQuerySort implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $sortOrder;
+    private $sortOrder = [];
 
     /**
      * Returns Sort Order.
@@ -21,7 +21,10 @@ class TerminalRefundQuerySort implements \JsonSerializable
      */
     public function getSortOrder(): ?string
     {
-        return $this->sortOrder;
+        if (count($this->sortOrder) == 0) {
+            return null;
+        }
+        return $this->sortOrder['value'];
     }
 
     /**
@@ -34,7 +37,18 @@ class TerminalRefundQuerySort implements \JsonSerializable
      */
     public function setSortOrder(?string $sortOrder): void
     {
-        $this->sortOrder = $sortOrder;
+        $this->sortOrder['value'] = $sortOrder;
+    }
+
+    /**
+     * Unsets Sort Order.
+     * The order in which results are listed.
+     * - `ASC` - Oldest to newest.
+     * - `DESC` - Newest to oldest (default).
+     */
+    public function unsetSortOrder(): void
+    {
+        $this->sortOrder = [];
     }
 
     /**
@@ -49,8 +63,8 @@ class TerminalRefundQuerySort implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->sortOrder)) {
-            $json['sort_order'] = $this->sortOrder;
+        if (!empty($this->sortOrder)) {
+            $json['sort_order'] = $this->sortOrder['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

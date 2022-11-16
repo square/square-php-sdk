@@ -18,14 +18,14 @@ class PaymentRefund implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var bool|null
@@ -33,9 +33,9 @@ class PaymentRefund implements \JsonSerializable
     private $unlinked;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $destinationType;
+    private $destinationType = [];
 
     /**
      * @var DestinationDetails|null
@@ -53,24 +53,24 @@ class PaymentRefund implements \JsonSerializable
     private $appFeeMoney;
 
     /**
-     * @var ProcessingFee[]|null
+     * @var array
      */
-    private $processingFee;
+    private $processingFee = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $reason;
+    private $reason = [];
 
     /**
      * @var string|null
@@ -128,7 +128,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getStatus(): ?string
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -143,7 +146,20 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setStatus(?string $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * The refund's status:
+     * - `PENDING` - Awaiting approval.
+     * - `COMPLETED` - Successfully completed.
+     * - `REJECTED` - The refund was rejected.
+     * - `FAILED` - An error occurred.
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -152,7 +168,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -163,7 +182,16 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The location ID associated with the payment this refund is attached to.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -194,7 +222,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getDestinationType(): ?string
     {
-        return $this->destinationType;
+        if (count($this->destinationType) == 0) {
+            return null;
+        }
+        return $this->destinationType['value'];
     }
 
     /**
@@ -207,7 +238,18 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setDestinationType(?string $destinationType): void
     {
-        $this->destinationType = $destinationType;
+        $this->destinationType['value'] = $destinationType;
+    }
+
+    /**
+     * Unsets Destination Type.
+     * The destination type for this refund.
+     *
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, or `EXTERNAL`.
+     */
+    public function unsetDestinationType(): void
+    {
+        $this->destinationType = [];
     }
 
     /**
@@ -303,7 +345,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getProcessingFee(): ?array
     {
-        return $this->processingFee;
+        if (count($this->processingFee) == 0) {
+            return null;
+        }
+        return $this->processingFee['value'];
     }
 
     /**
@@ -316,7 +361,16 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setProcessingFee(?array $processingFee): void
     {
-        $this->processingFee = $processingFee;
+        $this->processingFee['value'] = $processingFee;
+    }
+
+    /**
+     * Unsets Processing Fee.
+     * Processing fees and fee adjustments assessed by Square for this refund.
+     */
+    public function unsetProcessingFee(): void
+    {
+        $this->processingFee = [];
     }
 
     /**
@@ -325,7 +379,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -336,7 +393,16 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this refund.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -345,7 +411,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -356,7 +425,16 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the order associated with the refund.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -365,7 +443,10 @@ class PaymentRefund implements \JsonSerializable
      */
     public function getReason(): ?string
     {
-        return $this->reason;
+        if (count($this->reason) == 0) {
+            return null;
+        }
+        return $this->reason['value'];
     }
 
     /**
@@ -376,7 +457,16 @@ class PaymentRefund implements \JsonSerializable
      */
     public function setReason(?string $reason): void
     {
-        $this->reason = $reason;
+        $this->reason['value'] = $reason;
+    }
+
+    /**
+     * Unsets Reason.
+     * The reason for the refund.
+     */
+    public function unsetReason(): void
+    {
+        $this->reason = [];
     }
 
     /**
@@ -452,17 +542,17 @@ class PaymentRefund implements \JsonSerializable
     {
         $json = [];
         $json['id']                      = $this->id;
-        if (isset($this->status)) {
-            $json['status']              = $this->status;
+        if (!empty($this->status)) {
+            $json['status']              = $this->status['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']         = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']         = $this->locationId['value'];
         }
         if (isset($this->unlinked)) {
             $json['unlinked']            = $this->unlinked;
         }
-        if (isset($this->destinationType)) {
-            $json['destination_type']    = $this->destinationType;
+        if (!empty($this->destinationType)) {
+            $json['destination_type']    = $this->destinationType['value'];
         }
         if (isset($this->destinationDetails)) {
             $json['destination_details'] = $this->destinationDetails;
@@ -471,17 +561,17 @@ class PaymentRefund implements \JsonSerializable
         if (isset($this->appFeeMoney)) {
             $json['app_fee_money']       = $this->appFeeMoney;
         }
-        if (isset($this->processingFee)) {
-            $json['processing_fee']      = $this->processingFee;
+        if (!empty($this->processingFee)) {
+            $json['processing_fee']      = $this->processingFee['value'];
         }
-        if (isset($this->paymentId)) {
-            $json['payment_id']          = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']          = $this->paymentId['value'];
         }
-        if (isset($this->orderId)) {
-            $json['order_id']            = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']            = $this->orderId['value'];
         }
-        if (isset($this->reason)) {
-            $json['reason']              = $this->reason;
+        if (!empty($this->reason)) {
+            $json['reason']              = $this->reason['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']          = $this->createdAt;

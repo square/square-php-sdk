@@ -12,34 +12,34 @@ use stdClass;
 class OrderReturnServiceCharge implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceServiceChargeUid;
+    private $sourceServiceChargeUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $percentage;
+    private $percentage = [];
 
     /**
      * @var Money|null
@@ -67,14 +67,14 @@ class OrderReturnServiceCharge implements \JsonSerializable
     private $calculationPhase;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $taxable;
+    private $taxable = [];
 
     /**
-     * @var OrderLineItemAppliedTax[]|null
+     * @var array
      */
-    private $appliedTaxes;
+    private $appliedTaxes = [];
 
     /**
      * Returns Uid.
@@ -82,7 +82,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -93,7 +96,16 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the return service charge only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -104,7 +116,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getSourceServiceChargeUid(): ?string
     {
-        return $this->sourceServiceChargeUid;
+        if (count($this->sourceServiceChargeUid) == 0) {
+            return null;
+        }
+        return $this->sourceServiceChargeUid['value'];
     }
 
     /**
@@ -117,7 +132,18 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setSourceServiceChargeUid(?string $sourceServiceChargeUid): void
     {
-        $this->sourceServiceChargeUid = $sourceServiceChargeUid;
+        $this->sourceServiceChargeUid['value'] = $sourceServiceChargeUid;
+    }
+
+    /**
+     * Unsets Source Service Charge Uid.
+     * The service charge `uid` from the order containing the original
+     * service charge. `source_service_charge_uid` is `null` for
+     * unlinked returns.
+     */
+    public function unsetSourceServiceChargeUid(): void
+    {
+        $this->sourceServiceChargeUid = [];
     }
 
     /**
@@ -126,7 +152,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -137,7 +166,16 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the service charge.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -146,7 +184,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -157,7 +198,16 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID of the associated [OrderServiceCharge]($m/OrderServiceCharge).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -166,7 +216,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -177,7 +230,16 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this service charge references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -190,7 +252,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getPercentage(): ?string
     {
-        return $this->percentage;
+        if (count($this->percentage) == 0) {
+            return null;
+        }
+        return $this->percentage['value'];
     }
 
     /**
@@ -205,7 +270,20 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setPercentage(?string $percentage): void
     {
-        $this->percentage = $percentage;
+        $this->percentage['value'] = $percentage;
+    }
+
+    /**
+     * Unsets Percentage.
+     * The percentage of the service charge, as a string representation of
+     * a decimal number. For example, a value of `"7.25"` corresponds to a
+     * percentage of 7.25%.
+     *
+     * Either `percentage` or `amount_money` should be set, but not both.
+     */
+    public function unsetPercentage(): void
+    {
+        $this->percentage = [];
     }
 
     /**
@@ -371,7 +449,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getTaxable(): ?bool
     {
-        return $this->taxable;
+        if (count($this->taxable) == 0) {
+            return null;
+        }
+        return $this->taxable['value'];
     }
 
     /**
@@ -383,7 +464,17 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setTaxable(?bool $taxable): void
     {
-        $this->taxable = $taxable;
+        $this->taxable['value'] = $taxable;
+    }
+
+    /**
+     * Unsets Taxable.
+     * Indicates whether the surcharge can be taxed. Service charges
+     * calculated in the `TOTAL_PHASE` cannot be marked as taxable.
+     */
+    public function unsetTaxable(): void
+    {
+        $this->taxable = [];
     }
 
     /**
@@ -398,7 +489,10 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function getAppliedTaxes(): ?array
     {
-        return $this->appliedTaxes;
+        if (count($this->appliedTaxes) == 0) {
+            return null;
+        }
+        return $this->appliedTaxes['value'];
     }
 
     /**
@@ -415,7 +509,20 @@ class OrderReturnServiceCharge implements \JsonSerializable
      */
     public function setAppliedTaxes(?array $appliedTaxes): void
     {
-        $this->appliedTaxes = $appliedTaxes;
+        $this->appliedTaxes['value'] = $appliedTaxes;
+    }
+
+    /**
+     * Unsets Applied Taxes.
+     * The list of references to `OrderReturnTax` entities applied to the
+     * `OrderReturnServiceCharge`. Each `OrderLineItemAppliedTax` has a `tax_uid`
+     * that references the `uid` of a top-level `OrderReturnTax` that is being
+     * applied to the `OrderReturnServiceCharge`. On reads, the applied amount is
+     * populated.
+     */
+    public function unsetAppliedTaxes(): void
+    {
+        $this->appliedTaxes = [];
     }
 
     /**
@@ -430,23 +537,23 @@ class OrderReturnServiceCharge implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                       = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                       = $this->uid['value'];
         }
-        if (isset($this->sourceServiceChargeUid)) {
-            $json['source_service_charge_uid'] = $this->sourceServiceChargeUid;
+        if (!empty($this->sourceServiceChargeUid)) {
+            $json['source_service_charge_uid'] = $this->sourceServiceChargeUid['value'];
         }
-        if (isset($this->name)) {
-            $json['name']                      = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                      = $this->name['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']         = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']         = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']           = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']           = $this->catalogVersion['value'];
         }
-        if (isset($this->percentage)) {
-            $json['percentage']                = $this->percentage;
+        if (!empty($this->percentage)) {
+            $json['percentage']                = $this->percentage['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']              = $this->amountMoney;
@@ -463,11 +570,11 @@ class OrderReturnServiceCharge implements \JsonSerializable
         if (isset($this->calculationPhase)) {
             $json['calculation_phase']         = $this->calculationPhase;
         }
-        if (isset($this->taxable)) {
-            $json['taxable']                   = $this->taxable;
+        if (!empty($this->taxable)) {
+            $json['taxable']                   = $this->taxable['value'];
         }
-        if (isset($this->appliedTaxes)) {
-            $json['applied_taxes']             = $this->appliedTaxes;
+        if (!empty($this->appliedTaxes)) {
+            $json['applied_taxes']             = $this->appliedTaxes['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

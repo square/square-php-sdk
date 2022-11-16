@@ -1,7 +1,7 @@
 {
     "name": "square/square",
     "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
-    "version": "23.0.0.20221019",
+    "version": "24.0.0.20221116",
     "type": "library",
     "keywords": [
         "Square",
@@ -42,8 +42,14 @@
     "scripts": {
         "test": "phpunit",
         "test-coverage": "phpunit --coverage-html=coverage",
-        "lint": "phpcs --standard=phpcs-ruleset.xml src/",
-        "lint-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
-        "analyze": "phan --allow-polyfill-parser"
+        "lint-src": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "lint-tests": "phpcs --standard=phpcs-ruleset.xml tests/",
+        "lint-tests-fix": "phpcbf --standard=phpcs-ruleset.xml tests/",
+        "analyze": "phan --allow-polyfill-parser",
+        "lint": [
+            "@lint-src",
+            "@lint-tests"
+        ]
     }
 }

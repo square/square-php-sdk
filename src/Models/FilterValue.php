@@ -16,19 +16,19 @@ use stdClass;
 class FilterValue implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $all;
+    private $all = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $any;
+    private $any = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $none;
+    private $none = [];
 
     /**
      * Returns All.
@@ -38,7 +38,10 @@ class FilterValue implements \JsonSerializable
      */
     public function getAll(): ?array
     {
-        return $this->all;
+        if (count($this->all) == 0) {
+            return null;
+        }
+        return $this->all['value'];
     }
 
     /**
@@ -51,7 +54,16 @@ class FilterValue implements \JsonSerializable
      */
     public function setAll(?array $all): void
     {
-        $this->all = $all;
+        $this->all['value'] = $all;
+    }
+
+    /**
+     * Unsets All.
+     * A list of terms that must be present on the field of the resource.
+     */
+    public function unsetAll(): void
+    {
+        $this->all = [];
     }
 
     /**
@@ -63,7 +75,10 @@ class FilterValue implements \JsonSerializable
      */
     public function getAny(): ?array
     {
-        return $this->any;
+        if (count($this->any) == 0) {
+            return null;
+        }
+        return $this->any['value'];
     }
 
     /**
@@ -77,7 +92,17 @@ class FilterValue implements \JsonSerializable
      */
     public function setAny(?array $any): void
     {
-        $this->any = $any;
+        $this->any['value'] = $any;
+    }
+
+    /**
+     * Unsets Any.
+     * A list of terms where at least one of them must be present on the
+     * field of the resource.
+     */
+    public function unsetAny(): void
+    {
+        $this->any = [];
     }
 
     /**
@@ -88,7 +113,10 @@ class FilterValue implements \JsonSerializable
      */
     public function getNone(): ?array
     {
-        return $this->none;
+        if (count($this->none) == 0) {
+            return null;
+        }
+        return $this->none['value'];
     }
 
     /**
@@ -101,7 +129,16 @@ class FilterValue implements \JsonSerializable
      */
     public function setNone(?array $none): void
     {
-        $this->none = $none;
+        $this->none['value'] = $none;
+    }
+
+    /**
+     * Unsets None.
+     * A list of terms that must not be present on the field the resource
+     */
+    public function unsetNone(): void
+    {
+        $this->none = [];
     }
 
     /**
@@ -116,14 +153,14 @@ class FilterValue implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->all)) {
-            $json['all']  = $this->all;
+        if (!empty($this->all)) {
+            $json['all']  = $this->all['value'];
         }
-        if (isset($this->any)) {
-            $json['any']  = $this->any;
+        if (!empty($this->any)) {
+            $json['any']  = $this->any['value'];
         }
-        if (isset($this->none)) {
-            $json['none'] = $this->none;
+        if (!empty($this->none)) {
+            $json['none'] = $this->none['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

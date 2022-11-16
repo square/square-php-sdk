@@ -13,9 +13,9 @@ use stdClass;
 class Availability implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $startAt;
+    private $startAt = [];
 
     /**
      * @var string|null
@@ -23,9 +23,9 @@ class Availability implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var AppointmentSegment[]|null
+     * @var array
      */
-    private $appointmentSegments;
+    private $appointmentSegments = [];
 
     /**
      * Returns Start At.
@@ -33,7 +33,10 @@ class Availability implements \JsonSerializable
      */
     public function getStartAt(): ?string
     {
-        return $this->startAt;
+        if (count($this->startAt) == 0) {
+            return null;
+        }
+        return $this->startAt['value'];
     }
 
     /**
@@ -44,7 +47,16 @@ class Availability implements \JsonSerializable
      */
     public function setStartAt(?string $startAt): void
     {
-        $this->startAt = $startAt;
+        $this->startAt['value'] = $startAt;
+    }
+
+    /**
+     * Unsets Start At.
+     * The RFC 3339 timestamp specifying the beginning time of the slot available for booking.
+     */
+    public function unsetStartAt(): void
+    {
+        $this->startAt = [];
     }
 
     /**
@@ -75,7 +87,10 @@ class Availability implements \JsonSerializable
      */
     public function getAppointmentSegments(): ?array
     {
-        return $this->appointmentSegments;
+        if (count($this->appointmentSegments) == 0) {
+            return null;
+        }
+        return $this->appointmentSegments['value'];
     }
 
     /**
@@ -88,7 +103,16 @@ class Availability implements \JsonSerializable
      */
     public function setAppointmentSegments(?array $appointmentSegments): void
     {
-        $this->appointmentSegments = $appointmentSegments;
+        $this->appointmentSegments['value'] = $appointmentSegments;
+    }
+
+    /**
+     * Unsets Appointment Segments.
+     * The list of appointment segments available for booking
+     */
+    public function unsetAppointmentSegments(): void
+    {
+        $this->appointmentSegments = [];
     }
 
     /**
@@ -103,14 +127,14 @@ class Availability implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->startAt)) {
-            $json['start_at']             = $this->startAt;
+        if (!empty($this->startAt)) {
+            $json['start_at']             = $this->startAt['value'];
         }
         if (isset($this->locationId)) {
             $json['location_id']          = $this->locationId;
         }
-        if (isset($this->appointmentSegments)) {
-            $json['appointment_segments'] = $this->appointmentSegments;
+        if (!empty($this->appointmentSegments)) {
+            $json['appointment_segments'] = $this->appointmentSegments['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -306,27 +306,6 @@ $body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerC
     $body_values__customAttribute
 );
 
-$body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values__customerId,
-    $body_values__customAttribute
-);
-
-$body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values__customerId,
-    $body_values__customAttribute
-);
-
-$body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values__customerId,
-    $body_values__customAttribute
-);
-
 $body = new Models\BulkUpsertCustomerCustomAttributesRequest(
     $body_values
 );
@@ -533,7 +512,6 @@ function upsertCustomerCustomAttribute(
 $customerId = 'customer_id8';
 $key = 'key0';
 $body_customAttribute = new Models\CustomAttribute();
-$body_customAttribute->setValue('"Dune"');
 $body = new Models\UpsertCustomerCustomAttributeRequest(
     $body_customAttribute
 );

@@ -22,9 +22,9 @@ class Refund implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $transactionId;
+    private $transactionId = [];
 
     /**
      * @var string
@@ -57,9 +57,9 @@ class Refund implements \JsonSerializable
     private $processingFeeMoney;
 
     /**
-     * @var AdditionalRecipient[]|null
+     * @var array
      */
-    private $additionalRecipients;
+    private $additionalRecipients = [];
 
     /**
      * @param string $id
@@ -133,7 +133,10 @@ class Refund implements \JsonSerializable
      */
     public function getTransactionId(): ?string
     {
-        return $this->transactionId;
+        if (count($this->transactionId) == 0) {
+            return null;
+        }
+        return $this->transactionId['value'];
     }
 
     /**
@@ -144,7 +147,16 @@ class Refund implements \JsonSerializable
      */
     public function setTransactionId(?string $transactionId): void
     {
-        $this->transactionId = $transactionId;
+        $this->transactionId['value'] = $transactionId;
+    }
+
+    /**
+     * Unsets Transaction Id.
+     * The ID of the transaction that the refunded tender is part of.
+     */
+    public function unsetTransactionId(): void
+    {
+        $this->transactionId = [];
     }
 
     /**
@@ -304,7 +316,10 @@ class Refund implements \JsonSerializable
      */
     public function getAdditionalRecipients(): ?array
     {
-        return $this->additionalRecipients;
+        if (count($this->additionalRecipients) == 0) {
+            return null;
+        }
+        return $this->additionalRecipients['value'];
     }
 
     /**
@@ -318,7 +333,17 @@ class Refund implements \JsonSerializable
      */
     public function setAdditionalRecipients(?array $additionalRecipients): void
     {
-        $this->additionalRecipients = $additionalRecipients;
+        $this->additionalRecipients['value'] = $additionalRecipients;
+    }
+
+    /**
+     * Unsets Additional Recipients.
+     * Additional recipients (other than the merchant) receiving a portion of this refund.
+     * For example, fees assessed on a refund of a purchase by a third party integration.
+     */
+    public function unsetAdditionalRecipients(): void
+    {
+        $this->additionalRecipients = [];
     }
 
     /**
@@ -335,8 +360,8 @@ class Refund implements \JsonSerializable
         $json = [];
         $json['id']                        = $this->id;
         $json['location_id']               = $this->locationId;
-        if (isset($this->transactionId)) {
-            $json['transaction_id']        = $this->transactionId;
+        if (!empty($this->transactionId)) {
+            $json['transaction_id']        = $this->transactionId['value'];
         }
         $json['tender_id']                 = $this->tenderId;
         if (isset($this->createdAt)) {
@@ -348,8 +373,8 @@ class Refund implements \JsonSerializable
         if (isset($this->processingFeeMoney)) {
             $json['processing_fee_money']  = $this->processingFeeMoney;
         }
-        if (isset($this->additionalRecipients)) {
-            $json['additional_recipients'] = $this->additionalRecipients;
+        if (!empty($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

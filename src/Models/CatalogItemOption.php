@@ -12,29 +12,29 @@ use stdClass;
 class CatalogItemOption implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $displayName;
+    private $displayName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $showColors;
+    private $showColors = [];
 
     /**
-     * @var CatalogObject[]|null
+     * @var array
      */
-    private $values;
+    private $values = [];
 
     /**
      * Returns Name.
@@ -43,7 +43,10 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -55,7 +58,17 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The item option's display name for the seller. Must be unique across
+     * all item options. This is a searchable attribute for use in applicable query filters.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -65,7 +78,10 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function getDisplayName(): ?string
     {
-        return $this->displayName;
+        if (count($this->displayName) == 0) {
+            return null;
+        }
+        return $this->displayName['value'];
     }
 
     /**
@@ -77,7 +93,17 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function setDisplayName(?string $displayName): void
     {
-        $this->displayName = $displayName;
+        $this->displayName['value'] = $displayName;
+    }
+
+    /**
+     * Unsets Display Name.
+     * The item option's display name for the customer. This is a searchable attribute for use in
+     * applicable query filters.
+     */
+    public function unsetDisplayName(): void
+    {
+        $this->displayName = [];
     }
 
     /**
@@ -88,7 +114,10 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -101,7 +130,18 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * The item option's human-readable description. Displayed in the Square
+     * Point of Sale app for the seller and in the Online Store or on receipts for
+     * the buyer. This is a searchable attribute for use in applicable query filters.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -110,7 +150,10 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function getShowColors(): ?bool
     {
-        return $this->showColors;
+        if (count($this->showColors) == 0) {
+            return null;
+        }
+        return $this->showColors['value'];
     }
 
     /**
@@ -121,7 +164,16 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function setShowColors(?bool $showColors): void
     {
-        $this->showColors = $showColors;
+        $this->showColors['value'] = $showColors;
+    }
+
+    /**
+     * Unsets Show Colors.
+     * If true, display colors for entries in `values` when present.
+     */
+    public function unsetShowColors(): void
+    {
+        $this->showColors = [];
     }
 
     /**
@@ -133,7 +185,10 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function getValues(): ?array
     {
-        return $this->values;
+        if (count($this->values) == 0) {
+            return null;
+        }
+        return $this->values['value'];
     }
 
     /**
@@ -147,7 +202,17 @@ class CatalogItemOption implements \JsonSerializable
      */
     public function setValues(?array $values): void
     {
-        $this->values = $values;
+        $this->values['value'] = $values;
+    }
+
+    /**
+     * Unsets Values.
+     * A list of CatalogObjects containing the
+     * `CatalogItemOptionValue`s for this item.
+     */
+    public function unsetValues(): void
+    {
+        $this->values = [];
     }
 
     /**
@@ -162,20 +227,20 @@ class CatalogItemOption implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']         = $this->name;
+        if (!empty($this->name)) {
+            $json['name']         = $this->name['value'];
         }
-        if (isset($this->displayName)) {
-            $json['display_name'] = $this->displayName;
+        if (!empty($this->displayName)) {
+            $json['display_name'] = $this->displayName['value'];
         }
-        if (isset($this->description)) {
-            $json['description']  = $this->description;
+        if (!empty($this->description)) {
+            $json['description']  = $this->description['value'];
         }
-        if (isset($this->showColors)) {
-            $json['show_colors']  = $this->showColors;
+        if (!empty($this->showColors)) {
+            $json['show_colors']  = $this->showColors['value'];
         }
-        if (isset($this->values)) {
-            $json['values']       = $this->values;
+        if (!empty($this->values)) {
+            $json['values']       = $this->values['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

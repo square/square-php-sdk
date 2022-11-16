@@ -13,14 +13,14 @@ use stdClass;
 class ListCustomersRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * @var string|null
@@ -42,7 +42,10 @@ class ListCustomersRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -57,7 +60,20 @@ class ListCustomersRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for your original query.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -72,7 +88,10 @@ class ListCustomersRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -89,7 +108,22 @@ class ListCustomersRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to return in a single page. This limit is advisory. The response might
+     * contain more or fewer results.
+     * If the specified limit is less than 1 or greater than 100, Square returns a `400 VALUE_TOO_LOW` or
+     * `400 VALUE_TOO_HIGH` error. The default value is 100.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -144,11 +178,11 @@ class ListCustomersRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor']     = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']     = $this->cursor['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']      = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']      = $this->limit['value'];
         }
         if (isset($this->sortField)) {
             $json['sort_field'] = $this->sortField;

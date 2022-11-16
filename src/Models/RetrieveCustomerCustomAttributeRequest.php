@@ -14,9 +14,9 @@ use stdClass;
 class RetrieveCustomerCustomAttributeRequest implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $withDefinition;
+    private $withDefinition = [];
 
     /**
      * @var int|null
@@ -33,7 +33,10 @@ class RetrieveCustomerCustomAttributeRequest implements \JsonSerializable
      */
     public function getWithDefinition(): ?bool
     {
-        return $this->withDefinition;
+        if (count($this->withDefinition) == 0) {
+            return null;
+        }
+        return $this->withDefinition['value'];
     }
 
     /**
@@ -48,7 +51,20 @@ class RetrieveCustomerCustomAttributeRequest implements \JsonSerializable
      */
     public function setWithDefinition(?bool $withDefinition): void
     {
-        $this->withDefinition = $withDefinition;
+        $this->withDefinition['value'] = $withDefinition;
+    }
+
+    /**
+     * Unsets With Definition.
+     * Indicates whether to return the [custom attribute definition]($m/CustomAttributeDefinition) in the
+     * `definition` field of
+     * the custom attribute. Set this parameter to `true` to get the name and description of the custom
+     * attribute, information about the data type, or other definition details. The default value is
+     * `false`.
+     */
+    public function unsetWithDefinition(): void
+    {
+        $this->withDefinition = [];
     }
 
     /**
@@ -89,8 +105,8 @@ class RetrieveCustomerCustomAttributeRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->withDefinition)) {
-            $json['with_definition'] = $this->withDefinition;
+        if (!empty($this->withDefinition)) {
+            $json['with_definition'] = $this->withDefinition['value'];
         }
         if (isset($this->version)) {
             $json['version']         = $this->version;

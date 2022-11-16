@@ -9,14 +9,14 @@ use stdClass;
 class CancelBookingRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $bookingVersion;
+    private $bookingVersion = [];
 
     /**
      * Returns Idempotency Key.
@@ -24,7 +24,10 @@ class CancelBookingRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -35,7 +38,16 @@ class CancelBookingRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A unique key to make this request an idempotent operation.
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -44,7 +56,10 @@ class CancelBookingRequest implements \JsonSerializable
      */
     public function getBookingVersion(): ?int
     {
-        return $this->bookingVersion;
+        if (count($this->bookingVersion) == 0) {
+            return null;
+        }
+        return $this->bookingVersion['value'];
     }
 
     /**
@@ -55,7 +70,16 @@ class CancelBookingRequest implements \JsonSerializable
      */
     public function setBookingVersion(?int $bookingVersion): void
     {
-        $this->bookingVersion = $bookingVersion;
+        $this->bookingVersion['value'] = $bookingVersion;
+    }
+
+    /**
+     * Unsets Booking Version.
+     * The revision number for the booking used for optimistic concurrency.
+     */
+    public function unsetBookingVersion(): void
+    {
+        $this->bookingVersion = [];
     }
 
     /**
@@ -70,11 +94,11 @@ class CancelBookingRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
-        if (isset($this->bookingVersion)) {
-            $json['booking_version'] = $this->bookingVersion;
+        if (!empty($this->bookingVersion)) {
+            $json['booking_version'] = $this->bookingVersion['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

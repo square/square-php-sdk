@@ -15,14 +15,14 @@ use stdClass;
 class OrderLineItemPricingBlocklists implements \JsonSerializable
 {
     /**
-     * @var OrderLineItemPricingBlocklistsBlockedDiscount[]|null
+     * @var array
      */
-    private $blockedDiscounts;
+    private $blockedDiscounts = [];
 
     /**
-     * @var OrderLineItemPricingBlocklistsBlockedTax[]|null
+     * @var array
      */
-    private $blockedTaxes;
+    private $blockedTaxes = [];
 
     /**
      * Returns Blocked Discounts.
@@ -34,7 +34,10 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
      */
     public function getBlockedDiscounts(): ?array
     {
-        return $this->blockedDiscounts;
+        if (count($this->blockedDiscounts) == 0) {
+            return null;
+        }
+        return $this->blockedDiscounts['value'];
     }
 
     /**
@@ -49,7 +52,18 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
      */
     public function setBlockedDiscounts(?array $blockedDiscounts): void
     {
-        $this->blockedDiscounts = $blockedDiscounts;
+        $this->blockedDiscounts['value'] = $blockedDiscounts;
+    }
+
+    /**
+     * Unsets Blocked Discounts.
+     * A list of discounts blocked from applying to the line item.
+     * Discounts can be blocked by the `discount_uid` (for ad hoc discounts) or
+     * the `discount_catalog_object_id` (for catalog discounts).
+     */
+    public function unsetBlockedDiscounts(): void
+    {
+        $this->blockedDiscounts = [];
     }
 
     /**
@@ -62,7 +76,10 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
      */
     public function getBlockedTaxes(): ?array
     {
-        return $this->blockedTaxes;
+        if (count($this->blockedTaxes) == 0) {
+            return null;
+        }
+        return $this->blockedTaxes['value'];
     }
 
     /**
@@ -77,7 +94,18 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
      */
     public function setBlockedTaxes(?array $blockedTaxes): void
     {
-        $this->blockedTaxes = $blockedTaxes;
+        $this->blockedTaxes['value'] = $blockedTaxes;
+    }
+
+    /**
+     * Unsets Blocked Taxes.
+     * A list of taxes blocked from applying to the line item.
+     * Taxes can be blocked by the `tax_uid` (for ad hoc taxes) or
+     * the `tax_catalog_object_id` (for catalog taxes).
+     */
+    public function unsetBlockedTaxes(): void
+    {
+        $this->blockedTaxes = [];
     }
 
     /**
@@ -92,11 +120,11 @@ class OrderLineItemPricingBlocklists implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->blockedDiscounts)) {
-            $json['blocked_discounts'] = $this->blockedDiscounts;
+        if (!empty($this->blockedDiscounts)) {
+            $json['blocked_discounts'] = $this->blockedDiscounts['value'];
         }
-        if (isset($this->blockedTaxes)) {
-            $json['blocked_taxes']     = $this->blockedTaxes;
+        if (!empty($this->blockedTaxes)) {
+            $json['blocked_taxes']     = $this->blockedTaxes['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

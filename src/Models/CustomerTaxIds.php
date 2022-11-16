@@ -15,9 +15,9 @@ use stdClass;
 class CustomerTaxIds implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $euVat;
+    private $euVat = [];
 
     /**
      * Returns Eu Vat.
@@ -26,7 +26,10 @@ class CustomerTaxIds implements \JsonSerializable
      */
     public function getEuVat(): ?string
     {
-        return $this->euVat;
+        if (count($this->euVat) == 0) {
+            return null;
+        }
+        return $this->euVat['value'];
     }
 
     /**
@@ -38,7 +41,17 @@ class CustomerTaxIds implements \JsonSerializable
      */
     public function setEuVat(?string $euVat): void
     {
-        $this->euVat = $euVat;
+        $this->euVat['value'] = $euVat;
+    }
+
+    /**
+     * Unsets Eu Vat.
+     * The EU VAT identification number for the customer. For example, `IE3426675K`. The ID can contain
+     * alphanumeric characters only.
+     */
+    public function unsetEuVat(): void
+    {
+        $this->euVat = [];
     }
 
     /**
@@ -53,8 +66,8 @@ class CustomerTaxIds implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->euVat)) {
-            $json['eu_vat'] = $this->euVat;
+        if (!empty($this->euVat)) {
+            $json['eu_vat'] = $this->euVat['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -19,14 +19,14 @@ class EmployeeWage implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $title;
+    private $title = [];
 
     /**
      * @var Money|null
@@ -59,7 +59,10 @@ class EmployeeWage implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -70,7 +73,16 @@ class EmployeeWage implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The `Employee` that this wage is assigned to.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -79,7 +91,10 @@ class EmployeeWage implements \JsonSerializable
      */
     public function getTitle(): ?string
     {
-        return $this->title;
+        if (count($this->title) == 0) {
+            return null;
+        }
+        return $this->title['value'];
     }
 
     /**
@@ -90,7 +105,16 @@ class EmployeeWage implements \JsonSerializable
      */
     public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        $this->title['value'] = $title;
+    }
+
+    /**
+     * Unsets Title.
+     * The job title that this wage relates to.
+     */
+    public function unsetTitle(): void
+    {
+        $this->title = [];
     }
 
     /**
@@ -140,11 +164,11 @@ class EmployeeWage implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']          = $this->id;
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id'] = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id'] = $this->employeeId['value'];
         }
-        if (isset($this->title)) {
-            $json['title']       = $this->title;
+        if (!empty($this->title)) {
+            $json['title']       = $this->title['value'];
         }
         if (isset($this->hourlyRate)) {
             $json['hourly_rate'] = $this->hourlyRate;

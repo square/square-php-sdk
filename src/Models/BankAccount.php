@@ -49,24 +49,24 @@ class BankAccount implements \JsonSerializable
     private $primaryBankIdentificationNumber;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $secondaryBankIdentificationNumber;
+    private $secondaryBankIdentificationNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $debitMandateReferenceId;
+    private $debitMandateReferenceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string
@@ -84,9 +84,9 @@ class BankAccount implements \JsonSerializable
     private $debitable;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $fingerprint;
+    private $fingerprint = [];
 
     /**
      * @var int|null
@@ -94,9 +94,9 @@ class BankAccount implements \JsonSerializable
     private $version;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $bankName;
+    private $bankName = [];
 
     /**
      * @param string $id
@@ -296,7 +296,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getSecondaryBankIdentificationNumber(): ?string
     {
-        return $this->secondaryBankIdentificationNumber;
+        if (count($this->secondaryBankIdentificationNumber) == 0) {
+            return null;
+        }
+        return $this->secondaryBankIdentificationNumber['value'];
     }
 
     /**
@@ -308,7 +311,17 @@ class BankAccount implements \JsonSerializable
      */
     public function setSecondaryBankIdentificationNumber(?string $secondaryBankIdentificationNumber): void
     {
-        $this->secondaryBankIdentificationNumber = $secondaryBankIdentificationNumber;
+        $this->secondaryBankIdentificationNumber['value'] = $secondaryBankIdentificationNumber;
+    }
+
+    /**
+     * Unsets Secondary Bank Identification Number.
+     * Secondary identifier for the bank. For more information, see
+     * [Bank Accounts API](https://developer.squareup.com/docs/bank-accounts-api).
+     */
+    public function unsetSecondaryBankIdentificationNumber(): void
+    {
+        $this->secondaryBankIdentificationNumber = [];
     }
 
     /**
@@ -318,7 +331,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getDebitMandateReferenceId(): ?string
     {
-        return $this->debitMandateReferenceId;
+        if (count($this->debitMandateReferenceId) == 0) {
+            return null;
+        }
+        return $this->debitMandateReferenceId['value'];
     }
 
     /**
@@ -330,7 +346,17 @@ class BankAccount implements \JsonSerializable
      */
     public function setDebitMandateReferenceId(?string $debitMandateReferenceId): void
     {
-        $this->debitMandateReferenceId = $debitMandateReferenceId;
+        $this->debitMandateReferenceId['value'] = $debitMandateReferenceId;
+    }
+
+    /**
+     * Unsets Debit Mandate Reference Id.
+     * Reference identifier that will be displayed to UK bank account owners
+     * when collecting direct debit authorization. Only required for UK bank accounts.
+     */
+    public function unsetDebitMandateReferenceId(): void
+    {
+        $this->debitMandateReferenceId = [];
     }
 
     /**
@@ -340,7 +366,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -352,7 +381,17 @@ class BankAccount implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * Client-provided identifier for linking the banking account to an entity
+     * in a third-party system (for example, a bank account number or a user identifier).
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -361,7 +400,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -372,7 +414,16 @@ class BankAccount implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The location to which the bank account belongs.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -448,7 +499,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getFingerprint(): ?string
     {
-        return $this->fingerprint;
+        if (count($this->fingerprint) == 0) {
+            return null;
+        }
+        return $this->fingerprint['value'];
     }
 
     /**
@@ -461,7 +515,18 @@ class BankAccount implements \JsonSerializable
      */
     public function setFingerprint(?string $fingerprint): void
     {
-        $this->fingerprint = $fingerprint;
+        $this->fingerprint['value'] = $fingerprint;
+    }
+
+    /**
+     * Unsets Fingerprint.
+     * A Square-assigned, unique identifier for the bank account based on the
+     * account information. The account fingerprint can be used to compare account
+     * entries and determine if the they represent the same real-world bank account.
+     */
+    public function unsetFingerprint(): void
+    {
+        $this->fingerprint = [];
     }
 
     /**
@@ -491,7 +556,10 @@ class BankAccount implements \JsonSerializable
      */
     public function getBankName(): ?string
     {
-        return $this->bankName;
+        if (count($this->bankName) == 0) {
+            return null;
+        }
+        return $this->bankName['value'];
     }
 
     /**
@@ -503,7 +571,17 @@ class BankAccount implements \JsonSerializable
      */
     public function setBankName(?string $bankName): void
     {
-        $this->bankName = $bankName;
+        $this->bankName['value'] = $bankName;
+    }
+
+    /**
+     * Unsets Bank Name.
+     * Read only. Name of actual financial institution.
+     * For example "Bank of America".
+     */
+    public function unsetBankName(): void
+    {
+        $this->bankName = [];
     }
 
     /**
@@ -525,29 +603,29 @@ class BankAccount implements \JsonSerializable
         $json['account_type']                             = $this->accountType;
         $json['holder_name']                              = $this->holderName;
         $json['primary_bank_identification_number']       = $this->primaryBankIdentificationNumber;
-        if (isset($this->secondaryBankIdentificationNumber)) {
-            $json['secondary_bank_identification_number'] = $this->secondaryBankIdentificationNumber;
+        if (!empty($this->secondaryBankIdentificationNumber)) {
+            $json['secondary_bank_identification_number'] = $this->secondaryBankIdentificationNumber['value'];
         }
-        if (isset($this->debitMandateReferenceId)) {
-            $json['debit_mandate_reference_id']           = $this->debitMandateReferenceId;
+        if (!empty($this->debitMandateReferenceId)) {
+            $json['debit_mandate_reference_id']           = $this->debitMandateReferenceId['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']                         = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']                         = $this->referenceId['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']                          = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']                          = $this->locationId['value'];
         }
         $json['status']                                   = $this->status;
         $json['creditable']                               = $this->creditable;
         $json['debitable']                                = $this->debitable;
-        if (isset($this->fingerprint)) {
-            $json['fingerprint']                          = $this->fingerprint;
+        if (!empty($this->fingerprint)) {
+            $json['fingerprint']                          = $this->fingerprint['value'];
         }
         if (isset($this->version)) {
             $json['version']                              = $this->version;
         }
-        if (isset($this->bankName)) {
-            $json['bank_name']                            = $this->bankName;
+        if (!empty($this->bankName)) {
+            $json['bank_name']                            = $this->bankName['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

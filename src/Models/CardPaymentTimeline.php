@@ -12,19 +12,19 @@ use stdClass;
 class CardPaymentTimeline implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $authorizedAt;
+    private $authorizedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $capturedAt;
+    private $capturedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $voidedAt;
+    private $voidedAt = [];
 
     /**
      * Returns Authorized At.
@@ -32,7 +32,10 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function getAuthorizedAt(): ?string
     {
-        return $this->authorizedAt;
+        if (count($this->authorizedAt) == 0) {
+            return null;
+        }
+        return $this->authorizedAt['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function setAuthorizedAt(?string $authorizedAt): void
     {
-        $this->authorizedAt = $authorizedAt;
+        $this->authorizedAt['value'] = $authorizedAt;
+    }
+
+    /**
+     * Unsets Authorized At.
+     * The timestamp when the payment was authorized, in RFC 3339 format.
+     */
+    public function unsetAuthorizedAt(): void
+    {
+        $this->authorizedAt = [];
     }
 
     /**
@@ -52,7 +64,10 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function getCapturedAt(): ?string
     {
-        return $this->capturedAt;
+        if (count($this->capturedAt) == 0) {
+            return null;
+        }
+        return $this->capturedAt['value'];
     }
 
     /**
@@ -63,7 +78,16 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function setCapturedAt(?string $capturedAt): void
     {
-        $this->capturedAt = $capturedAt;
+        $this->capturedAt['value'] = $capturedAt;
+    }
+
+    /**
+     * Unsets Captured At.
+     * The timestamp when the payment was captured, in RFC 3339 format.
+     */
+    public function unsetCapturedAt(): void
+    {
+        $this->capturedAt = [];
     }
 
     /**
@@ -72,7 +96,10 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function getVoidedAt(): ?string
     {
-        return $this->voidedAt;
+        if (count($this->voidedAt) == 0) {
+            return null;
+        }
+        return $this->voidedAt['value'];
     }
 
     /**
@@ -83,7 +110,16 @@ class CardPaymentTimeline implements \JsonSerializable
      */
     public function setVoidedAt(?string $voidedAt): void
     {
-        $this->voidedAt = $voidedAt;
+        $this->voidedAt['value'] = $voidedAt;
+    }
+
+    /**
+     * Unsets Voided At.
+     * The timestamp when the payment was voided, in RFC 3339 format.
+     */
+    public function unsetVoidedAt(): void
+    {
+        $this->voidedAt = [];
     }
 
     /**
@@ -98,14 +134,14 @@ class CardPaymentTimeline implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->authorizedAt)) {
-            $json['authorized_at'] = $this->authorizedAt;
+        if (!empty($this->authorizedAt)) {
+            $json['authorized_at'] = $this->authorizedAt['value'];
         }
-        if (isset($this->capturedAt)) {
-            $json['captured_at']   = $this->capturedAt;
+        if (!empty($this->capturedAt)) {
+            $json['captured_at']   = $this->capturedAt['value'];
         }
-        if (isset($this->voidedAt)) {
-            $json['voided_at']     = $this->voidedAt;
+        if (!empty($this->voidedAt)) {
+            $json['voided_at']     = $this->voidedAt['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

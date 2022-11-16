@@ -12,9 +12,9 @@ use stdClass;
 class BusinessHours implements \JsonSerializable
 {
     /**
-     * @var BusinessHoursPeriod[]|null
+     * @var array
      */
-    private $periods;
+    private $periods = [];
 
     /**
      * Returns Periods.
@@ -24,7 +24,10 @@ class BusinessHours implements \JsonSerializable
      */
     public function getPeriods(): ?array
     {
-        return $this->periods;
+        if (count($this->periods) == 0) {
+            return null;
+        }
+        return $this->periods['value'];
     }
 
     /**
@@ -37,7 +40,16 @@ class BusinessHours implements \JsonSerializable
      */
     public function setPeriods(?array $periods): void
     {
-        $this->periods = $periods;
+        $this->periods['value'] = $periods;
+    }
+
+    /**
+     * Unsets Periods.
+     * The list of time periods during which the business is open. There can be at most 10 periods per day.
+     */
+    public function unsetPeriods(): void
+    {
+        $this->periods = [];
     }
 
     /**
@@ -52,8 +64,8 @@ class BusinessHours implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->periods)) {
-            $json['periods'] = $this->periods;
+        if (!empty($this->periods)) {
+            $json['periods'] = $this->periods['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

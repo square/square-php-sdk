@@ -17,29 +17,29 @@ class Employee implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $firstName;
+    private $firstName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $lastName;
+    private $lastName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $email;
+    private $email = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
      * @var string|null
@@ -47,9 +47,9 @@ class Employee implements \JsonSerializable
     private $status;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isOwner;
+    private $isOwner = [];
 
     /**
      * @var string|null
@@ -87,7 +87,10 @@ class Employee implements \JsonSerializable
      */
     public function getFirstName(): ?string
     {
-        return $this->firstName;
+        if (count($this->firstName) == 0) {
+            return null;
+        }
+        return $this->firstName['value'];
     }
 
     /**
@@ -98,7 +101,16 @@ class Employee implements \JsonSerializable
      */
     public function setFirstName(?string $firstName): void
     {
-        $this->firstName = $firstName;
+        $this->firstName['value'] = $firstName;
+    }
+
+    /**
+     * Unsets First Name.
+     * The employee's first name.
+     */
+    public function unsetFirstName(): void
+    {
+        $this->firstName = [];
     }
 
     /**
@@ -107,7 +119,10 @@ class Employee implements \JsonSerializable
      */
     public function getLastName(): ?string
     {
-        return $this->lastName;
+        if (count($this->lastName) == 0) {
+            return null;
+        }
+        return $this->lastName['value'];
     }
 
     /**
@@ -118,7 +133,16 @@ class Employee implements \JsonSerializable
      */
     public function setLastName(?string $lastName): void
     {
-        $this->lastName = $lastName;
+        $this->lastName['value'] = $lastName;
+    }
+
+    /**
+     * Unsets Last Name.
+     * The employee's last name.
+     */
+    public function unsetLastName(): void
+    {
+        $this->lastName = [];
     }
 
     /**
@@ -127,7 +151,10 @@ class Employee implements \JsonSerializable
      */
     public function getEmail(): ?string
     {
-        return $this->email;
+        if (count($this->email) == 0) {
+            return null;
+        }
+        return $this->email['value'];
     }
 
     /**
@@ -138,7 +165,16 @@ class Employee implements \JsonSerializable
      */
     public function setEmail(?string $email): void
     {
-        $this->email = $email;
+        $this->email['value'] = $email;
+    }
+
+    /**
+     * Unsets Email.
+     * The employee's email address
+     */
+    public function unsetEmail(): void
+    {
+        $this->email = [];
     }
 
     /**
@@ -147,7 +183,10 @@ class Employee implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -158,7 +197,16 @@ class Employee implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The employee's phone number in E.164 format, i.e. "+12125554250"
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -169,7 +217,10 @@ class Employee implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -182,7 +233,16 @@ class Employee implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * A list of location IDs where this employee has access to.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -213,7 +273,10 @@ class Employee implements \JsonSerializable
      */
     public function getIsOwner(): ?bool
     {
-        return $this->isOwner;
+        if (count($this->isOwner) == 0) {
+            return null;
+        }
+        return $this->isOwner['value'];
     }
 
     /**
@@ -226,7 +289,18 @@ class Employee implements \JsonSerializable
      */
     public function setIsOwner(?bool $isOwner): void
     {
-        $this->isOwner = $isOwner;
+        $this->isOwner['value'] = $isOwner;
+    }
+
+    /**
+     * Unsets Is Owner.
+     * Whether this employee is the owner of the merchant. Each merchant
+     * has one owner employee, and that employee has full authority over
+     * the account.
+     */
+    public function unsetIsOwner(): void
+    {
+        $this->isOwner = [];
     }
 
     /**
@@ -284,26 +358,26 @@ class Employee implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']           = $this->id;
         }
-        if (isset($this->firstName)) {
-            $json['first_name']   = $this->firstName;
+        if (!empty($this->firstName)) {
+            $json['first_name']   = $this->firstName['value'];
         }
-        if (isset($this->lastName)) {
-            $json['last_name']    = $this->lastName;
+        if (!empty($this->lastName)) {
+            $json['last_name']    = $this->lastName['value'];
         }
-        if (isset($this->email)) {
-            $json['email']        = $this->email;
+        if (!empty($this->email)) {
+            $json['email']        = $this->email['value'];
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number'] = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number'] = $this->phoneNumber['value'];
         }
-        if (isset($this->locationIds)) {
-            $json['location_ids'] = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds['value'];
         }
         if (isset($this->status)) {
             $json['status']       = $this->status;
         }
-        if (isset($this->isOwner)) {
-            $json['is_owner']     = $this->isOwner;
+        if (!empty($this->isOwner)) {
+            $json['is_owner']     = $this->isOwner['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']   = $this->createdAt;

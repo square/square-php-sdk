@@ -13,14 +13,14 @@ use stdClass;
 class ShiftFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $employeeIds;
+    private $employeeIds = [];
 
     /**
      * @var string|null
@@ -43,9 +43,9 @@ class ShiftFilter implements \JsonSerializable
     private $workday;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $teamMemberIds;
+    private $teamMemberIds = [];
 
     /**
      * Returns Location Ids.
@@ -55,7 +55,10 @@ class ShiftFilter implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -68,7 +71,16 @@ class ShiftFilter implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * Fetch shifts for the specified location.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -80,7 +92,10 @@ class ShiftFilter implements \JsonSerializable
      */
     public function getEmployeeIds(): ?array
     {
-        return $this->employeeIds;
+        if (count($this->employeeIds) == 0) {
+            return null;
+        }
+        return $this->employeeIds['value'];
     }
 
     /**
@@ -94,7 +109,17 @@ class ShiftFilter implements \JsonSerializable
      */
     public function setEmployeeIds(?array $employeeIds): void
     {
-        $this->employeeIds = $employeeIds;
+        $this->employeeIds['value'] = $employeeIds;
+    }
+
+    /**
+     * Unsets Employee Ids.
+     * Fetch shifts for the specified employees. DEPRECATED at version 2020-08-26. Use `team_member_ids`
+     * instead.
+     */
+    public function unsetEmployeeIds(): void
+    {
+        $this->employeeIds = [];
     }
 
     /**
@@ -203,7 +228,10 @@ class ShiftFilter implements \JsonSerializable
      */
     public function getTeamMemberIds(): ?array
     {
-        return $this->teamMemberIds;
+        if (count($this->teamMemberIds) == 0) {
+            return null;
+        }
+        return $this->teamMemberIds['value'];
     }
 
     /**
@@ -216,7 +244,16 @@ class ShiftFilter implements \JsonSerializable
      */
     public function setTeamMemberIds(?array $teamMemberIds): void
     {
-        $this->teamMemberIds = $teamMemberIds;
+        $this->teamMemberIds['value'] = $teamMemberIds;
+    }
+
+    /**
+     * Unsets Team Member Ids.
+     * Fetch shifts for the specified team members. Replaced `employee_ids` at version "2020-08-26".
+     */
+    public function unsetTeamMemberIds(): void
+    {
+        $this->teamMemberIds = [];
     }
 
     /**
@@ -231,11 +268,11 @@ class ShiftFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationIds)) {
-            $json['location_ids']    = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids']    = $this->locationIds['value'];
         }
-        if (isset($this->employeeIds)) {
-            $json['employee_ids']    = $this->employeeIds;
+        if (!empty($this->employeeIds)) {
+            $json['employee_ids']    = $this->employeeIds['value'];
         }
         if (isset($this->status)) {
             $json['status']          = $this->status;
@@ -249,8 +286,8 @@ class ShiftFilter implements \JsonSerializable
         if (isset($this->workday)) {
             $json['workday']         = $this->workday;
         }
-        if (isset($this->teamMemberIds)) {
-            $json['team_member_ids'] = $this->teamMemberIds;
+        if (!empty($this->teamMemberIds)) {
+            $json['team_member_ids'] = $this->teamMemberIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -12,9 +12,9 @@ use stdClass;
 class ShiftWage implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $title;
+    private $title = [];
 
     /**
      * @var Money|null
@@ -28,7 +28,10 @@ class ShiftWage implements \JsonSerializable
      */
     public function getTitle(): ?string
     {
-        return $this->title;
+        if (count($this->title) == 0) {
+            return null;
+        }
+        return $this->title['value'];
     }
 
     /**
@@ -40,7 +43,17 @@ class ShiftWage implements \JsonSerializable
      */
     public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        $this->title['value'] = $title;
+    }
+
+    /**
+     * Unsets Title.
+     * The name of the job performed during this shift. Square
+     * labor-reporting UIs might group shifts together by title.
+     */
+    public function unsetTitle(): void
+    {
+        $this->title = [];
     }
 
     /**
@@ -87,8 +100,8 @@ class ShiftWage implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->title)) {
-            $json['title']       = $this->title;
+        if (!empty($this->title)) {
+            $json['title']       = $this->title['value'];
         }
         if (isset($this->hourlyRate)) {
             $json['hourly_rate'] = $this->hourlyRate;

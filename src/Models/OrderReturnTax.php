@@ -16,29 +16,29 @@ use stdClass;
 class OrderReturnTax implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceTaxUid;
+    private $sourceTaxUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var string|null
@@ -46,9 +46,9 @@ class OrderReturnTax implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $percentage;
+    private $percentage = [];
 
     /**
      * @var Money|null
@@ -66,7 +66,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -77,7 +80,16 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the returned tax only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -86,7 +98,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getSourceTaxUid(): ?string
     {
-        return $this->sourceTaxUid;
+        if (count($this->sourceTaxUid) == 0) {
+            return null;
+        }
+        return $this->sourceTaxUid['value'];
     }
 
     /**
@@ -97,7 +112,16 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setSourceTaxUid(?string $sourceTaxUid): void
     {
-        $this->sourceTaxUid = $sourceTaxUid;
+        $this->sourceTaxUid['value'] = $sourceTaxUid;
+    }
+
+    /**
+     * Unsets Source Tax Uid.
+     * The tax `uid` from the order that contains the original tax charge.
+     */
+    public function unsetSourceTaxUid(): void
+    {
+        $this->sourceTaxUid = [];
     }
 
     /**
@@ -106,7 +130,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -117,7 +144,16 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -126,7 +162,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -137,7 +176,16 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this tax references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -146,7 +194,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -157,7 +208,16 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The tax's name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -187,7 +247,10 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function getPercentage(): ?string
     {
-        return $this->percentage;
+        if (count($this->percentage) == 0) {
+            return null;
+        }
+        return $this->percentage['value'];
     }
 
     /**
@@ -199,7 +262,17 @@ class OrderReturnTax implements \JsonSerializable
      */
     public function setPercentage(?string $percentage): void
     {
-        $this->percentage = $percentage;
+        $this->percentage['value'] = $percentage;
+    }
+
+    /**
+     * Unsets Percentage.
+     * The percentage of the tax, as a string representation of a decimal number.
+     * For example, a value of `"7.25"` corresponds to a percentage of 7.25%.
+     */
+    public function unsetPercentage(): void
+    {
+        $this->percentage = [];
     }
 
     /**
@@ -266,26 +339,26 @@ class OrderReturnTax implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']               = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']               = $this->uid['value'];
         }
-        if (isset($this->sourceTaxUid)) {
-            $json['source_tax_uid']    = $this->sourceTaxUid;
+        if (!empty($this->sourceTaxUid)) {
+            $json['source_tax_uid']    = $this->sourceTaxUid['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id'] = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']   = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion['value'];
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
         if (isset($this->type)) {
             $json['type']              = $this->type;
         }
-        if (isset($this->percentage)) {
-            $json['percentage']        = $this->percentage;
+        if (!empty($this->percentage)) {
+            $json['percentage']        = $this->percentage['value'];
         }
         if (isset($this->appliedMoney)) {
             $json['applied_money']     = $this->appliedMoney;

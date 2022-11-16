@@ -22,9 +22,9 @@ class GiftCardActivityRedeem implements \JsonSerializable
     private $paymentId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -103,7 +103,10 @@ class GiftCardActivityRedeem implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -117,7 +120,19 @@ class GiftCardActivityRedeem implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     *
+     * Applications that use a custom payment processing system can use this field to track information
+     * related to an order or payment.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -162,8 +177,8 @@ class GiftCardActivityRedeem implements \JsonSerializable
         if (isset($this->paymentId)) {
             $json['payment_id']   = $this->paymentId;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id'] = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id'] = $this->referenceId['value'];
         }
         if (isset($this->status)) {
             $json['status']       = $this->status;

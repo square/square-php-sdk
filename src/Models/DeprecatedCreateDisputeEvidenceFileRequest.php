@@ -22,9 +22,9 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
     private $evidenceType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $contentType;
+    private $contentType = [];
 
     /**
      * @param string $idempotencyKey
@@ -84,7 +84,10 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
      */
     public function getContentType(): ?string
     {
-        return $this->contentType;
+        if (count($this->contentType) == 0) {
+            return null;
+        }
+        return $this->contentType['value'];
     }
 
     /**
@@ -96,7 +99,17 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
      */
     public function setContentType(?string $contentType): void
     {
-        $this->contentType = $contentType;
+        $this->contentType['value'] = $contentType;
+    }
+
+    /**
+     * Unsets Content Type.
+     * The MIME type of the uploaded file.
+     * The type can be image/heic, image/heif, image/jpeg, application/pdf, image/png, or image/tiff.
+     */
+    public function unsetContentType(): void
+    {
+        $this->contentType = [];
     }
 
     /**
@@ -115,8 +128,8 @@ class DeprecatedCreateDisputeEvidenceFileRequest implements \JsonSerializable
         if (isset($this->evidenceType)) {
             $json['evidence_type'] = $this->evidenceType;
         }
-        if (isset($this->contentType)) {
-            $json['content_type']  = $this->contentType;
+        if (!empty($this->contentType)) {
+            $json['content_type']  = $this->contentType['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

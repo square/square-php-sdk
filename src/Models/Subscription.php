@@ -41,9 +41,9 @@ class Subscription implements \JsonSerializable
     private $startDate;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $canceledDate;
+    private $canceledDate = [];
 
     /**
      * @var string|null
@@ -56,9 +56,9 @@ class Subscription implements \JsonSerializable
     private $status;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $taxPercentage;
+    private $taxPercentage = [];
 
     /**
      * @var string[]|null
@@ -81,9 +81,9 @@ class Subscription implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cardId;
+    private $cardId = [];
 
     /**
      * @var string|null
@@ -96,9 +96,9 @@ class Subscription implements \JsonSerializable
     private $source;
 
     /**
-     * @var SubscriptionAction[]|null
+     * @var array
      */
-    private $actions;
+    private $actions = [];
 
     /**
      * Returns Id.
@@ -211,7 +211,10 @@ class Subscription implements \JsonSerializable
      */
     public function getCanceledDate(): ?string
     {
-        return $this->canceledDate;
+        if (count($this->canceledDate) == 0) {
+            return null;
+        }
+        return $this->canceledDate['value'];
     }
 
     /**
@@ -227,7 +230,21 @@ class Subscription implements \JsonSerializable
      */
     public function setCanceledDate(?string $canceledDate): void
     {
-        $this->canceledDate = $canceledDate;
+        $this->canceledDate['value'] = $canceledDate;
+    }
+
+    /**
+     * Unsets Canceled Date.
+     * The `YYYY-MM-DD`-formatted date (for example, 2013-01-15) to cancel the subscription,
+     * when the subscription status changes to `CANCELED` and the subscription billing stops.
+     *
+     * If this field is not set, the subscription ends according its subscription plan.
+     *
+     * This field cannot be updated, other than being cleared.
+     */
+    public function unsetCanceledDate(): void
+    {
+        $this->canceledDate = [];
     }
 
     /**
@@ -295,7 +312,10 @@ class Subscription implements \JsonSerializable
      */
     public function getTaxPercentage(): ?string
     {
-        return $this->taxPercentage;
+        if (count($this->taxPercentage) == 0) {
+            return null;
+        }
+        return $this->taxPercentage['value'];
     }
 
     /**
@@ -309,7 +329,19 @@ class Subscription implements \JsonSerializable
      */
     public function setTaxPercentage(?string $taxPercentage): void
     {
-        $this->taxPercentage = $taxPercentage;
+        $this->taxPercentage['value'] = $taxPercentage;
+    }
+
+    /**
+     * Unsets Tax Percentage.
+     * The tax amount applied when billing the subscription. The
+     * percentage is expressed in decimal form, using a `'.'` as the decimal
+     * separator and without a `'%'` sign. For example, a value of `7.5`
+     * corresponds to 7.5%.
+     */
+    public function unsetTaxPercentage(): void
+    {
+        $this->taxPercentage = [];
     }
 
     /**
@@ -423,7 +455,10 @@ class Subscription implements \JsonSerializable
      */
     public function getCardId(): ?string
     {
-        return $this->cardId;
+        if (count($this->cardId) == 0) {
+            return null;
+        }
+        return $this->cardId['value'];
     }
 
     /**
@@ -435,7 +470,17 @@ class Subscription implements \JsonSerializable
      */
     public function setCardId(?string $cardId): void
     {
-        $this->cardId = $cardId;
+        $this->cardId['value'] = $cardId;
+    }
+
+    /**
+     * Unsets Card Id.
+     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * used to charge for the subscription.
+     */
+    public function unsetCardId(): void
+    {
+        $this->cardId = [];
     }
 
     /**
@@ -496,7 +541,10 @@ class Subscription implements \JsonSerializable
      */
     public function getActions(): ?array
     {
-        return $this->actions;
+        if (count($this->actions) == 0) {
+            return null;
+        }
+        return $this->actions['value'];
     }
 
     /**
@@ -513,7 +561,20 @@ class Subscription implements \JsonSerializable
      */
     public function setActions(?array $actions): void
     {
-        $this->actions = $actions;
+        $this->actions['value'] = $actions;
+    }
+
+    /**
+     * Unsets Actions.
+     * The list of scheduled actions on this subscription. It is set only in the response from
+     * [RetrieveSubscription]($e/Subscriptions/RetrieveSubscription) with the query parameter
+     * of `include=actions` or from
+     * [SearchSubscriptions]($e/Subscriptions/SearchSubscriptions) with the input parameter
+     * of `include:["actions"]`.
+     */
+    public function unsetActions(): void
+    {
+        $this->actions = [];
     }
 
     /**
@@ -543,8 +604,8 @@ class Subscription implements \JsonSerializable
         if (isset($this->startDate)) {
             $json['start_date']           = $this->startDate;
         }
-        if (isset($this->canceledDate)) {
-            $json['canceled_date']        = $this->canceledDate;
+        if (!empty($this->canceledDate)) {
+            $json['canceled_date']        = $this->canceledDate['value'];
         }
         if (isset($this->chargedThroughDate)) {
             $json['charged_through_date'] = $this->chargedThroughDate;
@@ -552,8 +613,8 @@ class Subscription implements \JsonSerializable
         if (isset($this->status)) {
             $json['status']               = $this->status;
         }
-        if (isset($this->taxPercentage)) {
-            $json['tax_percentage']       = $this->taxPercentage;
+        if (!empty($this->taxPercentage)) {
+            $json['tax_percentage']       = $this->taxPercentage['value'];
         }
         if (isset($this->invoiceIds)) {
             $json['invoice_ids']          = $this->invoiceIds;
@@ -567,8 +628,8 @@ class Subscription implements \JsonSerializable
         if (isset($this->createdAt)) {
             $json['created_at']           = $this->createdAt;
         }
-        if (isset($this->cardId)) {
-            $json['card_id']              = $this->cardId;
+        if (!empty($this->cardId)) {
+            $json['card_id']              = $this->cardId['value'];
         }
         if (isset($this->timezone)) {
             $json['timezone']             = $this->timezone;
@@ -576,8 +637,8 @@ class Subscription implements \JsonSerializable
         if (isset($this->source)) {
             $json['source']               = $this->source;
         }
-        if (isset($this->actions)) {
-            $json['actions']              = $this->actions;
+        if (!empty($this->actions)) {
+            $json['actions']              = $this->actions['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

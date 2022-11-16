@@ -40,9 +40,9 @@ class LoyaltyReward implements \JsonSerializable
     private $points;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * @var string|null
@@ -177,7 +177,10 @@ class LoyaltyReward implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -188,7 +191,16 @@ class LoyaltyReward implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The Square-assigned ID of the [order]($m/Order) to which the reward is attached.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -274,8 +286,8 @@ class LoyaltyReward implements \JsonSerializable
         if (isset($this->points)) {
             $json['points']         = $this->points;
         }
-        if (isset($this->orderId)) {
-            $json['order_id']       = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']       = $this->orderId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']     = $this->createdAt;

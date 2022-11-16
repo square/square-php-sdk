@@ -9,9 +9,9 @@ use stdClass;
 class DisputeEvidence implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $evidenceId;
+    private $evidenceId = [];
 
     /**
      * @var string|null
@@ -19,9 +19,9 @@ class DisputeEvidence implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $disputeId;
+    private $disputeId = [];
 
     /**
      * @var DisputeEvidenceFile|null
@@ -29,14 +29,14 @@ class DisputeEvidence implements \JsonSerializable
     private $evidenceFile;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $evidenceText;
+    private $evidenceText = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $uploadedAt;
+    private $uploadedAt = [];
 
     /**
      * @var string|null
@@ -49,7 +49,10 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function getEvidenceId(): ?string
     {
-        return $this->evidenceId;
+        if (count($this->evidenceId) == 0) {
+            return null;
+        }
+        return $this->evidenceId['value'];
     }
 
     /**
@@ -60,7 +63,16 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function setEvidenceId(?string $evidenceId): void
     {
-        $this->evidenceId = $evidenceId;
+        $this->evidenceId['value'] = $evidenceId;
+    }
+
+    /**
+     * Unsets Evidence Id.
+     * The Square-generated ID of the evidence.
+     */
+    public function unsetEvidenceId(): void
+    {
+        $this->evidenceId = [];
     }
 
     /**
@@ -89,7 +101,10 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function getDisputeId(): ?string
     {
-        return $this->disputeId;
+        if (count($this->disputeId) == 0) {
+            return null;
+        }
+        return $this->disputeId['value'];
     }
 
     /**
@@ -100,7 +115,16 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function setDisputeId(?string $disputeId): void
     {
-        $this->disputeId = $disputeId;
+        $this->disputeId['value'] = $disputeId;
+    }
+
+    /**
+     * Unsets Dispute Id.
+     * The ID of the dispute the evidence is associated with.
+     */
+    public function unsetDisputeId(): void
+    {
+        $this->disputeId = [];
     }
 
     /**
@@ -129,7 +153,10 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function getEvidenceText(): ?string
     {
-        return $this->evidenceText;
+        if (count($this->evidenceText) == 0) {
+            return null;
+        }
+        return $this->evidenceText['value'];
     }
 
     /**
@@ -140,7 +167,16 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function setEvidenceText(?string $evidenceText): void
     {
-        $this->evidenceText = $evidenceText;
+        $this->evidenceText['value'] = $evidenceText;
+    }
+
+    /**
+     * Unsets Evidence Text.
+     * Raw text
+     */
+    public function unsetEvidenceText(): void
+    {
+        $this->evidenceText = [];
     }
 
     /**
@@ -149,7 +185,10 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function getUploadedAt(): ?string
     {
-        return $this->uploadedAt;
+        if (count($this->uploadedAt) == 0) {
+            return null;
+        }
+        return $this->uploadedAt['value'];
     }
 
     /**
@@ -160,7 +199,16 @@ class DisputeEvidence implements \JsonSerializable
      */
     public function setUploadedAt(?string $uploadedAt): void
     {
-        $this->uploadedAt = $uploadedAt;
+        $this->uploadedAt['value'] = $uploadedAt;
+    }
+
+    /**
+     * Unsets Uploaded At.
+     * The time when the evidence was uploaded, in RFC 3339 format.
+     */
+    public function unsetUploadedAt(): void
+    {
+        $this->uploadedAt = [];
     }
 
     /**
@@ -195,23 +243,23 @@ class DisputeEvidence implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->evidenceId)) {
-            $json['evidence_id']   = $this->evidenceId;
+        if (!empty($this->evidenceId)) {
+            $json['evidence_id']   = $this->evidenceId['value'];
         }
         if (isset($this->id)) {
             $json['id']            = $this->id;
         }
-        if (isset($this->disputeId)) {
-            $json['dispute_id']    = $this->disputeId;
+        if (!empty($this->disputeId)) {
+            $json['dispute_id']    = $this->disputeId['value'];
         }
         if (isset($this->evidenceFile)) {
             $json['evidence_file'] = $this->evidenceFile;
         }
-        if (isset($this->evidenceText)) {
-            $json['evidence_text'] = $this->evidenceText;
+        if (!empty($this->evidenceText)) {
+            $json['evidence_text'] = $this->evidenceText['value'];
         }
-        if (isset($this->uploadedAt)) {
-            $json['uploaded_at']   = $this->uploadedAt;
+        if (!empty($this->uploadedAt)) {
+            $json['uploaded_at']   = $this->uploadedAt['value'];
         }
         if (isset($this->evidenceType)) {
             $json['evidence_type'] = $this->evidenceType;

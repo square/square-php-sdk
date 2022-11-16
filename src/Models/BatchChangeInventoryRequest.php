@@ -14,14 +14,14 @@ class BatchChangeInventoryRequest implements \JsonSerializable
     private $idempotencyKey;
 
     /**
-     * @var InventoryChange[]|null
+     * @var array
      */
-    private $changes;
+    private $changes = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $ignoreUnchangedCounts;
+    private $ignoreUnchangedCounts = [];
 
     /**
      * @param string $idempotencyKey
@@ -72,7 +72,10 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      */
     public function getChanges(): ?array
     {
-        return $this->changes;
+        if (count($this->changes) == 0) {
+            return null;
+        }
+        return $this->changes['value'];
     }
 
     /**
@@ -87,7 +90,18 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      */
     public function setChanges(?array $changes): void
     {
-        $this->changes = $changes;
+        $this->changes['value'] = $changes;
+    }
+
+    /**
+     * Unsets Changes.
+     * The set of physical counts and inventory adjustments to be made.
+     * Changes are applied based on the client-supplied timestamp and may be sent
+     * out of order.
+     */
+    public function unsetChanges(): void
+    {
+        $this->changes = [];
     }
 
     /**
@@ -97,7 +111,10 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      */
     public function getIgnoreUnchangedCounts(): ?bool
     {
-        return $this->ignoreUnchangedCounts;
+        if (count($this->ignoreUnchangedCounts) == 0) {
+            return null;
+        }
+        return $this->ignoreUnchangedCounts['value'];
     }
 
     /**
@@ -109,7 +126,17 @@ class BatchChangeInventoryRequest implements \JsonSerializable
      */
     public function setIgnoreUnchangedCounts(?bool $ignoreUnchangedCounts): void
     {
-        $this->ignoreUnchangedCounts = $ignoreUnchangedCounts;
+        $this->ignoreUnchangedCounts['value'] = $ignoreUnchangedCounts;
+    }
+
+    /**
+     * Unsets Ignore Unchanged Counts.
+     * Indicates whether the current physical count should be ignored if
+     * the quantity is unchanged since the last physical count. Default: `true`.
+     */
+    public function unsetIgnoreUnchangedCounts(): void
+    {
+        $this->ignoreUnchangedCounts = [];
     }
 
     /**
@@ -125,11 +152,11 @@ class BatchChangeInventoryRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key']             = $this->idempotencyKey;
-        if (isset($this->changes)) {
-            $json['changes']                 = $this->changes;
+        if (!empty($this->changes)) {
+            $json['changes']                 = $this->changes['value'];
         }
-        if (isset($this->ignoreUnchangedCounts)) {
-            $json['ignore_unchanged_counts'] = $this->ignoreUnchangedCounts;
+        if (!empty($this->ignoreUnchangedCounts)) {
+            $json['ignore_unchanged_counts'] = $this->ignoreUnchangedCounts['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

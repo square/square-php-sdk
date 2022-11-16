@@ -12,29 +12,29 @@ use stdClass;
 class OrderReturnLineItemModifier implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceModifierUid;
+    private $sourceModifierUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Money|null
@@ -52,7 +52,10 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -63,7 +66,16 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the return modifier only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -73,7 +85,10 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function getSourceModifierUid(): ?string
     {
-        return $this->sourceModifierUid;
+        if (count($this->sourceModifierUid) == 0) {
+            return null;
+        }
+        return $this->sourceModifierUid['value'];
     }
 
     /**
@@ -85,7 +100,17 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function setSourceModifierUid(?string $sourceModifierUid): void
     {
-        $this->sourceModifierUid = $sourceModifierUid;
+        $this->sourceModifierUid['value'] = $sourceModifierUid;
+    }
+
+    /**
+     * Unsets Source Modifier Uid.
+     * The modifier `uid` from the order's line item that contains the
+     * original sale of this line item modifier.
+     */
+    public function unsetSourceModifierUid(): void
+    {
+        $this->sourceModifierUid = [];
     }
 
     /**
@@ -94,7 +119,10 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -105,7 +133,16 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -114,7 +151,10 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -125,7 +165,16 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this line item modifier references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -134,7 +183,10 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -145,7 +197,16 @@ class OrderReturnLineItemModifier implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the item modifier.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -224,20 +285,20 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                 = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                 = $this->uid['value'];
         }
-        if (isset($this->sourceModifierUid)) {
-            $json['source_modifier_uid'] = $this->sourceModifierUid;
+        if (!empty($this->sourceModifierUid)) {
+            $json['source_modifier_uid'] = $this->sourceModifierUid['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']   = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']     = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']     = $this->catalogVersion['value'];
         }
-        if (isset($this->name)) {
-            $json['name']                = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                = $this->name['value'];
         }
         if (isset($this->basePriceMoney)) {
             $json['base_price_money']    = $this->basePriceMoney;

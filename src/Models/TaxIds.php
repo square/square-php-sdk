@@ -12,24 +12,24 @@ use stdClass;
 class TaxIds implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $euVat;
+    private $euVat = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $frSiret;
+    private $frSiret = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $frNaf;
+    private $frNaf = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $esNif;
+    private $esNif = [];
 
     /**
      * Returns Eu Vat.
@@ -39,7 +39,10 @@ class TaxIds implements \JsonSerializable
      */
     public function getEuVat(): ?string
     {
-        return $this->euVat;
+        if (count($this->euVat) == 0) {
+            return null;
+        }
+        return $this->euVat['value'];
     }
 
     /**
@@ -52,7 +55,18 @@ class TaxIds implements \JsonSerializable
      */
     public function setEuVat(?string $euVat): void
     {
-        $this->euVat = $euVat;
+        $this->euVat['value'] = $euVat;
+    }
+
+    /**
+     * Unsets Eu Vat.
+     * The EU VAT number for this location. For example, `IE3426675K`.
+     * If the EU VAT number is present, it is well-formed and has been
+     * validated with VIES, the VAT Information Exchange System.
+     */
+    public function unsetEuVat(): void
+    {
+        $this->euVat = [];
     }
 
     /**
@@ -62,7 +76,10 @@ class TaxIds implements \JsonSerializable
      */
     public function getFrSiret(): ?string
     {
-        return $this->frSiret;
+        if (count($this->frSiret) == 0) {
+            return null;
+        }
+        return $this->frSiret['value'];
     }
 
     /**
@@ -74,7 +91,17 @@ class TaxIds implements \JsonSerializable
      */
     public function setFrSiret(?string $frSiret): void
     {
-        $this->frSiret = $frSiret;
+        $this->frSiret['value'] = $frSiret;
+    }
+
+    /**
+     * Unsets Fr Siret.
+     * The SIRET (Système d'Identification du Répertoire des Entreprises et de leurs Etablissements)
+     * number is a 14-digit code issued by the French INSEE. For example, `39922799000021`.
+     */
+    public function unsetFrSiret(): void
+    {
+        $this->frSiret = [];
     }
 
     /**
@@ -86,7 +113,10 @@ class TaxIds implements \JsonSerializable
      */
     public function getFrNaf(): ?string
     {
-        return $this->frNaf;
+        if (count($this->frNaf) == 0) {
+            return null;
+        }
+        return $this->frNaf['value'];
     }
 
     /**
@@ -100,7 +130,19 @@ class TaxIds implements \JsonSerializable
      */
     public function setFrNaf(?string $frNaf): void
     {
-        $this->frNaf = $frNaf;
+        $this->frNaf['value'] = $frNaf;
+    }
+
+    /**
+     * Unsets Fr Naf.
+     * The French government uses the NAF (Nomenclature des Activités Françaises) to display and
+     * track economic statistical data. This is also called the APE (Activite Principale de l’Entreprise)
+     * code.
+     * For example, `6910Z`.
+     */
+    public function unsetFrNaf(): void
+    {
+        $this->frNaf = [];
     }
 
     /**
@@ -110,7 +152,10 @@ class TaxIds implements \JsonSerializable
      */
     public function getEsNif(): ?string
     {
-        return $this->esNif;
+        if (count($this->esNif) == 0) {
+            return null;
+        }
+        return $this->esNif['value'];
     }
 
     /**
@@ -122,7 +167,17 @@ class TaxIds implements \JsonSerializable
      */
     public function setEsNif(?string $esNif): void
     {
-        $this->esNif = $esNif;
+        $this->esNif['value'] = $esNif;
+    }
+
+    /**
+     * Unsets Es Nif.
+     * The NIF (Numero de Identificacion Fiscal) number is a nine-character tax identifier used in Spain.
+     * If it is present, it has been validated. For example, `73628495A`.
+     */
+    public function unsetEsNif(): void
+    {
+        $this->esNif = [];
     }
 
     /**
@@ -137,17 +192,17 @@ class TaxIds implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->euVat)) {
-            $json['eu_vat']   = $this->euVat;
+        if (!empty($this->euVat)) {
+            $json['eu_vat']   = $this->euVat['value'];
         }
-        if (isset($this->frSiret)) {
-            $json['fr_siret'] = $this->frSiret;
+        if (!empty($this->frSiret)) {
+            $json['fr_siret'] = $this->frSiret['value'];
         }
-        if (isset($this->frNaf)) {
-            $json['fr_naf']   = $this->frNaf;
+        if (!empty($this->frNaf)) {
+            $json['fr_naf']   = $this->frNaf['value'];
         }
-        if (isset($this->esNif)) {
-            $json['es_nif']   = $this->esNif;
+        if (!empty($this->esNif)) {
+            $json['es_nif']   = $this->esNif['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

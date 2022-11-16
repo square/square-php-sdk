@@ -17,9 +17,9 @@ class Merchant implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $businessName;
+    private $businessName = [];
 
     /**
      * @var string
@@ -27,9 +27,9 @@ class Merchant implements \JsonSerializable
     private $country;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $languageCode;
+    private $languageCode = [];
 
     /**
      * @var string|null
@@ -42,9 +42,9 @@ class Merchant implements \JsonSerializable
     private $status;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $mainLocationId;
+    private $mainLocationId = [];
 
     /**
      * @var string|null
@@ -85,7 +85,10 @@ class Merchant implements \JsonSerializable
      */
     public function getBusinessName(): ?string
     {
-        return $this->businessName;
+        if (count($this->businessName) == 0) {
+            return null;
+        }
+        return $this->businessName['value'];
     }
 
     /**
@@ -96,7 +99,16 @@ class Merchant implements \JsonSerializable
      */
     public function setBusinessName(?string $businessName): void
     {
-        $this->businessName = $businessName;
+        $this->businessName['value'] = $businessName;
+    }
+
+    /**
+     * Unsets Business Name.
+     * The name of the merchant's overall business.
+     */
+    public function unsetBusinessName(): void
+    {
+        $this->businessName = [];
     }
 
     /**
@@ -130,7 +142,10 @@ class Merchant implements \JsonSerializable
      */
     public function getLanguageCode(): ?string
     {
-        return $this->languageCode;
+        if (count($this->languageCode) == 0) {
+            return null;
+        }
+        return $this->languageCode['value'];
     }
 
     /**
@@ -143,7 +158,18 @@ class Merchant implements \JsonSerializable
      */
     public function setLanguageCode(?string $languageCode): void
     {
-        $this->languageCode = $languageCode;
+        $this->languageCode['value'] = $languageCode;
+    }
+
+    /**
+     * Unsets Language Code.
+     * The code indicating the [language preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences) of the merchant, in [BCP 47 format](https:
+     * //tools.ietf.org/html/bcp47#appendix-A). For example, `en-US` or `fr-CA`.
+     */
+    public function unsetLanguageCode(): void
+    {
+        $this->languageCode = [];
     }
 
     /**
@@ -193,7 +219,10 @@ class Merchant implements \JsonSerializable
      */
     public function getMainLocationId(): ?string
     {
-        return $this->mainLocationId;
+        if (count($this->mainLocationId) == 0) {
+            return null;
+        }
+        return $this->mainLocationId['value'];
     }
 
     /**
@@ -205,7 +234,17 @@ class Merchant implements \JsonSerializable
      */
     public function setMainLocationId(?string $mainLocationId): void
     {
-        $this->mainLocationId = $mainLocationId;
+        $this->mainLocationId['value'] = $mainLocationId;
+    }
+
+    /**
+     * Unsets Main Location Id.
+     * The ID of the [main `Location`](https://developer.squareup.com/docs/locations-api#about-the-main-
+     * location) for this merchant.
+     */
+    public function unsetMainLocationId(): void
+    {
+        $this->mainLocationId = [];
     }
 
     /**
@@ -247,12 +286,12 @@ class Merchant implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']               = $this->id;
         }
-        if (isset($this->businessName)) {
-            $json['business_name']    = $this->businessName;
+        if (!empty($this->businessName)) {
+            $json['business_name']    = $this->businessName['value'];
         }
         $json['country']              = $this->country;
-        if (isset($this->languageCode)) {
-            $json['language_code']    = $this->languageCode;
+        if (!empty($this->languageCode)) {
+            $json['language_code']    = $this->languageCode['value'];
         }
         if (isset($this->currency)) {
             $json['currency']         = $this->currency;
@@ -260,8 +299,8 @@ class Merchant implements \JsonSerializable
         if (isset($this->status)) {
             $json['status']           = $this->status;
         }
-        if (isset($this->mainLocationId)) {
-            $json['main_location_id'] = $this->mainLocationId;
+        if (!empty($this->mainLocationId)) {
+            $json['main_location_id'] = $this->mainLocationId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']       = $this->createdAt;

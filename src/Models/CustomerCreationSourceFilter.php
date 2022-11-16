@@ -15,9 +15,9 @@ use stdClass;
 class CustomerCreationSourceFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $values;
+    private $values = [];
 
     /**
      * @var string|null
@@ -33,7 +33,10 @@ class CustomerCreationSourceFilter implements \JsonSerializable
      */
     public function getValues(): ?array
     {
-        return $this->values;
+        if (count($this->values) == 0) {
+            return null;
+        }
+        return $this->values['value'];
     }
 
     /**
@@ -47,7 +50,17 @@ class CustomerCreationSourceFilter implements \JsonSerializable
      */
     public function setValues(?array $values): void
     {
-        $this->values = $values;
+        $this->values['value'] = $values;
+    }
+
+    /**
+     * Unsets Values.
+     * The list of creation sources used as filtering criteria.
+     * See [CustomerCreationSource](#type-customercreationsource) for possible values
+     */
+    public function unsetValues(): void
+    {
+        $this->values = [];
     }
 
     /**
@@ -84,8 +97,8 @@ class CustomerCreationSourceFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->values)) {
-            $json['values'] = $this->values;
+        if (!empty($this->values)) {
+            $json['values'] = $this->values['value'];
         }
         if (isset($this->rule)) {
             $json['rule']   = $this->rule;

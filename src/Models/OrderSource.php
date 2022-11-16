@@ -12,9 +12,9 @@ use stdClass;
 class OrderSource implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * Returns Name.
@@ -23,7 +23,10 @@ class OrderSource implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -35,7 +38,17 @@ class OrderSource implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name used to identify the place (physical or digital) that an order originates.
+     * If unset, the name defaults to the name of the application that created the order.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -50,8 +63,8 @@ class OrderSource implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name'] = $this->name;
+        if (!empty($this->name)) {
+            $json['name'] = $this->name['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

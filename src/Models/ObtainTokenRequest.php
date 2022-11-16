@@ -14,19 +14,19 @@ class ObtainTokenRequest implements \JsonSerializable
     private $clientId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $clientSecret;
+    private $clientSecret = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $code;
+    private $code = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $redirectUri;
+    private $redirectUri = [];
 
     /**
      * @var string
@@ -34,29 +34,29 @@ class ObtainTokenRequest implements \JsonSerializable
     private $grantType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $refreshToken;
+    private $refreshToken = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $migrationToken;
+    private $migrationToken = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $scopes;
+    private $scopes = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $shortLived;
+    private $shortLived = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $codeVerifier;
+    private $codeVerifier = [];
 
     /**
      * @param string $clientId
@@ -101,7 +101,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getClientSecret(): ?string
     {
-        return $this->clientSecret;
+        if (count($this->clientSecret) == 0) {
+            return null;
+        }
+        return $this->clientSecret['value'];
     }
 
     /**
@@ -116,7 +119,20 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setClientSecret(?string $clientSecret): void
     {
-        $this->clientSecret = $clientSecret;
+        $this->clientSecret['value'] = $clientSecret;
+    }
+
+    /**
+     * Unsets Client Secret.
+     * The Square-issued application secret for your application, which is available in the OAuth page
+     * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
+     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
+     * squareup.com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
+     */
+    public function unsetClientSecret(): void
+    {
+        $this->clientSecret = [];
     }
 
     /**
@@ -127,7 +143,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getCode(): ?string
     {
-        return $this->code;
+        if (count($this->code) == 0) {
+            return null;
+        }
+        return $this->code['value'];
     }
 
     /**
@@ -140,7 +159,18 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setCode(?string $code): void
     {
-        $this->code = $code;
+        $this->code['value'] = $code;
+    }
+
+    /**
+     * Unsets Code.
+     * The authorization code to exchange.
+     * This code is required if `grant_type` is set to `authorization_code` to indicate that
+     * the application wants to exchange an authorization code for an OAuth access token.
+     */
+    public function unsetCode(): void
+    {
+        $this->code = [];
     }
 
     /**
@@ -150,7 +180,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getRedirectUri(): ?string
     {
-        return $this->redirectUri;
+        if (count($this->redirectUri) == 0) {
+            return null;
+        }
+        return $this->redirectUri['value'];
     }
 
     /**
@@ -162,7 +195,17 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setRedirectUri(?string $redirectUri): void
     {
-        $this->redirectUri = $redirectUri;
+        $this->redirectUri['value'] = $redirectUri;
+    }
+
+    /**
+     * Unsets Redirect Uri.
+     * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
+     * //developer.squareup.com/apps).
+     */
+    public function unsetRedirectUri(): void
+    {
+        $this->redirectUri = [];
     }
 
     /**
@@ -197,7 +240,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getRefreshToken(): ?string
     {
-        return $this->refreshToken;
+        if (count($this->refreshToken) == 0) {
+            return null;
+        }
+        return $this->refreshToken['value'];
     }
 
     /**
@@ -211,7 +257,19 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setRefreshToken(?string $refreshToken): void
     {
-        $this->refreshToken = $refreshToken;
+        $this->refreshToken['value'] = $refreshToken;
+    }
+
+    /**
+     * Unsets Refresh Token.
+     * A valid refresh token for generating a new OAuth access token.
+     *
+     * A valid refresh token is required if `grant_type` is set to `refresh_token`
+     * to indicate that the application wants a replacement for an expired OAuth access token.
+     */
+    public function unsetRefreshToken(): void
+    {
+        $this->refreshToken = [];
     }
 
     /**
@@ -225,7 +283,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getMigrationToken(): ?string
     {
-        return $this->migrationToken;
+        if (count($this->migrationToken) == 0) {
+            return null;
+        }
+        return $this->migrationToken['value'];
     }
 
     /**
@@ -241,7 +302,21 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setMigrationToken(?string $migrationToken): void
     {
-        $this->migrationToken = $migrationToken;
+        $this->migrationToken['value'] = $migrationToken;
+    }
+
+    /**
+     * Unsets Migration Token.
+     * A legacy OAuth access token obtained using a Connect API version prior
+     * to 2019-03-13. This parameter is required if `grant_type` is set to
+     * `migration_token` to indicate that the application wants to get a replacement
+     * OAuth access token. The response also returns a refresh token.
+     * For more information, see [Migrate to Using Refresh Tokens](https://developer.squareup.
+     * com/docs/oauth-api/migrate-to-refresh-tokens).
+     */
+    public function unsetMigrationToken(): void
+    {
+        $this->migrationToken = [];
     }
 
     /**
@@ -257,7 +332,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getScopes(): ?array
     {
-        return $this->scopes;
+        if (count($this->scopes) == 0) {
+            return null;
+        }
+        return $this->scopes['value'];
     }
 
     /**
@@ -275,7 +353,21 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setScopes(?array $scopes): void
     {
-        $this->scopes = $scopes;
+        $this->scopes['value'] = $scopes;
+    }
+
+    /**
+     * Unsets Scopes.
+     * A JSON list of strings representing the permissions that the application is requesting.
+     * For example, "`["MERCHANT_PROFILE_READ","PAYMENTS_READ","BANK_ACCOUNTS_READ"]`".
+     *
+     * The access token returned in the response is granted the permissions
+     * that comprise the intersection between the requested list of permissions and those
+     * that belong to the provided refresh token.
+     */
+    public function unsetScopes(): void
+    {
+        $this->scopes = [];
     }
 
     /**
@@ -286,7 +378,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getShortLived(): ?bool
     {
-        return $this->shortLived;
+        if (count($this->shortLived) == 0) {
+            return null;
+        }
+        return $this->shortLived['value'];
     }
 
     /**
@@ -299,7 +394,18 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setShortLived(?bool $shortLived): void
     {
-        $this->shortLived = $shortLived;
+        $this->shortLived['value'] = $shortLived;
+    }
+
+    /**
+     * Unsets Short Lived.
+     * A Boolean indicating a request for a short-lived access token.
+     *
+     * The short-lived access token returned in the response expires in 24 hours.
+     */
+    public function unsetShortLived(): void
+    {
+        $this->shortLived = [];
     }
 
     /**
@@ -309,7 +415,10 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function getCodeVerifier(): ?string
     {
-        return $this->codeVerifier;
+        if (count($this->codeVerifier) == 0) {
+            return null;
+        }
+        return $this->codeVerifier['value'];
     }
 
     /**
@@ -321,7 +430,17 @@ class ObtainTokenRequest implements \JsonSerializable
      */
     public function setCodeVerifier(?string $codeVerifier): void
     {
-        $this->codeVerifier = $codeVerifier;
+        $this->codeVerifier['value'] = $codeVerifier;
+    }
+
+    /**
+     * Unsets Code Verifier.
+     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * `code_challenge` associated with the `authorization_code`.
+     */
+    public function unsetCodeVerifier(): void
+    {
+        $this->codeVerifier = [];
     }
 
     /**
@@ -337,30 +456,30 @@ class ObtainTokenRequest implements \JsonSerializable
     {
         $json = [];
         $json['client_id']           = $this->clientId;
-        if (isset($this->clientSecret)) {
-            $json['client_secret']   = $this->clientSecret;
+        if (!empty($this->clientSecret)) {
+            $json['client_secret']   = $this->clientSecret['value'];
         }
-        if (isset($this->code)) {
-            $json['code']            = $this->code;
+        if (!empty($this->code)) {
+            $json['code']            = $this->code['value'];
         }
-        if (isset($this->redirectUri)) {
-            $json['redirect_uri']    = $this->redirectUri;
+        if (!empty($this->redirectUri)) {
+            $json['redirect_uri']    = $this->redirectUri['value'];
         }
         $json['grant_type']          = $this->grantType;
-        if (isset($this->refreshToken)) {
-            $json['refresh_token']   = $this->refreshToken;
+        if (!empty($this->refreshToken)) {
+            $json['refresh_token']   = $this->refreshToken['value'];
         }
-        if (isset($this->migrationToken)) {
-            $json['migration_token'] = $this->migrationToken;
+        if (!empty($this->migrationToken)) {
+            $json['migration_token'] = $this->migrationToken['value'];
         }
-        if (isset($this->scopes)) {
-            $json['scopes']          = $this->scopes;
+        if (!empty($this->scopes)) {
+            $json['scopes']          = $this->scopes['value'];
         }
-        if (isset($this->shortLived)) {
-            $json['short_lived']     = $this->shortLived;
+        if (!empty($this->shortLived)) {
+            $json['short_lived']     = $this->shortLived['value'];
         }
-        if (isset($this->codeVerifier)) {
-            $json['code_verifier']   = $this->codeVerifier;
+        if (!empty($this->codeVerifier)) {
+            $json['code_verifier']   = $this->codeVerifier['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

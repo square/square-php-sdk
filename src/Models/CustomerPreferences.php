@@ -12,9 +12,9 @@ use stdClass;
 class CustomerPreferences implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $emailUnsubscribed;
+    private $emailUnsubscribed = [];
 
     /**
      * Returns Email Unsubscribed.
@@ -24,7 +24,10 @@ class CustomerPreferences implements \JsonSerializable
      */
     public function getEmailUnsubscribed(): ?bool
     {
-        return $this->emailUnsubscribed;
+        if (count($this->emailUnsubscribed) == 0) {
+            return null;
+        }
+        return $this->emailUnsubscribed['value'];
     }
 
     /**
@@ -37,7 +40,18 @@ class CustomerPreferences implements \JsonSerializable
      */
     public function setEmailUnsubscribed(?bool $emailUnsubscribed): void
     {
-        $this->emailUnsubscribed = $emailUnsubscribed;
+        $this->emailUnsubscribed['value'] = $emailUnsubscribed;
+    }
+
+    /**
+     * Unsets Email Unsubscribed.
+     * Indicates whether the customer has unsubscribed from marketing campaign emails. A value of `true`
+     * means that the customer chose to opt out of email marketing from the current Square seller or from
+     * all Square sellers. This value is read-only from the Customers API.
+     */
+    public function unsetEmailUnsubscribed(): void
+    {
+        $this->emailUnsubscribed = [];
     }
 
     /**
@@ -52,8 +66,8 @@ class CustomerPreferences implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->emailUnsubscribed)) {
-            $json['email_unsubscribed'] = $this->emailUnsubscribed;
+        if (!empty($this->emailUnsubscribed)) {
+            $json['email_unsubscribed'] = $this->emailUnsubscribed['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

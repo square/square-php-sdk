@@ -19,14 +19,14 @@ class InvoicePaymentReminder implements \JsonSerializable
     private $uid;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $relativeScheduledDays;
+    private $relativeScheduledDays = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $message;
+    private $message = [];
 
     /**
      * @var string|null
@@ -68,7 +68,10 @@ class InvoicePaymentReminder implements \JsonSerializable
      */
     public function getRelativeScheduledDays(): ?int
     {
-        return $this->relativeScheduledDays;
+        if (count($this->relativeScheduledDays) == 0) {
+            return null;
+        }
+        return $this->relativeScheduledDays['value'];
     }
 
     /**
@@ -81,7 +84,18 @@ class InvoicePaymentReminder implements \JsonSerializable
      */
     public function setRelativeScheduledDays(?int $relativeScheduledDays): void
     {
-        $this->relativeScheduledDays = $relativeScheduledDays;
+        $this->relativeScheduledDays['value'] = $relativeScheduledDays;
+    }
+
+    /**
+     * Unsets Relative Scheduled Days.
+     * The number of days before (a negative number) or after (a positive number)
+     * the payment request `due_date` when the reminder is sent. For example, -3 indicates that
+     * the reminder should be sent 3 days before the payment request `due_date`.
+     */
+    public function unsetRelativeScheduledDays(): void
+    {
+        $this->relativeScheduledDays = [];
     }
 
     /**
@@ -90,7 +104,10 @@ class InvoicePaymentReminder implements \JsonSerializable
      */
     public function getMessage(): ?string
     {
-        return $this->message;
+        if (count($this->message) == 0) {
+            return null;
+        }
+        return $this->message['value'];
     }
 
     /**
@@ -101,7 +118,16 @@ class InvoicePaymentReminder implements \JsonSerializable
      */
     public function setMessage(?string $message): void
     {
-        $this->message = $message;
+        $this->message['value'] = $message;
+    }
+
+    /**
+     * Unsets Message.
+     * The reminder message.
+     */
+    public function unsetMessage(): void
+    {
+        $this->message = [];
     }
 
     /**
@@ -159,11 +185,11 @@ class InvoicePaymentReminder implements \JsonSerializable
         if (isset($this->uid)) {
             $json['uid']                     = $this->uid;
         }
-        if (isset($this->relativeScheduledDays)) {
-            $json['relative_scheduled_days'] = $this->relativeScheduledDays;
+        if (!empty($this->relativeScheduledDays)) {
+            $json['relative_scheduled_days'] = $this->relativeScheduledDays['value'];
         }
-        if (isset($this->message)) {
-            $json['message']                 = $this->message;
+        if (!empty($this->message)) {
+            $json['message']                 = $this->message['value'];
         }
         if (isset($this->status)) {
             $json['status']                  = $this->status;

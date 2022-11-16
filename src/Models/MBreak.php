@@ -22,9 +22,9 @@ class MBreak implements \JsonSerializable
     private $startAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endAt;
+    private $endAt = [];
 
     /**
      * @var string
@@ -117,7 +117,10 @@ class MBreak implements \JsonSerializable
      */
     public function getEndAt(): ?string
     {
-        return $this->endAt;
+        if (count($this->endAt) == 0) {
+            return null;
+        }
+        return $this->endAt['value'];
     }
 
     /**
@@ -129,7 +132,17 @@ class MBreak implements \JsonSerializable
      */
     public function setEndAt(?string $endAt): void
     {
-        $this->endAt = $endAt;
+        $this->endAt['value'] = $endAt;
+    }
+
+    /**
+     * Unsets End At.
+     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * the minute is respected; seconds are truncated.
+     */
+    public function unsetEndAt(): void
+    {
+        $this->endAt = [];
     }
 
     /**
@@ -236,8 +249,8 @@ class MBreak implements \JsonSerializable
             $json['id']            = $this->id;
         }
         $json['start_at']          = $this->startAt;
-        if (isset($this->endAt)) {
-            $json['end_at']        = $this->endAt;
+        if (!empty($this->endAt)) {
+            $json['end_at']        = $this->endAt['value'];
         }
         $json['break_type_id']     = $this->breakTypeId;
         $json['name']              = $this->name;

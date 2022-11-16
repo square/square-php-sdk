@@ -28,19 +28,19 @@ class Card implements \JsonSerializable
     private $last4;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $expMonth;
+    private $expMonth = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $expYear;
+    private $expYear = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cardholderName;
+    private $cardholderName = [];
 
     /**
      * @var Address|null
@@ -53,9 +53,9 @@ class Card implements \JsonSerializable
     private $fingerprint;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
      * @var string|null
@@ -63,9 +63,9 @@ class Card implements \JsonSerializable
     private $merchantId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var bool|null
@@ -163,7 +163,10 @@ class Card implements \JsonSerializable
      */
     public function getExpMonth(): ?int
     {
-        return $this->expMonth;
+        if (count($this->expMonth) == 0) {
+            return null;
+        }
+        return $this->expMonth['value'];
     }
 
     /**
@@ -174,7 +177,16 @@ class Card implements \JsonSerializable
      */
     public function setExpMonth(?int $expMonth): void
     {
-        $this->expMonth = $expMonth;
+        $this->expMonth['value'] = $expMonth;
+    }
+
+    /**
+     * Unsets Exp Month.
+     * The expiration month of the associated card as an integer between 1 and 12.
+     */
+    public function unsetExpMonth(): void
+    {
+        $this->expMonth = [];
     }
 
     /**
@@ -183,7 +195,10 @@ class Card implements \JsonSerializable
      */
     public function getExpYear(): ?int
     {
-        return $this->expYear;
+        if (count($this->expYear) == 0) {
+            return null;
+        }
+        return $this->expYear['value'];
     }
 
     /**
@@ -194,7 +209,16 @@ class Card implements \JsonSerializable
      */
     public function setExpYear(?int $expYear): void
     {
-        $this->expYear = $expYear;
+        $this->expYear['value'] = $expYear;
+    }
+
+    /**
+     * Unsets Exp Year.
+     * The four-digit year of the card's expiration date.
+     */
+    public function unsetExpYear(): void
+    {
+        $this->expYear = [];
     }
 
     /**
@@ -203,7 +227,10 @@ class Card implements \JsonSerializable
      */
     public function getCardholderName(): ?string
     {
-        return $this->cardholderName;
+        if (count($this->cardholderName) == 0) {
+            return null;
+        }
+        return $this->cardholderName['value'];
     }
 
     /**
@@ -214,7 +241,16 @@ class Card implements \JsonSerializable
      */
     public function setCardholderName(?string $cardholderName): void
     {
-        $this->cardholderName = $cardholderName;
+        $this->cardholderName['value'] = $cardholderName;
+    }
+
+    /**
+     * Unsets Cardholder Name.
+     * The name of the cardholder.
+     */
+    public function unsetCardholderName(): void
+    {
+        $this->cardholderName = [];
     }
 
     /**
@@ -271,7 +307,10 @@ class Card implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -282,7 +321,16 @@ class Card implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * **Required** The ID of a customer created using the Customers API to be associated with the card.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -313,7 +361,10 @@ class Card implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -326,7 +377,18 @@ class Card implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * An optional user-defined reference ID that associates this card with
+     * another entity in an external system. For example, a customer ID from an
+     * external customer management system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -478,14 +540,14 @@ class Card implements \JsonSerializable
         if (isset($this->last4)) {
             $json['last_4']          = $this->last4;
         }
-        if (isset($this->expMonth)) {
-            $json['exp_month']       = $this->expMonth;
+        if (!empty($this->expMonth)) {
+            $json['exp_month']       = $this->expMonth['value'];
         }
-        if (isset($this->expYear)) {
-            $json['exp_year']        = $this->expYear;
+        if (!empty($this->expYear)) {
+            $json['exp_year']        = $this->expYear['value'];
         }
-        if (isset($this->cardholderName)) {
-            $json['cardholder_name'] = $this->cardholderName;
+        if (!empty($this->cardholderName)) {
+            $json['cardholder_name'] = $this->cardholderName['value'];
         }
         if (isset($this->billingAddress)) {
             $json['billing_address'] = $this->billingAddress;
@@ -493,14 +555,14 @@ class Card implements \JsonSerializable
         if (isset($this->fingerprint)) {
             $json['fingerprint']     = $this->fingerprint;
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']     = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']     = $this->customerId['value'];
         }
         if (isset($this->merchantId)) {
             $json['merchant_id']     = $this->merchantId;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']    = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId['value'];
         }
         if (isset($this->enabled)) {
             $json['enabled']         = $this->enabled;

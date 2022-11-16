@@ -17,14 +17,14 @@ class Tender implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $transactionId;
+    private $transactionId = [];
 
     /**
      * @var string|null
@@ -32,9 +32,9 @@ class Tender implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
      * @var Money|null
@@ -52,9 +52,9 @@ class Tender implements \JsonSerializable
     private $processingFeeMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
      * @var string
@@ -72,14 +72,14 @@ class Tender implements \JsonSerializable
     private $cashDetails;
 
     /**
-     * @var AdditionalRecipient[]|null
+     * @var array
      */
-    private $additionalRecipients;
+    private $additionalRecipients = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
      * @param string $type
@@ -115,7 +115,10 @@ class Tender implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -126,7 +129,16 @@ class Tender implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the transaction's associated location.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -135,7 +147,10 @@ class Tender implements \JsonSerializable
      */
     public function getTransactionId(): ?string
     {
-        return $this->transactionId;
+        if (count($this->transactionId) == 0) {
+            return null;
+        }
+        return $this->transactionId['value'];
     }
 
     /**
@@ -146,7 +161,16 @@ class Tender implements \JsonSerializable
      */
     public function setTransactionId(?string $transactionId): void
     {
-        $this->transactionId = $transactionId;
+        $this->transactionId['value'] = $transactionId;
+    }
+
+    /**
+     * Unsets Transaction Id.
+     * The ID of the tender's associated transaction.
+     */
+    public function unsetTransactionId(): void
+    {
+        $this->transactionId = [];
     }
 
     /**
@@ -175,7 +199,10 @@ class Tender implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -186,7 +213,16 @@ class Tender implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * An optional note associated with the tender at the time of payment.
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -292,7 +328,10 @@ class Tender implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -304,7 +343,17 @@ class Tender implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * If the tender is associated with a customer or represents a customer's card on file,
+     * this is the ID of the associated customer.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -377,7 +426,10 @@ class Tender implements \JsonSerializable
      */
     public function getAdditionalRecipients(): ?array
     {
-        return $this->additionalRecipients;
+        if (count($this->additionalRecipients) == 0) {
+            return null;
+        }
+        return $this->additionalRecipients['value'];
     }
 
     /**
@@ -391,7 +443,17 @@ class Tender implements \JsonSerializable
      */
     public function setAdditionalRecipients(?array $additionalRecipients): void
     {
-        $this->additionalRecipients = $additionalRecipients;
+        $this->additionalRecipients['value'] = $additionalRecipients;
+    }
+
+    /**
+     * Unsets Additional Recipients.
+     * Additional recipients (other than the merchant) receiving a portion of this tender.
+     * For example, fees assessed on the purchase by a third party integration.
+     */
+    public function unsetAdditionalRecipients(): void
+    {
+        $this->additionalRecipients = [];
     }
 
     /**
@@ -401,7 +463,10 @@ class Tender implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -413,7 +478,17 @@ class Tender implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the [Payment]($m/Payment) that corresponds to this tender.
+     * This value is only present for payments created with the v2 Payments API.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -431,17 +506,17 @@ class Tender implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                    = $this->id;
         }
-        if (isset($this->locationId)) {
-            $json['location_id']           = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']           = $this->locationId['value'];
         }
-        if (isset($this->transactionId)) {
-            $json['transaction_id']        = $this->transactionId;
+        if (!empty($this->transactionId)) {
+            $json['transaction_id']        = $this->transactionId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']            = $this->createdAt;
         }
-        if (isset($this->note)) {
-            $json['note']                  = $this->note;
+        if (!empty($this->note)) {
+            $json['note']                  = $this->note['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']          = $this->amountMoney;
@@ -452,8 +527,8 @@ class Tender implements \JsonSerializable
         if (isset($this->processingFeeMoney)) {
             $json['processing_fee_money']  = $this->processingFeeMoney;
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']           = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']           = $this->customerId['value'];
         }
         $json['type']                      = $this->type;
         if (isset($this->cardDetails)) {
@@ -462,11 +537,11 @@ class Tender implements \JsonSerializable
         if (isset($this->cashDetails)) {
             $json['cash_details']          = $this->cashDetails;
         }
-        if (isset($this->additionalRecipients)) {
-            $json['additional_recipients'] = $this->additionalRecipients;
+        if (!empty($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients['value'];
         }
-        if (isset($this->paymentId)) {
-            $json['payment_id']            = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']            = $this->paymentId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

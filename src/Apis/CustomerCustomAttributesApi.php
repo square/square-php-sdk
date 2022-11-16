@@ -303,7 +303,9 @@ class CustomerCustomAttributesApi extends BaseApi
                 QueryParam::init('with_definitions', $withDefinitions)
             );
 
-        $_resHandler = $this->responseHandler()->type(ListCustomerCustomAttributesResponse::class)->returnApiResponse();
+        $_resHandler = $this->responseHandler()
+            ->type(ListCustomerCustomAttributesResponse::class)
+            ->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

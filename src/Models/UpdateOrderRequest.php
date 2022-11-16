@@ -18,14 +18,14 @@ class UpdateOrderRequest implements \JsonSerializable
     private $order;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $fieldsToClear;
+    private $fieldsToClear = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
      * Returns Order.
@@ -59,26 +59,29 @@ class UpdateOrderRequest implements \JsonSerializable
 
     /**
      * Returns Fields to Clear.
-     * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-
-     * notation)
+     * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders/update-
+     * orders#identifying-fields-to-delete)
      * fields to clear. For example, `line_items[uid].note`.
      * For more information, see [Deleting fields](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#delete-fields).
+     * orders/update-orders#deleting-fields).
      *
      * @return string[]|null
      */
     public function getFieldsToClear(): ?array
     {
-        return $this->fieldsToClear;
+        if (count($this->fieldsToClear) == 0) {
+            return null;
+        }
+        return $this->fieldsToClear['value'];
     }
 
     /**
      * Sets Fields to Clear.
-     * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders#on-dot-
-     * notation)
+     * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders/update-
+     * orders#identifying-fields-to-delete)
      * fields to clear. For example, `line_items[uid].note`.
      * For more information, see [Deleting fields](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#delete-fields).
+     * orders/update-orders#deleting-fields).
      *
      * @maps fields_to_clear
      *
@@ -86,7 +89,20 @@ class UpdateOrderRequest implements \JsonSerializable
      */
     public function setFieldsToClear(?array $fieldsToClear): void
     {
-        $this->fieldsToClear = $fieldsToClear;
+        $this->fieldsToClear['value'] = $fieldsToClear;
+    }
+
+    /**
+     * Unsets Fields to Clear.
+     * The [dot notation paths](https://developer.squareup.com/docs/orders-api/manage-orders/update-
+     * orders#identifying-fields-to-delete)
+     * fields to clear. For example, `line_items[uid].note`.
+     * For more information, see [Deleting fields](https://developer.squareup.com/docs/orders-api/manage-
+     * orders/update-orders#deleting-fields).
+     */
+    public function unsetFieldsToClear(): void
+    {
+        $this->fieldsToClear = [];
     }
 
     /**
@@ -103,7 +119,10 @@ class UpdateOrderRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -122,7 +141,24 @@ class UpdateOrderRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A value you specify that uniquely identifies this update request.
+     *
+     * If you are unsure whether a particular update was applied to an order successfully,
+     * you can reattempt it with the same idempotency key without
+     * worrying about creating duplicate updates to the order.
+     * The latest order version is returned.
+     *
+     * For more information, see [Idempotency](https://developer.squareup.
+     * com/docs/basics/api101/idempotency).
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -140,11 +176,11 @@ class UpdateOrderRequest implements \JsonSerializable
         if (isset($this->order)) {
             $json['order']           = $this->order;
         }
-        if (isset($this->fieldsToClear)) {
-            $json['fields_to_clear'] = $this->fieldsToClear;
+        if (!empty($this->fieldsToClear)) {
+            $json['fields_to_clear'] = $this->fieldsToClear['value'];
         }
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

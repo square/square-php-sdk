@@ -12,14 +12,14 @@ use stdClass;
 class SearchOrdersFulfillmentFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $fulfillmentTypes;
+    private $fulfillmentTypes = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $fulfillmentStates;
+    private $fulfillmentStates = [];
 
     /**
      * Returns Fulfillment Types.
@@ -32,7 +32,10 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      */
     public function getFulfillmentTypes(): ?array
     {
-        return $this->fulfillmentTypes;
+        if (count($this->fulfillmentTypes) == 0) {
+            return null;
+        }
+        return $this->fulfillmentTypes['value'];
     }
 
     /**
@@ -48,7 +51,19 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      */
     public function setFulfillmentTypes(?array $fulfillmentTypes): void
     {
-        $this->fulfillmentTypes = $fulfillmentTypes;
+        $this->fulfillmentTypes['value'] = $fulfillmentTypes;
+    }
+
+    /**
+     * Unsets Fulfillment Types.
+     * A list of [fulfillment types]($m/FulfillmentType) to filter
+     * for. The list returns orders if any of its fulfillments match any of the fulfillment types
+     * listed in this field.
+     * See [FulfillmentType](#type-fulfillmenttype) for possible values
+     */
+    public function unsetFulfillmentTypes(): void
+    {
+        $this->fulfillmentTypes = [];
     }
 
     /**
@@ -62,7 +77,10 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      */
     public function getFulfillmentStates(): ?array
     {
-        return $this->fulfillmentStates;
+        if (count($this->fulfillmentStates) == 0) {
+            return null;
+        }
+        return $this->fulfillmentStates['value'];
     }
 
     /**
@@ -78,7 +96,19 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
      */
     public function setFulfillmentStates(?array $fulfillmentStates): void
     {
-        $this->fulfillmentStates = $fulfillmentStates;
+        $this->fulfillmentStates['value'] = $fulfillmentStates;
+    }
+
+    /**
+     * Unsets Fulfillment States.
+     * A list of [fulfillment states]($m/FulfillmentState) to filter
+     * for. The list returns orders if any of its fulfillments match any of the
+     * fulfillment states listed in this field.
+     * See [FulfillmentState](#type-fulfillmentstate) for possible values
+     */
+    public function unsetFulfillmentStates(): void
+    {
+        $this->fulfillmentStates = [];
     }
 
     /**
@@ -93,11 +123,11 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->fulfillmentTypes)) {
-            $json['fulfillment_types']  = $this->fulfillmentTypes;
+        if (!empty($this->fulfillmentTypes)) {
+            $json['fulfillment_types']  = $this->fulfillmentTypes['value'];
         }
-        if (isset($this->fulfillmentStates)) {
-            $json['fulfillment_states'] = $this->fulfillmentStates;
+        if (!empty($this->fulfillmentStates)) {
+            $json['fulfillment_states'] = $this->fulfillmentStates['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -21,6 +21,7 @@ Represents an action processed by the Square Terminal.
 | `appId` | `?string` | Optional | The ID of the application that created the action. | getAppId(): ?string | setAppId(?string appId): void |
 | `type` | [`?string (TerminalActionActionType)`](../../doc/models/terminal-action-action-type.md) | Optional | Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum. | getType(): ?string | setType(?string type): void |
 | `saveCardOptions` | [`?SaveCardOptions`](../../doc/models/save-card-options.md) | Optional | Describes save-card action fields. | getSaveCardOptions(): ?SaveCardOptions | setSaveCardOptions(?SaveCardOptions saveCardOptions): void |
+| `receiptOptions` | [`?ReceiptOptions`](../../doc/models/receipt-options.md) | Optional | Describes receipt action fields. | getReceiptOptions(): ?ReceiptOptions | setReceiptOptions(?ReceiptOptions receiptOptions): void |
 | `deviceMetadata` | [`?DeviceMetadata`](../../doc/models/device-metadata.md) | Optional | - | getDeviceMetadata(): ?DeviceMetadata | setDeviceMetadata(?DeviceMetadata deviceMetadata): void |
 
 ## Example (as JSON)
@@ -32,6 +33,7 @@ Represents an action processed by the Square Terminal.
   "cancel_reason": null,
   "type": null,
   "save_card_options": null,
+  "receipt_options": null,
   "device_metadata": null
 }
 ```

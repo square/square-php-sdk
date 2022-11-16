@@ -14,24 +14,24 @@ use stdClass;
 class CustomAttributeDefinition implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $key;
+    private $key = [];
 
     /**
-     * @var mixed
+     * @var array
      */
-    private $schema;
+    private $schema = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * @var string|null
@@ -73,7 +73,10 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function getKey(): ?string
     {
-        return $this->key;
+        if (count($this->key) == 0) {
+            return null;
+        }
+        return $this->key['value'];
     }
 
     /**
@@ -98,7 +101,30 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function setKey(?string $key): void
     {
-        $this->key = $key;
+        $this->key['value'] = $key;
+    }
+
+    /**
+     * Unsets Key.
+     * The identifier
+     * of the custom attribute definition and its corresponding custom attributes. This value
+     * can be a simple key, which is the key that is provided when the custom attribute definition
+     * is created, or a qualified key, if the requesting
+     * application is not the definition owner. The qualified key consists of the application ID
+     * of the custom attribute definition owner
+     * followed by the simple key that was provided when the definition was created. It has the
+     * format application_id:simple key.
+     *
+     * The value for a simple key can contain up to 60 alphanumeric characters, periods (.),
+     * underscores (_), and hyphens (-).
+     *
+     * This field can not be changed
+     * after the custom attribute definition is created. This field is required when creating
+     * a definition and must be unique per application, seller, and resource type.
+     */
+    public function unsetKey(): void
+    {
+        $this->key = [];
     }
 
     /**
@@ -112,7 +138,10 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function getSchema()
     {
-        return $this->schema;
+        if (count($this->schema) == 0) {
+            return null;
+        }
+        return $this->schema['value'];
     }
 
     /**
@@ -128,7 +157,19 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function setSchema($schema): void
     {
-        $this->schema = $schema;
+        $this->schema['value'] = $schema;
+    }
+
+    /**
+     * Unsets Schema.
+     * The JSON schema for the custom attribute definition, which determines the data type of the
+     * corresponding custom attributes. For more information,
+     * see [Custom Attributes Overview](https://developer.squareup.
+     * com/docs/devtools/customattributes/overview). This field is required when creating a definition.
+     */
+    public function unsetSchema(): void
+    {
+        $this->schema = [];
     }
 
     /**
@@ -139,7 +180,10 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -152,7 +196,18 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the custom attribute definition for API and seller-facing UI purposes. The name must
+     * be unique within the seller and application pair. This field is required if the
+     * `visibility` field is `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -163,7 +218,10 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -176,7 +234,18 @@ class CustomAttributeDefinition implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * Seller-oriented description of the custom attribute definition, including any constraints
+     * that the seller should observe. May be displayed as a tooltip in Square UIs. This field is
+     * required if the `visibility` field is `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -305,17 +374,17 @@ class CustomAttributeDefinition implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->key)) {
-            $json['key']         = $this->key;
+        if (!empty($this->key)) {
+            $json['key']         = $this->key['value'];
         }
-        if (isset($this->schema)) {
-            $json['schema']      = ApiHelper::decodeJson($this->schema, 'schema');
+        if (!empty($this->schema)) {
+            $json['schema']      = ApiHelper::decodeJson($this->schema['value'], 'schema');
         }
-        if (isset($this->name)) {
-            $json['name']        = $this->name;
+        if (!empty($this->name)) {
+            $json['name']        = $this->name['value'];
         }
-        if (isset($this->description)) {
-            $json['description'] = $this->description;
+        if (!empty($this->description)) {
+            $json['description'] = $this->description['value'];
         }
         if (isset($this->visibility)) {
             $json['visibility']  = $this->visibility;

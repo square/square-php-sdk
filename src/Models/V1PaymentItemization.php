@@ -28,14 +28,14 @@ use stdClass;
 class V1PaymentItemization implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var float|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
      * @var string|null
@@ -48,14 +48,14 @@ class V1PaymentItemization implements \JsonSerializable
     private $itemDetail;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $notes;
+    private $notes = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemVariationName;
+    private $itemVariationName = [];
 
     /**
      * @var V1Money|null
@@ -83,19 +83,19 @@ class V1PaymentItemization implements \JsonSerializable
     private $netSalesMoney;
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $taxes;
+    private $taxes = [];
 
     /**
-     * @var V1PaymentDiscount[]|null
+     * @var array
      */
-    private $discounts;
+    private $discounts = [];
 
     /**
-     * @var V1PaymentModifier[]|null
+     * @var array
      */
-    private $modifiers;
+    private $modifiers = [];
 
     /**
      * Returns Name.
@@ -103,7 +103,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -114,7 +117,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The item's name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -123,7 +135,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getQuantity(): ?float
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -134,7 +149,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setQuantity(?float $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The quantity of the item purchased. This can be a decimal value.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -181,7 +205,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getNotes(): ?string
     {
-        return $this->notes;
+        if (count($this->notes) == 0) {
+            return null;
+        }
+        return $this->notes['value'];
     }
 
     /**
@@ -192,7 +219,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setNotes(?string $notes): void
     {
-        $this->notes = $notes;
+        $this->notes['value'] = $notes;
+    }
+
+    /**
+     * Unsets Notes.
+     * Notes entered by the merchant about the item at the time of payment, if any.
+     */
+    public function unsetNotes(): void
+    {
+        $this->notes = [];
     }
 
     /**
@@ -201,7 +237,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getItemVariationName(): ?string
     {
-        return $this->itemVariationName;
+        if (count($this->itemVariationName) == 0) {
+            return null;
+        }
+        return $this->itemVariationName['value'];
     }
 
     /**
@@ -212,7 +251,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setItemVariationName(?string $itemVariationName): void
     {
-        $this->itemVariationName = $itemVariationName;
+        $this->itemVariationName['value'] = $itemVariationName;
+    }
+
+    /**
+     * Unsets Item Variation Name.
+     * The name of the item variation purchased, if any.
+     */
+    public function unsetItemVariationName(): void
+    {
+        $this->itemVariationName = [];
     }
 
     /**
@@ -313,7 +361,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getTaxes(): ?array
     {
-        return $this->taxes;
+        if (count($this->taxes) == 0) {
+            return null;
+        }
+        return $this->taxes['value'];
     }
 
     /**
@@ -326,7 +377,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setTaxes(?array $taxes): void
     {
-        $this->taxes = $taxes;
+        $this->taxes['value'] = $taxes;
+    }
+
+    /**
+     * Unsets Taxes.
+     * All taxes applied to this itemization.
+     */
+    public function unsetTaxes(): void
+    {
+        $this->taxes = [];
     }
 
     /**
@@ -337,7 +397,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getDiscounts(): ?array
     {
-        return $this->discounts;
+        if (count($this->discounts) == 0) {
+            return null;
+        }
+        return $this->discounts['value'];
     }
 
     /**
@@ -350,7 +413,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setDiscounts(?array $discounts): void
     {
-        $this->discounts = $discounts;
+        $this->discounts['value'] = $discounts;
+    }
+
+    /**
+     * Unsets Discounts.
+     * All discounts applied to this itemization.
+     */
+    public function unsetDiscounts(): void
+    {
+        $this->discounts = [];
     }
 
     /**
@@ -361,7 +433,10 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function getModifiers(): ?array
     {
-        return $this->modifiers;
+        if (count($this->modifiers) == 0) {
+            return null;
+        }
+        return $this->modifiers['value'];
     }
 
     /**
@@ -374,7 +449,16 @@ class V1PaymentItemization implements \JsonSerializable
      */
     public function setModifiers(?array $modifiers): void
     {
-        $this->modifiers = $modifiers;
+        $this->modifiers['value'] = $modifiers;
+    }
+
+    /**
+     * Unsets Modifiers.
+     * All modifier options applied to this itemization.
+     */
+    public function unsetModifiers(): void
+    {
+        $this->modifiers = [];
     }
 
     /**
@@ -389,11 +473,11 @@ class V1PaymentItemization implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']                  = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                  = $this->name['value'];
         }
-        if (isset($this->quantity)) {
-            $json['quantity']              = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']              = $this->quantity['value'];
         }
         if (isset($this->itemizationType)) {
             $json['itemization_type']      = $this->itemizationType;
@@ -401,11 +485,11 @@ class V1PaymentItemization implements \JsonSerializable
         if (isset($this->itemDetail)) {
             $json['item_detail']           = $this->itemDetail;
         }
-        if (isset($this->notes)) {
-            $json['notes']                 = $this->notes;
+        if (!empty($this->notes)) {
+            $json['notes']                 = $this->notes['value'];
         }
-        if (isset($this->itemVariationName)) {
-            $json['item_variation_name']   = $this->itemVariationName;
+        if (!empty($this->itemVariationName)) {
+            $json['item_variation_name']   = $this->itemVariationName['value'];
         }
         if (isset($this->totalMoney)) {
             $json['total_money']           = $this->totalMoney;
@@ -422,14 +506,14 @@ class V1PaymentItemization implements \JsonSerializable
         if (isset($this->netSalesMoney)) {
             $json['net_sales_money']       = $this->netSalesMoney;
         }
-        if (isset($this->taxes)) {
-            $json['taxes']                 = $this->taxes;
+        if (!empty($this->taxes)) {
+            $json['taxes']                 = $this->taxes['value'];
         }
-        if (isset($this->discounts)) {
-            $json['discounts']             = $this->discounts;
+        if (!empty($this->discounts)) {
+            $json['discounts']             = $this->discounts['value'];
         }
-        if (isset($this->modifiers)) {
-            $json['modifiers']             = $this->modifiers;
+        if (!empty($this->modifiers)) {
+            $json['modifiers']             = $this->modifiers['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -9,34 +9,34 @@ use stdClass;
 class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $catalogObjectIds;
+    private $catalogObjectIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $updatedAfter;
+    private $updatedAfter = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $states;
+    private $states = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Catalog Object Ids.
@@ -47,7 +47,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getCatalogObjectIds(): ?array
     {
-        return $this->catalogObjectIds;
+        if (count($this->catalogObjectIds) == 0) {
+            return null;
+        }
+        return $this->catalogObjectIds['value'];
     }
 
     /**
@@ -61,7 +64,17 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setCatalogObjectIds(?array $catalogObjectIds): void
     {
-        $this->catalogObjectIds = $catalogObjectIds;
+        $this->catalogObjectIds['value'] = $catalogObjectIds;
+    }
+
+    /**
+     * Unsets Catalog Object Ids.
+     * The filter to return results by `CatalogObject` ID.
+     * The filter is applicable only when set.  The default is null.
+     */
+    public function unsetCatalogObjectIds(): void
+    {
+        $this->catalogObjectIds = [];
     }
 
     /**
@@ -73,7 +86,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -87,7 +103,17 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * The filter to return results by `Location` ID.
+     * This filter is applicable only when set. The default is null.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -98,7 +124,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getUpdatedAfter(): ?string
     {
-        return $this->updatedAfter;
+        if (count($this->updatedAfter) == 0) {
+            return null;
+        }
+        return $this->updatedAfter['value'];
     }
 
     /**
@@ -111,7 +140,18 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setUpdatedAfter(?string $updatedAfter): void
     {
-        $this->updatedAfter = $updatedAfter;
+        $this->updatedAfter['value'] = $updatedAfter;
+    }
+
+    /**
+     * Unsets Updated After.
+     * The filter to return results with their `calculated_at` value
+     * after the given time as specified in an RFC 3339 timestamp.
+     * The default value is the UNIX epoch of (`1970-01-01T00:00:00Z`).
+     */
+    public function unsetUpdatedAfter(): void
+    {
+        $this->updatedAfter = [];
     }
 
     /**
@@ -124,7 +164,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -139,7 +182,20 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for the original query.
+     *
+     * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for
+     * more information.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -152,7 +208,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getStates(): ?array
     {
-        return $this->states;
+        if (count($this->states) == 0) {
+            return null;
+        }
+        return $this->states['value'];
     }
 
     /**
@@ -167,7 +226,18 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setStates(?array $states): void
     {
-        $this->states = $states;
+        $this->states['value'] = $states;
+    }
+
+    /**
+     * Unsets States.
+     * The filter to return results by `InventoryState`. The filter is only applicable when set.
+     * Ignored are untracked states of `NONE`, `SOLD`, and `UNLINKED_RETURN`.
+     * The default is null.
+     */
+    public function unsetStates(): void
+    {
+        $this->states = [];
     }
 
     /**
@@ -176,7 +246,10 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -187,7 +260,16 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The number of [records]($m/InventoryCount) to return.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -202,23 +284,23 @@ class BatchRetrieveInventoryCountsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->catalogObjectIds)) {
-            $json['catalog_object_ids'] = $this->catalogObjectIds;
+        if (!empty($this->catalogObjectIds)) {
+            $json['catalog_object_ids'] = $this->catalogObjectIds['value'];
         }
-        if (isset($this->locationIds)) {
-            $json['location_ids']       = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids']       = $this->locationIds['value'];
         }
-        if (isset($this->updatedAfter)) {
-            $json['updated_after']      = $this->updatedAfter;
+        if (!empty($this->updatedAfter)) {
+            $json['updated_after']      = $this->updatedAfter['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']             = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']             = $this->cursor['value'];
         }
-        if (isset($this->states)) {
-            $json['states']             = $this->states;
+        if (!empty($this->states)) {
+            $json['states']             = $this->states['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']              = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']              = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

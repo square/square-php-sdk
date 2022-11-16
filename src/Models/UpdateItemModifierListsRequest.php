@@ -14,14 +14,14 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
     private $itemIds;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $modifierListsToEnable;
+    private $modifierListsToEnable = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $modifierListsToDisable;
+    private $modifierListsToDisable = [];
 
     /**
      * @param string[] $itemIds
@@ -65,7 +65,10 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
      */
     public function getModifierListsToEnable(): ?array
     {
-        return $this->modifierListsToEnable;
+        if (count($this->modifierListsToEnable) == 0) {
+            return null;
+        }
+        return $this->modifierListsToEnable['value'];
     }
 
     /**
@@ -79,7 +82,17 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
      */
     public function setModifierListsToEnable(?array $modifierListsToEnable): void
     {
-        $this->modifierListsToEnable = $modifierListsToEnable;
+        $this->modifierListsToEnable['value'] = $modifierListsToEnable;
+    }
+
+    /**
+     * Unsets Modifier Lists to Enable.
+     * The IDs of the CatalogModifierList objects to enable for the CatalogItem.
+     * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
+     */
+    public function unsetModifierListsToEnable(): void
+    {
+        $this->modifierListsToEnable = [];
     }
 
     /**
@@ -91,7 +104,10 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
      */
     public function getModifierListsToDisable(): ?array
     {
-        return $this->modifierListsToDisable;
+        if (count($this->modifierListsToDisable) == 0) {
+            return null;
+        }
+        return $this->modifierListsToDisable['value'];
     }
 
     /**
@@ -105,7 +121,17 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
      */
     public function setModifierListsToDisable(?array $modifierListsToDisable): void
     {
-        $this->modifierListsToDisable = $modifierListsToDisable;
+        $this->modifierListsToDisable['value'] = $modifierListsToDisable;
+    }
+
+    /**
+     * Unsets Modifier Lists to Disable.
+     * The IDs of the CatalogModifierList objects to disable for the CatalogItem.
+     * At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must be specified.
+     */
+    public function unsetModifierListsToDisable(): void
+    {
+        $this->modifierListsToDisable = [];
     }
 
     /**
@@ -121,11 +147,11 @@ class UpdateItemModifierListsRequest implements \JsonSerializable
     {
         $json = [];
         $json['item_ids']                      = $this->itemIds;
-        if (isset($this->modifierListsToEnable)) {
-            $json['modifier_lists_to_enable']  = $this->modifierListsToEnable;
+        if (!empty($this->modifierListsToEnable)) {
+            $json['modifier_lists_to_enable']  = $this->modifierListsToEnable['value'];
         }
-        if (isset($this->modifierListsToDisable)) {
-            $json['modifier_lists_to_disable'] = $this->modifierListsToDisable;
+        if (!empty($this->modifierListsToDisable)) {
+            $json['modifier_lists_to_disable'] = $this->modifierListsToDisable['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

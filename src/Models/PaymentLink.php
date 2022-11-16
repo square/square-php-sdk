@@ -19,9 +19,9 @@ class PaymentLink implements \JsonSerializable
     private $version;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * @var string|null
@@ -54,9 +54,9 @@ class PaymentLink implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentNote;
+    private $paymentNote = [];
 
     /**
      * @param int $version
@@ -116,7 +116,10 @@ class PaymentLink implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -128,7 +131,17 @@ class PaymentLink implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * The optional description of the `payment_link` object.
+     * It is primarily for use by your application and is not used anywhere.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -262,7 +275,10 @@ class PaymentLink implements \JsonSerializable
      */
     public function getPaymentNote(): ?string
     {
-        return $this->paymentNote;
+        if (count($this->paymentNote) == 0) {
+            return null;
+        }
+        return $this->paymentNote['value'];
     }
 
     /**
@@ -274,7 +290,17 @@ class PaymentLink implements \JsonSerializable
      */
     public function setPaymentNote(?string $paymentNote): void
     {
-        $this->paymentNote = $paymentNote;
+        $this->paymentNote['value'] = $paymentNote;
+    }
+
+    /**
+     * Unsets Payment Note.
+     * An optional note. After Square processes the payment, this note is added to the
+     * resulting `Payment`.
+     */
+    public function unsetPaymentNote(): void
+    {
+        $this->paymentNote = [];
     }
 
     /**
@@ -293,8 +319,8 @@ class PaymentLink implements \JsonSerializable
             $json['id']                 = $this->id;
         }
         $json['version']                = $this->version;
-        if (isset($this->description)) {
-            $json['description']        = $this->description;
+        if (!empty($this->description)) {
+            $json['description']        = $this->description['value'];
         }
         if (isset($this->orderId)) {
             $json['order_id']           = $this->orderId;
@@ -314,8 +340,8 @@ class PaymentLink implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']         = $this->updatedAt;
         }
-        if (isset($this->paymentNote)) {
-            $json['payment_note']       = $this->paymentNote;
+        if (!empty($this->paymentNote)) {
+            $json['payment_note']       = $this->paymentNote['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

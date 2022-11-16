@@ -12,14 +12,14 @@ use stdClass;
 class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $curbsideDetails;
+    private $curbsideDetails = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerArrivedAt;
+    private $buyerArrivedAt = [];
 
     /**
      * Returns Curbside Details.
@@ -27,7 +27,10 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
      */
     public function getCurbsideDetails(): ?string
     {
-        return $this->curbsideDetails;
+        if (count($this->curbsideDetails) == 0) {
+            return null;
+        }
+        return $this->curbsideDetails['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
      */
     public function setCurbsideDetails(?string $curbsideDetails): void
     {
-        $this->curbsideDetails = $curbsideDetails;
+        $this->curbsideDetails['value'] = $curbsideDetails;
+    }
+
+    /**
+     * Unsets Curbside Details.
+     * Specific details for curbside pickup, such as parking number and vehicle model.
+     */
+    public function unsetCurbsideDetails(): void
+    {
+        $this->curbsideDetails = [];
     }
 
     /**
@@ -50,7 +62,10 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
      */
     public function getBuyerArrivedAt(): ?string
     {
-        return $this->buyerArrivedAt;
+        if (count($this->buyerArrivedAt) == 0) {
+            return null;
+        }
+        return $this->buyerArrivedAt['value'];
     }
 
     /**
@@ -64,7 +79,19 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
      */
     public function setBuyerArrivedAt(?string $buyerArrivedAt): void
     {
-        $this->buyerArrivedAt = $buyerArrivedAt;
+        $this->buyerArrivedAt['value'] = $buyerArrivedAt;
+    }
+
+    /**
+     * Unsets Buyer Arrived At.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the buyer arrived and is waiting for pickup. The timestamp must be in RFC 3339
+     * format
+     * (for example, "2016-09-04T23:59:33.123Z").
+     */
+    public function unsetBuyerArrivedAt(): void
+    {
+        $this->buyerArrivedAt = [];
     }
 
     /**
@@ -79,11 +106,11 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetails implements \JsonSeriali
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->curbsideDetails)) {
-            $json['curbside_details'] = $this->curbsideDetails;
+        if (!empty($this->curbsideDetails)) {
+            $json['curbside_details'] = $this->curbsideDetails['value'];
         }
-        if (isset($this->buyerArrivedAt)) {
-            $json['buyer_arrived_at'] = $this->buyerArrivedAt;
+        if (!empty($this->buyerArrivedAt)) {
+            $json['buyer_arrived_at'] = $this->buyerArrivedAt['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

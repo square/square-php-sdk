@@ -23,9 +23,9 @@ class ShiftWorkday implements \JsonSerializable
     private $matchShiftsBy;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $defaultTimezone;
+    private $defaultTimezone = [];
 
     /**
      * Returns Date Range.
@@ -78,7 +78,10 @@ class ShiftWorkday implements \JsonSerializable
      */
     public function getDefaultTimezone(): ?string
     {
-        return $this->defaultTimezone;
+        if (count($this->defaultTimezone) == 0) {
+            return null;
+        }
+        return $this->defaultTimezone['value'];
     }
 
     /**
@@ -92,7 +95,19 @@ class ShiftWorkday implements \JsonSerializable
      */
     public function setDefaultTimezone(?string $defaultTimezone): void
     {
-        $this->defaultTimezone = $defaultTimezone;
+        $this->defaultTimezone['value'] = $defaultTimezone;
+    }
+
+    /**
+     * Unsets Default Timezone.
+     * Location-specific timezones convert workdays to datetime filters.
+     * Every location included in the query must have a timezone or this field
+     * must be provided as a fallback. Format: the IANA timezone database
+     * identifier for the relevant timezone.
+     */
+    public function unsetDefaultTimezone(): void
+    {
+        $this->defaultTimezone = [];
     }
 
     /**
@@ -113,8 +128,8 @@ class ShiftWorkday implements \JsonSerializable
         if (isset($this->matchShiftsBy)) {
             $json['match_shifts_by']  = $this->matchShiftsBy;
         }
-        if (isset($this->defaultTimezone)) {
-            $json['default_timezone'] = $this->defaultTimezone;
+        if (!empty($this->defaultTimezone)) {
+            $json['default_timezone'] = $this->defaultTimezone['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

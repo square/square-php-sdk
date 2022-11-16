@@ -12,14 +12,14 @@ use stdClass;
 class ProcessingFee implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $effectiveAt;
+    private $effectiveAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $type;
+    private $type = [];
 
     /**
      * @var Money|null
@@ -32,7 +32,10 @@ class ProcessingFee implements \JsonSerializable
      */
     public function getEffectiveAt(): ?string
     {
-        return $this->effectiveAt;
+        if (count($this->effectiveAt) == 0) {
+            return null;
+        }
+        return $this->effectiveAt['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class ProcessingFee implements \JsonSerializable
      */
     public function setEffectiveAt(?string $effectiveAt): void
     {
-        $this->effectiveAt = $effectiveAt;
+        $this->effectiveAt['value'] = $effectiveAt;
+    }
+
+    /**
+     * Unsets Effective At.
+     * The timestamp of when the fee takes effect, in RFC 3339 format.
+     */
+    public function unsetEffectiveAt(): void
+    {
+        $this->effectiveAt = [];
     }
 
     /**
@@ -52,7 +64,10 @@ class ProcessingFee implements \JsonSerializable
      */
     public function getType(): ?string
     {
-        return $this->type;
+        if (count($this->type) == 0) {
+            return null;
+        }
+        return $this->type['value'];
     }
 
     /**
@@ -63,7 +78,16 @@ class ProcessingFee implements \JsonSerializable
      */
     public function setType(?string $type): void
     {
-        $this->type = $type;
+        $this->type['value'] = $type;
+    }
+
+    /**
+     * Unsets Type.
+     * The type of fee assessed or adjusted. The fee type can be `INITIAL` or `ADJUSTMENT`.
+     */
+    public function unsetType(): void
+    {
+        $this->type = [];
     }
 
     /**
@@ -110,11 +134,11 @@ class ProcessingFee implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->effectiveAt)) {
-            $json['effective_at'] = $this->effectiveAt;
+        if (!empty($this->effectiveAt)) {
+            $json['effective_at'] = $this->effectiveAt['value'];
         }
-        if (isset($this->type)) {
-            $json['type']         = $this->type;
+        if (!empty($this->type)) {
+            $json['type']         = $this->type['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money'] = $this->amountMoney;

@@ -9,14 +9,14 @@ use stdClass;
 class ListDeviceCodesRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string|null
@@ -24,9 +24,9 @@ class ListDeviceCodesRequest implements \JsonSerializable
     private $productType;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
      * Returns Cursor.
@@ -38,7 +38,10 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -53,7 +56,20 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for your original query.
+     *
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -63,7 +79,10 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -75,7 +94,17 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * If specified, only returns DeviceCodes of the specified location.
+     * Returns DeviceCodes of all locations if empty.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -106,7 +135,10 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function getStatus(): ?array
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -121,7 +153,18 @@ class ListDeviceCodesRequest implements \JsonSerializable
      */
     public function setStatus(?array $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * If specified, returns DeviceCodes with the specified statuses.
+     * Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
+     * See [DeviceCodeStatus](#type-devicecodestatus) for possible values
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -136,17 +179,17 @@ class ListDeviceCodesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor']       = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']       = $this->cursor['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']  = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']  = $this->locationId['value'];
         }
         if (isset($this->productType)) {
             $json['product_type'] = $this->productType;
         }
-        if (isset($this->status)) {
-            $json['status']       = $this->status;
+        if (!empty($this->status)) {
+            $json['status']       = $this->status['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

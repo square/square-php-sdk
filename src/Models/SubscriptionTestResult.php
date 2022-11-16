@@ -18,14 +18,14 @@ class SubscriptionTestResult implements \JsonSerializable
     private $id;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $statusCode;
+    private $statusCode = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $payload;
+    private $payload = [];
 
     /**
      * @var string|null
@@ -63,7 +63,10 @@ class SubscriptionTestResult implements \JsonSerializable
      */
     public function getStatusCode(): ?int
     {
-        return $this->statusCode;
+        if (count($this->statusCode) == 0) {
+            return null;
+        }
+        return $this->statusCode['value'];
     }
 
     /**
@@ -74,7 +77,16 @@ class SubscriptionTestResult implements \JsonSerializable
      */
     public function setStatusCode(?int $statusCode): void
     {
-        $this->statusCode = $statusCode;
+        $this->statusCode['value'] = $statusCode;
+    }
+
+    /**
+     * Unsets Status Code.
+     * The status code returned by the subscription notification URL.
+     */
+    public function unsetStatusCode(): void
+    {
+        $this->statusCode = [];
     }
 
     /**
@@ -83,7 +95,10 @@ class SubscriptionTestResult implements \JsonSerializable
      */
     public function getPayload(): ?string
     {
-        return $this->payload;
+        if (count($this->payload) == 0) {
+            return null;
+        }
+        return $this->payload['value'];
     }
 
     /**
@@ -94,7 +109,16 @@ class SubscriptionTestResult implements \JsonSerializable
      */
     public function setPayload(?string $payload): void
     {
-        $this->payload = $payload;
+        $this->payload['value'] = $payload;
+    }
+
+    /**
+     * Unsets Payload.
+     * An object containing the payload of the test event. For example, a `payment.created` event.
+     */
+    public function unsetPayload(): void
+    {
+        $this->payload = [];
     }
 
     /**
@@ -158,11 +182,11 @@ class SubscriptionTestResult implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']          = $this->id;
         }
-        if (isset($this->statusCode)) {
-            $json['status_code'] = $this->statusCode;
+        if (!empty($this->statusCode)) {
+            $json['status_code'] = $this->statusCode['value'];
         }
-        if (isset($this->payload)) {
-            $json['payload']     = $this->payload;
+        if (!empty($this->payload)) {
+            $json['payload']     = $this->payload['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']  = $this->createdAt;

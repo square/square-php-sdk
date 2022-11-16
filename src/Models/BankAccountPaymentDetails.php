@@ -12,34 +12,34 @@ use stdClass;
 class BankAccountPaymentDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $bankName;
+    private $bankName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $transferType;
+    private $transferType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $accountOwnershipType;
+    private $accountOwnershipType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $fingerprint;
+    private $fingerprint = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $country;
+    private $country = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $statementDescription;
+    private $statementDescription = [];
 
     /**
      * @var ACHDetails|null
@@ -47,9 +47,9 @@ class BankAccountPaymentDetails implements \JsonSerializable
     private $achDetails;
 
     /**
-     * @var Error[]|null
+     * @var array
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Returns Bank Name.
@@ -57,7 +57,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getBankName(): ?string
     {
-        return $this->bankName;
+        if (count($this->bankName) == 0) {
+            return null;
+        }
+        return $this->bankName['value'];
     }
 
     /**
@@ -68,7 +71,16 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setBankName(?string $bankName): void
     {
-        $this->bankName = $bankName;
+        $this->bankName['value'] = $bankName;
+    }
+
+    /**
+     * Unsets Bank Name.
+     * The name of the bank associated with the bank account.
+     */
+    public function unsetBankName(): void
+    {
+        $this->bankName = [];
     }
 
     /**
@@ -77,7 +89,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getTransferType(): ?string
     {
-        return $this->transferType;
+        if (count($this->transferType) == 0) {
+            return null;
+        }
+        return $this->transferType['value'];
     }
 
     /**
@@ -88,7 +103,16 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setTransferType(?string $transferType): void
     {
-        $this->transferType = $transferType;
+        $this->transferType['value'] = $transferType;
+    }
+
+    /**
+     * Unsets Transfer Type.
+     * The type of the bank transfer. The type can be `ACH` or `UNKNOWN`.
+     */
+    public function unsetTransferType(): void
+    {
+        $this->transferType = [];
     }
 
     /**
@@ -98,7 +122,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getAccountOwnershipType(): ?string
     {
-        return $this->accountOwnershipType;
+        if (count($this->accountOwnershipType) == 0) {
+            return null;
+        }
+        return $this->accountOwnershipType['value'];
     }
 
     /**
@@ -110,7 +137,17 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setAccountOwnershipType(?string $accountOwnershipType): void
     {
-        $this->accountOwnershipType = $accountOwnershipType;
+        $this->accountOwnershipType['value'] = $accountOwnershipType;
+    }
+
+    /**
+     * Unsets Account Ownership Type.
+     * The ownership type of the bank account performing the transfer.
+     * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
+     */
+    public function unsetAccountOwnershipType(): void
+    {
+        $this->accountOwnershipType = [];
     }
 
     /**
@@ -120,7 +157,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getFingerprint(): ?string
     {
-        return $this->fingerprint;
+        if (count($this->fingerprint) == 0) {
+            return null;
+        }
+        return $this->fingerprint['value'];
     }
 
     /**
@@ -132,7 +172,17 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setFingerprint(?string $fingerprint): void
     {
-        $this->fingerprint = $fingerprint;
+        $this->fingerprint['value'] = $fingerprint;
+    }
+
+    /**
+     * Unsets Fingerprint.
+     * Uniquely identifies the bank account for this seller and can be used
+     * to determine if payments are from the same bank account.
+     */
+    public function unsetFingerprint(): void
+    {
+        $this->fingerprint = [];
     }
 
     /**
@@ -141,7 +191,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getCountry(): ?string
     {
-        return $this->country;
+        if (count($this->country) == 0) {
+            return null;
+        }
+        return $this->country['value'];
     }
 
     /**
@@ -152,7 +205,16 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setCountry(?string $country): void
     {
-        $this->country = $country;
+        $this->country['value'] = $country;
+    }
+
+    /**
+     * Unsets Country.
+     * The two-letter ISO code representing the country the bank account is located in.
+     */
+    public function unsetCountry(): void
+    {
+        $this->country = [];
     }
 
     /**
@@ -161,7 +223,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getStatementDescription(): ?string
     {
-        return $this->statementDescription;
+        if (count($this->statementDescription) == 0) {
+            return null;
+        }
+        return $this->statementDescription['value'];
     }
 
     /**
@@ -172,7 +237,16 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setStatementDescription(?string $statementDescription): void
     {
-        $this->statementDescription = $statementDescription;
+        $this->statementDescription['value'] = $statementDescription;
+    }
+
+    /**
+     * Unsets Statement Description.
+     * The statement description as sent to the bank.
+     */
+    public function unsetStatementDescription(): void
+    {
+        $this->statementDescription = [];
     }
 
     /**
@@ -203,7 +277,10 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function getErrors(): ?array
     {
-        return $this->errors;
+        if (count($this->errors) == 0) {
+            return null;
+        }
+        return $this->errors['value'];
     }
 
     /**
@@ -216,7 +293,16 @@ class BankAccountPaymentDetails implements \JsonSerializable
      */
     public function setErrors(?array $errors): void
     {
-        $this->errors = $errors;
+        $this->errors['value'] = $errors;
+    }
+
+    /**
+     * Unsets Errors.
+     * Information about errors encountered during the request.
+     */
+    public function unsetErrors(): void
+    {
+        $this->errors = [];
     }
 
     /**
@@ -231,29 +317,29 @@ class BankAccountPaymentDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->bankName)) {
-            $json['bank_name']              = $this->bankName;
+        if (!empty($this->bankName)) {
+            $json['bank_name']              = $this->bankName['value'];
         }
-        if (isset($this->transferType)) {
-            $json['transfer_type']          = $this->transferType;
+        if (!empty($this->transferType)) {
+            $json['transfer_type']          = $this->transferType['value'];
         }
-        if (isset($this->accountOwnershipType)) {
-            $json['account_ownership_type'] = $this->accountOwnershipType;
+        if (!empty($this->accountOwnershipType)) {
+            $json['account_ownership_type'] = $this->accountOwnershipType['value'];
         }
-        if (isset($this->fingerprint)) {
-            $json['fingerprint']            = $this->fingerprint;
+        if (!empty($this->fingerprint)) {
+            $json['fingerprint']            = $this->fingerprint['value'];
         }
-        if (isset($this->country)) {
-            $json['country']                = $this->country;
+        if (!empty($this->country)) {
+            $json['country']                = $this->country['value'];
         }
-        if (isset($this->statementDescription)) {
-            $json['statement_description']  = $this->statementDescription;
+        if (!empty($this->statementDescription)) {
+            $json['statement_description']  = $this->statementDescription['value'];
         }
         if (isset($this->achDetails)) {
             $json['ach_details']            = $this->achDetails;
         }
-        if (isset($this->errors)) {
-            $json['errors']                 = $this->errors;
+        if (!empty($this->errors)) {
+            $json['errors']                 = $this->errors['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

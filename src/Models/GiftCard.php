@@ -37,9 +37,9 @@ class GiftCard implements \JsonSerializable
     private $balanceMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $gan;
+    private $gan = [];
 
     /**
      * @var string|null
@@ -181,7 +181,10 @@ class GiftCard implements \JsonSerializable
      */
     public function getGan(): ?string
     {
-        return $this->gan;
+        if (count($this->gan) == 0) {
+            return null;
+        }
+        return $this->gan['value'];
     }
 
     /**
@@ -193,7 +196,17 @@ class GiftCard implements \JsonSerializable
      */
     public function setGan(?string $gan): void
     {
-        $this->gan = $gan;
+        $this->gan['value'] = $gan;
+    }
+
+    /**
+     * Unsets Gan.
+     * The gift card account number (GAN). Buyers can use the GAN to make purchases or check
+     * the gift card balance.
+     */
+    public function unsetGan(): void
+    {
+        $this->gan = [];
     }
 
     /**
@@ -273,8 +286,8 @@ class GiftCard implements \JsonSerializable
         if (isset($this->balanceMoney)) {
             $json['balance_money'] = $this->balanceMoney;
         }
-        if (isset($this->gan)) {
-            $json['gan']           = $this->gan;
+        if (!empty($this->gan)) {
+            $json['gan']           = $this->gan['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']    = $this->createdAt;

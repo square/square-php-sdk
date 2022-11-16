@@ -18,9 +18,9 @@ class InventoryAdjustment implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -33,24 +33,24 @@ class InventoryAdjustment implements \JsonSerializable
     private $toState;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectType;
+    private $catalogObjectType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
      * @var Money|null
@@ -58,9 +58,9 @@ class InventoryAdjustment implements \JsonSerializable
     private $totalPriceMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $occurredAt;
+    private $occurredAt = [];
 
     /**
      * @var string|null
@@ -73,14 +73,14 @@ class InventoryAdjustment implements \JsonSerializable
     private $source;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
      * @var string|null
@@ -137,7 +137,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -150,7 +153,18 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * An optional ID provided by the application to tie the
+     * `InventoryAdjustment` to an external
+     * system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -200,7 +214,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -212,7 +229,17 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -222,7 +249,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -234,7 +264,17 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -248,7 +288,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getCatalogObjectType(): ?string
     {
-        return $this->catalogObjectType;
+        if (count($this->catalogObjectType) == 0) {
+            return null;
+        }
+        return $this->catalogObjectType['value'];
     }
 
     /**
@@ -264,7 +307,21 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setCatalogObjectType(?string $catalogObjectType): void
     {
-        $this->catalogObjectType = $catalogObjectType;
+        $this->catalogObjectType['value'] = $catalogObjectType;
+    }
+
+    /**
+     * Unsets Catalog Object Type.
+     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     *
+     * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
+     * value.
+     * In addition, it can also read the `"catalog_object_type": "ITEM"` field value that is set by the
+     * Square Restaurants app.
+     */
+    public function unsetCatalogObjectType(): void
+    {
+        $this->catalogObjectType = [];
     }
 
     /**
@@ -274,7 +331,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getQuantity(): ?string
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -286,7 +346,17 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setQuantity(?string $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The number of items affected by the adjustment as a decimal string.
+     * Can support up to 5 digits after the decimal point.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -330,7 +400,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getOccurredAt(): ?string
     {
-        return $this->occurredAt;
+        if (count($this->occurredAt) == 0) {
+            return null;
+        }
+        return $this->occurredAt['value'];
     }
 
     /**
@@ -344,7 +417,19 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setOccurredAt(?string $occurredAt): void
     {
-        $this->occurredAt = $occurredAt;
+        $this->occurredAt['value'] = $occurredAt;
+    }
+
+    /**
+     * Unsets Occurred At.
+     * A client-generated RFC 3339-formatted timestamp that indicates when
+     * the inventory adjustment took place. For inventory adjustment updates, the `occurred_at`
+     * timestamp cannot be older than 24 hours or in the future relative to the
+     * time of the request.
+     */
+    public function unsetOccurredAt(): void
+    {
+        $this->occurredAt = [];
     }
 
     /**
@@ -394,7 +479,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -406,7 +494,17 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * inventory adjustment.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -416,7 +514,10 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -428,7 +529,17 @@ class InventoryAdjustment implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * inventory adjustment.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -560,8 +671,8 @@ class InventoryAdjustment implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                  = $this->id;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']        = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']        = $this->referenceId['value'];
         }
         if (isset($this->fromState)) {
             $json['from_state']          = $this->fromState;
@@ -569,23 +680,23 @@ class InventoryAdjustment implements \JsonSerializable
         if (isset($this->toState)) {
             $json['to_state']            = $this->toState;
         }
-        if (isset($this->locationId)) {
-            $json['location_id']         = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']         = $this->locationId['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']   = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogObjectType)) {
-            $json['catalog_object_type'] = $this->catalogObjectType;
+        if (!empty($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType['value'];
         }
-        if (isset($this->quantity)) {
-            $json['quantity']            = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']            = $this->quantity['value'];
         }
         if (isset($this->totalPriceMoney)) {
             $json['total_price_money']   = $this->totalPriceMoney;
         }
-        if (isset($this->occurredAt)) {
-            $json['occurred_at']         = $this->occurredAt;
+        if (!empty($this->occurredAt)) {
+            $json['occurred_at']         = $this->occurredAt['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']          = $this->createdAt;
@@ -593,11 +704,11 @@ class InventoryAdjustment implements \JsonSerializable
         if (isset($this->source)) {
             $json['source']              = $this->source;
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id']         = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id']         = $this->employeeId['value'];
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id']      = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id']      = $this->teamMemberId['value'];
         }
         if (isset($this->transactionId)) {
             $json['transaction_id']      = $this->transactionId;

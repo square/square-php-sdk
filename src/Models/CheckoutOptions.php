@@ -9,34 +9,34 @@ use stdClass;
 class CheckoutOptions implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $allowTipping;
+    private $allowTipping = [];
 
     /**
-     * @var CustomField[]|null
+     * @var array
      */
-    private $customFields;
+    private $customFields = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $subscriptionPlanId;
+    private $subscriptionPlanId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $redirectUrl;
+    private $redirectUrl = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantSupportEmail;
+    private $merchantSupportEmail = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $askForShippingAddress;
+    private $askForShippingAddress = [];
 
     /**
      * @var AcceptedPaymentMethods|null
@@ -59,7 +59,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getAllowTipping(): ?bool
     {
-        return $this->allowTipping;
+        if (count($this->allowTipping) == 0) {
+            return null;
+        }
+        return $this->allowTipping['value'];
     }
 
     /**
@@ -70,7 +73,16 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setAllowTipping(?bool $allowTipping): void
     {
-        $this->allowTipping = $allowTipping;
+        $this->allowTipping['value'] = $allowTipping;
+    }
+
+    /**
+     * Unsets Allow Tipping.
+     * Indicates whether the payment allows tipping.
+     */
+    public function unsetAllowTipping(): void
+    {
+        $this->allowTipping = [];
     }
 
     /**
@@ -81,7 +93,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getCustomFields(): ?array
     {
-        return $this->customFields;
+        if (count($this->customFields) == 0) {
+            return null;
+        }
+        return $this->customFields['value'];
     }
 
     /**
@@ -94,7 +109,16 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setCustomFields(?array $customFields): void
     {
-        $this->customFields = $customFields;
+        $this->customFields['value'] = $customFields;
+    }
+
+    /**
+     * Unsets Custom Fields.
+     * The custom fields requesting information from the buyer.
+     */
+    public function unsetCustomFields(): void
+    {
+        $this->customFields = [];
     }
 
     /**
@@ -105,7 +129,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getSubscriptionPlanId(): ?string
     {
-        return $this->subscriptionPlanId;
+        if (count($this->subscriptionPlanId) == 0) {
+            return null;
+        }
+        return $this->subscriptionPlanId['value'];
     }
 
     /**
@@ -118,7 +145,18 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setSubscriptionPlanId(?string $subscriptionPlanId): void
     {
-        $this->subscriptionPlanId = $subscriptionPlanId;
+        $this->subscriptionPlanId['value'] = $subscriptionPlanId;
+    }
+
+    /**
+     * Unsets Subscription Plan Id.
+     * The ID of the subscription plan for the buyer to pay and subscribe.
+     * For more information, see [Subscription Plan Checkout](https://developer.squareup.com/docs/checkout-
+     * api/subscription-plan-checkout).
+     */
+    public function unsetSubscriptionPlanId(): void
+    {
+        $this->subscriptionPlanId = [];
     }
 
     /**
@@ -127,7 +165,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getRedirectUrl(): ?string
     {
-        return $this->redirectUrl;
+        if (count($this->redirectUrl) == 0) {
+            return null;
+        }
+        return $this->redirectUrl['value'];
     }
 
     /**
@@ -138,7 +179,16 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setRedirectUrl(?string $redirectUrl): void
     {
-        $this->redirectUrl = $redirectUrl;
+        $this->redirectUrl['value'] = $redirectUrl;
+    }
+
+    /**
+     * Unsets Redirect Url.
+     * The confirmation page URL to redirect the buyer to after Square processes the payment.
+     */
+    public function unsetRedirectUrl(): void
+    {
+        $this->redirectUrl = [];
     }
 
     /**
@@ -147,7 +197,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getMerchantSupportEmail(): ?string
     {
-        return $this->merchantSupportEmail;
+        if (count($this->merchantSupportEmail) == 0) {
+            return null;
+        }
+        return $this->merchantSupportEmail['value'];
     }
 
     /**
@@ -158,7 +211,16 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setMerchantSupportEmail(?string $merchantSupportEmail): void
     {
-        $this->merchantSupportEmail = $merchantSupportEmail;
+        $this->merchantSupportEmail['value'] = $merchantSupportEmail;
+    }
+
+    /**
+     * Unsets Merchant Support Email.
+     * The email address that buyers can use to contact the seller.
+     */
+    public function unsetMerchantSupportEmail(): void
+    {
+        $this->merchantSupportEmail = [];
     }
 
     /**
@@ -167,7 +229,10 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function getAskForShippingAddress(): ?bool
     {
-        return $this->askForShippingAddress;
+        if (count($this->askForShippingAddress) == 0) {
+            return null;
+        }
+        return $this->askForShippingAddress['value'];
     }
 
     /**
@@ -178,7 +243,16 @@ class CheckoutOptions implements \JsonSerializable
      */
     public function setAskForShippingAddress(?bool $askForShippingAddress): void
     {
-        $this->askForShippingAddress = $askForShippingAddress;
+        $this->askForShippingAddress['value'] = $askForShippingAddress;
+    }
+
+    /**
+     * Unsets Ask for Shipping Address.
+     * Indicates whether to include the address fields in the payment form.
+     */
+    public function unsetAskForShippingAddress(): void
+    {
+        $this->askForShippingAddress = [];
     }
 
     /**
@@ -261,23 +335,23 @@ class CheckoutOptions implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->allowTipping)) {
-            $json['allow_tipping']            = $this->allowTipping;
+        if (!empty($this->allowTipping)) {
+            $json['allow_tipping']            = $this->allowTipping['value'];
         }
-        if (isset($this->customFields)) {
-            $json['custom_fields']            = $this->customFields;
+        if (!empty($this->customFields)) {
+            $json['custom_fields']            = $this->customFields['value'];
         }
-        if (isset($this->subscriptionPlanId)) {
-            $json['subscription_plan_id']     = $this->subscriptionPlanId;
+        if (!empty($this->subscriptionPlanId)) {
+            $json['subscription_plan_id']     = $this->subscriptionPlanId['value'];
         }
-        if (isset($this->redirectUrl)) {
-            $json['redirect_url']             = $this->redirectUrl;
+        if (!empty($this->redirectUrl)) {
+            $json['redirect_url']             = $this->redirectUrl['value'];
         }
-        if (isset($this->merchantSupportEmail)) {
-            $json['merchant_support_email']   = $this->merchantSupportEmail;
+        if (!empty($this->merchantSupportEmail)) {
+            $json['merchant_support_email']   = $this->merchantSupportEmail['value'];
         }
-        if (isset($this->askForShippingAddress)) {
-            $json['ask_for_shipping_address'] = $this->askForShippingAddress;
+        if (!empty($this->askForShippingAddress)) {
+            $json['ask_for_shipping_address'] = $this->askForShippingAddress['value'];
         }
         if (isset($this->acceptedPaymentMethods)) {
             $json['accepted_payment_methods'] = $this->acceptedPaymentMethods;

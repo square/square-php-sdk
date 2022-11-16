@@ -16,9 +16,9 @@ use stdClass;
 class CompletePaymentRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $versionToken;
+    private $versionToken = [];
 
     /**
      * Returns Version Token.
@@ -28,7 +28,10 @@ class CompletePaymentRequest implements \JsonSerializable
      */
     public function getVersionToken(): ?string
     {
-        return $this->versionToken;
+        if (count($this->versionToken) == 0) {
+            return null;
+        }
+        return $this->versionToken['value'];
     }
 
     /**
@@ -41,7 +44,18 @@ class CompletePaymentRequest implements \JsonSerializable
      */
     public function setVersionToken(?string $versionToken): void
     {
-        $this->versionToken = $versionToken;
+        $this->versionToken['value'] = $versionToken;
+    }
+
+    /**
+     * Unsets Version Token.
+     * Used for optimistic concurrency. This opaque token identifies the current `Payment`
+     * version that the caller expects. If the server has a different version of the Payment,
+     * the update fails and a response with a VERSION_MISMATCH error is returned.
+     */
+    public function unsetVersionToken(): void
+    {
+        $this->versionToken = [];
     }
 
     /**
@@ -56,8 +70,8 @@ class CompletePaymentRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->versionToken)) {
-            $json['version_token'] = $this->versionToken;
+        if (!empty($this->versionToken)) {
+            $json['version_token'] = $this->versionToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

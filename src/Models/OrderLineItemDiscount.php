@@ -17,24 +17,24 @@ use stdClass;
 class OrderLineItemDiscount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var string|null
@@ -42,9 +42,9 @@ class OrderLineItemDiscount implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $percentage;
+    private $percentage = [];
 
     /**
      * @var Money|null
@@ -57,9 +57,9 @@ class OrderLineItemDiscount implements \JsonSerializable
     private $appliedMoney;
 
     /**
-     * @var array<string,string>|null
+     * @var array
      */
-    private $metadata;
+    private $metadata = [];
 
     /**
      * @var string|null
@@ -82,7 +82,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -93,7 +96,16 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the discount only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -102,7 +114,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -113,7 +128,16 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -122,7 +146,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -133,7 +160,16 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this discount references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -142,7 +178,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -153,7 +192,16 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The discount's name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -185,7 +233,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getPercentage(): ?string
     {
-        return $this->percentage;
+        if (count($this->percentage) == 0) {
+            return null;
+        }
+        return $this->percentage['value'];
     }
 
     /**
@@ -199,7 +250,19 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setPercentage(?string $percentage): void
     {
-        $this->percentage = $percentage;
+        $this->percentage['value'] = $percentage;
+    }
+
+    /**
+     * Unsets Percentage.
+     * The percentage of the discount, as a string representation of a decimal number.
+     * A value of `7.25` corresponds to a percentage of 7.25%.
+     *
+     * `percentage` is not set for amount-based discounts.
+     */
+    public function unsetPercentage(): void
+    {
+        $this->percentage = [];
     }
 
     /**
@@ -291,7 +354,10 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function getMetadata(): ?array
     {
-        return $this->metadata;
+        if (count($this->metadata) == 0) {
+            return null;
+        }
+        return $this->metadata['value'];
     }
 
     /**
@@ -321,7 +387,33 @@ class OrderLineItemDiscount implements \JsonSerializable
      */
     public function setMetadata(?array $metadata): void
     {
-        $this->metadata = $metadata;
+        $this->metadata['value'] = $metadata;
+    }
+
+    /**
+     * Unsets Metadata.
+     * Application-defined data attached to this discount. Metadata fields are intended
+     * to store descriptive references or associations with an entity in another system or store brief
+     * information about the object. Square does not process this field; it only stores and returns it
+     * in relevant API calls. Do not use metadata to store any sensitive information (such as personally
+     * identifiable information or card details).
+     *
+     * Keys written by applications must be 60 characters or less and must be in the character set
+     * `[a-zA-Z0-9_-]`. Entries can also include metadata generated by Square. These keys are prefixed
+     * with a namespace, separated from the key with a ':' character.
+     *
+     * Values have a maximum length of 255 characters.
+     *
+     * An application can have up to 10 entries per metadata field.
+     *
+     * Entries written by applications are private and can only be read or modified by the same
+     * application.
+     *
+     * For more information, see [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
+     */
+    public function unsetMetadata(): void
+    {
+        $this->metadata = [];
     }
 
     /**
@@ -414,23 +506,23 @@ class OrderLineItemDiscount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']               = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']               = $this->uid['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id'] = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']   = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion['value'];
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
         if (isset($this->type)) {
             $json['type']              = $this->type;
         }
-        if (isset($this->percentage)) {
-            $json['percentage']        = $this->percentage;
+        if (!empty($this->percentage)) {
+            $json['percentage']        = $this->percentage['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']      = $this->amountMoney;
@@ -438,8 +530,8 @@ class OrderLineItemDiscount implements \JsonSerializable
         if (isset($this->appliedMoney)) {
             $json['applied_money']     = $this->appliedMoney;
         }
-        if (isset($this->metadata)) {
-            $json['metadata']          = $this->metadata;
+        if (!empty($this->metadata)) {
+            $json['metadata']          = $this->metadata['value'];
         }
         if (isset($this->scope)) {
             $json['scope']             = $this->scope;

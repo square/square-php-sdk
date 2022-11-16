@@ -12,9 +12,9 @@ use stdClass;
 class CatalogQueryItemVariationsForItemOptionValues implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $itemOptionValueIds;
+    private $itemOptionValueIds = [];
 
     /**
      * Returns Item Option Value Ids.
@@ -26,7 +26,10 @@ class CatalogQueryItemVariationsForItemOptionValues implements \JsonSerializable
      */
     public function getItemOptionValueIds(): ?array
     {
-        return $this->itemOptionValueIds;
+        if (count($this->itemOptionValueIds) == 0) {
+            return null;
+        }
+        return $this->itemOptionValueIds['value'];
     }
 
     /**
@@ -41,7 +44,18 @@ class CatalogQueryItemVariationsForItemOptionValues implements \JsonSerializable
      */
     public function setItemOptionValueIds(?array $itemOptionValueIds): void
     {
-        $this->itemOptionValueIds = $itemOptionValueIds;
+        $this->itemOptionValueIds['value'] = $itemOptionValueIds;
+    }
+
+    /**
+     * Unsets Item Option Value Ids.
+     * A set of `CatalogItemOptionValue` IDs to be used to find associated
+     * `CatalogItemVariation`s. All ItemVariations that contain all of the given
+     * Item Option Values (in any order) will be returned.
+     */
+    public function unsetItemOptionValueIds(): void
+    {
+        $this->itemOptionValueIds = [];
     }
 
     /**
@@ -56,8 +70,8 @@ class CatalogQueryItemVariationsForItemOptionValues implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->itemOptionValueIds)) {
-            $json['item_option_value_ids'] = $this->itemOptionValueIds;
+        if (!empty($this->itemOptionValueIds)) {
+            $json['item_option_value_ids'] = $this->itemOptionValueIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

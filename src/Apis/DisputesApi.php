@@ -151,7 +151,8 @@ class DisputesApi extends BaseApi
             ->auth('global')
             ->parameters(
                 TemplateParam::init('dispute_id', $disputeId),
-                FormParam::init('request', $request)->encodingHeader('Content-Type', 'application/json; charset=utf-8'),
+                FormParam::init('request', $request)
+                    ->encodingHeader('Content-Type', 'application/json; charset=utf-8'),
                 FormParam::init('image_file', $imageFile)->encodingHeader('Content-Type', 'image/jpeg')
             );
 

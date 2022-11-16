@@ -9,19 +9,19 @@ use stdClass;
 class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $refundId;
+    private $refundId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * Returns Payment Id.
@@ -29,7 +29,10 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -40,7 +43,16 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this activity.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -49,7 +61,10 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function getRefundId(): ?string
     {
-        return $this->refundId;
+        if (count($this->refundId) == 0) {
+            return null;
+        }
+        return $this->refundId['value'];
     }
 
     /**
@@ -60,7 +75,16 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function setRefundId(?string $refundId): void
     {
-        $this->refundId = $refundId;
+        $this->refundId['value'] = $refundId;
+    }
+
+    /**
+     * Unsets Refund Id.
+     * The ID of the refund associated with this activity.
+     */
+    public function unsetRefundId(): void
+    {
+        $this->refundId = [];
     }
 
     /**
@@ -69,7 +93,10 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -80,7 +107,16 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location of the merchant associated with the payment refund activity
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -95,14 +131,14 @@ class PaymentBalanceActivityAppFeeRefundDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id']  = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']  = $this->paymentId['value'];
         }
-        if (isset($this->refundId)) {
-            $json['refund_id']   = $this->refundId;
+        if (!empty($this->refundId)) {
+            $json['refund_id']   = $this->refundId['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

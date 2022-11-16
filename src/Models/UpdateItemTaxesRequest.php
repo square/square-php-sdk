@@ -14,14 +14,14 @@ class UpdateItemTaxesRequest implements \JsonSerializable
     private $itemIds;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $taxesToEnable;
+    private $taxesToEnable = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $taxesToDisable;
+    private $taxesToDisable = [];
 
     /**
      * @param string[] $itemIds
@@ -67,7 +67,10 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      */
     public function getTaxesToEnable(): ?array
     {
-        return $this->taxesToEnable;
+        if (count($this->taxesToEnable) == 0) {
+            return null;
+        }
+        return $this->taxesToEnable['value'];
     }
 
     /**
@@ -81,7 +84,17 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      */
     public function setTaxesToEnable(?array $taxesToEnable): void
     {
-        $this->taxesToEnable = $taxesToEnable;
+        $this->taxesToEnable['value'] = $taxesToEnable;
+    }
+
+    /**
+     * Unsets Taxes to Enable.
+     * IDs of the CatalogTax objects to enable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
+     */
+    public function unsetTaxesToEnable(): void
+    {
+        $this->taxesToEnable = [];
     }
 
     /**
@@ -93,7 +106,10 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      */
     public function getTaxesToDisable(): ?array
     {
-        return $this->taxesToDisable;
+        if (count($this->taxesToDisable) == 0) {
+            return null;
+        }
+        return $this->taxesToDisable['value'];
     }
 
     /**
@@ -107,7 +123,17 @@ class UpdateItemTaxesRequest implements \JsonSerializable
      */
     public function setTaxesToDisable(?array $taxesToDisable): void
     {
-        $this->taxesToDisable = $taxesToDisable;
+        $this->taxesToDisable['value'] = $taxesToDisable;
+    }
+
+    /**
+     * Unsets Taxes to Disable.
+     * IDs of the CatalogTax objects to disable.
+     * At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
+     */
+    public function unsetTaxesToDisable(): void
+    {
+        $this->taxesToDisable = [];
     }
 
     /**
@@ -123,11 +149,11 @@ class UpdateItemTaxesRequest implements \JsonSerializable
     {
         $json = [];
         $json['item_ids']             = $this->itemIds;
-        if (isset($this->taxesToEnable)) {
-            $json['taxes_to_enable']  = $this->taxesToEnable;
+        if (!empty($this->taxesToEnable)) {
+            $json['taxes_to_enable']  = $this->taxesToEnable['value'];
         }
-        if (isset($this->taxesToDisable)) {
-            $json['taxes_to_disable'] = $this->taxesToDisable;
+        if (!empty($this->taxesToDisable)) {
+            $json['taxes_to_disable'] = $this->taxesToDisable['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

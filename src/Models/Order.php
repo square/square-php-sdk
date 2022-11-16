@@ -27,9 +27,9 @@ class Order implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var OrderSource|null
@@ -37,34 +37,34 @@ class Order implements \JsonSerializable
     private $source;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
-     * @var OrderLineItem[]|null
+     * @var array
      */
-    private $lineItems;
+    private $lineItems = [];
 
     /**
-     * @var OrderLineItemTax[]|null
+     * @var array
      */
-    private $taxes;
+    private $taxes = [];
 
     /**
-     * @var OrderLineItemDiscount[]|null
+     * @var array
      */
-    private $discounts;
+    private $discounts = [];
 
     /**
-     * @var OrderServiceCharge[]|null
+     * @var array
      */
-    private $serviceCharges;
+    private $serviceCharges = [];
 
     /**
-     * @var Fulfillment[]|null
+     * @var array
      */
-    private $fulfillments;
+    private $fulfillments = [];
 
     /**
      * @var OrderReturn[]|null
@@ -97,9 +97,9 @@ class Order implements \JsonSerializable
     private $refunds;
 
     /**
-     * @var array<string,string>|null
+     * @var array
      */
-    private $metadata;
+    private $metadata = [];
 
     /**
      * @var string|null
@@ -152,9 +152,9 @@ class Order implements \JsonSerializable
     private $totalServiceChargeMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $ticketName;
+    private $ticketName = [];
 
     /**
      * @var OrderPricingOptions|null
@@ -227,7 +227,10 @@ class Order implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -239,7 +242,17 @@ class Order implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A client-specified ID to associate an entity in another system
+     * with this order.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -275,7 +288,10 @@ class Order implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -293,7 +309,23 @@ class Order implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The ID of the [customer]($m/Customer) associated with the order.
+     *
+     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
+     * transactions
+     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
+     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
+     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
+     * does#instant-profiles).
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -304,7 +336,10 @@ class Order implements \JsonSerializable
      */
     public function getLineItems(): ?array
     {
-        return $this->lineItems;
+        if (count($this->lineItems) == 0) {
+            return null;
+        }
+        return $this->lineItems['value'];
     }
 
     /**
@@ -317,7 +352,16 @@ class Order implements \JsonSerializable
      */
     public function setLineItems(?array $lineItems): void
     {
-        $this->lineItems = $lineItems;
+        $this->lineItems['value'] = $lineItems;
+    }
+
+    /**
+     * Unsets Line Items.
+     * The line items included in the order.
+     */
+    public function unsetLineItems(): void
+    {
+        $this->lineItems = [];
     }
 
     /**
@@ -338,7 +382,10 @@ class Order implements \JsonSerializable
      */
     public function getTaxes(): ?array
     {
-        return $this->taxes;
+        if (count($this->taxes) == 0) {
+            return null;
+        }
+        return $this->taxes['value'];
     }
 
     /**
@@ -361,7 +408,26 @@ class Order implements \JsonSerializable
      */
     public function setTaxes(?array $taxes): void
     {
-        $this->taxes = $taxes;
+        $this->taxes['value'] = $taxes;
+    }
+
+    /**
+     * Unsets Taxes.
+     * The list of all taxes associated with the order.
+     *
+     * Taxes can be scoped to either `ORDER` or `LINE_ITEM`. For taxes with `LINE_ITEM` scope, an
+     * `OrderLineItemAppliedTax` must be added to each line item that the tax applies to. For taxes
+     * with `ORDER` scope, the server generates an `OrderLineItemAppliedTax` for every line item.
+     *
+     * On reads, each tax in the list includes the total amount of that tax applied to the order.
+     *
+     * __IMPORTANT__: If `LINE_ITEM` scope is set on any taxes in this field, using the deprecated
+     * `line_items.taxes` field results in an error. Use `line_items.applied_taxes`
+     * instead.
+     */
+    public function unsetTaxes(): void
+    {
+        $this->taxes = [];
     }
 
     /**
@@ -381,7 +447,10 @@ class Order implements \JsonSerializable
      */
     public function getDiscounts(): ?array
     {
-        return $this->discounts;
+        if (count($this->discounts) == 0) {
+            return null;
+        }
+        return $this->discounts['value'];
     }
 
     /**
@@ -403,7 +472,25 @@ class Order implements \JsonSerializable
      */
     public function setDiscounts(?array $discounts): void
     {
-        $this->discounts = $discounts;
+        $this->discounts['value'] = $discounts;
+    }
+
+    /**
+     * Unsets Discounts.
+     * The list of all discounts associated with the order.
+     *
+     * Discounts can be scoped to either `ORDER` or `LINE_ITEM`. For discounts scoped to `LINE_ITEM`,
+     * an `OrderLineItemAppliedDiscount` must be added to each line item that the discount applies to.
+     * For discounts with `ORDER` scope, the server generates an `OrderLineItemAppliedDiscount`
+     * for every line item.
+     *
+     * __IMPORTANT__: If `LINE_ITEM` scope is set on any discounts in this field, using the deprecated
+     * `line_items.discounts` field results in an error. Use `line_items.applied_discounts`
+     * instead.
+     */
+    public function unsetDiscounts(): void
+    {
+        $this->discounts = [];
     }
 
     /**
@@ -414,7 +501,10 @@ class Order implements \JsonSerializable
      */
     public function getServiceCharges(): ?array
     {
-        return $this->serviceCharges;
+        if (count($this->serviceCharges) == 0) {
+            return null;
+        }
+        return $this->serviceCharges['value'];
     }
 
     /**
@@ -427,7 +517,16 @@ class Order implements \JsonSerializable
      */
     public function setServiceCharges(?array $serviceCharges): void
     {
-        $this->serviceCharges = $serviceCharges;
+        $this->serviceCharges['value'] = $serviceCharges;
+    }
+
+    /**
+     * Unsets Service Charges.
+     * A list of service charges applied to the order.
+     */
+    public function unsetServiceCharges(): void
+    {
+        $this->serviceCharges = [];
     }
 
     /**
@@ -441,7 +540,10 @@ class Order implements \JsonSerializable
      */
     public function getFulfillments(): ?array
     {
-        return $this->fulfillments;
+        if (count($this->fulfillments) == 0) {
+            return null;
+        }
+        return $this->fulfillments['value'];
     }
 
     /**
@@ -457,7 +559,19 @@ class Order implements \JsonSerializable
      */
     public function setFulfillments(?array $fulfillments): void
     {
-        $this->fulfillments = $fulfillments;
+        $this->fulfillments['value'] = $fulfillments;
+    }
+
+    /**
+     * Unsets Fulfillments.
+     * Details about order fulfillment.
+     *
+     * Orders can only be created with at most one fulfillment. However, orders returned
+     * by the API might contain multiple fulfillments.
+     */
+    public function unsetFulfillments(): void
+    {
+        $this->fulfillments = [];
     }
 
     /**
@@ -625,7 +739,10 @@ class Order implements \JsonSerializable
      */
     public function getMetadata(): ?array
     {
-        return $this->metadata;
+        if (count($this->metadata) == 0) {
+            return null;
+        }
+        return $this->metadata['value'];
     }
 
     /**
@@ -655,7 +772,33 @@ class Order implements \JsonSerializable
      */
     public function setMetadata(?array $metadata): void
     {
-        $this->metadata = $metadata;
+        $this->metadata['value'] = $metadata;
+    }
+
+    /**
+     * Unsets Metadata.
+     * Application-defined data attached to this order. Metadata fields are intended
+     * to store descriptive references or associations with an entity in another system or store brief
+     * information about the object. Square does not process this field; it only stores and returns it
+     * in relevant API calls. Do not use metadata to store any sensitive information (such as personally
+     * identifiable information or card details).
+     *
+     * Keys written by applications must be 60 characters or less and must be in the character set
+     * `[a-zA-Z0-9_-]`. Entries can also include metadata generated by Square. These keys are prefixed
+     * with a namespace, separated from the key with a ':' character.
+     *
+     * Values have a maximum length of 255 characters.
+     *
+     * An application can have up to 10 entries per metadata field.
+     *
+     * Entries written by applications are private and can only be read or modified by the same
+     * application.
+     *
+     * For more information, see  [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
+     */
+    public function unsetMetadata(): void
+    {
+        $this->metadata = [];
     }
 
     /**
@@ -751,7 +894,7 @@ class Order implements \JsonSerializable
      * therefore cannot be updated.
      *
      * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders).
+     * orders/update-orders).
      */
     public function getVersion(): ?int
     {
@@ -765,7 +908,7 @@ class Order implements \JsonSerializable
      * therefore cannot be updated.
      *
      * [Read more about working with versions](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders).
+     * orders/update-orders).
      *
      * @maps version
      */
@@ -941,7 +1084,10 @@ class Order implements \JsonSerializable
      */
     public function getTicketName(): ?string
     {
-        return $this->ticketName;
+        if (count($this->ticketName) == 0) {
+            return null;
+        }
+        return $this->ticketName['value'];
     }
 
     /**
@@ -953,7 +1099,17 @@ class Order implements \JsonSerializable
      */
     public function setTicketName(?string $ticketName): void
     {
-        $this->ticketName = $ticketName;
+        $this->ticketName['value'] = $ticketName;
+    }
+
+    /**
+     * Unsets Ticket Name.
+     * A short-term identifier for the order (such as a customer first name,
+     * table number, or auto-generated order number that resets daily).
+     */
+    public function unsetTicketName(): void
+    {
+        $this->ticketName = [];
     }
 
     /**
@@ -1052,29 +1208,29 @@ class Order implements \JsonSerializable
             $json['id']                         = $this->id;
         }
         $json['location_id']                    = $this->locationId;
-        if (isset($this->referenceId)) {
-            $json['reference_id']               = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']               = $this->referenceId['value'];
         }
         if (isset($this->source)) {
             $json['source']                     = $this->source;
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']                = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']                = $this->customerId['value'];
         }
-        if (isset($this->lineItems)) {
-            $json['line_items']                 = $this->lineItems;
+        if (!empty($this->lineItems)) {
+            $json['line_items']                 = $this->lineItems['value'];
         }
-        if (isset($this->taxes)) {
-            $json['taxes']                      = $this->taxes;
+        if (!empty($this->taxes)) {
+            $json['taxes']                      = $this->taxes['value'];
         }
-        if (isset($this->discounts)) {
-            $json['discounts']                  = $this->discounts;
+        if (!empty($this->discounts)) {
+            $json['discounts']                  = $this->discounts['value'];
         }
-        if (isset($this->serviceCharges)) {
-            $json['service_charges']            = $this->serviceCharges;
+        if (!empty($this->serviceCharges)) {
+            $json['service_charges']            = $this->serviceCharges['value'];
         }
-        if (isset($this->fulfillments)) {
-            $json['fulfillments']               = $this->fulfillments;
+        if (!empty($this->fulfillments)) {
+            $json['fulfillments']               = $this->fulfillments['value'];
         }
         if (isset($this->returns)) {
             $json['returns']                    = $this->returns;
@@ -1094,8 +1250,8 @@ class Order implements \JsonSerializable
         if (isset($this->refunds)) {
             $json['refunds']                    = $this->refunds;
         }
-        if (isset($this->metadata)) {
-            $json['metadata']                   = $this->metadata;
+        if (!empty($this->metadata)) {
+            $json['metadata']                   = $this->metadata['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']                 = $this->createdAt;
@@ -1127,8 +1283,8 @@ class Order implements \JsonSerializable
         if (isset($this->totalServiceChargeMoney)) {
             $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
         }
-        if (isset($this->ticketName)) {
-            $json['ticket_name']                = $this->ticketName;
+        if (!empty($this->ticketName)) {
+            $json['ticket_name']                = $this->ticketName['value'];
         }
         if (isset($this->pricingOptions)) {
             $json['pricing_options']            = $this->pricingOptions;

@@ -9,9 +9,9 @@ use stdClass;
 class RenewTokenRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $accessToken;
+    private $accessToken = [];
 
     /**
      * Returns Access Token.
@@ -19,7 +19,10 @@ class RenewTokenRequest implements \JsonSerializable
      */
     public function getAccessToken(): ?string
     {
-        return $this->accessToken;
+        if (count($this->accessToken) == 0) {
+            return null;
+        }
+        return $this->accessToken['value'];
     }
 
     /**
@@ -30,7 +33,16 @@ class RenewTokenRequest implements \JsonSerializable
      */
     public function setAccessToken(?string $accessToken): void
     {
-        $this->accessToken = $accessToken;
+        $this->accessToken['value'] = $accessToken;
+    }
+
+    /**
+     * Unsets Access Token.
+     * The token you want to renew.
+     */
+    public function unsetAccessToken(): void
+    {
+        $this->accessToken = [];
     }
 
     /**
@@ -45,8 +57,8 @@ class RenewTokenRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->accessToken)) {
-            $json['access_token'] = $this->accessToken;
+        if (!empty($this->accessToken)) {
+            $json['access_token'] = $this->accessToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -18,24 +18,24 @@ class Checkout implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $checkoutPageUrl;
+    private $checkoutPageUrl = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $askForShippingAddress;
+    private $askForShippingAddress = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantSupportEmail;
+    private $merchantSupportEmail = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $prePopulateBuyerEmail;
+    private $prePopulateBuyerEmail = [];
 
     /**
      * @var Address|null
@@ -43,9 +43,9 @@ class Checkout implements \JsonSerializable
     private $prePopulateShippingAddress;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $redirectUrl;
+    private $redirectUrl = [];
 
     /**
      * @var Order|null
@@ -58,9 +58,9 @@ class Checkout implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var AdditionalRecipient[]|null
+     * @var array
      */
-    private $additionalRecipients;
+    private $additionalRecipients = [];
 
     /**
      * Returns Id.
@@ -89,7 +89,10 @@ class Checkout implements \JsonSerializable
      */
     public function getCheckoutPageUrl(): ?string
     {
-        return $this->checkoutPageUrl;
+        if (count($this->checkoutPageUrl) == 0) {
+            return null;
+        }
+        return $this->checkoutPageUrl['value'];
     }
 
     /**
@@ -101,7 +104,17 @@ class Checkout implements \JsonSerializable
      */
     public function setCheckoutPageUrl(?string $checkoutPageUrl): void
     {
-        $this->checkoutPageUrl = $checkoutPageUrl;
+        $this->checkoutPageUrl['value'] = $checkoutPageUrl;
+    }
+
+    /**
+     * Unsets Checkout Page Url.
+     * The URL that the buyer's browser should be redirected to after the
+     * checkout is completed.
+     */
+    public function unsetCheckoutPageUrl(): void
+    {
+        $this->checkoutPageUrl = [];
     }
 
     /**
@@ -114,7 +127,10 @@ class Checkout implements \JsonSerializable
      */
     public function getAskForShippingAddress(): ?bool
     {
-        return $this->askForShippingAddress;
+        if (count($this->askForShippingAddress) == 0) {
+            return null;
+        }
+        return $this->askForShippingAddress['value'];
     }
 
     /**
@@ -129,7 +145,20 @@ class Checkout implements \JsonSerializable
      */
     public function setAskForShippingAddress(?bool $askForShippingAddress): void
     {
-        $this->askForShippingAddress = $askForShippingAddress;
+        $this->askForShippingAddress['value'] = $askForShippingAddress;
+    }
+
+    /**
+     * Unsets Ask for Shipping Address.
+     * If `true`, Square Checkout will collect shipping information on your
+     * behalf and store that information with the transaction information in your
+     * Square Dashboard.
+     *
+     * Default: `false`.
+     */
+    public function unsetAskForShippingAddress(): void
+    {
+        $this->askForShippingAddress = [];
     }
 
     /**
@@ -144,7 +173,10 @@ class Checkout implements \JsonSerializable
      */
     public function getMerchantSupportEmail(): ?string
     {
-        return $this->merchantSupportEmail;
+        if (count($this->merchantSupportEmail) == 0) {
+            return null;
+        }
+        return $this->merchantSupportEmail['value'];
     }
 
     /**
@@ -161,7 +193,22 @@ class Checkout implements \JsonSerializable
      */
     public function setMerchantSupportEmail(?string $merchantSupportEmail): void
     {
-        $this->merchantSupportEmail = $merchantSupportEmail;
+        $this->merchantSupportEmail['value'] = $merchantSupportEmail;
+    }
+
+    /**
+     * Unsets Merchant Support Email.
+     * The email address to display on the Square Checkout confirmation page
+     * and confirmation email that the buyer can use to contact the merchant.
+     *
+     * If this value is not set, the confirmation page and email will display the
+     * primary email address associated with the merchant's Square account.
+     *
+     * Default: none; only exists if explicitly set.
+     */
+    public function unsetMerchantSupportEmail(): void
+    {
+        $this->merchantSupportEmail = [];
     }
 
     /**
@@ -173,7 +220,10 @@ class Checkout implements \JsonSerializable
      */
     public function getPrePopulateBuyerEmail(): ?string
     {
-        return $this->prePopulateBuyerEmail;
+        if (count($this->prePopulateBuyerEmail) == 0) {
+            return null;
+        }
+        return $this->prePopulateBuyerEmail['value'];
     }
 
     /**
@@ -187,7 +237,19 @@ class Checkout implements \JsonSerializable
      */
     public function setPrePopulateBuyerEmail(?string $prePopulateBuyerEmail): void
     {
-        $this->prePopulateBuyerEmail = $prePopulateBuyerEmail;
+        $this->prePopulateBuyerEmail['value'] = $prePopulateBuyerEmail;
+    }
+
+    /**
+     * Unsets Pre Populate Buyer Email.
+     * If provided, the buyer's email is pre-populated on the checkout page
+     * as an editable text field.
+     *
+     * Default: none; only exists if explicitly set.
+     */
+    public function unsetPrePopulateBuyerEmail(): void
+    {
+        $this->prePopulateBuyerEmail = [];
     }
 
     /**
@@ -232,7 +294,10 @@ class Checkout implements \JsonSerializable
      */
     public function getRedirectUrl(): ?string
     {
-        return $this->redirectUrl;
+        if (count($this->redirectUrl) == 0) {
+            return null;
+        }
+        return $this->redirectUrl['value'];
     }
 
     /**
@@ -255,7 +320,28 @@ class Checkout implements \JsonSerializable
      */
     public function setRedirectUrl(?string $redirectUrl): void
     {
-        $this->redirectUrl = $redirectUrl;
+        $this->redirectUrl['value'] = $redirectUrl;
+    }
+
+    /**
+     * Unsets Redirect Url.
+     * The URL to redirect to after checkout is completed with `checkoutId`,
+     * Square's `orderId`, `transactionId`, and `referenceId` appended as URL
+     * parameters. For example, if the provided redirect_url is
+     * `http://www.example.com/order-complete`, a successful transaction redirects
+     * the customer to:
+     *
+     * <pre><code>http://www.example.com/order-complete?checkoutId=xxxxxx&amp;orderId=xxxxxx&amp;
+     * referenceId=xxxxxx&amp;transactionId=xxxxxx</code></pre>
+     *
+     * If you do not provide a redirect URL, Square Checkout will display an order
+     * confirmation page on your behalf; however Square strongly recommends that
+     * you provide a redirect URL so you can verify the transaction results and
+     * finalize the order through your existing/normal confirmation workflow.
+     */
+    public function unsetRedirectUrl(): void
+    {
+        $this->redirectUrl = [];
     }
 
     /**
@@ -317,7 +403,10 @@ class Checkout implements \JsonSerializable
      */
     public function getAdditionalRecipients(): ?array
     {
-        return $this->additionalRecipients;
+        if (count($this->additionalRecipients) == 0) {
+            return null;
+        }
+        return $this->additionalRecipients['value'];
     }
 
     /**
@@ -331,7 +420,17 @@ class Checkout implements \JsonSerializable
      */
     public function setAdditionalRecipients(?array $additionalRecipients): void
     {
-        $this->additionalRecipients = $additionalRecipients;
+        $this->additionalRecipients['value'] = $additionalRecipients;
+    }
+
+    /**
+     * Unsets Additional Recipients.
+     * Additional recipients (other than the merchant) receiving a portion of this checkout.
+     * For example, fees assessed on the purchase by a third party integration.
+     */
+    public function unsetAdditionalRecipients(): void
+    {
+        $this->additionalRecipients = [];
     }
 
     /**
@@ -349,23 +448,23 @@ class Checkout implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                            = $this->id;
         }
-        if (isset($this->checkoutPageUrl)) {
-            $json['checkout_page_url']             = $this->checkoutPageUrl;
+        if (!empty($this->checkoutPageUrl)) {
+            $json['checkout_page_url']             = $this->checkoutPageUrl['value'];
         }
-        if (isset($this->askForShippingAddress)) {
-            $json['ask_for_shipping_address']      = $this->askForShippingAddress;
+        if (!empty($this->askForShippingAddress)) {
+            $json['ask_for_shipping_address']      = $this->askForShippingAddress['value'];
         }
-        if (isset($this->merchantSupportEmail)) {
-            $json['merchant_support_email']        = $this->merchantSupportEmail;
+        if (!empty($this->merchantSupportEmail)) {
+            $json['merchant_support_email']        = $this->merchantSupportEmail['value'];
         }
-        if (isset($this->prePopulateBuyerEmail)) {
-            $json['pre_populate_buyer_email']      = $this->prePopulateBuyerEmail;
+        if (!empty($this->prePopulateBuyerEmail)) {
+            $json['pre_populate_buyer_email']      = $this->prePopulateBuyerEmail['value'];
         }
         if (isset($this->prePopulateShippingAddress)) {
             $json['pre_populate_shipping_address'] = $this->prePopulateShippingAddress;
         }
-        if (isset($this->redirectUrl)) {
-            $json['redirect_url']                  = $this->redirectUrl;
+        if (!empty($this->redirectUrl)) {
+            $json['redirect_url']                  = $this->redirectUrl['value'];
         }
         if (isset($this->order)) {
             $json['order']                         = $this->order;
@@ -373,8 +472,8 @@ class Checkout implements \JsonSerializable
         if (isset($this->createdAt)) {
             $json['created_at']                    = $this->createdAt;
         }
-        if (isset($this->additionalRecipients)) {
-            $json['additional_recipients']         = $this->additionalRecipients;
+        if (!empty($this->additionalRecipients)) {
+            $json['additional_recipients']         = $this->additionalRecipients['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

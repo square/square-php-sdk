@@ -9,9 +9,9 @@ use stdClass;
 class UpdateBookingRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
      * @var Booking
@@ -32,7 +32,10 @@ class UpdateBookingRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class UpdateBookingRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A unique key to make this request an idempotent operation.
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -83,8 +95,8 @@ class UpdateBookingRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
         $json['booking']             = $this->booking;
         $json = array_filter($json, function ($val) {

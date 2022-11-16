@@ -14,9 +14,9 @@ class DeviceCode implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var string|null
@@ -34,9 +34,9 @@ class DeviceCode implements \JsonSerializable
     private $productType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string|null
@@ -89,7 +89,10 @@ class DeviceCode implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -100,7 +103,16 @@ class DeviceCode implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * An optional user-defined name for the device code.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -167,7 +179,10 @@ class DeviceCode implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -178,7 +193,16 @@ class DeviceCode implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The location assigned to this code.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -296,8 +320,8 @@ class DeviceCode implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                = $this->id;
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
         if (isset($this->code)) {
             $json['code']              = $this->code;
@@ -306,8 +330,8 @@ class DeviceCode implements \JsonSerializable
             $json['device_id']         = $this->deviceId;
         }
         $json['product_type']          = $this->productType;
-        if (isset($this->locationId)) {
-            $json['location_id']       = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']       = $this->locationId['value'];
         }
         if (isset($this->status)) {
             $json['status']            = $this->status;

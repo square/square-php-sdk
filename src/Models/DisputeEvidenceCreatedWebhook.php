@@ -15,24 +15,24 @@ use stdClass;
 class DisputeEvidenceCreatedWebhook implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantId;
+    private $merchantId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $type;
+    private $type = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $eventId;
+    private $eventId = [];
 
     /**
      * @var string|null
@@ -50,7 +50,10 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function getMerchantId(): ?string
     {
-        return $this->merchantId;
+        if (count($this->merchantId) == 0) {
+            return null;
+        }
+        return $this->merchantId['value'];
     }
 
     /**
@@ -61,7 +64,16 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function setMerchantId(?string $merchantId): void
     {
-        $this->merchantId = $merchantId;
+        $this->merchantId['value'] = $merchantId;
+    }
+
+    /**
+     * Unsets Merchant Id.
+     * The ID of the target merchant associated with the event.
+     */
+    public function unsetMerchantId(): void
+    {
+        $this->merchantId = [];
     }
 
     /**
@@ -70,7 +82,10 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -81,7 +96,16 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the target location associated with the event.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -90,7 +114,10 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function getType(): ?string
     {
-        return $this->type;
+        if (count($this->type) == 0) {
+            return null;
+        }
+        return $this->type['value'];
     }
 
     /**
@@ -101,7 +128,16 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function setType(?string $type): void
     {
-        $this->type = $type;
+        $this->type['value'] = $type;
+    }
+
+    /**
+     * Unsets Type.
+     * The type of event this represents.
+     */
+    public function unsetType(): void
+    {
+        $this->type = [];
     }
 
     /**
@@ -110,7 +146,10 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function getEventId(): ?string
     {
-        return $this->eventId;
+        if (count($this->eventId) == 0) {
+            return null;
+        }
+        return $this->eventId['value'];
     }
 
     /**
@@ -121,7 +160,16 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
      */
     public function setEventId(?string $eventId): void
     {
-        $this->eventId = $eventId;
+        $this->eventId['value'] = $eventId;
+    }
+
+    /**
+     * Unsets Event Id.
+     * A unique ID for the webhook event.
+     */
+    public function unsetEventId(): void
+    {
+        $this->eventId = [];
     }
 
     /**
@@ -174,17 +222,17 @@ class DisputeEvidenceCreatedWebhook implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->merchantId)) {
-            $json['merchant_id'] = $this->merchantId;
+        if (!empty($this->merchantId)) {
+            $json['merchant_id'] = $this->merchantId['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
-        if (isset($this->type)) {
-            $json['type']        = $this->type;
+        if (!empty($this->type)) {
+            $json['type']        = $this->type['value'];
         }
-        if (isset($this->eventId)) {
-            $json['event_id']    = $this->eventId;
+        if (!empty($this->eventId)) {
+            $json['event_id']    = $this->eventId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']  = $this->createdAt;

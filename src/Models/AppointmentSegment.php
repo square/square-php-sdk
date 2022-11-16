@@ -12,14 +12,14 @@ use stdClass;
 class AppointmentSegment implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $durationMinutes;
+    private $durationMinutes = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $serviceVariationId;
+    private $serviceVariationId = [];
 
     /**
      * @var string
@@ -27,9 +27,9 @@ class AppointmentSegment implements \JsonSerializable
     private $teamMemberId;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $serviceVariationVersion;
+    private $serviceVariationVersion = [];
 
     /**
      * @var int|null
@@ -60,7 +60,10 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function getDurationMinutes(): ?int
     {
-        return $this->durationMinutes;
+        if (count($this->durationMinutes) == 0) {
+            return null;
+        }
+        return $this->durationMinutes['value'];
     }
 
     /**
@@ -71,7 +74,16 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function setDurationMinutes(?int $durationMinutes): void
     {
-        $this->durationMinutes = $durationMinutes;
+        $this->durationMinutes['value'] = $durationMinutes;
+    }
+
+    /**
+     * Unsets Duration Minutes.
+     * The time span in minutes of an appointment segment.
+     */
+    public function unsetDurationMinutes(): void
+    {
+        $this->durationMinutes = [];
     }
 
     /**
@@ -81,7 +93,10 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function getServiceVariationId(): ?string
     {
-        return $this->serviceVariationId;
+        if (count($this->serviceVariationId) == 0) {
+            return null;
+        }
+        return $this->serviceVariationId['value'];
     }
 
     /**
@@ -93,7 +108,17 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function setServiceVariationId(?string $serviceVariationId): void
     {
-        $this->serviceVariationId = $serviceVariationId;
+        $this->serviceVariationId['value'] = $serviceVariationId;
+    }
+
+    /**
+     * Unsets Service Variation Id.
+     * The ID of the [CatalogItemVariation]($m/CatalogItemVariation) object representing the service booked
+     * in this segment.
+     */
+    public function unsetServiceVariationId(): void
+    {
+        $this->serviceVariationId = [];
     }
 
     /**
@@ -123,7 +148,10 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function getServiceVariationVersion(): ?int
     {
-        return $this->serviceVariationVersion;
+        if (count($this->serviceVariationVersion) == 0) {
+            return null;
+        }
+        return $this->serviceVariationVersion['value'];
     }
 
     /**
@@ -134,7 +162,16 @@ class AppointmentSegment implements \JsonSerializable
      */
     public function setServiceVariationVersion(?int $serviceVariationVersion): void
     {
-        $this->serviceVariationVersion = $serviceVariationVersion;
+        $this->serviceVariationVersion['value'] = $serviceVariationVersion;
+    }
+
+    /**
+     * Unsets Service Variation Version.
+     * The current version of the item variation representing the service booked in this segment.
+     */
+    public function unsetServiceVariationVersion(): void
+    {
+        $this->serviceVariationVersion = [];
     }
 
     /**
@@ -213,15 +250,15 @@ class AppointmentSegment implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->durationMinutes)) {
-            $json['duration_minutes']          = $this->durationMinutes;
+        if (!empty($this->durationMinutes)) {
+            $json['duration_minutes']          = $this->durationMinutes['value'];
         }
-        if (isset($this->serviceVariationId)) {
-            $json['service_variation_id']      = $this->serviceVariationId;
+        if (!empty($this->serviceVariationId)) {
+            $json['service_variation_id']      = $this->serviceVariationId['value'];
         }
         $json['team_member_id']                = $this->teamMemberId;
-        if (isset($this->serviceVariationVersion)) {
-            $json['service_variation_version'] = $this->serviceVariationVersion;
+        if (!empty($this->serviceVariationVersion)) {
+            $json['service_variation_version'] = $this->serviceVariationVersion['value'];
         }
         if (isset($this->intermissionMinutes)) {
             $json['intermission_minutes']      = $this->intermissionMinutes;

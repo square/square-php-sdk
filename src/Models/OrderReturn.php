@@ -13,19 +13,19 @@ use stdClass;
 class OrderReturn implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceOrderId;
+    private $sourceOrderId = [];
 
     /**
-     * @var OrderReturnLineItem[]|null
+     * @var array
      */
-    private $returnLineItems;
+    private $returnLineItems = [];
 
     /**
      * @var OrderReturnServiceCharge[]|null
@@ -33,14 +33,14 @@ class OrderReturn implements \JsonSerializable
     private $returnServiceCharges;
 
     /**
-     * @var OrderReturnTax[]|null
+     * @var array
      */
-    private $returnTaxes;
+    private $returnTaxes = [];
 
     /**
-     * @var OrderReturnDiscount[]|null
+     * @var array
      */
-    private $returnDiscounts;
+    private $returnDiscounts = [];
 
     /**
      * @var OrderRoundingAdjustment|null
@@ -58,7 +58,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -69,7 +72,16 @@ class OrderReturn implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the return only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -79,7 +91,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getSourceOrderId(): ?string
     {
-        return $this->sourceOrderId;
+        if (count($this->sourceOrderId) == 0) {
+            return null;
+        }
+        return $this->sourceOrderId['value'];
     }
 
     /**
@@ -91,7 +106,17 @@ class OrderReturn implements \JsonSerializable
      */
     public function setSourceOrderId(?string $sourceOrderId): void
     {
-        $this->sourceOrderId = $sourceOrderId;
+        $this->sourceOrderId['value'] = $sourceOrderId;
+    }
+
+    /**
+     * Unsets Source Order Id.
+     * An order that contains the original sale of these return line items. This is unset
+     * for unlinked returns.
+     */
+    public function unsetSourceOrderId(): void
+    {
+        $this->sourceOrderId = [];
     }
 
     /**
@@ -102,7 +127,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnLineItems(): ?array
     {
-        return $this->returnLineItems;
+        if (count($this->returnLineItems) == 0) {
+            return null;
+        }
+        return $this->returnLineItems['value'];
     }
 
     /**
@@ -115,7 +143,16 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnLineItems(?array $returnLineItems): void
     {
-        $this->returnLineItems = $returnLineItems;
+        $this->returnLineItems['value'] = $returnLineItems;
+    }
+
+    /**
+     * Unsets Return Line Items.
+     * A collection of line items that are being returned.
+     */
+    public function unsetReturnLineItems(): void
+    {
+        $this->returnLineItems = [];
     }
 
     /**
@@ -152,7 +189,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnTaxes(): ?array
     {
-        return $this->returnTaxes;
+        if (count($this->returnTaxes) == 0) {
+            return null;
+        }
+        return $this->returnTaxes['value'];
     }
 
     /**
@@ -167,7 +207,18 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnTaxes(?array $returnTaxes): void
     {
-        $this->returnTaxes = $returnTaxes;
+        $this->returnTaxes['value'] = $returnTaxes;
+    }
+
+    /**
+     * Unsets Return Taxes.
+     * A collection of references to taxes being returned for an order, including the total
+     * applied tax amount to be returned. The taxes must reference a top-level tax ID from the source
+     * order.
+     */
+    public function unsetReturnTaxes(): void
+    {
+        $this->returnTaxes = [];
     }
 
     /**
@@ -180,7 +231,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnDiscounts(): ?array
     {
-        return $this->returnDiscounts;
+        if (count($this->returnDiscounts) == 0) {
+            return null;
+        }
+        return $this->returnDiscounts['value'];
     }
 
     /**
@@ -195,7 +249,18 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnDiscounts(?array $returnDiscounts): void
     {
-        $this->returnDiscounts = $returnDiscounts;
+        $this->returnDiscounts['value'] = $returnDiscounts;
+    }
+
+    /**
+     * Unsets Return Discounts.
+     * A collection of references to discounts being returned for an order, including the total
+     * applied discount amount to be returned. The discounts must reference a top-level discount ID
+     * from the source order.
+     */
+    public function unsetReturnDiscounts(): void
+    {
+        $this->returnDiscounts = [];
     }
 
     /**
@@ -254,23 +319,23 @@ class OrderReturn implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                    = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                    = $this->uid['value'];
         }
-        if (isset($this->sourceOrderId)) {
-            $json['source_order_id']        = $this->sourceOrderId;
+        if (!empty($this->sourceOrderId)) {
+            $json['source_order_id']        = $this->sourceOrderId['value'];
         }
-        if (isset($this->returnLineItems)) {
-            $json['return_line_items']      = $this->returnLineItems;
+        if (!empty($this->returnLineItems)) {
+            $json['return_line_items']      = $this->returnLineItems['value'];
         }
         if (isset($this->returnServiceCharges)) {
             $json['return_service_charges'] = $this->returnServiceCharges;
         }
-        if (isset($this->returnTaxes)) {
-            $json['return_taxes']           = $this->returnTaxes;
+        if (!empty($this->returnTaxes)) {
+            $json['return_taxes']           = $this->returnTaxes['value'];
         }
-        if (isset($this->returnDiscounts)) {
-            $json['return_discounts']       = $this->returnDiscounts;
+        if (!empty($this->returnDiscounts)) {
+            $json['return_discounts']       = $this->returnDiscounts['value'];
         }
         if (isset($this->roundingAdjustment)) {
             $json['rounding_adjustment']    = $this->roundingAdjustment;

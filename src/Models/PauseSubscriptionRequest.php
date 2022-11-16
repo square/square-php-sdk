@@ -13,19 +13,19 @@ use stdClass;
 class PauseSubscriptionRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $pauseEffectiveDate;
+    private $pauseEffectiveDate = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $pauseCycleDuration;
+    private $pauseCycleDuration = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $resumeEffectiveDate;
+    private $resumeEffectiveDate = [];
 
     /**
      * @var string|null
@@ -33,9 +33,9 @@ class PauseSubscriptionRequest implements \JsonSerializable
     private $resumeChangeTiming;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $pauseReason;
+    private $pauseReason = [];
 
     /**
      * Returns Pause Effective Date.
@@ -46,7 +46,10 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function getPauseEffectiveDate(): ?string
     {
-        return $this->pauseEffectiveDate;
+        if (count($this->pauseEffectiveDate) == 0) {
+            return null;
+        }
+        return $this->pauseEffectiveDate['value'];
     }
 
     /**
@@ -60,7 +63,19 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function setPauseEffectiveDate(?string $pauseEffectiveDate): void
     {
-        $this->pauseEffectiveDate = $pauseEffectiveDate;
+        $this->pauseEffectiveDate['value'] = $pauseEffectiveDate;
+    }
+
+    /**
+     * Unsets Pause Effective Date.
+     * The `YYYY-MM-DD`-formatted date when the scheduled `PAUSE` action takes place on the subscription.
+     *
+     * When this date is unspecified or falls within the current billing cycle, the subscription is paused
+     * on the starting date of the next billing cycle.
+     */
+    public function unsetPauseEffectiveDate(): void
+    {
+        $this->pauseEffectiveDate = [];
     }
 
     /**
@@ -73,7 +88,10 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function getPauseCycleDuration(): ?int
     {
-        return $this->pauseCycleDuration;
+        if (count($this->pauseCycleDuration) == 0) {
+            return null;
+        }
+        return $this->pauseCycleDuration['value'];
     }
 
     /**
@@ -88,7 +106,20 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function setPauseCycleDuration(?int $pauseCycleDuration): void
     {
-        $this->pauseCycleDuration = $pauseCycleDuration;
+        $this->pauseCycleDuration['value'] = $pauseCycleDuration;
+    }
+
+    /**
+     * Unsets Pause Cycle Duration.
+     * The number of billing cycles the subscription will be paused before it is reactivated.
+     *
+     * When this is set, a `RESUME` action is also scheduled to take place on the subscription at
+     * the end of the specified pause cycle duration. In this case, neither `resume_effective_date`
+     * nor `resume_change_timing` may be specified.
+     */
+    public function unsetPauseCycleDuration(): void
+    {
+        $this->pauseCycleDuration = [];
     }
 
     /**
@@ -98,7 +129,10 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function getResumeEffectiveDate(): ?string
     {
-        return $this->resumeEffectiveDate;
+        if (count($this->resumeEffectiveDate) == 0) {
+            return null;
+        }
+        return $this->resumeEffectiveDate['value'];
     }
 
     /**
@@ -110,7 +144,17 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function setResumeEffectiveDate(?string $resumeEffectiveDate): void
     {
-        $this->resumeEffectiveDate = $resumeEffectiveDate;
+        $this->resumeEffectiveDate['value'] = $resumeEffectiveDate;
+    }
+
+    /**
+     * Unsets Resume Effective Date.
+     * The date when the subscription is reactivated by a scheduled `RESUME` action.
+     * This date must be at least one billing cycle ahead of `pause_effective_date`.
+     */
+    public function unsetResumeEffectiveDate(): void
+    {
+        $this->resumeEffectiveDate = [];
     }
 
     /**
@@ -139,7 +183,10 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function getPauseReason(): ?string
     {
-        return $this->pauseReason;
+        if (count($this->pauseReason) == 0) {
+            return null;
+        }
+        return $this->pauseReason['value'];
     }
 
     /**
@@ -150,7 +197,16 @@ class PauseSubscriptionRequest implements \JsonSerializable
      */
     public function setPauseReason(?string $pauseReason): void
     {
-        $this->pauseReason = $pauseReason;
+        $this->pauseReason['value'] = $pauseReason;
+    }
+
+    /**
+     * Unsets Pause Reason.
+     * The user-provided reason to pause the subscription.
+     */
+    public function unsetPauseReason(): void
+    {
+        $this->pauseReason = [];
     }
 
     /**
@@ -165,20 +221,20 @@ class PauseSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->pauseEffectiveDate)) {
-            $json['pause_effective_date']  = $this->pauseEffectiveDate;
+        if (!empty($this->pauseEffectiveDate)) {
+            $json['pause_effective_date']  = $this->pauseEffectiveDate['value'];
         }
-        if (isset($this->pauseCycleDuration)) {
-            $json['pause_cycle_duration']  = $this->pauseCycleDuration;
+        if (!empty($this->pauseCycleDuration)) {
+            $json['pause_cycle_duration']  = $this->pauseCycleDuration['value'];
         }
-        if (isset($this->resumeEffectiveDate)) {
-            $json['resume_effective_date'] = $this->resumeEffectiveDate;
+        if (!empty($this->resumeEffectiveDate)) {
+            $json['resume_effective_date'] = $this->resumeEffectiveDate['value'];
         }
         if (isset($this->resumeChangeTiming)) {
             $json['resume_change_timing']  = $this->resumeChangeTiming;
         }
-        if (isset($this->pauseReason)) {
-            $json['pause_reason']          = $this->pauseReason;
+        if (!empty($this->pauseReason)) {
+            $json['pause_reason']          = $this->pauseReason['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

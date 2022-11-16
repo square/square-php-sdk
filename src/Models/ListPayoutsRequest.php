@@ -12,9 +12,9 @@ use stdClass;
 class ListPayoutsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string|null
@@ -22,14 +22,14 @@ class ListPayoutsRequest implements \JsonSerializable
     private $status;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $beginTime;
+    private $beginTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endTime;
+    private $endTime = [];
 
     /**
      * @var string|null
@@ -37,14 +37,14 @@ class ListPayoutsRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Location Id.
@@ -53,7 +53,10 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -65,7 +68,17 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location for which to list the payouts.
+     * By default, payouts are returned for the default (main) location associated with the seller.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -95,7 +108,10 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function getBeginTime(): ?string
     {
-        return $this->beginTime;
+        if (count($this->beginTime) == 0) {
+            return null;
+        }
+        return $this->beginTime['value'];
     }
 
     /**
@@ -107,7 +123,17 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function setBeginTime(?string $beginTime): void
     {
-        $this->beginTime = $beginTime;
+        $this->beginTime['value'] = $beginTime;
+    }
+
+    /**
+     * Unsets Begin Time.
+     * The timestamp for the beginning of the payout creation time, in RFC 3339 format.
+     * Inclusive. Default: The current time minus one year.
+     */
+    public function unsetBeginTime(): void
+    {
+        $this->beginTime = [];
     }
 
     /**
@@ -117,7 +143,10 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function getEndTime(): ?string
     {
-        return $this->endTime;
+        if (count($this->endTime) == 0) {
+            return null;
+        }
+        return $this->endTime['value'];
     }
 
     /**
@@ -129,7 +158,17 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function setEndTime(?string $endTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime['value'] = $endTime;
+    }
+
+    /**
+     * Unsets End Time.
+     * The timestamp for the end of the payout creation time, in RFC 3339 format.
+     * Default: The current time.
+     */
+    public function unsetEndTime(): void
+    {
+        $this->endTime = [];
     }
 
     /**
@@ -162,7 +201,10 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -177,7 +219,20 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * If request parameters change between requests, subsequent results may contain duplicates or missing
+     * records.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -190,7 +245,10 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -205,7 +263,20 @@ class ListPayoutsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     * The default value of 100 is also the maximum allowed value. If the provided value is
+     * greater than 100, it is ignored and the default value is used instead.
+     * Default: `100`
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -220,26 +291,26 @@ class ListPayoutsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
         if (isset($this->status)) {
             $json['status']      = $this->status;
         }
-        if (isset($this->beginTime)) {
-            $json['begin_time']  = $this->beginTime;
+        if (!empty($this->beginTime)) {
+            $json['begin_time']  = $this->beginTime['value'];
         }
-        if (isset($this->endTime)) {
-            $json['end_time']    = $this->endTime;
+        if (!empty($this->endTime)) {
+            $json['end_time']    = $this->endTime['value'];
         }
         if (isset($this->sortOrder)) {
             $json['sort_order']  = $this->sortOrder;
         }
-        if (isset($this->cursor)) {
-            $json['cursor']      = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']      = $this->cursor['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']       = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']       = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

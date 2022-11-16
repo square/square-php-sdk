@@ -14,14 +14,14 @@ use stdClass;
 class CustomerTextFilter implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $exact;
+    private $exact = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $fuzzy;
+    private $fuzzy = [];
 
     /**
      * Returns Exact.
@@ -29,7 +29,10 @@ class CustomerTextFilter implements \JsonSerializable
      */
     public function getExact(): ?string
     {
-        return $this->exact;
+        if (count($this->exact) == 0) {
+            return null;
+        }
+        return $this->exact['value'];
     }
 
     /**
@@ -40,7 +43,16 @@ class CustomerTextFilter implements \JsonSerializable
      */
     public function setExact(?string $exact): void
     {
-        $this->exact = $exact;
+        $this->exact['value'] = $exact;
+    }
+
+    /**
+     * Unsets Exact.
+     * Use the exact filter to select customers whose attributes match exactly the specified query.
+     */
+    public function unsetExact(): void
+    {
+        $this->exact = [];
     }
 
     /**
@@ -52,7 +64,10 @@ class CustomerTextFilter implements \JsonSerializable
      */
     public function getFuzzy(): ?string
     {
-        return $this->fuzzy;
+        if (count($this->fuzzy) == 0) {
+            return null;
+        }
+        return $this->fuzzy['value'];
     }
 
     /**
@@ -66,7 +81,19 @@ class CustomerTextFilter implements \JsonSerializable
      */
     public function setFuzzy(?string $fuzzy): void
     {
-        $this->fuzzy = $fuzzy;
+        $this->fuzzy['value'] = $fuzzy;
+    }
+
+    /**
+     * Unsets Fuzzy.
+     * Use the fuzzy filter to select customers whose attributes match the specified query
+     * in a fuzzy manner. When the fuzzy option is used, search queries are tokenized, and then
+     * each query token must be matched somewhere in the searched attribute. For single token queries,
+     * this is effectively the same behavior as a partial match operation.
+     */
+    public function unsetFuzzy(): void
+    {
+        $this->fuzzy = [];
     }
 
     /**
@@ -81,11 +108,11 @@ class CustomerTextFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->exact)) {
-            $json['exact'] = $this->exact;
+        if (!empty($this->exact)) {
+            $json['exact'] = $this->exact['value'];
         }
-        if (isset($this->fuzzy)) {
-            $json['fuzzy'] = $this->fuzzy;
+        if (!empty($this->fuzzy)) {
+            $json['fuzzy'] = $this->fuzzy['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

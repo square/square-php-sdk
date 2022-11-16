@@ -22,14 +22,14 @@ class CatalogQuickAmount implements \JsonSerializable
     private $amount;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $score;
+    private $score = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $ordinal;
+    private $ordinal = [];
 
     /**
      * @param string $type
@@ -102,7 +102,10 @@ class CatalogQuickAmount implements \JsonSerializable
      */
     public function getScore(): ?int
     {
-        return $this->score;
+        if (count($this->score) == 0) {
+            return null;
+        }
+        return $this->score['value'];
     }
 
     /**
@@ -114,7 +117,17 @@ class CatalogQuickAmount implements \JsonSerializable
      */
     public function setScore(?int $score): void
     {
-        $this->score = $score;
+        $this->score['value'] = $score;
+    }
+
+    /**
+     * Unsets Score.
+     * Describes the ranking of the Quick Amount provided by machine learning model, in the range [0, 100].
+     * MANUAL type amount will always have score = 100.
+     */
+    public function unsetScore(): void
+    {
+        $this->score = [];
     }
 
     /**
@@ -123,7 +136,10 @@ class CatalogQuickAmount implements \JsonSerializable
      */
     public function getOrdinal(): ?int
     {
-        return $this->ordinal;
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
     }
 
     /**
@@ -134,7 +150,16 @@ class CatalogQuickAmount implements \JsonSerializable
      */
     public function setOrdinal(?int $ordinal): void
     {
-        $this->ordinal = $ordinal;
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * The order in which this Quick Amount should be displayed.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
     }
 
     /**
@@ -151,11 +176,11 @@ class CatalogQuickAmount implements \JsonSerializable
         $json = [];
         $json['type']        = $this->type;
         $json['amount']      = $this->amount;
-        if (isset($this->score)) {
-            $json['score']   = $this->score;
+        if (!empty($this->score)) {
+            $json['score']   = $this->score['value'];
         }
-        if (isset($this->ordinal)) {
-            $json['ordinal'] = $this->ordinal;
+        if (!empty($this->ordinal)) {
+            $json['ordinal'] = $this->ordinal['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

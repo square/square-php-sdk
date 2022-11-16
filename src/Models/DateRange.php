@@ -13,14 +13,14 @@ use stdClass;
 class DateRange implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $startDate;
+    private $startDate = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endDate;
+    private $endDate = [];
 
     /**
      * Returns Start Date.
@@ -30,7 +30,10 @@ class DateRange implements \JsonSerializable
      */
     public function getStartDate(): ?string
     {
-        return $this->startDate;
+        if (count($this->startDate) == 0) {
+            return null;
+        }
+        return $this->startDate['value'];
     }
 
     /**
@@ -43,7 +46,18 @@ class DateRange implements \JsonSerializable
      */
     public function setStartDate(?string $startDate): void
     {
-        $this->startDate = $startDate;
+        $this->startDate['value'] = $startDate;
+    }
+
+    /**
+     * Unsets Start Date.
+     * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
+     * extended format for calendar dates.
+     * The beginning of a date range (inclusive).
+     */
+    public function unsetStartDate(): void
+    {
+        $this->startDate = [];
     }
 
     /**
@@ -54,7 +68,10 @@ class DateRange implements \JsonSerializable
      */
     public function getEndDate(): ?string
     {
-        return $this->endDate;
+        if (count($this->endDate) == 0) {
+            return null;
+        }
+        return $this->endDate['value'];
     }
 
     /**
@@ -67,7 +84,18 @@ class DateRange implements \JsonSerializable
      */
     public function setEndDate(?string $endDate): void
     {
-        $this->endDate = $endDate;
+        $this->endDate['value'] = $endDate;
+    }
+
+    /**
+     * Unsets End Date.
+     * A string in `YYYY-MM-DD` format, such as `2017-10-31`, per the ISO 8601
+     * extended format for calendar dates.
+     * The end of a date range (inclusive).
+     */
+    public function unsetEndDate(): void
+    {
+        $this->endDate = [];
     }
 
     /**
@@ -82,11 +110,11 @@ class DateRange implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->startDate)) {
-            $json['start_date'] = $this->startDate;
+        if (!empty($this->startDate)) {
+            $json['start_date'] = $this->startDate['value'];
         }
-        if (isset($this->endDate)) {
-            $json['end_date']   = $this->endDate;
+        if (!empty($this->endDate)) {
+            $json['end_date']   = $this->endDate['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

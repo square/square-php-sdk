@@ -13,9 +13,9 @@ use stdClass;
 class ResumeSubscriptionRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $resumeEffectiveDate;
+    private $resumeEffectiveDate = [];
 
     /**
      * @var string|null
@@ -28,7 +28,10 @@ class ResumeSubscriptionRequest implements \JsonSerializable
      */
     public function getResumeEffectiveDate(): ?string
     {
-        return $this->resumeEffectiveDate;
+        if (count($this->resumeEffectiveDate) == 0) {
+            return null;
+        }
+        return $this->resumeEffectiveDate['value'];
     }
 
     /**
@@ -39,7 +42,16 @@ class ResumeSubscriptionRequest implements \JsonSerializable
      */
     public function setResumeEffectiveDate(?string $resumeEffectiveDate): void
     {
-        $this->resumeEffectiveDate = $resumeEffectiveDate;
+        $this->resumeEffectiveDate['value'] = $resumeEffectiveDate;
+    }
+
+    /**
+     * Unsets Resume Effective Date.
+     * The `YYYY-MM-DD`-formatted date when the subscription reactivated.
+     */
+    public function unsetResumeEffectiveDate(): void
+    {
+        $this->resumeEffectiveDate = [];
     }
 
     /**
@@ -74,8 +86,8 @@ class ResumeSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->resumeEffectiveDate)) {
-            $json['resume_effective_date'] = $this->resumeEffectiveDate;
+        if (!empty($this->resumeEffectiveDate)) {
+            $json['resume_effective_date'] = $this->resumeEffectiveDate['value'];
         }
         if (isset($this->resumeChangeTiming)) {
             $json['resume_change_timing']  = $this->resumeChangeTiming;

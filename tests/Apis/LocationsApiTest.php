@@ -32,8 +32,6 @@ class LocationsApiTest extends BaseTestController
         }
 
         // Assert result with expected response
-        $this->newTestCase($result)
-            ->expectStatus(200)
-            ->assert();
+        $this->newTestCase($result)->expectStatus(200)->assert();
     }
 }

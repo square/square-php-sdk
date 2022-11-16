@@ -13,9 +13,9 @@ use stdClass;
 class BatchRetrieveOrdersRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string[]
@@ -37,7 +37,10 @@ class BatchRetrieveOrdersRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -49,7 +52,17 @@ class BatchRetrieveOrdersRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location for these orders. This field is optional: omit it to retrieve
+     * orders within the scope of the current authorization's merchant ID.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -89,8 +102,8 @@ class BatchRetrieveOrdersRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
         $json['order_ids']       = $this->orderIds;
         $json = array_filter($json, function ($val) {

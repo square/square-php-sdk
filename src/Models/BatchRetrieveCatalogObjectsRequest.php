@@ -14,19 +14,19 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     private $objectIds;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $includeRelatedObjects;
+    private $includeRelatedObjects = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $includeDeletedObjects;
+    private $includeDeletedObjects = [];
 
     /**
      * @param string[] $objectIds
@@ -82,7 +82,10 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function getIncludeRelatedObjects(): ?bool
     {
-        return $this->includeRelatedObjects;
+        if (count($this->includeRelatedObjects) == 0) {
+            return null;
+        }
+        return $this->includeRelatedObjects['value'];
     }
 
     /**
@@ -108,7 +111,31 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function setIncludeRelatedObjects(?bool $includeRelatedObjects): void
     {
-        $this->includeRelatedObjects = $includeRelatedObjects;
+        $this->includeRelatedObjects['value'] = $includeRelatedObjects;
+    }
+
+    /**
+     * Unsets Include Related Objects.
+     * If `true`, the response will include additional objects that are related to the
+     * requested objects. Related objects are defined as any objects referenced by ID by the results in the
+     * `objects` field
+     * of the response. These objects are put in the `related_objects` field. Setting this to `true` is
+     * helpful when the objects are needed for immediate display to a user.
+     * This process only goes one level deep. Objects referenced by the related objects will not be
+     * included. For example,
+     *
+     * if the `objects` field of the response contains a CatalogItem, its associated
+     * CatalogCategory objects, CatalogTax objects, CatalogImage objects and
+     * CatalogModifierLists will be returned in the `related_objects` field of the
+     * response. If the `objects` field of the response contains a CatalogItemVariation,
+     * its parent CatalogItem will be returned in the `related_objects` field of
+     * the response.
+     *
+     * Default value: `false`
+     */
+    public function unsetIncludeRelatedObjects(): void
+    {
+        $this->includeRelatedObjects = [];
     }
 
     /**
@@ -121,7 +148,10 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -136,7 +166,20 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The specific version of the catalog objects to be included in the response.
+     * This allows you to retrieve historical versions of objects. The specified version value is matched
+     * against
+     * the [CatalogObject]($m/CatalogObject)s' `version` attribute. If not included, results will
+     * be from the current version of the catalog.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -146,7 +189,10 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function getIncludeDeletedObjects(): ?bool
     {
-        return $this->includeDeletedObjects;
+        if (count($this->includeDeletedObjects) == 0) {
+            return null;
+        }
+        return $this->includeDeletedObjects['value'];
     }
 
     /**
@@ -158,7 +204,17 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
      */
     public function setIncludeDeletedObjects(?bool $includeDeletedObjects): void
     {
-        $this->includeDeletedObjects = $includeDeletedObjects;
+        $this->includeDeletedObjects['value'] = $includeDeletedObjects;
+    }
+
+    /**
+     * Unsets Include Deleted Objects.
+     * Indicates whether to include (`true`) or not (`false`) in the response deleted objects, namely,
+     * those with the `is_deleted` attribute set to `true`.
+     */
+    public function unsetIncludeDeletedObjects(): void
+    {
+        $this->includeDeletedObjects = [];
     }
 
     /**
@@ -174,14 +230,14 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     {
         $json = [];
         $json['object_ids']                  = $this->objectIds;
-        if (isset($this->includeRelatedObjects)) {
-            $json['include_related_objects'] = $this->includeRelatedObjects;
+        if (!empty($this->includeRelatedObjects)) {
+            $json['include_related_objects'] = $this->includeRelatedObjects['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']         = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']         = $this->catalogVersion['value'];
         }
-        if (isset($this->includeDeletedObjects)) {
-            $json['include_deleted_objects'] = $this->includeDeletedObjects;
+        if (!empty($this->includeDeletedObjects)) {
+            $json['include_deleted_objects'] = $this->includeDeletedObjects['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -12,19 +12,19 @@ use stdClass;
 class ListEmployeeWagesRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * Returns Employee Id.
@@ -32,7 +32,10 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * Filter the returned wages to only those that are associated with the specified employee.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -53,7 +65,10 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -65,7 +80,17 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of `EmployeeWage` results to return per page. The number can range between
+     * 1 and 200. The default is 200.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -74,7 +99,10 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -85,7 +113,16 @@ class ListEmployeeWagesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pointer to the next page of `EmployeeWage` results to fetch.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -100,14 +137,14 @@ class ListEmployeeWagesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->employeeId)) {
-            $json['employee_id'] = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id'] = $this->employeeId['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']       = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']       = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']      = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']      = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -15,14 +15,14 @@ use stdClass;
 class CatalogItemOptionValueForItemVariation implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemOptionId;
+    private $itemOptionId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemOptionValueId;
+    private $itemOptionValueId = [];
 
     /**
      * Returns Item Option Id.
@@ -30,7 +30,10 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
      */
     public function getItemOptionId(): ?string
     {
-        return $this->itemOptionId;
+        if (count($this->itemOptionId) == 0) {
+            return null;
+        }
+        return $this->itemOptionId['value'];
     }
 
     /**
@@ -41,7 +44,16 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
      */
     public function setItemOptionId(?string $itemOptionId): void
     {
-        $this->itemOptionId = $itemOptionId;
+        $this->itemOptionId['value'] = $itemOptionId;
+    }
+
+    /**
+     * Unsets Item Option Id.
+     * The unique id of an item option.
+     */
+    public function unsetItemOptionId(): void
+    {
+        $this->itemOptionId = [];
     }
 
     /**
@@ -50,7 +62,10 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
      */
     public function getItemOptionValueId(): ?string
     {
-        return $this->itemOptionValueId;
+        if (count($this->itemOptionValueId) == 0) {
+            return null;
+        }
+        return $this->itemOptionValueId['value'];
     }
 
     /**
@@ -61,7 +76,16 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
      */
     public function setItemOptionValueId(?string $itemOptionValueId): void
     {
-        $this->itemOptionValueId = $itemOptionValueId;
+        $this->itemOptionValueId['value'] = $itemOptionValueId;
+    }
+
+    /**
+     * Unsets Item Option Value Id.
+     * The unique id of the selected value for the item option.
+     */
+    public function unsetItemOptionValueId(): void
+    {
+        $this->itemOptionValueId = [];
     }
 
     /**
@@ -76,11 +100,11 @@ class CatalogItemOptionValueForItemVariation implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->itemOptionId)) {
-            $json['item_option_id']       = $this->itemOptionId;
+        if (!empty($this->itemOptionId)) {
+            $json['item_option_id']       = $this->itemOptionId['value'];
         }
-        if (isset($this->itemOptionValueId)) {
-            $json['item_option_value_id'] = $this->itemOptionValueId;
+        if (!empty($this->itemOptionValueId)) {
+            $json['item_option_value_id'] = $this->itemOptionValueId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -14,14 +14,14 @@ use stdClass;
 class InventoryCount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectType;
+    private $catalogObjectType = [];
 
     /**
      * @var string|null
@@ -29,14 +29,14 @@ class InventoryCount implements \JsonSerializable
     private $state;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
      * @var string|null
@@ -55,7 +55,10 @@ class InventoryCount implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -67,7 +70,17 @@ class InventoryCount implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -81,7 +94,10 @@ class InventoryCount implements \JsonSerializable
      */
     public function getCatalogObjectType(): ?string
     {
-        return $this->catalogObjectType;
+        if (count($this->catalogObjectType) == 0) {
+            return null;
+        }
+        return $this->catalogObjectType['value'];
     }
 
     /**
@@ -97,7 +113,21 @@ class InventoryCount implements \JsonSerializable
      */
     public function setCatalogObjectType(?string $catalogObjectType): void
     {
-        $this->catalogObjectType = $catalogObjectType;
+        $this->catalogObjectType['value'] = $catalogObjectType;
+    }
+
+    /**
+     * Unsets Catalog Object Type.
+     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     *
+     * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
+     * value.
+     * In addition, it can also read the `"catalog_object_type": "ITEM"` field value that is set by the
+     * Square Restaurants app.
+     */
+    public function unsetCatalogObjectType(): void
+    {
+        $this->catalogObjectType = [];
     }
 
     /**
@@ -127,7 +157,10 @@ class InventoryCount implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -139,7 +172,17 @@ class InventoryCount implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items is being tracked.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -149,7 +192,10 @@ class InventoryCount implements \JsonSerializable
      */
     public function getQuantity(): ?string
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -161,7 +207,17 @@ class InventoryCount implements \JsonSerializable
      */
     public function setQuantity(?string $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The number of items affected by the estimated count as a decimal string.
+     * Can support up to 5 digits after the decimal point.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -230,20 +286,20 @@ class InventoryCount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']   = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogObjectType)) {
-            $json['catalog_object_type'] = $this->catalogObjectType;
+        if (!empty($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType['value'];
         }
         if (isset($this->state)) {
             $json['state']               = $this->state;
         }
-        if (isset($this->locationId)) {
-            $json['location_id']         = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']         = $this->locationId['value'];
         }
-        if (isset($this->quantity)) {
-            $json['quantity']            = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']            = $this->quantity['value'];
         }
         if (isset($this->calculatedAt)) {
             $json['calculated_at']       = $this->calculatedAt;

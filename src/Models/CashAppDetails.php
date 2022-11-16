@@ -12,14 +12,14 @@ use stdClass;
 class CashAppDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerFullName;
+    private $buyerFullName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerCountryCode;
+    private $buyerCountryCode = [];
 
     /**
      * @var string|null
@@ -32,7 +32,10 @@ class CashAppDetails implements \JsonSerializable
      */
     public function getBuyerFullName(): ?string
     {
-        return $this->buyerFullName;
+        if (count($this->buyerFullName) == 0) {
+            return null;
+        }
+        return $this->buyerFullName['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class CashAppDetails implements \JsonSerializable
      */
     public function setBuyerFullName(?string $buyerFullName): void
     {
-        $this->buyerFullName = $buyerFullName;
+        $this->buyerFullName['value'] = $buyerFullName;
+    }
+
+    /**
+     * Unsets Buyer Full Name.
+     * The name of the Cash App account holder.
+     */
+    public function unsetBuyerFullName(): void
+    {
+        $this->buyerFullName = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class CashAppDetails implements \JsonSerializable
      */
     public function getBuyerCountryCode(): ?string
     {
-        return $this->buyerCountryCode;
+        if (count($this->buyerCountryCode) == 0) {
+            return null;
+        }
+        return $this->buyerCountryCode['value'];
     }
 
     /**
@@ -67,7 +82,18 @@ class CashAppDetails implements \JsonSerializable
      */
     public function setBuyerCountryCode(?string $buyerCountryCode): void
     {
-        $this->buyerCountryCode = $buyerCountryCode;
+        $this->buyerCountryCode['value'] = $buyerCountryCode;
+    }
+
+    /**
+     * Unsets Buyer Country Code.
+     * The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
+     *
+     * For possible values, see [Country]($m/Country).
+     */
+    public function unsetBuyerCountryCode(): void
+    {
+        $this->buyerCountryCode = [];
     }
 
     /**
@@ -102,11 +128,11 @@ class CashAppDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->buyerFullName)) {
-            $json['buyer_full_name']    = $this->buyerFullName;
+        if (!empty($this->buyerFullName)) {
+            $json['buyer_full_name']    = $this->buyerFullName['value'];
         }
-        if (isset($this->buyerCountryCode)) {
-            $json['buyer_country_code'] = $this->buyerCountryCode;
+        if (!empty($this->buyerCountryCode)) {
+            $json['buyer_country_code'] = $this->buyerCountryCode['value'];
         }
         if (isset($this->buyerCashtag)) {
             $json['buyer_cashtag']      = $this->buyerCashtag;

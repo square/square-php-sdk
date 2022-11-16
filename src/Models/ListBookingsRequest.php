@@ -9,34 +9,34 @@ use stdClass;
 class ListBookingsRequest implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $startAtMin;
+    private $startAtMin = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $startAtMax;
+    private $startAtMax = [];
 
     /**
      * Returns Limit.
@@ -44,7 +44,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -55,7 +58,16 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results per page to return in a paged response.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -65,7 +77,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -77,7 +92,17 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * The pagination cursor from the preceding response to return the next page of the results. Do not set
+     * this when retrieving the first page of the results.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -87,7 +112,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -99,7 +127,17 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The team member for whom to retrieve bookings. If this is not set, bookings of all members are
+     * retrieved.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -109,7 +147,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -121,7 +162,17 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The location for which to retrieve bookings. If this is not set, all locations' bookings are
+     * retrieved.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -131,7 +182,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getStartAtMin(): ?string
     {
-        return $this->startAtMin;
+        if (count($this->startAtMin) == 0) {
+            return null;
+        }
+        return $this->startAtMin['value'];
     }
 
     /**
@@ -143,7 +197,17 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setStartAtMin(?string $startAtMin): void
     {
-        $this->startAtMin = $startAtMin;
+        $this->startAtMin['value'] = $startAtMin;
+    }
+
+    /**
+     * Unsets Start at Min.
+     * The RFC 3339 timestamp specifying the earliest of the start time. If this is not set, the current
+     * time is used.
+     */
+    public function unsetStartAtMin(): void
+    {
+        $this->startAtMin = [];
     }
 
     /**
@@ -153,7 +217,10 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function getStartAtMax(): ?string
     {
-        return $this->startAtMax;
+        if (count($this->startAtMax) == 0) {
+            return null;
+        }
+        return $this->startAtMax['value'];
     }
 
     /**
@@ -165,7 +232,17 @@ class ListBookingsRequest implements \JsonSerializable
      */
     public function setStartAtMax(?string $startAtMax): void
     {
-        $this->startAtMax = $startAtMax;
+        $this->startAtMax['value'] = $startAtMax;
+    }
+
+    /**
+     * Unsets Start at Max.
+     * The RFC 3339 timestamp specifying the latest of the start time. If this is not set, the time of 31
+     * days after `start_at_min` is used.
+     */
+    public function unsetStartAtMax(): void
+    {
+        $this->startAtMax = [];
     }
 
     /**
@@ -180,23 +257,23 @@ class ListBookingsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->limit)) {
-            $json['limit']          = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']          = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']         = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']         = $this->cursor['value'];
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']    = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']    = $this->locationId['value'];
         }
-        if (isset($this->startAtMin)) {
-            $json['start_at_min']   = $this->startAtMin;
+        if (!empty($this->startAtMin)) {
+            $json['start_at_min']   = $this->startAtMin['value'];
         }
-        if (isset($this->startAtMax)) {
-            $json['start_at_max']   = $this->startAtMax;
+        if (!empty($this->startAtMax)) {
+            $json['start_at_max']   = $this->startAtMax['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

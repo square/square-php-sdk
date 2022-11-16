@@ -13,25 +13,28 @@ use stdClass;
 class RetrieveSubscriptionRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $mInclude;
+    private $include = [];
 
     /**
-     * Returns M Include.
+     * Returns Include.
      * A query parameter to specify related information to be included in the response.
      *
      * The supported query parameter values are:
      *
      * - `actions`: to include scheduled actions on the targeted subscription.
      */
-    public function getMInclude(): ?string
+    public function getInclude(): ?string
     {
-        return $this->mInclude;
+        if (count($this->include) == 0) {
+            return null;
+        }
+        return $this->include['value'];
     }
 
     /**
-     * Sets M Include.
+     * Sets Include.
      * A query parameter to specify related information to be included in the response.
      *
      * The supported query parameter values are:
@@ -40,9 +43,22 @@ class RetrieveSubscriptionRequest implements \JsonSerializable
      *
      * @maps include
      */
-    public function setMInclude(?string $mInclude): void
+    public function setInclude(?string $include): void
     {
-        $this->mInclude = $mInclude;
+        $this->include['value'] = $include;
+    }
+
+    /**
+     * Unsets Include.
+     * A query parameter to specify related information to be included in the response.
+     *
+     * The supported query parameter values are:
+     *
+     * - `actions`: to include scheduled actions on the targeted subscription.
+     */
+    public function unsetInclude(): void
+    {
+        $this->include = [];
     }
 
     /**
@@ -57,8 +73,8 @@ class RetrieveSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->mInclude)) {
-            $json['include'] = $this->mInclude;
+        if (!empty($this->include)) {
+            $json['include'] = $this->include['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

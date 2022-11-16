@@ -14,14 +14,14 @@ use stdClass;
 class ListSubscriptionEventsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Cursor.
@@ -34,7 +34,10 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -50,7 +53,21 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * When the total number of resulting subscription events exceeds the limit of a paged response,
+     * specify the cursor returned from a preceding response here to fetch the next set of results.
+     * If the cursor is unset, the response contains the last page of the results.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
+     * apis/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -60,7 +77,10 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -72,7 +92,17 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The upper limit on the number of subscription events to return
+     * in a paged response.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -87,11 +117,11 @@ class ListSubscriptionEventsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor'] = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor'] = $this->cursor['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']  = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']  = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
