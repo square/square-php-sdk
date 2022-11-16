@@ -12,9 +12,9 @@ use stdClass;
 class DisputedPayment implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
      * Returns Payment Id.
@@ -22,7 +22,10 @@ class DisputedPayment implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -33,7 +36,16 @@ class DisputedPayment implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * Square-generated unique ID of the payment being disputed.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -48,8 +60,8 @@ class DisputedPayment implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

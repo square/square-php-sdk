@@ -22,9 +22,9 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
     private $adjustPoints;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $allowNegativeBalance;
+    private $allowNegativeBalance = [];
 
     /**
      * @param string $idempotencyKey
@@ -90,7 +90,10 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
      */
     public function getAllowNegativeBalance(): ?bool
     {
-        return $this->allowNegativeBalance;
+        if (count($this->allowNegativeBalance) == 0) {
+            return null;
+        }
+        return $this->allowNegativeBalance['value'];
     }
 
     /**
@@ -105,7 +108,20 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
      */
     public function setAllowNegativeBalance(?bool $allowNegativeBalance): void
     {
-        $this->allowNegativeBalance = $allowNegativeBalance;
+        $this->allowNegativeBalance['value'] = $allowNegativeBalance;
+    }
+
+    /**
+     * Unsets Allow Negative Balance.
+     * Indicates whether to allow a negative adjustment to result in a negative balance. If `true`, a
+     * negative
+     * balance is allowed when subtracting points. If `false`, Square returns a `BAD_REQUEST` error when
+     * subtracting
+     * the specified number of points would result in a negative balance. The default value is `false`.
+     */
+    public function unsetAllowNegativeBalance(): void
+    {
+        $this->allowNegativeBalance = [];
     }
 
     /**
@@ -122,8 +138,8 @@ class AdjustLoyaltyPointsRequest implements \JsonSerializable
         $json = [];
         $json['idempotency_key']            = $this->idempotencyKey;
         $json['adjust_points']              = $this->adjustPoints;
-        if (isset($this->allowNegativeBalance)) {
-            $json['allow_negative_balance'] = $this->allowNegativeBalance;
+        if (!empty($this->allowNegativeBalance)) {
+            $json['allow_negative_balance'] = $this->allowNegativeBalance['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

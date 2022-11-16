@@ -9,9 +9,9 @@ use stdClass;
 class BusinessBookingProfile implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $sellerId;
+    private $sellerId = [];
 
     /**
      * @var string|null
@@ -19,9 +19,9 @@ class BusinessBookingProfile implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $bookingEnabled;
+    private $bookingEnabled = [];
 
     /**
      * @var string|null
@@ -34,9 +34,9 @@ class BusinessBookingProfile implements \JsonSerializable
     private $bookingPolicy;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $allowUserCancel;
+    private $allowUserCancel = [];
 
     /**
      * @var BusinessAppointmentSettings|null
@@ -44,9 +44,9 @@ class BusinessBookingProfile implements \JsonSerializable
     private $businessAppointmentSettings;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $supportSellerLevelWrites;
+    private $supportSellerLevelWrites = [];
 
     /**
      * Returns Seller Id.
@@ -54,7 +54,10 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function getSellerId(): ?string
     {
-        return $this->sellerId;
+        if (count($this->sellerId) == 0) {
+            return null;
+        }
+        return $this->sellerId['value'];
     }
 
     /**
@@ -65,7 +68,16 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function setSellerId(?string $sellerId): void
     {
-        $this->sellerId = $sellerId;
+        $this->sellerId['value'] = $sellerId;
+    }
+
+    /**
+     * Unsets Seller Id.
+     * The ID of the seller, obtainable using the Merchants API.
+     */
+    public function unsetSellerId(): void
+    {
+        $this->sellerId = [];
     }
 
     /**
@@ -94,7 +106,10 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function getBookingEnabled(): ?bool
     {
-        return $this->bookingEnabled;
+        if (count($this->bookingEnabled) == 0) {
+            return null;
+        }
+        return $this->bookingEnabled['value'];
     }
 
     /**
@@ -105,7 +120,16 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function setBookingEnabled(?bool $bookingEnabled): void
     {
-        $this->bookingEnabled = $bookingEnabled;
+        $this->bookingEnabled['value'] = $bookingEnabled;
+    }
+
+    /**
+     * Unsets Booking Enabled.
+     * Indicates whether the seller is open for booking.
+     */
+    public function unsetBookingEnabled(): void
+    {
+        $this->bookingEnabled = [];
     }
 
     /**
@@ -154,7 +178,10 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function getAllowUserCancel(): ?bool
     {
-        return $this->allowUserCancel;
+        if (count($this->allowUserCancel) == 0) {
+            return null;
+        }
+        return $this->allowUserCancel['value'];
     }
 
     /**
@@ -165,7 +192,16 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function setAllowUserCancel(?bool $allowUserCancel): void
     {
-        $this->allowUserCancel = $allowUserCancel;
+        $this->allowUserCancel['value'] = $allowUserCancel;
+    }
+
+    /**
+     * Unsets Allow User Cancel.
+     * Indicates whether customers can cancel or reschedule their own bookings (`true`) or not (`false`).
+     */
+    public function unsetAllowUserCancel(): void
+    {
+        $this->allowUserCancel = [];
     }
 
     /**
@@ -195,7 +231,10 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function getSupportSellerLevelWrites(): ?bool
     {
-        return $this->supportSellerLevelWrites;
+        if (count($this->supportSellerLevelWrites) == 0) {
+            return null;
+        }
+        return $this->supportSellerLevelWrites['value'];
     }
 
     /**
@@ -207,7 +246,17 @@ class BusinessBookingProfile implements \JsonSerializable
      */
     public function setSupportSellerLevelWrites(?bool $supportSellerLevelWrites): void
     {
-        $this->supportSellerLevelWrites = $supportSellerLevelWrites;
+        $this->supportSellerLevelWrites['value'] = $supportSellerLevelWrites;
+    }
+
+    /**
+     * Unsets Support Seller Level Writes.
+     * Indicates whether the seller's subscription to Square Appointments supports creating, updating or
+     * canceling an appointment through the API (`true`) or not (`false`) using seller permission.
+     */
+    public function unsetSupportSellerLevelWrites(): void
+    {
+        $this->supportSellerLevelWrites = [];
     }
 
     /**
@@ -222,14 +271,14 @@ class BusinessBookingProfile implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->sellerId)) {
-            $json['seller_id']                     = $this->sellerId;
+        if (!empty($this->sellerId)) {
+            $json['seller_id']                     = $this->sellerId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']                    = $this->createdAt;
         }
-        if (isset($this->bookingEnabled)) {
-            $json['booking_enabled']               = $this->bookingEnabled;
+        if (!empty($this->bookingEnabled)) {
+            $json['booking_enabled']               = $this->bookingEnabled['value'];
         }
         if (isset($this->customerTimezoneChoice)) {
             $json['customer_timezone_choice']      = $this->customerTimezoneChoice;
@@ -237,14 +286,14 @@ class BusinessBookingProfile implements \JsonSerializable
         if (isset($this->bookingPolicy)) {
             $json['booking_policy']                = $this->bookingPolicy;
         }
-        if (isset($this->allowUserCancel)) {
-            $json['allow_user_cancel']             = $this->allowUserCancel;
+        if (!empty($this->allowUserCancel)) {
+            $json['allow_user_cancel']             = $this->allowUserCancel['value'];
         }
         if (isset($this->businessAppointmentSettings)) {
             $json['business_appointment_settings'] = $this->businessAppointmentSettings;
         }
-        if (isset($this->supportSellerLevelWrites)) {
-            $json['support_seller_level_writes']   = $this->supportSellerLevelWrites;
+        if (!empty($this->supportSellerLevelWrites)) {
+            $json['support_seller_level_writes']   = $this->supportSellerLevelWrites['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -158,7 +158,9 @@ class InventoryApi extends BaseApi
             ->auth('global')
             ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        $_resHandler = $this->responseHandler()->type(BatchRetrieveInventoryCountsResponse::class)->returnApiResponse();
+        $_resHandler = $this->responseHandler()
+            ->type(BatchRetrieveInventoryCountsResponse::class)
+            ->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }
@@ -250,7 +252,9 @@ class InventoryApi extends BaseApi
             ->auth('global')
             ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
-        $_resHandler = $this->responseHandler()->type(BatchRetrieveInventoryCountsResponse::class)->returnApiResponse();
+        $_resHandler = $this->responseHandler()
+            ->type(BatchRetrieveInventoryCountsResponse::class)
+            ->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

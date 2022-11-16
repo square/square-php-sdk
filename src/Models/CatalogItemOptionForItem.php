@@ -13,9 +13,9 @@ use stdClass;
 class CatalogItemOptionForItem implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemOptionId;
+    private $itemOptionId = [];
 
     /**
      * Returns Item Option Id.
@@ -24,7 +24,10 @@ class CatalogItemOptionForItem implements \JsonSerializable
      */
     public function getItemOptionId(): ?string
     {
-        return $this->itemOptionId;
+        if (count($this->itemOptionId) == 0) {
+            return null;
+        }
+        return $this->itemOptionId['value'];
     }
 
     /**
@@ -36,7 +39,17 @@ class CatalogItemOptionForItem implements \JsonSerializable
      */
     public function setItemOptionId(?string $itemOptionId): void
     {
-        $this->itemOptionId = $itemOptionId;
+        $this->itemOptionId['value'] = $itemOptionId;
+    }
+
+    /**
+     * Unsets Item Option Id.
+     * The unique id of the item option, used to form the dimensions of the item option matrix in a
+     * specified order.
+     */
+    public function unsetItemOptionId(): void
+    {
+        $this->itemOptionId = [];
     }
 
     /**
@@ -51,8 +64,8 @@ class CatalogItemOptionForItem implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->itemOptionId)) {
-            $json['item_option_id'] = $this->itemOptionId;
+        if (!empty($this->itemOptionId)) {
+            $json['item_option_id'] = $this->itemOptionId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

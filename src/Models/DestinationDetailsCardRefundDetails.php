@@ -14,9 +14,9 @@ class DestinationDetailsCardRefundDetails implements \JsonSerializable
     private $card;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $entryMethod;
+    private $entryMethod = [];
 
     /**
      * Returns Card.
@@ -47,7 +47,10 @@ class DestinationDetailsCardRefundDetails implements \JsonSerializable
      */
     public function getEntryMethod(): ?string
     {
-        return $this->entryMethod;
+        if (count($this->entryMethod) == 0) {
+            return null;
+        }
+        return $this->entryMethod['value'];
     }
 
     /**
@@ -59,7 +62,17 @@ class DestinationDetailsCardRefundDetails implements \JsonSerializable
      */
     public function setEntryMethod(?string $entryMethod): void
     {
-        $this->entryMethod = $entryMethod;
+        $this->entryMethod['value'] = $entryMethod;
+    }
+
+    /**
+     * Unsets Entry Method.
+     * The method used to enter the card's details for the refund. The method can be
+     * `KEYED`, `SWIPED`, `EMV`, `ON_FILE`, or `CONTACTLESS`.
+     */
+    public function unsetEntryMethod(): void
+    {
+        $this->entryMethod = [];
     }
 
     /**
@@ -77,8 +90,8 @@ class DestinationDetailsCardRefundDetails implements \JsonSerializable
         if (isset($this->card)) {
             $json['card']         = $this->card;
         }
-        if (isset($this->entryMethod)) {
-            $json['entry_method'] = $this->entryMethod;
+        if (!empty($this->entryMethod)) {
+            $json['entry_method'] = $this->entryMethod['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

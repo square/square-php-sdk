@@ -9,9 +9,9 @@ use stdClass;
 class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $objectIds;
+    private $objectIds = [];
 
     /**
      * Returns Object Ids.
@@ -23,7 +23,10 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
      */
     public function getObjectIds(): ?array
     {
-        return $this->objectIds;
+        if (count($this->objectIds) == 0) {
+            return null;
+        }
+        return $this->objectIds['value'];
     }
 
     /**
@@ -38,7 +41,18 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
      */
     public function setObjectIds(?array $objectIds): void
     {
-        $this->objectIds = $objectIds;
+        $this->objectIds['value'] = $objectIds;
+    }
+
+    /**
+     * Unsets Object Ids.
+     * The IDs of the CatalogObjects to be deleted. When an object is deleted, other objects
+     * in the graph that depend on that object will be deleted as well (for example, deleting a
+     * CatalogItem will delete its CatalogItemVariation.
+     */
+    public function unsetObjectIds(): void
+    {
+        $this->objectIds = [];
     }
 
     /**
@@ -53,8 +67,8 @@ class BatchDeleteCatalogObjectsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->objectIds)) {
-            $json['object_ids'] = $this->objectIds;
+        if (!empty($this->objectIds)) {
+            $json['object_ids'] = $this->objectIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

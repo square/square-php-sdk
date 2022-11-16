@@ -14,19 +14,19 @@ use stdClass;
 class CustomAttributeFilter implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $customAttributeDefinitionId;
+    private $customAttributeDefinitionId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $key;
+    private $key = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $stringFilter;
+    private $stringFilter = [];
 
     /**
      * @var Range|null
@@ -34,14 +34,14 @@ class CustomAttributeFilter implements \JsonSerializable
     private $numberFilter;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $selectionUidsFilter;
+    private $selectionUidsFilter = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $boolFilter;
+    private $boolFilter = [];
 
     /**
      * Returns Custom Attribute Definition Id.
@@ -51,7 +51,10 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function getCustomAttributeDefinitionId(): ?string
     {
-        return $this->customAttributeDefinitionId;
+        if (count($this->customAttributeDefinitionId) == 0) {
+            return null;
+        }
+        return $this->customAttributeDefinitionId['value'];
     }
 
     /**
@@ -64,7 +67,18 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function setCustomAttributeDefinitionId(?string $customAttributeDefinitionId): void
     {
-        $this->customAttributeDefinitionId = $customAttributeDefinitionId;
+        $this->customAttributeDefinitionId['value'] = $customAttributeDefinitionId;
+    }
+
+    /**
+     * Unsets Custom Attribute Definition Id.
+     * A query expression to filter items or item variations by matching their custom attributes'
+     * `custom_attribute_definition_id` property value against the the specified id.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
+     */
+    public function unsetCustomAttributeDefinitionId(): void
+    {
+        $this->customAttributeDefinitionId = [];
     }
 
     /**
@@ -75,7 +89,10 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function getKey(): ?string
     {
-        return $this->key;
+        if (count($this->key) == 0) {
+            return null;
+        }
+        return $this->key['value'];
     }
 
     /**
@@ -88,7 +105,18 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function setKey(?string $key): void
     {
-        $this->key = $key;
+        $this->key['value'] = $key;
+    }
+
+    /**
+     * Unsets Key.
+     * A query expression to filter items or item variations by matching their custom attributes'
+     * `key` property value against the specified key.
+     * Exactly one of `custom_attribute_definition_id` or `key` must be specified.
+     */
+    public function unsetKey(): void
+    {
+        $this->key = [];
     }
 
     /**
@@ -100,7 +128,10 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function getStringFilter(): ?string
     {
-        return $this->stringFilter;
+        if (count($this->stringFilter) == 0) {
+            return null;
+        }
+        return $this->stringFilter['value'];
     }
 
     /**
@@ -114,7 +145,19 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function setStringFilter(?string $stringFilter): void
     {
-        $this->stringFilter = $stringFilter;
+        $this->stringFilter['value'] = $stringFilter;
+    }
+
+    /**
+     * Unsets String Filter.
+     * A query expression to filter items or item variations by matching their custom attributes'
+     * `string_value`  property value against the specified text.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
+     */
+    public function unsetStringFilter(): void
+    {
+        $this->stringFilter = [];
     }
 
     /**
@@ -148,7 +191,10 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function getSelectionUidsFilter(): ?array
     {
-        return $this->selectionUidsFilter;
+        if (count($this->selectionUidsFilter) == 0) {
+            return null;
+        }
+        return $this->selectionUidsFilter['value'];
     }
 
     /**
@@ -164,7 +210,19 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function setSelectionUidsFilter(?array $selectionUidsFilter): void
     {
-        $this->selectionUidsFilter = $selectionUidsFilter;
+        $this->selectionUidsFilter['value'] = $selectionUidsFilter;
+    }
+
+    /**
+     * Unsets Selection Uids Filter.
+     * A query expression to filter items or item variations by matching  their custom attributes'
+     * `selection_uid_values` values against the specified selection uids.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
+     */
+    public function unsetSelectionUidsFilter(): void
+    {
+        $this->selectionUidsFilter = [];
     }
 
     /**
@@ -176,7 +234,10 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function getBoolFilter(): ?bool
     {
-        return $this->boolFilter;
+        if (count($this->boolFilter) == 0) {
+            return null;
+        }
+        return $this->boolFilter['value'];
     }
 
     /**
@@ -190,7 +251,19 @@ class CustomAttributeFilter implements \JsonSerializable
      */
     public function setBoolFilter(?bool $boolFilter): void
     {
-        $this->boolFilter = $boolFilter;
+        $this->boolFilter['value'] = $boolFilter;
+    }
+
+    /**
+     * Unsets Bool Filter.
+     * A query expression to filter items or item variations by matching their custom attributes'
+     * `boolean_value` property values against the specified Boolean expression.
+     * Exactly one of `string_filter`, `number_filter`, `selection_uids_filter`, or `bool_filter` must be
+     * specified.
+     */
+    public function unsetBoolFilter(): void
+    {
+        $this->boolFilter = [];
     }
 
     /**
@@ -205,23 +278,23 @@ class CustomAttributeFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->customAttributeDefinitionId)) {
-            $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId;
+        if (!empty($this->customAttributeDefinitionId)) {
+            $json['custom_attribute_definition_id'] = $this->customAttributeDefinitionId['value'];
         }
-        if (isset($this->key)) {
-            $json['key']                            = $this->key;
+        if (!empty($this->key)) {
+            $json['key']                            = $this->key['value'];
         }
-        if (isset($this->stringFilter)) {
-            $json['string_filter']                  = $this->stringFilter;
+        if (!empty($this->stringFilter)) {
+            $json['string_filter']                  = $this->stringFilter['value'];
         }
         if (isset($this->numberFilter)) {
             $json['number_filter']                  = $this->numberFilter;
         }
-        if (isset($this->selectionUidsFilter)) {
-            $json['selection_uids_filter']          = $this->selectionUidsFilter;
+        if (!empty($this->selectionUidsFilter)) {
+            $json['selection_uids_filter']          = $this->selectionUidsFilter['value'];
         }
-        if (isset($this->boolFilter)) {
-            $json['bool_filter']                    = $this->boolFilter;
+        if (!empty($this->boolFilter)) {
+            $json['bool_filter']                    = $this->boolFilter['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

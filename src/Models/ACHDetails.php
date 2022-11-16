@@ -12,19 +12,19 @@ use stdClass;
 class ACHDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $routingNumber;
+    private $routingNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $accountNumberSuffix;
+    private $accountNumberSuffix = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $accountType;
+    private $accountType = [];
 
     /**
      * Returns Routing Number.
@@ -32,7 +32,10 @@ class ACHDetails implements \JsonSerializable
      */
     public function getRoutingNumber(): ?string
     {
-        return $this->routingNumber;
+        if (count($this->routingNumber) == 0) {
+            return null;
+        }
+        return $this->routingNumber['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class ACHDetails implements \JsonSerializable
      */
     public function setRoutingNumber(?string $routingNumber): void
     {
-        $this->routingNumber = $routingNumber;
+        $this->routingNumber['value'] = $routingNumber;
+    }
+
+    /**
+     * Unsets Routing Number.
+     * The routing number for the bank account.
+     */
+    public function unsetRoutingNumber(): void
+    {
+        $this->routingNumber = [];
     }
 
     /**
@@ -52,7 +64,10 @@ class ACHDetails implements \JsonSerializable
      */
     public function getAccountNumberSuffix(): ?string
     {
-        return $this->accountNumberSuffix;
+        if (count($this->accountNumberSuffix) == 0) {
+            return null;
+        }
+        return $this->accountNumberSuffix['value'];
     }
 
     /**
@@ -63,7 +78,16 @@ class ACHDetails implements \JsonSerializable
      */
     public function setAccountNumberSuffix(?string $accountNumberSuffix): void
     {
-        $this->accountNumberSuffix = $accountNumberSuffix;
+        $this->accountNumberSuffix['value'] = $accountNumberSuffix;
+    }
+
+    /**
+     * Unsets Account Number Suffix.
+     * The last few digits of the bank account number.
+     */
+    public function unsetAccountNumberSuffix(): void
+    {
+        $this->accountNumberSuffix = [];
     }
 
     /**
@@ -73,7 +97,10 @@ class ACHDetails implements \JsonSerializable
      */
     public function getAccountType(): ?string
     {
-        return $this->accountType;
+        if (count($this->accountType) == 0) {
+            return null;
+        }
+        return $this->accountType['value'];
     }
 
     /**
@@ -85,7 +112,17 @@ class ACHDetails implements \JsonSerializable
      */
     public function setAccountType(?string $accountType): void
     {
-        $this->accountType = $accountType;
+        $this->accountType['value'] = $accountType;
+    }
+
+    /**
+     * Unsets Account Type.
+     * The type of the bank account performing the transfer. The account type can be `CHECKING`,
+     * `SAVINGS`, or `UNKNOWN`.
+     */
+    public function unsetAccountType(): void
+    {
+        $this->accountType = [];
     }
 
     /**
@@ -100,14 +137,14 @@ class ACHDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->routingNumber)) {
-            $json['routing_number']        = $this->routingNumber;
+        if (!empty($this->routingNumber)) {
+            $json['routing_number']        = $this->routingNumber['value'];
         }
-        if (isset($this->accountNumberSuffix)) {
-            $json['account_number_suffix'] = $this->accountNumberSuffix;
+        if (!empty($this->accountNumberSuffix)) {
+            $json['account_number_suffix'] = $this->accountNumberSuffix['value'];
         }
-        if (isset($this->accountType)) {
-            $json['account_type']          = $this->accountType;
+        if (!empty($this->accountType)) {
+            $json['account_type']          = $this->accountType['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

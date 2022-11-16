@@ -12,9 +12,9 @@ use stdClass;
 class CatalogTimePeriod implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $event;
+    private $event = [];
 
     /**
      * Returns Event.
@@ -36,7 +36,10 @@ class CatalogTimePeriod implements \JsonSerializable
      */
     public function getEvent(): ?string
     {
-        return $this->event;
+        if (count($this->event) == 0) {
+            return null;
+        }
+        return $this->event['value'];
     }
 
     /**
@@ -61,7 +64,30 @@ class CatalogTimePeriod implements \JsonSerializable
      */
     public function setEvent(?string $event): void
     {
-        $this->event = $event;
+        $this->event['value'] = $event;
+    }
+
+    /**
+     * Unsets Event.
+     * An iCalendar (RFC 5545) [event](https://tools.ietf.org/html/rfc5545#section-3.6.1), which
+     * specifies the name, timing, duration and recurrence of this time period.
+     *
+     * Example:
+     *
+     * ```
+     * DTSTART:20190707T180000
+     * DURATION:P2H
+     * RRULE:FREQ=WEEKLY;BYDAY=MO,WE,FR
+     * ```
+     *
+     * Only `SUMMARY`, `DTSTART`, `DURATION` and `RRULE` fields are supported.
+     * `DTSTART` must be in local (unzoned) time format. Note that while `BEGIN:VEVENT`
+     * and `END:VEVENT` is not required in the request. The response will always
+     * include them.
+     */
+    public function unsetEvent(): void
+    {
+        $this->event = [];
     }
 
     /**
@@ -76,8 +102,8 @@ class CatalogTimePeriod implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->event)) {
-            $json['event'] = $this->event;
+        if (!empty($this->event)) {
+            $json['event'] = $this->event['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -17,14 +17,14 @@ class BusinessHoursPeriod implements \JsonSerializable
     private $dayOfWeek;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $startLocalTime;
+    private $startLocalTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endLocalTime;
+    private $endLocalTime = [];
 
     /**
      * Returns Day of Week.
@@ -54,7 +54,10 @@ class BusinessHoursPeriod implements \JsonSerializable
      */
     public function getStartLocalTime(): ?string
     {
-        return $this->startLocalTime;
+        if (count($this->startLocalTime) == 0) {
+            return null;
+        }
+        return $this->startLocalTime['value'];
     }
 
     /**
@@ -67,7 +70,18 @@ class BusinessHoursPeriod implements \JsonSerializable
      */
     public function setStartLocalTime(?string $startLocalTime): void
     {
-        $this->startLocalTime = $startLocalTime;
+        $this->startLocalTime['value'] = $startLocalTime;
+    }
+
+    /**
+     * Unsets Start Local Time.
+     * The start time of a business hours period, specified in local time using partial-time
+     * RFC 3339 format. For example, `8:30:00` for a period starting at 8:30 in the morning.
+     * Note that the seconds value is always :00, but it is appended for conformance to the RFC.
+     */
+    public function unsetStartLocalTime(): void
+    {
+        $this->startLocalTime = [];
     }
 
     /**
@@ -78,7 +92,10 @@ class BusinessHoursPeriod implements \JsonSerializable
      */
     public function getEndLocalTime(): ?string
     {
-        return $this->endLocalTime;
+        if (count($this->endLocalTime) == 0) {
+            return null;
+        }
+        return $this->endLocalTime['value'];
     }
 
     /**
@@ -91,7 +108,18 @@ class BusinessHoursPeriod implements \JsonSerializable
      */
     public function setEndLocalTime(?string $endLocalTime): void
     {
-        $this->endLocalTime = $endLocalTime;
+        $this->endLocalTime['value'] = $endLocalTime;
+    }
+
+    /**
+     * Unsets End Local Time.
+     * The end time of a business hours period, specified in local time using partial-time
+     * RFC 3339 format. For example, `21:00:00` for a period ending at 9:00 in the evening.
+     * Note that the seconds value is always :00, but it is appended for conformance to the RFC.
+     */
+    public function unsetEndLocalTime(): void
+    {
+        $this->endLocalTime = [];
     }
 
     /**
@@ -109,11 +137,11 @@ class BusinessHoursPeriod implements \JsonSerializable
         if (isset($this->dayOfWeek)) {
             $json['day_of_week']      = $this->dayOfWeek;
         }
-        if (isset($this->startLocalTime)) {
-            $json['start_local_time'] = $this->startLocalTime;
+        if (!empty($this->startLocalTime)) {
+            $json['start_local_time'] = $this->startLocalTime['value'];
         }
-        if (isset($this->endLocalTime)) {
-            $json['end_local_time']   = $this->endLocalTime;
+        if (!empty($this->endLocalTime)) {
+            $json['end_local_time']   = $this->endLocalTime['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

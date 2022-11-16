@@ -9,14 +9,14 @@ use stdClass;
 class PaymentLinkRelatedResources implements \JsonSerializable
 {
     /**
-     * @var Order[]|null
+     * @var array
      */
-    private $orders;
+    private $orders = [];
 
     /**
-     * @var CatalogObject[]|null
+     * @var array
      */
-    private $subscriptionPlans;
+    private $subscriptionPlans = [];
 
     /**
      * Returns Orders.
@@ -26,7 +26,10 @@ class PaymentLinkRelatedResources implements \JsonSerializable
      */
     public function getOrders(): ?array
     {
-        return $this->orders;
+        if (count($this->orders) == 0) {
+            return null;
+        }
+        return $this->orders['value'];
     }
 
     /**
@@ -39,7 +42,16 @@ class PaymentLinkRelatedResources implements \JsonSerializable
      */
     public function setOrders(?array $orders): void
     {
-        $this->orders = $orders;
+        $this->orders['value'] = $orders;
+    }
+
+    /**
+     * Unsets Orders.
+     * The order associated with the payment link.
+     */
+    public function unsetOrders(): void
+    {
+        $this->orders = [];
     }
 
     /**
@@ -50,7 +62,10 @@ class PaymentLinkRelatedResources implements \JsonSerializable
      */
     public function getSubscriptionPlans(): ?array
     {
-        return $this->subscriptionPlans;
+        if (count($this->subscriptionPlans) == 0) {
+            return null;
+        }
+        return $this->subscriptionPlans['value'];
     }
 
     /**
@@ -63,7 +78,16 @@ class PaymentLinkRelatedResources implements \JsonSerializable
      */
     public function setSubscriptionPlans(?array $subscriptionPlans): void
     {
-        $this->subscriptionPlans = $subscriptionPlans;
+        $this->subscriptionPlans['value'] = $subscriptionPlans;
+    }
+
+    /**
+     * Unsets Subscription Plans.
+     * The subscription plan associated with the payment link.
+     */
+    public function unsetSubscriptionPlans(): void
+    {
+        $this->subscriptionPlans = [];
     }
 
     /**
@@ -78,11 +102,11 @@ class PaymentLinkRelatedResources implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->orders)) {
-            $json['orders']             = $this->orders;
+        if (!empty($this->orders)) {
+            $json['orders']             = $this->orders['value'];
         }
-        if (isset($this->subscriptionPlans)) {
-            $json['subscription_plans'] = $this->subscriptionPlans;
+        if (!empty($this->subscriptionPlans)) {
+            $json['subscription_plans'] = $this->subscriptionPlans['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

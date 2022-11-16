@@ -14,9 +14,9 @@ use stdClass;
 class SubscriptionPhase implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
      * @var string
@@ -24,9 +24,9 @@ class SubscriptionPhase implements \JsonSerializable
     private $cadence;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $periods;
+    private $periods = [];
 
     /**
      * @var Money|null
@@ -34,9 +34,9 @@ class SubscriptionPhase implements \JsonSerializable
     private $recurringPriceMoney;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $ordinal;
+    private $ordinal = [];
 
     /**
      * @param string $cadence
@@ -53,7 +53,10 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -65,7 +68,17 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * The Square-assigned ID of the subscription phase. This field cannot be changed after a
+     * `SubscriptionPhase` is created.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -96,7 +109,10 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function getPeriods(): ?int
     {
-        return $this->periods;
+        if (count($this->periods) == 0) {
+            return null;
+        }
+        return $this->periods['value'];
     }
 
     /**
@@ -108,7 +124,17 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function setPeriods(?int $periods): void
     {
-        $this->periods = $periods;
+        $this->periods['value'] = $periods;
+    }
+
+    /**
+     * Unsets Periods.
+     * The number of `cadence`s the phase lasts. If not set, the phase never ends. Only the last phase can
+     * be indefinite. This field cannot be changed after a `SubscriptionPhase` is created.
+     */
+    public function unsetPeriods(): void
+    {
+        $this->periods = [];
     }
 
     /**
@@ -150,7 +176,10 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function getOrdinal(): ?int
     {
-        return $this->ordinal;
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
     }
 
     /**
@@ -162,7 +191,17 @@ class SubscriptionPhase implements \JsonSerializable
      */
     public function setOrdinal(?int $ordinal): void
     {
-        $this->ordinal = $ordinal;
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * The position this phase appears in the sequence of phases defined for the plan, indexed from 0. This
+     * field cannot be changed after a `SubscriptionPhase` is created.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
     }
 
     /**
@@ -177,18 +216,18 @@ class SubscriptionPhase implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                   = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                   = $this->uid['value'];
         }
         $json['cadence']                   = $this->cadence;
-        if (isset($this->periods)) {
-            $json['periods']               = $this->periods;
+        if (!empty($this->periods)) {
+            $json['periods']               = $this->periods['value'];
         }
         if (isset($this->recurringPriceMoney)) {
             $json['recurring_price_money'] = $this->recurringPriceMoney;
         }
-        if (isset($this->ordinal)) {
-            $json['ordinal']               = $this->ordinal;
+        if (!empty($this->ordinal)) {
+            $json['ordinal']               = $this->ordinal['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

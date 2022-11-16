@@ -44,9 +44,9 @@ class CustomerCustomAttributeFilterValue implements \JsonSerializable
     private $number;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $boolean;
+    private $boolean = [];
 
     /**
      * @var CustomerAddressFilter|null
@@ -207,7 +207,10 @@ class CustomerCustomAttributeFilterValue implements \JsonSerializable
      */
     public function getBoolean(): ?bool
     {
-        return $this->boolean;
+        if (count($this->boolean) == 0) {
+            return null;
+        }
+        return $this->boolean['value'];
     }
 
     /**
@@ -218,7 +221,16 @@ class CustomerCustomAttributeFilterValue implements \JsonSerializable
      */
     public function setBoolean(?bool $boolean): void
     {
-        $this->boolean = $boolean;
+        $this->boolean['value'] = $boolean;
+    }
+
+    /**
+     * Unsets Boolean.
+     * A filter for a query based on the value of a `Boolean`-type custom attribute.
+     */
+    public function unsetBoolean(): void
+    {
+        $this->boolean = [];
     }
 
     /**
@@ -275,8 +287,8 @@ class CustomerCustomAttributeFilterValue implements \JsonSerializable
         if (isset($this->number)) {
             $json['number']    = $this->number;
         }
-        if (isset($this->boolean)) {
-            $json['boolean']   = $this->boolean;
+        if (!empty($this->boolean)) {
+            $json['boolean']   = $this->boolean['value'];
         }
         if (isset($this->address)) {
             $json['address']   = $this->address;

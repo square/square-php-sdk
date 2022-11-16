@@ -555,6 +555,10 @@ $body_loyaltyPromotion->setTriggerLimit(new Models\LoyaltyPromotionTriggerLimit(
     $body_loyaltyPromotion_triggerLimit_times
 ));
 $body_loyaltyPromotion->getTriggerLimit()->setInterval(Models\LoyaltyPromotionTriggerLimitInterval::DAY);
+$body_loyaltyPromotion->setMinimumSpendAmountMoney(new Models\Money());
+$body_loyaltyPromotion->getMinimumSpendAmountMoney()->setAmount(2000);
+$body_loyaltyPromotion->getMinimumSpendAmountMoney()->setCurrency(Models\Currency::USD);
+$body_loyaltyPromotion->setQualifyingCategoryIds(['XTQPYLR3IIU9C44VRCB3XD12']);
 $body_idempotencyKey = 'ec78c477-b1c3-4899-a209-a4e71337c996';
 $body = new Models\CreateLoyaltyPromotionRequest(
     $body_loyaltyPromotion,

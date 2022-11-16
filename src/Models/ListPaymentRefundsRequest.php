@@ -15,44 +15,44 @@ use stdClass;
 class ListPaymentRefundsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $beginTime;
+    private $beginTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endTime;
+    private $endTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sortOrder;
+    private $sortOrder = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceType;
+    private $sourceType = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Begin Time.
@@ -62,7 +62,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getBeginTime(): ?string
     {
-        return $this->beginTime;
+        if (count($this->beginTime) == 0) {
+            return null;
+        }
+        return $this->beginTime['value'];
     }
 
     /**
@@ -75,7 +78,18 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setBeginTime(?string $beginTime): void
     {
-        $this->beginTime = $beginTime;
+        $this->beginTime['value'] = $beginTime;
+    }
+
+    /**
+     * Unsets Begin Time.
+     * The timestamp for the beginning of the requested reporting period, in RFC 3339 format.
+     *
+     * Default: The current time minus one year.
+     */
+    public function unsetBeginTime(): void
+    {
+        $this->beginTime = [];
     }
 
     /**
@@ -86,7 +100,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getEndTime(): ?string
     {
-        return $this->endTime;
+        if (count($this->endTime) == 0) {
+            return null;
+        }
+        return $this->endTime['value'];
     }
 
     /**
@@ -99,7 +116,18 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setEndTime(?string $endTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime['value'] = $endTime;
+    }
+
+    /**
+     * Unsets End Time.
+     * The timestamp for the end of the requested reporting period, in RFC 3339 format.
+     *
+     * Default: The current time.
+     */
+    public function unsetEndTime(): void
+    {
+        $this->endTime = [];
     }
 
     /**
@@ -110,7 +138,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getSortOrder(): ?string
     {
-        return $this->sortOrder;
+        if (count($this->sortOrder) == 0) {
+            return null;
+        }
+        return $this->sortOrder['value'];
     }
 
     /**
@@ -123,7 +154,18 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setSortOrder(?string $sortOrder): void
     {
-        $this->sortOrder = $sortOrder;
+        $this->sortOrder['value'] = $sortOrder;
+    }
+
+    /**
+     * Unsets Sort Order.
+     * The order in which results are listed:
+     * - `ASC` - Oldest to newest.
+     * - `DESC` - Newest to oldest (default).
+     */
+    public function unsetSortOrder(): void
+    {
+        $this->sortOrder = [];
     }
 
     /**
@@ -135,7 +177,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -149,7 +194,19 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for the original query.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -159,7 +216,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -171,7 +231,17 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * Limit results to the location supplied. By default, results are returned
+     * for all locations associated with the seller.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -183,7 +253,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getStatus(): ?string
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -197,7 +270,19 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setStatus(?string $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * If provided, only refunds with the given status are returned.
+     * For a list of refund status values, see [PaymentRefund]($m/PaymentRefund).
+     *
+     * Default: If omitted, refunds are returned regardless of their status.
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -211,7 +296,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getSourceType(): ?string
     {
-        return $this->sourceType;
+        if (count($this->sourceType) == 0) {
+            return null;
+        }
+        return $this->sourceType['value'];
     }
 
     /**
@@ -227,7 +315,21 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setSourceType(?string $sourceType): void
     {
-        $this->sourceType = $sourceType;
+        $this->sourceType['value'] = $sourceType;
+    }
+
+    /**
+     * Unsets Source Type.
+     * If provided, only returns refunds whose payments have the indicated source type.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `CASH`, and `EXTERNAL`.
+     * For information about these payment source types, see
+     * [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
+     *
+     * Default: If omitted, refunds are returned regardless of the source type.
+     */
+    public function unsetSourceType(): void
+    {
+        $this->sourceType = [];
     }
 
     /**
@@ -242,7 +344,10 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -259,7 +364,22 @@ class ListPaymentRefundsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to be returned in a single page.
+     *
+     * It is possible to receive fewer results than the specified limit on a given page.
+     *
+     * If the supplied value is greater than 100, no more than 100 results are returned.
+     *
+     * Default: 100
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -274,29 +394,29 @@ class ListPaymentRefundsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->beginTime)) {
-            $json['begin_time']  = $this->beginTime;
+        if (!empty($this->beginTime)) {
+            $json['begin_time']  = $this->beginTime['value'];
         }
-        if (isset($this->endTime)) {
-            $json['end_time']    = $this->endTime;
+        if (!empty($this->endTime)) {
+            $json['end_time']    = $this->endTime['value'];
         }
-        if (isset($this->sortOrder)) {
-            $json['sort_order']  = $this->sortOrder;
+        if (!empty($this->sortOrder)) {
+            $json['sort_order']  = $this->sortOrder['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']      = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']      = $this->cursor['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
-        if (isset($this->status)) {
-            $json['status']      = $this->status;
+        if (!empty($this->status)) {
+            $json['status']      = $this->status['value'];
         }
-        if (isset($this->sourceType)) {
-            $json['source_type'] = $this->sourceType;
+        if (!empty($this->sourceType)) {
+            $json['source_type'] = $this->sourceType['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']       = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']       = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -14,9 +14,9 @@ class CashDrawerShiftEvent implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
      * @var string|null
@@ -34,9 +34,9 @@ class CashDrawerShiftEvent implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * Returns Id.
@@ -64,7 +64,10 @@ class CashDrawerShiftEvent implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -75,7 +78,16 @@ class CashDrawerShiftEvent implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The ID of the employee that created the event.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -161,7 +173,10 @@ class CashDrawerShiftEvent implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -173,7 +188,17 @@ class CashDrawerShiftEvent implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * An optional description of the event, entered by the employee that
+     * created the event.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -191,8 +216,8 @@ class CashDrawerShiftEvent implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']          = $this->id;
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id'] = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id'] = $this->employeeId['value'];
         }
         if (isset($this->eventType)) {
             $json['event_type']  = $this->eventType;
@@ -203,8 +228,8 @@ class CashDrawerShiftEvent implements \JsonSerializable
         if (isset($this->createdAt)) {
             $json['created_at']  = $this->createdAt;
         }
-        if (isset($this->description)) {
-            $json['description'] = $this->description;
+        if (!empty($this->description)) {
+            $json['description'] = $this->description['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

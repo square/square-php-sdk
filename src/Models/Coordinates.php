@@ -12,14 +12,14 @@ use stdClass;
 class Coordinates implements \JsonSerializable
 {
     /**
-     * @var float|null
+     * @var array
      */
-    private $latitude;
+    private $latitude = [];
 
     /**
-     * @var float|null
+     * @var array
      */
-    private $longitude;
+    private $longitude = [];
 
     /**
      * Returns Latitude.
@@ -27,7 +27,10 @@ class Coordinates implements \JsonSerializable
      */
     public function getLatitude(): ?float
     {
-        return $this->latitude;
+        if (count($this->latitude) == 0) {
+            return null;
+        }
+        return $this->latitude['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class Coordinates implements \JsonSerializable
      */
     public function setLatitude(?float $latitude): void
     {
-        $this->latitude = $latitude;
+        $this->latitude['value'] = $latitude;
+    }
+
+    /**
+     * Unsets Latitude.
+     * The latitude of the coordinate expressed in degrees.
+     */
+    public function unsetLatitude(): void
+    {
+        $this->latitude = [];
     }
 
     /**
@@ -47,7 +59,10 @@ class Coordinates implements \JsonSerializable
      */
     public function getLongitude(): ?float
     {
-        return $this->longitude;
+        if (count($this->longitude) == 0) {
+            return null;
+        }
+        return $this->longitude['value'];
     }
 
     /**
@@ -58,7 +73,16 @@ class Coordinates implements \JsonSerializable
      */
     public function setLongitude(?float $longitude): void
     {
-        $this->longitude = $longitude;
+        $this->longitude['value'] = $longitude;
+    }
+
+    /**
+     * Unsets Longitude.
+     * The longitude of the coordinate expressed in degrees.
+     */
+    public function unsetLongitude(): void
+    {
+        $this->longitude = [];
     }
 
     /**
@@ -73,11 +97,11 @@ class Coordinates implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->latitude)) {
-            $json['latitude']  = $this->latitude;
+        if (!empty($this->latitude)) {
+            $json['latitude']  = $this->latitude['value'];
         }
-        if (isset($this->longitude)) {
-            $json['longitude'] = $this->longitude;
+        if (!empty($this->longitude)) {
+            $json['longitude'] = $this->longitude['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

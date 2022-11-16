@@ -12,14 +12,14 @@ use stdClass;
 class Range implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $min;
+    private $min = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $max;
+    private $max = [];
 
     /**
      * Returns Min.
@@ -28,7 +28,10 @@ class Range implements \JsonSerializable
      */
     public function getMin(): ?string
     {
-        return $this->min;
+        if (count($this->min) == 0) {
+            return null;
+        }
+        return $this->min['value'];
     }
 
     /**
@@ -40,7 +43,17 @@ class Range implements \JsonSerializable
      */
     public function setMin(?string $min): void
     {
-        $this->min = $min;
+        $this->min['value'] = $min;
+    }
+
+    /**
+     * Unsets Min.
+     * The lower bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no minimum value.
+     */
+    public function unsetMin(): void
+    {
+        $this->min = [];
     }
 
     /**
@@ -50,7 +63,10 @@ class Range implements \JsonSerializable
      */
     public function getMax(): ?string
     {
-        return $this->max;
+        if (count($this->max) == 0) {
+            return null;
+        }
+        return $this->max['value'];
     }
 
     /**
@@ -62,7 +78,17 @@ class Range implements \JsonSerializable
      */
     public function setMax(?string $max): void
     {
-        $this->max = $max;
+        $this->max['value'] = $max;
+    }
+
+    /**
+     * Unsets Max.
+     * The upper bound of the number range. At least one of `min` or `max` must be specified.
+     * If unspecified, the results will have no maximum value.
+     */
+    public function unsetMax(): void
+    {
+        $this->max = [];
     }
 
     /**
@@ -77,11 +103,11 @@ class Range implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->min)) {
-            $json['min'] = $this->min;
+        if (!empty($this->min)) {
+            $json['min'] = $this->min['value'];
         }
-        if (isset($this->max)) {
-            $json['max'] = $this->max;
+        if (!empty($this->max)) {
+            $json['max'] = $this->max['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

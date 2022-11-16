@@ -18,19 +18,19 @@ class OrderQuantityUnit implements \JsonSerializable
     private $measurementUnit;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $precision;
+    private $precision = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
      * Returns Measurement Unit.
@@ -67,7 +67,10 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function getPrecision(): ?int
     {
-        return $this->precision;
+        if (count($this->precision) == 0) {
+            return null;
+        }
+        return $this->precision['value'];
     }
 
     /**
@@ -83,7 +86,21 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function setPrecision(?int $precision): void
     {
-        $this->precision = $precision;
+        $this->precision['value'] = $precision;
+    }
+
+    /**
+     * Unsets Precision.
+     * For non-integer quantities, represents the number of digits after the decimal point that are
+     * recorded for this quantity.
+     *
+     * For example, a precision of 1 allows quantities such as `"1.0"` and `"1.1"`, but not `"1.01"`.
+     *
+     * Min: 0. Max: 5.
+     */
+    public function unsetPrecision(): void
+    {
+        $this->precision = [];
     }
 
     /**
@@ -95,7 +112,10 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -109,7 +129,19 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing the
+     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -120,7 +152,10 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -133,7 +168,18 @@ class OrderQuantityUnit implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this measurement unit references.
+     *
+     * This field is set when this is a catalog-backed measurement unit.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -151,14 +197,14 @@ class OrderQuantityUnit implements \JsonSerializable
         if (isset($this->measurementUnit)) {
             $json['measurement_unit']  = $this->measurementUnit;
         }
-        if (isset($this->precision)) {
-            $json['precision']         = $this->precision;
+        if (!empty($this->precision)) {
+            $json['precision']         = $this->precision['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id'] = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']   = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

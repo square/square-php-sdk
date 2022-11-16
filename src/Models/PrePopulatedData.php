@@ -15,14 +15,14 @@ use stdClass;
 class PrePopulatedData implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerEmail;
+    private $buyerEmail = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerPhoneNumber;
+    private $buyerPhoneNumber = [];
 
     /**
      * @var Address|null
@@ -35,7 +35,10 @@ class PrePopulatedData implements \JsonSerializable
      */
     public function getBuyerEmail(): ?string
     {
-        return $this->buyerEmail;
+        if (count($this->buyerEmail) == 0) {
+            return null;
+        }
+        return $this->buyerEmail['value'];
     }
 
     /**
@@ -46,7 +49,16 @@ class PrePopulatedData implements \JsonSerializable
      */
     public function setBuyerEmail(?string $buyerEmail): void
     {
-        $this->buyerEmail = $buyerEmail;
+        $this->buyerEmail['value'] = $buyerEmail;
+    }
+
+    /**
+     * Unsets Buyer Email.
+     * The buyer email to prepopulate in the payment form.
+     */
+    public function unsetBuyerEmail(): void
+    {
+        $this->buyerEmail = [];
     }
 
     /**
@@ -55,7 +67,10 @@ class PrePopulatedData implements \JsonSerializable
      */
     public function getBuyerPhoneNumber(): ?string
     {
-        return $this->buyerPhoneNumber;
+        if (count($this->buyerPhoneNumber) == 0) {
+            return null;
+        }
+        return $this->buyerPhoneNumber['value'];
     }
 
     /**
@@ -66,7 +81,16 @@ class PrePopulatedData implements \JsonSerializable
      */
     public function setBuyerPhoneNumber(?string $buyerPhoneNumber): void
     {
-        $this->buyerPhoneNumber = $buyerPhoneNumber;
+        $this->buyerPhoneNumber['value'] = $buyerPhoneNumber;
+    }
+
+    /**
+     * Unsets Buyer Phone Number.
+     * The buyer phone number to prepopulate in the payment form.
+     */
+    public function unsetBuyerPhoneNumber(): void
+    {
+        $this->buyerPhoneNumber = [];
     }
 
     /**
@@ -105,11 +129,11 @@ class PrePopulatedData implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->buyerEmail)) {
-            $json['buyer_email']        = $this->buyerEmail;
+        if (!empty($this->buyerEmail)) {
+            $json['buyer_email']        = $this->buyerEmail['value'];
         }
-        if (isset($this->buyerPhoneNumber)) {
-            $json['buyer_phone_number'] = $this->buyerPhoneNumber;
+        if (!empty($this->buyerPhoneNumber)) {
+            $json['buyer_phone_number'] = $this->buyerPhoneNumber['value'];
         }
         if (isset($this->buyerAddress)) {
             $json['buyer_address']      = $this->buyerAddress;

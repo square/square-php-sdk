@@ -17,14 +17,14 @@ class FulfillmentPickupDetails implements \JsonSerializable
     private $recipient;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $expiresAt;
+    private $expiresAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $autoCompleteDuration;
+    private $autoCompleteDuration = [];
 
     /**
      * @var string|null
@@ -32,24 +32,24 @@ class FulfillmentPickupDetails implements \JsonSerializable
     private $scheduleType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $pickupAt;
+    private $pickupAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $pickupWindowDuration;
+    private $pickupWindowDuration = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $prepTimeDuration;
+    private $prepTimeDuration = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
      * @var string|null
@@ -87,14 +87,14 @@ class FulfillmentPickupDetails implements \JsonSerializable
     private $canceledAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cancelReason;
+    private $cancelReason = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isCurbsidePickup;
+    private $isCurbsidePickup = [];
 
     /**
      * @var FulfillmentPickupDetailsCurbsidePickupDetails|null
@@ -133,7 +133,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getExpiresAt(): ?string
     {
-        return $this->expiresAt;
+        if (count($this->expiresAt) == 0) {
+            return null;
+        }
+        return $this->expiresAt['value'];
     }
 
     /**
@@ -150,7 +153,22 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setExpiresAt(?string $expiresAt): void
     {
-        $this->expiresAt = $expiresAt;
+        $this->expiresAt['value'] = $expiresAt;
+    }
+
+    /**
+     * Unsets Expires At.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when this fulfillment expires if it is not accepted. The timestamp must be in RFC 3339
+     * format
+     * (for example, "2016-09-04T23:59:33.123Z"). The expiration time can only be set up to 7 days in the
+     * future.
+     * If `expires_at` is not set, this pickup fulfillment is automatically accepted when
+     * placed.
+     */
+    public function unsetExpiresAt(): void
+    {
+        $this->expiresAt = [];
     }
 
     /**
@@ -163,7 +181,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getAutoCompleteDuration(): ?string
     {
-        return $this->autoCompleteDuration;
+        if (count($this->autoCompleteDuration) == 0) {
+            return null;
+        }
+        return $this->autoCompleteDuration['value'];
     }
 
     /**
@@ -178,7 +199,20 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setAutoCompleteDuration(?string $autoCompleteDuration): void
     {
-        $this->autoCompleteDuration = $autoCompleteDuration;
+        $this->autoCompleteDuration['value'] = $autoCompleteDuration;
+    }
+
+    /**
+     * Unsets Auto Complete Duration.
+     * The duration of time after which an open and accepted pickup fulfillment
+     * is automatically moved to the `COMPLETED` state. The duration must be in RFC 3339
+     * format (for example, "P1W3D").
+     *
+     * If not set, this pickup fulfillment remains accepted until it is canceled or completed.
+     */
+    public function unsetAutoCompleteDuration(): void
+    {
+        $this->autoCompleteDuration = [];
     }
 
     /**
@@ -212,7 +246,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getPickupAt(): ?string
     {
-        return $this->pickupAt;
+        if (count($this->pickupAt) == 0) {
+            return null;
+        }
+        return $this->pickupAt['value'];
     }
 
     /**
@@ -228,7 +265,21 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setPickupAt(?string $pickupAt): void
     {
-        $this->pickupAt = $pickupAt;
+        $this->pickupAt['value'] = $pickupAt;
+    }
+
+    /**
+     * Unsets Pickup At.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * that represents the start of the pickup window. Must be in RFC 3339 timestamp format, e.g.,
+     * "2016-09-04T23:59:33.123Z".
+     *
+     * For fulfillments with the schedule type `ASAP`, this is automatically set
+     * to the current time plus the expected duration to prepare the fulfillment.
+     */
+    public function unsetPickupAt(): void
+    {
+        $this->pickupAt = [];
     }
 
     /**
@@ -239,7 +290,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getPickupWindowDuration(): ?string
     {
-        return $this->pickupWindowDuration;
+        if (count($this->pickupWindowDuration) == 0) {
+            return null;
+        }
+        return $this->pickupWindowDuration['value'];
     }
 
     /**
@@ -252,7 +306,18 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setPickupWindowDuration(?string $pickupWindowDuration): void
     {
-        $this->pickupWindowDuration = $pickupWindowDuration;
+        $this->pickupWindowDuration['value'] = $pickupWindowDuration;
+    }
+
+    /**
+     * Unsets Pickup Window Duration.
+     * The window of time in which the order should be picked up after the `pickup_at` timestamp.
+     * Must be in RFC 3339 duration format, e.g., "P1W3D". Can be used as an
+     * informational guideline for merchants.
+     */
+    public function unsetPickupWindowDuration(): void
+    {
+        $this->pickupWindowDuration = [];
     }
 
     /**
@@ -262,7 +327,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getPrepTimeDuration(): ?string
     {
-        return $this->prepTimeDuration;
+        if (count($this->prepTimeDuration) == 0) {
+            return null;
+        }
+        return $this->prepTimeDuration['value'];
     }
 
     /**
@@ -274,7 +342,17 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setPrepTimeDuration(?string $prepTimeDuration): void
     {
-        $this->prepTimeDuration = $prepTimeDuration;
+        $this->prepTimeDuration['value'] = $prepTimeDuration;
+    }
+
+    /**
+     * Unsets Prep Time Duration.
+     * The duration of time it takes to prepare this fulfillment.
+     * The duration must be in RFC 3339 format (for example, "P1W3D").
+     */
+    public function unsetPrepTimeDuration(): void
+    {
+        $this->prepTimeDuration = [];
     }
 
     /**
@@ -284,7 +362,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -296,7 +377,17 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * A note to provide additional instructions about the pickup
+     * fulfillment displayed in the Square Point of Sale application and set by the API.
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -477,7 +568,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getCancelReason(): ?string
     {
-        return $this->cancelReason;
+        if (count($this->cancelReason) == 0) {
+            return null;
+        }
+        return $this->cancelReason['value'];
     }
 
     /**
@@ -488,7 +582,16 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setCancelReason(?string $cancelReason): void
     {
-        $this->cancelReason = $cancelReason;
+        $this->cancelReason['value'] = $cancelReason;
+    }
+
+    /**
+     * Unsets Cancel Reason.
+     * A description of why the pickup was canceled. The maximum length: 100 characters.
+     */
+    public function unsetCancelReason(): void
+    {
+        $this->cancelReason = [];
     }
 
     /**
@@ -497,7 +600,10 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function getIsCurbsidePickup(): ?bool
     {
-        return $this->isCurbsidePickup;
+        if (count($this->isCurbsidePickup) == 0) {
+            return null;
+        }
+        return $this->isCurbsidePickup['value'];
     }
 
     /**
@@ -508,7 +614,16 @@ class FulfillmentPickupDetails implements \JsonSerializable
      */
     public function setIsCurbsidePickup(?bool $isCurbsidePickup): void
     {
-        $this->isCurbsidePickup = $isCurbsidePickup;
+        $this->isCurbsidePickup['value'] = $isCurbsidePickup;
+    }
+
+    /**
+     * Unsets Is Curbside Pickup.
+     * If set to `true`, indicates that this pickup order is for curbside pickup, not in-store pickup.
+     */
+    public function unsetIsCurbsidePickup(): void
+    {
+        $this->isCurbsidePickup = [];
     }
 
     /**
@@ -547,26 +662,26 @@ class FulfillmentPickupDetails implements \JsonSerializable
         if (isset($this->recipient)) {
             $json['recipient']               = $this->recipient;
         }
-        if (isset($this->expiresAt)) {
-            $json['expires_at']              = $this->expiresAt;
+        if (!empty($this->expiresAt)) {
+            $json['expires_at']              = $this->expiresAt['value'];
         }
-        if (isset($this->autoCompleteDuration)) {
-            $json['auto_complete_duration']  = $this->autoCompleteDuration;
+        if (!empty($this->autoCompleteDuration)) {
+            $json['auto_complete_duration']  = $this->autoCompleteDuration['value'];
         }
         if (isset($this->scheduleType)) {
             $json['schedule_type']           = $this->scheduleType;
         }
-        if (isset($this->pickupAt)) {
-            $json['pickup_at']               = $this->pickupAt;
+        if (!empty($this->pickupAt)) {
+            $json['pickup_at']               = $this->pickupAt['value'];
         }
-        if (isset($this->pickupWindowDuration)) {
-            $json['pickup_window_duration']  = $this->pickupWindowDuration;
+        if (!empty($this->pickupWindowDuration)) {
+            $json['pickup_window_duration']  = $this->pickupWindowDuration['value'];
         }
-        if (isset($this->prepTimeDuration)) {
-            $json['prep_time_duration']      = $this->prepTimeDuration;
+        if (!empty($this->prepTimeDuration)) {
+            $json['prep_time_duration']      = $this->prepTimeDuration['value'];
         }
-        if (isset($this->note)) {
-            $json['note']                    = $this->note;
+        if (!empty($this->note)) {
+            $json['note']                    = $this->note['value'];
         }
         if (isset($this->placedAt)) {
             $json['placed_at']               = $this->placedAt;
@@ -589,11 +704,11 @@ class FulfillmentPickupDetails implements \JsonSerializable
         if (isset($this->canceledAt)) {
             $json['canceled_at']             = $this->canceledAt;
         }
-        if (isset($this->cancelReason)) {
-            $json['cancel_reason']           = $this->cancelReason;
+        if (!empty($this->cancelReason)) {
+            $json['cancel_reason']           = $this->cancelReason['value'];
         }
-        if (isset($this->isCurbsidePickup)) {
-            $json['is_curbside_pickup']      = $this->isCurbsidePickup;
+        if (!empty($this->isCurbsidePickup)) {
+            $json['is_curbside_pickup']      = $this->isCurbsidePickup['value'];
         }
         if (isset($this->curbsidePickupDetails)) {
             $json['curbside_pickup_details'] = $this->curbsidePickupDetails;

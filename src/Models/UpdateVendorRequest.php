@@ -12,9 +12,9 @@ use stdClass;
 class UpdateVendorRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
      * @var Vendor
@@ -40,7 +40,10 @@ class UpdateVendorRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -56,7 +59,21 @@ class UpdateVendorRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A client-supplied, universally unique identifier (UUID) for the
+     * request.
+     *
+     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) in the
+     * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
+     * information.
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -92,8 +109,8 @@ class UpdateVendorRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
         $json['vendor']              = $this->vendor;
         $json = array_filter($json, function ($val) {

@@ -39,34 +39,34 @@ class Booking implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $startAt;
+    private $startAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerNote;
+    private $customerNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sellerNote;
+    private $sellerNote = [];
 
     /**
-     * @var AppointmentSegment[]|null
+     * @var array
      */
-    private $appointmentSegments;
+    private $appointmentSegments = [];
 
     /**
      * @var int|null
@@ -199,7 +199,10 @@ class Booking implements \JsonSerializable
      */
     public function getStartAt(): ?string
     {
-        return $this->startAt;
+        if (count($this->startAt) == 0) {
+            return null;
+        }
+        return $this->startAt['value'];
     }
 
     /**
@@ -210,7 +213,16 @@ class Booking implements \JsonSerializable
      */
     public function setStartAt(?string $startAt): void
     {
-        $this->startAt = $startAt;
+        $this->startAt['value'] = $startAt;
+    }
+
+    /**
+     * Unsets Start At.
+     * The RFC 3339 timestamp specifying the starting time of this booking.
+     */
+    public function unsetStartAt(): void
+    {
+        $this->startAt = [];
     }
 
     /**
@@ -220,7 +232,10 @@ class Booking implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -232,7 +247,17 @@ class Booking implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the [Location]($m/Location) object representing the location where the booked service is
+     * provided. Once set when the booking is created, its value cannot be changed.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -241,7 +266,10 @@ class Booking implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -252,7 +280,16 @@ class Booking implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The ID of the [Customer]($m/Customer) object representing the customer receiving the booked service.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -263,7 +300,10 @@ class Booking implements \JsonSerializable
      */
     public function getCustomerNote(): ?string
     {
-        return $this->customerNote;
+        if (count($this->customerNote) == 0) {
+            return null;
+        }
+        return $this->customerNote['value'];
     }
 
     /**
@@ -276,7 +316,18 @@ class Booking implements \JsonSerializable
      */
     public function setCustomerNote(?string $customerNote): void
     {
-        $this->customerNote = $customerNote;
+        $this->customerNote['value'] = $customerNote;
+    }
+
+    /**
+     * Unsets Customer Note.
+     * The free-text field for the customer to supply notes about the booking. For example, the note can be
+     * preferences that cannot be expressed by supported attributes of a relevant
+     * [CatalogObject]($m/CatalogObject) instance.
+     */
+    public function unsetCustomerNote(): void
+    {
+        $this->customerNote = [];
     }
 
     /**
@@ -288,7 +339,10 @@ class Booking implements \JsonSerializable
      */
     public function getSellerNote(): ?string
     {
-        return $this->sellerNote;
+        if (count($this->sellerNote) == 0) {
+            return null;
+        }
+        return $this->sellerNote['value'];
     }
 
     /**
@@ -302,7 +356,19 @@ class Booking implements \JsonSerializable
      */
     public function setSellerNote(?string $sellerNote): void
     {
-        $this->sellerNote = $sellerNote;
+        $this->sellerNote['value'] = $sellerNote;
+    }
+
+    /**
+     * Unsets Seller Note.
+     * The free-text field for the seller to supply notes about the booking. For example, the note can be
+     * preferences that cannot be expressed by supported attributes of a specific
+     * [CatalogObject]($m/CatalogObject) instance.
+     * This field should not be visible to customers.
+     */
+    public function unsetSellerNote(): void
+    {
+        $this->sellerNote = [];
     }
 
     /**
@@ -313,7 +379,10 @@ class Booking implements \JsonSerializable
      */
     public function getAppointmentSegments(): ?array
     {
-        return $this->appointmentSegments;
+        if (count($this->appointmentSegments) == 0) {
+            return null;
+        }
+        return $this->appointmentSegments['value'];
     }
 
     /**
@@ -326,7 +395,16 @@ class Booking implements \JsonSerializable
      */
     public function setAppointmentSegments(?array $appointmentSegments): void
     {
-        $this->appointmentSegments = $appointmentSegments;
+        $this->appointmentSegments['value'] = $appointmentSegments;
+    }
+
+    /**
+     * Unsets Appointment Segments.
+     * A list of appointment segments for this booking.
+     */
+    public function unsetAppointmentSegments(): void
+    {
+        $this->appointmentSegments = [];
     }
 
     /**
@@ -458,23 +536,23 @@ class Booking implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']              = $this->updatedAt;
         }
-        if (isset($this->startAt)) {
-            $json['start_at']                = $this->startAt;
+        if (!empty($this->startAt)) {
+            $json['start_at']                = $this->startAt['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']             = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']             = $this->locationId['value'];
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']             = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']             = $this->customerId['value'];
         }
-        if (isset($this->customerNote)) {
-            $json['customer_note']           = $this->customerNote;
+        if (!empty($this->customerNote)) {
+            $json['customer_note']           = $this->customerNote['value'];
         }
-        if (isset($this->sellerNote)) {
-            $json['seller_note']             = $this->sellerNote;
+        if (!empty($this->sellerNote)) {
+            $json['seller_note']             = $this->sellerNote['value'];
         }
-        if (isset($this->appointmentSegments)) {
-            $json['appointment_segments']    = $this->appointmentSegments;
+        if (!empty($this->appointmentSegments)) {
+            $json['appointment_segments']    = $this->appointmentSegments['value'];
         }
         if (isset($this->transitionTimeMinutes)) {
             $json['transition_time_minutes'] = $this->transitionTimeMinutes;

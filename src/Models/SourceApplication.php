@@ -17,14 +17,14 @@ class SourceApplication implements \JsonSerializable
     private $product;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $applicationId;
+    private $applicationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * Returns Product.
@@ -53,7 +53,10 @@ class SourceApplication implements \JsonSerializable
      */
     public function getApplicationId(): ?string
     {
-        return $this->applicationId;
+        if (count($this->applicationId) == 0) {
+            return null;
+        }
+        return $this->applicationId['value'];
     }
 
     /**
@@ -65,7 +68,17 @@ class SourceApplication implements \JsonSerializable
      */
     public function setApplicationId(?string $applicationId): void
     {
-        $this->applicationId = $applicationId;
+        $this->applicationId['value'] = $applicationId;
+    }
+
+    /**
+     * Unsets Application Id.
+     * __Read only__ The Square-assigned ID of the application. This field is used only if the
+     * [product]($m/Product) type is `EXTERNAL_API`.
+     */
+    public function unsetApplicationId(): void
+    {
+        $this->applicationId = [];
     }
 
     /**
@@ -75,7 +88,10 @@ class SourceApplication implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -87,7 +103,17 @@ class SourceApplication implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * __Read only__ The display name of the application
+     * (for example, `"Custom Application"` or `"Square POS 4.74 for Android"`).
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -105,11 +131,11 @@ class SourceApplication implements \JsonSerializable
         if (isset($this->product)) {
             $json['product']        = $this->product;
         }
-        if (isset($this->applicationId)) {
-            $json['application_id'] = $this->applicationId;
+        if (!empty($this->applicationId)) {
+            $json['application_id'] = $this->applicationId['value'];
         }
-        if (isset($this->name)) {
-            $json['name']           = $this->name;
+        if (!empty($this->name)) {
+            $json['name']           = $this->name['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -18,14 +18,14 @@ class PayOrderRequest implements \JsonSerializable
     private $idempotencyKey;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $orderVersion;
+    private $orderVersion = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $paymentIds;
+    private $paymentIds = [];
 
     /**
      * @param string $idempotencyKey
@@ -72,7 +72,10 @@ class PayOrderRequest implements \JsonSerializable
      */
     public function getOrderVersion(): ?int
     {
-        return $this->orderVersion;
+        if (count($this->orderVersion) == 0) {
+            return null;
+        }
+        return $this->orderVersion['value'];
     }
 
     /**
@@ -83,7 +86,16 @@ class PayOrderRequest implements \JsonSerializable
      */
     public function setOrderVersion(?int $orderVersion): void
     {
-        $this->orderVersion = $orderVersion;
+        $this->orderVersion['value'] = $orderVersion;
+    }
+
+    /**
+     * Unsets Order Version.
+     * The version of the order being paid. If not supplied, the latest version will be paid.
+     */
+    public function unsetOrderVersion(): void
+    {
+        $this->orderVersion = [];
     }
 
     /**
@@ -95,7 +107,10 @@ class PayOrderRequest implements \JsonSerializable
      */
     public function getPaymentIds(): ?array
     {
-        return $this->paymentIds;
+        if (count($this->paymentIds) == 0) {
+            return null;
+        }
+        return $this->paymentIds['value'];
     }
 
     /**
@@ -109,7 +124,17 @@ class PayOrderRequest implements \JsonSerializable
      */
     public function setPaymentIds(?array $paymentIds): void
     {
-        $this->paymentIds = $paymentIds;
+        $this->paymentIds['value'] = $paymentIds;
+    }
+
+    /**
+     * Unsets Payment Ids.
+     * The IDs of the [payments]($m/Payment) to collect.
+     * The payment total must match the order total.
+     */
+    public function unsetPaymentIds(): void
+    {
+        $this->paymentIds = [];
     }
 
     /**
@@ -125,11 +150,11 @@ class PayOrderRequest implements \JsonSerializable
     {
         $json = [];
         $json['idempotency_key']   = $this->idempotencyKey;
-        if (isset($this->orderVersion)) {
-            $json['order_version'] = $this->orderVersion;
+        if (!empty($this->orderVersion)) {
+            $json['order_version'] = $this->orderVersion['value'];
         }
-        if (isset($this->paymentIds)) {
-            $json['payment_ids']   = $this->paymentIds;
+        if (!empty($this->paymentIds)) {
+            $json['payment_ids']   = $this->paymentIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

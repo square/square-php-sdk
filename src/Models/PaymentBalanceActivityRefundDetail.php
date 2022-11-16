@@ -9,14 +9,14 @@ use stdClass;
 class PaymentBalanceActivityRefundDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $refundId;
+    private $refundId = [];
 
     /**
      * Returns Payment Id.
@@ -24,7 +24,10 @@ class PaymentBalanceActivityRefundDetail implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -35,7 +38,16 @@ class PaymentBalanceActivityRefundDetail implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this activity.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -44,7 +56,10 @@ class PaymentBalanceActivityRefundDetail implements \JsonSerializable
      */
     public function getRefundId(): ?string
     {
-        return $this->refundId;
+        if (count($this->refundId) == 0) {
+            return null;
+        }
+        return $this->refundId['value'];
     }
 
     /**
@@ -55,7 +70,16 @@ class PaymentBalanceActivityRefundDetail implements \JsonSerializable
      */
     public function setRefundId(?string $refundId): void
     {
-        $this->refundId = $refundId;
+        $this->refundId['value'] = $refundId;
+    }
+
+    /**
+     * Unsets Refund Id.
+     * The ID of the refund associated with this activity.
+     */
+    public function unsetRefundId(): void
+    {
+        $this->refundId = [];
     }
 
     /**
@@ -70,11 +94,11 @@ class PaymentBalanceActivityRefundDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId['value'];
         }
-        if (isset($this->refundId)) {
-            $json['refund_id']  = $this->refundId;
+        if (!empty($this->refundId)) {
+            $json['refund_id']  = $this->refundId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

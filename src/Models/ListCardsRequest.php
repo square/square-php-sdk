@@ -13,24 +13,24 @@ use stdClass;
 class ListCardsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $includeDisabled;
+    private $includeDisabled = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -46,7 +46,10 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -60,7 +63,19 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for your original query.
+     *
+     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -70,7 +85,10 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -82,7 +100,17 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * Limit results to cards associated with the customer supplied.
+     * By default, all cards owned by the merchant are returned.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -92,7 +120,10 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function getIncludeDisabled(): ?bool
     {
-        return $this->includeDisabled;
+        if (count($this->includeDisabled) == 0) {
+            return null;
+        }
+        return $this->includeDisabled['value'];
     }
 
     /**
@@ -104,7 +135,17 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function setIncludeDisabled(?bool $includeDisabled): void
     {
-        $this->includeDisabled = $includeDisabled;
+        $this->includeDisabled['value'] = $includeDisabled;
+    }
+
+    /**
+     * Unsets Include Disabled.
+     * Includes disabled cards.
+     * By default, all enabled cards owned by the merchant are returned.
+     */
+    public function unsetIncludeDisabled(): void
+    {
+        $this->includeDisabled = [];
     }
 
     /**
@@ -113,7 +154,10 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -124,7 +168,16 @@ class ListCardsRequest implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * Limit results to cards associated with the reference_id supplied.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -159,17 +212,17 @@ class ListCardsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor']           = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']           = $this->cursor['value'];
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']      = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']      = $this->customerId['value'];
         }
-        if (isset($this->includeDisabled)) {
-            $json['include_disabled'] = $this->includeDisabled;
+        if (!empty($this->includeDisabled)) {
+            $json['include_disabled'] = $this->includeDisabled['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']     = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']     = $this->referenceId['value'];
         }
         if (isset($this->sortOrder)) {
             $json['sort_order']       = $this->sortOrder;

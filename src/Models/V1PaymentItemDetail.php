@@ -12,24 +12,24 @@ use stdClass;
 class V1PaymentItemDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $categoryName;
+    private $categoryName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sku;
+    private $sku = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemId;
+    private $itemId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $itemVariationId;
+    private $itemVariationId = [];
 
     /**
      * Returns Category Name.
@@ -37,7 +37,10 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function getCategoryName(): ?string
     {
-        return $this->categoryName;
+        if (count($this->categoryName) == 0) {
+            return null;
+        }
+        return $this->categoryName['value'];
     }
 
     /**
@@ -48,7 +51,16 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function setCategoryName(?string $categoryName): void
     {
-        $this->categoryName = $categoryName;
+        $this->categoryName['value'] = $categoryName;
+    }
+
+    /**
+     * Unsets Category Name.
+     * The name of the item's merchant-defined category, if any.
+     */
+    public function unsetCategoryName(): void
+    {
+        $this->categoryName = [];
     }
 
     /**
@@ -57,7 +69,10 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function getSku(): ?string
     {
-        return $this->sku;
+        if (count($this->sku) == 0) {
+            return null;
+        }
+        return $this->sku['value'];
     }
 
     /**
@@ -68,7 +83,16 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function setSku(?string $sku): void
     {
-        $this->sku = $sku;
+        $this->sku['value'] = $sku;
+    }
+
+    /**
+     * Unsets Sku.
+     * The item's merchant-defined SKU, if any.
+     */
+    public function unsetSku(): void
+    {
+        $this->sku = [];
     }
 
     /**
@@ -77,7 +101,10 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function getItemId(): ?string
     {
-        return $this->itemId;
+        if (count($this->itemId) == 0) {
+            return null;
+        }
+        return $this->itemId['value'];
     }
 
     /**
@@ -88,7 +115,16 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function setItemId(?string $itemId): void
     {
-        $this->itemId = $itemId;
+        $this->itemId['value'] = $itemId;
+    }
+
+    /**
+     * Unsets Item Id.
+     * The unique ID of the item purchased, if any.
+     */
+    public function unsetItemId(): void
+    {
+        $this->itemId = [];
     }
 
     /**
@@ -97,7 +133,10 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function getItemVariationId(): ?string
     {
-        return $this->itemVariationId;
+        if (count($this->itemVariationId) == 0) {
+            return null;
+        }
+        return $this->itemVariationId['value'];
     }
 
     /**
@@ -108,7 +147,16 @@ class V1PaymentItemDetail implements \JsonSerializable
      */
     public function setItemVariationId(?string $itemVariationId): void
     {
-        $this->itemVariationId = $itemVariationId;
+        $this->itemVariationId['value'] = $itemVariationId;
+    }
+
+    /**
+     * Unsets Item Variation Id.
+     * The unique ID of the item variation purchased, if any.
+     */
+    public function unsetItemVariationId(): void
+    {
+        $this->itemVariationId = [];
     }
 
     /**
@@ -123,17 +171,17 @@ class V1PaymentItemDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->categoryName)) {
-            $json['category_name']     = $this->categoryName;
+        if (!empty($this->categoryName)) {
+            $json['category_name']     = $this->categoryName['value'];
         }
-        if (isset($this->sku)) {
-            $json['sku']               = $this->sku;
+        if (!empty($this->sku)) {
+            $json['sku']               = $this->sku['value'];
         }
-        if (isset($this->itemId)) {
-            $json['item_id']           = $this->itemId;
+        if (!empty($this->itemId)) {
+            $json['item_id']           = $this->itemId['value'];
         }
-        if (isset($this->itemVariationId)) {
-            $json['item_variation_id'] = $this->itemVariationId;
+        if (!empty($this->itemVariationId)) {
+            $json['item_variation_id'] = $this->itemVariationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

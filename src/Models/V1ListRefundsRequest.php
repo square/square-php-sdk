@@ -14,24 +14,24 @@ class V1ListRefundsRequest implements \JsonSerializable
     private $order;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $beginTime;
+    private $beginTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endTime;
+    private $endTime = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $batchToken;
+    private $batchToken = [];
 
     /**
      * Returns Order.
@@ -61,7 +61,10 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function getBeginTime(): ?string
     {
-        return $this->beginTime;
+        if (count($this->beginTime) == 0) {
+            return null;
+        }
+        return $this->beginTime['value'];
     }
 
     /**
@@ -74,7 +77,18 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function setBeginTime(?string $beginTime): void
     {
-        $this->beginTime = $beginTime;
+        $this->beginTime['value'] = $beginTime;
+    }
+
+    /**
+     * Unsets Begin Time.
+     * The beginning of the requested reporting period, in ISO 8601 format. If this value is before January
+     * 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time
+     * minus one year.
+     */
+    public function unsetBeginTime(): void
+    {
+        $this->beginTime = [];
     }
 
     /**
@@ -84,7 +98,10 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function getEndTime(): ?string
     {
-        return $this->endTime;
+        if (count($this->endTime) == 0) {
+            return null;
+        }
+        return $this->endTime['value'];
     }
 
     /**
@@ -96,7 +113,17 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function setEndTime(?string $endTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime['value'] = $endTime;
+    }
+
+    /**
+     * Unsets End Time.
+     * The end of the requested reporting period, in ISO 8601 format. If this value is more than one year
+     * greater than begin_time, this endpoint returns an error. Default value: The current time.
+     */
+    public function unsetEndTime(): void
+    {
+        $this->endTime = [];
     }
 
     /**
@@ -108,7 +135,10 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -122,7 +152,19 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The approximate number of refunds to return in a single response. Default: 100. Max: 200. Response
+     * may contain more results than the prescribed limit when refunds are made simultaneously to multiple
+     * tenders in a payment or when refunds are generated in an exchange to account for the value of
+     * returned goods.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -132,7 +174,10 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function getBatchToken(): ?string
     {
-        return $this->batchToken;
+        if (count($this->batchToken) == 0) {
+            return null;
+        }
+        return $this->batchToken['value'];
     }
 
     /**
@@ -144,7 +189,17 @@ class V1ListRefundsRequest implements \JsonSerializable
      */
     public function setBatchToken(?string $batchToken): void
     {
-        $this->batchToken = $batchToken;
+        $this->batchToken['value'] = $batchToken;
+    }
+
+    /**
+     * Unsets Batch Token.
+     * A pagination cursor to retrieve the next set of results for your
+     * original query to the endpoint.
+     */
+    public function unsetBatchToken(): void
+    {
+        $this->batchToken = [];
     }
 
     /**
@@ -162,17 +217,17 @@ class V1ListRefundsRequest implements \JsonSerializable
         if (isset($this->order)) {
             $json['order']       = $this->order;
         }
-        if (isset($this->beginTime)) {
-            $json['begin_time']  = $this->beginTime;
+        if (!empty($this->beginTime)) {
+            $json['begin_time']  = $this->beginTime['value'];
         }
-        if (isset($this->endTime)) {
-            $json['end_time']    = $this->endTime;
+        if (!empty($this->endTime)) {
+            $json['end_time']    = $this->endTime['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']       = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']       = $this->limit['value'];
         }
-        if (isset($this->batchToken)) {
-            $json['batch_token'] = $this->batchToken;
+        if (!empty($this->batchToken)) {
+            $json['batch_token'] = $this->batchToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

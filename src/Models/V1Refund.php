@@ -17,9 +17,9 @@ class V1Refund implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $reason;
+    private $reason = [];
 
     /**
      * @var V1Money|null
@@ -42,9 +42,9 @@ class V1Refund implements \JsonSerializable
     private $refundedAdditiveTaxMoney;
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $refundedAdditiveTax;
+    private $refundedAdditiveTax = [];
 
     /**
      * @var V1Money|null
@@ -52,9 +52,9 @@ class V1Refund implements \JsonSerializable
     private $refundedInclusiveTaxMoney;
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $refundedInclusiveTax;
+    private $refundedInclusiveTax = [];
 
     /**
      * @var V1Money|null
@@ -72,9 +72,9 @@ class V1Refund implements \JsonSerializable
     private $refundedSurchargeMoney;
 
     /**
-     * @var V1PaymentSurcharge[]|null
+     * @var array
      */
-    private $refundedSurcharges;
+    private $refundedSurcharges = [];
 
     /**
      * @var string|null
@@ -82,24 +82,24 @@ class V1Refund implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $processedAt;
+    private $processedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantId;
+    private $merchantId = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isExchange;
+    private $isExchange = [];
 
     /**
      * Returns Type.
@@ -125,7 +125,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getReason(): ?string
     {
-        return $this->reason;
+        if (count($this->reason) == 0) {
+            return null;
+        }
+        return $this->reason['value'];
     }
 
     /**
@@ -136,7 +139,16 @@ class V1Refund implements \JsonSerializable
      */
     public function setReason(?string $reason): void
     {
-        $this->reason = $reason;
+        $this->reason['value'] = $reason;
+    }
+
+    /**
+     * Unsets Reason.
+     * The merchant-specified reason for the refund.
+     */
+    public function unsetReason(): void
+    {
+        $this->reason = [];
     }
 
     /**
@@ -219,7 +231,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getRefundedAdditiveTax(): ?array
     {
-        return $this->refundedAdditiveTax;
+        if (count($this->refundedAdditiveTax) == 0) {
+            return null;
+        }
+        return $this->refundedAdditiveTax['value'];
     }
 
     /**
@@ -232,7 +247,16 @@ class V1Refund implements \JsonSerializable
      */
     public function setRefundedAdditiveTax(?array $refundedAdditiveTax): void
     {
-        $this->refundedAdditiveTax = $refundedAdditiveTax;
+        $this->refundedAdditiveTax['value'] = $refundedAdditiveTax;
+    }
+
+    /**
+     * Unsets Refunded Additive Tax.
+     * All of the additive taxes associated with the refund.
+     */
+    public function unsetRefundedAdditiveTax(): void
+    {
+        $this->refundedAdditiveTax = [];
     }
 
     /**
@@ -261,7 +285,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getRefundedInclusiveTax(): ?array
     {
-        return $this->refundedInclusiveTax;
+        if (count($this->refundedInclusiveTax) == 0) {
+            return null;
+        }
+        return $this->refundedInclusiveTax['value'];
     }
 
     /**
@@ -274,7 +301,16 @@ class V1Refund implements \JsonSerializable
      */
     public function setRefundedInclusiveTax(?array $refundedInclusiveTax): void
     {
-        $this->refundedInclusiveTax = $refundedInclusiveTax;
+        $this->refundedInclusiveTax['value'] = $refundedInclusiveTax;
+    }
+
+    /**
+     * Unsets Refunded Inclusive Tax.
+     * All of the inclusive taxes associated with the refund.
+     */
+    public function unsetRefundedInclusiveTax(): void
+    {
+        $this->refundedInclusiveTax = [];
     }
 
     /**
@@ -339,7 +375,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getRefundedSurcharges(): ?array
     {
-        return $this->refundedSurcharges;
+        if (count($this->refundedSurcharges) == 0) {
+            return null;
+        }
+        return $this->refundedSurcharges['value'];
     }
 
     /**
@@ -352,7 +391,16 @@ class V1Refund implements \JsonSerializable
      */
     public function setRefundedSurcharges(?array $refundedSurcharges): void
     {
-        $this->refundedSurcharges = $refundedSurcharges;
+        $this->refundedSurcharges['value'] = $refundedSurcharges;
+    }
+
+    /**
+     * Unsets Refunded Surcharges.
+     * A list of all surcharges associated with the refund.
+     */
+    public function unsetRefundedSurcharges(): void
+    {
+        $this->refundedSurcharges = [];
     }
 
     /**
@@ -381,7 +429,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getProcessedAt(): ?string
     {
-        return $this->processedAt;
+        if (count($this->processedAt) == 0) {
+            return null;
+        }
+        return $this->processedAt['value'];
     }
 
     /**
@@ -392,7 +443,16 @@ class V1Refund implements \JsonSerializable
      */
     public function setProcessedAt(?string $processedAt): void
     {
-        $this->processedAt = $processedAt;
+        $this->processedAt['value'] = $processedAt;
+    }
+
+    /**
+     * Unsets Processed At.
+     * The time when Square processed the refund on behalf of the merchant, in ISO 8601 format.
+     */
+    public function unsetProcessedAt(): void
+    {
+        $this->processedAt = [];
     }
 
     /**
@@ -404,7 +464,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -418,7 +481,19 @@ class V1Refund implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * A Square-issued ID associated with the refund. For single-tender refunds, payment_id is the ID of
+     * the original payment ID. For split-tender refunds, payment_id is the ID of the original tender. For
+     * exchange-based refunds (is_exchange == true), payment_id is the ID of the original payment ID even
+     * if the payment includes other tenders.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -426,7 +501,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getMerchantId(): ?string
     {
-        return $this->merchantId;
+        if (count($this->merchantId) == 0) {
+            return null;
+        }
+        return $this->merchantId['value'];
     }
 
     /**
@@ -436,7 +514,15 @@ class V1Refund implements \JsonSerializable
      */
     public function setMerchantId(?string $merchantId): void
     {
-        $this->merchantId = $merchantId;
+        $this->merchantId['value'] = $merchantId;
+    }
+
+    /**
+     * Unsets Merchant Id.
+     */
+    public function unsetMerchantId(): void
+    {
+        $this->merchantId = [];
     }
 
     /**
@@ -446,7 +532,10 @@ class V1Refund implements \JsonSerializable
      */
     public function getIsExchange(): ?bool
     {
-        return $this->isExchange;
+        if (count($this->isExchange) == 0) {
+            return null;
+        }
+        return $this->isExchange['value'];
     }
 
     /**
@@ -458,7 +547,17 @@ class V1Refund implements \JsonSerializable
      */
     public function setIsExchange(?bool $isExchange): void
     {
-        $this->isExchange = $isExchange;
+        $this->isExchange['value'] = $isExchange;
+    }
+
+    /**
+     * Unsets Is Exchange.
+     * Indicates whether or not the refund is associated with an exchange. If is_exchange is true, the
+     * refund reflects the value of goods returned in the exchange not the total money refunded.
+     */
+    public function unsetIsExchange(): void
+    {
+        $this->isExchange = [];
     }
 
     /**
@@ -476,8 +575,8 @@ class V1Refund implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']                          = $this->type;
         }
-        if (isset($this->reason)) {
-            $json['reason']                        = $this->reason;
+        if (!empty($this->reason)) {
+            $json['reason']                        = $this->reason['value'];
         }
         if (isset($this->refundedMoney)) {
             $json['refunded_money']                = $this->refundedMoney;
@@ -491,14 +590,14 @@ class V1Refund implements \JsonSerializable
         if (isset($this->refundedAdditiveTaxMoney)) {
             $json['refunded_additive_tax_money']   = $this->refundedAdditiveTaxMoney;
         }
-        if (isset($this->refundedAdditiveTax)) {
-            $json['refunded_additive_tax']         = $this->refundedAdditiveTax;
+        if (!empty($this->refundedAdditiveTax)) {
+            $json['refunded_additive_tax']         = $this->refundedAdditiveTax['value'];
         }
         if (isset($this->refundedInclusiveTaxMoney)) {
             $json['refunded_inclusive_tax_money']  = $this->refundedInclusiveTaxMoney;
         }
-        if (isset($this->refundedInclusiveTax)) {
-            $json['refunded_inclusive_tax']        = $this->refundedInclusiveTax;
+        if (!empty($this->refundedInclusiveTax)) {
+            $json['refunded_inclusive_tax']        = $this->refundedInclusiveTax['value'];
         }
         if (isset($this->refundedTipMoney)) {
             $json['refunded_tip_money']            = $this->refundedTipMoney;
@@ -509,23 +608,23 @@ class V1Refund implements \JsonSerializable
         if (isset($this->refundedSurchargeMoney)) {
             $json['refunded_surcharge_money']      = $this->refundedSurchargeMoney;
         }
-        if (isset($this->refundedSurcharges)) {
-            $json['refunded_surcharges']           = $this->refundedSurcharges;
+        if (!empty($this->refundedSurcharges)) {
+            $json['refunded_surcharges']           = $this->refundedSurcharges['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']                    = $this->createdAt;
         }
-        if (isset($this->processedAt)) {
-            $json['processed_at']                  = $this->processedAt;
+        if (!empty($this->processedAt)) {
+            $json['processed_at']                  = $this->processedAt['value'];
         }
-        if (isset($this->paymentId)) {
-            $json['payment_id']                    = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id']                    = $this->paymentId['value'];
         }
-        if (isset($this->merchantId)) {
-            $json['merchant_id']                   = $this->merchantId;
+        if (!empty($this->merchantId)) {
+            $json['merchant_id']                   = $this->merchantId['value'];
         }
-        if (isset($this->isExchange)) {
-            $json['is_exchange']                   = $this->isExchange;
+        if (!empty($this->isExchange)) {
+            $json['is_exchange']                   = $this->isExchange['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

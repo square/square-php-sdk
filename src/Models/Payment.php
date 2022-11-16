@@ -72,9 +72,9 @@ class Payment implements \JsonSerializable
     private $delayDuration;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $delayAction;
+    private $delayAction = [];
 
     /**
      * @var string|null
@@ -207,9 +207,9 @@ class Payment implements \JsonSerializable
     private $applicationDetails;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $versionToken;
+    private $versionToken = [];
 
     /**
      * Returns Id.
@@ -561,7 +561,10 @@ class Payment implements \JsonSerializable
      */
     public function getDelayAction(): ?string
     {
-        return $this->delayAction;
+        if (count($this->delayAction) == 0) {
+            return null;
+        }
+        return $this->delayAction['value'];
     }
 
     /**
@@ -574,7 +577,18 @@ class Payment implements \JsonSerializable
      */
     public function setDelayAction(?string $delayAction): void
     {
-        $this->delayAction = $delayAction;
+        $this->delayAction['value'] = $delayAction;
+    }
+
+    /**
+     * Unsets Delay Action.
+     * The action to be applied to the payment when the `delay_duration` has elapsed.
+     *
+     * Current values include `CANCEL` and `COMPLETE`.
+     */
+    public function unsetDelayAction(): void
+    {
+        $this->delayAction = [];
     }
 
     /**
@@ -1212,7 +1226,10 @@ class Payment implements \JsonSerializable
      */
     public function getVersionToken(): ?string
     {
-        return $this->versionToken;
+        if (count($this->versionToken) == 0) {
+            return null;
+        }
+        return $this->versionToken['value'];
     }
 
     /**
@@ -1224,7 +1241,17 @@ class Payment implements \JsonSerializable
      */
     public function setVersionToken(?string $versionToken): void
     {
-        $this->versionToken = $versionToken;
+        $this->versionToken['value'] = $versionToken;
+    }
+
+    /**
+     * Unsets Version Token.
+     * Used for optimistic concurrency. This opaque token identifies a specific version of the
+     * `Payment` object.
+     */
+    public function unsetVersionToken(): void
+    {
+        $this->versionToken = [];
     }
 
     /**
@@ -1275,8 +1302,8 @@ class Payment implements \JsonSerializable
         if (isset($this->delayDuration)) {
             $json['delay_duration']                   = $this->delayDuration;
         }
-        if (isset($this->delayAction)) {
-            $json['delay_action']                     = $this->delayAction;
+        if (!empty($this->delayAction)) {
+            $json['delay_action']                     = $this->delayAction['value'];
         }
         if (isset($this->delayedUntil)) {
             $json['delayed_until']                    = $this->delayedUntil;
@@ -1356,8 +1383,8 @@ class Payment implements \JsonSerializable
         if (isset($this->applicationDetails)) {
             $json['application_details']              = $this->applicationDetails;
         }
-        if (isset($this->versionToken)) {
-            $json['version_token']                    = $this->versionToken;
+        if (!empty($this->versionToken)) {
+            $json['version_token']                    = $this->versionToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

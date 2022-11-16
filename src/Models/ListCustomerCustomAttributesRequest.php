@@ -13,19 +13,19 @@ use stdClass;
 class ListCustomerCustomAttributesRequest implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $withDefinitions;
+    private $withDefinitions = [];
 
     /**
      * Returns Limit.
@@ -37,7 +37,10 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -52,7 +55,20 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to return in a single paged response. This limit is advisory.
+     * The response might contain more or fewer results. The minimum value is 1 and the maximum value is
+     * 100.
+     * The default value is 20. For more information, see [Pagination](https://developer.squareup.
+     * com/docs/build-basics/common-api-patterns/pagination).
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -64,7 +80,10 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -78,7 +97,19 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * The cursor returned in the paged response from the previous call to this endpoint.
+     * Provide this cursor to retrieve the next page of results for your original request. For more
+     * information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -91,7 +122,10 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function getWithDefinitions(): ?bool
     {
-        return $this->withDefinitions;
+        if (count($this->withDefinitions) == 0) {
+            return null;
+        }
+        return $this->withDefinitions['value'];
     }
 
     /**
@@ -106,7 +140,20 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
      */
     public function setWithDefinitions(?bool $withDefinitions): void
     {
-        $this->withDefinitions = $withDefinitions;
+        $this->withDefinitions['value'] = $withDefinitions;
+    }
+
+    /**
+     * Unsets With Definitions.
+     * Indicates whether to return the [custom attribute definition]($m/CustomAttributeDefinition) in the
+     * `definition` field of each
+     * custom attribute. Set this parameter to `true` to get the name and description of each custom
+     * attribute, information about the data type, or other definition details. The default value is
+     * `false`.
+     */
+    public function unsetWithDefinitions(): void
+    {
+        $this->withDefinitions = [];
     }
 
     /**
@@ -121,14 +168,14 @@ class ListCustomerCustomAttributesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->limit)) {
-            $json['limit']            = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']            = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']           = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']           = $this->cursor['value'];
         }
-        if (isset($this->withDefinitions)) {
-            $json['with_definitions'] = $this->withDefinitions;
+        if (!empty($this->withDefinitions)) {
+            $json['with_definitions'] = $this->withDefinitions['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

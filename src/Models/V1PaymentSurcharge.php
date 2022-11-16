@@ -12,9 +12,9 @@ use stdClass;
 class V1PaymentSurcharge implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var V1Money|null
@@ -22,9 +22,9 @@ class V1PaymentSurcharge implements \JsonSerializable
     private $appliedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $rate;
+    private $rate = [];
 
     /**
      * @var V1Money|null
@@ -37,19 +37,19 @@ class V1PaymentSurcharge implements \JsonSerializable
     private $type;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $taxable;
+    private $taxable = [];
 
     /**
-     * @var V1PaymentTax[]|null
+     * @var array
      */
-    private $taxes;
+    private $taxes = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $surchargeId;
+    private $surchargeId = [];
 
     /**
      * Returns Name.
@@ -57,7 +57,10 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -68,7 +71,16 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the surcharge.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -97,7 +109,10 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function getRate(): ?string
     {
-        return $this->rate;
+        if (count($this->rate) == 0) {
+            return null;
+        }
+        return $this->rate['value'];
     }
 
     /**
@@ -110,7 +125,18 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function setRate(?string $rate): void
     {
-        $this->rate = $rate;
+        $this->rate['value'] = $rate;
+    }
+
+    /**
+     * Unsets Rate.
+     * The amount of the surcharge as a percentage. The percentage is provided as a string representing the
+     * decimal equivalent of the percentage. For example, "0.7" corresponds to a 7% surcharge. Exactly one
+     * of rate or amount_money should be set.
+     */
+    public function unsetRate(): void
+    {
+        $this->rate = [];
     }
 
     /**
@@ -155,7 +181,10 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function getTaxable(): ?bool
     {
-        return $this->taxable;
+        if (count($this->taxable) == 0) {
+            return null;
+        }
+        return $this->taxable['value'];
     }
 
     /**
@@ -166,7 +195,16 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function setTaxable(?bool $taxable): void
     {
-        $this->taxable = $taxable;
+        $this->taxable['value'] = $taxable;
+    }
+
+    /**
+     * Unsets Taxable.
+     * Indicates whether the surcharge is taxable.
+     */
+    public function unsetTaxable(): void
+    {
+        $this->taxable = [];
     }
 
     /**
@@ -177,7 +215,10 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function getTaxes(): ?array
     {
-        return $this->taxes;
+        if (count($this->taxes) == 0) {
+            return null;
+        }
+        return $this->taxes['value'];
     }
 
     /**
@@ -190,7 +231,16 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function setTaxes(?array $taxes): void
     {
-        $this->taxes = $taxes;
+        $this->taxes['value'] = $taxes;
+    }
+
+    /**
+     * Unsets Taxes.
+     * The list of taxes that should be applied to the surcharge.
+     */
+    public function unsetTaxes(): void
+    {
+        $this->taxes = [];
     }
 
     /**
@@ -199,7 +249,10 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function getSurchargeId(): ?string
     {
-        return $this->surchargeId;
+        if (count($this->surchargeId) == 0) {
+            return null;
+        }
+        return $this->surchargeId['value'];
     }
 
     /**
@@ -210,7 +263,16 @@ class V1PaymentSurcharge implements \JsonSerializable
      */
     public function setSurchargeId(?string $surchargeId): void
     {
-        $this->surchargeId = $surchargeId;
+        $this->surchargeId['value'] = $surchargeId;
+    }
+
+    /**
+     * Unsets Surcharge Id.
+     * A Square-issued unique identifier associated with the surcharge.
+     */
+    public function unsetSurchargeId(): void
+    {
+        $this->surchargeId = [];
     }
 
     /**
@@ -225,14 +287,14 @@ class V1PaymentSurcharge implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']          = $this->name;
+        if (!empty($this->name)) {
+            $json['name']          = $this->name['value'];
         }
         if (isset($this->appliedMoney)) {
             $json['applied_money'] = $this->appliedMoney;
         }
-        if (isset($this->rate)) {
-            $json['rate']          = $this->rate;
+        if (!empty($this->rate)) {
+            $json['rate']          = $this->rate['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']  = $this->amountMoney;
@@ -240,14 +302,14 @@ class V1PaymentSurcharge implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']          = $this->type;
         }
-        if (isset($this->taxable)) {
-            $json['taxable']       = $this->taxable;
+        if (!empty($this->taxable)) {
+            $json['taxable']       = $this->taxable['value'];
         }
-        if (isset($this->taxes)) {
-            $json['taxes']         = $this->taxes;
+        if (!empty($this->taxes)) {
+            $json['taxes']         = $this->taxes['value'];
         }
-        if (isset($this->surchargeId)) {
-            $json['surcharge_id']  = $this->surchargeId;
+        if (!empty($this->surchargeId)) {
+            $json['surcharge_id']  = $this->surchargeId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

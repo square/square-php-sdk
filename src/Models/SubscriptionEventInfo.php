@@ -12,9 +12,9 @@ use stdClass;
 class SubscriptionEventInfo implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $detail;
+    private $detail = [];
 
     /**
      * @var string|null
@@ -27,7 +27,10 @@ class SubscriptionEventInfo implements \JsonSerializable
      */
     public function getDetail(): ?string
     {
-        return $this->detail;
+        if (count($this->detail) == 0) {
+            return null;
+        }
+        return $this->detail['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class SubscriptionEventInfo implements \JsonSerializable
      */
     public function setDetail(?string $detail): void
     {
-        $this->detail = $detail;
+        $this->detail['value'] = $detail;
+    }
+
+    /**
+     * Unsets Detail.
+     * A human-readable explanation for the event.
+     */
+    public function unsetDetail(): void
+    {
+        $this->detail = [];
     }
 
     /**
@@ -73,8 +85,8 @@ class SubscriptionEventInfo implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->detail)) {
-            $json['detail'] = $this->detail;
+        if (!empty($this->detail)) {
+            $json['detail'] = $this->detail['value'];
         }
         if (isset($this->code)) {
             $json['code']   = $this->code;

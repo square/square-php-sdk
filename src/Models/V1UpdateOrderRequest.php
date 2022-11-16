@@ -17,24 +17,24 @@ class V1UpdateOrderRequest implements \JsonSerializable
     private $action;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $shippedTrackingNumber;
+    private $shippedTrackingNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $completedNote;
+    private $completedNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $refundedNote;
+    private $refundedNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $canceledNote;
+    private $canceledNote = [];
 
     /**
      * @param string $action
@@ -69,7 +69,10 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function getShippedTrackingNumber(): ?string
     {
-        return $this->shippedTrackingNumber;
+        if (count($this->shippedTrackingNumber) == 0) {
+            return null;
+        }
+        return $this->shippedTrackingNumber['value'];
     }
 
     /**
@@ -80,7 +83,16 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function setShippedTrackingNumber(?string $shippedTrackingNumber): void
     {
-        $this->shippedTrackingNumber = $shippedTrackingNumber;
+        $this->shippedTrackingNumber['value'] = $shippedTrackingNumber;
+    }
+
+    /**
+     * Unsets Shipped Tracking Number.
+     * The tracking number of the shipment associated with the order. Only valid if action is COMPLETE.
+     */
+    public function unsetShippedTrackingNumber(): void
+    {
+        $this->shippedTrackingNumber = [];
     }
 
     /**
@@ -89,7 +101,10 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function getCompletedNote(): ?string
     {
-        return $this->completedNote;
+        if (count($this->completedNote) == 0) {
+            return null;
+        }
+        return $this->completedNote['value'];
     }
 
     /**
@@ -100,7 +115,16 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function setCompletedNote(?string $completedNote): void
     {
-        $this->completedNote = $completedNote;
+        $this->completedNote['value'] = $completedNote;
+    }
+
+    /**
+     * Unsets Completed Note.
+     * A merchant-specified note about the completion of the order. Only valid if action is COMPLETE.
+     */
+    public function unsetCompletedNote(): void
+    {
+        $this->completedNote = [];
     }
 
     /**
@@ -109,7 +133,10 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function getRefundedNote(): ?string
     {
-        return $this->refundedNote;
+        if (count($this->refundedNote) == 0) {
+            return null;
+        }
+        return $this->refundedNote['value'];
     }
 
     /**
@@ -120,7 +147,16 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function setRefundedNote(?string $refundedNote): void
     {
-        $this->refundedNote = $refundedNote;
+        $this->refundedNote['value'] = $refundedNote;
+    }
+
+    /**
+     * Unsets Refunded Note.
+     * A merchant-specified note about the refunding of the order. Only valid if action is REFUND.
+     */
+    public function unsetRefundedNote(): void
+    {
+        $this->refundedNote = [];
     }
 
     /**
@@ -129,7 +165,10 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function getCanceledNote(): ?string
     {
-        return $this->canceledNote;
+        if (count($this->canceledNote) == 0) {
+            return null;
+        }
+        return $this->canceledNote['value'];
     }
 
     /**
@@ -140,7 +179,16 @@ class V1UpdateOrderRequest implements \JsonSerializable
      */
     public function setCanceledNote(?string $canceledNote): void
     {
-        $this->canceledNote = $canceledNote;
+        $this->canceledNote['value'] = $canceledNote;
+    }
+
+    /**
+     * Unsets Canceled Note.
+     * A merchant-specified note about the canceling of the order. Only valid if action is CANCEL.
+     */
+    public function unsetCanceledNote(): void
+    {
+        $this->canceledNote = [];
     }
 
     /**
@@ -156,17 +204,17 @@ class V1UpdateOrderRequest implements \JsonSerializable
     {
         $json = [];
         $json['action']                      = $this->action;
-        if (isset($this->shippedTrackingNumber)) {
-            $json['shipped_tracking_number'] = $this->shippedTrackingNumber;
+        if (!empty($this->shippedTrackingNumber)) {
+            $json['shipped_tracking_number'] = $this->shippedTrackingNumber['value'];
         }
-        if (isset($this->completedNote)) {
-            $json['completed_note']          = $this->completedNote;
+        if (!empty($this->completedNote)) {
+            $json['completed_note']          = $this->completedNote['value'];
         }
-        if (isset($this->refundedNote)) {
-            $json['refunded_note']           = $this->refundedNote;
+        if (!empty($this->refundedNote)) {
+            $json['refunded_note']           = $this->refundedNote['value'];
         }
-        if (isset($this->canceledNote)) {
-            $json['canceled_note']           = $this->canceledNote;
+        if (!empty($this->canceledNote)) {
+            $json['canceled_note']           = $this->canceledNote['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

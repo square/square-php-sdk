@@ -18,14 +18,14 @@ class TeamMemberWage implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $title;
+    private $title = [];
 
     /**
      * @var Money|null
@@ -58,7 +58,10 @@ class TeamMemberWage implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -69,7 +72,16 @@ class TeamMemberWage implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The `TeamMember` that this wage is assigned to.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -78,7 +90,10 @@ class TeamMemberWage implements \JsonSerializable
      */
     public function getTitle(): ?string
     {
-        return $this->title;
+        if (count($this->title) == 0) {
+            return null;
+        }
+        return $this->title['value'];
     }
 
     /**
@@ -89,7 +104,16 @@ class TeamMemberWage implements \JsonSerializable
      */
     public function setTitle(?string $title): void
     {
-        $this->title = $title;
+        $this->title['value'] = $title;
+    }
+
+    /**
+     * Unsets Title.
+     * The job title that this wage relates to.
+     */
+    public function unsetTitle(): void
+    {
+        $this->title = [];
     }
 
     /**
@@ -139,11 +163,11 @@ class TeamMemberWage implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']             = $this->id;
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId['value'];
         }
-        if (isset($this->title)) {
-            $json['title']          = $this->title;
+        if (!empty($this->title)) {
+            $json['title']          = $this->title['value'];
         }
         if (isset($this->hourlyRate)) {
             $json['hourly_rate']    = $this->hourlyRate;

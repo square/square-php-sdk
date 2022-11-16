@@ -23,9 +23,9 @@ class CloneOrderRequest implements \JsonSerializable
     private $version;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
      * @param string $orderId
@@ -96,7 +96,10 @@ class CloneOrderRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -115,7 +118,24 @@ class CloneOrderRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A value you specify that uniquely identifies this clone request.
+     *
+     * If you are unsure whether a particular order was cloned successfully,
+     * you can reattempt the call with the same idempotency key without
+     * worrying about creating duplicate cloned orders.
+     * The originally cloned order is returned.
+     *
+     * For more information, see [Idempotency](https://developer.squareup.
+     * com/docs/basics/api101/idempotency).
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -134,8 +154,8 @@ class CloneOrderRequest implements \JsonSerializable
         if (isset($this->version)) {
             $json['version']         = $this->version;
         }
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

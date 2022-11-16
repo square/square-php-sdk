@@ -18,9 +18,9 @@ use stdClass;
 class Money implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $amount;
+    private $amount = [];
 
     /**
      * @var string|null
@@ -36,7 +36,10 @@ class Money implements \JsonSerializable
      */
     public function getAmount(): ?int
     {
-        return $this->amount;
+        if (count($this->amount) == 0) {
+            return null;
+        }
+        return $this->amount['value'];
     }
 
     /**
@@ -50,7 +53,19 @@ class Money implements \JsonSerializable
      */
     public function setAmount(?int $amount): void
     {
-        $this->amount = $amount;
+        $this->amount['value'] = $amount;
+    }
+
+    /**
+     * Unsets Amount.
+     * The amount of money, in the smallest denomination of the currency
+     * indicated by `currency`. For example, when `currency` is `USD`, `amount` is
+     * in cents. Monetary amounts can be positive or negative. See the specific
+     * field description to determine the meaning of the sign in a particular case.
+     */
+    public function unsetAmount(): void
+    {
+        $this->amount = [];
     }
 
     /**
@@ -87,8 +102,8 @@ class Money implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->amount)) {
-            $json['amount']   = $this->amount;
+        if (!empty($this->amount)) {
+            $json['amount']   = $this->amount['value'];
         }
         if (isset($this->currency)) {
             $json['currency'] = $this->currency;

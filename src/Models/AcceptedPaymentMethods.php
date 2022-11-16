@@ -9,24 +9,24 @@ use stdClass;
 class AcceptedPaymentMethods implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $applePay;
+    private $applePay = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $googlePay;
+    private $googlePay = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $cashAppPay;
+    private $cashAppPay = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $afterpayClearpay;
+    private $afterpayClearpay = [];
 
     /**
      * Returns Apple Pay.
@@ -34,7 +34,10 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function getApplePay(): ?bool
     {
-        return $this->applePay;
+        if (count($this->applePay) == 0) {
+            return null;
+        }
+        return $this->applePay['value'];
     }
 
     /**
@@ -45,7 +48,16 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function setApplePay(?bool $applePay): void
     {
-        $this->applePay = $applePay;
+        $this->applePay['value'] = $applePay;
+    }
+
+    /**
+     * Unsets Apple Pay.
+     * Whether Apple Pay is accepted at checkout.
+     */
+    public function unsetApplePay(): void
+    {
+        $this->applePay = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function getGooglePay(): ?bool
     {
-        return $this->googlePay;
+        if (count($this->googlePay) == 0) {
+            return null;
+        }
+        return $this->googlePay['value'];
     }
 
     /**
@@ -65,7 +80,16 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function setGooglePay(?bool $googlePay): void
     {
-        $this->googlePay = $googlePay;
+        $this->googlePay['value'] = $googlePay;
+    }
+
+    /**
+     * Unsets Google Pay.
+     * Whether Google Pay is accepted at checkout.
+     */
+    public function unsetGooglePay(): void
+    {
+        $this->googlePay = [];
     }
 
     /**
@@ -74,7 +98,10 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function getCashAppPay(): ?bool
     {
-        return $this->cashAppPay;
+        if (count($this->cashAppPay) == 0) {
+            return null;
+        }
+        return $this->cashAppPay['value'];
     }
 
     /**
@@ -85,7 +112,16 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function setCashAppPay(?bool $cashAppPay): void
     {
-        $this->cashAppPay = $cashAppPay;
+        $this->cashAppPay['value'] = $cashAppPay;
+    }
+
+    /**
+     * Unsets Cash App Pay.
+     * Whether Cash App Pay is accepted at checkout.
+     */
+    public function unsetCashAppPay(): void
+    {
+        $this->cashAppPay = [];
     }
 
     /**
@@ -94,7 +130,10 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function getAfterpayClearpay(): ?bool
     {
-        return $this->afterpayClearpay;
+        if (count($this->afterpayClearpay) == 0) {
+            return null;
+        }
+        return $this->afterpayClearpay['value'];
     }
 
     /**
@@ -105,7 +144,16 @@ class AcceptedPaymentMethods implements \JsonSerializable
      */
     public function setAfterpayClearpay(?bool $afterpayClearpay): void
     {
-        $this->afterpayClearpay = $afterpayClearpay;
+        $this->afterpayClearpay['value'] = $afterpayClearpay;
+    }
+
+    /**
+     * Unsets Afterpay Clearpay.
+     * Whether Afterpay/Clearpay is accepted at checkout.
+     */
+    public function unsetAfterpayClearpay(): void
+    {
+        $this->afterpayClearpay = [];
     }
 
     /**
@@ -120,17 +168,17 @@ class AcceptedPaymentMethods implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->applePay)) {
-            $json['apple_pay']         = $this->applePay;
+        if (!empty($this->applePay)) {
+            $json['apple_pay']         = $this->applePay['value'];
         }
-        if (isset($this->googlePay)) {
-            $json['google_pay']        = $this->googlePay;
+        if (!empty($this->googlePay)) {
+            $json['google_pay']        = $this->googlePay['value'];
         }
-        if (isset($this->cashAppPay)) {
-            $json['cash_app_pay']      = $this->cashAppPay;
+        if (!empty($this->cashAppPay)) {
+            $json['cash_app_pay']      = $this->cashAppPay['value'];
         }
-        if (isset($this->afterpayClearpay)) {
-            $json['afterpay_clearpay'] = $this->afterpayClearpay;
+        if (!empty($this->afterpayClearpay)) {
+            $json['afterpay_clearpay'] = $this->afterpayClearpay['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -12,9 +12,9 @@ use stdClass;
 class TestWebhookSubscriptionRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $eventType;
+    private $eventType = [];
 
     /**
      * Returns Event Type.
@@ -24,7 +24,10 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
      */
     public function getEventType(): ?string
     {
-        return $this->eventType;
+        if (count($this->eventType) == 0) {
+            return null;
+        }
+        return $this->eventType['value'];
     }
 
     /**
@@ -37,7 +40,18 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
      */
     public function setEventType(?string $eventType): void
     {
-        $this->eventType = $eventType;
+        $this->eventType['value'] = $eventType;
+    }
+
+    /**
+     * Unsets Event Type.
+     * The event type that will be used to test the [Subscription]($m/WebhookSubscription). The event type
+     * must be
+     * contained in the list of event types in the [Subscription]($m/WebhookSubscription).
+     */
+    public function unsetEventType(): void
+    {
+        $this->eventType = [];
     }
 
     /**
@@ -52,8 +66,8 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->eventType)) {
-            $json['event_type'] = $this->eventType;
+        if (!empty($this->eventType)) {
+            $json['event_type'] = $this->eventType['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

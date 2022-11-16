@@ -12,9 +12,9 @@ use stdClass;
 class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
      * @var string
@@ -35,7 +35,10 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -46,7 +49,16 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * Unique ID set by Square.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -82,8 +94,8 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection im
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid'] = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid'] = $this->uid['value'];
         }
         $json['name']    = $this->name;
         $json = array_filter($json, function ($val) {

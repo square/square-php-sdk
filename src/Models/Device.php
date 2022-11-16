@@ -14,9 +14,9 @@ class Device implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * Returns Id.
@@ -44,7 +44,10 @@ class Device implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -55,7 +58,16 @@ class Device implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The device's merchant-specified name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -73,8 +85,8 @@ class Device implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']   = $this->id;
         }
-        if (isset($this->name)) {
-            $json['name'] = $this->name;
+        if (!empty($this->name)) {
+            $json['name'] = $this->name['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

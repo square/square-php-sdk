@@ -12,14 +12,14 @@ use stdClass;
 class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $maxAllowedSelections;
+    private $maxAllowedSelections = [];
 
     /**
-     * @var CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection[]|null
+     * @var array
      */
-    private $allowedSelections;
+    private $allowedSelections = [];
 
     /**
      * Returns Max Allowed Selections.
@@ -31,7 +31,10 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
      */
     public function getMaxAllowedSelections(): ?int
     {
-        return $this->maxAllowedSelections;
+        if (count($this->maxAllowedSelections) == 0) {
+            return null;
+        }
+        return $this->maxAllowedSelections['value'];
     }
 
     /**
@@ -46,7 +49,20 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
      */
     public function setMaxAllowedSelections(?int $maxAllowedSelections): void
     {
-        $this->maxAllowedSelections = $maxAllowedSelections;
+        $this->maxAllowedSelections['value'] = $maxAllowedSelections;
+    }
+
+    /**
+     * Unsets Max Allowed Selections.
+     * The maximum number of selections that can be set. The maximum value for this
+     * attribute is 100. The default value is 1. The value can be modified, but changing the value will
+     * not
+     * affect existing custom attribute values on objects. Clients need to
+     * handle custom attributes with more selected values than allowed by this limit.
+     */
+    public function unsetMaxAllowedSelections(): void
+    {
+        $this->maxAllowedSelections = [];
     }
 
     /**
@@ -58,7 +74,10 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
      */
     public function getAllowedSelections(): ?array
     {
-        return $this->allowedSelections;
+        if (count($this->allowedSelections) == 0) {
+            return null;
+        }
+        return $this->allowedSelections['value'];
     }
 
     /**
@@ -72,7 +91,17 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
      */
     public function setAllowedSelections(?array $allowedSelections): void
     {
-        $this->allowedSelections = $allowedSelections;
+        $this->allowedSelections['value'] = $allowedSelections;
+    }
+
+    /**
+     * Unsets Allowed Selections.
+     * The set of valid `CatalogCustomAttributeSelections`. Up to a maximum of 100
+     * selections can be defined. Can be modified.
+     */
+    public function unsetAllowedSelections(): void
+    {
+        $this->allowedSelections = [];
     }
 
     /**
@@ -87,11 +116,11 @@ class CatalogCustomAttributeDefinitionSelectionConfig implements \JsonSerializab
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->maxAllowedSelections)) {
-            $json['max_allowed_selections'] = $this->maxAllowedSelections;
+        if (!empty($this->maxAllowedSelections)) {
+            $json['max_allowed_selections'] = $this->maxAllowedSelections['value'];
         }
-        if (isset($this->allowedSelections)) {
-            $json['allowed_selections']     = $this->allowedSelections;
+        if (!empty($this->allowedSelections)) {
+            $json['allowed_selections']     = $this->allowedSelections['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

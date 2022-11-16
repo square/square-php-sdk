@@ -9,9 +9,9 @@ use stdClass;
 class PaymentBalanceActivityDepositFeeDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $payoutId;
+    private $payoutId = [];
 
     /**
      * Returns Payout Id.
@@ -19,7 +19,10 @@ class PaymentBalanceActivityDepositFeeDetail implements \JsonSerializable
      */
     public function getPayoutId(): ?string
     {
-        return $this->payoutId;
+        if (count($this->payoutId) == 0) {
+            return null;
+        }
+        return $this->payoutId['value'];
     }
 
     /**
@@ -30,7 +33,16 @@ class PaymentBalanceActivityDepositFeeDetail implements \JsonSerializable
      */
     public function setPayoutId(?string $payoutId): void
     {
-        $this->payoutId = $payoutId;
+        $this->payoutId['value'] = $payoutId;
+    }
+
+    /**
+     * Unsets Payout Id.
+     * The ID of the payout that triggered this deposit fee activity.
+     */
+    public function unsetPayoutId(): void
+    {
+        $this->payoutId = [];
     }
 
     /**
@@ -45,8 +57,8 @@ class PaymentBalanceActivityDepositFeeDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->payoutId)) {
-            $json['payout_id'] = $this->payoutId;
+        if (!empty($this->payoutId)) {
+            $json['payout_id'] = $this->payoutId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

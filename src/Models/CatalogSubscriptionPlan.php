@@ -19,18 +19,16 @@ class CatalogSubscriptionPlan implements \JsonSerializable
     private $name;
 
     /**
-     * @var SubscriptionPhase[]
+     * @var array
      */
-    private $phases;
+    private $phases = [];
 
     /**
      * @param string $name
-     * @param SubscriptionPhase[] $phases
      */
-    public function __construct(string $name, array $phases)
+    public function __construct(string $name)
     {
         $this->name = $name;
-        $this->phases = $phases;
     }
 
     /**
@@ -57,26 +55,40 @@ class CatalogSubscriptionPlan implements \JsonSerializable
     /**
      * Returns Phases.
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
      *
-     * @return SubscriptionPhase[]
+     * @return SubscriptionPhase[]|null
      */
-    public function getPhases(): array
+    public function getPhases(): ?array
     {
-        return $this->phases;
+        if (count($this->phases) == 0) {
+            return null;
+        }
+        return $this->phases['value'];
     }
 
     /**
      * Sets Phases.
      * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
      *
-     * @required
      * @maps phases
      *
-     * @param SubscriptionPhase[] $phases
+     * @param SubscriptionPhase[]|null $phases
      */
-    public function setPhases(array $phases): void
+    public function setPhases(?array $phases): void
     {
-        $this->phases = $phases;
+        $this->phases['value'] = $phases;
+    }
+
+    /**
+     * Unsets Phases.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
+     */
+    public function unsetPhases(): void
+    {
+        $this->phases = [];
     }
 
     /**
@@ -91,8 +103,10 @@ class CatalogSubscriptionPlan implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['name']   = $this->name;
-        $json['phases'] = $this->phases;
+        $json['name']       = $this->name;
+        if (!empty($this->phases)) {
+            $json['phases'] = $this->phases['value'];
+        }
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

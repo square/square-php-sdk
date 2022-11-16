@@ -25,9 +25,9 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
     private $customAttribute;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
      * @param string $customerId
@@ -91,7 +91,10 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -104,7 +107,18 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A unique identifier for this individual upsert request, used to ensure idempotency.
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -121,8 +135,8 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
         $json = [];
         $json['customer_id']         = $this->customerId;
         $json['custom_attribute']    = $this->customAttribute;
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

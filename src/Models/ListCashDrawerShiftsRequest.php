@@ -19,24 +19,24 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $beginTime;
+    private $beginTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endTime;
+    private $endTime = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * @param string $locationId
@@ -93,7 +93,10 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function getBeginTime(): ?string
     {
-        return $this->beginTime;
+        if (count($this->beginTime) == 0) {
+            return null;
+        }
+        return $this->beginTime['value'];
     }
 
     /**
@@ -104,7 +107,16 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function setBeginTime(?string $beginTime): void
     {
-        $this->beginTime = $beginTime;
+        $this->beginTime['value'] = $beginTime;
+    }
+
+    /**
+     * Unsets Begin Time.
+     * The inclusive start time of the query on opened_at, in ISO 8601 format.
+     */
+    public function unsetBeginTime(): void
+    {
+        $this->beginTime = [];
     }
 
     /**
@@ -113,7 +125,10 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function getEndTime(): ?string
     {
-        return $this->endTime;
+        if (count($this->endTime) == 0) {
+            return null;
+        }
+        return $this->endTime['value'];
     }
 
     /**
@@ -124,7 +139,16 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function setEndTime(?string $endTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime['value'] = $endTime;
+    }
+
+    /**
+     * Unsets End Time.
+     * The exclusive end date of the query on opened_at, in ISO 8601 format.
+     */
+    public function unsetEndTime(): void
+    {
+        $this->endTime = [];
     }
 
     /**
@@ -134,7 +158,10 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -146,7 +173,17 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * Number of cash drawer shift events in a page of results (200 by
+     * default, 1000 max).
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -155,7 +192,10 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -166,7 +206,16 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * Opaque cursor for fetching the next page of results.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -185,17 +234,17 @@ class ListCashDrawerShiftsRequest implements \JsonSerializable
         if (isset($this->sortOrder)) {
             $json['sort_order'] = $this->sortOrder;
         }
-        if (isset($this->beginTime)) {
-            $json['begin_time'] = $this->beginTime;
+        if (!empty($this->beginTime)) {
+            $json['begin_time'] = $this->beginTime['value'];
         }
-        if (isset($this->endTime)) {
-            $json['end_time']   = $this->endTime;
+        if (!empty($this->endTime)) {
+            $json['end_time']   = $this->endTime['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']      = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']      = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']     = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']     = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

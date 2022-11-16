@@ -96,13 +96,6 @@ class CatalogObjectType
     public const MEASUREMENT_UNIT = 'MEASUREMENT_UNIT';
 
     /**
-     * The `CatalogObject` instance is of the [CatalogSubscriptionPlan]($m/CatalogSubscriptionPlan) type
-     * and represents a subscription plan.
-     * The subscription-plan-specific data must be stored on the `subscription_plan_data` field.
-     */
-    public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
-
-    /**
      * The `CatalogObject` instance is of the [CatalogItemOption]($m/CatalogItemOption) type and represents
      * a list of options (such as a color or size of a T-shirt)
      * that can be assigned to item variations. The item-option-specific data must be on the
@@ -135,4 +128,11 @@ class CatalogObjectType
      * The quick-amounts-settings-specific data must be set on the `quick_amounts_settings_data` field.
      */
     public const QUICK_AMOUNTS_SETTINGS = 'QUICK_AMOUNTS_SETTINGS';
+
+    /**
+     * The `CatalogObject` instance is of the [CatalogSubscriptionPlan]($m/CatalogSubscriptionPlan) type
+     * and represents a subscription plan.
+     * The subscription plan specific data must be stored on the `subscription_plan_data` field.
+     */
+    public const SUBSCRIPTION_PLAN = 'SUBSCRIPTION_PLAN';
 }

@@ -9,24 +9,24 @@ use stdClass;
 class RevokeTokenRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $clientId;
+    private $clientId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $accessToken;
+    private $accessToken = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantId;
+    private $merchantId = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $revokeOnlyAccessToken;
+    private $revokeOnlyAccessToken = [];
 
     /**
      * Returns Client Id.
@@ -35,7 +35,10 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function getClientId(): ?string
     {
-        return $this->clientId;
+        if (count($this->clientId) == 0) {
+            return null;
+        }
+        return $this->clientId['value'];
     }
 
     /**
@@ -47,7 +50,17 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function setClientId(?string $clientId): void
     {
-        $this->clientId = $clientId;
+        $this->clientId['value'] = $clientId;
+    }
+
+    /**
+     * Unsets Client Id.
+     * The Square-issued ID for your application, which is available in the OAuth page in the
+     * [Developer Dashboard](https://developer.squareup.com/apps).
+     */
+    public function unsetClientId(): void
+    {
+        $this->clientId = [];
     }
 
     /**
@@ -57,7 +70,10 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function getAccessToken(): ?string
     {
-        return $this->accessToken;
+        if (count($this->accessToken) == 0) {
+            return null;
+        }
+        return $this->accessToken['value'];
     }
 
     /**
@@ -69,7 +85,17 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function setAccessToken(?string $accessToken): void
     {
-        $this->accessToken = $accessToken;
+        $this->accessToken['value'] = $accessToken;
+    }
+
+    /**
+     * Unsets Access Token.
+     * The access token of the merchant whose token you want to revoke.
+     * Do not provide a value for `merchant_id` if you provide this parameter.
+     */
+    public function unsetAccessToken(): void
+    {
+        $this->accessToken = [];
     }
 
     /**
@@ -79,7 +105,10 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function getMerchantId(): ?string
     {
-        return $this->merchantId;
+        if (count($this->merchantId) == 0) {
+            return null;
+        }
+        return $this->merchantId['value'];
     }
 
     /**
@@ -91,7 +120,17 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function setMerchantId(?string $merchantId): void
     {
-        $this->merchantId = $merchantId;
+        $this->merchantId['value'] = $merchantId;
+    }
+
+    /**
+     * Unsets Merchant Id.
+     * The ID of the merchant whose token you want to revoke.
+     * Do not provide a value for `access_token` if you provide this parameter.
+     */
+    public function unsetMerchantId(): void
+    {
+        $this->merchantId = [];
     }
 
     /**
@@ -102,7 +141,10 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function getRevokeOnlyAccessToken(): ?bool
     {
-        return $this->revokeOnlyAccessToken;
+        if (count($this->revokeOnlyAccessToken) == 0) {
+            return null;
+        }
+        return $this->revokeOnlyAccessToken['value'];
     }
 
     /**
@@ -115,7 +157,18 @@ class RevokeTokenRequest implements \JsonSerializable
      */
     public function setRevokeOnlyAccessToken(?bool $revokeOnlyAccessToken): void
     {
-        $this->revokeOnlyAccessToken = $revokeOnlyAccessToken;
+        $this->revokeOnlyAccessToken['value'] = $revokeOnlyAccessToken;
+    }
+
+    /**
+     * Unsets Revoke Only Access Token.
+     * If `true`, terminate the given single access token, but do not
+     * terminate the entire authorization.
+     * Default: `false`
+     */
+    public function unsetRevokeOnlyAccessToken(): void
+    {
+        $this->revokeOnlyAccessToken = [];
     }
 
     /**
@@ -130,17 +183,17 @@ class RevokeTokenRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->clientId)) {
-            $json['client_id']                = $this->clientId;
+        if (!empty($this->clientId)) {
+            $json['client_id']                = $this->clientId['value'];
         }
-        if (isset($this->accessToken)) {
-            $json['access_token']             = $this->accessToken;
+        if (!empty($this->accessToken)) {
+            $json['access_token']             = $this->accessToken['value'];
         }
-        if (isset($this->merchantId)) {
-            $json['merchant_id']              = $this->merchantId;
+        if (!empty($this->merchantId)) {
+            $json['merchant_id']              = $this->merchantId['value'];
         }
-        if (isset($this->revokeOnlyAccessToken)) {
-            $json['revoke_only_access_token'] = $this->revokeOnlyAccessToken;
+        if (!empty($this->revokeOnlyAccessToken)) {
+            $json['revoke_only_access_token'] = $this->revokeOnlyAccessToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

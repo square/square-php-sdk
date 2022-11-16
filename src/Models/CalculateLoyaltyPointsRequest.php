@@ -12,9 +12,9 @@ use stdClass;
 class CalculateLoyaltyPointsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * @var Money|null
@@ -22,9 +22,9 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
     private $transactionAmountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $loyaltyAccountId;
+    private $loyaltyAccountId = [];
 
     /**
      * Returns Order Id.
@@ -34,7 +34,10 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -47,7 +50,18 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The [order]($m/Order) ID for which to calculate the points.
+     * Specify this field if your application uses the Orders API to process orders.
+     * Otherwise, specify the `transaction_amount_money`.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -98,7 +112,10 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      */
     public function getLoyaltyAccountId(): ?string
     {
-        return $this->loyaltyAccountId;
+        if (count($this->loyaltyAccountId) == 0) {
+            return null;
+        }
+        return $this->loyaltyAccountId['value'];
     }
 
     /**
@@ -119,7 +136,26 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
      */
     public function setLoyaltyAccountId(?string $loyaltyAccountId): void
     {
-        $this->loyaltyAccountId = $loyaltyAccountId;
+        $this->loyaltyAccountId['value'] = $loyaltyAccountId;
+    }
+
+    /**
+     * Unsets Loyalty Account Id.
+     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * if your application uses the Orders API to process orders.
+     *
+     * If specified, the `promotion_points` field in the response shows the number of points the buyer
+     * would
+     * earn from the purchase. In this case, Square uses the account ID to determine whether the
+     * promotion's
+     * `trigger_limit` (the maximum number of times that a buyer can trigger the promotion) has been
+     * reached.
+     * If not specified, the `promotion_points` field shows the number of points the purchase qualifies
+     * for regardless of the trigger limit.
+     */
+    public function unsetLoyaltyAccountId(): void
+    {
+        $this->loyaltyAccountId = [];
     }
 
     /**
@@ -134,14 +170,14 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->orderId)) {
-            $json['order_id']                 = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']                 = $this->orderId['value'];
         }
         if (isset($this->transactionAmountMoney)) {
             $json['transaction_amount_money'] = $this->transactionAmountMoney;
         }
-        if (isset($this->loyaltyAccountId)) {
-            $json['loyalty_account_id']       = $this->loyaltyAccountId;
+        if (!empty($this->loyaltyAccountId)) {
+            $json['loyalty_account_id']       = $this->loyaltyAccountId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

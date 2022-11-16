@@ -43,19 +43,19 @@ class V1Tender implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $receiptUrl;
+    private $receiptUrl = [];
 
     /**
      * @var string|null
@@ -63,9 +63,9 @@ class V1Tender implements \JsonSerializable
     private $cardBrand;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $panSuffix;
+    private $panSuffix = [];
 
     /**
      * @var string|null
@@ -73,9 +73,9 @@ class V1Tender implements \JsonSerializable
     private $entryMethod;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentNote;
+    private $paymentNote = [];
 
     /**
      * @var V1Money|null
@@ -88,14 +88,14 @@ class V1Tender implements \JsonSerializable
     private $tenderedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $tenderedAt;
+    private $tenderedAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $settledAt;
+    private $settledAt = [];
 
     /**
      * @var V1Money|null
@@ -108,9 +108,9 @@ class V1Tender implements \JsonSerializable
     private $refundedMoney;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isExchange;
+    private $isExchange = [];
 
     /**
      * Returns Id.
@@ -156,7 +156,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -167,7 +170,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * A human-readable description of the tender.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -176,7 +188,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -187,7 +202,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The ID of the employee that processed the tender.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -196,7 +220,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getReceiptUrl(): ?string
     {
-        return $this->receiptUrl;
+        if (count($this->receiptUrl) == 0) {
+            return null;
+        }
+        return $this->receiptUrl['value'];
     }
 
     /**
@@ -207,7 +234,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setReceiptUrl(?string $receiptUrl): void
     {
-        $this->receiptUrl = $receiptUrl;
+        $this->receiptUrl['value'] = $receiptUrl;
+    }
+
+    /**
+     * Unsets Receipt Url.
+     * The URL of the receipt for the tender.
+     */
+    public function unsetReceiptUrl(): void
+    {
+        $this->receiptUrl = [];
     }
 
     /**
@@ -236,7 +272,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getPanSuffix(): ?string
     {
-        return $this->panSuffix;
+        if (count($this->panSuffix) == 0) {
+            return null;
+        }
+        return $this->panSuffix['value'];
     }
 
     /**
@@ -247,7 +286,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setPanSuffix(?string $panSuffix): void
     {
-        $this->panSuffix = $panSuffix;
+        $this->panSuffix['value'] = $panSuffix;
+    }
+
+    /**
+     * Unsets Pan Suffix.
+     * The last four digits of the provided credit card's account number.
+     */
+    public function unsetPanSuffix(): void
+    {
+        $this->panSuffix = [];
     }
 
     /**
@@ -275,7 +323,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getPaymentNote(): ?string
     {
-        return $this->paymentNote;
+        if (count($this->paymentNote) == 0) {
+            return null;
+        }
+        return $this->paymentNote['value'];
     }
 
     /**
@@ -287,7 +338,17 @@ class V1Tender implements \JsonSerializable
      */
     public function setPaymentNote(?string $paymentNote): void
     {
-        $this->paymentNote = $paymentNote;
+        $this->paymentNote['value'] = $paymentNote;
+    }
+
+    /**
+     * Unsets Payment Note.
+     * Notes entered by the merchant about the tender at the time of payment, if any. Typically only
+     * present for tender with the type: OTHER.
+     */
+    public function unsetPaymentNote(): void
+    {
+        $this->paymentNote = [];
     }
 
     /**
@@ -332,7 +393,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getTenderedAt(): ?string
     {
-        return $this->tenderedAt;
+        if (count($this->tenderedAt) == 0) {
+            return null;
+        }
+        return $this->tenderedAt['value'];
     }
 
     /**
@@ -343,7 +407,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setTenderedAt(?string $tenderedAt): void
     {
-        $this->tenderedAt = $tenderedAt;
+        $this->tenderedAt['value'] = $tenderedAt;
+    }
+
+    /**
+     * Unsets Tendered At.
+     * The time when the tender was created, in ISO 8601 format.
+     */
+    public function unsetTenderedAt(): void
+    {
+        $this->tenderedAt = [];
     }
 
     /**
@@ -352,7 +425,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getSettledAt(): ?string
     {
-        return $this->settledAt;
+        if (count($this->settledAt) == 0) {
+            return null;
+        }
+        return $this->settledAt['value'];
     }
 
     /**
@@ -363,7 +439,16 @@ class V1Tender implements \JsonSerializable
      */
     public function setSettledAt(?string $settledAt): void
     {
-        $this->settledAt = $settledAt;
+        $this->settledAt['value'] = $settledAt;
+    }
+
+    /**
+     * Unsets Settled At.
+     * The time when the tender was settled, in ISO 8601 format.
+     */
+    public function unsetSettledAt(): void
+    {
+        $this->settledAt = [];
     }
 
     /**
@@ -410,7 +495,10 @@ class V1Tender implements \JsonSerializable
      */
     public function getIsExchange(): ?bool
     {
-        return $this->isExchange;
+        if (count($this->isExchange) == 0) {
+            return null;
+        }
+        return $this->isExchange['value'];
     }
 
     /**
@@ -423,7 +511,18 @@ class V1Tender implements \JsonSerializable
      */
     public function setIsExchange(?bool $isExchange): void
     {
-        $this->isExchange = $isExchange;
+        $this->isExchange['value'] = $isExchange;
+    }
+
+    /**
+     * Unsets Is Exchange.
+     * Indicates whether or not the tender is associated with an exchange. If is_exchange is true, the
+     * tender represents the value of goods returned in an exchange not the actual money paid. The exchange
+     * value reduces the tender amounts needed to pay for items purchased in the exchange.
+     */
+    public function unsetIsExchange(): void
+    {
+        $this->isExchange = [];
     }
 
     /**
@@ -444,26 +543,26 @@ class V1Tender implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']              = $this->type;
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id']       = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id']       = $this->employeeId['value'];
         }
-        if (isset($this->receiptUrl)) {
-            $json['receipt_url']       = $this->receiptUrl;
+        if (!empty($this->receiptUrl)) {
+            $json['receipt_url']       = $this->receiptUrl['value'];
         }
         if (isset($this->cardBrand)) {
             $json['card_brand']        = $this->cardBrand;
         }
-        if (isset($this->panSuffix)) {
-            $json['pan_suffix']        = $this->panSuffix;
+        if (!empty($this->panSuffix)) {
+            $json['pan_suffix']        = $this->panSuffix['value'];
         }
         if (isset($this->entryMethod)) {
             $json['entry_method']      = $this->entryMethod;
         }
-        if (isset($this->paymentNote)) {
-            $json['payment_note']      = $this->paymentNote;
+        if (!empty($this->paymentNote)) {
+            $json['payment_note']      = $this->paymentNote['value'];
         }
         if (isset($this->totalMoney)) {
             $json['total_money']       = $this->totalMoney;
@@ -471,11 +570,11 @@ class V1Tender implements \JsonSerializable
         if (isset($this->tenderedMoney)) {
             $json['tendered_money']    = $this->tenderedMoney;
         }
-        if (isset($this->tenderedAt)) {
-            $json['tendered_at']       = $this->tenderedAt;
+        if (!empty($this->tenderedAt)) {
+            $json['tendered_at']       = $this->tenderedAt['value'];
         }
-        if (isset($this->settledAt)) {
-            $json['settled_at']        = $this->settledAt;
+        if (!empty($this->settledAt)) {
+            $json['settled_at']        = $this->settledAt['value'];
         }
         if (isset($this->changeBackMoney)) {
             $json['change_back_money'] = $this->changeBackMoney;
@@ -483,8 +582,8 @@ class V1Tender implements \JsonSerializable
         if (isset($this->refundedMoney)) {
             $json['refunded_money']    = $this->refundedMoney;
         }
-        if (isset($this->isExchange)) {
-            $json['is_exchange']       = $this->isExchange;
+        if (!empty($this->isExchange)) {
+            $json['is_exchange']       = $this->isExchange['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

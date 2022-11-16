@@ -17,14 +17,14 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
     private $loyaltyProgramId;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $points;
+    private $points = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * Returns Loyalty Program Id.
@@ -52,7 +52,10 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
      */
     public function getPoints(): ?int
     {
-        return $this->points;
+        if (count($this->points) == 0) {
+            return null;
+        }
+        return $this->points['value'];
     }
 
     /**
@@ -63,7 +66,16 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
      */
     public function setPoints(?int $points): void
     {
-        $this->points = $points;
+        $this->points['value'] = $points;
+    }
+
+    /**
+     * Unsets Points.
+     * The number of points accumulated by the event.
+     */
+    public function unsetPoints(): void
+    {
+        $this->points = [];
     }
 
     /**
@@ -73,7 +85,10 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -85,7 +100,17 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the [order]($m/Order) for which the buyer accumulated the points.
+     * This field is returned only if the Orders API is used to process orders.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -103,11 +128,11 @@ class LoyaltyEventAccumulatePoints implements \JsonSerializable
         if (isset($this->loyaltyProgramId)) {
             $json['loyalty_program_id'] = $this->loyaltyProgramId;
         }
-        if (isset($this->points)) {
-            $json['points']             = $this->points;
+        if (!empty($this->points)) {
+            $json['points']             = $this->points['value'];
         }
-        if (isset($this->orderId)) {
-            $json['order_id']           = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']           = $this->orderId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

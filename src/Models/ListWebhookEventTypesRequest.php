@@ -12,9 +12,9 @@ use stdClass;
 class ListWebhookEventTypesRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $apiVersion;
+    private $apiVersion = [];
 
     /**
      * Returns Api Version.
@@ -23,7 +23,10 @@ class ListWebhookEventTypesRequest implements \JsonSerializable
      */
     public function getApiVersion(): ?string
     {
-        return $this->apiVersion;
+        if (count($this->apiVersion) == 0) {
+            return null;
+        }
+        return $this->apiVersion['value'];
     }
 
     /**
@@ -35,7 +38,17 @@ class ListWebhookEventTypesRequest implements \JsonSerializable
      */
     public function setApiVersion(?string $apiVersion): void
     {
-        $this->apiVersion = $apiVersion;
+        $this->apiVersion['value'] = $apiVersion;
+    }
+
+    /**
+     * Unsets Api Version.
+     * The API version for which to list event types. Setting this field overrides the default version used
+     * by the application.
+     */
+    public function unsetApiVersion(): void
+    {
+        $this->apiVersion = [];
     }
 
     /**
@@ -50,8 +63,8 @@ class ListWebhookEventTypesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->apiVersion)) {
-            $json['api_version'] = $this->apiVersion;
+        if (!empty($this->apiVersion)) {
+            $json['api_version'] = $this->apiVersion['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

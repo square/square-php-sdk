@@ -15,14 +15,14 @@ use stdClass;
 class ListRefundsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $beginTime;
+    private $beginTime = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endTime;
+    private $endTime = [];
 
     /**
      * @var string|null
@@ -30,9 +30,9 @@ class ListRefundsRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * Returns Begin Time.
@@ -45,7 +45,10 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function getBeginTime(): ?string
     {
-        return $this->beginTime;
+        if (count($this->beginTime) == 0) {
+            return null;
+        }
+        return $this->beginTime['value'];
     }
 
     /**
@@ -61,7 +64,21 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function setBeginTime(?string $beginTime): void
     {
-        $this->beginTime = $beginTime;
+        $this->beginTime['value'] = $beginTime;
+    }
+
+    /**
+     * Unsets Begin Time.
+     * The beginning of the requested reporting period, in RFC 3339 format.
+     *
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
+     *
+     * Default value: The current time minus one year.
+     */
+    public function unsetBeginTime(): void
+    {
+        $this->beginTime = [];
     }
 
     /**
@@ -75,7 +92,10 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function getEndTime(): ?string
     {
-        return $this->endTime;
+        if (count($this->endTime) == 0) {
+            return null;
+        }
+        return $this->endTime['value'];
     }
 
     /**
@@ -91,7 +111,21 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function setEndTime(?string $endTime): void
     {
-        $this->endTime = $endTime;
+        $this->endTime['value'] = $endTime;
+    }
+
+    /**
+     * Unsets End Time.
+     * The end of the requested reporting period, in RFC 3339 format.
+     *
+     * See [Date ranges](https://developer.squareup.com/docs/build-basics/working-with-dates) for details
+     * on date inclusivity/exclusivity.
+     *
+     * Default value: The current time.
+     */
+    public function unsetEndTime(): void
+    {
+        $this->endTime = [];
     }
 
     /**
@@ -124,7 +158,10 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -139,7 +176,20 @@ class ListRefundsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for your original query.
+     *
+     * See [Paginating results](https://developer.squareup.com/docs/working-with-apis/pagination) for more
+     * information.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -154,17 +204,17 @@ class ListRefundsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->beginTime)) {
-            $json['begin_time'] = $this->beginTime;
+        if (!empty($this->beginTime)) {
+            $json['begin_time'] = $this->beginTime['value'];
         }
-        if (isset($this->endTime)) {
-            $json['end_time']   = $this->endTime;
+        if (!empty($this->endTime)) {
+            $json['end_time']   = $this->endTime['value'];
         }
         if (isset($this->sortOrder)) {
             $json['sort_order'] = $this->sortOrder;
         }
-        if (isset($this->cursor)) {
-            $json['cursor']     = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']     = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -32,9 +32,9 @@ class V1CreateRefundRequest implements \JsonSerializable
     private $refundedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $requestIdempotenceKey;
+    private $requestIdempotenceKey = [];
 
     /**
      * @param string $paymentId
@@ -137,7 +137,10 @@ class V1CreateRefundRequest implements \JsonSerializable
      */
     public function getRequestIdempotenceKey(): ?string
     {
-        return $this->requestIdempotenceKey;
+        if (count($this->requestIdempotenceKey) == 0) {
+            return null;
+        }
+        return $this->requestIdempotenceKey['value'];
     }
 
     /**
@@ -148,7 +151,16 @@ class V1CreateRefundRequest implements \JsonSerializable
      */
     public function setRequestIdempotenceKey(?string $requestIdempotenceKey): void
     {
-        $this->requestIdempotenceKey = $requestIdempotenceKey;
+        $this->requestIdempotenceKey['value'] = $requestIdempotenceKey;
+    }
+
+    /**
+     * Unsets Request Idempotence Key.
+     * An optional key to ensure idempotence if you issue the same PARTIAL refund request more than once.
+     */
+    public function unsetRequestIdempotenceKey(): void
+    {
+        $this->requestIdempotenceKey = [];
     }
 
     /**
@@ -169,8 +181,8 @@ class V1CreateRefundRequest implements \JsonSerializable
         if (isset($this->refundedMoney)) {
             $json['refunded_money']          = $this->refundedMoney;
         }
-        if (isset($this->requestIdempotenceKey)) {
-            $json['request_idempotence_key'] = $this->requestIdempotenceKey;
+        if (!empty($this->requestIdempotenceKey)) {
+            $json['request_idempotence_key'] = $this->requestIdempotenceKey['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

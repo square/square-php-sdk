@@ -12,9 +12,9 @@ use stdClass;
 class V1PaymentModifier implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var V1Money|null
@@ -22,9 +22,9 @@ class V1PaymentModifier implements \JsonSerializable
     private $appliedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $modifierOptionId;
+    private $modifierOptionId = [];
 
     /**
      * Returns Name.
@@ -32,7 +32,10 @@ class V1PaymentModifier implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class V1PaymentModifier implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The modifier option's name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -71,7 +83,10 @@ class V1PaymentModifier implements \JsonSerializable
      */
     public function getModifierOptionId(): ?string
     {
-        return $this->modifierOptionId;
+        if (count($this->modifierOptionId) == 0) {
+            return null;
+        }
+        return $this->modifierOptionId['value'];
     }
 
     /**
@@ -83,7 +98,17 @@ class V1PaymentModifier implements \JsonSerializable
      */
     public function setModifierOptionId(?string $modifierOptionId): void
     {
-        $this->modifierOptionId = $modifierOptionId;
+        $this->modifierOptionId['value'] = $modifierOptionId;
+    }
+
+    /**
+     * Unsets Modifier Option Id.
+     * The ID of the applied modifier option, if available. Modifier options applied in older versions of
+     * Square Register might not have an ID.
+     */
+    public function unsetModifierOptionId(): void
+    {
+        $this->modifierOptionId = [];
     }
 
     /**
@@ -98,14 +123,14 @@ class V1PaymentModifier implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']               = $this->name;
+        if (!empty($this->name)) {
+            $json['name']               = $this->name['value'];
         }
         if (isset($this->appliedMoney)) {
             $json['applied_money']      = $this->appliedMoney;
         }
-        if (isset($this->modifierOptionId)) {
-            $json['modifier_option_id'] = $this->modifierOptionId;
+        if (!empty($this->modifierOptionId)) {
+            $json['modifier_option_id'] = $this->modifierOptionId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

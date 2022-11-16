@@ -27,9 +27,9 @@ class Vendor implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Address|null
@@ -37,19 +37,19 @@ class Vendor implements \JsonSerializable
     private $address;
 
     /**
-     * @var VendorContact[]|null
+     * @var array
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $accountNumber;
+    private $accountNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
      * @var int|null
@@ -134,7 +134,10 @@ class Vendor implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -146,7 +149,17 @@ class Vendor implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the [Vendor]($m/Vendor).
+     * This field is required when attempting to create or update a [Vendor]($m/Vendor).
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -181,7 +194,10 @@ class Vendor implements \JsonSerializable
      */
     public function getContacts(): ?array
     {
-        return $this->contacts;
+        if (count($this->contacts) == 0) {
+            return null;
+        }
+        return $this->contacts['value'];
     }
 
     /**
@@ -194,7 +210,16 @@ class Vendor implements \JsonSerializable
      */
     public function setContacts(?array $contacts): void
     {
-        $this->contacts = $contacts;
+        $this->contacts['value'] = $contacts;
+    }
+
+    /**
+     * Unsets Contacts.
+     * The contacts of the [Vendor]($m/Vendor).
+     */
+    public function unsetContacts(): void
+    {
+        $this->contacts = [];
     }
 
     /**
@@ -203,7 +228,10 @@ class Vendor implements \JsonSerializable
      */
     public function getAccountNumber(): ?string
     {
-        return $this->accountNumber;
+        if (count($this->accountNumber) == 0) {
+            return null;
+        }
+        return $this->accountNumber['value'];
     }
 
     /**
@@ -214,7 +242,16 @@ class Vendor implements \JsonSerializable
      */
     public function setAccountNumber(?string $accountNumber): void
     {
-        $this->accountNumber = $accountNumber;
+        $this->accountNumber['value'] = $accountNumber;
+    }
+
+    /**
+     * Unsets Account Number.
+     * The account number of the [Vendor]($m/Vendor).
+     */
+    public function unsetAccountNumber(): void
+    {
+        $this->accountNumber = [];
     }
 
     /**
@@ -223,7 +260,10 @@ class Vendor implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -234,7 +274,16 @@ class Vendor implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * A note detailing information about the [Vendor]($m/Vendor).
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -300,20 +349,20 @@ class Vendor implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']     = $this->updatedAt;
         }
-        if (isset($this->name)) {
-            $json['name']           = $this->name;
+        if (!empty($this->name)) {
+            $json['name']           = $this->name['value'];
         }
         if (isset($this->address)) {
             $json['address']        = $this->address;
         }
-        if (isset($this->contacts)) {
-            $json['contacts']       = $this->contacts;
+        if (!empty($this->contacts)) {
+            $json['contacts']       = $this->contacts['value'];
         }
-        if (isset($this->accountNumber)) {
-            $json['account_number'] = $this->accountNumber;
+        if (!empty($this->accountNumber)) {
+            $json['account_number'] = $this->accountNumber['value'];
         }
-        if (isset($this->note)) {
-            $json['note']           = $this->note;
+        if (!empty($this->note)) {
+            $json['note']           = $this->note['value'];
         }
         if (isset($this->version)) {
             $json['version']        = $this->version;

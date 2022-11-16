@@ -17,14 +17,14 @@ class UpdateInvoiceRequest implements \JsonSerializable
     private $invoice;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $idempotencyKey;
+    private $idempotencyKey = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $fieldsToClear;
+    private $fieldsToClear = [];
 
     /**
      * @param Invoice $invoice
@@ -70,7 +70,10 @@ class UpdateInvoiceRequest implements \JsonSerializable
      */
     public function getIdempotencyKey(): ?string
     {
-        return $this->idempotencyKey;
+        if (count($this->idempotencyKey) == 0) {
+            return null;
+        }
+        return $this->idempotencyKey['value'];
     }
 
     /**
@@ -86,7 +89,21 @@ class UpdateInvoiceRequest implements \JsonSerializable
      */
     public function setIdempotencyKey(?string $idempotencyKey): void
     {
-        $this->idempotencyKey = $idempotencyKey;
+        $this->idempotencyKey['value'] = $idempotencyKey;
+    }
+
+    /**
+     * Unsets Idempotency Key.
+     * A unique string that identifies the `UpdateInvoice` request. If you do not
+     * provide `idempotency_key` (or provide an empty string as the value), the endpoint
+     * treats each request as independent.
+     *
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
+     * apis/idempotency).
+     */
+    public function unsetIdempotencyKey(): void
+    {
+        $this->idempotencyKey = [];
     }
 
     /**
@@ -99,7 +116,10 @@ class UpdateInvoiceRequest implements \JsonSerializable
      */
     public function getFieldsToClear(): ?array
     {
-        return $this->fieldsToClear;
+        if (count($this->fieldsToClear) == 0) {
+            return null;
+        }
+        return $this->fieldsToClear['value'];
     }
 
     /**
@@ -114,7 +134,18 @@ class UpdateInvoiceRequest implements \JsonSerializable
      */
     public function setFieldsToClear(?array $fieldsToClear): void
     {
-        $this->fieldsToClear = $fieldsToClear;
+        $this->fieldsToClear['value'] = $fieldsToClear;
+    }
+
+    /**
+     * Unsets Fields to Clear.
+     * The list of fields to clear.
+     * For examples, see [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-
+     * invoices).
+     */
+    public function unsetFieldsToClear(): void
+    {
+        $this->fieldsToClear = [];
     }
 
     /**
@@ -130,11 +161,11 @@ class UpdateInvoiceRequest implements \JsonSerializable
     {
         $json = [];
         $json['invoice']             = $this->invoice;
-        if (isset($this->idempotencyKey)) {
-            $json['idempotency_key'] = $this->idempotencyKey;
+        if (!empty($this->idempotencyKey)) {
+            $json['idempotency_key'] = $this->idempotencyKey['value'];
         }
-        if (isset($this->fieldsToClear)) {
-            $json['fields_to_clear'] = $this->fieldsToClear;
+        if (!empty($this->fieldsToClear)) {
+            $json['fields_to_clear'] = $this->fieldsToClear['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

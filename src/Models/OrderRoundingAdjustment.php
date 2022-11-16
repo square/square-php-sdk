@@ -14,14 +14,14 @@ use stdClass;
 class OrderRoundingAdjustment implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Money|null
@@ -34,7 +34,10 @@ class OrderRoundingAdjustment implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -45,7 +48,16 @@ class OrderRoundingAdjustment implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the rounding adjustment only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class OrderRoundingAdjustment implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -65,7 +80,16 @@ class OrderRoundingAdjustment implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the rounding adjustment from the original sale order.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -112,11 +136,11 @@ class OrderRoundingAdjustment implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']          = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']          = $this->uid['value'];
         }
-        if (isset($this->name)) {
-            $json['name']         = $this->name;
+        if (!empty($this->name)) {
+            $json['name']         = $this->name['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money'] = $this->amountMoney;

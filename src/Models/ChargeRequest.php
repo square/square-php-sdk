@@ -25,34 +25,34 @@ class ChargeRequest implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cardNonce;
+    private $cardNonce = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerCardId;
+    private $customerCardId = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $delayCapture;
+    private $delayCapture = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
      * @var Address|null
@@ -65,24 +65,24 @@ class ChargeRequest implements \JsonSerializable
     private $shippingAddress;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $buyerEmailAddress;
+    private $buyerEmailAddress = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
-     * @var ChargeRequestAdditionalRecipient[]|null
+     * @var array
      */
-    private $additionalRecipients;
+    private $additionalRecipients = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $verificationToken;
+    private $verificationToken = [];
 
     /**
      * @param string $idempotencyKey
@@ -179,7 +179,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getCardNonce(): ?string
     {
-        return $this->cardNonce;
+        if (count($this->cardNonce) == 0) {
+            return null;
+        }
+        return $this->cardNonce['value'];
     }
 
     /**
@@ -199,7 +202,25 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setCardNonce(?string $cardNonce): void
     {
-        $this->cardNonce = $cardNonce;
+        $this->cardNonce['value'] = $cardNonce;
+    }
+
+    /**
+     * Unsets Card Nonce.
+     * A payment token generated from the [Card.tokenize()](https://developer.squareup.
+     * com/reference/sdks/web/payments/objects/Card#Card.tokenize) that represents the card
+     * to charge.
+     *
+     * The application that provides a payment token to this endpoint must be the
+     * _same application_ that generated the payment token with the Web Payments SDK.
+     * Otherwise, the nonce is invalid.
+     *
+     * Do not provide a value for this field if you provide a value for
+     * `customer_card_id`.
+     */
+    public function unsetCardNonce(): void
+    {
+        $this->cardNonce = [];
     }
 
     /**
@@ -212,7 +233,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getCustomerCardId(): ?string
     {
-        return $this->customerCardId;
+        if (count($this->customerCardId) == 0) {
+            return null;
+        }
+        return $this->customerCardId['value'];
     }
 
     /**
@@ -227,7 +251,20 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setCustomerCardId(?string $customerCardId): void
     {
-        $this->customerCardId = $customerCardId;
+        $this->customerCardId['value'] = $customerCardId;
+    }
+
+    /**
+     * Unsets Customer Card Id.
+     * The ID of the customer card on file to charge. Do
+     * not provide a value for this field if you provide a value for `card_nonce`.
+     *
+     * If you provide this value, you _must_ also provide a value for
+     * `customer_id`.
+     */
+    public function unsetCustomerCardId(): void
+    {
+        $this->customerCardId = [];
     }
 
     /**
@@ -241,7 +278,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getDelayCapture(): ?bool
     {
-        return $this->delayCapture;
+        if (count($this->delayCapture) == 0) {
+            return null;
+        }
+        return $this->delayCapture['value'];
     }
 
     /**
@@ -257,7 +297,21 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setDelayCapture(?bool $delayCapture): void
     {
-        $this->delayCapture = $delayCapture;
+        $this->delayCapture['value'] = $delayCapture;
+    }
+
+    /**
+     * Unsets Delay Capture.
+     * If `true`, the request will only perform an Auth on the provided
+     * card. You can then later perform either a Capture (with the
+     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
+     *
+     * Default value: `false`
+     */
+    public function unsetDelayCapture(): void
+    {
+        $this->delayCapture = [];
     }
 
     /**
@@ -270,7 +324,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -285,7 +342,20 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * An optional ID you can associate with the transaction for your own
+     * purposes (such as to associate the transaction with an entity ID in your
+     * own database).
+     *
+     * This value cannot exceed 40 characters.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -296,7 +366,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -309,7 +382,18 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * An optional note to associate with the transaction.
+     *
+     * This value cannot exceed 60 characters.
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -320,7 +404,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -333,7 +420,18 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The ID of the customer to associate this transaction with. This field
+     * is required if you provide a value for `customer_card_id`, and optional
+     * otherwise.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -392,7 +490,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getBuyerEmailAddress(): ?string
     {
-        return $this->buyerEmailAddress;
+        if (count($this->buyerEmailAddress) == 0) {
+            return null;
+        }
+        return $this->buyerEmailAddress['value'];
     }
 
     /**
@@ -405,7 +506,18 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setBuyerEmailAddress(?string $buyerEmailAddress): void
     {
-        $this->buyerEmailAddress = $buyerEmailAddress;
+        $this->buyerEmailAddress['value'] = $buyerEmailAddress;
+    }
+
+    /**
+     * Unsets Buyer Email Address.
+     * The buyer's email address, if available. This value is optional,
+     * but this transaction is ineligible for chargeback protection if it is not
+     * provided.
+     */
+    public function unsetBuyerEmailAddress(): void
+    {
+        $this->buyerEmailAddress = [];
     }
 
     /**
@@ -417,7 +529,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -431,7 +546,19 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the order to associate with this transaction.
+     *
+     * If you provide this value, the `amount_money` value of your request must
+     * __exactly match__ the value of the order's `total_money` field.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -451,7 +578,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getAdditionalRecipients(): ?array
     {
-        return $this->additionalRecipients;
+        if (count($this->additionalRecipients) == 0) {
+            return null;
+        }
+        return $this->additionalRecipients['value'];
     }
 
     /**
@@ -473,7 +603,25 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setAdditionalRecipients(?array $additionalRecipients): void
     {
-        $this->additionalRecipients = $additionalRecipients;
+        $this->additionalRecipients['value'] = $additionalRecipients;
+    }
+
+    /**
+     * Unsets Additional Recipients.
+     * The basic primitive of multi-party transaction. The value is optional.
+     * The transaction facilitated by you can be split from here.
+     *
+     * If you provide this value, the `amount_money` value in your additional_recipients
+     * must not be more than 90% of the `amount_money` value in the charge request.
+     * The `location_id` must be the valid location of the app owner merchant.
+     *
+     * This field requires the `PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS` OAuth permission.
+     *
+     * This field is currently not supported in sandbox.
+     */
+    public function unsetAdditionalRecipients(): void
+    {
+        $this->additionalRecipients = [];
     }
 
     /**
@@ -483,7 +631,10 @@ class ChargeRequest implements \JsonSerializable
      */
     public function getVerificationToken(): ?string
     {
-        return $this->verificationToken;
+        if (count($this->verificationToken) == 0) {
+            return null;
+        }
+        return $this->verificationToken['value'];
     }
 
     /**
@@ -495,7 +646,17 @@ class ChargeRequest implements \JsonSerializable
      */
     public function setVerificationToken(?string $verificationToken): void
     {
-        $this->verificationToken = $verificationToken;
+        $this->verificationToken['value'] = $verificationToken;
+    }
+
+    /**
+     * Unsets Verification Token.
+     * A token generated by SqPaymentForm's verifyBuyer() that represents
+     * customer's device info and 3ds challenge result.
+     */
+    public function unsetVerificationToken(): void
+    {
+        $this->verificationToken = [];
     }
 
     /**
@@ -512,23 +673,23 @@ class ChargeRequest implements \JsonSerializable
         $json = [];
         $json['idempotency_key']           = $this->idempotencyKey;
         $json['amount_money']              = $this->amountMoney;
-        if (isset($this->cardNonce)) {
-            $json['card_nonce']            = $this->cardNonce;
+        if (!empty($this->cardNonce)) {
+            $json['card_nonce']            = $this->cardNonce['value'];
         }
-        if (isset($this->customerCardId)) {
-            $json['customer_card_id']      = $this->customerCardId;
+        if (!empty($this->customerCardId)) {
+            $json['customer_card_id']      = $this->customerCardId['value'];
         }
-        if (isset($this->delayCapture)) {
-            $json['delay_capture']         = $this->delayCapture;
+        if (!empty($this->delayCapture)) {
+            $json['delay_capture']         = $this->delayCapture['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']          = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']          = $this->referenceId['value'];
         }
-        if (isset($this->note)) {
-            $json['note']                  = $this->note;
+        if (!empty($this->note)) {
+            $json['note']                  = $this->note['value'];
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']           = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']           = $this->customerId['value'];
         }
         if (isset($this->billingAddress)) {
             $json['billing_address']       = $this->billingAddress;
@@ -536,17 +697,17 @@ class ChargeRequest implements \JsonSerializable
         if (isset($this->shippingAddress)) {
             $json['shipping_address']      = $this->shippingAddress;
         }
-        if (isset($this->buyerEmailAddress)) {
-            $json['buyer_email_address']   = $this->buyerEmailAddress;
+        if (!empty($this->buyerEmailAddress)) {
+            $json['buyer_email_address']   = $this->buyerEmailAddress['value'];
         }
-        if (isset($this->orderId)) {
-            $json['order_id']              = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']              = $this->orderId['value'];
         }
-        if (isset($this->additionalRecipients)) {
-            $json['additional_recipients'] = $this->additionalRecipients;
+        if (!empty($this->additionalRecipients)) {
+            $json['additional_recipients'] = $this->additionalRecipients['value'];
         }
-        if (isset($this->verificationToken)) {
-            $json['verification_token']    = $this->verificationToken;
+        if (!empty($this->verificationToken)) {
+            $json['verification_token']    = $this->verificationToken['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

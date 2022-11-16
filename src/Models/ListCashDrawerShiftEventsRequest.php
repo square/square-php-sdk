@@ -14,14 +14,14 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * @param string $locationId
@@ -59,7 +59,10 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -71,7 +74,17 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * Number of resources to be returned in a page of results (200 by
+     * default, 1000 max).
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -80,7 +93,10 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -91,7 +107,16 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * Opaque cursor for fetching the next page of results.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -107,11 +132,11 @@ class ListCashDrawerShiftEventsRequest implements \JsonSerializable
     {
         $json = [];
         $json['location_id'] = $this->locationId;
-        if (isset($this->limit)) {
-            $json['limit']   = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']   = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']  = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']  = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

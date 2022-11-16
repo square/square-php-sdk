@@ -13,9 +13,9 @@ use stdClass;
 class OrderEntry implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * @var int|null
@@ -23,9 +23,9 @@ class OrderEntry implements \JsonSerializable
     private $version;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * Returns Order Id.
@@ -33,7 +33,10 @@ class OrderEntry implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -44,7 +47,16 @@ class OrderEntry implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The ID of the order.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -54,7 +66,7 @@ class OrderEntry implements \JsonSerializable
      * therefore cannot be updated.
      *
      * [Read more about working with versions.](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders)
+     * orders/update-orders)
      */
     public function getVersion(): ?int
     {
@@ -68,7 +80,7 @@ class OrderEntry implements \JsonSerializable
      * therefore cannot be updated.
      *
      * [Read more about working with versions.](https://developer.squareup.com/docs/orders-api/manage-
-     * orders#update-orders)
+     * orders/update-orders)
      *
      * @maps version
      */
@@ -83,7 +95,10 @@ class OrderEntry implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -94,7 +109,16 @@ class OrderEntry implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The location ID the order belongs to.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -109,14 +133,14 @@ class OrderEntry implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->orderId)) {
-            $json['order_id']    = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']    = $this->orderId['value'];
         }
         if (isset($this->version)) {
             $json['version']     = $this->version;
         }
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

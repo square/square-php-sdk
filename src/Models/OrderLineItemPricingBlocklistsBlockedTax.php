@@ -13,19 +13,19 @@ use stdClass;
 class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $taxUid;
+    private $taxUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $taxCatalogObjectId;
+    private $taxCatalogObjectId = [];
 
     /**
      * Returns Uid.
@@ -33,7 +33,10 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -44,7 +47,16 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID of the `BlockedTax` within the order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function getTaxUid(): ?string
     {
-        return $this->taxUid;
+        if (count($this->taxUid) == 0) {
+            return null;
+        }
+        return $this->taxUid['value'];
     }
 
     /**
@@ -66,7 +81,17 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function setTaxUid(?string $taxUid): void
     {
-        $this->taxUid = $taxUid;
+        $this->taxUid['value'] = $taxUid;
+    }
+
+    /**
+     * Unsets Tax Uid.
+     * The `uid` of the tax that should be blocked. Use this field to block
+     * ad hoc taxes. For catalog, taxes use the `tax_catalog_object_id` field.
+     */
+    public function unsetTaxUid(): void
+    {
+        $this->taxUid = [];
     }
 
     /**
@@ -77,7 +102,10 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function getTaxCatalogObjectId(): ?string
     {
-        return $this->taxCatalogObjectId;
+        if (count($this->taxCatalogObjectId) == 0) {
+            return null;
+        }
+        return $this->taxCatalogObjectId['value'];
     }
 
     /**
@@ -90,7 +118,18 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
      */
     public function setTaxCatalogObjectId(?string $taxCatalogObjectId): void
     {
-        $this->taxCatalogObjectId = $taxCatalogObjectId;
+        $this->taxCatalogObjectId['value'] = $taxCatalogObjectId;
+    }
+
+    /**
+     * Unsets Tax Catalog Object Id.
+     * The `catalog_object_id` of the tax that should be blocked.
+     * Use this field to block catalog taxes. For ad hoc taxes, use the
+     * `tax_uid` field.
+     */
+    public function unsetTaxCatalogObjectId(): void
+    {
+        $this->taxCatalogObjectId = [];
     }
 
     /**
@@ -105,14 +144,14 @@ class OrderLineItemPricingBlocklistsBlockedTax implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                   = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                   = $this->uid['value'];
         }
-        if (isset($this->taxUid)) {
-            $json['tax_uid']               = $this->taxUid;
+        if (!empty($this->taxUid)) {
+            $json['tax_uid']               = $this->taxUid['value'];
         }
-        if (isset($this->taxCatalogObjectId)) {
-            $json['tax_catalog_object_id'] = $this->taxCatalogObjectId;
+        if (!empty($this->taxCatalogObjectId)) {
+            $json['tax_catalog_object_id'] = $this->taxCatalogObjectId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

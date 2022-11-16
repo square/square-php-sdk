@@ -12,19 +12,19 @@ use stdClass;
 class ListDisputesRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $states;
+    private $states = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * Returns Cursor.
@@ -34,7 +34,10 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -47,7 +50,18 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -59,7 +73,10 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function getStates(): ?array
     {
-        return $this->states;
+        if (count($this->states) == 0) {
+            return null;
+        }
+        return $this->states['value'];
     }
 
     /**
@@ -73,7 +90,17 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function setStates(?array $states): void
     {
-        $this->states = $states;
+        $this->states['value'] = $states;
+    }
+
+    /**
+     * Unsets States.
+     * The dispute states used to filter the result. If not specified, the endpoint returns all disputes.
+     * See [DisputeState](#type-disputestate) for possible values
+     */
+    public function unsetStates(): void
+    {
+        $this->states = [];
     }
 
     /**
@@ -83,7 +110,10 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -95,7 +125,17 @@ class ListDisputesRequest implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the location for which to return a list of disputes.
+     * If not specified, the endpoint returns disputes associated with all locations.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -110,14 +150,14 @@ class ListDisputesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor']      = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']      = $this->cursor['value'];
         }
-        if (isset($this->states)) {
-            $json['states']      = $this->states;
+        if (!empty($this->states)) {
+            $json['states']      = $this->states['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id'] = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id'] = $this->locationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

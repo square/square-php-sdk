@@ -21,9 +21,9 @@ class Transaction implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var string|null
@@ -31,19 +31,19 @@ class Transaction implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var Tender[]|null
+     * @var array
      */
-    private $tenders;
+    private $tenders = [];
 
     /**
-     * @var Refund[]|null
+     * @var array
      */
-    private $refunds;
+    private $refunds = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -51,9 +51,9 @@ class Transaction implements \JsonSerializable
     private $product;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $clientId;
+    private $clientId = [];
 
     /**
      * @var Address|null
@@ -61,9 +61,9 @@ class Transaction implements \JsonSerializable
     private $shippingAddress;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $orderId;
+    private $orderId = [];
 
     /**
      * Returns Id.
@@ -91,7 +91,10 @@ class Transaction implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -102,7 +105,16 @@ class Transaction implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the transaction's associated location.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -133,7 +145,10 @@ class Transaction implements \JsonSerializable
      */
     public function getTenders(): ?array
     {
-        return $this->tenders;
+        if (count($this->tenders) == 0) {
+            return null;
+        }
+        return $this->tenders['value'];
     }
 
     /**
@@ -146,7 +161,16 @@ class Transaction implements \JsonSerializable
      */
     public function setTenders(?array $tenders): void
     {
-        $this->tenders = $tenders;
+        $this->tenders['value'] = $tenders;
+    }
+
+    /**
+     * Unsets Tenders.
+     * The tenders used to pay in the transaction.
+     */
+    public function unsetTenders(): void
+    {
+        $this->tenders = [];
     }
 
     /**
@@ -157,7 +181,10 @@ class Transaction implements \JsonSerializable
      */
     public function getRefunds(): ?array
     {
-        return $this->refunds;
+        if (count($this->refunds) == 0) {
+            return null;
+        }
+        return $this->refunds['value'];
     }
 
     /**
@@ -170,7 +197,16 @@ class Transaction implements \JsonSerializable
      */
     public function setRefunds(?array $refunds): void
     {
-        $this->refunds = $refunds;
+        $this->refunds['value'] = $refunds;
+    }
+
+    /**
+     * Unsets Refunds.
+     * Refunds that have been applied to any tender in the transaction.
+     */
+    public function unsetRefunds(): void
+    {
+        $this->refunds = [];
     }
 
     /**
@@ -181,7 +217,10 @@ class Transaction implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -194,7 +233,18 @@ class Transaction implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * If the transaction was created with the [Charge]($e/Transactions/Charge)
+     * endpoint, this value is the same as the value provided for the `reference_id`
+     * parameter in the request to that endpoint. Otherwise, it is not set.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -232,7 +282,10 @@ class Transaction implements \JsonSerializable
      */
     public function getClientId(): ?string
     {
-        return $this->clientId;
+        if (count($this->clientId) == 0) {
+            return null;
+        }
+        return $this->clientId['value'];
     }
 
     /**
@@ -252,7 +305,25 @@ class Transaction implements \JsonSerializable
      */
     public function setClientId(?string $clientId): void
     {
-        $this->clientId = $clientId;
+        $this->clientId['value'] = $clientId;
+    }
+
+    /**
+     * Unsets Client Id.
+     * If the transaction was created in the Square Point of Sale app, this value
+     * is the ID generated for the transaction by Square Point of Sale.
+     *
+     * This ID has no relationship to the transaction's canonical `id`, which is
+     * generated by Square's backend servers. This value is generated for bookkeeping
+     * purposes, in case the transaction cannot immediately be completed (for example,
+     * if the transaction is processed in offline mode).
+     *
+     * It is not currently possible with the Connect API to perform a transaction
+     * lookup by this value.
+     */
+    public function unsetClientId(): void
+    {
+        $this->clientId = [];
     }
 
     /**
@@ -285,7 +356,10 @@ class Transaction implements \JsonSerializable
      */
     public function getOrderId(): ?string
     {
-        return $this->orderId;
+        if (count($this->orderId) == 0) {
+            return null;
+        }
+        return $this->orderId['value'];
     }
 
     /**
@@ -296,7 +370,16 @@ class Transaction implements \JsonSerializable
      */
     public function setOrderId(?string $orderId): void
     {
-        $this->orderId = $orderId;
+        $this->orderId['value'] = $orderId;
+    }
+
+    /**
+     * Unsets Order Id.
+     * The order_id is an identifier for the order associated with this transaction, if any.
+     */
+    public function unsetOrderId(): void
+    {
+        $this->orderId = [];
     }
 
     /**
@@ -314,32 +397,32 @@ class Transaction implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']               = $this->id;
         }
-        if (isset($this->locationId)) {
-            $json['location_id']      = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']      = $this->locationId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']       = $this->createdAt;
         }
-        if (isset($this->tenders)) {
-            $json['tenders']          = $this->tenders;
+        if (!empty($this->tenders)) {
+            $json['tenders']          = $this->tenders['value'];
         }
-        if (isset($this->refunds)) {
-            $json['refunds']          = $this->refunds;
+        if (!empty($this->refunds)) {
+            $json['refunds']          = $this->refunds['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']     = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']     = $this->referenceId['value'];
         }
         if (isset($this->product)) {
             $json['product']          = $this->product;
         }
-        if (isset($this->clientId)) {
-            $json['client_id']        = $this->clientId;
+        if (!empty($this->clientId)) {
+            $json['client_id']        = $this->clientId['value'];
         }
         if (isset($this->shippingAddress)) {
             $json['shipping_address'] = $this->shippingAddress;
         }
-        if (isset($this->orderId)) {
-            $json['order_id']         = $this->orderId;
+        if (!empty($this->orderId)) {
+            $json['order_id']         = $this->orderId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

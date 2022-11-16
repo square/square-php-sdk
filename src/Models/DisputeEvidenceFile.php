@@ -12,14 +12,14 @@ use stdClass;
 class DisputeEvidenceFile implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $filename;
+    private $filename = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $filetype;
+    private $filetype = [];
 
     /**
      * Returns Filename.
@@ -27,7 +27,10 @@ class DisputeEvidenceFile implements \JsonSerializable
      */
     public function getFilename(): ?string
     {
-        return $this->filename;
+        if (count($this->filename) == 0) {
+            return null;
+        }
+        return $this->filename['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class DisputeEvidenceFile implements \JsonSerializable
      */
     public function setFilename(?string $filename): void
     {
-        $this->filename = $filename;
+        $this->filename['value'] = $filename;
+    }
+
+    /**
+     * Unsets Filename.
+     * The file name including the file extension. For example: "receipt.tiff".
+     */
+    public function unsetFilename(): void
+    {
+        $this->filename = [];
     }
 
     /**
@@ -48,7 +60,10 @@ class DisputeEvidenceFile implements \JsonSerializable
      */
     public function getFiletype(): ?string
     {
-        return $this->filetype;
+        if (count($this->filetype) == 0) {
+            return null;
+        }
+        return $this->filetype['value'];
     }
 
     /**
@@ -60,7 +75,17 @@ class DisputeEvidenceFile implements \JsonSerializable
      */
     public function setFiletype(?string $filetype): void
     {
-        $this->filetype = $filetype;
+        $this->filetype['value'] = $filetype;
+    }
+
+    /**
+     * Unsets Filetype.
+     * Dispute evidence files must be application/pdf, image/heic, image/heif, image/jpeg, image/png, or
+     * image/tiff formats.
+     */
+    public function unsetFiletype(): void
+    {
+        $this->filetype = [];
     }
 
     /**
@@ -75,11 +100,11 @@ class DisputeEvidenceFile implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->filename)) {
-            $json['filename'] = $this->filename;
+        if (!empty($this->filename)) {
+            $json['filename'] = $this->filename['value'];
         }
-        if (isset($this->filetype)) {
-            $json['filetype'] = $this->filetype;
+        if (!empty($this->filetype)) {
+            $json['filetype'] = $this->filetype['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

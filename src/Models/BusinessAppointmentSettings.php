@@ -12,9 +12,9 @@ use stdClass;
 class BusinessAppointmentSettings implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationTypes;
+    private $locationTypes = [];
 
     /**
      * @var string|null
@@ -22,24 +22,24 @@ class BusinessAppointmentSettings implements \JsonSerializable
     private $alignmentTime;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $minBookingLeadTimeSeconds;
+    private $minBookingLeadTimeSeconds = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $maxBookingLeadTimeSeconds;
+    private $maxBookingLeadTimeSeconds = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $anyTeamMemberBookingEnabled;
+    private $anyTeamMemberBookingEnabled = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $multipleServiceBookingEnabled;
+    private $multipleServiceBookingEnabled = [];
 
     /**
      * @var string|null
@@ -47,14 +47,14 @@ class BusinessAppointmentSettings implements \JsonSerializable
     private $maxAppointmentsPerDayLimitType;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $maxAppointmentsPerDayLimit;
+    private $maxAppointmentsPerDayLimit = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $cancellationWindowSeconds;
+    private $cancellationWindowSeconds = [];
 
     /**
      * @var Money|null
@@ -67,14 +67,14 @@ class BusinessAppointmentSettings implements \JsonSerializable
     private $cancellationPolicy;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cancellationPolicyText;
+    private $cancellationPolicyText = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $skipBookingFlowStaffSelection;
+    private $skipBookingFlowStaffSelection = [];
 
     /**
      * Returns Location Types.
@@ -86,7 +86,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getLocationTypes(): ?array
     {
-        return $this->locationTypes;
+        if (count($this->locationTypes) == 0) {
+            return null;
+        }
+        return $this->locationTypes['value'];
     }
 
     /**
@@ -101,7 +104,18 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setLocationTypes(?array $locationTypes): void
     {
-        $this->locationTypes = $locationTypes;
+        $this->locationTypes['value'] = $locationTypes;
+    }
+
+    /**
+     * Unsets Location Types.
+     * Types of the location allowed for bookings.
+     * See [BusinessAppointmentSettingsBookingLocationType](#type-
+     * businessappointmentsettingsbookinglocationtype) for possible values
+     */
+    public function unsetLocationTypes(): void
+    {
+        $this->locationTypes = [];
     }
 
     /**
@@ -131,7 +145,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getMinBookingLeadTimeSeconds(): ?int
     {
-        return $this->minBookingLeadTimeSeconds;
+        if (count($this->minBookingLeadTimeSeconds) == 0) {
+            return null;
+        }
+        return $this->minBookingLeadTimeSeconds['value'];
     }
 
     /**
@@ -143,7 +160,17 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setMinBookingLeadTimeSeconds(?int $minBookingLeadTimeSeconds): void
     {
-        $this->minBookingLeadTimeSeconds = $minBookingLeadTimeSeconds;
+        $this->minBookingLeadTimeSeconds['value'] = $minBookingLeadTimeSeconds;
+    }
+
+    /**
+     * Unsets Min Booking Lead Time Seconds.
+     * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
+     * this far ahead of the booking's starting time.
+     */
+    public function unsetMinBookingLeadTimeSeconds(): void
+    {
+        $this->minBookingLeadTimeSeconds = [];
     }
 
     /**
@@ -153,7 +180,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getMaxBookingLeadTimeSeconds(): ?int
     {
-        return $this->maxBookingLeadTimeSeconds;
+        if (count($this->maxBookingLeadTimeSeconds) == 0) {
+            return null;
+        }
+        return $this->maxBookingLeadTimeSeconds['value'];
     }
 
     /**
@@ -165,7 +195,17 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setMaxBookingLeadTimeSeconds(?int $maxBookingLeadTimeSeconds): void
     {
-        $this->maxBookingLeadTimeSeconds = $maxBookingLeadTimeSeconds;
+        $this->maxBookingLeadTimeSeconds['value'] = $maxBookingLeadTimeSeconds;
+    }
+
+    /**
+     * Unsets Max Booking Lead Time Seconds.
+     * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
+     * this far ahead of the booking's starting time.
+     */
+    public function unsetMaxBookingLeadTimeSeconds(): void
+    {
+        $this->maxBookingLeadTimeSeconds = [];
     }
 
     /**
@@ -176,7 +216,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getAnyTeamMemberBookingEnabled(): ?bool
     {
-        return $this->anyTeamMemberBookingEnabled;
+        if (count($this->anyTeamMemberBookingEnabled) == 0) {
+            return null;
+        }
+        return $this->anyTeamMemberBookingEnabled['value'];
     }
 
     /**
@@ -189,7 +232,18 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setAnyTeamMemberBookingEnabled(?bool $anyTeamMemberBookingEnabled): void
     {
-        $this->anyTeamMemberBookingEnabled = $anyTeamMemberBookingEnabled;
+        $this->anyTeamMemberBookingEnabled['value'] = $anyTeamMemberBookingEnabled;
+    }
+
+    /**
+     * Unsets Any Team Member Booking Enabled.
+     * Indicates whether a customer can choose from all available time slots and have a staff member
+     * assigned
+     * automatically (`true`) or not (`false`).
+     */
+    public function unsetAnyTeamMemberBookingEnabled(): void
+    {
+        $this->anyTeamMemberBookingEnabled = [];
     }
 
     /**
@@ -198,7 +252,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getMultipleServiceBookingEnabled(): ?bool
     {
-        return $this->multipleServiceBookingEnabled;
+        if (count($this->multipleServiceBookingEnabled) == 0) {
+            return null;
+        }
+        return $this->multipleServiceBookingEnabled['value'];
     }
 
     /**
@@ -209,7 +266,16 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setMultipleServiceBookingEnabled(?bool $multipleServiceBookingEnabled): void
     {
-        $this->multipleServiceBookingEnabled = $multipleServiceBookingEnabled;
+        $this->multipleServiceBookingEnabled['value'] = $multipleServiceBookingEnabled;
+    }
+
+    /**
+     * Unsets Multiple Service Booking Enabled.
+     * Indicates whether a customer can book multiple services in a single online booking.
+     */
+    public function unsetMultipleServiceBookingEnabled(): void
+    {
+        $this->multipleServiceBookingEnabled = [];
     }
 
     /**
@@ -238,7 +304,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getMaxAppointmentsPerDayLimit(): ?int
     {
-        return $this->maxAppointmentsPerDayLimit;
+        if (count($this->maxAppointmentsPerDayLimit) == 0) {
+            return null;
+        }
+        return $this->maxAppointmentsPerDayLimit['value'];
     }
 
     /**
@@ -249,7 +318,16 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setMaxAppointmentsPerDayLimit(?int $maxAppointmentsPerDayLimit): void
     {
-        $this->maxAppointmentsPerDayLimit = $maxAppointmentsPerDayLimit;
+        $this->maxAppointmentsPerDayLimit['value'] = $maxAppointmentsPerDayLimit;
+    }
+
+    /**
+     * Unsets Max Appointments Per Day Limit.
+     * The maximum number of daily appointments per team member or per location.
+     */
+    public function unsetMaxAppointmentsPerDayLimit(): void
+    {
+        $this->maxAppointmentsPerDayLimit = [];
     }
 
     /**
@@ -258,7 +336,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getCancellationWindowSeconds(): ?int
     {
-        return $this->cancellationWindowSeconds;
+        if (count($this->cancellationWindowSeconds) == 0) {
+            return null;
+        }
+        return $this->cancellationWindowSeconds['value'];
     }
 
     /**
@@ -269,7 +350,16 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setCancellationWindowSeconds(?int $cancellationWindowSeconds): void
     {
-        $this->cancellationWindowSeconds = $cancellationWindowSeconds;
+        $this->cancellationWindowSeconds['value'] = $cancellationWindowSeconds;
+    }
+
+    /**
+     * Unsets Cancellation Window Seconds.
+     * The cut-off time in seconds for allowing clients to cancel or reschedule an appointment.
+     */
+    public function unsetCancellationWindowSeconds(): void
+    {
+        $this->cancellationWindowSeconds = [];
     }
 
     /**
@@ -330,7 +420,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getCancellationPolicyText(): ?string
     {
-        return $this->cancellationPolicyText;
+        if (count($this->cancellationPolicyText) == 0) {
+            return null;
+        }
+        return $this->cancellationPolicyText['value'];
     }
 
     /**
@@ -341,7 +434,16 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setCancellationPolicyText(?string $cancellationPolicyText): void
     {
-        $this->cancellationPolicyText = $cancellationPolicyText;
+        $this->cancellationPolicyText['value'] = $cancellationPolicyText;
+    }
+
+    /**
+     * Unsets Cancellation Policy Text.
+     * The free-form text of the seller's cancellation policy.
+     */
+    public function unsetCancellationPolicyText(): void
+    {
+        $this->cancellationPolicyText = [];
     }
 
     /**
@@ -351,7 +453,10 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function getSkipBookingFlowStaffSelection(): ?bool
     {
-        return $this->skipBookingFlowStaffSelection;
+        if (count($this->skipBookingFlowStaffSelection) == 0) {
+            return null;
+        }
+        return $this->skipBookingFlowStaffSelection['value'];
     }
 
     /**
@@ -363,7 +468,17 @@ class BusinessAppointmentSettings implements \JsonSerializable
      */
     public function setSkipBookingFlowStaffSelection(?bool $skipBookingFlowStaffSelection): void
     {
-        $this->skipBookingFlowStaffSelection = $skipBookingFlowStaffSelection;
+        $this->skipBookingFlowStaffSelection['value'] = $skipBookingFlowStaffSelection;
+    }
+
+    /**
+     * Unsets Skip Booking Flow Staff Selection.
+     * Indicates whether customers has an assigned staff member (`true`) or can select s staff member of
+     * their choice (`false`).
+     */
+    public function unsetSkipBookingFlowStaffSelection(): void
+    {
+        $this->skipBookingFlowStaffSelection = [];
     }
 
     /**
@@ -378,32 +493,32 @@ class BusinessAppointmentSettings implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationTypes)) {
-            $json['location_types']                      = $this->locationTypes;
+        if (!empty($this->locationTypes)) {
+            $json['location_types']                      = $this->locationTypes['value'];
         }
         if (isset($this->alignmentTime)) {
             $json['alignment_time']                      = $this->alignmentTime;
         }
-        if (isset($this->minBookingLeadTimeSeconds)) {
-            $json['min_booking_lead_time_seconds']       = $this->minBookingLeadTimeSeconds;
+        if (!empty($this->minBookingLeadTimeSeconds)) {
+            $json['min_booking_lead_time_seconds']       = $this->minBookingLeadTimeSeconds['value'];
         }
-        if (isset($this->maxBookingLeadTimeSeconds)) {
-            $json['max_booking_lead_time_seconds']       = $this->maxBookingLeadTimeSeconds;
+        if (!empty($this->maxBookingLeadTimeSeconds)) {
+            $json['max_booking_lead_time_seconds']       = $this->maxBookingLeadTimeSeconds['value'];
         }
-        if (isset($this->anyTeamMemberBookingEnabled)) {
-            $json['any_team_member_booking_enabled']     = $this->anyTeamMemberBookingEnabled;
+        if (!empty($this->anyTeamMemberBookingEnabled)) {
+            $json['any_team_member_booking_enabled']     = $this->anyTeamMemberBookingEnabled['value'];
         }
-        if (isset($this->multipleServiceBookingEnabled)) {
-            $json['multiple_service_booking_enabled']    = $this->multipleServiceBookingEnabled;
+        if (!empty($this->multipleServiceBookingEnabled)) {
+            $json['multiple_service_booking_enabled']    = $this->multipleServiceBookingEnabled['value'];
         }
         if (isset($this->maxAppointmentsPerDayLimitType)) {
             $json['max_appointments_per_day_limit_type'] = $this->maxAppointmentsPerDayLimitType;
         }
-        if (isset($this->maxAppointmentsPerDayLimit)) {
-            $json['max_appointments_per_day_limit']      = $this->maxAppointmentsPerDayLimit;
+        if (!empty($this->maxAppointmentsPerDayLimit)) {
+            $json['max_appointments_per_day_limit']      = $this->maxAppointmentsPerDayLimit['value'];
         }
-        if (isset($this->cancellationWindowSeconds)) {
-            $json['cancellation_window_seconds']         = $this->cancellationWindowSeconds;
+        if (!empty($this->cancellationWindowSeconds)) {
+            $json['cancellation_window_seconds']         = $this->cancellationWindowSeconds['value'];
         }
         if (isset($this->cancellationFeeMoney)) {
             $json['cancellation_fee_money']              = $this->cancellationFeeMoney;
@@ -411,11 +526,11 @@ class BusinessAppointmentSettings implements \JsonSerializable
         if (isset($this->cancellationPolicy)) {
             $json['cancellation_policy']                 = $this->cancellationPolicy;
         }
-        if (isset($this->cancellationPolicyText)) {
-            $json['cancellation_policy_text']            = $this->cancellationPolicyText;
+        if (!empty($this->cancellationPolicyText)) {
+            $json['cancellation_policy_text']            = $this->cancellationPolicyText['value'];
         }
-        if (isset($this->skipBookingFlowStaffSelection)) {
-            $json['skip_booking_flow_staff_selection']   = $this->skipBookingFlowStaffSelection;
+        if (!empty($this->skipBookingFlowStaffSelection)) {
+            $json['skip_booking_flow_staff_selection']   = $this->skipBookingFlowStaffSelection['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

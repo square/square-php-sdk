@@ -12,19 +12,19 @@ use stdClass;
 class OrderReturnLineItem implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceLineItemUid;
+    private $sourceLineItemUid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var string
@@ -37,24 +37,24 @@ class OrderReturnLineItem implements \JsonSerializable
     private $quantityUnit;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $variationName;
+    private $variationName = [];
 
     /**
      * @var string|null
@@ -62,19 +62,19 @@ class OrderReturnLineItem implements \JsonSerializable
     private $itemType;
 
     /**
-     * @var OrderReturnLineItemModifier[]|null
+     * @var array
      */
-    private $returnModifiers;
+    private $returnModifiers = [];
 
     /**
-     * @var OrderLineItemAppliedTax[]|null
+     * @var array
      */
-    private $appliedTaxes;
+    private $appliedTaxes = [];
 
     /**
-     * @var OrderLineItemAppliedDiscount[]|null
+     * @var array
      */
-    private $appliedDiscounts;
+    private $appliedDiscounts = [];
 
     /**
      * @var Money|null
@@ -120,7 +120,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -131,7 +134,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID for this return line-item entry.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -140,7 +152,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getSourceLineItemUid(): ?string
     {
-        return $this->sourceLineItemUid;
+        if (count($this->sourceLineItemUid) == 0) {
+            return null;
+        }
+        return $this->sourceLineItemUid['value'];
     }
 
     /**
@@ -151,7 +166,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setSourceLineItemUid(?string $sourceLineItemUid): void
     {
-        $this->sourceLineItemUid = $sourceLineItemUid;
+        $this->sourceLineItemUid['value'] = $sourceLineItemUid;
+    }
+
+    /**
+     * Unsets Source Line Item Uid.
+     * The `uid` of the line item in the original sale order.
+     */
+    public function unsetSourceLineItemUid(): void
+    {
+        $this->sourceLineItemUid = [];
     }
 
     /**
@@ -160,7 +184,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -171,7 +198,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the line item.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -231,7 +267,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -242,7 +281,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * The note of the return line item.
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -251,7 +299,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -262,7 +313,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this return line item.
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -271,7 +331,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -282,7 +345,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this line item references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -291,7 +363,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getVariationName(): ?string
     {
-        return $this->variationName;
+        if (count($this->variationName) == 0) {
+            return null;
+        }
+        return $this->variationName['value'];
     }
 
     /**
@@ -302,7 +377,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setVariationName(?string $variationName): void
     {
-        $this->variationName = $variationName;
+        $this->variationName['value'] = $variationName;
+    }
+
+    /**
+     * Unsets Variation Name.
+     * The name of the variation applied to this return line item.
+     */
+    public function unsetVariationName(): void
+    {
+        $this->variationName = [];
     }
 
     /**
@@ -333,7 +417,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getReturnModifiers(): ?array
     {
-        return $this->returnModifiers;
+        if (count($this->returnModifiers) == 0) {
+            return null;
+        }
+        return $this->returnModifiers['value'];
     }
 
     /**
@@ -346,7 +433,16 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setReturnModifiers(?array $returnModifiers): void
     {
-        $this->returnModifiers = $returnModifiers;
+        $this->returnModifiers['value'] = $returnModifiers;
+    }
+
+    /**
+     * Unsets Return Modifiers.
+     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
+     */
+    public function unsetReturnModifiers(): void
+    {
+        $this->returnModifiers = [];
     }
 
     /**
@@ -360,7 +456,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getAppliedTaxes(): ?array
     {
-        return $this->appliedTaxes;
+        if (count($this->appliedTaxes) == 0) {
+            return null;
+        }
+        return $this->appliedTaxes['value'];
     }
 
     /**
@@ -376,7 +475,19 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setAppliedTaxes(?array $appliedTaxes): void
     {
-        $this->appliedTaxes = $appliedTaxes;
+        $this->appliedTaxes['value'] = $appliedTaxes;
+    }
+
+    /**
+     * Unsets Applied Taxes.
+     * The list of references to `OrderReturnTax` entities applied to the return line item. Each
+     * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
+     * `OrderReturnTax` applied to the return line item. On reads, the applied amount
+     * is populated.
+     */
+    public function unsetAppliedTaxes(): void
+    {
+        $this->appliedTaxes = [];
     }
 
     /**
@@ -390,7 +501,10 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function getAppliedDiscounts(): ?array
     {
-        return $this->appliedDiscounts;
+        if (count($this->appliedDiscounts) == 0) {
+            return null;
+        }
+        return $this->appliedDiscounts['value'];
     }
 
     /**
@@ -406,7 +520,19 @@ class OrderReturnLineItem implements \JsonSerializable
      */
     public function setAppliedDiscounts(?array $appliedDiscounts): void
     {
-        $this->appliedDiscounts = $appliedDiscounts;
+        $this->appliedDiscounts['value'] = $appliedDiscounts;
+    }
+
+    /**
+     * Unsets Applied Discounts.
+     * The list of references to `OrderReturnDiscount` entities applied to the return line item. Each
+     * `OrderLineItemAppliedDiscount` has a `discount_uid` that references the `uid` of a top-level
+     * `OrderReturnDiscount` applied to the return line item. On reads, the applied amount
+     * is populated.
+     */
+    public function unsetAppliedDiscounts(): void
+    {
+        $this->appliedDiscounts = [];
     }
 
     /**
@@ -613,42 +739,42 @@ class OrderReturnLineItem implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']                         = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']                         = $this->uid['value'];
         }
-        if (isset($this->sourceLineItemUid)) {
-            $json['source_line_item_uid']        = $this->sourceLineItemUid;
+        if (!empty($this->sourceLineItemUid)) {
+            $json['source_line_item_uid']        = $this->sourceLineItemUid['value'];
         }
-        if (isset($this->name)) {
-            $json['name']                        = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                        = $this->name['value'];
         }
         $json['quantity']                        = $this->quantity;
         if (isset($this->quantityUnit)) {
             $json['quantity_unit']               = $this->quantityUnit;
         }
-        if (isset($this->note)) {
-            $json['note']                        = $this->note;
+        if (!empty($this->note)) {
+            $json['note']                        = $this->note['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']           = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']           = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']             = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']             = $this->catalogVersion['value'];
         }
-        if (isset($this->variationName)) {
-            $json['variation_name']              = $this->variationName;
+        if (!empty($this->variationName)) {
+            $json['variation_name']              = $this->variationName['value'];
         }
         if (isset($this->itemType)) {
             $json['item_type']                   = $this->itemType;
         }
-        if (isset($this->returnModifiers)) {
-            $json['return_modifiers']            = $this->returnModifiers;
+        if (!empty($this->returnModifiers)) {
+            $json['return_modifiers']            = $this->returnModifiers['value'];
         }
-        if (isset($this->appliedTaxes)) {
-            $json['applied_taxes']               = $this->appliedTaxes;
+        if (!empty($this->appliedTaxes)) {
+            $json['applied_taxes']               = $this->appliedTaxes['value'];
         }
-        if (isset($this->appliedDiscounts)) {
-            $json['applied_discounts']           = $this->appliedDiscounts;
+        if (!empty($this->appliedDiscounts)) {
+            $json['applied_discounts']           = $this->appliedDiscounts['value'];
         }
         if (isset($this->basePriceMoney)) {
             $json['base_price_money']            = $this->basePriceMoney;

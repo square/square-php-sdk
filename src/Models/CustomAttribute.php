@@ -13,14 +13,14 @@ use stdClass;
 class CustomAttribute implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $key;
+    private $key = [];
 
     /**
-     * @var mixed
+     * @var array
      */
-    private $value;
+    private $value = [];
 
     /**
      * @var int|null
@@ -63,7 +63,10 @@ class CustomAttribute implements \JsonSerializable
      */
     public function getKey(): ?string
     {
-        return $this->key;
+        if (count($this->key) == 0) {
+            return null;
+        }
+        return $this->key['value'];
     }
 
     /**
@@ -84,7 +87,26 @@ class CustomAttribute implements \JsonSerializable
      */
     public function setKey(?string $key): void
     {
-        $this->key = $key;
+        $this->key['value'] = $key;
+    }
+
+    /**
+     * Unsets Key.
+     * The identifier
+     * of the custom attribute definition and its corresponding custom attributes. This value
+     * can be a simple key, which is the key that is provided when the custom attribute definition
+     * is created, or a qualified key, if the requesting
+     * application is not the definition owner. The qualified key consists of the application ID
+     * of the custom attribute definition owner
+     * followed by the simple key that was provided when the definition was created. It has the
+     * format application_id:simple key.
+     *
+     * The value for a simple key can contain up to 60 alphanumeric characters, periods (.),
+     * underscores (_), and hyphens (-).
+     */
+    public function unsetKey(): void
+    {
+        $this->key = [];
     }
 
     /**
@@ -99,7 +121,10 @@ class CustomAttribute implements \JsonSerializable
      */
     public function getValue()
     {
-        return $this->value;
+        if (count($this->value) == 0) {
+            return null;
+        }
+        return $this->value['value'];
     }
 
     /**
@@ -116,7 +141,20 @@ class CustomAttribute implements \JsonSerializable
      */
     public function setValue($value): void
     {
-        $this->value = $value;
+        $this->value['value'] = $value;
+    }
+
+    /**
+     * Unsets Value.
+     * The value assigned to the custom attribute. It is validated against the custom
+     * attribute definition's schema on write operations. For more information about custom
+     * attribute values,
+     * see [Custom Attributes Overview](https://developer.squareup.
+     * com/docs/devtools/customattributes/overview).
+     */
+    public function unsetValue(): void
+    {
+        $this->value = [];
     }
 
     /**
@@ -259,11 +297,11 @@ class CustomAttribute implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->key)) {
-            $json['key']        = $this->key;
+        if (!empty($this->key)) {
+            $json['key']        = $this->key['value'];
         }
-        if (isset($this->value)) {
-            $json['value']      = $this->value;
+        if (!empty($this->value)) {
+            $json['value']      = $this->value['value'];
         }
         if (isset($this->version)) {
             $json['version']    = $this->version;

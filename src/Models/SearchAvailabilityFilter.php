@@ -17,19 +17,19 @@ class SearchAvailabilityFilter implements \JsonSerializable
     private $startAtRange;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var SegmentFilter[]|null
+     * @var array
      */
-    private $segmentFilters;
+    private $segmentFilters = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $bookingId;
+    private $bookingId = [];
 
     /**
      * @param TimeRange $startAtRange
@@ -76,7 +76,10 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -89,7 +92,18 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The query expression to search for buyer-accessible availabilities with their location IDs matching
+     * the specified location ID.
+     * This query expression cannot be set if `booking_id` is set.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -105,7 +119,10 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function getSegmentFilters(): ?array
     {
-        return $this->segmentFilters;
+        if (count($this->segmentFilters) == 0) {
+            return null;
+        }
+        return $this->segmentFilters['value'];
     }
 
     /**
@@ -123,7 +140,21 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function setSegmentFilters(?array $segmentFilters): void
     {
-        $this->segmentFilters = $segmentFilters;
+        $this->segmentFilters['value'] = $segmentFilters;
+    }
+
+    /**
+     * Unsets Segment Filters.
+     * The query expression to search for buyer-accessible availabilities matching the specified list of
+     * segment filters.
+     * If the size of the `segment_filters` list is `n`, the search returns availabilities with `n`
+     * segments per availability.
+     *
+     * This query expression cannot be set if `booking_id` is set.
+     */
+    public function unsetSegmentFilters(): void
+    {
+        $this->segmentFilters = [];
     }
 
     /**
@@ -135,7 +166,10 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function getBookingId(): ?string
     {
-        return $this->bookingId;
+        if (count($this->bookingId) == 0) {
+            return null;
+        }
+        return $this->bookingId['value'];
     }
 
     /**
@@ -149,7 +183,19 @@ class SearchAvailabilityFilter implements \JsonSerializable
      */
     public function setBookingId(?string $bookingId): void
     {
-        $this->bookingId = $bookingId;
+        $this->bookingId['value'] = $bookingId;
+    }
+
+    /**
+     * Unsets Booking Id.
+     * The query expression to search for buyer-accessible availabilities for an existing booking by
+     * matching the specified `booking_id` value.
+     * This is commonly used to reschedule an appointment.
+     * If this expression is set, the `location_id` and `segment_filters` expressions cannot be set.
+     */
+    public function unsetBookingId(): void
+    {
+        $this->bookingId = [];
     }
 
     /**
@@ -165,14 +211,14 @@ class SearchAvailabilityFilter implements \JsonSerializable
     {
         $json = [];
         $json['start_at_range']      = $this->startAtRange;
-        if (isset($this->locationId)) {
-            $json['location_id']     = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']     = $this->locationId['value'];
         }
-        if (isset($this->segmentFilters)) {
-            $json['segment_filters'] = $this->segmentFilters;
+        if (!empty($this->segmentFilters)) {
+            $json['segment_filters'] = $this->segmentFilters['value'];
         }
-        if (isset($this->bookingId)) {
-            $json['booking_id']      = $this->bookingId;
+        if (!empty($this->bookingId)) {
+            $json['booking_id']      = $this->bookingId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

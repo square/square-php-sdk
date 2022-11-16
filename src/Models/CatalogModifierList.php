@@ -17,14 +17,14 @@ use stdClass;
 class CatalogModifierList implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $ordinal;
+    private $ordinal = [];
 
     /**
      * @var string|null
@@ -32,14 +32,14 @@ class CatalogModifierList implements \JsonSerializable
     private $selectionType;
 
     /**
-     * @var CatalogObject[]|null
+     * @var array
      */
-    private $modifiers;
+    private $modifiers = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $imageIds;
+    private $imageIds = [];
 
     /**
      * Returns Name.
@@ -48,7 +48,10 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -60,7 +63,17 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
+     * applicable query filters, and its value length is of Unicode code points.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -69,7 +82,10 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function getOrdinal(): ?int
     {
-        return $this->ordinal;
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
     }
 
     /**
@@ -80,7 +96,16 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function setOrdinal(?int $ordinal): void
     {
-        $this->ordinal = $ordinal;
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
     }
 
     /**
@@ -114,7 +139,10 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function getModifiers(): ?array
     {
-        return $this->modifiers;
+        if (count($this->modifiers) == 0) {
+            return null;
+        }
+        return $this->modifiers['value'];
     }
 
     /**
@@ -130,7 +158,19 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function setModifiers(?array $modifiers): void
     {
-        $this->modifiers = $modifiers;
+        $this->modifiers['value'] = $modifiers;
+    }
+
+    /**
+     * Unsets Modifiers.
+     * The options included in the `CatalogModifierList`.
+     * You must include at least one `CatalogModifier`.
+     * Each CatalogObject must have type `MODIFIER` and contain
+     * `CatalogModifier` data.
+     */
+    public function unsetModifiers(): void
+    {
+        $this->modifiers = [];
     }
 
     /**
@@ -143,7 +183,10 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function getImageIds(): ?array
     {
-        return $this->imageIds;
+        if (count($this->imageIds) == 0) {
+            return null;
+        }
+        return $this->imageIds['value'];
     }
 
     /**
@@ -158,7 +201,18 @@ class CatalogModifierList implements \JsonSerializable
      */
     public function setImageIds(?array $imageIds): void
     {
-        $this->imageIds = $imageIds;
+        $this->imageIds['value'] = $imageIds;
+    }
+
+    /**
+     * Unsets Image Ids.
+     * The IDs of images associated with this `CatalogModifierList` instance.
+     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * applications.
+     */
+    public function unsetImageIds(): void
+    {
+        $this->imageIds = [];
     }
 
     /**
@@ -173,20 +227,20 @@ class CatalogModifierList implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']           = $this->name;
+        if (!empty($this->name)) {
+            $json['name']           = $this->name['value'];
         }
-        if (isset($this->ordinal)) {
-            $json['ordinal']        = $this->ordinal;
+        if (!empty($this->ordinal)) {
+            $json['ordinal']        = $this->ordinal['value'];
         }
         if (isset($this->selectionType)) {
             $json['selection_type'] = $this->selectionType;
         }
-        if (isset($this->modifiers)) {
-            $json['modifiers']      = $this->modifiers;
+        if (!empty($this->modifiers)) {
+            $json['modifiers']      = $this->modifiers['value'];
         }
-        if (isset($this->imageIds)) {
-            $json['image_ids']      = $this->imageIds;
+        if (!empty($this->imageIds)) {
+            $json['image_ids']      = $this->imageIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

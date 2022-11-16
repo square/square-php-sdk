@@ -12,19 +12,19 @@ use stdClass;
 class DeviceDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $deviceId;
+    private $deviceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $deviceInstallationId;
+    private $deviceInstallationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $deviceName;
+    private $deviceName = [];
 
     /**
      * Returns Device Id.
@@ -32,7 +32,10 @@ class DeviceDetails implements \JsonSerializable
      */
     public function getDeviceId(): ?string
     {
-        return $this->deviceId;
+        if (count($this->deviceId) == 0) {
+            return null;
+        }
+        return $this->deviceId['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class DeviceDetails implements \JsonSerializable
      */
     public function setDeviceId(?string $deviceId): void
     {
-        $this->deviceId = $deviceId;
+        $this->deviceId['value'] = $deviceId;
+    }
+
+    /**
+     * Unsets Device Id.
+     * The Square-issued ID of the device.
+     */
+    public function unsetDeviceId(): void
+    {
+        $this->deviceId = [];
     }
 
     /**
@@ -52,7 +64,10 @@ class DeviceDetails implements \JsonSerializable
      */
     public function getDeviceInstallationId(): ?string
     {
-        return $this->deviceInstallationId;
+        if (count($this->deviceInstallationId) == 0) {
+            return null;
+        }
+        return $this->deviceInstallationId['value'];
     }
 
     /**
@@ -63,7 +78,16 @@ class DeviceDetails implements \JsonSerializable
      */
     public function setDeviceInstallationId(?string $deviceInstallationId): void
     {
-        $this->deviceInstallationId = $deviceInstallationId;
+        $this->deviceInstallationId['value'] = $deviceInstallationId;
+    }
+
+    /**
+     * Unsets Device Installation Id.
+     * The Square-issued installation ID for the device.
+     */
+    public function unsetDeviceInstallationId(): void
+    {
+        $this->deviceInstallationId = [];
     }
 
     /**
@@ -72,7 +96,10 @@ class DeviceDetails implements \JsonSerializable
      */
     public function getDeviceName(): ?string
     {
-        return $this->deviceName;
+        if (count($this->deviceName) == 0) {
+            return null;
+        }
+        return $this->deviceName['value'];
     }
 
     /**
@@ -83,7 +110,16 @@ class DeviceDetails implements \JsonSerializable
      */
     public function setDeviceName(?string $deviceName): void
     {
-        $this->deviceName = $deviceName;
+        $this->deviceName['value'] = $deviceName;
+    }
+
+    /**
+     * Unsets Device Name.
+     * The name of the device set by the seller.
+     */
+    public function unsetDeviceName(): void
+    {
+        $this->deviceName = [];
     }
 
     /**
@@ -98,14 +134,14 @@ class DeviceDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->deviceId)) {
-            $json['device_id']              = $this->deviceId;
+        if (!empty($this->deviceId)) {
+            $json['device_id']              = $this->deviceId['value'];
         }
-        if (isset($this->deviceInstallationId)) {
-            $json['device_installation_id'] = $this->deviceInstallationId;
+        if (!empty($this->deviceInstallationId)) {
+            $json['device_installation_id'] = $this->deviceInstallationId['value'];
         }
-        if (isset($this->deviceName)) {
-            $json['device_name']            = $this->deviceName;
+        if (!empty($this->deviceName)) {
+            $json['device_name']            = $this->deviceName['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

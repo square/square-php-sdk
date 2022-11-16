@@ -23,9 +23,9 @@ class PayoutEntry implements \JsonSerializable
     private $payoutId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $effectiveAt;
+    private $effectiveAt = [];
 
     /**
      * @var string|null
@@ -215,7 +215,10 @@ class PayoutEntry implements \JsonSerializable
      */
     public function getEffectiveAt(): ?string
     {
-        return $this->effectiveAt;
+        if (count($this->effectiveAt) == 0) {
+            return null;
+        }
+        return $this->effectiveAt['value'];
     }
 
     /**
@@ -226,7 +229,16 @@ class PayoutEntry implements \JsonSerializable
      */
     public function setEffectiveAt(?string $effectiveAt): void
     {
-        $this->effectiveAt = $effectiveAt;
+        $this->effectiveAt['value'] = $effectiveAt;
+    }
+
+    /**
+     * Unsets Effective At.
+     * The timestamp of when the payout entry affected the balance, in RFC 3339 format.
+     */
+    public function unsetEffectiveAt(): void
+    {
+        $this->effectiveAt = [];
     }
 
     /**
@@ -421,7 +433,6 @@ class PayoutEntry implements \JsonSerializable
 
     /**
      * Returns Type Charge Details.
-     * DESCRIPTION OF PaymentBalanceActivityChargeDetail
      */
     public function getTypeChargeDetails(): ?PaymentBalanceActivityChargeDetail
     {
@@ -430,7 +441,6 @@ class PayoutEntry implements \JsonSerializable
 
     /**
      * Sets Type Charge Details.
-     * DESCRIPTION OF PaymentBalanceActivityChargeDetail
      *
      * @maps type_charge_details
      */
@@ -769,8 +779,8 @@ class PayoutEntry implements \JsonSerializable
         $json = [];
         $json['id']                                               = $this->id;
         $json['payout_id']                                        = $this->payoutId;
-        if (isset($this->effectiveAt)) {
-            $json['effective_at']                                 = $this->effectiveAt;
+        if (!empty($this->effectiveAt)) {
+            $json['effective_at']                                 = $this->effectiveAt['value'];
         }
         if (isset($this->type)) {
             $json['type']                                         = $this->type;

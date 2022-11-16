@@ -17,29 +17,29 @@ class FulfillmentShipmentDetails implements \JsonSerializable
     private $recipient;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $carrier;
+    private $carrier = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $shippingNote;
+    private $shippingNote = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $shippingType;
+    private $shippingType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $trackingNumber;
+    private $trackingNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $trackingUrl;
+    private $trackingUrl = [];
 
     /**
      * @var string|null
@@ -57,9 +57,9 @@ class FulfillmentShipmentDetails implements \JsonSerializable
     private $packagedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $expectedShippedAt;
+    private $expectedShippedAt = [];
 
     /**
      * @var string|null
@@ -67,14 +67,14 @@ class FulfillmentShipmentDetails implements \JsonSerializable
     private $shippedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $canceledAt;
+    private $canceledAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cancelReason;
+    private $cancelReason = [];
 
     /**
      * @var string|null
@@ -82,9 +82,9 @@ class FulfillmentShipmentDetails implements \JsonSerializable
     private $failedAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $failureReason;
+    private $failureReason = [];
 
     /**
      * Returns Recipient.
@@ -112,7 +112,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getCarrier(): ?string
     {
-        return $this->carrier;
+        if (count($this->carrier) == 0) {
+            return null;
+        }
+        return $this->carrier['value'];
     }
 
     /**
@@ -123,7 +126,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setCarrier(?string $carrier): void
     {
-        $this->carrier = $carrier;
+        $this->carrier['value'] = $carrier;
+    }
+
+    /**
+     * Unsets Carrier.
+     * The shipping carrier being used to ship this fulfillment (such as UPS, FedEx, or USPS).
+     */
+    public function unsetCarrier(): void
+    {
+        $this->carrier = [];
     }
 
     /**
@@ -132,7 +144,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getShippingNote(): ?string
     {
-        return $this->shippingNote;
+        if (count($this->shippingNote) == 0) {
+            return null;
+        }
+        return $this->shippingNote['value'];
     }
 
     /**
@@ -143,7 +158,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setShippingNote(?string $shippingNote): void
     {
-        $this->shippingNote = $shippingNote;
+        $this->shippingNote['value'] = $shippingNote;
+    }
+
+    /**
+     * Unsets Shipping Note.
+     * A note with additional information for the shipping carrier.
+     */
+    public function unsetShippingNote(): void
+    {
+        $this->shippingNote = [];
     }
 
     /**
@@ -153,7 +177,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getShippingType(): ?string
     {
-        return $this->shippingType;
+        if (count($this->shippingType) == 0) {
+            return null;
+        }
+        return $this->shippingType['value'];
     }
 
     /**
@@ -165,7 +192,17 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setShippingType(?string $shippingType): void
     {
-        $this->shippingType = $shippingType;
+        $this->shippingType['value'] = $shippingType;
+    }
+
+    /**
+     * Unsets Shipping Type.
+     * A description of the type of shipping product purchased from the carrier
+     * (such as First Class, Priority, or Express).
+     */
+    public function unsetShippingType(): void
+    {
+        $this->shippingType = [];
     }
 
     /**
@@ -174,7 +211,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getTrackingNumber(): ?string
     {
-        return $this->trackingNumber;
+        if (count($this->trackingNumber) == 0) {
+            return null;
+        }
+        return $this->trackingNumber['value'];
     }
 
     /**
@@ -185,7 +225,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setTrackingNumber(?string $trackingNumber): void
     {
-        $this->trackingNumber = $trackingNumber;
+        $this->trackingNumber['value'] = $trackingNumber;
+    }
+
+    /**
+     * Unsets Tracking Number.
+     * The reference number provided by the carrier to track the shipment's progress.
+     */
+    public function unsetTrackingNumber(): void
+    {
+        $this->trackingNumber = [];
     }
 
     /**
@@ -194,7 +243,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getTrackingUrl(): ?string
     {
-        return $this->trackingUrl;
+        if (count($this->trackingUrl) == 0) {
+            return null;
+        }
+        return $this->trackingUrl['value'];
     }
 
     /**
@@ -205,7 +257,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setTrackingUrl(?string $trackingUrl): void
     {
-        $this->trackingUrl = $trackingUrl;
+        $this->trackingUrl['value'] = $trackingUrl;
+    }
+
+    /**
+     * Unsets Tracking Url.
+     * A link to the tracking webpage on the carrier's website.
+     */
+    public function unsetTrackingUrl(): void
+    {
+        $this->trackingUrl = [];
     }
 
     /**
@@ -294,7 +355,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getExpectedShippedAt(): ?string
     {
-        return $this->expectedShippedAt;
+        if (count($this->expectedShippedAt) == 0) {
+            return null;
+        }
+        return $this->expectedShippedAt['value'];
     }
 
     /**
@@ -307,7 +371,18 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setExpectedShippedAt(?string $expectedShippedAt): void
     {
-        $this->expectedShippedAt = $expectedShippedAt;
+        $this->expectedShippedAt['value'] = $expectedShippedAt;
+    }
+
+    /**
+     * Unsets Expected Shipped At.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating when the shipment is expected to be delivered to the shipping carrier.
+     * The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
+     */
+    public function unsetExpectedShippedAt(): void
+    {
+        $this->expectedShippedAt = [];
     }
 
     /**
@@ -344,7 +419,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getCanceledAt(): ?string
     {
-        return $this->canceledAt;
+        if (count($this->canceledAt) == 0) {
+            return null;
+        }
+        return $this->canceledAt['value'];
     }
 
     /**
@@ -357,7 +435,18 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setCanceledAt(?string $canceledAt): void
     {
-        $this->canceledAt = $canceledAt;
+        $this->canceledAt['value'] = $canceledAt;
+    }
+
+    /**
+     * Unsets Canceled At.
+     * The [timestamp](https://developer.squareup.com/docs/build-basics/working-with-dates)
+     * indicating the shipment was canceled.
+     * The timestamp must be in RFC 3339 format (for example, "2016-09-04T23:59:33.123Z").
+     */
+    public function unsetCanceledAt(): void
+    {
+        $this->canceledAt = [];
     }
 
     /**
@@ -366,7 +455,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getCancelReason(): ?string
     {
-        return $this->cancelReason;
+        if (count($this->cancelReason) == 0) {
+            return null;
+        }
+        return $this->cancelReason['value'];
     }
 
     /**
@@ -377,7 +469,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setCancelReason(?string $cancelReason): void
     {
-        $this->cancelReason = $cancelReason;
+        $this->cancelReason['value'] = $cancelReason;
+    }
+
+    /**
+     * Unsets Cancel Reason.
+     * A description of why the shipment was canceled.
+     */
+    public function unsetCancelReason(): void
+    {
+        $this->cancelReason = [];
     }
 
     /**
@@ -410,7 +511,10 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function getFailureReason(): ?string
     {
-        return $this->failureReason;
+        if (count($this->failureReason) == 0) {
+            return null;
+        }
+        return $this->failureReason['value'];
     }
 
     /**
@@ -421,7 +525,16 @@ class FulfillmentShipmentDetails implements \JsonSerializable
      */
     public function setFailureReason(?string $failureReason): void
     {
-        $this->failureReason = $failureReason;
+        $this->failureReason['value'] = $failureReason;
+    }
+
+    /**
+     * Unsets Failure Reason.
+     * A description of why the shipment failed to be completed.
+     */
+    public function unsetFailureReason(): void
+    {
+        $this->failureReason = [];
     }
 
     /**
@@ -439,20 +552,20 @@ class FulfillmentShipmentDetails implements \JsonSerializable
         if (isset($this->recipient)) {
             $json['recipient']           = $this->recipient;
         }
-        if (isset($this->carrier)) {
-            $json['carrier']             = $this->carrier;
+        if (!empty($this->carrier)) {
+            $json['carrier']             = $this->carrier['value'];
         }
-        if (isset($this->shippingNote)) {
-            $json['shipping_note']       = $this->shippingNote;
+        if (!empty($this->shippingNote)) {
+            $json['shipping_note']       = $this->shippingNote['value'];
         }
-        if (isset($this->shippingType)) {
-            $json['shipping_type']       = $this->shippingType;
+        if (!empty($this->shippingType)) {
+            $json['shipping_type']       = $this->shippingType['value'];
         }
-        if (isset($this->trackingNumber)) {
-            $json['tracking_number']     = $this->trackingNumber;
+        if (!empty($this->trackingNumber)) {
+            $json['tracking_number']     = $this->trackingNumber['value'];
         }
-        if (isset($this->trackingUrl)) {
-            $json['tracking_url']        = $this->trackingUrl;
+        if (!empty($this->trackingUrl)) {
+            $json['tracking_url']        = $this->trackingUrl['value'];
         }
         if (isset($this->placedAt)) {
             $json['placed_at']           = $this->placedAt;
@@ -463,23 +576,23 @@ class FulfillmentShipmentDetails implements \JsonSerializable
         if (isset($this->packagedAt)) {
             $json['packaged_at']         = $this->packagedAt;
         }
-        if (isset($this->expectedShippedAt)) {
-            $json['expected_shipped_at'] = $this->expectedShippedAt;
+        if (!empty($this->expectedShippedAt)) {
+            $json['expected_shipped_at'] = $this->expectedShippedAt['value'];
         }
         if (isset($this->shippedAt)) {
             $json['shipped_at']          = $this->shippedAt;
         }
-        if (isset($this->canceledAt)) {
-            $json['canceled_at']         = $this->canceledAt;
+        if (!empty($this->canceledAt)) {
+            $json['canceled_at']         = $this->canceledAt['value'];
         }
-        if (isset($this->cancelReason)) {
-            $json['cancel_reason']       = $this->cancelReason;
+        if (!empty($this->cancelReason)) {
+            $json['cancel_reason']       = $this->cancelReason['value'];
         }
         if (isset($this->failedAt)) {
             $json['failed_at']           = $this->failedAt;
         }
-        if (isset($this->failureReason)) {
-            $json['failure_reason']      = $this->failureReason;
+        if (!empty($this->failureReason)) {
+            $json['failure_reason']      = $this->failureReason['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

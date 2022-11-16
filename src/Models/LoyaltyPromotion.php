@@ -70,6 +70,16 @@ class LoyaltyPromotion implements \JsonSerializable
     private $minimumSpendAmountMoney;
 
     /**
+     * @var array
+     */
+    private $qualifyingItemVariationIds = [];
+
+    /**
+     * @var array
+     */
+    private $qualifyingCategoryIds = [];
+
+    /**
      * @param string $name
      * @param LoyaltyPromotionIncentive $incentive
      * @param LoyaltyPromotionAvailableTimeData $availableTime
@@ -340,6 +350,123 @@ class LoyaltyPromotion implements \JsonSerializable
     }
 
     /**
+     * Returns Qualifying Item Variation Ids.
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one of these items to qualify for the promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_item_variation_ids` or `qualifying_category_ids` for a given promotion,
+     * but not both.
+     *
+     * @return string[]|null
+     */
+    public function getQualifyingItemVariationIds(): ?array
+    {
+        if (count($this->qualifyingItemVariationIds) == 0) {
+            return null;
+        }
+        return $this->qualifyingItemVariationIds['value'];
+    }
+
+    /**
+     * Sets Qualifying Item Variation Ids.
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one of these items to qualify for the promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_item_variation_ids` or `qualifying_category_ids` for a given promotion,
+     * but not both.
+     *
+     * @maps qualifying_item_variation_ids
+     *
+     * @param string[]|null $qualifyingItemVariationIds
+     */
+    public function setQualifyingItemVariationIds(?array $qualifyingItemVariationIds): void
+    {
+        $this->qualifyingItemVariationIds['value'] = $qualifyingItemVariationIds;
+    }
+
+    /**
+     * Unsets Qualifying Item Variation Ids.
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one of these items to qualify for the promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_item_variation_ids` or `qualifying_category_ids` for a given promotion,
+     * but not both.
+     */
+    public function unsetQualifyingItemVariationIds(): void
+    {
+        $this->qualifyingItemVariationIds = [];
+    }
+
+    /**
+     * Returns Qualifying Category Ids.
+     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one item from one of these categories to qualify for the
+     * promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_category_ids` or `qualifying_item_variation_ids` for a promotion, but
+     * not both.
+     *
+     * @return string[]|null
+     */
+    public function getQualifyingCategoryIds(): ?array
+    {
+        if (count($this->qualifyingCategoryIds) == 0) {
+            return null;
+        }
+        return $this->qualifyingCategoryIds['value'];
+    }
+
+    /**
+     * Sets Qualifying Category Ids.
+     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one item from one of these categories to qualify for the
+     * promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_category_ids` or `qualifying_item_variation_ids` for a promotion, but
+     * not both.
+     *
+     * @maps qualifying_category_ids
+     *
+     * @param string[]|null $qualifyingCategoryIds
+     */
+    public function setQualifyingCategoryIds(?array $qualifyingCategoryIds): void
+    {
+        $this->qualifyingCategoryIds['value'] = $qualifyingCategoryIds;
+    }
+
+    /**
+     * Unsets Qualifying Category Ids.
+     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * the purchase must include at least one item from one of these categories to qualify for the
+     * promotion.
+     *
+     * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
+     * With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.
+     *
+     * You can specify `qualifying_category_ids` or `qualifying_item_variation_ids` for a promotion, but
+     * not both.
+     */
+    public function unsetQualifyingCategoryIds(): void
+    {
+        $this->qualifyingCategoryIds = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -352,31 +479,37 @@ class LoyaltyPromotion implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                         = $this->id;
+            $json['id']                            = $this->id;
         }
-        $json['name']                           = $this->name;
-        $json['incentive']                      = $this->incentive;
-        $json['available_time']                 = $this->availableTime;
+        $json['name']                              = $this->name;
+        $json['incentive']                         = $this->incentive;
+        $json['available_time']                    = $this->availableTime;
         if (isset($this->triggerLimit)) {
-            $json['trigger_limit']              = $this->triggerLimit;
+            $json['trigger_limit']                 = $this->triggerLimit;
         }
         if (isset($this->status)) {
-            $json['status']                     = $this->status;
+            $json['status']                        = $this->status;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']                 = $this->createdAt;
+            $json['created_at']                    = $this->createdAt;
         }
         if (isset($this->canceledAt)) {
-            $json['canceled_at']                = $this->canceledAt;
+            $json['canceled_at']                   = $this->canceledAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']                 = $this->updatedAt;
+            $json['updated_at']                    = $this->updatedAt;
         }
         if (isset($this->loyaltyProgramId)) {
-            $json['loyalty_program_id']         = $this->loyaltyProgramId;
+            $json['loyalty_program_id']            = $this->loyaltyProgramId;
         }
         if (isset($this->minimumSpendAmountMoney)) {
-            $json['minimum_spend_amount_money'] = $this->minimumSpendAmountMoney;
+            $json['minimum_spend_amount_money']    = $this->minimumSpendAmountMoney;
+        }
+        if (!empty($this->qualifyingItemVariationIds)) {
+            $json['qualifying_item_variation_ids'] = $this->qualifyingItemVariationIds['value'];
+        }
+        if (!empty($this->qualifyingCategoryIds)) {
+            $json['qualifying_category_ids']       = $this->qualifyingCategoryIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -12,9 +12,9 @@ use stdClass;
 class BuyNowPayLaterDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $brand;
+    private $brand = [];
 
     /**
      * @var AfterpayDetails|null
@@ -33,7 +33,10 @@ class BuyNowPayLaterDetails implements \JsonSerializable
      */
     public function getBrand(): ?string
     {
-        return $this->brand;
+        if (count($this->brand) == 0) {
+            return null;
+        }
+        return $this->brand['value'];
     }
 
     /**
@@ -45,7 +48,17 @@ class BuyNowPayLaterDetails implements \JsonSerializable
      */
     public function setBrand(?string $brand): void
     {
-        $this->brand = $brand;
+        $this->brand['value'] = $brand;
+    }
+
+    /**
+     * Unsets Brand.
+     * The brand used for the Buy Now Pay Later payment.
+     * The brand can be `AFTERPAY`, `CLEARPAY` or `UNKNOWN`.
+     */
+    public function unsetBrand(): void
+    {
+        $this->brand = [];
     }
 
     /**
@@ -100,8 +113,8 @@ class BuyNowPayLaterDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->brand)) {
-            $json['brand']            = $this->brand;
+        if (!empty($this->brand)) {
+            $json['brand']            = $this->brand['value'];
         }
         if (isset($this->afterpayDetails)) {
             $json['afterpay_details'] = $this->afterpayDetails;

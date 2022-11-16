@@ -17,9 +17,9 @@ class CatalogModifierOverride implements \JsonSerializable
     private $modifierId;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $onByDefault;
+    private $onByDefault = [];
 
     /**
      * @param string $modifierId
@@ -56,7 +56,10 @@ class CatalogModifierOverride implements \JsonSerializable
      */
     public function getOnByDefault(): ?bool
     {
-        return $this->onByDefault;
+        if (count($this->onByDefault) == 0) {
+            return null;
+        }
+        return $this->onByDefault['value'];
     }
 
     /**
@@ -67,7 +70,16 @@ class CatalogModifierOverride implements \JsonSerializable
      */
     public function setOnByDefault(?bool $onByDefault): void
     {
-        $this->onByDefault = $onByDefault;
+        $this->onByDefault['value'] = $onByDefault;
+    }
+
+    /**
+     * Unsets On by Default.
+     * If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
+     */
+    public function unsetOnByDefault(): void
+    {
+        $this->onByDefault = [];
     }
 
     /**
@@ -83,8 +95,8 @@ class CatalogModifierOverride implements \JsonSerializable
     {
         $json = [];
         $json['modifier_id']       = $this->modifierId;
-        if (isset($this->onByDefault)) {
-            $json['on_by_default'] = $this->onByDefault;
+        if (!empty($this->onByDefault)) {
+            $json['on_by_default'] = $this->onByDefault['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

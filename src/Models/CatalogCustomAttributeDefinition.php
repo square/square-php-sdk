@@ -27,9 +27,9 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     private $name;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * @var SourceApplication|null
@@ -72,9 +72,9 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
     private $customAttributeUsageCount;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $key;
+    private $key = [];
 
     /**
      * @param string $type
@@ -141,7 +141,10 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -153,7 +156,17 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * Seller-oriented description of the meaning of this Custom Attribute,
+     * any constraints that the seller should observe, etc. May be displayed as a tooltip in Square UIs.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -344,7 +357,10 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      */
     public function getKey(): ?string
     {
-        return $this->key;
+        if (count($this->key) == 0) {
+            return null;
+        }
+        return $this->key['value'];
     }
 
     /**
@@ -358,7 +374,19 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
      */
     public function setKey(?string $key): void
     {
-        $this->key = $key;
+        $this->key['value'] = $key;
+    }
+
+    /**
+     * Unsets Key.
+     * The name of the desired custom attribute key that can be used to access
+     * the custom attribute value on catalog objects. Cannot be modified after the
+     * custom attribute definition has been created.
+     * Must be between 1 and 60 characters, and may only contain the characters `[a-zA-Z0-9_-]`.
+     */
+    public function unsetKey(): void
+    {
+        $this->key = [];
     }
 
     /**
@@ -375,8 +403,8 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
         $json = [];
         $json['type']                             = $this->type;
         $json['name']                             = $this->name;
-        if (isset($this->description)) {
-            $json['description']                  = $this->description;
+        if (!empty($this->description)) {
+            $json['description']                  = $this->description['value'];
         }
         if (isset($this->sourceApplication)) {
             $json['source_application']           = $this->sourceApplication;
@@ -400,8 +428,8 @@ class CatalogCustomAttributeDefinition implements \JsonSerializable
         if (isset($this->customAttributeUsageCount)) {
             $json['custom_attribute_usage_count'] = $this->customAttributeUsageCount;
         }
-        if (isset($this->key)) {
-            $json['key']                          = $this->key;
+        if (!empty($this->key)) {
+            $json['key']                          = $this->key['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

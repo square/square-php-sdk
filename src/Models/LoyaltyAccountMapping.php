@@ -26,9 +26,9 @@ class LoyaltyAccountMapping implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
      * Returns Id.
@@ -76,7 +76,10 @@ class LoyaltyAccountMapping implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -87,7 +90,16 @@ class LoyaltyAccountMapping implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The phone number of the buyer, in E.164 format. For example, "+14155551111".
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -108,8 +120,8 @@ class LoyaltyAccountMapping implements \JsonSerializable
         if (isset($this->createdAt)) {
             $json['created_at']   = $this->createdAt;
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number'] = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number'] = $this->phoneNumber['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

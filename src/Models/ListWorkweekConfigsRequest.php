@@ -12,14 +12,14 @@ use stdClass;
 class ListWorkweekConfigsRequest implements \JsonSerializable
 {
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * Returns Limit.
@@ -27,7 +27,10 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -38,7 +41,16 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of `WorkweekConfigs` results to return per page.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -47,7 +59,10 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -58,7 +73,16 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pointer to the next page of `WorkweekConfig` results to fetch.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -73,11 +97,11 @@ class ListWorkweekConfigsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->limit)) {
-            $json['limit']  = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']  = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor'] = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor'] = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

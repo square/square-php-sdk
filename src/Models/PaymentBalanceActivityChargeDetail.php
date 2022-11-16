@@ -6,15 +6,12 @@ namespace Square\Models;
 
 use stdClass;
 
-/**
- * DESCRIPTION OF PaymentBalanceActivityChargeDetail
- */
 class PaymentBalanceActivityChargeDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
      * Returns Payment Id.
@@ -22,7 +19,10 @@ class PaymentBalanceActivityChargeDetail implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -33,7 +33,16 @@ class PaymentBalanceActivityChargeDetail implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this activity.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -48,8 +57,8 @@ class PaymentBalanceActivityChargeDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

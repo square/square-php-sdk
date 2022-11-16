@@ -14,14 +14,14 @@ use stdClass;
 class OrderPricingOptions implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $autoApplyDiscounts;
+    private $autoApplyDiscounts = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $autoApplyTaxes;
+    private $autoApplyTaxes = [];
 
     /**
      * Returns Auto Apply Discounts.
@@ -30,7 +30,10 @@ class OrderPricingOptions implements \JsonSerializable
      */
     public function getAutoApplyDiscounts(): ?bool
     {
-        return $this->autoApplyDiscounts;
+        if (count($this->autoApplyDiscounts) == 0) {
+            return null;
+        }
+        return $this->autoApplyDiscounts['value'];
     }
 
     /**
@@ -42,7 +45,17 @@ class OrderPricingOptions implements \JsonSerializable
      */
     public function setAutoApplyDiscounts(?bool $autoApplyDiscounts): void
     {
-        $this->autoApplyDiscounts = $autoApplyDiscounts;
+        $this->autoApplyDiscounts['value'] = $autoApplyDiscounts;
+    }
+
+    /**
+     * Unsets Auto Apply Discounts.
+     * The option to determine whether pricing rule-based
+     * discounts are automatically applied to an order.
+     */
+    public function unsetAutoApplyDiscounts(): void
+    {
+        $this->autoApplyDiscounts = [];
     }
 
     /**
@@ -52,7 +65,10 @@ class OrderPricingOptions implements \JsonSerializable
      */
     public function getAutoApplyTaxes(): ?bool
     {
-        return $this->autoApplyTaxes;
+        if (count($this->autoApplyTaxes) == 0) {
+            return null;
+        }
+        return $this->autoApplyTaxes['value'];
     }
 
     /**
@@ -64,7 +80,17 @@ class OrderPricingOptions implements \JsonSerializable
      */
     public function setAutoApplyTaxes(?bool $autoApplyTaxes): void
     {
-        $this->autoApplyTaxes = $autoApplyTaxes;
+        $this->autoApplyTaxes['value'] = $autoApplyTaxes;
+    }
+
+    /**
+     * Unsets Auto Apply Taxes.
+     * The option to determine whether rule-based taxes are automatically
+     * applied to an order when the criteria of the corresponding rules are met.
+     */
+    public function unsetAutoApplyTaxes(): void
+    {
+        $this->autoApplyTaxes = [];
     }
 
     /**
@@ -79,11 +105,11 @@ class OrderPricingOptions implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->autoApplyDiscounts)) {
-            $json['auto_apply_discounts'] = $this->autoApplyDiscounts;
+        if (!empty($this->autoApplyDiscounts)) {
+            $json['auto_apply_discounts'] = $this->autoApplyDiscounts['value'];
         }
-        if (isset($this->autoApplyTaxes)) {
-            $json['auto_apply_taxes']     = $this->autoApplyTaxes;
+        if (!empty($this->autoApplyTaxes)) {
+            $json['auto_apply_taxes']     = $this->autoApplyTaxes['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -17,14 +17,14 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $excludedCategoryIds;
+    private $excludedCategoryIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $excludedItemVariationIds;
+    private $excludedItemVariationIds = [];
 
     /**
      * @var string
@@ -85,7 +85,10 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      */
     public function getExcludedCategoryIds(): ?array
     {
-        return $this->excludedCategoryIds;
+        if (count($this->excludedCategoryIds) == 0) {
+            return null;
+        }
+        return $this->excludedCategoryIds['value'];
     }
 
     /**
@@ -101,7 +104,19 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      */
     public function setExcludedCategoryIds(?array $excludedCategoryIds): void
     {
-        $this->excludedCategoryIds = $excludedCategoryIds;
+        $this->excludedCategoryIds['value'] = $excludedCategoryIds;
+    }
+
+    /**
+     * Unsets Excluded Category Ids.
+     * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded categories.
+     */
+    public function unsetExcludedCategoryIds(): void
+    {
+        $this->excludedCategoryIds = [];
     }
 
     /**
@@ -115,7 +130,10 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      */
     public function getExcludedItemVariationIds(): ?array
     {
-        return $this->excludedItemVariationIds;
+        if (count($this->excludedItemVariationIds) == 0) {
+            return null;
+        }
+        return $this->excludedItemVariationIds['value'];
     }
 
     /**
@@ -131,7 +149,19 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      */
     public function setExcludedItemVariationIds(?array $excludedItemVariationIds): void
     {
-        $this->excludedItemVariationIds = $excludedItemVariationIds;
+        $this->excludedItemVariationIds['value'] = $excludedItemVariationIds;
+    }
+
+    /**
+     * Unsets Excluded Item Variation Ids.
+     * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
+     *
+     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * endpoint to retrieve information about the excluded item variations.
+     */
+    public function unsetExcludedItemVariationIds(): void
+    {
+        $this->excludedItemVariationIds = [];
     }
 
     /**
@@ -174,11 +204,11 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
     {
         $json = [];
         $json['amount_money']                    = $this->amountMoney;
-        if (isset($this->excludedCategoryIds)) {
-            $json['excluded_category_ids']       = $this->excludedCategoryIds;
+        if (!empty($this->excludedCategoryIds)) {
+            $json['excluded_category_ids']       = $this->excludedCategoryIds['value'];
         }
-        if (isset($this->excludedItemVariationIds)) {
-            $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds;
+        if (!empty($this->excludedItemVariationIds)) {
+            $json['excluded_item_variation_ids'] = $this->excludedItemVariationIds['value'];
         }
         $json['tax_mode']                        = $this->taxMode;
         $json = array_filter($json, function ($val) {

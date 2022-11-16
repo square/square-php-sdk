@@ -38,7 +38,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-${{ matrix.php-versions }}-
       - name: Install dependencies
-        run: composer install --no-progress
+        run: composer install --prefer-dist --no-progress
 
       - name: Run test suite
         run: composer run test

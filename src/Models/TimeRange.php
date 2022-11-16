@@ -16,14 +16,14 @@ use stdClass;
 class TimeRange implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $startAt;
+    private $startAt = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $endAt;
+    private $endAt = [];
 
     /**
      * Returns Start At.
@@ -32,7 +32,10 @@ class TimeRange implements \JsonSerializable
      */
     public function getStartAt(): ?string
     {
-        return $this->startAt;
+        if (count($this->startAt) == 0) {
+            return null;
+        }
+        return $this->startAt['value'];
     }
 
     /**
@@ -44,7 +47,17 @@ class TimeRange implements \JsonSerializable
      */
     public function setStartAt(?string $startAt): void
     {
-        $this->startAt = $startAt;
+        $this->startAt['value'] = $startAt;
+    }
+
+    /**
+     * Unsets Start At.
+     * A datetime value in RFC 3339 format indicating when the time range
+     * starts.
+     */
+    public function unsetStartAt(): void
+    {
+        $this->startAt = [];
     }
 
     /**
@@ -54,7 +67,10 @@ class TimeRange implements \JsonSerializable
      */
     public function getEndAt(): ?string
     {
-        return $this->endAt;
+        if (count($this->endAt) == 0) {
+            return null;
+        }
+        return $this->endAt['value'];
     }
 
     /**
@@ -66,7 +82,17 @@ class TimeRange implements \JsonSerializable
      */
     public function setEndAt(?string $endAt): void
     {
-        $this->endAt = $endAt;
+        $this->endAt['value'] = $endAt;
+    }
+
+    /**
+     * Unsets End At.
+     * A datetime value in RFC 3339 format indicating when the time range
+     * ends.
+     */
+    public function unsetEndAt(): void
+    {
+        $this->endAt = [];
     }
 
     /**
@@ -81,11 +107,11 @@ class TimeRange implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->startAt)) {
-            $json['start_at'] = $this->startAt;
+        if (!empty($this->startAt)) {
+            $json['start_at'] = $this->startAt['value'];
         }
-        if (isset($this->endAt)) {
-            $json['end_at']   = $this->endAt;
+        if (!empty($this->endAt)) {
+            $json['end_at']   = $this->endAt['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -17,9 +17,9 @@ use stdClass;
 class OrderLineItemAppliedTax implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
      * @var string
@@ -45,7 +45,10 @@ class OrderLineItemAppliedTax implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -56,7 +59,16 @@ class OrderLineItemAppliedTax implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the applied tax only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -132,8 +144,8 @@ class OrderLineItemAppliedTax implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']           = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']           = $this->uid['value'];
         }
         $json['tax_uid']           = $this->taxUid;
         if (isset($this->appliedMoney)) {

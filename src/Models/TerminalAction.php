@@ -17,14 +17,14 @@ class TerminalAction implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $deviceId;
+    private $deviceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $deadlineDuration;
+    private $deadlineDuration = [];
 
     /**
      * @var string|null
@@ -62,6 +62,11 @@ class TerminalAction implements \JsonSerializable
     private $saveCardOptions;
 
     /**
+     * @var ReceiptOptions|null
+     */
+    private $receiptOptions;
+
+    /**
      * @var DeviceMetadata|null
      */
     private $deviceMetadata;
@@ -93,7 +98,10 @@ class TerminalAction implements \JsonSerializable
      */
     public function getDeviceId(): ?string
     {
-        return $this->deviceId;
+        if (count($this->deviceId) == 0) {
+            return null;
+        }
+        return $this->deviceId['value'];
     }
 
     /**
@@ -105,7 +113,17 @@ class TerminalAction implements \JsonSerializable
      */
     public function setDeviceId(?string $deviceId): void
     {
-        $this->deviceId = $deviceId;
+        $this->deviceId['value'] = $deviceId;
+    }
+
+    /**
+     * Unsets Device Id.
+     * The unique Id of the device intended for this `TerminalAction`.
+     * The Id can be retrieved from /v2/devices api.
+     */
+    public function unsetDeviceId(): void
+    {
+        $this->deviceId = [];
     }
 
     /**
@@ -120,7 +138,10 @@ class TerminalAction implements \JsonSerializable
      */
     public function getDeadlineDuration(): ?string
     {
-        return $this->deadlineDuration;
+        if (count($this->deadlineDuration) == 0) {
+            return null;
+        }
+        return $this->deadlineDuration['value'];
     }
 
     /**
@@ -137,7 +158,22 @@ class TerminalAction implements \JsonSerializable
      */
     public function setDeadlineDuration(?string $deadlineDuration): void
     {
-        $this->deadlineDuration = $deadlineDuration;
+        $this->deadlineDuration['value'] = $deadlineDuration;
+    }
+
+    /**
+     * Unsets Deadline Duration.
+     * The duration as an RFC 3339 duration, after which the action will be automatically canceled.
+     * TerminalActions that are `PENDING` will be automatically `CANCELED` and have a cancellation reason
+     * of `TIMED_OUT`
+     *
+     * Default: 5 minutes from creation
+     *
+     * Maximum: 5 minutes
+     */
+    public function unsetDeadlineDuration(): void
+    {
+        $this->deadlineDuration = [];
     }
 
     /**
@@ -283,6 +319,26 @@ class TerminalAction implements \JsonSerializable
     }
 
     /**
+     * Returns Receipt Options.
+     * Describes receipt action fields.
+     */
+    public function getReceiptOptions(): ?ReceiptOptions
+    {
+        return $this->receiptOptions;
+    }
+
+    /**
+     * Sets Receipt Options.
+     * Describes receipt action fields.
+     *
+     * @maps receipt_options
+     */
+    public function setReceiptOptions(?ReceiptOptions $receiptOptions): void
+    {
+        $this->receiptOptions = $receiptOptions;
+    }
+
+    /**
      * Returns Device Metadata.
      */
     public function getDeviceMetadata(): ?DeviceMetadata
@@ -315,11 +371,11 @@ class TerminalAction implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                = $this->id;
         }
-        if (isset($this->deviceId)) {
-            $json['device_id']         = $this->deviceId;
+        if (!empty($this->deviceId)) {
+            $json['device_id']         = $this->deviceId['value'];
         }
-        if (isset($this->deadlineDuration)) {
-            $json['deadline_duration'] = $this->deadlineDuration;
+        if (!empty($this->deadlineDuration)) {
+            $json['deadline_duration'] = $this->deadlineDuration['value'];
         }
         if (isset($this->status)) {
             $json['status']            = $this->status;
@@ -341,6 +397,9 @@ class TerminalAction implements \JsonSerializable
         }
         if (isset($this->saveCardOptions)) {
             $json['save_card_options'] = $this->saveCardOptions;
+        }
+        if (isset($this->receiptOptions)) {
+            $json['receipt_options']   = $this->receiptOptions;
         }
         if (isset($this->deviceMetadata)) {
             $json['device_metadata']   = $this->deviceMetadata;

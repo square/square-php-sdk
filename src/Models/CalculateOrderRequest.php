@@ -14,9 +14,9 @@ class CalculateOrderRequest implements \JsonSerializable
     private $order;
 
     /**
-     * @var OrderReward[]|null
+     * @var array
      */
-    private $proposedRewards;
+    private $proposedRewards = [];
 
     /**
      * @param Order $order
@@ -69,7 +69,10 @@ class CalculateOrderRequest implements \JsonSerializable
      */
     public function getProposedRewards(): ?array
     {
-        return $this->proposedRewards;
+        if (count($this->proposedRewards) == 0) {
+            return null;
+        }
+        return $this->proposedRewards['value'];
     }
 
     /**
@@ -86,7 +89,20 @@ class CalculateOrderRequest implements \JsonSerializable
      */
     public function setProposedRewards(?array $proposedRewards): void
     {
-        $this->proposedRewards = $proposedRewards;
+        $this->proposedRewards['value'] = $proposedRewards;
+    }
+
+    /**
+     * Unsets Proposed Rewards.
+     * Identifies one or more loyalty reward tiers to apply during the order calculation.
+     * The discounts defined by the reward tiers are added to the order only to preview the
+     * effect of applying the specified rewards. The rewards do not correspond to actual
+     * redemptions; that is, no `reward`s are created. Therefore, the reward `id`s are
+     * random strings used only to reference the reward tier.
+     */
+    public function unsetProposedRewards(): void
+    {
+        $this->proposedRewards = [];
     }
 
     /**
@@ -102,8 +118,8 @@ class CalculateOrderRequest implements \JsonSerializable
     {
         $json = [];
         $json['order']                = $this->order;
-        if (isset($this->proposedRewards)) {
-            $json['proposed_rewards'] = $this->proposedRewards;
+        if (!empty($this->proposedRewards)) {
+            $json['proposed_rewards'] = $this->proposedRewards['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

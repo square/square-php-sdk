@@ -17,9 +17,9 @@ use stdClass;
 class CustomerCustomAttributeFilters implements \JsonSerializable
 {
     /**
-     * @var CustomerCustomAttributeFilter[]|null
+     * @var array
      */
-    private $filters;
+    private $filters = [];
 
     /**
      * Returns Filters.
@@ -32,7 +32,10 @@ class CustomerCustomAttributeFilters implements \JsonSerializable
      */
     public function getFilters(): ?array
     {
-        return $this->filters;
+        if (count($this->filters) == 0) {
+            return null;
+        }
+        return $this->filters['value'];
     }
 
     /**
@@ -48,7 +51,19 @@ class CustomerCustomAttributeFilters implements \JsonSerializable
      */
     public function setFilters(?array $filters): void
     {
-        $this->filters = $filters;
+        $this->filters['value'] = $filters;
+    }
+
+    /**
+     * Unsets Filters.
+     * The custom attribute filters. Each filter must specify `key` and include the `filter` field with a
+     * type-specific filter,
+     * the `updated_at` field, or both. The provided keys must be unique within the list of custom
+     * attribute filters.
+     */
+    public function unsetFilters(): void
+    {
+        $this->filters = [];
     }
 
     /**
@@ -63,8 +78,8 @@ class CustomerCustomAttributeFilters implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->filters)) {
-            $json['filters'] = $this->filters;
+        if (!empty($this->filters)) {
+            $json['filters'] = $this->filters['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

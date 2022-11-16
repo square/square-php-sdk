@@ -18,9 +18,9 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -74,7 +74,10 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -85,7 +88,16 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -121,8 +133,8 @@ class GiftCardActivityUnlinkedActivityRefund implements \JsonSerializable
     {
         $json = [];
         $json['amount_money']     = $this->amountMoney;
-        if (isset($this->referenceId)) {
-            $json['reference_id'] = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id'] = $this->referenceId['value'];
         }
         if (isset($this->paymentId)) {
             $json['payment_id']   = $this->paymentId;

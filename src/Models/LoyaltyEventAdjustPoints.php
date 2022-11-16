@@ -22,9 +22,9 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
     private $points;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $reason;
+    private $reason = [];
 
     /**
      * @param int $points
@@ -81,7 +81,10 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
      */
     public function getReason(): ?string
     {
-        return $this->reason;
+        if (count($this->reason) == 0) {
+            return null;
+        }
+        return $this->reason['value'];
     }
 
     /**
@@ -92,7 +95,16 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
      */
     public function setReason(?string $reason): void
     {
-        $this->reason = $reason;
+        $this->reason['value'] = $reason;
+    }
+
+    /**
+     * Unsets Reason.
+     * The reason for the adjustment of points.
+     */
+    public function unsetReason(): void
+    {
+        $this->reason = [];
     }
 
     /**
@@ -111,8 +123,8 @@ class LoyaltyEventAdjustPoints implements \JsonSerializable
             $json['loyalty_program_id'] = $this->loyaltyProgramId;
         }
         $json['points']                 = $this->points;
-        if (isset($this->reason)) {
-            $json['reason']             = $this->reason;
+        if (!empty($this->reason)) {
+            $json['reason']             = $this->reason['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

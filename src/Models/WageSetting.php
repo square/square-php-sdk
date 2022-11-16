@@ -12,19 +12,19 @@ use stdClass;
 class WageSetting implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
-     * @var JobAssignment[]|null
+     * @var array
      */
-    private $jobAssignments;
+    private $jobAssignments = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isOvertimeExempt;
+    private $isOvertimeExempt = [];
 
     /**
      * @var int|null
@@ -47,7 +47,10 @@ class WageSetting implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -58,7 +61,16 @@ class WageSetting implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The unique ID of the `TeamMember` whom this wage setting describes.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -72,7 +84,10 @@ class WageSetting implements \JsonSerializable
      */
     public function getJobAssignments(): ?array
     {
-        return $this->jobAssignments;
+        if (count($this->jobAssignments) == 0) {
+            return null;
+        }
+        return $this->jobAssignments['value'];
     }
 
     /**
@@ -88,7 +103,19 @@ class WageSetting implements \JsonSerializable
      */
     public function setJobAssignments(?array $jobAssignments): void
     {
-        $this->jobAssignments = $jobAssignments;
+        $this->jobAssignments['value'] = $jobAssignments;
+    }
+
+    /**
+     * Unsets Job Assignments.
+     * Required. The ordered list of jobs that the team member is assigned to.
+     * The first job assignment is considered the team member's primary job.
+     *
+     * The minimum length is 1 and the maximum length is 12.
+     */
+    public function unsetJobAssignments(): void
+    {
+        $this->jobAssignments = [];
     }
 
     /**
@@ -97,7 +124,10 @@ class WageSetting implements \JsonSerializable
      */
     public function getIsOvertimeExempt(): ?bool
     {
-        return $this->isOvertimeExempt;
+        if (count($this->isOvertimeExempt) == 0) {
+            return null;
+        }
+        return $this->isOvertimeExempt['value'];
     }
 
     /**
@@ -108,7 +138,16 @@ class WageSetting implements \JsonSerializable
      */
     public function setIsOvertimeExempt(?bool $isOvertimeExempt): void
     {
-        $this->isOvertimeExempt = $isOvertimeExempt;
+        $this->isOvertimeExempt['value'] = $isOvertimeExempt;
+    }
+
+    /**
+     * Unsets Is Overtime Exempt.
+     * Whether the team member is exempt from the overtime rules of the seller's country.
+     */
+    public function unsetIsOvertimeExempt(): void
+    {
+        $this->isOvertimeExempt = [];
     }
 
     /**
@@ -195,14 +234,14 @@ class WageSetting implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id']     = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id']     = $this->teamMemberId['value'];
         }
-        if (isset($this->jobAssignments)) {
-            $json['job_assignments']    = $this->jobAssignments;
+        if (!empty($this->jobAssignments)) {
+            $json['job_assignments']    = $this->jobAssignments['value'];
         }
-        if (isset($this->isOvertimeExempt)) {
-            $json['is_overtime_exempt'] = $this->isOvertimeExempt;
+        if (!empty($this->isOvertimeExempt)) {
+            $json['is_overtime_exempt'] = $this->isOvertimeExempt['value'];
         }
         if (isset($this->version)) {
             $json['version']            = $this->version;

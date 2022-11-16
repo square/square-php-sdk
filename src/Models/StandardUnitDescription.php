@@ -17,14 +17,14 @@ class StandardUnitDescription implements \JsonSerializable
     private $unit;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $abbreviation;
+    private $abbreviation = [];
 
     /**
      * Returns Unit.
@@ -56,7 +56,10 @@ class StandardUnitDescription implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -67,7 +70,16 @@ class StandardUnitDescription implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * UI display name of the measurement unit. For example, 'Pound'.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -76,7 +88,10 @@ class StandardUnitDescription implements \JsonSerializable
      */
     public function getAbbreviation(): ?string
     {
-        return $this->abbreviation;
+        if (count($this->abbreviation) == 0) {
+            return null;
+        }
+        return $this->abbreviation['value'];
     }
 
     /**
@@ -87,7 +102,16 @@ class StandardUnitDescription implements \JsonSerializable
      */
     public function setAbbreviation(?string $abbreviation): void
     {
-        $this->abbreviation = $abbreviation;
+        $this->abbreviation['value'] = $abbreviation;
+    }
+
+    /**
+     * Unsets Abbreviation.
+     * UI display abbreviation for the measurement unit. For example, 'lb'.
+     */
+    public function unsetAbbreviation(): void
+    {
+        $this->abbreviation = [];
     }
 
     /**
@@ -105,11 +129,11 @@ class StandardUnitDescription implements \JsonSerializable
         if (isset($this->unit)) {
             $json['unit']         = $this->unit;
         }
-        if (isset($this->name)) {
-            $json['name']         = $this->name;
+        if (!empty($this->name)) {
+            $json['name']         = $this->name['value'];
         }
-        if (isset($this->abbreviation)) {
-            $json['abbreviation'] = $this->abbreviation;
+        if (!empty($this->abbreviation)) {
+            $json['abbreviation'] = $this->abbreviation['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

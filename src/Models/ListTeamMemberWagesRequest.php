@@ -12,19 +12,19 @@ use stdClass;
 class ListTeamMemberWagesRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * Returns Team Member Id.
@@ -33,7 +33,10 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -45,7 +48,17 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * Filter the returned wages to only those that are associated with the
+     * specified team member.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -55,7 +68,10 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -67,7 +83,17 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of `TeamMemberWage` results to return per page. The number can range between
+     * 1 and 200. The default is 200.
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -76,7 +102,10 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -87,7 +116,16 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pointer to the next page of `EmployeeWage` results to fetch.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -102,14 +140,14 @@ class ListTeamMemberWagesRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']          = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']          = $this->limit['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']         = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']         = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

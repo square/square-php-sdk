@@ -25,9 +25,9 @@ class ExternalPaymentDetails implements \JsonSerializable
     private $source;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $sourceId;
+    private $sourceId = [];
 
     /**
      * @var Money|null
@@ -118,7 +118,10 @@ class ExternalPaymentDetails implements \JsonSerializable
      */
     public function getSourceId(): ?string
     {
-        return $this->sourceId;
+        if (count($this->sourceId) == 0) {
+            return null;
+        }
+        return $this->sourceId['value'];
     }
 
     /**
@@ -129,7 +132,16 @@ class ExternalPaymentDetails implements \JsonSerializable
      */
     public function setSourceId(?string $sourceId): void
     {
-        $this->sourceId = $sourceId;
+        $this->sourceId['value'] = $sourceId;
+    }
+
+    /**
+     * Unsets Source Id.
+     * An ID to associate the payment to its originating source.
+     */
+    public function unsetSourceId(): void
+    {
+        $this->sourceId = [];
     }
 
     /**
@@ -178,8 +190,8 @@ class ExternalPaymentDetails implements \JsonSerializable
         $json = [];
         $json['type']                 = $this->type;
         $json['source']               = $this->source;
-        if (isset($this->sourceId)) {
-            $json['source_id']        = $this->sourceId;
+        if (!empty($this->sourceId)) {
+            $json['source_id']        = $this->sourceId['value'];
         }
         if (isset($this->sourceFeeMoney)) {
             $json['source_fee_money'] = $this->sourceFeeMoney;

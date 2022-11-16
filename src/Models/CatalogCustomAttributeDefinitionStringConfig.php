@@ -12,9 +12,9 @@ use stdClass;
 class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $enforceUniqueness;
+    private $enforceUniqueness = [];
 
     /**
      * Returns Enforce Uniqueness.
@@ -26,7 +26,10 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
      */
     public function getEnforceUniqueness(): ?bool
     {
-        return $this->enforceUniqueness;
+        if (count($this->enforceUniqueness) == 0) {
+            return null;
+        }
+        return $this->enforceUniqueness['value'];
     }
 
     /**
@@ -41,7 +44,20 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
      */
     public function setEnforceUniqueness(?bool $enforceUniqueness): void
     {
-        $this->enforceUniqueness = $enforceUniqueness;
+        $this->enforceUniqueness['value'] = $enforceUniqueness;
+    }
+
+    /**
+     * Unsets Enforce Uniqueness.
+     * If true, each Custom Attribute instance associated with this Custom Attribute
+     * Definition must have a unique value within the seller's catalog. For
+     * example, this may be used for a value like a SKU that should not be
+     * duplicated within a seller's catalog. May not be modified after the
+     * definition has been created.
+     */
+    public function unsetEnforceUniqueness(): void
+    {
+        $this->enforceUniqueness = [];
     }
 
     /**
@@ -56,8 +72,8 @@ class CatalogCustomAttributeDefinitionStringConfig implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->enforceUniqueness)) {
-            $json['enforce_uniqueness'] = $this->enforceUniqueness;
+        if (!empty($this->enforceUniqueness)) {
+            $json['enforce_uniqueness'] = $this->enforceUniqueness['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -9,64 +9,64 @@ use stdClass;
 class DeviceMetadata implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $batteryPercentage;
+    private $batteryPercentage = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $chargingState;
+    private $chargingState = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $merchantId;
+    private $merchantId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $networkConnectionType;
+    private $networkConnectionType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentRegion;
+    private $paymentRegion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $serialNumber;
+    private $serialNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $osVersion;
+    private $osVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $appVersion;
+    private $appVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $wifiNetworkName;
+    private $wifiNetworkName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $wifiNetworkStrength;
+    private $wifiNetworkStrength = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $ipAddress;
+    private $ipAddress = [];
 
     /**
      * Returns Battery Percentage.
@@ -74,7 +74,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getBatteryPercentage(): ?string
     {
-        return $this->batteryPercentage;
+        if (count($this->batteryPercentage) == 0) {
+            return null;
+        }
+        return $this->batteryPercentage['value'];
     }
 
     /**
@@ -85,7 +88,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setBatteryPercentage(?string $batteryPercentage): void
     {
-        $this->batteryPercentage = $batteryPercentage;
+        $this->batteryPercentage['value'] = $batteryPercentage;
+    }
+
+    /**
+     * Unsets Battery Percentage.
+     * The Terminal’s remaining battery percentage, between 1-100.
+     */
+    public function unsetBatteryPercentage(): void
+    {
+        $this->batteryPercentage = [];
     }
 
     /**
@@ -95,7 +107,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getChargingState(): ?string
     {
-        return $this->chargingState;
+        if (count($this->chargingState) == 0) {
+            return null;
+        }
+        return $this->chargingState['value'];
     }
 
     /**
@@ -107,7 +122,17 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setChargingState(?string $chargingState): void
     {
-        $this->chargingState = $chargingState;
+        $this->chargingState['value'] = $chargingState;
+    }
+
+    /**
+     * Unsets Charging State.
+     * The current charging state of the Terminal.
+     * Options: `CHARGING`, `NOT_CHARGING`
+     */
+    public function unsetChargingState(): void
+    {
+        $this->chargingState = [];
     }
 
     /**
@@ -116,7 +141,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -127,7 +155,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the Square seller business location associated with the Terminal.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -136,7 +173,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getMerchantId(): ?string
     {
-        return $this->merchantId;
+        if (count($this->merchantId) == 0) {
+            return null;
+        }
+        return $this->merchantId['value'];
     }
 
     /**
@@ -147,7 +187,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setMerchantId(?string $merchantId): void
     {
-        $this->merchantId = $merchantId;
+        $this->merchantId['value'] = $merchantId;
+    }
+
+    /**
+     * Unsets Merchant Id.
+     * The ID of the Square merchant account that is currently signed-in to the Terminal.
+     */
+    public function unsetMerchantId(): void
+    {
+        $this->merchantId = [];
     }
 
     /**
@@ -157,7 +206,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getNetworkConnectionType(): ?string
     {
-        return $this->networkConnectionType;
+        if (count($this->networkConnectionType) == 0) {
+            return null;
+        }
+        return $this->networkConnectionType['value'];
     }
 
     /**
@@ -169,7 +221,17 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setNetworkConnectionType(?string $networkConnectionType): void
     {
-        $this->networkConnectionType = $networkConnectionType;
+        $this->networkConnectionType['value'] = $networkConnectionType;
+    }
+
+    /**
+     * Unsets Network Connection Type.
+     * The Terminal’s current network connection type.
+     * Options: `WIFI`, `ETHERNET`
+     */
+    public function unsetNetworkConnectionType(): void
+    {
+        $this->networkConnectionType = [];
     }
 
     /**
@@ -178,7 +240,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getPaymentRegion(): ?string
     {
-        return $this->paymentRegion;
+        if (count($this->paymentRegion) == 0) {
+            return null;
+        }
+        return $this->paymentRegion['value'];
     }
 
     /**
@@ -189,7 +254,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setPaymentRegion(?string $paymentRegion): void
     {
-        $this->paymentRegion = $paymentRegion;
+        $this->paymentRegion['value'] = $paymentRegion;
+    }
+
+    /**
+     * Unsets Payment Region.
+     * The country in which the Terminal is authorized to take payments.
+     */
+    public function unsetPaymentRegion(): void
+    {
+        $this->paymentRegion = [];
     }
 
     /**
@@ -199,7 +273,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getSerialNumber(): ?string
     {
-        return $this->serialNumber;
+        if (count($this->serialNumber) == 0) {
+            return null;
+        }
+        return $this->serialNumber['value'];
     }
 
     /**
@@ -211,7 +288,17 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setSerialNumber(?string $serialNumber): void
     {
-        $this->serialNumber = $serialNumber;
+        $this->serialNumber['value'] = $serialNumber;
+    }
+
+    /**
+     * Unsets Serial Number.
+     * The unique identifier assigned to the Terminal, which can be found on the lower back
+     * of the device.
+     */
+    public function unsetSerialNumber(): void
+    {
+        $this->serialNumber = [];
     }
 
     /**
@@ -220,7 +307,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getOsVersion(): ?string
     {
-        return $this->osVersion;
+        if (count($this->osVersion) == 0) {
+            return null;
+        }
+        return $this->osVersion['value'];
     }
 
     /**
@@ -231,7 +321,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setOsVersion(?string $osVersion): void
     {
-        $this->osVersion = $osVersion;
+        $this->osVersion['value'] = $osVersion;
+    }
+
+    /**
+     * Unsets Os Version.
+     * The current version of the Terminal’s operating system.
+     */
+    public function unsetOsVersion(): void
+    {
+        $this->osVersion = [];
     }
 
     /**
@@ -240,7 +339,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getAppVersion(): ?string
     {
-        return $this->appVersion;
+        if (count($this->appVersion) == 0) {
+            return null;
+        }
+        return $this->appVersion['value'];
     }
 
     /**
@@ -251,7 +353,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setAppVersion(?string $appVersion): void
     {
-        $this->appVersion = $appVersion;
+        $this->appVersion['value'] = $appVersion;
+    }
+
+    /**
+     * Unsets App Version.
+     * The current version of the application running on the Terminal.
+     */
+    public function unsetAppVersion(): void
+    {
+        $this->appVersion = [];
     }
 
     /**
@@ -260,7 +371,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getWifiNetworkName(): ?string
     {
-        return $this->wifiNetworkName;
+        if (count($this->wifiNetworkName) == 0) {
+            return null;
+        }
+        return $this->wifiNetworkName['value'];
     }
 
     /**
@@ -271,7 +385,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setWifiNetworkName(?string $wifiNetworkName): void
     {
-        $this->wifiNetworkName = $wifiNetworkName;
+        $this->wifiNetworkName['value'] = $wifiNetworkName;
+    }
+
+    /**
+     * Unsets Wifi Network Name.
+     * The name of the Wi-Fi network to which the Terminal is connected.
+     */
+    public function unsetWifiNetworkName(): void
+    {
+        $this->wifiNetworkName = [];
     }
 
     /**
@@ -281,7 +404,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getWifiNetworkStrength(): ?string
     {
-        return $this->wifiNetworkStrength;
+        if (count($this->wifiNetworkStrength) == 0) {
+            return null;
+        }
+        return $this->wifiNetworkStrength['value'];
     }
 
     /**
@@ -293,7 +419,17 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setWifiNetworkStrength(?string $wifiNetworkStrength): void
     {
-        $this->wifiNetworkStrength = $wifiNetworkStrength;
+        $this->wifiNetworkStrength['value'] = $wifiNetworkStrength;
+    }
+
+    /**
+     * Unsets Wifi Network Strength.
+     * The signal strength of the Wi-FI network connection.
+     * Options: `POOR`, `FAIR`, `GOOD`, `EXCELLENT`
+     */
+    public function unsetWifiNetworkStrength(): void
+    {
+        $this->wifiNetworkStrength = [];
     }
 
     /**
@@ -302,7 +438,10 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function getIpAddress(): ?string
     {
-        return $this->ipAddress;
+        if (count($this->ipAddress) == 0) {
+            return null;
+        }
+        return $this->ipAddress['value'];
     }
 
     /**
@@ -313,7 +452,16 @@ class DeviceMetadata implements \JsonSerializable
      */
     public function setIpAddress(?string $ipAddress): void
     {
-        $this->ipAddress = $ipAddress;
+        $this->ipAddress['value'] = $ipAddress;
+    }
+
+    /**
+     * Unsets Ip Address.
+     * The IP address of the Terminal.
+     */
+    public function unsetIpAddress(): void
+    {
+        $this->ipAddress = [];
     }
 
     /**
@@ -328,41 +476,41 @@ class DeviceMetadata implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->batteryPercentage)) {
-            $json['battery_percentage']      = $this->batteryPercentage;
+        if (!empty($this->batteryPercentage)) {
+            $json['battery_percentage']      = $this->batteryPercentage['value'];
         }
-        if (isset($this->chargingState)) {
-            $json['charging_state']          = $this->chargingState;
+        if (!empty($this->chargingState)) {
+            $json['charging_state']          = $this->chargingState['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']             = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']             = $this->locationId['value'];
         }
-        if (isset($this->merchantId)) {
-            $json['merchant_id']             = $this->merchantId;
+        if (!empty($this->merchantId)) {
+            $json['merchant_id']             = $this->merchantId['value'];
         }
-        if (isset($this->networkConnectionType)) {
-            $json['network_connection_type'] = $this->networkConnectionType;
+        if (!empty($this->networkConnectionType)) {
+            $json['network_connection_type'] = $this->networkConnectionType['value'];
         }
-        if (isset($this->paymentRegion)) {
-            $json['payment_region']          = $this->paymentRegion;
+        if (!empty($this->paymentRegion)) {
+            $json['payment_region']          = $this->paymentRegion['value'];
         }
-        if (isset($this->serialNumber)) {
-            $json['serial_number']           = $this->serialNumber;
+        if (!empty($this->serialNumber)) {
+            $json['serial_number']           = $this->serialNumber['value'];
         }
-        if (isset($this->osVersion)) {
-            $json['os_version']              = $this->osVersion;
+        if (!empty($this->osVersion)) {
+            $json['os_version']              = $this->osVersion['value'];
         }
-        if (isset($this->appVersion)) {
-            $json['app_version']             = $this->appVersion;
+        if (!empty($this->appVersion)) {
+            $json['app_version']             = $this->appVersion['value'];
         }
-        if (isset($this->wifiNetworkName)) {
-            $json['wifi_network_name']       = $this->wifiNetworkName;
+        if (!empty($this->wifiNetworkName)) {
+            $json['wifi_network_name']       = $this->wifiNetworkName['value'];
         }
-        if (isset($this->wifiNetworkStrength)) {
-            $json['wifi_network_strength']   = $this->wifiNetworkStrength;
+        if (!empty($this->wifiNetworkStrength)) {
+            $json['wifi_network_strength']   = $this->wifiNetworkStrength['value'];
         }
-        if (isset($this->ipAddress)) {
-            $json['ip_address']              = $this->ipAddress;
+        if (!empty($this->ipAddress)) {
+            $json['ip_address']              = $this->ipAddress['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

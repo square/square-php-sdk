@@ -12,9 +12,9 @@ use stdClass;
 class CatalogDiscount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var string|null
@@ -22,9 +22,9 @@ class CatalogDiscount implements \JsonSerializable
     private $discountType;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $percentage;
+    private $percentage = [];
 
     /**
      * @var Money|null
@@ -32,14 +32,14 @@ class CatalogDiscount implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $pinRequired;
+    private $pinRequired = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $labelColor;
+    private $labelColor = [];
 
     /**
      * @var string|null
@@ -58,7 +58,10 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -70,7 +73,17 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The discount name. This is a searchable attribute for use in applicable query filters, and its value
+     * length is of Unicode code points.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -105,7 +118,10 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function getPercentage(): ?string
     {
-        return $this->percentage;
+        if (count($this->percentage) == 0) {
+            return null;
+        }
+        return $this->percentage['value'];
     }
 
     /**
@@ -122,7 +138,22 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function setPercentage(?string $percentage): void
     {
-        $this->percentage = $percentage;
+        $this->percentage['value'] = $percentage;
+    }
+
+    /**
+     * Unsets Percentage.
+     * The percentage of the discount as a string representation of a decimal number, using a `.` as the
+     * decimal
+     * separator and without a `%` sign. A value of `7.5` corresponds to `7.5%`. Specify a percentage of
+     * `0` if `discount_type`
+     * is `VARIABLE_PERCENTAGE`.
+     *
+     * Do not use this field for amount-based or variable discounts.
+     */
+    public function unsetPercentage(): void
+    {
+        $this->percentage = [];
     }
 
     /**
@@ -164,7 +195,10 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function getPinRequired(): ?bool
     {
-        return $this->pinRequired;
+        if (count($this->pinRequired) == 0) {
+            return null;
+        }
+        return $this->pinRequired['value'];
     }
 
     /**
@@ -176,7 +210,17 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function setPinRequired(?bool $pinRequired): void
     {
-        $this->pinRequired = $pinRequired;
+        $this->pinRequired['value'] = $pinRequired;
+    }
+
+    /**
+     * Unsets Pin Required.
+     * Indicates whether a mobile staff member needs to enter their PIN to apply the
+     * discount to a payment in the Square Point of Sale app.
+     */
+    public function unsetPinRequired(): void
+    {
+        $this->pinRequired = [];
     }
 
     /**
@@ -186,7 +230,10 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function getLabelColor(): ?string
     {
-        return $this->labelColor;
+        if (count($this->labelColor) == 0) {
+            return null;
+        }
+        return $this->labelColor['value'];
     }
 
     /**
@@ -198,7 +245,17 @@ class CatalogDiscount implements \JsonSerializable
      */
     public function setLabelColor(?string $labelColor): void
     {
-        $this->labelColor = $labelColor;
+        $this->labelColor['value'] = $labelColor;
+    }
+
+    /**
+     * Unsets Label Color.
+     * The color of the discount display label in the Square Point of Sale app. This must be a valid hex
+     * color code.
+     */
+    public function unsetLabelColor(): void
+    {
+        $this->labelColor = [];
     }
 
     /**
@@ -263,23 +320,23 @@ class CatalogDiscount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']                 = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                 = $this->name['value'];
         }
         if (isset($this->discountType)) {
             $json['discount_type']        = $this->discountType;
         }
-        if (isset($this->percentage)) {
-            $json['percentage']           = $this->percentage;
+        if (!empty($this->percentage)) {
+            $json['percentage']           = $this->percentage['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']         = $this->amountMoney;
         }
-        if (isset($this->pinRequired)) {
-            $json['pin_required']         = $this->pinRequired;
+        if (!empty($this->pinRequired)) {
+            $json['pin_required']         = $this->pinRequired['value'];
         }
-        if (isset($this->labelColor)) {
-            $json['label_color']          = $this->labelColor;
+        if (!empty($this->labelColor)) {
+            $json['label_color']          = $this->labelColor['value'];
         }
         if (isset($this->modifyTaxBasis)) {
             $json['modify_tax_basis']     = $this->modifyTaxBasis;

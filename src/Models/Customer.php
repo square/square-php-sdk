@@ -27,34 +27,34 @@ class Customer implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var Card[]|null
+     * @var array
      */
-    private $cards;
+    private $cards = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $givenName;
+    private $givenName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $familyName;
+    private $familyName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $nickname;
+    private $nickname = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $companyName;
+    private $companyName = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $emailAddress;
+    private $emailAddress = [];
 
     /**
      * @var Address|null
@@ -62,24 +62,24 @@ class Customer implements \JsonSerializable
     private $address;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $birthday;
+    private $birthday = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $note;
+    private $note = [];
 
     /**
      * @var CustomerPreferences|null
@@ -92,14 +92,14 @@ class Customer implements \JsonSerializable
     private $creationSource;
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $groupIds;
+    private $groupIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $segmentIds;
+    private $segmentIds = [];
 
     /**
      * @var int|null
@@ -194,7 +194,10 @@ class Customer implements \JsonSerializable
      */
     public function getCards(): ?array
     {
-        return $this->cards;
+        if (count($this->cards) == 0) {
+            return null;
+        }
+        return $this->cards['value'];
     }
 
     /**
@@ -214,7 +217,23 @@ class Customer implements \JsonSerializable
      */
     public function setCards(?array $cards): void
     {
-        $this->cards = $cards;
+        $this->cards['value'] = $cards;
+    }
+
+    /**
+     * Unsets Cards.
+     * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
+     *
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
+     * and debit cards on file)
+     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * `customer_id` query parameter.
+     * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
+     * it-does#migrate-customer-cards).
+     */
+    public function unsetCards(): void
+    {
+        $this->cards = [];
     }
 
     /**
@@ -223,7 +242,10 @@ class Customer implements \JsonSerializable
      */
     public function getGivenName(): ?string
     {
-        return $this->givenName;
+        if (count($this->givenName) == 0) {
+            return null;
+        }
+        return $this->givenName['value'];
     }
 
     /**
@@ -234,7 +256,16 @@ class Customer implements \JsonSerializable
      */
     public function setGivenName(?string $givenName): void
     {
-        $this->givenName = $givenName;
+        $this->givenName['value'] = $givenName;
+    }
+
+    /**
+     * Unsets Given Name.
+     * The given name (that is, the first name) associated with the customer profile.
+     */
+    public function unsetGivenName(): void
+    {
+        $this->givenName = [];
     }
 
     /**
@@ -243,7 +274,10 @@ class Customer implements \JsonSerializable
      */
     public function getFamilyName(): ?string
     {
-        return $this->familyName;
+        if (count($this->familyName) == 0) {
+            return null;
+        }
+        return $this->familyName['value'];
     }
 
     /**
@@ -254,7 +288,16 @@ class Customer implements \JsonSerializable
      */
     public function setFamilyName(?string $familyName): void
     {
-        $this->familyName = $familyName;
+        $this->familyName['value'] = $familyName;
+    }
+
+    /**
+     * Unsets Family Name.
+     * The family name (that is, the last name) associated with the customer profile.
+     */
+    public function unsetFamilyName(): void
+    {
+        $this->familyName = [];
     }
 
     /**
@@ -263,7 +306,10 @@ class Customer implements \JsonSerializable
      */
     public function getNickname(): ?string
     {
-        return $this->nickname;
+        if (count($this->nickname) == 0) {
+            return null;
+        }
+        return $this->nickname['value'];
     }
 
     /**
@@ -274,7 +320,16 @@ class Customer implements \JsonSerializable
      */
     public function setNickname(?string $nickname): void
     {
-        $this->nickname = $nickname;
+        $this->nickname['value'] = $nickname;
+    }
+
+    /**
+     * Unsets Nickname.
+     * A nickname for the customer profile.
+     */
+    public function unsetNickname(): void
+    {
+        $this->nickname = [];
     }
 
     /**
@@ -283,7 +338,10 @@ class Customer implements \JsonSerializable
      */
     public function getCompanyName(): ?string
     {
-        return $this->companyName;
+        if (count($this->companyName) == 0) {
+            return null;
+        }
+        return $this->companyName['value'];
     }
 
     /**
@@ -294,7 +352,16 @@ class Customer implements \JsonSerializable
      */
     public function setCompanyName(?string $companyName): void
     {
-        $this->companyName = $companyName;
+        $this->companyName['value'] = $companyName;
+    }
+
+    /**
+     * Unsets Company Name.
+     * A business name associated with the customer profile.
+     */
+    public function unsetCompanyName(): void
+    {
+        $this->companyName = [];
     }
 
     /**
@@ -303,7 +370,10 @@ class Customer implements \JsonSerializable
      */
     public function getEmailAddress(): ?string
     {
-        return $this->emailAddress;
+        if (count($this->emailAddress) == 0) {
+            return null;
+        }
+        return $this->emailAddress['value'];
     }
 
     /**
@@ -314,7 +384,16 @@ class Customer implements \JsonSerializable
      */
     public function setEmailAddress(?string $emailAddress): void
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress['value'] = $emailAddress;
+    }
+
+    /**
+     * Unsets Email Address.
+     * The email address associated with the customer profile.
+     */
+    public function unsetEmailAddress(): void
+    {
+        $this->emailAddress = [];
     }
 
     /**
@@ -347,7 +426,10 @@ class Customer implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -358,7 +440,16 @@ class Customer implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The phone number associated with the customer profile.
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -369,7 +460,10 @@ class Customer implements \JsonSerializable
      */
     public function getBirthday(): ?string
     {
-        return $this->birthday;
+        if (count($this->birthday) == 0) {
+            return null;
+        }
+        return $this->birthday['value'];
     }
 
     /**
@@ -382,7 +476,18 @@ class Customer implements \JsonSerializable
      */
     public function setBirthday(?string $birthday): void
     {
-        $this->birthday = $birthday;
+        $this->birthday['value'] = $birthday;
+    }
+
+    /**
+     * Unsets Birthday.
+     * The birthday associated with the customer profile, in `YYYY-MM-DD` format. For example, `1998-09-
+     * 21`
+     * represents September 21, 1998, and `0000-09-21` represents September 21 (without a birth year).
+     */
+    public function unsetBirthday(): void
+    {
+        $this->birthday = [];
     }
 
     /**
@@ -392,7 +497,10 @@ class Customer implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -404,7 +512,17 @@ class Customer implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * An optional second ID used to associate the customer profile with an
+     * entity in another system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -413,7 +531,10 @@ class Customer implements \JsonSerializable
      */
     public function getNote(): ?string
     {
-        return $this->note;
+        if (count($this->note) == 0) {
+            return null;
+        }
+        return $this->note['value'];
     }
 
     /**
@@ -424,7 +545,16 @@ class Customer implements \JsonSerializable
      */
     public function setNote(?string $note): void
     {
-        $this->note = $note;
+        $this->note['value'] = $note;
+    }
+
+    /**
+     * Unsets Note.
+     * A custom note associated with the customer profile.
+     */
+    public function unsetNote(): void
+    {
+        $this->note = [];
     }
 
     /**
@@ -475,7 +605,10 @@ class Customer implements \JsonSerializable
      */
     public function getGroupIds(): ?array
     {
-        return $this->groupIds;
+        if (count($this->groupIds) == 0) {
+            return null;
+        }
+        return $this->groupIds['value'];
     }
 
     /**
@@ -488,7 +621,16 @@ class Customer implements \JsonSerializable
      */
     public function setGroupIds(?array $groupIds): void
     {
-        $this->groupIds = $groupIds;
+        $this->groupIds['value'] = $groupIds;
+    }
+
+    /**
+     * Unsets Group Ids.
+     * The IDs of customer groups the customer belongs to.
+     */
+    public function unsetGroupIds(): void
+    {
+        $this->groupIds = [];
     }
 
     /**
@@ -499,7 +641,10 @@ class Customer implements \JsonSerializable
      */
     public function getSegmentIds(): ?array
     {
-        return $this->segmentIds;
+        if (count($this->segmentIds) == 0) {
+            return null;
+        }
+        return $this->segmentIds['value'];
     }
 
     /**
@@ -512,7 +657,16 @@ class Customer implements \JsonSerializable
      */
     public function setSegmentIds(?array $segmentIds): void
     {
-        $this->segmentIds = $segmentIds;
+        $this->segmentIds['value'] = $segmentIds;
+    }
+
+    /**
+     * Unsets Segment Ids.
+     * The IDs of segments the customer belongs to.
+     */
+    public function unsetSegmentIds(): void
+    {
+        $this->segmentIds = [];
     }
 
     /**
@@ -586,38 +740,38 @@ class Customer implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']      = $this->updatedAt;
         }
-        if (isset($this->cards)) {
-            $json['cards']           = $this->cards;
+        if (!empty($this->cards)) {
+            $json['cards']           = $this->cards['value'];
         }
-        if (isset($this->givenName)) {
-            $json['given_name']      = $this->givenName;
+        if (!empty($this->givenName)) {
+            $json['given_name']      = $this->givenName['value'];
         }
-        if (isset($this->familyName)) {
-            $json['family_name']     = $this->familyName;
+        if (!empty($this->familyName)) {
+            $json['family_name']     = $this->familyName['value'];
         }
-        if (isset($this->nickname)) {
-            $json['nickname']        = $this->nickname;
+        if (!empty($this->nickname)) {
+            $json['nickname']        = $this->nickname['value'];
         }
-        if (isset($this->companyName)) {
-            $json['company_name']    = $this->companyName;
+        if (!empty($this->companyName)) {
+            $json['company_name']    = $this->companyName['value'];
         }
-        if (isset($this->emailAddress)) {
-            $json['email_address']   = $this->emailAddress;
+        if (!empty($this->emailAddress)) {
+            $json['email_address']   = $this->emailAddress['value'];
         }
         if (isset($this->address)) {
             $json['address']         = $this->address;
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number']    = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number']    = $this->phoneNumber['value'];
         }
-        if (isset($this->birthday)) {
-            $json['birthday']        = $this->birthday;
+        if (!empty($this->birthday)) {
+            $json['birthday']        = $this->birthday['value'];
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']    = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']    = $this->referenceId['value'];
         }
-        if (isset($this->note)) {
-            $json['note']            = $this->note;
+        if (!empty($this->note)) {
+            $json['note']            = $this->note['value'];
         }
         if (isset($this->preferences)) {
             $json['preferences']     = $this->preferences;
@@ -625,11 +779,11 @@ class Customer implements \JsonSerializable
         if (isset($this->creationSource)) {
             $json['creation_source'] = $this->creationSource;
         }
-        if (isset($this->groupIds)) {
-            $json['group_ids']       = $this->groupIds;
+        if (!empty($this->groupIds)) {
+            $json['group_ids']       = $this->groupIds['value'];
         }
-        if (isset($this->segmentIds)) {
-            $json['segment_ids']     = $this->segmentIds;
+        if (!empty($this->segmentIds)) {
+            $json['segment_ids']     = $this->segmentIds['value'];
         }
         if (isset($this->version)) {
             $json['version']         = $this->version;

@@ -11,6 +11,7 @@ use Core\Request\Parameters\TemplateParam;
 use Core\Utils\CoreHelper;
 use Square\Apis\ApplePayApi;
 use Square\Apis\BankAccountsApi;
+use Square\Apis\BookingCustomAttributesApi;
 use Square\Apis\BookingsApi;
 use Square\Apis\CardsApi;
 use Square\Apis\CashDrawersApi;
@@ -33,6 +34,7 @@ use Square\Apis\LoyaltyApi;
 use Square\Apis\MerchantsApi;
 use Square\Apis\MobileAuthorizationApi;
 use Square\Apis\OAuthApi;
+use Square\Apis\OrderCustomAttributesApi;
 use Square\Apis\OrdersApi;
 use Square\Apis\PaymentsApi;
 use Square\Apis\PayoutsApi;
@@ -63,6 +65,8 @@ class SquareClient implements ConfigurationInterface
     private $bankAccounts;
 
     private $bookings;
+
+    private $bookingCustomAttributes;
 
     private $cards;
 
@@ -105,6 +109,8 @@ class SquareClient implements ConfigurationInterface
     private $merchants;
 
     private $orders;
+
+    private $orderCustomAttributes;
 
     private $payments;
 
@@ -150,7 +156,8 @@ class SquareClient implements ConfigurationInterface
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/23.0.0.20221019 ({api-version}) {engine}/{engine-version} ({os-info}) {detail}'
+                'Square-PHP-SDK/24.0.0.20221116 ({api-version}) {engine}/{engine-version} ({os-' .
+                'info}) {detail}'
             )
             ->userAgentConfig(
                 [
@@ -291,7 +298,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '23.0.0.20221019';
+        return '24.0.0.20221116';
     }
 
     /**
@@ -380,6 +387,17 @@ class SquareClient implements ConfigurationInterface
             $this->bookings = new BookingsApi($this->client);
         }
         return $this->bookings;
+    }
+
+    /**
+     * Returns Booking Custom Attributes Api
+     */
+    public function getBookingCustomAttributesApi(): BookingCustomAttributesApi
+    {
+        if ($this->bookingCustomAttributes == null) {
+            $this->bookingCustomAttributes = new BookingCustomAttributesApi($this->client);
+        }
+        return $this->bookingCustomAttributes;
     }
 
     /**
@@ -611,6 +629,17 @@ class SquareClient implements ConfigurationInterface
             $this->orders = new OrdersApi($this->client);
         }
         return $this->orders;
+    }
+
+    /**
+     * Returns Order Custom Attributes Api
+     */
+    public function getOrderCustomAttributesApi(): OrderCustomAttributesApi
+    {
+        if ($this->orderCustomAttributes == null) {
+            $this->orderCustomAttributes = new OrderCustomAttributesApi($this->client);
+        }
+        return $this->orderCustomAttributes;
     }
 
     /**

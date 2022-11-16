@@ -9,29 +9,29 @@ use stdClass;
 class TipSettings implements \JsonSerializable
 {
     /**
-     * @var bool|null
+     * @var array
      */
-    private $allowTipping;
+    private $allowTipping = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $separateTipScreen;
+    private $separateTipScreen = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $customTipField;
+    private $customTipField = [];
 
     /**
-     * @var int[]|null
+     * @var array
      */
-    private $tipPercentages;
+    private $tipPercentages = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $smartTipping;
+    private $smartTipping = [];
 
     /**
      * Returns Allow Tipping.
@@ -39,7 +39,10 @@ class TipSettings implements \JsonSerializable
      */
     public function getAllowTipping(): ?bool
     {
-        return $this->allowTipping;
+        if (count($this->allowTipping) == 0) {
+            return null;
+        }
+        return $this->allowTipping['value'];
     }
 
     /**
@@ -50,7 +53,16 @@ class TipSettings implements \JsonSerializable
      */
     public function setAllowTipping(?bool $allowTipping): void
     {
-        $this->allowTipping = $allowTipping;
+        $this->allowTipping['value'] = $allowTipping;
+    }
+
+    /**
+     * Unsets Allow Tipping.
+     * Indicates whether tipping is enabled for this checkout. Defaults to false.
+     */
+    public function unsetAllowTipping(): void
+    {
+        $this->allowTipping = [];
     }
 
     /**
@@ -60,7 +72,10 @@ class TipSettings implements \JsonSerializable
      */
     public function getSeparateTipScreen(): ?bool
     {
-        return $this->separateTipScreen;
+        if (count($this->separateTipScreen) == 0) {
+            return null;
+        }
+        return $this->separateTipScreen['value'];
     }
 
     /**
@@ -72,7 +87,17 @@ class TipSettings implements \JsonSerializable
      */
     public function setSeparateTipScreen(?bool $separateTipScreen): void
     {
-        $this->separateTipScreen = $separateTipScreen;
+        $this->separateTipScreen['value'] = $separateTipScreen;
+    }
+
+    /**
+     * Unsets Separate Tip Screen.
+     * Indicates whether tip options should be presented on the screen before presenting
+     * the signature screen during card payment. Defaults to false.
+     */
+    public function unsetSeparateTipScreen(): void
+    {
+        $this->separateTipScreen = [];
     }
 
     /**
@@ -81,7 +106,10 @@ class TipSettings implements \JsonSerializable
      */
     public function getCustomTipField(): ?bool
     {
-        return $this->customTipField;
+        if (count($this->customTipField) == 0) {
+            return null;
+        }
+        return $this->customTipField['value'];
     }
 
     /**
@@ -92,7 +120,16 @@ class TipSettings implements \JsonSerializable
      */
     public function setCustomTipField(?bool $customTipField): void
     {
-        $this->customTipField = $customTipField;
+        $this->customTipField['value'] = $customTipField;
+    }
+
+    /**
+     * Unsets Custom Tip Field.
+     * Indicates whether custom tip amounts are allowed during the checkout flow. Defaults to false.
+     */
+    public function unsetCustomTipField(): void
+    {
+        $this->customTipField = [];
     }
 
     /**
@@ -104,7 +141,10 @@ class TipSettings implements \JsonSerializable
      */
     public function getTipPercentages(): ?array
     {
-        return $this->tipPercentages;
+        if (count($this->tipPercentages) == 0) {
+            return null;
+        }
+        return $this->tipPercentages['value'];
     }
 
     /**
@@ -118,7 +158,17 @@ class TipSettings implements \JsonSerializable
      */
     public function setTipPercentages(?array $tipPercentages): void
     {
-        $this->tipPercentages = $tipPercentages;
+        $this->tipPercentages['value'] = $tipPercentages;
+    }
+
+    /**
+     * Unsets Tip Percentages.
+     * A list of tip percentages that should be presented during the checkout flow, specified as
+     * up to 3 non-negative integers from 0 to 100 (inclusive). Defaults to 15, 20, and 25.
+     */
+    public function unsetTipPercentages(): void
+    {
+        $this->tipPercentages = [];
     }
 
     /**
@@ -140,7 +190,10 @@ class TipSettings implements \JsonSerializable
      */
     public function getSmartTipping(): ?bool
     {
-        return $this->smartTipping;
+        if (count($this->smartTipping) == 0) {
+            return null;
+        }
+        return $this->smartTipping['value'];
     }
 
     /**
@@ -164,7 +217,29 @@ class TipSettings implements \JsonSerializable
      */
     public function setSmartTipping(?bool $smartTipping): void
     {
-        $this->smartTipping = $smartTipping;
+        $this->smartTipping['value'] = $smartTipping;
+    }
+
+    /**
+     * Unsets Smart Tipping.
+     * Enables the "Smart Tip Amounts" behavior.
+     * Exact tipping options depend on the region in which the Square seller is active.
+     *
+     * For payments under 10.00, in the Australia, Canada, Ireland, United Kingdom, and United States,
+     * tipping options are presented as no tip, .50, 1.00 or 2.00.
+     *
+     * For payment amounts of 10.00 or greater, tipping options are presented as the following percentages:
+     * 0%, 5%, 10%, 15%.
+     *
+     * If set to true, the `tip_percentages` settings is ignored.
+     * Defaults to false.
+     *
+     * To learn more about smart tipping, see [Accept Tips with the Square App](https://squareup.
+     * com/help/us/en/article/5069-accept-tips-with-the-square-app).
+     */
+    public function unsetSmartTipping(): void
+    {
+        $this->smartTipping = [];
     }
 
     /**
@@ -179,20 +254,20 @@ class TipSettings implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->allowTipping)) {
-            $json['allow_tipping']       = $this->allowTipping;
+        if (!empty($this->allowTipping)) {
+            $json['allow_tipping']       = $this->allowTipping['value'];
         }
-        if (isset($this->separateTipScreen)) {
-            $json['separate_tip_screen'] = $this->separateTipScreen;
+        if (!empty($this->separateTipScreen)) {
+            $json['separate_tip_screen'] = $this->separateTipScreen['value'];
         }
-        if (isset($this->customTipField)) {
-            $json['custom_tip_field']    = $this->customTipField;
+        if (!empty($this->customTipField)) {
+            $json['custom_tip_field']    = $this->customTipField['value'];
         }
-        if (isset($this->tipPercentages)) {
-            $json['tip_percentages']     = $this->tipPercentages;
+        if (!empty($this->tipPercentages)) {
+            $json['tip_percentages']     = $this->tipPercentages['value'];
         }
-        if (isset($this->smartTipping)) {
-            $json['smart_tipping']       = $this->smartTipping;
+        if (!empty($this->smartTipping)) {
+            $json['smart_tipping']       = $this->smartTipping['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

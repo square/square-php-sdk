@@ -17,24 +17,24 @@ class CatalogItemModifierListInfo implements \JsonSerializable
     private $modifierListId;
 
     /**
-     * @var CatalogModifierOverride[]|null
+     * @var array
      */
-    private $modifierOverrides;
+    private $modifierOverrides = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $minSelectedModifiers;
+    private $minSelectedModifiers = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $maxSelectedModifiers;
+    private $maxSelectedModifiers = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $enabled;
+    private $enabled = [];
 
     /**
      * @param string $modifierListId
@@ -74,7 +74,10 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function getModifierOverrides(): ?array
     {
-        return $this->modifierOverrides;
+        if (count($this->modifierOverrides) == 0) {
+            return null;
+        }
+        return $this->modifierOverrides['value'];
     }
 
     /**
@@ -88,7 +91,17 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function setModifierOverrides(?array $modifierOverrides): void
     {
-        $this->modifierOverrides = $modifierOverrides;
+        $this->modifierOverrides['value'] = $modifierOverrides;
+    }
+
+    /**
+     * Unsets Modifier Overrides.
+     * A set of `CatalogModifierOverride` objects that override whether a given `CatalogModifier` is
+     * enabled by default.
+     */
+    public function unsetModifierOverrides(): void
+    {
+        $this->modifierOverrides = [];
     }
 
     /**
@@ -98,7 +111,10 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function getMinSelectedModifiers(): ?int
     {
-        return $this->minSelectedModifiers;
+        if (count($this->minSelectedModifiers) == 0) {
+            return null;
+        }
+        return $this->minSelectedModifiers['value'];
     }
 
     /**
@@ -110,7 +126,17 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function setMinSelectedModifiers(?int $minSelectedModifiers): void
     {
-        $this->minSelectedModifiers = $minSelectedModifiers;
+        $this->minSelectedModifiers['value'] = $minSelectedModifiers;
+    }
+
+    /**
+     * Unsets Min Selected Modifiers.
+     * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
+     * `CatalogModifierList`.
+     */
+    public function unsetMinSelectedModifiers(): void
+    {
+        $this->minSelectedModifiers = [];
     }
 
     /**
@@ -120,7 +146,10 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function getMaxSelectedModifiers(): ?int
     {
-        return $this->maxSelectedModifiers;
+        if (count($this->maxSelectedModifiers) == 0) {
+            return null;
+        }
+        return $this->maxSelectedModifiers['value'];
     }
 
     /**
@@ -132,7 +161,17 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function setMaxSelectedModifiers(?int $maxSelectedModifiers): void
     {
-        $this->maxSelectedModifiers = $maxSelectedModifiers;
+        $this->maxSelectedModifiers['value'] = $maxSelectedModifiers;
+    }
+
+    /**
+     * Unsets Max Selected Modifiers.
+     * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
+     * `CatalogModifierList`.
+     */
+    public function unsetMaxSelectedModifiers(): void
+    {
+        $this->maxSelectedModifiers = [];
     }
 
     /**
@@ -141,7 +180,10 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function getEnabled(): ?bool
     {
-        return $this->enabled;
+        if (count($this->enabled) == 0) {
+            return null;
+        }
+        return $this->enabled['value'];
     }
 
     /**
@@ -152,7 +194,16 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      */
     public function setEnabled(?bool $enabled): void
     {
-        $this->enabled = $enabled;
+        $this->enabled['value'] = $enabled;
+    }
+
+    /**
+     * Unsets Enabled.
+     * If `true`, enable this `CatalogModifierList`. The default value is `true`.
+     */
+    public function unsetEnabled(): void
+    {
+        $this->enabled = [];
     }
 
     /**
@@ -168,17 +219,17 @@ class CatalogItemModifierListInfo implements \JsonSerializable
     {
         $json = [];
         $json['modifier_list_id']           = $this->modifierListId;
-        if (isset($this->modifierOverrides)) {
-            $json['modifier_overrides']     = $this->modifierOverrides;
+        if (!empty($this->modifierOverrides)) {
+            $json['modifier_overrides']     = $this->modifierOverrides['value'];
         }
-        if (isset($this->minSelectedModifiers)) {
-            $json['min_selected_modifiers'] = $this->minSelectedModifiers;
+        if (!empty($this->minSelectedModifiers)) {
+            $json['min_selected_modifiers'] = $this->minSelectedModifiers['value'];
         }
-        if (isset($this->maxSelectedModifiers)) {
-            $json['max_selected_modifiers'] = $this->maxSelectedModifiers;
+        if (!empty($this->maxSelectedModifiers)) {
+            $json['max_selected_modifiers'] = $this->maxSelectedModifiers['value'];
         }
-        if (isset($this->enabled)) {
-            $json['enabled']                = $this->enabled;
+        if (!empty($this->enabled)) {
+            $json['enabled']                = $this->enabled['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

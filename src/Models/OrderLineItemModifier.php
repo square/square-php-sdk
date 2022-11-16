@@ -12,29 +12,29 @@ use stdClass;
 class OrderLineItemModifier implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
      * @var Money|null
@@ -47,9 +47,9 @@ class OrderLineItemModifier implements \JsonSerializable
     private $totalPriceMoney;
 
     /**
-     * @var array<string,string>|null
+     * @var array
      */
-    private $metadata;
+    private $metadata = [];
 
     /**
      * Returns Uid.
@@ -57,7 +57,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -68,7 +71,16 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the modifier only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -77,7 +89,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -88,7 +103,16 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -97,7 +121,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -108,7 +135,16 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this modifier references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -117,7 +153,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -128,7 +167,16 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the item modifier.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -143,7 +191,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getQuantity(): ?string
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -160,7 +211,22 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setQuantity(?string $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -252,7 +318,10 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function getMetadata(): ?array
     {
-        return $this->metadata;
+        if (count($this->metadata) == 0) {
+            return null;
+        }
+        return $this->metadata['value'];
     }
 
     /**
@@ -282,7 +351,33 @@ class OrderLineItemModifier implements \JsonSerializable
      */
     public function setMetadata(?array $metadata): void
     {
-        $this->metadata = $metadata;
+        $this->metadata['value'] = $metadata;
+    }
+
+    /**
+     * Unsets Metadata.
+     * Application-defined data attached to this order. Metadata fields are intended
+     * to store descriptive references or associations with an entity in another system or store brief
+     * information about the object. Square does not process this field; it only stores and returns it
+     * in relevant API calls. Do not use metadata to store any sensitive information (such as personally
+     * identifiable information or card details).
+     *
+     * Keys written by applications must be 60 characters or less and must be in the character set
+     * `[a-zA-Z0-9_-]`. Entries can also include metadata generated by Square. These keys are prefixed
+     * with a namespace, separated from the key with a ':' character.
+     *
+     * Values have a maximum length of 255 characters.
+     *
+     * An application can have up to 10 entries per metadata field.
+     *
+     * Entries written by applications are private and can only be read or modified by the same
+     * application.
+     *
+     * For more information, see  [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
+     */
+    public function unsetMetadata(): void
+    {
+        $this->metadata = [];
     }
 
     /**
@@ -297,20 +392,20 @@ class OrderLineItemModifier implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']               = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']               = $this->uid['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id'] = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']   = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion['value'];
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
-        if (isset($this->quantity)) {
-            $json['quantity']          = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']          = $this->quantity['value'];
         }
         if (isset($this->basePriceMoney)) {
             $json['base_price_money']  = $this->basePriceMoney;
@@ -318,8 +413,8 @@ class OrderLineItemModifier implements \JsonSerializable
         if (isset($this->totalPriceMoney)) {
             $json['total_price_money'] = $this->totalPriceMoney;
         }
-        if (isset($this->metadata)) {
-            $json['metadata']          = $this->metadata;
+        if (!empty($this->metadata)) {
+            $json['metadata']          = $this->metadata['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

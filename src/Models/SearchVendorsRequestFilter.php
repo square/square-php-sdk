@@ -12,14 +12,14 @@ use stdClass;
 class SearchVendorsRequestFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
      * Returns Name.
@@ -29,7 +29,10 @@ class SearchVendorsRequestFilter implements \JsonSerializable
      */
     public function getName(): ?array
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -42,7 +45,16 @@ class SearchVendorsRequestFilter implements \JsonSerializable
      */
     public function setName(?array $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The names of the [Vendor]($m/Vendor) objects to retrieve.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -54,7 +66,10 @@ class SearchVendorsRequestFilter implements \JsonSerializable
      */
     public function getStatus(): ?array
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -68,7 +83,17 @@ class SearchVendorsRequestFilter implements \JsonSerializable
      */
     public function setStatus(?array $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * The statuses of the [Vendor]($m/Vendor) objects to retrieve.
+     * See [VendorStatus](#type-vendorstatus) for possible values
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -83,11 +108,11 @@ class SearchVendorsRequestFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']   = $this->name;
+        if (!empty($this->name)) {
+            $json['name']   = $this->name['value'];
         }
-        if (isset($this->status)) {
-            $json['status'] = $this->status;
+        if (!empty($this->status)) {
+            $json['status'] = $this->status['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

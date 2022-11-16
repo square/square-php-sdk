@@ -17,9 +17,9 @@ class Location implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Address|null
@@ -27,9 +27,9 @@ class Location implements \JsonSerializable
     private $address;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $timezone;
+    private $timezone = [];
 
     /**
      * @var string[]|null
@@ -57,9 +57,9 @@ class Location implements \JsonSerializable
     private $country;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $languageCode;
+    private $languageCode = [];
 
     /**
      * @var string|null
@@ -67,14 +67,14 @@ class Location implements \JsonSerializable
     private $currency;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $phoneNumber;
+    private $phoneNumber = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $businessName;
+    private $businessName = [];
 
     /**
      * @var string|null
@@ -82,9 +82,9 @@ class Location implements \JsonSerializable
     private $type;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $websiteUrl;
+    private $websiteUrl = [];
 
     /**
      * @var BusinessHours|null
@@ -92,29 +92,29 @@ class Location implements \JsonSerializable
     private $businessHours;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $businessEmail;
+    private $businessEmail = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $twitterUsername;
+    private $twitterUsername = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $instagramUsername;
+    private $instagramUsername = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $facebookUrl;
+    private $facebookUrl = [];
 
     /**
      * @var Coordinates|null
@@ -132,9 +132,9 @@ class Location implements \JsonSerializable
     private $posBackgroundUrl;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $mcc;
+    private $mcc = [];
 
     /**
      * @var string|null
@@ -174,7 +174,10 @@ class Location implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -187,7 +190,18 @@ class Location implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the location.
+     * This information appears in the Seller Dashboard as the nickname.
+     * A location name must be unique within a seller account.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -221,7 +235,10 @@ class Location implements \JsonSerializable
      */
     public function getTimezone(): ?string
     {
-        return $this->timezone;
+        if (count($this->timezone) == 0) {
+            return null;
+        }
+        return $this->timezone['value'];
     }
 
     /**
@@ -233,7 +250,17 @@ class Location implements \JsonSerializable
      */
     public function setTimezone(?string $timezone): void
     {
-        $this->timezone = $timezone;
+        $this->timezone['value'] = $timezone;
+    }
+
+    /**
+     * Unsets Timezone.
+     * The [IANA time zone](https://www.iana.org/time-zones) identifier for
+     * the time zone of the location. For example, `America/Los_Angeles`.
+     */
+    public function unsetTimezone(): void
+    {
+        $this->timezone = [];
     }
 
     /**
@@ -359,7 +386,10 @@ class Location implements \JsonSerializable
      */
     public function getLanguageCode(): ?string
     {
-        return $this->languageCode;
+        if (count($this->languageCode) == 0) {
+            return null;
+        }
+        return $this->languageCode['value'];
     }
 
     /**
@@ -373,7 +403,19 @@ class Location implements \JsonSerializable
      */
     public function setLanguageCode(?string $languageCode): void
     {
-        $this->languageCode = $languageCode;
+        $this->languageCode['value'] = $languageCode;
+    }
+
+    /**
+     * Unsets Language Code.
+     * The language associated with the location, in
+     * [BCP 47 format](https://tools.ietf.org/html/bcp47#appendix-A).
+     * For more information, see [Language Preferences](https://developer.squareup.com/docs/build-
+     * basics/general-considerations/language-preferences).
+     */
+    public function unsetLanguageCode(): void
+    {
+        $this->languageCode = [];
     }
 
     /**
@@ -404,7 +446,10 @@ class Location implements \JsonSerializable
      */
     public function getPhoneNumber(): ?string
     {
-        return $this->phoneNumber;
+        if (count($this->phoneNumber) == 0) {
+            return null;
+        }
+        return $this->phoneNumber['value'];
     }
 
     /**
@@ -415,7 +460,16 @@ class Location implements \JsonSerializable
      */
     public function setPhoneNumber(?string $phoneNumber): void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->phoneNumber['value'] = $phoneNumber;
+    }
+
+    /**
+     * Unsets Phone Number.
+     * The phone number of the location. For example, `+1 855-700-6000`.
+     */
+    public function unsetPhoneNumber(): void
+    {
+        $this->phoneNumber = [];
     }
 
     /**
@@ -425,7 +479,10 @@ class Location implements \JsonSerializable
      */
     public function getBusinessName(): ?string
     {
-        return $this->businessName;
+        if (count($this->businessName) == 0) {
+            return null;
+        }
+        return $this->businessName['value'];
     }
 
     /**
@@ -437,7 +494,17 @@ class Location implements \JsonSerializable
      */
     public function setBusinessName(?string $businessName): void
     {
-        $this->businessName = $businessName;
+        $this->businessName['value'] = $businessName;
+    }
+
+    /**
+     * Unsets Business Name.
+     * The name of the location's overall business. This name is present on receipts and other customer-
+     * facing branding.
+     */
+    public function unsetBusinessName(): void
+    {
+        $this->businessName = [];
     }
 
     /**
@@ -466,7 +533,10 @@ class Location implements \JsonSerializable
      */
     public function getWebsiteUrl(): ?string
     {
-        return $this->websiteUrl;
+        if (count($this->websiteUrl) == 0) {
+            return null;
+        }
+        return $this->websiteUrl['value'];
     }
 
     /**
@@ -477,7 +547,16 @@ class Location implements \JsonSerializable
      */
     public function setWebsiteUrl(?string $websiteUrl): void
     {
-        $this->websiteUrl = $websiteUrl;
+        $this->websiteUrl['value'] = $websiteUrl;
+    }
+
+    /**
+     * Unsets Website Url.
+     * The website URL of the location.  For example, `https://squareup.com`.
+     */
+    public function unsetWebsiteUrl(): void
+    {
+        $this->websiteUrl = [];
     }
 
     /**
@@ -507,7 +586,10 @@ class Location implements \JsonSerializable
      */
     public function getBusinessEmail(): ?string
     {
-        return $this->businessEmail;
+        if (count($this->businessEmail) == 0) {
+            return null;
+        }
+        return $this->businessEmail['value'];
     }
 
     /**
@@ -519,7 +601,17 @@ class Location implements \JsonSerializable
      */
     public function setBusinessEmail(?string $businessEmail): void
     {
-        $this->businessEmail = $businessEmail;
+        $this->businessEmail['value'] = $businessEmail;
+    }
+
+    /**
+     * Unsets Business Email.
+     * The email address of the location. This can be unique to the location and is not always the email
+     * address for the business owner or administrator.
+     */
+    public function unsetBusinessEmail(): void
+    {
+        $this->businessEmail = [];
     }
 
     /**
@@ -528,7 +620,10 @@ class Location implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -539,7 +634,16 @@ class Location implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * The description of the location. For example, `Main Street location`.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -548,7 +652,10 @@ class Location implements \JsonSerializable
      */
     public function getTwitterUsername(): ?string
     {
-        return $this->twitterUsername;
+        if (count($this->twitterUsername) == 0) {
+            return null;
+        }
+        return $this->twitterUsername['value'];
     }
 
     /**
@@ -559,7 +666,16 @@ class Location implements \JsonSerializable
      */
     public function setTwitterUsername(?string $twitterUsername): void
     {
-        $this->twitterUsername = $twitterUsername;
+        $this->twitterUsername['value'] = $twitterUsername;
+    }
+
+    /**
+     * Unsets Twitter Username.
+     * The Twitter username of the location without the '@' symbol. For example, `Square`.
+     */
+    public function unsetTwitterUsername(): void
+    {
+        $this->twitterUsername = [];
     }
 
     /**
@@ -568,7 +684,10 @@ class Location implements \JsonSerializable
      */
     public function getInstagramUsername(): ?string
     {
-        return $this->instagramUsername;
+        if (count($this->instagramUsername) == 0) {
+            return null;
+        }
+        return $this->instagramUsername['value'];
     }
 
     /**
@@ -579,7 +698,16 @@ class Location implements \JsonSerializable
      */
     public function setInstagramUsername(?string $instagramUsername): void
     {
-        $this->instagramUsername = $instagramUsername;
+        $this->instagramUsername['value'] = $instagramUsername;
+    }
+
+    /**
+     * Unsets Instagram Username.
+     * The Instagram username of the location without the '@' symbol. For example, `square`.
+     */
+    public function unsetInstagramUsername(): void
+    {
+        $this->instagramUsername = [];
     }
 
     /**
@@ -589,7 +717,10 @@ class Location implements \JsonSerializable
      */
     public function getFacebookUrl(): ?string
     {
-        return $this->facebookUrl;
+        if (count($this->facebookUrl) == 0) {
+            return null;
+        }
+        return $this->facebookUrl['value'];
     }
 
     /**
@@ -601,7 +732,17 @@ class Location implements \JsonSerializable
      */
     public function setFacebookUrl(?string $facebookUrl): void
     {
-        $this->facebookUrl = $facebookUrl;
+        $this->facebookUrl['value'] = $facebookUrl;
+    }
+
+    /**
+     * Unsets Facebook Url.
+     * The Facebook profile URL of the location. The URL should begin with 'facebook.com/'. For example,
+     * `https://www.facebook.com/square`.
+     */
+    public function unsetFacebookUrl(): void
+    {
+        $this->facebookUrl = [];
     }
 
     /**
@@ -679,7 +820,10 @@ class Location implements \JsonSerializable
      */
     public function getMcc(): ?string
     {
-        return $this->mcc;
+        if (count($this->mcc) == 0) {
+            return null;
+        }
+        return $this->mcc['value'];
     }
 
     /**
@@ -693,7 +837,19 @@ class Location implements \JsonSerializable
      */
     public function setMcc(?string $mcc): void
     {
-        $this->mcc = $mcc;
+        $this->mcc['value'] = $mcc;
+    }
+
+    /**
+     * Unsets Mcc.
+     * A four-digit number that describes the kind of goods or services sold at the location.
+     * The [merchant category code (MCC)](https://developer.squareup.com/docs/locations-api#initialize-a-
+     * merchant-category-code) of the location as standardized by ISO 18245.
+     * For example, `5045`, for a location that sells computer goods and software.
+     */
+    public function unsetMcc(): void
+    {
+        $this->mcc = [];
     }
 
     /**
@@ -757,14 +913,14 @@ class Location implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                   = $this->id;
         }
-        if (isset($this->name)) {
-            $json['name']                 = $this->name;
+        if (!empty($this->name)) {
+            $json['name']                 = $this->name['value'];
         }
         if (isset($this->address)) {
             $json['address']              = $this->address;
         }
-        if (isset($this->timezone)) {
-            $json['timezone']             = $this->timezone;
+        if (!empty($this->timezone)) {
+            $json['timezone']             = $this->timezone['value'];
         }
         if (isset($this->capabilities)) {
             $json['capabilities']         = $this->capabilities;
@@ -781,41 +937,41 @@ class Location implements \JsonSerializable
         if (isset($this->country)) {
             $json['country']              = $this->country;
         }
-        if (isset($this->languageCode)) {
-            $json['language_code']        = $this->languageCode;
+        if (!empty($this->languageCode)) {
+            $json['language_code']        = $this->languageCode['value'];
         }
         if (isset($this->currency)) {
             $json['currency']             = $this->currency;
         }
-        if (isset($this->phoneNumber)) {
-            $json['phone_number']         = $this->phoneNumber;
+        if (!empty($this->phoneNumber)) {
+            $json['phone_number']         = $this->phoneNumber['value'];
         }
-        if (isset($this->businessName)) {
-            $json['business_name']        = $this->businessName;
+        if (!empty($this->businessName)) {
+            $json['business_name']        = $this->businessName['value'];
         }
         if (isset($this->type)) {
             $json['type']                 = $this->type;
         }
-        if (isset($this->websiteUrl)) {
-            $json['website_url']          = $this->websiteUrl;
+        if (!empty($this->websiteUrl)) {
+            $json['website_url']          = $this->websiteUrl['value'];
         }
         if (isset($this->businessHours)) {
             $json['business_hours']       = $this->businessHours;
         }
-        if (isset($this->businessEmail)) {
-            $json['business_email']       = $this->businessEmail;
+        if (!empty($this->businessEmail)) {
+            $json['business_email']       = $this->businessEmail['value'];
         }
-        if (isset($this->description)) {
-            $json['description']          = $this->description;
+        if (!empty($this->description)) {
+            $json['description']          = $this->description['value'];
         }
-        if (isset($this->twitterUsername)) {
-            $json['twitter_username']     = $this->twitterUsername;
+        if (!empty($this->twitterUsername)) {
+            $json['twitter_username']     = $this->twitterUsername['value'];
         }
-        if (isset($this->instagramUsername)) {
-            $json['instagram_username']   = $this->instagramUsername;
+        if (!empty($this->instagramUsername)) {
+            $json['instagram_username']   = $this->instagramUsername['value'];
         }
-        if (isset($this->facebookUrl)) {
-            $json['facebook_url']         = $this->facebookUrl;
+        if (!empty($this->facebookUrl)) {
+            $json['facebook_url']         = $this->facebookUrl['value'];
         }
         if (isset($this->coordinates)) {
             $json['coordinates']          = $this->coordinates;
@@ -826,8 +982,8 @@ class Location implements \JsonSerializable
         if (isset($this->posBackgroundUrl)) {
             $json['pos_background_url']   = $this->posBackgroundUrl;
         }
-        if (isset($this->mcc)) {
-            $json['mcc']                  = $this->mcc;
+        if (!empty($this->mcc)) {
+            $json['mcc']                  = $this->mcc['value'];
         }
         if (isset($this->fullFormatLogoUrl)) {
             $json['full_format_logo_url'] = $this->fullFormatLogoUrl;

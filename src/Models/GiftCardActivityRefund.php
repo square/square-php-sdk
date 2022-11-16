@@ -12,9 +12,9 @@ use stdClass;
 class GiftCardActivityRefund implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $redeemActivityId;
+    private $redeemActivityId = [];
 
     /**
      * @var Money|null
@@ -22,9 +22,9 @@ class GiftCardActivityRefund implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -43,7 +43,10 @@ class GiftCardActivityRefund implements \JsonSerializable
      */
     public function getRedeemActivityId(): ?string
     {
-        return $this->redeemActivityId;
+        if (count($this->redeemActivityId) == 0) {
+            return null;
+        }
+        return $this->redeemActivityId['value'];
     }
 
     /**
@@ -60,7 +63,22 @@ class GiftCardActivityRefund implements \JsonSerializable
      */
     public function setRedeemActivityId(?string $redeemActivityId): void
     {
-        $this->redeemActivityId = $redeemActivityId;
+        $this->redeemActivityId['value'] = $redeemActivityId;
+    }
+
+    /**
+     * Unsets Redeem Activity Id.
+     * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
+     * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
+     * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
+     * to refund a gift card payment to the same gift card if the payment was processed by Square.
+     *
+     * For applications that use a custom payment processing system, this field is required when creating
+     * a `REFUND` activity. The provided `REDEEM` activity ID must be linked to the same gift card.
+     */
+    public function unsetRedeemActivityId(): void
+    {
+        $this->redeemActivityId = [];
     }
 
     /**
@@ -101,7 +119,10 @@ class GiftCardActivityRefund implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -112,7 +133,16 @@ class GiftCardActivityRefund implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * A client-specified ID that associates the gift card activity with an entity in another system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -159,14 +189,14 @@ class GiftCardActivityRefund implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->redeemActivityId)) {
-            $json['redeem_activity_id'] = $this->redeemActivityId;
+        if (!empty($this->redeemActivityId)) {
+            $json['redeem_activity_id'] = $this->redeemActivityId['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']       = $this->amountMoney;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']       = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']       = $this->referenceId['value'];
         }
         if (isset($this->paymentId)) {
             $json['payment_id']         = $this->paymentId;

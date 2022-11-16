@@ -18,14 +18,14 @@ use stdClass;
 class InvoiceCustomField implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $label;
+    private $label = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $value;
+    private $value = [];
 
     /**
      * @var string|null
@@ -38,7 +38,10 @@ class InvoiceCustomField implements \JsonSerializable
      */
     public function getLabel(): ?string
     {
-        return $this->label;
+        if (count($this->label) == 0) {
+            return null;
+        }
+        return $this->label['value'];
     }
 
     /**
@@ -49,7 +52,16 @@ class InvoiceCustomField implements \JsonSerializable
      */
     public function setLabel(?string $label): void
     {
-        $this->label = $label;
+        $this->label['value'] = $label;
+    }
+
+    /**
+     * Unsets Label.
+     * The label or title of the custom field. This field is required for a custom field.
+     */
+    public function unsetLabel(): void
+    {
+        $this->label = [];
     }
 
     /**
@@ -58,7 +70,10 @@ class InvoiceCustomField implements \JsonSerializable
      */
     public function getValue(): ?string
     {
-        return $this->value;
+        if (count($this->value) == 0) {
+            return null;
+        }
+        return $this->value['value'];
     }
 
     /**
@@ -69,7 +84,16 @@ class InvoiceCustomField implements \JsonSerializable
      */
     public function setValue(?string $value): void
     {
-        $this->value = $value;
+        $this->value['value'] = $value;
+    }
+
+    /**
+     * Unsets Value.
+     * The text of the custom field. If omitted, only the label is rendered.
+     */
+    public function unsetValue(): void
+    {
+        $this->value = [];
     }
 
     /**
@@ -106,11 +130,11 @@ class InvoiceCustomField implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->label)) {
-            $json['label']     = $this->label;
+        if (!empty($this->label)) {
+            $json['label']     = $this->label['value'];
         }
-        if (isset($this->value)) {
-            $json['value']     = $this->value;
+        if (!empty($this->value)) {
+            $json['value']     = $this->value['value'];
         }
         if (isset($this->placement)) {
             $json['placement'] = $this->placement;

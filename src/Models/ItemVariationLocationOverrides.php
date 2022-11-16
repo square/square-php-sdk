@@ -12,9 +12,9 @@ use stdClass;
 class ItemVariationLocationOverrides implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * @var Money|null
@@ -27,9 +27,9 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     private $pricingType;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $trackInventory;
+    private $trackInventory = [];
 
     /**
      * @var string|null
@@ -37,9 +37,9 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     private $inventoryAlertType;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $inventoryAlertThreshold;
+    private $inventoryAlertThreshold = [];
 
     /**
      * @var bool|null
@@ -57,7 +57,10 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -68,7 +71,16 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the `Location`. This can include locations that are deactivated.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -129,7 +141,10 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function getTrackInventory(): ?bool
     {
-        return $this->trackInventory;
+        if (count($this->trackInventory) == 0) {
+            return null;
+        }
+        return $this->trackInventory['value'];
     }
 
     /**
@@ -140,7 +155,16 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function setTrackInventory(?bool $trackInventory): void
     {
-        $this->trackInventory = $trackInventory;
+        $this->trackInventory['value'] = $trackInventory;
+    }
+
+    /**
+     * Unsets Track Inventory.
+     * If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`.
+     */
+    public function unsetTrackInventory(): void
+    {
+        $this->trackInventory = [];
     }
 
     /**
@@ -175,7 +199,10 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function getInventoryAlertThreshold(): ?int
     {
-        return $this->inventoryAlertThreshold;
+        if (count($this->inventoryAlertThreshold) == 0) {
+            return null;
+        }
+        return $this->inventoryAlertThreshold['value'];
     }
 
     /**
@@ -190,7 +217,20 @@ class ItemVariationLocationOverrides implements \JsonSerializable
      */
     public function setInventoryAlertThreshold(?int $inventoryAlertThreshold): void
     {
-        $this->inventoryAlertThreshold = $inventoryAlertThreshold;
+        $this->inventoryAlertThreshold['value'] = $inventoryAlertThreshold;
+    }
+
+    /**
+     * Unsets Inventory Alert Threshold.
+     * If the inventory quantity for the variation is less than or equal to this value and
+     * `inventory_alert_type`
+     * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
+     *
+     * This value is always an integer.
+     */
+    public function unsetInventoryAlertThreshold(): void
+    {
+        $this->inventoryAlertThreshold = [];
     }
 
     /**
@@ -271,8 +311,8 @@ class ItemVariationLocationOverrides implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationId)) {
-            $json['location_id']               = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']               = $this->locationId['value'];
         }
         if (isset($this->priceMoney)) {
             $json['price_money']               = $this->priceMoney;
@@ -280,14 +320,14 @@ class ItemVariationLocationOverrides implements \JsonSerializable
         if (isset($this->pricingType)) {
             $json['pricing_type']              = $this->pricingType;
         }
-        if (isset($this->trackInventory)) {
-            $json['track_inventory']           = $this->trackInventory;
+        if (!empty($this->trackInventory)) {
+            $json['track_inventory']           = $this->trackInventory['value'];
         }
         if (isset($this->inventoryAlertType)) {
             $json['inventory_alert_type']      = $this->inventoryAlertType;
         }
-        if (isset($this->inventoryAlertThreshold)) {
-            $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold;
+        if (!empty($this->inventoryAlertThreshold)) {
+            $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold['value'];
         }
         if (isset($this->soldOut)) {
             $json['sold_out']                  = $this->soldOut;

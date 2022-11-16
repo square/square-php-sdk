@@ -201,6 +201,11 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 ```php
 $subscriptionId = 'subscription_id0';
 $body = new Models\UpdateSubscriptionRequest();
+$body->setSubscription(new Models\Subscription());
+$body->getSubscription()->setPriceOverrideMoney(new Models\Money());
+$body->getSubscription()->getPriceOverrideMoney()->setAmount(2000);
+$body->getSubscription()->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
+$body->getSubscription()->setVersion(1594155459464);
 
 $apiResponse = $subscriptionsApi->updateSubscription($subscriptionId, $body);
 

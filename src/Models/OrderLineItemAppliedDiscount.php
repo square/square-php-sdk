@@ -17,9 +17,9 @@ use stdClass;
 class OrderLineItemAppliedDiscount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
      * @var string
@@ -45,7 +45,10 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -56,7 +59,16 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the applied discount only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -132,8 +144,8 @@ class OrderLineItemAppliedDiscount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']           = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']           = $this->uid['value'];
         }
         $json['discount_uid']      = $this->discountUid;
         if (isset($this->appliedMoney)) {

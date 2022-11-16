@@ -31,7 +31,14 @@ Represents a [CreateLoyaltyPromotion](../../doc/apis/loyalty.md#create-loyalty-p
       },
       "type": "POINTS_MULTIPLIER"
     },
+    "minimum_spend_amount_money": {
+      "amount": 2000,
+      "currency": "USD"
+    },
     "name": "Tuesday Happy Hour Promo",
+    "qualifying_category_ids": [
+      "XTQPYLR3IIU9C44VRCB3XD12"
+    ],
     "trigger_limit": {
       "interval": "DAY",
       "times": 1

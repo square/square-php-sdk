@@ -22,14 +22,14 @@ use stdClass;
 class CatalogIdMapping implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $clientObjectId;
+    private $clientObjectId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $objectId;
+    private $objectId = [];
 
     /**
      * Returns Client Object Id.
@@ -37,7 +37,10 @@ class CatalogIdMapping implements \JsonSerializable
      */
     public function getClientObjectId(): ?string
     {
-        return $this->clientObjectId;
+        if (count($this->clientObjectId) == 0) {
+            return null;
+        }
+        return $this->clientObjectId['value'];
     }
 
     /**
@@ -48,7 +51,16 @@ class CatalogIdMapping implements \JsonSerializable
      */
     public function setClientObjectId(?string $clientObjectId): void
     {
-        $this->clientObjectId = $clientObjectId;
+        $this->clientObjectId['value'] = $clientObjectId;
+    }
+
+    /**
+     * Unsets Client Object Id.
+     * The client-supplied temporary `#`-prefixed ID for a new `CatalogObject`.
+     */
+    public function unsetClientObjectId(): void
+    {
+        $this->clientObjectId = [];
     }
 
     /**
@@ -57,7 +69,10 @@ class CatalogIdMapping implements \JsonSerializable
      */
     public function getObjectId(): ?string
     {
-        return $this->objectId;
+        if (count($this->objectId) == 0) {
+            return null;
+        }
+        return $this->objectId['value'];
     }
 
     /**
@@ -68,7 +83,16 @@ class CatalogIdMapping implements \JsonSerializable
      */
     public function setObjectId(?string $objectId): void
     {
-        $this->objectId = $objectId;
+        $this->objectId['value'] = $objectId;
+    }
+
+    /**
+     * Unsets Object Id.
+     * The permanent ID for the CatalogObject created by the server.
+     */
+    public function unsetObjectId(): void
+    {
+        $this->objectId = [];
     }
 
     /**
@@ -83,11 +107,11 @@ class CatalogIdMapping implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->clientObjectId)) {
-            $json['client_object_id'] = $this->clientObjectId;
+        if (!empty($this->clientObjectId)) {
+            $json['client_object_id'] = $this->clientObjectId['value'];
         }
-        if (isset($this->objectId)) {
-            $json['object_id']        = $this->objectId;
+        if (!empty($this->objectId)) {
+            $json['object_id']        = $this->objectId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -14,19 +14,19 @@ use stdClass;
 class SearchSubscriptionsFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $customerIds;
+    private $customerIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $sourceNames;
+    private $sourceNames = [];
 
     /**
      * Returns Customer Ids.
@@ -36,7 +36,10 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function getCustomerIds(): ?array
     {
-        return $this->customerIds;
+        if (count($this->customerIds) == 0) {
+            return null;
+        }
+        return $this->customerIds['value'];
     }
 
     /**
@@ -49,7 +52,16 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function setCustomerIds(?array $customerIds): void
     {
-        $this->customerIds = $customerIds;
+        $this->customerIds['value'] = $customerIds;
+    }
+
+    /**
+     * Unsets Customer Ids.
+     * A filter to select subscriptions based on the subscribing customer IDs.
+     */
+    public function unsetCustomerIds(): void
+    {
+        $this->customerIds = [];
     }
 
     /**
@@ -60,7 +72,10 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function getLocationIds(): ?array
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -73,7 +88,16 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function setLocationIds(?array $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * A filter to select subscriptions based on the location.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -84,7 +108,10 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function getSourceNames(): ?array
     {
-        return $this->sourceNames;
+        if (count($this->sourceNames) == 0) {
+            return null;
+        }
+        return $this->sourceNames['value'];
     }
 
     /**
@@ -97,7 +124,16 @@ class SearchSubscriptionsFilter implements \JsonSerializable
      */
     public function setSourceNames(?array $sourceNames): void
     {
-        $this->sourceNames = $sourceNames;
+        $this->sourceNames['value'] = $sourceNames;
+    }
+
+    /**
+     * Unsets Source Names.
+     * A filter to select subscriptions based on the source application.
+     */
+    public function unsetSourceNames(): void
+    {
+        $this->sourceNames = [];
     }
 
     /**
@@ -112,14 +148,14 @@ class SearchSubscriptionsFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->customerIds)) {
-            $json['customer_ids'] = $this->customerIds;
+        if (!empty($this->customerIds)) {
+            $json['customer_ids'] = $this->customerIds['value'];
         }
-        if (isset($this->locationIds)) {
-            $json['location_ids'] = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds['value'];
         }
-        if (isset($this->sourceNames)) {
-            $json['source_names'] = $this->sourceNames;
+        if (!empty($this->sourceNames)) {
+            $json['source_names'] = $this->sourceNames['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

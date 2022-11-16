@@ -9,14 +9,14 @@ use stdClass;
 class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $disputeId;
+    private $disputeId = [];
 
     /**
      * Returns Payment Id.
@@ -24,7 +24,10 @@ class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -35,7 +38,16 @@ class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this activity.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -44,7 +56,10 @@ class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
      */
     public function getDisputeId(): ?string
     {
-        return $this->disputeId;
+        if (count($this->disputeId) == 0) {
+            return null;
+        }
+        return $this->disputeId['value'];
     }
 
     /**
@@ -55,7 +70,16 @@ class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
      */
     public function setDisputeId(?string $disputeId): void
     {
-        $this->disputeId = $disputeId;
+        $this->disputeId['value'] = $disputeId;
+    }
+
+    /**
+     * Unsets Dispute Id.
+     * The ID of the dispute associated with this activity.
+     */
+    public function unsetDisputeId(): void
+    {
+        $this->disputeId = [];
     }
 
     /**
@@ -70,11 +94,11 @@ class PaymentBalanceActivityDisputeDetail implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId['value'];
         }
-        if (isset($this->disputeId)) {
-            $json['dispute_id'] = $this->disputeId;
+        if (!empty($this->disputeId)) {
+            $json['dispute_id'] = $this->disputeId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -12,9 +12,9 @@ use stdClass;
 class V1PaymentDiscount implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var V1Money|null
@@ -22,9 +22,9 @@ class V1PaymentDiscount implements \JsonSerializable
     private $appliedMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $discountId;
+    private $discountId = [];
 
     /**
      * Returns Name.
@@ -32,7 +32,10 @@ class V1PaymentDiscount implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class V1PaymentDiscount implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The discount's name.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -71,7 +83,10 @@ class V1PaymentDiscount implements \JsonSerializable
      */
     public function getDiscountId(): ?string
     {
-        return $this->discountId;
+        if (count($this->discountId) == 0) {
+            return null;
+        }
+        return $this->discountId['value'];
     }
 
     /**
@@ -83,7 +98,17 @@ class V1PaymentDiscount implements \JsonSerializable
      */
     public function setDiscountId(?string $discountId): void
     {
-        $this->discountId = $discountId;
+        $this->discountId['value'] = $discountId;
+    }
+
+    /**
+     * Unsets Discount Id.
+     * The ID of the applied discount, if available. Discounts applied in older versions of Square Register
+     * might not have an ID.
+     */
+    public function unsetDiscountId(): void
+    {
+        $this->discountId = [];
     }
 
     /**
@@ -98,14 +123,14 @@ class V1PaymentDiscount implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']          = $this->name;
+        if (!empty($this->name)) {
+            $json['name']          = $this->name['value'];
         }
         if (isset($this->appliedMoney)) {
             $json['applied_money'] = $this->appliedMoney;
         }
-        if (isset($this->discountId)) {
-            $json['discount_id']   = $this->discountId;
+        if (!empty($this->discountId)) {
+            $json['discount_id']   = $this->discountId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -14,14 +14,14 @@ class DeviceCheckoutOptions implements \JsonSerializable
     private $deviceId;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $skipReceiptScreen;
+    private $skipReceiptScreen = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $collectSignature;
+    private $collectSignature = [];
 
     /**
      * @var TipSettings|null
@@ -29,9 +29,9 @@ class DeviceCheckoutOptions implements \JsonSerializable
     private $tipSettings;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $showItemizedCart;
+    private $showItemizedCart = [];
 
     /**
      * @param string $deviceId
@@ -72,7 +72,10 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function getSkipReceiptScreen(): ?bool
     {
-        return $this->skipReceiptScreen;
+        if (count($this->skipReceiptScreen) == 0) {
+            return null;
+        }
+        return $this->skipReceiptScreen['value'];
     }
 
     /**
@@ -83,7 +86,16 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function setSkipReceiptScreen(?bool $skipReceiptScreen): void
     {
-        $this->skipReceiptScreen = $skipReceiptScreen;
+        $this->skipReceiptScreen['value'] = $skipReceiptScreen;
+    }
+
+    /**
+     * Unsets Skip Receipt Screen.
+     * Instructs the device to skip the receipt screen. Defaults to false.
+     */
+    public function unsetSkipReceiptScreen(): void
+    {
+        $this->skipReceiptScreen = [];
     }
 
     /**
@@ -92,7 +104,10 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function getCollectSignature(): ?bool
     {
-        return $this->collectSignature;
+        if (count($this->collectSignature) == 0) {
+            return null;
+        }
+        return $this->collectSignature['value'];
     }
 
     /**
@@ -103,7 +118,16 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function setCollectSignature(?bool $collectSignature): void
     {
-        $this->collectSignature = $collectSignature;
+        $this->collectSignature['value'] = $collectSignature;
+    }
+
+    /**
+     * Unsets Collect Signature.
+     * Indicates that signature collection is desired during checkout. Defaults to false.
+     */
+    public function unsetCollectSignature(): void
+    {
+        $this->collectSignature = [];
     }
 
     /**
@@ -131,7 +155,10 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function getShowItemizedCart(): ?bool
     {
-        return $this->showItemizedCart;
+        if (count($this->showItemizedCart) == 0) {
+            return null;
+        }
+        return $this->showItemizedCart['value'];
     }
 
     /**
@@ -143,7 +170,17 @@ class DeviceCheckoutOptions implements \JsonSerializable
      */
     public function setShowItemizedCart(?bool $showItemizedCart): void
     {
-        $this->showItemizedCart = $showItemizedCart;
+        $this->showItemizedCart['value'] = $showItemizedCart;
+    }
+
+    /**
+     * Unsets Show Itemized Cart.
+     * Show the itemization screen prior to taking a payment. This field is only meaningful when the
+     * checkout includes an order ID. Defaults to true.
+     */
+    public function unsetShowItemizedCart(): void
+    {
+        $this->showItemizedCart = [];
     }
 
     /**
@@ -159,17 +196,17 @@ class DeviceCheckoutOptions implements \JsonSerializable
     {
         $json = [];
         $json['device_id']               = $this->deviceId;
-        if (isset($this->skipReceiptScreen)) {
-            $json['skip_receipt_screen'] = $this->skipReceiptScreen;
+        if (!empty($this->skipReceiptScreen)) {
+            $json['skip_receipt_screen'] = $this->skipReceiptScreen['value'];
         }
-        if (isset($this->collectSignature)) {
-            $json['collect_signature']   = $this->collectSignature;
+        if (!empty($this->collectSignature)) {
+            $json['collect_signature']   = $this->collectSignature['value'];
         }
         if (isset($this->tipSettings)) {
             $json['tip_settings']        = $this->tipSettings;
         }
-        if (isset($this->showItemizedCart)) {
-            $json['show_itemized_cart']  = $this->showItemizedCart;
+        if (!empty($this->showItemizedCart)) {
+            $json['show_itemized_cart']  = $this->showItemizedCart['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

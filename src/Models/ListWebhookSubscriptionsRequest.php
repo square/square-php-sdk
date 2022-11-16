@@ -12,14 +12,14 @@ use stdClass;
 class ListWebhookSubscriptionsRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $includeDisabled;
+    private $includeDisabled = [];
 
     /**
      * @var string|null
@@ -27,9 +27,9 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Cursor.
@@ -40,7 +40,10 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -54,7 +57,19 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for your original query.
+     *
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -64,7 +79,10 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function getIncludeDisabled(): ?bool
     {
-        return $this->includeDisabled;
+        if (count($this->includeDisabled) == 0) {
+            return null;
+        }
+        return $this->includeDisabled['value'];
     }
 
     /**
@@ -76,7 +94,17 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function setIncludeDisabled(?bool $includeDisabled): void
     {
-        $this->includeDisabled = $includeDisabled;
+        $this->includeDisabled['value'] = $includeDisabled;
+    }
+
+    /**
+     * Unsets Include Disabled.
+     * Includes disabled [Subscription]($m/WebhookSubscription)s.
+     * By default, all enabled [Subscription]($m/WebhookSubscription)s are returned.
+     */
+    public function unsetIncludeDisabled(): void
+    {
+        $this->includeDisabled = [];
     }
 
     /**
@@ -109,7 +137,10 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -124,7 +155,20 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     * The default value of 100 is also the maximum allowed value.
+     *
+     * Default: 100
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -139,17 +183,17 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->cursor)) {
-            $json['cursor']           = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']           = $this->cursor['value'];
         }
-        if (isset($this->includeDisabled)) {
-            $json['include_disabled'] = $this->includeDisabled;
+        if (!empty($this->includeDisabled)) {
+            $json['include_disabled'] = $this->includeDisabled['value'];
         }
         if (isset($this->sortOrder)) {
             $json['sort_order']       = $this->sortOrder;
         }
-        if (isset($this->limit)) {
-            $json['limit']            = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']            = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

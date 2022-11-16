@@ -48,9 +48,9 @@ class TerminalRefund implements \JsonSerializable
     private $deviceId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $deadlineDuration;
+    private $deadlineDuration = [];
 
     /**
      * @var string|null
@@ -266,7 +266,10 @@ class TerminalRefund implements \JsonSerializable
      */
     public function getDeadlineDuration(): ?string
     {
-        return $this->deadlineDuration;
+        if (count($this->deadlineDuration) == 0) {
+            return null;
+        }
+        return $this->deadlineDuration['value'];
     }
 
     /**
@@ -283,7 +286,22 @@ class TerminalRefund implements \JsonSerializable
      */
     public function setDeadlineDuration(?string $deadlineDuration): void
     {
-        $this->deadlineDuration = $deadlineDuration;
+        $this->deadlineDuration['value'] = $deadlineDuration;
+    }
+
+    /**
+     * Unsets Deadline Duration.
+     * The RFC 3339 duration, after which the refund is automatically canceled.
+     * A `TerminalRefund` that is `PENDING` is automatically `CANCELED` and has a cancellation reason
+     * of `TIMED_OUT`.
+     *
+     * Default: 5 minutes from creation.
+     *
+     * Maximum: 5 minutes
+     */
+    public function unsetDeadlineDuration(): void
+    {
+        $this->deadlineDuration = [];
     }
 
     /**
@@ -431,8 +449,8 @@ class TerminalRefund implements \JsonSerializable
         $json['amount_money']          = $this->amountMoney;
         $json['reason']                = $this->reason;
         $json['device_id']             = $this->deviceId;
-        if (isset($this->deadlineDuration)) {
-            $json['deadline_duration'] = $this->deadlineDuration;
+        if (!empty($this->deadlineDuration)) {
+            $json['deadline_duration'] = $this->deadlineDuration['value'];
         }
         if (isset($this->status)) {
             $json['status']            = $this->status;

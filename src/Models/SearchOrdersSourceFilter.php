@@ -12,9 +12,9 @@ use stdClass;
 class SearchOrdersSourceFilter implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $sourceNames;
+    private $sourceNames = [];
 
     /**
      * Returns Source Names.
@@ -27,7 +27,10 @@ class SearchOrdersSourceFilter implements \JsonSerializable
      */
     public function getSourceNames(): ?array
     {
-        return $this->sourceNames;
+        if (count($this->sourceNames) == 0) {
+            return null;
+        }
+        return $this->sourceNames['value'];
     }
 
     /**
@@ -43,7 +46,19 @@ class SearchOrdersSourceFilter implements \JsonSerializable
      */
     public function setSourceNames(?array $sourceNames): void
     {
-        $this->sourceNames = $sourceNames;
+        $this->sourceNames['value'] = $sourceNames;
+    }
+
+    /**
+     * Unsets Source Names.
+     * Filters by the [Source]($m/OrderSource) `name`. The filter returns any orders
+     * with a `source.name` that matches any of the listed source names.
+     *
+     * Max: 10 source names.
+     */
+    public function unsetSourceNames(): void
+    {
+        $this->sourceNames = [];
     }
 
     /**
@@ -58,8 +73,8 @@ class SearchOrdersSourceFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->sourceNames)) {
-            $json['source_names'] = $this->sourceNames;
+        if (!empty($this->sourceNames)) {
+            $json['source_names'] = $this->sourceNames['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

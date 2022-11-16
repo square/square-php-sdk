@@ -17,9 +17,9 @@ class PayoutFee implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $effectiveAt;
+    private $effectiveAt = [];
 
     /**
      * @var string|null
@@ -64,7 +64,10 @@ class PayoutFee implements \JsonSerializable
      */
     public function getEffectiveAt(): ?string
     {
-        return $this->effectiveAt;
+        if (count($this->effectiveAt) == 0) {
+            return null;
+        }
+        return $this->effectiveAt['value'];
     }
 
     /**
@@ -75,7 +78,16 @@ class PayoutFee implements \JsonSerializable
      */
     public function setEffectiveAt(?string $effectiveAt): void
     {
-        $this->effectiveAt = $effectiveAt;
+        $this->effectiveAt['value'] = $effectiveAt;
+    }
+
+    /**
+     * Unsets Effective At.
+     * The timestamp of when the fee takes effect, in RFC 3339 format.
+     */
+    public function unsetEffectiveAt(): void
+    {
+        $this->effectiveAt = [];
     }
 
     /**
@@ -113,8 +125,8 @@ class PayoutFee implements \JsonSerializable
         if (isset($this->amountMoney)) {
             $json['amount_money'] = $this->amountMoney;
         }
-        if (isset($this->effectiveAt)) {
-            $json['effective_at'] = $this->effectiveAt;
+        if (!empty($this->effectiveAt)) {
+            $json['effective_at'] = $this->effectiveAt['value'];
         }
         if (isset($this->type)) {
             $json['type']         = $this->type;

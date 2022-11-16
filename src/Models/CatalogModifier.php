@@ -12,9 +12,9 @@ use stdClass;
 class CatalogModifier implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Money|null
@@ -22,19 +22,19 @@ class CatalogModifier implements \JsonSerializable
     private $priceMoney;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $ordinal;
+    private $ordinal = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $modifierListId;
+    private $modifierListId = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $imageIds;
+    private $imageId = [];
 
     /**
      * Returns Name.
@@ -43,7 +43,10 @@ class CatalogModifier implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -55,7 +58,17 @@ class CatalogModifier implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The modifier name.  This is a searchable attribute for use in applicable query filters, and its
+     * value length is of Unicode code points.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -96,7 +109,10 @@ class CatalogModifier implements \JsonSerializable
      */
     public function getOrdinal(): ?int
     {
-        return $this->ordinal;
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
     }
 
     /**
@@ -107,7 +123,16 @@ class CatalogModifier implements \JsonSerializable
      */
     public function setOrdinal(?int $ordinal): void
     {
-        $this->ordinal = $ordinal;
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * Determines where this `CatalogModifier` appears in the `CatalogModifierList`.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
     }
 
     /**
@@ -116,7 +141,10 @@ class CatalogModifier implements \JsonSerializable
      */
     public function getModifierListId(): ?string
     {
-        return $this->modifierListId;
+        if (count($this->modifierListId) == 0) {
+            return null;
+        }
+        return $this->modifierListId['value'];
     }
 
     /**
@@ -127,35 +155,54 @@ class CatalogModifier implements \JsonSerializable
      */
     public function setModifierListId(?string $modifierListId): void
     {
-        $this->modifierListId = $modifierListId;
+        $this->modifierListId['value'] = $modifierListId;
     }
 
     /**
-     * Returns Image Ids.
-     * The IDs of images associated with this `CatalogModifier` instance.
-     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
-     * applications.
-     *
-     * @return string[]|null
+     * Unsets Modifier List Id.
+     * The ID of the `CatalogModifierList` associated with this modifier.
      */
-    public function getImageIds(): ?array
+    public function unsetModifierListId(): void
     {
-        return $this->imageIds;
+        $this->modifierListId = [];
     }
 
     /**
-     * Sets Image Ids.
-     * The IDs of images associated with this `CatalogModifier` instance.
-     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * Returns Image Id.
+     * The ID of the image associated with this `CatalogModifier` instance.
+     * Currently this image is not displayed by Square, but is free to be displayed in 3rd party
+     * applications.
+     */
+    public function getImageId(): ?string
+    {
+        if (count($this->imageId) == 0) {
+            return null;
+        }
+        return $this->imageId['value'];
+    }
+
+    /**
+     * Sets Image Id.
+     * The ID of the image associated with this `CatalogModifier` instance.
+     * Currently this image is not displayed by Square, but is free to be displayed in 3rd party
      * applications.
      *
-     * @maps image_ids
-     *
-     * @param string[]|null $imageIds
+     * @maps image_id
      */
-    public function setImageIds(?array $imageIds): void
+    public function setImageId(?string $imageId): void
     {
-        $this->imageIds = $imageIds;
+        $this->imageId['value'] = $imageId;
+    }
+
+    /**
+     * Unsets Image Id.
+     * The ID of the image associated with this `CatalogModifier` instance.
+     * Currently this image is not displayed by Square, but is free to be displayed in 3rd party
+     * applications.
+     */
+    public function unsetImageId(): void
+    {
+        $this->imageId = [];
     }
 
     /**
@@ -170,20 +217,20 @@ class CatalogModifier implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name']             = $this->name;
+        if (!empty($this->name)) {
+            $json['name']             = $this->name['value'];
         }
         if (isset($this->priceMoney)) {
             $json['price_money']      = $this->priceMoney;
         }
-        if (isset($this->ordinal)) {
-            $json['ordinal']          = $this->ordinal;
+        if (!empty($this->ordinal)) {
+            $json['ordinal']          = $this->ordinal['value'];
         }
-        if (isset($this->modifierListId)) {
-            $json['modifier_list_id'] = $this->modifierListId;
+        if (!empty($this->modifierListId)) {
+            $json['modifier_list_id'] = $this->modifierListId['value'];
         }
-        if (isset($this->imageIds)) {
-            $json['image_ids']        = $this->imageIds;
+        if (!empty($this->imageId)) {
+            $json['image_id']         = $this->imageId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

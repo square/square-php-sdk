@@ -12,14 +12,14 @@ use stdClass;
 class CatalogV1Id implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogV1Id;
+    private $catalogV1Id = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationId;
+    private $locationId = [];
 
     /**
      * Returns Catalog V1 Id.
@@ -28,7 +28,10 @@ class CatalogV1Id implements \JsonSerializable
      */
     public function getCatalogV1Id(): ?string
     {
-        return $this->catalogV1Id;
+        if (count($this->catalogV1Id) == 0) {
+            return null;
+        }
+        return $this->catalogV1Id['value'];
     }
 
     /**
@@ -40,7 +43,17 @@ class CatalogV1Id implements \JsonSerializable
      */
     public function setCatalogV1Id(?string $catalogV1Id): void
     {
-        $this->catalogV1Id = $catalogV1Id;
+        $this->catalogV1Id['value'] = $catalogV1Id;
+    }
+
+    /**
+     * Unsets Catalog V1 Id.
+     * The ID for an object used in the Square API V1, if the object ID differs from the Square API V2
+     * object ID.
+     */
+    public function unsetCatalogV1Id(): void
+    {
+        $this->catalogV1Id = [];
     }
 
     /**
@@ -49,7 +62,10 @@ class CatalogV1Id implements \JsonSerializable
      */
     public function getLocationId(): ?string
     {
-        return $this->locationId;
+        if (count($this->locationId) == 0) {
+            return null;
+        }
+        return $this->locationId['value'];
     }
 
     /**
@@ -60,7 +76,16 @@ class CatalogV1Id implements \JsonSerializable
      */
     public function setLocationId(?string $locationId): void
     {
-        $this->locationId = $locationId;
+        $this->locationId['value'] = $locationId;
+    }
+
+    /**
+     * Unsets Location Id.
+     * The ID of the `Location` this Connect V1 ID is associated with.
+     */
+    public function unsetLocationId(): void
+    {
+        $this->locationId = [];
     }
 
     /**
@@ -75,11 +100,11 @@ class CatalogV1Id implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->catalogV1Id)) {
-            $json['catalog_v1_id'] = $this->catalogV1Id;
+        if (!empty($this->catalogV1Id)) {
+            $json['catalog_v1_id'] = $this->catalogV1Id['value'];
         }
-        if (isset($this->locationId)) {
-            $json['location_id']   = $this->locationId;
+        if (!empty($this->locationId)) {
+            $json['location_id']   = $this->locationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

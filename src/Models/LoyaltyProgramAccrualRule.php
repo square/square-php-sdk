@@ -18,9 +18,9 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     private $accrualType;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $points;
+    private $points = [];
 
     /**
      * @var LoyaltyProgramAccrualRuleVisitData|null
@@ -78,7 +78,10 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
      */
     public function getPoints(): ?int
     {
-        return $this->points;
+        if (count($this->points) == 0) {
+            return null;
+        }
+        return $this->points['value'];
     }
 
     /**
@@ -90,7 +93,17 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
      */
     public function setPoints(?int $points): void
     {
-        $this->points = $points;
+        $this->points['value'] = $points;
+    }
+
+    /**
+     * Unsets Points.
+     * The number of points that
+     * buyers earn based on the `accrual_type`.
+     */
+    public function unsetPoints(): void
+    {
+        $this->points = [];
     }
 
     /**
@@ -186,8 +199,8 @@ class LoyaltyProgramAccrualRule implements \JsonSerializable
     {
         $json = [];
         $json['accrual_type']            = $this->accrualType;
-        if (isset($this->points)) {
-            $json['points']              = $this->points;
+        if (!empty($this->points)) {
+            $json['points']              = $this->points['value'];
         }
         if (isset($this->visitData)) {
             $json['visit_data']          = $this->visitData;

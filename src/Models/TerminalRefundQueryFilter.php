@@ -9,9 +9,9 @@ use stdClass;
 class TerminalRefundQueryFilter implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $deviceId;
+    private $deviceId = [];
 
     /**
      * @var TimeRange|null
@@ -19,9 +19,9 @@ class TerminalRefundQueryFilter implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $status;
+    private $status = [];
 
     /**
      * Returns Device Id.
@@ -30,7 +30,10 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      */
     public function getDeviceId(): ?string
     {
-        return $this->deviceId;
+        if (count($this->deviceId) == 0) {
+            return null;
+        }
+        return $this->deviceId['value'];
     }
 
     /**
@@ -42,7 +45,17 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      */
     public function setDeviceId(?string $deviceId): void
     {
-        $this->deviceId = $deviceId;
+        $this->deviceId['value'] = $deviceId;
+    }
+
+    /**
+     * Unsets Device Id.
+     * `TerminalRefund` objects associated with a specific device. If no device is specified, then all
+     * `TerminalRefund` objects for the signed-in account are displayed.
+     */
+    public function unsetDeviceId(): void
+    {
+        $this->deviceId = [];
     }
 
     /**
@@ -80,7 +93,10 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      */
     public function getStatus(): ?string
     {
-        return $this->status;
+        if (count($this->status) == 0) {
+            return null;
+        }
+        return $this->status['value'];
     }
 
     /**
@@ -92,7 +108,17 @@ class TerminalRefundQueryFilter implements \JsonSerializable
      */
     public function setStatus(?string $status): void
     {
-        $this->status = $status;
+        $this->status['value'] = $status;
+    }
+
+    /**
+     * Unsets Status.
+     * Filtered results with the desired status of the `TerminalRefund`.
+     * Options: `PENDING`, `IN_PROGRESS`, `CANCEL_REQUESTED`, `CANCELED`, or `COMPLETED`.
+     */
+    public function unsetStatus(): void
+    {
+        $this->status = [];
     }
 
     /**
@@ -107,14 +133,14 @@ class TerminalRefundQueryFilter implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->deviceId)) {
-            $json['device_id']  = $this->deviceId;
+        if (!empty($this->deviceId)) {
+            $json['device_id']  = $this->deviceId['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at'] = $this->createdAt;
         }
-        if (isset($this->status)) {
-            $json['status']     = $this->status;
+        if (!empty($this->status)) {
+            $json['status']     = $this->status['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

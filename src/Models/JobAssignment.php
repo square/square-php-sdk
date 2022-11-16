@@ -32,9 +32,9 @@ class JobAssignment implements \JsonSerializable
     private $annualRate;
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $weeklyHours;
+    private $weeklyHours = [];
 
     /**
      * @param string $jobTitle
@@ -158,7 +158,10 @@ class JobAssignment implements \JsonSerializable
      */
     public function getWeeklyHours(): ?int
     {
-        return $this->weeklyHours;
+        if (count($this->weeklyHours) == 0) {
+            return null;
+        }
+        return $this->weeklyHours['value'];
     }
 
     /**
@@ -169,7 +172,16 @@ class JobAssignment implements \JsonSerializable
      */
     public function setWeeklyHours(?int $weeklyHours): void
     {
-        $this->weeklyHours = $weeklyHours;
+        $this->weeklyHours['value'] = $weeklyHours;
+    }
+
+    /**
+     * Unsets Weekly Hours.
+     * The planned hours per week for the job. Set if the job `PayType` is `SALARY`.
+     */
+    public function unsetWeeklyHours(): void
+    {
+        $this->weeklyHours = [];
     }
 
     /**
@@ -192,8 +204,8 @@ class JobAssignment implements \JsonSerializable
         if (isset($this->annualRate)) {
             $json['annual_rate']  = $this->annualRate;
         }
-        if (isset($this->weeklyHours)) {
-            $json['weekly_hours'] = $this->weeklyHours;
+        if (!empty($this->weeklyHours)) {
+            $json['weekly_hours'] = $this->weeklyHours['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

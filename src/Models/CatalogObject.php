@@ -45,34 +45,34 @@ class CatalogObject implements \JsonSerializable
     private $version;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isDeleted;
+    private $isDeleted = [];
 
     /**
-     * @var array<string,CatalogCustomAttributeValue>|null
+     * @var array
      */
-    private $customAttributeValues;
+    private $customAttributeValues = [];
 
     /**
-     * @var CatalogV1Id[]|null
+     * @var array
      */
-    private $catalogV1Ids;
+    private $catalogV1Ids = [];
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $presentAtAllLocations;
+    private $presentAtAllLocations = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $presentAtLocationIds;
+    private $presentAtLocationIds = [];
 
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $absentAtLocationIds;
+    private $absentAtLocationIds = [];
 
     /**
      * @var CatalogItem|null
@@ -278,7 +278,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getIsDeleted(): ?bool
     {
-        return $this->isDeleted;
+        if (count($this->isDeleted) == 0) {
+            return null;
+        }
+        return $this->isDeleted['value'];
     }
 
     /**
@@ -290,7 +293,17 @@ class CatalogObject implements \JsonSerializable
      */
     public function setIsDeleted(?bool $isDeleted): void
     {
-        $this->isDeleted = $isDeleted;
+        $this->isDeleted['value'] = $isDeleted;
+    }
+
+    /**
+     * Unsets Is Deleted.
+     * If `true`, the object has been deleted from the database. Must be `false` for new objects
+     * being inserted. When deleted, the `updated_at` field will equal the deletion time.
+     */
+    public function unsetIsDeleted(): void
+    {
+        $this->isDeleted = [];
     }
 
     /**
@@ -323,7 +336,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getCustomAttributeValues(): ?array
     {
-        return $this->customAttributeValues;
+        if (count($this->customAttributeValues) == 0) {
+            return null;
+        }
+        return $this->customAttributeValues['value'];
     }
 
     /**
@@ -358,7 +374,38 @@ class CatalogObject implements \JsonSerializable
      */
     public function setCustomAttributeValues(?array $customAttributeValues): void
     {
-        $this->customAttributeValues = $customAttributeValues;
+        $this->customAttributeValues['value'] = $customAttributeValues;
+    }
+
+    /**
+     * Unsets Custom Attribute Values.
+     * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
+     * pair
+     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
+     * attribute
+     * value defined in the associated
+     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * object defined by the application making the request.
+     *
+     * If the `CatalogCustomAttributeDefinition` object is
+     * defined by another application, the `CatalogCustomAttributeDefinition`'s key attribute value is
+     * prefixed by
+     * the defining application ID. For example, if the `CatalogCustomAttributeDefinition` has a `key`
+     * attribute of
+     * `"cocoa_brand"` and the defining application ID is `"abcd1234"`, the key in the map is `"abcd1234:
+     * cocoa_brand"`
+     * if the application making the request is different from the application defining the custom
+     * attribute definition.
+     * Otherwise, the key used in the map is simply `"cocoa_brand"`.
+     *
+     * Application-defined custom attributes are set at a global (location-independent) level.
+     * Custom attribute values are intended to store additional information about a catalog object
+     * or associations with an entity in another system. Do not use custom attributes
+     * to store any sensitive information (personally identifiable information, card details, etc.).
+     */
+    public function unsetCustomAttributeValues(): void
+    {
+        $this->customAttributeValues = [];
     }
 
     /**
@@ -371,7 +418,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getCatalogV1Ids(): ?array
     {
-        return $this->catalogV1Ids;
+        if (count($this->catalogV1Ids) == 0) {
+            return null;
+        }
+        return $this->catalogV1Ids['value'];
     }
 
     /**
@@ -386,7 +436,18 @@ class CatalogObject implements \JsonSerializable
      */
     public function setCatalogV1Ids(?array $catalogV1Ids): void
     {
-        $this->catalogV1Ids = $catalogV1Ids;
+        $this->catalogV1Ids['value'] = $catalogV1Ids;
+    }
+
+    /**
+     * Unsets Catalog V1 Ids.
+     * The Connect v1 IDs for this object at each location where it is present, where they
+     * differ from the object's Connect V2 ID. The field will only be present for objects that
+     * have been created or modified by legacy APIs.
+     */
+    public function unsetCatalogV1Ids(): void
+    {
+        $this->catalogV1Ids = [];
     }
 
     /**
@@ -399,7 +460,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getPresentAtAllLocations(): ?bool
     {
-        return $this->presentAtAllLocations;
+        if (count($this->presentAtAllLocations) == 0) {
+            return null;
+        }
+        return $this->presentAtAllLocations['value'];
     }
 
     /**
@@ -414,7 +478,20 @@ class CatalogObject implements \JsonSerializable
      */
     public function setPresentAtAllLocations(?bool $presentAtAllLocations): void
     {
-        $this->presentAtAllLocations = $presentAtAllLocations;
+        $this->presentAtAllLocations['value'] = $presentAtAllLocations;
+    }
+
+    /**
+     * Unsets Present at All Locations.
+     * If `true`, this object is present at all locations (including future locations), except where
+     * specified in
+     * the `absent_at_location_ids` field. If `false`, this object is not present at any locations
+     * (including future locations),
+     * except where specified in the `present_at_location_ids` field. If not specified, defaults to `true`.
+     */
+    public function unsetPresentAtAllLocations(): void
+    {
+        $this->presentAtAllLocations = [];
     }
 
     /**
@@ -426,7 +503,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getPresentAtLocationIds(): ?array
     {
-        return $this->presentAtLocationIds;
+        if (count($this->presentAtLocationIds) == 0) {
+            return null;
+        }
+        return $this->presentAtLocationIds['value'];
     }
 
     /**
@@ -440,7 +520,17 @@ class CatalogObject implements \JsonSerializable
      */
     public function setPresentAtLocationIds(?array $presentAtLocationIds): void
     {
-        $this->presentAtLocationIds = $presentAtLocationIds;
+        $this->presentAtLocationIds['value'] = $presentAtLocationIds;
+    }
+
+    /**
+     * Unsets Present at Location Ids.
+     * A list of locations where the object is present, even if `present_at_all_locations` is `false`.
+     * This can include locations that are deactivated.
+     */
+    public function unsetPresentAtLocationIds(): void
+    {
+        $this->presentAtLocationIds = [];
     }
 
     /**
@@ -452,7 +542,10 @@ class CatalogObject implements \JsonSerializable
      */
     public function getAbsentAtLocationIds(): ?array
     {
-        return $this->absentAtLocationIds;
+        if (count($this->absentAtLocationIds) == 0) {
+            return null;
+        }
+        return $this->absentAtLocationIds['value'];
     }
 
     /**
@@ -466,7 +559,17 @@ class CatalogObject implements \JsonSerializable
      */
     public function setAbsentAtLocationIds(?array $absentAtLocationIds): void
     {
-        $this->absentAtLocationIds = $absentAtLocationIds;
+        $this->absentAtLocationIds['value'] = $absentAtLocationIds;
+    }
+
+    /**
+     * Unsets Absent at Location Ids.
+     * A list of locations where the object is not present, even if `present_at_all_locations` is `true`.
+     * This can include locations that are deactivated.
+     */
+    public function unsetAbsentAtLocationIds(): void
+    {
+        $this->absentAtLocationIds = [];
     }
 
     /**
@@ -916,23 +1019,23 @@ class CatalogObject implements \JsonSerializable
         if (isset($this->version)) {
             $json['version']                          = $this->version;
         }
-        if (isset($this->isDeleted)) {
-            $json['is_deleted']                       = $this->isDeleted;
+        if (!empty($this->isDeleted)) {
+            $json['is_deleted']                       = $this->isDeleted['value'];
         }
-        if (isset($this->customAttributeValues)) {
-            $json['custom_attribute_values']          = $this->customAttributeValues;
+        if (!empty($this->customAttributeValues)) {
+            $json['custom_attribute_values']          = $this->customAttributeValues['value'];
         }
-        if (isset($this->catalogV1Ids)) {
-            $json['catalog_v1_ids']                   = $this->catalogV1Ids;
+        if (!empty($this->catalogV1Ids)) {
+            $json['catalog_v1_ids']                   = $this->catalogV1Ids['value'];
         }
-        if (isset($this->presentAtAllLocations)) {
-            $json['present_at_all_locations']         = $this->presentAtAllLocations;
+        if (!empty($this->presentAtAllLocations)) {
+            $json['present_at_all_locations']         = $this->presentAtAllLocations['value'];
         }
-        if (isset($this->presentAtLocationIds)) {
-            $json['present_at_location_ids']          = $this->presentAtLocationIds;
+        if (!empty($this->presentAtLocationIds)) {
+            $json['present_at_location_ids']          = $this->presentAtLocationIds['value'];
         }
-        if (isset($this->absentAtLocationIds)) {
-            $json['absent_at_location_ids']           = $this->absentAtLocationIds;
+        if (!empty($this->absentAtLocationIds)) {
+            $json['absent_at_location_ids']           = $this->absentAtLocationIds['value'];
         }
         if (isset($this->itemData)) {
             $json['item_data']                        = $this->itemData;

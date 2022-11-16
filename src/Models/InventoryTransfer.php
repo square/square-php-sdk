@@ -18,9 +18,9 @@ class InventoryTransfer implements \JsonSerializable
     private $id;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $referenceId;
+    private $referenceId = [];
 
     /**
      * @var string|null
@@ -28,34 +28,34 @@ class InventoryTransfer implements \JsonSerializable
     private $state;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $fromLocationId;
+    private $fromLocationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $toLocationId;
+    private $toLocationId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectType;
+    private $catalogObjectType = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $quantity;
+    private $quantity = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $occurredAt;
+    private $occurredAt = [];
 
     /**
      * @var string|null
@@ -68,14 +68,14 @@ class InventoryTransfer implements \JsonSerializable
     private $source;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $employeeId;
+    private $employeeId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
      * Returns Id.
@@ -106,7 +106,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getReferenceId(): ?string
     {
-        return $this->referenceId;
+        if (count($this->referenceId) == 0) {
+            return null;
+        }
+        return $this->referenceId['value'];
     }
 
     /**
@@ -118,7 +121,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setReferenceId(?string $referenceId): void
     {
-        $this->referenceId = $referenceId;
+        $this->referenceId['value'] = $referenceId;
+    }
+
+    /**
+     * Unsets Reference Id.
+     * An optional ID provided by the application to tie the
+     * `InventoryTransfer` to an external system.
+     */
+    public function unsetReferenceId(): void
+    {
+        $this->referenceId = [];
     }
 
     /**
@@ -148,7 +161,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getFromLocationId(): ?string
     {
-        return $this->fromLocationId;
+        if (count($this->fromLocationId) == 0) {
+            return null;
+        }
+        return $this->fromLocationId['value'];
     }
 
     /**
@@ -160,7 +176,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setFromLocationId(?string $fromLocationId): void
     {
-        $this->fromLocationId = $fromLocationId;
+        $this->fromLocationId['value'] = $fromLocationId;
+    }
+
+    /**
+     * Unsets From Location Id.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked before the transfer.
+     */
+    public function unsetFromLocationId(): void
+    {
+        $this->fromLocationId = [];
     }
 
     /**
@@ -170,7 +196,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getToLocationId(): ?string
     {
-        return $this->toLocationId;
+        if (count($this->toLocationId) == 0) {
+            return null;
+        }
+        return $this->toLocationId['value'];
     }
 
     /**
@@ -182,7 +211,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setToLocationId(?string $toLocationId): void
     {
-        $this->toLocationId = $toLocationId;
+        $this->toLocationId['value'] = $toLocationId;
+    }
+
+    /**
+     * Unsets To Location Id.
+     * The Square-generated ID of the [Location]($m/Location) where the related
+     * quantity of items was tracked after the transfer.
+     */
+    public function unsetToLocationId(): void
+    {
+        $this->toLocationId = [];
     }
 
     /**
@@ -192,7 +231,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -204,7 +246,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The Square-generated ID of the
+     * [CatalogObject]($m/CatalogObject) being tracked.
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -218,7 +270,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getCatalogObjectType(): ?string
     {
-        return $this->catalogObjectType;
+        if (count($this->catalogObjectType) == 0) {
+            return null;
+        }
+        return $this->catalogObjectType['value'];
     }
 
     /**
@@ -234,7 +289,21 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setCatalogObjectType(?string $catalogObjectType): void
     {
-        $this->catalogObjectType = $catalogObjectType;
+        $this->catalogObjectType['value'] = $catalogObjectType;
+    }
+
+    /**
+     * Unsets Catalog Object Type.
+     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     *
+     * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
+     * value.
+     * In addition, it can also read the `"catalog_object_type": "ITEM"` field value that is set by the
+     * Square Restaurants app.
+     */
+    public function unsetCatalogObjectType(): void
+    {
+        $this->catalogObjectType = [];
     }
 
     /**
@@ -244,7 +313,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getQuantity(): ?string
     {
-        return $this->quantity;
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
     }
 
     /**
@@ -256,7 +328,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setQuantity(?string $quantity): void
     {
-        $this->quantity = $quantity;
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The number of items affected by the transfer as a decimal string.
+     * Can support up to 5 digits after the decimal point.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
     }
 
     /**
@@ -268,7 +350,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getOccurredAt(): ?string
     {
-        return $this->occurredAt;
+        if (count($this->occurredAt) == 0) {
+            return null;
+        }
+        return $this->occurredAt['value'];
     }
 
     /**
@@ -282,7 +367,19 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setOccurredAt(?string $occurredAt): void
     {
-        $this->occurredAt = $occurredAt;
+        $this->occurredAt['value'] = $occurredAt;
+    }
+
+    /**
+     * Unsets Occurred At.
+     * A client-generated RFC 3339-formatted timestamp that indicates when
+     * the transfer took place. For write actions, the `occurred_at` timestamp
+     * cannot be older than 24 hours or in the future relative to the time of the
+     * request.
+     */
+    public function unsetOccurredAt(): void
+    {
+        $this->occurredAt = [];
     }
 
     /**
@@ -334,7 +431,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getEmployeeId(): ?string
     {
-        return $this->employeeId;
+        if (count($this->employeeId) == 0) {
+            return null;
+        }
+        return $this->employeeId['value'];
     }
 
     /**
@@ -346,7 +446,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setEmployeeId(?string $employeeId): void
     {
-        $this->employeeId = $employeeId;
+        $this->employeeId['value'] = $employeeId;
+    }
+
+    /**
+     * Unsets Employee Id.
+     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * inventory transfer.
+     */
+    public function unsetEmployeeId(): void
+    {
+        $this->employeeId = [];
     }
 
     /**
@@ -356,7 +466,10 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -368,7 +481,17 @@ class InventoryTransfer implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * inventory transfer.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -386,29 +509,29 @@ class InventoryTransfer implements \JsonSerializable
         if (isset($this->id)) {
             $json['id']                  = $this->id;
         }
-        if (isset($this->referenceId)) {
-            $json['reference_id']        = $this->referenceId;
+        if (!empty($this->referenceId)) {
+            $json['reference_id']        = $this->referenceId['value'];
         }
         if (isset($this->state)) {
             $json['state']               = $this->state;
         }
-        if (isset($this->fromLocationId)) {
-            $json['from_location_id']    = $this->fromLocationId;
+        if (!empty($this->fromLocationId)) {
+            $json['from_location_id']    = $this->fromLocationId['value'];
         }
-        if (isset($this->toLocationId)) {
-            $json['to_location_id']      = $this->toLocationId;
+        if (!empty($this->toLocationId)) {
+            $json['to_location_id']      = $this->toLocationId['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id']   = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id']   = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogObjectType)) {
-            $json['catalog_object_type'] = $this->catalogObjectType;
+        if (!empty($this->catalogObjectType)) {
+            $json['catalog_object_type'] = $this->catalogObjectType['value'];
         }
-        if (isset($this->quantity)) {
-            $json['quantity']            = $this->quantity;
+        if (!empty($this->quantity)) {
+            $json['quantity']            = $this->quantity['value'];
         }
-        if (isset($this->occurredAt)) {
-            $json['occurred_at']         = $this->occurredAt;
+        if (!empty($this->occurredAt)) {
+            $json['occurred_at']         = $this->occurredAt['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']          = $this->createdAt;
@@ -416,11 +539,11 @@ class InventoryTransfer implements \JsonSerializable
         if (isset($this->source)) {
             $json['source']              = $this->source;
         }
-        if (isset($this->employeeId)) {
-            $json['employee_id']         = $this->employeeId;
+        if (!empty($this->employeeId)) {
+            $json['employee_id']         = $this->employeeId['value'];
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id']      = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id']      = $this->teamMemberId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

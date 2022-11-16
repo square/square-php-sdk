@@ -14,14 +14,14 @@ class ListPayoutEntriesRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $limit;
+    private $limit = [];
 
     /**
      * Returns Sort Order.
@@ -53,7 +53,10 @@ class ListPayoutEntriesRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -68,7 +71,20 @@ class ListPayoutEntriesRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this cursor to retrieve the next set of results for the original query.
+     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * If request parameters change between requests, subsequent results may contain duplicates or missing
+     * records.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -81,7 +97,10 @@ class ListPayoutEntriesRequest implements \JsonSerializable
      */
     public function getLimit(): ?int
     {
-        return $this->limit;
+        if (count($this->limit) == 0) {
+            return null;
+        }
+        return $this->limit['value'];
     }
 
     /**
@@ -96,7 +115,20 @@ class ListPayoutEntriesRequest implements \JsonSerializable
      */
     public function setLimit(?int $limit): void
     {
-        $this->limit = $limit;
+        $this->limit['value'] = $limit;
+    }
+
+    /**
+     * Unsets Limit.
+     * The maximum number of results to be returned in a single page.
+     * It is possible to receive fewer results than the specified limit on a given page.
+     * The default value of 100 is also the maximum allowed value. If the provided value is
+     * greater than 100, it is ignored and the default value is used instead.
+     * Default: `100`
+     */
+    public function unsetLimit(): void
+    {
+        $this->limit = [];
     }
 
     /**
@@ -114,11 +146,11 @@ class ListPayoutEntriesRequest implements \JsonSerializable
         if (isset($this->sortOrder)) {
             $json['sort_order'] = $this->sortOrder;
         }
-        if (isset($this->cursor)) {
-            $json['cursor']     = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']     = $this->cursor['value'];
         }
-        if (isset($this->limit)) {
-            $json['limit']      = $this->limit;
+        if (!empty($this->limit)) {
+            $json['limit']      = $this->limit['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

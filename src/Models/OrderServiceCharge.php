@@ -12,29 +12,29 @@ use stdClass;
 class OrderServiceCharge implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $uid;
+    private $uid = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $catalogObjectId;
+    private $catalogObjectId = [];
 
     /**
-     * @var int|null
+     * @var array
      */
-    private $catalogVersion;
+    private $catalogVersion = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $percentage;
+    private $percentage = [];
 
     /**
      * @var Money|null
@@ -62,19 +62,19 @@ class OrderServiceCharge implements \JsonSerializable
     private $calculationPhase;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $taxable;
+    private $taxable = [];
 
     /**
-     * @var OrderLineItemAppliedTax[]|null
+     * @var array
      */
-    private $appliedTaxes;
+    private $appliedTaxes = [];
 
     /**
-     * @var array<string,string>|null
+     * @var array
      */
-    private $metadata;
+    private $metadata = [];
 
     /**
      * @var string|null
@@ -87,7 +87,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getUid(): ?string
     {
-        return $this->uid;
+        if (count($this->uid) == 0) {
+            return null;
+        }
+        return $this->uid['value'];
     }
 
     /**
@@ -98,7 +101,16 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setUid(?string $uid): void
     {
-        $this->uid = $uid;
+        $this->uid['value'] = $uid;
+    }
+
+    /**
+     * Unsets Uid.
+     * A unique ID that identifies the service charge only within this order.
+     */
+    public function unsetUid(): void
+    {
+        $this->uid = [];
     }
 
     /**
@@ -107,7 +119,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -118,7 +133,16 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name of the service charge.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -127,7 +151,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getCatalogObjectId(): ?string
     {
-        return $this->catalogObjectId;
+        if (count($this->catalogObjectId) == 0) {
+            return null;
+        }
+        return $this->catalogObjectId['value'];
     }
 
     /**
@@ -138,7 +165,16 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setCatalogObjectId(?string $catalogObjectId): void
     {
-        $this->catalogObjectId = $catalogObjectId;
+        $this->catalogObjectId['value'] = $catalogObjectId;
+    }
+
+    /**
+     * Unsets Catalog Object Id.
+     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
+     */
+    public function unsetCatalogObjectId(): void
+    {
+        $this->catalogObjectId = [];
     }
 
     /**
@@ -147,7 +183,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getCatalogVersion(): ?int
     {
-        return $this->catalogVersion;
+        if (count($this->catalogVersion) == 0) {
+            return null;
+        }
+        return $this->catalogVersion['value'];
     }
 
     /**
@@ -158,7 +197,16 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setCatalogVersion(?int $catalogVersion): void
     {
-        $this->catalogVersion = $catalogVersion;
+        $this->catalogVersion['value'] = $catalogVersion;
+    }
+
+    /**
+     * Unsets Catalog Version.
+     * The version of the catalog object that this service charge references.
+     */
+    public function unsetCatalogVersion(): void
+    {
+        $this->catalogVersion = [];
     }
 
     /**
@@ -170,7 +218,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getPercentage(): ?string
     {
-        return $this->percentage;
+        if (count($this->percentage) == 0) {
+            return null;
+        }
+        return $this->percentage['value'];
     }
 
     /**
@@ -184,7 +235,19 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setPercentage(?string $percentage): void
     {
-        $this->percentage = $percentage;
+        $this->percentage['value'] = $percentage;
+    }
+
+    /**
+     * Unsets Percentage.
+     * The service charge percentage as a string representation of a
+     * decimal number. For example, `"7.25"` indicates a service charge of 7.25%.
+     *
+     * Exactly 1 of `percentage` or `amount_money` should be set.
+     */
+    public function unsetPercentage(): void
+    {
+        $this->percentage = [];
     }
 
     /**
@@ -351,7 +414,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getTaxable(): ?bool
     {
-        return $this->taxable;
+        if (count($this->taxable) == 0) {
+            return null;
+        }
+        return $this->taxable['value'];
     }
 
     /**
@@ -364,7 +430,18 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setTaxable(?bool $taxable): void
     {
-        $this->taxable = $taxable;
+        $this->taxable['value'] = $taxable;
+    }
+
+    /**
+     * Unsets Taxable.
+     * Indicates whether the service charge can be taxed. If set to `true`,
+     * order-level taxes automatically apply to the service charge. Note that
+     * service charges calculated in the `TOTAL_PHASE` cannot be marked as taxable.
+     */
+    public function unsetTaxable(): void
+    {
+        $this->taxable = [];
     }
 
     /**
@@ -386,7 +463,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getAppliedTaxes(): ?array
     {
-        return $this->appliedTaxes;
+        if (count($this->appliedTaxes) == 0) {
+            return null;
+        }
+        return $this->appliedTaxes['value'];
     }
 
     /**
@@ -410,7 +490,27 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setAppliedTaxes(?array $appliedTaxes): void
     {
-        $this->appliedTaxes = $appliedTaxes;
+        $this->appliedTaxes['value'] = $appliedTaxes;
+    }
+
+    /**
+     * Unsets Applied Taxes.
+     * The list of references to the taxes applied to this service charge. Each
+     * `OrderLineItemAppliedTax` has a `tax_uid` that references the `uid` of a top-level
+     * `OrderLineItemTax` that is being applied to this service charge. On reads, the amount applied
+     * is populated.
+     *
+     * An `OrderLineItemAppliedTax` is automatically created on every taxable service charge
+     * for all `ORDER` scoped taxes that are added to the order. `OrderLineItemAppliedTax` records
+     * for `LINE_ITEM` scoped taxes must be added in requests for the tax to apply to any taxable
+     * service charge. Taxable service charges have the `taxable` field set to `true` and calculated
+     * in the `SUBTOTAL_PHASE`.
+     *
+     * To change the amount of a tax, modify the referenced top-level tax.
+     */
+    public function unsetAppliedTaxes(): void
+    {
+        $this->appliedTaxes = [];
     }
 
     /**
@@ -438,7 +538,10 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function getMetadata(): ?array
     {
-        return $this->metadata;
+        if (count($this->metadata) == 0) {
+            return null;
+        }
+        return $this->metadata['value'];
     }
 
     /**
@@ -468,7 +571,33 @@ class OrderServiceCharge implements \JsonSerializable
      */
     public function setMetadata(?array $metadata): void
     {
-        $this->metadata = $metadata;
+        $this->metadata['value'] = $metadata;
+    }
+
+    /**
+     * Unsets Metadata.
+     * Application-defined data attached to this service charge. Metadata fields are intended
+     * to store descriptive references or associations with an entity in another system or store brief
+     * information about the object. Square does not process this field; it only stores and returns it
+     * in relevant API calls. Do not use metadata to store any sensitive information (such as personally
+     * identifiable information or card details).
+     *
+     * Keys written by applications must be 60 characters or less and must be in the character set
+     * `[a-zA-Z0-9_-]`. Entries can also include metadata generated by Square. These keys are prefixed
+     * with a namespace, separated from the key with a ':' character.
+     *
+     * Values have a maximum length of 255 characters.
+     *
+     * An application can have up to 10 entries per metadata field.
+     *
+     * Entries written by applications are private and can only be read or modified by the same
+     * application.
+     *
+     * For more information, see [Metadata](https://developer.squareup.com/docs/build-basics/metadata).
+     */
+    public function unsetMetadata(): void
+    {
+        $this->metadata = [];
     }
 
     /**
@@ -501,20 +630,20 @@ class OrderServiceCharge implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->uid)) {
-            $json['uid']               = $this->uid;
+        if (!empty($this->uid)) {
+            $json['uid']               = $this->uid['value'];
         }
-        if (isset($this->name)) {
-            $json['name']              = $this->name;
+        if (!empty($this->name)) {
+            $json['name']              = $this->name['value'];
         }
-        if (isset($this->catalogObjectId)) {
-            $json['catalog_object_id'] = $this->catalogObjectId;
+        if (!empty($this->catalogObjectId)) {
+            $json['catalog_object_id'] = $this->catalogObjectId['value'];
         }
-        if (isset($this->catalogVersion)) {
-            $json['catalog_version']   = $this->catalogVersion;
+        if (!empty($this->catalogVersion)) {
+            $json['catalog_version']   = $this->catalogVersion['value'];
         }
-        if (isset($this->percentage)) {
-            $json['percentage']        = $this->percentage;
+        if (!empty($this->percentage)) {
+            $json['percentage']        = $this->percentage['value'];
         }
         if (isset($this->amountMoney)) {
             $json['amount_money']      = $this->amountMoney;
@@ -531,14 +660,14 @@ class OrderServiceCharge implements \JsonSerializable
         if (isset($this->calculationPhase)) {
             $json['calculation_phase'] = $this->calculationPhase;
         }
-        if (isset($this->taxable)) {
-            $json['taxable']           = $this->taxable;
+        if (!empty($this->taxable)) {
+            $json['taxable']           = $this->taxable['value'];
         }
-        if (isset($this->appliedTaxes)) {
-            $json['applied_taxes']     = $this->appliedTaxes;
+        if (!empty($this->appliedTaxes)) {
+            $json['applied_taxes']     = $this->appliedTaxes['value'];
         }
-        if (isset($this->metadata)) {
-            $json['metadata']          = $this->metadata;
+        if (!empty($this->metadata)) {
+            $json['metadata']          = $this->metadata['value'];
         }
         if (isset($this->type)) {
             $json['type']              = $this->type;

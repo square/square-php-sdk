@@ -58,14 +58,14 @@ class Payout implements \JsonSerializable
     private $type;
 
     /**
-     * @var PayoutFee[]|null
+     * @var array
      */
-    private $payoutFee;
+    private $payoutFee = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $arrivalDate;
+    private $arrivalDate = [];
 
     /**
      * @param string $id
@@ -289,7 +289,10 @@ class Payout implements \JsonSerializable
      */
     public function getPayoutFee(): ?array
     {
-        return $this->payoutFee;
+        if (count($this->payoutFee) == 0) {
+            return null;
+        }
+        return $this->payoutFee['value'];
     }
 
     /**
@@ -302,7 +305,16 @@ class Payout implements \JsonSerializable
      */
     public function setPayoutFee(?array $payoutFee): void
     {
-        $this->payoutFee = $payoutFee;
+        $this->payoutFee['value'] = $payoutFee;
+    }
+
+    /**
+     * Unsets Payout Fee.
+     * A list of transfer fees and any taxes on the fees assessed by Square for this payout.
+     */
+    public function unsetPayoutFee(): void
+    {
+        $this->payoutFee = [];
     }
 
     /**
@@ -312,7 +324,10 @@ class Payout implements \JsonSerializable
      */
     public function getArrivalDate(): ?string
     {
-        return $this->arrivalDate;
+        if (count($this->arrivalDate) == 0) {
+            return null;
+        }
+        return $this->arrivalDate['value'];
     }
 
     /**
@@ -324,7 +339,17 @@ class Payout implements \JsonSerializable
      */
     public function setArrivalDate(?string $arrivalDate): void
     {
-        $this->arrivalDate = $arrivalDate;
+        $this->arrivalDate['value'] = $arrivalDate;
+    }
+
+    /**
+     * Unsets Arrival Date.
+     * The calendar date, in ISO 8601 format (YYYY-MM-DD), when the payout is due to arrive in the seller’s
+     * banking destination.
+     */
+    public function unsetArrivalDate(): void
+    {
+        $this->arrivalDate = [];
     }
 
     /**
@@ -362,11 +387,11 @@ class Payout implements \JsonSerializable
         if (isset($this->type)) {
             $json['type']         = $this->type;
         }
-        if (isset($this->payoutFee)) {
-            $json['payout_fee']   = $this->payoutFee;
+        if (!empty($this->payoutFee)) {
+            $json['payout_fee']   = $this->payoutFee['value'];
         }
-        if (isset($this->arrivalDate)) {
-            $json['arrival_date'] = $this->arrivalDate;
+        if (!empty($this->arrivalDate)) {
+            $json['arrival_date'] = $this->arrivalDate['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

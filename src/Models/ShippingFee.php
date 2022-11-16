@@ -9,9 +9,9 @@ use stdClass;
 class ShippingFee implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * @var Money
@@ -32,7 +32,10 @@ class ShippingFee implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class ShippingFee implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name for the shipping fee.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -91,8 +103,8 @@ class ShippingFee implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name'] = $this->name;
+        if (!empty($this->name)) {
+            $json['name'] = $this->name['value'];
         }
         $json['charge']   = $this->charge;
         $json = array_filter($json, function ($val) {

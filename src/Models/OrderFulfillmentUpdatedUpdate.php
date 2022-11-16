@@ -12,9 +12,9 @@ use stdClass;
 class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $fulfillmentUid;
+    private $fulfillmentUid = [];
 
     /**
      * @var string|null
@@ -32,7 +32,10 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
      */
     public function getFulfillmentUid(): ?string
     {
-        return $this->fulfillmentUid;
+        if (count($this->fulfillmentUid) == 0) {
+            return null;
+        }
+        return $this->fulfillmentUid['value'];
     }
 
     /**
@@ -43,7 +46,16 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
      */
     public function setFulfillmentUid(?string $fulfillmentUid): void
     {
-        $this->fulfillmentUid = $fulfillmentUid;
+        $this->fulfillmentUid['value'] = $fulfillmentUid;
+    }
+
+    /**
+     * Unsets Fulfillment Uid.
+     * A unique ID that identifies the fulfillment only within this order.
+     */
+    public function unsetFulfillmentUid(): void
+    {
+        $this->fulfillmentUid = [];
     }
 
     /**
@@ -98,8 +110,8 @@ class OrderFulfillmentUpdatedUpdate implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->fulfillmentUid)) {
-            $json['fulfillment_uid'] = $this->fulfillmentUid;
+        if (!empty($this->fulfillmentUid)) {
+            $json['fulfillment_uid'] = $this->fulfillmentUid['value'];
         }
         if (isset($this->oldState)) {
             $json['old_state']       = $this->oldState;

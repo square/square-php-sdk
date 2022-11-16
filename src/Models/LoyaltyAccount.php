@@ -34,14 +34,14 @@ class LoyaltyAccount implements \JsonSerializable
     private $lifetimePoints;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $customerId;
+    private $customerId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $enrolledAt;
+    private $enrolledAt = [];
 
     /**
      * @var string|null
@@ -59,9 +59,9 @@ class LoyaltyAccount implements \JsonSerializable
     private $mapping;
 
     /**
-     * @var LoyaltyAccountExpiringPointDeadline[]|null
+     * @var array
      */
-    private $expiringPointDeadlines;
+    private $expiringPointDeadlines = [];
 
     /**
      * @param string $programId
@@ -168,7 +168,10 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function getCustomerId(): ?string
     {
-        return $this->customerId;
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
     }
 
     /**
@@ -179,7 +182,16 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function setCustomerId(?string $customerId): void
     {
-        $this->customerId = $customerId;
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -200,7 +212,10 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function getEnrolledAt(): ?string
     {
-        return $this->enrolledAt;
+        if (count($this->enrolledAt) == 0) {
+            return null;
+        }
+        return $this->enrolledAt['value'];
     }
 
     /**
@@ -223,7 +238,28 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function setEnrolledAt(?string $enrolledAt): void
     {
-        $this->enrolledAt = $enrolledAt;
+        $this->enrolledAt['value'] = $enrolledAt;
+    }
+
+    /**
+     * Unsets Enrolled At.
+     * The timestamp when the buyer joined the loyalty program, in RFC 3339 format. This field is used to
+     * display the **Enrolled On** or **Member Since** date in first-party Square products.
+     *
+     * If this field is not set in a `CreateLoyaltyAccount` request, Square populates it after the buyer's
+     * first action on their account
+     * (when `AccumulateLoyaltyPoints` or `CreateLoyaltyReward` is called). In first-party flows, Square
+     * populates the field when the buyer agrees to the terms of service in Square Point of Sale.
+     *
+     * This field is typically specified in a `CreateLoyaltyAccount` request when creating a loyalty
+     * account for a buyer who already interacted with their account.
+     * For example, you would set this field when migrating accounts from an external system. The timestamp
+     * in the request can represent a current or previous date and time, but it cannot be set for the
+     * future.
+     */
+    public function unsetEnrolledAt(): void
+    {
+        $this->enrolledAt = [];
     }
 
     /**
@@ -305,7 +341,10 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function getExpiringPointDeadlines(): ?array
     {
-        return $this->expiringPointDeadlines;
+        if (count($this->expiringPointDeadlines) == 0) {
+            return null;
+        }
+        return $this->expiringPointDeadlines['value'];
     }
 
     /**
@@ -321,7 +360,19 @@ class LoyaltyAccount implements \JsonSerializable
      */
     public function setExpiringPointDeadlines(?array $expiringPointDeadlines): void
     {
-        $this->expiringPointDeadlines = $expiringPointDeadlines;
+        $this->expiringPointDeadlines['value'] = $expiringPointDeadlines;
+    }
+
+    /**
+     * Unsets Expiring Point Deadlines.
+     * The schedule for when points expire in the loyalty account balance. This field is present only if
+     * the account has points that are scheduled to expire.
+     *
+     * The total number of points in this field equals the number of points in the `balance` field.
+     */
+    public function unsetExpiringPointDeadlines(): void
+    {
+        $this->expiringPointDeadlines = [];
     }
 
     /**
@@ -346,11 +397,11 @@ class LoyaltyAccount implements \JsonSerializable
         if (isset($this->lifetimePoints)) {
             $json['lifetime_points']          = $this->lifetimePoints;
         }
-        if (isset($this->customerId)) {
-            $json['customer_id']              = $this->customerId;
+        if (!empty($this->customerId)) {
+            $json['customer_id']              = $this->customerId['value'];
         }
-        if (isset($this->enrolledAt)) {
-            $json['enrolled_at']              = $this->enrolledAt;
+        if (!empty($this->enrolledAt)) {
+            $json['enrolled_at']              = $this->enrolledAt['value'];
         }
         if (isset($this->createdAt)) {
             $json['created_at']               = $this->createdAt;
@@ -361,8 +412,8 @@ class LoyaltyAccount implements \JsonSerializable
         if (isset($this->mapping)) {
             $json['mapping']                  = $this->mapping;
         }
-        if (isset($this->expiringPointDeadlines)) {
-            $json['expiring_point_deadlines'] = $this->expiringPointDeadlines;
+        if (!empty($this->expiringPointDeadlines)) {
+            $json['expiring_point_deadlines'] = $this->expiringPointDeadlines['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -9,14 +9,14 @@ use stdClass;
 class RetrieveInventoryCountRequest implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $locationIds;
+    private $locationIds = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $cursor;
+    private $cursor = [];
 
     /**
      * Returns Location Ids.
@@ -25,7 +25,10 @@ class RetrieveInventoryCountRequest implements \JsonSerializable
      */
     public function getLocationIds(): ?string
     {
-        return $this->locationIds;
+        if (count($this->locationIds) == 0) {
+            return null;
+        }
+        return $this->locationIds['value'];
     }
 
     /**
@@ -37,7 +40,17 @@ class RetrieveInventoryCountRequest implements \JsonSerializable
      */
     public function setLocationIds(?string $locationIds): void
     {
-        $this->locationIds = $locationIds;
+        $this->locationIds['value'] = $locationIds;
+    }
+
+    /**
+     * Unsets Location Ids.
+     * The [Location]($m/Location) IDs to look up as a comma-separated
+     * list. An empty list queries all locations.
+     */
+    public function unsetLocationIds(): void
+    {
+        $this->locationIds = [];
     }
 
     /**
@@ -50,7 +63,10 @@ class RetrieveInventoryCountRequest implements \JsonSerializable
      */
     public function getCursor(): ?string
     {
-        return $this->cursor;
+        if (count($this->cursor) == 0) {
+            return null;
+        }
+        return $this->cursor['value'];
     }
 
     /**
@@ -65,7 +81,20 @@ class RetrieveInventoryCountRequest implements \JsonSerializable
      */
     public function setCursor(?string $cursor): void
     {
-        $this->cursor = $cursor;
+        $this->cursor['value'] = $cursor;
+    }
+
+    /**
+     * Unsets Cursor.
+     * A pagination cursor returned by a previous call to this endpoint.
+     * Provide this to retrieve the next set of results for the original query.
+     *
+     * See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for
+     * more information.
+     */
+    public function unsetCursor(): void
+    {
+        $this->cursor = [];
     }
 
     /**
@@ -80,11 +109,11 @@ class RetrieveInventoryCountRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->locationIds)) {
-            $json['location_ids'] = $this->locationIds;
+        if (!empty($this->locationIds)) {
+            $json['location_ids'] = $this->locationIds['value'];
         }
-        if (isset($this->cursor)) {
-            $json['cursor']       = $this->cursor;
+        if (!empty($this->cursor)) {
+            $json['cursor']       = $this->cursor['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

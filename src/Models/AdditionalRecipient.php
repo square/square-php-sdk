@@ -17,9 +17,9 @@ class AdditionalRecipient implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $description;
+    private $description = [];
 
     /**
      * @var Money
@@ -27,9 +27,9 @@ class AdditionalRecipient implements \JsonSerializable
     private $amountMoney;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $receivableId;
+    private $receivableId = [];
 
     /**
      * @param string $locationId
@@ -68,7 +68,10 @@ class AdditionalRecipient implements \JsonSerializable
      */
     public function getDescription(): ?string
     {
-        return $this->description;
+        if (count($this->description) == 0) {
+            return null;
+        }
+        return $this->description['value'];
     }
 
     /**
@@ -79,7 +82,16 @@ class AdditionalRecipient implements \JsonSerializable
      */
     public function setDescription(?string $description): void
     {
-        $this->description = $description;
+        $this->description['value'] = $description;
+    }
+
+    /**
+     * Unsets Description.
+     * The description of the additional recipient.
+     */
+    public function unsetDescription(): void
+    {
+        $this->description = [];
     }
 
     /**
@@ -122,7 +134,10 @@ class AdditionalRecipient implements \JsonSerializable
      */
     public function getReceivableId(): ?string
     {
-        return $this->receivableId;
+        if (count($this->receivableId) == 0) {
+            return null;
+        }
+        return $this->receivableId['value'];
     }
 
     /**
@@ -134,7 +149,17 @@ class AdditionalRecipient implements \JsonSerializable
      */
     public function setReceivableId(?string $receivableId): void
     {
-        $this->receivableId = $receivableId;
+        $this->receivableId['value'] = $receivableId;
+    }
+
+    /**
+     * Unsets Receivable Id.
+     * The unique ID for the RETIRED `AdditionalRecipientReceivable` object. This field should be empty for
+     * any `AdditionalRecipient` objects created after the retirement.
+     */
+    public function unsetReceivableId(): void
+    {
+        $this->receivableId = [];
     }
 
     /**
@@ -150,12 +175,12 @@ class AdditionalRecipient implements \JsonSerializable
     {
         $json = [];
         $json['location_id']       = $this->locationId;
-        if (isset($this->description)) {
-            $json['description']   = $this->description;
+        if (!empty($this->description)) {
+            $json['description']   = $this->description['value'];
         }
         $json['amount_money']      = $this->amountMoney;
-        if (isset($this->receivableId)) {
-            $json['receivable_id'] = $this->receivableId;
+        if (!empty($this->receivableId)) {
+            $json['receivable_id'] = $this->receivableId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

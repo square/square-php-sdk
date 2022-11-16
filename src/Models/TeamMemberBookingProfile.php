@@ -28,9 +28,9 @@ class TeamMemberBookingProfile implements \JsonSerializable
     private $displayName;
 
     /**
-     * @var bool|null
+     * @var array
      */
-    private $isBookable;
+    private $isBookable = [];
 
     /**
      * @var string|null
@@ -106,7 +106,10 @@ class TeamMemberBookingProfile implements \JsonSerializable
      */
     public function getIsBookable(): ?bool
     {
-        return $this->isBookable;
+        if (count($this->isBookable) == 0) {
+            return null;
+        }
+        return $this->isBookable['value'];
     }
 
     /**
@@ -118,7 +121,17 @@ class TeamMemberBookingProfile implements \JsonSerializable
      */
     public function setIsBookable(?bool $isBookable): void
     {
-        $this->isBookable = $isBookable;
+        $this->isBookable['value'] = $isBookable;
+    }
+
+    /**
+     * Unsets Is Bookable.
+     * Indicates whether the team member can be booked through the Bookings API or the seller's online
+     * booking channel or site (`true) or not (`false`).
+     */
+    public function unsetIsBookable(): void
+    {
+        $this->isBookable = [];
     }
 
     /**
@@ -162,8 +175,8 @@ class TeamMemberBookingProfile implements \JsonSerializable
         if (isset($this->displayName)) {
             $json['display_name']      = $this->displayName;
         }
-        if (isset($this->isBookable)) {
-            $json['is_bookable']       = $this->isBookable;
+        if (!empty($this->isBookable)) {
+            $json['is_bookable']       = $this->isBookable['value'];
         }
         if (isset($this->profileImageUrl)) {
             $json['profile_image_url'] = $this->profileImageUrl;

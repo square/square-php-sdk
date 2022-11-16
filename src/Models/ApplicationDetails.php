@@ -17,9 +17,9 @@ class ApplicationDetails implements \JsonSerializable
     private $squareProduct;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $applicationId;
+    private $applicationId = [];
 
     /**
      * Returns Square Product.
@@ -53,7 +53,10 @@ class ApplicationDetails implements \JsonSerializable
      */
     public function getApplicationId(): ?string
     {
-        return $this->applicationId;
+        if (count($this->applicationId) == 0) {
+            return null;
+        }
+        return $this->applicationId['value'];
     }
 
     /**
@@ -70,7 +73,22 @@ class ApplicationDetails implements \JsonSerializable
      */
     public function setApplicationId(?string $applicationId): void
     {
-        $this->applicationId = $applicationId;
+        $this->applicationId['value'] = $applicationId;
+    }
+
+    /**
+     * Unsets Application Id.
+     * The Square ID assigned to the application used to take the payment.
+     * Application developers can use this information to identify payments that
+     * their application processed.
+     * For example, if a developer uses a custom application to process payments,
+     * this field contains the application ID from the Developer Dashboard.
+     * If a seller uses a [Square App Marketplace](https://developer.squareup.com/docs/app-marketplace)
+     * application to process payments, the field contains the corresponding application ID.
+     */
+    public function unsetApplicationId(): void
+    {
+        $this->applicationId = [];
     }
 
     /**
@@ -88,8 +106,8 @@ class ApplicationDetails implements \JsonSerializable
         if (isset($this->squareProduct)) {
             $json['square_product'] = $this->squareProduct;
         }
-        if (isset($this->applicationId)) {
-            $json['application_id'] = $this->applicationId;
+        if (!empty($this->applicationId)) {
+            $json['application_id'] = $this->applicationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

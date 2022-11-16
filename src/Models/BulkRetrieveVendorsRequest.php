@@ -12,9 +12,9 @@ use stdClass;
 class BulkRetrieveVendorsRequest implements \JsonSerializable
 {
     /**
-     * @var string[]|null
+     * @var array
      */
-    private $vendorIds;
+    private $vendorIds = [];
 
     /**
      * Returns Vendor Ids.
@@ -24,7 +24,10 @@ class BulkRetrieveVendorsRequest implements \JsonSerializable
      */
     public function getVendorIds(): ?array
     {
-        return $this->vendorIds;
+        if (count($this->vendorIds) == 0) {
+            return null;
+        }
+        return $this->vendorIds['value'];
     }
 
     /**
@@ -37,7 +40,16 @@ class BulkRetrieveVendorsRequest implements \JsonSerializable
      */
     public function setVendorIds(?array $vendorIds): void
     {
-        $this->vendorIds = $vendorIds;
+        $this->vendorIds['value'] = $vendorIds;
+    }
+
+    /**
+     * Unsets Vendor Ids.
+     * IDs of the [Vendor]($m/Vendor) objects to retrieve.
+     */
+    public function unsetVendorIds(): void
+    {
+        $this->vendorIds = [];
     }
 
     /**
@@ -52,8 +64,8 @@ class BulkRetrieveVendorsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->vendorIds)) {
-            $json['vendor_ids'] = $this->vendorIds;
+        if (!empty($this->vendorIds)) {
+            $json['vendor_ids'] = $this->vendorIds['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

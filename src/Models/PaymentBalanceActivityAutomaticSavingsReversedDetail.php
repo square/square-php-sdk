@@ -9,14 +9,14 @@ use stdClass;
 class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $paymentId;
+    private $paymentId = [];
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $payoutId;
+    private $payoutId = [];
 
     /**
      * Returns Payment Id.
@@ -24,7 +24,10 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSeria
      */
     public function getPaymentId(): ?string
     {
-        return $this->paymentId;
+        if (count($this->paymentId) == 0) {
+            return null;
+        }
+        return $this->paymentId['value'];
     }
 
     /**
@@ -35,7 +38,16 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSeria
      */
     public function setPaymentId(?string $paymentId): void
     {
-        $this->paymentId = $paymentId;
+        $this->paymentId['value'] = $paymentId;
+    }
+
+    /**
+     * Unsets Payment Id.
+     * The ID of the payment associated with this activity.
+     */
+    public function unsetPaymentId(): void
+    {
+        $this->paymentId = [];
     }
 
     /**
@@ -44,7 +56,10 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSeria
      */
     public function getPayoutId(): ?string
     {
-        return $this->payoutId;
+        if (count($this->payoutId) == 0) {
+            return null;
+        }
+        return $this->payoutId['value'];
     }
 
     /**
@@ -55,7 +70,16 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSeria
      */
     public function setPayoutId(?string $payoutId): void
     {
-        $this->payoutId = $payoutId;
+        $this->payoutId['value'] = $payoutId;
+    }
+
+    /**
+     * Unsets Payout Id.
+     * The ID of the payout associated with this activity.
+     */
+    public function unsetPayoutId(): void
+    {
+        $this->payoutId = [];
     }
 
     /**
@@ -70,11 +94,11 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail implements \JsonSeria
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->paymentId)) {
-            $json['payment_id'] = $this->paymentId;
+        if (!empty($this->paymentId)) {
+            $json['payment_id'] = $this->paymentId['value'];
         }
-        if (isset($this->payoutId)) {
-            $json['payout_id']  = $this->payoutId;
+        if (!empty($this->payoutId)) {
+            $json['payout_id']  = $this->payoutId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

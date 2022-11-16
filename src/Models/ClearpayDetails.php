@@ -12,9 +12,9 @@ use stdClass;
 class ClearpayDetails implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $emailAddress;
+    private $emailAddress = [];
 
     /**
      * Returns Email Address.
@@ -22,7 +22,10 @@ class ClearpayDetails implements \JsonSerializable
      */
     public function getEmailAddress(): ?string
     {
-        return $this->emailAddress;
+        if (count($this->emailAddress) == 0) {
+            return null;
+        }
+        return $this->emailAddress['value'];
     }
 
     /**
@@ -33,7 +36,16 @@ class ClearpayDetails implements \JsonSerializable
      */
     public function setEmailAddress(?string $emailAddress): void
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress['value'] = $emailAddress;
+    }
+
+    /**
+     * Unsets Email Address.
+     * Email address on the buyer's Clearpay account.
+     */
+    public function unsetEmailAddress(): void
+    {
+        $this->emailAddress = [];
     }
 
     /**
@@ -48,8 +60,8 @@ class ClearpayDetails implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->emailAddress)) {
-            $json['email_address'] = $this->emailAddress;
+        if (!empty($this->emailAddress)) {
+            $json['email_address'] = $this->emailAddress['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
