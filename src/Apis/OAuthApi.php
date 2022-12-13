@@ -14,6 +14,7 @@ use Square\Models\ObtainTokenRequest;
 use Square\Models\ObtainTokenResponse;
 use Square\Models\RenewTokenRequest;
 use Square\Models\RenewTokenResponse;
+use Square\Models\RetrieveTokenStatusResponse;
 use Square\Models\RevokeTokenRequest;
 use Square\Models\RevokeTokenResponse;
 
@@ -142,6 +143,43 @@ class OAuthApi extends BaseApi
             ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
         $_resHandler = $this->responseHandler()->type(ObtainTokenResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Returns information about an [OAuth access token](https://developer.squareup.com/docs/build-
+     * basics/access-tokens#get-an-oauth-access-token) or an application’s [personal access token](https:
+     * //developer.squareup.com/docs/build-basics/access-tokens#get-a-personal-access-token).
+     *
+     * Add the access token to the Authorization header of the request.
+     *
+     * __Important:__ The `Authorization` header you provide to this endpoint must have the following
+     * format:
+     *
+     * ```
+     * Authorization: Bearer ACCESS_TOKEN
+     * ```
+     *
+     * where `ACCESS_TOKEN` is a
+     * [valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-
+     * tokens).
+     *
+     * If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED`
+     * error.
+     *
+     * @param string $authorization Client APPLICATION_SECRET
+     *
+     * @return ApiResponse Response from the API call
+     *
+     * @throws ApiException Thrown if API call fails
+     */
+    public function retrieveTokenStatus(string $authorization): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/token/status')
+            ->parameters(HeaderParam::init('Authorization', $authorization));
+
+        $_resHandler = $this->responseHandler()->type(RetrieveTokenStatusResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

@@ -89,8 +89,8 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Returns Query.
-     * Represents a query (including filtering criteria, sorting criteria, or both) used to search
-     * for customer profiles.
+     * Represents filtering and sorting criteria for a [SearchCustomers]($e/Customers/SearchCustomers)
+     * request.
      */
     public function getQuery(): ?CustomerQuery
     {
@@ -99,8 +99,8 @@ class SearchCustomersRequest implements \JsonSerializable
 
     /**
      * Sets Query.
-     * Represents a query (including filtering criteria, sorting criteria, or both) used to search
-     * for customer profiles.
+     * Represents filtering and sorting criteria for a [SearchCustomers]($e/Customers/SearchCustomers)
+     * request.
      *
      * @maps query
      */

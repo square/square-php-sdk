@@ -13,6 +13,7 @@ $oAuthApi = $client->getOAuthApi();
 * [Renew Token](../../doc/apis/o-auth.md#renew-token)
 * [Revoke Token](../../doc/apis/o-auth.md#revoke-token)
 * [Obtain Token](../../doc/apis/o-auth.md#obtain-token)
+* [Retrieve Token Status](../../doc/apis/o-auth.md#retrieve-token-status)
 
 
 # Renew Token
@@ -189,6 +190,58 @@ $apiResponse = $oAuthApi->obtainToken($body);
 
 if ($apiResponse->isSuccess()) {
     $obtainTokenResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Get more response info...
+// $statusCode = $apiResponse->getStatusCode();
+// $headers = $apiResponse->getHeaders();
+```
+
+
+# Retrieve Token Status
+
+Returns information about an [OAuth access token](https://developer.squareup.com/docs/build-basics/access-tokens#get-an-oauth-access-token) or an application’s [personal access token](https://developer.squareup.com/docs/build-basics/access-tokens#get-a-personal-access-token).
+
+Add the access token to the Authorization header of the request.
+
+__Important:__ The `Authorization` header you provide to this endpoint must have the following format:
+
+```
+Authorization: Bearer ACCESS_TOKEN
+```
+
+where `ACCESS_TOKEN` is a
+[valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
+
+If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED` error.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```php
+function retrieveTokenStatus(string $authorization): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
+
+## Response Type
+
+[`RetrieveTokenStatusResponse`](../../doc/models/retrieve-token-status-response.md)
+
+## Example Usage
+
+```php
+$authorization = 'Client CLIENT_SECRET';
+
+$apiResponse = $oAuthApi->retrieveTokenStatus($authorization);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveTokenStatusResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

@@ -39,16 +39,18 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var CatalogObjectReference|null
+     * @var CatalogObjectReference
      */
     private $pricingRuleReference;
 
     /**
      * @param int $points
+     * @param CatalogObjectReference $pricingRuleReference
      */
-    public function __construct(int $points)
+    public function __construct(int $points, CatalogObjectReference $pricingRuleReference)
     {
         $this->points = $points;
+        $this->pricingRuleReference = $pricingRuleReference;
     }
 
     /**
@@ -164,7 +166,7 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * used as an entry point into a graph of catalog objects, where the objects exist
      * at a specific version.
      */
-    public function getPricingRuleReference(): ?CatalogObjectReference
+    public function getPricingRuleReference(): CatalogObjectReference
     {
         return $this->pricingRuleReference;
     }
@@ -175,9 +177,10 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
      * used as an entry point into a graph of catalog objects, where the objects exist
      * at a specific version.
      *
+     * @required
      * @maps pricing_rule_reference
      */
-    public function setPricingRuleReference(?CatalogObjectReference $pricingRuleReference): void
+    public function setPricingRuleReference(CatalogObjectReference $pricingRuleReference): void
     {
         $this->pricingRuleReference = $pricingRuleReference;
     }
@@ -195,21 +198,19 @@ class LoyaltyProgramRewardTier implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                     = $this->id;
+            $json['id']                 = $this->id;
         }
-        $json['points']                     = $this->points;
+        $json['points']                 = $this->points;
         if (isset($this->name)) {
-            $json['name']                   = $this->name;
+            $json['name']               = $this->name;
         }
         if (isset($this->definition)) {
-            $json['definition']             = $this->definition;
+            $json['definition']         = $this->definition;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']             = $this->createdAt;
+            $json['created_at']         = $this->createdAt;
         }
-        if (isset($this->pricingRuleReference)) {
-            $json['pricing_rule_reference'] = $this->pricingRuleReference;
-        }
+        $json['pricing_rule_reference'] = $this->pricingRuleReference;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

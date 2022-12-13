@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Specifies how searched customers profiles are sorted, including the sort key and sort order.
+ * Represents the sorting criteria in a [search query]($m/CustomerQuery) that defines how to sort
+ * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
  */
 class CustomerSort implements \JsonSerializable
 {

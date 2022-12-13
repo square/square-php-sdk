@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a set of `CustomerQuery` filters used to limit the set of
- * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
+ * Represents the filtering criteria in a [search query]($m/CustomerQuery) that defines how to filter
+ * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
  */
 class CustomerFilter implements \JsonSerializable
 {
@@ -51,6 +51,11 @@ class CustomerFilter implements \JsonSerializable
      * @var CustomerCustomAttributeFilters|null
      */
     private $customAttribute;
+
+    /**
+     * @var FilterValue|null
+     */
+    private $segmentIds;
 
     /**
      * Returns Creation Source.
@@ -265,6 +270,34 @@ class CustomerFilter implements \JsonSerializable
     }
 
     /**
+     * Returns Segment Ids.
+     * A filter to select resources based on an exact field value. For any given
+     * value, the value can only be in one property. Depending on the field, either
+     * all properties can be set or only a subset will be available.
+     *
+     * Refer to the documentation of the field.
+     */
+    public function getSegmentIds(): ?FilterValue
+    {
+        return $this->segmentIds;
+    }
+
+    /**
+     * Sets Segment Ids.
+     * A filter to select resources based on an exact field value. For any given
+     * value, the value can only be in one property. Depending on the field, either
+     * all properties can be set or only a subset will be available.
+     *
+     * Refer to the documentation of the field.
+     *
+     * @maps segment_ids
+     */
+    public function setSegmentIds(?FilterValue $segmentIds): void
+    {
+        $this->segmentIds = $segmentIds;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -299,6 +332,9 @@ class CustomerFilter implements \JsonSerializable
         }
         if (isset($this->customAttribute)) {
             $json['custom_attribute'] = $this->customAttribute;
+        }
+        if (isset($this->segmentIds)) {
+            $json['segment_ids']      = $this->segmentIds;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

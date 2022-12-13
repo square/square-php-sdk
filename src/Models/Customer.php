@@ -599,7 +599,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Group Ids.
-     * The IDs of customer groups the customer belongs to.
+     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
      *
      * @return string[]|null
      */
@@ -613,7 +613,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Group Ids.
-     * The IDs of customer groups the customer belongs to.
+     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
      *
      * @maps group_ids
      *
@@ -626,7 +626,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Unsets Group Ids.
-     * The IDs of customer groups the customer belongs to.
+     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
      */
     public function unsetGroupIds(): void
     {
@@ -635,7 +635,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Segment Ids.
-     * The IDs of segments the customer belongs to.
+     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
      *
      * @return string[]|null
      */
@@ -649,7 +649,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Segment Ids.
-     * The IDs of segments the customer belongs to.
+     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
      *
      * @maps segment_ids
      *
@@ -662,7 +662,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Unsets Segment Ids.
-     * The IDs of segments the customer belongs to.
+     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
      */
     public function unsetSegmentIds(): void
     {

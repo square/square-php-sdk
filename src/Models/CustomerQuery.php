@@ -7,8 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a query (including filtering criteria, sorting criteria, or both) used to search
- * for customer profiles.
+ * Represents filtering and sorting criteria for a [SearchCustomers]($e/Customers/SearchCustomers)
+ * request.
  */
 class CustomerQuery implements \JsonSerializable
 {
@@ -24,8 +24,8 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Returns Filter.
-     * Represents a set of `CustomerQuery` filters used to limit the set of
-     * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
+     * Represents the filtering criteria in a [search query]($m/CustomerQuery) that defines how to filter
+     * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
      */
     public function getFilter(): ?CustomerFilter
     {
@@ -34,8 +34,8 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Sets Filter.
-     * Represents a set of `CustomerQuery` filters used to limit the set of
-     * customers returned by the [SearchCustomers]($e/Customers/SearchCustomers) endpoint.
+     * Represents the filtering criteria in a [search query]($m/CustomerQuery) that defines how to filter
+     * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
      *
      * @maps filter
      */
@@ -46,7 +46,8 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Returns Sort.
-     * Specifies how searched customers profiles are sorted, including the sort key and sort order.
+     * Represents the sorting criteria in a [search query]($m/CustomerQuery) that defines how to sort
+     * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
      */
     public function getSort(): ?CustomerSort
     {
@@ -55,7 +56,8 @@ class CustomerQuery implements \JsonSerializable
 
     /**
      * Sets Sort.
-     * Specifies how searched customers profiles are sorted, including the sort key and sort order.
+     * Represents the sorting criteria in a [search query]($m/CustomerQuery) that defines how to sort
+     * customer profiles returned in [SearchCustomers]($e/Customers/SearchCustomers) results.
      *
      * @maps sort
      */

@@ -55,7 +55,8 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Customers.
-     * An array of `Customer` objects that match a query.
+     * The customer profiles that match the search query. If any search condition is not met, the result is
+     * an empty object (`{}`).
      *
      * @return Customer[]|null
      */
@@ -66,7 +67,8 @@ class SearchCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Customers.
-     * An array of `Customer` objects that match a query.
+     * The customer profiles that match the search query. If any search condition is not met, the result is
+     * an empty object (`{}`).
      *
      * @maps customers
      *
