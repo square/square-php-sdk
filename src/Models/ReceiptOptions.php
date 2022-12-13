@@ -58,6 +58,7 @@ class ReceiptOptions implements \JsonSerializable
     /**
      * Returns Print Only.
      * Instructs the device to print the receipt without displaying the receipt selection screen.
+     * Requires `printer_enabled` set to true.
      * Defaults to false.
      */
     public function getPrintOnly(): ?bool
@@ -71,6 +72,7 @@ class ReceiptOptions implements \JsonSerializable
     /**
      * Sets Print Only.
      * Instructs the device to print the receipt without displaying the receipt selection screen.
+     * Requires `printer_enabled` set to true.
      * Defaults to false.
      *
      * @maps print_only
@@ -83,6 +85,7 @@ class ReceiptOptions implements \JsonSerializable
     /**
      * Unsets Print Only.
      * Instructs the device to print the receipt without displaying the receipt selection screen.
+     * Requires `printer_enabled` set to true.
      * Defaults to false.
      */
     public function unsetPrintOnly(): void

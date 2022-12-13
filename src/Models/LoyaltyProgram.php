@@ -27,9 +27,9 @@ class LoyaltyProgram implements \JsonSerializable
     private $status;
 
     /**
-     * @var LoyaltyProgramRewardTier[]
+     * @var array
      */
-    private $rewardTiers;
+    private $rewardTiers = [];
 
     /**
      * @var LoyaltyProgramExpirationPolicy|null
@@ -37,7 +37,7 @@ class LoyaltyProgram implements \JsonSerializable
     private $expirationPolicy;
 
     /**
-     * @var LoyaltyProgramTerminology
+     * @var LoyaltyProgramTerminology|null
      */
     private $terminology;
 
@@ -57,21 +57,9 @@ class LoyaltyProgram implements \JsonSerializable
     private $updatedAt;
 
     /**
-     * @var LoyaltyProgramAccrualRule[]
+     * @var array
      */
-    private $accrualRules;
-
-    /**
-     * @param LoyaltyProgramRewardTier[] $rewardTiers
-     * @param LoyaltyProgramTerminology $terminology
-     * @param LoyaltyProgramAccrualRule[] $accrualRules
-     */
-    public function __construct(array $rewardTiers, LoyaltyProgramTerminology $terminology, array $accrualRules)
-    {
-        $this->rewardTiers = $rewardTiers;
-        $this->terminology = $terminology;
-        $this->accrualRules = $accrualRules;
-    }
+    private $accrualRules = [];
 
     /**
      * Returns Id.
@@ -119,25 +107,36 @@ class LoyaltyProgram implements \JsonSerializable
      * Returns Reward Tiers.
      * The list of rewards for buyers, sorted by ascending points.
      *
-     * @return LoyaltyProgramRewardTier[]
+     * @return LoyaltyProgramRewardTier[]|null
      */
-    public function getRewardTiers(): array
+    public function getRewardTiers(): ?array
     {
-        return $this->rewardTiers;
+        if (count($this->rewardTiers) == 0) {
+            return null;
+        }
+        return $this->rewardTiers['value'];
     }
 
     /**
      * Sets Reward Tiers.
      * The list of rewards for buyers, sorted by ascending points.
      *
-     * @required
      * @maps reward_tiers
      *
-     * @param LoyaltyProgramRewardTier[] $rewardTiers
+     * @param LoyaltyProgramRewardTier[]|null $rewardTiers
      */
-    public function setRewardTiers(array $rewardTiers): void
+    public function setRewardTiers(?array $rewardTiers): void
     {
-        $this->rewardTiers = $rewardTiers;
+        $this->rewardTiers['value'] = $rewardTiers;
+    }
+
+    /**
+     * Unsets Reward Tiers.
+     * The list of rewards for buyers, sorted by ascending points.
+     */
+    public function unsetRewardTiers(): void
+    {
+        $this->rewardTiers = [];
     }
 
     /**
@@ -164,7 +163,7 @@ class LoyaltyProgram implements \JsonSerializable
      * Returns Terminology.
      * Represents the naming used for loyalty points.
      */
-    public function getTerminology(): LoyaltyProgramTerminology
+    public function getTerminology(): ?LoyaltyProgramTerminology
     {
         return $this->terminology;
     }
@@ -173,10 +172,9 @@ class LoyaltyProgram implements \JsonSerializable
      * Sets Terminology.
      * Represents the naming used for loyalty points.
      *
-     * @required
      * @maps terminology
      */
-    public function setTerminology(LoyaltyProgramTerminology $terminology): void
+    public function setTerminology(?LoyaltyProgramTerminology $terminology): void
     {
         $this->terminology = $terminology;
     }
@@ -263,11 +261,14 @@ class LoyaltyProgram implements \JsonSerializable
      * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
      * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
      *
-     * @return LoyaltyProgramAccrualRule[]
+     * @return LoyaltyProgramAccrualRule[]|null
      */
-    public function getAccrualRules(): array
+    public function getAccrualRules(): ?array
     {
-        return $this->accrualRules;
+        if (count($this->accrualRules) == 0) {
+            return null;
+        }
+        return $this->accrualRules['value'];
     }
 
     /**
@@ -276,14 +277,24 @@ class LoyaltyProgram implements \JsonSerializable
      * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
      * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
      *
-     * @required
      * @maps accrual_rules
      *
-     * @param LoyaltyProgramAccrualRule[] $accrualRules
+     * @param LoyaltyProgramAccrualRule[]|null $accrualRules
      */
-    public function setAccrualRules(array $accrualRules): void
+    public function setAccrualRules(?array $accrualRules): void
     {
-        $this->accrualRules = $accrualRules;
+        $this->accrualRules['value'] = $accrualRules;
+    }
+
+    /**
+     * Unsets Accrual Rules.
+     * Defines how buyers can earn loyalty points from the base loyalty program.
+     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
+     */
+    public function unsetAccrualRules(): void
+    {
+        $this->accrualRules = [];
     }
 
     /**
@@ -304,11 +315,15 @@ class LoyaltyProgram implements \JsonSerializable
         if (isset($this->status)) {
             $json['status']            = $this->status;
         }
-        $json['reward_tiers']          = $this->rewardTiers;
+        if (!empty($this->rewardTiers)) {
+            $json['reward_tiers']      = $this->rewardTiers['value'];
+        }
         if (isset($this->expirationPolicy)) {
             $json['expiration_policy'] = $this->expirationPolicy;
         }
-        $json['terminology']           = $this->terminology;
+        if (isset($this->terminology)) {
+            $json['terminology']       = $this->terminology;
+        }
         if (!empty($this->locationIds)) {
             $json['location_ids']      = $this->locationIds['value'];
         }
@@ -318,7 +333,9 @@ class LoyaltyProgram implements \JsonSerializable
         if (isset($this->updatedAt)) {
             $json['updated_at']        = $this->updatedAt;
         }
-        $json['accrual_rules']         = $this->accrualRules;
+        if (!empty($this->accrualRules)) {
+            $json['accrual_rules']     = $this->accrualRules['value'];
+        }
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

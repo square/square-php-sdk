@@ -312,6 +312,16 @@ class ErrorCode
     public const INVALID_DATE = 'INVALID_DATE';
 
     /**
+     * The API request references an unsupported country.
+     */
+    public const UNSUPPORTED_COUNTRY = 'UNSUPPORTED_COUNTRY';
+
+    /**
+     * The API request references an unsupported currency.
+     */
+    public const UNSUPPORTED_CURRENCY = 'UNSUPPORTED_CURRENCY';
+
+    /**
      * The card issuer declined the request because the card is expired.
      */
     public const CARD_EXPIRED = 'CARD_EXPIRED';
@@ -423,7 +433,8 @@ class ErrorCode
 
     /**
      * The card issuer declined the request because the issuer requires voice authorization from the
-     * cardholder.
+     * cardholder. The seller should ask the customer to contact the card issuing bank to authorize the
+     * payment.
      */
     public const VOICE_FAILURE = 'VOICE_FAILURE';
 
@@ -541,7 +552,7 @@ class ErrorCode
     public const AMOUNT_TOO_HIGH = 'AMOUNT_TOO_HIGH';
 
     /**
-     * The API request references an unsupported instrument type/
+     * The API request references an unsupported instrument type.
      */
     public const UNSUPPORTED_INSTRUMENT_TYPE = 'UNSUPPORTED_INSTRUMENT_TYPE';
 
@@ -643,6 +654,21 @@ class ErrorCode
      * The provided Square-Version is incompatible with the requested action.
      */
     public const API_VERSION_INCOMPATIBLE = 'API_VERSION_INCOMPATIBLE';
+
+    /**
+     * The transaction requires that a card be present.
+     */
+    public const CARD_PRESENCE_REQUIRED = 'CARD_PRESENCE_REQUIRED';
+
+    /**
+     * The API request references an unsupported source type.
+     */
+    public const UNSUPPORTED_SOURCE_TYPE = 'UNSUPPORTED_SOURCE_TYPE';
+
+    /**
+     * The provided card does not match what is expected.
+     */
+    public const CARD_MISMATCH = 'CARD_MISMATCH';
 
     /**
      * The card was declined.

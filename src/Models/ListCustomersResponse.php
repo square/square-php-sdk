@@ -55,7 +55,7 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Returns Customers.
-     * An array of `Customer` objects that match the provided query.
+     * The customer profiles associated with the Square account or an empty object (`{}`) if none are found.
      *
      * @return Customer[]|null
      */
@@ -66,7 +66,7 @@ class ListCustomersResponse implements \JsonSerializable
 
     /**
      * Sets Customers.
-     * An array of `Customer` objects that match the provided query.
+     * The customer profiles associated with the Square account or an empty object (`{}`) if none are found.
      *
      * @maps customers
      *

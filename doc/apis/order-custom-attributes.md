@@ -95,9 +95,14 @@ function createOrderCustomAttributeDefinition(CreateOrderCustomAttributeDefiniti
 
 ```php
 $body_customAttributeDefinition = new Models\CustomAttributeDefinition();
+$body_customAttributeDefinition->setKey('cover-count');
+$body_customAttributeDefinition->setName('Cover count');
+$body_customAttributeDefinition->setDescription('The number of people seated at a table');
+$body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_READ_WRITE_VALUES);
 $body = new Models\CreateOrderCustomAttributeDefinitionRequest(
     $body_customAttributeDefinition
 );
+$body->setIdempotencyKey('IDEMPOTENCY_KEY');
 
 $apiResponse = $orderCustomAttributesApi->createOrderCustomAttributeDefinition($body);
 
@@ -223,14 +228,13 @@ function updateOrderCustomAttributeDefinition(
 ```php
 $key = 'key0';
 $body_customAttributeDefinition = new Models\CustomAttributeDefinition();
-$body_customAttributeDefinition->setKey('wayne-test-15');
-$body_customAttributeDefinition->setName('wayne-test-15');
-$body_customAttributeDefinition->setDescription('updated');
-$body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_READ_WRITE_VALUES);
-$body_customAttributeDefinition->setVersion(2);
+$body_customAttributeDefinition->setKey('cover-count');
+$body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_READ_ONLY);
+$body_customAttributeDefinition->setVersion(1);
 $body = new Models\UpdateOrderCustomAttributeDefinitionRequest(
     $body_customAttributeDefinition
 );
+$body->setIdempotencyKey('IDEMPOTENCY_KEY');
 
 $apiResponse = $orderCustomAttributesApi->updateOrderCustomAttributeDefinition($key, $body);
 
@@ -281,11 +285,6 @@ function bulkDeleteOrderCustomAttributes(BulkDeleteOrderCustomAttributesRequest 
 
 ```php
 $body_values = [];
-
-$body_values__orderId = null;
-$body_values[''] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
-    $body_values__orderId
-);
 
 $body_values__orderId = null;
 $body_values[''] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
