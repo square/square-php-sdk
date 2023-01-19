@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2022-12-14'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2023-01-19'` |
 | `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `int` | Timeout for API calls in seconds.<br>*Default*: `60` |
@@ -26,7 +26,7 @@ The API client can be initialized as follows:
 ```php
 $client = Square\SquareClientBuilder::init()
     ->accessToken('AccessToken')
-    ->squareVersion('2022-12-14')
+    ->squareVersion('2023-01-19')
     ->environment('production')
     ->customUrl('https://connect.squareup.com')
     ->build();
@@ -49,7 +49,7 @@ require_once "vendor/autoload.php";
 
 $client = Square\SquareClientBuilder::init()
     ->accessToken('AccessToken')
-    ->squareVersion('2022-12-14')
+    ->squareVersion('2023-01-19')
     ->build();
 
 $locationsApi = $client->getLocationsApi();
@@ -98,6 +98,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | getInvoicesApi() | Gets InvoicesApi |
 | getLaborApi() | Gets LaborApi |
 | getLocationsApi() | Gets LocationsApi |
+| getLocationCustomAttributesApi() | Gets LocationCustomAttributesApi |
 | getCheckoutApi() | Gets CheckoutApi |
 | getTransactionsApi() | Gets TransactionsApi |
 | getLoyaltyApi() | Gets LoyaltyApi |

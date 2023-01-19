@@ -89,4 +89,18 @@ class GiftCardActivityType
      * cannot be created using the Gift Card Activities API.
      */
     public const IMPORT_REVERSAL = 'IMPORT_REVERSAL';
+
+    /**
+     * Deducted money from a gift card as the result of a transfer to the balance of another gift card.
+     * `TRANSFER_BALANCE_FROM` activities are managed by Square and cannot be created using the Gift Card
+     * Activities API.
+     */
+    public const TRANSFER_BALANCE_FROM = 'TRANSFER_BALANCE_FROM';
+
+    /**
+     * Added money to a gift card as the result of a transfer from the balance of another gift card.
+     * `TRANSFER_BALANCE_TO` activities are managed by Square and cannot be created using the Gift Card
+     * Activities API.
+     */
+    public const TRANSFER_BALANCE_TO = 'TRANSFER_BALANCE_TO';
 }

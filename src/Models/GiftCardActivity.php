@@ -115,6 +115,16 @@ class GiftCardActivity implements \JsonSerializable
     private $importReversalActivityDetails;
 
     /**
+     * @var GiftCardActivityTransferBalanceTo|null
+     */
+    private $transferBalanceToActivityDetails;
+
+    /**
+     * @var GiftCardActivityTransferBalanceFrom|null
+     */
+    private $transferBalanceFromActivityDetails;
+
+    /**
      * @param string $type
      * @param string $locationId
      */
@@ -579,6 +589,50 @@ class GiftCardActivity implements \JsonSerializable
     }
 
     /**
+     * Returns Transfer Balance to Activity Details.
+     * Represents details about a `TRANSFER_BALANCE_TO` [gift card activity type]($m/GiftCardActivityType).
+     */
+    public function getTransferBalanceToActivityDetails(): ?GiftCardActivityTransferBalanceTo
+    {
+        return $this->transferBalanceToActivityDetails;
+    }
+
+    /**
+     * Sets Transfer Balance to Activity Details.
+     * Represents details about a `TRANSFER_BALANCE_TO` [gift card activity type]($m/GiftCardActivityType).
+     *
+     * @maps transfer_balance_to_activity_details
+     */
+    public function setTransferBalanceToActivityDetails(
+        ?GiftCardActivityTransferBalanceTo $transferBalanceToActivityDetails
+    ): void {
+        $this->transferBalanceToActivityDetails = $transferBalanceToActivityDetails;
+    }
+
+    /**
+     * Returns Transfer Balance From Activity Details.
+     * Represents details about a `TRANSFER_BALANCE_FROM` [gift card activity
+     * type]($m/GiftCardActivityType).
+     */
+    public function getTransferBalanceFromActivityDetails(): ?GiftCardActivityTransferBalanceFrom
+    {
+        return $this->transferBalanceFromActivityDetails;
+    }
+
+    /**
+     * Sets Transfer Balance From Activity Details.
+     * Represents details about a `TRANSFER_BALANCE_FROM` [gift card activity
+     * type]($m/GiftCardActivityType).
+     *
+     * @maps transfer_balance_from_activity_details
+     */
+    public function setTransferBalanceFromActivityDetails(
+        ?GiftCardActivityTransferBalanceFrom $transferBalanceFromActivityDetails
+    ): void {
+        $this->transferBalanceFromActivityDetails = $transferBalanceFromActivityDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -645,6 +699,12 @@ class GiftCardActivity implements \JsonSerializable
         }
         if (isset($this->importReversalActivityDetails)) {
             $json['import_reversal_activity_details']          = $this->importReversalActivityDetails;
+        }
+        if (isset($this->transferBalanceToActivityDetails)) {
+            $json['transfer_balance_to_activity_details']      = $this->transferBalanceToActivityDetails;
+        }
+        if (isset($this->transferBalanceFromActivityDetails)) {
+            $json['transfer_balance_from_activity_details']    = $this->transferBalanceFromActivityDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
