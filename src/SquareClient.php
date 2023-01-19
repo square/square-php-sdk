@@ -29,6 +29,7 @@ use Square\Apis\GiftCardsApi;
 use Square\Apis\InventoryApi;
 use Square\Apis\InvoicesApi;
 use Square\Apis\LaborApi;
+use Square\Apis\LocationCustomAttributesApi;
 use Square\Apis\LocationsApi;
 use Square\Apis\LoyaltyApi;
 use Square\Apis\MerchantsApi;
@@ -100,6 +101,8 @@ class SquareClient implements ConfigurationInterface
 
     private $locations;
 
+    private $locationCustomAttributes;
+
     private $checkout;
 
     private $transactions;
@@ -156,7 +159,7 @@ class SquareClient implements ConfigurationInterface
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/25.0.0.20221214 ({api-version}) {engine}/{engine-version} ({os-' .
+                'Square-PHP-SDK/25.1.0.20230119 ({api-version}) {engine}/{engine-version} ({os-' .
                 'info}) {detail}'
             )
             ->userAgentConfig(
@@ -298,7 +301,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '25.0.0.20221214';
+        return '25.1.0.20230119';
     }
 
     /**
@@ -574,6 +577,17 @@ class SquareClient implements ConfigurationInterface
             $this->locations = new LocationsApi($this->client);
         }
         return $this->locations;
+    }
+
+    /**
+     * Returns Location Custom Attributes Api
+     */
+    public function getLocationCustomAttributesApi(): LocationCustomAttributesApi
+    {
+        if ($this->locationCustomAttributes == null) {
+            $this->locationCustomAttributes = new LocationCustomAttributesApi($this->client);
+        }
+        return $this->locationCustomAttributes;
     }
 
     /**
