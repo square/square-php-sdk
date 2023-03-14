@@ -42,9 +42,9 @@ function bulkCreateVendors(BulkCreateVendorsRequest $body): ApiResponse
 ```php
 $body_vendors = [];
 
-$body_vendors[''] = new Models\Vendor();
+$body_vendors['key0'] = new Models\Vendor();
 
-$body_vendors[''] = new Models\Vendor();
+$body_vendors['key1'] = new Models\Vendor();
 
 $body = new Models\BulkCreateVendorsRequest(
     $body_vendors
@@ -125,14 +125,14 @@ function bulkUpdateVendors(BulkUpdateVendorsRequest $body): ApiResponse
 ```php
 $body_vendors = [];
 
-$body_vendors__vendor = new Models\Vendor();
-$body_vendors[''] = new Models\UpdateVendorRequest(
-    $body_vendors__vendor
+$body_vendors_key0_vendor = new Models\Vendor();
+$body_vendors['key0'] = new Models\UpdateVendorRequest(
+    $body_vendors_key0_vendor
 );
 
-$body_vendors__vendor = new Models\Vendor();
-$body_vendors[''] = new Models\UpdateVendorRequest(
-    $body_vendors__vendor
+$body_vendors_key1_vendor = new Models\Vendor();
+$body_vendors['key1'] = new Models\UpdateVendorRequest(
+    $body_vendors_key1_vendor
 );
 
 $body = new Models\BulkUpdateVendorsRequest(

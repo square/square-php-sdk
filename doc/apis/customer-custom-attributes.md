@@ -292,18 +292,18 @@ function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRe
 ```php
 $body_values = [];
 
-$body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values__customerId,
-    $body_values__customAttribute
+$body_values_key0_customerId = 'customer_id2';
+$body_values_key0_customAttribute = new Models\CustomAttribute();
+$body_values['key0'] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
+    $body_values_key0_customerId,
+    $body_values_key0_customAttribute
 );
 
-$body_values__customerId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values__customerId,
-    $body_values__customAttribute
+$body_values_key1_customerId = 'customer_id3';
+$body_values_key1_customAttribute = new Models\CustomAttribute();
+$body_values['key1'] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
+    $body_values_key1_customerId,
+    $body_values_key1_customAttribute
 );
 
 $body = new Models\BulkUpsertCustomerCustomAttributesRequest(

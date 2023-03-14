@@ -286,15 +286,17 @@ function bulkDeleteOrderCustomAttributes(BulkDeleteOrderCustomAttributesRequest 
 ```php
 $body_values = [];
 
-$body_values__orderId = null;
-$body_values[''] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
-    $body_values__orderId
+$body_values_cover-count_orderId = '7BbXGEIWNldxAzrtGf9GPVZTwZ4F';
+$body_values['cover-count'] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
+    $body_values_cover-count_orderId
 );
+$body_values['cover-count']->setKey('cover-count');
 
-$body_values__orderId = null;
-$body_values[''] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
-    $body_values__orderId
+$body_values_table-number_orderId = '7BbXGEIWNldxAzrtGf9GPVZTwZ4F';
+$body_values['table-number'] = new Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute(
+    $body_values_table-number_orderId
 );
+$body_values['table-number']->setKey('table-number');
 
 $body = new Models\BulkDeleteOrderCustomAttributesRequest(
     $body_values
@@ -350,18 +352,18 @@ function bulkUpsertOrderCustomAttributes(BulkUpsertOrderCustomAttributesRequest 
 ```php
 $body_values = [];
 
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values__orderId = null;
-$body_values[''] = new Models\BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute(
-    $body_values__customAttribute,
-    $body_values__orderId
+$body_values_key0_customAttribute = new Models\CustomAttribute();
+$body_values_key0_orderId = 'order_id2';
+$body_values['key0'] = new Models\BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute(
+    $body_values_key0_customAttribute,
+    $body_values_key0_orderId
 );
 
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values__orderId = null;
-$body_values[''] = new Models\BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute(
-    $body_values__customAttribute,
-    $body_values__orderId
+$body_values_key1_customAttribute = new Models\CustomAttribute();
+$body_values_key1_orderId = 'order_id1';
+$body_values['key1'] = new Models\BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute(
+    $body_values_key1_customAttribute,
+    $body_values_key1_orderId
 );
 
 $body = new Models\BulkUpsertOrderCustomAttributesRequest(

@@ -102,9 +102,26 @@ function bulkCreateTeamMembers(BulkCreateTeamMembersRequest $body): ApiResponse
 ```php
 $body_teamMembers = [];
 
-$body_teamMembers[''] = new Models\CreateTeamMemberRequest();
+$body_teamMembers['idempotency-key-1'] = new Models\CreateTeamMemberRequest();
+$body_teamMembers['idempotency-key-1']->setTeamMember(new Models\TeamMember());
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setReferenceId('reference_id_1');
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setGivenName('Joe');
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setFamilyName('Doe');
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setEmailAddress('joe_doe@gmail.com');
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setPhoneNumber('+14159283333');
+$body_teamMembers['idempotency-key-1']->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
+$body_teamMembers['idempotency-key-1']->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::EXPLICIT_LOCATIONS);
+$body_teamMembers['idempotency-key-1']->getTeamMember()->getAssignedLocations()->setLocationIds(['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']);
 
-$body_teamMembers[''] = new Models\CreateTeamMemberRequest();
+$body_teamMembers['idempotency-key-2'] = new Models\CreateTeamMemberRequest();
+$body_teamMembers['idempotency-key-2']->setTeamMember(new Models\TeamMember());
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setReferenceId('reference_id_2');
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setGivenName('Jane');
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setFamilyName('Smith');
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setEmailAddress('jane_smith@gmail.com');
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setPhoneNumber('+14159223334');
+$body_teamMembers['idempotency-key-2']->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
+$body_teamMembers['idempotency-key-2']->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::ALL_CURRENT_AND_FUTURE_LOCATIONS);
 
 $body = new Models\BulkCreateTeamMembersRequest(
     $body_teamMembers
@@ -151,9 +168,30 @@ function bulkUpdateTeamMembers(BulkUpdateTeamMembersRequest $body): ApiResponse
 ```php
 $body_teamMembers = [];
 
-$body_teamMembers[''] = new Models\UpdateTeamMemberRequest();
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE'] = new Models\UpdateTeamMemberRequest();
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->setTeamMember(new Models\TeamMember());
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setReferenceId('reference_id_2');
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setIsOwner(false);
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setGivenName('Jane');
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setFamilyName('Smith');
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setEmailAddress('jane_smith@gmail.com');
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setPhoneNumber('+14159223334');
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
+$body_teamMembers['AFMwA08kR-MIF-3Vs0OE']->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::ALL_CURRENT_AND_FUTURE_LOCATIONS);
 
-$body_teamMembers[''] = new Models\UpdateTeamMemberRequest();
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P'] = new Models\UpdateTeamMemberRequest();
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->setTeamMember(new Models\TeamMember());
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setReferenceId('reference_id_1');
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setIsOwner(false);
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setStatus(Models\TeamMemberStatus::ACTIVE);
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setGivenName('Joe');
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setFamilyName('Doe');
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setEmailAddress('joe_doe@gmail.com');
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setPhoneNumber('+14159283333');
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->setAssignedLocations(new Models\TeamMemberAssignedLocations());
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->getAssignedLocations()->setAssignmentType(Models\TeamMemberAssignedLocationsAssignmentType::EXPLICIT_LOCATIONS);
+$body_teamMembers['fpgteZNMaf0qOK-a4t6P']->getTeamMember()->getAssignedLocations()->setLocationIds(['YSGH2WBKG94QZ', 'GA2Y9HSJ8KRYT']);
 
 $body = new Models\BulkUpdateTeamMembersRequest(
     $body_teamMembers

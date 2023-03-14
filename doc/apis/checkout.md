@@ -81,27 +81,18 @@ $body_order_order_lineItems_0_appliedDiscounts[0] = new Models\OrderLineItemAppl
 );
 $body_order_order_lineItems[0]->setAppliedDiscounts($body_order_order_lineItems_0_appliedDiscounts);
 
-$body_order_order_lineItems[0]->setBasePriceMoney(new Models\Money());
-$body_order_order_lineItems[0]->getBasePriceMoney()->setAmount(1500);
-$body_order_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
 $body_order_order_lineItems_1_quantity = '1';
 $body_order_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_order_lineItems_1_quantity
 );
 $body_order_order_lineItems[1]->setName('Slim Jeans');
-$body_order_order_lineItems[1]->setBasePriceMoney(new Models\Money());
-$body_order_order_lineItems[1]->getBasePriceMoney()->setAmount(2500);
-$body_order_order_lineItems[1]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
 $body_order_order_lineItems_2_quantity = '3';
 $body_order_order_lineItems[2] = new Models\OrderLineItem(
     $body_order_order_lineItems_2_quantity
 );
 $body_order_order_lineItems[2]->setName('Woven Sweater');
-$body_order_order_lineItems[2]->setBasePriceMoney(new Models\Money());
-$body_order_order_lineItems[2]->getBasePriceMoney()->setAmount(3500);
-$body_order_order_lineItems[2]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 $body_order->getOrder()->setLineItems($body_order_order_lineItems);
 
 $body_order_order_taxes = [];
@@ -118,9 +109,6 @@ $body_order_order_discounts = [];
 $body_order_order_discounts[0] = new Models\OrderLineItemDiscount();
 $body_order_order_discounts[0]->setUid('56ae1696-z1e3-9328-af6d-f1e04d947gd4');
 $body_order_order_discounts[0]->setType(Models\OrderLineItemDiscountType::FIXED_AMOUNT);
-$body_order_order_discounts[0]->setAmountMoney(new Models\Money());
-$body_order_order_discounts[0]->getAmountMoney()->setAmount(100);
-$body_order_order_discounts[0]->getAmountMoney()->setCurrency(Models\Currency::USD);
 $body_order_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
 $body_order->getOrder()->setDiscounts($body_order_order_discounts);
 

@@ -64,7 +64,6 @@ $body->getPriceOverrideMoney()->setAmount(100);
 $body->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
 $body->setCardId('ccof:qy5x8hHGYsgLrp4Q4GB');
 $body->setTimezone('America/Los_Angeles');
-$body->setSource(new Models\SubscriptionSource());
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 

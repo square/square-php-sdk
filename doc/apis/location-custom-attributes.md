@@ -274,11 +274,11 @@ function bulkDeleteLocationCustomAttributes(BulkDeleteLocationCustomAttributesRe
 ```php
 $body_values = [];
 
-$body_values[''] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
+$body_values['id1'] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
 
-$body_values[''] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
+$body_values['id2'] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
 
-$body_values[''] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
+$body_values['id3'] = new Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest();
 
 $body = new Models\BulkDeleteLocationCustomAttributesRequest(
     $body_values
@@ -330,18 +330,18 @@ function bulkUpsertLocationCustomAttributes(BulkUpsertLocationCustomAttributesRe
 ```php
 $body_values = [];
 
-$body_values__locationId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest(
-    $body_values__locationId,
-    $body_values__customAttribute
+$body_values_key0_locationId = 'location_id8';
+$body_values_key0_customAttribute = new Models\CustomAttribute();
+$body_values['key0'] = new Models\BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest(
+    $body_values_key0_locationId,
+    $body_values_key0_customAttribute
 );
 
-$body_values__locationId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest(
-    $body_values__locationId,
-    $body_values__customAttribute
+$body_values_key1_locationId = 'location_id9';
+$body_values_key1_customAttribute = new Models\CustomAttribute();
+$body_values['key1'] = new Models\BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest(
+    $body_values_key1_locationId,
+    $body_values_key1_customAttribute
 );
 
 $body = new Models\BulkUpsertLocationCustomAttributesRequest(
