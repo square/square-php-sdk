@@ -274,18 +274,18 @@ function bulkDeleteBookingCustomAttributes(BulkDeleteBookingCustomAttributesRequ
 ```php
 $body_values = [];
 
-$body_values__bookingId = null;
-$body_values__key = null;
-$body_values[''] = new Models\BookingCustomAttributeDeleteRequest(
-    $body_values__bookingId,
-    $body_values__key
+$body_values_key0_bookingId = 'booking_id8';
+$body_values_key0_key = 'key4';
+$body_values['key0'] = new Models\BookingCustomAttributeDeleteRequest(
+    $body_values_key0_bookingId,
+    $body_values_key0_key
 );
 
-$body_values__bookingId = null;
-$body_values__key = null;
-$body_values[''] = new Models\BookingCustomAttributeDeleteRequest(
-    $body_values__bookingId,
-    $body_values__key
+$body_values_key1_bookingId = 'booking_id9';
+$body_values_key1_key = 'key5';
+$body_values['key1'] = new Models\BookingCustomAttributeDeleteRequest(
+    $body_values_key1_bookingId,
+    $body_values_key1_key
 );
 
 $body = new Models\BulkDeleteBookingCustomAttributesRequest(
@@ -335,18 +335,18 @@ function bulkUpsertBookingCustomAttributes(BulkUpsertBookingCustomAttributesRequ
 ```php
 $body_values = [];
 
-$body_values__bookingId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BookingCustomAttributeUpsertRequest(
-    $body_values__bookingId,
-    $body_values__customAttribute
+$body_values_key0_bookingId = 'booking_id8';
+$body_values_key0_customAttribute = new Models\CustomAttribute();
+$body_values['key0'] = new Models\BookingCustomAttributeUpsertRequest(
+    $body_values_key0_bookingId,
+    $body_values_key0_customAttribute
 );
 
-$body_values__bookingId = null;
-$body_values__customAttribute = new Models\CustomAttribute();
-$body_values[''] = new Models\BookingCustomAttributeUpsertRequest(
-    $body_values__bookingId,
-    $body_values__customAttribute
+$body_values_key1_bookingId = 'booking_id9';
+$body_values_key1_customAttribute = new Models\CustomAttribute();
+$body_values['key1'] = new Models\BookingCustomAttributeUpsertRequest(
+    $body_values_key1_bookingId,
+    $body_values_key1_customAttribute
 );
 
 $body = new Models\BulkUpsertBookingCustomAttributesRequest(

@@ -60,9 +60,6 @@ $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
 $body_order_lineItems[0]->setName('New York Strip Steak');
-$body_order_lineItems[0]->setBasePriceMoney(new Models\Money());
-$body_order_lineItems[0]->getBasePriceMoney()->setAmount(1599);
-$body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
 $body_order_lineItems_1_quantity = '2';
 $body_order_lineItems[1] = new Models\OrderLineItem(
@@ -110,9 +107,6 @@ $body_order_discounts[1]->setScope(Models\OrderLineItemDiscountScope::ORDER);
 $body_order_discounts[2] = new Models\OrderLineItemDiscount();
 $body_order_discounts[2]->setUid('one-dollar-off');
 $body_order_discounts[2]->setName('Sale - $1.00 off');
-$body_order_discounts[2]->setAmountMoney(new Models\Money());
-$body_order_discounts[2]->getAmountMoney()->setAmount(100);
-$body_order_discounts[2]->getAmountMoney()->setCurrency(Models\Currency::USD);
 $body_order_discounts[2]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
 $body->getOrder()->setDiscounts($body_order_discounts);
 
@@ -207,18 +201,12 @@ $body_order_lineItems[0] = new Models\OrderLineItem(
     $body_order_lineItems_0_quantity
 );
 $body_order_lineItems[0]->setName('Item 1');
-$body_order_lineItems[0]->setBasePriceMoney(new Models\Money());
-$body_order_lineItems[0]->getBasePriceMoney()->setAmount(500);
-$body_order_lineItems[0]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 
 $body_order_lineItems_1_quantity = '2';
 $body_order_lineItems[1] = new Models\OrderLineItem(
     $body_order_lineItems_1_quantity
 );
 $body_order_lineItems[1]->setName('Item 2');
-$body_order_lineItems[1]->setBasePriceMoney(new Models\Money());
-$body_order_lineItems[1]->getBasePriceMoney()->setAmount(300);
-$body_order_lineItems[1]->getBasePriceMoney()->setCurrency(Models\Currency::USD);
 $body_order->setLineItems($body_order_lineItems);
 
 $body_order_discounts = [];

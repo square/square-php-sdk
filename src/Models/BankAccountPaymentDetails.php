@@ -118,7 +118,7 @@ class BankAccountPaymentDetails implements \JsonSerializable
     /**
      * Returns Account Ownership Type.
      * The ownership type of the bank account performing the transfer.
-     * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
+     * The type can be `INDIVIDUAL`, `COMPANY`, or `ACCOUNT_TYPE_UNKNOWN`.
      */
     public function getAccountOwnershipType(): ?string
     {
@@ -131,7 +131,7 @@ class BankAccountPaymentDetails implements \JsonSerializable
     /**
      * Sets Account Ownership Type.
      * The ownership type of the bank account performing the transfer.
-     * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
+     * The type can be `INDIVIDUAL`, `COMPANY`, or `ACCOUNT_TYPE_UNKNOWN`.
      *
      * @maps account_ownership_type
      */
@@ -143,7 +143,7 @@ class BankAccountPaymentDetails implements \JsonSerializable
     /**
      * Unsets Account Ownership Type.
      * The ownership type of the bank account performing the transfer.
-     * The type can be `INDIVIDUAL`, `COMPANY`, or `UNKNOWN`.
+     * The type can be `INDIVIDUAL`, `COMPANY`, or `ACCOUNT_TYPE_UNKNOWN`.
      */
     public function unsetAccountOwnershipType(): void
     {
