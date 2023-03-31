@@ -180,9 +180,9 @@ The following Square APIs are [deprecated](https://developer.squareup.com/docs/b
 [Team]: doc/apis/team.md
 [Sites]: doc/apis/sites.md
 [Snippets]: doc/apis/snippets.md
-[Cards]: doc/api/cards.md
-[Payouts]: doc/api/payouts.md
-[Gift Cards]: doc/api/gift-cards.md
-[Gift Card Activities]: doc/api/gift-card-activities.md
+[Cards]: doc/apis/cards.md
+[Payouts]: doc/apis/payouts.md
+[Gift Cards]: doc/apis/gift-cards.md
+[Gift Card Activities]: doc/apis/gift-card-activities.md
 [Employees]: doc/apis/employees.md
 [Transactions]: doc/apis/transactions.md
