@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\GetPayoutResponse;
 use Square\Models\ListPayoutEntriesResponse;
@@ -34,8 +33,8 @@ class PayoutsApi extends BaseApi
      * @param string|null $sortOrder The order in which payouts are listed.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      *        If request parameters change between requests, subsequent results may contain
      *        duplicates or missing records.
      * @param int|null $limit The maximum number of results to be returned in a single page. It is
@@ -46,8 +45,6 @@ class PayoutsApi extends BaseApi
      *        Default: `100`
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listPayouts(
         ?string $locationId = null,
@@ -82,8 +79,6 @@ class PayoutsApi extends BaseApi
      * @param string $payoutId The ID of the payout to retrieve the information for.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getPayout(string $payoutId): ApiResponse
     {
@@ -104,8 +99,8 @@ class PayoutsApi extends BaseApi
      * @param string|null $sortOrder The order in which payout entries are listed.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      *        If request parameters change between requests, subsequent results may contain
      *        duplicates or missing records.
      * @param int|null $limit The maximum number of results to be returned in a single page. It is
@@ -116,8 +111,6 @@ class PayoutsApi extends BaseApi
      *        Default: `100`
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listPayoutEntries(
         string $payoutId,

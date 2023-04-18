@@ -264,7 +264,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) associated with the event.
+     * The ID of the [loyalty account](entity:LoyaltyAccount) associated with the event.
      */
     public function getLoyaltyAccountId(): string
     {
@@ -273,7 +273,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) associated with the event.
+     * The ID of the [loyalty account](entity:LoyaltyAccount) associated with the event.
      *
      * @required
      * @maps loyalty_account_id
@@ -285,7 +285,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the [location]($m/Location) where the event occurred.
+     * The ID of the [location](entity:Location) where the event occurred.
      */
     public function getLocationId(): ?string
     {
@@ -294,7 +294,7 @@ class LoyaltyEvent implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the [location]($m/Location) where the event occurred.
+     * The ID of the [location](entity:Location) where the event occurred.
      *
      * @maps location_id
      */

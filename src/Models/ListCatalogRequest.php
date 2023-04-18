@@ -27,7 +27,8 @@ class ListCatalogRequest implements \JsonSerializable
      * Returns Cursor.
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * The page size is currently set to be 100.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
+     * for more information.
      */
     public function getCursor(): ?string
     {
@@ -41,7 +42,8 @@ class ListCatalogRequest implements \JsonSerializable
      * Sets Cursor.
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * The page size is currently set to be 100.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
+     * for more information.
      *
      * @maps cursor
      */
@@ -54,7 +56,8 @@ class ListCatalogRequest implements \JsonSerializable
      * Unsets Cursor.
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * The page size is currently set to be 100.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more information.
+     * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
+     * for more information.
      */
     public function unsetCursor(): void
     {
@@ -65,7 +68,7 @@ class ListCatalogRequest implements \JsonSerializable
      * Returns Types.
      * An optional case-insensitive, comma-separated list of object types to retrieve.
      *
-     * The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum, for example,
+     * The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,
      * `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
      * `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.
      *
@@ -90,7 +93,7 @@ class ListCatalogRequest implements \JsonSerializable
      * Sets Types.
      * An optional case-insensitive, comma-separated list of object types to retrieve.
      *
-     * The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum, for example,
+     * The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,
      * `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
      * `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.
      *
@@ -114,7 +117,7 @@ class ListCatalogRequest implements \JsonSerializable
      * Unsets Types.
      * An optional case-insensitive, comma-separated list of object types to retrieve.
      *
-     * The valid values are defined in the [CatalogObjectType]($m/CatalogObjectType) enum, for example,
+     * The valid values are defined in the [CatalogObjectType](entity:CatalogObjectType) enum, for example,
      * `ITEM`, `ITEM_VARIATION`, `CATEGORY`, `DISCOUNT`, `TAX`,
      * `MODIFIER`, `MODIFIER_LIST`, `IMAGE`, etc.
      *

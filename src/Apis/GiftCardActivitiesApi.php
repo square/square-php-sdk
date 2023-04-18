@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateGiftCardActivityRequest;
 use Square\Models\CreateGiftCardActivityResponse;
@@ -27,7 +26,7 @@ class GiftCardActivitiesApi extends BaseApi
      *        to the specified gift card. Otherwise, the endpoint returns all gift card activities
      *        for
      *        the seller.
-     * @param string|null $type If a [type]($m/GiftCardActivityType) is provided, the endpoint
+     * @param string|null $type If a [type](entity:GiftCardActivityType) is provided, the endpoint
      *        returns gift card activities of the specified type.
      *        Otherwise, the endpoint returns all types of gift card activities.
      * @param string|null $locationId If a location ID is provided, the endpoint returns gift card
@@ -54,8 +53,6 @@ class GiftCardActivitiesApi extends BaseApi
      *        - `DESC` - Newest to oldest (default).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listGiftCardActivities(
         ?string $giftCardId = null,
@@ -96,8 +93,6 @@ class GiftCardActivitiesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createGiftCardActivity(CreateGiftCardActivityRequest $body): ApiResponse
     {

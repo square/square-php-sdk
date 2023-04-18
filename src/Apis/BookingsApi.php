@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CancelBookingRequest;
 use Square\Models\CancelBookingResponse;
@@ -48,8 +47,6 @@ class BookingsApi extends BaseApi
      *        time. If this is not set, the time of 31 days after `start_at_min` is used.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listBookings(
         ?int $limit = null,
@@ -79,8 +76,8 @@ class BookingsApi extends BaseApi
      * Creates a booking.
      *
      * The required input must include the following:
-     * - `Booking.location_id`,
-     * - `Booking.start_at`,
+     * - `Booking.location_id`
+     * - `Booking.start_at`
      * - `Booking.team_member_id`
      * - `Booking.AppointmentSegment.service_variation_id`
      * - `Booking.AppointmentSegment.service_variation_version`
@@ -97,8 +94,6 @@ class BookingsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createBooking(CreateBookingRequest $body): ApiResponse
     {
@@ -124,8 +119,6 @@ class BookingsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
     {
@@ -142,8 +135,6 @@ class BookingsApi extends BaseApi
      * Retrieves a seller's booking profile.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveBusinessBookingProfile(): ApiResponse
     {
@@ -170,8 +161,6 @@ class BookingsApi extends BaseApi
      *        given location in the returned result.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listTeamMemberBookingProfiles(
         ?bool $bookableOnly = false,
@@ -201,8 +190,6 @@ class BookingsApi extends BaseApi
      * @param string $teamMemberId The ID of the team member to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveTeamMemberBookingProfile(string $teamMemberId): ApiResponse
     {
@@ -225,12 +212,10 @@ class BookingsApi extends BaseApi
      * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and
      * `APPOINTMENTS_READ` for the OAuth scope.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     * @param string $bookingId The ID of the [Booking](entity:Booking) object representing the
      *        to-be-retrieved booking.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveBooking(string $bookingId): ApiResponse
     {
@@ -254,14 +239,12 @@ class BookingsApi extends BaseApi
      * to *Appointments Plus*
      * or *Appointments Premium*.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     * @param string $bookingId The ID of the [Booking](entity:Booking) object representing the
      *        to-be-updated booking.
      * @param UpdateBookingRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiResponse
     {
@@ -289,14 +272,12 @@ class BookingsApi extends BaseApi
      * to *Appointments Plus*
      * or *Appointments Premium*.
      *
-     * @param string $bookingId The ID of the [Booking]($m/Booking) object representing the
+     * @param string $bookingId The ID of the [Booking](entity:Booking) object representing the
      *        to-be-cancelled booking.
      * @param CancelBookingRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiResponse
     {

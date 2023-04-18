@@ -100,7 +100,7 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Returns Payment Ids.
-     * The IDs of the [payments]($m/Payment) to collect.
+     * The IDs of the [payments](entity:Payment) to collect.
      * The payment total must match the order total.
      *
      * @return string[]|null
@@ -115,7 +115,7 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Sets Payment Ids.
-     * The IDs of the [payments]($m/Payment) to collect.
+     * The IDs of the [payments](entity:Payment) to collect.
      * The payment total must match the order total.
      *
      * @maps payment_ids
@@ -129,7 +129,7 @@ class PayOrderRequest implements \JsonSerializable
 
     /**
      * Unsets Payment Ids.
-     * The IDs of the [payments]($m/Payment) to collect.
+     * The IDs of the [payments](entity:Payment) to collect.
      * The payment total must match the order total.
      */
     public function unsetPaymentIds(): void

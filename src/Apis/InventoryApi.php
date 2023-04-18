@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BatchChangeInventoryRequest;
 use Square\Models\BatchChangeInventoryResponse;
@@ -26,18 +25,16 @@ use Square\Models\RetrieveInventoryTransferResponse;
 class InventoryApi extends BaseApi
 {
     /**
-     * Deprecated version of [RetrieveInventoryAdjustment]($e/Inventory/RetrieveInventoryAdjustment) after
-     * the endpoint URL
+     * Deprecated version of [RetrieveInventoryAdjustment](api-endpoint:Inventory-
+     * RetrieveInventoryAdjustment) after the endpoint URL
      * is updated to conform to the standard convention.
      *
      * @deprecated
      *
-     * @param string $adjustmentId ID of the [InventoryAdjustment]($m/InventoryAdjustment) to
+     * @param string $adjustmentId ID of the [InventoryAdjustment](entity:InventoryAdjustment) to
      *        retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deprecatedRetrieveInventoryAdjustment(string $adjustmentId): ApiResponse
     {
@@ -56,12 +53,10 @@ class InventoryApi extends BaseApi
      * Returns the [InventoryAdjustment]($m/InventoryAdjustment) object
      * with the provided `adjustment_id`.
      *
-     * @param string $adjustmentId ID of the [InventoryAdjustment]($m/InventoryAdjustment) to
+     * @param string $adjustmentId ID of the [InventoryAdjustment](entity:InventoryAdjustment) to
      *        retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
     {
@@ -75,8 +70,8 @@ class InventoryApi extends BaseApi
     }
 
     /**
-     * Deprecated version of [BatchChangeInventory]($e/Inventory/BatchChangeInventory) after the endpoint
-     * URL
+     * Deprecated version of [BatchChangeInventory](api-endpoint:Inventory-BatchChangeInventory) after the
+     * endpoint URL
      * is updated to conform to the standard convention.
      *
      * @deprecated
@@ -87,8 +82,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deprecatedBatchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
     {
@@ -104,8 +97,8 @@ class InventoryApi extends BaseApi
     }
 
     /**
-     * Deprecated version of [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChanges)
-     * after the endpoint URL
+     * Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-
+     * BatchRetrieveInventoryChanges) after the endpoint URL
      * is updated to conform to the standard convention.
      *
      * @deprecated
@@ -116,8 +109,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $body): ApiResponse
     {
@@ -135,8 +126,8 @@ class InventoryApi extends BaseApi
     }
 
     /**
-     * Deprecated version of [BatchRetrieveInventoryCounts]($e/Inventory/BatchRetrieveInventoryCounts)
-     * after the endpoint URL
+     * Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-
+     * BatchRetrieveInventoryCounts) after the endpoint URL
      * is updated to conform to the standard convention.
      *
      * @deprecated
@@ -147,8 +138,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body): ApiResponse
     {
@@ -178,8 +167,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
     {
@@ -208,8 +195,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $body): ApiResponse
     {
@@ -243,8 +228,6 @@ class InventoryApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body): ApiResponse
     {
@@ -260,18 +243,16 @@ class InventoryApi extends BaseApi
     }
 
     /**
-     * Deprecated version of [RetrieveInventoryPhysicalCount]($e/Inventory/RetrieveInventoryPhysicalCount)
-     * after the endpoint URL
+     * Deprecated version of [RetrieveInventoryPhysicalCount](api-endpoint:Inventory-
+     * RetrieveInventoryPhysicalCount) after the endpoint URL
      * is updated to conform to the standard convention.
      *
      * @deprecated
      *
-     * @param string $physicalCountId ID of the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
-     *        to retrieve.
+     * @param string $physicalCountId ID of the
+     *        [InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deprecatedRetrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
     {
@@ -293,12 +274,10 @@ class InventoryApi extends BaseApi
      * Returns the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
      * object with the provided `physical_count_id`.
      *
-     * @param string $physicalCountId ID of the [InventoryPhysicalCount]($m/InventoryPhysicalCount)
-     *        to retrieve.
+     * @param string $physicalCountId ID of the
+     *        [InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
     {
@@ -318,11 +297,10 @@ class InventoryApi extends BaseApi
      * Returns the [InventoryTransfer]($m/InventoryTransfer) object
      * with the provided `transfer_id`.
      *
-     * @param string $transferId ID of the [InventoryTransfer]($m/InventoryTransfer) to retrieve.
+     * @param string $transferId ID of the [InventoryTransfer](entity:InventoryTransfer) to
+     *        retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveInventoryTransfer(string $transferId): ApiResponse
     {
@@ -341,8 +319,8 @@ class InventoryApi extends BaseApi
      * [Location]($m/Location)s. Responses are paginated and unsorted.
      * For more sophisticated queries, use a batch endpoint.
      *
-     * @param string $catalogObjectId ID of the [CatalogObject]($m/CatalogObject) to retrieve.
-     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a
+     * @param string $catalogObjectId ID of the [CatalogObject](entity:CatalogObject) to retrieve.
+     * @param string|null $locationIds The [Location](entity:Location) IDs to look up as a
      *        comma-separated
      *        list. An empty list queries all locations.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
@@ -352,8 +330,6 @@ class InventoryApi extends BaseApi
      *        apis/pagination) guide for more information.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveInventoryCount(
         string $catalogObjectId,
@@ -375,11 +351,11 @@ class InventoryApi extends BaseApi
 
     /**
      * Returns a set of physical counts and inventory adjustments for the
-     * provided [CatalogObject]($m/CatalogObject) at the requested
-     * [Location]($m/Location)s.
+     * provided [CatalogObject](entity:CatalogObject) at the requested
+     * [Location](entity:Location)s.
      *
-     * You can achieve the same result by calling
-     * [BatchRetrieveInventoryChanges]($e/Inventory/BatchRetrieveInventoryChanges)
+     * You can achieve the same result by calling [BatchRetrieveInventoryChanges](api-endpoint:Inventory-
+     * BatchRetrieveInventoryChanges)
      * and having the `catalog_object_ids` list contain a single element of the `CatalogObject` ID.
      *
      * Results are paginated and sorted in descending order according to their
@@ -391,8 +367,8 @@ class InventoryApi extends BaseApi
      *
      * @deprecated
      *
-     * @param string $catalogObjectId ID of the [CatalogObject]($m/CatalogObject) to retrieve.
-     * @param string|null $locationIds The [Location]($m/Location) IDs to look up as a
+     * @param string $catalogObjectId ID of the [CatalogObject](entity:CatalogObject) to retrieve.
+     * @param string|null $locationIds The [Location](entity:Location) IDs to look up as a
      *        comma-separated
      *        list. An empty list queries all locations.
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
@@ -402,8 +378,6 @@ class InventoryApi extends BaseApi
      *        apis/pagination) guide for more information.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveInventoryChanges(
         string $catalogObjectId,

@@ -18,9 +18,9 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Event Type.
-     * The event type that will be used to test the [Subscription]($m/WebhookSubscription). The event type
-     * must be
-     * contained in the list of event types in the [Subscription]($m/WebhookSubscription).
+     * The event type that will be used to test the [Subscription](entity:WebhookSubscription). The event
+     * type must be
+     * contained in the list of event types in the [Subscription](entity:WebhookSubscription).
      */
     public function getEventType(): ?string
     {
@@ -32,9 +32,9 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Event Type.
-     * The event type that will be used to test the [Subscription]($m/WebhookSubscription). The event type
-     * must be
-     * contained in the list of event types in the [Subscription]($m/WebhookSubscription).
+     * The event type that will be used to test the [Subscription](entity:WebhookSubscription). The event
+     * type must be
+     * contained in the list of event types in the [Subscription](entity:WebhookSubscription).
      *
      * @maps event_type
      */
@@ -45,9 +45,9 @@ class TestWebhookSubscriptionRequest implements \JsonSerializable
 
     /**
      * Unsets Event Type.
-     * The event type that will be used to test the [Subscription]($m/WebhookSubscription). The event type
-     * must be
-     * contained in the list of event types in the [Subscription]($m/WebhookSubscription).
+     * The event type that will be used to test the [Subscription](entity:WebhookSubscription). The event
+     * type must be
+     * contained in the list of event types in the [Subscription](entity:WebhookSubscription).
      */
     public function unsetEventType(): void
     {

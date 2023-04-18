@@ -177,7 +177,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the [business location]($m/Location) where the activity occurred.
+     * The ID of the [business location](entity:Location) where the activity occurred.
      */
     public function getLocationId(): string
     {
@@ -186,7 +186,7 @@ class GiftCardActivity implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the [business location]($m/Location) where the activity occurred.
+     * The ID of the [business location](entity:Location) where the activity occurred.
      *
      * @required
      * @maps location_id

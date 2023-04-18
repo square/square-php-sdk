@@ -94,12 +94,27 @@ class TerminalCheckout implements \JsonSerializable
     /**
      * @var array
      */
+    private $teamMemberId = [];
+
+    /**
+     * @var array
+     */
     private $customerId = [];
 
     /**
      * @var Money|null
      */
     private $appFeeMoney;
+
+    /**
+     * @var array
+     */
+    private $statementDescriptionIdentifier = [];
+
+    /**
+     * @var Money|null
+     */
+    private $tipMoney;
 
     /**
      * @param Money $amountMoney
@@ -525,6 +540,38 @@ class TerminalCheckout implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     * An optional ID of the team member associated with creating the checkout.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
+    }
+
+    /**
+     * Sets Team Member Id.
+     * An optional ID of the team member associated with creating the checkout.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * An optional ID of the team member associated with creating the checkout.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
+    }
+
+    /**
      * Returns Customer Id.
      * An optional ID of the customer associated with the checkout.
      */
@@ -589,6 +636,76 @@ class TerminalCheckout implements \JsonSerializable
     }
 
     /**
+     * Returns Statement Description Identifier.
+     * Optional additional payment information to include on the customer's card statement as
+     * part of the statement description. This can be, for example, an invoice number, ticket number,
+     * or short description that uniquely identifies the purchase. Supported only in the US.
+     */
+    public function getStatementDescriptionIdentifier(): ?string
+    {
+        if (count($this->statementDescriptionIdentifier) == 0) {
+            return null;
+        }
+        return $this->statementDescriptionIdentifier['value'];
+    }
+
+    /**
+     * Sets Statement Description Identifier.
+     * Optional additional payment information to include on the customer's card statement as
+     * part of the statement description. This can be, for example, an invoice number, ticket number,
+     * or short description that uniquely identifies the purchase. Supported only in the US.
+     *
+     * @maps statement_description_identifier
+     */
+    public function setStatementDescriptionIdentifier(?string $statementDescriptionIdentifier): void
+    {
+        $this->statementDescriptionIdentifier['value'] = $statementDescriptionIdentifier;
+    }
+
+    /**
+     * Unsets Statement Description Identifier.
+     * Optional additional payment information to include on the customer's card statement as
+     * part of the statement description. This can be, for example, an invoice number, ticket number,
+     * or short description that uniquely identifies the purchase. Supported only in the US.
+     */
+    public function unsetStatementDescriptionIdentifier(): void
+    {
+        $this->statementDescriptionIdentifier = [];
+    }
+
+    /**
+     * Returns Tip Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getTipMoney(): ?Money
+    {
+        return $this->tipMoney;
+    }
+
+    /**
+     * Sets Tip Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps tip_money
+     */
+    public function setTipMoney(?Money $tipMoney): void
+    {
+        $this->tipMoney = $tipMoney;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -601,54 +718,63 @@ class TerminalCheckout implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                = $this->id;
+            $json['id']                               = $this->id;
         }
-        $json['amount_money']          = $this->amountMoney;
+        $json['amount_money']                         = $this->amountMoney;
         if (!empty($this->referenceId)) {
-            $json['reference_id']      = $this->referenceId['value'];
+            $json['reference_id']                     = $this->referenceId['value'];
         }
         if (!empty($this->note)) {
-            $json['note']              = $this->note['value'];
+            $json['note']                             = $this->note['value'];
         }
         if (!empty($this->orderId)) {
-            $json['order_id']          = $this->orderId['value'];
+            $json['order_id']                         = $this->orderId['value'];
         }
         if (isset($this->paymentOptions)) {
-            $json['payment_options']   = $this->paymentOptions;
+            $json['payment_options']                  = $this->paymentOptions;
         }
-        $json['device_options']        = $this->deviceOptions;
+        $json['device_options']                       = $this->deviceOptions;
         if (!empty($this->deadlineDuration)) {
-            $json['deadline_duration'] = $this->deadlineDuration['value'];
+            $json['deadline_duration']                = $this->deadlineDuration['value'];
         }
         if (isset($this->status)) {
-            $json['status']            = $this->status;
+            $json['status']                           = $this->status;
         }
         if (isset($this->cancelReason)) {
-            $json['cancel_reason']     = $this->cancelReason;
+            $json['cancel_reason']                    = $this->cancelReason;
         }
         if (isset($this->paymentIds)) {
-            $json['payment_ids']       = $this->paymentIds;
+            $json['payment_ids']                      = $this->paymentIds;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']        = $this->createdAt;
+            $json['created_at']                       = $this->createdAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']        = $this->updatedAt;
+            $json['updated_at']                       = $this->updatedAt;
         }
         if (isset($this->appId)) {
-            $json['app_id']            = $this->appId;
+            $json['app_id']                           = $this->appId;
         }
         if (isset($this->locationId)) {
-            $json['location_id']       = $this->locationId;
+            $json['location_id']                      = $this->locationId;
         }
         if (isset($this->paymentType)) {
-            $json['payment_type']      = $this->paymentType;
+            $json['payment_type']                     = $this->paymentType;
+        }
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id']                   = $this->teamMemberId['value'];
         }
         if (!empty($this->customerId)) {
-            $json['customer_id']       = $this->customerId['value'];
+            $json['customer_id']                      = $this->customerId['value'];
         }
         if (isset($this->appFeeMoney)) {
-            $json['app_fee_money']     = $this->appFeeMoney;
+            $json['app_fee_money']                    = $this->appFeeMoney;
+        }
+        if (!empty($this->statementDescriptionIdentifier)) {
+            $json['statement_description_identifier'] = $this->statementDescriptionIdentifier['value'];
+        }
+        if (isset($this->tipMoney)) {
+            $json['tip_money']                        = $this->tipMoney;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

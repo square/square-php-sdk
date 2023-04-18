@@ -38,10 +38,10 @@ class CustomerCustomAttributeFilter implements \JsonSerializable
 
     /**
      * Returns Key.
-     * The `key` of the [custom attribute]($m/CustomAttribute) to filter by. The key is the identifier of
-     * the custom attribute
+     * The `key` of the [custom attribute](entity:CustomAttribute) to filter by. The key is the identifier
+     * of the custom attribute
      * (and the corresponding custom attribute definition) and can be retrieved using the [Customer Custom
-     * Attributes API]($e/CustomerCustomAttributes).
+     * Attributes API](api:CustomerCustomAttributes).
      */
     public function getKey(): string
     {
@@ -50,10 +50,10 @@ class CustomerCustomAttributeFilter implements \JsonSerializable
 
     /**
      * Sets Key.
-     * The `key` of the [custom attribute]($m/CustomAttribute) to filter by. The key is the identifier of
-     * the custom attribute
+     * The `key` of the [custom attribute](entity:CustomAttribute) to filter by. The key is the identifier
+     * of the custom attribute
      * (and the corresponding custom attribute definition) and can be retrieved using the [Customer Custom
-     * Attributes API]($e/CustomerCustomAttributes).
+     * Attributes API](api:CustomerCustomAttributes).
      *
      * @required
      * @maps key

@@ -59,9 +59,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -99,20 +99,16 @@ function createBreakType(CreateBreakTypeRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_breakType_locationId = 'CGJN03P1D08GF';
-$body_breakType_breakName = 'Lunch Break';
-$body_breakType_expectedDuration = 'PT30M';
-$body_breakType_isPaid = true;
-$body_breakType = new Models\BreakType(
-    $body_breakType_locationId,
-    $body_breakType_breakName,
-    $body_breakType_expectedDuration,
-    $body_breakType_isPaid
-);
-$body = new Models\CreateBreakTypeRequest(
-    $body_breakType
-);
-$body->setIdempotencyKey('PAD3NG5KSN2GL');
+$body = CreateBreakTypeRequestBuilder::init(
+    BreakTypeBuilder::init(
+        'CGJN03P1D08GF',
+        'Lunch Break',
+        'PT30M',
+        true
+    )->build()
+)
+    ->idempotencyKey('PAD3NG5KSN2GL')
+    ->build();
 
 $apiResponse = $laborApi->createBreakType($body);
 
@@ -122,9 +118,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -161,9 +157,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -198,9 +194,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -227,22 +223,22 @@ function updateBreakType(string $id, UpdateBreakTypeRequest $body): ApiResponse
 
 ```php
 $id = 'id0';
-$body_breakType_locationId = '26M7H24AZ9N6R';
-$body_breakType_breakName = 'Lunch';
-$body_breakType_expectedDuration = 'PT50M';
-$body_breakType_isPaid = true;
-$body_breakType = new Models\BreakType(
-    $body_breakType_locationId,
-    $body_breakType_breakName,
-    $body_breakType_expectedDuration,
-    $body_breakType_isPaid
-);
-$body_breakType->setVersion(1);
-$body = new Models\UpdateBreakTypeRequest(
-    $body_breakType
-);
 
-$apiResponse = $laborApi->updateBreakType($id, $body);
+$body = UpdateBreakTypeRequestBuilder::init(
+    BreakTypeBuilder::init(
+        '26M7H24AZ9N6R',
+        'Lunch',
+        'PT50M',
+        true
+    )
+        ->version(1)
+        ->build()
+)->build();
+
+$apiResponse = $laborApi->updateBreakType(
+    $id,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateBreakTypeResponse = $apiResponse->getResult();
@@ -250,9 +246,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -289,9 +285,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -328,9 +324,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -373,39 +369,41 @@ function createShift(CreateShiftRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_shift_startAt = '2019-01-25T08:11:00+00:00';
-$body_shift = new Models\Shift(
-    $body_shift_startAt
-);
-$body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setEndAt('2019-01-25T18:11:00+00:00');
-$body_shift->setWage(new Models\ShiftWage());
-$body_shift->getWage()->setTitle('Barista');
-$body_shift->getWage()->setHourlyRate(new Models\Money());
-$body_shift->getWage()->getHourlyRate()->setAmount(1100);
-$body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
-$body_shift_breaks = [];
-
-$body_shift_breaks_0_startAt = '2019-01-25T11:11:00+00:00';
-$body_shift_breaks_0_breakTypeId = 'REGS1EQR1TPZ5';
-$body_shift_breaks_0_name = 'Tea Break';
-$body_shift_breaks_0_expectedDuration = 'PT5M';
-$body_shift_breaks_0_isPaid = true;
-$body_shift_breaks[0] = new Models\MBreak(
-    $body_shift_breaks_0_startAt,
-    $body_shift_breaks_0_breakTypeId,
-    $body_shift_breaks_0_name,
-    $body_shift_breaks_0_expectedDuration,
-    $body_shift_breaks_0_isPaid
-);
-$body_shift_breaks[0]->setEndAt('2019-01-25T11:16:00+00:00');
-$body_shift->setBreaks($body_shift_breaks);
-
-$body_shift->setTeamMemberId('ormj0jJJZ5OZIzxrZYJI');
-$body = new Models\CreateShiftRequest(
-    $body_shift
-);
-$body->setIdempotencyKey('HIDSNG5KS478L');
+$body = CreateShiftRequestBuilder::init(
+    ShiftBuilder::init(
+        '2019-01-25T08:11:00+00:00'
+    )
+        ->locationId('PAA1RJZZKXBFG')
+        ->endAt('2019-01-25T18:11:00+00:00')
+        ->wage(
+            ShiftWageBuilder::init()
+                ->title('Barista')
+                ->hourlyRate(
+                    MoneyBuilder::init()
+                        ->amount(1100)
+                        ->currency(Currency::USD)
+                        ->build()
+                )
+                ->build()
+        )
+        ->breaks(
+            [
+                MBreakBuilder::init(
+                    '2019-01-25T11:11:00+00:00',
+                    'REGS1EQR1TPZ5',
+                    'Tea Break',
+                    'PT5M',
+                    true
+                )
+                    ->endAt('2019-01-25T11:16:00+00:00')
+                    ->build()
+            ]
+        )
+        ->teamMemberId('ormj0jJJZ5OZIzxrZYJI')
+        ->build()
+)
+    ->idempotencyKey('HIDSNG5KS478L')
+    ->build();
 
 $apiResponse = $laborApi->createShift($body);
 
@@ -415,9 +413,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -457,16 +455,29 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchShiftsRequest();
-$body->setQuery(new Models\ShiftQuery());
-$body->getQuery()->setFilter(new Models\ShiftFilter());
-$body->getQuery()->getFilter()->setWorkday(new Models\ShiftWorkday());
-$body->getQuery()->getFilter()->getWorkday()->setDateRange(new Models\DateRange());
-$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setStartDate('2019-01-20');
-$body->getQuery()->getFilter()->getWorkday()->getDateRange()->setEndDate('2019-02-03');
-$body->getQuery()->getFilter()->getWorkday()->setMatchShiftsBy(Models\ShiftWorkdayMatcher::START_AT);
-$body->getQuery()->getFilter()->getWorkday()->setDefaultTimezone('America/Los_Angeles');
-$body->setLimit(100);
+$body = SearchShiftsRequestBuilder::init()
+    ->query(
+        ShiftQueryBuilder::init()
+            ->filter(
+                ShiftFilterBuilder::init()
+                    ->workday(
+                        ShiftWorkdayBuilder::init()
+                            ->dateRange(
+                                DateRangeBuilder::init()
+                                    ->startDate('2019-01-20')
+                                    ->endDate('2019-02-03')
+                                    ->build()
+                            )
+                            ->matchShiftsBy(ShiftWorkdayMatcher::START_AT)
+                            ->defaultTimezone('America/Los_Angeles')
+                            ->build()
+                    )
+                    ->build()
+            )
+            ->build()
+    )
+    ->limit(100)
+    ->build();
 
 $apiResponse = $laborApi->searchShifts($body);
 
@@ -476,9 +487,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -513,9 +524,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -550,9 +561,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -585,42 +596,47 @@ function updateShift(string $id, UpdateShiftRequest $body): ApiResponse
 
 ```php
 $id = 'id0';
-$body_shift_startAt = '2019-01-25T08:11:00+00:00';
-$body_shift = new Models\Shift(
-    $body_shift_startAt
-);
-$body_shift->setLocationId('PAA1RJZZKXBFG');
-$body_shift->setEndAt('2019-01-25T18:11:00+00:00');
-$body_shift->setWage(new Models\ShiftWage());
-$body_shift->getWage()->setTitle('Bartender');
-$body_shift->getWage()->setHourlyRate(new Models\Money());
-$body_shift->getWage()->getHourlyRate()->setAmount(1500);
-$body_shift->getWage()->getHourlyRate()->setCurrency(Models\Currency::USD);
-$body_shift_breaks = [];
 
-$body_shift_breaks_0_startAt = '2019-01-25T11:11:00+00:00';
-$body_shift_breaks_0_breakTypeId = 'REGS1EQR1TPZ5';
-$body_shift_breaks_0_name = 'Tea Break';
-$body_shift_breaks_0_expectedDuration = 'PT5M';
-$body_shift_breaks_0_isPaid = true;
-$body_shift_breaks[0] = new Models\MBreak(
-    $body_shift_breaks_0_startAt,
-    $body_shift_breaks_0_breakTypeId,
-    $body_shift_breaks_0_name,
-    $body_shift_breaks_0_expectedDuration,
-    $body_shift_breaks_0_isPaid
-);
-$body_shift_breaks[0]->setId('X7GAQYVVRRG6P');
-$body_shift_breaks[0]->setEndAt('2019-01-25T11:16:00+00:00');
-$body_shift->setBreaks($body_shift_breaks);
+$body = UpdateShiftRequestBuilder::init(
+    ShiftBuilder::init(
+        '2019-01-25T08:11:00+00:00'
+    )
+        ->locationId('PAA1RJZZKXBFG')
+        ->endAt('2019-01-25T18:11:00+00:00')
+        ->wage(
+            ShiftWageBuilder::init()
+                ->title('Bartender')
+                ->hourlyRate(
+                    MoneyBuilder::init()
+                        ->amount(1500)
+                        ->currency(Currency::USD)
+                        ->build()
+                )
+                ->build()
+        )
+        ->breaks(
+            [
+                MBreakBuilder::init(
+                    '2019-01-25T11:11:00+00:00',
+                    'REGS1EQR1TPZ5',
+                    'Tea Break',
+                    'PT5M',
+                    true
+                )
+                    ->id('X7GAQYVVRRG6P')
+                    ->endAt('2019-01-25T11:16:00+00:00')
+                    ->build()
+            ]
+        )
+        ->version(1)
+        ->teamMemberId('ormj0jJJZ5OZIzxrZYJI')
+        ->build()
+)->build();
 
-$body_shift->setVersion(1);
-$body_shift->setTeamMemberId('ormj0jJJZ5OZIzxrZYJI');
-$body = new Models\UpdateShiftRequest(
-    $body_shift
+$apiResponse = $laborApi->updateShift(
+    $id,
+    $body
 );
-
-$apiResponse = $laborApi->updateShift($id, $body);
 
 if ($apiResponse->isSuccess()) {
     $updateShiftResponse = $apiResponse->getResult();
@@ -628,9 +644,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -669,9 +685,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -706,9 +722,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -742,9 +758,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -771,18 +787,20 @@ function updateWorkweekConfig(string $id, UpdateWorkweekConfigRequest $body): Ap
 
 ```php
 $id = 'id0';
-$body_workweekConfig_startOfWeek = Models\Weekday::MON;
-$body_workweekConfig_startOfDayLocalTime = '10:00';
-$body_workweekConfig = new Models\WorkweekConfig(
-    $body_workweekConfig_startOfWeek,
-    $body_workweekConfig_startOfDayLocalTime
-);
-$body_workweekConfig->setVersion(10);
-$body = new Models\UpdateWorkweekConfigRequest(
-    $body_workweekConfig
-);
 
-$apiResponse = $laborApi->updateWorkweekConfig($id, $body);
+$body = UpdateWorkweekConfigRequestBuilder::init(
+    WorkweekConfigBuilder::init(
+        Weekday::MON,
+        '10:00'
+    )
+        ->version(10)
+        ->build()
+)->build();
+
+$apiResponse = $laborApi->updateWorkweekConfig(
+    $id,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateWorkweekConfigResponse = $apiResponse->getResult();
@@ -790,8 +808,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

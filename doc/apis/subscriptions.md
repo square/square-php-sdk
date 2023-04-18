@@ -48,22 +48,25 @@ function createSubscription(CreateSubscriptionRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_locationId = 'S8GWD5R9QB376';
-$body_planId = '6JHXF3B2CW3YKHDV4XEM674H';
-$body_customerId = 'CHFGVKYY8RSV93M5KCYTG4PN0G';
-$body = new Models\CreateSubscriptionRequest(
-    $body_locationId,
-    $body_planId,
-    $body_customerId
-);
-$body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
-$body->setStartDate('2021-10-20');
-$body->setTaxPercentage('5');
-$body->setPriceOverrideMoney(new Models\Money());
-$body->getPriceOverrideMoney()->setAmount(100);
-$body->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
-$body->setCardId('ccof:qy5x8hHGYsgLrp4Q4GB');
-$body->setTimezone('America/Los_Angeles');
+$body = CreateSubscriptionRequestBuilder::init(
+    'S8GWD5R9QB376',
+    '6JHXF3B2CW3YKHDV4XEM674H',
+    'CHFGVKYY8RSV93M5KCYTG4PN0G'
+)
+    ->idempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf')
+    ->startDate('2021-10-20')
+    ->taxPercentage('5')
+    ->priceOverrideMoney(
+        MoneyBuilder::init()
+            ->amount(100)
+            ->currency(Currency::USD)
+            ->build()
+    )
+    ->cardId('ccof:qy5x8hHGYsgLrp4Q4GB')
+    ->timezone('America/Los_Angeles')
+    ->source(
+        SubscriptionSourceBuilder::init()->build()
+    )->build();
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 
@@ -73,9 +76,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -116,12 +119,31 @@ function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchSubscriptionsRequest();
-$body->setQuery(new Models\SearchSubscriptionsQuery());
-$body->getQuery()->setFilter(new Models\SearchSubscriptionsFilter());
-$body->getQuery()->getFilter()->setCustomerIds(['CHFGVKYY8RSV93M5KCYTG4PN0G']);
-$body->getQuery()->getFilter()->setLocationIds(['S8GWD5R9QB376']);
-$body->getQuery()->getFilter()->setSourceNames(['My App']);
+$body = SearchSubscriptionsRequestBuilder::init()
+    ->query(
+        SearchSubscriptionsQueryBuilder::init()
+            ->filter(
+                SearchSubscriptionsFilterBuilder::init()
+                    ->customerIds(
+                        [
+                            'CHFGVKYY8RSV93M5KCYTG4PN0G'
+                        ]
+                    )
+                    ->locationIds(
+                        [
+                            'S8GWD5R9QB376'
+                        ]
+                    )
+                    ->sourceNames(
+                        [
+                            'My App'
+                        ]
+                    )
+                    ->build()
+            )
+            ->build()
+    )
+    ->build();
 
 $apiResponse = $subscriptionsApi->searchSubscriptions($body);
 
@@ -131,9 +153,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -169,9 +191,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -199,14 +221,25 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\UpdateSubscriptionRequest();
-$body->setSubscription(new Models\Subscription());
-$body->getSubscription()->setPriceOverrideMoney(new Models\Money());
-$body->getSubscription()->getPriceOverrideMoney()->setAmount(2000);
-$body->getSubscription()->getPriceOverrideMoney()->setCurrency(Models\Currency::USD);
-$body->getSubscription()->setVersion(1594155459464);
 
-$apiResponse = $subscriptionsApi->updateSubscription($subscriptionId, $body);
+$body = UpdateSubscriptionRequestBuilder::init()
+    ->subscription(
+        SubscriptionBuilder::init()
+            ->priceOverrideMoney(
+                MoneyBuilder::init()
+                    ->amount(2000)
+                    ->currency(Currency::USD)
+                    ->build()
+            )
+            ->version(1594155459464)
+            ->build()
+    )
+    ->build();
+
+$apiResponse = $subscriptionsApi->updateSubscription(
+    $subscriptionId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateSubscriptionResponse = $apiResponse->getResult();
@@ -214,9 +247,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -243,9 +276,13 @@ function deleteSubscriptionAction(string $subscriptionId, string $actionId): Api
 
 ```php
 $subscriptionId = 'subscription_id0';
+
 $actionId = 'action_id6';
 
-$apiResponse = $subscriptionsApi->deleteSubscriptionAction($subscriptionId, $actionId);
+$apiResponse = $subscriptionsApi->deleteSubscriptionAction(
+    $subscriptionId,
+    $actionId
+);
 
 if ($apiResponse->isSuccess()) {
     $deleteSubscriptionActionResponse = $apiResponse->getResult();
@@ -253,9 +290,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -292,9 +329,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -331,9 +368,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -360,9 +397,13 @@ function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $bod
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\PauseSubscriptionRequest();
 
-$apiResponse = $subscriptionsApi->pauseSubscription($subscriptionId, $body);
+$body = PauseSubscriptionRequestBuilder::init()->build();
+
+$apiResponse = $subscriptionsApi->pauseSubscription(
+    $subscriptionId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $pauseSubscriptionResponse = $apiResponse->getResult();
@@ -370,9 +411,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -399,9 +440,13 @@ function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $b
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body = new Models\ResumeSubscriptionRequest();
 
-$apiResponse = $subscriptionsApi->resumeSubscription($subscriptionId, $body);
+$body = ResumeSubscriptionRequestBuilder::init()->build();
+
+$apiResponse = $subscriptionsApi->resumeSubscription(
+    $subscriptionId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $resumeSubscriptionResponse = $apiResponse->getResult();
@@ -409,9 +454,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -438,12 +483,15 @@ function swapPlan(string $subscriptionId, SwapPlanRequest $body): ApiResponse
 
 ```php
 $subscriptionId = 'subscription_id0';
-$body_newPlanId = null;
-$body = new Models\SwapPlanRequest(
-    $body_newPlanId
-);
 
-$apiResponse = $subscriptionsApi->swapPlan($subscriptionId, $body);
+$body = SwapPlanRequestBuilder::init(
+    ''
+)->build();
+
+$apiResponse = $subscriptionsApi->swapPlan(
+    $subscriptionId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $swapPlanResponse = $apiResponse->getResult();
@@ -451,8 +499,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

@@ -27,7 +27,7 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
     /**
      * Returns Team Members.
      * The data used to create the `TeamMember` objects. Each key is the `idempotency_key` that maps to the
-     * `CreateTeamMemberRequest`.
+     * `CreateTeamMemberRequest`. The maximum number of create objects is 25.
      *
      * @return array<string,CreateTeamMemberRequest>
      */
@@ -39,7 +39,7 @@ class BulkCreateTeamMembersRequest implements \JsonSerializable
     /**
      * Sets Team Members.
      * The data used to create the `TeamMember` objects. Each key is the `idempotency_key` that maps to the
-     * `CreateTeamMemberRequest`.
+     * `CreateTeamMemberRequest`. The maximum number of create objects is 25.
      *
      * @required
      * @maps team_members

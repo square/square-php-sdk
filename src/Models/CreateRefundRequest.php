@@ -8,9 +8,9 @@ use stdClass;
 
 /**
  * Defines the body parameters that can be included in
- * a request to the [CreateRefund]($e/Transactions/CreateRefund) endpoint.
+ * a request to the [CreateRefund](api-endpoint:Transactions-CreateRefund) endpoint.
  *
- * Deprecated - recommend using [RefundPayment]($e/Refunds/RefundPayment)
+ * Deprecated - recommend using [RefundPayment](api-endpoint:Refunds-RefundPayment)
  */
 class CreateRefundRequest implements \JsonSerializable
 {
@@ -87,7 +87,7 @@ class CreateRefundRequest implements \JsonSerializable
      * Returns Tender Id.
      * The ID of the tender to refund.
      *
-     * A [`Transaction`]($m/Transaction) has one or more `tenders` (i.e., methods
+     * A [`Transaction`](entity:Transaction) has one or more `tenders` (i.e., methods
      * of payment) associated with it, and you refund each tender separately with
      * the Connect API.
      */
@@ -100,7 +100,7 @@ class CreateRefundRequest implements \JsonSerializable
      * Sets Tender Id.
      * The ID of the tender to refund.
      *
-     * A [`Transaction`]($m/Transaction) has one or more `tenders` (i.e., methods
+     * A [`Transaction`](entity:Transaction) has one or more `tenders` (i.e., methods
      * of payment) associated with it, and you refund each tender separately with
      * the Connect API.
      *

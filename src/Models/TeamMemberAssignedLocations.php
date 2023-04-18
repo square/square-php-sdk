@@ -43,7 +43,7 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     * The locations that the team member is assigned to.
+     * The explicit locations that the team member is assigned to.
      *
      * @return string[]|null
      */
@@ -57,7 +57,7 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     * The locations that the team member is assigned to.
+     * The explicit locations that the team member is assigned to.
      *
      * @maps location_ids
      *
@@ -70,7 +70,7 @@ class TeamMemberAssignedLocations implements \JsonSerializable
 
     /**
      * Unsets Location Ids.
-     * The locations that the team member is assigned to.
+     * The explicit locations that the team member is assigned to.
      */
     public function unsetLocationIds(): void
     {

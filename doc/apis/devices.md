@@ -52,9 +52,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -80,14 +80,13 @@ function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '01bb00a6-0c86-4770-94ed-f5fca973cd56';
-$body_deviceCode = new Models\DeviceCode();
-$body_deviceCode->setName('Counter 1');
-$body_deviceCode->setLocationId('B5E4484SHHNYH');
-$body = new Models\CreateDeviceCodeRequest(
-    $body_idempotencyKey,
-    $body_deviceCode
-);
+$body = CreateDeviceCodeRequestBuilder::init(
+    '01bb00a6-0c86-4770-94ed-f5fca973cd56',
+    DeviceCodeBuilder::init()
+        ->name('Counter 1')
+        ->locationId('B5E4484SHHNYH')
+        ->build()
+)->build();
 
 $apiResponse = $devicesApi->createDeviceCode($body);
 
@@ -97,9 +96,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -134,8 +133,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

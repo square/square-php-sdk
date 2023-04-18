@@ -41,7 +41,7 @@ class BookingCustomAttributeUpsertRequest implements \JsonSerializable
 
     /**
      * Returns Booking Id.
-     * The ID of the target [booking]($m/Booking).
+     * The ID of the target [booking](entity:Booking).
      */
     public function getBookingId(): string
     {
@@ -50,7 +50,7 @@ class BookingCustomAttributeUpsertRequest implements \JsonSerializable
 
     /**
      * Sets Booking Id.
-     * The ID of the target [booking]($m/Booking).
+     * The ID of the target [booking](entity:Booking).
      *
      * @required
      * @maps booking_id

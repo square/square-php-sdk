@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\GetBankAccountByV1IdResponse;
 use Square\Models\GetBankAccountResponse;
@@ -32,8 +31,6 @@ class BankAccountsApi extends BaseApi
      *        only the linked bank accounts belonging to a specific location.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listBankAccounts(
         ?string $cursor = null,
@@ -63,8 +60,6 @@ class BankAccountsApi extends BaseApi
      *        id-issued-by-v1-bank-accounts-api).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getBankAccountByV1Id(string $v1BankAccountId): ApiResponse
     {
@@ -84,8 +79,6 @@ class BankAccountsApi extends BaseApi
      * @param string $bankAccountId Square-issued ID of the desired `BankAccount`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getBankAccount(string $bankAccountId): ApiResponse
     {

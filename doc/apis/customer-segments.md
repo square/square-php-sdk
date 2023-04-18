@@ -44,9 +44,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -81,8 +81,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

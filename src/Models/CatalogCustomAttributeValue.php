@@ -120,7 +120,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Custom Attribute Definition Id.
-     * The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition) this value
+     * The id of the [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition) this value
      * belongs to.
      */
     public function getCustomAttributeDefinitionId(): ?string
@@ -130,7 +130,7 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Custom Attribute Definition Id.
-     * The id of the [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition) this value
+     * The id of the [CatalogCustomAttributeDefinition](entity:CatalogCustomAttributeDefinition) this value
      * belongs to.
      *
      * @maps custom_attribute_definition_id
@@ -265,7 +265,12 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Returns Key.
-     * A copy of key from the associated `CatalogCustomAttributeDefinition`.
+     * If the associated `CatalogCustomAttributeDefinition` object is defined by another application, this
+     * key is prefixed by the defining application ID.
+     * For example, if the CatalogCustomAttributeDefinition has a key attribute of "cocoa_brand" and the
+     * defining application ID is "abcd1234", this key is "abcd1234:cocoa_brand"
+     * when the application making the request is different from the application defining the custom
+     * attribute definition. Otherwise, the key is simply "cocoa_brand".
      */
     public function getKey(): ?string
     {
@@ -274,7 +279,12 @@ class CatalogCustomAttributeValue implements \JsonSerializable
 
     /**
      * Sets Key.
-     * A copy of key from the associated `CatalogCustomAttributeDefinition`.
+     * If the associated `CatalogCustomAttributeDefinition` object is defined by another application, this
+     * key is prefixed by the defining application ID.
+     * For example, if the CatalogCustomAttributeDefinition has a key attribute of "cocoa_brand" and the
+     * defining application ID is "abcd1234", this key is "abcd1234:cocoa_brand"
+     * when the application making the request is different from the application defining the custom
+     * attribute definition. Otherwise, the key is simply "cocoa_brand".
      *
      * @maps key
      */

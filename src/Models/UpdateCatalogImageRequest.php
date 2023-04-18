@@ -26,8 +26,8 @@ class UpdateCatalogImageRequest implements \JsonSerializable
      * A unique string that identifies this UpdateCatalogImage request.
      * Keys can be any valid string but must be unique for every UpdateCatalogImage request.
      *
-     * See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency) for more information.
      */
     public function getIdempotencyKey(): string
     {
@@ -39,8 +39,8 @@ class UpdateCatalogImageRequest implements \JsonSerializable
      * A unique string that identifies this UpdateCatalogImage request.
      * Keys can be any valid string but must be unique for every UpdateCatalogImage request.
      *
-     * See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency) for more information.
      *
      * @required
      * @maps idempotency_key

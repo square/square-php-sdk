@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkCreateVendorsRequest;
 use Square\Models\BulkCreateVendorsResponse;
@@ -35,8 +34,6 @@ class VendorsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkCreateVendors(BulkCreateVendorsRequest $body): ApiResponse
     {
@@ -58,8 +55,6 @@ class VendorsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkRetrieveVendors(BulkRetrieveVendorsRequest $body): ApiResponse
     {
@@ -81,8 +76,6 @@ class VendorsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpdateVendors(BulkUpdateVendorsRequest $body): ApiResponse
     {
@@ -102,8 +95,6 @@ class VendorsApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createVendor(CreateVendorRequest $body): ApiResponse
     {
@@ -124,8 +115,6 @@ class VendorsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchVendors(SearchVendorsRequest $body): ApiResponse
     {
@@ -141,11 +130,9 @@ class VendorsApi extends BaseApi
     /**
      * Retrieves the vendor of a specified [Vendor]($m/Vendor) ID.
      *
-     * @param string $vendorId ID of the [Vendor]($m/Vendor) to retrieve.
+     * @param string $vendorId ID of the [Vendor](entity:Vendor) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveVendor(string $vendorId): ApiResponse
     {
@@ -166,8 +153,6 @@ class VendorsApi extends BaseApi
      * @param string $vendorId
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateVendor(UpdateVendorRequest $body, string $vendorId): ApiResponse
     {

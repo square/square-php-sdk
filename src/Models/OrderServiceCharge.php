@@ -82,6 +82,16 @@ class OrderServiceCharge implements \JsonSerializable
     private $type;
 
     /**
+     * @var string|null
+     */
+    private $treatmentType;
+
+    /**
+     * @var string|null
+     */
+    private $scope;
+
+    /**
      * Returns Uid.
      * A unique ID that identifies the service charge only within this order.
      */
@@ -147,7 +157,7 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
+     * The catalog object ID referencing the service charge [CatalogObject](entity:CatalogObject).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -159,7 +169,7 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
+     * The catalog object ID referencing the service charge [CatalogObject](entity:CatalogObject).
      *
      * @maps catalog_object_id
      */
@@ -170,7 +180,7 @@ class OrderServiceCharge implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing the service charge [CatalogObject]($m/CatalogObject).
+     * The catalog object ID referencing the service charge [CatalogObject](entity:CatalogObject).
      */
     public function unsetCatalogObjectId(): void
     {
@@ -619,6 +629,50 @@ class OrderServiceCharge implements \JsonSerializable
     }
 
     /**
+     * Returns Treatment Type.
+     * Indicates whether the service charge will be treated as a value-holding line item or
+     * apportioned toward a line item.
+     */
+    public function getTreatmentType(): ?string
+    {
+        return $this->treatmentType;
+    }
+
+    /**
+     * Sets Treatment Type.
+     * Indicates whether the service charge will be treated as a value-holding line item or
+     * apportioned toward a line item.
+     *
+     * @maps treatment_type
+     */
+    public function setTreatmentType(?string $treatmentType): void
+    {
+        $this->treatmentType = $treatmentType;
+    }
+
+    /**
+     * Returns Scope.
+     * Indicates whether this is a line-item or order-level apportioned
+     * service charge.
+     */
+    public function getScope(): ?string
+    {
+        return $this->scope;
+    }
+
+    /**
+     * Sets Scope.
+     * Indicates whether this is a line-item or order-level apportioned
+     * service charge.
+     *
+     * @maps scope
+     */
+    public function setScope(?string $scope): void
+    {
+        $this->scope = $scope;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -671,6 +725,12 @@ class OrderServiceCharge implements \JsonSerializable
         }
         if (isset($this->type)) {
             $json['type']              = $this->type;
+        }
+        if (isset($this->treatmentType)) {
+            $json['treatment_type']    = $this->treatmentType;
+        }
+        if (isset($this->scope)) {
+            $json['scope']             = $this->scope;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

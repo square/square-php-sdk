@@ -11,7 +11,7 @@ Updates a [Subscription](../../doc/models/webhook-subscription.md) by replacing 
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `idempotencyKey` | `?string` | Optional | A unique string that identifies the [UpdateWebhookSubscriptionSignatureKey](../../doc/apis/webhook-subscriptions.md#update-webhook-subscription-signature-key) request.<br>**Constraints**: *Maximum Length*: `45` | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
+| `idempotencyKey` | `?string` | Optional | A unique string that identifies the [UpdateWebhookSubscriptionSignatureKey](api-endpoint:WebhookSubscriptions-UpdateWebhookSubscriptionSignatureKey) request.<br>**Constraints**: *Maximum Length*: `45` | getIdempotencyKey(): ?string | setIdempotencyKey(?string idempotencyKey): void |
 
 ## Example (as JSON)
 

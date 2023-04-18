@@ -28,7 +28,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The [order]($m/Order) ID for which to calculate the points.
+     * The [order](entity:Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
      * Otherwise, specify the `transaction_amount_money`.
      */
@@ -42,7 +42,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The [order]($m/Order) ID for which to calculate the points.
+     * The [order](entity:Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
      * Otherwise, specify the `transaction_amount_money`.
      *
@@ -55,7 +55,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Unsets Order Id.
-     * The [order]($m/Order) ID for which to calculate the points.
+     * The [order](entity:Order) ID for which to calculate the points.
      * Specify this field if your application uses the Orders API to process orders.
      * Otherwise, specify the `transaction_amount_money`.
      */
@@ -98,7 +98,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * The ID of the target [loyalty account](entity:LoyaltyAccount). Optionally specify this field
      * if your application uses the Orders API to process orders.
      *
      * If specified, the `promotion_points` field in the response shows the number of points the buyer
@@ -120,7 +120,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * The ID of the target [loyalty account](entity:LoyaltyAccount). Optionally specify this field
      * if your application uses the Orders API to process orders.
      *
      * If specified, the `promotion_points` field in the response shows the number of points the buyer
@@ -141,7 +141,7 @@ class CalculateLoyaltyPointsRequest implements \JsonSerializable
 
     /**
      * Unsets Loyalty Account Id.
-     * The ID of the target [loyalty account]($m/LoyaltyAccount). Optionally specify this field
+     * The ID of the target [loyalty account](entity:LoyaltyAccount). Optionally specify this field
      * if your application uses the Orders API to process orders.
      *
      * If specified, the `promotion_points` field in the response shows the number of points the buyer

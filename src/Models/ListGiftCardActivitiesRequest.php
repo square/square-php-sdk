@@ -92,8 +92,8 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Returns Type.
-     * If a [type]($m/GiftCardActivityType) is provided, the endpoint returns gift card activities of the
-     * specified type.
+     * If a [type](entity:GiftCardActivityType) is provided, the endpoint returns gift card activities of
+     * the specified type.
      * Otherwise, the endpoint returns all types of gift card activities.
      */
     public function getType(): ?string
@@ -106,8 +106,8 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Sets Type.
-     * If a [type]($m/GiftCardActivityType) is provided, the endpoint returns gift card activities of the
-     * specified type.
+     * If a [type](entity:GiftCardActivityType) is provided, the endpoint returns gift card activities of
+     * the specified type.
      * Otherwise, the endpoint returns all types of gift card activities.
      *
      * @maps type
@@ -119,8 +119,8 @@ class ListGiftCardActivitiesRequest implements \JsonSerializable
 
     /**
      * Unsets Type.
-     * If a [type]($m/GiftCardActivityType) is provided, the endpoint returns gift card activities of the
-     * specified type.
+     * If a [type](entity:GiftCardActivityType) is provided, the endpoint returns gift card activities of
+     * the specified type.
      * Otherwise, the endpoint returns all types of gift card activities.
      */
     public function unsetType(): void

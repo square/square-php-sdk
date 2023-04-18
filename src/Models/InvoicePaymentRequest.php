@@ -85,7 +85,7 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Uid.
-     * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
+     * The Square-generated ID of the payment request in an [invoice](entity:Invoice).
      */
     public function getUid(): ?string
     {
@@ -97,7 +97,7 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Uid.
-     * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
+     * The Square-generated ID of the payment request in an [invoice](entity:Invoice).
      *
      * @maps uid
      */
@@ -108,7 +108,7 @@ class InvoicePaymentRequest implements \JsonSerializable
 
     /**
      * Unsets Uid.
-     * The Square-generated ID of the payment request in an [invoice]($m/Invoice).
+     * The Square-generated ID of the payment request in an [invoice](entity:Invoice).
      */
     public function unsetUid(): void
     {
@@ -383,7 +383,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Returns Card Id.
      * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
      * file for a customer,
-     * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
+     * call [ListCards](api-endpoint:Cards-ListCards) and include the `customer_id` of the invoice
+     * recipient.
      */
     public function getCardId(): ?string
     {
@@ -397,7 +398,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Sets Card Id.
      * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
      * file for a customer,
-     * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
+     * call [ListCards](api-endpoint:Cards-ListCards) and include the `customer_id` of the invoice
+     * recipient.
      *
      * @maps card_id
      */
@@ -410,7 +412,8 @@ class InvoicePaymentRequest implements \JsonSerializable
      * Unsets Card Id.
      * The ID of the credit or debit card on file to charge for the payment request. To get the cards on
      * file for a customer,
-     * call [ListCards]($e/Cards/ListCards) and include the `customer_id` of the invoice recipient.
+     * call [ListCards](api-endpoint:Cards-ListCards) and include the `customer_id` of the invoice
+     * recipient.
      */
     public function unsetCardId(): void
     {

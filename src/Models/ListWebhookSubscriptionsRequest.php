@@ -74,8 +74,8 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Returns Include Disabled.
-     * Includes disabled [Subscription]($m/WebhookSubscription)s.
-     * By default, all enabled [Subscription]($m/WebhookSubscription)s are returned.
+     * Includes disabled [Subscription](entity:WebhookSubscription)s.
+     * By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.
      */
     public function getIncludeDisabled(): ?bool
     {
@@ -87,8 +87,8 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Sets Include Disabled.
-     * Includes disabled [Subscription]($m/WebhookSubscription)s.
-     * By default, all enabled [Subscription]($m/WebhookSubscription)s are returned.
+     * Includes disabled [Subscription](entity:WebhookSubscription)s.
+     * By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.
      *
      * @maps include_disabled
      */
@@ -99,8 +99,8 @@ class ListWebhookSubscriptionsRequest implements \JsonSerializable
 
     /**
      * Unsets Include Disabled.
-     * Includes disabled [Subscription]($m/WebhookSubscription)s.
-     * By default, all enabled [Subscription]($m/WebhookSubscription)s are returned.
+     * Includes disabled [Subscription](entity:WebhookSubscription)s.
+     * By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.
      */
     public function unsetIncludeDisabled(): void
     {

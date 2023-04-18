@@ -299,7 +299,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     * The ID of the [loyalty program]($m/LoyaltyProgram) associated with the promotion.
+     * The ID of the [loyalty program](entity:LoyaltyProgram) associated with the promotion.
      */
     public function getLoyaltyProgramId(): ?string
     {
@@ -308,7 +308,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     * The ID of the [loyalty program]($m/LoyaltyProgram) associated with the promotion.
+     * The ID of the [loyalty program](entity:LoyaltyProgram) associated with the promotion.
      *
      * @maps loyalty_program_id
      */
@@ -351,7 +351,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Returns Qualifying Item Variation Ids.
-     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one of these items to qualify for the promotion.
      *
      * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
@@ -372,7 +372,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Sets Qualifying Item Variation Ids.
-     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one of these items to qualify for the promotion.
      *
      * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
@@ -392,7 +392,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Unsets Qualifying Item Variation Ids.
-     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `ITEM_VARIATION` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one of these items to qualify for the promotion.
      *
      * This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.
@@ -408,7 +408,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Returns Qualifying Category Ids.
-     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `CATEGORY` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one item from one of these categories to qualify for the
      * promotion.
      *
@@ -430,7 +430,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Sets Qualifying Category Ids.
-     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `CATEGORY` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one item from one of these categories to qualify for the
      * promotion.
      *
@@ -451,7 +451,7 @@ class LoyaltyPromotion implements \JsonSerializable
 
     /**
      * Unsets Qualifying Category Ids.
-     * The IDs of any qualifying `CATEGORY` [catalog objects]($m/CatalogObject). If specified,
+     * The IDs of any qualifying `CATEGORY` [catalog objects](entity:CatalogObject). If specified,
      * the purchase must include at least one item from one of these categories to qualify for the
      * promotion.
      *

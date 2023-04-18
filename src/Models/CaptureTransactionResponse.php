@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint.
+ * a request to the [CaptureTransaction](api-endpoint:Transactions-CaptureTransaction) endpoint.
  */
 class CaptureTransactionResponse implements \JsonSerializable
 {

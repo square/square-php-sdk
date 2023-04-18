@@ -13,7 +13,7 @@ Defines the response returned by [ListPayments](../../doc/apis/payments.md#list-
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information about errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
 | `payments` | [`?(Payment[])`](../../doc/models/payment.md) | Optional | The requested list of payments. | getPayments(): ?array | setPayments(?array payments): void |
-| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)
 

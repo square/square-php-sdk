@@ -57,9 +57,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -96,14 +96,14 @@ function createCustomerCustomAttributeDefinition(
 ## Example Usage
 
 ```php
-$body_customAttributeDefinition = new Models\CustomAttributeDefinition();
-$body_customAttributeDefinition->setKey('favoritemovie');
-$body_customAttributeDefinition->setName('Favorite Movie');
-$body_customAttributeDefinition->setDescription('The favorite movie of the customer.');
-$body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_HIDDEN);
-$body = new Models\CreateCustomerCustomAttributeDefinitionRequest(
-    $body_customAttributeDefinition
-);
+$body = CreateCustomerCustomAttributeDefinitionRequestBuilder::init(
+    CustomAttributeDefinitionBuilder::init()
+        ->key('favoritemovie')
+        ->name('Favorite Movie')
+        ->description('The favorite movie of the customer.')
+        ->visibility(CustomAttributeDefinitionVisibility::VISIBILITY_HIDDEN)
+        ->build()
+)->build();
 
 $apiResponse = $customerCustomAttributesApi->createCustomerCustomAttributeDefinition($body);
 
@@ -113,9 +113,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -155,9 +155,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -197,9 +197,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -235,14 +235,18 @@ function updateCustomerCustomAttributeDefinition(
 
 ```php
 $key = 'key0';
-$body_customAttributeDefinition = new Models\CustomAttributeDefinition();
-$body_customAttributeDefinition->setDescription('Update the description as desired.');
-$body_customAttributeDefinition->setVisibility(Models\CustomAttributeDefinitionVisibility::VISIBILITY_READ_ONLY);
-$body = new Models\UpdateCustomerCustomAttributeDefinitionRequest(
-    $body_customAttributeDefinition
-);
 
-$apiResponse = $customerCustomAttributesApi->updateCustomerCustomAttributeDefinition($key, $body);
+$body = UpdateCustomerCustomAttributeDefinitionRequestBuilder::init(
+    CustomAttributeDefinitionBuilder::init()
+        ->description('Update the description as desired.')
+        ->visibility(CustomAttributeDefinitionVisibility::VISIBILITY_READ_ONLY)
+        ->build()
+)->build();
+
+$apiResponse = $customerCustomAttributesApi->updateCustomerCustomAttributeDefinition(
+    $key,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateCustomerCustomAttributeDefinitionResponse = $apiResponse->getResult();
@@ -250,9 +254,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -290,25 +294,18 @@ function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRe
 ## Example Usage
 
 ```php
-$body_values = [];
-
-$body_values_key0_customerId = 'customer_id2';
-$body_values_key0_customAttribute = new Models\CustomAttribute();
-$body_values['key0'] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values_key0_customerId,
-    $body_values_key0_customAttribute
-);
-
-$body_values_key1_customerId = 'customer_id3';
-$body_values_key1_customAttribute = new Models\CustomAttribute();
-$body_values['key1'] = new Models\BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest(
-    $body_values_key1_customerId,
-    $body_values_key1_customAttribute
-);
-
-$body = new Models\BulkUpsertCustomerCustomAttributesRequest(
-    $body_values
-);
+$body = BulkUpsertCustomerCustomAttributesRequestBuilder::init(
+    [
+        'key0' => BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequestBuilder::init(
+            'customer_id2',
+            CustomAttributeBuilder::init()->build()
+        )->build(),
+        'key1' => BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequestBuilder::init(
+            'customer_id3',
+            CustomAttributeBuilder::init()->build()
+        )->build()
+    ]
+)->build();
 
 $apiResponse = $customerCustomAttributesApi->bulkUpsertCustomerCustomAttributes($body);
 
@@ -318,9 +315,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -348,10 +345,10 @@ function listCustomerCustomAttributes(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customerId` | `string` | Template, Required | The ID of the target [customer profile](../../doc/models/customer.md). |
+| `customerId` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
 | `limit` | `?int` | Query, Optional | The maximum number of results to return in a single paged response. This limit is advisory.<br>The response might contain more or fewer results. The minimum value is 1 and the maximum value is 100.<br>The default value is 20. For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `cursor` | `?string` | Query, Optional | The cursor returned in the paged response from the previous call to this endpoint.<br>Provide this cursor to retrieve the next page of results for your original request. For more<br>information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
-| `withDefinitions` | `?bool` | Query, Optional | Indicates whether to return the [custom attribute definition](../../doc/models/custom-attribute-definition.md) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `false` |
+| `withDefinitions` | `?bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of each<br>custom attribute. Set this parameter to `true` to get the name and description of each custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -361,9 +358,13 @@ function listCustomerCustomAttributes(
 
 ```php
 $customerId = 'customer_id8';
+
 $withDefinitions = false;
 
-$apiResponse = $customerCustomAttributesApi->listCustomerCustomAttributes($customerId, null, null, $withDefinitions);
+$apiResponse = $customerCustomAttributesApi->listCustomerCustomAttributes(
+    $customerId,
+    $withDefinitions
+);
 
 if ($apiResponse->isSuccess()) {
     $listCustomerCustomAttributesResponse = $apiResponse->getResult();
@@ -371,9 +372,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -393,7 +394,7 @@ function deleteCustomerCustomAttribute(string $customerId, string $key): ApiResp
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customerId` | `string` | Template, Required | The ID of the target [customer profile](../../doc/models/customer.md). |
+| `customerId` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
 | `key` | `string` | Template, Required | The key of the custom attribute to delete. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
 
 ## Response Type
@@ -404,9 +405,13 @@ function deleteCustomerCustomAttribute(string $customerId, string $key): ApiResp
 
 ```php
 $customerId = 'customer_id8';
+
 $key = 'key0';
 
-$apiResponse = $customerCustomAttributesApi->deleteCustomerCustomAttribute($customerId, $key);
+$apiResponse = $customerCustomAttributesApi->deleteCustomerCustomAttribute(
+    $customerId,
+    $key
+);
 
 if ($apiResponse->isSuccess()) {
     $deleteCustomerCustomAttributeResponse = $apiResponse->getResult();
@@ -414,9 +419,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -444,9 +449,9 @@ function retrieveCustomerCustomAttribute(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customerId` | `string` | Template, Required | The ID of the target [customer profile](../../doc/models/customer.md). |
+| `customerId` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
 | `key` | `string` | Template, Required | The key of the custom attribute to retrieve. This key must match the `key` of a custom<br>attribute definition in the Square seller account. If the requesting application is not the<br>definition owner, you must use the qualified key. |
-| `withDefinition` | `?bool` | Query, Optional | Indicates whether to return the [custom attribute definition](../../doc/models/custom-attribute-definition.md) in the `definition` field of<br>the custom attribute. Set this parameter to `true` to get the name and description of the custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `false` |
+| `withDefinition` | `?bool` | Query, Optional | Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in the `definition` field of<br>the custom attribute. Set this parameter to `true` to get the name and description of the custom<br>attribute, information about the data type, or other definition details. The default value is `false`.<br>**Default**: `false` |
 | `version` | `?int` | Query, Optional | The current version of the custom attribute, which is used for strongly consistent reads to<br>guarantee that you receive the most up-to-date data. When included in the request, Square<br>returns the specified version or a higher version if one exists. If the specified version is<br>higher than the current version, Square returns a `BAD_REQUEST` error. |
 
 ## Response Type
@@ -457,10 +462,16 @@ function retrieveCustomerCustomAttribute(
 
 ```php
 $customerId = 'customer_id8';
+
 $key = 'key0';
+
 $withDefinition = false;
 
-$apiResponse = $customerCustomAttributesApi->retrieveCustomerCustomAttribute($customerId, $key, $withDefinition);
+$apiResponse = $customerCustomAttributesApi->retrieveCustomerCustomAttribute(
+    $customerId,
+    $key,
+    $withDefinition
+);
 
 if ($apiResponse->isSuccess()) {
     $retrieveCustomerCustomAttributeResponse = $apiResponse->getResult();
@@ -468,9 +479,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -498,7 +509,7 @@ function upsertCustomerCustomAttribute(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customerId` | `string` | Template, Required | The ID of the target [customer profile](../../doc/models/customer.md). |
+| `customerId` | `string` | Template, Required | The ID of the target [customer profile](entity:Customer). |
 | `key` | `string` | Template, Required | The key of the custom attribute to create or update. This key must match the `key` of a<br>custom attribute definition in the Square seller account. If the requesting application is not<br>the definition owner, you must use the qualified key. |
 | `body` | [`UpsertCustomerCustomAttributeRequest`](../../doc/models/upsert-customer-custom-attribute-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
@@ -510,13 +521,18 @@ function upsertCustomerCustomAttribute(
 
 ```php
 $customerId = 'customer_id8';
-$key = 'key0';
-$body_customAttribute = new Models\CustomAttribute();
-$body = new Models\UpsertCustomerCustomAttributeRequest(
-    $body_customAttribute
-);
 
-$apiResponse = $customerCustomAttributesApi->upsertCustomerCustomAttribute($customerId, $key, $body);
+$key = 'key0';
+
+$body = UpsertCustomerCustomAttributeRequestBuilder::init(
+    CustomAttributeBuilder::init()->build()
+)->build();
+
+$apiResponse = $customerCustomAttributesApi->upsertCustomerCustomAttribute(
+    $customerId,
+    $key,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $upsertCustomerCustomAttributeResponse = $apiResponse->getResult();
@@ -524,8 +540,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

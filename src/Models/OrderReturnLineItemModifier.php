@@ -47,6 +47,11 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     private $totalPriceMoney;
 
     /**
+     * @var array
+     */
+    private $quantity = [];
+
+    /**
      * Returns Uid.
      * A unique ID that identifies the return modifier only within this order.
      */
@@ -115,7 +120,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -127,7 +132,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      *
      * @maps catalog_object_id
      */
@@ -138,7 +143,7 @@ class OrderReturnLineItemModifier implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      */
     public function unsetCatalogObjectId(): void
     {
@@ -274,6 +279,56 @@ class OrderReturnLineItemModifier implements \JsonSerializable
     }
 
     /**
+     * Returns Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     */
+    public function getQuantity(): ?string
+    {
+        if (count($this->quantity) == 0) {
+            return null;
+        }
+        return $this->quantity['value'];
+    }
+
+    /**
+     * Sets Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     *
+     * @maps quantity
+     */
+    public function setQuantity(?string $quantity): void
+    {
+        $this->quantity['value'] = $quantity;
+    }
+
+    /**
+     * Unsets Quantity.
+     * The quantity of the line item modifier. The modifier quantity can be 0 or more.
+     * For example, suppose a restaurant offers a cheeseburger on the menu. When a buyer orders
+     * this item, the restaurant records the purchase by creating an `Order` object with a line item
+     * for a burger. The line item includes a line item modifier: the name is cheese and the quantity
+     * is 1. The buyer has the option to order extra cheese (or no cheese). If the buyer chooses
+     * the extra cheese option, the modifier quantity increases to 2. If the buyer does not want
+     * any cheese, the modifier quantity is set to 0.
+     */
+    public function unsetQuantity(): void
+    {
+        $this->quantity = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -305,6 +360,9 @@ class OrderReturnLineItemModifier implements \JsonSerializable
         }
         if (isset($this->totalPriceMoney)) {
             $json['total_price_money']   = $this->totalPriceMoney;
+        }
+        if (!empty($this->quantity)) {
+            $json['quantity']            = $this->quantity['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

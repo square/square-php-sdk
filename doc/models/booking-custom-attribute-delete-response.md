@@ -11,7 +11,7 @@ Represents a response for an individual upsert request in a [BulkDeleteBookingCu
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `bookingId` | `?string` | Optional | The ID of the [booking](../../doc/models/booking.md) associated with the custom attribute. | getBookingId(): ?string | setBookingId(?string bookingId): void |
+| `bookingId` | `?string` | Optional | The ID of the [booking](entity:Booking) associated with the custom attribute. | getBookingId(): ?string | setBookingId(?string bookingId): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Any errors that occurred while processing the individual request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

@@ -333,7 +333,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     * The [Customer]($m/Customer) ID of the customer associated with the refund.
+     * The [Customer](entity:Customer) ID of the customer associated with the refund.
      * This is required if the `destination_id` refers to a card on file created using the Cards
      * API. Only allowed when `unlinked=true`.
      */
@@ -347,7 +347,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The [Customer]($m/Customer) ID of the customer associated with the refund.
+     * The [Customer](entity:Customer) ID of the customer associated with the refund.
      * This is required if the `destination_id` refers to a card on file created using the Cards
      * API. Only allowed when `unlinked=true`.
      *
@@ -360,7 +360,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Unsets Customer Id.
-     * The [Customer]($m/Customer) ID of the customer associated with the refund.
+     * The [Customer](entity:Customer) ID of the customer associated with the refund.
      * This is required if the `destination_id` refers to a card on file created using the Cards
      * API. Only allowed when `unlinked=true`.
      */
@@ -444,7 +444,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * An optional [TeamMember]($m/TeamMember) ID to associate with this refund.
+     * An optional [TeamMember](entity:TeamMember) ID to associate with this refund.
      */
     public function getTeamMemberId(): ?string
     {
@@ -456,7 +456,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * An optional [TeamMember]($m/TeamMember) ID to associate with this refund.
+     * An optional [TeamMember](entity:TeamMember) ID to associate with this refund.
      *
      * @maps team_member_id
      */
@@ -467,7 +467,7 @@ class RefundPaymentRequest implements \JsonSerializable
 
     /**
      * Unsets Team Member Id.
-     * An optional [TeamMember]($m/TeamMember) ID to associate with this refund.
+     * An optional [TeamMember](entity:TeamMember) ID to associate with this refund.
      */
     public function unsetTeamMemberId(): void
     {

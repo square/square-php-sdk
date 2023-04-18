@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\ListCashDrawerShiftEventsResponse;
 use Square\Models\ListCashDrawerShiftsResponse;
@@ -32,8 +31,6 @@ class CashDrawersApi extends BaseApi
      * @param string|null $cursor Opaque cursor for fetching the next page of results.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCashDrawerShifts(
         string $locationId,
@@ -68,8 +65,6 @@ class CashDrawersApi extends BaseApi
      * @param string $shiftId The shift ID.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCashDrawerShift(string $locationId, string $shiftId): ApiResponse
     {
@@ -92,8 +87,6 @@ class CashDrawersApi extends BaseApi
      * @param string|null $cursor Opaque cursor for fetching the next page of results.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCashDrawerShiftEvents(
         string $locationId,

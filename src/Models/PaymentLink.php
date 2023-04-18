@@ -46,6 +46,11 @@ class PaymentLink implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $longUrl;
+
+    /**
+     * @var string|null
+     */
     private $createdAt;
 
     /**
@@ -210,7 +215,7 @@ class PaymentLink implements \JsonSerializable
 
     /**
      * Returns Url.
-     * The URL of the payment link.
+     * The shortened URL of the payment link.
      */
     public function getUrl(): ?string
     {
@@ -219,13 +224,33 @@ class PaymentLink implements \JsonSerializable
 
     /**
      * Sets Url.
-     * The URL of the payment link.
+     * The shortened URL of the payment link.
      *
      * @maps url
      */
     public function setUrl(?string $url): void
     {
         $this->url = $url;
+    }
+
+    /**
+     * Returns Long Url.
+     * The long URL of the payment link.
+     */
+    public function getLongUrl(): ?string
+    {
+        return $this->longUrl;
+    }
+
+    /**
+     * Sets Long Url.
+     * The long URL of the payment link.
+     *
+     * @maps long_url
+     */
+    public function setLongUrl(?string $longUrl): void
+    {
+        $this->longUrl = $longUrl;
     }
 
     /**
@@ -333,6 +358,9 @@ class PaymentLink implements \JsonSerializable
         }
         if (isset($this->url)) {
             $json['url']                = $this->url;
+        }
+        if (isset($this->longUrl)) {
+            $json['long_url']           = $this->longUrl;
         }
         if (isset($this->createdAt)) {
             $json['created_at']         = $this->createdAt;

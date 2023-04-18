@@ -45,20 +45,21 @@ function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'thahn-70e75c10-47f7-4ab6-88cc-aaa4076d065e';
-$body_action = new Models\TerminalAction();
-$body_action->setDeviceId('{{DEVICE_ID}}');
-$body_action->setDeadlineDuration('PT5M');
-$body_action->setType(Models\TerminalActionActionType::SAVE_CARD);
-$body_action_saveCardOptions_customerId = '{{CUSTOMER_ID}}';
-$body_action->setSaveCardOptions(new Models\SaveCardOptions(
-    $body_action_saveCardOptions_customerId
-));
-$body_action->getSaveCardOptions()->setReferenceId('user-id-1');
-$body = new Models\CreateTerminalActionRequest(
-    $body_idempotencyKey,
-    $body_action
-);
+$body = CreateTerminalActionRequestBuilder::init(
+    'thahn-70e75c10-47f7-4ab6-88cc-aaa4076d065e',
+    TerminalActionBuilder::init()
+        ->deviceId('{{DEVICE_ID}}')
+        ->deadlineDuration('PT5M')
+        ->type(TerminalActionActionType::SAVE_CARD)
+        ->saveCardOptions(
+            SaveCardOptionsBuilder::init(
+                '{{CUSTOMER_ID}}'
+            )
+                ->referenceId('user-id-1')
+                ->build()
+        )
+        ->build()
+)->build();
 
 $apiResponse = $terminalApi->createTerminalAction($body);
 
@@ -68,9 +69,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -95,14 +96,27 @@ function searchTerminalActions(SearchTerminalActionsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalActionsRequest();
-$body->setQuery(new Models\TerminalActionQuery());
-$body->getQuery()->setFilter(new Models\TerminalActionQueryFilter());
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange());
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2022-04-01T00:00:00Z');
-$body->getQuery()->setSort(new Models\TerminalActionQuerySort());
-$body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
-$body->setLimit(2);
+$body = SearchTerminalActionsRequestBuilder::init()
+    ->query(
+        TerminalActionQueryBuilder::init()
+            ->filter(
+                TerminalActionQueryFilterBuilder::init()
+                    ->createdAt(
+                        TimeRangeBuilder::init()
+                            ->startAt('2022-04-01T00:00:00Z')
+                            ->build()
+                    )
+                    ->build()
+            )
+            ->sort(
+                TerminalActionQuerySortBuilder::init()
+                    ->sortOrder(SortOrder::DESC)
+                    ->build()
+            )
+            ->build()
+    )
+    ->limit(2)
+    ->build();
 
 $apiResponse = $terminalApi->searchTerminalActions($body);
 
@@ -112,9 +126,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -149,9 +163,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -186,9 +200,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -214,24 +228,21 @@ function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiRespons
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '28a0c3bc-7839-11ea-bc55-0242ac130003';
-$body_checkout_amountMoney = new Models\Money();
-$body_checkout_amountMoney->setAmount(2610);
-$body_checkout_amountMoney->setCurrency(Models\Currency::USD);
-$body_checkout_deviceOptions_deviceId = 'dbb5d83a-7838-11ea-bc55-0242ac130003';
-$body_checkout_deviceOptions = new Models\DeviceCheckoutOptions(
-    $body_checkout_deviceOptions_deviceId
-);
-$body_checkout = new Models\TerminalCheckout(
-    $body_checkout_amountMoney,
-    $body_checkout_deviceOptions
-);
-$body_checkout->setReferenceId('id11572');
-$body_checkout->setNote('A brief note');
-$body = new Models\CreateTerminalCheckoutRequest(
-    $body_idempotencyKey,
-    $body_checkout
-);
+$body = CreateTerminalCheckoutRequestBuilder::init(
+    '28a0c3bc-7839-11ea-bc55-0242ac130003',
+    TerminalCheckoutBuilder::init(
+        MoneyBuilder::init()
+            ->amount(2610)
+            ->currency(Currency::USD)
+            ->build(),
+        DeviceCheckoutOptionsBuilder::init(
+            'dbb5d83a-7838-11ea-bc55-0242ac130003'
+        )->build()
+    )
+        ->referenceId('id11572')
+        ->note('A brief note')
+        ->build()
+)->build();
 
 $apiResponse = $terminalApi->createTerminalCheckout($body);
 
@@ -241,9 +252,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -268,11 +279,18 @@ function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiRespo
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalCheckoutsRequest();
-$body->setQuery(new Models\TerminalCheckoutQuery());
-$body->getQuery()->setFilter(new Models\TerminalCheckoutQueryFilter());
-$body->getQuery()->getFilter()->setStatus('COMPLETED');
-$body->setLimit(2);
+$body = SearchTerminalCheckoutsRequestBuilder::init()
+    ->query(
+        TerminalCheckoutQueryBuilder::init()
+            ->filter(
+                TerminalCheckoutQueryFilterBuilder::init()
+                    ->status('COMPLETED')
+                    ->build()
+            )
+            ->build()
+    )
+    ->limit(2)
+    ->build();
 
 $apiResponse = $terminalApi->searchTerminalCheckouts($body);
 
@@ -282,9 +300,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -319,9 +337,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -356,9 +374,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -383,22 +401,20 @@ function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '402a640b-b26f-401f-b406-46f839590c04';
-$body = new Models\CreateTerminalRefundRequest(
-    $body_idempotencyKey
-);
-$body_refund_paymentId = '5O5OvgkcNUhl7JBuINflcjKqUzXZY';
-$body_refund_amountMoney = new Models\Money();
-$body_refund_amountMoney->setAmount(111);
-$body_refund_amountMoney->setCurrency(Models\Currency::CAD);
-$body_refund_reason = 'Returning items';
-$body_refund_deviceId = 'f72dfb8e-4d65-4e56-aade-ec3fb8d33291';
-$body->setRefund(new Models\TerminalRefund(
-    $body_refund_paymentId,
-    $body_refund_amountMoney,
-    $body_refund_reason,
-    $body_refund_deviceId
-));
+$body = CreateTerminalRefundRequestBuilder::init(
+    '402a640b-b26f-401f-b406-46f839590c04'
+)
+    ->refund(
+        TerminalRefundBuilder::init(
+            '5O5OvgkcNUhl7JBuINflcjKqUzXZY',
+            MoneyBuilder::init()
+                ->amount(111)
+                ->currency(Currency::CAD)
+                ->build(),
+            'Returning items',
+            'f72dfb8e-4d65-4e56-aade-ec3fb8d33291'
+        )->build()
+    )->build();
 
 $apiResponse = $terminalApi->createTerminalRefund($body);
 
@@ -408,9 +424,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -435,11 +451,18 @@ function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchTerminalRefundsRequest();
-$body->setQuery(new Models\TerminalRefundQuery());
-$body->getQuery()->setFilter(new Models\TerminalRefundQueryFilter());
-$body->getQuery()->getFilter()->setStatus('COMPLETED');
-$body->setLimit(1);
+$body = SearchTerminalRefundsRequestBuilder::init()
+    ->query(
+        TerminalRefundQueryBuilder::init()
+            ->filter(
+                TerminalRefundQueryFilterBuilder::init()
+                    ->status('COMPLETED')
+                    ->build()
+            )
+            ->build()
+    )
+    ->limit(1)
+    ->build();
 
 $apiResponse = $terminalApi->searchTerminalRefunds($body);
 
@@ -449,9 +472,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -486,9 +509,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -523,8 +546,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

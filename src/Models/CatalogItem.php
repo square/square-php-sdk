@@ -144,7 +144,7 @@ class CatalogItem implements \JsonSerializable
      *
      * Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use
      * `description_html` to set the description
-     * of the [CatalogItem]($m/CatalogItem) instance.  The `description` and `description_html` field
+     * of the [CatalogItem](entity:CatalogItem) instance.  The `description` and `description_html` field
      * values are kept in sync. If you try to
      * set the both fields, the `description_html` text value overwrites the `description` value. Updates
      * in one field are also reflected in the other,
@@ -167,7 +167,7 @@ class CatalogItem implements \JsonSerializable
      *
      * Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use
      * `description_html` to set the description
-     * of the [CatalogItem]($m/CatalogItem) instance.  The `description` and `description_html` field
+     * of the [CatalogItem](entity:CatalogItem) instance.  The `description` and `description_html` field
      * values are kept in sync. If you try to
      * set the both fields, the `description_html` text value overwrites the `description` value. Updates
      * in one field are also reflected in the other,
@@ -189,7 +189,7 @@ class CatalogItem implements \JsonSerializable
      *
      * Deprecated at 2022-07-20, this field is planned to retire in 6 months. You should migrate to use
      * `description_html` to set the description
-     * of the [CatalogItem]($m/CatalogItem) instance.  The `description` and `description_html` field
+     * of the [CatalogItem](entity:CatalogItem) instance.  The `description` and `description_html` field
      * values are kept in sync. If you try to
      * set the both fields, the `description_html` text value overwrites the `description` value. Updates
      * in one field are also reflected in the other,
@@ -492,7 +492,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Variations.
-     * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
+     * A list of [CatalogItemVariation](entity:CatalogItemVariation) objects for this item. An item must
+     * have
      * at least one variation.
      *
      * @return CatalogObject[]|null
@@ -507,7 +508,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Variations.
-     * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
+     * A list of [CatalogItemVariation](entity:CatalogItemVariation) objects for this item. An item must
+     * have
      * at least one variation.
      *
      * @maps variations
@@ -521,7 +523,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Unsets Variations.
-     * A list of [CatalogItemVariation]($m/CatalogItemVariation) objects for this item. An item must have
+     * A list of [CatalogItemVariation](entity:CatalogItemVariation) objects for this item. An item must
+     * have
      * at least one variation.
      */
     public function unsetVariations(): void
@@ -698,6 +701,7 @@ class CatalogItem implements \JsonSerializable
      * Returns Sort Name.
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
      * the regular `name` field is used for sorting.
+     * Its value must not be empty.
      *
      * It is currently supported for sellers of the Japanese locale only.
      */
@@ -713,6 +717,7 @@ class CatalogItem implements \JsonSerializable
      * Sets Sort Name.
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
      * the regular `name` field is used for sorting.
+     * Its value must not be empty.
      *
      * It is currently supported for sellers of the Japanese locale only.
      *
@@ -727,6 +732,7 @@ class CatalogItem implements \JsonSerializable
      * Unsets Sort Name.
      * A name to sort the item by. If this name is unspecified, namely, the `sort_name` field is absent,
      * the regular `name` field is used for sorting.
+     * Its value must not be empty.
      *
      * It is currently supported for sellers of the Japanese locale only.
      */

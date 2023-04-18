@@ -77,7 +77,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Returns Id.
      * A unique Square-generated ID for the
-     * [InventoryPhysicalCount]($m/InventoryPhysicalCount).
+     * [InventoryPhysicalCount](entity:InventoryPhysicalCount).
      */
     public function getId(): ?string
     {
@@ -87,7 +87,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Sets Id.
      * A unique Square-generated ID for the
-     * [InventoryPhysicalCount]($m/InventoryPhysicalCount).
+     * [InventoryPhysicalCount](entity:InventoryPhysicalCount).
      *
      * @maps id
      */
@@ -99,7 +99,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Returns Reference Id.
      * An optional ID provided by the application to tie the
-     * [InventoryPhysicalCount]($m/InventoryPhysicalCount) to an external
+     * [InventoryPhysicalCount](entity:InventoryPhysicalCount) to an external
      * system.
      */
     public function getReferenceId(): ?string
@@ -113,7 +113,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Sets Reference Id.
      * An optional ID provided by the application to tie the
-     * [InventoryPhysicalCount]($m/InventoryPhysicalCount) to an external
+     * [InventoryPhysicalCount](entity:InventoryPhysicalCount) to an external
      * system.
      *
      * @maps reference_id
@@ -126,7 +126,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Unsets Reference Id.
      * An optional ID provided by the application to tie the
-     * [InventoryPhysicalCount]($m/InventoryPhysicalCount) to an external
+     * [InventoryPhysicalCount](entity:InventoryPhysicalCount) to an external
      * system.
      */
     public function unsetReferenceId(): void
@@ -137,7 +137,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -150,7 +150,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -162,7 +162,7 @@ class InventoryPhysicalCount implements \JsonSerializable
     /**
      * Unsets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function unsetCatalogObjectId(): void
     {
@@ -171,7 +171,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -188,7 +188,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -204,7 +204,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -238,7 +238,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function getLocationId(): ?string
@@ -251,7 +251,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      *
      * @maps location_id
@@ -263,7 +263,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Unsets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function unsetLocationId(): void
@@ -328,7 +328,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * physical count.
      */
     public function getEmployeeId(): ?string
@@ -341,7 +341,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * physical count.
      *
      * @maps employee_id
@@ -353,7 +353,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Unsets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * physical count.
      */
     public function unsetEmployeeId(): void
@@ -363,7 +363,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * physical count.
      */
     public function getTeamMemberId(): ?string
@@ -376,7 +376,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * physical count.
      *
      * @maps team_member_id
@@ -388,7 +388,7 @@ class InventoryPhysicalCount implements \JsonSerializable
 
     /**
      * Unsets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * physical count.
      */
     public function unsetTeamMemberId(): void

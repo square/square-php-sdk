@@ -250,7 +250,7 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      * Returns Custom Attribute Filters.
      * The customer-attribute filter to return items or item variations matching the specified
      * custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
-     * a single call to the [SearchCatalogItems]($e/Catalog/SearchCatalogItems) endpoint.
+     * a single call to the [SearchCatalogItems](api-endpoint:Catalog-SearchCatalogItems) endpoint.
      *
      * @return CustomAttributeFilter[]|null
      */
@@ -263,7 +263,7 @@ class SearchCatalogItemsRequest implements \JsonSerializable
      * Sets Custom Attribute Filters.
      * The customer-attribute filter to return items or item variations matching the specified
      * custom attribute expressions. A maximum number of 10 custom attribute expressions are supported in
-     * a single call to the [SearchCatalogItems]($e/Catalog/SearchCatalogItems) endpoint.
+     * a single call to the [SearchCatalogItems](api-endpoint:Catalog-SearchCatalogItems) endpoint.
      *
      * @maps custom_attribute_filters
      *

@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CancelPaymentByIdempotencyKeyRequest;
 use Square\Models\CancelPaymentByIdempotencyKeyResponse;
@@ -33,21 +32,23 @@ class PaymentsApi extends BaseApi
      *
      * The maximum results per page is 100.
      *
-     * @param string|null $beginTime The timestamp for the beginning of the reporting period, in RFC
-     *        3339 format.
+     * @param string|null $beginTime Indicates the start of the time range to retrieve payments for,
+     *        in RFC 3339 format.
+     *        The range is determined using the `created_at` field for each Payment.
      *        Inclusive. Default: The current time minus one year.
-     * @param string|null $endTime The timestamp for the end of the reporting period, in RFC 3339
-     *        format.
+     * @param string|null $endTime Indicates the end of the time range to retrieve payments for, in
+     *        RFC 3339 format.  The
+     *        range is determined using the `created_at` field for each Payment.
      *
      *        Default: The current time.
-     * @param string|null $sortOrder The order in which results are listed: - `ASC` - Oldest to
-     *        newest.
+     * @param string|null $sortOrder The order in which results are listed by `Payment.created_at`:
+     *        - `ASC` - Oldest to newest.
      *        - `DESC` - Newest to oldest (default).
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
      *
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param string|null $locationId Limit results to the location supplied. By default, results
      *        are returned
      *        for the default (main) location associated with the seller.
@@ -63,8 +64,6 @@ class PaymentsApi extends BaseApi
      *        Default: `100`
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listPayments(
         ?string $beginTime = null,
@@ -110,8 +109,6 @@ class PaymentsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createPayment(CreatePaymentRequest $body): ApiResponse
     {
@@ -146,8 +143,6 @@ class PaymentsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelPaymentByIdempotencyKey(CancelPaymentByIdempotencyKeyRequest $body): ApiResponse
     {
@@ -168,8 +163,6 @@ class PaymentsApi extends BaseApi
      * @param string $paymentId A unique ID for the desired payment.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getPayment(string $paymentId): ApiResponse
     {
@@ -191,8 +184,6 @@ class PaymentsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updatePayment(string $paymentId, UpdatePaymentRequest $body): ApiResponse
     {
@@ -216,8 +207,6 @@ class PaymentsApi extends BaseApi
      * @param string $paymentId The ID of the payment to cancel.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelPayment(string $paymentId): ApiResponse
     {
@@ -241,8 +230,6 @@ class PaymentsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function completePayment(string $paymentId, CompletePaymentRequest $body): ApiResponse
     {

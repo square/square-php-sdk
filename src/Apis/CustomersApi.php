@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\AddGroupToCustomerResponse;
 use Square\Models\CreateCustomerCardRequest;
@@ -56,8 +55,6 @@ class CustomersApi extends BaseApi
      *        The default value is `ASC`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCustomers(
         ?string $cursor = null,
@@ -95,8 +92,6 @@ class CustomersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCustomer(CreateCustomerRequest $body): ApiResponse
     {
@@ -125,8 +120,6 @@ class CustomersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchCustomers(SearchCustomersRequest $body): ApiResponse
     {
@@ -159,8 +152,6 @@ class CustomersApi extends BaseApi
      *        com/docs/customers-api/use-the-api/keep-records#delete-customer-profile).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteCustomer(string $customerId, ?int $version = null): ApiResponse
     {
@@ -179,8 +170,6 @@ class CustomersApi extends BaseApi
      * @param string $customerId The ID of the customer to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCustomer(string $customerId): ApiResponse
     {
@@ -216,8 +205,6 @@ class CustomersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateCustomer(string $customerId, UpdateCustomerRequest $body): ApiResponse
     {
@@ -250,8 +237,6 @@ class CustomersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCustomerCard(string $customerId, CreateCustomerCardRequest $body): ApiResponse
     {
@@ -279,8 +264,6 @@ class CustomersApi extends BaseApi
      * @param string $cardId The ID of the card on file to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteCustomerCard(string $customerId, string $cardId): ApiResponse
     {
@@ -305,8 +288,6 @@ class CustomersApi extends BaseApi
      * @param string $groupId The ID of the customer group to remove the customer from.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function removeGroupFromCustomer(string $customerId, string $groupId): ApiResponse
     {
@@ -335,8 +316,6 @@ class CustomersApi extends BaseApi
      * @param string $groupId The ID of the customer group to add the customer to.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function addGroupToCustomer(string $customerId, string $groupId): ApiResponse
     {

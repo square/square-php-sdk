@@ -51,7 +51,7 @@ class InventoryCount implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -64,7 +64,7 @@ class InventoryCount implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -76,7 +76,7 @@ class InventoryCount implements \JsonSerializable
     /**
      * Unsets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function unsetCatalogObjectId(): void
     {
@@ -85,7 +85,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -102,7 +102,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -118,7 +118,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -152,7 +152,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function getLocationId(): ?string
@@ -165,7 +165,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      *
      * @maps location_id
@@ -177,7 +177,7 @@ class InventoryCount implements \JsonSerializable
 
     /**
      * Unsets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function unsetLocationId(): void

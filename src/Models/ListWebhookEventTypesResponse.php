@@ -80,8 +80,8 @@ class ListWebhookEventTypesResponse implements \JsonSerializable
 
     /**
      * Returns Metadata.
-     * Contains the metadata of a webhook event type. For more information, see
-     * [EventTypeMetadata]($m/EventTypeMetadata).
+     * Contains the metadata of a webhook event type. For more information, see [EventTypeMetadata](entity:
+     * EventTypeMetadata).
      *
      * @return EventTypeMetadata[]|null
      */
@@ -92,8 +92,8 @@ class ListWebhookEventTypesResponse implements \JsonSerializable
 
     /**
      * Sets Metadata.
-     * Contains the metadata of a webhook event type. For more information, see
-     * [EventTypeMetadata]($m/EventTypeMetadata).
+     * Contains the metadata of a webhook event type. For more information, see [EventTypeMetadata](entity:
+     * EventTypeMetadata).
      *
      * @maps metadata
      *

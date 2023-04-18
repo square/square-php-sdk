@@ -43,7 +43,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): ?string
     {
@@ -52,7 +52,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
      *
      * @maps loyalty_program_id
      */
@@ -63,7 +63,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Returns Loyalty Promotion Id.
-     * The Square-assigned ID of the [loyalty promotion]($m/LoyaltyPromotion).
+     * The Square-assigned ID of the [loyalty promotion](entity:LoyaltyPromotion).
      */
     public function getLoyaltyPromotionId(): ?string
     {
@@ -72,7 +72,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Sets Loyalty Promotion Id.
-     * The Square-assigned ID of the [loyalty promotion]($m/LoyaltyPromotion).
+     * The Square-assigned ID of the [loyalty promotion](entity:LoyaltyPromotion).
      *
      * @maps loyalty_promotion_id
      */
@@ -104,7 +104,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The ID of the [order]($m/Order) for which the buyer earned the promotion points.
+     * The ID of the [order](entity:Order) for which the buyer earned the promotion points.
      * Only applications that use the Orders API to process orders can trigger this event.
      */
     public function getOrderId(): string
@@ -114,7 +114,7 @@ class LoyaltyEventAccumulatePromotionPoints implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The ID of the [order]($m/Order) for which the buyer earned the promotion points.
+     * The ID of the [order](entity:Order) for which the buyer earned the promotion points.
      * Only applications that use the Orders API to process orders can trigger this event.
      *
      * @required

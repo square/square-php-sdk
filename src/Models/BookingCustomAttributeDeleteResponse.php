@@ -25,7 +25,7 @@ class BookingCustomAttributeDeleteResponse implements \JsonSerializable
 
     /**
      * Returns Booking Id.
-     * The ID of the [booking]($m/Booking) associated with the custom attribute.
+     * The ID of the [booking](entity:Booking) associated with the custom attribute.
      */
     public function getBookingId(): ?string
     {
@@ -34,7 +34,7 @@ class BookingCustomAttributeDeleteResponse implements \JsonSerializable
 
     /**
      * Sets Booking Id.
-     * The ID of the [booking]($m/Booking) associated with the custom attribute.
+     * The ID of the [booking](entity:Booking) associated with the custom attribute.
      *
      * @maps booking_id
      */

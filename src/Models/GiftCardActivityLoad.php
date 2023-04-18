@@ -70,10 +70,10 @@ class GiftCardActivityLoad implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The ID of the [order]($m/Order) that contains the `GIFT_CARD` line item.
+     * The ID of the [order](entity:Order) that contains the `GIFT_CARD` line item.
      *
      * Applications that use the Square Orders API to process orders must specify the order ID in the
-     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      */
     public function getOrderId(): ?string
     {
@@ -85,10 +85,10 @@ class GiftCardActivityLoad implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The ID of the [order]($m/Order) that contains the `GIFT_CARD` line item.
+     * The ID of the [order](entity:Order) that contains the `GIFT_CARD` line item.
      *
      * Applications that use the Square Orders API to process orders must specify the order ID in the
-     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      *
      * @maps order_id
      */
@@ -99,10 +99,10 @@ class GiftCardActivityLoad implements \JsonSerializable
 
     /**
      * Unsets Order Id.
-     * The ID of the [order]($m/Order) that contains the `GIFT_CARD` line item.
+     * The ID of the [order](entity:Order) that contains the `GIFT_CARD` line item.
      *
      * Applications that use the Square Orders API to process orders must specify the order ID in the
-     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      */
     public function unsetOrderId(): void
     {
@@ -115,7 +115,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * card.
      *
      * Applications that use the Square Orders API to process orders must specify the line item UID
-     * in the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * in the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      */
     public function getLineItemUid(): ?string
     {
@@ -131,7 +131,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * card.
      *
      * Applications that use the Square Orders API to process orders must specify the line item UID
-     * in the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * in the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      *
      * @maps line_item_uid
      */
@@ -146,7 +146,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * card.
      *
      * Applications that use the Square Orders API to process orders must specify the line item UID
-     * in the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * in the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      */
     public function unsetLineItemUid(): void
     {
@@ -204,7 +204,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * or bank account ID.
      *
      * Applications that use a custom order processing system must specify payment instrument IDs in
-     * the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      * Square uses this information to perform compliance checks.
      *
      * For applications that use the Square Orders API to process payments, Square has the necessary
@@ -227,7 +227,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * or bank account ID.
      *
      * Applications that use a custom order processing system must specify payment instrument IDs in
-     * the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      * Square uses this information to perform compliance checks.
      *
      * For applications that use the Square Orders API to process payments, Square has the necessary
@@ -249,7 +249,7 @@ class GiftCardActivityLoad implements \JsonSerializable
      * or bank account ID.
      *
      * Applications that use a custom order processing system must specify payment instrument IDs in
-     * the [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) request.
+     * the [CreateGiftCardActivity](api-endpoint:GiftCardActivities-CreateGiftCardActivity) request.
      * Square uses this information to perform compliance checks.
      *
      * For applications that use the Square Orders API to process payments, Square has the necessary

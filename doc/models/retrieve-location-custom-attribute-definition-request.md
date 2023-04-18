@@ -17,7 +17,7 @@ Represents a [RetrieveLocationCustomAttributeDefinition](../../doc/apis/location
 
 ```json
 {
-  "version": null
+  "version": 172
 }
 ```
 

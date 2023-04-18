@@ -47,9 +47,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -76,13 +76,11 @@ function createCustomerGroup(CreateCustomerGroupRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_group_name = 'Loyal Customers';
-$body_group = new Models\CustomerGroup(
-    $body_group_name
-);
-$body = new Models\CreateCustomerGroupRequest(
-    $body_group
-);
+$body = CreateCustomerGroupRequestBuilder::init(
+    CustomerGroupBuilder::init(
+        'Loyal Customers'
+    )->build()
+)->build();
 
 $apiResponse = $customerGroupsApi->createCustomerGroup($body);
 
@@ -92,9 +90,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -129,9 +127,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -166,9 +164,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -195,15 +193,17 @@ function updateCustomerGroup(string $groupId, UpdateCustomerGroupRequest $body):
 
 ```php
 $groupId = 'group_id0';
-$body_group_name = 'Loyal Customers';
-$body_group = new Models\CustomerGroup(
-    $body_group_name
-);
-$body = new Models\UpdateCustomerGroupRequest(
-    $body_group
-);
 
-$apiResponse = $customerGroupsApi->updateCustomerGroup($groupId, $body);
+$body = UpdateCustomerGroupRequestBuilder::init(
+    CustomerGroupBuilder::init(
+        'Loyal Customers'
+    )->build()
+)->build();
+
+$apiResponse = $customerGroupsApi->updateCustomerGroup(
+    $groupId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateCustomerGroupResponse = $apiResponse->getResult();
@@ -211,8 +211,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

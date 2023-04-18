@@ -63,8 +63,8 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Id.
-     * A unique Square-generated ID for the [Vendor]($m/Vendor).
-     * This field is required when attempting to update a [Vendor]($m/Vendor).
+     * A unique Square-generated ID for the [Vendor](entity:Vendor).
+     * This field is required when attempting to update a [Vendor](entity:Vendor).
      */
     public function getId(): ?string
     {
@@ -73,8 +73,8 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Id.
-     * A unique Square-generated ID for the [Vendor]($m/Vendor).
-     * This field is required when attempting to update a [Vendor]($m/Vendor).
+     * A unique Square-generated ID for the [Vendor](entity:Vendor).
+     * This field is required when attempting to update a [Vendor](entity:Vendor).
      *
      * @maps id
      */
@@ -86,7 +86,7 @@ class Vendor implements \JsonSerializable
     /**
      * Returns Created At.
      * An RFC 3339-formatted timestamp that indicates when the
-     * [Vendor]($m/Vendor) was created.
+     * [Vendor](entity:Vendor) was created.
      */
     public function getCreatedAt(): ?string
     {
@@ -96,7 +96,7 @@ class Vendor implements \JsonSerializable
     /**
      * Sets Created At.
      * An RFC 3339-formatted timestamp that indicates when the
-     * [Vendor]($m/Vendor) was created.
+     * [Vendor](entity:Vendor) was created.
      *
      * @maps created_at
      */
@@ -108,7 +108,7 @@ class Vendor implements \JsonSerializable
     /**
      * Returns Updated At.
      * An RFC 3339-formatted timestamp that indicates when the
-     * [Vendor]($m/Vendor) was last updated.
+     * [Vendor](entity:Vendor) was last updated.
      */
     public function getUpdatedAt(): ?string
     {
@@ -118,7 +118,7 @@ class Vendor implements \JsonSerializable
     /**
      * Sets Updated At.
      * An RFC 3339-formatted timestamp that indicates when the
-     * [Vendor]($m/Vendor) was last updated.
+     * [Vendor](entity:Vendor) was last updated.
      *
      * @maps updated_at
      */
@@ -129,8 +129,8 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Name.
-     * The name of the [Vendor]($m/Vendor).
-     * This field is required when attempting to create or update a [Vendor]($m/Vendor).
+     * The name of the [Vendor](entity:Vendor).
+     * This field is required when attempting to create or update a [Vendor](entity:Vendor).
      */
     public function getName(): ?string
     {
@@ -142,8 +142,8 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Name.
-     * The name of the [Vendor]($m/Vendor).
-     * This field is required when attempting to create or update a [Vendor]($m/Vendor).
+     * The name of the [Vendor](entity:Vendor).
+     * This field is required when attempting to create or update a [Vendor](entity:Vendor).
      *
      * @maps name
      */
@@ -154,8 +154,8 @@ class Vendor implements \JsonSerializable
 
     /**
      * Unsets Name.
-     * The name of the [Vendor]($m/Vendor).
-     * This field is required when attempting to create or update a [Vendor]($m/Vendor).
+     * The name of the [Vendor](entity:Vendor).
+     * This field is required when attempting to create or update a [Vendor](entity:Vendor).
      */
     public function unsetName(): void
     {
@@ -188,7 +188,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Contacts.
-     * The contacts of the [Vendor]($m/Vendor).
+     * The contacts of the [Vendor](entity:Vendor).
      *
      * @return VendorContact[]|null
      */
@@ -202,7 +202,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Contacts.
-     * The contacts of the [Vendor]($m/Vendor).
+     * The contacts of the [Vendor](entity:Vendor).
      *
      * @maps contacts
      *
@@ -215,7 +215,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Unsets Contacts.
-     * The contacts of the [Vendor]($m/Vendor).
+     * The contacts of the [Vendor](entity:Vendor).
      */
     public function unsetContacts(): void
     {
@@ -224,7 +224,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Account Number.
-     * The account number of the [Vendor]($m/Vendor).
+     * The account number of the [Vendor](entity:Vendor).
      */
     public function getAccountNumber(): ?string
     {
@@ -236,7 +236,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Account Number.
-     * The account number of the [Vendor]($m/Vendor).
+     * The account number of the [Vendor](entity:Vendor).
      *
      * @maps account_number
      */
@@ -247,7 +247,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Unsets Account Number.
-     * The account number of the [Vendor]($m/Vendor).
+     * The account number of the [Vendor](entity:Vendor).
      */
     public function unsetAccountNumber(): void
     {
@@ -256,7 +256,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Note.
-     * A note detailing information about the [Vendor]($m/Vendor).
+     * A note detailing information about the [Vendor](entity:Vendor).
      */
     public function getNote(): ?string
     {
@@ -268,7 +268,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Note.
-     * A note detailing information about the [Vendor]($m/Vendor).
+     * A note detailing information about the [Vendor](entity:Vendor).
      *
      * @maps note
      */
@@ -279,7 +279,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Unsets Note.
-     * A note detailing information about the [Vendor]($m/Vendor).
+     * A note detailing information about the [Vendor](entity:Vendor).
      */
     public function unsetNote(): void
     {
@@ -288,7 +288,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Returns Version.
-     * The version of the [Vendor]($m/Vendor).
+     * The version of the [Vendor](entity:Vendor).
      */
     public function getVersion(): ?int
     {
@@ -297,7 +297,7 @@ class Vendor implements \JsonSerializable
 
     /**
      * Sets Version.
-     * The version of the [Vendor]($m/Vendor).
+     * The version of the [Vendor](entity:Vendor).
      *
      * @maps version
      */

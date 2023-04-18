@@ -24,4 +24,18 @@ class OrderServiceChargeCalculationPhase
      * are applied.
      */
     public const TOTAL_PHASE = 'TOTAL_PHASE';
+
+    /**
+     * The service charge is calculated as a compounding adjustment
+     * after any discounts, but before amount based apportioned service charges
+     * and any tax considerations.
+     */
+    public const APPORTIONED_PERCENTAGE_PHASE = 'APPORTIONED_PERCENTAGE_PHASE';
+
+    /**
+     * The service charge is calculated as a compounding adjustment
+     * after any discounts and percentage based apportioned service charges,
+     * but before any tax considerations.
+     */
+    public const APPORTIONED_AMOUNT_PHASE = 'APPORTIONED_AMOUNT_PHASE';
 }

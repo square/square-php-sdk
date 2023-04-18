@@ -142,7 +142,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
+     * The ID of the subscribed-to [subscription plan](entity:CatalogSubscriptionPlan).
      */
     public function getPlanId(): ?string
     {
@@ -151,7 +151,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Plan Id.
-     * The ID of the subscribed-to [subscription plan]($m/CatalogSubscriptionPlan).
+     * The ID of the subscribed-to [subscription plan](entity:CatalogSubscriptionPlan).
      *
      * @maps plan_id
      */
@@ -162,7 +162,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     * The ID of the subscribing [customer]($m/Customer) profile.
+     * The ID of the subscribing [customer](entity:Customer) profile.
      */
     public function getCustomerId(): ?string
     {
@@ -171,7 +171,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The ID of the subscribing [customer]($m/Customer) profile.
+     * The ID of the subscribing [customer](entity:Customer) profile.
      *
      * @maps customer_id
      */
@@ -346,7 +346,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Invoice Ids.
-     * The IDs of the [invoices]($m/Invoice) created for the
+     * The IDs of the [invoices](entity:Invoice) created for the
      * subscription, listed in order when the invoices were created
      * (newest invoices appear first).
      *
@@ -359,7 +359,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Invoice Ids.
-     * The IDs of the [invoices]($m/Invoice) created for the
+     * The IDs of the [invoices](entity:Invoice) created for the
      * subscription, listed in order when the invoices were created
      * (newest invoices appear first).
      *
@@ -450,7 +450,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Returns Card Id.
-     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * The ID of the [subscriber's](entity:Customer) [card](entity:Card)
      * used to charge for the subscription.
      */
     public function getCardId(): ?string
@@ -463,7 +463,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Sets Card Id.
-     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * The ID of the [subscriber's](entity:Customer) [card](entity:Card)
      * used to charge for the subscription.
      *
      * @maps card_id
@@ -475,7 +475,7 @@ class Subscription implements \JsonSerializable
 
     /**
      * Unsets Card Id.
-     * The ID of the [subscriber's]($m/Customer) [card]($m/Card)
+     * The ID of the [subscriber's](entity:Customer) [card](entity:Card)
      * used to charge for the subscription.
      */
     public function unsetCardId(): void

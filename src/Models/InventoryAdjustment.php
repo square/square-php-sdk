@@ -209,7 +209,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function getLocationId(): ?string
@@ -222,7 +222,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      *
      * @maps location_id
@@ -234,7 +234,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Unsets Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items is being tracked.
      */
     public function unsetLocationId(): void
@@ -245,7 +245,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -258,7 +258,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -270,7 +270,7 @@ class InventoryAdjustment implements \JsonSerializable
     /**
      * Unsets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function unsetCatalogObjectId(): void
     {
@@ -279,7 +279,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -296,7 +296,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -312,7 +312,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -474,7 +474,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory adjustment.
      */
     public function getEmployeeId(): ?string
@@ -487,7 +487,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory adjustment.
      *
      * @maps employee_id
@@ -499,7 +499,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Unsets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory adjustment.
      */
     public function unsetEmployeeId(): void
@@ -509,7 +509,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory adjustment.
      */
     public function getTeamMemberId(): ?string
@@ -522,7 +522,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory adjustment.
      *
      * @maps team_member_id
@@ -534,7 +534,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Unsets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory adjustment.
      */
     public function unsetTeamMemberId(): void
@@ -544,7 +544,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Transaction Id.
-     * The Square-generated ID of the [Transaction]($m/Transaction) that
+     * The Square-generated ID of the [Transaction](entity:Transaction) that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      */
@@ -555,7 +555,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Transaction Id.
-     * The Square-generated ID of the [Transaction]($m/Transaction) that
+     * The Square-generated ID of the [Transaction](entity:Transaction) that
      * caused the adjustment. Only relevant for payment-related state
      * transitions.
      *
@@ -568,7 +568,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Returns Refund Id.
-     * The Square-generated ID of the [Refund]($m/Refund) that
+     * The Square-generated ID of the [Refund](entity:Refund) that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      */
@@ -579,7 +579,7 @@ class InventoryAdjustment implements \JsonSerializable
 
     /**
      * Sets Refund Id.
-     * The Square-generated ID of the [Refund]($m/Refund) that
+     * The Square-generated ID of the [Refund](entity:Refund) that
      * caused the adjustment. Only relevant for refund-related state
      * transitions.
      *

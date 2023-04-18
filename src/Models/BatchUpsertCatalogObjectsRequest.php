@@ -39,8 +39,8 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
      * you can reattempt it with the same idempotency key without
      * worrying about creating duplicate objects.
      *
-     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+     * for more information.
      */
     public function getIdempotencyKey(): string
     {
@@ -58,8 +58,8 @@ class BatchUpsertCatalogObjectsRequest implements \JsonSerializable
      * you can reattempt it with the same idempotency key without
      * worrying about creating duplicate objects.
      *
-     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+     * for more information.
      *
      * @required
      * @maps idempotency_key

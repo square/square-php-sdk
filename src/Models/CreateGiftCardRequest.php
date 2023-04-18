@@ -63,7 +63,7 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the [location]($m/Location) where the gift card should be registered for
+     * The ID of the [location](entity:Location) where the gift card should be registered for
      * reporting purposes. Gift cards can be redeemed at any of the seller's locations.
      */
     public function getLocationId(): string
@@ -73,7 +73,7 @@ class CreateGiftCardRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the [location]($m/Location) where the gift card should be registered for
+     * The ID of the [location](entity:Location) where the gift card should be registered for
      * reporting purposes. Gift cards can be redeemed at any of the seller's locations.
      *
      * @required

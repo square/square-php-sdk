@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkDeleteOrderCustomAttributesRequest;
 use Square\Models\BulkDeleteOrderCustomAttributesResponse;
@@ -56,8 +55,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        with-apis/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listOrderCustomAttributeDefinitions(
         ?string $visibilityFilter = null,
@@ -92,8 +89,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createOrderCustomAttributeDefinition(
         CreateOrderCustomAttributeDefinitionRequest $body
@@ -118,8 +113,6 @@ class OrderCustomAttributesApi extends BaseApi
      * @param string $key The key of the custom attribute definition to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteOrderCustomAttributeDefinition(string $key): ApiResponse
     {
@@ -152,8 +145,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        attribute.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveOrderCustomAttributeDefinition(string $key, ?int $version = null): ApiResponse
     {
@@ -181,8 +172,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateOrderCustomAttributeDefinition(
         string $key,
@@ -228,8 +217,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkDeleteOrderCustomAttributes(BulkDeleteOrderCustomAttributesRequest $body): ApiResponse
     {
@@ -269,8 +256,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpsertOrderCustomAttributes(BulkUpsertOrderCustomAttributesRequest $body): ApiResponse
     {
@@ -295,7 +280,7 @@ class OrderCustomAttributesApi extends BaseApi
      * visible to the requesting application, including those that are owned by other applications
      * and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $orderId The ID of the target [order]($m/Order).
+     * @param string $orderId The ID of the target [order](entity:Order).
      * @param string|null $visibilityFilter Requests that all of the custom attributes be returned,
      *        or only those that are read-only or read-write.
      * @param string|null $cursor The cursor returned in the paged response from the previous call
@@ -311,15 +296,13 @@ class OrderCustomAttributesApi extends BaseApi
      *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
      *        with-apis/pagination).
      * @param bool|null $withDefinitions Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of each
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of each
      *        custom attribute. Set this parameter to `true` to get the name and description of
      *        each custom attribute,
      *        information about the data type, or other definition details. The default value is
      *        `false`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listOrderCustomAttributes(
         string $orderId,
@@ -350,14 +333,12 @@ class OrderCustomAttributesApi extends BaseApi
      * `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $orderId The ID of the target [order]($m/Order).
+     * @param string $orderId The ID of the target [order](entity:Order).
      * @param string $customAttributeKey The key of the custom attribute to delete. This key must
      *        match the key of an
      *        existing custom attribute definition.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteOrderCustomAttribute(string $orderId, string $customAttributeKey): ApiResponse
     {
@@ -387,7 +368,7 @@ class OrderCustomAttributesApi extends BaseApi
      * attributes
      * also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $orderId The ID of the target [order]($m/Order).
+     * @param string $orderId The ID of the target [order](entity:Order).
      * @param string $customAttributeKey The key of the custom attribute to retrieve. This key must
      *        match the key of an
      *        existing custom attribute definition.
@@ -397,15 +378,13 @@ class OrderCustomAttributesApi extends BaseApi
      *        control, include this optional field and specify the current version of the custom
      *        attribute.
      * @param bool|null $withDefinition Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of each
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of each
      *        custom attribute. Set this parameter to `true` to get the name and description of
      *        each custom attribute,
      *        information about the data type, or other definition details. The default value is
      *        `false`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveOrderCustomAttribute(
         string $orderId,
@@ -446,7 +425,7 @@ class OrderCustomAttributesApi extends BaseApi
      * must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $orderId The ID of the target [order]($m/Order).
+     * @param string $orderId The ID of the target [order](entity:Order).
      * @param string $customAttributeKey The key of the custom attribute to create or update. This
      *        key must match the key
      *        of an existing custom attribute definition.
@@ -456,8 +435,6 @@ class OrderCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function upsertOrderCustomAttribute(
         string $orderId,

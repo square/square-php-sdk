@@ -18,7 +18,7 @@ order subtotal.
 |  --- | --- | --- | --- | --- | --- |
 | `uid` | `?string` | Optional | A unique ID that identifies the returned discount only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
 | `sourceDiscountUid` | `?string` | Optional | The discount `uid` from the order that contains the original application of this discount.<br>**Constraints**: *Maximum Length*: `60` | getSourceDiscountUid(): ?string | setSourceDiscountUid(?string sourceDiscountUid): void |
-| `catalogObjectId` | `?string` | Optional | The catalog object ID referencing [CatalogDiscount](../../doc/models/catalog-discount.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
+| `catalogObjectId` | `?string` | Optional | The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
 | `catalogVersion` | `?int` | Optional | The version of the catalog object that this discount references. | getCatalogVersion(): ?int | setCatalogVersion(?int catalogVersion): void |
 | `name` | `?string` | Optional | The discount's name.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `type` | [`?string (OrderLineItemDiscountType)`](../../doc/models/order-line-item-discount-type.md) | Optional | Indicates how the discount is applied to the associated line item or order. | getType(): ?string | setType(?string type): void |
@@ -31,16 +31,22 @@ order subtotal.
 
 ```json
 {
-  "uid": null,
-  "source_discount_uid": null,
-  "catalog_object_id": null,
-  "catalog_version": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "amount_money": null,
-  "applied_money": null,
-  "scope": null
+  "uid": "uid0",
+  "source_discount_uid": "source_discount_uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "catalog_version": 126,
+  "name": "name0",
+  "type": "UNKNOWN_DISCOUNT",
+  "percentage": "percentage8",
+  "amount_money": {
+    "amount": 186,
+    "currency": "NGN"
+  },
+  "applied_money": {
+    "amount": 196,
+    "currency": "PLN"
+  },
+  "scope": "ORDER"
 }
 ```
 

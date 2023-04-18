@@ -41,7 +41,7 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
 
     /**
      * Returns Customer Id.
-     * The ID of the target [customer profile]($m/Customer).
+     * The ID of the target [customer profile](entity:Customer).
      */
     public function getCustomerId(): string
     {
@@ -50,7 +50,7 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
 
     /**
      * Sets Customer Id.
-     * The ID of the target [customer profile]($m/Customer).
+     * The ID of the target [customer profile](entity:Customer).
      *
      * @required
      * @maps customer_id

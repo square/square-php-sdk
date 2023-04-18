@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\ListCustomerSegmentsResponse;
 use Square\Models\RetrieveCustomerSegmentResponse;
@@ -32,8 +31,6 @@ class CustomerSegmentsApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCustomerSegments(?string $cursor = null, ?int $limit = null): ApiResponse
     {
@@ -52,8 +49,6 @@ class CustomerSegmentsApi extends BaseApi
      * @param string $segmentId The Square-issued ID of the customer segment.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCustomerSegment(string $segmentId): ApiResponse
     {

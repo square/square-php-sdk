@@ -17,7 +17,7 @@ Request object for the [ListMerchant](../../doc/apis/merchants.md#list-merchants
 
 ```json
 {
-  "cursor": null
+  "cursor": 210
 }
 ```
 

@@ -157,8 +157,8 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Returns Measurement Unit Id.
-     * The ID of the [CatalogMeasurementUnit]($m/CatalogMeasurementUnit) object representing the catalog
-     * measurement unit associated with the inventory change.
+     * The ID of the [CatalogMeasurementUnit](entity:CatalogMeasurementUnit) object representing the
+     * catalog measurement unit associated with the inventory change.
      */
     public function getMeasurementUnitId(): ?string
     {
@@ -167,8 +167,8 @@ class InventoryChange implements \JsonSerializable
 
     /**
      * Sets Measurement Unit Id.
-     * The ID of the [CatalogMeasurementUnit]($m/CatalogMeasurementUnit) object representing the catalog
-     * measurement unit associated with the inventory change.
+     * The ID of the [CatalogMeasurementUnit](entity:CatalogMeasurementUnit) object representing the
+     * catalog measurement unit associated with the inventory change.
      *
      * @maps measurement_unit_id
      */

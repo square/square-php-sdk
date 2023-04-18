@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CancelInvoiceRequest;
 use Square\Models\CancelInvoiceResponse;
@@ -42,8 +41,6 @@ class InvoicesApi extends BaseApi
      *        If not provided, the server uses a default limit of 100 invoices.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = null): ApiResponse
     {
@@ -72,8 +69,6 @@ class InvoicesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createInvoice(CreateInvoiceRequest $body): ApiResponse
     {
@@ -99,8 +94,6 @@ class InvoicesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchInvoices(SearchInvoicesRequest $body): ApiResponse
     {
@@ -119,13 +112,11 @@ class InvoicesApi extends BaseApi
      * invoice (you cannot delete a published invoice, including one that is scheduled for processing).
      *
      * @param string $invoiceId The ID of the invoice to delete.
-     * @param int|null $version The version of the [invoice]($m/Invoice) to delete. If you do not
-     *        know the version, you can call [GetInvoice]($e/Invoices/GetInvoice) or
-     *        [ListInvoices]($e/Invoices/ListInvoices).
+     * @param int|null $version The version of the [invoice](entity:Invoice) to delete. If you do
+     *        not know the version, you can call [GetInvoice](api-endpoint:Invoices-GetInvoice) or
+     *        [ListInvoices](api-endpoint:Invoices-ListInvoices).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
     {
@@ -144,8 +135,6 @@ class InvoicesApi extends BaseApi
      * @param string $invoiceId The ID of the invoice to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getInvoice(string $invoiceId): ApiResponse
     {
@@ -173,8 +162,6 @@ class InvoicesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiResponse
     {
@@ -198,13 +185,11 @@ class InvoicesApi extends BaseApi
      * You cannot cancel an invoice in the `DRAFT` state or in a terminal state: `PAID`, `REFUNDED`,
      * `CANCELED`, or `FAILED`.
      *
-     * @param string $invoiceId The ID of the [invoice]($m/Invoice) to cancel.
+     * @param string $invoiceId The ID of the [invoice](entity:Invoice) to cancel.
      * @param CancelInvoiceRequest $body An object containing the fields to POST for the request.
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiResponse
     {
@@ -239,8 +224,6 @@ class InvoicesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function publishInvoice(string $invoiceId, PublishInvoiceRequest $body): ApiResponse
     {

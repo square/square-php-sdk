@@ -23,7 +23,7 @@ class CreatePaymentRequest implements \JsonSerializable
     private $idempotencyKey;
 
     /**
-     * @var Money
+     * @var Money|null
      */
     private $amountMoney;
 
@@ -125,13 +125,11 @@ class CreatePaymentRequest implements \JsonSerializable
     /**
      * @param string $sourceId
      * @param string $idempotencyKey
-     * @param Money $amountMoney
      */
-    public function __construct(string $sourceId, string $idempotencyKey, Money $amountMoney)
+    public function __construct(string $sourceId, string $idempotencyKey)
     {
         $this->sourceId = $sourceId;
         $this->idempotencyKey = $idempotencyKey;
-        $this->amountMoney = $amountMoney;
     }
 
     /**
@@ -214,7 +212,7 @@ class CreatePaymentRequest implements \JsonSerializable
      * monetary-amounts)
      * for more information.
      */
-    public function getAmountMoney(): Money
+    public function getAmountMoney(): ?Money
     {
         return $this->amountMoney;
     }
@@ -229,10 +227,9 @@ class CreatePaymentRequest implements \JsonSerializable
      * monetary-amounts)
      * for more information.
      *
-     * @required
      * @maps amount_money
      */
-    public function setAmountMoney(Money $amountMoney): void
+    public function setAmountMoney(?Money $amountMoney): void
     {
         $this->amountMoney = $amountMoney;
     }
@@ -435,7 +432,7 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     * The [Customer]($m/Customer) ID of the customer associated with the payment.
+     * The [Customer](entity:Customer) ID of the customer associated with the payment.
      *
      * This is required if the `source_id` refers to a card on file created using the Cards API.
      */
@@ -446,7 +443,7 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The [Customer]($m/Customer) ID of the customer associated with the payment.
+     * The [Customer](entity:Customer) ID of the customer associated with the payment.
      *
      * This is required if the `source_id` refers to a card on file created using the Cards API.
      *
@@ -483,7 +480,7 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * An optional [TeamMember]($m/TeamMember) ID to associate with
+     * An optional [TeamMember](entity:TeamMember) ID to associate with
      * this payment.
      */
     public function getTeamMemberId(): ?string
@@ -493,7 +490,7 @@ class CreatePaymentRequest implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * An optional [TeamMember]($m/TeamMember) ID to associate with
+     * An optional [TeamMember](entity:TeamMember) ID to associate with
      * this payment.
      *
      * @maps team_member_id
@@ -783,7 +780,9 @@ class CreatePaymentRequest implements \JsonSerializable
         $json = [];
         $json['source_id']                            = $this->sourceId;
         $json['idempotency_key']                      = $this->idempotencyKey;
-        $json['amount_money']                         = $this->amountMoney;
+        if (isset($this->amountMoney)) {
+            $json['amount_money']                     = $this->amountMoney;
+        }
         if (isset($this->tipMoney)) {
             $json['tip_money']                        = $this->tipMoney;
         }

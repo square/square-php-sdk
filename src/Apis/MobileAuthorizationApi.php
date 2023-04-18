@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateMobileAuthorizationCodeRequest;
 use Square\Models\CreateMobileAuthorizationCodeResponse;
@@ -36,8 +35,6 @@ class MobileAuthorizationApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createMobileAuthorizationCode(CreateMobileAuthorizationCodeRequest $body): ApiResponse
     {

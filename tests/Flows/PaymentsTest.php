@@ -72,14 +72,19 @@ class PaymentsTest extends TestCase
         $body = new CreatePaymentRequest(
             $body_sourceId,
             $body_idempotencyKey,
-            $body_amountMoney
         );
+
+        $body->setAmountMoney($body_amountMoney);
         $body->setAppFeeMoney(new Money);
         $body->getAppFeeMoney()->setAmount(10);
         $body->getAppFeeMoney()->setCurrency(Currency::USD);
         $body->setAutocomplete(true);
 
         $result = self::$controller->createPayment($body);
+        if (!$result->isSuccess()) {
+            $errors = serialize($result->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
 
         $this->assertTrue($result->isSuccess());
         $this->assertTrue($result->getResult() instanceof CreatePaymentResponse);
@@ -116,14 +121,19 @@ class PaymentsTest extends TestCase
         $body = new CreatePaymentRequest(
             $body_sourceId,
             $body_idempotencyKey,
-            $body_amountMoney
         );
+
+        $body->setAmountMoney($body_amountMoney);
         $body->setAppFeeMoney(new Money);
         $body->getAppFeeMoney()->setAmount(10);
         $body->getAppFeeMoney()->setCurrency(Currency::USD);
         $body->setAutocomplete(false);
 
         $result = self::$controller->createPayment($body);
+        if (!$result->isSuccess()) {
+            $errors = serialize($result->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
 
         $this->assertTrue($result->isSuccess());
         $this->assertEquals($body->getAppFeeMoney()->getCurrency(), $result->getResult()->getPayment()->getAppFeeMoney()->getCurrency());
@@ -158,14 +168,19 @@ class PaymentsTest extends TestCase
         $body = new CreatePaymentRequest(
             $body_sourceId,
             $body_idempotencyKey,
-            $body_amountMoney
         );
+
+        $body->setAmountMoney($body_amountMoney);
         $body->setAppFeeMoney(new Money);
         $body->getAppFeeMoney()->setAmount(10);
         $body->getAppFeeMoney()->setCurrency(Currency::USD);
         $body->setAutocomplete(false);
 
         $createPaymentResult = self::$controller->createPayment($body);
+        if (!$createPaymentResult->isSuccess()) {
+            $errors = serialize($createPaymentResult->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
 
         $this->assertTrue($createPaymentResult->isSuccess());
 
@@ -175,6 +190,11 @@ class PaymentsTest extends TestCase
         );
 
         $apiResponse = self::$controller->cancelPaymentByIdempotencyKey($cancelBody);
+        if (!$apiResponse->isSuccess()) {
+            $errors = serialize($apiResponse->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
+
 
         $this->assertTrue($apiResponse->isSuccess());
     }

@@ -10,7 +10,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\AcceptDisputeResponse;
 use Square\Models\CreateDisputeEvidenceFileRequest;
@@ -32,16 +31,14 @@ class DisputesApi extends BaseApi
      *
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param string|null $states The dispute states used to filter the result. If not specified,
      *        the endpoint returns all disputes.
      * @param string|null $locationId The ID of the location for which to return a list of disputes.
      *        If not specified, the endpoint returns disputes associated with all locations.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listDisputes(
         ?string $cursor = null,
@@ -67,8 +64,6 @@ class DisputesApi extends BaseApi
      * @param string $disputeId The ID of the dispute you want more details about.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveDispute(string $disputeId): ApiResponse
     {
@@ -91,8 +86,6 @@ class DisputesApi extends BaseApi
      * @param string $disputeId The ID of the dispute you want to accept.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function acceptDispute(string $disputeId): ApiResponse
     {
@@ -115,8 +108,6 @@ class DisputesApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResponse
     {
@@ -139,8 +130,6 @@ class DisputesApi extends BaseApi
      * @param FileWrapper|null $imageFile
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createDisputeEvidenceFile(
         string $disputeId,
@@ -171,8 +160,6 @@ class DisputesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createDisputeEvidenceText(string $disputeId, CreateDisputeEvidenceTextRequest $body): ApiResponse
     {
@@ -197,8 +184,6 @@ class DisputesApi extends BaseApi
      * @param string $evidenceId The ID of the evidence you want to remove.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
     {
@@ -228,8 +213,6 @@ class DisputesApi extends BaseApi
      * @param string $evidenceId The ID of the evidence to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResponse
     {
@@ -260,8 +243,6 @@ class DisputesApi extends BaseApi
      * @param string $disputeId The ID of the dispute for which you want to submit evidence.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function submitEvidence(string $disputeId): ApiResponse
     {

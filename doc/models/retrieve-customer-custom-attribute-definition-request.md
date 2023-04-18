@@ -17,7 +17,7 @@ Represents a [RetrieveCustomerCustomAttributeDefinition](../../doc/apis/customer
 
 ```json
 {
-  "version": null
+  "version": 172
 }
 ```
 

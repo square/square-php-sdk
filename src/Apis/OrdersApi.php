@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BatchRetrieveOrdersRequest;
 use Square\Models\BatchRetrieveOrdersResponse;
@@ -41,8 +40,6 @@ class OrdersApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createOrder(CreateOrderRequest $body): ApiResponse
     {
@@ -66,8 +63,6 @@ class OrdersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function batchRetrieveOrders(BatchRetrieveOrdersRequest $body): ApiResponse
     {
@@ -87,8 +82,6 @@ class OrdersApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function calculateOrder(CalculateOrderRequest $body): ApiResponse
     {
@@ -110,8 +103,6 @@ class OrdersApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cloneOrder(CloneOrderRequest $body): ApiResponse
     {
@@ -147,8 +138,6 @@ class OrdersApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchOrders(SearchOrdersRequest $body): ApiResponse
     {
@@ -167,8 +156,6 @@ class OrdersApi extends BaseApi
      * @param string $orderId The ID of the order to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveOrder(string $orderId): ApiResponse
     {
@@ -205,8 +192,6 @@ class OrdersApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
     {
@@ -246,8 +231,6 @@ class OrdersApi extends BaseApi
      *        corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function payOrder(string $orderId, PayOrderRequest $body): ApiResponse
     {

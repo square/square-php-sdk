@@ -57,7 +57,7 @@ class ListWebhookSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Returns Subscriptions.
-     * The requested list of [Subscription]($m/WebhookSubscription)s.
+     * The requested list of [Subscription](entity:WebhookSubscription)s.
      *
      * @return WebhookSubscription[]|null
      */
@@ -68,7 +68,7 @@ class ListWebhookSubscriptionsResponse implements \JsonSerializable
 
     /**
      * Sets Subscriptions.
-     * The requested list of [Subscription]($m/WebhookSubscription)s.
+     * The requested list of [Subscription](entity:WebhookSubscription)s.
      *
      * @maps subscriptions
      *

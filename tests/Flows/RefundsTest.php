@@ -83,14 +83,19 @@ class RefundsTest extends TestCase
         $body = new CreatePaymentRequest(
             $body_sourceId,
             $body_idempotencyKey,
-            $body_amountMoney
         );
+
+        $body->setAmountMoney($body_amountMoney);
         $body->setAppFeeMoney(new Money);
         $body->getAppFeeMoney()->setAmount(10);
         $body->getAppFeeMoney()->setCurrency(Currency::USD);
         $body->setAutocomplete(true);
 
         $result = self::$paymentsController->createPayment($body);
+        if (!$result->isSuccess()) {
+            $errors = serialize($result->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
 
         $this->assertTrue($result->isSuccess());
 
@@ -111,6 +116,10 @@ class RefundsTest extends TestCase
         $refundBody->setPaymentId($refundBody_paymentId);
 
         $apiResponse = self::$controller->refundPayment($refundBody);
+        if (!$apiResponse->isSuccess()) {
+            $errors = serialize($apiResponse->getErrors());
+            echo "\n Error(s): {$errors}";
+        }
 
         $this->assertTrue($apiResponse->isSuccess());
         $this->assertTrue($apiResponse->getResult() instanceof RefundPaymentResponse);

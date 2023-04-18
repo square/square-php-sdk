@@ -59,9 +59,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -89,9 +89,13 @@ function retrieveCashDrawerShift(string $locationId, string $shiftId): ApiRespon
 
 ```php
 $locationId = 'location_id4';
+
 $shiftId = 'shift_id0';
 
-$apiResponse = $cashDrawersApi->retrieveCashDrawerShift($locationId, $shiftId);
+$apiResponse = $cashDrawersApi->retrieveCashDrawerShift(
+    $locationId,
+    $shiftId
+);
 
 if ($apiResponse->isSuccess()) {
     $retrieveCashDrawerShiftResponse = $apiResponse->getResult();
@@ -99,9 +103,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -135,9 +139,13 @@ function listCashDrawerShiftEvents(
 
 ```php
 $locationId = 'location_id4';
+
 $shiftId = 'shift_id0';
 
-$apiResponse = $cashDrawersApi->listCashDrawerShiftEvents($locationId, $shiftId);
+$apiResponse = $cashDrawersApi->listCashDrawerShiftEvents(
+    $locationId,
+    $shiftId
+);
 
 if ($apiResponse->isSuccess()) {
     $listCashDrawerShiftEventsResponse = $apiResponse->getResult();
@@ -145,8 +153,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

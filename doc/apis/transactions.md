@@ -64,9 +64,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -95,9 +95,13 @@ function retrieveTransaction(string $locationId, string $transactionId): ApiResp
 
 ```php
 $locationId = 'location_id4';
+
 $transactionId = 'transaction_id8';
 
-$apiResponse = $transactionsApi->retrieveTransaction($locationId, $transactionId);
+$apiResponse = $transactionsApi->retrieveTransaction(
+    $locationId,
+    $transactionId
+);
 
 if ($apiResponse->isSuccess()) {
     $retrieveTransactionResponse = $apiResponse->getResult();
@@ -105,9 +109,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -115,7 +119,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Captures a transaction that was created with the [Charge]($e/Transactions/Charge)
+Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
@@ -140,9 +144,13 @@ function captureTransaction(string $locationId, string $transactionId): ApiRespo
 
 ```php
 $locationId = 'location_id4';
+
 $transactionId = 'transaction_id8';
 
-$apiResponse = $transactionsApi->captureTransaction($locationId, $transactionId);
+$apiResponse = $transactionsApi->captureTransaction(
+    $locationId,
+    $transactionId
+);
 
 if ($apiResponse->isSuccess()) {
     $captureTransactionResponse = $apiResponse->getResult();
@@ -150,9 +158,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -160,7 +168,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Cancels a transaction that was created with the [Charge]($e/Transactions/Charge)
+Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
 endpoint with a `delay_capture` value of `true`.
 
 See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
@@ -185,9 +193,13 @@ function voidTransaction(string $locationId, string $transactionId): ApiResponse
 
 ```php
 $locationId = 'location_id4';
+
 $transactionId = 'transaction_id8';
 
-$apiResponse = $transactionsApi->voidTransaction($locationId, $transactionId);
+$apiResponse = $transactionsApi->voidTransaction(
+    $locationId,
+    $transactionId
+);
 
 if ($apiResponse->isSuccess()) {
     $voidTransactionResponse = $apiResponse->getResult();
@@ -195,8 +207,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

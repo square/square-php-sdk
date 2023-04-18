@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateDeviceCodeRequest;
 use Square\Models\CreateDeviceCodeResponse;
@@ -36,8 +35,6 @@ class DevicesApi extends BaseApi
      *        Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listDeviceCodes(
         ?string $cursor = null,
@@ -67,8 +64,6 @@ class DevicesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
     {
@@ -87,8 +82,6 @@ class DevicesApi extends BaseApi
      * @param string $id The unique identifier for the device code.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getDeviceCode(string $id): ApiResponse
     {

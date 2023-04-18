@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateCheckoutRequest;
 use Square\Models\CreateCheckoutResponse;
@@ -32,7 +31,7 @@ class CheckoutApi extends BaseApi
      * NOTE: The Checkout API has been updated with new features.
      * For more information, see [Checkout API highlights](https://developer.squareup.com/docs/checkout-
      * api#checkout-api-highlights).
-     * We recommend that you use the new [CreatePaymentLink]($e/Checkout/CreatePaymentLink)
+     * We recommend that you use the new [CreatePaymentLink](api-endpoint:Checkout-CreatePaymentLink)
      * endpoint in place of this previously released endpoint.
      *
      * @deprecated
@@ -42,8 +41,6 @@ class CheckoutApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCheckout(string $locationId, CreateCheckoutRequest $body): ApiResponse
     {
@@ -79,8 +76,6 @@ class CheckoutApi extends BaseApi
      *        Default value: `100`
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listPaymentLinks(?string $cursor = null, ?int $limit = null): ApiResponse
     {
@@ -103,8 +98,6 @@ class CheckoutApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createPaymentLink(CreatePaymentLinkRequest $body): ApiResponse
     {
@@ -123,8 +116,6 @@ class CheckoutApi extends BaseApi
      * @param string $id The ID of the payment link to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deletePaymentLink(string $id): ApiResponse
     {
@@ -143,8 +134,6 @@ class CheckoutApi extends BaseApi
      * @param string $id The ID of link to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrievePaymentLink(string $id): ApiResponse
     {
@@ -169,8 +158,6 @@ class CheckoutApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updatePaymentLink(string $id, UpdatePaymentLinkRequest $body): ApiResponse
     {

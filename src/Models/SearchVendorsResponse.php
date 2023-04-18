@@ -52,7 +52,7 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Vendors.
-     * The [Vendor]($m/Vendor) objects matching the specified search filter.
+     * The [Vendor](entity:Vendor) objects matching the specified search filter.
      *
      * @return Vendor[]|null
      */
@@ -63,7 +63,7 @@ class SearchVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Vendors.
-     * The [Vendor]($m/Vendor) objects matching the specified search filter.
+     * The [Vendor](entity:Vendor) objects matching the specified search filter.
      *
      * @maps vendors
      *

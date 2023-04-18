@@ -16,7 +16,7 @@ contributes to the order subtotal.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `uid` | `?string` | Optional | A unique ID that identifies the tax only within this order.<br>**Constraints**: *Maximum Length*: `60` | getUid(): ?string | setUid(?string uid): void |
-| `catalogObjectId` | `?string` | Optional | The catalog object ID referencing [CatalogTax](../../doc/models/catalog-tax.md).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
+| `catalogObjectId` | `?string` | Optional | The catalog object ID referencing [CatalogTax](entity:CatalogTax).<br>**Constraints**: *Maximum Length*: `192` | getCatalogObjectId(): ?string | setCatalogObjectId(?string catalogObjectId): void |
 | `catalogVersion` | `?int` | Optional | The version of the catalog object that this tax references. | getCatalogVersion(): ?int | setCatalogVersion(?int catalogVersion): void |
 | `name` | `?string` | Optional | The tax's name.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `type` | [`?string (OrderLineItemTaxType)`](../../doc/models/order-line-item-tax-type.md) | Optional | Indicates how the tax is applied to the associated line item or order. | getType(): ?string | setType(?string type): void |
@@ -30,16 +30,23 @@ contributes to the order subtotal.
 
 ```json
 {
-  "uid": null,
-  "catalog_object_id": null,
-  "catalog_version": null,
-  "name": null,
-  "type": null,
-  "percentage": null,
-  "metadata": null,
-  "applied_money": null,
-  "scope": null,
-  "auto_applied": null
+  "uid": "uid0",
+  "catalog_object_id": "catalog_object_id6",
+  "catalog_version": 126,
+  "name": "name0",
+  "type": "INCLUSIVE",
+  "percentage": "percentage8",
+  "metadata": {
+    "key0": "metadata3",
+    "key1": "metadata4",
+    "key2": "metadata5"
+  },
+  "applied_money": {
+    "amount": 196,
+    "currency": "PLN"
+  },
+  "scope": "ORDER",
+  "auto_applied": false
 }
 ```
 
