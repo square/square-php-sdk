@@ -132,7 +132,7 @@ class OrderReturnDiscount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -144,7 +144,7 @@ class OrderReturnDiscount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      *
      * @maps catalog_object_id
      */
@@ -155,7 +155,7 @@ class OrderReturnDiscount implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      */
     public function unsetCatalogObjectId(): void
     {

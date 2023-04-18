@@ -23,38 +23,55 @@ A loyalty program can have a maximum of 10 loyalty promotions with an `ACTIVE` o
 | `createdAt` | `?string` | Optional | The timestamp of when the promotion was created, in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `canceledAt` | `?string` | Optional | The timestamp of when the promotion was canceled, in RFC 3339 format. | getCanceledAt(): ?string | setCanceledAt(?string canceledAt): void |
 | `updatedAt` | `?string` | Optional | The timestamp when the promotion was last updated, in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
-| `loyaltyProgramId` | `?string` | Optional | The ID of the [loyalty program](../../doc/models/loyalty-program.md) associated with the promotion. | getLoyaltyProgramId(): ?string | setLoyaltyProgramId(?string loyaltyProgramId): void |
+| `loyaltyProgramId` | `?string` | Optional | The ID of the [loyalty program](entity:LoyaltyProgram) associated with the promotion. | getLoyaltyProgramId(): ?string | setLoyaltyProgramId(?string loyaltyProgramId): void |
 | `minimumSpendAmountMoney` | [`?Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getMinimumSpendAmountMoney(): ?Money | setMinimumSpendAmountMoney(?Money minimumSpendAmountMoney): void |
-| `qualifyingItemVariationIds` | `?(string[])` | Optional | The IDs of any qualifying `ITEM_VARIATION` [catalog objects](../../doc/models/catalog-object.md). If specified,<br>the purchase must include at least one of these items to qualify for the promotion.<br><br>This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.<br>With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.<br><br>You can specify `qualifying_item_variation_ids` or `qualifying_category_ids` for a given promotion, but not both. | getQualifyingItemVariationIds(): ?array | setQualifyingItemVariationIds(?array qualifyingItemVariationIds): void |
-| `qualifyingCategoryIds` | `?(string[])` | Optional | The IDs of any qualifying `CATEGORY` [catalog objects](../../doc/models/catalog-object.md). If specified,<br>the purchase must include at least one item from one of these categories to qualify for the promotion.<br><br>This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.<br>With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.<br><br>You can specify `qualifying_category_ids` or `qualifying_item_variation_ids` for a promotion, but not both. | getQualifyingCategoryIds(): ?array | setQualifyingCategoryIds(?array qualifyingCategoryIds): void |
+| `qualifyingItemVariationIds` | `?(string[])` | Optional | The IDs of any qualifying `ITEM_VARIATION` [catalog objects](entity:CatalogObject). If specified,<br>the purchase must include at least one of these items to qualify for the promotion.<br><br>This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.<br>With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.<br><br>You can specify `qualifying_item_variation_ids` or `qualifying_category_ids` for a given promotion, but not both. | getQualifyingItemVariationIds(): ?array | setQualifyingItemVariationIds(?array qualifyingItemVariationIds): void |
+| `qualifyingCategoryIds` | `?(string[])` | Optional | The IDs of any qualifying `CATEGORY` [catalog objects](entity:CatalogObject). If specified,<br>the purchase must include at least one item from one of these categories to qualify for the promotion.<br><br>This option is valid only if the base loyalty program uses a `VISIT` or `SPEND` accrual rule.<br>With `SPEND` accrual rules, make sure that qualifying promotional items are not excluded.<br><br>You can specify `qualifying_category_ids` or `qualifying_item_variation_ids` for a promotion, but not both. | getQualifyingCategoryIds(): ?array | setQualifyingCategoryIds(?array qualifyingCategoryIds): void |
 
 ## Example (as JSON)
 
 ```json
 {
-  "id": null,
+  "id": "id0",
   "name": "name0",
   "incentive": {
     "type": "POINTS_MULTIPLIER",
-    "points_multiplier_data": null,
-    "points_addition_data": null
+    "points_multiplier_data": {
+      "points_multiplier": 16
+    },
+    "points_addition_data": {
+      "points_addition": 16
+    }
   },
   "available_time": {
-    "start_date": null,
-    "end_date": null,
+    "start_date": "start_date4",
+    "end_date": "end_date8",
     "time_periods": [
       "time_periods9"
     ]
   },
-  "trigger_limit": null,
-  "status": null,
-  "created_at": null,
-  "canceled_at": null,
-  "updated_at": null,
-  "loyalty_program_id": null,
-  "minimum_spend_amount_money": null,
-  "qualifying_item_variation_ids": null,
-  "qualifying_category_ids": null
+  "trigger_limit": {
+    "times": 26,
+    "interval": "ALL_TIME"
+  },
+  "status": "ACTIVE",
+  "created_at": "created_at2",
+  "canceled_at": "canceled_at4",
+  "updated_at": "updated_at4",
+  "loyalty_program_id": "loyalty_program_id0",
+  "minimum_spend_amount_money": {
+    "amount": 228,
+    "currency": "ZMW"
+  },
+  "qualifying_item_variation_ids": [
+    "qualifying_item_variation_ids5",
+    "qualifying_item_variation_ids6"
+  ],
+  "qualifying_category_ids": [
+    "qualifying_category_ids2",
+    "qualifying_category_ids3",
+    "qualifying_category_ids4"
+  ]
 }
 ```
 

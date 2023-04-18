@@ -26,7 +26,7 @@ class LoyaltyEventOrderFilter implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The ID of the [order]($m/Order) associated with the event.
+     * The ID of the [order](entity:Order) associated with the event.
      */
     public function getOrderId(): string
     {
@@ -35,7 +35,7 @@ class LoyaltyEventOrderFilter implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The ID of the [order]($m/Order) associated with the event.
+     * The ID of the [order](entity:Order) associated with the event.
      *
      * @required
      * @maps order_id

@@ -27,7 +27,7 @@ class CreateCardResponse implements \JsonSerializable
 
     /**
      * Returns Errors.
-     * Information on errors encountered during the request.
+     * Errors resulting from the request.
      *
      * @return Error[]|null
      */
@@ -38,7 +38,7 @@ class CreateCardResponse implements \JsonSerializable
 
     /**
      * Sets Errors.
-     * Information on errors encountered during the request.
+     * Errors resulting from the request.
      *
      * @maps errors
      *

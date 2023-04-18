@@ -110,7 +110,7 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -122,7 +122,7 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      *
      * @maps catalog_object_id
      */
@@ -133,7 +133,7 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing [CatalogDiscount]($m/CatalogDiscount).
+     * The catalog object ID referencing [CatalogDiscount](entity:CatalogDiscount).
      */
     public function unsetCatalogObjectId(): void
     {
@@ -470,7 +470,7 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Returns Pricing Rule Id.
-     * The object ID of a [pricing rule]($m/CatalogPricingRule) to be applied
+     * The object ID of a [pricing rule](entity:CatalogPricingRule) to be applied
      * automatically to this discount. The specification and application of the discounts, to
      * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding
      * pricing rule.
@@ -482,7 +482,7 @@ class OrderLineItemDiscount implements \JsonSerializable
 
     /**
      * Sets Pricing Rule Id.
-     * The object ID of a [pricing rule]($m/CatalogPricingRule) to be applied
+     * The object ID of a [pricing rule](entity:CatalogPricingRule) to be applied
      * automatically to this discount. The specification and application of the discounts, to
      * which a `pricing_rule_id` is assigned, are completely controlled by the corresponding
      * pricing rule.

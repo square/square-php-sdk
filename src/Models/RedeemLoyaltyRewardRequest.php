@@ -56,7 +56,7 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the [location]($m/Location) where the reward is redeemed.
+     * The ID of the [location](entity:Location) where the reward is redeemed.
      */
     public function getLocationId(): string
     {
@@ -65,7 +65,7 @@ class RedeemLoyaltyRewardRequest implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the [location]($m/Location) where the reward is redeemed.
+     * The ID of the [location](entity:Location) where the reward is redeemed.
      *
      * @required
      * @maps location_id

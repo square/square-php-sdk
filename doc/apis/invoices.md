@@ -55,9 +55,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -86,56 +86,66 @@ function createInvoice(CreateInvoiceRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_invoice = new Models\Invoice();
-$body_invoice->setLocationId('ES0RJRZYEC39A');
-$body_invoice->setOrderId('CAISENgvlJ6jLWAzERDzjyHVybY');
-$body_invoice->setPrimaryRecipient(new Models\InvoiceRecipient());
-$body_invoice->getPrimaryRecipient()->setCustomerId('JDKYHBWT1D4F8MFH63DBMEN8Y4');
-$body_invoice_paymentRequests = [];
-
-$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest();
-$body_invoice_paymentRequests[0]->setRequestType(Models\InvoiceRequestType::BALANCE);
-$body_invoice_paymentRequests[0]->setDueDate('2030-01-24');
-$body_invoice_paymentRequests[0]->setTippingEnabled(true);
-$body_invoice_paymentRequests[0]->setAutomaticPaymentSource(Models\InvoiceAutomaticPaymentSource::NONE);
-$body_invoice_paymentRequests_0_reminders = [];
-
-$body_invoice_paymentRequests_0_reminders[0] = new Models\InvoicePaymentReminder();
-$body_invoice_paymentRequests_0_reminders[0]->setRelativeScheduledDays(-1);
-$body_invoice_paymentRequests_0_reminders[0]->setMessage('Your invoice is due tomorrow');
-$body_invoice_paymentRequests[0]->setReminders($body_invoice_paymentRequests_0_reminders);
-
-$body_invoice->setPaymentRequests($body_invoice_paymentRequests);
-
-$body_invoice->setDeliveryMethod(Models\InvoiceDeliveryMethod::EMAIL);
-$body_invoice->setInvoiceNumber('inv-100');
-$body_invoice->setTitle('Event Planning Services');
-$body_invoice->setDescription('We appreciate your business!');
-$body_invoice->setScheduledAt('2030-01-13T10:00:00Z');
-$body_invoice->setAcceptedPaymentMethods(new Models\InvoiceAcceptedPaymentMethods());
-$body_invoice->getAcceptedPaymentMethods()->setCard(true);
-$body_invoice->getAcceptedPaymentMethods()->setSquareGiftCard(false);
-$body_invoice->getAcceptedPaymentMethods()->setBankAccount(false);
-$body_invoice->getAcceptedPaymentMethods()->setBuyNowPayLater(false);
-$body_invoice_customFields = [];
-
-$body_invoice_customFields[0] = new Models\InvoiceCustomField();
-$body_invoice_customFields[0]->setLabel('Event Reference Number');
-$body_invoice_customFields[0]->setValue('Ref. #1234');
-$body_invoice_customFields[0]->setPlacement(Models\InvoiceCustomFieldPlacement::ABOVE_LINE_ITEMS);
-
-$body_invoice_customFields[1] = new Models\InvoiceCustomField();
-$body_invoice_customFields[1]->setLabel('Terms of Service');
-$body_invoice_customFields[1]->setValue('The terms of service are...');
-$body_invoice_customFields[1]->setPlacement(Models\InvoiceCustomFieldPlacement::BELOW_LINE_ITEMS);
-$body_invoice->setCustomFields($body_invoice_customFields);
-
-$body_invoice->setSaleOrServiceDate('2030-01-24');
-$body_invoice->setStorePaymentMethodEnabled(false);
-$body = new Models\CreateInvoiceRequest(
-    $body_invoice
-);
-$body->setIdempotencyKey('ce3748f9-5fc1-4762-aa12-aae5e843f1f4');
+$body = CreateInvoiceRequestBuilder::init(
+    InvoiceBuilder::init()
+        ->locationId('ES0RJRZYEC39A')
+        ->orderId('CAISENgvlJ6jLWAzERDzjyHVybY')
+        ->primaryRecipient(
+            InvoiceRecipientBuilder::init()
+                ->customerId('JDKYHBWT1D4F8MFH63DBMEN8Y4')
+                ->build()
+        )
+        ->paymentRequests(
+            [
+                InvoicePaymentRequestBuilder::init()
+                    ->requestType(InvoiceRequestType::BALANCE)
+                    ->dueDate('2030-01-24')
+                    ->tippingEnabled(true)
+                    ->automaticPaymentSource(InvoiceAutomaticPaymentSource::NONE)
+                    ->reminders(
+                        [
+                            InvoicePaymentReminderBuilder::init()
+                                ->relativeScheduledDays(-1)
+                                ->message('Your invoice is due tomorrow')
+                                ->build()
+                        ]
+                    )
+                    ->build()
+            ]
+        )
+        ->deliveryMethod(InvoiceDeliveryMethod::EMAIL)
+        ->invoiceNumber('inv-100')
+        ->title('Event Planning Services')
+        ->description('We appreciate your business!')
+        ->scheduledAt('2030-01-13T10:00:00Z')
+        ->acceptedPaymentMethods(
+            InvoiceAcceptedPaymentMethodsBuilder::init()
+                ->card(true)
+                ->squareGiftCard(false)
+                ->bankAccount(false)
+                ->buyNowPayLater(false)
+                ->build()
+        )
+        ->customFields(
+            [
+                InvoiceCustomFieldBuilder::init()
+                    ->label('Event Reference Number')
+                    ->value('Ref. #1234')
+                    ->placement(InvoiceCustomFieldPlacement::ABOVE_LINE_ITEMS)
+                    ->build(),
+                InvoiceCustomFieldBuilder::init()
+                    ->label('Terms of Service')
+                    ->value('The terms of service are...')
+                    ->placement(InvoiceCustomFieldPlacement::BELOW_LINE_ITEMS)
+                    ->build()
+            ]
+        )
+        ->saleOrServiceDate('2030-01-24')
+        ->storePaymentMethodEnabled(false)
+        ->build()
+)
+    ->idempotencyKey('ce3748f9-5fc1-4762-aa12-aae5e843f1f4')
+    ->build();
 
 $apiResponse = $invoicesApi->createInvoice($body);
 
@@ -145,9 +155,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -178,19 +188,27 @@ function searchInvoices(SearchInvoicesRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_query_filter_locationIds = ['ES0RJRZYEC39A'];
-$body_query_filter = new Models\InvoiceFilter(
-    $body_query_filter_locationIds
-);
-$body_query_filter->setCustomerIds(['JDKYHBWT1D4F8MFH63DBMEN8Y4']);
-$body_query = new Models\InvoiceQuery(
-    $body_query_filter
-);
-$body_query->setSort(new Models\InvoiceSort());
-$body_query->getSort()->setOrder(Models\SortOrder::DESC);
-$body = new Models\SearchInvoicesRequest(
-    $body_query
-);
+$body = SearchInvoicesRequestBuilder::init(
+    InvoiceQueryBuilder::init(
+        InvoiceFilterBuilder::init(
+            [
+                'ES0RJRZYEC39A'
+            ]
+        )
+            ->customerIds(
+                [
+                    'JDKYHBWT1D4F8MFH63DBMEN8Y4'
+                ]
+            )
+            ->build()
+    )
+        ->sort(
+            InvoiceSortBuilder::init()
+                ->order(SortOrder::DESC)
+                ->build()
+        )
+        ->build()
+)->build();
 
 $apiResponse = $invoicesApi->searchInvoices($body);
 
@@ -200,9 +218,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -221,7 +239,7 @@ function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `invoiceId` | `string` | Template, Required | The ID of the invoice to delete. |
-| `version` | `?int` | Query, Optional | The version of the [invoice](../../doc/models/invoice.md) to delete.<br>If you do not know the version, you can call [GetInvoice](../../doc/apis/invoices.md#get-invoice) or<br>[ListInvoices](../../doc/apis/invoices.md#list-invoices). |
+| `version` | `?int` | Query, Optional | The version of the [invoice](entity:Invoice) to delete.<br>If you do not know the version, you can call [GetInvoice](api-endpoint:Invoices-GetInvoice) or<br>[ListInvoices](api-endpoint:Invoices-ListInvoices). |
 
 ## Response Type
 
@@ -240,9 +258,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -277,9 +295,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -309,22 +327,32 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 
 ```php
 $invoiceId = 'invoice_id0';
-$body_invoice = new Models\Invoice();
-$body_invoice->setVersion(1);
-$body_invoice_paymentRequests = [];
 
-$body_invoice_paymentRequests[0] = new Models\InvoicePaymentRequest();
-$body_invoice_paymentRequests[0]->setUid('2da7964f-f3d2-4f43-81e8-5aa220bf3355');
-$body_invoice_paymentRequests[0]->setTippingEnabled(false);
-$body_invoice->setPaymentRequests($body_invoice_paymentRequests);
+$body = UpdateInvoiceRequestBuilder::init(
+    InvoiceBuilder::init()
+        ->version(1)
+        ->paymentRequests(
+            [
+                InvoicePaymentRequestBuilder::init()
+                    ->uid('2da7964f-f3d2-4f43-81e8-5aa220bf3355')
+                    ->tippingEnabled(false)
+                    ->build()
+            ]
+        )
+        ->build()
+)
+    ->idempotencyKey('4ee82288-0910-499e-ab4c-5d0071dad1be')
+    ->fieldsToClear(
+        [
+            'payments_requests[2da7964f-f3d2-4f43-81e8-5aa220bf3355].reminders'
+        ]
+    )
+    ->build();
 
-$body = new Models\UpdateInvoiceRequest(
-    $body_invoice
+$apiResponse = $invoicesApi->updateInvoice(
+    $invoiceId,
+    $body
 );
-$body->setIdempotencyKey('4ee82288-0910-499e-ab4c-5d0071dad1be');
-$body->setFieldsToClear(['payments_requests[2da7964f-f3d2-4f43-81e8-5aa220bf3355].reminders']);
-
-$apiResponse = $invoicesApi->updateInvoice($invoiceId, $body);
 
 if ($apiResponse->isSuccess()) {
     $updateInvoiceResponse = $apiResponse->getResult();
@@ -332,9 +360,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -353,7 +381,7 @@ function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `invoiceId` | `string` | Template, Required | The ID of the [invoice](../../doc/models/invoice.md) to cancel. |
+| `invoiceId` | `string` | Template, Required | The ID of the [invoice](entity:Invoice) to cancel. |
 | `body` | [`CancelInvoiceRequest`](../../doc/models/cancel-invoice-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -364,12 +392,15 @@ function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiRespon
 
 ```php
 $invoiceId = 'invoice_id0';
-$body_version = 0;
-$body = new Models\CancelInvoiceRequest(
-    $body_version
-);
 
-$apiResponse = $invoicesApi->cancelInvoice($invoiceId, $body);
+$body = CancelInvoiceRequestBuilder::init(
+    0
+)->build();
+
+$apiResponse = $invoicesApi->cancelInvoice(
+    $invoiceId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $cancelInvoiceResponse = $apiResponse->getResult();
@@ -377,9 +408,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -416,13 +447,17 @@ function publishInvoice(string $invoiceId, PublishInvoiceRequest $body): ApiResp
 
 ```php
 $invoiceId = 'invoice_id0';
-$body_version = 1;
-$body = new Models\PublishInvoiceRequest(
-    $body_version
-);
-$body->setIdempotencyKey('32da42d0-1997-41b0-826b-f09464fc2c2e');
 
-$apiResponse = $invoicesApi->publishInvoice($invoiceId, $body);
+$body = PublishInvoiceRequestBuilder::init(
+    1
+)
+    ->idempotencyKey('32da42d0-1997-41b0-826b-f09464fc2c2e')
+    ->build();
+
+$apiResponse = $invoicesApi->publishInvoice(
+    $invoiceId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $publishInvoiceResponse = $apiResponse->getResult();
@@ -430,8 +465,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

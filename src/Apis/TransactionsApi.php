@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CaptureTransactionResponse;
 use Square\Models\ListTransactionsResponse;
@@ -51,8 +50,6 @@ class TransactionsApi extends BaseApi
      *        apis/pagination) for more information.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listTransactions(
         string $locationId,
@@ -87,8 +84,6 @@ class TransactionsApi extends BaseApi
      * @param string $transactionId The ID of the transaction to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveTransaction(string $locationId, string $transactionId): ApiResponse
     {
@@ -110,7 +105,7 @@ class TransactionsApi extends BaseApi
     }
 
     /**
-     * Captures a transaction that was created with the [Charge]($e/Transactions/Charge)
+     * Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
      * endpoint with a `delay_capture` value of `true`.
      *
      *
@@ -124,8 +119,6 @@ class TransactionsApi extends BaseApi
      * @param string $transactionId
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function captureTransaction(string $locationId, string $transactionId): ApiResponse
     {
@@ -147,7 +140,7 @@ class TransactionsApi extends BaseApi
     }
 
     /**
-     * Cancels a transaction that was created with the [Charge]($e/Transactions/Charge)
+     * Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
      * endpoint with a `delay_capture` value of `true`.
      *
      *
@@ -161,8 +154,6 @@ class TransactionsApi extends BaseApi
      * @param string $transactionId
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function voidTransaction(string $locationId, string $transactionId): ApiResponse
     {

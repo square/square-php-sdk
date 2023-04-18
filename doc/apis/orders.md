@@ -47,70 +47,78 @@ function createOrder(CreateOrderRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateOrderRequest();
-$body_order_locationId = '057P5VYJ4A5X1';
-$body->setOrder(new Models\Order(
-    $body_order_locationId
-));
-$body->getOrder()->setReferenceId('my-order-001');
-$body_order_lineItems = [];
-
-$body_order_lineItems_0_quantity = '1';
-$body_order_lineItems[0] = new Models\OrderLineItem(
-    $body_order_lineItems_0_quantity
-);
-$body_order_lineItems[0]->setName('New York Strip Steak');
-
-$body_order_lineItems_1_quantity = '2';
-$body_order_lineItems[1] = new Models\OrderLineItem(
-    $body_order_lineItems_1_quantity
-);
-$body_order_lineItems[1]->setCatalogObjectId('BEMYCSMIJL46OCDV4KYIKXIB');
-$body_order_lineItems_1_modifiers = [];
-
-$body_order_lineItems_1_modifiers[0] = new Models\OrderLineItemModifier();
-$body_order_lineItems_1_modifiers[0]->setCatalogObjectId('CHQX7Y4KY6N5KINJKZCFURPZ');
-$body_order_lineItems[1]->setModifiers($body_order_lineItems_1_modifiers);
-
-$body_order_lineItems_1_appliedDiscounts = [];
-
-$body_order_lineItems_1_appliedDiscounts_0_discountUid = 'one-dollar-off';
-$body_order_lineItems_1_appliedDiscounts[0] = new Models\OrderLineItemAppliedDiscount(
-    $body_order_lineItems_1_appliedDiscounts_0_discountUid
-);
-$body_order_lineItems[1]->setAppliedDiscounts($body_order_lineItems_1_appliedDiscounts);
-
-$body->getOrder()->setLineItems($body_order_lineItems);
-
-$body_order_taxes = [];
-
-$body_order_taxes[0] = new Models\OrderLineItemTax();
-$body_order_taxes[0]->setUid('state-sales-tax');
-$body_order_taxes[0]->setName('State Sales Tax');
-$body_order_taxes[0]->setPercentage('9');
-$body_order_taxes[0]->setScope(Models\OrderLineItemTaxScope::ORDER);
-$body->getOrder()->setTaxes($body_order_taxes);
-
-$body_order_discounts = [];
-
-$body_order_discounts[0] = new Models\OrderLineItemDiscount();
-$body_order_discounts[0]->setUid('labor-day-sale');
-$body_order_discounts[0]->setName('Labor Day Sale');
-$body_order_discounts[0]->setPercentage('5');
-$body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
-
-$body_order_discounts[1] = new Models\OrderLineItemDiscount();
-$body_order_discounts[1]->setUid('membership-discount');
-$body_order_discounts[1]->setCatalogObjectId('DB7L55ZH2BGWI4H23ULIWOQ7');
-$body_order_discounts[1]->setScope(Models\OrderLineItemDiscountScope::ORDER);
-
-$body_order_discounts[2] = new Models\OrderLineItemDiscount();
-$body_order_discounts[2]->setUid('one-dollar-off');
-$body_order_discounts[2]->setName('Sale - $1.00 off');
-$body_order_discounts[2]->setScope(Models\OrderLineItemDiscountScope::LINE_ITEM);
-$body->getOrder()->setDiscounts($body_order_discounts);
-
-$body->setIdempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf');
+$body = CreateOrderRequestBuilder::init()
+    ->order(
+        OrderBuilder::init(
+            '057P5VYJ4A5X1'
+        )
+            ->referenceId('my-order-001')
+            ->lineItems(
+                [
+                    OrderLineItemBuilder::init(
+                        '1'
+                    )
+                        ->name('New York Strip Steak')
+                        ->basePriceMoney(
+                            MoneyBuilder::init()->build()
+                        )->build(),
+                    OrderLineItemBuilder::init(
+                        '2'
+                    )
+                        ->catalogObjectId('BEMYCSMIJL46OCDV4KYIKXIB')
+                        ->modifiers(
+                            [
+                                OrderLineItemModifierBuilder::init()
+                                    ->catalogObjectId('CHQX7Y4KY6N5KINJKZCFURPZ')
+                                    ->build()
+                            ]
+                        )
+                        ->appliedDiscounts(
+                            [
+                                OrderLineItemAppliedDiscountBuilder::init(
+                                    'one-dollar-off'
+                                )->build()
+                            ]
+                        )->build()
+                ]
+            )
+            ->taxes(
+                [
+                    OrderLineItemTaxBuilder::init()
+                        ->uid('state-sales-tax')
+                        ->name('State Sales Tax')
+                        ->percentage('9')
+                        ->scope(OrderLineItemTaxScope::ORDER)
+                        ->build()
+                ]
+            )
+            ->discounts(
+                [
+                    OrderLineItemDiscountBuilder::init()
+                        ->uid('labor-day-sale')
+                        ->name('Labor Day Sale')
+                        ->percentage('5')
+                        ->scope(OrderLineItemDiscountScope::ORDER)
+                        ->build(),
+                    OrderLineItemDiscountBuilder::init()
+                        ->uid('membership-discount')
+                        ->catalogObjectId('DB7L55ZH2BGWI4H23ULIWOQ7')
+                        ->scope(OrderLineItemDiscountScope::ORDER)
+                        ->build(),
+                    OrderLineItemDiscountBuilder::init()
+                        ->uid('one-dollar-off')
+                        ->name('Sale - $1.00 off')
+                        ->amountMoney(
+                            MoneyBuilder::init()->build()
+                        )
+                        ->scope(OrderLineItemDiscountScope::LINE_ITEM)
+                        ->build()
+                ]
+            )
+            ->build()
+    )
+    ->idempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf')
+    ->build();
 
 $apiResponse = $ordersApi->createOrder($body);
 
@@ -120,9 +128,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -149,11 +157,14 @@ function batchRetrieveOrders(BatchRetrieveOrdersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_orderIds = ['CAISEM82RcpmcFBM0TfOyiHV3es', 'CAISENgvlJ6jLWAzERDzjyHVybY'];
-$body = new Models\BatchRetrieveOrdersRequest(
-    $body_orderIds
-);
-$body->setLocationId('057P5VYJ4A5X1');
+$body = BatchRetrieveOrdersRequestBuilder::init(
+    [
+        'CAISEM82RcpmcFBM0TfOyiHV3es',
+        'CAISENgvlJ6jLWAzERDzjyHVybY'
+    ]
+)
+    ->locationId('057P5VYJ4A5X1')
+    ->build();
 
 $apiResponse = $ordersApi->batchRetrieveOrders($body);
 
@@ -163,9 +174,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -190,36 +201,39 @@ function calculateOrder(CalculateOrderRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_order_locationId = 'D7AVYMEAPJ3A3';
-$body_order = new Models\Order(
-    $body_order_locationId
-);
-$body_order_lineItems = [];
-
-$body_order_lineItems_0_quantity = '1';
-$body_order_lineItems[0] = new Models\OrderLineItem(
-    $body_order_lineItems_0_quantity
-);
-$body_order_lineItems[0]->setName('Item 1');
-
-$body_order_lineItems_1_quantity = '2';
-$body_order_lineItems[1] = new Models\OrderLineItem(
-    $body_order_lineItems_1_quantity
-);
-$body_order_lineItems[1]->setName('Item 2');
-$body_order->setLineItems($body_order_lineItems);
-
-$body_order_discounts = [];
-
-$body_order_discounts[0] = new Models\OrderLineItemDiscount();
-$body_order_discounts[0]->setName('50% Off');
-$body_order_discounts[0]->setPercentage('50');
-$body_order_discounts[0]->setScope(Models\OrderLineItemDiscountScope::ORDER);
-$body_order->setDiscounts($body_order_discounts);
-
-$body = new Models\CalculateOrderRequest(
-    $body_order
-);
+$body = CalculateOrderRequestBuilder::init(
+    OrderBuilder::init(
+        'D7AVYMEAPJ3A3'
+    )
+        ->lineItems(
+            [
+                OrderLineItemBuilder::init(
+                    '1'
+                )
+                    ->name('Item 1')
+                    ->basePriceMoney(
+                        MoneyBuilder::init()->build()
+                    )->build(),
+                OrderLineItemBuilder::init(
+                    '2'
+                )
+                    ->name('Item 2')
+                    ->basePriceMoney(
+                        MoneyBuilder::init()->build()
+                    )->build()
+            ]
+        )
+        ->discounts(
+            [
+                OrderLineItemDiscountBuilder::init()
+                    ->name('50% Off')
+                    ->percentage('50')
+                    ->scope(OrderLineItemDiscountScope::ORDER)
+                    ->build()
+            ]
+        )
+        ->build()
+)->build();
 
 $apiResponse = $ordersApi->calculateOrder($body);
 
@@ -229,9 +243,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -257,12 +271,12 @@ function cloneOrder(CloneOrderRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_orderId = 'ZAISEM52YcpmcWAzERDOyiWS123';
-$body = new Models\CloneOrderRequest(
-    $body_orderId
-);
-$body->setVersion(3);
-$body->setIdempotencyKey('UNIQUE_STRING');
+$body = CloneOrderRequestBuilder::init(
+    'ZAISEM52YcpmcWAzERDOyiWS123'
+)
+    ->version(3)
+    ->idempotencyKey('UNIQUE_STRING')
+    ->build();
 
 $apiResponse = $ordersApi->cloneOrder($body);
 
@@ -272,9 +286,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -315,25 +329,43 @@ function searchOrders(SearchOrdersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchOrdersRequest();
-$body->setLocationIds(['057P5VYJ4A5X1', '18YC4JDH91E1H']);
-$body->setQuery(new Models\SearchOrdersQuery());
-$body->getQuery()->setFilter(new Models\SearchOrdersFilter());
-$body_query_filter_stateFilter_states = [Models\OrderState::COMPLETED];
-$body->getQuery()->getFilter()->setStateFilter(new Models\SearchOrdersStateFilter(
-    $body_query_filter_stateFilter_states
-));
-$body->getQuery()->getFilter()->setDateTimeFilter(new Models\SearchOrdersDateTimeFilter());
-$body->getQuery()->getFilter()->getDateTimeFilter()->setClosedAt(new Models\TimeRange());
-$body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setStartAt('2018-03-03T20:00:00+00:00');
-$body->getQuery()->getFilter()->getDateTimeFilter()->getClosedAt()->setEndAt('2019-03-04T21:54:45+00:00');
-$body_query_sort_sortField = Models\SearchOrdersSortField::CLOSED_AT;
-$body->getQuery()->setSort(new Models\SearchOrdersSort(
-    $body_query_sort_sortField
-));
-$body->getQuery()->getSort()->setSortOrder(Models\SortOrder::DESC);
-$body->setLimit(3);
-$body->setReturnEntries(true);
+$body = SearchOrdersRequestBuilder::init()
+    ->locationIds(
+        [
+            '057P5VYJ4A5X1',
+            '18YC4JDH91E1H'
+        ]
+    )
+    ->query(
+        SearchOrdersQueryBuilder::init()
+            ->filter(
+                SearchOrdersFilterBuilder::init()
+                    ->stateFilter(
+                        SearchOrdersStateFilterBuilder::init(
+                            [
+                                OrderState::COMPLETED
+                            ]
+                        )->build()
+                    )
+                    ->dateTimeFilter(
+                        SearchOrdersDateTimeFilterBuilder::init()
+                            ->closedAt(
+                                TimeRangeBuilder::init()->build()
+                            )->build()
+                    )->build()
+            )
+            ->sort(
+                SearchOrdersSortBuilder::init(
+                    SearchOrdersSortField::CLOSED_AT
+                )
+                    ->sortOrder(SortOrder::DESC)
+                    ->build()
+            )
+            ->build()
+    )
+    ->limit(3)
+    ->returnEntries(true)
+    ->build();
 
 $apiResponse = $ordersApi->searchOrders($body);
 
@@ -343,9 +375,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -380,9 +412,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -423,9 +455,13 @@ function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
 
 ```php
 $orderId = 'order_id6';
-$body = new Models\UpdateOrderRequest();
 
-$apiResponse = $ordersApi->updateOrder($orderId, $body);
+$body = UpdateOrderRequestBuilder::init()->build();
+
+$apiResponse = $ordersApi->updateOrder(
+    $orderId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateOrderResponse = $apiResponse->getResult();
@@ -433,9 +469,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -475,13 +511,22 @@ function payOrder(string $orderId, PayOrderRequest $body): ApiResponse
 
 ```php
 $orderId = 'order_id6';
-$body_idempotencyKey = 'c043a359-7ad9-4136-82a9-c3f1d66dcbff';
-$body = new Models\PayOrderRequest(
-    $body_idempotencyKey
-);
-$body->setPaymentIds(['EnZdNAlWCmfh6Mt5FMNST1o7taB', '0LRiVlbXVwe8ozu4KbZxd12mvaB']);
 
-$apiResponse = $ordersApi->payOrder($orderId, $body);
+$body = PayOrderRequestBuilder::init(
+    'c043a359-7ad9-4136-82a9-c3f1d66dcbff'
+)
+    ->paymentIds(
+        [
+            'EnZdNAlWCmfh6Mt5FMNST1o7taB',
+            '0LRiVlbXVwe8ozu4KbZxd12mvaB'
+        ]
+    )
+    ->build();
+
+$apiResponse = $ordersApi->payOrder(
+    $orderId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $payOrderResponse = $apiResponse->getResult();
@@ -489,8 +534,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

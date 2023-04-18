@@ -31,7 +31,7 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Version.
-     * The version of the [invoice]($m/Invoice) to publish.
+     * The version of the [invoice](entity:Invoice) to publish.
      * This must match the current version of the invoice; otherwise, the request is rejected.
      */
     public function getVersion(): int
@@ -41,7 +41,7 @@ class PublishInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Version.
-     * The version of the [invoice]($m/Invoice) to publish.
+     * The version of the [invoice](entity:Invoice) to publish.
      * This must match the current version of the invoice; otherwise, the request is rejected.
      *
      * @required

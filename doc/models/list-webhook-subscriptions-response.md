@@ -16,7 +16,7 @@ present.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Information on errors encountered during the request. | getErrors(): ?array | setErrors(?array errors): void |
-| `subscriptions` | [`?(WebhookSubscription[])`](../../doc/models/webhook-subscription.md) | Optional | The requested list of [Subscription](../../doc/models/webhook-subscription.md)s. | getSubscriptions(): ?array | setSubscriptions(?array subscriptions): void |
+| `subscriptions` | [`?(WebhookSubscription[])`](../../doc/models/webhook-subscription.md) | Optional | The requested list of [Subscription](entity:WebhookSubscription)s. | getSubscriptions(): ?array | setSubscriptions(?array subscriptions): void |
 | `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If empty,<br>this is the final response.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 
 ## Example (as JSON)

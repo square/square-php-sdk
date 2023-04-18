@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkDeleteLocationCustomAttributesRequest;
 use Square\Models\BulkDeleteLocationCustomAttributesResponse;
@@ -52,8 +51,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listLocationCustomAttributeDefinitions(
         ?string $visibilityFilter = null,
@@ -91,8 +88,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createLocationCustomAttributeDefinition(
         CreateLocationCustomAttributeDefinitionRequest $body
@@ -118,8 +113,6 @@ class LocationCustomAttributesApi extends BaseApi
      * @param string $key The key of the custom attribute definition to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteLocationCustomAttributeDefinition(string $key): ApiResponse
     {
@@ -153,8 +146,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        is higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLocationCustomAttributeDefinition(string $key, ?int $version = null): ApiResponse
     {
@@ -184,8 +175,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateLocationCustomAttributeDefinition(
         string $key,
@@ -220,8 +209,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkDeleteLocationCustomAttributes(BulkDeleteLocationCustomAttributesRequest $body): ApiResponse
     {
@@ -256,8 +243,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpsertLocationCustomAttributes(BulkUpsertLocationCustomAttributesRequest $body): ApiResponse
     {
@@ -280,7 +265,7 @@ class LocationCustomAttributesApi extends BaseApi
      * visible to the requesting application, including those that are owned by other applications
      * and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $locationId The ID of the target [location]($m/Location).
+     * @param string $locationId The ID of the target [location](entity:Location).
      * @param string|null $visibilityFilter Filters the `CustomAttributeDefinition` results by their
      *        `visibility` values.
      * @param int|null $limit The maximum number of results to return in a single paged response.
@@ -296,15 +281,13 @@ class LocationCustomAttributesApi extends BaseApi
      *        information, see [Pagination](https://developer.squareup.com/docs/build-
      *        basics/common-api-patterns/pagination).
      * @param bool|null $withDefinitions Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of each
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of each
      *        custom attribute. Set this parameter to `true` to get the name and description of
      *        each custom
      *        attribute, information about the data type, or other definition details. The default
      *        value is `false`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listLocationCustomAttributes(
         string $locationId,
@@ -335,7 +318,7 @@ class LocationCustomAttributesApi extends BaseApi
      * To delete a custom attribute owned by another application, the `visibility` setting must be
      * `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $locationId The ID of the target [location]($m/Location).
+     * @param string $locationId The ID of the target [location](entity:Location).
      * @param string $key The key of the custom attribute to delete. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
@@ -343,8 +326,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        definition owner, you must use the qualified key.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteLocationCustomAttribute(string $locationId, string $key): ApiResponse
     {
@@ -369,14 +350,14 @@ class LocationCustomAttributesApi extends BaseApi
      * To retrieve a custom attribute owned by another application, the `visibility` setting must be
      * `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $locationId The ID of the target [location]($m/Location).
+     * @param string $locationId The ID of the target [location](entity:Location).
      * @param string $key The key of the custom attribute to retrieve. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
      *        not the
      *        definition owner, you must use the qualified key.
      * @param bool|null $withDefinition Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of
      *        the custom attribute. Set this parameter to `true` to get the name and description
      *        of the custom
      *        attribute, information about the data type, or other definition details. The default
@@ -390,8 +371,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLocationCustomAttribute(
         string $locationId,
@@ -428,7 +407,7 @@ class LocationCustomAttributesApi extends BaseApi
      * To create or update a custom attribute owned by another application, the `visibility` setting
      * must be `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $locationId The ID of the target [location]($m/Location).
+     * @param string $locationId The ID of the target [location](entity:Location).
      * @param string $key The key of the custom attribute to create or update. This key must match
      *        the `key` of a
      *        custom attribute definition in the Square seller account. If the requesting
@@ -440,8 +419,6 @@ class LocationCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function upsertLocationCustomAttribute(
         string $locationId,

@@ -27,7 +27,7 @@ class BulkUpdateTeamMembersRequest implements \JsonSerializable
     /**
      * Returns Team Members.
      * The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the
-     * `UpdateTeamMemberRequest`.
+     * `UpdateTeamMemberRequest`. The maximum number of update objects is 25.
      *
      * @return array<string,UpdateTeamMemberRequest>
      */
@@ -39,7 +39,7 @@ class BulkUpdateTeamMembersRequest implements \JsonSerializable
     /**
      * Sets Team Members.
      * The data used to update the `TeamMember` objects. Each key is the `team_member_id` that maps to the
-     * `UpdateTeamMemberRequest`.
+     * `UpdateTeamMemberRequest`. The maximum number of update objects is 25.
      *
      * @required
      * @maps team_members

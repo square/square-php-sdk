@@ -279,12 +279,9 @@ class Order implements \JsonSerializable
      * Returns Customer Id.
      * The ID of the [customer]($m/Customer) associated with the order.
      *
-     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
-     * transactions
-     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
-     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
-     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
-     * does#instant-profiles).
+     * You should specify a `customer_id` on the order (or the payment) to ensure that transactions
+     * are reliably linked to customers. Omitting this field might result in the creation of new
+     * [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-does#instant-profiles).
      */
     public function getCustomerId(): ?string
     {
@@ -298,12 +295,9 @@ class Order implements \JsonSerializable
      * Sets Customer Id.
      * The ID of the [customer]($m/Customer) associated with the order.
      *
-     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
-     * transactions
-     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
-     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
-     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
-     * does#instant-profiles).
+     * You should specify a `customer_id` on the order (or the payment) to ensure that transactions
+     * are reliably linked to customers. Omitting this field might result in the creation of new
+     * [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-does#instant-profiles).
      *
      * @maps customer_id
      */
@@ -316,12 +310,9 @@ class Order implements \JsonSerializable
      * Unsets Customer Id.
      * The ID of the [customer]($m/Customer) associated with the order.
      *
-     * __IMPORTANT:__ You should specify a `customer_id` if you want the corresponding payment
-     * transactions
-     * to be explicitly linked to the customer in the Seller Dashboard. If this field is omitted, the
-     * `customer_id` assigned to any underlying `Payment` objects is ignored and might result in the
-     * creation of new [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-
-     * does#instant-profiles).
+     * You should specify a `customer_id` on the order (or the payment) to ensure that transactions
+     * are reliably linked to customers. Omitting this field might result in the creation of new
+     * [instant profiles](https://developer.squareup.com/docs/customers-api/what-it-does#instant-profiles).
      */
     public function unsetCustomerId(): void
     {
@@ -847,8 +838,8 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Closed At.
-     * The timestamp for when the order reached a terminal [state]($m/OrderState), in RFC 3339 format (for
-     * example "2016-09-04T23:59:33.123Z").
+     * The timestamp for when the order reached a terminal [state](entity:OrderState), in RFC 3339 format
+     * (for example "2016-09-04T23:59:33.123Z").
      */
     public function getClosedAt(): ?string
     {
@@ -857,8 +848,8 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Closed At.
-     * The timestamp for when the order reached a terminal [state]($m/OrderState), in RFC 3339 format (for
-     * example "2016-09-04T23:59:33.123Z").
+     * The timestamp for when the order reached a terminal [state](entity:OrderState), in RFC 3339 format
+     * (for example "2016-09-04T23:59:33.123Z").
      *
      * @maps closed_at
      */

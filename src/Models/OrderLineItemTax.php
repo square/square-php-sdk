@@ -99,7 +99,7 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
+     * The catalog object ID referencing [CatalogTax](entity:CatalogTax).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -111,7 +111,7 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
+     * The catalog object ID referencing [CatalogTax](entity:CatalogTax).
      *
      * @maps catalog_object_id
      */
@@ -122,7 +122,7 @@ class OrderLineItemTax implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing [CatalogTax]($m/CatalogTax).
+     * The catalog object ID referencing [CatalogTax](entity:CatalogTax).
      */
     public function unsetCatalogObjectId(): void
     {

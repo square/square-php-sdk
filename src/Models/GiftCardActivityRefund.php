@@ -34,7 +34,7 @@ class GiftCardActivityRefund implements \JsonSerializable
     /**
      * Returns Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
-     * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
+     * `payment_id` in the corresponding [RefundPayment](api-endpoint:Refunds-RefundPayment) request
      * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
      * to refund a gift card payment to the same gift card if the payment was processed by Square.
      *
@@ -52,7 +52,7 @@ class GiftCardActivityRefund implements \JsonSerializable
     /**
      * Sets Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
-     * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
+     * `payment_id` in the corresponding [RefundPayment](api-endpoint:Refunds-RefundPayment) request
      * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
      * to refund a gift card payment to the same gift card if the payment was processed by Square.
      *
@@ -69,7 +69,7 @@ class GiftCardActivityRefund implements \JsonSerializable
     /**
      * Unsets Redeem Activity Id.
      * The ID of the refunded `REDEEM` gift card activity. Square populates this field if the
-     * `payment_id` in the corresponding [RefundPayment]($e/Refunds/RefundPayment) request
+     * `payment_id` in the corresponding [RefundPayment](api-endpoint:Refunds-RefundPayment) request
      * represents a redemption made by the same gift card. Note that you must use `RefundPayment`
      * to refund a gift card payment to the same gift card if the payment was processed by Square.
      *

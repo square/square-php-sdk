@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\V1CreateRefundRequest;
 use Square\Models\V1Order;
@@ -34,8 +33,6 @@ class V1TransactionsApi extends BaseApi
      *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1ListOrders(
         string $locationId,
@@ -69,8 +66,6 @@ class V1TransactionsApi extends BaseApi
      *        returned by the List Orders endpoint
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1RetrieveOrder(string $locationId, string $orderId): ApiResponse
     {
@@ -101,8 +96,6 @@ class V1TransactionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1UpdateOrder(string $locationId, string $orderId, V1UpdateOrderRequest $body): ApiResponse
     {
@@ -156,8 +149,6 @@ class V1TransactionsApi extends BaseApi
      *        itemizations will be empty until the payment is completed.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1ListPayments(
         string $locationId,
@@ -198,8 +189,6 @@ class V1TransactionsApi extends BaseApi
      *        Settlements endpoint, or Refund objects returned by the List Refunds endpoint.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1RetrievePayment(string $locationId, string $paymentId): ApiResponse
     {
@@ -240,8 +229,6 @@ class V1TransactionsApi extends BaseApi
      *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1ListRefunds(
         string $locationId,
@@ -290,8 +277,6 @@ class V1TransactionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1CreateRefund(string $locationId, V1CreateRefundRequest $body): ApiResponse
     {
@@ -338,8 +323,6 @@ class V1TransactionsApi extends BaseApi
      *        original query to the endpoint.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1ListSettlements(
         string $locationId,
@@ -395,8 +378,6 @@ class V1TransactionsApi extends BaseApi
      *        Settlement objects returned by the List Settlements endpoint.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function v1RetrieveSettlement(string $locationId, string $settlementId): ApiResponse
     {

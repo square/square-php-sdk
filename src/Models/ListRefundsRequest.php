@@ -8,9 +8,9 @@ use stdClass;
 
 /**
  * Defines the query parameters that can be included in
- * a request to the [ListRefunds]($e/Transactions/ListRefunds) endpoint.
+ * a request to the [ListRefunds](api-endpoint:Transactions-ListRefunds) endpoint.
  *
- * Deprecated - recommend using [SearchOrders]($e/Orders/SearchOrders)
+ * Deprecated - recommend using [SearchOrders](api-endpoint:Orders-SearchOrders)
  */
 class ListRefundsRequest implements \JsonSerializable
 {

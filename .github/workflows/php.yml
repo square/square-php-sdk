@@ -12,7 +12,7 @@ jobs:
       SQUARE_ENVIRONMENT: sandbox
       SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_SANDBOX_TOKEN }}
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:

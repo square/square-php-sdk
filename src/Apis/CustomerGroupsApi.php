@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateCustomerGroupRequest;
 use Square\Models\CreateCustomerGroupResponse;
@@ -38,8 +37,6 @@ class CustomerGroupsApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCustomerGroups(?string $cursor = null, ?int $limit = null): ApiResponse
     {
@@ -63,8 +60,6 @@ class CustomerGroupsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCustomerGroup(CreateCustomerGroupRequest $body): ApiResponse
     {
@@ -83,8 +78,6 @@ class CustomerGroupsApi extends BaseApi
      * @param string $groupId The ID of the customer group to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteCustomerGroup(string $groupId): ApiResponse
     {
@@ -103,8 +96,6 @@ class CustomerGroupsApi extends BaseApi
      * @param string $groupId The ID of the customer group to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCustomerGroup(string $groupId): ApiResponse
     {
@@ -127,8 +118,6 @@ class CustomerGroupsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateCustomerGroup(string $groupId, UpdateCustomerGroupRequest $body): ApiResponse
     {

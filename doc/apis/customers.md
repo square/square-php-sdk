@@ -63,9 +63,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -99,20 +99,24 @@ function createCustomer(CreateCustomerRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\CreateCustomerRequest();
-$body->setGivenName('Amelia');
-$body->setFamilyName('Earhart');
-$body->setEmailAddress('Amelia.Earhart@example.com');
-$body->setAddress(new Models\Address());
-$body->getAddress()->setAddressLine1('500 Electric Ave');
-$body->getAddress()->setAddressLine2('Suite 600');
-$body->getAddress()->setLocality('New York');
-$body->getAddress()->setAdministrativeDistrictLevel1('NY');
-$body->getAddress()->setPostalCode('10003');
-$body->getAddress()->setCountry(Models\Country::US);
-$body->setPhoneNumber('+1-212-555-4240');
-$body->setReferenceId('YOUR_REFERENCE_ID');
-$body->setNote('a customer');
+$body = CreateCustomerRequestBuilder::init()
+    ->givenName('Amelia')
+    ->familyName('Earhart')
+    ->emailAddress('Amelia.Earhart@example.com')
+    ->address(
+        AddressBuilder::init()
+            ->addressLine1('500 Electric Ave')
+            ->addressLine2('Suite 600')
+            ->locality('New York')
+            ->administrativeDistrictLevel1('NY')
+            ->postalCode('10003')
+            ->country(Country::US)
+            ->build()
+    )
+    ->phoneNumber('+1-212-555-4240')
+    ->referenceId('YOUR_REFERENCE_ID')
+    ->note('a customer')
+    ->build();
 
 $apiResponse = $customersApi->createCustomer($body);
 
@@ -122,9 +126,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -157,23 +161,53 @@ function searchCustomers(SearchCustomersRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchCustomersRequest();
-$body->setLimit(2);
-$body->setQuery(new Models\CustomerQuery());
-$body->getQuery()->setFilter(new Models\CustomerFilter());
-$body->getQuery()->getFilter()->setCreationSource(new Models\CustomerCreationSourceFilter());
-$body->getQuery()->getFilter()->getCreationSource()->setValues([Models\CustomerCreationSource::THIRD_PARTY]);
-$body->getQuery()->getFilter()->getCreationSource()->setRule(Models\CustomerInclusionExclusion::INCLUDE_);
-$body->getQuery()->getFilter()->setCreatedAt(new Models\TimeRange());
-$body->getQuery()->getFilter()->getCreatedAt()->setStartAt('2018-01-01T00:00:00+00:00');
-$body->getQuery()->getFilter()->getCreatedAt()->setEndAt('2018-02-01T00:00:00+00:00');
-$body->getQuery()->getFilter()->setEmailAddress(new Models\CustomerTextFilter());
-$body->getQuery()->getFilter()->getEmailAddress()->setFuzzy('example.com');
-$body->getQuery()->getFilter()->setGroupIds(new Models\FilterValue());
-$body->getQuery()->getFilter()->getGroupIds()->setAll(['545AXB44B4XXWMVQ4W8SBT3HHF']);
-$body->getQuery()->setSort(new Models\CustomerSort());
-$body->getQuery()->getSort()->setField(Models\CustomerSortField::CREATED_AT);
-$body->getQuery()->getSort()->setOrder(Models\SortOrder::ASC);
+$body = SearchCustomersRequestBuilder::init()
+    ->limit(2)
+    ->query(
+        CustomerQueryBuilder::init()
+            ->filter(
+                CustomerFilterBuilder::init()
+                    ->creationSource(
+                        CustomerCreationSourceFilterBuilder::init()
+                            ->values(
+                                [
+                                    CustomerCreationSource::THIRD_PARTY
+                                ]
+                            )
+                            ->rule(CustomerInclusionExclusion::INCLUDE_)
+                            ->build()
+                    )
+                    ->createdAt(
+                        TimeRangeBuilder::init()
+                            ->startAt('2018-01-01T00:00:00+00:00')
+                            ->endAt('2018-02-01T00:00:00+00:00')
+                            ->build()
+                    )
+                    ->emailAddress(
+                        CustomerTextFilterBuilder::init()
+                            ->fuzzy('example.com')
+                            ->build()
+                    )
+                    ->groupIds(
+                        FilterValueBuilder::init()
+                            ->all(
+                                [
+                                    '545AXB44B4XXWMVQ4W8SBT3HHF'
+                                ]
+                            )
+                            ->build()
+                    )
+                    ->build()
+            )
+            ->sort(
+                CustomerSortBuilder::init()
+                    ->field(CustomerSortField::CREATED_AT)
+                    ->order(SortOrder::ASC)
+                    ->build()
+            )
+            ->build()
+    )
+    ->build();
 
 $apiResponse = $customersApi->searchCustomers($body);
 
@@ -183,9 +217,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -226,9 +260,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -263,9 +297,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -301,13 +335,18 @@ function updateCustomer(string $customerId, UpdateCustomerRequest $body): ApiRes
 
 ```php
 $customerId = 'customer_id8';
-$body = new Models\UpdateCustomerRequest();
-$body->setEmailAddress('New.Amelia.Earhart@example.com');
-$body->setPhoneNumber('');
-$body->setNote('updated customer note');
-$body->setVersion(2);
 
-$apiResponse = $customersApi->updateCustomer($customerId, $body);
+$body = UpdateCustomerRequestBuilder::init()
+    ->emailAddress('New.Amelia.Earhart@example.com')
+    ->phoneNumber('')
+    ->note('updated customer note')
+    ->version(2)
+    ->build();
+
+$apiResponse = $customersApi->updateCustomer(
+    $customerId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateCustomerResponse = $apiResponse->getResult();
@@ -315,9 +354,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -350,20 +389,27 @@ function createCustomerCard(string $customerId, CreateCustomerCardRequest $body)
 
 ```php
 $customerId = 'customer_id8';
-$body_cardNonce = 'YOUR_CARD_NONCE';
-$body = new Models\CreateCustomerCardRequest(
-    $body_cardNonce
-);
-$body->setBillingAddress(new Models\Address());
-$body->getBillingAddress()->setAddressLine1('500 Electric Ave');
-$body->getBillingAddress()->setAddressLine2('Suite 600');
-$body->getBillingAddress()->setLocality('New York');
-$body->getBillingAddress()->setAdministrativeDistrictLevel1('NY');
-$body->getBillingAddress()->setPostalCode('10003');
-$body->getBillingAddress()->setCountry(Models\Country::US);
-$body->setCardholderName('Amelia Earhart');
 
-$apiResponse = $customersApi->createCustomerCard($customerId, $body);
+$body = CreateCustomerCardRequestBuilder::init(
+    'YOUR_CARD_NONCE'
+)
+    ->billingAddress(
+        AddressBuilder::init()
+            ->addressLine1('500 Electric Ave')
+            ->addressLine2('Suite 600')
+            ->locality('New York')
+            ->administrativeDistrictLevel1('NY')
+            ->postalCode('10003')
+            ->country(Country::US)
+            ->build()
+    )
+    ->cardholderName('Amelia Earhart')
+    ->build();
+
+$apiResponse = $customersApi->createCustomerCard(
+    $customerId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $createCustomerCardResponse = $apiResponse->getResult();
@@ -371,9 +417,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -402,9 +448,13 @@ function deleteCustomerCard(string $customerId, string $cardId): ApiResponse
 
 ```php
 $customerId = 'customer_id8';
+
 $cardId = 'card_id4';
 
-$apiResponse = $customersApi->deleteCustomerCard($customerId, $cardId);
+$apiResponse = $customersApi->deleteCustomerCard(
+    $customerId,
+    $cardId
+);
 
 if ($apiResponse->isSuccess()) {
     $deleteCustomerCardResponse = $apiResponse->getResult();
@@ -412,9 +462,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -444,9 +494,13 @@ function removeGroupFromCustomer(string $customerId, string $groupId): ApiRespon
 
 ```php
 $customerId = 'customer_id8';
+
 $groupId = 'group_id0';
 
-$apiResponse = $customersApi->removeGroupFromCustomer($customerId, $groupId);
+$apiResponse = $customersApi->removeGroupFromCustomer(
+    $customerId,
+    $groupId
+);
 
 if ($apiResponse->isSuccess()) {
     $removeGroupFromCustomerResponse = $apiResponse->getResult();
@@ -454,9 +508,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -486,9 +540,13 @@ function addGroupToCustomer(string $customerId, string $groupId): ApiResponse
 
 ```php
 $customerId = 'customer_id8';
+
 $groupId = 'group_id0';
 
-$apiResponse = $customersApi->addGroupToCustomer($customerId, $groupId);
+$apiResponse = $customersApi->addGroupToCustomer(
+    $customerId,
+    $groupId
+);
 
 if ($apiResponse->isSuccess()) {
     $addGroupToCustomerResponse = $apiResponse->getResult();
@@ -496,8 +554,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

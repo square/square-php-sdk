@@ -26,8 +26,8 @@ class BulkUpdateVendorsRequest implements \JsonSerializable
 
     /**
      * Returns Vendors.
-     * A set of [UpdateVendorRequest]($m/UpdateVendorRequest) objects encapsulating to-be-updated
-     * [Vendor]($m/Vendor)
+     * A set of [UpdateVendorRequest](entity:UpdateVendorRequest) objects encapsulating to-be-updated
+     * [Vendor](entity:Vendor)
      * objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorRequest`-object pairs.
      *
      * @return array<string,UpdateVendorRequest>
@@ -39,8 +39,8 @@ class BulkUpdateVendorsRequest implements \JsonSerializable
 
     /**
      * Sets Vendors.
-     * A set of [UpdateVendorRequest]($m/UpdateVendorRequest) objects encapsulating to-be-updated
-     * [Vendor]($m/Vendor)
+     * A set of [UpdateVendorRequest](entity:UpdateVendorRequest) objects encapsulating to-be-updated
+     * [Vendor](entity:Vendor)
      * objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorRequest`-object pairs.
      *
      * @required

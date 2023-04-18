@@ -47,8 +47,8 @@ class RetrieveOrderCustomAttributeRequest implements \JsonSerializable
 
     /**
      * Returns With Definition.
-     * Indicates whether to return the [custom attribute definition]($m/CustomAttributeDefinition) in the
-     * `definition` field of each
+     * Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in
+     * the `definition` field of each
      * custom attribute. Set this parameter to `true` to get the name and description of each custom
      * attribute,
      * information about the data type, or other definition details. The default value is `false`.
@@ -63,8 +63,8 @@ class RetrieveOrderCustomAttributeRequest implements \JsonSerializable
 
     /**
      * Sets With Definition.
-     * Indicates whether to return the [custom attribute definition]($m/CustomAttributeDefinition) in the
-     * `definition` field of each
+     * Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in
+     * the `definition` field of each
      * custom attribute. Set this parameter to `true` to get the name and description of each custom
      * attribute,
      * information about the data type, or other definition details. The default value is `false`.
@@ -78,8 +78,8 @@ class RetrieveOrderCustomAttributeRequest implements \JsonSerializable
 
     /**
      * Unsets With Definition.
-     * Indicates whether to return the [custom attribute definition]($m/CustomAttributeDefinition) in the
-     * `definition` field of each
+     * Indicates whether to return the [custom attribute definition](entity:CustomAttributeDefinition) in
+     * the `definition` field of each
      * custom attribute. Set this parameter to `true` to get the name and description of each custom
      * attribute,
      * information about the data type, or other definition details. The default value is `false`.

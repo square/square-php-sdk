@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CancelSubscriptionResponse;
 use Square\Models\CreateSubscriptionRequest;
@@ -44,8 +43,6 @@ class SubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createSubscription(CreateSubscriptionRequest $body): ApiResponse
     {
@@ -84,8 +81,6 @@ class SubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
     {
@@ -110,8 +105,6 @@ class SubscriptionsApi extends BaseApi
      *        - `actions`: to include scheduled actions on the targeted subscription.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveSubscription(string $subscriptionId, ?string $mInclude = null): ApiResponse
     {
@@ -138,8 +131,6 @@ class SubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $body): ApiResponse
     {
@@ -163,8 +154,6 @@ class SubscriptionsApi extends BaseApi
      * @param string $actionId The ID of the targeted action to be deleted.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteSubscriptionAction(string $subscriptionId, string $actionId): ApiResponse
     {
@@ -191,8 +180,6 @@ class SubscriptionsApi extends BaseApi
      * @param string $subscriptionId The ID of the subscription to cancel.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelSubscription(string $subscriptionId): ApiResponse
     {
@@ -221,8 +208,6 @@ class SubscriptionsApi extends BaseApi
      *        paged response.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listSubscriptionEvents(
         string $subscriptionId,
@@ -252,8 +237,6 @@ class SubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $body): ApiResponse
     {
@@ -280,8 +263,6 @@ class SubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $body): ApiResponse
     {
@@ -306,8 +287,6 @@ class SubscriptionsApi extends BaseApi
      *        corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function swapPlan(string $subscriptionId, SwapPlanRequest $body): ApiResponse
     {

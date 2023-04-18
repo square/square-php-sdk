@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkUpsertCustomerCustomAttributesRequest;
 use Square\Models\BulkUpsertCustomerCustomAttributesResponse;
@@ -51,8 +50,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCustomerCustomAttributeDefinitions(?int $limit = null, ?string $cursor = null): ApiResponse
     {
@@ -87,8 +84,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCustomerCustomAttributeDefinition(
         CreateCustomerCustomAttributeDefinitionRequest $body
@@ -116,8 +111,6 @@ class CustomerCustomAttributesApi extends BaseApi
      * @param string $key The key of the custom attribute definition to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteCustomerCustomAttributeDefinition(string $key): ApiResponse
     {
@@ -154,8 +147,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        is higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCustomerCustomAttributeDefinition(string $key, ?int $version = null): ApiResponse
     {
@@ -188,8 +179,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateCustomerCustomAttributeDefinition(
         string $key,
@@ -238,8 +227,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRequest $body): ApiResponse
     {
@@ -264,7 +251,7 @@ class CustomerCustomAttributesApi extends BaseApi
      * visible to the requesting application, including those that are owned by other applications
      * and set to `VISIBILITY_READ_ONLY` or `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $customerId The ID of the target [customer profile]($m/Customer).
+     * @param string $customerId The ID of the target [customer profile](entity:Customer).
      * @param int|null $limit The maximum number of results to return in a single paged response.
      *        This limit is advisory.
      *        The response might contain more or fewer results. The minimum value is 1 and the
@@ -278,15 +265,13 @@ class CustomerCustomAttributesApi extends BaseApi
      *        information, see [Pagination](https://developer.squareup.com/docs/build-
      *        basics/common-api-patterns/pagination).
      * @param bool|null $withDefinitions Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of each
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of each
      *        custom attribute. Set this parameter to `true` to get the name and description of
      *        each custom
      *        attribute, information about the data type, or other definition details. The default
      *        value is `false`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCustomerCustomAttributes(
         string $customerId,
@@ -317,7 +302,7 @@ class CustomerCustomAttributesApi extends BaseApi
      * `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $customerId The ID of the target [customer profile]($m/Customer).
+     * @param string $customerId The ID of the target [customer profile](entity:Customer).
      * @param string $key The key of the custom attribute to delete. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
@@ -325,8 +310,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        definition owner, you must use the qualified key.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteCustomerCustomAttribute(string $customerId, string $key): ApiResponse
     {
@@ -355,14 +338,14 @@ class CustomerCustomAttributesApi extends BaseApi
      * attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $customerId The ID of the target [customer profile]($m/Customer).
+     * @param string $customerId The ID of the target [customer profile](entity:Customer).
      * @param string $key The key of the custom attribute to retrieve. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
      *        not the
      *        definition owner, you must use the qualified key.
      * @param bool|null $withDefinition Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of
      *        the custom attribute. Set this parameter to `true` to get the name and description
      *        of the custom
      *        attribute, information about the data type, or other definition details. The default
@@ -376,8 +359,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCustomerCustomAttribute(
         string $customerId,
@@ -417,7 +398,7 @@ class CustomerCustomAttributesApi extends BaseApi
      * must be `VISIBILITY_READ_WRITE_VALUES`. Note that seller-defined custom attributes
      * (also known as custom fields) are always set to `VISIBILITY_READ_WRITE_VALUES`.
      *
-     * @param string $customerId The ID of the target [customer profile]($m/Customer).
+     * @param string $customerId The ID of the target [customer profile](entity:Customer).
      * @param string $key The key of the custom attribute to create or update. This key must match
      *        the `key` of a
      *        custom attribute definition in the Square seller account. If the requesting
@@ -429,8 +410,6 @@ class CustomerCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function upsertCustomerCustomAttribute(
         string $customerId,

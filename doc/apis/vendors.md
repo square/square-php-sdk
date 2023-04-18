@@ -40,15 +40,12 @@ function bulkCreateVendors(BulkCreateVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_vendors = [];
-
-$body_vendors['key0'] = new Models\Vendor();
-
-$body_vendors['key1'] = new Models\Vendor();
-
-$body = new Models\BulkCreateVendorsRequest(
-    $body_vendors
-);
+$body = BulkCreateVendorsRequestBuilder::init(
+    [
+        'key0' => VendorBuilder::init()->build(),
+        'key1' => VendorBuilder::init()->build()
+    ]
+)->build();
 
 $apiResponse = $vendorsApi->bulkCreateVendors($body);
 
@@ -58,9 +55,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -85,8 +82,13 @@ function bulkRetrieveVendors(BulkRetrieveVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\BulkRetrieveVendorsRequest();
-$body->setVendorIds(['INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4']);
+$body = BulkRetrieveVendorsRequestBuilder::init()
+    ->vendorIds(
+        [
+            'INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4'
+        ]
+    )
+    ->build();
 
 $apiResponse = $vendorsApi->bulkRetrieveVendors($body);
 
@@ -96,9 +98,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -123,21 +125,16 @@ function bulkUpdateVendors(BulkUpdateVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_vendors = [];
-
-$body_vendors_key0_vendor = new Models\Vendor();
-$body_vendors['key0'] = new Models\UpdateVendorRequest(
-    $body_vendors_key0_vendor
-);
-
-$body_vendors_key1_vendor = new Models\Vendor();
-$body_vendors['key1'] = new Models\UpdateVendorRequest(
-    $body_vendors_key1_vendor
-);
-
-$body = new Models\BulkUpdateVendorsRequest(
-    $body_vendors
-);
+$body = BulkUpdateVendorsRequestBuilder::init(
+    [
+        'key0' => UpdateVendorRequestBuilder::init(
+            VendorBuilder::init()->build()
+        )->build(),
+        'key1' => UpdateVendorRequestBuilder::init(
+            VendorBuilder::init()->build()
+        )->build()
+    ]
+)->build();
 
 $apiResponse = $vendorsApi->bulkUpdateVendors($body);
 
@@ -147,9 +144,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -174,10 +171,9 @@ function createVendor(CreateVendorRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'idempotency_key2';
-$body = new Models\CreateVendorRequest(
-    $body_idempotencyKey
-);
+$body = CreateVendorRequestBuilder::init(
+    'idempotency_key2'
+)->build();
 
 $apiResponse = $vendorsApi->createVendor($body);
 
@@ -187,9 +183,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -214,7 +210,7 @@ function searchVendors(SearchVendorsRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body = new Models\SearchVendorsRequest();
+$body = SearchVendorsRequestBuilder::init()->build();
 
 $apiResponse = $vendorsApi->searchVendors($body);
 
@@ -224,9 +220,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -242,7 +238,7 @@ function retrieveVendor(string $vendorId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `vendorId` | `string` | Template, Required | ID of the [Vendor](../../doc/models/vendor.md) to retrieve. |
+| `vendorId` | `string` | Template, Required | ID of the [Vendor](entity:Vendor) to retrieve. |
 
 ## Response Type
 
@@ -261,9 +257,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -289,18 +285,23 @@ function updateVendor(UpdateVendorRequest $body, string $vendorId): ApiResponse
 ## Example Usage
 
 ```php
-$body_vendor = new Models\Vendor();
-$body_vendor->setId('INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4');
-$body_vendor->setName('Jack\'s Chicken Shack');
-$body_vendor->setVersion(1);
-$body_vendor->setStatus(Models\VendorStatus::ACTIVE);
-$body = new Models\UpdateVendorRequest(
-    $body_vendor
-);
-$body->setIdempotencyKey('8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe');
+$body = UpdateVendorRequestBuilder::init(
+    VendorBuilder::init()
+        ->id('INV_V_JDKYHBWT1D4F8MFH63DBMEN8Y4')
+        ->name('Jack\'s Chicken Shack')
+        ->version(1)
+        ->status(VendorStatus::ACTIVE)
+        ->build()
+)
+    ->idempotencyKey('8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe')
+    ->build();
+
 $vendorId = 'vendor_id8';
 
-$apiResponse = $vendorsApi->updateVendor($body, $vendorId);
+$apiResponse = $vendorsApi->updateVendor(
+    $body,
+    $vendorId
+);
 
 if ($apiResponse->isSuccess()) {
     $updateVendorResponse = $apiResponse->getResult();
@@ -308,8 +309,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

@@ -36,7 +36,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     * The ID of the [loyalty program]($m/LoyaltyProgram).
+     * The ID of the [loyalty program](entity:LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
     {
@@ -45,7 +45,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     * The ID of the [loyalty program]($m/LoyaltyProgram).
+     * The ID of the [loyalty program](entity:LoyaltyProgram).
      *
      * @required
      * @maps loyalty_program_id
@@ -57,7 +57,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Reward Id.
-     * The ID of the redeemed [loyalty reward]($m/LoyaltyReward).
+     * The ID of the redeemed [loyalty reward](entity:LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      */
     public function getRewardId(): ?string
@@ -67,7 +67,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Reward Id.
-     * The ID of the redeemed [loyalty reward]($m/LoyaltyReward).
+     * The ID of the redeemed [loyalty reward](entity:LoyaltyReward).
      * This field is returned only if the event source is `LOYALTY_API`.
      *
      * @maps reward_id
@@ -79,7 +79,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Returns Order Id.
-     * The ID of the [order]($m/Order) that redeemed the reward.
+     * The ID of the [order](entity:Order) that redeemed the reward.
      * This field is returned only if the Orders API is used to process orders.
      */
     public function getOrderId(): ?string
@@ -89,7 +89,7 @@ class LoyaltyEventRedeemReward implements \JsonSerializable
 
     /**
      * Sets Order Id.
-     * The ID of the [order]($m/Order) that redeemed the reward.
+     * The ID of the [order](entity:Order) that redeemed the reward.
      * This field is returned only if the Orders API is used to process orders.
      *
      * @maps order_id

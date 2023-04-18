@@ -156,7 +156,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Returns From Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked before the transfer.
      */
     public function getFromLocationId(): ?string
@@ -169,7 +169,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Sets From Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked before the transfer.
      *
      * @maps from_location_id
@@ -181,7 +181,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Unsets From Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked before the transfer.
      */
     public function unsetFromLocationId(): void
@@ -191,7 +191,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Returns To Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked after the transfer.
      */
     public function getToLocationId(): ?string
@@ -204,7 +204,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Sets To Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked after the transfer.
      *
      * @maps to_location_id
@@ -216,7 +216,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Unsets To Location Id.
-     * The Square-generated ID of the [Location]($m/Location) where the related
+     * The Square-generated ID of the [Location](entity:Location) where the related
      * quantity of items was tracked after the transfer.
      */
     public function unsetToLocationId(): void
@@ -227,7 +227,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -240,7 +240,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      *
      * @maps catalog_object_id
      */
@@ -252,7 +252,7 @@ class InventoryTransfer implements \JsonSerializable
     /**
      * Unsets Catalog Object Id.
      * The Square-generated ID of the
-     * [CatalogObject]($m/CatalogObject) being tracked.
+     * [CatalogObject](entity:CatalogObject) being tracked.
      */
     public function unsetCatalogObjectId(): void
     {
@@ -261,7 +261,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Returns Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -278,7 +278,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Sets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -294,7 +294,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Type.
-     * The [type]($m/CatalogObjectType) of the [CatalogObject]($m/CatalogObject) being tracked.
+     * The [type](entity:CatalogObjectType) of the [CatalogObject](entity:CatalogObject) being tracked.
      *
      * The Inventory API supports setting and reading the `"catalog_object_type": "ITEM_VARIATION"` field
      * value.
@@ -426,7 +426,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Returns Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory transfer.
      */
     public function getEmployeeId(): ?string
@@ -439,7 +439,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Sets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory transfer.
      *
      * @maps employee_id
@@ -451,7 +451,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Unsets Employee Id.
-     * The Square-generated ID of the [Employee]($m/Employee) responsible for the
+     * The Square-generated ID of the [Employee](entity:Employee) responsible for the
      * inventory transfer.
      */
     public function unsetEmployeeId(): void
@@ -461,7 +461,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory transfer.
      */
     public function getTeamMemberId(): ?string
@@ -474,7 +474,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory transfer.
      *
      * @maps team_member_id
@@ -486,7 +486,7 @@ class InventoryTransfer implements \JsonSerializable
 
     /**
      * Unsets Team Member Id.
-     * The Square-generated ID of the [Team Member]($m/TeamMember) responsible for the
+     * The Square-generated ID of the [Team Member](entity:TeamMember) responsible for the
      * inventory transfer.
      */
     public function unsetTeamMemberId(): void

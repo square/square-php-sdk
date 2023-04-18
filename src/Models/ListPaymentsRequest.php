@@ -61,7 +61,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Begin Time.
-     * The timestamp for the beginning of the reporting period, in RFC 3339 format.
+     * Indicates the start of the time range to retrieve payments for, in RFC 3339 format.
+     * The range is determined using the `created_at` field for each Payment.
      * Inclusive. Default: The current time minus one year.
      */
     public function getBeginTime(): ?string
@@ -74,7 +75,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Begin Time.
-     * The timestamp for the beginning of the reporting period, in RFC 3339 format.
+     * Indicates the start of the time range to retrieve payments for, in RFC 3339 format.
+     * The range is determined using the `created_at` field for each Payment.
      * Inclusive. Default: The current time minus one year.
      *
      * @maps begin_time
@@ -86,7 +88,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Unsets Begin Time.
-     * The timestamp for the beginning of the reporting period, in RFC 3339 format.
+     * Indicates the start of the time range to retrieve payments for, in RFC 3339 format.
+     * The range is determined using the `created_at` field for each Payment.
      * Inclusive. Default: The current time minus one year.
      */
     public function unsetBeginTime(): void
@@ -96,7 +99,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns End Time.
-     * The timestamp for the end of the reporting period, in RFC 3339 format.
+     * Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The
+     * range is determined using the `created_at` field for each Payment.
      *
      * Default: The current time.
      */
@@ -110,7 +114,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets End Time.
-     * The timestamp for the end of the reporting period, in RFC 3339 format.
+     * Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The
+     * range is determined using the `created_at` field for each Payment.
      *
      * Default: The current time.
      *
@@ -123,7 +128,8 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Unsets End Time.
-     * The timestamp for the end of the reporting period, in RFC 3339 format.
+     * Indicates the end of the time range to retrieve payments for, in RFC 3339 format.  The
+     * range is determined using the `created_at` field for each Payment.
      *
      * Default: The current time.
      */
@@ -134,7 +140,7 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Returns Sort Order.
-     * The order in which results are listed:
+     * The order in which results are listed by `Payment.created_at`:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
      */
@@ -148,7 +154,7 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Sets Sort Order.
-     * The order in which results are listed:
+     * The order in which results are listed by `Payment.created_at`:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
      *
@@ -161,7 +167,7 @@ class ListPaymentsRequest implements \JsonSerializable
 
     /**
      * Unsets Sort Order.
-     * The order in which results are listed:
+     * The order in which results are listed by `Payment.created_at`:
      * - `ASC` - Oldest to newest.
      * - `DESC` - Newest to oldest (default).
      */
@@ -175,7 +181,8 @@ class ListPaymentsRequest implements \JsonSerializable
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -190,7 +197,8 @@ class ListPaymentsRequest implements \JsonSerializable
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps cursor
      */
@@ -204,7 +212,8 @@ class ListPaymentsRequest implements \JsonSerializable
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for the original query.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function unsetCursor(): void
     {

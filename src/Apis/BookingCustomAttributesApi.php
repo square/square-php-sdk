@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkDeleteBookingCustomAttributesRequest;
 use Square\Models\BulkDeleteBookingCustomAttributesResponse;
@@ -50,8 +49,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listBookingCustomAttributeDefinitions(?int $limit = null, ?string $cursor = null): ApiResponse
     {
@@ -83,8 +80,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createBookingCustomAttributeDefinition(
         CreateBookingCustomAttributeDefinitionRequest $body
@@ -114,8 +109,6 @@ class BookingCustomAttributesApi extends BaseApi
      * @param string $key The key of the custom attribute definition to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteBookingCustomAttributeDefinition(string $key): ApiResponse
     {
@@ -150,8 +143,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        is higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveBookingCustomAttributeDefinition(string $key, ?int $version = null): ApiResponse
     {
@@ -184,8 +175,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateBookingCustomAttributeDefinition(
         string $key,
@@ -223,8 +212,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkDeleteBookingCustomAttributes(BulkDeleteBookingCustomAttributesRequest $body): ApiResponse
     {
@@ -256,8 +243,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpsertBookingCustomAttributes(BulkUpsertBookingCustomAttributesRequest $body): ApiResponse
     {
@@ -279,7 +264,7 @@ class BookingCustomAttributesApi extends BaseApi
      * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and
      * `APPOINTMENTS_READ` for the OAuth scope.
      *
-     * @param string $bookingId The ID of the target [booking]($m/Booking).
+     * @param string $bookingId The ID of the target [booking](entity:Booking).
      * @param int|null $limit The maximum number of results to return in a single paged response.
      *        This limit is advisory.
      *        The response might contain more or fewer results. The minimum value is 1 and the
@@ -293,15 +278,13 @@ class BookingCustomAttributesApi extends BaseApi
      *        information, see [Pagination](https://developer.squareup.com/docs/build-
      *        basics/common-api-patterns/pagination).
      * @param bool|null $withDefinitions Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of each
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of each
      *        custom attribute. Set this parameter to `true` to get the name and description of
      *        each custom
      *        attribute, information about the data type, or other definition details. The default
      *        value is `false`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listBookingCustomAttributes(
         string $bookingId,
@@ -334,7 +317,7 @@ class BookingCustomAttributesApi extends BaseApi
      * to *Appointments Plus*
      * or *Appointments Premium*.
      *
-     * @param string $bookingId The ID of the target [booking]($m/Booking).
+     * @param string $bookingId The ID of the target [booking](entity:Booking).
      * @param string $key The key of the custom attribute to delete. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
@@ -342,8 +325,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        definition owner, you must use the qualified key.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteBookingCustomAttribute(string $bookingId, string $key): ApiResponse
     {
@@ -366,14 +347,14 @@ class BookingCustomAttributesApi extends BaseApi
      * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and
      * `APPOINTMENTS_READ` for the OAuth scope.
      *
-     * @param string $bookingId The ID of the target [booking]($m/Booking).
+     * @param string $bookingId The ID of the target [booking](entity:Booking).
      * @param string $key The key of the custom attribute to retrieve. This key must match the `key`
      *        of a custom
      *        attribute definition in the Square seller account. If the requesting application is
      *        not the
      *        definition owner, you must use the qualified key.
      * @param bool|null $withDefinition Indicates whether to return the [custom attribute
-     *        definition]($m/CustomAttributeDefinition) in the `definition` field of
+     *        definition](entity:CustomAttributeDefinition) in the `definition` field of
      *        the custom attribute. Set this parameter to `true` to get the name and description
      *        of the custom
      *        attribute, information about the data type, or other definition details. The default
@@ -387,8 +368,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        higher than the current version, Square returns a `BAD_REQUEST` error.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveBookingCustomAttribute(
         string $bookingId,
@@ -426,7 +405,7 @@ class BookingCustomAttributesApi extends BaseApi
      * to *Appointments Plus*
      * or *Appointments Premium*.
      *
-     * @param string $bookingId The ID of the target [booking]($m/Booking).
+     * @param string $bookingId The ID of the target [booking](entity:Booking).
      * @param string $key The key of the custom attribute to create or update. This key must match
      *        the `key` of a
      *        custom attribute definition in the Square seller account. If the requesting
@@ -438,8 +417,6 @@ class BookingCustomAttributesApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function upsertBookingCustomAttribute(
         string $bookingId,

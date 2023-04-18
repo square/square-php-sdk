@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateCardRequest;
 use Square\Models\CreateCardResponse;
@@ -26,8 +25,8 @@ class CardsApi extends BaseApi
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this to retrieve the next set of results for your original query.
      *
-     *        See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for
-     *        more information.
+     *        See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     *        patterns/pagination) for more information.
      * @param string|null $customerId Limit results to cards associated with the customer supplied.
      *        By default, all cards owned by the merchant are returned.
      * @param bool|null $includeDisabled Includes disabled cards. By default, all enabled cards
@@ -39,8 +38,6 @@ class CardsApi extends BaseApi
      *        This field defaults to ASC.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listCards(
         ?string $cursor = null,
@@ -71,8 +68,6 @@ class CardsApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createCard(CreateCardRequest $body): ApiResponse
     {
@@ -91,8 +86,6 @@ class CardsApi extends BaseApi
      * @param string $cardId Unique ID for the desired Card.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveCard(string $cardId): ApiResponse
     {
@@ -112,8 +105,6 @@ class CardsApi extends BaseApi
      * @param string $cardId Unique ID for the desired Card.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function disableCard(string $cardId): ApiResponse
     {

@@ -8,9 +8,9 @@ use stdClass;
 
 /**
  * Defines the parameters that can be included in the body of
- * a request to the [Charge]($e/Transactions/Charge) endpoint.
+ * a request to the [Charge](api-endpoint:Transactions-Charge) endpoint.
  *
- * Deprecated - recommend using [CreatePayment]($e/Payments/CreatePayment)
+ * Deprecated - recommend using [CreatePayment](api-endpoint:Payments-CreatePayment)
  */
 class ChargeRequest implements \JsonSerializable
 {
@@ -271,8 +271,8 @@ class ChargeRequest implements \JsonSerializable
      * Returns Delay Capture.
      * If `true`, the request will only perform an Auth on the provided
      * card. You can then later perform either a Capture (with the
-     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
-     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
+     * [CaptureTransaction](api-endpoint:Transactions-CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction](api-endpoint:Transactions-VoidTransaction) endpoint).
      *
      * Default value: `false`
      */
@@ -288,8 +288,8 @@ class ChargeRequest implements \JsonSerializable
      * Sets Delay Capture.
      * If `true`, the request will only perform an Auth on the provided
      * card. You can then later perform either a Capture (with the
-     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
-     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
+     * [CaptureTransaction](api-endpoint:Transactions-CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction](api-endpoint:Transactions-VoidTransaction) endpoint).
      *
      * Default value: `false`
      *
@@ -304,8 +304,8 @@ class ChargeRequest implements \JsonSerializable
      * Unsets Delay Capture.
      * If `true`, the request will only perform an Auth on the provided
      * card. You can then later perform either a Capture (with the
-     * [CaptureTransaction]($e/Transactions/CaptureTransaction) endpoint) or a Void
-     * (with the [VoidTransaction]($e/Transactions/VoidTransaction) endpoint).
+     * [CaptureTransaction](api-endpoint:Transactions-CaptureTransaction) endpoint) or a Void
+     * (with the [VoidTransaction](api-endpoint:Transactions-VoidTransaction) endpoint).
      *
      * Default value: `false`
      */

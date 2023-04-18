@@ -7,7 +7,7 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Creates a card from the source (nonce, payment id, etc). Accessible via
+ * Creates a card from the source (payment token or payment id). Accessible via
  * HTTP requests at POST https://connect.squareup.com/v2/cards
  */
 class CreateCardRequest implements \JsonSerializable
@@ -51,8 +51,8 @@ class CreateCardRequest implements \JsonSerializable
      *
      * Max: 45 characters
      *
-     * See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency) for more information.
      */
     public function getIdempotencyKey(): string
     {
@@ -66,8 +66,8 @@ class CreateCardRequest implements \JsonSerializable
      *
      * Max: 45 characters
      *
-     * See [Idempotency keys](https://developer.squareup.com/docs/basics/api101/idempotency) for more
-     * information.
+     * See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency) for more information.
      *
      * @required
      * @maps idempotency_key

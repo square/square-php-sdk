@@ -33,7 +33,7 @@ class LoyaltyEventOther implements \JsonSerializable
 
     /**
      * Returns Loyalty Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
      */
     public function getLoyaltyProgramId(): string
     {
@@ -42,7 +42,7 @@ class LoyaltyEventOther implements \JsonSerializable
 
     /**
      * Sets Loyalty Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram).
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
      *
      * @required
      * @maps loyalty_program_id

@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\AccumulateLoyaltyPointsRequest;
 use Square\Models\AccumulateLoyaltyPointsResponse;
@@ -52,8 +51,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
     {
@@ -80,8 +77,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchLoyaltyAccounts(SearchLoyaltyAccountsRequest $body): ApiResponse
     {
@@ -97,11 +92,9 @@ class LoyaltyApi extends BaseApi
     /**
      * Retrieves a loyalty account.
      *
-     * @param string $accountId The ID of the [loyalty account]($m/LoyaltyAccount) to retrieve.
+     * @param string $accountId The ID of the [loyalty account](entity:LoyaltyAccount) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLoyaltyAccount(string $accountId): ApiResponse
     {
@@ -135,15 +128,13 @@ class LoyaltyApi extends BaseApi
      * [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * promotions#calculate-promotion-points).
      *
-     * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
+     * @param string $accountId The ID of the target [loyalty account](entity:LoyaltyAccount).
      * @param AccumulateLoyaltyPointsRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsRequest $body): ApiResponse
     {
@@ -168,15 +159,13 @@ class LoyaltyApi extends BaseApi
      * [AccumulateLoyaltyPoints]($e/Loyalty/AccumulateLoyaltyPoints)
      * to add points when a buyer pays for the purchase.
      *
-     * @param string $accountId The ID of the target [loyalty account]($m/LoyaltyAccount).
+     * @param string $accountId The ID of the target [loyalty account](entity:LoyaltyAccount).
      * @param AdjustLoyaltyPointsRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body): ApiResponse
     {
@@ -209,8 +198,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
     {
@@ -230,14 +217,12 @@ class LoyaltyApi extends BaseApi
      * information, see [Loyalty Program Overview](https://developer.squareup.com/docs/loyalty/overview).
      *
      *
-     * Replaced with [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) when used with the keyword
-     * `main`.
+     * Replaced with [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) when used with
+     * the keyword `main`.
      *
      * @deprecated
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listLoyaltyPrograms(): ApiResponse
     {
@@ -262,8 +247,6 @@ class LoyaltyApi extends BaseApi
      *        can be used to retrieve the single loyalty program that belongs to the seller.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLoyaltyProgram(string $programId): ApiResponse
     {
@@ -298,16 +281,14 @@ class LoyaltyApi extends BaseApi
      * [Calculating promotion points](https://developer.squareup.com/docs/loyalty-api/loyalty-
      * promotions#calculate-promotion-points).
      *
-     * @param string $programId The ID of the [loyalty program]($m/LoyaltyProgram), which defines
-     *        the rules for accruing points.
+     * @param string $programId The ID of the [loyalty program](entity:LoyaltyProgram), which
+     *        defines the rules for accruing points.
      * @param CalculateLoyaltyPointsRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest $body): ApiResponse
     {
@@ -328,10 +309,10 @@ class LoyaltyApi extends BaseApi
      * Lists the loyalty promotions associated with a [loyalty program]($m/LoyaltyProgram).
      * Results are sorted by the `created_at` date in descending order (newest to oldest).
      *
-     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram). To get the
-     *        program ID,
-     *        call [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) using the `main`
-     *        keyword.
+     * @param string $programId The ID of the base [loyalty program](entity:LoyaltyProgram). To get
+     *        the program ID,
+     *        call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the
+     *        `main` keyword.
      * @param string|null $status The status to filter the results by. If a status is provided, only
      *        loyalty promotions
      *        with the specified status are returned. Otherwise, all loyalty promotions associated
@@ -348,8 +329,6 @@ class LoyaltyApi extends BaseApi
      *        basics/common-api-patterns/pagination).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listLoyaltyPromotions(
         string $programId,
@@ -379,10 +358,10 @@ class LoyaltyApi extends BaseApi
      * `available_time` setting. A loyalty program can have a maximum of 10 loyalty promotions with an
      * `ACTIVE` or `SCHEDULED` status.
      *
-     * @param string $programId The ID of the [loyalty program]($m/LoyaltyProgram) to associate with
-     *        the promotion.
-     *        To get the program ID, call
-     *        [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram)
+     * @param string $programId The ID of the [loyalty program](entity:LoyaltyProgram) to associate
+     *        with the promotion.
+     *        To get the program ID, call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-
+     *        RetrieveLoyaltyProgram)
      *        using the `main` keyword.
      * @param CreateLoyaltyPromotionRequest $body An object containing the fields to POST for the
      *        request.
@@ -390,8 +369,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createLoyaltyPromotion(string $programId, CreateLoyaltyPromotionRequest $body): ApiResponse
     {
@@ -411,16 +388,14 @@ class LoyaltyApi extends BaseApi
     /**
      * Retrieves a loyalty promotion.
      *
-     * @param string $promotionId The ID of the [loyalty promotion]($m/LoyaltyPromotion) to
+     * @param string $promotionId The ID of the [loyalty promotion](entity:LoyaltyPromotion) to
      *        retrieve.
-     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram). To get the
-     *        program ID,
-     *        call [RetrieveLoyaltyProgram]($e/Loyalty/RetrieveLoyaltyProgram) using the `main`
-     *        keyword.
+     * @param string $programId The ID of the base [loyalty program](entity:LoyaltyProgram). To get
+     *        the program ID,
+     *        call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the
+     *        `main` keyword.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
     {
@@ -449,14 +424,12 @@ class LoyaltyApi extends BaseApi
      *
      * This endpoint sets the loyalty promotion to the `CANCELED` state
      *
-     * @param string $promotionId The ID of the [loyalty promotion]($m/LoyaltyPromotion) to cancel.
-     *        You can cancel a
+     * @param string $promotionId The ID of the [loyalty promotion](entity:LoyaltyPromotion) to
+     *        cancel. You can cancel a
      *        promotion that has an `ACTIVE` or `SCHEDULED` status.
-     * @param string $programId The ID of the base [loyalty program]($m/LoyaltyProgram).
+     * @param string $programId The ID of the base [loyalty program](entity:LoyaltyProgram).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function cancelLoyaltyPromotion(string $promotionId, string $programId): ApiResponse
     {
@@ -491,8 +464,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createLoyaltyReward(CreateLoyaltyRewardRequest $body): ApiResponse
     {
@@ -521,8 +492,6 @@ class LoyaltyApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
     {
@@ -546,11 +515,9 @@ class LoyaltyApi extends BaseApi
      *
      * You cannot delete a reward that has reached the terminal state (REDEEMED).
      *
-     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to delete.
+     * @param string $rewardId The ID of the [loyalty reward](entity:LoyaltyReward) to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteLoyaltyReward(string $rewardId): ApiResponse
     {
@@ -566,11 +533,9 @@ class LoyaltyApi extends BaseApi
     /**
      * Retrieves a loyalty reward.
      *
-     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to retrieve.
+     * @param string $rewardId The ID of the [loyalty reward](entity:LoyaltyReward) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveLoyaltyReward(string $rewardId): ApiResponse
     {
@@ -596,15 +561,13 @@ class LoyaltyApi extends BaseApi
      * In other words, points used for the reward cannot be returned
      * to the account.
      *
-     * @param string $rewardId The ID of the [loyalty reward]($m/LoyaltyReward) to redeem.
+     * @param string $rewardId The ID of the [loyalty reward](entity:LoyaltyReward) to redeem.
      * @param RedeemLoyaltyRewardRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function redeemLoyaltyReward(string $rewardId, RedeemLoyaltyRewardRequest $body): ApiResponse
     {

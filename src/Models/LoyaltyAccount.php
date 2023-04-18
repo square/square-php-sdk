@@ -93,7 +93,7 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram) to which the account belongs.
      */
     public function getProgramId(): string
     {
@@ -102,7 +102,7 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Program Id.
-     * The Square-assigned ID of the [loyalty program]($m/LoyaltyProgram) to which the account belongs.
+     * The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram) to which the account belongs.
      *
      * @required
      * @maps program_id
@@ -164,7 +164,7 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
+     * The Square-assigned ID of the [customer](entity:Customer) that is associated with the account.
      */
     public function getCustomerId(): ?string
     {
@@ -176,7 +176,7 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
+     * The Square-assigned ID of the [customer](entity:Customer) that is associated with the account.
      *
      * @maps customer_id
      */
@@ -187,7 +187,7 @@ class LoyaltyAccount implements \JsonSerializable
 
     /**
      * Unsets Customer Id.
-     * The Square-assigned ID of the [customer]($m/Customer) that is associated with the account.
+     * The Square-assigned ID of the [customer](entity:Customer) that is associated with the account.
      */
     public function unsetCustomerId(): void
     {

@@ -116,8 +116,8 @@ class Customer implements \JsonSerializable
      * A unique Square-assigned ID for the customer profile.
      *
      * If you need this ID for an API request, use the ID returned when you created the customer profile or
-     * call the [SearchCustomers]($e/Customers/SearchCustomers)
-     * or [ListCustomers]($e/Customers/ListCustomers) endpoint.
+     * call the [SearchCustomers](api-endpoint:Customers-SearchCustomers)
+     * or [ListCustomers](api-endpoint:Customers-ListCustomers) endpoint.
      */
     public function getId(): ?string
     {
@@ -129,8 +129,8 @@ class Customer implements \JsonSerializable
      * A unique Square-assigned ID for the customer profile.
      *
      * If you need this ID for an API request, use the ID returned when you created the customer profile or
-     * call the [SearchCustomers]($e/Customers/SearchCustomers)
-     * or [ListCustomers]($e/Customers/ListCustomers) endpoint.
+     * call the [SearchCustomers](api-endpoint:Customers-SearchCustomers)
+     * or [ListCustomers](api-endpoint:Customers-ListCustomers) endpoint.
      *
      * @maps id
      */
@@ -183,9 +183,9 @@ class Customer implements \JsonSerializable
      * Returns Cards.
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
-     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
-     * and debit cards on file)
-     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards](api-endpoint:Cards-ListCards) (for
+     * credit and debit cards on file)
+     * or [ListGiftCards](api-endpoint:GiftCards-ListGiftCards) (for gift cards on file) and including the
      * `customer_id` query parameter.
      * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
      * it-does#migrate-customer-cards).
@@ -204,9 +204,9 @@ class Customer implements \JsonSerializable
      * Sets Cards.
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
-     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
-     * and debit cards on file)
-     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards](api-endpoint:Cards-ListCards) (for
+     * credit and debit cards on file)
+     * or [ListGiftCards](api-endpoint:GiftCards-ListGiftCards) (for gift cards on file) and including the
      * `customer_id` query parameter.
      * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
      * it-does#migrate-customer-cards).
@@ -224,9 +224,9 @@ class Customer implements \JsonSerializable
      * Unsets Cards.
      * Payment details of the credit, debit, and gift cards stored on file for the customer profile.
      *
-     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards]($e/Cards/ListCards) (for credit
-     * and debit cards on file)
-     * or [ListGiftCards]($e/GiftCards/ListGiftCards) (for gift cards on file) and including the
+     * DEPRECATED at version 2021-06-16. Replaced by calling [ListCards](api-endpoint:Cards-ListCards) (for
+     * credit and debit cards on file)
+     * or [ListGiftCards](api-endpoint:GiftCards-ListGiftCards) (for gift cards on file) and including the
      * `customer_id` query parameter.
      * For more information, see [Migration notes](https://developer.squareup.com/docs/customers-api/what-
      * it-does#migrate-customer-cards).
@@ -599,7 +599,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Group Ids.
-     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
+     * The IDs of [customer groups](entity:CustomerGroup) the customer belongs to.
      *
      * @return string[]|null
      */
@@ -613,7 +613,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Group Ids.
-     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
+     * The IDs of [customer groups](entity:CustomerGroup) the customer belongs to.
      *
      * @maps group_ids
      *
@@ -626,7 +626,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Unsets Group Ids.
-     * The IDs of [customer groups]($m/CustomerGroup) the customer belongs to.
+     * The IDs of [customer groups](entity:CustomerGroup) the customer belongs to.
      */
     public function unsetGroupIds(): void
     {
@@ -635,7 +635,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Returns Segment Ids.
-     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
+     * The IDs of [customer segments](entity:CustomerSegment) the customer belongs to.
      *
      * @return string[]|null
      */
@@ -649,7 +649,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Sets Segment Ids.
-     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
+     * The IDs of [customer segments](entity:CustomerSegment) the customer belongs to.
      *
      * @maps segment_ids
      *
@@ -662,7 +662,7 @@ class Customer implements \JsonSerializable
 
     /**
      * Unsets Segment Ids.
-     * The IDs of [customer segments]($m/CustomerSegment) the customer belongs to.
+     * The IDs of [customer segments](entity:CustomerSegment) the customer belongs to.
      */
     public function unsetSegmentIds(): void
     {

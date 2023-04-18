@@ -34,8 +34,9 @@ class UpdateVendorRequest implements \JsonSerializable
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
-     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) in the
-     * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
+     * See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+     * in the
+     * [API Development 101](https://developer.squareup.com/docs/buildbasics) section for more
      * information.
      */
     public function getIdempotencyKey(): ?string
@@ -51,8 +52,9 @@ class UpdateVendorRequest implements \JsonSerializable
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
-     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) in the
-     * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
+     * See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+     * in the
+     * [API Development 101](https://developer.squareup.com/docs/buildbasics) section for more
      * information.
      *
      * @maps idempotency_key
@@ -67,8 +69,9 @@ class UpdateVendorRequest implements \JsonSerializable
      * A client-supplied, universally unique identifier (UUID) for the
      * request.
      *
-     * See [Idempotency](https://developer.squareup.com/docs/basics/api101/idempotency) in the
-     * [API Development 101](https://developer.squareup.com/docs/basics/api101/overview) section for more
+     * See [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-patterns/idempotency)
+     * in the
+     * [API Development 101](https://developer.squareup.com/docs/buildbasics) section for more
      * information.
      */
     public function unsetIdempotencyKey(): void

@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\BulkCreateTeamMembersRequest;
 use Square\Models\BulkCreateTeamMembersResponse;
@@ -40,8 +39,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createTeamMember(CreateTeamMemberRequest $body): ApiResponse
     {
@@ -72,8 +69,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkCreateTeamMembers(BulkCreateTeamMembersRequest $body): ApiResponse
     {
@@ -103,8 +98,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function bulkUpdateTeamMembers(BulkUpdateTeamMembersRequest $body): ApiResponse
     {
@@ -129,8 +122,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function searchTeamMembers(SearchTeamMembersRequest $body): ApiResponse
     {
@@ -151,8 +142,6 @@ class TeamApi extends BaseApi
      * @param string $teamMemberId The ID of the team member to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveTeamMember(string $teamMemberId): ApiResponse
     {
@@ -175,8 +164,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateTeamMember(string $teamMemberId, UpdateTeamMemberRequest $body): ApiResponse
     {
@@ -202,8 +189,6 @@ class TeamApi extends BaseApi
      * @param string $teamMemberId The ID of the team member for which to retrieve the wage setting.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveWageSetting(string $teamMemberId): ApiResponse
     {
@@ -232,8 +217,6 @@ class TeamApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body): ApiResponse
     {

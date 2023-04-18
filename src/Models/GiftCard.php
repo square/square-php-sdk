@@ -239,7 +239,7 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Returns Customer Ids.
-     * The IDs of the [customer profiles]($m/Customer) to whom this gift card is linked.
+     * The IDs of the [customer profiles](entity:Customer) to whom this gift card is linked.
      *
      * @return string[]|null
      */
@@ -250,7 +250,7 @@ class GiftCard implements \JsonSerializable
 
     /**
      * Sets Customer Ids.
-     * The IDs of the [customer profiles]($m/Customer) to whom this gift card is linked.
+     * The IDs of the [customer profiles](entity:Customer) to whom this gift card is linked.
      *
      * @maps customer_ids
      *

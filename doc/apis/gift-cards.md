@@ -38,8 +38,8 @@ function listGiftCards(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `type` | `?string` | Query, Optional | If a [type](../../doc/models/gift-card-type.md) is provided, the endpoint returns gift cards of the specified type.<br>Otherwise, the endpoint returns gift cards of all types. |
-| `state` | `?string` | Query, Optional | If a [state](../../doc/models/gift-card-status.md) is provided, the endpoint returns the gift cards in the specified state.<br>Otherwise, the endpoint returns the gift cards of all states. |
+| `type` | `?string` | Query, Optional | If a [type](entity:GiftCardType) is provided, the endpoint returns gift cards of the specified type.<br>Otherwise, the endpoint returns gift cards of all types. |
+| `state` | `?string` | Query, Optional | If a [state](entity:GiftCardStatus) is provided, the endpoint returns the gift cards in the specified state.<br>Otherwise, the endpoint returns the gift cards of all states. |
 | `limit` | `?int` | Query, Optional | If a limit is provided, the endpoint returns only the specified number of results per page.<br>The maximum value is 50. The default value is 30.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>If a cursor is not provided, the endpoint returns the first page of the results.<br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
 | `customerId` | `?string` | Query, Optional | If a customer ID is provided, the endpoint returns only the gift cards linked to the specified customer. |
@@ -59,9 +59,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -88,17 +88,13 @@ function createGiftCard(CreateGiftCardRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'NC9Tm69EjbjtConu';
-$body_locationId = '81FN9BNFZTKS4';
-$body_giftCard_type = Models\GiftCardType::DIGITAL;
-$body_giftCard = new Models\GiftCard(
-    $body_giftCard_type
-);
-$body = new Models\CreateGiftCardRequest(
-    $body_idempotencyKey,
-    $body_locationId,
-    $body_giftCard
-);
+$body = CreateGiftCardRequestBuilder::init(
+    'NC9Tm69EjbjtConu',
+    '81FN9BNFZTKS4',
+    GiftCardBuilder::init(
+        GiftCardType::DIGITAL
+    )->build()
+)->build();
 
 $apiResponse = $giftCardsApi->createGiftCard($body);
 
@@ -108,9 +104,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -135,10 +131,9 @@ function retrieveGiftCardFromGAN(RetrieveGiftCardFromGANRequest $body): ApiRespo
 ## Example Usage
 
 ```php
-$body_gan = '7783320001001635';
-$body = new Models\RetrieveGiftCardFromGANRequest(
-    $body_gan
-);
+$body = RetrieveGiftCardFromGANRequestBuilder::init(
+    '7783320001001635'
+)->build();
 
 $apiResponse = $giftCardsApi->retrieveGiftCardFromGAN($body);
 
@@ -148,9 +143,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -175,10 +170,9 @@ function retrieveGiftCardFromNonce(RetrieveGiftCardFromNonceRequest $body): ApiR
 ## Example Usage
 
 ```php
-$body_nonce = 'cnon:7783322135245171';
-$body = new Models\RetrieveGiftCardFromNonceRequest(
-    $body_nonce
-);
+$body = RetrieveGiftCardFromNonceRequestBuilder::init(
+    'cnon:7783322135245171'
+)->build();
 
 $apiResponse = $giftCardsApi->retrieveGiftCardFromNonce($body);
 
@@ -188,9 +182,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -217,12 +211,15 @@ function linkCustomerToGiftCard(string $giftCardId, LinkCustomerToGiftCardReques
 
 ```php
 $giftCardId = 'gift_card_id8';
-$body_customerId = 'GKY0FZ3V717AH8Q2D821PNT2ZW';
-$body = new Models\LinkCustomerToGiftCardRequest(
-    $body_customerId
-);
 
-$apiResponse = $giftCardsApi->linkCustomerToGiftCard($giftCardId, $body);
+$body = LinkCustomerToGiftCardRequestBuilder::init(
+    'GKY0FZ3V717AH8Q2D821PNT2ZW'
+)->build();
+
+$apiResponse = $giftCardsApi->linkCustomerToGiftCard(
+    $giftCardId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $linkCustomerToGiftCardResponse = $apiResponse->getResult();
@@ -230,9 +227,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -259,12 +256,15 @@ function unlinkCustomerFromGiftCard(string $giftCardId, UnlinkCustomerFromGiftCa
 
 ```php
 $giftCardId = 'gift_card_id8';
-$body_customerId = 'GKY0FZ3V717AH8Q2D821PNT2ZW';
-$body = new Models\UnlinkCustomerFromGiftCardRequest(
-    $body_customerId
-);
 
-$apiResponse = $giftCardsApi->unlinkCustomerFromGiftCard($giftCardId, $body);
+$body = UnlinkCustomerFromGiftCardRequestBuilder::init(
+    'GKY0FZ3V717AH8Q2D821PNT2ZW'
+)->build();
+
+$apiResponse = $giftCardsApi->unlinkCustomerFromGiftCard(
+    $giftCardId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $unlinkCustomerFromGiftCardResponse = $apiResponse->getResult();
@@ -272,9 +272,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -309,8 +309,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

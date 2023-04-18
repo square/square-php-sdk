@@ -24,6 +24,11 @@ class PaymentOptions implements \JsonSerializable
     private $acceptPartialAuthorization = [];
 
     /**
+     * @var string|null
+     */
+    private $delayAction;
+
+    /**
      * Returns Autocomplete.
      * Indicates whether the `Payment` objects created from this `TerminalCheckout` are automatically
      * `COMPLETED` or left in an `APPROVED` state for later modification.
@@ -62,7 +67,7 @@ class PaymentOptions implements \JsonSerializable
      * Returns Delay Duration.
      * The duration of time after the payment's creation when Square automatically cancels the
      * payment. This automatic cancellation applies only to payments that do not reach a terminal state
-     * (COMPLETED, CANCELED, or FAILED) before the `delay_duration` time period.
+     * (COMPLETED or CANCELED) before the `delay_duration` time period.
      *
      * This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
      * of 1 minute.
@@ -86,7 +91,7 @@ class PaymentOptions implements \JsonSerializable
      * Sets Delay Duration.
      * The duration of time after the payment's creation when Square automatically cancels the
      * payment. This automatic cancellation applies only to payments that do not reach a terminal state
-     * (COMPLETED, CANCELED, or FAILED) before the `delay_duration` time period.
+     * (COMPLETED or CANCELED) before the `delay_duration` time period.
      *
      * This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
      * of 1 minute.
@@ -109,7 +114,7 @@ class PaymentOptions implements \JsonSerializable
      * Unsets Delay Duration.
      * The duration of time after the payment's creation when Square automatically cancels the
      * payment. This automatic cancellation applies only to payments that do not reach a terminal state
-     * (COMPLETED, CANCELED, or FAILED) before the `delay_duration` time period.
+     * (COMPLETED or CANCELED) before the `delay_duration` time period.
      *
      * This parameter should be specified as a time duration, in RFC 3339 format, with a minimum value
      * of 1 minute.
@@ -198,6 +203,28 @@ class PaymentOptions implements \JsonSerializable
     }
 
     /**
+     * Returns Delay Action.
+     * Describes the action to be applied to a delayed capture payment when the delay_duration
+     * has elapsed.
+     */
+    public function getDelayAction(): ?string
+    {
+        return $this->delayAction;
+    }
+
+    /**
+     * Sets Delay Action.
+     * Describes the action to be applied to a delayed capture payment when the delay_duration
+     * has elapsed.
+     *
+     * @maps delay_action
+     */
+    public function setDelayAction(?string $delayAction): void
+    {
+        $this->delayAction = $delayAction;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -217,6 +244,9 @@ class PaymentOptions implements \JsonSerializable
         }
         if (!empty($this->acceptPartialAuthorization)) {
             $json['accept_partial_authorization'] = $this->acceptPartialAuthorization['value'];
+        }
+        if (isset($this->delayAction)) {
+            $json['delay_action']                 = $this->delayAction;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

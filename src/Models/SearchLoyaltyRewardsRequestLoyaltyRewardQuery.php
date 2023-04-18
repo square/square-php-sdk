@@ -31,7 +31,7 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Returns Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) to which the loyalty reward belongs.
+     * The ID of the [loyalty account](entity:LoyaltyAccount) to which the loyalty reward belongs.
      */
     public function getLoyaltyAccountId(): string
     {
@@ -40,7 +40,7 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery implements \JsonSerializable
 
     /**
      * Sets Loyalty Account Id.
-     * The ID of the [loyalty account]($m/LoyaltyAccount) to which the loyalty reward belongs.
+     * The ID of the [loyalty account](entity:LoyaltyAccount) to which the loyalty reward belongs.
      *
      * @required
      * @maps loyalty_account_id

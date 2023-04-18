@@ -26,7 +26,7 @@ class LoyaltyProgramAccrualRuleCategoryData implements \JsonSerializable
 
     /**
      * Returns Category Id.
-     * The ID of the `CATEGORY` [catalog object]($m/CatalogObject) that buyers can purchase to earn
+     * The ID of the `CATEGORY` [catalog object](entity:CatalogObject) that buyers can purchase to earn
      * points.
      */
     public function getCategoryId(): string
@@ -36,7 +36,7 @@ class LoyaltyProgramAccrualRuleCategoryData implements \JsonSerializable
 
     /**
      * Sets Category Id.
-     * The ID of the `CATEGORY` [catalog object]($m/CatalogObject) that buyers can purchase to earn
+     * The ID of the `CATEGORY` [catalog object](entity:CatalogObject) that buyers can purchase to earn
      * points.
      *
      * @required

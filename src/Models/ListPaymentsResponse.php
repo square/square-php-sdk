@@ -79,7 +79,8 @@ class ListPaymentsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -91,7 +92,8 @@ class ListPaymentsResponse implements \JsonSerializable
      * The pagination cursor to be used in a subsequent request. If empty,
      * this is the final response.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps cursor
      */

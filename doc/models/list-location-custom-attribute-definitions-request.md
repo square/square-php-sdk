@@ -19,9 +19,9 @@ Represents a [ListLocationCustomAttributeDefinitions](../../doc/apis/location-cu
 
 ```json
 {
-  "visibility_filter": null,
-  "limit": null,
-  "cursor": null
+  "visibility_filter": "ALL",
+  "limit": 172,
+  "cursor": "cursor6"
 }
 ```
 

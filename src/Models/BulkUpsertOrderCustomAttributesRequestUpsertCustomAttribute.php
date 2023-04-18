@@ -99,7 +99,7 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute implements \Js
 
     /**
      * Returns Order Id.
-     * The ID of the target [order]($m/Order).
+     * The ID of the target [order](entity:Order).
      */
     public function getOrderId(): string
     {
@@ -108,7 +108,7 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute implements \Js
 
     /**
      * Sets Order Id.
-     * The ID of the target [order]($m/Order).
+     * The ID of the target [order](entity:Order).
      *
      * @required
      * @maps order_id

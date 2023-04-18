@@ -106,7 +106,7 @@ class OrderQuantityUnit implements \JsonSerializable
     /**
      * Returns Catalog Object Id.
      * The catalog object ID referencing the
-     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     * [CatalogMeasurementUnit](entity:CatalogMeasurementUnit).
      *
      * This field is set when this is a catalog-backed measurement unit.
      */
@@ -121,7 +121,7 @@ class OrderQuantityUnit implements \JsonSerializable
     /**
      * Sets Catalog Object Id.
      * The catalog object ID referencing the
-     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     * [CatalogMeasurementUnit](entity:CatalogMeasurementUnit).
      *
      * This field is set when this is a catalog-backed measurement unit.
      *
@@ -135,7 +135,7 @@ class OrderQuantityUnit implements \JsonSerializable
     /**
      * Unsets Catalog Object Id.
      * The catalog object ID referencing the
-     * [CatalogMeasurementUnit]($m/CatalogMeasurementUnit).
+     * [CatalogMeasurementUnit](entity:CatalogMeasurementUnit).
      *
      * This field is set when this is a catalog-backed measurement unit.
      */

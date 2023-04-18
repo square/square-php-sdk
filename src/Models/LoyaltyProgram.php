@@ -181,7 +181,7 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Returns Location Ids.
-     * The [locations]($m/Location) at which the program is active.
+     * The [locations](entity:Location) at which the program is active.
      *
      * @return string[]|null
      */
@@ -195,7 +195,7 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Sets Location Ids.
-     * The [locations]($m/Location) at which the program is active.
+     * The [locations](entity:Location) at which the program is active.
      *
      * @maps location_ids
      *
@@ -208,7 +208,7 @@ class LoyaltyProgram implements \JsonSerializable
 
     /**
      * Unsets Location Ids.
-     * The [locations]($m/Location) at which the program is active.
+     * The [locations](entity:Location) at which the program is active.
      */
     public function unsetLocationIds(): void
     {
@@ -258,8 +258,9 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Returns Accrual Rules.
      * Defines how buyers can earn loyalty points from the base loyalty program.
-     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
-     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
+     * To check for associated [loyalty promotions](entity:LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions](api-endpoint:Loyalty-
+     * ListLoyaltyPromotions).
      *
      * @return LoyaltyProgramAccrualRule[]|null
      */
@@ -274,8 +275,9 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Sets Accrual Rules.
      * Defines how buyers can earn loyalty points from the base loyalty program.
-     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
-     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
+     * To check for associated [loyalty promotions](entity:LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions](api-endpoint:Loyalty-
+     * ListLoyaltyPromotions).
      *
      * @maps accrual_rules
      *
@@ -289,8 +291,9 @@ class LoyaltyProgram implements \JsonSerializable
     /**
      * Unsets Accrual Rules.
      * Defines how buyers can earn loyalty points from the base loyalty program.
-     * To check for associated [loyalty promotions]($m/LoyaltyPromotion) that enable
-     * buyers to earn extra points, call [ListLoyaltyPromotions]($e/Loyalty/ListLoyaltyPromotions).
+     * To check for associated [loyalty promotions](entity:LoyaltyPromotion) that enable
+     * buyers to earn extra points, call [ListLoyaltyPromotions](api-endpoint:Loyalty-
+     * ListLoyaltyPromotions).
      */
     public function unsetAccrualRules(): void
     {

@@ -29,7 +29,7 @@ $inventoryApi = $client->getInventoryApi();
 
 **This endpoint is deprecated.**
 
-Deprecated version of [RetrieveInventoryAdjustment](../../doc/apis/inventory.md#retrieve-inventory-adjustment) after the endpoint URL
+Deprecated version of [RetrieveInventoryAdjustment](api-endpoint:Inventory-RetrieveInventoryAdjustment) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -40,7 +40,7 @@ function deprecatedRetrieveInventoryAdjustment(string $adjustmentId): ApiRespons
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](../../doc/models/inventory-adjustment.md) to retrieve. |
+| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
 
 ## Response Type
 
@@ -59,9 +59,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -78,7 +78,7 @@ function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](../../doc/models/inventory-adjustment.md) to retrieve. |
+| `adjustmentId` | `string` | Template, Required | ID of the [InventoryAdjustment](entity:InventoryAdjustment) to retrieve. |
 
 ## Response Type
 
@@ -97,9 +97,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -107,7 +107,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchChangeInventory](../../doc/apis/inventory.md#batch-change-inventory) after the endpoint URL
+Deprecated version of [BatchChangeInventory](api-endpoint:Inventory-BatchChangeInventory) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -127,25 +127,29 @@ function deprecatedBatchChangeInventory(BatchChangeInventoryRequest $body): ApiR
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe';
-$body = new Models\BatchChangeInventoryRequest(
-    $body_idempotencyKey
-);
-$body_changes = [];
-
-$body_changes[0] = new Models\InventoryChange();
-$body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
-$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount());
-$body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
-$body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
-$body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
-$body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
-$body_changes[0]->getPhysicalCount()->setQuantity('53');
-$body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
-$body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
-$body->setChanges($body_changes);
-
-$body->setIgnoreUnchangedCounts(true);
+$body = BatchChangeInventoryRequestBuilder::init(
+    '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
+)
+    ->changes(
+        [
+            InventoryChangeBuilder::init()
+                ->type(InventoryChangeType::PHYSICAL_COUNT)
+                ->physicalCount(
+                    InventoryPhysicalCountBuilder::init()
+                        ->referenceId('1536bfbf-efed-48bf-b17d-a197141b2a92')
+                        ->catalogObjectId('W62UWFY35CWMYGVWK6TWJDNI')
+                        ->state(InventoryState::IN_STOCK)
+                        ->locationId('C6W5YS5QM06F5')
+                        ->quantity('53')
+                        ->teamMemberId('LRK57NSQ5X7PUD05')
+                        ->occurredAt('2016-11-16T22:25:24.878Z')
+                        ->build()
+                )
+                ->build()
+        ]
+    )
+    ->ignoreUnchangedCounts(true)
+    ->build();
 
 $apiResponse = $inventoryApi->deprecatedBatchChangeInventory($body);
 
@@ -155,9 +159,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -165,7 +169,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchRetrieveInventoryChanges](../../doc/apis/inventory.md#batch-retrieve-inventory-changes) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -185,13 +189,30 @@ function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRe
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryChangesRequest();
-$body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
-$body->setLocationIds(['C6W5YS5QM06F5']);
-$body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
-$body->setStates([Models\InventoryState::IN_STOCK]);
-$body->setUpdatedAfter('2016-11-01T00:00:00Z');
-$body->setUpdatedBefore('2016-12-01T00:00:00Z');
+$body = BatchRetrieveInventoryChangesRequestBuilder::init()
+    ->catalogObjectIds(
+        [
+            'W62UWFY35CWMYGVWK6TWJDNI'
+        ]
+    )
+    ->locationIds(
+        [
+            'C6W5YS5QM06F5'
+        ]
+    )
+    ->types(
+        [
+            InventoryChangeType::PHYSICAL_COUNT
+        ]
+    )
+    ->states(
+        [
+            InventoryState::IN_STOCK
+        ]
+    )
+    ->updatedAfter('2016-11-01T00:00:00Z')
+    ->updatedBefore('2016-12-01T00:00:00Z')
+    ->build();
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryChanges($body);
 
@@ -201,9 +222,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -211,7 +232,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [BatchRetrieveInventoryCounts](../../doc/apis/inventory.md#batch-retrieve-inventory-counts) after the endpoint URL
+Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -231,10 +252,19 @@ function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequ
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryCountsRequest();
-$body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
-$body->setLocationIds(['59TNP9SA8VGDA']);
-$body->setUpdatedAfter('2016-11-16T00:00:00Z');
+$body = BatchRetrieveInventoryCountsRequestBuilder::init()
+    ->catalogObjectIds(
+        [
+            'W62UWFY35CWMYGVWK6TWJDNI'
+        ]
+    )
+    ->locationIds(
+        [
+            '59TNP9SA8VGDA'
+        ]
+    )
+    ->updatedAfter('2016-11-16T00:00:00Z')
+    ->build();
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryCounts($body);
 
@@ -244,9 +274,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -275,25 +305,29 @@ function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_idempotencyKey = '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe';
-$body = new Models\BatchChangeInventoryRequest(
-    $body_idempotencyKey
-);
-$body_changes = [];
-
-$body_changes[0] = new Models\InventoryChange();
-$body_changes[0]->setType(Models\InventoryChangeType::PHYSICAL_COUNT);
-$body_changes[0]->setPhysicalCount(new Models\InventoryPhysicalCount());
-$body_changes[0]->getPhysicalCount()->setReferenceId('1536bfbf-efed-48bf-b17d-a197141b2a92');
-$body_changes[0]->getPhysicalCount()->setCatalogObjectId('W62UWFY35CWMYGVWK6TWJDNI');
-$body_changes[0]->getPhysicalCount()->setState(Models\InventoryState::IN_STOCK);
-$body_changes[0]->getPhysicalCount()->setLocationId('C6W5YS5QM06F5');
-$body_changes[0]->getPhysicalCount()->setQuantity('53');
-$body_changes[0]->getPhysicalCount()->setTeamMemberId('LRK57NSQ5X7PUD05');
-$body_changes[0]->getPhysicalCount()->setOccurredAt('2016-11-16T22:25:24.878Z');
-$body->setChanges($body_changes);
-
-$body->setIgnoreUnchangedCounts(true);
+$body = BatchChangeInventoryRequestBuilder::init(
+    '8fc6a5b0-9fe8-4b46-b46b-2ef95793abbe'
+)
+    ->changes(
+        [
+            InventoryChangeBuilder::init()
+                ->type(InventoryChangeType::PHYSICAL_COUNT)
+                ->physicalCount(
+                    InventoryPhysicalCountBuilder::init()
+                        ->referenceId('1536bfbf-efed-48bf-b17d-a197141b2a92')
+                        ->catalogObjectId('W62UWFY35CWMYGVWK6TWJDNI')
+                        ->state(InventoryState::IN_STOCK)
+                        ->locationId('C6W5YS5QM06F5')
+                        ->quantity('53')
+                        ->teamMemberId('LRK57NSQ5X7PUD05')
+                        ->occurredAt('2016-11-16T22:25:24.878Z')
+                        ->build()
+                )
+                ->build()
+        ]
+    )
+    ->ignoreUnchangedCounts(true)
+    ->build();
 
 $apiResponse = $inventoryApi->batchChangeInventory($body);
 
@@ -303,9 +337,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -337,13 +371,30 @@ function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $bod
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryChangesRequest();
-$body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
-$body->setLocationIds(['C6W5YS5QM06F5']);
-$body->setTypes([Models\InventoryChangeType::PHYSICAL_COUNT]);
-$body->setStates([Models\InventoryState::IN_STOCK]);
-$body->setUpdatedAfter('2016-11-01T00:00:00Z');
-$body->setUpdatedBefore('2016-12-01T00:00:00Z');
+$body = BatchRetrieveInventoryChangesRequestBuilder::init()
+    ->catalogObjectIds(
+        [
+            'W62UWFY35CWMYGVWK6TWJDNI'
+        ]
+    )
+    ->locationIds(
+        [
+            'C6W5YS5QM06F5'
+        ]
+    )
+    ->types(
+        [
+            InventoryChangeType::PHYSICAL_COUNT
+        ]
+    )
+    ->states(
+        [
+            InventoryState::IN_STOCK
+        ]
+    )
+    ->updatedAfter('2016-11-01T00:00:00Z')
+    ->updatedBefore('2016-12-01T00:00:00Z')
+    ->build();
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryChanges($body);
 
@@ -353,9 +404,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -390,10 +441,19 @@ function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body)
 ## Example Usage
 
 ```php
-$body = new Models\BatchRetrieveInventoryCountsRequest();
-$body->setCatalogObjectIds(['W62UWFY35CWMYGVWK6TWJDNI']);
-$body->setLocationIds(['59TNP9SA8VGDA']);
-$body->setUpdatedAfter('2016-11-16T00:00:00Z');
+$body = BatchRetrieveInventoryCountsRequestBuilder::init()
+    ->catalogObjectIds(
+        [
+            'W62UWFY35CWMYGVWK6TWJDNI'
+        ]
+    )
+    ->locationIds(
+        [
+            '59TNP9SA8VGDA'
+        ]
+    )
+    ->updatedAfter('2016-11-16T00:00:00Z')
+    ->build();
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);
 
@@ -403,9 +463,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -413,7 +473,7 @@ if ($apiResponse->isSuccess()) {
 
 **This endpoint is deprecated.**
 
-Deprecated version of [RetrieveInventoryPhysicalCount](../../doc/apis/inventory.md#retrieve-inventory-physical-count) after the endpoint URL
+Deprecated version of [RetrieveInventoryPhysicalCount](api-endpoint:Inventory-RetrieveInventoryPhysicalCount) after the endpoint URL
 is updated to conform to the standard convention.
 
 ```php
@@ -424,7 +484,7 @@ function deprecatedRetrieveInventoryPhysicalCount(string $physicalCountId): ApiR
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](../../doc/models/inventory-physical-count.md) to retrieve. |
+| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
 
 ## Response Type
 
@@ -443,9 +503,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -462,7 +522,7 @@ function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](../../doc/models/inventory-physical-count.md) to retrieve. |
+| `physicalCountId` | `string` | Template, Required | ID of the<br>[InventoryPhysicalCount](entity:InventoryPhysicalCount) to retrieve. |
 
 ## Response Type
 
@@ -481,9 +541,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -500,7 +560,7 @@ function retrieveInventoryTransfer(string $transferId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transferId` | `string` | Template, Required | ID of the [InventoryTransfer](../../doc/models/inventory-transfer.md) to retrieve. |
+| `transferId` | `string` | Template, Required | ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve. |
 
 ## Response Type
 
@@ -519,9 +579,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -544,8 +604,8 @@ function retrieveInventoryCount(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](../../doc/models/catalog-object.md) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](../../doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
@@ -565,9 +625,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -576,10 +636,10 @@ if ($apiResponse->isSuccess()) {
 **This endpoint is deprecated.**
 
 Returns a set of physical counts and inventory adjustments for the
-provided [CatalogObject](../../doc/models/catalog-object.md) at the requested
-[Location](../../doc/models/location.md)s.
+provided [CatalogObject](entity:CatalogObject) at the requested
+[Location](entity:Location)s.
 
-You can achieve the same result by calling [BatchRetrieveInventoryChanges](../../doc/apis/inventory.md#batch-retrieve-inventory-changes)
+You can achieve the same result by calling [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges)
 and having the `catalog_object_ids` list contain a single element of the `CatalogObject` ID.
 
 Results are paginated and sorted in descending order according to their
@@ -601,8 +661,8 @@ function retrieveInventoryChanges(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](../../doc/models/catalog-object.md) to retrieve. |
-| `locationIds` | `?string` | Query, Optional | The [Location](../../doc/models/location.md) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
+| `catalogObjectId` | `string` | Template, Required | ID of the [CatalogObject](entity:CatalogObject) to retrieve. |
+| `locationIds` | `?string` | Query, Optional | The [Location](entity:Location) IDs to look up as a comma-separated<br>list. An empty list queries all locations. |
 | `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for the original query.<br><br>See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information. |
 
 ## Response Type
@@ -622,8 +682,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

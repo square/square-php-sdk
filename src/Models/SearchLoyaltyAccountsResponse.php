@@ -81,7 +81,7 @@ class SearchLoyaltyAccountsResponse implements \JsonSerializable
      * The pagination cursor to use in a subsequent
      * request. If empty, this is the final response.
      * For more information,
-     * see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -93,7 +93,7 @@ class SearchLoyaltyAccountsResponse implements \JsonSerializable
      * The pagination cursor to use in a subsequent
      * request. If empty, this is the final response.
      * For more information,
-     * see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination).
+     * see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination).
      *
      * @maps cursor
      */

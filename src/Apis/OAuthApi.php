@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\ObtainTokenRequest;
 use Square\Models\ObtainTokenResponse;
@@ -51,8 +50,6 @@ class OAuthApi extends BaseApi
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function renewToken(string $clientId, RenewTokenRequest $body, string $authorization): ApiResponse
     {
@@ -94,8 +91,6 @@ class OAuthApi extends BaseApi
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function revokeToken(RevokeTokenRequest $body, string $authorization): ApiResponse
     {
@@ -134,8 +129,6 @@ class OAuthApi extends BaseApi
      *        the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function obtainToken(ObtainTokenRequest $body): ApiResponse
     {
@@ -171,8 +164,6 @@ class OAuthApi extends BaseApi
      * @param string $authorization Client APPLICATION_SECRET
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveTokenStatus(string $authorization): ApiResponse
     {

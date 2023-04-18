@@ -310,10 +310,10 @@ class CatalogObject implements \JsonSerializable
      * Returns Custom Attribute Values.
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
-     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
+     * is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue) object. The key is the `key`
      * attribute
-     * value defined in the associated
-     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * value defined in the associated [CatalogCustomAttributeDefinition](entity:
+     * CatalogCustomAttributeDefinition)
      * object defined by the application making the request.
      *
      * If the `CatalogCustomAttributeDefinition` object is
@@ -346,10 +346,10 @@ class CatalogObject implements \JsonSerializable
      * Sets Custom Attribute Values.
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
-     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
+     * is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue) object. The key is the `key`
      * attribute
-     * value defined in the associated
-     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * value defined in the associated [CatalogCustomAttributeDefinition](entity:
+     * CatalogCustomAttributeDefinition)
      * object defined by the application making the request.
      *
      * If the `CatalogCustomAttributeDefinition` object is
@@ -381,10 +381,10 @@ class CatalogObject implements \JsonSerializable
      * Unsets Custom Attribute Values.
      * A map (key-value pairs) of application-defined custom attribute values. The value of a key-value
      * pair
-     * is a [CatalogCustomAttributeValue]($m/CatalogCustomAttributeValue) object. The key is the `key`
+     * is a [CatalogCustomAttributeValue](entity:CatalogCustomAttributeValue) object. The key is the `key`
      * attribute
-     * value defined in the associated
-     * [CatalogCustomAttributeDefinition]($m/CatalogCustomAttributeDefinition)
+     * value defined in the associated [CatalogCustomAttributeDefinition](entity:
+     * CatalogCustomAttributeDefinition)
      * object defined by the application making the request.
      *
      * If the `CatalogCustomAttributeDefinition` object is

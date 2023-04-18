@@ -65,9 +65,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -77,8 +77,8 @@ Creates a booking.
 
 The required input must include the following:
 
-- `Booking.location_id`,
-- `Booking.start_at`,
+- `Booking.location_id`
+- `Booking.start_at`
 - `Booking.team_member_id`
 - `Booking.AppointmentSegment.service_variation_id`
 - `Booking.AppointmentSegment.service_variation_version`
@@ -106,10 +106,9 @@ function createBooking(CreateBookingRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_booking = new Models\Booking();
-$body = new Models\CreateBookingRequest(
-    $body_booking
-);
+$body = CreateBookingRequestBuilder::init(
+    BookingBuilder::init()->build()
+)->build();
 
 $apiResponse = $bookingsApi->createBooking($body);
 
@@ -119,9 +118,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -149,16 +148,13 @@ function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_query_filter_startAtRange = new Models\TimeRange();
-$body_query_filter = new Models\SearchAvailabilityFilter(
-    $body_query_filter_startAtRange
-);
-$body_query = new Models\SearchAvailabilityQuery(
-    $body_query_filter
-);
-$body = new Models\SearchAvailabilityRequest(
-    $body_query
-);
+$body = SearchAvailabilityRequestBuilder::init(
+    SearchAvailabilityQueryBuilder::init(
+        SearchAvailabilityFilterBuilder::init(
+            TimeRangeBuilder::init()->build()
+        )->build()
+    )->build()
+)->build();
 
 $apiResponse = $bookingsApi->searchAvailability($body);
 
@@ -168,9 +164,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -197,9 +193,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -242,9 +238,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -279,9 +275,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -300,7 +296,7 @@ function retrieveBooking(string $bookingId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-retrieved booking. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-retrieved booking. |
 
 ## Response Type
 
@@ -319,9 +315,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -343,7 +339,7 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-updated booking. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-updated booking. |
 | `body` | [`UpdateBookingRequest`](../../doc/models/update-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -354,12 +350,15 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 
 ```php
 $bookingId = 'booking_id4';
-$body_booking = new Models\Booking();
-$body = new Models\UpdateBookingRequest(
-    $body_booking
-);
 
-$apiResponse = $bookingsApi->updateBooking($bookingId, $body);
+$body = UpdateBookingRequestBuilder::init(
+    BookingBuilder::init()->build()
+)->build();
+
+$apiResponse = $bookingsApi->updateBooking(
+    $bookingId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $updateBookingResponse = $apiResponse->getResult();
@@ -367,9 +366,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -391,7 +390,7 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `bookingId` | `string` | Template, Required | The ID of the [Booking](../../doc/models/booking.md) object representing the to-be-cancelled booking. |
+| `bookingId` | `string` | Template, Required | The ID of the [Booking](entity:Booking) object representing the to-be-cancelled booking. |
 | `body` | [`CancelBookingRequest`](../../doc/models/cancel-booking-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
 
 ## Response Type
@@ -402,9 +401,13 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 
 ```php
 $bookingId = 'booking_id4';
-$body = new Models\CancelBookingRequest();
 
-$apiResponse = $bookingsApi->cancelBooking($bookingId, $body);
+$body = CancelBookingRequestBuilder::init()->build();
+
+$apiResponse = $bookingsApi->cancelBooking(
+    $bookingId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $cancelBookingResponse = $apiResponse->getResult();
@@ -412,8 +415,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

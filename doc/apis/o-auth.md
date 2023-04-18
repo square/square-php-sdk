@@ -62,11 +62,18 @@ function renewToken(string $clientId, RenewTokenRequest $body, string $authoriza
 
 ```php
 $clientId = 'client_id8';
-$body = new Models\RenewTokenRequest();
-$body->setAccessToken('ACCESS_TOKEN');
+
+$body = RenewTokenRequestBuilder::init()
+    ->accessToken('ACCESS_TOKEN')
+    ->build();
+
 $authorization = 'Client CLIENT_SECRET';
 
-$apiResponse = $oAuthApi->renewToken($clientId, $body, $authorization);
+$apiResponse = $oAuthApi->renewToken(
+    $clientId,
+    $body,
+    $authorization
+);
 
 if ($apiResponse->isSuccess()) {
     $renewTokenResponse = $apiResponse->getResult();
@@ -74,9 +81,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -119,12 +126,17 @@ function revokeToken(RevokeTokenRequest $body, string $authorization): ApiRespon
 ## Example Usage
 
 ```php
-$body = new Models\RevokeTokenRequest();
-$body->setClientId('CLIENT_ID');
-$body->setAccessToken('ACCESS_TOKEN');
+$body = RevokeTokenRequestBuilder::init()
+    ->clientId('CLIENT_ID')
+    ->accessToken('ACCESS_TOKEN')
+    ->build();
+
 $authorization = 'Client CLIENT_SECRET';
 
-$apiResponse = $oAuthApi->revokeToken($body, $authorization);
+$apiResponse = $oAuthApi->revokeToken(
+    $body,
+    $authorization
+);
 
 if ($apiResponse->isSuccess()) {
     $revokeTokenResponse = $apiResponse->getResult();
@@ -132,9 +144,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -177,14 +189,13 @@ function obtainToken(ObtainTokenRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_clientId = 'APPLICATION_ID';
-$body_grantType = 'authorization_code';
-$body = new Models\ObtainTokenRequest(
-    $body_clientId,
-    $body_grantType
-);
-$body->setClientSecret('APPLICATION_SECRET');
-$body->setCode('CODE_FROM_AUTHORIZE');
+$body = ObtainTokenRequestBuilder::init(
+    'APPLICATION_ID',
+    'authorization_code'
+)
+    ->clientSecret('APPLICATION_SECRET')
+    ->code('CODE_FROM_AUTHORIZE')
+    ->build();
 
 $apiResponse = $oAuthApi->obtainToken($body);
 
@@ -194,9 +205,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -246,8 +257,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

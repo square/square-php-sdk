@@ -45,7 +45,8 @@ class SearchTerminalActionsRequest implements \JsonSerializable
      * Returns Cursor.
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
+     * for more
      * information.
      */
     public function getCursor(): ?string
@@ -57,7 +58,8 @@ class SearchTerminalActionsRequest implements \JsonSerializable
      * Sets Cursor.
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this to retrieve the next set of results for the original query.
-     * See [Pagination](https://developer.squareup.com/docs/basics/api101/pagination) for more
+     * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
+     * for more
      * information.
      *
      * @maps cursor

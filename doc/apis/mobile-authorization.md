@@ -41,8 +41,9 @@ function createMobileAuthorizationCode(CreateMobileAuthorizationCodeRequest $bod
 ## Example Usage
 
 ```php
-$body = new Models\CreateMobileAuthorizationCodeRequest();
-$body->setLocationId('YOUR_LOCATION_ID');
+$body = CreateMobileAuthorizationCodeRequestBuilder::init()
+    ->locationId('YOUR_LOCATION_ID')
+    ->build();
 
 $apiResponse = $mobileAuthorizationApi->createMobileAuthorizationCode($body);
 
@@ -52,8 +53,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

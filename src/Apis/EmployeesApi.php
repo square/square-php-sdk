@@ -7,7 +7,6 @@ namespace Square\Apis;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\ListEmployeesResponse;
 use Square\Models\RetrieveEmployeeResponse;
@@ -25,8 +24,6 @@ class EmployeesApi extends BaseApi
      * @param string|null $cursor The token required to retrieve the specified page of results.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listEmployees(
         ?string $locationId = null,
@@ -58,8 +55,6 @@ class EmployeesApi extends BaseApi
      * @param string $id UUID for the employee that was requested.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveEmployee(string $id): ApiResponse
     {

@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\GetPaymentRefundResponse;
 use Square\Models\ListPaymentRefundsResponse;
@@ -26,27 +25,32 @@ class RefundsApi extends BaseApi
      *
      * The maximum results per page is 100.
      *
-     * @param string|null $beginTime The timestamp for the beginning of the requested reporting
-     *        period, in RFC 3339 format.
+     * @param string|null $beginTime Indicates the start of the time range to retrieve each
+     *        PaymentRefund` for, in RFC 3339
+     *        format.  The range is determined using the `created_at` field for each
+     *        `PaymentRefund`.
      *
      *        Default: The current time minus one year.
-     * @param string|null $endTime The timestamp for the end of the requested reporting period, in
-     *        RFC 3339 format.
+     * @param string|null $endTime Indicates the end of the time range to retrieve each
+     *        `PaymentRefund` for, in RFC 3339
+     *        format.  The range is determined using the `created_at` field for each
+     *        `PaymentRefund`.
      *
      *        Default: The current time.
-     * @param string|null $sortOrder The order in which results are listed: - `ASC` - Oldest to
-     *        newest.
+     * @param string|null $sortOrder The order in which results are listed by
+     *        `PaymentRefund.created_at`:
+     *        - `ASC` - Oldest to newest.
      *        - `DESC` - Newest to oldest (default).
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
      *
-     *        For more information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param string|null $locationId Limit results to the location supplied. By default, results
      *        are returned
      *        for all locations associated with the seller.
      * @param string|null $status If provided, only refunds with the given status are returned. For
-     *        a list of refund status values, see [PaymentRefund]($m/PaymentRefund).
+     *        a list of refund status values, see [PaymentRefund](entity:PaymentRefund).
      *
      *        Default: If omitted, refunds are returned regardless of their status.
      * @param string|null $sourceType If provided, only returns refunds whose payments have the
@@ -64,8 +68,6 @@ class RefundsApi extends BaseApi
      *        Default: 100
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listPaymentRefunds(
         ?string $beginTime = null,
@@ -105,8 +107,6 @@ class RefundsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function refundPayment(RefundPaymentRequest $body): ApiResponse
     {
@@ -125,8 +125,6 @@ class RefundsApi extends BaseApi
      * @param string $refundId The unique ID for the desired `PaymentRefund`.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function getPaymentRefund(string $refundId): ApiResponse
     {

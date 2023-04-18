@@ -54,7 +54,8 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Returns Phases.
-     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase](entity:SubscriptionPhase) for this
+     * plan.
      * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
      *
      * @return SubscriptionPhase[]|null
@@ -69,7 +70,8 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Sets Phases.
-     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase](entity:SubscriptionPhase) for this
+     * plan.
      * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
      *
      * @maps phases
@@ -83,7 +85,8 @@ class CatalogSubscriptionPlan implements \JsonSerializable
 
     /**
      * Unsets Phases.
-     * A list of SubscriptionPhase containing the [SubscriptionPhase]($m/SubscriptionPhase) for this plan.
+     * A list of SubscriptionPhase containing the [SubscriptionPhase](entity:SubscriptionPhase) for this
+     * plan.
      * This field it required. Not including this field will throw a REQUIRED_FIELD_MISSING error
      */
     public function unsetPhases(): void

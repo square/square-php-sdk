@@ -40,10 +40,9 @@ function registerDomain(RegisterDomainRequest $body): ApiResponse
 ## Example Usage
 
 ```php
-$body_domainName = 'example.com';
-$body = new Models\RegisterDomainRequest(
-    $body_domainName
-);
+$body = RegisterDomainRequestBuilder::init(
+    'example.com'
+)->build();
 
 $apiResponse = $applePayApi->registerDomain($body);
 
@@ -53,8 +52,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

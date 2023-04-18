@@ -62,7 +62,7 @@ class CashAppDetails implements \JsonSerializable
      * Returns Buyer Country Code.
      * The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
      *
-     * For possible values, see [Country]($m/Country).
+     * For possible values, see [Country](entity:Country).
      */
     public function getBuyerCountryCode(): ?string
     {
@@ -76,7 +76,7 @@ class CashAppDetails implements \JsonSerializable
      * Sets Buyer Country Code.
      * The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
      *
-     * For possible values, see [Country]($m/Country).
+     * For possible values, see [Country](entity:Country).
      *
      * @maps buyer_country_code
      */
@@ -89,7 +89,7 @@ class CashAppDetails implements \JsonSerializable
      * Unsets Buyer Country Code.
      * The country of the Cash App account holder, in ISO 3166-1-alpha-2 format.
      *
-     * For possible values, see [Country]($m/Country).
+     * For possible values, see [Country](entity:Country).
      */
     public function unsetBuyerCountryCode(): void
     {

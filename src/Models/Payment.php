@@ -911,7 +911,7 @@ class Payment implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
+     * An optional ID of the [TeamMember](entity:TeamMember) associated with taking the payment.
      */
     public function getTeamMemberId(): ?string
     {
@@ -920,7 +920,7 @@ class Payment implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * An optional ID of the [TeamMember]($m/TeamMember) associated with taking the payment.
+     * An optional ID of the [TeamMember](entity:TeamMember) associated with taking the payment.
      *
      * @maps team_member_id
      */

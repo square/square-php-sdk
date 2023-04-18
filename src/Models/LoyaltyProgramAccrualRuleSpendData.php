@@ -78,7 +78,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Returns Excluded Category Ids.
      * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded categories.
      *
      * @return string[]|null
@@ -95,7 +95,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Sets Excluded Category Ids.
      * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded categories.
      *
      * @maps excluded_category_ids
@@ -111,7 +111,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Unsets Excluded Category Ids.
      * The IDs of any `CATEGORY` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded categories.
      */
     public function unsetExcludedCategoryIds(): void
@@ -123,7 +123,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Returns Excluded Item Variation Ids.
      * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded item variations.
      *
      * @return string[]|null
@@ -140,7 +140,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Sets Excluded Item Variation Ids.
      * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded item variations.
      *
      * @maps excluded_item_variation_ids
@@ -156,7 +156,7 @@ class LoyaltyProgramAccrualRuleSpendData implements \JsonSerializable
      * Unsets Excluded Item Variation Ids.
      * The IDs of any `ITEM_VARIATION` catalog objects that are excluded from points accrual.
      *
-     * You can use the [BatchRetrieveCatalogObjects]($e/Catalog/BatchRetrieveCatalogObjects)
+     * You can use the [BatchRetrieveCatalogObjects](api-endpoint:Catalog-BatchRetrieveCatalogObjects)
      * endpoint to retrieve information about the excluded item variations.
      */
     public function unsetExcludedItemVariationIds(): void

@@ -26,7 +26,8 @@ class LoyaltyProgramAccrualRuleItemVariationData implements \JsonSerializable
 
     /**
      * Returns Item Variation Id.
-     * The ID of the `ITEM_VARIATION` [catalog object]($m/CatalogObject) that buyers can purchase to earn
+     * The ID of the `ITEM_VARIATION` [catalog object](entity:CatalogObject) that buyers can purchase to
+     * earn
      * points.
      */
     public function getItemVariationId(): string
@@ -36,7 +37,8 @@ class LoyaltyProgramAccrualRuleItemVariationData implements \JsonSerializable
 
     /**
      * Sets Item Variation Id.
-     * The ID of the `ITEM_VARIATION` [catalog object]($m/CatalogObject) that buyers can purchase to earn
+     * The ID of the `ITEM_VARIATION` [catalog object](entity:CatalogObject) that buyers can purchase to
+     * earn
      * points.
      *
      * @required

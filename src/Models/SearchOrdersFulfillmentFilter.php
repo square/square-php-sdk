@@ -23,7 +23,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment Types.
-     * A list of [fulfillment types]($m/FulfillmentType) to filter
+     * A list of [fulfillment types](entity:FulfillmentType) to filter
      * for. The list returns orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
      * See [FulfillmentType](#type-fulfillmenttype) for possible values
@@ -40,7 +40,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment Types.
-     * A list of [fulfillment types]($m/FulfillmentType) to filter
+     * A list of [fulfillment types](entity:FulfillmentType) to filter
      * for. The list returns orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
      * See [FulfillmentType](#type-fulfillmenttype) for possible values
@@ -56,7 +56,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Unsets Fulfillment Types.
-     * A list of [fulfillment types]($m/FulfillmentType) to filter
+     * A list of [fulfillment types](entity:FulfillmentType) to filter
      * for. The list returns orders if any of its fulfillments match any of the fulfillment types
      * listed in this field.
      * See [FulfillmentType](#type-fulfillmenttype) for possible values
@@ -68,7 +68,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Returns Fulfillment States.
-     * A list of [fulfillment states]($m/FulfillmentState) to filter
+     * A list of [fulfillment states](entity:FulfillmentState) to filter
      * for. The list returns orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
      * See [FulfillmentState](#type-fulfillmentstate) for possible values
@@ -85,7 +85,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Sets Fulfillment States.
-     * A list of [fulfillment states]($m/FulfillmentState) to filter
+     * A list of [fulfillment states](entity:FulfillmentState) to filter
      * for. The list returns orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
      * See [FulfillmentState](#type-fulfillmentstate) for possible values
@@ -101,7 +101,7 @@ class SearchOrdersFulfillmentFilter implements \JsonSerializable
 
     /**
      * Unsets Fulfillment States.
-     * A list of [fulfillment states]($m/FulfillmentState) to filter
+     * A list of [fulfillment states](entity:FulfillmentState) to filter
      * for. The list returns orders if any of its fulfillments match any of the
      * fulfillment states listed in this field.
      * See [FulfillmentState](#type-fulfillmentstate) for possible values

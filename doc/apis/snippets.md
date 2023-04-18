@@ -50,9 +50,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -91,9 +91,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -125,15 +125,17 @@ function upsertSnippet(string $siteId, UpsertSnippetRequest $body): ApiResponse
 
 ```php
 $siteId = 'site_id6';
-$body_snippet_content = '<script>var js = 1;</script>';
-$body_snippet = new Models\Snippet(
-    $body_snippet_content
-);
-$body = new Models\UpsertSnippetRequest(
-    $body_snippet
-);
 
-$apiResponse = $snippetsApi->upsertSnippet($siteId, $body);
+$body = UpsertSnippetRequestBuilder::init(
+    SnippetBuilder::init(
+        '<script>var js = 1;</script>'
+    )->build()
+)->build();
+
+$apiResponse = $snippetsApi->upsertSnippet(
+    $siteId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $upsertSnippetResponse = $apiResponse->getResult();
@@ -141,8 +143,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

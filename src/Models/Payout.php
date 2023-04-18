@@ -236,7 +236,7 @@ class Payout implements \JsonSerializable
     /**
      * Returns Version.
      * The version number, which is incremented each time an update is made to this payout record.
-     * The version number helps developers receive event notifications or feeds out of order.
+     * The version number helps developers receive event notifications or feeds out of order.
      */
     public function getVersion(): ?int
     {
@@ -246,7 +246,7 @@ class Payout implements \JsonSerializable
     /**
      * Sets Version.
      * The version number, which is incremented each time an update is made to this payout record.
-     * The version number helps developers receive event notifications or feeds out of order.
+     * The version number helps developers receive event notifications or feeds out of order.
      *
      * @maps version
      */

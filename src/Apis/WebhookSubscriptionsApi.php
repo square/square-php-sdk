@@ -9,7 +9,6 @@ use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\CreateWebhookSubscriptionRequest;
 use Square\Models\CreateWebhookSubscriptionResponse;
@@ -33,8 +32,6 @@ class WebhookSubscriptionsApi extends BaseApi
      *        field overrides the default version used by the application.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listWebhookEventTypes(?string $apiVersion = null): ApiResponse
     {
@@ -55,10 +52,11 @@ class WebhookSubscriptionsApi extends BaseApi
      *
      *        For more information, see [Pagination](https://developer.squareup.
      *        com/docs/basics/api101/pagination).
-     * @param bool|null $includeDisabled Includes disabled [Subscription]($m/WebhookSubscription)s.
-     *        By default, all enabled [Subscription]($m/WebhookSubscription)s are returned.
+     * @param bool|null $includeDisabled Includes disabled
+     *        [Subscription](entity:WebhookSubscription)s.
+     *        By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.
      * @param string|null $sortOrder Sorts the returned list by when the
-     *        [Subscription]($m/WebhookSubscription) was created with the specified order.
+     *        [Subscription](entity:WebhookSubscription) was created with the specified order.
      *        This field defaults to ASC.
      * @param int|null $limit The maximum number of results to be returned in a single page. It is
      *        possible to receive fewer results than the specified limit on a given page.
@@ -67,8 +65,6 @@ class WebhookSubscriptionsApi extends BaseApi
      *        Default: 100
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listWebhookSubscriptions(
         ?string $cursor = null,
@@ -99,8 +95,6 @@ class WebhookSubscriptionsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function createWebhookSubscription(CreateWebhookSubscriptionRequest $body): ApiResponse
     {
@@ -116,12 +110,10 @@ class WebhookSubscriptionsApi extends BaseApi
     /**
      * Deletes a webhook subscription.
      *
-     * @param string $subscriptionId [REQUIRED] The ID of the [Subscription]($m/WebhookSubscription)
-     *        to delete.
+     * @param string $subscriptionId [REQUIRED] The ID of the
+     *        [Subscription](entity:WebhookSubscription) to delete.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteWebhookSubscription(string $subscriptionId): ApiResponse
     {
@@ -137,12 +129,10 @@ class WebhookSubscriptionsApi extends BaseApi
     /**
      * Retrieves a webhook subscription identified by its ID.
      *
-     * @param string $subscriptionId [REQUIRED] The ID of the [Subscription]($m/WebhookSubscription)
-     *        to retrieve.
+     * @param string $subscriptionId [REQUIRED] The ID of the
+     *        [Subscription](entity:WebhookSubscription) to retrieve.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveWebhookSubscription(string $subscriptionId): ApiResponse
     {
@@ -158,16 +148,14 @@ class WebhookSubscriptionsApi extends BaseApi
     /**
      * Updates a webhook subscription.
      *
-     * @param string $subscriptionId [REQUIRED] The ID of the [Subscription]($m/WebhookSubscription)
-     *        to update.
+     * @param string $subscriptionId [REQUIRED] The ID of the
+     *        [Subscription](entity:WebhookSubscription) to update.
      * @param UpdateWebhookSubscriptionRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateWebhookSubscription(
         string $subscriptionId,
@@ -189,16 +177,14 @@ class WebhookSubscriptionsApi extends BaseApi
     /**
      * Updates a webhook subscription by replacing the existing signature key with a new one.
      *
-     * @param string $subscriptionId [REQUIRED] The ID of the [Subscription]($m/WebhookSubscription)
-     *        to update.
+     * @param string $subscriptionId [REQUIRED] The ID of the
+     *        [Subscription](entity:WebhookSubscription) to update.
      * @param UpdateWebhookSubscriptionSignatureKeyRequest $body An object containing the fields to
      *        POST for the request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function updateWebhookSubscriptionSignatureKey(
         string $subscriptionId,
@@ -225,16 +211,14 @@ class WebhookSubscriptionsApi extends BaseApi
     /**
      * Tests a webhook subscription by sending a test event to the notification URL.
      *
-     * @param string $subscriptionId [REQUIRED] The ID of the [Subscription]($m/WebhookSubscription)
-     *        to test.
+     * @param string $subscriptionId [REQUIRED] The ID of the
+     *        [Subscription](entity:WebhookSubscription) to test.
      * @param TestWebhookSubscriptionRequest $body An object containing the fields to POST for the
      *        request.
      *
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function testWebhookSubscription(string $subscriptionId, TestWebhookSubscriptionRequest $body): ApiResponse
     {

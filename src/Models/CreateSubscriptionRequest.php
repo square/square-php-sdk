@@ -161,7 +161,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Customer Id.
-     * The ID of the [customer]($m/Customer) subscribing to the subscription plan.
+     * The ID of the [customer](entity:Customer) subscribing to the subscription plan.
      */
     public function getCustomerId(): string
     {
@@ -170,7 +170,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The ID of the [customer]($m/Customer) subscribing to the subscription plan.
+     * The ID of the [customer](entity:Customer) subscribing to the subscription plan.
      *
      * @required
      * @maps customer_id
@@ -306,7 +306,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Card Id.
-     * The ID of the [subscriber's]($m/Customer) [card]($m/Card) to charge.
+     * The ID of the [subscriber's](entity:Customer) [card](entity:Card) to charge.
      * If it is not specified, the subscriber receives an invoice via email. For an example to
      * create a customer profile for a subscriber and add a card on file, see [Subscriptions
      * Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
@@ -318,7 +318,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Card Id.
-     * The ID of the [subscriber's]($m/Customer) [card]($m/Card) to charge.
+     * The ID of the [subscriber's](entity:Customer) [card](entity:Card) to charge.
      * If it is not specified, the subscriber receives an invoice via email. For an example to
      * create a customer profile for a subscriber and add a card on file, see [Subscriptions
      * Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).

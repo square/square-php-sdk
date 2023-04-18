@@ -15,7 +15,7 @@ class InvoiceRequestMethod
     /**
      * Directs Square to send invoices, reminders, and receipts to the customer using email.
      * Square sends the invoice after it is published (either immediately or at the `scheduled_at`
-     * time, if specified in the [invoice]($m/Invoice)).
+     * time, if specified in the [invoice](entity:Invoice)).
      */
     public const EMAIL = 'EMAIL';
 
@@ -50,7 +50,7 @@ class InvoiceRequestMethod
      * Directs Square to send invoices and receipts to the customer using SMS (text message). Square sends
      * the invoice
      * after it is published (either immediately or at the `scheduled_at` time, if specified in the
-     * [invoice]($m/Invoice)).
+     * [invoice](entity:Invoice)).
      *
      * You cannot set `SMS` as a request method using the Invoices API.
      */

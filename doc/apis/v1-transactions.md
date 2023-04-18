@@ -62,9 +62,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -93,9 +93,13 @@ function v1RetrieveOrder(string $locationId, string $orderId): ApiResponse
 
 ```php
 $locationId = 'location_id4';
+
 $orderId = 'order_id6';
 
-$apiResponse = $v1TransactionsApi->v1RetrieveOrder($locationId, $orderId);
+$apiResponse = $v1TransactionsApi->v1RetrieveOrder(
+    $locationId,
+    $orderId
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -103,9 +107,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -135,13 +139,18 @@ function v1UpdateOrder(string $locationId, string $orderId, V1UpdateOrderRequest
 
 ```php
 $locationId = 'location_id4';
-$orderId = 'order_id6';
-$body_action = Models\V1UpdateOrderRequestAction::REFUND;
-$body = new Models\V1UpdateOrderRequest(
-    $body_action
-);
 
-$apiResponse = $v1TransactionsApi->v1UpdateOrder($locationId, $orderId, $body);
+$orderId = 'order_id6';
+
+$body = V1UpdateOrderRequestBuilder::init(
+    V1UpdateOrderRequestAction::REFUND
+)->build();
+
+$apiResponse = $v1TransactionsApi->v1UpdateOrder(
+    $locationId,
+    $orderId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Order = $apiResponse->getResult();
@@ -149,9 +158,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -203,9 +212,13 @@ function v1ListPayments(
 
 ```php
 $locationId = 'location_id4';
+
 $includePartial = false;
 
-$apiResponse = $v1TransactionsApi->v1ListPayments($locationId, null, null, null, null, null, $includePartial);
+$apiResponse = $v1TransactionsApi->v1ListPayments(
+    $locationId,
+    $includePartial
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -213,9 +226,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -244,9 +257,13 @@ function v1RetrievePayment(string $locationId, string $paymentId): ApiResponse
 
 ```php
 $locationId = 'location_id4';
+
 $paymentId = 'payment_id0';
 
-$apiResponse = $v1TransactionsApi->v1RetrievePayment($locationId, $paymentId);
+$apiResponse = $v1TransactionsApi->v1RetrievePayment(
+    $locationId,
+    $paymentId
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Payment = $apiResponse->getResult();
@@ -254,9 +271,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -305,9 +322,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -347,16 +364,17 @@ function v1CreateRefund(string $locationId, V1CreateRefundRequest $body): ApiRes
 
 ```php
 $locationId = 'location_id4';
-$body_paymentId = 'payment_id6';
-$body_type = Models\V1CreateRefundRequestType::FULL;
-$body_reason = 'reason8';
-$body = new Models\V1CreateRefundRequest(
-    $body_paymentId,
-    $body_type,
-    $body_reason
-);
 
-$apiResponse = $v1TransactionsApi->v1CreateRefund($locationId, $body);
+$body = V1CreateRefundRequestBuilder::init(
+    'payment_id6',
+    V1CreateRefundRequestType::FULL,
+    'reason8'
+)->build();
+
+$apiResponse = $v1TransactionsApi->v1CreateRefund(
+    $locationId,
+    $body
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Refund = $apiResponse->getResult();
@@ -364,9 +382,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -422,9 +440,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -469,9 +487,13 @@ function v1RetrieveSettlement(string $locationId, string $settlementId): ApiResp
 
 ```php
 $locationId = 'location_id4';
+
 $settlementId = 'settlement_id0';
 
-$apiResponse = $v1TransactionsApi->v1RetrieveSettlement($locationId, $settlementId);
+$apiResponse = $v1TransactionsApi->v1RetrieveSettlement(
+    $locationId,
+    $settlementId
+);
 
 if ($apiResponse->isSuccess()) {
     $v1Settlement = $apiResponse->getResult();
@@ -479,8 +501,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

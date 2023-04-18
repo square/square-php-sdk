@@ -8,7 +8,6 @@ use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\DeleteSnippetResponse;
 use Square\Models\RetrieveSnippetResponse;
@@ -30,8 +29,6 @@ class SnippetsApi extends BaseApi
      * @param string $siteId The ID of the site that contains the snippet.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function deleteSnippet(string $siteId): ApiResponse
     {
@@ -58,8 +55,6 @@ class SnippetsApi extends BaseApi
      * @param string $siteId The ID of the site that contains the snippet.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function retrieveSnippet(string $siteId): ApiResponse
     {
@@ -89,8 +84,6 @@ class SnippetsApi extends BaseApi
      *        See the corresponding object definition for field details.
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function upsertSnippet(string $siteId, UpsertSnippetRequest $body): ApiResponse
     {

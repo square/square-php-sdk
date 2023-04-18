@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use CoreInterfaces\Core\Request\RequestMethod;
-use Square\Exceptions\ApiException;
 use Square\Http\ApiResponse;
 use Square\Models\ListSitesResponse;
 
@@ -21,8 +20,6 @@ class SitesApi extends BaseApi
      * com/docs/online-api#early-access-program-for-square-online-apis).
      *
      * @return ApiResponse Response from the API call
-     *
-     * @throws ApiException Thrown if API call fails
      */
     public function listSites(): ApiResponse
     {

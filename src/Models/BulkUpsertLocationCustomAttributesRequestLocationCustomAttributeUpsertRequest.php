@@ -41,7 +41,7 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
 
     /**
      * Returns Location Id.
-     * The ID of the target [location]($m/Location).
+     * The ID of the target [location](entity:Location).
      */
     public function getLocationId(): string
     {
@@ -50,7 +50,7 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
 
     /**
      * Sets Location Id.
-     * The ID of the target [location]($m/Location).
+     * The ID of the target [location](entity:Location).
      *
      * @required
      * @maps location_id

@@ -47,8 +47,8 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Returns Responses.
-     * A set of [UpdateVendorResponse]($m/UpdateVendorResponse) objects encapsulating successfully created
-     * [Vendor]($m/Vendor)
+     * A set of [UpdateVendorResponse](entity:UpdateVendorResponse) objects encapsulating successfully
+     * created [Vendor](entity:Vendor)
      * objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-
      * ID/`UpdateVendorResponse`-object or
      * `Vendor`-ID/error-object pairs.
@@ -62,8 +62,8 @@ class BulkUpdateVendorsResponse implements \JsonSerializable
 
     /**
      * Sets Responses.
-     * A set of [UpdateVendorResponse]($m/UpdateVendorResponse) objects encapsulating successfully created
-     * [Vendor]($m/Vendor)
+     * A set of [UpdateVendorResponse](entity:UpdateVendorResponse) objects encapsulating successfully
+     * created [Vendor](entity:Vendor)
      * objects or error responses for failed attempts. The set is represented by a collection of `Vendor`-
      * ID/`UpdateVendorResponse`-object or
      * `Vendor`-ID/error-object pairs.

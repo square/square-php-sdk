@@ -85,7 +85,7 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      */
     public function getCatalogObjectId(): ?string
     {
@@ -97,7 +97,7 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      *
      * @maps catalog_object_id
      */
@@ -108,7 +108,7 @@ class OrderLineItemModifier implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The catalog object ID referencing [CatalogModifier]($m/CatalogModifier).
+     * The catalog object ID referencing [CatalogModifier](entity:CatalogModifier).
      */
     public function unsetCatalogObjectId(): void
     {

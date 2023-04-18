@@ -19,9 +19,8 @@ class UpdateWebhookSubscriptionSignatureKeyRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     * A unique string that identifies the
-     * [UpdateWebhookSubscriptionSignatureKey]($e/WebhookSubscriptions/UpdateWebhookSubscriptionSignatureKe
-     * y) request.
+     * A unique string that identifies the [UpdateWebhookSubscriptionSignatureKey](api-endpoint:
+     * WebhookSubscriptions-UpdateWebhookSubscriptionSignatureKey) request.
      */
     public function getIdempotencyKey(): ?string
     {
@@ -33,9 +32,8 @@ class UpdateWebhookSubscriptionSignatureKeyRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     * A unique string that identifies the
-     * [UpdateWebhookSubscriptionSignatureKey]($e/WebhookSubscriptions/UpdateWebhookSubscriptionSignatureKe
-     * y) request.
+     * A unique string that identifies the [UpdateWebhookSubscriptionSignatureKey](api-endpoint:
+     * WebhookSubscriptions-UpdateWebhookSubscriptionSignatureKey) request.
      *
      * @maps idempotency_key
      */
@@ -46,9 +44,8 @@ class UpdateWebhookSubscriptionSignatureKeyRequest implements \JsonSerializable
 
     /**
      * Unsets Idempotency Key.
-     * A unique string that identifies the
-     * [UpdateWebhookSubscriptionSignatureKey]($e/WebhookSubscriptions/UpdateWebhookSubscriptionSignatureKe
-     * y) request.
+     * A unique string that identifies the [UpdateWebhookSubscriptionSignatureKey](api-endpoint:
+     * WebhookSubscriptions-UpdateWebhookSubscriptionSignatureKey) request.
      */
     public function unsetIdempotencyKey(): void
     {

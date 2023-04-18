@@ -31,8 +31,8 @@ class CreateWebhookSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Idempotency Key.
-     * A unique string that identifies the
-     * [CreateWebhookSubscription]($e/WebhookSubscriptions/CreateWebhookSubscription) request.
+     * A unique string that identifies the [CreateWebhookSubscription](api-endpoint:WebhookSubscriptions-
+     * CreateWebhookSubscription) request.
      */
     public function getIdempotencyKey(): ?string
     {
@@ -41,8 +41,8 @@ class CreateWebhookSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Idempotency Key.
-     * A unique string that identifies the
-     * [CreateWebhookSubscription]($e/WebhookSubscriptions/CreateWebhookSubscription) request.
+     * A unique string that identifies the [CreateWebhookSubscription](api-endpoint:WebhookSubscriptions-
+     * CreateWebhookSubscription) request.
      *
      * @maps idempotency_key
      */

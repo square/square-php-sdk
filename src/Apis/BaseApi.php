@@ -8,7 +8,6 @@ use Core\ApiCall;
 use Core\Client;
 use Core\Request\RequestBuilder;
 use Core\Response\ResponseHandler;
-use Square\Exceptions\ApiException;
 
 /**
  * Base controller
@@ -27,9 +26,6 @@ class BaseApi
         $this->client = $client;
     }
 
-    /**
-     * @throws ApiException Thrown if API call fails
-     */
     protected function execute(RequestBuilder $requestBuilder, ?ResponseHandler $responseHandler = null)
     {
         return (new ApiCall($this->client))

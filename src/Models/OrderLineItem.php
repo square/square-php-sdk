@@ -78,6 +78,11 @@ class OrderLineItem implements \JsonSerializable
     private $appliedDiscounts = [];
 
     /**
+     * @var array
+     */
+    private $appliedServiceCharges = [];
+
+    /**
      * @var Money|null
      */
     private $basePriceMoney;
@@ -111,6 +116,11 @@ class OrderLineItem implements \JsonSerializable
      * @var OrderLineItemPricingBlocklists|null
      */
     private $pricingBlocklists;
+
+    /**
+     * @var Money|null
+     */
+    private $totalServiceChargeMoney;
 
     /**
      * @param string $quantity
@@ -275,7 +285,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Returns Catalog Object Id.
-     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this line item.
+     * The [CatalogItemVariation](entity:CatalogItemVariation) ID applied to this line item.
      */
     public function getCatalogObjectId(): ?string
     {
@@ -287,7 +297,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Sets Catalog Object Id.
-     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this line item.
+     * The [CatalogItemVariation](entity:CatalogItemVariation) ID applied to this line item.
      *
      * @maps catalog_object_id
      */
@@ -298,7 +308,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Unsets Catalog Object Id.
-     * The [CatalogItemVariation]($m/CatalogItemVariation) ID applied to this line item.
+     * The [CatalogItemVariation](entity:CatalogItemVariation) ID applied to this line item.
      */
     public function unsetCatalogObjectId(): void
     {
@@ -478,7 +488,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Returns Modifiers.
-     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
+     * The [CatalogModifier](entity:CatalogModifier)s applied to this line item.
      *
      * @return OrderLineItemModifier[]|null
      */
@@ -492,7 +502,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Sets Modifiers.
-     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
+     * The [CatalogModifier](entity:CatalogModifier)s applied to this line item.
      *
      * @maps modifiers
      *
@@ -505,7 +515,7 @@ class OrderLineItem implements \JsonSerializable
 
     /**
      * Unsets Modifiers.
-     * The [CatalogModifier]($m/CatalogModifier)s applied to this line item.
+     * The [CatalogModifier](entity:CatalogModifier)s applied to this line item.
      */
     public function unsetModifiers(): void
     {
@@ -642,6 +652,57 @@ class OrderLineItem implements \JsonSerializable
     public function unsetAppliedDiscounts(): void
     {
         $this->appliedDiscounts = [];
+    }
+
+    /**
+     * Returns Applied Service Charges.
+     * The list of references to service charges applied to this line item. Each
+     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
+     * top-level `OrderServiceCharge` applied to the line item. On reads, the amount applied is
+     * populated.
+     *
+     * To change the amount of a service charge, modify the referenced top-level service charge.
+     *
+     * @return OrderLineItemAppliedServiceCharge[]|null
+     */
+    public function getAppliedServiceCharges(): ?array
+    {
+        if (count($this->appliedServiceCharges) == 0) {
+            return null;
+        }
+        return $this->appliedServiceCharges['value'];
+    }
+
+    /**
+     * Sets Applied Service Charges.
+     * The list of references to service charges applied to this line item. Each
+     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
+     * top-level `OrderServiceCharge` applied to the line item. On reads, the amount applied is
+     * populated.
+     *
+     * To change the amount of a service charge, modify the referenced top-level service charge.
+     *
+     * @maps applied_service_charges
+     *
+     * @param OrderLineItemAppliedServiceCharge[]|null $appliedServiceCharges
+     */
+    public function setAppliedServiceCharges(?array $appliedServiceCharges): void
+    {
+        $this->appliedServiceCharges['value'] = $appliedServiceCharges;
+    }
+
+    /**
+     * Unsets Applied Service Charges.
+     * The list of references to service charges applied to this line item. Each
+     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
+     * top-level `OrderServiceCharge` applied to the line item. On reads, the amount applied is
+     * populated.
+     *
+     * To change the amount of a service charge, modify the referenced top-level service charge.
+     */
+    public function unsetAppliedServiceCharges(): void
+    {
+        $this->appliedServiceCharges = [];
     }
 
     /**
@@ -863,6 +924,38 @@ class OrderLineItem implements \JsonSerializable
     }
 
     /**
+     * Returns Total Service Charge Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getTotalServiceChargeMoney(): ?Money
+    {
+        return $this->totalServiceChargeMoney;
+    }
+
+    /**
+     * Sets Total Service Charge Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps total_service_charge_money
+     */
+    public function setTotalServiceChargeMoney(?Money $totalServiceChargeMoney): void
+    {
+        $this->totalServiceChargeMoney = $totalServiceChargeMoney;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -911,6 +1004,9 @@ class OrderLineItem implements \JsonSerializable
         if (!empty($this->appliedDiscounts)) {
             $json['applied_discounts']           = $this->appliedDiscounts['value'];
         }
+        if (!empty($this->appliedServiceCharges)) {
+            $json['applied_service_charges']     = $this->appliedServiceCharges['value'];
+        }
         if (isset($this->basePriceMoney)) {
             $json['base_price_money']            = $this->basePriceMoney;
         }
@@ -931,6 +1027,9 @@ class OrderLineItem implements \JsonSerializable
         }
         if (isset($this->pricingBlocklists)) {
             $json['pricing_blocklists']          = $this->pricingBlocklists;
+        }
+        if (isset($this->totalServiceChargeMoney)) {
+            $json['total_service_charge_money']  = $this->totalServiceChargeMoney;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

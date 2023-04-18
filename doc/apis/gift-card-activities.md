@@ -39,7 +39,7 @@ function listGiftCardActivities(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `giftCardId` | `?string` | Query, Optional | If a gift card ID is provided, the endpoint returns activities related<br>to the specified gift card. Otherwise, the endpoint returns all gift card activities for<br>the seller. |
-| `type` | `?string` | Query, Optional | If a [type](../../doc/models/gift-card-activity-type.md) is provided, the endpoint returns gift card activities of the specified type.<br>Otherwise, the endpoint returns all types of gift card activities. |
+| `type` | `?string` | Query, Optional | If a [type](entity:GiftCardActivityType) is provided, the endpoint returns gift card activities of the specified type.<br>Otherwise, the endpoint returns all types of gift card activities. |
 | `locationId` | `?string` | Query, Optional | If a location ID is provided, the endpoint returns gift card activities for the specified location.<br>Otherwise, the endpoint returns gift card activities for all locations. |
 | `beginTime` | `?string` | Query, Optional | The timestamp for the beginning of the reporting period, in RFC 3339 format.<br>This start time is inclusive. The default value is the current time minus one year. |
 | `endTime` | `?string` | Query, Optional | The timestamp for the end of the reporting period, in RFC 3339 format.<br>This end time is inclusive. The default value is the current time. |
@@ -62,9 +62,9 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 
 
@@ -91,21 +91,21 @@ function createGiftCardActivity(CreateGiftCardActivityRequest $body): ApiRespons
 ## Example Usage
 
 ```php
-$body_idempotencyKey = 'U16kfr-kA70er-q4Rsym-7U7NnY';
-$body_giftCardActivity_type = Models\GiftCardActivityType::ACTIVATE;
-$body_giftCardActivity_locationId = '81FN9BNFZTKS4';
-$body_giftCardActivity = new Models\GiftCardActivity(
-    $body_giftCardActivity_type,
-    $body_giftCardActivity_locationId
-);
-$body_giftCardActivity->setGiftCardId('gftc:6d55a72470d940c6ba09c0ab8ad08d20');
-$body_giftCardActivity->setActivateActivityDetails(new Models\GiftCardActivityActivate());
-$body_giftCardActivity->getActivateActivityDetails()->setOrderId('jJNGHm4gLI6XkFbwtiSLqK72KkAZY');
-$body_giftCardActivity->getActivateActivityDetails()->setLineItemUid('eIWl7X0nMuO9Ewbh0ChIx');
-$body = new Models\CreateGiftCardActivityRequest(
-    $body_idempotencyKey,
-    $body_giftCardActivity
-);
+$body = CreateGiftCardActivityRequestBuilder::init(
+    'U16kfr-kA70er-q4Rsym-7U7NnY',
+    GiftCardActivityBuilder::init(
+        GiftCardActivityType::ACTIVATE,
+        '81FN9BNFZTKS4'
+    )
+        ->giftCardId('gftc:6d55a72470d940c6ba09c0ab8ad08d20')
+        ->activateActivityDetails(
+            GiftCardActivityActivateBuilder::init()
+                ->orderId('jJNGHm4gLI6XkFbwtiSLqK72KkAZY')
+                ->lineItemUid('eIWl7X0nMuO9Ewbh0ChIx')
+                ->build()
+        )
+        ->build()
+)->build();
 
 $apiResponse = $giftCardActivitiesApi->createGiftCardActivity($body);
 
@@ -115,8 +115,8 @@ if ($apiResponse->isSuccess()) {
     $errors = $apiResponse->getErrors();
 }
 
-// Get more response info...
-// $statusCode = $apiResponse->getStatusCode();
-// $headers = $apiResponse->getHeaders();
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
 ```
 

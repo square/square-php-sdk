@@ -49,7 +49,7 @@ class SourceApplication implements \JsonSerializable
     /**
      * Returns Application Id.
      * __Read only__ The Square-assigned ID of the application. This field is used only if the
-     * [product]($m/Product) type is `EXTERNAL_API`.
+     * [product](entity:Product) type is `EXTERNAL_API`.
      */
     public function getApplicationId(): ?string
     {
@@ -62,7 +62,7 @@ class SourceApplication implements \JsonSerializable
     /**
      * Sets Application Id.
      * __Read only__ The Square-assigned ID of the application. This field is used only if the
-     * [product]($m/Product) type is `EXTERNAL_API`.
+     * [product](entity:Product) type is `EXTERNAL_API`.
      *
      * @maps application_id
      */
@@ -74,7 +74,7 @@ class SourceApplication implements \JsonSerializable
     /**
      * Unsets Application Id.
      * __Read only__ The Square-assigned ID of the application. This field is used only if the
-     * [product]($m/Product) type is `EXTERNAL_API`.
+     * [product](entity:Product) type is `EXTERNAL_API`.
      */
     public function unsetApplicationId(): void
     {

@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the [Charge]($e/Transactions/Charge) endpoint.
+ * a request to the [Charge](api-endpoint:Transactions-Charge) endpoint.
  *
  * One of `errors` or `transaction` is present in a given response (never both).
  */
