@@ -19,7 +19,7 @@ Use this library to integrate Square payments into your app and grow your busine
 
 Use of the Square PHP SDK requires:
 
-* PHP 7.4 through PHP 8.1
+* PHP 7.4 through PHP ^8.0
 
 ## Installation
 
