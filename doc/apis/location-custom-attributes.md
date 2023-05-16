@@ -48,7 +48,7 @@ function listLocationCustomAttributeDefinitions(
 
 ## Response Type
 
-[`ListLocationCustomAttributeDefinitionsResponse`](../../doc/models/list-location-custom-attribute-definitions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLocationCustomAttributeDefinitionsResponse`](../../doc/models/list-location-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -91,7 +91,7 @@ function createLocationCustomAttributeDefinition(
 
 ## Response Type
 
-[`CreateLocationCustomAttributeDefinitionResponse`](../../doc/models/create-location-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateLocationCustomAttributeDefinitionResponse`](../../doc/models/create-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -138,7 +138,7 @@ function deleteLocationCustomAttributeDefinition(string $key): ApiResponse
 
 ## Response Type
 
-[`DeleteLocationCustomAttributeDefinitionResponse`](../../doc/models/delete-location-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteLocationCustomAttributeDefinitionResponse`](../../doc/models/delete-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -178,7 +178,7 @@ function retrieveLocationCustomAttributeDefinition(string $key, ?int $version = 
 
 ## Response Type
 
-[`RetrieveLocationCustomAttributeDefinitionResponse`](../../doc/models/retrieve-location-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLocationCustomAttributeDefinitionResponse`](../../doc/models/retrieve-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -222,7 +222,7 @@ function updateLocationCustomAttributeDefinition(
 
 ## Response Type
 
-[`UpdateLocationCustomAttributeDefinitionResponse`](../../doc/models/update-location-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateLocationCustomAttributeDefinitionResponse`](../../doc/models/update-location-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -271,7 +271,7 @@ function bulkDeleteLocationCustomAttributes(BulkDeleteLocationCustomAttributesRe
 
 ## Response Type
 
-[`BulkDeleteLocationCustomAttributesResponse`](../../doc/models/bulk-delete-location-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkDeleteLocationCustomAttributesResponse`](../../doc/models/bulk-delete-location-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -323,7 +323,7 @@ function bulkUpsertLocationCustomAttributes(BulkUpsertLocationCustomAttributesRe
 
 ## Response Type
 
-[`BulkUpsertLocationCustomAttributesResponse`](../../doc/models/bulk-upsert-location-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpsertLocationCustomAttributesResponse`](../../doc/models/bulk-upsert-location-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -386,7 +386,7 @@ function listLocationCustomAttributes(
 
 ## Response Type
 
-[`ListLocationCustomAttributesResponse`](../../doc/models/list-location-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLocationCustomAttributesResponse`](../../doc/models/list-location-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -431,7 +431,7 @@ function deleteLocationCustomAttribute(string $locationId, string $key): ApiResp
 
 ## Response Type
 
-[`DeleteLocationCustomAttributeResponse`](../../doc/models/delete-location-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteLocationCustomAttributeResponse`](../../doc/models/delete-location-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -485,7 +485,7 @@ function retrieveLocationCustomAttribute(
 
 ## Response Type
 
-[`RetrieveLocationCustomAttributeResponse`](../../doc/models/retrieve-location-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLocationCustomAttributeResponse`](../../doc/models/retrieve-location-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -541,7 +541,7 @@ function upsertLocationCustomAttribute(
 
 ## Response Type
 
-[`UpsertLocationCustomAttributeResponse`](../../doc/models/upsert-location-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertLocationCustomAttributeResponse`](../../doc/models/upsert-location-custom-attribute-response.md).
 
 ## Example Usage
 

@@ -5,32 +5,32 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
-use Square\Models\SquareEvent;
-use Square\Models\SquareEventData;
+use Square\Models\Event;
+use Square\Models\EventData;
 
 /**
- * Builder for model SquareEvent
+ * Builder for model Event
  *
- * @see SquareEvent
+ * @see Event
  */
-class SquareEventBuilder
+class EventBuilder
 {
     /**
-     * @var SquareEvent
+     * @var Event
      */
     private $instance;
 
-    private function __construct(SquareEvent $instance)
+    private function __construct(Event $instance)
     {
         $this->instance = $instance;
     }
 
     /**
-     * Initializes a new square event Builder object.
+     * Initializes a new event Builder object.
      */
     public static function init(): self
     {
-        return new self(new SquareEvent());
+        return new self(new Event());
     }
 
     /**
@@ -117,16 +117,16 @@ class SquareEventBuilder
     /**
      * Sets data field.
      */
-    public function data(?SquareEventData $value): self
+    public function data(?EventData $value): self
     {
         $this->instance->setData($value);
         return $this;
     }
 
     /**
-     * Initializes a new square event object.
+     * Initializes a new event object.
      */
-    public function build(): SquareEvent
+    public function build(): Event
     {
         return CoreHelper::clone($this->instance);
     }

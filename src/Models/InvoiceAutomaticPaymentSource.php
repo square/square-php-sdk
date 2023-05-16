@@ -26,12 +26,12 @@ class InvoiceAutomaticPaymentSource
     /**
      * Use a bank account on file as the automatic payment method. On the due date, Square charges the
      * bank
-     * account for the amount of the payment request.
+     * account for the amount of the payment request if the buyer has approved the payment. The buyer
+     * receives a
+     * request to approve the payment when the invoice is sent or the invoice is updated.
      *
-     * This payment method applies only to recurring invoices that sellers create in the Seller Dashboard
-     * or other
-     * Square first-party applications. The bank account is provided by the customer during the payment
-     * flow.
+     * This payment method applies only to invoices that sellers create in the Seller Dashboard or other
+     * Square product. The bank account is provided by the customer during the payment flow.
      *
      * You cannot set `BANK_ON_FILE` as a payment method using the Invoices API, but you can change a
      * `BANK_ON_FILE`

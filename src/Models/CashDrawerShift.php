@@ -42,26 +42,6 @@ class CashDrawerShift implements \JsonSerializable
     /**
      * @var array
      */
-    private $employeeIds = [];
-
-    /**
-     * @var array
-     */
-    private $openingEmployeeId = [];
-
-    /**
-     * @var array
-     */
-    private $endingEmployeeId = [];
-
-    /**
-     * @var array
-     */
-    private $closingEmployeeId = [];
-
-    /**
-     * @var array
-     */
     private $description = [];
 
     /**
@@ -103,6 +83,41 @@ class CashDrawerShift implements \JsonSerializable
      * @var CashDrawerDevice|null
      */
     private $device;
+
+    /**
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
+     * @var string|null
+     */
+    private $updatedAt;
+
+    /**
+     * @var string|null
+     */
+    private $locationId;
+
+    /**
+     * @var string[]|null
+     */
+    private $teamMemberIds;
+
+    /**
+     * @var string|null
+     */
+    private $openingTeamMemberId;
+
+    /**
+     * @var string|null
+     */
+    private $endingTeamMemberId;
+
+    /**
+     * @var string|null
+     */
+    private $closingTeamMemberId;
 
     /**
      * Returns Id.
@@ -238,144 +253,6 @@ class CashDrawerShift implements \JsonSerializable
     public function unsetClosedAt(): void
     {
         $this->closedAt = [];
-    }
-
-    /**
-     * Returns Employee Ids.
-     * The IDs of all employees that were logged into Square Point of Sale at any
-     * point while the cash drawer shift was open.
-     *
-     * @return string[]|null
-     */
-    public function getEmployeeIds(): ?array
-    {
-        if (count($this->employeeIds) == 0) {
-            return null;
-        }
-        return $this->employeeIds['value'];
-    }
-
-    /**
-     * Sets Employee Ids.
-     * The IDs of all employees that were logged into Square Point of Sale at any
-     * point while the cash drawer shift was open.
-     *
-     * @maps employee_ids
-     *
-     * @param string[]|null $employeeIds
-     */
-    public function setEmployeeIds(?array $employeeIds): void
-    {
-        $this->employeeIds['value'] = $employeeIds;
-    }
-
-    /**
-     * Unsets Employee Ids.
-     * The IDs of all employees that were logged into Square Point of Sale at any
-     * point while the cash drawer shift was open.
-     */
-    public function unsetEmployeeIds(): void
-    {
-        $this->employeeIds = [];
-    }
-
-    /**
-     * Returns Opening Employee Id.
-     * The ID of the employee that started the cash drawer shift.
-     */
-    public function getOpeningEmployeeId(): ?string
-    {
-        if (count($this->openingEmployeeId) == 0) {
-            return null;
-        }
-        return $this->openingEmployeeId['value'];
-    }
-
-    /**
-     * Sets Opening Employee Id.
-     * The ID of the employee that started the cash drawer shift.
-     *
-     * @maps opening_employee_id
-     */
-    public function setOpeningEmployeeId(?string $openingEmployeeId): void
-    {
-        $this->openingEmployeeId['value'] = $openingEmployeeId;
-    }
-
-    /**
-     * Unsets Opening Employee Id.
-     * The ID of the employee that started the cash drawer shift.
-     */
-    public function unsetOpeningEmployeeId(): void
-    {
-        $this->openingEmployeeId = [];
-    }
-
-    /**
-     * Returns Ending Employee Id.
-     * The ID of the employee that ended the cash drawer shift.
-     */
-    public function getEndingEmployeeId(): ?string
-    {
-        if (count($this->endingEmployeeId) == 0) {
-            return null;
-        }
-        return $this->endingEmployeeId['value'];
-    }
-
-    /**
-     * Sets Ending Employee Id.
-     * The ID of the employee that ended the cash drawer shift.
-     *
-     * @maps ending_employee_id
-     */
-    public function setEndingEmployeeId(?string $endingEmployeeId): void
-    {
-        $this->endingEmployeeId['value'] = $endingEmployeeId;
-    }
-
-    /**
-     * Unsets Ending Employee Id.
-     * The ID of the employee that ended the cash drawer shift.
-     */
-    public function unsetEndingEmployeeId(): void
-    {
-        $this->endingEmployeeId = [];
-    }
-
-    /**
-     * Returns Closing Employee Id.
-     * The ID of the employee that closed the cash drawer shift by auditing
-     * the cash drawer contents.
-     */
-    public function getClosingEmployeeId(): ?string
-    {
-        if (count($this->closingEmployeeId) == 0) {
-            return null;
-        }
-        return $this->closingEmployeeId['value'];
-    }
-
-    /**
-     * Sets Closing Employee Id.
-     * The ID of the employee that closed the cash drawer shift by auditing
-     * the cash drawer contents.
-     *
-     * @maps closing_employee_id
-     */
-    public function setClosingEmployeeId(?string $closingEmployeeId): void
-    {
-        $this->closingEmployeeId['value'] = $closingEmployeeId;
-    }
-
-    /**
-     * Unsets Closing Employee Id.
-     * The ID of the employee that closed the cash drawer shift by auditing
-     * the cash drawer contents.
-     */
-    public function unsetClosingEmployeeId(): void
-    {
-        $this->closingEmployeeId = [];
     }
 
     /**
@@ -653,6 +530,154 @@ class CashDrawerShift implements \JsonSerializable
     }
 
     /**
+     * Returns Created At.
+     * The shift start time in RFC 3339 format.
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Sets Created At.
+     * The shift start time in RFC 3339 format.
+     *
+     * @maps created_at
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Returns Updated At.
+     * The shift updated at time in RFC 3339 format.
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Sets Updated At.
+     * The shift updated at time in RFC 3339 format.
+     *
+     * @maps updated_at
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * Returns Location Id.
+     * The ID of the location the cash drawer shift belongs to.
+     */
+    public function getLocationId(): ?string
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * Sets Location Id.
+     * The ID of the location the cash drawer shift belongs to.
+     *
+     * @maps location_id
+     */
+    public function setLocationId(?string $locationId): void
+    {
+        $this->locationId = $locationId;
+    }
+
+    /**
+     * Returns Team Member Ids.
+     * The IDs of all team members that were logged into Square Point of Sale at any
+     * point while the cash drawer shift was open.
+     *
+     * @return string[]|null
+     */
+    public function getTeamMemberIds(): ?array
+    {
+        return $this->teamMemberIds;
+    }
+
+    /**
+     * Sets Team Member Ids.
+     * The IDs of all team members that were logged into Square Point of Sale at any
+     * point while the cash drawer shift was open.
+     *
+     * @maps team_member_ids
+     *
+     * @param string[]|null $teamMemberIds
+     */
+    public function setTeamMemberIds(?array $teamMemberIds): void
+    {
+        $this->teamMemberIds = $teamMemberIds;
+    }
+
+    /**
+     * Returns Opening Team Member Id.
+     * The ID of the team member that started the cash drawer shift.
+     */
+    public function getOpeningTeamMemberId(): ?string
+    {
+        return $this->openingTeamMemberId;
+    }
+
+    /**
+     * Sets Opening Team Member Id.
+     * The ID of the team member that started the cash drawer shift.
+     *
+     * @maps opening_team_member_id
+     */
+    public function setOpeningTeamMemberId(?string $openingTeamMemberId): void
+    {
+        $this->openingTeamMemberId = $openingTeamMemberId;
+    }
+
+    /**
+     * Returns Ending Team Member Id.
+     * The ID of the team member that ended the cash drawer shift.
+     */
+    public function getEndingTeamMemberId(): ?string
+    {
+        return $this->endingTeamMemberId;
+    }
+
+    /**
+     * Sets Ending Team Member Id.
+     * The ID of the team member that ended the cash drawer shift.
+     *
+     * @maps ending_team_member_id
+     */
+    public function setEndingTeamMemberId(?string $endingTeamMemberId): void
+    {
+        $this->endingTeamMemberId = $endingTeamMemberId;
+    }
+
+    /**
+     * Returns Closing Team Member Id.
+     * The ID of the team member that closed the cash drawer shift by auditing
+     * the cash drawer contents.
+     */
+    public function getClosingTeamMemberId(): ?string
+    {
+        return $this->closingTeamMemberId;
+    }
+
+    /**
+     * Sets Closing Team Member Id.
+     * The ID of the team member that closed the cash drawer shift by auditing
+     * the cash drawer contents.
+     *
+     * @maps closing_team_member_id
+     */
+    public function setClosingTeamMemberId(?string $closingTeamMemberId): void
+    {
+        $this->closingTeamMemberId = $closingTeamMemberId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -665,58 +690,67 @@ class CashDrawerShift implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                  = $this->id;
+            $json['id']                     = $this->id;
         }
         if (isset($this->state)) {
-            $json['state']               = $this->state;
+            $json['state']                  = $this->state;
         }
         if (!empty($this->openedAt)) {
-            $json['opened_at']           = $this->openedAt['value'];
+            $json['opened_at']              = $this->openedAt['value'];
         }
         if (!empty($this->endedAt)) {
-            $json['ended_at']            = $this->endedAt['value'];
+            $json['ended_at']               = $this->endedAt['value'];
         }
         if (!empty($this->closedAt)) {
-            $json['closed_at']           = $this->closedAt['value'];
-        }
-        if (!empty($this->employeeIds)) {
-            $json['employee_ids']        = $this->employeeIds['value'];
-        }
-        if (!empty($this->openingEmployeeId)) {
-            $json['opening_employee_id'] = $this->openingEmployeeId['value'];
-        }
-        if (!empty($this->endingEmployeeId)) {
-            $json['ending_employee_id']  = $this->endingEmployeeId['value'];
-        }
-        if (!empty($this->closingEmployeeId)) {
-            $json['closing_employee_id'] = $this->closingEmployeeId['value'];
+            $json['closed_at']              = $this->closedAt['value'];
         }
         if (!empty($this->description)) {
-            $json['description']         = $this->description['value'];
+            $json['description']            = $this->description['value'];
         }
         if (isset($this->openedCashMoney)) {
-            $json['opened_cash_money']   = $this->openedCashMoney;
+            $json['opened_cash_money']      = $this->openedCashMoney;
         }
         if (isset($this->cashPaymentMoney)) {
-            $json['cash_payment_money']  = $this->cashPaymentMoney;
+            $json['cash_payment_money']     = $this->cashPaymentMoney;
         }
         if (isset($this->cashRefundsMoney)) {
-            $json['cash_refunds_money']  = $this->cashRefundsMoney;
+            $json['cash_refunds_money']     = $this->cashRefundsMoney;
         }
         if (isset($this->cashPaidInMoney)) {
-            $json['cash_paid_in_money']  = $this->cashPaidInMoney;
+            $json['cash_paid_in_money']     = $this->cashPaidInMoney;
         }
         if (isset($this->cashPaidOutMoney)) {
-            $json['cash_paid_out_money'] = $this->cashPaidOutMoney;
+            $json['cash_paid_out_money']    = $this->cashPaidOutMoney;
         }
         if (isset($this->expectedCashMoney)) {
-            $json['expected_cash_money'] = $this->expectedCashMoney;
+            $json['expected_cash_money']    = $this->expectedCashMoney;
         }
         if (isset($this->closedCashMoney)) {
-            $json['closed_cash_money']   = $this->closedCashMoney;
+            $json['closed_cash_money']      = $this->closedCashMoney;
         }
         if (isset($this->device)) {
-            $json['device']              = $this->device;
+            $json['device']                 = $this->device;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']             = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']             = $this->updatedAt;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']            = $this->locationId;
+        }
+        if (isset($this->teamMemberIds)) {
+            $json['team_member_ids']        = $this->teamMemberIds;
+        }
+        if (isset($this->openingTeamMemberId)) {
+            $json['opening_team_member_id'] = $this->openingTeamMemberId;
+        }
+        if (isset($this->endingTeamMemberId)) {
+            $json['ending_team_member_id']  = $this->endingTeamMemberId;
+        }
+        if (isset($this->closingTeamMemberId)) {
+            $json['closing_team_member_id'] = $this->closingTeamMemberId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

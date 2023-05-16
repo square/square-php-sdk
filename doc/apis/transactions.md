@@ -49,7 +49,7 @@ function listTransactions(
 
 ## Response Type
 
-[`ListTransactionsResponse`](../../doc/models/list-transactions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListTransactionsResponse`](../../doc/models/list-transactions-response.md).
 
 ## Example Usage
 
@@ -89,7 +89,7 @@ function retrieveTransaction(string $locationId, string $transactionId): ApiResp
 
 ## Response Type
 
-[`RetrieveTransactionResponse`](../../doc/models/retrieve-transaction-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveTransactionResponse`](../../doc/models/retrieve-transaction-response.md).
 
 ## Example Usage
 
@@ -138,7 +138,7 @@ function captureTransaction(string $locationId, string $transactionId): ApiRespo
 
 ## Response Type
 
-[`CaptureTransactionResponse`](../../doc/models/capture-transaction-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CaptureTransactionResponse`](../../doc/models/capture-transaction-response.md).
 
 ## Example Usage
 
@@ -187,7 +187,7 @@ function voidTransaction(string $locationId, string $transactionId): ApiResponse
 
 ## Response Type
 
-[`VoidTransactionResponse`](../../doc/models/void-transaction-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`VoidTransactionResponse`](../../doc/models/void-transaction-response.md).
 
 ## Example Usage
 

@@ -40,7 +40,7 @@ function createTerminalAction(CreateTerminalActionRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateTerminalActionResponse`](../../doc/models/create-terminal-action-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateTerminalActionResponse`](../../doc/models/create-terminal-action-response.md).
 
 ## Example Usage
 
@@ -91,7 +91,7 @@ function searchTerminalActions(SearchTerminalActionsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchTerminalActionsResponse`](../../doc/models/search-terminal-actions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchTerminalActionsResponse`](../../doc/models/search-terminal-actions-response.md).
 
 ## Example Usage
 
@@ -148,7 +148,7 @@ function getTerminalAction(string $actionId): ApiResponse
 
 ## Response Type
 
-[`GetTerminalActionResponse`](../../doc/models/get-terminal-action-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetTerminalActionResponse`](../../doc/models/get-terminal-action-response.md).
 
 ## Example Usage
 
@@ -185,7 +185,7 @@ function cancelTerminalAction(string $actionId): ApiResponse
 
 ## Response Type
 
-[`CancelTerminalActionResponse`](../../doc/models/cancel-terminal-action-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelTerminalActionResponse`](../../doc/models/cancel-terminal-action-response.md).
 
 ## Example Usage
 
@@ -223,7 +223,7 @@ function createTerminalCheckout(CreateTerminalCheckoutRequest $body): ApiRespons
 
 ## Response Type
 
-[`CreateTerminalCheckoutResponse`](../../doc/models/create-terminal-checkout-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateTerminalCheckoutResponse`](../../doc/models/create-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -274,7 +274,7 @@ function searchTerminalCheckouts(SearchTerminalCheckoutsRequest $body): ApiRespo
 
 ## Response Type
 
-[`SearchTerminalCheckoutsResponse`](../../doc/models/search-terminal-checkouts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchTerminalCheckoutsResponse`](../../doc/models/search-terminal-checkouts-response.md).
 
 ## Example Usage
 
@@ -322,7 +322,7 @@ function getTerminalCheckout(string $checkoutId): ApiResponse
 
 ## Response Type
 
-[`GetTerminalCheckoutResponse`](../../doc/models/get-terminal-checkout-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetTerminalCheckoutResponse`](../../doc/models/get-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -359,7 +359,7 @@ function cancelTerminalCheckout(string $checkoutId): ApiResponse
 
 ## Response Type
 
-[`CancelTerminalCheckoutResponse`](../../doc/models/cancel-terminal-checkout-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelTerminalCheckoutResponse`](../../doc/models/cancel-terminal-checkout-response.md).
 
 ## Example Usage
 
@@ -396,7 +396,7 @@ function createTerminalRefund(CreateTerminalRefundRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateTerminalRefundResponse`](../../doc/models/create-terminal-refund-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateTerminalRefundResponse`](../../doc/models/create-terminal-refund-response.md).
 
 ## Example Usage
 
@@ -446,7 +446,7 @@ function searchTerminalRefunds(SearchTerminalRefundsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchTerminalRefundsResponse`](../../doc/models/search-terminal-refunds-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchTerminalRefundsResponse`](../../doc/models/search-terminal-refunds-response.md).
 
 ## Example Usage
 
@@ -494,7 +494,7 @@ function getTerminalRefund(string $terminalRefundId): ApiResponse
 
 ## Response Type
 
-[`GetTerminalRefundResponse`](../../doc/models/get-terminal-refund-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetTerminalRefundResponse`](../../doc/models/get-terminal-refund-response.md).
 
 ## Example Usage
 
@@ -531,7 +531,7 @@ function cancelTerminalRefund(string $terminalRefundId): ApiResponse
 
 ## Response Type
 
-[`CancelTerminalRefundResponse`](../../doc/models/cancel-terminal-refund-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelTerminalRefundResponse`](../../doc/models/cancel-terminal-refund-response.md).
 
 ## Example Usage
 

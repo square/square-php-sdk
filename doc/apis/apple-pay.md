@@ -35,7 +35,7 @@ function registerDomain(RegisterDomainRequest $body): ApiResponse
 
 ## Response Type
 
-[`RegisterDomainResponse`](../../doc/models/register-domain-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RegisterDomainResponse`](../../doc/models/register-domain-response.md).
 
 ## Example Usage
 

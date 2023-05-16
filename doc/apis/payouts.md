@@ -47,7 +47,7 @@ function listPayouts(
 
 ## Response Type
 
-[`ListPayoutsResponse`](../../doc/models/list-payouts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListPayoutsResponse`](../../doc/models/list-payouts-response.md).
 
 ## Example Usage
 
@@ -83,7 +83,7 @@ function getPayout(string $payoutId): ApiResponse
 
 ## Response Type
 
-[`GetPayoutResponse`](../../doc/models/get-payout-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetPayoutResponse`](../../doc/models/get-payout-response.md).
 
 ## Example Usage
 
@@ -129,7 +129,7 @@ function listPayoutEntries(
 
 ## Response Type
 
-[`ListPayoutEntriesResponse`](../../doc/models/list-payout-entries-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListPayoutEntriesResponse`](../../doc/models/list-payout-entries-response.md).
 
 ## Example Usage
 

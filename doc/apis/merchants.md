@@ -39,7 +39,7 @@ function listMerchants(?int $cursor = null): ApiResponse
 
 ## Response Type
 
-[`ListMerchantsResponse`](../../doc/models/list-merchants-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListMerchantsResponse`](../../doc/models/list-merchants-response.md).
 
 ## Example Usage
 
@@ -74,7 +74,7 @@ function retrieveMerchant(string $merchantId): ApiResponse
 
 ## Response Type
 
-[`RetrieveMerchantResponse`](../../doc/models/retrieve-merchant-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveMerchantResponse`](../../doc/models/retrieve-merchant-response.md).
 
 ## Example Usage
 

@@ -475,7 +475,7 @@ class Location implements \JsonSerializable
     /**
      * Returns Business Name.
      * The name of the location's overall business. This name is present on receipts and other customer-
-     * facing branding.
+     * facing branding, and can be changed no more than three times in a twelve-month period.
      */
     public function getBusinessName(): ?string
     {
@@ -488,7 +488,7 @@ class Location implements \JsonSerializable
     /**
      * Sets Business Name.
      * The name of the location's overall business. This name is present on receipts and other customer-
-     * facing branding.
+     * facing branding, and can be changed no more than three times in a twelve-month period.
      *
      * @maps business_name
      */
@@ -500,7 +500,7 @@ class Location implements \JsonSerializable
     /**
      * Unsets Business Name.
      * The name of the location's overall business. This name is present on receipts and other customer-
-     * facing branding.
+     * facing branding, and can be changed no more than three times in a twelve-month period.
      */
     public function unsetBusinessName(): void
     {

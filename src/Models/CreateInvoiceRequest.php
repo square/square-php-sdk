@@ -60,8 +60,8 @@ class CreateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
-     * apis/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -74,8 +74,8 @@ class CreateInvoiceRequest implements \JsonSerializable
      * provide `idempotency_key` (or provide an empty string as the value), the endpoint
      * treats each request as independent.
      *
-     * For more information, see [Idempotency](https://developer.squareup.com/docs/working-with-
-     * apis/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      *
      * @maps idempotency_key
      */

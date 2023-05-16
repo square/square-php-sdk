@@ -46,7 +46,7 @@ function listBreakTypes(?string $locationId = null, ?int $limit = null, ?string 
 
 ## Response Type
 
-[`ListBreakTypesResponse`](../../doc/models/list-break-types-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListBreakTypesResponse`](../../doc/models/list-break-types-response.md).
 
 ## Example Usage
 
@@ -94,7 +94,7 @@ function createBreakType(CreateBreakTypeRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateBreakTypeResponse`](../../doc/models/create-break-type-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateBreakTypeResponse`](../../doc/models/create-break-type-response.md).
 
 ## Example Usage
 
@@ -142,7 +142,7 @@ function deleteBreakType(string $id): ApiResponse
 
 ## Response Type
 
-[`DeleteBreakTypeResponse`](../../doc/models/delete-break-type-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteBreakTypeResponse`](../../doc/models/delete-break-type-response.md).
 
 ## Example Usage
 
@@ -179,7 +179,7 @@ function getBreakType(string $id): ApiResponse
 
 ## Response Type
 
-[`GetBreakTypeResponse`](../../doc/models/get-break-type-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetBreakTypeResponse`](../../doc/models/get-break-type-response.md).
 
 ## Example Usage
 
@@ -217,7 +217,7 @@ function updateBreakType(string $id, UpdateBreakTypeRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpdateBreakTypeResponse`](../../doc/models/update-break-type-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateBreakTypeResponse`](../../doc/models/update-break-type-response.md).
 
 ## Example Usage
 
@@ -272,7 +272,7 @@ function listEmployeeWages(?string $employeeId = null, ?int $limit = null, ?stri
 
 ## Response Type
 
-[`ListEmployeeWagesResponse`](../../doc/models/list-employee-wages-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListEmployeeWagesResponse`](../../doc/models/list-employee-wages-response.md).
 
 ## Example Usage
 
@@ -309,7 +309,7 @@ function getEmployeeWage(string $id): ApiResponse
 
 ## Response Type
 
-[`GetEmployeeWageResponse`](../../doc/models/get-employee-wage-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetEmployeeWageResponse`](../../doc/models/get-employee-wage-response.md).
 
 ## Example Usage
 
@@ -364,7 +364,7 @@ function createShift(CreateShiftRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateShiftResponse`](../../doc/models/create-shift-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateShiftResponse`](../../doc/models/create-shift-response.md).
 
 ## Example Usage
 
@@ -450,7 +450,7 @@ function searchShifts(SearchShiftsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchShiftsResponse`](../../doc/models/search-shifts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchShiftsResponse`](../../doc/models/search-shifts-response.md).
 
 ## Example Usage
 
@@ -509,7 +509,7 @@ function deleteShift(string $id): ApiResponse
 
 ## Response Type
 
-[`DeleteShiftResponse`](../../doc/models/delete-shift-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteShiftResponse`](../../doc/models/delete-shift-response.md).
 
 ## Example Usage
 
@@ -546,7 +546,7 @@ function getShift(string $id): ApiResponse
 
 ## Response Type
 
-[`GetShiftResponse`](../../doc/models/get-shift-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetShiftResponse`](../../doc/models/get-shift-response.md).
 
 ## Example Usage
 
@@ -590,7 +590,7 @@ function updateShift(string $id, UpdateShiftRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpdateShiftResponse`](../../doc/models/update-shift-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateShiftResponse`](../../doc/models/update-shift-response.md).
 
 ## Example Usage
 
@@ -672,7 +672,7 @@ function listTeamMemberWages(
 
 ## Response Type
 
-[`ListTeamMemberWagesResponse`](../../doc/models/list-team-member-wages-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListTeamMemberWagesResponse`](../../doc/models/list-team-member-wages-response.md).
 
 ## Example Usage
 
@@ -707,7 +707,7 @@ function getTeamMemberWage(string $id): ApiResponse
 
 ## Response Type
 
-[`GetTeamMemberWageResponse`](../../doc/models/get-team-member-wage-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetTeamMemberWageResponse`](../../doc/models/get-team-member-wage-response.md).
 
 ## Example Usage
 
@@ -745,7 +745,7 @@ function listWorkweekConfigs(?int $limit = null, ?string $cursor = null): ApiRes
 
 ## Response Type
 
-[`ListWorkweekConfigsResponse`](../../doc/models/list-workweek-configs-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListWorkweekConfigsResponse`](../../doc/models/list-workweek-configs-response.md).
 
 ## Example Usage
 
@@ -781,7 +781,7 @@ function updateWorkweekConfig(string $id, UpdateWorkweekConfigRequest $body): Ap
 
 ## Response Type
 
-[`UpdateWorkweekConfigResponse`](../../doc/models/update-workweek-config-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateWorkweekConfigResponse`](../../doc/models/update-workweek-config-response.md).
 
 ## Example Usage
 

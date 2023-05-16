@@ -55,7 +55,7 @@ function batchDeleteCatalogObjects(BatchDeleteCatalogObjectsRequest $body): ApiR
 
 ## Response Type
 
-[`BatchDeleteCatalogObjectsResponse`](../../doc/models/batch-delete-catalog-objects-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchDeleteCatalogObjectsResponse`](../../doc/models/batch-delete-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -104,7 +104,7 @@ function batchRetrieveCatalogObjects(BatchRetrieveCatalogObjectsRequest $body): 
 
 ## Response Type
 
-[`BatchRetrieveCatalogObjectsResponse`](../../doc/models/batch-retrieve-catalog-objects-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveCatalogObjectsResponse`](../../doc/models/batch-retrieve-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -160,7 +160,7 @@ function batchUpsertCatalogObjects(BatchUpsertCatalogObjectsRequest $body): ApiR
 
 ## Response Type
 
-[`BatchUpsertCatalogObjectsResponse`](../../doc/models/batch-upsert-catalog-objects-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchUpsertCatalogObjectsResponse`](../../doc/models/batch-upsert-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -342,7 +342,7 @@ function createCatalogImage(
 
 ## Response Type
 
-[`CreateCatalogImageResponse`](../../doc/models/create-catalog-image-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCatalogImageResponse`](../../doc/models/create-catalog-image-response.md).
 
 ## Example Usage
 
@@ -402,7 +402,7 @@ function updateCatalogImage(
 
 ## Response Type
 
-[`UpdateCatalogImageResponse`](../../doc/models/update-catalog-image-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateCatalogImageResponse`](../../doc/models/update-catalog-image-response.md).
 
 ## Example Usage
 
@@ -441,7 +441,7 @@ function catalogInfo(): ApiResponse
 
 ## Response Type
 
-[`CatalogInfoResponse`](../../doc/models/catalog-info-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CatalogInfoResponse`](../../doc/models/catalog-info-response.md).
 
 ## Example Usage
 
@@ -485,7 +485,7 @@ function listCatalog(?string $cursor = null, ?string $types = null, ?int $catalo
 
 ## Response Type
 
-[`ListCatalogResponse`](../../doc/models/list-catalog-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCatalogResponse`](../../doc/models/list-catalog-response.md).
 
 ## Example Usage
 
@@ -524,7 +524,7 @@ function upsertCatalogObject(UpsertCatalogObjectRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpsertCatalogObjectResponse`](../../doc/models/upsert-catalog-object-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertCatalogObjectResponse`](../../doc/models/upsert-catalog-object-response.md).
 
 ## Example Usage
 
@@ -618,7 +618,7 @@ function deleteCatalogObject(string $objectId): ApiResponse
 
 ## Response Type
 
-[`DeleteCatalogObjectResponse`](../../doc/models/delete-catalog-object-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCatalogObjectResponse`](../../doc/models/delete-catalog-object-response.md).
 
 ## Example Usage
 
@@ -667,7 +667,7 @@ function retrieveCatalogObject(
 
 ## Response Type
 
-[`RetrieveCatalogObjectResponse`](../../doc/models/retrieve-catalog-object-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCatalogObjectResponse`](../../doc/models/retrieve-catalog-object-response.md).
 
 ## Example Usage
 
@@ -718,7 +718,7 @@ function searchCatalogObjects(SearchCatalogObjectsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchCatalogObjectsResponse`](../../doc/models/search-catalog-objects-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchCatalogObjectsResponse`](../../doc/models/search-catalog-objects-response.md).
 
 ## Example Usage
 
@@ -780,7 +780,7 @@ function searchCatalogItems(SearchCatalogItemsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchCatalogItemsResponse`](../../doc/models/search-catalog-items-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchCatalogItemsResponse`](../../doc/models/search-catalog-items-response.md).
 
 ## Example Usage
 
@@ -868,7 +868,7 @@ function updateItemModifierLists(UpdateItemModifierListsRequest $body): ApiRespo
 
 ## Response Type
 
-[`UpdateItemModifierListsResponse`](../../doc/models/update-item-modifier-lists-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateItemModifierListsResponse`](../../doc/models/update-item-modifier-lists-response.md).
 
 ## Example Usage
 
@@ -924,7 +924,7 @@ function updateItemTaxes(UpdateItemTaxesRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpdateItemTaxesResponse`](../../doc/models/update-item-taxes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateItemTaxesResponse`](../../doc/models/update-item-taxes-response.md).
 
 ## Example Usage
 

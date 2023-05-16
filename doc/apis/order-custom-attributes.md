@@ -50,7 +50,7 @@ function listOrderCustomAttributeDefinitions(
 
 ## Response Type
 
-[`ListOrderCustomAttributeDefinitionsResponse`](../../doc/models/list-order-custom-attribute-definitions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListOrderCustomAttributeDefinitionsResponse`](../../doc/models/list-order-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -89,7 +89,7 @@ function createOrderCustomAttributeDefinition(CreateOrderCustomAttributeDefiniti
 
 ## Response Type
 
-[`CreateOrderCustomAttributeDefinitionResponse`](../../doc/models/create-order-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateOrderCustomAttributeDefinitionResponse`](../../doc/models/create-order-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -137,7 +137,7 @@ function deleteOrderCustomAttributeDefinition(string $key): ApiResponse
 
 ## Response Type
 
-[`DeleteOrderCustomAttributeDefinitionResponse`](../../doc/models/delete-order-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteOrderCustomAttributeDefinitionResponse`](../../doc/models/delete-order-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -179,7 +179,7 @@ function retrieveOrderCustomAttributeDefinition(string $key, ?int $version = nul
 
 ## Response Type
 
-[`RetrieveOrderCustomAttributeDefinitionResponse`](../../doc/models/retrieve-order-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveOrderCustomAttributeDefinitionResponse`](../../doc/models/retrieve-order-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -222,7 +222,7 @@ function updateOrderCustomAttributeDefinition(
 
 ## Response Type
 
-[`UpdateOrderCustomAttributeDefinitionResponse`](../../doc/models/update-order-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateOrderCustomAttributeDefinitionResponse`](../../doc/models/update-order-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -285,7 +285,7 @@ function bulkDeleteOrderCustomAttributes(BulkDeleteOrderCustomAttributesRequest 
 
 ## Response Type
 
-[`BulkDeleteOrderCustomAttributesResponse`](../../doc/models/bulk-delete-order-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkDeleteOrderCustomAttributesResponse`](../../doc/models/bulk-delete-order-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -348,7 +348,7 @@ function bulkUpsertOrderCustomAttributes(BulkUpsertOrderCustomAttributesRequest 
 
 ## Response Type
 
-[`BulkUpsertOrderCustomAttributesResponse`](../../doc/models/bulk-upsert-order-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpsertOrderCustomAttributesResponse`](../../doc/models/bulk-upsert-order-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -413,7 +413,7 @@ function listOrderCustomAttributes(
 
 ## Response Type
 
-[`ListOrderCustomAttributesResponse`](../../doc/models/list-order-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListOrderCustomAttributesResponse`](../../doc/models/list-order-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -460,7 +460,7 @@ function deleteOrderCustomAttribute(string $orderId, string $customAttributeKey)
 
 ## Response Type
 
-[`DeleteOrderCustomAttributeResponse`](../../doc/models/delete-order-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteOrderCustomAttributeResponse`](../../doc/models/delete-order-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -517,7 +517,7 @@ function retrieveOrderCustomAttribute(
 
 ## Response Type
 
-[`RetrieveOrderCustomAttributeResponse`](../../doc/models/retrieve-order-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveOrderCustomAttributeResponse`](../../doc/models/retrieve-order-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -576,7 +576,7 @@ function upsertOrderCustomAttribute(
 
 ## Response Type
 
-[`UpsertOrderCustomAttributeResponse`](../../doc/models/upsert-order-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertOrderCustomAttributeResponse`](../../doc/models/upsert-order-custom-attribute-response.md).
 
 ## Example Usage
 

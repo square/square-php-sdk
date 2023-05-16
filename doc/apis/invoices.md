@@ -35,12 +35,12 @@ function listInvoices(string $locationId, ?string $cursor = null, ?int $limit = 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Query, Required | The ID of the location for which to list invoices. |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `limit` | `?int` | Query, Optional | The maximum number of invoices to return (200 is the maximum `limit`).<br>If not provided, the server uses a default limit of 100 invoices. |
 
 ## Response Type
 
-[`ListInvoicesResponse`](../../doc/models/list-invoices-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListInvoicesResponse`](../../doc/models/list-invoices-response.md).
 
 ## Example Usage
 
@@ -81,7 +81,7 @@ function createInvoice(CreateInvoiceRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateInvoiceResponse`](../../doc/models/create-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateInvoiceResponse`](../../doc/models/create-invoice-response.md).
 
 ## Example Usage
 
@@ -183,7 +183,7 @@ function searchInvoices(SearchInvoicesRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchInvoicesResponse`](../../doc/models/search-invoices-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchInvoicesResponse`](../../doc/models/search-invoices-response.md).
 
 ## Example Usage
 
@@ -243,7 +243,7 @@ function deleteInvoice(string $invoiceId, ?int $version = null): ApiResponse
 
 ## Response Type
 
-[`DeleteInvoiceResponse`](../../doc/models/delete-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteInvoiceResponse`](../../doc/models/delete-invoice-response.md).
 
 ## Example Usage
 
@@ -280,7 +280,7 @@ function getInvoice(string $invoiceId): ApiResponse
 
 ## Response Type
 
-[`GetInvoiceResponse`](../../doc/models/get-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetInvoiceResponse`](../../doc/models/get-invoice-response.md).
 
 ## Example Usage
 
@@ -321,7 +321,7 @@ function updateInvoice(string $invoiceId, UpdateInvoiceRequest $body): ApiRespon
 
 ## Response Type
 
-[`UpdateInvoiceResponse`](../../doc/models/update-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateInvoiceResponse`](../../doc/models/update-invoice-response.md).
 
 ## Example Usage
 
@@ -386,7 +386,7 @@ function cancelInvoice(string $invoiceId, CancelInvoiceRequest $body): ApiRespon
 
 ## Response Type
 
-[`CancelInvoiceResponse`](../../doc/models/cancel-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelInvoiceResponse`](../../doc/models/cancel-invoice-response.md).
 
 ## Example Usage
 
@@ -441,7 +441,7 @@ function publishInvoice(string $invoiceId, PublishInvoiceRequest $body): ApiResp
 
 ## Response Type
 
-[`PublishInvoiceResponse`](../../doc/models/publish-invoice-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`PublishInvoiceResponse`](../../doc/models/publish-invoice-response.md).
 
 ## Example Usage
 

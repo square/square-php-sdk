@@ -36,7 +36,7 @@ function listWebhookEventTypes(?string $apiVersion = null): ApiResponse
 
 ## Response Type
 
-[`ListWebhookEventTypesResponse`](../../doc/models/list-webhook-event-types-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListWebhookEventTypesResponse`](../../doc/models/list-webhook-event-types-response.md).
 
 ## Example Usage
 
@@ -72,14 +72,14 @@ function listWebhookSubscriptions(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/api101/pagination). |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this to retrieve the next set of results for your original query.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `includeDisabled` | `?bool` | Query, Optional | Includes disabled [Subscription](entity:WebhookSubscription)s.<br>By default, all enabled [Subscription](entity:WebhookSubscription)s are returned.<br>**Default**: `false` |
 | `sortOrder` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | Sorts the returned list by when the [Subscription](entity:WebhookSubscription) was created with the specified order.<br>This field defaults to ASC. |
 | `limit` | `?int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br>The default value of 100 is also the maximum allowed value.<br><br>Default: 100 |
 
 ## Response Type
 
-[`ListWebhookSubscriptionsResponse`](../../doc/models/list-webhook-subscriptions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListWebhookSubscriptionsResponse`](../../doc/models/list-webhook-subscriptions-response.md).
 
 ## Example Usage
 
@@ -116,7 +116,7 @@ function createWebhookSubscription(CreateWebhookSubscriptionRequest $body): ApiR
 
 ## Response Type
 
-[`CreateWebhookSubscriptionResponse`](../../doc/models/create-webhook-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateWebhookSubscriptionResponse`](../../doc/models/create-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -167,7 +167,7 @@ function deleteWebhookSubscription(string $subscriptionId): ApiResponse
 
 ## Response Type
 
-[`DeleteWebhookSubscriptionResponse`](../../doc/models/delete-webhook-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteWebhookSubscriptionResponse`](../../doc/models/delete-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -204,7 +204,7 @@ function retrieveWebhookSubscription(string $subscriptionId): ApiResponse
 
 ## Response Type
 
-[`RetrieveWebhookSubscriptionResponse`](../../doc/models/retrieve-webhook-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveWebhookSubscriptionResponse`](../../doc/models/retrieve-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -242,7 +242,7 @@ function updateWebhookSubscription(string $subscriptionId, UpdateWebhookSubscrip
 
 ## Response Type
 
-[`UpdateWebhookSubscriptionResponse`](../../doc/models/update-webhook-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateWebhookSubscriptionResponse`](../../doc/models/update-webhook-subscription-response.md).
 
 ## Example Usage
 
@@ -295,7 +295,7 @@ function updateWebhookSubscriptionSignatureKey(
 
 ## Response Type
 
-[`UpdateWebhookSubscriptionSignatureKeyResponse`](../../doc/models/update-webhook-subscription-signature-key-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateWebhookSubscriptionSignatureKeyResponse`](../../doc/models/update-webhook-subscription-signature-key-response.md).
 
 ## Example Usage
 
@@ -340,7 +340,7 @@ function testWebhookSubscription(string $subscriptionId, TestWebhookSubscription
 
 ## Response Type
 
-[`TestWebhookSubscriptionResponse`](../../doc/models/test-webhook-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`TestWebhookSubscriptionResponse`](../../doc/models/test-webhook-subscription-response.md).
 
 ## Example Usage
 

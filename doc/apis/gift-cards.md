@@ -46,7 +46,7 @@ function listGiftCards(
 
 ## Response Type
 
-[`ListGiftCardsResponse`](../../doc/models/list-gift-cards-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListGiftCardsResponse`](../../doc/models/list-gift-cards-response.md).
 
 ## Example Usage
 
@@ -83,7 +83,7 @@ function createGiftCard(CreateGiftCardRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateGiftCardResponse`](../../doc/models/create-gift-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateGiftCardResponse`](../../doc/models/create-gift-card-response.md).
 
 ## Example Usage
 
@@ -126,7 +126,7 @@ function retrieveGiftCardFromGAN(RetrieveGiftCardFromGANRequest $body): ApiRespo
 
 ## Response Type
 
-[`RetrieveGiftCardFromGANResponse`](../../doc/models/retrieve-gift-card-from-gan-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveGiftCardFromGANResponse`](../../doc/models/retrieve-gift-card-from-gan-response.md).
 
 ## Example Usage
 
@@ -165,7 +165,7 @@ function retrieveGiftCardFromNonce(RetrieveGiftCardFromNonceRequest $body): ApiR
 
 ## Response Type
 
-[`RetrieveGiftCardFromNonceResponse`](../../doc/models/retrieve-gift-card-from-nonce-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveGiftCardFromNonceResponse`](../../doc/models/retrieve-gift-card-from-nonce-response.md).
 
 ## Example Usage
 
@@ -205,7 +205,7 @@ function linkCustomerToGiftCard(string $giftCardId, LinkCustomerToGiftCardReques
 
 ## Response Type
 
-[`LinkCustomerToGiftCardResponse`](../../doc/models/link-customer-to-gift-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`LinkCustomerToGiftCardResponse`](../../doc/models/link-customer-to-gift-card-response.md).
 
 ## Example Usage
 
@@ -250,7 +250,7 @@ function unlinkCustomerFromGiftCard(string $giftCardId, UnlinkCustomerFromGiftCa
 
 ## Response Type
 
-[`UnlinkCustomerFromGiftCardResponse`](../../doc/models/unlink-customer-from-gift-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UnlinkCustomerFromGiftCardResponse`](../../doc/models/unlink-customer-from-gift-card-response.md).
 
 ## Example Usage
 
@@ -294,7 +294,7 @@ function retrieveGiftCard(string $id): ApiResponse
 
 ## Response Type
 
-[`RetrieveGiftCardResponse`](../../doc/models/retrieve-gift-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveGiftCardResponse`](../../doc/models/retrieve-gift-card-response.md).
 
 ## Example Usage
 

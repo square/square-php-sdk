@@ -47,7 +47,7 @@ function v1ListOrders(
 
 ## Response Type
 
-[`V1Order[]`](../../doc/models/v1-order.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Order[]`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -87,7 +87,7 @@ function v1RetrieveOrder(string $locationId, string $orderId): ApiResponse
 
 ## Response Type
 
-[`V1Order`](../../doc/models/v1-order.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Order`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -133,7 +133,7 @@ function v1UpdateOrder(string $locationId, string $orderId, V1UpdateOrderRequest
 
 ## Response Type
 
-[`V1Order`](../../doc/models/v1-order.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Order`](../../doc/models/v1-order.md).
 
 ## Example Usage
 
@@ -206,7 +206,7 @@ function v1ListPayments(
 
 ## Response Type
 
-[`V1Payment[]`](../../doc/models/v1-payment.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Payment[]`](../../doc/models/v1-payment.md).
 
 ## Example Usage
 
@@ -251,7 +251,7 @@ function v1RetrievePayment(string $locationId, string $paymentId): ApiResponse
 
 ## Response Type
 
-[`V1Payment`](../../doc/models/v1-payment.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Payment`](../../doc/models/v1-payment.md).
 
 ## Example Usage
 
@@ -307,7 +307,7 @@ function v1ListRefunds(
 
 ## Response Type
 
-[`V1Refund[]`](../../doc/models/v1-refund.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Refund[]`](../../doc/models/v1-refund.md).
 
 ## Example Usage
 
@@ -358,7 +358,7 @@ function v1CreateRefund(string $locationId, V1CreateRefundRequest $body): ApiRes
 
 ## Response Type
 
-[`V1Refund`](../../doc/models/v1-refund.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Refund`](../../doc/models/v1-refund.md).
 
 ## Example Usage
 
@@ -425,7 +425,7 @@ function v1ListSettlements(
 
 ## Response Type
 
-[`V1Settlement[]`](../../doc/models/v1-settlement.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Settlement[]`](../../doc/models/v1-settlement.md).
 
 ## Example Usage
 
@@ -481,7 +481,7 @@ function v1RetrieveSettlement(string $locationId, string $settlementId): ApiResp
 
 ## Response Type
 
-[`V1Settlement`](../../doc/models/v1-settlement.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`V1Settlement`](../../doc/models/v1-settlement.md).
 
 ## Example Usage
 

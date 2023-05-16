@@ -49,7 +49,7 @@ function listGiftCardActivities(
 
 ## Response Type
 
-[`ListGiftCardActivitiesResponse`](../../doc/models/list-gift-card-activities-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListGiftCardActivitiesResponse`](../../doc/models/list-gift-card-activities-response.md).
 
 ## Example Usage
 
@@ -86,7 +86,7 @@ function createGiftCardActivity(CreateGiftCardActivityRequest $body): ApiRespons
 
 ## Response Type
 
-[`CreateGiftCardActivityResponse`](../../doc/models/create-gift-card-activity-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateGiftCardActivityResponse`](../../doc/models/create-gift-card-activity-response.md).
 
 ## Example Usage
 

@@ -7,7 +7,7 @@ namespace Square\Models;
 use Square\ApiHelper;
 use stdClass;
 
-class SquareEventData implements \JsonSerializable
+class EventData implements \JsonSerializable
 {
     /**
      * @var array

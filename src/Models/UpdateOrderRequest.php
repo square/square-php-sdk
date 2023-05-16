@@ -114,8 +114,8 @@ class UpdateOrderRequest implements \JsonSerializable
      * worrying about creating duplicate updates to the order.
      * The latest order version is returned.
      *
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -134,8 +134,8 @@ class UpdateOrderRequest implements \JsonSerializable
      * worrying about creating duplicate updates to the order.
      * The latest order version is returned.
      *
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -153,8 +153,8 @@ class UpdateOrderRequest implements \JsonSerializable
      * worrying about creating duplicate updates to the order.
      * The latest order version is returned.
      *
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function unsetIdempotencyKey(): void
     {

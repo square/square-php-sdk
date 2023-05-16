@@ -52,7 +52,7 @@ function listPaymentRefunds(
 
 ## Response Type
 
-[`ListPaymentRefundsResponse`](../../doc/models/list-payment-refunds-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListPaymentRefundsResponse`](../../doc/models/list-payment-refunds-response.md).
 
 ## Example Usage
 
@@ -90,7 +90,7 @@ function refundPayment(RefundPaymentRequest $body): ApiResponse
 
 ## Response Type
 
-[`RefundPaymentResponse`](../../doc/models/refund-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RefundPaymentResponse`](../../doc/models/refund-payment-response.md).
 
 ## Example Usage
 
@@ -142,7 +142,7 @@ function getPaymentRefund(string $refundId): ApiResponse
 
 ## Response Type
 
-[`GetPaymentRefundResponse`](../../doc/models/get-payment-refund-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetPaymentRefundResponse`](../../doc/models/get-payment-refund-response.md).
 
 ## Example Usage
 

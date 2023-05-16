@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A modifier applicable to items at the time of sale.
+ * A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a
+ * Burger item.
  */
 class CatalogModifier implements \JsonSerializable
 {
@@ -30,6 +31,11 @@ class CatalogModifier implements \JsonSerializable
      * @var array
      */
     private $modifierListId = [];
+
+    /**
+     * @var array
+     */
+    private $locationOverrides = [];
 
     /**
      * @var array
@@ -168,6 +174,42 @@ class CatalogModifier implements \JsonSerializable
     }
 
     /**
+     * Returns Location Overrides.
+     * Location-specific price overrides.
+     *
+     * @return ModifierLocationOverrides[]|null
+     */
+    public function getLocationOverrides(): ?array
+    {
+        if (count($this->locationOverrides) == 0) {
+            return null;
+        }
+        return $this->locationOverrides['value'];
+    }
+
+    /**
+     * Sets Location Overrides.
+     * Location-specific price overrides.
+     *
+     * @maps location_overrides
+     *
+     * @param ModifierLocationOverrides[]|null $locationOverrides
+     */
+    public function setLocationOverrides(?array $locationOverrides): void
+    {
+        $this->locationOverrides['value'] = $locationOverrides;
+    }
+
+    /**
+     * Unsets Location Overrides.
+     * Location-specific price overrides.
+     */
+    public function unsetLocationOverrides(): void
+    {
+        $this->locationOverrides = [];
+    }
+
+    /**
      * Returns Image Id.
      * The ID of the image associated with this `CatalogModifier` instance.
      * Currently this image is not displayed by Square, but is free to be displayed in 3rd party
@@ -218,19 +260,22 @@ class CatalogModifier implements \JsonSerializable
     {
         $json = [];
         if (!empty($this->name)) {
-            $json['name']             = $this->name['value'];
+            $json['name']               = $this->name['value'];
         }
         if (isset($this->priceMoney)) {
-            $json['price_money']      = $this->priceMoney;
+            $json['price_money']        = $this->priceMoney;
         }
         if (!empty($this->ordinal)) {
-            $json['ordinal']          = $this->ordinal['value'];
+            $json['ordinal']            = $this->ordinal['value'];
         }
         if (!empty($this->modifierListId)) {
-            $json['modifier_list_id'] = $this->modifierListId['value'];
+            $json['modifier_list_id']   = $this->modifierListId['value'];
+        }
+        if (!empty($this->locationOverrides)) {
+            $json['location_overrides'] = $this->locationOverrides['value'];
         }
         if (!empty($this->imageId)) {
-            $json['image_id']         = $this->imageId['value'];
+            $json['image_id']           = $this->imageId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

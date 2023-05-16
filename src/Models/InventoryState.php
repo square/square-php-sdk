@@ -61,9 +61,8 @@ class InventoryState
     public const RECEIVED_FROM_VENDOR = 'RECEIVED_FROM_VENDOR';
 
     /**
-     * The related quantity of items are in transit between locations.
-     * *READ-ONLY**: the Inventory API cannot move quantities to or from this
-     * state.
+     * Replaced by `IN_TRANSIT` to represent quantities
+     * of items that are in transit between locations.
      */
     public const IN_TRANSIT_TO = 'IN_TRANSIT_TO';
 
@@ -103,4 +102,10 @@ class InventoryState
      * client to use the appropriate version of the Square API supporting this state.
      */
     public const SUPPORTED_BY_NEWER_VERSION = 'SUPPORTED_BY_NEWER_VERSION';
+
+    /**
+     * The related quantity of items are in transit between locations. **READ-ONLY:** the Inventory API
+     * cannot currently be used to move quantities to or from this inventory state.
+     */
+    public const IN_TRANSIT = 'IN_TRANSIT';
 }

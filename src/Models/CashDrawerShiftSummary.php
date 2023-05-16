@@ -60,6 +60,21 @@ class CashDrawerShiftSummary implements \JsonSerializable
     private $closedCashMoney;
 
     /**
+     * @var string|null
+     */
+    private $createdAt;
+
+    /**
+     * @var string|null
+     */
+    private $updatedAt;
+
+    /**
+     * @var string|null
+     */
+    private $locationId;
+
+    /**
      * Returns Id.
      * The shift unique ID.
      */
@@ -324,6 +339,66 @@ class CashDrawerShiftSummary implements \JsonSerializable
     }
 
     /**
+     * Returns Created At.
+     * The shift start time in RFC 3339 format.
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Sets Created At.
+     * The shift start time in RFC 3339 format.
+     *
+     * @maps created_at
+     */
+    public function setCreatedAt(?string $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * Returns Updated At.
+     * The shift updated at time in RFC 3339 format.
+     */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Sets Updated At.
+     * The shift updated at time in RFC 3339 format.
+     *
+     * @maps updated_at
+     */
+    public function setUpdatedAt(?string $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * Returns Location Id.
+     * The ID of the location the cash drawer shift belongs to.
+     */
+    public function getLocationId(): ?string
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * Sets Location Id.
+     * The ID of the location the cash drawer shift belongs to.
+     *
+     * @maps location_id
+     */
+    public function setLocationId(?string $locationId): void
+    {
+        $this->locationId = $locationId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -361,6 +436,15 @@ class CashDrawerShiftSummary implements \JsonSerializable
         }
         if (isset($this->closedCashMoney)) {
             $json['closed_cash_money']   = $this->closedCashMoney;
+        }
+        if (isset($this->createdAt)) {
+            $json['created_at']          = $this->createdAt;
+        }
+        if (isset($this->updatedAt)) {
+            $json['updated_at']          = $this->updatedAt;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']         = $this->locationId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

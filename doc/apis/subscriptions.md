@@ -43,7 +43,7 @@ function createSubscription(CreateSubscriptionRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateSubscriptionResponse`](../../doc/models/create-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateSubscriptionResponse`](../../doc/models/create-subscription-response.md).
 
 ## Example Usage
 
@@ -65,8 +65,11 @@ $body = CreateSubscriptionRequestBuilder::init(
     ->cardId('ccof:qy5x8hHGYsgLrp4Q4GB')
     ->timezone('America/Los_Angeles')
     ->source(
-        SubscriptionSourceBuilder::init()->build()
-    )->build();
+        SubscriptionSourceBuilder::init()
+            ->name('My App')
+            ->build()
+    )
+    ->build();
 
 $apiResponse = $subscriptionsApi->createSubscription($body);
 
@@ -114,7 +117,7 @@ function searchSubscriptions(SearchSubscriptionsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchSubscriptionsResponse`](../../doc/models/search-subscriptions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchSubscriptionsResponse`](../../doc/models/search-subscriptions-response.md).
 
 ## Example Usage
 
@@ -176,7 +179,7 @@ function retrieveSubscription(string $subscriptionId, ?string $mInclude = null):
 
 ## Response Type
 
-[`RetrieveSubscriptionResponse`](../../doc/models/retrieve-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveSubscriptionResponse`](../../doc/models/retrieve-subscription-response.md).
 
 ## Example Usage
 
@@ -215,7 +218,7 @@ function updateSubscription(string $subscriptionId, UpdateSubscriptionRequest $b
 
 ## Response Type
 
-[`UpdateSubscriptionResponse`](../../doc/models/update-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateSubscriptionResponse`](../../doc/models/update-subscription-response.md).
 
 ## Example Usage
 
@@ -224,17 +227,8 @@ $subscriptionId = 'subscription_id0';
 
 $body = UpdateSubscriptionRequestBuilder::init()
     ->subscription(
-        SubscriptionBuilder::init()
-            ->priceOverrideMoney(
-                MoneyBuilder::init()
-                    ->amount(2000)
-                    ->currency(Currency::USD)
-                    ->build()
-            )
-            ->version(1594155459464)
-            ->build()
-    )
-    ->build();
+        SubscriptionBuilder::init()->build()
+    )->build();
 
 $apiResponse = $subscriptionsApi->updateSubscription(
     $subscriptionId,
@@ -270,7 +264,7 @@ function deleteSubscriptionAction(string $subscriptionId, string $actionId): Api
 
 ## Response Type
 
-[`DeleteSubscriptionActionResponse`](../../doc/models/delete-subscription-action-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteSubscriptionActionResponse`](../../doc/models/delete-subscription-action-response.md).
 
 ## Example Usage
 
@@ -314,7 +308,7 @@ function cancelSubscription(string $subscriptionId): ApiResponse
 
 ## Response Type
 
-[`CancelSubscriptionResponse`](../../doc/models/cancel-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelSubscriptionResponse`](../../doc/models/cancel-subscription-response.md).
 
 ## Example Usage
 
@@ -353,7 +347,7 @@ function listSubscriptionEvents(string $subscriptionId, ?string $cursor = null, 
 
 ## Response Type
 
-[`ListSubscriptionEventsResponse`](../../doc/models/list-subscription-events-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListSubscriptionEventsResponse`](../../doc/models/list-subscription-events-response.md).
 
 ## Example Usage
 
@@ -391,7 +385,7 @@ function pauseSubscription(string $subscriptionId, PauseSubscriptionRequest $bod
 
 ## Response Type
 
-[`PauseSubscriptionResponse`](../../doc/models/pause-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`PauseSubscriptionResponse`](../../doc/models/pause-subscription-response.md).
 
 ## Example Usage
 
@@ -434,7 +428,7 @@ function resumeSubscription(string $subscriptionId, ResumeSubscriptionRequest $b
 
 ## Response Type
 
-[`ResumeSubscriptionResponse`](../../doc/models/resume-subscription-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ResumeSubscriptionResponse`](../../doc/models/resume-subscription-response.md).
 
 ## Example Usage
 
@@ -477,7 +471,7 @@ function swapPlan(string $subscriptionId, SwapPlanRequest $body): ApiResponse
 
 ## Response Type
 
-[`SwapPlanResponse`](../../doc/models/swap-plan-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SwapPlanResponse`](../../doc/models/swap-plan-response.md).
 
 ## Example Usage
 

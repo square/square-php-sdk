@@ -27,11 +27,6 @@ class SearchVendorsRequest implements \JsonSerializable
     private $cursor;
 
     /**
-     * @var int|null
-     */
-    private $limit;
-
-    /**
      * Returns Filter.
      * Defines supported query expressions to search for vendors by.
      */
@@ -100,26 +95,6 @@ class SearchVendorsRequest implements \JsonSerializable
     }
 
     /**
-     * Returns Limit.
-     * Limit on how many vendors will be returned by the search.
-     */
-    public function getLimit(): ?int
-    {
-        return $this->limit;
-    }
-
-    /**
-     * Sets Limit.
-     * Limit on how many vendors will be returned by the search.
-     *
-     * @maps limit
-     */
-    public function setLimit(?int $limit): void
-    {
-        $this->limit = $limit;
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -139,9 +114,6 @@ class SearchVendorsRequest implements \JsonSerializable
         }
         if (isset($this->cursor)) {
             $json['cursor'] = $this->cursor;
-        }
-        if (isset($this->limit)) {
-            $json['limit']  = $this->limit;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

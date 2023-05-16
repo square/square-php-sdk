@@ -62,15 +62,6 @@ class SearchVendorsRequestBuilder
     }
 
     /**
-     * Sets limit field.
-     */
-    public function limit(?int $value): self
-    {
-        $this->instance->setLimit($value);
-        return $this;
-    }
-
-    /**
      * Initializes a new search vendors request object.
      */
     public function build(): SearchVendorsRequest
