@@ -107,78 +107,6 @@ class CashDrawerShiftBuilder
     }
 
     /**
-     * Sets employee ids field.
-     */
-    public function employeeIds(?array $value): self
-    {
-        $this->instance->setEmployeeIds($value);
-        return $this;
-    }
-
-    /**
-     * Unsets employee ids field.
-     */
-    public function unsetEmployeeIds(): self
-    {
-        $this->instance->unsetEmployeeIds();
-        return $this;
-    }
-
-    /**
-     * Sets opening employee id field.
-     */
-    public function openingEmployeeId(?string $value): self
-    {
-        $this->instance->setOpeningEmployeeId($value);
-        return $this;
-    }
-
-    /**
-     * Unsets opening employee id field.
-     */
-    public function unsetOpeningEmployeeId(): self
-    {
-        $this->instance->unsetOpeningEmployeeId();
-        return $this;
-    }
-
-    /**
-     * Sets ending employee id field.
-     */
-    public function endingEmployeeId(?string $value): self
-    {
-        $this->instance->setEndingEmployeeId($value);
-        return $this;
-    }
-
-    /**
-     * Unsets ending employee id field.
-     */
-    public function unsetEndingEmployeeId(): self
-    {
-        $this->instance->unsetEndingEmployeeId();
-        return $this;
-    }
-
-    /**
-     * Sets closing employee id field.
-     */
-    public function closingEmployeeId(?string $value): self
-    {
-        $this->instance->setClosingEmployeeId($value);
-        return $this;
-    }
-
-    /**
-     * Unsets closing employee id field.
-     */
-    public function unsetClosingEmployeeId(): self
-    {
-        $this->instance->unsetClosingEmployeeId();
-        return $this;
-    }
-
-    /**
      * Sets description field.
      */
     public function description(?string $value): self
@@ -265,6 +193,69 @@ class CashDrawerShiftBuilder
     public function device(?CashDrawerDevice $value): self
     {
         $this->instance->setDevice($value);
+        return $this;
+    }
+
+    /**
+     * Sets created at field.
+     */
+    public function createdAt(?string $value): self
+    {
+        $this->instance->setCreatedAt($value);
+        return $this;
+    }
+
+    /**
+     * Sets updated at field.
+     */
+    public function updatedAt(?string $value): self
+    {
+        $this->instance->setUpdatedAt($value);
+        return $this;
+    }
+
+    /**
+     * Sets location id field.
+     */
+    public function locationId(?string $value): self
+    {
+        $this->instance->setLocationId($value);
+        return $this;
+    }
+
+    /**
+     * Sets team member ids field.
+     */
+    public function teamMemberIds(?array $value): self
+    {
+        $this->instance->setTeamMemberIds($value);
+        return $this;
+    }
+
+    /**
+     * Sets opening team member id field.
+     */
+    public function openingTeamMemberId(?string $value): self
+    {
+        $this->instance->setOpeningTeamMemberId($value);
+        return $this;
+    }
+
+    /**
+     * Sets ending team member id field.
+     */
+    public function endingTeamMemberId(?string $value): self
+    {
+        $this->instance->setEndingTeamMemberId($value);
+        return $this;
+    }
+
+    /**
+     * Sets closing team member id field.
+     */
+    public function closingTeamMemberId(?string $value): self
+    {
+        $this->instance->setClosingTeamMemberId($value);
         return $this;
     }
 

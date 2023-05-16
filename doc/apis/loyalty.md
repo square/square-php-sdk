@@ -46,7 +46,7 @@ function createLoyaltyAccount(CreateLoyaltyAccountRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateLoyaltyAccountResponse`](../../doc/models/create-loyalty-account-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateLoyaltyAccountResponse`](../../doc/models/create-loyalty-account-response.md).
 
 ## Example Usage
 
@@ -98,7 +98,7 @@ function searchLoyaltyAccounts(SearchLoyaltyAccountsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchLoyaltyAccountsResponse`](../../doc/models/search-loyalty-accounts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchLoyaltyAccountsResponse`](../../doc/models/search-loyalty-accounts-response.md).
 
 ## Example Usage
 
@@ -148,7 +148,7 @@ function retrieveLoyaltyAccount(string $accountId): ApiResponse
 
 ## Response Type
 
-[`RetrieveLoyaltyAccountResponse`](../../doc/models/retrieve-loyalty-account-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLoyaltyAccountResponse`](../../doc/models/retrieve-loyalty-account-response.md).
 
 ## Example Usage
 
@@ -199,7 +199,7 @@ function accumulateLoyaltyPoints(string $accountId, AccumulateLoyaltyPointsReque
 
 ## Response Type
 
-[`AccumulateLoyaltyPointsResponse`](../../doc/models/accumulate-loyalty-points-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`AccumulateLoyaltyPointsResponse`](../../doc/models/accumulate-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -252,7 +252,7 @@ function adjustLoyaltyPoints(string $accountId, AdjustLoyaltyPointsRequest $body
 
 ## Response Type
 
-[`AdjustLoyaltyPointsResponse`](../../doc/models/adjust-loyalty-points-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`AdjustLoyaltyPointsResponse`](../../doc/models/adjust-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -308,7 +308,7 @@ function searchLoyaltyEvents(SearchLoyaltyEventsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchLoyaltyEventsResponse`](../../doc/models/search-loyalty-events-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchLoyaltyEventsResponse`](../../doc/models/search-loyalty-events-response.md).
 
 ## Example Usage
 
@@ -357,7 +357,7 @@ function listLoyaltyPrograms(): ApiResponse
 
 ## Response Type
 
-[`ListLoyaltyProgramsResponse`](../../doc/models/list-loyalty-programs-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLoyaltyProgramsResponse`](../../doc/models/list-loyalty-programs-response.md).
 
 ## Example Usage
 
@@ -394,7 +394,7 @@ function retrieveLoyaltyProgram(string $programId): ApiResponse
 
 ## Response Type
 
-[`RetrieveLoyaltyProgramResponse`](../../doc/models/retrieve-loyalty-program-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLoyaltyProgramResponse`](../../doc/models/retrieve-loyalty-program-response.md).
 
 ## Example Usage
 
@@ -446,7 +446,7 @@ function calculateLoyaltyPoints(string $programId, CalculateLoyaltyPointsRequest
 
 ## Response Type
 
-[`CalculateLoyaltyPointsResponse`](../../doc/models/calculate-loyalty-points-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CalculateLoyaltyPointsResponse`](../../doc/models/calculate-loyalty-points-response.md).
 
 ## Example Usage
 
@@ -500,7 +500,7 @@ function listLoyaltyPromotions(
 
 ## Response Type
 
-[`ListLoyaltyPromotionsResponse`](../../doc/models/list-loyalty-promotions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLoyaltyPromotionsResponse`](../../doc/models/list-loyalty-promotions-response.md).
 
 ## Example Usage
 
@@ -543,7 +543,7 @@ function createLoyaltyPromotion(string $programId, CreateLoyaltyPromotionRequest
 
 ## Response Type
 
-[`CreateLoyaltyPromotionResponse`](../../doc/models/create-loyalty-promotion-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateLoyaltyPromotionResponse`](../../doc/models/create-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -627,7 +627,7 @@ function retrieveLoyaltyPromotion(string $promotionId, string $programId): ApiRe
 
 ## Response Type
 
-[`RetrieveLoyaltyPromotionResponse`](../../doc/models/retrieve-loyalty-promotion-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLoyaltyPromotionResponse`](../../doc/models/retrieve-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -675,7 +675,7 @@ function cancelLoyaltyPromotion(string $promotionId, string $programId): ApiResp
 
 ## Response Type
 
-[`CancelLoyaltyPromotionResponse`](../../doc/models/cancel-loyalty-promotion-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelLoyaltyPromotionResponse`](../../doc/models/cancel-loyalty-promotion-response.md).
 
 ## Example Usage
 
@@ -724,7 +724,7 @@ function createLoyaltyReward(CreateLoyaltyRewardRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateLoyaltyRewardResponse`](../../doc/models/create-loyalty-reward-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateLoyaltyRewardResponse`](../../doc/models/create-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -775,7 +775,7 @@ function searchLoyaltyRewards(SearchLoyaltyRewardsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchLoyaltyRewardsResponse`](../../doc/models/search-loyalty-rewards-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchLoyaltyRewardsResponse`](../../doc/models/search-loyalty-rewards-response.md).
 
 ## Example Usage
 
@@ -827,7 +827,7 @@ function deleteLoyaltyReward(string $rewardId): ApiResponse
 
 ## Response Type
 
-[`DeleteLoyaltyRewardResponse`](../../doc/models/delete-loyalty-reward-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteLoyaltyRewardResponse`](../../doc/models/delete-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -864,7 +864,7 @@ function retrieveLoyaltyReward(string $rewardId): ApiResponse
 
 ## Response Type
 
-[`RetrieveLoyaltyRewardResponse`](../../doc/models/retrieve-loyalty-reward-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLoyaltyRewardResponse`](../../doc/models/retrieve-loyalty-reward-response.md).
 
 ## Example Usage
 
@@ -912,7 +912,7 @@ function redeemLoyaltyReward(string $rewardId, RedeemLoyaltyRewardRequest $body)
 
 ## Response Type
 
-[`RedeemLoyaltyRewardResponse`](../../doc/models/redeem-loyalty-reward-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RedeemLoyaltyRewardResponse`](../../doc/models/redeem-loyalty-reward-response.md).
 
 ## Example Usage
 

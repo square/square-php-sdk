@@ -58,7 +58,7 @@ function listPayments(
 
 ## Response Type
 
-[`ListPaymentsResponse`](../../doc/models/list-payments-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListPaymentsResponse`](../../doc/models/list-payments-response.md).
 
 ## Example Usage
 
@@ -100,7 +100,7 @@ function createPayment(CreatePaymentRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreatePaymentResponse`](../../doc/models/create-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreatePaymentResponse`](../../doc/models/create-payment-response.md).
 
 ## Example Usage
 
@@ -168,7 +168,7 @@ function cancelPaymentByIdempotencyKey(CancelPaymentByIdempotencyKeyRequest $bod
 
 ## Response Type
 
-[`CancelPaymentByIdempotencyKeyResponse`](../../doc/models/cancel-payment-by-idempotency-key-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelPaymentByIdempotencyKeyResponse`](../../doc/models/cancel-payment-by-idempotency-key-response.md).
 
 ## Example Usage
 
@@ -207,7 +207,7 @@ function getPayment(string $paymentId): ApiResponse
 
 ## Response Type
 
-[`GetPaymentResponse`](../../doc/models/get-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetPaymentResponse`](../../doc/models/get-payment-response.md).
 
 ## Example Usage
 
@@ -246,7 +246,7 @@ function updatePayment(string $paymentId, UpdatePaymentRequest $body): ApiRespon
 
 ## Response Type
 
-[`UpdatePaymentResponse`](../../doc/models/update-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdatePaymentResponse`](../../doc/models/update-payment-response.md).
 
 ## Example Usage
 
@@ -309,7 +309,7 @@ function cancelPayment(string $paymentId): ApiResponse
 
 ## Response Type
 
-[`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md).
 
 ## Example Usage
 
@@ -350,7 +350,7 @@ function completePayment(string $paymentId, CompletePaymentRequest $body): ApiRe
 
 ## Response Type
 
-[`CompletePaymentResponse`](../../doc/models/complete-payment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CompletePaymentResponse`](../../doc/models/complete-payment-response.md).
 
 ## Example Usage
 

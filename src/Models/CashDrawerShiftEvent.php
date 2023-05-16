@@ -14,11 +14,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
     private $id;
 
     /**
-     * @var array
-     */
-    private $employeeId = [];
-
-    /**
      * @var string|null
      */
     private $eventType;
@@ -39,6 +34,11 @@ class CashDrawerShiftEvent implements \JsonSerializable
     private $description = [];
 
     /**
+     * @var string|null
+     */
+    private $teamMemberId;
+
+    /**
      * Returns Id.
      * The unique ID of the event.
      */
@@ -56,38 +56,6 @@ class CashDrawerShiftEvent implements \JsonSerializable
     public function setId(?string $id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * Returns Employee Id.
-     * The ID of the employee that created the event.
-     */
-    public function getEmployeeId(): ?string
-    {
-        if (count($this->employeeId) == 0) {
-            return null;
-        }
-        return $this->employeeId['value'];
-    }
-
-    /**
-     * Sets Employee Id.
-     * The ID of the employee that created the event.
-     *
-     * @maps employee_id
-     */
-    public function setEmployeeId(?string $employeeId): void
-    {
-        $this->employeeId['value'] = $employeeId;
-    }
-
-    /**
-     * Unsets Employee Id.
-     * The ID of the employee that created the event.
-     */
-    public function unsetEmployeeId(): void
-    {
-        $this->employeeId = [];
     }
 
     /**
@@ -148,7 +116,7 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Returns Created At.
-     * The event time in ISO 8601 format.
+     * The event time in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -157,7 +125,7 @@ class CashDrawerShiftEvent implements \JsonSerializable
 
     /**
      * Sets Created At.
-     * The event time in ISO 8601 format.
+     * The event time in RFC 3339 format.
      *
      * @maps created_at
      */
@@ -202,6 +170,26 @@ class CashDrawerShiftEvent implements \JsonSerializable
     }
 
     /**
+     * Returns Team Member Id.
+     * The ID of the team member that created the event.
+     */
+    public function getTeamMemberId(): ?string
+    {
+        return $this->teamMemberId;
+    }
+
+    /**
+     * Sets Team Member Id.
+     * The ID of the team member that created the event.
+     *
+     * @maps team_member_id
+     */
+    public function setTeamMemberId(?string $teamMemberId): void
+    {
+        $this->teamMemberId = $teamMemberId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -214,22 +202,22 @@ class CashDrawerShiftEvent implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']          = $this->id;
-        }
-        if (!empty($this->employeeId)) {
-            $json['employee_id'] = $this->employeeId['value'];
+            $json['id']             = $this->id;
         }
         if (isset($this->eventType)) {
-            $json['event_type']  = $this->eventType;
+            $json['event_type']     = $this->eventType;
         }
         if (isset($this->eventMoney)) {
-            $json['event_money'] = $this->eventMoney;
+            $json['event_money']    = $this->eventMoney;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']  = $this->createdAt;
+            $json['created_at']     = $this->createdAt;
         }
         if (!empty($this->description)) {
-            $json['description'] = $this->description['value'];
+            $json['description']    = $this->description['value'];
+        }
+        if (isset($this->teamMemberId)) {
+            $json['team_member_id'] = $this->teamMemberId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

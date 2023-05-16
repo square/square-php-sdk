@@ -123,6 +123,24 @@ class CatalogTaxBuilder
     }
 
     /**
+     * Sets applies to product set id field.
+     */
+    public function appliesToProductSetId(?string $value): self
+    {
+        $this->instance->setAppliesToProductSetId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets applies to product set id field.
+     */
+    public function unsetAppliesToProductSetId(): self
+    {
+        $this->instance->unsetAppliesToProductSetId();
+        return $this;
+    }
+
+    /**
      * Initializes a new catalog tax object.
      */
     public function build(): CatalogTax

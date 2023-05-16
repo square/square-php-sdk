@@ -55,8 +55,8 @@ class UpsertOrderCustomAttributeRequest implements \JsonSerializable
     /**
      * Returns Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -69,8 +69,8 @@ class UpsertOrderCustomAttributeRequest implements \JsonSerializable
     /**
      * Sets Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -82,8 +82,8 @@ class UpsertOrderCustomAttributeRequest implements \JsonSerializable
     /**
      * Unsets Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function unsetIdempotencyKey(): void
     {

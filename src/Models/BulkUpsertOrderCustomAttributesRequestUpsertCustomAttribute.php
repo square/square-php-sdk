@@ -62,8 +62,8 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute implements \Js
     /**
      * Returns Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -76,8 +76,8 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute implements \Js
     /**
      * Sets Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -89,8 +89,8 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute implements \Js
     /**
      * Unsets Idempotency Key.
      * A unique identifier for this request, used to ensure idempotency.
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function unsetIdempotencyKey(): void
     {

@@ -32,6 +32,7 @@ use Square\Apis\LaborApi;
 use Square\Apis\LocationCustomAttributesApi;
 use Square\Apis\LocationsApi;
 use Square\Apis\LoyaltyApi;
+use Square\Apis\MerchantCustomAttributesApi;
 use Square\Apis\MerchantsApi;
 use Square\Apis\MobileAuthorizationApi;
 use Square\Apis\OAuthApi;
@@ -111,6 +112,8 @@ class SquareClient implements ConfigurationInterface
 
     private $merchants;
 
+    private $merchantCustomAttributes;
+
     private $orders;
 
     private $orderCustomAttributes;
@@ -159,7 +162,7 @@ class SquareClient implements ConfigurationInterface
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/26.0.0.20230419 ({api-version}) {engine}/{engine-version} ({os-' .
+                'Square-PHP-SDK/27.0.0.20230517 ({api-version}) {engine}/{engine-version} ({os-' .
                 'info}) {detail}'
             )
             ->userAgentConfig(
@@ -301,7 +304,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '26.0.0.20230419';
+        return '27.0.0.20230517';
     }
 
     /**
@@ -632,6 +635,17 @@ class SquareClient implements ConfigurationInterface
             $this->merchants = new MerchantsApi($this->client);
         }
         return $this->merchants;
+    }
+
+    /**
+     * Returns Merchant Custom Attributes Api
+     */
+    public function getMerchantCustomAttributesApi(): MerchantCustomAttributesApi
+    {
+        if ($this->merchantCustomAttributes == null) {
+            $this->merchantCustomAttributes = new MerchantCustomAttributesApi($this->client);
+        }
+        return $this->merchantCustomAttributes;
     }
 
     /**

@@ -22,9 +22,13 @@ Represents a [CreateLocationCustomAttributeDefinition](../../doc/apis/location-c
     "description": "Bestselling item at location",
     "key": "bestseller",
     "name": "Bestseller",
-    "schema": null,
+    "schema": {
+      "key1": "val1",
+      "key2": "val2"
+    },
     "visibility": "VISIBILITY_READ_WRITE_VALUES"
-  }
+  },
+  "idempotency_key": "idempotency_key6"
 }
 ```
 

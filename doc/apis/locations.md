@@ -27,7 +27,7 @@ function listLocations(): ApiResponse
 
 ## Response Type
 
-[`ListLocationsResponse`](../../doc/models/list-locations-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLocationsResponse`](../../doc/models/list-locations-response.md).
 
 ## Example Usage
 
@@ -68,7 +68,7 @@ function createLocation(CreateLocationRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateLocationResponse`](../../doc/models/create-location-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateLocationResponse`](../../doc/models/create-location-response.md).
 
 ## Example Usage
 
@@ -121,7 +121,7 @@ function retrieveLocation(string $locationId): ApiResponse
 
 ## Response Type
 
-[`RetrieveLocationResponse`](../../doc/models/retrieve-location-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLocationResponse`](../../doc/models/retrieve-location-response.md).
 
 ## Example Usage
 
@@ -159,7 +159,7 @@ function updateLocation(string $locationId, UpdateLocationRequest $body): ApiRes
 
 ## Response Type
 
-[`UpdateLocationResponse`](../../doc/models/update-location-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateLocationResponse`](../../doc/models/update-location-response.md).
 
 ## Example Usage
 

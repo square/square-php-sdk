@@ -6,7 +6,7 @@ namespace Square\Models;
 
 use stdClass;
 
-class SquareEvent implements \JsonSerializable
+class Event implements \JsonSerializable
 {
     /**
      * @var array
@@ -34,7 +34,7 @@ class SquareEvent implements \JsonSerializable
     private $createdAt;
 
     /**
-     * @var SquareEventData|null
+     * @var EventData|null
      */
     private $data;
 
@@ -189,7 +189,7 @@ class SquareEvent implements \JsonSerializable
     /**
      * Returns Data.
      */
-    public function getData(): ?SquareEventData
+    public function getData(): ?EventData
     {
         return $this->data;
     }
@@ -199,7 +199,7 @@ class SquareEvent implements \JsonSerializable
      *
      * @maps data
      */
-    public function setData(?SquareEventData $data): void
+    public function setData(?EventData $data): void
     {
         $this->data = $data;
     }

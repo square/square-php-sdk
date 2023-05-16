@@ -43,7 +43,7 @@ function listCards(
 
 ## Response Type
 
-[`ListCardsResponse`](../../doc/models/list-cards-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCardsResponse`](../../doc/models/list-cards-response.md).
 
 ## Example Usage
 
@@ -80,7 +80,7 @@ function createCard(CreateCardRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateCardResponse`](../../doc/models/create-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCardResponse`](../../doc/models/create-card-response.md).
 
 ## Example Usage
 
@@ -135,7 +135,7 @@ function retrieveCard(string $cardId): ApiResponse
 
 ## Response Type
 
-[`RetrieveCardResponse`](../../doc/models/retrieve-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCardResponse`](../../doc/models/retrieve-card-response.md).
 
 ## Example Usage
 
@@ -173,7 +173,7 @@ function disableCard(string $cardId): ApiResponse
 
 ## Response Type
 
-[`DisableCardResponse`](../../doc/models/disable-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DisableCardResponse`](../../doc/models/disable-card-response.md).
 
 ## Example Usage
 

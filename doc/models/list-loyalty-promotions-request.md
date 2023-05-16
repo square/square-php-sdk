@@ -18,6 +18,10 @@ Represents a [ListLoyaltyPromotions](../../doc/apis/loyalty.md#list-loyalty-prom
 ## Example (as JSON)
 
 ```json
-{}
+{
+  "status": "ACTIVE",
+  "cursor": "cursor6",
+  "limit": 172
+}
 ```
 

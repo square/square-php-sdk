@@ -36,7 +36,7 @@ function createMobileAuthorizationCode(CreateMobileAuthorizationCodeRequest $bod
 
 ## Response Type
 
-[`CreateMobileAuthorizationCodeResponse`](../../doc/models/create-mobile-authorization-code-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateMobileAuthorizationCodeResponse`](../../doc/models/create-mobile-authorization-code-response.md).
 
 ## Example Usage
 

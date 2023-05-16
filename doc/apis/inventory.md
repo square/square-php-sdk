@@ -44,7 +44,7 @@ function deprecatedRetrieveInventoryAdjustment(string $adjustmentId): ApiRespons
 
 ## Response Type
 
-[`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md).
 
 ## Example Usage
 
@@ -82,7 +82,7 @@ function retrieveInventoryAdjustment(string $adjustmentId): ApiResponse
 
 ## Response Type
 
-[`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryAdjustmentResponse`](../../doc/models/retrieve-inventory-adjustment-response.md).
 
 ## Example Usage
 
@@ -122,7 +122,7 @@ function deprecatedBatchChangeInventory(BatchChangeInventoryRequest $body): ApiR
 
 ## Response Type
 
-[`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md).
 
 ## Example Usage
 
@@ -184,7 +184,7 @@ function deprecatedBatchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRe
 
 ## Response Type
 
-[`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md).
 
 ## Example Usage
 
@@ -247,7 +247,7 @@ function deprecatedBatchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequ
 
 ## Response Type
 
-[`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md).
 
 ## Example Usage
 
@@ -300,7 +300,7 @@ function batchChangeInventory(BatchChangeInventoryRequest $body): ApiResponse
 
 ## Response Type
 
-[`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchChangeInventoryResponse`](../../doc/models/batch-change-inventory-response.md).
 
 ## Example Usage
 
@@ -366,7 +366,7 @@ function batchRetrieveInventoryChanges(BatchRetrieveInventoryChangesRequest $bod
 
 ## Response Type
 
-[`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveInventoryChangesResponse`](../../doc/models/batch-retrieve-inventory-changes-response.md).
 
 ## Example Usage
 
@@ -436,7 +436,7 @@ function batchRetrieveInventoryCounts(BatchRetrieveInventoryCountsRequest $body)
 
 ## Response Type
 
-[`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveInventoryCountsResponse`](../../doc/models/batch-retrieve-inventory-counts-response.md).
 
 ## Example Usage
 
@@ -488,7 +488,7 @@ function deprecatedRetrieveInventoryPhysicalCount(string $physicalCountId): ApiR
 
 ## Response Type
 
-[`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md).
 
 ## Example Usage
 
@@ -526,7 +526,7 @@ function retrieveInventoryPhysicalCount(string $physicalCountId): ApiResponse
 
 ## Response Type
 
-[`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryPhysicalCountResponse`](../../doc/models/retrieve-inventory-physical-count-response.md).
 
 ## Example Usage
 
@@ -564,7 +564,7 @@ function retrieveInventoryTransfer(string $transferId): ApiResponse
 
 ## Response Type
 
-[`RetrieveInventoryTransferResponse`](../../doc/models/retrieve-inventory-transfer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryTransferResponse`](../../doc/models/retrieve-inventory-transfer-response.md).
 
 ## Example Usage
 
@@ -610,7 +610,7 @@ function retrieveInventoryCount(
 
 ## Response Type
 
-[`RetrieveInventoryCountResponse`](../../doc/models/retrieve-inventory-count-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryCountResponse`](../../doc/models/retrieve-inventory-count-response.md).
 
 ## Example Usage
 
@@ -667,7 +667,7 @@ function retrieveInventoryChanges(
 
 ## Response Type
 
-[`RetrieveInventoryChangesResponse`](../../doc/models/retrieve-inventory-changes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveInventoryChangesResponse`](../../doc/models/retrieve-inventory-changes-response.md).
 
 ## Example Usage
 

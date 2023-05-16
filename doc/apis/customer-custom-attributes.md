@@ -44,7 +44,7 @@ function listCustomerCustomAttributeDefinitions(?int $limit = null, ?string $cur
 
 ## Response Type
 
-[`ListCustomerCustomAttributeDefinitionsResponse`](../../doc/models/list-customer-custom-attribute-definitions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCustomerCustomAttributeDefinitionsResponse`](../../doc/models/list-customer-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -91,7 +91,7 @@ function createCustomerCustomAttributeDefinition(
 
 ## Response Type
 
-[`CreateCustomerCustomAttributeDefinitionResponse`](../../doc/models/create-customer-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCustomerCustomAttributeDefinitionResponse`](../../doc/models/create-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -140,7 +140,7 @@ function deleteCustomerCustomAttributeDefinition(string $key): ApiResponse
 
 ## Response Type
 
-[`DeleteCustomerCustomAttributeDefinitionResponse`](../../doc/models/delete-customer-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCustomerCustomAttributeDefinitionResponse`](../../doc/models/delete-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -182,7 +182,7 @@ function retrieveCustomerCustomAttributeDefinition(string $key, ?int $version = 
 
 ## Response Type
 
-[`RetrieveCustomerCustomAttributeDefinitionResponse`](../../doc/models/retrieve-customer-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCustomerCustomAttributeDefinitionResponse`](../../doc/models/retrieve-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -229,7 +229,7 @@ function updateCustomerCustomAttributeDefinition(
 
 ## Response Type
 
-[`UpdateCustomerCustomAttributeDefinitionResponse`](../../doc/models/update-customer-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateCustomerCustomAttributeDefinitionResponse`](../../doc/models/update-customer-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -289,7 +289,7 @@ function bulkUpsertCustomerCustomAttributes(BulkUpsertCustomerCustomAttributesRe
 
 ## Response Type
 
-[`BulkUpsertCustomerCustomAttributesResponse`](../../doc/models/bulk-upsert-customer-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpsertCustomerCustomAttributesResponse`](../../doc/models/bulk-upsert-customer-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -352,7 +352,7 @@ function listCustomerCustomAttributes(
 
 ## Response Type
 
-[`ListCustomerCustomAttributesResponse`](../../doc/models/list-customer-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCustomerCustomAttributesResponse`](../../doc/models/list-customer-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -399,7 +399,7 @@ function deleteCustomerCustomAttribute(string $customerId, string $key): ApiResp
 
 ## Response Type
 
-[`DeleteCustomerCustomAttributeResponse`](../../doc/models/delete-customer-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCustomerCustomAttributeResponse`](../../doc/models/delete-customer-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -456,7 +456,7 @@ function retrieveCustomerCustomAttribute(
 
 ## Response Type
 
-[`RetrieveCustomerCustomAttributeResponse`](../../doc/models/retrieve-customer-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCustomerCustomAttributeResponse`](../../doc/models/retrieve-customer-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -515,7 +515,7 @@ function upsertCustomerCustomAttribute(
 
 ## Response Type
 
-[`UpsertCustomerCustomAttributeResponse`](../../doc/models/upsert-customer-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertCustomerCustomAttributeResponse`](../../doc/models/upsert-customer-custom-attribute-response.md).
 
 ## Example Usage
 

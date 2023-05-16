@@ -35,7 +35,7 @@ function deleteSnippet(string $siteId): ApiResponse
 
 ## Response Type
 
-[`DeleteSnippetResponse`](../../doc/models/delete-snippet-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteSnippetResponse`](../../doc/models/delete-snippet-response.md).
 
 ## Example Usage
 
@@ -76,7 +76,7 @@ function retrieveSnippet(string $siteId): ApiResponse
 
 ## Response Type
 
-[`RetrieveSnippetResponse`](../../doc/models/retrieve-snippet-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveSnippetResponse`](../../doc/models/retrieve-snippet-response.md).
 
 ## Example Usage
 
@@ -119,7 +119,7 @@ function upsertSnippet(string $siteId, UpsertSnippetRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpsertSnippetResponse`](../../doc/models/upsert-snippet-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertSnippetResponse`](../../doc/models/upsert-snippet-response.md).
 
 ## Example Usage
 

@@ -43,24 +43,6 @@ class CashDrawerShiftEventBuilder
     }
 
     /**
-     * Sets employee id field.
-     */
-    public function employeeId(?string $value): self
-    {
-        $this->instance->setEmployeeId($value);
-        return $this;
-    }
-
-    /**
-     * Unsets employee id field.
-     */
-    public function unsetEmployeeId(): self
-    {
-        $this->instance->unsetEmployeeId();
-        return $this;
-    }
-
-    /**
      * Sets event type field.
      */
     public function eventType(?string $value): self
@@ -102,6 +84,15 @@ class CashDrawerShiftEventBuilder
     public function unsetDescription(): self
     {
         $this->instance->unsetDescription();
+        return $this;
+    }
+
+    /**
+     * Sets team member id field.
+     */
+    public function teamMemberId(?string $value): self
+    {
+        $this->instance->setTeamMemberId($value);
         return $this;
     }
 

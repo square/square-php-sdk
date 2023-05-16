@@ -35,7 +35,7 @@ function bulkCreateVendors(BulkCreateVendorsRequest $body): ApiResponse
 
 ## Response Type
 
-[`BulkCreateVendorsResponse`](../../doc/models/bulk-create-vendors-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkCreateVendorsResponse`](../../doc/models/bulk-create-vendors-response.md).
 
 ## Example Usage
 
@@ -77,7 +77,7 @@ function bulkRetrieveVendors(BulkRetrieveVendorsRequest $body): ApiResponse
 
 ## Response Type
 
-[`BulkRetrieveVendorsResponse`](../../doc/models/bulk-retrieve-vendors-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkRetrieveVendorsResponse`](../../doc/models/bulk-retrieve-vendors-response.md).
 
 ## Example Usage
 
@@ -120,7 +120,7 @@ function bulkUpdateVendors(BulkUpdateVendorsRequest $body): ApiResponse
 
 ## Response Type
 
-[`BulkUpdateVendorsResponse`](../../doc/models/bulk-update-vendors-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpdateVendorsResponse`](../../doc/models/bulk-update-vendors-response.md).
 
 ## Example Usage
 
@@ -166,7 +166,7 @@ function createVendor(CreateVendorRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateVendorResponse`](../../doc/models/create-vendor-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateVendorResponse`](../../doc/models/create-vendor-response.md).
 
 ## Example Usage
 
@@ -205,7 +205,7 @@ function searchVendors(SearchVendorsRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchVendorsResponse`](../../doc/models/search-vendors-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchVendorsResponse`](../../doc/models/search-vendors-response.md).
 
 ## Example Usage
 
@@ -242,7 +242,7 @@ function retrieveVendor(string $vendorId): ApiResponse
 
 ## Response Type
 
-[`RetrieveVendorResponse`](../../doc/models/retrieve-vendor-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveVendorResponse`](../../doc/models/retrieve-vendor-response.md).
 
 ## Example Usage
 
@@ -280,7 +280,7 @@ function updateVendor(UpdateVendorRequest $body, string $vendorId): ApiResponse
 
 ## Response Type
 
-[`UpdateVendorResponse`](../../doc/models/update-vendor-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateVendorResponse`](../../doc/models/update-vendor-response.md).
 
 ## Example Usage
 

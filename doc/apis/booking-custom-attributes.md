@@ -43,7 +43,7 @@ function listBookingCustomAttributeDefinitions(?int $limit = null, ?string $curs
 
 ## Response Type
 
-[`ListBookingCustomAttributeDefinitionsResponse`](../../doc/models/list-booking-custom-attribute-definitions-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListBookingCustomAttributeDefinitionsResponse`](../../doc/models/list-booking-custom-attribute-definitions-response.md).
 
 ## Example Usage
 
@@ -86,7 +86,7 @@ function createBookingCustomAttributeDefinition(
 
 ## Response Type
 
-[`CreateBookingCustomAttributeDefinitionResponse`](../../doc/models/create-booking-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateBookingCustomAttributeDefinitionResponse`](../../doc/models/create-booking-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -131,7 +131,7 @@ function deleteBookingCustomAttributeDefinition(string $key): ApiResponse
 
 ## Response Type
 
-[`DeleteBookingCustomAttributeDefinitionResponse`](../../doc/models/delete-booking-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteBookingCustomAttributeDefinitionResponse`](../../doc/models/delete-booking-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -172,7 +172,7 @@ function retrieveBookingCustomAttributeDefinition(string $key, ?int $version = n
 
 ## Response Type
 
-[`RetrieveBookingCustomAttributeDefinitionResponse`](../../doc/models/retrieve-booking-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveBookingCustomAttributeDefinitionResponse`](../../doc/models/retrieve-booking-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -219,7 +219,7 @@ function updateBookingCustomAttributeDefinition(
 
 ## Response Type
 
-[`UpdateBookingCustomAttributeDefinitionResponse`](../../doc/models/update-booking-custom-attribute-definition-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateBookingCustomAttributeDefinitionResponse`](../../doc/models/update-booking-custom-attribute-definition-response.md).
 
 ## Example Usage
 
@@ -269,7 +269,7 @@ function bulkDeleteBookingCustomAttributes(BulkDeleteBookingCustomAttributesRequ
 
 ## Response Type
 
-[`BulkDeleteBookingCustomAttributesResponse`](../../doc/models/bulk-delete-booking-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkDeleteBookingCustomAttributesResponse`](../../doc/models/bulk-delete-booking-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -323,7 +323,7 @@ function bulkUpsertBookingCustomAttributes(BulkUpsertBookingCustomAttributesRequ
 
 ## Response Type
 
-[`BulkUpsertBookingCustomAttributesResponse`](../../doc/models/bulk-upsert-booking-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpsertBookingCustomAttributesResponse`](../../doc/models/bulk-upsert-booking-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -382,7 +382,7 @@ function listBookingCustomAttributes(
 
 ## Response Type
 
-[`ListBookingCustomAttributesResponse`](../../doc/models/list-booking-custom-attributes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListBookingCustomAttributesResponse`](../../doc/models/list-booking-custom-attributes-response.md).
 
 ## Example Usage
 
@@ -431,7 +431,7 @@ function deleteBookingCustomAttribute(string $bookingId, string $key): ApiRespon
 
 ## Response Type
 
-[`DeleteBookingCustomAttributeResponse`](../../doc/models/delete-booking-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteBookingCustomAttributeResponse`](../../doc/models/delete-booking-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -484,7 +484,7 @@ function retrieveBookingCustomAttribute(
 
 ## Response Type
 
-[`RetrieveBookingCustomAttributeResponse`](../../doc/models/retrieve-booking-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveBookingCustomAttributeResponse`](../../doc/models/retrieve-booking-custom-attribute-response.md).
 
 ## Example Usage
 
@@ -541,7 +541,7 @@ function upsertBookingCustomAttribute(
 
 ## Response Type
 
-[`UpsertBookingCustomAttributeResponse`](../../doc/models/upsert-booking-custom-attribute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpsertBookingCustomAttributeResponse`](../../doc/models/upsert-booking-custom-attribute-response.md).
 
 ## Example Usage
 

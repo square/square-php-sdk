@@ -9,11 +9,6 @@ use stdClass;
 class ListCashDrawerShiftsResponse implements \JsonSerializable
 {
     /**
-     * @var CashDrawerShiftSummary[]|null
-     */
-    private $items;
-
-    /**
      * @var string|null
      */
     private $cursor;
@@ -24,30 +19,9 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
     private $errors;
 
     /**
-     * Returns Items.
-     * A collection of CashDrawerShiftSummary objects for shifts that match
-     * the query.
-     *
-     * @return CashDrawerShiftSummary[]|null
+     * @var CashDrawerShiftSummary[]|null
      */
-    public function getItems(): ?array
-    {
-        return $this->items;
-    }
-
-    /**
-     * Sets Items.
-     * A collection of CashDrawerShiftSummary objects for shifts that match
-     * the query.
-     *
-     * @maps items
-     *
-     * @param CashDrawerShiftSummary[]|null $items
-     */
-    public function setItems(?array $items): void
-    {
-        $this->items = $items;
-    }
+    private $cashDrawerShifts;
 
     /**
      * Returns Cursor.
@@ -96,6 +70,32 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Cash Drawer Shifts.
+     * A collection of CashDrawerShiftSummary objects for shifts that match
+     * the query.
+     *
+     * @return CashDrawerShiftSummary[]|null
+     */
+    public function getCashDrawerShifts(): ?array
+    {
+        return $this->cashDrawerShifts;
+    }
+
+    /**
+     * Sets Cash Drawer Shifts.
+     * A collection of CashDrawerShiftSummary objects for shifts that match
+     * the query.
+     *
+     * @maps cash_drawer_shifts
+     *
+     * @param CashDrawerShiftSummary[]|null $cashDrawerShifts
+     */
+    public function setCashDrawerShifts(?array $cashDrawerShifts): void
+    {
+        $this->cashDrawerShifts = $cashDrawerShifts;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -107,14 +107,14 @@ class ListCashDrawerShiftsResponse implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->items)) {
-            $json['items']  = $this->items;
-        }
         if (isset($this->cursor)) {
-            $json['cursor'] = $this->cursor;
+            $json['cursor']             = $this->cursor;
         }
         if (isset($this->errors)) {
-            $json['errors'] = $this->errors;
+            $json['errors']             = $this->errors;
+        }
+        if (isset($this->cashDrawerShifts)) {
+            $json['cash_drawer_shifts'] = $this->cashDrawerShifts;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

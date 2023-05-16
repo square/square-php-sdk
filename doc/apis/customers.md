@@ -50,7 +50,7 @@ function listCustomers(
 
 ## Response Type
 
-[`ListCustomersResponse`](../../doc/models/list-customers-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCustomersResponse`](../../doc/models/list-customers-response.md).
 
 ## Example Usage
 
@@ -94,7 +94,7 @@ function createCustomer(CreateCustomerRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateCustomerResponse`](../../doc/models/create-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCustomerResponse`](../../doc/models/create-customer-response.md).
 
 ## Example Usage
 
@@ -156,7 +156,7 @@ function searchCustomers(SearchCustomersRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchCustomersResponse`](../../doc/models/search-customers-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchCustomersResponse`](../../doc/models/search-customers-response.md).
 
 ## Example Usage
 
@@ -245,7 +245,7 @@ function deleteCustomer(string $customerId, ?int $version = null): ApiResponse
 
 ## Response Type
 
-[`DeleteCustomerResponse`](../../doc/models/delete-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCustomerResponse`](../../doc/models/delete-customer-response.md).
 
 ## Example Usage
 
@@ -282,7 +282,7 @@ function retrieveCustomer(string $customerId): ApiResponse
 
 ## Response Type
 
-[`RetrieveCustomerResponse`](../../doc/models/retrieve-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCustomerResponse`](../../doc/models/retrieve-customer-response.md).
 
 ## Example Usage
 
@@ -329,7 +329,7 @@ function updateCustomer(string $customerId, UpdateCustomerRequest $body): ApiRes
 
 ## Response Type
 
-[`UpdateCustomerResponse`](../../doc/models/update-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateCustomerResponse`](../../doc/models/update-customer-response.md).
 
 ## Example Usage
 
@@ -383,7 +383,7 @@ function createCustomerCard(string $customerId, CreateCustomerCardRequest $body)
 
 ## Response Type
 
-[`CreateCustomerCardResponse`](../../doc/models/create-customer-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCustomerCardResponse`](../../doc/models/create-customer-card-response.md).
 
 ## Example Usage
 
@@ -442,7 +442,7 @@ function deleteCustomerCard(string $customerId, string $cardId): ApiResponse
 
 ## Response Type
 
-[`DeleteCustomerCardResponse`](../../doc/models/delete-customer-card-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCustomerCardResponse`](../../doc/models/delete-customer-card-response.md).
 
 ## Example Usage
 
@@ -488,7 +488,7 @@ function removeGroupFromCustomer(string $customerId, string $groupId): ApiRespon
 
 ## Response Type
 
-[`RemoveGroupFromCustomerResponse`](../../doc/models/remove-group-from-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RemoveGroupFromCustomerResponse`](../../doc/models/remove-group-from-customer-response.md).
 
 ## Example Usage
 
@@ -534,7 +534,7 @@ function addGroupToCustomer(string $customerId, string $groupId): ApiResponse
 
 ## Response Type
 
-[`AddGroupToCustomerResponse`](../../doc/models/add-group-to-customer-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`AddGroupToCustomerResponse`](../../doc/models/add-group-to-customer-response.md).
 
 ## Example Usage
 

@@ -151,6 +151,33 @@ class CashDrawerShiftSummaryBuilder
     }
 
     /**
+     * Sets created at field.
+     */
+    public function createdAt(?string $value): self
+    {
+        $this->instance->setCreatedAt($value);
+        return $this;
+    }
+
+    /**
+     * Sets updated at field.
+     */
+    public function updatedAt(?string $value): self
+    {
+        $this->instance->setUpdatedAt($value);
+        return $this;
+    }
+
+    /**
+     * Sets location id field.
+     */
+    public function locationId(?string $value): self
+    {
+        $this->instance->setLocationId($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new cash drawer shift summary object.
      */
     public function build(): CashDrawerShiftSummary

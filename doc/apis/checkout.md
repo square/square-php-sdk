@@ -44,7 +44,7 @@ function createCheckout(string $locationId, CreateCheckoutRequest $body): ApiRes
 
 ## Response Type
 
-[`CreateCheckoutResponse`](../../doc/models/create-checkout-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCheckoutResponse`](../../doc/models/create-checkout-response.md).
 
 ## Example Usage
 
@@ -81,22 +81,34 @@ $body = CreateCheckoutRequestBuilder::init(
                                 ]
                             )
                             ->basePriceMoney(
-                                MoneyBuilder::init()->build()
-                            )->build(),
+                                MoneyBuilder::init()
+                                    ->amount(1500)
+                                    ->currency(Currency::USD)
+                                    ->build()
+                            )
+                            ->build(),
                         OrderLineItemBuilder::init(
                             '1'
                         )
                             ->name('Slim Jeans')
                             ->basePriceMoney(
-                                MoneyBuilder::init()->build()
-                            )->build(),
+                                MoneyBuilder::init()
+                                    ->amount(2500)
+                                    ->currency(Currency::USD)
+                                    ->build()
+                            )
+                            ->build(),
                         OrderLineItemBuilder::init(
                             '3'
                         )
                             ->name('Woven Sweater')
                             ->basePriceMoney(
-                                MoneyBuilder::init()->build()
-                            )->build()
+                                MoneyBuilder::init()
+                                    ->amount(3500)
+                                    ->currency(Currency::USD)
+                                    ->build()
+                            )
+                            ->build()
                     ]
                 )
                 ->taxes(
@@ -115,7 +127,10 @@ $body = CreateCheckoutRequestBuilder::init(
                             ->uid('56ae1696-z1e3-9328-af6d-f1e04d947gd4')
                             ->type(OrderLineItemDiscountType::FIXED_AMOUNT)
                             ->amountMoney(
-                                MoneyBuilder::init()->build()
+                                MoneyBuilder::init()
+                                    ->amount(100)
+                                    ->currency(Currency::USD)
+                                    ->build()
                             )
                             ->scope(OrderLineItemDiscountScope::LINE_ITEM)
                             ->build()
@@ -189,7 +204,7 @@ function listPaymentLinks(?string $cursor = null, ?int $limit = null): ApiRespon
 
 ## Response Type
 
-[`ListPaymentLinksResponse`](../../doc/models/list-payment-links-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListPaymentLinksResponse`](../../doc/models/list-payment-links-response.md).
 
 ## Example Usage
 
@@ -224,7 +239,7 @@ function createPaymentLink(CreatePaymentLinkRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreatePaymentLinkResponse`](../../doc/models/create-payment-link-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreatePaymentLinkResponse`](../../doc/models/create-payment-link-response.md).
 
 ## Example Usage
 
@@ -272,7 +287,7 @@ function deletePaymentLink(string $id): ApiResponse
 
 ## Response Type
 
-[`DeletePaymentLinkResponse`](../../doc/models/delete-payment-link-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeletePaymentLinkResponse`](../../doc/models/delete-payment-link-response.md).
 
 ## Example Usage
 
@@ -309,7 +324,7 @@ function retrievePaymentLink(string $id): ApiResponse
 
 ## Response Type
 
-[`RetrievePaymentLinkResponse`](../../doc/models/retrieve-payment-link-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrievePaymentLinkResponse`](../../doc/models/retrieve-payment-link-response.md).
 
 ## Example Usage
 
@@ -349,7 +364,7 @@ function updatePaymentLink(string $id, UpdatePaymentLinkRequest $body): ApiRespo
 
 ## Response Type
 
-[`UpdatePaymentLinkResponse`](../../doc/models/update-payment-link-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdatePaymentLinkResponse`](../../doc/models/update-payment-link-response.md).
 
 ## Example Usage
 

@@ -39,7 +39,7 @@ function listDisputes(?string $cursor = null, ?string $states = null, ?string $l
 
 ## Response Type
 
-[`ListDisputesResponse`](../../doc/models/list-disputes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListDisputesResponse`](../../doc/models/list-disputes-response.md).
 
 ## Example Usage
 
@@ -74,7 +74,7 @@ function retrieveDispute(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`RetrieveDisputeResponse`](../../doc/models/retrieve-dispute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveDisputeResponse`](../../doc/models/retrieve-dispute-response.md).
 
 ## Example Usage
 
@@ -115,7 +115,7 @@ function acceptDispute(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`AcceptDisputeResponse`](../../doc/models/accept-dispute-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`AcceptDisputeResponse`](../../doc/models/accept-dispute-response.md).
 
 ## Example Usage
 
@@ -153,7 +153,7 @@ function listDisputeEvidence(string $disputeId, ?string $cursor = null): ApiResp
 
 ## Response Type
 
-[`ListDisputeEvidenceResponse`](../../doc/models/list-dispute-evidence-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListDisputeEvidenceResponse`](../../doc/models/list-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -197,7 +197,7 @@ function createDisputeEvidenceFile(
 
 ## Response Type
 
-[`CreateDisputeEvidenceFileResponse`](../../doc/models/create-dispute-evidence-file-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateDisputeEvidenceFileResponse`](../../doc/models/create-dispute-evidence-file-response.md).
 
 ## Example Usage
 
@@ -235,7 +235,7 @@ function createDisputeEvidenceText(string $disputeId, CreateDisputeEvidenceTextR
 
 ## Response Type
 
-[`CreateDisputeEvidenceTextResponse`](../../doc/models/create-dispute-evidence-text-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateDisputeEvidenceTextResponse`](../../doc/models/create-dispute-evidence-text-response.md).
 
 ## Example Usage
 
@@ -284,7 +284,7 @@ function deleteDisputeEvidence(string $disputeId, string $evidenceId): ApiRespon
 
 ## Response Type
 
-[`DeleteDisputeEvidenceResponse`](../../doc/models/delete-dispute-evidence-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteDisputeEvidenceResponse`](../../doc/models/delete-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -329,7 +329,7 @@ function retrieveDisputeEvidence(string $disputeId, string $evidenceId): ApiResp
 
 ## Response Type
 
-[`RetrieveDisputeEvidenceResponse`](../../doc/models/retrieve-dispute-evidence-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveDisputeEvidenceResponse`](../../doc/models/retrieve-dispute-evidence-response.md).
 
 ## Example Usage
 
@@ -377,7 +377,7 @@ function submitEvidence(string $disputeId): ApiResponse
 
 ## Response Type
 
-[`SubmitEvidenceResponse`](../../doc/models/submit-evidence-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SubmitEvidenceResponse`](../../doc/models/submit-evidence-response.md).
 
 ## Example Usage
 

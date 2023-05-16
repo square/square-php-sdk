@@ -33,15 +33,6 @@ class ListCashDrawerShiftsResponseBuilder
     }
 
     /**
-     * Sets items field.
-     */
-    public function items(?array $value): self
-    {
-        $this->instance->setItems($value);
-        return $this;
-    }
-
-    /**
      * Sets cursor field.
      */
     public function cursor(?string $value): self
@@ -56,6 +47,15 @@ class ListCashDrawerShiftsResponseBuilder
     public function errors(?array $value): self
     {
         $this->instance->setErrors($value);
+        return $this;
+    }
+
+    /**
+     * Sets cash drawer shifts field.
+     */
+    public function cashDrawerShifts(?array $value): self
+    {
+        $this->instance->setCashDrawerShifts($value);
         return $this;
     }
 

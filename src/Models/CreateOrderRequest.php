@@ -57,8 +57,8 @@ class CreateOrderRequest implements \JsonSerializable
      * you can try it again with the same idempotency key without
      * worrying about creating duplicate orders.
      *
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -74,8 +74,8 @@ class CreateOrderRequest implements \JsonSerializable
      * you can try it again with the same idempotency key without
      * worrying about creating duplicate orders.
      *
-     * For more information, see [Idempotency](https://developer.squareup.
-     * com/docs/basics/api101/idempotency).
+     * For more information, see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/idempotency).
      *
      * @maps idempotency_key
      */

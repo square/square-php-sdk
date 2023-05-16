@@ -56,7 +56,7 @@ function renewToken(string $clientId, RenewTokenRequest $body, string $authoriza
 
 ## Response Type
 
-[`RenewTokenResponse`](../../doc/models/renew-token-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RenewTokenResponse`](../../doc/models/renew-token-response.md).
 
 ## Example Usage
 
@@ -121,7 +121,7 @@ function revokeToken(RevokeTokenRequest $body, string $authorization): ApiRespon
 
 ## Response Type
 
-[`RevokeTokenResponse`](../../doc/models/revoke-token-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RevokeTokenResponse`](../../doc/models/revoke-token-response.md).
 
 ## Example Usage
 
@@ -184,7 +184,7 @@ function obtainToken(ObtainTokenRequest $body): ApiResponse
 
 ## Response Type
 
-[`ObtainTokenResponse`](../../doc/models/obtain-token-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ObtainTokenResponse`](../../doc/models/obtain-token-response.md).
 
 ## Example Usage
 
@@ -242,7 +242,7 @@ function retrieveTokenStatus(string $authorization): ApiResponse
 
 ## Response Type
 
-[`RetrieveTokenStatusResponse`](../../doc/models/retrieve-token-status-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveTokenStatusResponse`](../../doc/models/retrieve-token-status-response.md).
 
 ## Example Usage
 

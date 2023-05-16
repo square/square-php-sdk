@@ -39,7 +39,7 @@ function listDeviceCodes(
 
 ## Response Type
 
-[`ListDeviceCodesResponse`](../../doc/models/list-device-codes-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListDeviceCodesResponse`](../../doc/models/list-device-codes-response.md).
 
 ## Example Usage
 
@@ -75,7 +75,7 @@ function createDeviceCode(CreateDeviceCodeRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateDeviceCodeResponse`](../../doc/models/create-device-code-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateDeviceCodeResponse`](../../doc/models/create-device-code-response.md).
 
 ## Example Usage
 
@@ -118,7 +118,7 @@ function getDeviceCode(string $id): ApiResponse
 
 ## Response Type
 
-[`GetDeviceCodeResponse`](../../doc/models/get-device-code-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetDeviceCodeResponse`](../../doc/models/get-device-code-response.md).
 
 ## Example Usage
 

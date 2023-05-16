@@ -97,6 +97,24 @@ class CatalogModifierBuilder
     }
 
     /**
+     * Sets location overrides field.
+     */
+    public function locationOverrides(?array $value): self
+    {
+        $this->instance->setLocationOverrides($value);
+        return $this;
+    }
+
+    /**
+     * Unsets location overrides field.
+     */
+    public function unsetLocationOverrides(): self
+    {
+        $this->instance->unsetLocationOverrides();
+        return $this;
+    }
+
+    /**
      * Sets image id field.
      */
     public function imageId(?string $value): self

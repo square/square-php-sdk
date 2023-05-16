@@ -42,7 +42,7 @@ function createOrder(CreateOrderRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateOrderResponse`](../../doc/models/create-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateOrderResponse`](../../doc/models/create-order-response.md).
 
 ## Example Usage
 
@@ -60,8 +60,12 @@ $body = CreateOrderRequestBuilder::init()
                     )
                         ->name('New York Strip Steak')
                         ->basePriceMoney(
-                            MoneyBuilder::init()->build()
-                        )->build(),
+                            MoneyBuilder::init()
+                                ->amount(1599)
+                                ->currency(Currency::USD)
+                                ->build()
+                        )
+                        ->build(),
                     OrderLineItemBuilder::init(
                         '2'
                     )
@@ -109,7 +113,10 @@ $body = CreateOrderRequestBuilder::init()
                         ->uid('one-dollar-off')
                         ->name('Sale - $1.00 off')
                         ->amountMoney(
-                            MoneyBuilder::init()->build()
+                            MoneyBuilder::init()
+                                ->amount(100)
+                                ->currency(Currency::USD)
+                                ->build()
                         )
                         ->scope(OrderLineItemDiscountScope::LINE_ITEM)
                         ->build()
@@ -152,7 +159,7 @@ function batchRetrieveOrders(BatchRetrieveOrdersRequest $body): ApiResponse
 
 ## Response Type
 
-[`BatchRetrieveOrdersResponse`](../../doc/models/batch-retrieve-orders-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BatchRetrieveOrdersResponse`](../../doc/models/batch-retrieve-orders-response.md).
 
 ## Example Usage
 
@@ -196,7 +203,7 @@ function calculateOrder(CalculateOrderRequest $body): ApiResponse
 
 ## Response Type
 
-[`CalculateOrderResponse`](../../doc/models/calculate-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CalculateOrderResponse`](../../doc/models/calculate-order-response.md).
 
 ## Example Usage
 
@@ -212,15 +219,23 @@ $body = CalculateOrderRequestBuilder::init(
                 )
                     ->name('Item 1')
                     ->basePriceMoney(
-                        MoneyBuilder::init()->build()
-                    )->build(),
+                        MoneyBuilder::init()
+                            ->amount(500)
+                            ->currency(Currency::USD)
+                            ->build()
+                    )
+                    ->build(),
                 OrderLineItemBuilder::init(
                     '2'
                 )
                     ->name('Item 2')
                     ->basePriceMoney(
-                        MoneyBuilder::init()->build()
-                    )->build()
+                        MoneyBuilder::init()
+                            ->amount(300)
+                            ->currency(Currency::USD)
+                            ->build()
+                    )
+                    ->build()
             ]
         )
         ->discounts(
@@ -266,7 +281,7 @@ function cloneOrder(CloneOrderRequest $body): ApiResponse
 
 ## Response Type
 
-[`CloneOrderResponse`](../../doc/models/clone-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CloneOrderResponse`](../../doc/models/clone-order-response.md).
 
 ## Example Usage
 
@@ -324,7 +339,7 @@ function searchOrders(SearchOrdersRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchOrdersResponse`](../../doc/models/search-orders-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchOrdersResponse`](../../doc/models/search-orders-response.md).
 
 ## Example Usage
 
@@ -350,9 +365,14 @@ $body = SearchOrdersRequestBuilder::init()
                     ->dateTimeFilter(
                         SearchOrdersDateTimeFilterBuilder::init()
                             ->closedAt(
-                                TimeRangeBuilder::init()->build()
-                            )->build()
-                    )->build()
+                                TimeRangeBuilder::init()
+                                    ->startAt('2018-03-03T20:00:00+00:00')
+                                    ->endAt('2019-03-04T21:54:45+00:00')
+                                    ->build()
+                            )
+                            ->build()
+                    )
+                    ->build()
             )
             ->sort(
                 SearchOrdersSortBuilder::init(
@@ -397,7 +417,7 @@ function retrieveOrder(string $orderId): ApiResponse
 
 ## Response Type
 
-[`RetrieveOrderResponse`](../../doc/models/retrieve-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveOrderResponse`](../../doc/models/retrieve-order-response.md).
 
 ## Example Usage
 
@@ -449,7 +469,7 @@ function updateOrder(string $orderId, UpdateOrderRequest $body): ApiResponse
 
 ## Response Type
 
-[`UpdateOrderResponse`](../../doc/models/update-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateOrderResponse`](../../doc/models/update-order-response.md).
 
 ## Example Usage
 
@@ -505,7 +525,7 @@ function payOrder(string $orderId, PayOrderRequest $body): ApiResponse
 
 ## Response Type
 
-[`PayOrderResponse`](../../doc/models/pay-order-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`PayOrderResponse`](../../doc/models/pay-order-response.md).
 
 ## Example Usage
 

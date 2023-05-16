@@ -52,7 +52,7 @@ function listBookings(
 
 ## Response Type
 
-[`ListBookingsResponse`](../../doc/models/list-bookings-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListBookingsResponse`](../../doc/models/list-bookings-response.md).
 
 ## Example Usage
 
@@ -101,7 +101,7 @@ function createBooking(CreateBookingRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateBookingResponse`](../../doc/models/create-booking-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateBookingResponse`](../../doc/models/create-booking-response.md).
 
 ## Example Usage
 
@@ -143,7 +143,7 @@ function searchAvailability(SearchAvailabilityRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchAvailabilityResponse`](../../doc/models/search-availability-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchAvailabilityResponse`](../../doc/models/search-availability-response.md).
 
 ## Example Usage
 
@@ -180,7 +180,7 @@ function retrieveBusinessBookingProfile(): ApiResponse
 
 ## Response Type
 
-[`RetrieveBusinessBookingProfileResponse`](../../doc/models/retrieve-business-booking-profile-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveBusinessBookingProfileResponse`](../../doc/models/retrieve-business-booking-profile-response.md).
 
 ## Example Usage
 
@@ -223,7 +223,7 @@ function listTeamMemberBookingProfiles(
 
 ## Response Type
 
-[`ListTeamMemberBookingProfilesResponse`](../../doc/models/list-team-member-booking-profiles-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListTeamMemberBookingProfilesResponse`](../../doc/models/list-team-member-booking-profiles-response.md).
 
 ## Example Usage
 
@@ -260,7 +260,7 @@ function retrieveTeamMemberBookingProfile(string $teamMemberId): ApiResponse
 
 ## Response Type
 
-[`RetrieveTeamMemberBookingProfileResponse`](../../doc/models/retrieve-team-member-booking-profile-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveTeamMemberBookingProfileResponse`](../../doc/models/retrieve-team-member-booking-profile-response.md).
 
 ## Example Usage
 
@@ -300,7 +300,7 @@ function retrieveBooking(string $bookingId): ApiResponse
 
 ## Response Type
 
-[`RetrieveBookingResponse`](../../doc/models/retrieve-booking-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveBookingResponse`](../../doc/models/retrieve-booking-response.md).
 
 ## Example Usage
 
@@ -344,7 +344,7 @@ function updateBooking(string $bookingId, UpdateBookingRequest $body): ApiRespon
 
 ## Response Type
 
-[`UpdateBookingResponse`](../../doc/models/update-booking-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateBookingResponse`](../../doc/models/update-booking-response.md).
 
 ## Example Usage
 
@@ -395,7 +395,7 @@ function cancelBooking(string $bookingId, CancelBookingRequest $body): ApiRespon
 
 ## Response Type
 
-[`CancelBookingResponse`](../../doc/models/cancel-booking-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CancelBookingResponse`](../../doc/models/cancel-booking-response.md).
 
 ## Example Usage
 

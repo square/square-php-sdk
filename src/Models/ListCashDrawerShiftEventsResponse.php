@@ -9,11 +9,6 @@ use stdClass;
 class ListCashDrawerShiftEventsResponse implements \JsonSerializable
 {
     /**
-     * @var CashDrawerShiftEvent[]|null
-     */
-    private $events;
-
-    /**
      * @var string|null
      */
     private $cursor;
@@ -24,30 +19,9 @@ class ListCashDrawerShiftEventsResponse implements \JsonSerializable
     private $errors;
 
     /**
-     * Returns Events.
-     * All of the events (payments, refunds, etc.) for a cash drawer during
-     * the shift.
-     *
-     * @return CashDrawerShiftEvent[]|null
+     * @var CashDrawerShiftEvent[]|null
      */
-    public function getEvents(): ?array
-    {
-        return $this->events;
-    }
-
-    /**
-     * Sets Events.
-     * All of the events (payments, refunds, etc.) for a cash drawer during
-     * the shift.
-     *
-     * @maps events
-     *
-     * @param CashDrawerShiftEvent[]|null $events
-     */
-    public function setEvents(?array $events): void
-    {
-        $this->events = $events;
-    }
+    private $cashDrawerShiftEvents;
 
     /**
      * Returns Cursor.
@@ -96,6 +70,32 @@ class ListCashDrawerShiftEventsResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Cash Drawer Shift Events.
+     * All of the events (payments, refunds, etc.) for a cash drawer during
+     * the shift.
+     *
+     * @return CashDrawerShiftEvent[]|null
+     */
+    public function getCashDrawerShiftEvents(): ?array
+    {
+        return $this->cashDrawerShiftEvents;
+    }
+
+    /**
+     * Sets Cash Drawer Shift Events.
+     * All of the events (payments, refunds, etc.) for a cash drawer during
+     * the shift.
+     *
+     * @maps cash_drawer_shift_events
+     *
+     * @param CashDrawerShiftEvent[]|null $cashDrawerShiftEvents
+     */
+    public function setCashDrawerShiftEvents(?array $cashDrawerShiftEvents): void
+    {
+        $this->cashDrawerShiftEvents = $cashDrawerShiftEvents;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -107,14 +107,14 @@ class ListCashDrawerShiftEventsResponse implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->events)) {
-            $json['events'] = $this->events;
-        }
         if (isset($this->cursor)) {
-            $json['cursor'] = $this->cursor;
+            $json['cursor']                   = $this->cursor;
         }
         if (isset($this->errors)) {
-            $json['errors'] = $this->errors;
+            $json['errors']                   = $this->errors;
+        }
+        if (isset($this->cashDrawerShiftEvents)) {
+            $json['cash_drawer_shift_events'] = $this->cashDrawerShiftEvents;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

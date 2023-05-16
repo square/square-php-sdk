@@ -42,7 +42,7 @@ function createTeamMember(CreateTeamMemberRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateTeamMemberResponse`](../../doc/models/create-team-member-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateTeamMemberResponse`](../../doc/models/create-team-member-response.md).
 
 ## Example Usage
 
@@ -107,7 +107,7 @@ function bulkCreateTeamMembers(BulkCreateTeamMembersRequest $body): ApiResponse
 
 ## Response Type
 
-[`BulkCreateTeamMembersResponse`](../../doc/models/bulk-create-team-members-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkCreateTeamMembersResponse`](../../doc/models/bulk-create-team-members-response.md).
 
 ## Example Usage
 
@@ -189,7 +189,7 @@ function bulkUpdateTeamMembers(BulkUpdateTeamMembersRequest $body): ApiResponse
 
 ## Response Type
 
-[`BulkUpdateTeamMembersResponse`](../../doc/models/bulk-update-team-members-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkUpdateTeamMembersResponse`](../../doc/models/bulk-update-team-members-response.md).
 
 ## Example Usage
 
@@ -275,7 +275,7 @@ function searchTeamMembers(SearchTeamMembersRequest $body): ApiResponse
 
 ## Response Type
 
-[`SearchTeamMembersResponse`](../../doc/models/search-team-members-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`SearchTeamMembersResponse`](../../doc/models/search-team-members-response.md).
 
 ## Example Usage
 
@@ -329,7 +329,7 @@ function retrieveTeamMember(string $teamMemberId): ApiResponse
 
 ## Response Type
 
-[`RetrieveTeamMemberResponse`](../../doc/models/retrieve-team-member-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveTeamMemberResponse`](../../doc/models/retrieve-team-member-response.md).
 
 ## Example Usage
 
@@ -368,7 +368,7 @@ function updateTeamMember(string $teamMemberId, UpdateTeamMemberRequest $body): 
 
 ## Response Type
 
-[`UpdateTeamMemberResponse`](../../doc/models/update-team-member-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateTeamMemberResponse`](../../doc/models/update-team-member-response.md).
 
 ## Example Usage
 
@@ -434,7 +434,7 @@ function retrieveWageSetting(string $teamMemberId): ApiResponse
 
 ## Response Type
 
-[`RetrieveWageSettingResponse`](../../doc/models/retrieve-wage-setting-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveWageSettingResponse`](../../doc/models/retrieve-wage-setting-response.md).
 
 ## Example Usage
 
@@ -476,7 +476,7 @@ function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body)
 
 ## Response Type
 
-[`UpdateWageSettingResponse`](../../doc/models/update-wage-setting-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateWageSettingResponse`](../../doc/models/update-wage-setting-response.md).
 
 ## Example Usage
 

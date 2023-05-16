@@ -10,7 +10,7 @@ use InvalidArgumentException;
 use stdClass;
 
 /**
- * API utility class
+ * API utility class.
  */
 class ApiHelper
 {
@@ -22,7 +22,7 @@ class ApiHelper
     public static function getJsonHelper(): JsonHelper
     {
         if (self::$jsonHelper == null) {
-            self::$jsonHelper = new JsonHelper([], null, 'Square\\Models');
+            self::$jsonHelper = new JsonHelper([], [], null, 'Square\\Models');
         }
         return self::$jsonHelper;
     }
@@ -40,7 +40,7 @@ class ApiHelper
     }
 
     /**
-     * Deserialize a Json string
+     * Deserialize a Json string.
      *
      * @param string $json A valid Json string
      *

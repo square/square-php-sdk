@@ -98,9 +98,7 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Returns Bank Account.
-     * Indicates whether bank transfer payments are accepted. The default value is `false`.
-     *
-     * This option is allowed only for invoices that have a single payment request of the `BALANCE` type.
+     * Indicates whether ACH bank transfer payments are accepted. The default value is `false`.
      */
     public function getBankAccount(): ?bool
     {
@@ -112,9 +110,7 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Sets Bank Account.
-     * Indicates whether bank transfer payments are accepted. The default value is `false`.
-     *
-     * This option is allowed only for invoices that have a single payment request of the `BALANCE` type.
+     * Indicates whether ACH bank transfer payments are accepted. The default value is `false`.
      *
      * @maps bank_account
      */
@@ -125,9 +121,7 @@ class InvoiceAcceptedPaymentMethods implements \JsonSerializable
 
     /**
      * Unsets Bank Account.
-     * Indicates whether bank transfer payments are accepted. The default value is `false`.
-     *
-     * This option is allowed only for invoices that have a single payment request of the `BALANCE` type.
+     * Indicates whether ACH bank transfer payments are accepted. The default value is `false`.
      */
     public function unsetBankAccount(): void
     {

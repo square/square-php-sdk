@@ -34,7 +34,7 @@ function listCustomerGroups(?string $cursor = null, ?int $limit = null): ApiResp
 
 ## Response Type
 
-[`ListCustomerGroupsResponse`](../../doc/models/list-customer-groups-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListCustomerGroupsResponse`](../../doc/models/list-customer-groups-response.md).
 
 ## Example Usage
 
@@ -71,7 +71,7 @@ function createCustomerGroup(CreateCustomerGroupRequest $body): ApiResponse
 
 ## Response Type
 
-[`CreateCustomerGroupResponse`](../../doc/models/create-customer-group-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateCustomerGroupResponse`](../../doc/models/create-customer-group-response.md).
 
 ## Example Usage
 
@@ -112,7 +112,7 @@ function deleteCustomerGroup(string $groupId): ApiResponse
 
 ## Response Type
 
-[`DeleteCustomerGroupResponse`](../../doc/models/delete-customer-group-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DeleteCustomerGroupResponse`](../../doc/models/delete-customer-group-response.md).
 
 ## Example Usage
 
@@ -149,7 +149,7 @@ function retrieveCustomerGroup(string $groupId): ApiResponse
 
 ## Response Type
 
-[`RetrieveCustomerGroupResponse`](../../doc/models/retrieve-customer-group-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveCustomerGroupResponse`](../../doc/models/retrieve-customer-group-response.md).
 
 ## Example Usage
 
@@ -187,7 +187,7 @@ function updateCustomerGroup(string $groupId, UpdateCustomerGroupRequest $body):
 
 ## Response Type
 
-[`UpdateCustomerGroupResponse`](../../doc/models/update-customer-group-response.md)
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateCustomerGroupResponse`](../../doc/models/update-customer-group-response.md).
 
 ## Example Usage
 

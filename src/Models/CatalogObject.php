@@ -740,7 +740,8 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Modifier Data.
-     * A modifier applicable to items at the time of sale.
+     * A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a
+     * Burger item.
      */
     public function getModifierData(): ?CatalogModifier
     {
@@ -749,7 +750,8 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Modifier Data.
-     * A modifier applicable to items at the time of sale.
+     * A modifier applicable to items at the time of sale. An example of a modifier is a Cheese add-on to a
+     * Burger item.
      *
      * @maps modifier_data
      */
