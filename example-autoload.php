@@ -24,8 +24,9 @@ spl_autoload_register(function ($class) {
     $prefixToLocation = [
         "Square\\" => "/square-php-sdk/src/",
         "apimatic\\jsonmapper\\" => "/jsonmapper/src/",
-        // This is the Namespace and location from Apimatic/Unirest's composer.json
         "Unirest\\" => "/unirest-php/src/",
+        "Core\\" => "/core-lib-php/src/",
+        "CoreInterfaces\\" => "/core-interfaces-php/src/",
     ];
 
     $matchingPrefix;
