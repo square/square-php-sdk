@@ -190,4 +190,28 @@ class ActivityType
      * Balance change due to money transfer.
      */
     public const PAYOUT = 'PAYOUT';
+
+    /**
+     * Indicates the withholding of a portion of each payment by Square that has been
+     * automatically converted into bitcoin using Cash App. The seller manages their bitcoin in
+     * their Cash App account.
+     */
+    public const AUTOMATIC_BITCOIN_CONVERSIONS = 'AUTOMATIC_BITCOIN_CONVERSIONS';
+
+    /**
+     * Indicates a return of the payment withholding that had been scheduled to be converted
+     * into bitcoin using Cash App to the Square payments balance.
+     */
+    public const AUTOMATIC_BITCOIN_CONVERSIONS_REVERSED = 'AUTOMATIC_BITCOIN_CONVERSIONS_REVERSED';
+
+    /**
+     * The repayment made toward the outstanding balance on the seller's Square credit card.
+     */
+    public const CREDIT_CARD_REPAYMENT = 'CREDIT_CARD_REPAYMENT';
+
+    /**
+     * The reversal of the repayment made toward the outstanding balance on the seller's
+     * Square credit card.
+     */
+    public const CREDIT_CARD_REPAYMENT_REVERSED = 'CREDIT_CARD_REPAYMENT_REVERSED';
 }

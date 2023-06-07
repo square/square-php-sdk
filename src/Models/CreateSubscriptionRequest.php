@@ -23,9 +23,14 @@ class CreateSubscriptionRequest implements \JsonSerializable
     private $locationId;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $planId;
+
+    /**
+     * @var string|null
+     */
+    private $planVariationId;
 
     /**
      * @var string
@@ -68,14 +73,17 @@ class CreateSubscriptionRequest implements \JsonSerializable
     private $source;
 
     /**
+     * @var Phase[]|null
+     */
+    private $phases;
+
+    /**
      * @param string $locationId
-     * @param string $planId
      * @param string $customerId
      */
-    public function __construct(string $locationId, string $planId, string $customerId)
+    public function __construct(string $locationId, string $customerId)
     {
         $this->locationId = $locationId;
-        $this->planId = $planId;
         $this->customerId = $customerId;
     }
 
@@ -85,8 +93,8 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
-     * apis/idempotency).
+     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-
+     * api-patterns/idempotency).
      */
     public function getIdempotencyKey(): ?string
     {
@@ -99,8 +107,8 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * If you do not provide a unique string (or provide an empty string as the value),
      * the endpoint treats each request as independent.
      *
-     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/working-with-
-     * apis/idempotency).
+     * For more information, see [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-
+     * api-patterns/idempotency).
      *
      * @maps idempotency_key
      */
@@ -132,36 +140,65 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Returns Plan Id.
-     * The ID of the subscription plan created using the Catalog API.
+     * The ID of the [subscription plan](https://developer.squareup.com/docs/subscriptions-api/plans-and-
+     * variations) created using the Catalog API.
+     *
+     * Deprecated in favour of `plan_variation_id`.
+     *
      * For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
      * plan) and
      * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
      */
-    public function getPlanId(): string
+    public function getPlanId(): ?string
     {
         return $this->planId;
     }
 
     /**
      * Sets Plan Id.
-     * The ID of the subscription plan created using the Catalog API.
+     * The ID of the [subscription plan](https://developer.squareup.com/docs/subscriptions-api/plans-and-
+     * variations) created using the Catalog API.
+     *
+     * Deprecated in favour of `plan_variation_id`.
+     *
      * For more information, see
      * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
      * plan) and
      * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
      *
-     * @required
      * @maps plan_id
      */
-    public function setPlanId(string $planId): void
+    public function setPlanId(?string $planId): void
     {
         $this->planId = $planId;
     }
 
     /**
+     * Returns Plan Variation Id.
+     * The ID of the [subscription plan variation](https://developer.squareup.com/docs/subscriptions-
+     * api/plans-and-variations#plan-variations) created using the Catalog API.
+     */
+    public function getPlanVariationId(): ?string
+    {
+        return $this->planVariationId;
+    }
+
+    /**
+     * Sets Plan Variation Id.
+     * The ID of the [subscription plan variation](https://developer.squareup.com/docs/subscriptions-
+     * api/plans-and-variations#plan-variations) created using the Catalog API.
+     *
+     * @maps plan_variation_id
+     */
+    public function setPlanVariationId(?string $planVariationId): void
+    {
+        $this->planVariationId = $planVariationId;
+    }
+
+    /**
      * Returns Customer Id.
-     * The ID of the [customer](entity:Customer) subscribing to the subscription plan.
+     * The ID of the [customer](entity:Customer) subscribing to the subscription plan variation.
      */
     public function getCustomerId(): string
     {
@@ -170,7 +207,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
 
     /**
      * Sets Customer Id.
-     * The ID of the [customer](entity:Customer) subscribing to the subscription plan.
+     * The ID of the [customer](entity:Customer) subscribing to the subscription plan variation.
      *
      * @required
      * @maps customer_id
@@ -206,7 +243,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * Returns Canceled Date.
      * The `YYYY-MM-DD`-formatted date when the newly created subscription is scheduled for cancellation.
      *
-     * This date overrides the cancellation date set in the plan configuration.
+     * This date overrides the cancellation date set in the plan variation configuration.
      * If the cancellation date is earlier than the end date of a subscription cycle, the subscription
      * stops
      * at the canceled date and the subscriber is sent a prorated invoice at the beginning of the canceled
@@ -227,7 +264,7 @@ class CreateSubscriptionRequest implements \JsonSerializable
      * Sets Canceled Date.
      * The `YYYY-MM-DD`-formatted date when the newly created subscription is scheduled for cancellation.
      *
-     * This date overrides the cancellation date set in the plan configuration.
+     * This date overrides the cancellation date set in the plan variation configuration.
      * If the cancellation date is earlier than the end date of a subscription cycle, the subscription
      * stops
      * at the canceled date and the subscriber is sent a prorated invoice at the beginning of the canceled
@@ -307,9 +344,8 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Returns Card Id.
      * The ID of the [subscriber's](entity:Customer) [card](entity:Card) to charge.
-     * If it is not specified, the subscriber receives an invoice via email. For an example to
-     * create a customer profile for a subscriber and add a card on file, see [Subscriptions
-     * Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
+     * If it is not specified, the subscriber receives an invoice via email with a link to pay for their
+     * subscription.
      */
     public function getCardId(): ?string
     {
@@ -319,9 +355,8 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * Sets Card Id.
      * The ID of the [subscriber's](entity:Customer) [card](entity:Card) to charge.
-     * If it is not specified, the subscriber receives an invoice via email. For an example to
-     * create a customer profile for a subscriber and add a card on file, see [Subscriptions
-     * Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
+     * If it is not specified, the subscriber receives an invoice via email with a link to pay for their
+     * subscription.
      *
      * @maps card_id
      */
@@ -381,6 +416,30 @@ class CreateSubscriptionRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Phases.
+     * array of phases for this subscription
+     *
+     * @return Phase[]|null
+     */
+    public function getPhases(): ?array
+    {
+        return $this->phases;
+    }
+
+    /**
+     * Sets Phases.
+     * array of phases for this subscription
+     *
+     * @maps phases
+     *
+     * @param Phase[]|null $phases
+     */
+    public function setPhases(?array $phases): void
+    {
+        $this->phases = $phases;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -396,7 +455,12 @@ class CreateSubscriptionRequest implements \JsonSerializable
             $json['idempotency_key']      = $this->idempotencyKey;
         }
         $json['location_id']              = $this->locationId;
-        $json['plan_id']                  = $this->planId;
+        if (isset($this->planId)) {
+            $json['plan_id']              = $this->planId;
+        }
+        if (isset($this->planVariationId)) {
+            $json['plan_variation_id']    = $this->planVariationId;
+        }
         $json['customer_id']              = $this->customerId;
         if (isset($this->startDate)) {
             $json['start_date']           = $this->startDate;
@@ -418,6 +482,9 @@ class CreateSubscriptionRequest implements \JsonSerializable
         }
         if (isset($this->source)) {
             $json['source']               = $this->source;
+        }
+        if (isset($this->phases)) {
+            $json['phases']               = $this->phases;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

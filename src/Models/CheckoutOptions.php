@@ -54,6 +54,16 @@ class CheckoutOptions implements \JsonSerializable
     private $shippingFee;
 
     /**
+     * @var array
+     */
+    private $enableCoupon = [];
+
+    /**
+     * @var array
+     */
+    private $enableLoyalty = [];
+
+    /**
      * Returns Allow Tipping.
      * Indicates whether the payment allows tipping.
      */
@@ -324,6 +334,76 @@ class CheckoutOptions implements \JsonSerializable
     }
 
     /**
+     * Returns Enable Coupon.
+     * Indicates whether to include the `Add coupon` section for the buyer to provide a Square marketing
+     * coupon in the payment form.
+     */
+    public function getEnableCoupon(): ?bool
+    {
+        if (count($this->enableCoupon) == 0) {
+            return null;
+        }
+        return $this->enableCoupon['value'];
+    }
+
+    /**
+     * Sets Enable Coupon.
+     * Indicates whether to include the `Add coupon` section for the buyer to provide a Square marketing
+     * coupon in the payment form.
+     *
+     * @maps enable_coupon
+     */
+    public function setEnableCoupon(?bool $enableCoupon): void
+    {
+        $this->enableCoupon['value'] = $enableCoupon;
+    }
+
+    /**
+     * Unsets Enable Coupon.
+     * Indicates whether to include the `Add coupon` section for the buyer to provide a Square marketing
+     * coupon in the payment form.
+     */
+    public function unsetEnableCoupon(): void
+    {
+        $this->enableCoupon = [];
+    }
+
+    /**
+     * Returns Enable Loyalty.
+     * Indicates whether to include the `REWARDS` section for the buyer to opt in to loyalty, redeem
+     * rewards in the payment form, or both.
+     */
+    public function getEnableLoyalty(): ?bool
+    {
+        if (count($this->enableLoyalty) == 0) {
+            return null;
+        }
+        return $this->enableLoyalty['value'];
+    }
+
+    /**
+     * Sets Enable Loyalty.
+     * Indicates whether to include the `REWARDS` section for the buyer to opt in to loyalty, redeem
+     * rewards in the payment form, or both.
+     *
+     * @maps enable_loyalty
+     */
+    public function setEnableLoyalty(?bool $enableLoyalty): void
+    {
+        $this->enableLoyalty['value'] = $enableLoyalty;
+    }
+
+    /**
+     * Unsets Enable Loyalty.
+     * Indicates whether to include the `REWARDS` section for the buyer to opt in to loyalty, redeem
+     * rewards in the payment form, or both.
+     */
+    public function unsetEnableLoyalty(): void
+    {
+        $this->enableLoyalty = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -361,6 +441,12 @@ class CheckoutOptions implements \JsonSerializable
         }
         if (isset($this->shippingFee)) {
             $json['shipping_fee']             = $this->shippingFee;
+        }
+        if (!empty($this->enableCoupon)) {
+            $json['enable_coupon']            = $this->enableCoupon['value'];
+        }
+        if (!empty($this->enableLoyalty)) {
+            $json['enable_loyalty']           = $this->enableLoyalty['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

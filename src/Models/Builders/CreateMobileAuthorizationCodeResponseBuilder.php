@@ -6,7 +6,6 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateMobileAuthorizationCodeResponse;
-use Square\Models\Error;
 
 /**
  * Builder for model CreateMobileAuthorizationCodeResponse
@@ -52,11 +51,11 @@ class CreateMobileAuthorizationCodeResponseBuilder
     }
 
     /**
-     * Sets error field.
+     * Sets errors field.
      */
-    public function error(?Error $value): self
+    public function errors(?array $value): self
     {
-        $this->instance->setError($value);
+        $this->instance->setErrors($value);
         return $this;
     }
 

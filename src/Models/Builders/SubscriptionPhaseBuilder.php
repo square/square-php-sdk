@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Money;
 use Square\Models\SubscriptionPhase;
+use Square\Models\SubscriptionPricing;
 
 /**
  * Builder for model SubscriptionPhase
@@ -93,6 +94,15 @@ class SubscriptionPhaseBuilder
     public function unsetOrdinal(): self
     {
         $this->instance->unsetOrdinal();
+        return $this;
+    }
+
+    /**
+     * Sets pricing field.
+     */
+    public function pricing(?SubscriptionPricing $value): self
+    {
+        $this->instance->setPricing($value);
         return $this;
     }
 

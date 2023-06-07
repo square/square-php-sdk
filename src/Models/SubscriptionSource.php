@@ -12,9 +12,9 @@ use stdClass;
 class SubscriptionSource implements \JsonSerializable
 {
     /**
-     * @var string|null
+     * @var array
      */
-    private $name;
+    private $name = [];
 
     /**
      * Returns Name.
@@ -24,7 +24,10 @@ class SubscriptionSource implements \JsonSerializable
      */
     public function getName(): ?string
     {
-        return $this->name;
+        if (count($this->name) == 0) {
+            return null;
+        }
+        return $this->name['value'];
     }
 
     /**
@@ -37,7 +40,18 @@ class SubscriptionSource implements \JsonSerializable
      */
     public function setName(?string $name): void
     {
-        $this->name = $name;
+        $this->name['value'] = $name;
+    }
+
+    /**
+     * Unsets Name.
+     * The name used to identify the place (physical or digital) that
+     * a subscription originates. If unset, the name defaults to the name
+     * of the application that created the subscription.
+     */
+    public function unsetName(): void
+    {
+        $this->name = [];
     }
 
     /**
@@ -52,8 +66,8 @@ class SubscriptionSource implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        if (isset($this->name)) {
-            $json['name'] = $this->name;
+        if (!empty($this->name)) {
+            $json['name'] = $this->name['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

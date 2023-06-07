@@ -28,9 +28,13 @@ class SubscriptionEventBuilder
     /**
      * Initializes a new subscription event Builder object.
      */
-    public static function init(string $id, string $subscriptionEventType, string $effectiveDate, string $planId): self
-    {
-        return new self(new SubscriptionEvent($id, $subscriptionEventType, $effectiveDate, $planId));
+    public static function init(
+        string $id,
+        string $subscriptionEventType,
+        string $effectiveDate,
+        string $planVariationId
+    ): self {
+        return new self(new SubscriptionEvent($id, $subscriptionEventType, $effectiveDate, $planVariationId));
     }
 
     /**
@@ -39,6 +43,24 @@ class SubscriptionEventBuilder
     public function info(?SubscriptionEventInfo $value): self
     {
         $this->instance->setInfo($value);
+        return $this;
+    }
+
+    /**
+     * Sets phases field.
+     */
+    public function phases(?array $value): self
+    {
+        $this->instance->setPhases($value);
+        return $this;
+    }
+
+    /**
+     * Unsets phases field.
+     */
+    public function unsetPhases(): self
+    {
+        $this->instance->unsetPhases();
         return $this;
     }
 

@@ -69,20 +69,38 @@ class SubscriptionActionBuilder
     }
 
     /**
-     * Sets new plan id field.
+     * Sets phases field.
      */
-    public function newPlanId(?string $value): self
+    public function phases(?array $value): self
     {
-        $this->instance->setNewPlanId($value);
+        $this->instance->setPhases($value);
         return $this;
     }
 
     /**
-     * Unsets new plan id field.
+     * Unsets phases field.
      */
-    public function unsetNewPlanId(): self
+    public function unsetPhases(): self
     {
-        $this->instance->unsetNewPlanId();
+        $this->instance->unsetPhases();
+        return $this;
+    }
+
+    /**
+     * Sets new plan variation id field.
+     */
+    public function newPlanVariationId(?string $value): self
+    {
+        $this->instance->setNewPlanVariationId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets new plan variation id field.
+     */
+    public function unsetNewPlanVariationId(): self
+    {
+        $this->instance->unsetNewPlanVariationId();
         return $this;
     }
 

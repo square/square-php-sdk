@@ -38,8 +38,8 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      */
     public function getCursor(): ?string
     {
@@ -52,8 +52,8 @@ class SearchSubscriptionsRequest implements \JsonSerializable
      * specify the cursor returned from a preceding response here to fetch the next set of results.
      * If the cursor is unset, the response contains the last page of the results.
      *
-     * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
-     * apis/pagination).
+     * For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     * patterns/pagination).
      *
      * @maps cursor
      */

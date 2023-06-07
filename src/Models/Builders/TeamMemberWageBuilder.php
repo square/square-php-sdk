@@ -88,6 +88,24 @@ class TeamMemberWageBuilder
     }
 
     /**
+     * Sets job id field.
+     */
+    public function jobId(?string $value): self
+    {
+        $this->instance->setJobId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets job id field.
+     */
+    public function unsetJobId(): self
+    {
+        $this->instance->unsetJobId();
+        return $this;
+    }
+
+    /**
      * Initializes a new team member wage object.
      */
     public function build(): TeamMemberWage

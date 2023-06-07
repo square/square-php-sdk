@@ -48,11 +48,10 @@ class UpdateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Returns Subscription.
-     * Represents a subscription to a subscription plan by a subscriber.
+     * Represents a subscription purchased by a customer.
      *
-     * For an overview of the `Subscription` type, see
-     * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
-     * object-overview).
+     * For more information, see
+     * [Manage Subscriptions](https://developer.squareup.com/docs/subscriptions-api/manage-subscriptions).
      */
     public function getSubscription(): ?Subscription
     {
@@ -61,11 +60,10 @@ class UpdateSubscriptionResponse implements \JsonSerializable
 
     /**
      * Sets Subscription.
-     * Represents a subscription to a subscription plan by a subscriber.
+     * Represents a subscription purchased by a customer.
      *
-     * For an overview of the `Subscription` type, see
-     * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
-     * object-overview).
+     * For more information, see
+     * [Manage Subscriptions](https://developer.squareup.com/docs/subscriptions-api/manage-subscriptions).
      *
      * @maps subscription
      */

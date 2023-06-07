@@ -7,9 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Describes a phase in a subscription plan. For more information, see
- * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
- * plan).
+ * Describes a phase in a subscription plan variation. For more information, see [Subscription Plans
+ * and Variations](https://developer.squareup.com/docs/subscriptions-api/plans-and-variations).
  */
 class SubscriptionPhase implements \JsonSerializable
 {
@@ -37,6 +36,11 @@ class SubscriptionPhase implements \JsonSerializable
      * @var array
      */
     private $ordinal = [];
+
+    /**
+     * @var SubscriptionPricing|null
+     */
+    private $pricing;
 
     /**
      * @param string $cadence
@@ -205,6 +209,26 @@ class SubscriptionPhase implements \JsonSerializable
     }
 
     /**
+     * Returns Pricing.
+     * Describes the pricing for the subscription.
+     */
+    public function getPricing(): ?SubscriptionPricing
+    {
+        return $this->pricing;
+    }
+
+    /**
+     * Sets Pricing.
+     * Describes the pricing for the subscription.
+     *
+     * @maps pricing
+     */
+    public function setPricing(?SubscriptionPricing $pricing): void
+    {
+        $this->pricing = $pricing;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -228,6 +252,9 @@ class SubscriptionPhase implements \JsonSerializable
         }
         if (!empty($this->ordinal)) {
             $json['ordinal']               = $this->ordinal['value'];
+        }
+        if (isset($this->pricing)) {
+            $json['pricing']               = $this->pricing;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -53,11 +53,11 @@ class SubscriptionBuilder
     }
 
     /**
-     * Sets plan id field.
+     * Sets plan variation id field.
      */
-    public function planId(?string $value): self
+    public function planVariationId(?string $value): self
     {
-        $this->instance->setPlanId($value);
+        $this->instance->setPlanVariationId($value);
         return $this;
     }
 
@@ -220,6 +220,15 @@ class SubscriptionBuilder
     public function unsetActions(): self
     {
         $this->instance->unsetActions();
+        return $this;
+    }
+
+    /**
+     * Sets phases field.
+     */
+    public function phases(?array $value): self
+    {
+        $this->instance->setPhases($value);
         return $this;
     }
 

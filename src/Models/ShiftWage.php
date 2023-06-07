@@ -22,9 +22,13 @@ class ShiftWage implements \JsonSerializable
     private $hourlyRate;
 
     /**
+     * @var string|null
+     */
+    private $jobId;
+
+    /**
      * Returns Title.
-     * The name of the job performed during this shift. Square
-     * labor-reporting UIs might group shifts together by title.
+     * The name of the job performed during this shift.
      */
     public function getTitle(): ?string
     {
@@ -36,8 +40,7 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Sets Title.
-     * The name of the job performed during this shift. Square
-     * labor-reporting UIs might group shifts together by title.
+     * The name of the job performed during this shift.
      *
      * @maps title
      */
@@ -48,8 +51,7 @@ class ShiftWage implements \JsonSerializable
 
     /**
      * Unsets Title.
-     * The name of the job performed during this shift. Square
-     * labor-reporting UIs might group shifts together by title.
+     * The name of the job performed during this shift.
      */
     public function unsetTitle(): void
     {
@@ -89,6 +91,28 @@ class ShiftWage implements \JsonSerializable
     }
 
     /**
+     * Returns Job Id.
+     * The id of the job performed during this shift. Square
+     * labor-reporting UIs might group shifts together by id. This cannot be used to retrieve the job.
+     */
+    public function getJobId(): ?string
+    {
+        return $this->jobId;
+    }
+
+    /**
+     * Sets Job Id.
+     * The id of the job performed during this shift. Square
+     * labor-reporting UIs might group shifts together by id. This cannot be used to retrieve the job.
+     *
+     * @maps job_id
+     */
+    public function setJobId(?string $jobId): void
+    {
+        $this->jobId = $jobId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -105,6 +129,9 @@ class ShiftWage implements \JsonSerializable
         }
         if (isset($this->hourlyRate)) {
             $json['hourly_rate'] = $this->hourlyRate;
+        }
+        if (isset($this->jobId)) {
+            $json['job_id']      = $this->jobId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

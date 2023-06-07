@@ -5,9 +5,14 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\ConfirmationOptions;
+use Square\Models\DataCollectionOptions;
 use Square\Models\DeviceMetadata;
+use Square\Models\QrCodeOptions;
 use Square\Models\ReceiptOptions;
 use Square\Models\SaveCardOptions;
+use Square\Models\SelectOptions;
+use Square\Models\SignatureOptions;
 use Square\Models\TerminalAction;
 
 /**
@@ -135,11 +140,38 @@ class TerminalActionBuilder
     }
 
     /**
+     * Sets qr code options field.
+     */
+    public function qrCodeOptions(?QrCodeOptions $value): self
+    {
+        $this->instance->setQrCodeOptions($value);
+        return $this;
+    }
+
+    /**
      * Sets save card options field.
      */
     public function saveCardOptions(?SaveCardOptions $value): self
     {
         $this->instance->setSaveCardOptions($value);
+        return $this;
+    }
+
+    /**
+     * Sets signature options field.
+     */
+    public function signatureOptions(?SignatureOptions $value): self
+    {
+        $this->instance->setSignatureOptions($value);
+        return $this;
+    }
+
+    /**
+     * Sets confirmation options field.
+     */
+    public function confirmationOptions(?ConfirmationOptions $value): self
+    {
+        $this->instance->setConfirmationOptions($value);
         return $this;
     }
 
@@ -153,11 +185,65 @@ class TerminalActionBuilder
     }
 
     /**
+     * Sets data collection options field.
+     */
+    public function dataCollectionOptions(?DataCollectionOptions $value): self
+    {
+        $this->instance->setDataCollectionOptions($value);
+        return $this;
+    }
+
+    /**
+     * Sets select options field.
+     */
+    public function selectOptions(?SelectOptions $value): self
+    {
+        $this->instance->setSelectOptions($value);
+        return $this;
+    }
+
+    /**
      * Sets device metadata field.
      */
     public function deviceMetadata(?DeviceMetadata $value): self
     {
         $this->instance->setDeviceMetadata($value);
+        return $this;
+    }
+
+    /**
+     * Sets await next action field.
+     */
+    public function awaitNextAction(?bool $value): self
+    {
+        $this->instance->setAwaitNextAction($value);
+        return $this;
+    }
+
+    /**
+     * Unsets await next action field.
+     */
+    public function unsetAwaitNextAction(): self
+    {
+        $this->instance->unsetAwaitNextAction();
+        return $this;
+    }
+
+    /**
+     * Sets await next action duration field.
+     */
+    public function awaitNextActionDuration(?string $value): self
+    {
+        $this->instance->setAwaitNextActionDuration($value);
+        return $this;
+    }
+
+    /**
+     * Unsets await next action duration field.
+     */
+    public function unsetAwaitNextActionDuration(): self
+    {
+        $this->instance->unsetAwaitNextActionDuration();
         return $this;
     }
 
