@@ -7,11 +7,10 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Represents a subscription to a subscription plan by a subscriber.
+ * Represents a subscription purchased by a customer.
  *
- * For an overview of the `Subscription` type, see
- * [Subscription object](https://developer.squareup.com/docs/subscriptions-api/overview#subscription-
- * object-overview).
+ * For more information, see
+ * [Manage Subscriptions](https://developer.squareup.com/docs/subscriptions-api/manage-subscriptions).
  */
 class Subscription implements \JsonSerializable
 {
@@ -28,7 +27,7 @@ class Subscription implements \JsonSerializable
     /**
      * @var string|null
      */
-    private $planId;
+    private $planVariationId;
 
     /**
      * @var string|null
@@ -101,6 +100,11 @@ class Subscription implements \JsonSerializable
     private $actions = [];
 
     /**
+     * @var Phase[]|null
+     */
+    private $phases;
+
+    /**
      * Returns Id.
      * The Square-assigned ID of the subscription.
      */
@@ -141,23 +145,23 @@ class Subscription implements \JsonSerializable
     }
 
     /**
-     * Returns Plan Id.
-     * The ID of the subscribed-to [subscription plan](entity:CatalogSubscriptionPlan).
+     * Returns Plan Variation Id.
+     * The ID of the subscribed-to [subscription plan variation](entity:CatalogSubscriptionPlanVariation).
      */
-    public function getPlanId(): ?string
+    public function getPlanVariationId(): ?string
     {
-        return $this->planId;
+        return $this->planVariationId;
     }
 
     /**
-     * Sets Plan Id.
-     * The ID of the subscribed-to [subscription plan](entity:CatalogSubscriptionPlan).
+     * Sets Plan Variation Id.
+     * The ID of the subscribed-to [subscription plan variation](entity:CatalogSubscriptionPlanVariation).
      *
-     * @maps plan_id
+     * @maps plan_variation_id
      */
-    public function setPlanId(?string $planId): void
+    public function setPlanVariationId(?string $planVariationId): void
     {
-        $this->planId = $planId;
+        $this->planVariationId = $planVariationId;
     }
 
     /**
@@ -578,6 +582,30 @@ class Subscription implements \JsonSerializable
     }
 
     /**
+     * Returns Phases.
+     * array of phases for this subscription
+     *
+     * @return Phase[]|null
+     */
+    public function getPhases(): ?array
+    {
+        return $this->phases;
+    }
+
+    /**
+     * Sets Phases.
+     * array of phases for this subscription
+     *
+     * @maps phases
+     *
+     * @param Phase[]|null $phases
+     */
+    public function setPhases(?array $phases): void
+    {
+        $this->phases = $phases;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -595,8 +623,8 @@ class Subscription implements \JsonSerializable
         if (isset($this->locationId)) {
             $json['location_id']          = $this->locationId;
         }
-        if (isset($this->planId)) {
-            $json['plan_id']              = $this->planId;
+        if (isset($this->planVariationId)) {
+            $json['plan_variation_id']    = $this->planVariationId;
         }
         if (isset($this->customerId)) {
             $json['customer_id']          = $this->customerId;
@@ -639,6 +667,9 @@ class Subscription implements \JsonSerializable
         }
         if (!empty($this->actions)) {
             $json['actions']              = $this->actions['value'];
+        }
+        if (isset($this->phases)) {
+            $json['phases']               = $this->phases;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

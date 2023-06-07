@@ -11,6 +11,12 @@ namespace Square\Models;
 class TerminalActionActionType
 {
     /**
+     * The action represents a request to display a QR code. Details are contained in
+     * the `qr_code_options` object.
+     */
+    public const QR_CODE = 'QR_CODE';
+
+    /**
      * The action represents a request to check if the specific device is
      * online or currently active with the merchant in question. Does not require an action options value.
      */
@@ -23,8 +29,32 @@ class TerminalActionActionType
     public const SAVE_CARD = 'SAVE_CARD';
 
     /**
+     * The action represents a request to capture a buyer's signature. Details are contained
+     * in the `signature_options` object.
+     */
+    public const SIGNATURE = 'SIGNATURE';
+
+    /**
+     * The action represents a request to collect a buyer's confirmation decision to the
+     * displayed terms. Details are contained in the `confirmation_options` object.
+     */
+    public const CONFIRMATION = 'CONFIRMATION';
+
+    /**
      * The action represents a request to display the receipt screen options. Details are
      * contained in the `receipt_options` object.
      */
     public const RECEIPT = 'RECEIPT';
+
+    /**
+     * The action represents a request to collect a buyer's text data. Details
+     * are contained in the `data_collection_options` object.
+     */
+    public const DATA_COLLECTION = 'DATA_COLLECTION';
+
+    /**
+     * The action represents a request to allow the buyer to select from provided options.
+     * Details are contained in the `select_options` object.
+     */
+    public const SELECT = 'SELECT';
 }

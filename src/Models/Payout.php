@@ -68,6 +68,11 @@ class Payout implements \JsonSerializable
     private $arrivalDate = [];
 
     /**
+     * @var array
+     */
+    private $endToEndId = [];
+
+    /**
      * @param string $id
      * @param string $locationId
      */
@@ -353,6 +358,44 @@ class Payout implements \JsonSerializable
     }
 
     /**
+     * Returns End to End Id.
+     * A unique ID for each `Payout` object that might also appear on the seller’s bank statement. You can
+     * use this ID to automate the process of reconciling each payout with the corresponding line item on
+     * the bank statement.
+     */
+    public function getEndToEndId(): ?string
+    {
+        if (count($this->endToEndId) == 0) {
+            return null;
+        }
+        return $this->endToEndId['value'];
+    }
+
+    /**
+     * Sets End to End Id.
+     * A unique ID for each `Payout` object that might also appear on the seller’s bank statement. You can
+     * use this ID to automate the process of reconciling each payout with the corresponding line item on
+     * the bank statement.
+     *
+     * @maps end_to_end_id
+     */
+    public function setEndToEndId(?string $endToEndId): void
+    {
+        $this->endToEndId['value'] = $endToEndId;
+    }
+
+    /**
+     * Unsets End to End Id.
+     * A unique ID for each `Payout` object that might also appear on the seller’s bank statement. You can
+     * use this ID to automate the process of reconciling each payout with the corresponding line item on
+     * the bank statement.
+     */
+    public function unsetEndToEndId(): void
+    {
+        $this->endToEndId = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -364,34 +407,37 @@ class Payout implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']               = $this->id;
+        $json['id']                = $this->id;
         if (isset($this->status)) {
-            $json['status']       = $this->status;
+            $json['status']        = $this->status;
         }
-        $json['location_id']      = $this->locationId;
+        $json['location_id']       = $this->locationId;
         if (isset($this->createdAt)) {
-            $json['created_at']   = $this->createdAt;
+            $json['created_at']    = $this->createdAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']   = $this->updatedAt;
+            $json['updated_at']    = $this->updatedAt;
         }
         if (isset($this->amountMoney)) {
-            $json['amount_money'] = $this->amountMoney;
+            $json['amount_money']  = $this->amountMoney;
         }
         if (isset($this->destination)) {
-            $json['destination']  = $this->destination;
+            $json['destination']   = $this->destination;
         }
         if (isset($this->version)) {
-            $json['version']      = $this->version;
+            $json['version']       = $this->version;
         }
         if (isset($this->type)) {
-            $json['type']         = $this->type;
+            $json['type']          = $this->type;
         }
         if (!empty($this->payoutFee)) {
-            $json['payout_fee']   = $this->payoutFee['value'];
+            $json['payout_fee']    = $this->payoutFee['value'];
         }
         if (!empty($this->arrivalDate)) {
-            $json['arrival_date'] = $this->arrivalDate['value'];
+            $json['arrival_date']  = $this->arrivalDate['value'];
+        }
+        if (!empty($this->endToEndId)) {
+            $json['end_to_end_id'] = $this->endToEndId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -70,7 +70,7 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Client Id.
-     * The Square-issued ID of your application, which is available in the OAuth page in the
+     * The Square-issued ID of your application, which is available on the **OAuth** page in the
      * [Developer Dashboard](https://developer.squareup.com/apps).
      */
     public function getClientId(): string
@@ -80,7 +80,7 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Client Id.
-     * The Square-issued ID of your application, which is available in the OAuth page in the
+     * The Square-issued ID of your application, which is available on the **OAuth** page in the
      * [Developer Dashboard](https://developer.squareup.com/apps).
      *
      * @required
@@ -93,11 +93,16 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Client Secret.
-     * The Square-issued application secret for your application, which is available in the OAuth page
+     * The Square-issued application secret for your application, which is available on the **OAuth** page
      * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
-     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
-     * squareup.com/docs/oauth-api/overview#pkce-flow).
-     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
+     * when
+     * you're not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.squareup.
+     * com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret` when `grant_type` is set to
+     * `authorization_code`.
+     * If `grant_type` is set to `refresh_token` and the `refresh_token` is obtained uaing PKCE, the PKCE
+     * flow only requires `client_id`,
+     * `grant_type`, and `refresh_token`.
      */
     public function getClientSecret(): ?string
     {
@@ -109,11 +114,16 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Client Secret.
-     * The Square-issued application secret for your application, which is available in the OAuth page
+     * The Square-issued application secret for your application, which is available on the **OAuth** page
      * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
-     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
-     * squareup.com/docs/oauth-api/overview#pkce-flow).
-     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
+     * when
+     * you're not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.squareup.
+     * com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret` when `grant_type` is set to
+     * `authorization_code`.
+     * If `grant_type` is set to `refresh_token` and the `refresh_token` is obtained uaing PKCE, the PKCE
+     * flow only requires `client_id`,
+     * `grant_type`, and `refresh_token`.
      *
      * @maps client_secret
      */
@@ -124,11 +134,16 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Unsets Client Secret.
-     * The Square-issued application secret for your application, which is available in the OAuth page
+     * The Square-issued application secret for your application, which is available on the **OAuth** page
      * in the [Developer Dashboard](https://developer.squareup.com/apps). This parameter is only required
-     * when you are not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.
-     * squareup.com/docs/oauth-api/overview#pkce-flow).
-     * The PKCE flow requires a `code_verifier` instead of a `client_secret`.
+     * when
+     * you're not using the [OAuth PKCE (Proof Key for Code Exchange) flow](https://developer.squareup.
+     * com/docs/oauth-api/overview#pkce-flow).
+     * The PKCE flow requires a `code_verifier` instead of a `client_secret` when `grant_type` is set to
+     * `authorization_code`.
+     * If `grant_type` is set to `refresh_token` and the `refresh_token` is obtained uaing PKCE, the PKCE
+     * flow only requires `client_id`,
+     * `grant_type`, and `refresh_token`.
      */
     public function unsetClientSecret(): void
     {
@@ -175,8 +190,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Redirect Uri.
-     * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
-     * //developer.squareup.com/apps).
+     * The redirect URL assigned on the **OAuth** page for your application in the [Developer
+     * Dashboard](https://developer.squareup.com/apps).
      */
     public function getRedirectUri(): ?string
     {
@@ -188,8 +203,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Redirect Uri.
-     * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
-     * //developer.squareup.com/apps).
+     * The redirect URL assigned on the **OAuth** page for your application in the [Developer
+     * Dashboard](https://developer.squareup.com/apps).
      *
      * @maps redirect_uri
      */
@@ -200,8 +215,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Unsets Redirect Uri.
-     * The redirect URL assigned in the OAuth page for your application in the [Developer Dashboard](https:
-     * //developer.squareup.com/apps).
+     * The redirect URL assigned on the **OAuth** page for your application in the [Developer
+     * Dashboard](https://developer.squareup.com/apps).
      */
     public function unsetRedirectUri(): void
     {
@@ -410,7 +425,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Returns Code Verifier.
-     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * Must be provided when using the PKCE OAuth flow if `grant_type` is set to `authorization_code`. The
+     * `code_verifier` is used to verify against the
      * `code_challenge` associated with the `authorization_code`.
      */
     public function getCodeVerifier(): ?string
@@ -423,7 +439,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Sets Code Verifier.
-     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * Must be provided when using the PKCE OAuth flow if `grant_type` is set to `authorization_code`. The
+     * `code_verifier` is used to verify against the
      * `code_challenge` associated with the `authorization_code`.
      *
      * @maps code_verifier
@@ -435,7 +452,8 @@ class ObtainTokenRequest implements \JsonSerializable
 
     /**
      * Unsets Code Verifier.
-     * Must be provided when using PKCE OAuth flow. The `code_verifier` will be used to verify against the
+     * Must be provided when using the PKCE OAuth flow if `grant_type` is set to `authorization_code`. The
+     * `code_verifier` is used to verify against the
      * `code_challenge` associated with the `authorization_code`.
      */
     public function unsetCodeVerifier(): void

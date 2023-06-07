@@ -23,9 +23,9 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     private $expiresAt;
 
     /**
-     * @var Error|null
+     * @var Error[]|null
      */
-    private $error;
+    private $errors;
 
     /**
      * Returns Authorization Code.
@@ -72,29 +72,27 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
     }
 
     /**
-     * Returns Error.
-     * Represents an error encountered during a request to the Connect API.
+     * Returns Errors.
+     * Any errors that occurred during the request.
      *
-     * See [Handling errors](https://developer.squareup.com/docs/build-basics/handling-errors) for more
-     * information.
+     * @return Error[]|null
      */
-    public function getError(): ?Error
+    public function getErrors(): ?array
     {
-        return $this->error;
+        return $this->errors;
     }
 
     /**
-     * Sets Error.
-     * Represents an error encountered during a request to the Connect API.
+     * Sets Errors.
+     * Any errors that occurred during the request.
      *
-     * See [Handling errors](https://developer.squareup.com/docs/build-basics/handling-errors) for more
-     * information.
+     * @maps errors
      *
-     * @maps error
+     * @param Error[]|null $errors
      */
-    public function setError(?Error $error): void
+    public function setErrors(?array $errors): void
     {
-        $this->error = $error;
+        $this->errors = $errors;
     }
 
     /**
@@ -115,8 +113,8 @@ class CreateMobileAuthorizationCodeResponse implements \JsonSerializable
         if (isset($this->expiresAt)) {
             $json['expires_at']         = $this->expiresAt;
         }
-        if (isset($this->error)) {
-            $json['error']              = $this->error;
+        if (isset($this->errors)) {
+            $json['errors']             = $this->errors;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

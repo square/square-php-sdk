@@ -171,6 +171,42 @@ class CheckoutOptionsBuilder
     }
 
     /**
+     * Sets enable coupon field.
+     */
+    public function enableCoupon(?bool $value): self
+    {
+        $this->instance->setEnableCoupon($value);
+        return $this;
+    }
+
+    /**
+     * Unsets enable coupon field.
+     */
+    public function unsetEnableCoupon(): self
+    {
+        $this->instance->unsetEnableCoupon();
+        return $this;
+    }
+
+    /**
+     * Sets enable loyalty field.
+     */
+    public function enableLoyalty(?bool $value): self
+    {
+        $this->instance->setEnableLoyalty($value);
+        return $this;
+    }
+
+    /**
+     * Unsets enable loyalty field.
+     */
+    public function unsetEnableLoyalty(): self
+    {
+        $this->instance->unsetEnableLoyalty();
+        return $this;
+    }
+
+    /**
      * Initializes a new checkout options object.
      */
     public function build(): CheckoutOptions

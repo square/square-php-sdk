@@ -8,7 +8,7 @@ use stdClass;
 
 /**
  * Defines the fields that are included in the response body of
- * a request to the `RetrieveTokenStatus` endpoint
+ * a request to the `RetrieveTokenStatus` endpoint.
  */
 class RetrieveTokenStatusResponse implements \JsonSerializable
 {
@@ -63,7 +63,8 @@ class RetrieveTokenStatusResponse implements \JsonSerializable
 
     /**
      * Returns Expires At.
-     * The date and time when the `access_token` expires, in RFC 3339 format. Empty if token never expires.
+     * The date and time when the `access_token` expires, in RFC 3339 format. Empty if the token never
+     * expires.
      */
     public function getExpiresAt(): ?string
     {
@@ -72,7 +73,8 @@ class RetrieveTokenStatusResponse implements \JsonSerializable
 
     /**
      * Sets Expires At.
-     * The date and time when the `access_token` expires, in RFC 3339 format. Empty if token never expires.
+     * The date and time when the `access_token` expires, in RFC 3339 format. Empty if the token never
+     * expires.
      *
      * @maps expires_at
      */

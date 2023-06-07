@@ -29,9 +29,9 @@ class CreateSubscriptionRequestBuilder
     /**
      * Initializes a new create subscription request Builder object.
      */
-    public static function init(string $locationId, string $planId, string $customerId): self
+    public static function init(string $locationId, string $customerId): self
     {
-        return new self(new CreateSubscriptionRequest($locationId, $planId, $customerId));
+        return new self(new CreateSubscriptionRequest($locationId, $customerId));
     }
 
     /**
@@ -40,6 +40,24 @@ class CreateSubscriptionRequestBuilder
     public function idempotencyKey(?string $value): self
     {
         $this->instance->setIdempotencyKey($value);
+        return $this;
+    }
+
+    /**
+     * Sets plan id field.
+     */
+    public function planId(?string $value): self
+    {
+        $this->instance->setPlanId($value);
+        return $this;
+    }
+
+    /**
+     * Sets plan variation id field.
+     */
+    public function planVariationId(?string $value): self
+    {
+        $this->instance->setPlanVariationId($value);
         return $this;
     }
 
@@ -103,6 +121,15 @@ class CreateSubscriptionRequestBuilder
     public function source(?SubscriptionSource $value): self
     {
         $this->instance->setSource($value);
+        return $this;
+    }
+
+    /**
+     * Sets phases field.
+     */
+    public function phases(?array $value): self
+    {
+        $this->instance->setPhases($value);
         return $this;
     }
 

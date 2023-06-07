@@ -14,6 +14,7 @@ $terminalApi = $client->getTerminalApi();
 * [Search Terminal Actions](../../doc/apis/terminal.md#search-terminal-actions)
 * [Get Terminal Action](../../doc/apis/terminal.md#get-terminal-action)
 * [Cancel Terminal Action](../../doc/apis/terminal.md#cancel-terminal-action)
+* [Dismiss Terminal Action](../../doc/apis/terminal.md#dismiss-terminal-action)
 * [Create Terminal Checkout](../../doc/apis/terminal.md#create-terminal-checkout)
 * [Search Terminal Checkouts](../../doc/apis/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/apis/terminal.md#get-terminal-checkout)
@@ -144,7 +145,7 @@ function getTerminalAction(string $actionId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
@@ -181,7 +182,7 @@ function cancelTerminalAction(string $actionId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction` |
+| `actionId` | `string` | Template, Required | Unique ID for the desired `TerminalAction`. |
 
 ## Response Type
 
@@ -196,6 +197,45 @@ $apiResponse = $terminalApi->cancelTerminalAction($actionId);
 
 if ($apiResponse->isSuccess()) {
     $cancelTerminalActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Dismiss Terminal Action
+
+Dismisses a Terminal action request if the status and type of the request permits it.
+
+See [Link and Dismiss Actions](https://developer.squareup.com/docs/terminal-api/advanced-features/custom-workflows/link-and-dismiss-actions) for more details.
+
+```php
+function dismissTerminalAction(string $actionId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actionId` | `string` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DismissTerminalActionResponse`](../../doc/models/dismiss-terminal-action-response.md).
+
+## Example Usage
+
+```php
+$actionId = 'action_id6';
+
+$apiResponse = $terminalApi->dismissTerminalAction($actionId);
+
+if ($apiResponse->isSuccess()) {
+    $dismissTerminalActionResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

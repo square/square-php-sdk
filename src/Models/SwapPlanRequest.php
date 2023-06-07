@@ -13,37 +13,87 @@ use stdClass;
 class SwapPlanRequest implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var array
      */
-    private $newPlanId;
+    private $newPlanVariationId = [];
 
     /**
-     * @param string $newPlanId
+     * @var array
      */
-    public function __construct(string $newPlanId)
-    {
-        $this->newPlanId = $newPlanId;
-    }
+    private $phases = [];
 
     /**
-     * Returns New Plan Id.
-     * The ID of the new subscription plan.
-     */
-    public function getNewPlanId(): string
-    {
-        return $this->newPlanId;
-    }
-
-    /**
-     * Sets New Plan Id.
-     * The ID of the new subscription plan.
+     * Returns New Plan Variation Id.
+     * The ID of the new subscription plan variation.
      *
-     * @required
-     * @maps new_plan_id
+     * This field is required.
      */
-    public function setNewPlanId(string $newPlanId): void
+    public function getNewPlanVariationId(): ?string
     {
-        $this->newPlanId = $newPlanId;
+        if (count($this->newPlanVariationId) == 0) {
+            return null;
+        }
+        return $this->newPlanVariationId['value'];
+    }
+
+    /**
+     * Sets New Plan Variation Id.
+     * The ID of the new subscription plan variation.
+     *
+     * This field is required.
+     *
+     * @maps new_plan_variation_id
+     */
+    public function setNewPlanVariationId(?string $newPlanVariationId): void
+    {
+        $this->newPlanVariationId['value'] = $newPlanVariationId;
+    }
+
+    /**
+     * Unsets New Plan Variation Id.
+     * The ID of the new subscription plan variation.
+     *
+     * This field is required.
+     */
+    public function unsetNewPlanVariationId(): void
+    {
+        $this->newPlanVariationId = [];
+    }
+
+    /**
+     * Returns Phases.
+     * A list of PhaseInputs, to pass phase-specific information used in the swap.
+     *
+     * @return PhaseInput[]|null
+     */
+    public function getPhases(): ?array
+    {
+        if (count($this->phases) == 0) {
+            return null;
+        }
+        return $this->phases['value'];
+    }
+
+    /**
+     * Sets Phases.
+     * A list of PhaseInputs, to pass phase-specific information used in the swap.
+     *
+     * @maps phases
+     *
+     * @param PhaseInput[]|null $phases
+     */
+    public function setPhases(?array $phases): void
+    {
+        $this->phases['value'] = $phases;
+    }
+
+    /**
+     * Unsets Phases.
+     * A list of PhaseInputs, to pass phase-specific information used in the swap.
+     */
+    public function unsetPhases(): void
+    {
+        $this->phases = [];
     }
 
     /**
@@ -58,7 +108,12 @@ class SwapPlanRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['new_plan_id'] = $this->newPlanId;
+        if (!empty($this->newPlanVariationId)) {
+            $json['new_plan_variation_id'] = $this->newPlanVariationId['value'];
+        }
+        if (!empty($this->phases)) {
+            $json['phases']                = $this->phases['value'];
+        }
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

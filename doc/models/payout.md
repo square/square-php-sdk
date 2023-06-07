@@ -23,6 +23,7 @@ external bank account or to the Square balance.
 | `type` | [`?string (PayoutType)`](../../doc/models/payout-type.md) | Optional | The type of payout: “BATCH” or “SIMPLE”.<br>BATCH payouts include a list of payout entries that can be considered settled.<br>SIMPLE payouts do not have any payout entries associated with them<br>and will show up as one of the payout entries in a future BATCH payout. | getType(): ?string | setType(?string type): void |
 | `payoutFee` | [`?(PayoutFee[])`](../../doc/models/payout-fee.md) | Optional | A list of transfer fees and any taxes on the fees assessed by Square for this payout. | getPayoutFee(): ?array | setPayoutFee(?array payoutFee): void |
 | `arrivalDate` | `?string` | Optional | The calendar date, in ISO 8601 format (YYYY-MM-DD), when the payout is due to arrive in the seller’s banking destination. | getArrivalDate(): ?string | setArrivalDate(?string arrivalDate): void |
+| `endToEndId` | `?string` | Optional | A unique ID for each `Payout` object that might also appear on the seller’s bank statement. You can use this ID to automate the process of reconciling each payout with the corresponding line item on the bank statement. | getEndToEndId(): ?string | setEndToEndId(?string endToEndId): void |
 
 ## Example (as JSON)
 

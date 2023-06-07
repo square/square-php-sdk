@@ -42,6 +42,15 @@ class SubscriptionSourceBuilder
     }
 
     /**
+     * Unsets name field.
+     */
+    public function unsetName(): self
+    {
+        $this->instance->unsetName();
+        return $this;
+    }
+
+    /**
      * Initializes a new subscription source object.
      */
     public function build(): SubscriptionSource

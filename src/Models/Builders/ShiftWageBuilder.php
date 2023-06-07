@@ -61,6 +61,15 @@ class ShiftWageBuilder
     }
 
     /**
+     * Sets job id field.
+     */
+    public function jobId(?string $value): self
+    {
+        $this->instance->setJobId($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new shift wage object.
      */
     public function build(): ShiftWage

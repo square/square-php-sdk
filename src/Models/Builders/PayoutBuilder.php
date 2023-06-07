@@ -134,6 +134,24 @@ class PayoutBuilder
     }
 
     /**
+     * Sets end to end id field.
+     */
+    public function endToEndId(?string $value): self
+    {
+        $this->instance->setEndToEndId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets end to end id field.
+     */
+    public function unsetEndToEndId(): self
+    {
+        $this->instance->unsetEndToEndId();
+        return $this;
+    }
+
+    /**
      * Initializes a new payout object.
      */
     public function build(): Payout
