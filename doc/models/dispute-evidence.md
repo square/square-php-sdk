@@ -15,7 +15,7 @@
 | `evidenceFile` | [`?DisputeEvidenceFile`](../../doc/models/dispute-evidence-file.md) | Optional | A file to be uploaded as dispute evidence. | getEvidenceFile(): ?DisputeEvidenceFile | setEvidenceFile(?DisputeEvidenceFile evidenceFile): void |
 | `evidenceText` | `?string` | Optional | Raw text<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `500` | getEvidenceText(): ?string | setEvidenceText(?string evidenceText): void |
 | `uploadedAt` | `?string` | Optional | The time when the evidence was uploaded, in RFC 3339 format.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `40` | getUploadedAt(): ?string | setUploadedAt(?string uploadedAt): void |
-| `evidenceType` | [`?string (DisputeEvidenceType)`](../../doc/models/dispute-evidence-type.md) | Optional | The type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
+| `evidenceType` | [`?string(DisputeEvidenceType)`](../../doc/models/dispute-evidence-type.md) | Optional | The type of the dispute evidence. | getEvidenceType(): ?string | setEvidenceType(?string evidenceType): void |
 
 ## Example (as JSON)
 

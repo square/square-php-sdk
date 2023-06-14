@@ -14,7 +14,7 @@ For more information, see [Loyalty Program Overview](https://developer.squareup.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The Square-assigned ID of the loyalty program. Updates to<br>the loyalty program do not modify the identifier.<br>**Constraints**: *Maximum Length*: `36` | getId(): ?string | setId(?string id): void |
-| `status` | [`?string (LoyaltyProgramStatus)`](../../doc/models/loyalty-program-status.md) | Optional | Indicates whether the program is currently active. | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(LoyaltyProgramStatus)`](../../doc/models/loyalty-program-status.md) | Optional | Indicates whether the program is currently active. | getStatus(): ?string | setStatus(?string status): void |
 | `rewardTiers` | [`?(LoyaltyProgramRewardTier[])`](../../doc/models/loyalty-program-reward-tier.md) | Optional | The list of rewards for buyers, sorted by ascending points. | getRewardTiers(): ?array | setRewardTiers(?array rewardTiers): void |
 | `expirationPolicy` | [`?LoyaltyProgramExpirationPolicy`](../../doc/models/loyalty-program-expiration-policy.md) | Optional | Describes when the loyalty program expires. | getExpirationPolicy(): ?LoyaltyProgramExpirationPolicy | setExpirationPolicy(?LoyaltyProgramExpirationPolicy expirationPolicy): void |
 | `terminology` | [`?LoyaltyProgramTerminology`](../../doc/models/loyalty-program-terminology.md) | Optional | Represents the naming used for loyalty points. | getTerminology(): ?LoyaltyProgramTerminology | setTerminology(?LoyaltyProgramTerminology terminology): void |

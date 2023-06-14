@@ -13,7 +13,7 @@ For more information, see [Manage loyalty rewards](https://developer.squareup.co
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The Square-assigned ID of the loyalty reward.<br>**Constraints**: *Maximum Length*: `36` | getId(): ?string | setId(?string id): void |
-| `status` | [`?string (LoyaltyRewardStatus)`](../../doc/models/loyalty-reward-status.md) | Optional | The status of the loyalty reward. | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(LoyaltyRewardStatus)`](../../doc/models/loyalty-reward-status.md) | Optional | The status of the loyalty reward. | getStatus(): ?string | setStatus(?string status): void |
 | `loyaltyAccountId` | `string` | Required | The Square-assigned ID of the [loyalty account](entity:LoyaltyAccount) to which the reward belongs.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` | getLoyaltyAccountId(): string | setLoyaltyAccountId(string loyaltyAccountId): void |
 | `rewardTierId` | `string` | Required | The Square-assigned ID of the [reward tier](entity:LoyaltyProgramRewardTier) used to create the reward.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` | getRewardTierId(): string | setRewardTierId(string rewardTierId): void |
 | `points` | `?int` | Optional | The number of loyalty points used for the reward.<br>**Constraints**: `>= 1` | getPoints(): ?int | setPoints(?int points): void |

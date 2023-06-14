@@ -21,7 +21,7 @@ taken during the shift.
 | `endAt` | `?string` | Optional | RFC 3339; shifted to the timezone + offset. Precision up to the minute is<br>respected; seconds are truncated. | getEndAt(): ?string | setEndAt(?string endAt): void |
 | `wage` | [`?ShiftWage`](../../doc/models/shift-wage.md) | Optional | The hourly wage rate used to compensate an employee for this shift. | getWage(): ?ShiftWage | setWage(?ShiftWage wage): void |
 | `breaks` | [`?(MBreak[])`](../../doc/models/m-break.md) | Optional | A list of all the paid or unpaid breaks that were taken during this shift. | getBreaks(): ?array | setBreaks(?array breaks): void |
-| `status` | [`?string (ShiftStatus)`](../../doc/models/shift-status.md) | Optional | Enumerates the possible status of a `Shift`. | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(ShiftStatus)`](../../doc/models/shift-status.md) | Optional | Enumerates the possible status of a `Shift`. | getStatus(): ?string | setStatus(?string status): void |
 | `version` | `?int` | Optional | Used for resolving concurrency issues. The request fails if the version<br>provided does not match the server version at the time of the request. If not provided,<br>Square executes a blind write; potentially overwriting data from another<br>write. | getVersion(): ?int | setVersion(?int version): void |
 | `createdAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |

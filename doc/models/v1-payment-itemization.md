@@ -28,7 +28,7 @@ price of items might have changed since the payment was processed.
 |  --- | --- | --- | --- | --- | --- |
 | `name` | `?string` | Optional | The item's name. | getName(): ?string | setName(?string name): void |
 | `quantity` | `?float` | Optional | The quantity of the item purchased. This can be a decimal value. | getQuantity(): ?float | setQuantity(?float quantity): void |
-| `itemizationType` | [`?string (V1PaymentItemizationItemizationType)`](../../doc/models/v1-payment-itemization-itemization-type.md) | Optional | - | getItemizationType(): ?string | setItemizationType(?string itemizationType): void |
+| `itemizationType` | [`?string(V1PaymentItemizationItemizationType)`](../../doc/models/v1-payment-itemization-itemization-type.md) | Optional | - | getItemizationType(): ?string | setItemizationType(?string itemizationType): void |
 | `itemDetail` | [`?V1PaymentItemDetail`](../../doc/models/v1-payment-item-detail.md) | Optional | V1PaymentItemDetail | getItemDetail(): ?V1PaymentItemDetail | setItemDetail(?V1PaymentItemDetail itemDetail): void |
 | `notes` | `?string` | Optional | Notes entered by the merchant about the item at the time of payment, if any. | getNotes(): ?string | setNotes(?string notes): void |
 | `itemVariationName` | `?string` | Optional | The name of the item variation purchased, if any. | getItemVariationName(): ?string | setItemVariationName(?string itemVariationName): void |
