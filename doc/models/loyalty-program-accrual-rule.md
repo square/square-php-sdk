@@ -11,7 +11,7 @@ Represents an accrual rule, which defines how buyers can earn points from the ba
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `accrualType` | [`string (LoyaltyProgramAccrualRuleType)`](../../doc/models/loyalty-program-accrual-rule-type.md) | Required | The type of the accrual rule that defines how buyers can earn points. | getAccrualType(): string | setAccrualType(string accrualType): void |
+| `accrualType` | [`string(LoyaltyProgramAccrualRuleType)`](../../doc/models/loyalty-program-accrual-rule-type.md) | Required | The type of the accrual rule that defines how buyers can earn points. | getAccrualType(): string | setAccrualType(string accrualType): void |
 | `points` | `?int` | Optional | The number of points that<br>buyers earn based on the `accrual_type`.<br>**Constraints**: `>= 1` | getPoints(): ?int | setPoints(?int points): void |
 | `visitData` | [`?LoyaltyProgramAccrualRuleVisitData`](../../doc/models/loyalty-program-accrual-rule-visit-data.md) | Optional | Represents additional data for rules with the `VISIT` accrual type. | getVisitData(): ?LoyaltyProgramAccrualRuleVisitData | setVisitData(?LoyaltyProgramAccrualRuleVisitData visitData): void |
 | `spendData` | [`?LoyaltyProgramAccrualRuleSpendData`](../../doc/models/loyalty-program-accrual-rule-spend-data.md) | Optional | Represents additional data for rules with the `SPEND` accrual type. | getSpendData(): ?LoyaltyProgramAccrualRuleSpendData | setSpendData(?LoyaltyProgramAccrualRuleSpendData spendData): void |

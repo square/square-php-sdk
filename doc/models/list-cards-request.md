@@ -16,7 +16,7 @@ HTTP requests at GET https://connect.squareup.com/v2/cards
 | `customerId` | `?string` | Optional | Limit results to cards associated with the customer supplied.<br>By default, all cards owned by the merchant are returned. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
 | `includeDisabled` | `?bool` | Optional | Includes disabled cards.<br>By default, all enabled cards owned by the merchant are returned. | getIncludeDisabled(): ?bool | setIncludeDisabled(?bool includeDisabled): void |
 | `referenceId` | `?string` | Optional | Limit results to cards associated with the reference_id supplied. | getReferenceId(): ?string | setReferenceId(?string referenceId): void |
-| `sortOrder` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
+| `sortOrder` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Optional | The order (e.g., chronological or alphabetical) in which results from a request are returned. | getSortOrder(): ?string | setSortOrder(?string sortOrder): void |
 
 ## Example (as JSON)
 

@@ -11,7 +11,7 @@ V1Refund
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `type` | [`?string (V1RefundType)`](../../doc/models/v1-refund-type.md) | Optional | - | getType(): ?string | setType(?string type): void |
+| `type` | [`?string(V1RefundType)`](../../doc/models/v1-refund-type.md) | Optional | - | getType(): ?string | setType(?string type): void |
 | `reason` | `?string` | Optional | The merchant-specified reason for the refund. | getReason(): ?string | setReason(?string reason): void |
 | `refundedMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getRefundedMoney(): ?V1Money | setRefundedMoney(?V1Money refundedMoney): void |
 | `refundedProcessingFeeMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getRefundedProcessingFeeMoney(): ?V1Money | setRefundedProcessingFeeMoney(?V1Money refundedProcessingFeeMoney): void |

@@ -12,7 +12,7 @@ Represents an action as a pending change to a subscription.
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The ID of an action scoped to a subscription. | getId(): ?string | setId(?string id): void |
-| `type` | [`?string (SubscriptionActionType)`](../../doc/models/subscription-action-type.md) | Optional | Supported types of an action as a pending change to a subscription. | getType(): ?string | setType(?string type): void |
+| `type` | [`?string(SubscriptionActionType)`](../../doc/models/subscription-action-type.md) | Optional | Supported types of an action as a pending change to a subscription. | getType(): ?string | setType(?string type): void |
 | `effectiveDate` | `?string` | Optional | The `YYYY-MM-DD`-formatted date when the action occurs on the subscription. | getEffectiveDate(): ?string | setEffectiveDate(?string effectiveDate): void |
 | `phases` | [`?(Phase[])`](../../doc/models/phase.md) | Optional | A list of Phases, to pass phase-specific information used in the swap. | getPhases(): ?array | setPhases(?array phases): void |
 | `newPlanVariationId` | `?string` | Optional | The target subscription plan variation that a subscription switches to, for a `SWAP_PLAN` action. | getNewPlanVariationId(): ?string | setNewPlanVariationId(?string newPlanVariationId): void |

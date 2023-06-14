@@ -18,7 +18,7 @@ the modifier list are allowed.
 |  --- | --- | --- | --- | --- | --- |
 | `name` | `?string` | Optional | The name for the `CatalogModifierList` instance. This is a searchable attribute for use in applicable query filters, and its value length is of Unicode code points.<br>**Constraints**: *Maximum Length*: `255` | getName(): ?string | setName(?string name): void |
 | `ordinal` | `?int` | Optional | Determines where this modifier list appears in a list of `CatalogModifierList` values. | getOrdinal(): ?int | setOrdinal(?int ordinal): void |
-| `selectionType` | [`?string (CatalogModifierListSelectionType)`](../../doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
+| `selectionType` | [`?string(CatalogModifierListSelectionType)`](../../doc/models/catalog-modifier-list-selection-type.md) | Optional | Indicates whether a CatalogModifierList supports multiple selections. | getSelectionType(): ?string | setSelectionType(?string selectionType): void |
 | `modifiers` | [`?(CatalogObject[])`](../../doc/models/catalog-object.md) | Optional | The options included in the `CatalogModifierList`.<br>You must include at least one `CatalogModifier`.<br>Each CatalogObject must have type `MODIFIER` and contain<br>`CatalogModifier` data. | getModifiers(): ?array | setModifiers(?array modifiers): void |
 | `imageIds` | `?(string[])` | Optional | The IDs of images associated with this `CatalogModifierList` instance.<br>Currently these images are not displayed by Square, but are free to be displayed in 3rd party applications. | getImageIds(): ?array | setImageIds(?array imageIds): void |
 

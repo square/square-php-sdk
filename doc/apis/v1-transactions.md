@@ -41,7 +41,7 @@ function v1ListOrders(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list online store orders for. |
-| `order` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
+| `order` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `limit` | `?int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
 | `batchToken` | `?string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
@@ -197,7 +197,7 @@ function v1ListPayments(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list payments for. If you specify me, this endpoint returns payments aggregated from all of the business's locations. |
-| `order` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
+| `order` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `beginTime` | `?string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `endTime` | `?string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `?int` | Query, Optional | The maximum number of payments to return in a single response. This value cannot exceed 200. |
@@ -299,7 +299,7 @@ function v1ListRefunds(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list refunds for. |
-| `order` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
+| `order` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which payments are listed in the response. |
 | `beginTime` | `?string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `endTime` | `?string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `?int` | Query, Optional | The approximate number of refunds to return in a single response. Default: 100. Max: 200. Response may contain more results than the prescribed limit when refunds are made simultaneously to multiple tenders in a payment or when refunds are generated in an exchange to account for the value of returned goods. |
@@ -416,11 +416,11 @@ function v1ListSettlements(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `locationId` | `string` | Template, Required | The ID of the location to list settlements for. If you specify me, this endpoint returns settlements aggregated from all of the business's locations. |
-| `order` | [`?string (SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which settlements are listed in the response. |
+| `order` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which settlements are listed in the response. |
 | `beginTime` | `?string` | Query, Optional | The beginning of the requested reporting period, in ISO 8601 format. If this value is before January 1, 2013 (2013-01-01T00:00:00Z), this endpoint returns an error. Default value: The current time minus one year. |
 | `endTime` | `?string` | Query, Optional | The end of the requested reporting period, in ISO 8601 format. If this value is more than one year greater than begin_time, this endpoint returns an error. Default value: The current time. |
 | `limit` | `?int` | Query, Optional | The maximum number of settlements to return in a single response. This value cannot exceed 200. |
-| `status` | [`?string (V1ListSettlementsRequestStatus)`](../../doc/models/v1-list-settlements-request-status.md) | Query, Optional | Provide this parameter to retrieve only settlements with a particular status (SENT or FAILED). |
+| `status` | [`?string(V1ListSettlementsRequestStatus)`](../../doc/models/v1-list-settlements-request-status.md) | Query, Optional | Provide this parameter to retrieve only settlements with a particular status (SENT or FAILED). |
 | `batchToken` | `?string` | Query, Optional | A pagination cursor to retrieve the next set of results for your<br>original query to the endpoint. |
 
 ## Response Type

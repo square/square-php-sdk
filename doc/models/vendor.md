@@ -20,7 +20,7 @@ Represents a supplier to a seller.
 | `accountNumber` | `?string` | Optional | The account number of the [Vendor](entity:Vendor).<br>**Constraints**: *Maximum Length*: `100` | getAccountNumber(): ?string | setAccountNumber(?string accountNumber): void |
 | `note` | `?string` | Optional | A note detailing information about the [Vendor](entity:Vendor).<br>**Constraints**: *Maximum Length*: `4096` | getNote(): ?string | setNote(?string note): void |
 | `version` | `?int` | Optional | The version of the [Vendor](entity:Vendor). | getVersion(): ?int | setVersion(?int version): void |
-| `status` | [`?string (VendorStatus)`](../../doc/models/vendor-status.md) | Optional | The status of the [Vendor](../../doc/models/vendor.md),<br>whether a [Vendor](../../doc/models/vendor.md) is active or inactive. | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(VendorStatus)`](../../doc/models/vendor-status.md) | Optional | The status of the [Vendor](../../doc/models/vendor.md),<br>whether a [Vendor](../../doc/models/vendor.md) is active or inactive. | getStatus(): ?string | setStatus(?string status): void |
 
 ## Example (as JSON)
 

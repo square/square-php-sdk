@@ -21,6 +21,7 @@ use Square\Models\CatalogPricingRule;
 use Square\Models\CatalogProductSet;
 use Square\Models\CatalogQuickAmountsSettings;
 use Square\Models\CatalogSubscriptionPlan;
+use Square\Models\CatalogSubscriptionPlanVariation;
 use Square\Models\CatalogTax;
 use Square\Models\CatalogTimePeriod;
 
@@ -325,6 +326,15 @@ class CatalogObjectBuilder
     public function quickAmountsSettingsData(?CatalogQuickAmountsSettings $value): self
     {
         $this->instance->setQuickAmountsSettingsData($value);
+        return $this;
+    }
+
+    /**
+     * Sets subscription plan variation data field.
+     */
+    public function subscriptionPlanVariationData(?CatalogSubscriptionPlanVariation $value): self
+    {
+        $this->instance->setSubscriptionPlanVariationData($value);
         return $this;
     }
 

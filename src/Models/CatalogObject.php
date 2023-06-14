@@ -160,6 +160,11 @@ class CatalogObject implements \JsonSerializable
     private $quickAmountsSettingsData;
 
     /**
+     * @var CatalogSubscriptionPlanVariation|null
+     */
+    private $subscriptionPlanVariationData;
+
+    /**
      * @param string $type
      * @param string $id
      */
@@ -1004,6 +1009,33 @@ class CatalogObject implements \JsonSerializable
     }
 
     /**
+     * Returns Subscription Plan Variation Data.
+     * Describes a subscription plan variation. A subscription plan variation represents how the
+     * subscription for a product or service is sold.
+     * For more information, see [Subscription Plans and Variations](https://developer.squareup.
+     * com/docs/subscriptions-api/plans-and-variations).
+     */
+    public function getSubscriptionPlanVariationData(): ?CatalogSubscriptionPlanVariation
+    {
+        return $this->subscriptionPlanVariationData;
+    }
+
+    /**
+     * Sets Subscription Plan Variation Data.
+     * Describes a subscription plan variation. A subscription plan variation represents how the
+     * subscription for a product or service is sold.
+     * For more information, see [Subscription Plans and Variations](https://developer.squareup.
+     * com/docs/subscriptions-api/plans-and-variations).
+     *
+     * @maps subscription_plan_variation_data
+     */
+    public function setSubscriptionPlanVariationData(
+        ?CatalogSubscriptionPlanVariation $subscriptionPlanVariationData
+    ): void {
+        $this->subscriptionPlanVariationData = $subscriptionPlanVariationData;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -1091,6 +1123,9 @@ class CatalogObject implements \JsonSerializable
         }
         if (isset($this->quickAmountsSettingsData)) {
             $json['quick_amounts_settings_data']      = $this->quickAmountsSettingsData;
+        }
+        if (isset($this->subscriptionPlanVariationData)) {
+            $json['subscription_plan_variation_data'] = $this->subscriptionPlanVariationData;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
