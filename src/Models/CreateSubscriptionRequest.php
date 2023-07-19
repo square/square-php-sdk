@@ -25,11 +25,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
     /**
      * @var string|null
      */
-    private $planId;
-
-    /**
-     * @var string|null
-     */
     private $planVariationId;
 
     /**
@@ -136,42 +131,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
     public function setLocationId(string $locationId): void
     {
         $this->locationId = $locationId;
-    }
-
-    /**
-     * Returns Plan Id.
-     * The ID of the [subscription plan](https://developer.squareup.com/docs/subscriptions-api/plans-and-
-     * variations) created using the Catalog API.
-     *
-     * Deprecated in favour of `plan_variation_id`.
-     *
-     * For more information, see
-     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
-     * plan) and
-     * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
-     */
-    public function getPlanId(): ?string
-    {
-        return $this->planId;
-    }
-
-    /**
-     * Sets Plan Id.
-     * The ID of the [subscription plan](https://developer.squareup.com/docs/subscriptions-api/plans-and-
-     * variations) created using the Catalog API.
-     *
-     * Deprecated in favour of `plan_variation_id`.
-     *
-     * For more information, see
-     * [Set Up and Manage a Subscription Plan](https://developer.squareup.com/docs/subscriptions-api/setup-
-     * plan) and
-     * [Subscriptions Walkthrough](https://developer.squareup.com/docs/subscriptions-api/walkthrough).
-     *
-     * @maps plan_id
-     */
-    public function setPlanId(?string $planId): void
-    {
-        $this->planId = $planId;
     }
 
     /**
@@ -455,9 +414,6 @@ class CreateSubscriptionRequest implements \JsonSerializable
             $json['idempotency_key']      = $this->idempotencyKey;
         }
         $json['location_id']              = $this->locationId;
-        if (isset($this->planId)) {
-            $json['plan_id']              = $this->planId;
-        }
         if (isset($this->planVariationId)) {
             $json['plan_variation_id']    = $this->planVariationId;
         }

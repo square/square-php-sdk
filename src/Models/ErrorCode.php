@@ -322,6 +322,15 @@ class ErrorCode
     public const UNSUPPORTED_CURRENCY = 'UNSUPPORTED_CURRENCY';
 
     /**
+     * The payment was declined by the card issuer during an Apple Tap to Pay (TTP)
+     * transaction with a request for the card's PIN. This code will be returned alongside
+     * `CARD_DECLINED_VERIFICATION_REQUIRED` as a supplemental error, and will include an
+     * issuer-provided token in the `details` field that is needed to initiate the PIN
+     * collection flow on the iOS device.
+     */
+    public const APPLE_TTP_PIN_TOKEN = 'APPLE_TTP_PIN_TOKEN';
+
+    /**
      * The card issuer declined the request because the card is expired.
      */
     public const CARD_EXPIRED = 'CARD_EXPIRED';
@@ -669,6 +678,21 @@ class ErrorCode
      * The provided card does not match what is expected.
      */
     public const CARD_MISMATCH = 'CARD_MISMATCH';
+
+    /**
+     * Generic plaid error
+     */
+    public const PLAID_ERROR = 'PLAID_ERROR';
+
+    /**
+     * Plaid error - ITEM_LOGIN_REQUIRED
+     */
+    public const PLAID_ERROR_ITEM_LOGIN_REQUIRED = 'PLAID_ERROR_ITEM_LOGIN_REQUIRED';
+
+    /**
+     * Plaid error - RATE_LIMIT
+     */
+    public const PLAID_ERROR_RATE_LIMIT = 'PLAID_ERROR_RATE_LIMIT';
 
     /**
      * The card was declined.

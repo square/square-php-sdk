@@ -140,8 +140,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Min Booking Lead Time Seconds.
-     * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
-     * this far ahead of the booking's starting time.
+     * The minimum lead time in seconds before a service can be booked. A booking must be created at least
+     * this amount of time before its starting time.
      */
     public function getMinBookingLeadTimeSeconds(): ?int
     {
@@ -153,8 +153,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Min Booking Lead Time Seconds.
-     * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
-     * this far ahead of the booking's starting time.
+     * The minimum lead time in seconds before a service can be booked. A booking must be created at least
+     * this amount of time before its starting time.
      *
      * @maps min_booking_lead_time_seconds
      */
@@ -165,8 +165,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Unsets Min Booking Lead Time Seconds.
-     * The minimum lead time in seconds before a service can be booked. Bookings must be created at least
-     * this far ahead of the booking's starting time.
+     * The minimum lead time in seconds before a service can be booked. A booking must be created at least
+     * this amount of time before its starting time.
      */
     public function unsetMinBookingLeadTimeSeconds(): void
     {
@@ -175,8 +175,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Returns Max Booking Lead Time Seconds.
-     * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
-     * this far ahead of the booking's starting time.
+     * The maximum lead time in seconds before a service can be booked. A booking must be created at most
+     * this amount of time before its starting time.
      */
     public function getMaxBookingLeadTimeSeconds(): ?int
     {
@@ -188,8 +188,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Sets Max Booking Lead Time Seconds.
-     * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
-     * this far ahead of the booking's starting time.
+     * The maximum lead time in seconds before a service can be booked. A booking must be created at most
+     * this amount of time before its starting time.
      *
      * @maps max_booking_lead_time_seconds
      */
@@ -200,8 +200,8 @@ class BusinessAppointmentSettings implements \JsonSerializable
 
     /**
      * Unsets Max Booking Lead Time Seconds.
-     * The maximum lead time in seconds before a service can be booked. Bookings must be created at most
-     * this far ahead of the booking's starting time.
+     * The maximum lead time in seconds before a service can be booked. A booking must be created at most
+     * this amount of time before its starting time.
      */
     public function unsetMaxBookingLeadTimeSeconds(): void
     {

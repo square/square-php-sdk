@@ -55,4 +55,9 @@ class ErrorCategory
      * An error occurred when checking a merchant subscription status
      */
     public const MERCHANT_SUBSCRIPTION_ERROR = 'MERCHANT_SUBSCRIPTION_ERROR';
+
+    /**
+     * An error that is returned from an external vendor's API
+     */
+    public const EXTERNAL_VENDOR_ERROR = 'EXTERNAL_VENDOR_ERROR';
 }

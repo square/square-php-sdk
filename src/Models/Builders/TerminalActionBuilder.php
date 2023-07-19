@@ -131,6 +131,15 @@ class TerminalActionBuilder
     }
 
     /**
+     * Sets location id field.
+     */
+    public function locationId(?string $value): self
+    {
+        $this->instance->setLocationId($value);
+        return $this;
+    }
+
+    /**
      * Sets type field.
      */
     public function type(?string $value): self

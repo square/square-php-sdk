@@ -124,6 +124,7 @@ $body = CreateInvoiceRequestBuilder::init(
                 ->squareGiftCard(false)
                 ->bankAccount(false)
                 ->buyNowPayLater(false)
+                ->cashAppPay(false)
                 ->build()
         )
         ->customFields(

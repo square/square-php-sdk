@@ -33,6 +33,11 @@ class ListCustomersRequest implements \JsonSerializable
     private $sortOrder;
 
     /**
+     * @var array
+     */
+    private $count = [];
+
+    /**
      * Returns Cursor.
      * A pagination cursor returned by a previous call to this endpoint.
      * Provide this cursor to retrieve the next set of results for your original query.
@@ -167,6 +172,44 @@ class ListCustomersRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Count.
+     * Indicates whether to return the total count of customers in the `count` field of the response.
+     *
+     * The default value is `false`.
+     */
+    public function getCount(): ?bool
+    {
+        if (count($this->count) == 0) {
+            return null;
+        }
+        return $this->count['value'];
+    }
+
+    /**
+     * Sets Count.
+     * Indicates whether to return the total count of customers in the `count` field of the response.
+     *
+     * The default value is `false`.
+     *
+     * @maps count
+     */
+    public function setCount(?bool $count): void
+    {
+        $this->count['value'] = $count;
+    }
+
+    /**
+     * Unsets Count.
+     * Indicates whether to return the total count of customers in the `count` field of the response.
+     *
+     * The default value is `false`.
+     */
+    public function unsetCount(): void
+    {
+        $this->count = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -189,6 +232,9 @@ class ListCustomersRequest implements \JsonSerializable
         }
         if (isset($this->sortOrder)) {
             $json['sort_order'] = $this->sortOrder;
+        }
+        if (!empty($this->count)) {
+            $json['count']      = $this->count['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

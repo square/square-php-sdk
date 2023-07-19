@@ -61,6 +61,15 @@ class SearchCustomersRequestBuilder
     }
 
     /**
+     * Sets count field.
+     */
+    public function count(?bool $value): self
+    {
+        $this->instance->setCount($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new search customers request object.
      */
     public function build(): SearchCustomersRequest

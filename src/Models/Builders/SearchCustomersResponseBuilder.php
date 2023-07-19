@@ -60,6 +60,15 @@ class SearchCustomersResponseBuilder
     }
 
     /**
+     * Sets count field.
+     */
+    public function count(?int $value): self
+    {
+        $this->instance->setCount($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new search customers response object.
      */
     public function build(): SearchCustomersResponse

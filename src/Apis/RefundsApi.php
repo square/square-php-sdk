@@ -26,7 +26,7 @@ class RefundsApi extends BaseApi
      * The maximum results per page is 100.
      *
      * @param string|null $beginTime Indicates the start of the time range to retrieve each
-     *        PaymentRefund` for, in RFC 3339
+     *        `PaymentRefund` for, in RFC 3339
      *        format.  The range is determined using the `created_at` field for each
      *        `PaymentRefund`.
      *

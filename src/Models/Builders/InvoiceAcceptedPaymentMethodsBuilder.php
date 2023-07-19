@@ -105,6 +105,24 @@ class InvoiceAcceptedPaymentMethodsBuilder
     }
 
     /**
+     * Sets cash app pay field.
+     */
+    public function cashAppPay(?bool $value): self
+    {
+        $this->instance->setCashAppPay($value);
+        return $this;
+    }
+
+    /**
+     * Unsets cash app pay field.
+     */
+    public function unsetCashAppPay(): self
+    {
+        $this->instance->unsetCashAppPay();
+        return $this;
+    }
+
+    /**
      * Initializes a new invoice accepted payment methods object.
      */
     public function build(): InvoiceAcceptedPaymentMethods
