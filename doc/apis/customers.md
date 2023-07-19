@@ -35,7 +35,8 @@ function listCustomers(
     ?string $cursor = null,
     ?int $limit = null,
     ?string $sortField = null,
-    ?string $sortOrder = null
+    ?string $sortOrder = null,
+    ?bool $count = false
 ): ApiResponse
 ```
 
@@ -47,6 +48,7 @@ function listCustomers(
 | `limit` | `?int` | Query, Optional | The maximum number of results to return in a single page. This limit is advisory. The response might contain more or fewer results.<br>If the specified limit is less than 1 or greater than 100, Square returns a `400 VALUE_TOO_LOW` or `400 VALUE_TOO_HIGH` error. The default value is 100.<br><br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
 | `sortField` | [`?string(CustomerSortField)`](../../doc/models/customer-sort-field.md) | Query, Optional | Indicates how customers should be sorted.<br><br>The default value is `DEFAULT`. |
 | `sortOrder` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | Indicates whether customers should be sorted in ascending (`ASC`) or<br>descending (`DESC`) order.<br><br>The default value is `ASC`. |
+| `count` | `?bool` | Query, Optional | Indicates whether to return the total count of customers in the `count` field of the response.<br><br>The default value is `false`.<br>**Default**: `false` |
 
 ## Response Type
 
@@ -55,7 +57,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ## Example Usage
 
 ```php
-$apiResponse = $customersApi->listCustomers();
+$count = false;
+
+$apiResponse = $customersApi->listCustomers($count);
 
 if ($apiResponse->isSuccess()) {
     $listCustomersResponse = $apiResponse->getResult();

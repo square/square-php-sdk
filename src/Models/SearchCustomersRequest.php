@@ -28,6 +28,11 @@ class SearchCustomersRequest implements \JsonSerializable
     private $query;
 
     /**
+     * @var bool|null
+     */
+    private $count;
+
+    /**
      * Returns Cursor.
      * Include the pagination cursor in subsequent calls to this endpoint to retrieve
      * the next set of results associated with the original query.
@@ -110,6 +115,32 @@ class SearchCustomersRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Count.
+     * Indicates whether to return the total count of matching customers in the `count` field of the
+     * response.
+     *
+     * The default value is `false`.
+     */
+    public function getCount(): ?bool
+    {
+        return $this->count;
+    }
+
+    /**
+     * Sets Count.
+     * Indicates whether to return the total count of matching customers in the `count` field of the
+     * response.
+     *
+     * The default value is `false`.
+     *
+     * @maps count
+     */
+    public function setCount(?bool $count): void
+    {
+        $this->count = $count;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -129,6 +160,9 @@ class SearchCustomersRequest implements \JsonSerializable
         }
         if (isset($this->query)) {
             $json['query']  = $this->query;
+        }
+        if (isset($this->count)) {
+            $json['count']  = $this->count;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

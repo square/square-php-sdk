@@ -87,6 +87,24 @@ class ListCustomersRequestBuilder
     }
 
     /**
+     * Sets count field.
+     */
+    public function count(?bool $value): self
+    {
+        $this->instance->setCount($value);
+        return $this;
+    }
+
+    /**
+     * Unsets count field.
+     */
+    public function unsetCount(): self
+    {
+        $this->instance->unsetCount();
+        return $this;
+    }
+
+    /**
      * Initializes a new list customers request object.
      */
     public function build(): ListCustomersRequest

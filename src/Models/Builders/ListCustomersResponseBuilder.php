@@ -60,6 +60,15 @@ class ListCustomersResponseBuilder
     }
 
     /**
+     * Sets count field.
+     */
+    public function count(?int $value): self
+    {
+        $this->instance->setCount($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new list customers response object.
      */
     public function build(): ListCustomersResponse

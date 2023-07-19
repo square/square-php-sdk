@@ -53,6 +53,10 @@ class CustomersApi extends BaseApi
      *        descending (`DESC`) order.
      *
      *        The default value is `ASC`.
+     * @param bool|null $count Indicates whether to return the total count of customers in the
+     *        `count` field of the response.
+     *
+     *        The default value is `false`.
      *
      * @return ApiResponse Response from the API call
      */
@@ -60,7 +64,8 @@ class CustomersApi extends BaseApi
         ?string $cursor = null,
         ?int $limit = null,
         ?string $sortField = null,
-        ?string $sortOrder = null
+        ?string $sortOrder = null,
+        ?bool $count = false
     ): ApiResponse {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/customers')
             ->auth('global')
@@ -68,7 +73,8 @@ class CustomersApi extends BaseApi
                 QueryParam::init('cursor', $cursor),
                 QueryParam::init('limit', $limit),
                 QueryParam::init('sort_field', $sortField),
-                QueryParam::init('sort_order', $sortOrder)
+                QueryParam::init('sort_order', $sortOrder),
+                QueryParam::init('count', $count)
             );
 
         $_resHandler = $this->responseHandler()->type(ListCustomersResponse::class)->returnApiResponse();

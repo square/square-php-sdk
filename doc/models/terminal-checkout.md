@@ -25,7 +25,7 @@ Represents a checkout processed by the Square Terminal.
 | `createdAt` | `?string` | Optional | The time when the `TerminalCheckout` was created, as an RFC 3339 timestamp. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The time when the `TerminalCheckout` was last updated, as an RFC 3339 timestamp. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `appId` | `?string` | Optional | The ID of the application that created the checkout. | getAppId(): ?string | setAppId(?string appId): void |
-| `locationId` | `?string` | Optional | The location of the device where the `TerminalCheckout` was directed. | getLocationId(): ?string | setLocationId(?string locationId): void |
+| `locationId` | `?string` | Optional | The location of the device where the `TerminalCheckout` was directed.<br>**Constraints**: *Maximum Length*: `64` | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `paymentType` | [`?string(CheckoutOptionsPaymentType)`](../../doc/models/checkout-options-payment-type.md) | Optional | - | getPaymentType(): ?string | setPaymentType(?string paymentType): void |
 | `teamMemberId` | `?string` | Optional | An optional ID of the team member associated with creating the checkout. | getTeamMemberId(): ?string | setTeamMemberId(?string teamMemberId): void |
 | `customerId` | `?string` | Optional | An optional ID of the customer associated with the checkout. | getCustomerId(): ?string | setCustomerId(?string customerId): void |
@@ -40,7 +40,7 @@ Represents a checkout processed by the Square Terminal.
   "id": "id0",
   "amount_money": {
     "amount": 186,
-    "currency": "NGN"
+    "currency": "TZS"
   },
   "reference_id": "reference_id2",
   "note": "note4",

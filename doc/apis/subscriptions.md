@@ -55,21 +55,22 @@ $body = CreateSubscriptionRequestBuilder::init(
     'CHFGVKYY8RSV93M5KCYTG4PN0G'
 )
     ->idempotencyKey('8193148c-9586-11e6-99f9-28cfe92138cf')
-    ->planId('6JHXF3B2CW3YKHDV4XEM674H')
-    ->startDate('2021-10-20')
-    ->taxPercentage('5')
-    ->priceOverrideMoney(
-        MoneyBuilder::init()
-            ->amount(100)
-            ->currency(Currency::USD)
-            ->build()
-    )
+    ->planVariationId('6JHXF3B2CW3YKHDV4XEM674H')
+    ->startDate('2023-06-20')
     ->cardId('ccof:qy5x8hHGYsgLrp4Q4GB')
     ->timezone('America/Los_Angeles')
     ->source(
         SubscriptionSourceBuilder::init()
-            ->name('My App')
+            ->name('My Application')
             ->build()
+    )
+    ->phases(
+        [
+            PhaseBuilder::init()
+                ->ordinal(0)
+                ->orderTemplateId('U2NaowWxzXwpsZU697x7ZHOAnCNZY')
+                ->build()
+        ]
     )
     ->build();
 
@@ -478,7 +479,18 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $subscriptionId = 'subscription_id0';
 
-$body = SwapPlanRequestBuilder::init()->build();
+$body = SwapPlanRequestBuilder::init()
+    ->newPlanVariationId('FQ7CDXXWSLUJRPM3GFJSJGZ7')
+    ->phases(
+        [
+            PhaseInputBuilder::init(
+                0
+            )
+                ->orderTemplateId('uhhnjH9osVv3shUADwaC0b3hNxQZY')
+                ->build()
+        ]
+    )
+    ->build();
 
 $apiResponse = $subscriptionsApi->swapPlan(
     $subscriptionId,

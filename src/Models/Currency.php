@@ -914,4 +914,9 @@ class Currency
      * Bitcoin
      */
     public const BTC = 'BTC';
+
+    /**
+     * USD Coin
+     */
+    public const XUS = 'XUS';
 }

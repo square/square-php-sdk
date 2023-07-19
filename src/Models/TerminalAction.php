@@ -54,6 +54,11 @@ class TerminalAction implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $locationId;
+
+    /**
+     * @var string|null
+     */
     private $type;
 
     /**
@@ -309,6 +314,26 @@ class TerminalAction implements \JsonSerializable
     public function setAppId(?string $appId): void
     {
         $this->appId = $appId;
+    }
+
+    /**
+     * Returns Location Id.
+     * The location id the action is attached to, if a link can be made.
+     */
+    public function getLocationId(): ?string
+    {
+        return $this->locationId;
+    }
+
+    /**
+     * Sets Location Id.
+     * The location id the action is attached to, if a link can be made.
+     *
+     * @maps location_id
+     */
+    public function setLocationId(?string $locationId): void
+    {
+        $this->locationId = $locationId;
     }
 
     /**
@@ -606,6 +631,9 @@ class TerminalAction implements \JsonSerializable
         }
         if (isset($this->appId)) {
             $json['app_id']                     = $this->appId;
+        }
+        if (isset($this->locationId)) {
+            $json['location_id']                = $this->locationId;
         }
         if (isset($this->type)) {
             $json['type']                       = $this->type;

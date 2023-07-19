@@ -30,6 +30,11 @@ class SearchCustomersResponse implements \JsonSerializable
     private $cursor;
 
     /**
+     * @var int|null
+     */
+    private $count;
+
+    /**
      * Returns Errors.
      * Any errors that occurred during the request.
      *
@@ -57,6 +62,9 @@ class SearchCustomersResponse implements \JsonSerializable
      * Returns Customers.
      * The customer profiles that match the search query. If any search condition is not met, the result is
      * an empty object (`{}`).
+     * Only customer profiles with public information (`given_name`, `family_name`, `company_name`,
+     * `email_address`, or `phone_number`)
+     * are included in the response.
      *
      * @return Customer[]|null
      */
@@ -69,6 +77,9 @@ class SearchCustomersResponse implements \JsonSerializable
      * Sets Customers.
      * The customer profiles that match the search query. If any search condition is not met, the result is
      * an empty object (`{}`).
+     * Only customer profiles with public information (`given_name`, `family_name`, `company_name`,
+     * `email_address`, or `phone_number`)
+     * are included in the response.
      *
      * @maps customers
      *
@@ -112,6 +123,34 @@ class SearchCustomersResponse implements \JsonSerializable
     }
 
     /**
+     * Returns Count.
+     * The total count of customers associated with the Square account that match the search query. Only
+     * customer profiles with
+     * public information (`given_name`, `family_name`, `company_name`, `email_address`, or `phone_number`)
+     * are counted. This field is
+     * present only if `count` is set to `true` in the request.
+     */
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    /**
+     * Sets Count.
+     * The total count of customers associated with the Square account that match the search query. Only
+     * customer profiles with
+     * public information (`given_name`, `family_name`, `company_name`, `email_address`, or `phone_number`)
+     * are counted. This field is
+     * present only if `count` is set to `true` in the request.
+     *
+     * @maps count
+     */
+    public function setCount(?int $count): void
+    {
+        $this->count = $count;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -131,6 +170,9 @@ class SearchCustomersResponse implements \JsonSerializable
         }
         if (isset($this->cursor)) {
             $json['cursor']    = $this->cursor;
+        }
+        if (isset($this->count)) {
+            $json['count']     = $this->count;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

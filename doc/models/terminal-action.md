@@ -19,6 +19,7 @@ Represents an action processed by the Square Terminal.
 | `createdAt` | `?string` | Optional | The time when the `TerminalAction` was created as an RFC 3339 timestamp. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | The time when the `TerminalAction` was last updated as an RFC 3339 timestamp. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `appId` | `?string` | Optional | The ID of the application that created the action. | getAppId(): ?string | setAppId(?string appId): void |
+| `locationId` | `?string` | Optional | The location id the action is attached to, if a link can be made.<br>**Constraints**: *Maximum Length*: `64` | getLocationId(): ?string | setLocationId(?string locationId): void |
 | `type` | [`?string(TerminalActionActionType)`](../../doc/models/terminal-action-action-type.md) | Optional | Describes the type of this unit and indicates which field contains the unit information. This is an ‘open’ enum. | getType(): ?string | setType(?string type): void |
 | `qrCodeOptions` | [`?QrCodeOptions`](../../doc/models/qr-code-options.md) | Optional | Fields to describe the action that displays QR-Codes. | getQrCodeOptions(): ?QrCodeOptions | setQrCodeOptions(?QrCodeOptions qrCodeOptions): void |
 | `saveCardOptions` | [`?SaveCardOptions`](../../doc/models/save-card-options.md) | Optional | Describes save-card action fields. | getSaveCardOptions(): ?SaveCardOptions | setSaveCardOptions(?SaveCardOptions saveCardOptions): void |

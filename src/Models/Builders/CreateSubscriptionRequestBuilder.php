@@ -44,15 +44,6 @@ class CreateSubscriptionRequestBuilder
     }
 
     /**
-     * Sets plan id field.
-     */
-    public function planId(?string $value): self
-    {
-        $this->instance->setPlanId($value);
-        return $this;
-    }
-
-    /**
      * Sets plan variation id field.
      */
     public function planVariationId(?string $value): self
