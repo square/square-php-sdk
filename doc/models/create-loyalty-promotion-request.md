@@ -29,7 +29,8 @@ Represents a [CreateLoyaltyPromotion](../../doc/apis/loyalty.md#create-loyalty-p
     },
     "incentive": {
       "points_multiplier_data": {
-        "points_multiplier": 3
+        "multiplier": "3.0",
+        "points_multiplier": 160
       },
       "type": "POINTS_MULTIPLIER",
       "points_addition_data": {

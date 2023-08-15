@@ -368,24 +368,6 @@ class CatalogItemVariationBuilder
     }
 
     /**
-     * Sets item variation vendor info ids field.
-     */
-    public function itemVariationVendorInfoIds(?array $value): self
-    {
-        $this->instance->setItemVariationVendorInfoIds($value);
-        return $this;
-    }
-
-    /**
-     * Unsets item variation vendor info ids field.
-     */
-    public function unsetItemVariationVendorInfoIds(): self
-    {
-        $this->instance->unsetItemVariationVendorInfoIds();
-        return $this;
-    }
-
-    /**
      * Initializes a new catalog item variation object.
      */
     public function build(): CatalogItemVariation

@@ -32,6 +32,11 @@ class TaxIds implements \JsonSerializable
     private $esNif = [];
 
     /**
+     * @var string|null
+     */
+    private $jpQii;
+
+    /**
      * Returns Eu Vat.
      * The EU VAT number for this location. For example, `IE3426675K`.
      * If the EU VAT number is present, it is well-formed and has been
@@ -181,6 +186,28 @@ class TaxIds implements \JsonSerializable
     }
 
     /**
+     * Returns Jp Qii.
+     * The QII (Qualified Invoice Issuer) number is a 14-character tax identifier used in Japan.
+     * If it is present, it has been validated. For example, `T1234567890123`.
+     */
+    public function getJpQii(): ?string
+    {
+        return $this->jpQii;
+    }
+
+    /**
+     * Sets Jp Qii.
+     * The QII (Qualified Invoice Issuer) number is a 14-character tax identifier used in Japan.
+     * If it is present, it has been validated. For example, `T1234567890123`.
+     *
+     * @maps jp_qii
+     */
+    public function setJpQii(?string $jpQii): void
+    {
+        $this->jpQii = $jpQii;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -203,6 +230,9 @@ class TaxIds implements \JsonSerializable
         }
         if (!empty($this->esNif)) {
             $json['es_nif']   = $this->esNif['value'];
+        }
+        if (isset($this->jpQii)) {
+            $json['jp_qii']   = $this->jpQii;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

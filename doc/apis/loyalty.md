@@ -557,10 +557,11 @@ $body = CreateLoyaltyPromotionRequestBuilder::init(
             LoyaltyPromotionIncentiveType::POINTS_MULTIPLIER
         )
             ->pointsMultiplierData(
-                LoyaltyPromotionIncentivePointsMultiplierDataBuilder::init(
-                    3
-                )->build()
-            )->build(),
+                LoyaltyPromotionIncentivePointsMultiplierDataBuilder::init()
+                    ->multiplier('3.0')
+                    ->build()
+            )
+            ->build(),
         LoyaltyPromotionAvailableTimeDataBuilder::init(
             [
                 'BEGIN:VEVENT

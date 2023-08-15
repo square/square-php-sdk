@@ -117,6 +117,11 @@ class Payment implements \JsonSerializable
     private $buyNowPayLaterDetails;
 
     /**
+     * @var SquareAccountDetails|null
+     */
+    private $squareAccountDetails;
+
+    /**
      * @var string|null
      */
     private $locationId;
@@ -625,8 +630,8 @@ class Payment implements \JsonSerializable
      * Returns Source Type.
      * The source type for this payment.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`
-     * and `EXTERNAL`. For information about these payment source types,
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `SQUARE_ACCOUNT`,
+     * `CASH` and `EXTERNAL`. For information about these payment source types,
      * see [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      */
     public function getSourceType(): ?string
@@ -638,8 +643,8 @@ class Payment implements \JsonSerializable
      * Sets Source Type.
      * The source type for this payment.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`
-     * and `EXTERNAL`. For information about these payment source types,
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `SQUARE_ACCOUNT`,
+     * `CASH` and `EXTERNAL`. For information about these payment source types,
      * see [Take Payments](https://developer.squareup.com/docs/payments-api/take-payments).
      *
      * @maps source_type
@@ -777,6 +782,26 @@ class Payment implements \JsonSerializable
     public function setBuyNowPayLaterDetails(?BuyNowPayLaterDetails $buyNowPayLaterDetails): void
     {
         $this->buyNowPayLaterDetails = $buyNowPayLaterDetails;
+    }
+
+    /**
+     * Returns Square Account Details.
+     * Additional details about Square Account payments.
+     */
+    public function getSquareAccountDetails(): ?SquareAccountDetails
+    {
+        return $this->squareAccountDetails;
+    }
+
+    /**
+     * Sets Square Account Details.
+     * Additional details about Square Account payments.
+     *
+     * @maps square_account_details
+     */
+    public function setSquareAccountDetails(?SquareAccountDetails $squareAccountDetails): void
+    {
+        $this->squareAccountDetails = $squareAccountDetails;
     }
 
     /**
@@ -1328,6 +1353,9 @@ class Payment implements \JsonSerializable
         }
         if (isset($this->buyNowPayLaterDetails)) {
             $json['buy_now_pay_later_details']        = $this->buyNowPayLaterDetails;
+        }
+        if (isset($this->squareAccountDetails)) {
+            $json['square_account_details']           = $this->squareAccountDetails;
         }
         if (isset($this->locationId)) {
             $json['location_id']                      = $this->locationId;

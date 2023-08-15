@@ -105,6 +105,15 @@ class TaxIdsBuilder
     }
 
     /**
+     * Sets jp qii field.
+     */
+    public function jpQii(?string $value): self
+    {
+        $this->instance->setJpQii($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new tax ids object.
      */
     public function build(): TaxIds

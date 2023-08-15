@@ -113,7 +113,7 @@ class ListGiftCardsRequest implements \JsonSerializable
     /**
      * Returns Limit.
      * If a limit is provided, the endpoint returns only the specified number of results per page.
-     * The maximum value is 50. The default value is 30.
+     * The maximum value is 200. The default value is 30.
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      */
@@ -128,7 +128,7 @@ class ListGiftCardsRequest implements \JsonSerializable
     /**
      * Sets Limit.
      * If a limit is provided, the endpoint returns only the specified number of results per page.
-     * The maximum value is 50. The default value is 30.
+     * The maximum value is 200. The default value is 30.
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      *
@@ -142,7 +142,7 @@ class ListGiftCardsRequest implements \JsonSerializable
     /**
      * Unsets Limit.
      * If a limit is provided, the endpoint returns only the specified number of results per page.
-     * The maximum value is 50. The default value is 30.
+     * The maximum value is 200. The default value is 30.
      * For more information, see [Pagination](https://developer.squareup.com/docs/working-with-
      * apis/pagination).
      */

@@ -7,8 +7,11 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Money;
 use Square\Models\Tender;
+use Square\Models\TenderBankAccountDetails;
+use Square\Models\TenderBuyNowPayLaterDetails;
 use Square\Models\TenderCardDetails;
 use Square\Models\TenderCashDetails;
+use Square\Models\TenderSquareAccountDetails;
 
 /**
  * Builder for model Tender
@@ -167,6 +170,33 @@ class TenderBuilder
     public function cashDetails(?TenderCashDetails $value): self
     {
         $this->instance->setCashDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets bank account details field.
+     */
+    public function bankAccountDetails(?TenderBankAccountDetails $value): self
+    {
+        $this->instance->setBankAccountDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets buy now pay later details field.
+     */
+    public function buyNowPayLaterDetails(?TenderBuyNowPayLaterDetails $value): self
+    {
+        $this->instance->setBuyNowPayLaterDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets square account details field.
+     */
+    public function squareAccountDetails(?TenderSquareAccountDetails $value): self
+    {
+        $this->instance->setSquareAccountDetails($value);
         return $this;
     }
 

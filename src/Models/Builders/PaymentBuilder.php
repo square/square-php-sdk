@@ -17,6 +17,7 @@ use Square\Models\ExternalPaymentDetails;
 use Square\Models\Money;
 use Square\Models\Payment;
 use Square\Models\RiskEvaluation;
+use Square\Models\SquareAccountDetails;
 
 /**
  * Builder for model Payment
@@ -238,6 +239,15 @@ class PaymentBuilder
     public function buyNowPayLaterDetails(?BuyNowPayLaterDetails $value): self
     {
         $this->instance->setBuyNowPayLaterDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets square account details field.
+     */
+    public function squareAccountDetails(?SquareAccountDetails $value): self
+    {
+        $this->instance->setSquareAccountDetails($value);
         return $this;
     }
 

@@ -13,6 +13,7 @@ $bookingsApi = $client->getBookingsApi();
 * [List Bookings](../../doc/apis/bookings.md#list-bookings)
 * [Create Booking](../../doc/apis/bookings.md#create-booking)
 * [Search Availability](../../doc/apis/bookings.md#search-availability)
+* [Bulk Retrieve Bookings](../../doc/apis/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/apis/bookings.md#retrieve-business-booking-profile)
 * [List Team Member Booking Profiles](../../doc/apis/bookings.md#list-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/apis/bookings.md#retrieve-team-member-booking-profile)
@@ -32,6 +33,7 @@ To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ`
 function listBookings(
     ?int $limit = null,
     ?string $cursor = null,
+    ?string $customerId = null,
     ?string $teamMemberId = null,
     ?string $locationId = null,
     ?string $startAtMin = null,
@@ -45,6 +47,7 @@ function listBookings(
 |  --- | --- | --- | --- |
 | `limit` | `?int` | Query, Optional | The maximum number of results per page to return in a paged response. |
 | `cursor` | `?string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
+| `customerId` | `?string` | Query, Optional | The [customer](entity:Customer) for whom to retrieve bookings. If this is not set, bookings for all customers are retrieved. |
 | `teamMemberId` | `?string` | Query, Optional | The team member for whom to retrieve bookings. If this is not set, bookings of all members are retrieved. |
 | `locationId` | `?string` | Query, Optional | The location for which to retrieve bookings. If this is not set, all locations' bookings are retrieved. |
 | `startAtMin` | `?string` | Query, Optional | The RFC 3339 timestamp specifying the earliest of the start time. If this is not set, the current time is used. |
@@ -160,6 +163,52 @@ $apiResponse = $bookingsApi->searchAvailability($body);
 
 if ($apiResponse->isSuccess()) {
     $searchAvailabilityResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Bulk Retrieve Bookings
+
+Bulk-Retrieves a list of bookings by booking IDs.
+
+To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
+To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and `APPOINTMENTS_READ` for the OAuth scope.
+
+```php
+function bulkRetrieveBookings(BulkRetrieveBookingsRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`BulkRetrieveBookingsRequest`](../../doc/models/bulk-retrieve-bookings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkRetrieveBookingsResponse`](../../doc/models/bulk-retrieve-bookings-response.md).
+
+## Example Usage
+
+```php
+$body = BulkRetrieveBookingsRequestBuilder::init(
+    [
+        'booking_ids8',
+        'booking_ids9',
+        'booking_ids0'
+    ]
+)->build();
+
+$apiResponse = $bookingsApi->bulkRetrieveBookings($body);
+
+if ($apiResponse->isSuccess()) {
+    $bulkRetrieveBookingsResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

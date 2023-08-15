@@ -10,6 +10,8 @@ use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Http\ApiResponse;
+use Square\Models\BulkRetrieveBookingsRequest;
+use Square\Models\BulkRetrieveBookingsResponse;
 use Square\Models\CancelBookingRequest;
 use Square\Models\CancelBookingResponse;
 use Square\Models\CreateBookingRequest;
@@ -37,6 +39,8 @@ class BookingsApi extends BaseApi
      * @param string|null $cursor The pagination cursor from the preceding response to return the
      *        next page of the results. Do not set this when retrieving the first page of the
      *        results.
+     * @param string|null $customerId The [customer](entity:Customer) for whom to retrieve bookings.
+     *        If this is not set, bookings for all customers are retrieved.
      * @param string|null $teamMemberId The team member for whom to retrieve bookings. If this is
      *        not set, bookings of all members are retrieved.
      * @param string|null $locationId The location for which to retrieve bookings. If this is not
@@ -51,6 +55,7 @@ class BookingsApi extends BaseApi
     public function listBookings(
         ?int $limit = null,
         ?string $cursor = null,
+        ?string $customerId = null,
         ?string $teamMemberId = null,
         ?string $locationId = null,
         ?string $startAtMin = null,
@@ -61,6 +66,7 @@ class BookingsApi extends BaseApi
             ->parameters(
                 QueryParam::init('limit', $limit),
                 QueryParam::init('cursor', $cursor),
+                QueryParam::init('customer_id', $customerId),
                 QueryParam::init('team_member_id', $teamMemberId),
                 QueryParam::init('location_id', $locationId),
                 QueryParam::init('start_at_min', $startAtMin),
@@ -127,6 +133,31 @@ class BookingsApi extends BaseApi
             ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
         $_resHandler = $this->responseHandler()->type(SearchAvailabilityResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Bulk-Retrieves a list of bookings by booking IDs.
+     *
+     * To call this endpoint with buyer-level permissions, set `APPOINTMENTS_READ` for the OAuth scope.
+     * To call this endpoint with seller-level permissions, set `APPOINTMENTS_ALL_READ` and
+     * `APPOINTMENTS_READ` for the OAuth scope.
+     *
+     * @param BulkRetrieveBookingsRequest $body An object containing the fields to POST for the
+     *        request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function bulkRetrieveBookings(BulkRetrieveBookingsRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/bookings/bulk-retrieve')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
+
+        $_resHandler = $this->responseHandler()->type(BulkRetrieveBookingsResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

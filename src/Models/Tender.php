@@ -72,6 +72,21 @@ class Tender implements \JsonSerializable
     private $cashDetails;
 
     /**
+     * @var TenderBankAccountDetails|null
+     */
+    private $bankAccountDetails;
+
+    /**
+     * @var TenderBuyNowPayLaterDetails|null
+     */
+    private $buyNowPayLaterDetails;
+
+    /**
+     * @var TenderSquareAccountDetails|null
+     */
+    private $squareAccountDetails;
+
+    /**
      * @var array
      */
     private $additionalRecipients = [];
@@ -418,6 +433,72 @@ class Tender implements \JsonSerializable
     }
 
     /**
+     * Returns Bank Account Details.
+     * Represents the details of a tender with `type` `BANK_ACCOUNT`.
+     *
+     * See [BankAccountPaymentDetails]($m/BankAccountPaymentDetails)
+     * for more exposed details of a bank account payment.
+     */
+    public function getBankAccountDetails(): ?TenderBankAccountDetails
+    {
+        return $this->bankAccountDetails;
+    }
+
+    /**
+     * Sets Bank Account Details.
+     * Represents the details of a tender with `type` `BANK_ACCOUNT`.
+     *
+     * See [BankAccountPaymentDetails]($m/BankAccountPaymentDetails)
+     * for more exposed details of a bank account payment.
+     *
+     * @maps bank_account_details
+     */
+    public function setBankAccountDetails(?TenderBankAccountDetails $bankAccountDetails): void
+    {
+        $this->bankAccountDetails = $bankAccountDetails;
+    }
+
+    /**
+     * Returns Buy Now Pay Later Details.
+     * Represents the details of a tender with `type` `BUY_NOW_PAY_LATER`.
+     */
+    public function getBuyNowPayLaterDetails(): ?TenderBuyNowPayLaterDetails
+    {
+        return $this->buyNowPayLaterDetails;
+    }
+
+    /**
+     * Sets Buy Now Pay Later Details.
+     * Represents the details of a tender with `type` `BUY_NOW_PAY_LATER`.
+     *
+     * @maps buy_now_pay_later_details
+     */
+    public function setBuyNowPayLaterDetails(?TenderBuyNowPayLaterDetails $buyNowPayLaterDetails): void
+    {
+        $this->buyNowPayLaterDetails = $buyNowPayLaterDetails;
+    }
+
+    /**
+     * Returns Square Account Details.
+     * Represents the details of a tender with `type` `SQUARE_ACCOUNT`.
+     */
+    public function getSquareAccountDetails(): ?TenderSquareAccountDetails
+    {
+        return $this->squareAccountDetails;
+    }
+
+    /**
+     * Sets Square Account Details.
+     * Represents the details of a tender with `type` `SQUARE_ACCOUNT`.
+     *
+     * @maps square_account_details
+     */
+    public function setSquareAccountDetails(?TenderSquareAccountDetails $squareAccountDetails): void
+    {
+        $this->squareAccountDetails = $squareAccountDetails;
+    }
+
+    /**
      * Returns Additional Recipients.
      * Additional recipients (other than the merchant) receiving a portion of this tender.
      * For example, fees assessed on the purchase by a third party integration.
@@ -504,44 +585,53 @@ class Tender implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                    = $this->id;
+            $json['id']                        = $this->id;
         }
         if (!empty($this->locationId)) {
-            $json['location_id']           = $this->locationId['value'];
+            $json['location_id']               = $this->locationId['value'];
         }
         if (!empty($this->transactionId)) {
-            $json['transaction_id']        = $this->transactionId['value'];
+            $json['transaction_id']            = $this->transactionId['value'];
         }
         if (isset($this->createdAt)) {
-            $json['created_at']            = $this->createdAt;
+            $json['created_at']                = $this->createdAt;
         }
         if (!empty($this->note)) {
-            $json['note']                  = $this->note['value'];
+            $json['note']                      = $this->note['value'];
         }
         if (isset($this->amountMoney)) {
-            $json['amount_money']          = $this->amountMoney;
+            $json['amount_money']              = $this->amountMoney;
         }
         if (isset($this->tipMoney)) {
-            $json['tip_money']             = $this->tipMoney;
+            $json['tip_money']                 = $this->tipMoney;
         }
         if (isset($this->processingFeeMoney)) {
-            $json['processing_fee_money']  = $this->processingFeeMoney;
+            $json['processing_fee_money']      = $this->processingFeeMoney;
         }
         if (!empty($this->customerId)) {
-            $json['customer_id']           = $this->customerId['value'];
+            $json['customer_id']               = $this->customerId['value'];
         }
-        $json['type']                      = $this->type;
+        $json['type']                          = $this->type;
         if (isset($this->cardDetails)) {
-            $json['card_details']          = $this->cardDetails;
+            $json['card_details']              = $this->cardDetails;
         }
         if (isset($this->cashDetails)) {
-            $json['cash_details']          = $this->cashDetails;
+            $json['cash_details']              = $this->cashDetails;
+        }
+        if (isset($this->bankAccountDetails)) {
+            $json['bank_account_details']      = $this->bankAccountDetails;
+        }
+        if (isset($this->buyNowPayLaterDetails)) {
+            $json['buy_now_pay_later_details'] = $this->buyNowPayLaterDetails;
+        }
+        if (isset($this->squareAccountDetails)) {
+            $json['square_account_details']    = $this->squareAccountDetails;
         }
         if (!empty($this->additionalRecipients)) {
-            $json['additional_recipients'] = $this->additionalRecipients['value'];
+            $json['additional_recipients']     = $this->additionalRecipients['value'];
         }
         if (!empty($this->paymentId)) {
-            $json['payment_id']            = $this->paymentId['value'];
+            $json['payment_id']                = $this->paymentId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

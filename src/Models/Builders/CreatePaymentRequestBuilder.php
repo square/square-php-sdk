@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\Address;
 use Square\Models\CashPaymentDetails;
 use Square\Models\CreatePaymentRequest;
+use Square\Models\CustomerDetails;
 use Square\Models\ExternalPaymentDetails;
 use Square\Models\Money;
 
@@ -213,6 +214,15 @@ class CreatePaymentRequestBuilder
     public function externalDetails(?ExternalPaymentDetails $value): self
     {
         $this->instance->setExternalDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets customer details field.
+     */
+    public function customerDetails(?CustomerDetails $value): self
+    {
+        $this->instance->setCustomerDetails($value);
         return $this;
     }
 
