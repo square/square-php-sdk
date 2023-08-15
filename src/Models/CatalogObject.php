@@ -177,7 +177,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Returns Type.
      * Possible types of CatalogObjects returned from the catalog, each
-     * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
+     * containing type-specific properties in the `*_data` field corresponding to the specified object type.
      */
     public function getType(): string
     {
@@ -187,7 +187,7 @@ class CatalogObject implements \JsonSerializable
     /**
      * Sets Type.
      * Possible types of CatalogObjects returned from the catalog, each
-     * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
+     * containing type-specific properties in the `*_data` field corresponding to the specified object type.
      *
      * @required
      * @maps type

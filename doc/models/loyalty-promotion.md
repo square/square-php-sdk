@@ -37,7 +37,8 @@ A loyalty program can have a maximum of 10 loyalty promotions with an `ACTIVE` o
   "incentive": {
     "type": "POINTS_MULTIPLIER",
     "points_multiplier_data": {
-      "points_multiplier": 16
+      "points_multiplier": 16,
+      "multiplier": "multiplier8"
     },
     "points_addition_data": {
       "points_addition": 16

@@ -57,6 +57,11 @@ class SearchCatalogItemsRequest implements \JsonSerializable
     private $customAttributeFilters;
 
     /**
+     * @var string|null
+     */
+    private $archivedState;
+
+    /**
      * Returns Text Filter.
      * The text filter expression to return items or item variations containing specified text in
      * the `name`, `description`, or `abbreviation` attribute value of an item, or in
@@ -275,6 +280,30 @@ class SearchCatalogItemsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Archived State.
+     * Defines the values for the `archived_state` query expression
+     * used in [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
+     * to return the archived, not archived or either type of catalog items.
+     */
+    public function getArchivedState(): ?string
+    {
+        return $this->archivedState;
+    }
+
+    /**
+     * Sets Archived State.
+     * Defines the values for the `archived_state` query expression
+     * used in [SearchCatalogItems]($e/Catalog/SearchCatalogItems)
+     * to return the archived, not archived or either type of catalog items.
+     *
+     * @maps archived_state
+     */
+    public function setArchivedState(?string $archivedState): void
+    {
+        $this->archivedState = $archivedState;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -312,6 +341,9 @@ class SearchCatalogItemsRequest implements \JsonSerializable
         }
         if (isset($this->customAttributeFilters)) {
             $json['custom_attribute_filters'] = $this->customAttributeFilters;
+        }
+        if (isset($this->archivedState)) {
+            $json['archived_state']           = $this->archivedState;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

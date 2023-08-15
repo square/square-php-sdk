@@ -40,7 +40,7 @@ the transaction.
       "transaction_id": "transaction_id0",
       "created_at": "created_at0",
       "note": "note8",
-      "type": "OTHER"
+      "type": "THIRD_PARTY_CARD"
     },
     {
       "id": "id3",
@@ -48,7 +48,7 @@ the transaction.
       "transaction_id": "transaction_id1",
       "created_at": "created_at1",
       "note": "note9",
-      "type": "CARD"
+      "type": "SQUARE_GIFT_CARD"
     },
     {
       "id": "id4",
@@ -56,7 +56,7 @@ the transaction.
       "transaction_id": "transaction_id2",
       "created_at": "created_at2",
       "note": "note0",
-      "type": "CASH"
+      "type": "NO_SALE"
     }
   ],
   "refunds": [

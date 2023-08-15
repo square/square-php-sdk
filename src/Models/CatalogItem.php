@@ -103,6 +103,11 @@ class CatalogItem implements \JsonSerializable
     private $descriptionPlaintext;
 
     /**
+     * @var array
+     */
+    private $isArchived = [];
+
+    /**
      * Returns Name.
      * The item's name. This is a searchable attribute for use in applicable query filters, its value must
      * not be empty, and the length is of Unicode code points.
@@ -869,6 +874,38 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Is Archived.
+     * Indicates whether this item is archived (`true`) or not (`false`).
+     */
+    public function getIsArchived(): ?bool
+    {
+        if (count($this->isArchived) == 0) {
+            return null;
+        }
+        return $this->isArchived['value'];
+    }
+
+    /**
+     * Sets Is Archived.
+     * Indicates whether this item is archived (`true`) or not (`false`).
+     *
+     * @maps is_archived
+     */
+    public function setIsArchived(?bool $isArchived): void
+    {
+        $this->isArchived['value'] = $isArchived;
+    }
+
+    /**
+     * Unsets Is Archived.
+     * Indicates whether this item is archived (`true`) or not (`false`).
+     */
+    public function unsetIsArchived(): void
+    {
+        $this->isArchived = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -933,6 +970,9 @@ class CatalogItem implements \JsonSerializable
         }
         if (isset($this->descriptionPlaintext)) {
             $json['description_plaintext']    = $this->descriptionPlaintext;
+        }
+        if (!empty($this->isArchived)) {
+            $json['is_archived']              = $this->isArchived['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

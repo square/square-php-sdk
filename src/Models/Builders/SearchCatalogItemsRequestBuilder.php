@@ -114,6 +114,15 @@ class SearchCatalogItemsRequestBuilder
     }
 
     /**
+     * Sets archived state field.
+     */
+    public function archivedState(?string $value): self
+    {
+        $this->instance->setArchivedState($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new search catalog items request object.
      */
     public function build(): SearchCatalogItemsRequest

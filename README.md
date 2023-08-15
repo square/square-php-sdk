@@ -87,6 +87,7 @@ All environment variables:
 
 ### Orders
 * [Orders]
+* [Order Custom Attributes]
 
 ### Subscriptions
 * [Subscriptions]
@@ -113,10 +114,13 @@ All environment variables:
 
 ### Bookings
 * [Bookings]
+* [Booking Custom Attributes]
 
 ### Business
 * [Merchants]
+* [Merchant Custom Attributes]
 * [Locations]
+* [Location Custom Attributes]
 * [Devices]
 * [Cash Drawers]
 * [Vendors]
@@ -170,9 +174,13 @@ The following Square APIs are [deprecated](https://developer.squareup.com/docs/b
 [Labor]: doc/apis/labor.md
 [Loyalty]: doc/apis/loyalty.md
 [Bookings]: doc/apis/bookings.md
+[Booking Custom Attributes]: doc/api/booking-custom-attributes.md
 [Locations]: doc/apis/locations.md
+[Location Custom Attributes]: doc/api/location-custom-attributes.md
 [Merchants]: doc/apis/merchants.md
+[Merchant Custom Attributes]: doc/api/merchant-custom-attributes.md
 [Orders]: doc/apis/orders.md
+[Order Custom Attributes]: doc/api/order-custom-attributes.md
 [Invoices]: doc/apis/invoices.md
 [Apple Pay]: doc/apis/apple-pay.md
 [Refunds]: doc/apis/refunds.md

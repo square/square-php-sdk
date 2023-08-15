@@ -134,11 +134,6 @@ class CatalogItemVariation implements \JsonSerializable
     private $stockableConversion;
 
     /**
-     * @var array
-     */
-    private $itemVariationVendorInfoIds = [];
-
-    /**
      * Returns Item Id.
      * The ID of the `CatalogItem` associated with this item variation.
      */
@@ -880,48 +875,6 @@ class CatalogItemVariation implements \JsonSerializable
     }
 
     /**
-     * Returns Item Variation Vendor Info Ids.
-     * A list of ids of [CatalogItemVariationVendorInfo](entity:CatalogItemVariationVendorInfo) objects
-     * that
-     * reference this ItemVariation. (Deprecated in favor of item_variation_vendor_infos)
-     *
-     * @return string[]|null
-     */
-    public function getItemVariationVendorInfoIds(): ?array
-    {
-        if (count($this->itemVariationVendorInfoIds) == 0) {
-            return null;
-        }
-        return $this->itemVariationVendorInfoIds['value'];
-    }
-
-    /**
-     * Sets Item Variation Vendor Info Ids.
-     * A list of ids of [CatalogItemVariationVendorInfo](entity:CatalogItemVariationVendorInfo) objects
-     * that
-     * reference this ItemVariation. (Deprecated in favor of item_variation_vendor_infos)
-     *
-     * @maps item_variation_vendor_info_ids
-     *
-     * @param string[]|null $itemVariationVendorInfoIds
-     */
-    public function setItemVariationVendorInfoIds(?array $itemVariationVendorInfoIds): void
-    {
-        $this->itemVariationVendorInfoIds['value'] = $itemVariationVendorInfoIds;
-    }
-
-    /**
-     * Unsets Item Variation Vendor Info Ids.
-     * A list of ids of [CatalogItemVariationVendorInfo](entity:CatalogItemVariationVendorInfo) objects
-     * that
-     * reference this ItemVariation. (Deprecated in favor of item_variation_vendor_infos)
-     */
-    public function unsetItemVariationVendorInfoIds(): void
-    {
-        $this->itemVariationVendorInfoIds = [];
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -934,70 +887,67 @@ class CatalogItemVariation implements \JsonSerializable
     {
         $json = [];
         if (!empty($this->itemId)) {
-            $json['item_id']                        = $this->itemId['value'];
+            $json['item_id']                   = $this->itemId['value'];
         }
         if (!empty($this->name)) {
-            $json['name']                           = $this->name['value'];
+            $json['name']                      = $this->name['value'];
         }
         if (!empty($this->sku)) {
-            $json['sku']                            = $this->sku['value'];
+            $json['sku']                       = $this->sku['value'];
         }
         if (!empty($this->upc)) {
-            $json['upc']                            = $this->upc['value'];
+            $json['upc']                       = $this->upc['value'];
         }
         if (isset($this->ordinal)) {
-            $json['ordinal']                        = $this->ordinal;
+            $json['ordinal']                   = $this->ordinal;
         }
         if (isset($this->pricingType)) {
-            $json['pricing_type']                   = $this->pricingType;
+            $json['pricing_type']              = $this->pricingType;
         }
         if (isset($this->priceMoney)) {
-            $json['price_money']                    = $this->priceMoney;
+            $json['price_money']               = $this->priceMoney;
         }
         if (!empty($this->locationOverrides)) {
-            $json['location_overrides']             = $this->locationOverrides['value'];
+            $json['location_overrides']        = $this->locationOverrides['value'];
         }
         if (!empty($this->trackInventory)) {
-            $json['track_inventory']                = $this->trackInventory['value'];
+            $json['track_inventory']           = $this->trackInventory['value'];
         }
         if (isset($this->inventoryAlertType)) {
-            $json['inventory_alert_type']           = $this->inventoryAlertType;
+            $json['inventory_alert_type']      = $this->inventoryAlertType;
         }
         if (!empty($this->inventoryAlertThreshold)) {
-            $json['inventory_alert_threshold']      = $this->inventoryAlertThreshold['value'];
+            $json['inventory_alert_threshold'] = $this->inventoryAlertThreshold['value'];
         }
         if (!empty($this->userData)) {
-            $json['user_data']                      = $this->userData['value'];
+            $json['user_data']                 = $this->userData['value'];
         }
         if (!empty($this->serviceDuration)) {
-            $json['service_duration']               = $this->serviceDuration['value'];
+            $json['service_duration']          = $this->serviceDuration['value'];
         }
         if (!empty($this->availableForBooking)) {
-            $json['available_for_booking']          = $this->availableForBooking['value'];
+            $json['available_for_booking']     = $this->availableForBooking['value'];
         }
         if (!empty($this->itemOptionValues)) {
-            $json['item_option_values']             = $this->itemOptionValues['value'];
+            $json['item_option_values']        = $this->itemOptionValues['value'];
         }
         if (!empty($this->measurementUnitId)) {
-            $json['measurement_unit_id']            = $this->measurementUnitId['value'];
+            $json['measurement_unit_id']       = $this->measurementUnitId['value'];
         }
         if (!empty($this->sellable)) {
-            $json['sellable']                       = $this->sellable['value'];
+            $json['sellable']                  = $this->sellable['value'];
         }
         if (!empty($this->stockable)) {
-            $json['stockable']                      = $this->stockable['value'];
+            $json['stockable']                 = $this->stockable['value'];
         }
         if (!empty($this->imageIds)) {
-            $json['image_ids']                      = $this->imageIds['value'];
+            $json['image_ids']                 = $this->imageIds['value'];
         }
         if (!empty($this->teamMemberIds)) {
-            $json['team_member_ids']                = $this->teamMemberIds['value'];
+            $json['team_member_ids']           = $this->teamMemberIds['value'];
         }
         if (isset($this->stockableConversion)) {
-            $json['stockable_conversion']           = $this->stockableConversion;
-        }
-        if (!empty($this->itemVariationVendorInfoIds)) {
-            $json['item_variation_vendor_info_ids'] = $this->itemVariationVendorInfoIds['value'];
+            $json['stockable_conversion']      = $this->stockableConversion;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

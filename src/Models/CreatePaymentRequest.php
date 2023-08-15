@@ -123,6 +123,11 @@ class CreatePaymentRequest implements \JsonSerializable
     private $externalDetails;
 
     /**
+     * @var CustomerDetails|null
+     */
+    private $customerDetails;
+
+    /**
      * @param string $sourceId
      * @param string $idempotencyKey
      */
@@ -767,6 +772,26 @@ class CreatePaymentRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Customer Details.
+     * Details about the customer making the payment.
+     */
+    public function getCustomerDetails(): ?CustomerDetails
+    {
+        return $this->customerDetails;
+    }
+
+    /**
+     * Sets Customer Details.
+     * Details about the customer making the payment.
+     *
+     * @maps customer_details
+     */
+    public function setCustomerDetails(?CustomerDetails $customerDetails): void
+    {
+        $this->customerDetails = $customerDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -839,6 +864,9 @@ class CreatePaymentRequest implements \JsonSerializable
         }
         if (isset($this->externalDetails)) {
             $json['external_details']                 = $this->externalDetails;
+        }
+        if (isset($this->customerDetails)) {
+            $json['customer_details']                 = $this->customerDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

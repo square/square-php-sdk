@@ -21,6 +21,11 @@ class ListBookingsRequest implements \JsonSerializable
     /**
      * @var array
      */
+    private $customerId = [];
+
+    /**
+     * @var array
+     */
     private $teamMemberId = [];
 
     /**
@@ -103,6 +108,41 @@ class ListBookingsRequest implements \JsonSerializable
     public function unsetCursor(): void
     {
         $this->cursor = [];
+    }
+
+    /**
+     * Returns Customer Id.
+     * The [customer](entity:Customer) for whom to retrieve bookings. If this is not set, bookings for all
+     * customers are retrieved.
+     */
+    public function getCustomerId(): ?string
+    {
+        if (count($this->customerId) == 0) {
+            return null;
+        }
+        return $this->customerId['value'];
+    }
+
+    /**
+     * Sets Customer Id.
+     * The [customer](entity:Customer) for whom to retrieve bookings. If this is not set, bookings for all
+     * customers are retrieved.
+     *
+     * @maps customer_id
+     */
+    public function setCustomerId(?string $customerId): void
+    {
+        $this->customerId['value'] = $customerId;
+    }
+
+    /**
+     * Unsets Customer Id.
+     * The [customer](entity:Customer) for whom to retrieve bookings. If this is not set, bookings for all
+     * customers are retrieved.
+     */
+    public function unsetCustomerId(): void
+    {
+        $this->customerId = [];
     }
 
     /**
@@ -262,6 +302,9 @@ class ListBookingsRequest implements \JsonSerializable
         }
         if (!empty($this->cursor)) {
             $json['cursor']         = $this->cursor['value'];
+        }
+        if (!empty($this->customerId)) {
+            $json['customer_id']    = $this->customerId['value'];
         }
         if (!empty($this->teamMemberId)) {
             $json['team_member_id'] = $this->teamMemberId['value'];

@@ -339,6 +339,24 @@ class CatalogItemBuilder
     }
 
     /**
+     * Sets is archived field.
+     */
+    public function isArchived(?bool $value): self
+    {
+        $this->instance->setIsArchived($value);
+        return $this;
+    }
+
+    /**
+     * Unsets is archived field.
+     */
+    public function unsetIsArchived(): self
+    {
+        $this->instance->unsetIsArchived();
+        return $this;
+    }
+
+    /**
      * Initializes a new catalog item object.
      */
     public function build(): CatalogItem

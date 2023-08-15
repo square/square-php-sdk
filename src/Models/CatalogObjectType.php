@@ -6,7 +6,7 @@ namespace Square\Models;
 
 /**
  * Possible types of CatalogObjects returned from the catalog, each
- * containing type-specific properties in the `*_data` field corresponding to the specfied object type.
+ * containing type-specific properties in the `*_data` field corresponding to the specified object type.
  */
 class CatalogObjectType
 {

@@ -37,7 +37,7 @@ class GiftCardsApi extends BaseApi
      *        Otherwise, the endpoint returns the gift cards of all states.
      * @param int|null $limit If a limit is provided, the endpoint returns only the specified number
      *        of results per page.
-     *        The maximum value is 50. The default value is 30.
+     *        The maximum value is 200. The default value is 30.
      *        For more information, see [Pagination](https://developer.squareup.com/docs/working-
      *        with-apis/pagination).
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.

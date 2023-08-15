@@ -69,6 +69,24 @@ class ListBookingsRequestBuilder
     }
 
     /**
+     * Sets customer id field.
+     */
+    public function customerId(?string $value): self
+    {
+        $this->instance->setCustomerId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets customer id field.
+     */
+    public function unsetCustomerId(): self
+    {
+        $this->instance->unsetCustomerId();
+        return $this;
+    }
+
+    /**
      * Sets team member id field.
      */
     public function teamMemberId(?string $value): self
