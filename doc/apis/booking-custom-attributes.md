@@ -277,12 +277,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = BulkDeleteBookingCustomAttributesRequestBuilder::init(
     [
         'key0' => BookingCustomAttributeDeleteRequestBuilder::init(
-            'booking_id8',
-            'key4'
+            'booking_id4',
+            'key0'
         )->build(),
         'key1' => BookingCustomAttributeDeleteRequestBuilder::init(
-            'booking_id9',
-            'key5'
+            'booking_id4',
+            'key0'
         )->build()
     ]
 )->build();
@@ -331,11 +331,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = BulkUpsertBookingCustomAttributesRequestBuilder::init(
     [
         'key0' => BookingCustomAttributeUpsertRequestBuilder::init(
-            'booking_id8',
+            'booking_id4',
             CustomAttributeBuilder::init()->build()
         )->build(),
         'key1' => BookingCustomAttributeUpsertRequestBuilder::init(
-            'booking_id9',
+            'booking_id4',
             CustomAttributeBuilder::init()->build()
         )->build()
     ]
@@ -393,6 +393,8 @@ $withDefinitions = false;
 
 $apiResponse = $bookingCustomAttributesApi->listBookingCustomAttributes(
     $bookingId,
+    null,
+    null,
     $withDefinitions
 );
 

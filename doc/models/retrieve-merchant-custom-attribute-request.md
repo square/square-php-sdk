@@ -19,7 +19,7 @@ Represents a [RetrieveMerchantCustomAttribute](../../doc/apis/merchant-custom-at
 ```json
 {
   "with_definition": false,
-  "version": 172
+  "version": 52
 }
 ```
 

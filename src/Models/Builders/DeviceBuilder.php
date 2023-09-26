@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Device;
+use Square\Models\DeviceAttributes;
+use Square\Models\DeviceStatus;
 
 /**
  * Builder for model Device
@@ -27,9 +29,9 @@ class DeviceBuilder
     /**
      * Initializes a new device Builder object.
      */
-    public static function init(): self
+    public static function init(DeviceAttributes $attributes): self
     {
-        return new self(new Device());
+        return new self(new Device($attributes));
     }
 
     /**
@@ -42,20 +44,29 @@ class DeviceBuilder
     }
 
     /**
-     * Sets name field.
+     * Sets components field.
      */
-    public function name(?string $value): self
+    public function components(?array $value): self
     {
-        $this->instance->setName($value);
+        $this->instance->setComponents($value);
         return $this;
     }
 
     /**
-     * Unsets name field.
+     * Unsets components field.
      */
-    public function unsetName(): self
+    public function unsetComponents(): self
     {
-        $this->instance->unsetName();
+        $this->instance->unsetComponents();
+        return $this;
+    }
+
+    /**
+     * Sets status field.
+     */
+    public function status(?DeviceStatus $value): self
+    {
+        $this->instance->setStatus($value);
         return $this;
     }
 

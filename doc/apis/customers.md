@@ -59,7 +59,13 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $count = false;
 
-$apiResponse = $customersApi->listCustomers($count);
+$apiResponse = $customersApi->listCustomers(
+    null,
+    null,
+    null,
+    null,
+    $count
+);
 
 if ($apiResponse->isSuccess()) {
     $listCustomersResponse = $apiResponse->getResult();
@@ -183,8 +189,8 @@ $body = SearchCustomersRequestBuilder::init()
                     )
                     ->createdAt(
                         TimeRangeBuilder::init()
-                            ->startAt('2018-01-01T00:00:00+00:00')
-                            ->endAt('2018-02-01T00:00:00+00:00')
+                            ->startAt('2018-01-01T00:00:00-00:00')
+                            ->endAt('2018-02-01T00:00:00-00:00')
                             ->build()
                     )
                     ->emailAddress(

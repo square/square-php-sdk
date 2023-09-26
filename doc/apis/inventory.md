@@ -210,8 +210,8 @@ $body = BatchRetrieveInventoryChangesRequestBuilder::init()
             InventoryState::IN_STOCK
         ]
     )
-    ->updatedAfter('2016-11-01T00:00:00Z')
-    ->updatedBefore('2016-12-01T00:00:00Z')
+    ->updatedAfter('2016-11-01T00:00:00.000Z')
+    ->updatedBefore('2016-12-01T00:00:00.000Z')
     ->build();
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryChanges($body);
@@ -263,7 +263,7 @@ $body = BatchRetrieveInventoryCountsRequestBuilder::init()
             '59TNP9SA8VGDA'
         ]
     )
-    ->updatedAfter('2016-11-16T00:00:00Z')
+    ->updatedAfter('2016-11-16T00:00:00.000Z')
     ->build();
 
 $apiResponse = $inventoryApi->deprecatedBatchRetrieveInventoryCounts($body);
@@ -392,8 +392,8 @@ $body = BatchRetrieveInventoryChangesRequestBuilder::init()
             InventoryState::IN_STOCK
         ]
     )
-    ->updatedAfter('2016-11-01T00:00:00Z')
-    ->updatedBefore('2016-12-01T00:00:00Z')
+    ->updatedAfter('2016-11-01T00:00:00.000Z')
+    ->updatedBefore('2016-12-01T00:00:00.000Z')
     ->build();
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryChanges($body);
@@ -452,7 +452,7 @@ $body = BatchRetrieveInventoryCountsRequestBuilder::init()
             '59TNP9SA8VGDA'
         ]
     )
-    ->updatedAfter('2016-11-16T00:00:00Z')
+    ->updatedAfter('2016-11-16T00:00:00.000Z')
     ->build();
 
 $apiResponse = $inventoryApi->batchRetrieveInventoryCounts($body);

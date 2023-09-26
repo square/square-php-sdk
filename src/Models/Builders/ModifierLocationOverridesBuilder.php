@@ -61,6 +61,15 @@ class ModifierLocationOverridesBuilder
     }
 
     /**
+     * Sets sold out field.
+     */
+    public function soldOut(?bool $value): self
+    {
+        $this->instance->setSoldOut($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new modifier location overrides object.
      */
     public function build(): ModifierLocationOverrides

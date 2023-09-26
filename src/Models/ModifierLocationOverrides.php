@@ -22,6 +22,11 @@ class ModifierLocationOverrides implements \JsonSerializable
     private $priceMoney;
 
     /**
+     * @var bool|null
+     */
+    private $soldOut;
+
+    /**
      * Returns Location Id.
      * The ID of the `Location` object representing the location. This can include a deactivated location.
      */
@@ -86,6 +91,34 @@ class ModifierLocationOverrides implements \JsonSerializable
     }
 
     /**
+     * Returns Sold Out.
+     * Indicates whether the modifier is sold out at the specified location or not. As an example, for
+     * cheese (modifier) burger (item), when the modifier is sold out, it is the cheese, but not the burger,
+     * that is sold out.
+     * The seller can manually set this sold out status. Attempts by an application to set this attribute
+     * are ignored.
+     */
+    public function getSoldOut(): ?bool
+    {
+        return $this->soldOut;
+    }
+
+    /**
+     * Sets Sold Out.
+     * Indicates whether the modifier is sold out at the specified location or not. As an example, for
+     * cheese (modifier) burger (item), when the modifier is sold out, it is the cheese, but not the burger,
+     * that is sold out.
+     * The seller can manually set this sold out status. Attempts by an application to set this attribute
+     * are ignored.
+     *
+     * @maps sold_out
+     */
+    public function setSoldOut(?bool $soldOut): void
+    {
+        $this->soldOut = $soldOut;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -102,6 +135,9 @@ class ModifierLocationOverrides implements \JsonSerializable
         }
         if (isset($this->priceMoney)) {
             $json['price_money'] = $this->priceMoney;
+        }
+        if (isset($this->soldOut)) {
+            $json['sold_out']    = $this->soldOut;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

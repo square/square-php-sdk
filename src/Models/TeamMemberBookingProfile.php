@@ -102,7 +102,7 @@ class TeamMemberBookingProfile implements \JsonSerializable
     /**
      * Returns Is Bookable.
      * Indicates whether the team member can be booked through the Bookings API or the seller's online
-     * booking channel or site (`true) or not (`false`).
+     * booking channel or site (`true`) or not (`false`).
      */
     public function getIsBookable(): ?bool
     {
@@ -115,7 +115,7 @@ class TeamMemberBookingProfile implements \JsonSerializable
     /**
      * Sets Is Bookable.
      * Indicates whether the team member can be booked through the Bookings API or the seller's online
-     * booking channel or site (`true) or not (`false`).
+     * booking channel or site (`true`) or not (`false`).
      *
      * @maps is_bookable
      */
@@ -127,7 +127,7 @@ class TeamMemberBookingProfile implements \JsonSerializable
     /**
      * Unsets Is Bookable.
      * Indicates whether the team member can be booked through the Bookings API or the seller's online
-     * booking channel or site (`true) or not (`false`).
+     * booking channel or site (`true`) or not (`false`).
      */
     public function unsetIsBookable(): void
     {

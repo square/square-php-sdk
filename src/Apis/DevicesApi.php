@@ -13,10 +13,48 @@ use Square\Http\ApiResponse;
 use Square\Models\CreateDeviceCodeRequest;
 use Square\Models\CreateDeviceCodeResponse;
 use Square\Models\GetDeviceCodeResponse;
+use Square\Models\GetDeviceResponse;
 use Square\Models\ListDeviceCodesResponse;
+use Square\Models\ListDevicesResponse;
 
 class DevicesApi extends BaseApi
 {
+    /**
+     * List devices associated with the merchant. Currently, only Terminal API
+     * devices are supported.
+     *
+     * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
+     *        Provide this cursor to retrieve the next set of results for the original query.
+     *        See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     *        patterns/pagination) for more information.
+     * @param string|null $sortOrder The order in which results are listed. - `ASC` - Oldest to
+     *        newest.
+     *        - `DESC` - Newest to oldest (default).
+     * @param int|null $limit The number of results to return in a single page.
+     * @param string|null $locationId If present, only returns devices at the target location.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function listDevices(
+        ?string $cursor = null,
+        ?string $sortOrder = null,
+        ?int $limit = null,
+        ?string $locationId = null
+    ): ApiResponse {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/devices')
+            ->auth('global')
+            ->parameters(
+                QueryParam::init('cursor', $cursor),
+                QueryParam::init('sort_order', $sortOrder),
+                QueryParam::init('limit', $limit),
+                QueryParam::init('location_id', $locationId)
+            );
+
+        $_resHandler = $this->responseHandler()->type(ListDevicesResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
     /**
      * Lists all DeviceCodes associated with the merchant.
      *
@@ -90,6 +128,24 @@ class DevicesApi extends BaseApi
             ->parameters(TemplateParam::init('id', $id));
 
         $_resHandler = $this->responseHandler()->type(GetDeviceCodeResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves Device with the associated `device_id`.
+     *
+     * @param string $deviceId The unique ID for the desired `Device`.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function getDevice(string $deviceId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/devices/{device_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('device_id', $deviceId));
+
+        $_resHandler = $this->responseHandler()->type(GetDeviceResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

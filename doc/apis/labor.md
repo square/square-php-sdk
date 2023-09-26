@@ -371,10 +371,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = CreateShiftRequestBuilder::init(
     ShiftBuilder::init(
-        '2019-01-25T08:11:00+00:00'
+        '2019-01-25T03:11:00-05:00'
     )
         ->locationId('PAA1RJZZKXBFG')
-        ->endAt('2019-01-25T18:11:00+00:00')
+        ->endAt('2019-01-25T13:11:00-05:00')
         ->wage(
             ShiftWageBuilder::init()
                 ->title('Barista')
@@ -389,13 +389,13 @@ $body = CreateShiftRequestBuilder::init(
         ->breaks(
             [
                 MBreakBuilder::init(
-                    '2019-01-25T11:11:00+00:00',
+                    '2019-01-25T06:11:00-05:00',
                     'REGS1EQR1TPZ5',
                     'Tea Break',
                     'PT5M',
                     true
                 )
-                    ->endAt('2019-01-25T11:16:00+00:00')
+                    ->endAt('2019-01-25T06:16:00-05:00')
                     ->build()
             ]
         )
@@ -599,10 +599,10 @@ $id = 'id0';
 
 $body = UpdateShiftRequestBuilder::init(
     ShiftBuilder::init(
-        '2019-01-25T08:11:00+00:00'
+        '2019-01-25T03:11:00-05:00'
     )
         ->locationId('PAA1RJZZKXBFG')
-        ->endAt('2019-01-25T18:11:00+00:00')
+        ->endAt('2019-01-25T13:11:00-05:00')
         ->wage(
             ShiftWageBuilder::init()
                 ->title('Bartender')
@@ -617,14 +617,14 @@ $body = UpdateShiftRequestBuilder::init(
         ->breaks(
             [
                 MBreakBuilder::init(
-                    '2019-01-25T11:11:00+00:00',
+                    '2019-01-25T06:11:00-05:00',
                     'REGS1EQR1TPZ5',
                     'Tea Break',
                     'PT5M',
                     true
                 )
                     ->id('X7GAQYVVRRG6P')
-                    ->endAt('2019-01-25T11:16:00+00:00')
+                    ->endAt('2019-01-25T06:16:00-05:00')
                     ->build()
             ]
         )

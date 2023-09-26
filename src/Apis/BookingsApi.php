@@ -12,6 +12,8 @@ use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Http\ApiResponse;
 use Square\Models\BulkRetrieveBookingsRequest;
 use Square\Models\BulkRetrieveBookingsResponse;
+use Square\Models\BulkRetrieveTeamMemberBookingProfilesRequest;
+use Square\Models\BulkRetrieveTeamMemberBookingProfilesResponse;
 use Square\Models\CancelBookingRequest;
 use Square\Models\CancelBookingResponse;
 use Square\Models\CreateBookingRequest;
@@ -210,6 +212,31 @@ class BookingsApi extends BaseApi
 
         $_resHandler = $this->responseHandler()
             ->type(ListTeamMemberBookingProfilesResponse::class)
+            ->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves one or more team members' booking profiles.
+     *
+     * @param BulkRetrieveTeamMemberBookingProfilesRequest $body An object containing the fields to
+     *        POST for the request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function bulkRetrieveTeamMemberBookingProfiles(
+        BulkRetrieveTeamMemberBookingProfilesRequest $body
+    ): ApiResponse {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/bookings/team-member-booking-profiles/bulk-retrieve'
+        )->auth('global')->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
+
+        $_resHandler = $this->responseHandler()
+            ->type(BulkRetrieveTeamMemberBookingProfilesResponse::class)
             ->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);

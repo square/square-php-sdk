@@ -25,8 +25,8 @@ Represents a [CreateGiftCard](../../doc/apis/gift-cards.md#create-gift-card) req
     "gan_source": "SQUARE",
     "state": "ACTIVE",
     "balance_money": {
-      "amount": 250,
-      "currency": "CHF"
+      "amount": 146,
+      "currency": "MVR"
     },
     "gan": "gan6"
   },

@@ -3,6 +3,8 @@
 
 An employee object that is used by the external API.
 
+DEPRECATED at version 2020-08-26. Replaced by [TeamMember](entity:TeamMember).
+
 ## Structure
 
 `Employee`
@@ -17,7 +19,7 @@ An employee object that is used by the external API.
 | `email` | `?string` | Optional | The employee's email address | getEmail(): ?string | setEmail(?string email): void |
 | `phoneNumber` | `?string` | Optional | The employee's phone number in E.164 format, i.e. "+12125554250" | getPhoneNumber(): ?string | setPhoneNumber(?string phoneNumber): void |
 | `locationIds` | `?(string[])` | Optional | A list of location IDs where this employee has access to. | getLocationIds(): ?array | setLocationIds(?array locationIds): void |
-| `status` | [`?string(EmployeeStatus)`](../../doc/models/employee-status.md) | Optional | The status of the Employee being retrieved. | getStatus(): ?string | setStatus(?string status): void |
+| `status` | [`?string(EmployeeStatus)`](../../doc/models/employee-status.md) | Optional | The status of the Employee being retrieved.<br><br>DEPRECATED at version 2020-08-26. Replaced by [TeamMemberStatus](entity:TeamMemberStatus). | getStatus(): ?string | setStatus(?string status): void |
 | `isOwner` | `?bool` | Optional | Whether this employee is the owner of the merchant. Each merchant<br>has one owner employee, and that employee has full authority over<br>the account. | getIsOwner(): ?bool | setIsOwner(?bool isOwner): void |
 | `createdAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
@@ -26,11 +28,11 @@ An employee object that is used by the external API.
 
 ```json
 {
-  "id": "id0",
-  "first_name": "first_name0",
-  "last_name": "last_name8",
-  "email": "email6",
-  "phone_number": "phone_number2"
+  "id": "id6",
+  "first_name": "first_name6",
+  "last_name": "last_name4",
+  "email": "email0",
+  "phone_number": "phone_number6"
 }
 ```
 

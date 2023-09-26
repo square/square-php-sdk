@@ -86,7 +86,10 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $includeDisabled = false;
 
-$apiResponse = $webhookSubscriptionsApi->listWebhookSubscriptions($includeDisabled);
+$apiResponse = $webhookSubscriptionsApi->listWebhookSubscriptions(
+    null,
+    $includeDisabled
+);
 
 if ($apiResponse->isSuccess()) {
     $listWebhookSubscriptionsResponse = $apiResponse->getResult();

@@ -19,7 +19,7 @@ Represents a [ListCustomerCustomAttributes](../../doc/apis/customer-custom-attri
 
 ```json
 {
-  "limit": 172,
+  "limit": 224,
   "cursor": "cursor6",
   "with_definitions": false
 }

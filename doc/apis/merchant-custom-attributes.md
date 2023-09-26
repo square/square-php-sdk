@@ -278,8 +278,12 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = BulkDeleteMerchantCustomAttributesRequestBuilder::init(
     [
-        'id1' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()->build(),
-        'id2' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()->build()
+        'id1' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()
+            ->key('alternative_seller_name')
+            ->build(),
+        'id2' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()
+            ->key('has_seen_tutorial')
+            ->build()
     ]
 )->build();
 
@@ -330,11 +334,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = BulkUpsertMerchantCustomAttributesRequestBuilder::init(
     [
         'key0' => BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequestBuilder::init(
-            'merchant_id4',
+            'merchant_id0',
             CustomAttributeBuilder::init()->build()
         )->build(),
         'key1' => BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequestBuilder::init(
-            'merchant_id5',
+            'merchant_id0',
             CustomAttributeBuilder::init()->build()
         )->build()
     ]
@@ -396,6 +400,9 @@ $withDefinitions = false;
 
 $apiResponse = $merchantCustomAttributesApi->listMerchantCustomAttributes(
     $merchantId,
+    null,
+    null,
+    null,
     $withDefinitions
 );
 

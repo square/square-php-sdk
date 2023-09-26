@@ -16,6 +16,7 @@ $bookingsApi = $client->getBookingsApi();
 * [Bulk Retrieve Bookings](../../doc/apis/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/apis/bookings.md#retrieve-business-booking-profile)
 * [List Team Member Booking Profiles](../../doc/apis/bookings.md#list-team-member-booking-profiles)
+* [Bulk Retrieve Team Member Booking Profiles](../../doc/apis/bookings.md#bulk-retrieve-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/apis/bookings.md#retrieve-team-member-booking-profile)
 * [Retrieve Booking](../../doc/apis/bookings.md#retrieve-booking)
 * [Update Booking](../../doc/apis/bookings.md#update-booking)
@@ -283,6 +284,49 @@ $apiResponse = $bookingsApi->listTeamMemberBookingProfiles($bookableOnly);
 
 if ($apiResponse->isSuccess()) {
     $listTeamMemberBookingProfilesResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Bulk Retrieve Team Member Booking Profiles
+
+Retrieves one or more team members' booking profiles.
+
+```php
+function bulkRetrieveTeamMemberBookingProfiles(BulkRetrieveTeamMemberBookingProfilesRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`BulkRetrieveTeamMemberBookingProfilesRequest`](../../doc/models/bulk-retrieve-team-member-booking-profiles-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkRetrieveTeamMemberBookingProfilesResponse`](../../doc/models/bulk-retrieve-team-member-booking-profiles-response.md).
+
+## Example Usage
+
+```php
+$body = BulkRetrieveTeamMemberBookingProfilesRequestBuilder::init(
+    [
+        'team_member_ids3',
+        'team_member_ids4',
+        'team_member_ids5'
+    ]
+)->build();
+
+$apiResponse = $bookingsApi->bulkRetrieveTeamMemberBookingProfiles($body);
+
+if ($apiResponse->isSuccess()) {
+    $bulkRetrieveTeamMemberBookingProfilesResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

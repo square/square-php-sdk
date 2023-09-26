@@ -19,7 +19,7 @@ Represents a [RetrieveLocationCustomAttribute](../../doc/apis/location-custom-at
 ```json
 {
   "with_definition": false,
-  "version": 172
+  "version": 84
 }
 ```
 

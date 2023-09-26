@@ -17,7 +17,7 @@ Represents a [RetrieveMerchantCustomAttributeDefinition](../../doc/apis/merchant
 
 ```json
 {
-  "version": 172
+  "version": 162
 }
 ```
 

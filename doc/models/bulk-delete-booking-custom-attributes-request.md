@@ -21,14 +21,6 @@ Represents a [BulkDeleteBookingCustomAttributes](../../doc/apis/booking-custom-a
     "key0": {
       "booking_id": "booking_id4",
       "key": "key0"
-    },
-    "key1": {
-      "booking_id": "booking_id5",
-      "key": "key1"
-    },
-    "key2": {
-      "booking_id": "booking_id6",
-      "key": "key2"
     }
   }
 }

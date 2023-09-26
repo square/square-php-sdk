@@ -8,6 +8,8 @@ use stdClass;
 
 /**
  * An employee object that is used by the external API.
+ *
+ * DEPRECATED at version 2020-08-26. Replaced by [TeamMember](entity:TeamMember).
  */
 class Employee implements \JsonSerializable
 {
@@ -248,6 +250,8 @@ class Employee implements \JsonSerializable
     /**
      * Returns Status.
      * The status of the Employee being retrieved.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMemberStatus](entity:TeamMemberStatus).
      */
     public function getStatus(): ?string
     {
@@ -257,6 +261,8 @@ class Employee implements \JsonSerializable
     /**
      * Sets Status.
      * The status of the Employee being retrieved.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMemberStatus](entity:TeamMemberStatus).
      *
      * @maps status
      */
