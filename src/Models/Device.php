@@ -14,13 +14,32 @@ class Device implements \JsonSerializable
     private $id;
 
     /**
+     * @var DeviceAttributes
+     */
+    private $attributes;
+
+    /**
      * @var array
      */
-    private $name = [];
+    private $components = [];
+
+    /**
+     * @var DeviceStatus|null
+     */
+    private $status;
+
+    /**
+     * @param DeviceAttributes $attributes
+     */
+    public function __construct(DeviceAttributes $attributes)
+    {
+        $this->attributes = $attributes;
+    }
 
     /**
      * Returns Id.
-     * The device's Square-issued ID.
+     * A synthetic identifier for the device. The identifier includes a standardized prefix and
+     * is otherwise an opaque id generated from key device fields.
      */
     public function getId(): ?string
     {
@@ -29,7 +48,8 @@ class Device implements \JsonSerializable
 
     /**
      * Sets Id.
-     * The device's Square-issued ID.
+     * A synthetic identifier for the device. The identifier includes a standardized prefix and
+     * is otherwise an opaque id generated from key device fields.
      *
      * @maps id
      */
@@ -39,35 +59,76 @@ class Device implements \JsonSerializable
     }
 
     /**
-     * Returns Name.
-     * The device's merchant-specified name.
+     * Returns Attributes.
      */
-    public function getName(): ?string
+    public function getAttributes(): DeviceAttributes
     {
-        if (count($this->name) == 0) {
+        return $this->attributes;
+    }
+
+    /**
+     * Sets Attributes.
+     *
+     * @required
+     * @maps attributes
+     */
+    public function setAttributes(DeviceAttributes $attributes): void
+    {
+        $this->attributes = $attributes;
+    }
+
+    /**
+     * Returns Components.
+     * A list of components applicable to the device.
+     *
+     * @return Component[]|null
+     */
+    public function getComponents(): ?array
+    {
+        if (count($this->components) == 0) {
             return null;
         }
-        return $this->name['value'];
+        return $this->components['value'];
     }
 
     /**
-     * Sets Name.
-     * The device's merchant-specified name.
+     * Sets Components.
+     * A list of components applicable to the device.
      *
-     * @maps name
+     * @maps components
+     *
+     * @param Component[]|null $components
      */
-    public function setName(?string $name): void
+    public function setComponents(?array $components): void
     {
-        $this->name['value'] = $name;
+        $this->components['value'] = $components;
     }
 
     /**
-     * Unsets Name.
-     * The device's merchant-specified name.
+     * Unsets Components.
+     * A list of components applicable to the device.
      */
-    public function unsetName(): void
+    public function unsetComponents(): void
     {
-        $this->name = [];
+        $this->components = [];
+    }
+
+    /**
+     * Returns Status.
+     */
+    public function getStatus(): ?DeviceStatus
+    {
+        return $this->status;
+    }
+
+    /**
+     * Sets Status.
+     *
+     * @maps status
+     */
+    public function setStatus(?DeviceStatus $status): void
+    {
+        $this->status = $status;
     }
 
     /**
@@ -83,10 +144,14 @@ class Device implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']   = $this->id;
+            $json['id']         = $this->id;
         }
-        if (!empty($this->name)) {
-            $json['name'] = $this->name['value'];
+        $json['attributes']     = $this->attributes;
+        if (!empty($this->components)) {
+            $json['components'] = $this->components['value'];
+        }
+        if (isset($this->status)) {
+            $json['status']     = $this->status;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

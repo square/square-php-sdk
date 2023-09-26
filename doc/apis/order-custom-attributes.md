@@ -357,11 +357,11 @@ $body = BulkUpsertOrderCustomAttributesRequestBuilder::init(
     [
         'key0' => BulkUpsertOrderCustomAttributesRequestUpsertCustomAttributeBuilder::init(
             CustomAttributeBuilder::init()->build(),
-            'order_id2'
+            'order_id4'
         )->build(),
         'key1' => BulkUpsertOrderCustomAttributesRequestUpsertCustomAttributeBuilder::init(
             CustomAttributeBuilder::init()->build(),
-            'order_id1'
+            'order_id4'
         )->build()
     ]
 )->build();
@@ -424,6 +424,9 @@ $withDefinitions = false;
 
 $apiResponse = $orderCustomAttributesApi->listOrderCustomAttributes(
     $orderId,
+    null,
+    null,
+    null,
     $withDefinitions
 );
 
@@ -531,6 +534,7 @@ $withDefinition = false;
 $apiResponse = $orderCustomAttributesApi->retrieveOrderCustomAttribute(
     $orderId,
     $customAttributeKey,
+    null,
     $withDefinition
 );
 

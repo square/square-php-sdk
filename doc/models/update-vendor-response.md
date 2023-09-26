@@ -28,8 +28,8 @@ Represents an output from a call to [UpdateVendor](../../doc/apis/vendors.md#upd
       "country": "US",
       "locality": "New York",
       "postal_code": "10003",
-      "address_line_3": "address_line_38",
-      "sublocality": "sublocality2"
+      "address_line_3": "address_line_32",
+      "sublocality": "sublocality6"
     },
     "contacts": [
       {

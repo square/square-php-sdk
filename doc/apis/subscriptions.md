@@ -227,8 +227,12 @@ $subscriptionId = 'subscription_id0';
 
 $body = UpdateSubscriptionRequestBuilder::init()
     ->subscription(
-        SubscriptionBuilder::init()->build()
-    )->build();
+        SubscriptionBuilder::init()
+            ->canceledDate('canceled_date6')
+            ->cardId('{NEW CARD ID}')
+            ->build()
+    )
+    ->build();
 
 $apiResponse = $subscriptionsApi->updateSubscription(
     $subscriptionId,

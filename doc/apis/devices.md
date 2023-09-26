@@ -10,9 +10,55 @@ $devicesApi = $client->getDevicesApi();
 
 ## Methods
 
+* [List Devices](../../doc/apis/devices.md#list-devices)
 * [List Device Codes](../../doc/apis/devices.md#list-device-codes)
 * [Create Device Code](../../doc/apis/devices.md#create-device-code)
 * [Get Device Code](../../doc/apis/devices.md#get-device-code)
+* [Get Device](../../doc/apis/devices.md#get-device)
+
+
+# List Devices
+
+List devices associated with the merchant. Currently, only Terminal API
+devices are supported.
+
+```php
+function listDevices(
+    ?string $cursor = null,
+    ?string $sortOrder = null,
+    ?int $limit = null,
+    ?string $locationId = null
+): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `cursor` | `?string` | Query, Optional | A pagination cursor returned by a previous call to this endpoint.<br>Provide this cursor to retrieve the next set of results for the original query.<br>See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination) for more information. |
+| `sortOrder` | [`?string(SortOrder)`](../../doc/models/sort-order.md) | Query, Optional | The order in which results are listed.<br><br>- `ASC` - Oldest to newest.<br>- `DESC` - Newest to oldest (default). |
+| `limit` | `?int` | Query, Optional | The number of results to return in a single page. |
+| `locationId` | `?string` | Query, Optional | If present, only returns devices at the target location. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListDevicesResponse`](../../doc/models/list-devices-response.md).
+
+## Example Usage
+
+```php
+$apiResponse = $devicesApi->listDevices();
+
+if ($apiResponse->isSuccess()) {
+    $listDevicesResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
 
 
 # List Device Codes
@@ -129,6 +175,43 @@ $apiResponse = $devicesApi->getDeviceCode($id);
 
 if ($apiResponse->isSuccess()) {
     $getDeviceCodeResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Get Device
+
+Retrieves Device with the associated `device_id`.
+
+```php
+function getDevice(string $deviceId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `deviceId` | `string` | Template, Required | The unique ID for the desired `Device`. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`GetDeviceResponse`](../../doc/models/get-device-response.md).
+
+## Example Usage
+
+```php
+$deviceId = 'device_id6';
+
+$apiResponse = $devicesApi->getDevice($deviceId);
+
+if ($apiResponse->isSuccess()) {
+    $getDeviceResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

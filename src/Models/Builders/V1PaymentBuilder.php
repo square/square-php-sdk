@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
-use Square\Models\Device;
+use Square\Models\V1Device;
 use Square\Models\V1Money;
 use Square\Models\V1Payment;
 
@@ -91,7 +91,7 @@ class V1PaymentBuilder
     /**
      * Sets device field.
      */
-    public function device(?Device $value): self
+    public function device(?V1Device $value): self
     {
         $this->instance->setDevice($value);
         return $this;

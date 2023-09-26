@@ -18,7 +18,7 @@ Represents a [ListBookingCustomAttributeDefinitions](../../doc/apis/booking-cust
 
 ```json
 {
-  "limit": 172,
+  "limit": 98,
   "cursor": "cursor6"
 }
 ```

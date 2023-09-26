@@ -60,6 +60,8 @@ class ListEmployeesRequest implements \JsonSerializable
     /**
      * Returns Status.
      * The status of the Employee being retrieved.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMemberStatus](entity:TeamMemberStatus).
      */
     public function getStatus(): ?string
     {
@@ -69,6 +71,8 @@ class ListEmployeesRequest implements \JsonSerializable
     /**
      * Sets Status.
      * The status of the Employee being retrieved.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMemberStatus](entity:TeamMemberStatus).
      *
      * @maps status
      */

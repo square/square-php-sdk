@@ -28,7 +28,7 @@ Represents a [CreateCustomerCustomAttributeDefinition](../../doc/apis/customer-c
     },
     "visibility": "VISIBILITY_HIDDEN"
   },
-  "idempotency_key": "idempotency_key6"
+  "idempotency_key": "idempotency_key4"
 }
 ```
 

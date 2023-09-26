@@ -21,6 +21,8 @@ class RetrieveEmployeeResponse implements \JsonSerializable
     /**
      * Returns Employee.
      * An employee object that is used by the external API.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMember](entity:TeamMember).
      */
     public function getEmployee(): ?Employee
     {
@@ -30,6 +32,8 @@ class RetrieveEmployeeResponse implements \JsonSerializable
     /**
      * Sets Employee.
      * An employee object that is used by the external API.
+     *
+     * DEPRECATED at version 2020-08-26. Replaced by [TeamMember](entity:TeamMember).
      *
      * @maps employee
      */

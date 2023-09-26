@@ -19,9 +19,9 @@ Represents a [ListLoyaltyPromotions](../../doc/apis/loyalty.md#list-loyalty-prom
 
 ```json
 {
-  "status": "ACTIVE",
-  "cursor": "cursor6",
-  "limit": 172
+  "status": "CANCELED",
+  "cursor": "cursor2",
+  "limit": 58
 }
 ```
 

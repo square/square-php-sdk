@@ -19,7 +19,7 @@ Represents a [RetrieveCustomerCustomAttribute](../../doc/apis/customer-custom-at
 ```json
 {
   "with_definition": false,
-  "version": 172
+  "version": 232
 }
 ```
 

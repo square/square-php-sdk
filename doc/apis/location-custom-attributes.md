@@ -278,9 +278,15 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = BulkDeleteLocationCustomAttributesRequestBuilder::init(
     [
-        'id1' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build(),
-        'id2' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build(),
-        'id3' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build()
+        'id1' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
+            ->key('bestseller')
+            ->build(),
+        'id2' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
+            ->key('bestseller')
+            ->build(),
+        'id3' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
+            ->key('phone-number')
+            ->build()
     ]
 )->build();
 
@@ -331,11 +337,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = BulkUpsertLocationCustomAttributesRequestBuilder::init(
     [
         'key0' => BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequestBuilder::init(
-            'location_id8',
+            'location_id4',
             CustomAttributeBuilder::init()->build()
         )->build(),
         'key1' => BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequestBuilder::init(
-            'location_id9',
+            'location_id4',
             CustomAttributeBuilder::init()->build()
         )->build()
     ]
@@ -397,6 +403,9 @@ $withDefinitions = false;
 
 $apiResponse = $locationCustomAttributesApi->listLocationCustomAttributes(
     $locationId,
+    null,
+    null,
+    null,
     $withDefinitions
 );
 

@@ -50,7 +50,7 @@ class V1Payment implements \JsonSerializable
     private $creatorId = [];
 
     /**
-     * @var Device|null
+     * @var V1Device|null
      */
     private $device;
 
@@ -275,7 +275,7 @@ class V1Payment implements \JsonSerializable
     /**
      * Returns Device.
      */
-    public function getDevice(): ?Device
+    public function getDevice(): ?V1Device
     {
         return $this->device;
     }
@@ -285,7 +285,7 @@ class V1Payment implements \JsonSerializable
      *
      * @maps device
      */
-    public function setDevice(?Device $device): void
+    public function setDevice(?V1Device $device): void
     {
         $this->device = $device;
     }

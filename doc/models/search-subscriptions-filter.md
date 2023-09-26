@@ -25,10 +25,14 @@ the [SearchSubscriptions](../../doc/apis/subscriptions.md#search-subscriptions) 
     "customer_ids2"
   ],
   "location_ids": [
-    "location_ids0"
+    "location_ids4",
+    "location_ids5",
+    "location_ids6"
   ],
   "source_names": [
-    "source_names8"
+    "source_names2",
+    "source_names3",
+    "source_names4"
   ]
 }
 ```

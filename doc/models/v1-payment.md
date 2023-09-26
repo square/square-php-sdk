@@ -34,7 +34,7 @@ Monetary values are <b>negative</b> if they represent an
 | `merchantId` | `?string` | Optional | The unique identifier of the merchant that took the payment. | getMerchantId(): ?string | setMerchantId(?string merchantId): void |
 | `createdAt` | `?string` | Optional | The time when the payment was created, in ISO 8601 format. Reflects the time of the first payment if the object represents an incomplete partial payment, and the time of the last or complete payment otherwise. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `creatorId` | `?string` | Optional | The unique identifier of the Square account that took the payment. | getCreatorId(): ?string | setCreatorId(?string creatorId): void |
-| `device` | [`?Device`](../../doc/models/device.md) | Optional | - | getDevice(): ?Device | setDevice(?Device device): void |
+| `device` | [`?V1Device`](../../doc/models/v1-device.md) | Optional | - | getDevice(): ?V1Device | setDevice(?V1Device device): void |
 | `paymentUrl` | `?string` | Optional | The URL of the payment's detail page in the merchant dashboard. The merchant must be signed in to the merchant dashboard to view this page. | getPaymentUrl(): ?string | setPaymentUrl(?string paymentUrl): void |
 | `receiptUrl` | `?string` | Optional | The URL of the receipt for the payment. Note that for split tender<br>payments, this URL corresponds to the receipt for the first tender<br>listed in the payment's tender field. Each Tender object has its own<br>receipt_url field you can use to get the other receipts associated with<br>a split tender payment. | getReceiptUrl(): ?string | setReceiptUrl(?string receiptUrl): void |
 | `inclusiveTaxMoney` | [`?V1Money`](../../doc/models/v1-money.md) | Optional | - | getInclusiveTaxMoney(): ?V1Money | setInclusiveTaxMoney(?V1Money inclusiveTaxMoney): void |
@@ -62,10 +62,10 @@ Monetary values are <b>negative</b> if they represent an
 
 ```json
 {
-  "id": "id0",
-  "merchant_id": "merchant_id0",
-  "created_at": "created_at2",
-  "creator_id": "creator_id0",
+  "id": "id2",
+  "merchant_id": "merchant_id8",
+  "created_at": "created_at0",
+  "creator_id": "creator_id2",
   "device": {
     "id": "id6",
     "name": "name6"

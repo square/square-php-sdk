@@ -50,7 +50,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $includeDisabled = false;
 
-$apiResponse = $cardsApi->listCards($includeDisabled);
+$apiResponse = $cardsApi->listCards(
+    null,
+    null,
+    $includeDisabled
+);
 
 if ($apiResponse->isSuccess()) {
     $listCardsResponse = $apiResponse->getResult();

@@ -297,11 +297,11 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 $body = BulkUpsertCustomerCustomAttributesRequestBuilder::init(
     [
         'key0' => BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequestBuilder::init(
-            'customer_id2',
+            'customer_id8',
             CustomAttributeBuilder::init()->build()
         )->build(),
         'key1' => BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequestBuilder::init(
-            'customer_id3',
+            'customer_id8',
             CustomAttributeBuilder::init()->build()
         )->build()
     ]
@@ -363,6 +363,8 @@ $withDefinitions = false;
 
 $apiResponse = $customerCustomAttributesApi->listCustomerCustomAttributes(
     $customerId,
+    null,
+    null,
     $withDefinitions
 );
 
