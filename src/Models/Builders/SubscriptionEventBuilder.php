@@ -38,6 +38,15 @@ class SubscriptionEventBuilder
     }
 
     /**
+     * Sets monthly billing anchor date field.
+     */
+    public function monthlyBillingAnchorDate(?int $value): self
+    {
+        $this->instance->setMonthlyBillingAnchorDate($value);
+        return $this;
+    }
+
+    /**
      * Sets info field.
      */
     public function info(?SubscriptionEventInfo $value): self

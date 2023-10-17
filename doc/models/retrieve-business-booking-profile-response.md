@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `businessBookingProfile` | [`?BusinessBookingProfile`](../../doc/models/business-booking-profile.md) | Optional | - | getBusinessBookingProfile(): ?BusinessBookingProfile | setBusinessBookingProfile(?BusinessBookingProfile businessBookingProfile): void |
+| `businessBookingProfile` | [`?BusinessBookingProfile`](../../doc/models/business-booking-profile.md) | Optional | A seller's business booking profile, including booking policy, appointment settings, etc. | getBusinessBookingProfile(): ?BusinessBookingProfile | setBusinessBookingProfile(?BusinessBookingProfile businessBookingProfile): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | Errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

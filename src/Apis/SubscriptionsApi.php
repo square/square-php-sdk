@@ -10,7 +10,11 @@ use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Http\ApiResponse;
+use Square\Models\BulkSwapPlanRequest;
+use Square\Models\BulkSwapPlanResponse;
 use Square\Models\CancelSubscriptionResponse;
+use Square\Models\ChangeBillingAnchorDateRequest;
+use Square\Models\ChangeBillingAnchorDateResponse;
 use Square\Models\CreateSubscriptionRequest;
 use Square\Models\CreateSubscriptionResponse;
 use Square\Models\DeleteSubscriptionActionResponse;
@@ -54,6 +58,27 @@ class SubscriptionsApi extends BaseApi
             ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
 
         $_resHandler = $this->responseHandler()->type(CreateSubscriptionResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Schedules a plan variation change for all active subscriptions under a given plan
+     * variation. For more information, see [Swap Subscription Plan Variations](https://developer.squareup.
+     * com/docs/subscriptions-api/swap-plan-variations).
+     *
+     * @param BulkSwapPlanRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function bulkSwapPlan(BulkSwapPlanRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/subscriptions/bulk-swap-plan')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
+
+        $_resHandler = $this->responseHandler()->type(BulkSwapPlanResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }
@@ -167,6 +192,37 @@ class SubscriptionsApi extends BaseApi
             );
 
         $_resHandler = $this->responseHandler()->type(DeleteSubscriptionActionResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Changes the [billing anchor date](https://developer.squareup.com/docs/subscriptions-api/subscription-
+     * billing#billing-dates)
+     * for a subscription.
+     *
+     * @param string $subscriptionId The ID of the subscription to update the billing anchor date.
+     * @param ChangeBillingAnchorDateRequest $body An object containing the fields to POST for the
+     *        request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function changeBillingAnchorDate(string $subscriptionId, ChangeBillingAnchorDateRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/subscriptions/{subscription_id}/billing-anchor'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('subscription_id', $subscriptionId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
+
+        $_resHandler = $this->responseHandler()->type(ChangeBillingAnchorDateResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

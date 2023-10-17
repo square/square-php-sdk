@@ -15,6 +15,9 @@ For more information, see [Subscription Plans and Variations](https://developer.
 | `name` | `string` | Required | The name of the plan variation. | getName(): string | setName(string name): void |
 | `phases` | [`SubscriptionPhase[]`](../../doc/models/subscription-phase.md) | Required | A list containing each [SubscriptionPhase](entity:SubscriptionPhase) for this plan variation. | getPhases(): array | setPhases(array phases): void |
 | `subscriptionPlanId` | `?string` | Optional | The id of the subscription plan, if there is one. | getSubscriptionPlanId(): ?string | setSubscriptionPlanId(?string subscriptionPlanId): void |
+| `monthlyBillingAnchorDate` | `?int` | Optional | The day of the month the billing period starts.<br>**Constraints**: `>= 1`, `<= 31` | getMonthlyBillingAnchorDate(): ?int | setMonthlyBillingAnchorDate(?int monthlyBillingAnchorDate): void |
+| `canProrate` | `?bool` | Optional | Whether bills for this plan variation can be split for proration. | getCanProrate(): ?bool | setCanProrate(?bool canProrate): void |
+| `successorPlanVariationId` | `?string` | Optional | The ID of a "successor" plan variation to this one. If the field is set, and this object is disabled at all<br>locations, it indicates that this variation is deprecated and the object identified by the successor ID be used in<br>its stead. | getSuccessorPlanVariationId(): ?string | setSuccessorPlanVariationId(?string successorPlanVariationId): void |
 
 ## Example (as JSON)
 
@@ -44,7 +47,10 @@ For more information, see [Subscription Plans and Variations](https://developer.
       }
     }
   ],
-  "subscription_plan_id": "subscription_plan_id0"
+  "subscription_plan_id": "subscription_plan_id0",
+  "monthly_billing_anchor_date": 38,
+  "can_prorate": false,
+  "successor_plan_variation_id": "successor_plan_variation_id2"
 }
 ```
 

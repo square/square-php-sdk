@@ -68,6 +68,11 @@ class CreateSubscriptionRequest implements \JsonSerializable
     private $source;
 
     /**
+     * @var int|null
+     */
+    private $monthlyBillingAnchorDate;
+
+    /**
      * @var Phase[]|null
      */
     private $phases;
@@ -375,6 +380,26 @@ class CreateSubscriptionRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Monthly Billing Anchor Date.
+     * The day-of-the-month to change the billing date to.
+     */
+    public function getMonthlyBillingAnchorDate(): ?int
+    {
+        return $this->monthlyBillingAnchorDate;
+    }
+
+    /**
+     * Sets Monthly Billing Anchor Date.
+     * The day-of-the-month to change the billing date to.
+     *
+     * @maps monthly_billing_anchor_date
+     */
+    public function setMonthlyBillingAnchorDate(?int $monthlyBillingAnchorDate): void
+    {
+        $this->monthlyBillingAnchorDate = $monthlyBillingAnchorDate;
+    }
+
+    /**
      * Returns Phases.
      * array of phases for this subscription
      *
@@ -411,36 +436,39 @@ class CreateSubscriptionRequest implements \JsonSerializable
     {
         $json = [];
         if (isset($this->idempotencyKey)) {
-            $json['idempotency_key']      = $this->idempotencyKey;
+            $json['idempotency_key']             = $this->idempotencyKey;
         }
-        $json['location_id']              = $this->locationId;
+        $json['location_id']                     = $this->locationId;
         if (isset($this->planVariationId)) {
-            $json['plan_variation_id']    = $this->planVariationId;
+            $json['plan_variation_id']           = $this->planVariationId;
         }
-        $json['customer_id']              = $this->customerId;
+        $json['customer_id']                     = $this->customerId;
         if (isset($this->startDate)) {
-            $json['start_date']           = $this->startDate;
+            $json['start_date']                  = $this->startDate;
         }
         if (isset($this->canceledDate)) {
-            $json['canceled_date']        = $this->canceledDate;
+            $json['canceled_date']               = $this->canceledDate;
         }
         if (isset($this->taxPercentage)) {
-            $json['tax_percentage']       = $this->taxPercentage;
+            $json['tax_percentage']              = $this->taxPercentage;
         }
         if (isset($this->priceOverrideMoney)) {
-            $json['price_override_money'] = $this->priceOverrideMoney;
+            $json['price_override_money']        = $this->priceOverrideMoney;
         }
         if (isset($this->cardId)) {
-            $json['card_id']              = $this->cardId;
+            $json['card_id']                     = $this->cardId;
         }
         if (isset($this->timezone)) {
-            $json['timezone']             = $this->timezone;
+            $json['timezone']                    = $this->timezone;
         }
         if (isset($this->source)) {
-            $json['source']               = $this->source;
+            $json['source']                      = $this->source;
+        }
+        if (isset($this->monthlyBillingAnchorDate)) {
+            $json['monthly_billing_anchor_date'] = $this->monthlyBillingAnchorDate;
         }
         if (isset($this->phases)) {
-            $json['phases']               = $this->phases;
+            $json['phases']                      = $this->phases;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

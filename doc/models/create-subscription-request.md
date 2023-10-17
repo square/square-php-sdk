@@ -23,6 +23,7 @@ Defines input parameters in a request to the
 | `cardId` | `?string` | Optional | The ID of the [subscriber's](entity:Customer) [card](entity:Card) to charge.<br>If it is not specified, the subscriber receives an invoice via email with a link to pay for their subscription. | getCardId(): ?string | setCardId(?string cardId): void |
 | `timezone` | `?string` | Optional | The timezone that is used in date calculations for the subscription. If unset, defaults to<br>the location timezone. If a timezone is not configured for the location, defaults to "America/New_York".<br>Format: the IANA Timezone Database identifier for the location timezone. For<br>a list of time zones, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). | getTimezone(): ?string | setTimezone(?string timezone): void |
 | `source` | [`?SubscriptionSource`](../../doc/models/subscription-source.md) | Optional | The origination details of the subscription. | getSource(): ?SubscriptionSource | setSource(?SubscriptionSource source): void |
+| `monthlyBillingAnchorDate` | `?int` | Optional | The day-of-the-month to change the billing date to.<br>**Constraints**: `>= 1`, `<= 31` | getMonthlyBillingAnchorDate(): ?int | setMonthlyBillingAnchorDate(?int monthlyBillingAnchorDate): void |
 | `phases` | [`?(Phase[])`](../../doc/models/phase.md) | Optional | array of phases for this subscription | getPhases(): ?array | setPhases(?array phases): void |
 
 ## Example (as JSON)

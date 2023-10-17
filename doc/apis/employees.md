@@ -18,8 +18,6 @@ $employeesApi = $client->getEmployeesApi();
 
 **This endpoint is deprecated.**
 
-ListEmployees
-
 ```php
 function listEmployees(
     ?string $locationId = null,
@@ -62,8 +60,6 @@ var_dump($apiResponse->getHeaders());
 # Retrieve Employee
 
 **This endpoint is deprecated.**
-
-RetrieveEmployee
 
 ```php
 function retrieveEmployee(string $id): ApiResponse

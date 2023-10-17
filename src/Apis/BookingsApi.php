@@ -19,9 +19,11 @@ use Square\Models\CancelBookingResponse;
 use Square\Models\CreateBookingRequest;
 use Square\Models\CreateBookingResponse;
 use Square\Models\ListBookingsResponse;
+use Square\Models\ListLocationBookingProfilesResponse;
 use Square\Models\ListTeamMemberBookingProfilesResponse;
 use Square\Models\RetrieveBookingResponse;
 use Square\Models\RetrieveBusinessBookingProfileResponse;
+use Square\Models\RetrieveLocationBookingProfileResponse;
 use Square\Models\RetrieveTeamMemberBookingProfileResponse;
 use Square\Models\SearchAvailabilityRequest;
 use Square\Models\SearchAvailabilityResponse;
@@ -176,6 +178,48 @@ class BookingsApi extends BaseApi
 
         $_resHandler = $this->responseHandler()
             ->type(RetrieveBusinessBookingProfileResponse::class)
+            ->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Lists location booking profiles of a seller.
+     *
+     * @param int|null $limit The maximum number of results to return in a paged response.
+     * @param string|null $cursor The pagination cursor from the preceding response to return the
+     *        next page of the results. Do not set this when retrieving the first page of the
+     *        results.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function listLocationBookingProfiles(?int $limit = null, ?string $cursor = null): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/bookings/location-booking-profiles')
+            ->auth('global')
+            ->parameters(QueryParam::init('limit', $limit), QueryParam::init('cursor', $cursor));
+
+        $_resHandler = $this->responseHandler()->type(ListLocationBookingProfilesResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves a seller's location booking profile.
+     *
+     * @param string $locationId The ID of the location to retrieve the booking profile.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function retrieveLocationBookingProfile(string $locationId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/bookings/location-booking-profiles/{location_id}'
+        )->auth('global')->parameters(TemplateParam::init('location_id', $locationId));
+
+        $_resHandler = $this->responseHandler()
+            ->type(RetrieveLocationBookingProfileResponse::class)
             ->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);

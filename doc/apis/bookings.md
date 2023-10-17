@@ -15,6 +15,8 @@ $bookingsApi = $client->getBookingsApi();
 * [Search Availability](../../doc/apis/bookings.md#search-availability)
 * [Bulk Retrieve Bookings](../../doc/apis/bookings.md#bulk-retrieve-bookings)
 * [Retrieve Business Booking Profile](../../doc/apis/bookings.md#retrieve-business-booking-profile)
+* [List Location Booking Profiles](../../doc/apis/bookings.md#list-location-booking-profiles)
+* [Retrieve Location Booking Profile](../../doc/apis/bookings.md#retrieve-location-booking-profile)
 * [List Team Member Booking Profiles](../../doc/apis/bookings.md#list-team-member-booking-profiles)
 * [Bulk Retrieve Team Member Booking Profiles](../../doc/apis/bookings.md#bulk-retrieve-team-member-booking-profiles)
 * [Retrieve Team Member Booking Profile](../../doc/apis/bookings.md#retrieve-team-member-booking-profile)
@@ -239,6 +241,79 @@ $apiResponse = $bookingsApi->retrieveBusinessBookingProfile();
 
 if ($apiResponse->isSuccess()) {
     $retrieveBusinessBookingProfileResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# List Location Booking Profiles
+
+Lists location booking profiles of a seller.
+
+```php
+function listLocationBookingProfiles(?int $limit = null, ?string $cursor = null): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `limit` | `?int` | Query, Optional | The maximum number of results to return in a paged response. |
+| `cursor` | `?string` | Query, Optional | The pagination cursor from the preceding response to return the next page of the results. Do not set this when retrieving the first page of the results. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListLocationBookingProfilesResponse`](../../doc/models/list-location-booking-profiles-response.md).
+
+## Example Usage
+
+```php
+$apiResponse = $bookingsApi->listLocationBookingProfiles();
+
+if ($apiResponse->isSuccess()) {
+    $listLocationBookingProfilesResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Retrieve Location Booking Profile
+
+Retrieves a seller's location booking profile.
+
+```php
+function retrieveLocationBookingProfile(string $locationId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `locationId` | `string` | Template, Required | The ID of the location to retrieve the booking profile. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLocationBookingProfileResponse`](../../doc/models/retrieve-location-booking-profile-response.md).
+
+## Example Usage
+
+```php
+$locationId = 'location_id4';
+
+$apiResponse = $bookingsApi->retrieveLocationBookingProfile($locationId);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveLocationBookingProfileResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

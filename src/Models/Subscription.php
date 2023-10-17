@@ -100,6 +100,11 @@ class Subscription implements \JsonSerializable
     private $actions = [];
 
     /**
+     * @var int|null
+     */
+    private $monthlyBillingAnchorDate;
+
+    /**
      * @var Phase[]|null
      */
     private $phases;
@@ -582,6 +587,26 @@ class Subscription implements \JsonSerializable
     }
 
     /**
+     * Returns Monthly Billing Anchor Date.
+     * The day of the month on which the subscription will issue invoices and publish orders.
+     */
+    public function getMonthlyBillingAnchorDate(): ?int
+    {
+        return $this->monthlyBillingAnchorDate;
+    }
+
+    /**
+     * Sets Monthly Billing Anchor Date.
+     * The day of the month on which the subscription will issue invoices and publish orders.
+     *
+     * @maps monthly_billing_anchor_date
+     */
+    public function setMonthlyBillingAnchorDate(?int $monthlyBillingAnchorDate): void
+    {
+        $this->monthlyBillingAnchorDate = $monthlyBillingAnchorDate;
+    }
+
+    /**
      * Returns Phases.
      * array of phases for this subscription
      *
@@ -618,58 +643,61 @@ class Subscription implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']                   = $this->id;
+            $json['id']                          = $this->id;
         }
         if (isset($this->locationId)) {
-            $json['location_id']          = $this->locationId;
+            $json['location_id']                 = $this->locationId;
         }
         if (isset($this->planVariationId)) {
-            $json['plan_variation_id']    = $this->planVariationId;
+            $json['plan_variation_id']           = $this->planVariationId;
         }
         if (isset($this->customerId)) {
-            $json['customer_id']          = $this->customerId;
+            $json['customer_id']                 = $this->customerId;
         }
         if (isset($this->startDate)) {
-            $json['start_date']           = $this->startDate;
+            $json['start_date']                  = $this->startDate;
         }
         if (!empty($this->canceledDate)) {
-            $json['canceled_date']        = $this->canceledDate['value'];
+            $json['canceled_date']               = $this->canceledDate['value'];
         }
         if (isset($this->chargedThroughDate)) {
-            $json['charged_through_date'] = $this->chargedThroughDate;
+            $json['charged_through_date']        = $this->chargedThroughDate;
         }
         if (isset($this->status)) {
-            $json['status']               = $this->status;
+            $json['status']                      = $this->status;
         }
         if (!empty($this->taxPercentage)) {
-            $json['tax_percentage']       = $this->taxPercentage['value'];
+            $json['tax_percentage']              = $this->taxPercentage['value'];
         }
         if (isset($this->invoiceIds)) {
-            $json['invoice_ids']          = $this->invoiceIds;
+            $json['invoice_ids']                 = $this->invoiceIds;
         }
         if (isset($this->priceOverrideMoney)) {
-            $json['price_override_money'] = $this->priceOverrideMoney;
+            $json['price_override_money']        = $this->priceOverrideMoney;
         }
         if (isset($this->version)) {
-            $json['version']              = $this->version;
+            $json['version']                     = $this->version;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']           = $this->createdAt;
+            $json['created_at']                  = $this->createdAt;
         }
         if (!empty($this->cardId)) {
-            $json['card_id']              = $this->cardId['value'];
+            $json['card_id']                     = $this->cardId['value'];
         }
         if (isset($this->timezone)) {
-            $json['timezone']             = $this->timezone;
+            $json['timezone']                    = $this->timezone;
         }
         if (isset($this->source)) {
-            $json['source']               = $this->source;
+            $json['source']                      = $this->source;
         }
         if (!empty($this->actions)) {
-            $json['actions']              = $this->actions['value'];
+            $json['actions']                     = $this->actions['value'];
+        }
+        if (isset($this->monthlyBillingAnchorDate)) {
+            $json['monthly_billing_anchor_date'] = $this->monthlyBillingAnchorDate;
         }
         if (isset($this->phases)) {
-            $json['phases']               = $this->phases;
+            $json['phases']                      = $this->phases;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

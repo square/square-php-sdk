@@ -51,6 +51,60 @@ class CatalogSubscriptionPlanVariationBuilder
     }
 
     /**
+     * Sets monthly billing anchor date field.
+     */
+    public function monthlyBillingAnchorDate(?int $value): self
+    {
+        $this->instance->setMonthlyBillingAnchorDate($value);
+        return $this;
+    }
+
+    /**
+     * Unsets monthly billing anchor date field.
+     */
+    public function unsetMonthlyBillingAnchorDate(): self
+    {
+        $this->instance->unsetMonthlyBillingAnchorDate();
+        return $this;
+    }
+
+    /**
+     * Sets can prorate field.
+     */
+    public function canProrate(?bool $value): self
+    {
+        $this->instance->setCanProrate($value);
+        return $this;
+    }
+
+    /**
+     * Unsets can prorate field.
+     */
+    public function unsetCanProrate(): self
+    {
+        $this->instance->unsetCanProrate();
+        return $this;
+    }
+
+    /**
+     * Sets successor plan variation id field.
+     */
+    public function successorPlanVariationId(?string $value): self
+    {
+        $this->instance->setSuccessorPlanVariationId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets successor plan variation id field.
+     */
+    public function unsetSuccessorPlanVariationId(): self
+    {
+        $this->instance->unsetSuccessorPlanVariationId();
+        return $this;
+    }
+
+    /**
      * Initializes a new catalog subscription plan variation object.
      */
     public function build(): CatalogSubscriptionPlanVariation
