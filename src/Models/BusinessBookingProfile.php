@@ -6,6 +6,9 @@ namespace Square\Models;
 
 use stdClass;
 
+/**
+ * A seller's business booking profile, including booking policy, appointment settings, etc.
+ */
 class BusinessBookingProfile implements \JsonSerializable
 {
     /**

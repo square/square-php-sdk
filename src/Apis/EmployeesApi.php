@@ -14,8 +14,6 @@ use Square\Models\RetrieveEmployeeResponse;
 class EmployeesApi extends BaseApi
 {
     /**
-     * ListEmployees
-     *
      * @deprecated
      *
      * @param string|null $locationId
@@ -48,8 +46,6 @@ class EmployeesApi extends BaseApi
     }
 
     /**
-     * RetrieveEmployee
-     *
      * @deprecated
      *
      * @param string $id UUID for the employee that was requested.

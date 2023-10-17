@@ -30,6 +30,21 @@ class CatalogSubscriptionPlanVariation implements \JsonSerializable
     private $subscriptionPlanId = [];
 
     /**
+     * @var array
+     */
+    private $monthlyBillingAnchorDate = [];
+
+    /**
+     * @var array
+     */
+    private $canProrate = [];
+
+    /**
+     * @var array
+     */
+    private $successorPlanVariationId = [];
+
+    /**
      * @param string $name
      * @param SubscriptionPhase[] $phases
      */
@@ -118,6 +133,114 @@ class CatalogSubscriptionPlanVariation implements \JsonSerializable
     }
 
     /**
+     * Returns Monthly Billing Anchor Date.
+     * The day of the month the billing period starts.
+     */
+    public function getMonthlyBillingAnchorDate(): ?int
+    {
+        if (count($this->monthlyBillingAnchorDate) == 0) {
+            return null;
+        }
+        return $this->monthlyBillingAnchorDate['value'];
+    }
+
+    /**
+     * Sets Monthly Billing Anchor Date.
+     * The day of the month the billing period starts.
+     *
+     * @maps monthly_billing_anchor_date
+     */
+    public function setMonthlyBillingAnchorDate(?int $monthlyBillingAnchorDate): void
+    {
+        $this->monthlyBillingAnchorDate['value'] = $monthlyBillingAnchorDate;
+    }
+
+    /**
+     * Unsets Monthly Billing Anchor Date.
+     * The day of the month the billing period starts.
+     */
+    public function unsetMonthlyBillingAnchorDate(): void
+    {
+        $this->monthlyBillingAnchorDate = [];
+    }
+
+    /**
+     * Returns Can Prorate.
+     * Whether bills for this plan variation can be split for proration.
+     */
+    public function getCanProrate(): ?bool
+    {
+        if (count($this->canProrate) == 0) {
+            return null;
+        }
+        return $this->canProrate['value'];
+    }
+
+    /**
+     * Sets Can Prorate.
+     * Whether bills for this plan variation can be split for proration.
+     *
+     * @maps can_prorate
+     */
+    public function setCanProrate(?bool $canProrate): void
+    {
+        $this->canProrate['value'] = $canProrate;
+    }
+
+    /**
+     * Unsets Can Prorate.
+     * Whether bills for this plan variation can be split for proration.
+     */
+    public function unsetCanProrate(): void
+    {
+        $this->canProrate = [];
+    }
+
+    /**
+     * Returns Successor Plan Variation Id.
+     * The ID of a "successor" plan variation to this one. If the field is set, and this object is disabled
+     * at all
+     * locations, it indicates that this variation is deprecated and the object identified by the successor
+     * ID be used in
+     * its stead.
+     */
+    public function getSuccessorPlanVariationId(): ?string
+    {
+        if (count($this->successorPlanVariationId) == 0) {
+            return null;
+        }
+        return $this->successorPlanVariationId['value'];
+    }
+
+    /**
+     * Sets Successor Plan Variation Id.
+     * The ID of a "successor" plan variation to this one. If the field is set, and this object is disabled
+     * at all
+     * locations, it indicates that this variation is deprecated and the object identified by the successor
+     * ID be used in
+     * its stead.
+     *
+     * @maps successor_plan_variation_id
+     */
+    public function setSuccessorPlanVariationId(?string $successorPlanVariationId): void
+    {
+        $this->successorPlanVariationId['value'] = $successorPlanVariationId;
+    }
+
+    /**
+     * Unsets Successor Plan Variation Id.
+     * The ID of a "successor" plan variation to this one. If the field is set, and this object is disabled
+     * at all
+     * locations, it indicates that this variation is deprecated and the object identified by the successor
+     * ID be used in
+     * its stead.
+     */
+    public function unsetSuccessorPlanVariationId(): void
+    {
+        $this->successorPlanVariationId = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -129,10 +252,19 @@ class CatalogSubscriptionPlanVariation implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['name']                     = $this->name;
-        $json['phases']                   = $this->phases;
+        $json['name']                            = $this->name;
+        $json['phases']                          = $this->phases;
         if (!empty($this->subscriptionPlanId)) {
-            $json['subscription_plan_id'] = $this->subscriptionPlanId['value'];
+            $json['subscription_plan_id']        = $this->subscriptionPlanId['value'];
+        }
+        if (!empty($this->monthlyBillingAnchorDate)) {
+            $json['monthly_billing_anchor_date'] = $this->monthlyBillingAnchorDate['value'];
+        }
+        if (!empty($this->canProrate)) {
+            $json['can_prorate']                 = $this->canProrate['value'];
+        }
+        if (!empty($this->successorPlanVariationId)) {
+            $json['successor_plan_variation_id'] = $this->successorPlanVariationId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

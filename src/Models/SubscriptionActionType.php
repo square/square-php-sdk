@@ -28,4 +28,9 @@ class SubscriptionActionType
      * The action to execute a scheduled swap of a subscription plan in a subscription.
      */
     public const SWAP_PLAN = 'SWAP_PLAN';
+
+    /**
+     * A billing anchor date change action.
+     */
+    public const CHANGE_BILLING_ANCHOR_DATE = 'CHANGE_BILLING_ANCHOR_DATE';
 }

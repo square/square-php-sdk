@@ -11,10 +11,12 @@ $subscriptionsApi = $client->getSubscriptionsApi();
 ## Methods
 
 * [Create Subscription](../../doc/apis/subscriptions.md#create-subscription)
+* [Bulk Swap Plan](../../doc/apis/subscriptions.md#bulk-swap-plan)
 * [Search Subscriptions](../../doc/apis/subscriptions.md#search-subscriptions)
 * [Retrieve Subscription](../../doc/apis/subscriptions.md#retrieve-subscription)
 * [Update Subscription](../../doc/apis/subscriptions.md#update-subscription)
 * [Delete Subscription Action](../../doc/apis/subscriptions.md#delete-subscription-action)
+* [Change Billing Anchor Date](../../doc/apis/subscriptions.md#change-billing-anchor-date)
 * [Cancel Subscription](../../doc/apis/subscriptions.md#cancel-subscription)
 * [List Subscription Events](../../doc/apis/subscriptions.md#list-subscription-events)
 * [Pause Subscription](../../doc/apis/subscriptions.md#pause-subscription)
@@ -78,6 +80,48 @@ $apiResponse = $subscriptionsApi->createSubscription($body);
 
 if ($apiResponse->isSuccess()) {
     $createSubscriptionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Bulk Swap Plan
+
+Schedules a plan variation change for all active subscriptions under a given plan
+variation. For more information, see [Swap Subscription Plan Variations](https://developer.squareup.com/docs/subscriptions-api/swap-plan-variations).
+
+```php
+function bulkSwapPlan(BulkSwapPlanRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`BulkSwapPlanRequest`](../../doc/models/bulk-swap-plan-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`BulkSwapPlanResponse`](../../doc/models/bulk-swap-plan-response.md).
+
+## Example Usage
+
+```php
+$body = BulkSwapPlanRequestBuilder::init(
+    'FQ7CDXXWSLUJRPM3GFJSJGZ7',
+    '6JHXF3B2CW3YKHDV4XEM674H',
+    'S8GWD5R9QB376'
+)->build();
+
+$apiResponse = $subscriptionsApi->bulkSwapPlan($body);
+
+if ($apiResponse->isSuccess()) {
+    $bulkSwapPlanResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }
@@ -284,6 +328,52 @@ $apiResponse = $subscriptionsApi->deleteSubscriptionAction(
 
 if ($apiResponse->isSuccess()) {
     $deleteSubscriptionActionResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Change Billing Anchor Date
+
+Changes the [billing anchor date](https://developer.squareup.com/docs/subscriptions-api/subscription-billing#billing-dates)
+for a subscription.
+
+```php
+function changeBillingAnchorDate(string $subscriptionId, ChangeBillingAnchorDateRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `subscriptionId` | `string` | Template, Required | The ID of the subscription to update the billing anchor date. |
+| `body` | [`ChangeBillingAnchorDateRequest`](../../doc/models/change-billing-anchor-date-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ChangeBillingAnchorDateResponse`](../../doc/models/change-billing-anchor-date-response.md).
+
+## Example Usage
+
+```php
+$subscriptionId = 'subscription_id0';
+
+$body = ChangeBillingAnchorDateRequestBuilder::init()
+    ->monthlyBillingAnchorDate(1)
+    ->build();
+
+$apiResponse = $subscriptionsApi->changeBillingAnchorDate(
+    $subscriptionId,
+    $body
+);
+
+if ($apiResponse->isSuccess()) {
+    $changeBillingAnchorDateResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

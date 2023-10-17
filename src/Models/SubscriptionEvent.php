@@ -27,6 +27,11 @@ class SubscriptionEvent implements \JsonSerializable
     private $effectiveDate;
 
     /**
+     * @var int|null
+     */
+    private $monthlyBillingAnchorDate;
+
+    /**
      * @var SubscriptionEventInfo|null
      */
     private $info;
@@ -123,6 +128,26 @@ class SubscriptionEvent implements \JsonSerializable
     }
 
     /**
+     * Returns Monthly Billing Anchor Date.
+     * The day-of-the-month the billing anchor date was changed to, if applicable.
+     */
+    public function getMonthlyBillingAnchorDate(): ?int
+    {
+        return $this->monthlyBillingAnchorDate;
+    }
+
+    /**
+     * Sets Monthly Billing Anchor Date.
+     * The day-of-the-month the billing anchor date was changed to, if applicable.
+     *
+     * @maps monthly_billing_anchor_date
+     */
+    public function setMonthlyBillingAnchorDate(?int $monthlyBillingAnchorDate): void
+    {
+        $this->monthlyBillingAnchorDate = $monthlyBillingAnchorDate;
+    }
+
+    /**
      * Returns Info.
      * Provides information about the subscription event.
      */
@@ -211,16 +236,19 @@ class SubscriptionEvent implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                      = $this->id;
-        $json['subscription_event_type'] = $this->subscriptionEventType;
-        $json['effective_date']          = $this->effectiveDate;
+        $json['id']                              = $this->id;
+        $json['subscription_event_type']         = $this->subscriptionEventType;
+        $json['effective_date']                  = $this->effectiveDate;
+        if (isset($this->monthlyBillingAnchorDate)) {
+            $json['monthly_billing_anchor_date'] = $this->monthlyBillingAnchorDate;
+        }
         if (isset($this->info)) {
-            $json['info']                = $this->info;
+            $json['info']                        = $this->info;
         }
         if (!empty($this->phases)) {
-            $json['phases']              = $this->phases['value'];
+            $json['phases']                      = $this->phases['value'];
         }
-        $json['plan_variation_id']       = $this->planVariationId;
+        $json['plan_variation_id']               = $this->planVariationId;
         $json = array_filter($json, function ($val) {
             return $val !== null;
         });

@@ -20,6 +20,7 @@ class RetrieveBusinessBookingProfileResponse implements \JsonSerializable
 
     /**
      * Returns Business Booking Profile.
+     * A seller's business booking profile, including booking policy, appointment settings, etc.
      */
     public function getBusinessBookingProfile(): ?BusinessBookingProfile
     {
@@ -28,6 +29,7 @@ class RetrieveBusinessBookingProfileResponse implements \JsonSerializable
 
     /**
      * Sets Business Booking Profile.
+     * A seller's business booking profile, including booking policy, appointment settings, etc.
      *
      * @maps business_booking_profile
      */

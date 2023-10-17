@@ -69,6 +69,24 @@ class SubscriptionActionBuilder
     }
 
     /**
+     * Sets monthly billing anchor date field.
+     */
+    public function monthlyBillingAnchorDate(?int $value): self
+    {
+        $this->instance->setMonthlyBillingAnchorDate($value);
+        return $this;
+    }
+
+    /**
+     * Unsets monthly billing anchor date field.
+     */
+    public function unsetMonthlyBillingAnchorDate(): self
+    {
+        $this->instance->unsetMonthlyBillingAnchorDate();
+        return $this;
+    }
+
+    /**
      * Sets phases field.
      */
     public function phases(?array $value): self
