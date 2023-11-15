@@ -27,6 +27,11 @@ class ShiftWage implements \JsonSerializable
     private $jobId;
 
     /**
+     * @var array
+     */
+    private $tipEligible = [];
+
+    /**
      * Returns Title.
      * The name of the job performed during this shift.
      */
@@ -113,6 +118,38 @@ class ShiftWage implements \JsonSerializable
     }
 
     /**
+     * Returns Tip Eligible.
+     * Whether team members are eligible for tips when working this job.
+     */
+    public function getTipEligible(): ?bool
+    {
+        if (count($this->tipEligible) == 0) {
+            return null;
+        }
+        return $this->tipEligible['value'];
+    }
+
+    /**
+     * Sets Tip Eligible.
+     * Whether team members are eligible for tips when working this job.
+     *
+     * @maps tip_eligible
+     */
+    public function setTipEligible(?bool $tipEligible): void
+    {
+        $this->tipEligible['value'] = $tipEligible;
+    }
+
+    /**
+     * Unsets Tip Eligible.
+     * Whether team members are eligible for tips when working this job.
+     */
+    public function unsetTipEligible(): void
+    {
+        $this->tipEligible = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -125,13 +162,16 @@ class ShiftWage implements \JsonSerializable
     {
         $json = [];
         if (!empty($this->title)) {
-            $json['title']       = $this->title['value'];
+            $json['title']        = $this->title['value'];
         }
         if (isset($this->hourlyRate)) {
-            $json['hourly_rate'] = $this->hourlyRate;
+            $json['hourly_rate']  = $this->hourlyRate;
         }
         if (isset($this->jobId)) {
-            $json['job_id']      = $this->jobId;
+            $json['job_id']       = $this->jobId;
+        }
+        if (!empty($this->tipEligible)) {
+            $json['tip_eligible'] = $this->tipEligible['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

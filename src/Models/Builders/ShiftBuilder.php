@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Money;
 use Square\Models\Shift;
 use Square\Models\ShiftWage;
 
@@ -28,9 +29,9 @@ class ShiftBuilder
     /**
      * Initializes a new shift Builder object.
      */
-    public static function init(string $startAt): self
+    public static function init(string $locationId, string $startAt): self
     {
-        return new self(new Shift($startAt));
+        return new self(new Shift($locationId, $startAt));
     }
 
     /**
@@ -57,24 +58,6 @@ class ShiftBuilder
     public function unsetEmployeeId(): self
     {
         $this->instance->unsetEmployeeId();
-        return $this;
-    }
-
-    /**
-     * Sets location id field.
-     */
-    public function locationId(?string $value): self
-    {
-        $this->instance->setLocationId($value);
-        return $this;
-    }
-
-    /**
-     * Unsets location id field.
-     */
-    public function unsetLocationId(): self
-    {
-        $this->instance->unsetLocationId();
         return $this;
     }
 
@@ -192,6 +175,15 @@ class ShiftBuilder
     public function unsetTeamMemberId(): self
     {
         $this->instance->unsetTeamMemberId();
+        return $this;
+    }
+
+    /**
+     * Sets declared cash tip money field.
+     */
+    public function declaredCashTipMoney(?Money $value): self
+    {
+        $this->instance->setDeclaredCashTipMoney($value);
         return $this;
     }
 

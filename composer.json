@@ -1,7 +1,7 @@
 {
     "name": "square/square",
     "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
-    "version": "32.0.0.20231018",
+    "version": "33.0.0.20231115",
     "type": "library",
     "keywords": [
         "Square",
