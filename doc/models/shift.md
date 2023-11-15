@@ -15,7 +15,7 @@ taken during the shift.
 |  --- | --- | --- | --- | --- | --- |
 | `id` | `?string` | Optional | The UUID for this object.<br>**Constraints**: *Maximum Length*: `255` | getId(): ?string | setId(?string id): void |
 | `employeeId` | `?string` | Optional | The ID of the employee this shift belongs to. DEPRECATED at version 2020-08-26. Use `team_member_id` instead. | getEmployeeId(): ?string | setEmployeeId(?string employeeId): void |
-| `locationId` | `?string` | Optional | The ID of the location this shift occurred at. The location should be based on<br>where the employee clocked in. | getLocationId(): ?string | setLocationId(?string locationId): void |
+| `locationId` | `string` | Required | The ID of the location this shift occurred at. The location should be based on<br>where the employee clocked in.<br>**Constraints**: *Minimum Length*: `1` | getLocationId(): string | setLocationId(string locationId): void |
 | `timezone` | `?string` | Optional | The read-only convenience value that is calculated from the location based<br>on the `location_id`. Format: the IANA timezone database identifier for the<br>location timezone. | getTimezone(): ?string | setTimezone(?string timezone): void |
 | `startAt` | `string` | Required | RFC 3339; shifted to the location timezone + offset. Precision up to the<br>minute is respected; seconds are truncated.<br>**Constraints**: *Minimum Length*: `1` | getStartAt(): string | setStartAt(string startAt): void |
 | `endAt` | `?string` | Optional | RFC 3339; shifted to the timezone + offset. Precision up to the minute is<br>respected; seconds are truncated. | getEndAt(): ?string | setEndAt(?string endAt): void |
@@ -26,6 +26,7 @@ taken during the shift.
 | `createdAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. | getCreatedAt(): ?string | setCreatedAt(?string createdAt): void |
 | `updatedAt` | `?string` | Optional | A read-only timestamp in RFC 3339 format; presented in UTC. | getUpdatedAt(): ?string | setUpdatedAt(?string updatedAt): void |
 | `teamMemberId` | `?string` | Optional | The ID of the team member this shift belongs to. Replaced `employee_id` at version "2020-08-26". | getTeamMemberId(): ?string | setTeamMemberId(?string teamMemberId): void |
+| `declaredCashTipMoney` | [`?Money`](../../doc/models/money.md) | Optional | Represents an amount of money. `Money` fields can be signed or unsigned.<br>Fields that do not explicitly define whether they are signed or unsigned are<br>considered unsigned and can only hold positive amounts. For signed fields, the<br>sign of the value indicates the purpose of the money transfer. See<br>[Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts)<br>for more information. | getDeclaredCashTipMoney(): ?Money | setDeclaredCashTipMoney(?Money declaredCashTipMoney): void |
 
 ## Example (as JSON)
 
@@ -36,7 +37,16 @@ taken during the shift.
   "location_id": "location_id4",
   "timezone": "timezone0",
   "start_at": "start_at2",
-  "end_at": "end_at0"
+  "end_at": "end_at0",
+  "wage": {
+    "title": "title8",
+    "hourly_rate": {
+      "amount": 172,
+      "currency": "OMR"
+    },
+    "job_id": "job_id0",
+    "tip_eligible": false
+  }
 }
 ```
 

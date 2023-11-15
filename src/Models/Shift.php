@@ -24,9 +24,9 @@ class Shift implements \JsonSerializable
     private $employeeId = [];
 
     /**
-     * @var array
+     * @var string
      */
-    private $locationId = [];
+    private $locationId;
 
     /**
      * @var array
@@ -79,10 +79,17 @@ class Shift implements \JsonSerializable
     private $teamMemberId = [];
 
     /**
+     * @var Money|null
+     */
+    private $declaredCashTipMoney;
+
+    /**
+     * @param string $locationId
      * @param string $startAt
      */
-    public function __construct(string $startAt)
+    public function __construct(string $locationId, string $startAt)
     {
+        $this->locationId = $locationId;
         $this->startAt = $startAt;
     }
 
@@ -146,12 +153,9 @@ class Shift implements \JsonSerializable
      * The ID of the location this shift occurred at. The location should be based on
      * where the employee clocked in.
      */
-    public function getLocationId(): ?string
+    public function getLocationId(): string
     {
-        if (count($this->locationId) == 0) {
-            return null;
-        }
-        return $this->locationId['value'];
+        return $this->locationId;
     }
 
     /**
@@ -159,21 +163,12 @@ class Shift implements \JsonSerializable
      * The ID of the location this shift occurred at. The location should be based on
      * where the employee clocked in.
      *
+     * @required
      * @maps location_id
      */
-    public function setLocationId(?string $locationId): void
+    public function setLocationId(string $locationId): void
     {
-        $this->locationId['value'] = $locationId;
-    }
-
-    /**
-     * Unsets Location Id.
-     * The ID of the location this shift occurred at. The location should be based on
-     * where the employee clocked in.
-     */
-    public function unsetLocationId(): void
-    {
-        $this->locationId = [];
+        $this->locationId = $locationId;
     }
 
     /**
@@ -447,6 +442,38 @@ class Shift implements \JsonSerializable
     }
 
     /**
+     * Returns Declared Cash Tip Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     */
+    public function getDeclaredCashTipMoney(): ?Money
+    {
+        return $this->declaredCashTipMoney;
+    }
+
+    /**
+     * Sets Declared Cash Tip Money.
+     * Represents an amount of money. `Money` fields can be signed or unsigned.
+     * Fields that do not explicitly define whether they are signed or unsigned are
+     * considered unsigned and can only hold positive amounts. For signed fields, the
+     * sign of the value indicates the purpose of the money transfer. See
+     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
+     * monetary-amounts)
+     * for more information.
+     *
+     * @maps declared_cash_tip_money
+     */
+    public function setDeclaredCashTipMoney(?Money $declaredCashTipMoney): void
+    {
+        $this->declaredCashTipMoney = $declaredCashTipMoney;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -459,41 +486,42 @@ class Shift implements \JsonSerializable
     {
         $json = [];
         if (isset($this->id)) {
-            $json['id']             = $this->id;
+            $json['id']                      = $this->id;
         }
         if (!empty($this->employeeId)) {
-            $json['employee_id']    = $this->employeeId['value'];
+            $json['employee_id']             = $this->employeeId['value'];
         }
-        if (!empty($this->locationId)) {
-            $json['location_id']    = $this->locationId['value'];
-        }
+        $json['location_id']                 = $this->locationId;
         if (!empty($this->timezone)) {
-            $json['timezone']       = $this->timezone['value'];
+            $json['timezone']                = $this->timezone['value'];
         }
-        $json['start_at']           = $this->startAt;
+        $json['start_at']                    = $this->startAt;
         if (!empty($this->endAt)) {
-            $json['end_at']         = $this->endAt['value'];
+            $json['end_at']                  = $this->endAt['value'];
         }
         if (isset($this->wage)) {
-            $json['wage']           = $this->wage;
+            $json['wage']                    = $this->wage;
         }
         if (!empty($this->breaks)) {
-            $json['breaks']         = $this->breaks['value'];
+            $json['breaks']                  = $this->breaks['value'];
         }
         if (isset($this->status)) {
-            $json['status']         = $this->status;
+            $json['status']                  = $this->status;
         }
         if (isset($this->version)) {
-            $json['version']        = $this->version;
+            $json['version']                 = $this->version;
         }
         if (isset($this->createdAt)) {
-            $json['created_at']     = $this->createdAt;
+            $json['created_at']              = $this->createdAt;
         }
         if (isset($this->updatedAt)) {
-            $json['updated_at']     = $this->updatedAt;
+            $json['updated_at']              = $this->updatedAt;
         }
         if (!empty($this->teamMemberId)) {
-            $json['team_member_id'] = $this->teamMemberId['value'];
+            $json['team_member_id']          = $this->teamMemberId['value'];
+        }
+        if (isset($this->declaredCashTipMoney)) {
+            $json['declared_cash_tip_money'] = $this->declaredCashTipMoney;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

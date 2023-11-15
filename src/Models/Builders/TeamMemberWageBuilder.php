@@ -106,6 +106,24 @@ class TeamMemberWageBuilder
     }
 
     /**
+     * Sets tip eligible field.
+     */
+    public function tipEligible(?bool $value): self
+    {
+        $this->instance->setTipEligible($value);
+        return $this;
+    }
+
+    /**
+     * Unsets tip eligible field.
+     */
+    public function unsetTipEligible(): self
+    {
+        $this->instance->unsetTipEligible();
+        return $this;
+    }
+
+    /**
      * Initializes a new team member wage object.
      */
     public function build(): TeamMemberWage

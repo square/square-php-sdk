@@ -371,9 +371,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = CreateShiftRequestBuilder::init(
     ShiftBuilder::init(
+        'PAA1RJZZKXBFG',
         '2019-01-25T03:11:00-05:00'
     )
-        ->locationId('PAA1RJZZKXBFG')
         ->endAt('2019-01-25T13:11:00-05:00')
         ->wage(
             ShiftWageBuilder::init()
@@ -384,6 +384,7 @@ $body = CreateShiftRequestBuilder::init(
                         ->currency(Currency::USD)
                         ->build()
                 )
+                ->tipEligible(true)
                 ->build()
         )
         ->breaks(
@@ -400,6 +401,12 @@ $body = CreateShiftRequestBuilder::init(
             ]
         )
         ->teamMemberId('ormj0jJJZ5OZIzxrZYJI')
+        ->declaredCashTipMoney(
+            MoneyBuilder::init()
+                ->amount(500)
+                ->currency(Currency::USD)
+                ->build()
+        )
         ->build()
 )
     ->idempotencyKey('HIDSNG5KS478L')
@@ -599,9 +606,9 @@ $id = 'id0';
 
 $body = UpdateShiftRequestBuilder::init(
     ShiftBuilder::init(
+        'PAA1RJZZKXBFG',
         '2019-01-25T03:11:00-05:00'
     )
-        ->locationId('PAA1RJZZKXBFG')
         ->endAt('2019-01-25T13:11:00-05:00')
         ->wage(
             ShiftWageBuilder::init()
@@ -612,6 +619,7 @@ $body = UpdateShiftRequestBuilder::init(
                         ->currency(Currency::USD)
                         ->build()
                 )
+                ->tipEligible(true)
                 ->build()
         )
         ->breaks(
@@ -630,6 +638,12 @@ $body = UpdateShiftRequestBuilder::init(
         )
         ->version(1)
         ->teamMemberId('ormj0jJJZ5OZIzxrZYJI')
+        ->declaredCashTipMoney(
+            MoneyBuilder::init()
+                ->amount(500)
+                ->currency(Currency::USD)
+                ->build()
+        )
         ->build()
 )->build();
 

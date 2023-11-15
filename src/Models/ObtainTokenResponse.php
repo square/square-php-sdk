@@ -65,7 +65,7 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Access Token.
-     * A valid OAuth access token. OAuth access tokens are 64 bytes long.
+     * A valid OAuth access token.
      * Provide the access token in a header with every request to Connect API
      * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
      * com/docs/oauth-api/walkthrough).
@@ -77,7 +77,7 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Access Token.
-     * A valid OAuth access token. OAuth access tokens are 64 bytes long.
+     * A valid OAuth access token.
      * Provide the access token in a header with every request to Connect API
      * endpoints. For more information, see [OAuth API: Walkthrough](https://developer.squareup.
      * com/docs/oauth-api/walkthrough).
@@ -221,7 +221,7 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Returns Refresh Token.
-     * A refresh token. OAuth refresh tokens are 64 bytes long.
+     * A refresh token.
      * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
      * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
      */
@@ -232,7 +232,7 @@ class ObtainTokenResponse implements \JsonSerializable
 
     /**
      * Sets Refresh Token.
-     * A refresh token. OAuth refresh tokens are 64 bytes long.
+     * A refresh token.
      * For more information, see [Refresh, Revoke, and Limit the Scope of OAuth Tokens](https://developer.
      * squareup.com/docs/oauth-api/refresh-revoke-limit-scope).
      *
