@@ -368,20 +368,30 @@ class CatalogApi extends BaseApi
      *        in the version field of [CatalogObject]($m/CatalogObject)s. If not included, results
      *        will
      *        be from the current version of the catalog.
+     * @param bool|null $includeCategoryPathToRoot Specifies whether or not to include the
+     *        `path_to_root` list for each returned category instance. The `path_to_root` list
+     *        consists
+     *        of `CategoryPathToRootNode` objects and specifies the path that starts with the
+     *        immediate parent category of the returned category
+     *        and ends with its root category. If the returned category is a top-level category,
+     *        the `path_to_root` list is empty and is not returned
+     *        in the response payload.
      *
      * @return ApiResponse Response from the API call
      */
     public function retrieveCatalogObject(
         string $objectId,
         ?bool $includeRelatedObjects = false,
-        ?int $catalogVersion = null
+        ?int $catalogVersion = null,
+        ?bool $includeCategoryPathToRoot = false
     ): ApiResponse {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/catalog/object/{object_id}')
             ->auth('global')
             ->parameters(
                 TemplateParam::init('object_id', $objectId),
                 QueryParam::init('include_related_objects', $includeRelatedObjects),
-                QueryParam::init('catalog_version', $catalogVersion)
+                QueryParam::init('catalog_version', $catalogVersion),
+                QueryParam::init('include_category_path_to_root', $includeCategoryPathToRoot)
             );
 
         $_resHandler = $this->responseHandler()->type(RetrieveCatalogObjectResponse::class)->returnApiResponse();

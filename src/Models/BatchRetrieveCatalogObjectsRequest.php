@@ -29,6 +29,11 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     private $includeDeletedObjects = [];
 
     /**
+     * @var array
+     */
+    private $includeCategoryPathToRoot = [];
+
+    /**
      * @param string[] $objectIds
      */
     public function __construct(array $objectIds)
@@ -218,6 +223,56 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Include Category Path to Root.
+     * Specifies whether or not to include the `path_to_root` list for each returned category instance. The
+     * `path_to_root` list consists
+     * of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent
+     * category of the returned category
+     * and ends with its root category. If the returned category is a top-level category, the
+     * `path_to_root` list is empty and is not returned
+     * in the response payload.
+     */
+    public function getIncludeCategoryPathToRoot(): ?bool
+    {
+        if (count($this->includeCategoryPathToRoot) == 0) {
+            return null;
+        }
+        return $this->includeCategoryPathToRoot['value'];
+    }
+
+    /**
+     * Sets Include Category Path to Root.
+     * Specifies whether or not to include the `path_to_root` list for each returned category instance. The
+     * `path_to_root` list consists
+     * of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent
+     * category of the returned category
+     * and ends with its root category. If the returned category is a top-level category, the
+     * `path_to_root` list is empty and is not returned
+     * in the response payload.
+     *
+     * @maps include_category_path_to_root
+     */
+    public function setIncludeCategoryPathToRoot(?bool $includeCategoryPathToRoot): void
+    {
+        $this->includeCategoryPathToRoot['value'] = $includeCategoryPathToRoot;
+    }
+
+    /**
+     * Unsets Include Category Path to Root.
+     * Specifies whether or not to include the `path_to_root` list for each returned category instance. The
+     * `path_to_root` list consists
+     * of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent
+     * category of the returned category
+     * and ends with its root category. If the returned category is a top-level category, the
+     * `path_to_root` list is empty and is not returned
+     * in the response payload.
+     */
+    public function unsetIncludeCategoryPathToRoot(): void
+    {
+        $this->includeCategoryPathToRoot = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -229,15 +284,18 @@ class BatchRetrieveCatalogObjectsRequest implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['object_ids']                  = $this->objectIds;
+        $json['object_ids']                        = $this->objectIds;
         if (!empty($this->includeRelatedObjects)) {
-            $json['include_related_objects'] = $this->includeRelatedObjects['value'];
+            $json['include_related_objects']       = $this->includeRelatedObjects['value'];
         }
         if (!empty($this->catalogVersion)) {
-            $json['catalog_version']         = $this->catalogVersion['value'];
+            $json['catalog_version']               = $this->catalogVersion['value'];
         }
         if (!empty($this->includeDeletedObjects)) {
-            $json['include_deleted_objects'] = $this->includeDeletedObjects['value'];
+            $json['include_deleted_objects']       = $this->includeDeletedObjects['value'];
+        }
+        if (!empty($this->includeCategoryPathToRoot)) {
+            $json['include_category_path_to_root'] = $this->includeCategoryPathToRoot['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

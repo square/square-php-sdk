@@ -97,6 +97,15 @@ class SearchCatalogObjectsRequestBuilder
     }
 
     /**
+     * Sets include category path to root field.
+     */
+    public function includeCategoryPathToRoot(?bool $value): self
+    {
+        $this->instance->setIncludeCategoryPathToRoot($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new search catalog objects request object.
      */
     public function build(): SearchCatalogObjectsRequest

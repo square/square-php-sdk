@@ -165,6 +165,11 @@ class CatalogObject implements \JsonSerializable
     private $subscriptionPlanVariationData;
 
     /**
+     * @var CatalogAvailabilityPeriod|null
+     */
+    private $availabilityPeriodData;
+
+    /**
      * @param string $type
      * @param string $id
      */
@@ -1036,6 +1041,26 @@ class CatalogObject implements \JsonSerializable
     }
 
     /**
+     * Returns Availability Period Data.
+     * Represents a time period of availability.
+     */
+    public function getAvailabilityPeriodData(): ?CatalogAvailabilityPeriod
+    {
+        return $this->availabilityPeriodData;
+    }
+
+    /**
+     * Sets Availability Period Data.
+     * Represents a time period of availability.
+     *
+     * @maps availability_period_data
+     */
+    public function setAvailabilityPeriodData(?CatalogAvailabilityPeriod $availabilityPeriodData): void
+    {
+        $this->availabilityPeriodData = $availabilityPeriodData;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -1126,6 +1151,9 @@ class CatalogObject implements \JsonSerializable
         }
         if (isset($this->subscriptionPlanVariationData)) {
             $json['subscription_plan_variation_data'] = $this->subscriptionPlanVariationData;
+        }
+        if (isset($this->availabilityPeriodData)) {
+            $json['availability_period_data']         = $this->availabilityPeriodData;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

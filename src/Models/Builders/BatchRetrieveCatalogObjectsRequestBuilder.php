@@ -87,6 +87,24 @@ class BatchRetrieveCatalogObjectsRequestBuilder
     }
 
     /**
+     * Sets include category path to root field.
+     */
+    public function includeCategoryPathToRoot(?bool $value): self
+    {
+        $this->instance->setIncludeCategoryPathToRoot($value);
+        return $this;
+    }
+
+    /**
+     * Unsets include category path to root field.
+     */
+    public function unsetIncludeCategoryPathToRoot(): self
+    {
+        $this->instance->unsetIncludeCategoryPathToRoot();
+        return $this;
+    }
+
+    /**
      * Initializes a new batch retrieve catalog objects request object.
      */
     public function build(): BatchRetrieveCatalogObjectsRequest

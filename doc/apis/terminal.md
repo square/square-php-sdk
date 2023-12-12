@@ -19,10 +19,12 @@ $terminalApi = $client->getTerminalApi();
 * [Search Terminal Checkouts](../../doc/apis/terminal.md#search-terminal-checkouts)
 * [Get Terminal Checkout](../../doc/apis/terminal.md#get-terminal-checkout)
 * [Cancel Terminal Checkout](../../doc/apis/terminal.md#cancel-terminal-checkout)
+* [Dismiss Terminal Checkout](../../doc/apis/terminal.md#dismiss-terminal-checkout)
 * [Create Terminal Refund](../../doc/apis/terminal.md#create-terminal-refund)
 * [Search Terminal Refunds](../../doc/apis/terminal.md#search-terminal-refunds)
 * [Get Terminal Refund](../../doc/apis/terminal.md#get-terminal-refund)
 * [Cancel Terminal Refund](../../doc/apis/terminal.md#cancel-terminal-refund)
+* [Dismiss Terminal Refund](../../doc/apis/terminal.md#dismiss-terminal-refund)
 
 
 # Create Terminal Action
@@ -221,7 +223,7 @@ function dismissTerminalAction(string $actionId): ApiResponse
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `actionId` | `string` | Template, Required | Unique ID for the `TerminalAction` associated with the waiting dialog to be dismissed. |
+| `actionId` | `string` | Template, Required | Unique ID for the `TerminalAction` associated with the action to be dismissed. |
 
 ## Response Type
 
@@ -420,6 +422,43 @@ var_dump($apiResponse->getHeaders());
 ```
 
 
+# Dismiss Terminal Checkout
+
+Dismisses a Terminal checkout request if the status and type of the request permits it.
+
+```php
+function dismissTerminalCheckout(string $checkoutId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `checkoutId` | `string` | Template, Required | Unique ID for the `TerminalCheckout` associated with the checkout to be dismissed. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DismissTerminalCheckoutResponse`](../../doc/models/dismiss-terminal-checkout-response.md).
+
+## Example Usage
+
+```php
+$checkoutId = 'checkout_id8';
+
+$apiResponse = $terminalApi->dismissTerminalCheckout($checkoutId);
+
+if ($apiResponse->isSuccess()) {
+    $dismissTerminalCheckoutResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
 # Create Terminal Refund
 
 Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds for Terminal payments should use the Refunds API. For more information, see [Refunds API](../../doc/apis/refunds.md).
@@ -582,6 +621,43 @@ $apiResponse = $terminalApi->cancelTerminalRefund($terminalRefundId);
 
 if ($apiResponse->isSuccess()) {
     $cancelTerminalRefundResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Dismiss Terminal Refund
+
+Dismisses a Terminal refund request if the status and type of the request permits it.
+
+```php
+function dismissTerminalRefund(string $terminalRefundId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `terminalRefundId` | `string` | Template, Required | Unique ID for the `TerminalRefund` associated with the refund to be dismissed. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`DismissTerminalRefundResponse`](../../doc/models/dismiss-terminal-refund-response.md).
+
+## Example Usage
+
+```php
+$terminalRefundId = 'terminal_refund_id0';
+
+$apiResponse = $terminalApi->dismissTerminalRefund($terminalRefundId);
+
+if ($apiResponse->isSuccess()) {
+    $dismissTerminalRefundResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }
