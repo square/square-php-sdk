@@ -44,6 +44,11 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
     private $limit;
 
     /**
+     * @var bool|null
+     */
+    private $includeCategoryPathToRoot;
+
+    /**
      * Returns Cursor.
      * The pagination cursor returned in the previous response. Leave unset for an initial request.
      * See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination)
@@ -230,15 +235,16 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * - [range_query]($m/CatalogQueryRange)
      * - [sorted_attribute_query]($m/CatalogQuerySortedAttribute)
      * - [text_query]($m/CatalogQueryText)
+     *
      * All other query types cannot be combined with any others.
      *
      * When a query filter is based on an attribute, the attribute must be searchable.
      * Searchable attributes are listed as follows, along their parent types that can be searched for with
      * applicable query filters.
      *
-     * * Searchable attribute and objects queryable by searchable attributes **
+     * Searchable attribute and objects queryable by searchable attributes:
      * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, `CatalogTax`, `CatalogDiscount`,
-     * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
+     * `CatalogModifier`, `CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
      * - `description`: `CatalogItem`, `CatalogItemOptionValue`
      * - `abbreviation`: `CatalogItem`
      * - `upc`: `CatalogItemVariation`
@@ -268,15 +274,16 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
      * - [range_query]($m/CatalogQueryRange)
      * - [sorted_attribute_query]($m/CatalogQuerySortedAttribute)
      * - [text_query]($m/CatalogQueryText)
+     *
      * All other query types cannot be combined with any others.
      *
      * When a query filter is based on an attribute, the attribute must be searchable.
      * Searchable attributes are listed as follows, along their parent types that can be searched for with
      * applicable query filters.
      *
-     * * Searchable attribute and objects queryable by searchable attributes **
+     * Searchable attribute and objects queryable by searchable attributes:
      * - `name`:  `CatalogItem`, `CatalogItemVariation`, `CatalogCategory`, `CatalogTax`, `CatalogDiscount`,
-     * `CatalogModifier`, 'CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
+     * `CatalogModifier`, `CatalogModifierList`, `CatalogItemOption`, `CatalogItemOptionValue`
      * - `description`: `CatalogItem`, `CatalogItemOptionValue`
      * - `abbreviation`: `CatalogItem`
      * - `upc`: `CatalogItemVariation`
@@ -320,6 +327,38 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Include Category Path to Root.
+     * Specifies whether or not to include the `path_to_root` list for each returned category instance. The
+     * `path_to_root` list consists
+     * of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent
+     * category of the returned category
+     * and ends with its root category. If the returned category is a top-level category, the
+     * `path_to_root` list is empty and is not returned
+     * in the response payload.
+     */
+    public function getIncludeCategoryPathToRoot(): ?bool
+    {
+        return $this->includeCategoryPathToRoot;
+    }
+
+    /**
+     * Sets Include Category Path to Root.
+     * Specifies whether or not to include the `path_to_root` list for each returned category instance. The
+     * `path_to_root` list consists
+     * of `CategoryPathToRootNode` objects and specifies the path that starts with the immediate parent
+     * category of the returned category
+     * and ends with its root category. If the returned category is a top-level category, the
+     * `path_to_root` list is empty and is not returned
+     * in the response payload.
+     *
+     * @maps include_category_path_to_root
+     */
+    public function setIncludeCategoryPathToRoot(?bool $includeCategoryPathToRoot): void
+    {
+        $this->includeCategoryPathToRoot = $includeCategoryPathToRoot;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -332,25 +371,28 @@ class SearchCatalogObjectsRequest implements \JsonSerializable
     {
         $json = [];
         if (isset($this->cursor)) {
-            $json['cursor']                  = $this->cursor;
+            $json['cursor']                        = $this->cursor;
         }
         if (isset($this->objectTypes)) {
-            $json['object_types']            = $this->objectTypes;
+            $json['object_types']                  = $this->objectTypes;
         }
         if (isset($this->includeDeletedObjects)) {
-            $json['include_deleted_objects'] = $this->includeDeletedObjects;
+            $json['include_deleted_objects']       = $this->includeDeletedObjects;
         }
         if (isset($this->includeRelatedObjects)) {
-            $json['include_related_objects'] = $this->includeRelatedObjects;
+            $json['include_related_objects']       = $this->includeRelatedObjects;
         }
         if (isset($this->beginTime)) {
-            $json['begin_time']              = $this->beginTime;
+            $json['begin_time']                    = $this->beginTime;
         }
         if (isset($this->query)) {
-            $json['query']                   = $this->query;
+            $json['query']                         = $this->query;
         }
         if (isset($this->limit)) {
-            $json['limit']                   = $this->limit;
+            $json['limit']                         = $this->limit;
+        }
+        if (isset($this->includeCategoryPathToRoot)) {
+            $json['include_category_path_to_root'] = $this->includeCategoryPathToRoot;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

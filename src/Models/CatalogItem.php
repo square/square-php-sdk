@@ -95,6 +95,11 @@ class CatalogItem implements \JsonSerializable
     /**
      * @var array
      */
+    private $categories = [];
+
+    /**
+     * @var array
+     */
     private $descriptionHtml = [];
 
     /**
@@ -105,7 +110,22 @@ class CatalogItem implements \JsonSerializable
     /**
      * @var array
      */
+    private $channels = [];
+
+    /**
+     * @var array
+     */
     private $isArchived = [];
+
+    /**
+     * @var CatalogEcomSeoData|null
+     */
+    private $ecomSeoData;
+
+    /**
+     * @var CatalogObjectCategory|null
+     */
+    private $reportingCategory;
 
     /**
      * Returns Name.
@@ -378,7 +398,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Returns Category Id.
-     * The ID of the item's category, if any.
+     * The ID of the item's category, if any. Deprecated since 2023-12-13. Use `CatalogItem.categories`,
+     * instead.
      */
     public function getCategoryId(): ?string
     {
@@ -390,7 +411,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Sets Category Id.
-     * The ID of the item's category, if any.
+     * The ID of the item's category, if any. Deprecated since 2023-12-13. Use `CatalogItem.categories`,
+     * instead.
      *
      * @maps category_id
      */
@@ -401,7 +423,8 @@ class CatalogItem implements \JsonSerializable
 
     /**
      * Unsets Category Id.
-     * The ID of the item's category, if any.
+     * The ID of the item's category, if any. Deprecated since 2023-12-13. Use `CatalogItem.categories`,
+     * instead.
      */
     public function unsetCategoryId(): void
     {
@@ -747,6 +770,42 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Categories.
+     * The list of categories.
+     *
+     * @return CatalogObjectCategory[]|null
+     */
+    public function getCategories(): ?array
+    {
+        if (count($this->categories) == 0) {
+            return null;
+        }
+        return $this->categories['value'];
+    }
+
+    /**
+     * Sets Categories.
+     * The list of categories.
+     *
+     * @maps categories
+     *
+     * @param CatalogObjectCategory[]|null $categories
+     */
+    public function setCategories(?array $categories): void
+    {
+        $this->categories['value'] = $categories;
+    }
+
+    /**
+     * Unsets Categories.
+     * The list of categories.
+     */
+    public function unsetCategories(): void
+    {
+        $this->categories = [];
+    }
+
+    /**
      * Returns Description Html.
      * The item's description as expressed in valid HTML elements. The length of this field value,
      * including those of HTML tags,
@@ -874,6 +933,45 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Channels.
+     * A list of IDs representing channels, such as a Square Online site, where the item can be made
+     * visible or available.
+     *
+     * @return string[]|null
+     */
+    public function getChannels(): ?array
+    {
+        if (count($this->channels) == 0) {
+            return null;
+        }
+        return $this->channels['value'];
+    }
+
+    /**
+     * Sets Channels.
+     * A list of IDs representing channels, such as a Square Online site, where the item can be made
+     * visible or available.
+     *
+     * @maps channels
+     *
+     * @param string[]|null $channels
+     */
+    public function setChannels(?array $channels): void
+    {
+        $this->channels['value'] = $channels;
+    }
+
+    /**
+     * Unsets Channels.
+     * A list of IDs representing channels, such as a Square Online site, where the item can be made
+     * visible or available.
+     */
+    public function unsetChannels(): void
+    {
+        $this->channels = [];
+    }
+
+    /**
      * Returns Is Archived.
      * Indicates whether this item is archived (`true`) or not (`false`).
      */
@@ -903,6 +1001,50 @@ class CatalogItem implements \JsonSerializable
     public function unsetIsArchived(): void
     {
         $this->isArchived = [];
+    }
+
+    /**
+     * Returns Ecom Seo Data.
+     * SEO data for for a seller's Square Online store.
+     */
+    public function getEcomSeoData(): ?CatalogEcomSeoData
+    {
+        return $this->ecomSeoData;
+    }
+
+    /**
+     * Sets Ecom Seo Data.
+     * SEO data for for a seller's Square Online store.
+     *
+     * @maps ecom_seo_data
+     */
+    public function setEcomSeoData(?CatalogEcomSeoData $ecomSeoData): void
+    {
+        $this->ecomSeoData = $ecomSeoData;
+    }
+
+    /**
+     * Returns Reporting Category.
+     * A category that can be assigned to an item or a parent category that can be assigned
+     * to another category. For example, a clothing category can be assigned to a t-shirt item or
+     * be made as the parent category to the pants category.
+     */
+    public function getReportingCategory(): ?CatalogObjectCategory
+    {
+        return $this->reportingCategory;
+    }
+
+    /**
+     * Sets Reporting Category.
+     * A category that can be assigned to an item or a parent category that can be assigned
+     * to another category. For example, a clothing category can be assigned to a t-shirt item or
+     * be made as the parent category to the pants category.
+     *
+     * @maps reporting_category
+     */
+    public function setReportingCategory(?CatalogObjectCategory $reportingCategory): void
+    {
+        $this->reportingCategory = $reportingCategory;
     }
 
     /**
@@ -965,14 +1107,26 @@ class CatalogItem implements \JsonSerializable
         if (!empty($this->sortName)) {
             $json['sort_name']                = $this->sortName['value'];
         }
+        if (!empty($this->categories)) {
+            $json['categories']               = $this->categories['value'];
+        }
         if (!empty($this->descriptionHtml)) {
             $json['description_html']         = $this->descriptionHtml['value'];
         }
         if (isset($this->descriptionPlaintext)) {
             $json['description_plaintext']    = $this->descriptionPlaintext;
         }
+        if (!empty($this->channels)) {
+            $json['channels']                 = $this->channels['value'];
+        }
         if (!empty($this->isArchived)) {
             $json['is_archived']              = $this->isArchived['value'];
+        }
+        if (isset($this->ecomSeoData)) {
+            $json['ecom_seo_data']            = $this->ecomSeoData;
+        }
+        if (isset($this->reportingCategory)) {
+            $json['reporting_category']       = $this->reportingCategory;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

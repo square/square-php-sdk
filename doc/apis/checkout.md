@@ -11,6 +11,10 @@ $checkoutApi = $client->getCheckoutApi();
 ## Methods
 
 * [Create Checkout](../../doc/apis/checkout.md#create-checkout)
+* [Retrieve Location Settings](../../doc/apis/checkout.md#retrieve-location-settings)
+* [Update Location Settings](../../doc/apis/checkout.md#update-location-settings)
+* [Retrieve Merchant Settings](../../doc/apis/checkout.md#retrieve-merchant-settings)
+* [Update Merchant Settings](../../doc/apis/checkout.md#update-merchant-settings)
 * [List Payment Links](../../doc/apis/checkout.md#list-payment-links)
 * [Create Payment Link](../../doc/apis/checkout.md#create-payment-link)
 * [Delete Payment Link](../../doc/apis/checkout.md#delete-payment-link)
@@ -175,6 +179,156 @@ $apiResponse = $checkoutApi->createCheckout(
 
 if ($apiResponse->isSuccess()) {
     $createCheckoutResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Retrieve Location Settings
+
+Retrieves the location-level settings for a Square-hosted checkout page.
+
+```php
+function retrieveLocationSettings(string $locationId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `locationId` | `string` | Template, Required | The ID of the location for which to retrieve settings. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveLocationSettingsResponse`](../../doc/models/retrieve-location-settings-response.md).
+
+## Example Usage
+
+```php
+$locationId = 'location_id4';
+
+$apiResponse = $checkoutApi->retrieveLocationSettings($locationId);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveLocationSettingsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Update Location Settings
+
+Updates the location-level settings for a Square-hosted checkout page.
+
+```php
+function updateLocationSettings(string $locationId, UpdateLocationSettingsRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `locationId` | `string` | Template, Required | The ID of the location for which to retrieve settings. |
+| `body` | [`UpdateLocationSettingsRequest`](../../doc/models/update-location-settings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateLocationSettingsResponse`](../../doc/models/update-location-settings-response.md).
+
+## Example Usage
+
+```php
+$locationId = 'location_id4';
+
+$body = UpdateLocationSettingsRequestBuilder::init(
+    CheckoutLocationSettingsBuilder::init()->build()
+)->build();
+
+$apiResponse = $checkoutApi->updateLocationSettings(
+    $locationId,
+    $body
+);
+
+if ($apiResponse->isSuccess()) {
+    $updateLocationSettingsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Retrieve Merchant Settings
+
+Retrieves the merchant-level settings for a Square-hosted checkout page.
+
+```php
+function retrieveMerchantSettings(): ApiResponse
+```
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveMerchantSettingsResponse`](../../doc/models/retrieve-merchant-settings-response.md).
+
+## Example Usage
+
+```php
+$apiResponse = $checkoutApi->retrieveMerchantSettings();
+
+if ($apiResponse->isSuccess()) {
+    $retrieveMerchantSettingsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Update Merchant Settings
+
+Updates the merchant-level settings for a Square-hosted checkout page.
+
+```php
+function updateMerchantSettings(UpdateMerchantSettingsRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`UpdateMerchantSettingsRequest`](../../doc/models/update-merchant-settings-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateMerchantSettingsResponse`](../../doc/models/update-merchant-settings-response.md).
+
+## Example Usage
+
+```php
+$body = UpdateMerchantSettingsRequestBuilder::init(
+    CheckoutMerchantSettingsBuilder::init()->build()
+)->build();
+
+$apiResponse = $checkoutApi->updateMerchantSettings($body);
+
+if ($apiResponse->isSuccess()) {
+    $updateMerchantSettingsResponse = $apiResponse->getResult();
 } else {
     $errors = $apiResponse->getErrors();
 }

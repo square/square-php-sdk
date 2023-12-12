@@ -19,6 +19,8 @@ use Square\Models\CreateTerminalCheckoutResponse;
 use Square\Models\CreateTerminalRefundRequest;
 use Square\Models\CreateTerminalRefundResponse;
 use Square\Models\DismissTerminalActionResponse;
+use Square\Models\DismissTerminalCheckoutResponse;
+use Square\Models\DismissTerminalRefundResponse;
 use Square\Models\GetTerminalActionResponse;
 use Square\Models\GetTerminalCheckoutResponse;
 use Square\Models\GetTerminalRefundResponse;
@@ -117,8 +119,8 @@ class TerminalApi extends BaseApi
      * See [Link and Dismiss Actions](https://developer.squareup.com/docs/terminal-api/advanced-
      * features/custom-workflows/link-and-dismiss-actions) for more details.
      *
-     * @param string $actionId Unique ID for the `TerminalAction` associated with the waiting dialog
-     *        to be dismissed.
+     * @param string $actionId Unique ID for the `TerminalAction` associated with the action to be
+     *        dismissed.
      *
      * @return ApiResponse Response from the API call
      */
@@ -216,6 +218,25 @@ class TerminalApi extends BaseApi
     }
 
     /**
+     * Dismisses a Terminal checkout request if the status and type of the request permits it.
+     *
+     * @param string $checkoutId Unique ID for the `TerminalCheckout` associated with the checkout
+     *        to be dismissed.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function dismissTerminalCheckout(string $checkoutId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/terminals/checkouts/{checkout_id}/dismiss')
+            ->auth('global')
+            ->parameters(TemplateParam::init('checkout_id', $checkoutId));
+
+        $_resHandler = $this->responseHandler()->type(DismissTerminalCheckoutResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
      * Creates a request to refund an Interac payment completed on a Square Terminal. Refunds for Interac
      * payments on a Square Terminal are supported only for Interac debit cards in Canada. Other refunds
      * for Terminal payments should use the Refunds API. For more information, see [Refunds
@@ -295,6 +316,26 @@ class TerminalApi extends BaseApi
         )->auth('global')->parameters(TemplateParam::init('terminal_refund_id', $terminalRefundId));
 
         $_resHandler = $this->responseHandler()->type(CancelTerminalRefundResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Dismisses a Terminal refund request if the status and type of the request permits it.
+     *
+     * @param string $terminalRefundId Unique ID for the `TerminalRefund` associated with the refund
+     *        to be dismissed.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function dismissTerminalRefund(string $terminalRefundId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::POST,
+            '/v2/terminals/refunds/{terminal_refund_id}/dismiss'
+        )->auth('global')->parameters(TemplateParam::init('terminal_refund_id', $terminalRefundId));
+
+        $_resHandler = $this->responseHandler()->type(DismissTerminalRefundResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

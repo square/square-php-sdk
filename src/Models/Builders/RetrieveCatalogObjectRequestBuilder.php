@@ -69,6 +69,24 @@ class RetrieveCatalogObjectRequestBuilder
     }
 
     /**
+     * Sets include category path to root field.
+     */
+    public function includeCategoryPathToRoot(?bool $value): self
+    {
+        $this->instance->setIncludeCategoryPathToRoot($value);
+        return $this;
+    }
+
+    /**
+     * Unsets include category path to root field.
+     */
+    public function unsetIncludeCategoryPathToRoot(): self
+    {
+        $this->instance->unsetIncludeCategoryPathToRoot();
+        return $this;
+    }
+
+    /**
      * Initializes a new retrieve catalog object request object.
      */
     public function build(): RetrieveCatalogObjectRequest

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogAvailabilityPeriod;
 use Square\Models\CatalogCategory;
 use Square\Models\CatalogCustomAttributeDefinition;
 use Square\Models\CatalogDiscount;
@@ -335,6 +336,15 @@ class CatalogObjectBuilder
     public function subscriptionPlanVariationData(?CatalogSubscriptionPlanVariation $value): self
     {
         $this->instance->setSubscriptionPlanVariationData($value);
+        return $this;
+    }
+
+    /**
+     * Sets availability period data field.
+     */
+    public function availabilityPeriodData(?CatalogAvailabilityPeriod $value): self
+    {
+        $this->instance->setAvailabilityPeriodData($value);
         return $this;
     }
 

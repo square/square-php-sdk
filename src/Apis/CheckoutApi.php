@@ -16,7 +16,13 @@ use Square\Models\CreatePaymentLinkRequest;
 use Square\Models\CreatePaymentLinkResponse;
 use Square\Models\DeletePaymentLinkResponse;
 use Square\Models\ListPaymentLinksResponse;
+use Square\Models\RetrieveLocationSettingsResponse;
+use Square\Models\RetrieveMerchantSettingsResponse;
 use Square\Models\RetrievePaymentLinkResponse;
+use Square\Models\UpdateLocationSettingsRequest;
+use Square\Models\UpdateLocationSettingsResponse;
+use Square\Models\UpdateMerchantSettingsRequest;
+use Square\Models\UpdateMerchantSettingsResponse;
 use Square\Models\UpdatePaymentLinkRequest;
 use Square\Models\UpdatePaymentLinkResponse;
 
@@ -53,6 +59,90 @@ class CheckoutApi extends BaseApi
             );
 
         $_resHandler = $this->responseHandler()->type(CreateCheckoutResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves the location-level settings for a Square-hosted checkout page.
+     *
+     * @param string $locationId The ID of the location for which to retrieve settings.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function retrieveLocationSettings(string $locationId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::GET,
+            '/v2/online-checkout/location-settings/{location_id}'
+        )->auth('global')->parameters(TemplateParam::init('location_id', $locationId));
+
+        $_resHandler = $this->responseHandler()->type(RetrieveLocationSettingsResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Updates the location-level settings for a Square-hosted checkout page.
+     *
+     * @param string $locationId The ID of the location for which to retrieve settings.
+     * @param UpdateLocationSettingsRequest $body An object containing the fields to POST for the
+     *        request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function updateLocationSettings(string $locationId, UpdateLocationSettingsRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::PUT,
+            '/v2/online-checkout/location-settings/{location_id}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('location_id', $locationId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
+
+        $_resHandler = $this->responseHandler()->type(UpdateLocationSettingsResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves the merchant-level settings for a Square-hosted checkout page.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function retrieveMerchantSettings(): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/online-checkout/merchant-settings')
+            ->auth('global');
+
+        $_resHandler = $this->responseHandler()->type(RetrieveMerchantSettingsResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Updates the merchant-level settings for a Square-hosted checkout page.
+     *
+     * @param UpdateMerchantSettingsRequest $body An object containing the fields to POST for the
+     *        request.
+     *
+     *        See the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function updateMerchantSettings(UpdateMerchantSettingsRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::PUT, '/v2/online-checkout/merchant-settings')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
+
+        $_resHandler = $this->responseHandler()->type(UpdateMerchantSettingsResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }
