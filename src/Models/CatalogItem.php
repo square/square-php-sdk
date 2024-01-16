@@ -123,6 +123,11 @@ class CatalogItem implements \JsonSerializable
     private $ecomSeoData;
 
     /**
+     * @var CatalogItemFoodAndBeverageDetails|null
+     */
+    private $foodAndBeverageDetails;
+
+    /**
      * @var CatalogObjectCategory|null
      */
     private $reportingCategory;
@@ -1024,6 +1029,26 @@ class CatalogItem implements \JsonSerializable
     }
 
     /**
+     * Returns Food and Beverage Details.
+     * The food and beverage-specific details of a `FOOD_AND_BEV` item.
+     */
+    public function getFoodAndBeverageDetails(): ?CatalogItemFoodAndBeverageDetails
+    {
+        return $this->foodAndBeverageDetails;
+    }
+
+    /**
+     * Sets Food and Beverage Details.
+     * The food and beverage-specific details of a `FOOD_AND_BEV` item.
+     *
+     * @maps food_and_beverage_details
+     */
+    public function setFoodAndBeverageDetails(?CatalogItemFoodAndBeverageDetails $foodAndBeverageDetails): void
+    {
+        $this->foodAndBeverageDetails = $foodAndBeverageDetails;
+    }
+
+    /**
      * Returns Reporting Category.
      * A category that can be assigned to an item or a parent category that can be assigned
      * to another category. For example, a clothing category can be assigned to a t-shirt item or
@@ -1060,73 +1085,76 @@ class CatalogItem implements \JsonSerializable
     {
         $json = [];
         if (!empty($this->name)) {
-            $json['name']                     = $this->name['value'];
+            $json['name']                      = $this->name['value'];
         }
         if (!empty($this->description)) {
-            $json['description']              = $this->description['value'];
+            $json['description']               = $this->description['value'];
         }
         if (!empty($this->abbreviation)) {
-            $json['abbreviation']             = $this->abbreviation['value'];
+            $json['abbreviation']              = $this->abbreviation['value'];
         }
         if (!empty($this->labelColor)) {
-            $json['label_color']              = $this->labelColor['value'];
+            $json['label_color']               = $this->labelColor['value'];
         }
         if (!empty($this->availableOnline)) {
-            $json['available_online']         = $this->availableOnline['value'];
+            $json['available_online']          = $this->availableOnline['value'];
         }
         if (!empty($this->availableForPickup)) {
-            $json['available_for_pickup']     = $this->availableForPickup['value'];
+            $json['available_for_pickup']      = $this->availableForPickup['value'];
         }
         if (!empty($this->availableElectronically)) {
-            $json['available_electronically'] = $this->availableElectronically['value'];
+            $json['available_electronically']  = $this->availableElectronically['value'];
         }
         if (!empty($this->categoryId)) {
-            $json['category_id']              = $this->categoryId['value'];
+            $json['category_id']               = $this->categoryId['value'];
         }
         if (!empty($this->taxIds)) {
-            $json['tax_ids']                  = $this->taxIds['value'];
+            $json['tax_ids']                   = $this->taxIds['value'];
         }
         if (!empty($this->modifierListInfo)) {
-            $json['modifier_list_info']       = $this->modifierListInfo['value'];
+            $json['modifier_list_info']        = $this->modifierListInfo['value'];
         }
         if (!empty($this->variations)) {
-            $json['variations']               = $this->variations['value'];
+            $json['variations']                = $this->variations['value'];
         }
         if (isset($this->productType)) {
-            $json['product_type']             = $this->productType;
+            $json['product_type']              = $this->productType;
         }
         if (!empty($this->skipModifierScreen)) {
-            $json['skip_modifier_screen']     = $this->skipModifierScreen['value'];
+            $json['skip_modifier_screen']      = $this->skipModifierScreen['value'];
         }
         if (!empty($this->itemOptions)) {
-            $json['item_options']             = $this->itemOptions['value'];
+            $json['item_options']              = $this->itemOptions['value'];
         }
         if (!empty($this->imageIds)) {
-            $json['image_ids']                = $this->imageIds['value'];
+            $json['image_ids']                 = $this->imageIds['value'];
         }
         if (!empty($this->sortName)) {
-            $json['sort_name']                = $this->sortName['value'];
+            $json['sort_name']                 = $this->sortName['value'];
         }
         if (!empty($this->categories)) {
-            $json['categories']               = $this->categories['value'];
+            $json['categories']                = $this->categories['value'];
         }
         if (!empty($this->descriptionHtml)) {
-            $json['description_html']         = $this->descriptionHtml['value'];
+            $json['description_html']          = $this->descriptionHtml['value'];
         }
         if (isset($this->descriptionPlaintext)) {
-            $json['description_plaintext']    = $this->descriptionPlaintext;
+            $json['description_plaintext']     = $this->descriptionPlaintext;
         }
         if (!empty($this->channels)) {
-            $json['channels']                 = $this->channels['value'];
+            $json['channels']                  = $this->channels['value'];
         }
         if (!empty($this->isArchived)) {
-            $json['is_archived']              = $this->isArchived['value'];
+            $json['is_archived']               = $this->isArchived['value'];
         }
         if (isset($this->ecomSeoData)) {
-            $json['ecom_seo_data']            = $this->ecomSeoData;
+            $json['ecom_seo_data']             = $this->ecomSeoData;
+        }
+        if (isset($this->foodAndBeverageDetails)) {
+            $json['food_and_beverage_details'] = $this->foodAndBeverageDetails;
         }
         if (isset($this->reportingCategory)) {
-            $json['reporting_category']       = $this->reportingCategory;
+            $json['reporting_category']        = $this->reportingCategory;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogEcomSeoData;
 use Square\Models\CatalogItem;
+use Square\Models\CatalogItemFoodAndBeverageDetails;
 use Square\Models\CatalogObjectCategory;
 
 /**
@@ -400,6 +401,15 @@ class CatalogItemBuilder
     public function ecomSeoData(?CatalogEcomSeoData $value): self
     {
         $this->instance->setEcomSeoData($value);
+        return $this;
+    }
+
+    /**
+     * Sets food and beverage details field.
+     */
+    public function foodAndBeverageDetails(?CatalogItemFoodAndBeverageDetails $value): self
+    {
+        $this->instance->setFoodAndBeverageDetails($value);
         return $this;
     }
 

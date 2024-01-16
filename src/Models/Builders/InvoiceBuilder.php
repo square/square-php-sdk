@@ -342,6 +342,15 @@ class InvoiceBuilder
     }
 
     /**
+     * Sets attachments field.
+     */
+    public function attachments(?array $value): self
+    {
+        $this->instance->setAttachments($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new invoice object.
      */
     public function build(): Invoice

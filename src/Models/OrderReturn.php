@@ -28,19 +28,24 @@ class OrderReturn implements \JsonSerializable
     private $returnLineItems = [];
 
     /**
-     * @var OrderReturnServiceCharge[]|null
+     * @var array
      */
-    private $returnServiceCharges;
+    private $returnServiceCharges = [];
+
+    /**
+     * @var OrderReturnTax[]|null
+     */
+    private $returnTaxes;
+
+    /**
+     * @var OrderReturnDiscount[]|null
+     */
+    private $returnDiscounts;
 
     /**
      * @var array
      */
-    private $returnTaxes = [];
-
-    /**
-     * @var array
-     */
-    private $returnDiscounts = [];
+    private $returnTips = [];
 
     /**
      * @var OrderRoundingAdjustment|null
@@ -163,7 +168,10 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnServiceCharges(): ?array
     {
-        return $this->returnServiceCharges;
+        if (count($this->returnServiceCharges) == 0) {
+            return null;
+        }
+        return $this->returnServiceCharges['value'];
     }
 
     /**
@@ -176,7 +184,16 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnServiceCharges(?array $returnServiceCharges): void
     {
-        $this->returnServiceCharges = $returnServiceCharges;
+        $this->returnServiceCharges['value'] = $returnServiceCharges;
+    }
+
+    /**
+     * Unsets Return Service Charges.
+     * A collection of service charges that are being returned.
+     */
+    public function unsetReturnServiceCharges(): void
+    {
+        $this->returnServiceCharges = [];
     }
 
     /**
@@ -189,10 +206,7 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnTaxes(): ?array
     {
-        if (count($this->returnTaxes) == 0) {
-            return null;
-        }
-        return $this->returnTaxes['value'];
+        return $this->returnTaxes;
     }
 
     /**
@@ -207,18 +221,7 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnTaxes(?array $returnTaxes): void
     {
-        $this->returnTaxes['value'] = $returnTaxes;
-    }
-
-    /**
-     * Unsets Return Taxes.
-     * A collection of references to taxes being returned for an order, including the total
-     * applied tax amount to be returned. The taxes must reference a top-level tax ID from the source
-     * order.
-     */
-    public function unsetReturnTaxes(): void
-    {
-        $this->returnTaxes = [];
+        $this->returnTaxes = $returnTaxes;
     }
 
     /**
@@ -231,10 +234,7 @@ class OrderReturn implements \JsonSerializable
      */
     public function getReturnDiscounts(): ?array
     {
-        if (count($this->returnDiscounts) == 0) {
-            return null;
-        }
-        return $this->returnDiscounts['value'];
+        return $this->returnDiscounts;
     }
 
     /**
@@ -249,18 +249,43 @@ class OrderReturn implements \JsonSerializable
      */
     public function setReturnDiscounts(?array $returnDiscounts): void
     {
-        $this->returnDiscounts['value'] = $returnDiscounts;
+        $this->returnDiscounts = $returnDiscounts;
     }
 
     /**
-     * Unsets Return Discounts.
-     * A collection of references to discounts being returned for an order, including the total
-     * applied discount amount to be returned. The discounts must reference a top-level discount ID
-     * from the source order.
+     * Returns Return Tips.
+     * A collection of references to tips being returned for an order.
+     *
+     * @return OrderReturnTip[]|null
      */
-    public function unsetReturnDiscounts(): void
+    public function getReturnTips(): ?array
     {
-        $this->returnDiscounts = [];
+        if (count($this->returnTips) == 0) {
+            return null;
+        }
+        return $this->returnTips['value'];
+    }
+
+    /**
+     * Sets Return Tips.
+     * A collection of references to tips being returned for an order.
+     *
+     * @maps return_tips
+     *
+     * @param OrderReturnTip[]|null $returnTips
+     */
+    public function setReturnTips(?array $returnTips): void
+    {
+        $this->returnTips['value'] = $returnTips;
+    }
+
+    /**
+     * Unsets Return Tips.
+     * A collection of references to tips being returned for an order.
+     */
+    public function unsetReturnTips(): void
+    {
+        $this->returnTips = [];
     }
 
     /**
@@ -328,14 +353,17 @@ class OrderReturn implements \JsonSerializable
         if (!empty($this->returnLineItems)) {
             $json['return_line_items']      = $this->returnLineItems['value'];
         }
-        if (isset($this->returnServiceCharges)) {
-            $json['return_service_charges'] = $this->returnServiceCharges;
+        if (!empty($this->returnServiceCharges)) {
+            $json['return_service_charges'] = $this->returnServiceCharges['value'];
         }
-        if (!empty($this->returnTaxes)) {
-            $json['return_taxes']           = $this->returnTaxes['value'];
+        if (isset($this->returnTaxes)) {
+            $json['return_taxes']           = $this->returnTaxes;
         }
-        if (!empty($this->returnDiscounts)) {
-            $json['return_discounts']       = $this->returnDiscounts['value'];
+        if (isset($this->returnDiscounts)) {
+            $json['return_discounts']       = $this->returnDiscounts;
+        }
+        if (!empty($this->returnTips)) {
+            $json['return_tips']            = $this->returnTips['value'];
         }
         if (isset($this->roundingAdjustment)) {
             $json['rounding_adjustment']    = $this->roundingAdjustment;
