@@ -98,20 +98,20 @@ class OrderReturnBuilder
     }
 
     /**
+     * Unsets return service charges field.
+     */
+    public function unsetReturnServiceCharges(): self
+    {
+        $this->instance->unsetReturnServiceCharges();
+        return $this;
+    }
+
+    /**
      * Sets return taxes field.
      */
     public function returnTaxes(?array $value): self
     {
         $this->instance->setReturnTaxes($value);
-        return $this;
-    }
-
-    /**
-     * Unsets return taxes field.
-     */
-    public function unsetReturnTaxes(): self
-    {
-        $this->instance->unsetReturnTaxes();
         return $this;
     }
 
@@ -125,11 +125,20 @@ class OrderReturnBuilder
     }
 
     /**
-     * Unsets return discounts field.
+     * Sets return tips field.
      */
-    public function unsetReturnDiscounts(): self
+    public function returnTips(?array $value): self
     {
-        $this->instance->unsetReturnDiscounts();
+        $this->instance->setReturnTips($value);
+        return $this;
+    }
+
+    /**
+     * Unsets return tips field.
+     */
+    public function unsetReturnTips(): self
+    {
+        $this->instance->unsetReturnTips();
         return $this;
     }
 

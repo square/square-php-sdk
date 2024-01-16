@@ -22,7 +22,7 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
      * Returns Customer Ids.
      * A list of customer IDs to filter by.
      *
-     * Max: 10 customer IDs.
+     * Max: 10 customer ids.
      *
      * @return string[]|null
      */
@@ -38,7 +38,7 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
      * Sets Customer Ids.
      * A list of customer IDs to filter by.
      *
-     * Max: 10 customer IDs.
+     * Max: 10 customer ids.
      *
      * @maps customer_ids
      *
@@ -53,7 +53,7 @@ class SearchOrdersCustomerFilter implements \JsonSerializable
      * Unsets Customer Ids.
      * A list of customer IDs to filter by.
      *
-     * Max: 10 customer IDs.
+     * Max: 10 customer ids.
      */
     public function unsetCustomerIds(): void
     {

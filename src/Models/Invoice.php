@@ -129,6 +129,11 @@ class Invoice implements \JsonSerializable
     private $storePaymentMethodEnabled = [];
 
     /**
+     * @var InvoiceAttachment[]|null
+     */
+    private $attachments;
+
+    /**
      * Returns Id.
      * The Square-assigned ID of the invoice.
      */
@@ -932,6 +937,34 @@ class Invoice implements \JsonSerializable
     }
 
     /**
+     * Returns Attachments.
+     * Metadata about the attachments on the invoice. Invoice attachments are managed using the
+     * [CreateInvoiceAttachment](api-endpoint:Invoices-CreateInvoiceAttachment) and
+     * [DeleteInvoiceAttachment](api-endpoint:Invoices-DeleteInvoiceAttachment) endpoints.
+     *
+     * @return InvoiceAttachment[]|null
+     */
+    public function getAttachments(): ?array
+    {
+        return $this->attachments;
+    }
+
+    /**
+     * Sets Attachments.
+     * Metadata about the attachments on the invoice. Invoice attachments are managed using the
+     * [CreateInvoiceAttachment](api-endpoint:Invoices-CreateInvoiceAttachment) and
+     * [DeleteInvoiceAttachment](api-endpoint:Invoices-DeleteInvoiceAttachment) endpoints.
+     *
+     * @maps attachments
+     *
+     * @param InvoiceAttachment[]|null $attachments
+     */
+    public function setAttachments(?array $attachments): void
+    {
+        $this->attachments = $attachments;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -1011,6 +1044,9 @@ class Invoice implements \JsonSerializable
         }
         if (!empty($this->storePaymentMethodEnabled)) {
             $json['store_payment_method_enabled'] = $this->storePaymentMethodEnabled['value'];
+        }
+        if (isset($this->attachments)) {
+            $json['attachments']                  = $this->attachments;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

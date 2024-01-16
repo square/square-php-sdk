@@ -250,6 +250,33 @@ class OrderServiceChargeBuilder
     }
 
     /**
+     * Sets applied service charges field.
+     */
+    public function appliedServiceCharges(?array $value): self
+    {
+        $this->instance->setAppliedServiceCharges($value);
+        return $this;
+    }
+
+    /**
+     * Unsets applied service charges field.
+     */
+    public function unsetAppliedServiceCharges(): self
+    {
+        $this->instance->unsetAppliedServiceCharges();
+        return $this;
+    }
+
+    /**
+     * Sets total service charge money field.
+     */
+    public function totalServiceChargeMoney(?Money $value): self
+    {
+        $this->instance->setTotalServiceChargeMoney($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new order service charge object.
      */
     public function build(): OrderServiceCharge

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Apis;
 
 use Core\Request\Parameters\BodyParam;
+use Core\Request\Parameters\FormParam;
 use Core\Request\Parameters\HeaderParam;
 use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
@@ -12,8 +13,11 @@ use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Http\ApiResponse;
 use Square\Models\CancelInvoiceRequest;
 use Square\Models\CancelInvoiceResponse;
+use Square\Models\CreateInvoiceAttachmentRequest;
+use Square\Models\CreateInvoiceAttachmentResponse;
 use Square\Models\CreateInvoiceRequest;
 use Square\Models\CreateInvoiceResponse;
+use Square\Models\DeleteInvoiceAttachmentResponse;
 use Square\Models\DeleteInvoiceResponse;
 use Square\Models\GetInvoiceResponse;
 use Square\Models\ListInvoicesResponse;
@@ -23,6 +27,7 @@ use Square\Models\SearchInvoicesRequest;
 use Square\Models\SearchInvoicesResponse;
 use Square\Models\UpdateInvoiceRequest;
 use Square\Models\UpdateInvoiceResponse;
+use Square\Utils\FileWrapper;
 
 class InvoicesApi extends BaseApi
 {
@@ -174,6 +179,71 @@ class InvoicesApi extends BaseApi
             );
 
         $_resHandler = $this->responseHandler()->type(UpdateInvoiceResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Uploads a file and attaches it to an invoice. This endpoint accepts HTTP multipart/form-data file
+     * uploads
+     * with a JSON `request` part and a `file` part. The `file` part must be a `readable stream` that
+     * contains a file
+     * in a supported format: GIF, JPEG, PNG, TIFF, BMP, or PDF.
+     *
+     * Invoices can have up to 10 attachments with a total file size of 25 MB. Attachments can be added
+     * only to invoices
+     * in the `DRAFT`, `SCHEDULED`, `UNPAID`, or `PARTIALLY_PAID` state.
+     *
+     * @param string $invoiceId The ID of the [invoice](entity:Invoice) to attach the file to.
+     * @param CreateInvoiceAttachmentRequest|null $request Represents a
+     *        [CreateInvoiceAttachment]($e/Invoices/CreateInvoiceAttachment) request.
+     * @param FileWrapper|null $imageFile
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function createInvoiceAttachment(
+        string $invoiceId,
+        ?CreateInvoiceAttachmentRequest $request = null,
+        ?FileWrapper $imageFile = null
+    ): ApiResponse {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/invoices/{invoice_id}/attachments')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('invoice_id', $invoiceId),
+                FormParam::init('request', $request)
+                    ->encodingHeader('Content-Type', 'application/json; charset=utf-8'),
+                FormParam::init('image_file', $imageFile)->encodingHeader('Content-Type', 'image/jpeg')
+            );
+
+        $_resHandler = $this->responseHandler()->type(CreateInvoiceAttachmentResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Removes an attachment from an invoice and permanently deletes the file. Attachments can be removed
+     * only
+     * from invoices in the `DRAFT`, `SCHEDULED`, `UNPAID`, or `PARTIALLY_PAID` state.
+     *
+     * @param string $invoiceId The ID of the [invoice](entity:Invoice) to delete the attachment
+     *        from.
+     * @param string $attachmentId The ID of the [attachment](entity:InvoiceAttachment) to delete.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function deleteInvoiceAttachment(string $invoiceId, string $attachmentId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(
+            RequestMethod::DELETE,
+            '/v2/invoices/{invoice_id}/attachments/{attachment_id}'
+        )
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('invoice_id', $invoiceId),
+                TemplateParam::init('attachment_id', $attachmentId)
+            );
+
+        $_resHandler = $this->responseHandler()->type(DeleteInvoiceAttachmentResponse::class)->returnApiResponse();
 
         return $this->execute($_reqBuilder, $_resHandler);
     }

@@ -14,7 +14,7 @@ Either the `order_entries` or `orders` field is set, depending on whether
 |  --- | --- | --- | --- | --- | --- |
 | `orderEntries` | [`?(OrderEntry[])`](../../doc/models/order-entry.md) | Optional | A list of [OrderEntries](entity:OrderEntry) that fit the query<br>conditions. The list is populated only if `return_entries` is set to `true` in the request. | getOrderEntries(): ?array | setOrderEntries(?array orderEntries): void |
 | `orders` | [`?(Order[])`](../../doc/models/order.md) | Optional | A list of<br>[Order](entity:Order) objects that match the query conditions. The list is populated only if<br>`return_entries` is set to `false` in the request. | getOrders(): ?array | setOrders(?array orders): void |
-| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
+| `cursor` | `?string` | Optional | The pagination cursor to be used in a subsequent request. If unset,<br>this is the final response.<br>For more information, see [Pagination](https://developer.squareup.com/docs/basics/build-basics/common-api-patterns/pagination). | getCursor(): ?string | setCursor(?string cursor): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | [Errors](entity:Error) encountered during the search. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)

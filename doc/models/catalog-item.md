@@ -33,6 +33,7 @@ A [CatalogObject](../../doc/models/catalog-object.md) instance of the `ITEM` typ
 | `channels` | `?(string[])` | Optional | A list of IDs representing channels, such as a Square Online site, where the item can be made visible or available. | getChannels(): ?array | setChannels(?array channels): void |
 | `isArchived` | `?bool` | Optional | Indicates whether this item is archived (`true`) or not (`false`). | getIsArchived(): ?bool | setIsArchived(?bool isArchived): void |
 | `ecomSeoData` | [`?CatalogEcomSeoData`](../../doc/models/catalog-ecom-seo-data.md) | Optional | SEO data for for a seller's Square Online store. | getEcomSeoData(): ?CatalogEcomSeoData | setEcomSeoData(?CatalogEcomSeoData ecomSeoData): void |
+| `foodAndBeverageDetails` | [`?CatalogItemFoodAndBeverageDetails`](../../doc/models/catalog-item-food-and-beverage-details.md) | Optional | The food and beverage-specific details of a `FOOD_AND_BEV` item. | getFoodAndBeverageDetails(): ?CatalogItemFoodAndBeverageDetails | setFoodAndBeverageDetails(?CatalogItemFoodAndBeverageDetails foodAndBeverageDetails): void |
 | `reportingCategory` | [`?CatalogObjectCategory`](../../doc/models/catalog-object-category.md) | Optional | A category that can be assigned to an item or a parent category that can be assigned<br>to another category. For example, a clothing category can be assigned to a t-shirt item or<br>be made as the parent category to the pants category. | getReportingCategory(): ?CatalogObjectCategory | setReportingCategory(?CatalogObjectCategory reportingCategory): void |
 
 ## Example (as JSON)
