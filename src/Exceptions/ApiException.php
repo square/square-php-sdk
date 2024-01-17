@@ -30,8 +30,9 @@ class ApiException extends \Exception implements ExceptionInterface
     /**
      * @param string $reason the reason for raising an exception
      * @param HttpRequest $request
+     * @param HttpResponse|null $response
      */
-    public function __construct(string $reason, HttpRequest $request, ?HttpResponse $response = null)
+    public function __construct(string $reason, HttpRequest $request, ?HttpResponse $response)
     {
         parent::__construct($reason, \is_null($response) ? 0 : $response->getStatusCode());
         $this->request = $request;

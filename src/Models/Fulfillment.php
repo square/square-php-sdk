@@ -60,11 +60,6 @@ class Fulfillment implements \JsonSerializable
     private $deliveryDetails;
 
     /**
-     * @var int|null
-     */
-    private $version;
-
-    /**
      * Returns Uid.
      * A unique ID that identifies the fulfillment only within this order.
      */
@@ -350,30 +345,6 @@ class Fulfillment implements \JsonSerializable
     }
 
     /**
-     * Returns Version.
-     * The version number attributed to the fulfillment and incremented every time there is a
-     * fulfillment-related update. The fulfillment version is an internal field only for use
-     * between Orders and the Fulfillment service.
-     */
-    public function getVersion(): ?int
-    {
-        return $this->version;
-    }
-
-    /**
-     * Sets Version.
-     * The version number attributed to the fulfillment and incremented every time there is a
-     * fulfillment-related update. The fulfillment version is an internal field only for use
-     * between Orders and the Fulfillment service.
-     *
-     * @maps version
-     */
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -411,9 +382,6 @@ class Fulfillment implements \JsonSerializable
         }
         if (isset($this->deliveryDetails)) {
             $json['delivery_details']      = $this->deliveryDetails;
-        }
-        if (isset($this->version)) {
-            $json['version']               = $this->version;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

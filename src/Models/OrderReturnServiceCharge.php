@@ -87,16 +87,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
     private $scope;
 
     /**
-     * @var array
-     */
-    private $appliedServiceCharges = [];
-
-    /**
-     * @var Money|null
-     */
-    private $totalServiceChargeMoney;
-
-    /**
      * Returns Uid.
      * A unique ID that identifies the return service charge only within this order.
      */
@@ -590,80 +580,6 @@ class OrderReturnServiceCharge implements \JsonSerializable
     }
 
     /**
-     * Returns Applied Service Charges.
-     * The list of references to service charges applied to the`OrderReturnServiceCharge`. Each
-     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
-     * top-level `OrderReturnServiceCharge`. On reads, the amount applied is populated.
-     *
-     * @return OrderLineItemAppliedServiceCharge[]|null
-     */
-    public function getAppliedServiceCharges(): ?array
-    {
-        if (count($this->appliedServiceCharges) == 0) {
-            return null;
-        }
-        return $this->appliedServiceCharges['value'];
-    }
-
-    /**
-     * Sets Applied Service Charges.
-     * The list of references to service charges applied to the`OrderReturnServiceCharge`. Each
-     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
-     * top-level `OrderReturnServiceCharge`. On reads, the amount applied is populated.
-     *
-     * @maps applied_service_charges
-     *
-     * @param OrderLineItemAppliedServiceCharge[]|null $appliedServiceCharges
-     */
-    public function setAppliedServiceCharges(?array $appliedServiceCharges): void
-    {
-        $this->appliedServiceCharges['value'] = $appliedServiceCharges;
-    }
-
-    /**
-     * Unsets Applied Service Charges.
-     * The list of references to service charges applied to the`OrderReturnServiceCharge`. Each
-     * `OrderLineItemAppliedServiceCharge` has a `service_charge_id` that references the `uid` of a
-     * top-level `OrderReturnServiceCharge`. On reads, the amount applied is populated.
-     */
-    public function unsetAppliedServiceCharges(): void
-    {
-        $this->appliedServiceCharges = [];
-    }
-
-    /**
-     * Returns Total Service Charge Money.
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
-     */
-    public function getTotalServiceChargeMoney(): ?Money
-    {
-        return $this->totalServiceChargeMoney;
-    }
-
-    /**
-     * Sets Total Service Charge Money.
-     * Represents an amount of money. `Money` fields can be signed or unsigned.
-     * Fields that do not explicitly define whether they are signed or unsigned are
-     * considered unsigned and can only hold positive amounts. For signed fields, the
-     * sign of the value indicates the purpose of the money transfer. See
-     * [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-
-     * monetary-amounts)
-     * for more information.
-     *
-     * @maps total_service_charge_money
-     */
-    public function setTotalServiceChargeMoney(?Money $totalServiceChargeMoney): void
-    {
-        $this->totalServiceChargeMoney = $totalServiceChargeMoney;
-    }
-
-    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -676,55 +592,49 @@ class OrderReturnServiceCharge implements \JsonSerializable
     {
         $json = [];
         if (!empty($this->uid)) {
-            $json['uid']                        = $this->uid['value'];
+            $json['uid']                       = $this->uid['value'];
         }
         if (!empty($this->sourceServiceChargeUid)) {
-            $json['source_service_charge_uid']  = $this->sourceServiceChargeUid['value'];
+            $json['source_service_charge_uid'] = $this->sourceServiceChargeUid['value'];
         }
         if (!empty($this->name)) {
-            $json['name']                       = $this->name['value'];
+            $json['name']                      = $this->name['value'];
         }
         if (!empty($this->catalogObjectId)) {
-            $json['catalog_object_id']          = $this->catalogObjectId['value'];
+            $json['catalog_object_id']         = $this->catalogObjectId['value'];
         }
         if (!empty($this->catalogVersion)) {
-            $json['catalog_version']            = $this->catalogVersion['value'];
+            $json['catalog_version']           = $this->catalogVersion['value'];
         }
         if (!empty($this->percentage)) {
-            $json['percentage']                 = $this->percentage['value'];
+            $json['percentage']                = $this->percentage['value'];
         }
         if (isset($this->amountMoney)) {
-            $json['amount_money']               = $this->amountMoney;
+            $json['amount_money']              = $this->amountMoney;
         }
         if (isset($this->appliedMoney)) {
-            $json['applied_money']              = $this->appliedMoney;
+            $json['applied_money']             = $this->appliedMoney;
         }
         if (isset($this->totalMoney)) {
-            $json['total_money']                = $this->totalMoney;
+            $json['total_money']               = $this->totalMoney;
         }
         if (isset($this->totalTaxMoney)) {
-            $json['total_tax_money']            = $this->totalTaxMoney;
+            $json['total_tax_money']           = $this->totalTaxMoney;
         }
         if (isset($this->calculationPhase)) {
-            $json['calculation_phase']          = $this->calculationPhase;
+            $json['calculation_phase']         = $this->calculationPhase;
         }
         if (!empty($this->taxable)) {
-            $json['taxable']                    = $this->taxable['value'];
+            $json['taxable']                   = $this->taxable['value'];
         }
         if (!empty($this->appliedTaxes)) {
-            $json['applied_taxes']              = $this->appliedTaxes['value'];
+            $json['applied_taxes']             = $this->appliedTaxes['value'];
         }
         if (isset($this->treatmentType)) {
-            $json['treatment_type']             = $this->treatmentType;
+            $json['treatment_type']            = $this->treatmentType;
         }
         if (isset($this->scope)) {
-            $json['scope']                      = $this->scope;
-        }
-        if (!empty($this->appliedServiceCharges)) {
-            $json['applied_service_charges']    = $this->appliedServiceCharges['value'];
-        }
-        if (isset($this->totalServiceChargeMoney)) {
-            $json['total_service_charge_money'] = $this->totalServiceChargeMoney;
+            $json['scope']                     = $this->scope;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
