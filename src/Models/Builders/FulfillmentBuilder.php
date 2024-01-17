@@ -135,15 +135,6 @@ class FulfillmentBuilder
     }
 
     /**
-     * Sets version field.
-     */
-    public function version(?int $value): self
-    {
-        $this->instance->setVersion($value);
-        return $this;
-    }
-
-    /**
      * Initializes a new fulfillment object.
      */
     public function build(): Fulfillment
