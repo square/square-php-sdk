@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square;
 
 use CoreInterfaces\Http\HttpConfigurations;
+use Square\Authentication\BearerAuthCredentialsBuilder;
 
 /**
  * An interface for all configuration parameters required by the SDK.
@@ -39,7 +40,12 @@ interface ConfigurationInterface extends HttpConfigurations
     /**
      * Get the credentials to use with BearerAuth
      */
-    public function getBearerAuthCredentials(): ?BearerAuthCredentials;
+    public function getBearerAuthCredentials(): BearerAuthCredentials;
+
+    /**
+     * Get the credentials builder instance to update credentials for BearerAuth
+     */
+    public function getBearerAuthCredentialsBuilder(): ?BearerAuthCredentialsBuilder;
 
     /**
      * Get the base uri for a given server in the current environment.

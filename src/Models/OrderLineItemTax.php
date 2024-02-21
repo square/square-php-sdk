@@ -218,6 +218,8 @@ class OrderLineItemTax implements \JsonSerializable
      * The percentage of the tax, as a string representation of a decimal
      * number. For example, a value of `"7.25"` corresponds to a percentage of
      * 7.25%.
+     *
+     * Either `percentage` or `amount_money` should be set, but not both.
      */
     public function getPercentage(): ?string
     {
@@ -233,6 +235,8 @@ class OrderLineItemTax implements \JsonSerializable
      * number. For example, a value of `"7.25"` corresponds to a percentage of
      * 7.25%.
      *
+     * Either `percentage` or `amount_money` should be set, but not both.
+     *
      * @maps percentage
      */
     public function setPercentage(?string $percentage): void
@@ -245,6 +249,8 @@ class OrderLineItemTax implements \JsonSerializable
      * The percentage of the tax, as a string representation of a decimal
      * number. For example, a value of `"7.25"` corresponds to a percentage of
      * 7.25%.
+     *
+     * Either `percentage` or `amount_money` should be set, but not both.
      */
     public function unsetPercentage(): void
     {

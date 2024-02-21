@@ -5,25 +5,27 @@ declare(strict_types=1);
 namespace Square\Tests;
 
 use Core\Types\CallbackCatcher;
+use Square\Authentication\BearerAuthCredentialsBuilder;
+use Square\SquareClient;
+use Square\SquareClientBuilder;
 
 class ClientFactory
 {
-    public static function create(CallbackCatcher $httpCallback): \Square\SquareClient
+    public static function create(CallbackCatcher $httpCallback): SquareClient
     {
-        $clientBuilder = \Square\SquareClientBuilder::init();
+        $clientBuilder = SquareClientBuilder::init();
         $clientBuilder = self::addConfigurationFromEnvironment($clientBuilder);
         $clientBuilder = self::addTestConfiguration($clientBuilder);
         return $clientBuilder->httpCallback($httpCallback)->build();
     }
 
-    public static function addTestConfiguration(\Square\SquareClientBuilder $builder): \Square\SquareClientBuilder
+    public static function addTestConfiguration(SquareClientBuilder $builder): SquareClientBuilder
     {
         return $builder;
     }
 
-    public static function addConfigurationFromEnvironment(
-        \Square\SquareClientBuilder $builder
-    ): \Square\SquareClientBuilder {
+    public static function addConfigurationFromEnvironment(SquareClientBuilder $builder): SquareClientBuilder
+    {
         $timeout = getenv('SQUARE_TIMEOUT');
         $numberOfRetries = getenv('SQUARE_NUMBER_OF_RETRIES');
         $maximumRetryWaitTime = getenv('SQUARE_MAXIMUM_RETRY_WAIT_TIME');
@@ -33,36 +35,36 @@ class ClientFactory
         $customUrl = getenv('SQUARE_CUSTOM_URL');
         $accessToken = getenv('SQUARE_ACCESS_TOKEN');
 
-        if ($timeout !== false && \is_numeric($timeout)) {
+        if (!empty($timeout) && \is_numeric($timeout)) {
             $builder->timeout(intval($timeout));
         }
 
-        if ($numberOfRetries !== false && \is_numeric($numberOfRetries)) {
+        if (!empty($numberOfRetries) && \is_numeric($numberOfRetries)) {
             $builder->numberOfRetries(intval($numberOfRetries));
         }
 
-        if ($maximumRetryWaitTime !== false && \is_numeric($maximumRetryWaitTime)) {
+        if (!empty($maximumRetryWaitTime) && \is_numeric($maximumRetryWaitTime)) {
             $builder->maximumRetryWaitTime(intval($maximumRetryWaitTime));
         }
 
-        if ($squareVersion !== false) {
+        if (!empty($squareVersion)) {
             $builder->squareVersion($squareVersion);
         }
 
-        if ($userAgentDetail !== false) {
+        if (!empty($userAgentDetail)) {
             $builder->userAgentDetail($userAgentDetail);
         }
 
-        if ($environment !== false) {
+        if (!empty($environment)) {
             $builder->environment($environment);
         }
 
-        if ($customUrl !== false) {
+        if (!empty($customUrl)) {
             $builder->customUrl($customUrl);
         }
 
-        if ($accessToken !== false) {
-            $builder->accessToken($accessToken);
+        if (!empty($accessToken)) {
+            $builder->bearerAuthCredentials(BearerAuthCredentialsBuilder::init($accessToken));
         }
 
         return $builder;

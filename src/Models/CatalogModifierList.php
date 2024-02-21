@@ -7,12 +7,22 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * A list of modifiers applicable to items at the time of sale.
+ * For a text-based modifier, this encapsulates the modifier's text when its `modifier_type` is `TEXT`.
+ * For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the
+ * buyer-supplied
+ * text string to be selected for the T-shirt at the time of sale.
  *
+ * For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
+ * at the time of sale. Each element of the modifier list is a `CatalogObject` instance of the
+ * `MODIFIER` type.
  * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
  * may contain "Ketchup", "Mustard", and "Relish" modifiers.
- * Use the `selection_type` field to specify whether or not multiple selections from
- * the modifier list are allowed.
+ *
+ * A non text-based modifier can be applied to the modified item once or multiple times, if the
+ * `selection_type` field
+ * is set to `SINGLE` or `MULTIPLE`, respectively. On the other hand, a text-based modifier can be
+ * applied to the item
+ * only once and the `selection_type` field is always set to `SINGLE`.
  */
 class CatalogModifierList implements \JsonSerializable
 {
@@ -42,9 +52,30 @@ class CatalogModifierList implements \JsonSerializable
     private $imageIds = [];
 
     /**
+     * @var string|null
+     */
+    private $modifierType;
+
+    /**
+     * @var array
+     */
+    private $maxLength = [];
+
+    /**
+     * @var array
+     */
+    private $textRequired = [];
+
+    /**
+     * @var array
+     */
+    private $internalName = [];
+
+    /**
      * Returns Name.
-     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
-     * applicable query filters, and its value length is of Unicode code points.
+     * The name of the `CatalogModifierList` instance. This is a searchable attribute for use in applicable
+     * query filters, and its value length is of
+     * Unicode code points.
      */
     public function getName(): ?string
     {
@@ -56,8 +87,9 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Name.
-     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
-     * applicable query filters, and its value length is of Unicode code points.
+     * The name of the `CatalogModifierList` instance. This is a searchable attribute for use in applicable
+     * query filters, and its value length is of
+     * Unicode code points.
      *
      * @maps name
      */
@@ -68,8 +100,9 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Unsets Name.
-     * The name for the `CatalogModifierList` instance. This is a searchable attribute for use in
-     * applicable query filters, and its value length is of Unicode code points.
+     * The name of the `CatalogModifierList` instance. This is a searchable attribute for use in applicable
+     * query filters, and its value length is of
+     * Unicode code points.
      */
     public function unsetName(): void
     {
@@ -78,7 +111,7 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Ordinal.
-     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
+     * The position of this `CatalogModifierList` within a list of `CatalogModifierList` instances.
      */
     public function getOrdinal(): ?int
     {
@@ -90,7 +123,7 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Ordinal.
-     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
+     * The position of this `CatalogModifierList` within a list of `CatalogModifierList` instances.
      *
      * @maps ordinal
      */
@@ -101,7 +134,7 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Unsets Ordinal.
-     * Determines where this modifier list appears in a list of `CatalogModifierList` values.
+     * The position of this `CatalogModifierList` within a list of `CatalogModifierList` instances.
      */
     public function unsetOrdinal(): void
     {
@@ -130,10 +163,16 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Returns Modifiers.
-     * The options included in the `CatalogModifierList`.
-     * You must include at least one `CatalogModifier`.
-     * Each CatalogObject must have type `MODIFIER` and contain
-     * `CatalogModifier` data.
+     * A non-empty list of `CatalogModifier` objects to be included in the `CatalogModifierList`,
+     * for non text-based modifiers when the `modifier_type` attribute is `LIST`. Each element of this list
+     * is a `CatalogObject` instance of the `MODIFIER` type, containing the following attributes:
+     * ```
+     * {
+     * "id": "{{catalog_modifier_id}}",
+     * "type": "MODIFIER",
+     * "modifier_data": {{a CatalogModifier instance>}}
+     * }
+     * ```
      *
      * @return CatalogObject[]|null
      */
@@ -147,10 +186,16 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Sets Modifiers.
-     * The options included in the `CatalogModifierList`.
-     * You must include at least one `CatalogModifier`.
-     * Each CatalogObject must have type `MODIFIER` and contain
-     * `CatalogModifier` data.
+     * A non-empty list of `CatalogModifier` objects to be included in the `CatalogModifierList`,
+     * for non text-based modifiers when the `modifier_type` attribute is `LIST`. Each element of this list
+     * is a `CatalogObject` instance of the `MODIFIER` type, containing the following attributes:
+     * ```
+     * {
+     * "id": "{{catalog_modifier_id}}",
+     * "type": "MODIFIER",
+     * "modifier_data": {{a CatalogModifier instance>}}
+     * }
+     * ```
      *
      * @maps modifiers
      *
@@ -163,10 +208,16 @@ class CatalogModifierList implements \JsonSerializable
 
     /**
      * Unsets Modifiers.
-     * The options included in the `CatalogModifierList`.
-     * You must include at least one `CatalogModifier`.
-     * Each CatalogObject must have type `MODIFIER` and contain
-     * `CatalogModifier` data.
+     * A non-empty list of `CatalogModifier` objects to be included in the `CatalogModifierList`,
+     * for non text-based modifiers when the `modifier_type` attribute is `LIST`. Each element of this list
+     * is a `CatalogObject` instance of the `MODIFIER` type, containing the following attributes:
+     * ```
+     * {
+     * "id": "{{catalog_modifier_id}}",
+     * "type": "MODIFIER",
+     * "modifier_data": {{a CatalogModifier instance>}}
+     * }
+     * ```
      */
     public function unsetModifiers(): void
     {
@@ -176,7 +227,7 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Returns Image Ids.
      * The IDs of images associated with this `CatalogModifierList` instance.
-     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * Currently these images are not displayed on Square products, but may be displayed in 3rd-party
      * applications.
      *
      * @return string[]|null
@@ -192,7 +243,7 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Sets Image Ids.
      * The IDs of images associated with this `CatalogModifierList` instance.
-     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * Currently these images are not displayed on Square products, but may be displayed in 3rd-party
      * applications.
      *
      * @maps image_ids
@@ -207,12 +258,164 @@ class CatalogModifierList implements \JsonSerializable
     /**
      * Unsets Image Ids.
      * The IDs of images associated with this `CatalogModifierList` instance.
-     * Currently these images are not displayed by Square, but are free to be displayed in 3rd party
+     * Currently these images are not displayed on Square products, but may be displayed in 3rd-party
      * applications.
      */
     public function unsetImageIds(): void
     {
         $this->imageIds = [];
+    }
+
+    /**
+     * Returns Modifier Type.
+     * Defines the type of `CatalogModifierList`.
+     */
+    public function getModifierType(): ?string
+    {
+        return $this->modifierType;
+    }
+
+    /**
+     * Sets Modifier Type.
+     * Defines the type of `CatalogModifierList`.
+     *
+     * @maps modifier_type
+     */
+    public function setModifierType(?string $modifierType): void
+    {
+        $this->modifierType = $modifierType;
+    }
+
+    /**
+     * Returns Max Length.
+     * The maximum length, in Unicode points, of the text string of the text-based modifier as represented
+     * by
+     * this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     */
+    public function getMaxLength(): ?int
+    {
+        if (count($this->maxLength) == 0) {
+            return null;
+        }
+        return $this->maxLength['value'];
+    }
+
+    /**
+     * Sets Max Length.
+     * The maximum length, in Unicode points, of the text string of the text-based modifier as represented
+     * by
+     * this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     *
+     * @maps max_length
+     */
+    public function setMaxLength(?int $maxLength): void
+    {
+        $this->maxLength['value'] = $maxLength;
+    }
+
+    /**
+     * Unsets Max Length.
+     * The maximum length, in Unicode points, of the text string of the text-based modifier as represented
+     * by
+     * this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     */
+    public function unsetMaxLength(): void
+    {
+        $this->maxLength = [];
+    }
+
+    /**
+     * Returns Text Required.
+     * Whether the text string must be a non-empty string (`true`) or not (`false`) for a text-based
+     * modifier
+     * as represented by this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     */
+    public function getTextRequired(): ?bool
+    {
+        if (count($this->textRequired) == 0) {
+            return null;
+        }
+        return $this->textRequired['value'];
+    }
+
+    /**
+     * Sets Text Required.
+     * Whether the text string must be a non-empty string (`true`) or not (`false`) for a text-based
+     * modifier
+     * as represented by this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     *
+     * @maps text_required
+     */
+    public function setTextRequired(?bool $textRequired): void
+    {
+        $this->textRequired['value'] = $textRequired;
+    }
+
+    /**
+     * Unsets Text Required.
+     * Whether the text string must be a non-empty string (`true`) or not (`false`) for a text-based
+     * modifier
+     * as represented by this `CatalogModifierList` object with the `modifier_type` set to `TEXT`.
+     */
+    public function unsetTextRequired(): void
+    {
+        $this->textRequired = [];
+    }
+
+    /**
+     * Returns Internal Name.
+     * A note for internal use by the business.
+     *
+     * For example, for a text-based modifier applied to a T-shirt item, if the buyer-supplied text of
+     * "Hello, Kitty!"
+     * is to be printed on the T-shirt, this `internal_name` attribute can be "Use italic face" as
+     * an instruction for the business to follow.
+     *
+     * For non text-based modifiers, this `internal_name` attribute can be
+     * used to include SKUs, internal codes, or supplemental descriptions for internal use.
+     */
+    public function getInternalName(): ?string
+    {
+        if (count($this->internalName) == 0) {
+            return null;
+        }
+        return $this->internalName['value'];
+    }
+
+    /**
+     * Sets Internal Name.
+     * A note for internal use by the business.
+     *
+     * For example, for a text-based modifier applied to a T-shirt item, if the buyer-supplied text of
+     * "Hello, Kitty!"
+     * is to be printed on the T-shirt, this `internal_name` attribute can be "Use italic face" as
+     * an instruction for the business to follow.
+     *
+     * For non text-based modifiers, this `internal_name` attribute can be
+     * used to include SKUs, internal codes, or supplemental descriptions for internal use.
+     *
+     * @maps internal_name
+     */
+    public function setInternalName(?string $internalName): void
+    {
+        $this->internalName['value'] = $internalName;
+    }
+
+    /**
+     * Unsets Internal Name.
+     * A note for internal use by the business.
+     *
+     * For example, for a text-based modifier applied to a T-shirt item, if the buyer-supplied text of
+     * "Hello, Kitty!"
+     * is to be printed on the T-shirt, this `internal_name` attribute can be "Use italic face" as
+     * an instruction for the business to follow.
+     *
+     * For non text-based modifiers, this `internal_name` attribute can be
+     * used to include SKUs, internal codes, or supplemental descriptions for internal use.
+     */
+    public function unsetInternalName(): void
+    {
+        $this->internalName = [];
     }
 
     /**
@@ -241,6 +444,18 @@ class CatalogModifierList implements \JsonSerializable
         }
         if (!empty($this->imageIds)) {
             $json['image_ids']      = $this->imageIds['value'];
+        }
+        if (isset($this->modifierType)) {
+            $json['modifier_type']  = $this->modifierType;
+        }
+        if (!empty($this->maxLength)) {
+            $json['max_length']     = $this->maxLength['value'];
+        }
+        if (!empty($this->textRequired)) {
+            $json['text_required']  = $this->textRequired['value'];
+        }
+        if (!empty($this->internalName)) {
+            $json['internal_name']  = $this->internalName['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

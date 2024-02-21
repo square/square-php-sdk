@@ -401,7 +401,8 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function setUpdateItemModifierListsMaxModifierListsToEnable(
         ?int $updateItemModifierListsMaxModifierListsToEnable
     ): void {
-        $this->updateItemModifierListsMaxModifierListsToEnable['value'] = $updateItemModifierListsMaxModifierListsToEnable;
+        $this->updateItemModifierListsMaxModifierListsToEnable['value'] =
+            $updateItemModifierListsMaxModifierListsToEnable;
     }
 
     /**
@@ -437,7 +438,8 @@ class CatalogInfoResponseLimits implements \JsonSerializable
     public function setUpdateItemModifierListsMaxModifierListsToDisable(
         ?int $updateItemModifierListsMaxModifierListsToDisable
     ): void {
-        $this->updateItemModifierListsMaxModifierListsToDisable['value'] = $updateItemModifierListsMaxModifierListsToDisable;
+        $this->updateItemModifierListsMaxModifierListsToDisable['value'] =
+            $updateItemModifierListsMaxModifierListsToDisable;
     }
 
     /**

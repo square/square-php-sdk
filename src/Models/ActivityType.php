@@ -22,14 +22,14 @@ class ActivityType
     public const APP_FEE_REVENUE = 'APP_FEE_REVENUE';
 
     /**
-     * An automatic transfer from the payment processing balance to the Square Savings account.
-     * These are, generally, proportional to the seller's sales.
+     * An automatic transfer from the payment processing balance to the Square Savings account. These are
+     * generally proportional to the seller's sales.
      */
     public const AUTOMATIC_SAVINGS = 'AUTOMATIC_SAVINGS';
 
     /**
-     * An automatic transfer from the Square Savings account back to the processing balance.
-     * These are, generally, proportional to the seller's refunds.
+     * An automatic transfer from the Square Savings account back to the processing balance. These are
+     * generally proportional to the seller's refunds.
      */
     public const AUTOMATIC_SAVINGS_REVERSED = 'AUTOMATIC_SAVINGS_REVERSED';
 
@@ -54,7 +54,7 @@ class ActivityType
     public const ESCHEATMENT = 'ESCHEATMENT';
 
     /**
-     * The Square processing fee.
+     * The cost plus adjustment fee.
      */
     public const FEE = 'FEE';
 
@@ -72,8 +72,8 @@ class ActivityType
     public const HOLD_ADJUSTMENT = 'HOLD_ADJUSTMENT';
 
     /**
-     * An external change to a seller's balance. Initial, in the sense that it
-     * causes the creation of the other activity types, such as hold and refund.
+     * An external change to a seller's balance (initial, in the sense that it causes the creation of the
+     * other activity types, such as a hold and refund).
      */
     public const INITIAL_BALANCE_CHANGE = 'INITIAL_BALANCE_CHANGE';
 
@@ -88,27 +88,27 @@ class ActivityType
     public const MONEY_TRANSFER_REVERSAL = 'MONEY_TRANSFER_REVERSAL';
 
     /**
-     * The balance change for a chargeback that has been filed.
+     * The balance change for a chargeback that's been filed.
      */
     public const OPEN_DISPUTE = 'OPEN_DISPUTE';
 
     /**
-     * Any other type that does not belong in the rest of the types.
+     * Any other type that doesn't belong in the rest of the types.
      */
     public const OTHER = 'OTHER';
 
     /**
-     * Any other type of adjustment that does not fall under existing types.
+     * Any other type of adjustment that doesn't fall under existing types.
      */
     public const OTHER_ADJUSTMENT = 'OTHER_ADJUSTMENT';
 
     /**
-     * A fee paid to a third-party merchant.
+     * A fee paid to a third-party seller.
      */
     public const PAID_SERVICE_FEE = 'PAID_SERVICE_FEE';
 
     /**
-     * A fee paid to a third-party merchant.
+     * A fee refunded to a third-party seller.
      */
     public const PAID_SERVICE_FEE_REFUND = 'PAID_SERVICE_FEE_REFUND';
 
@@ -128,12 +128,12 @@ class ActivityType
     public const RELEASE_ADJUSTMENT = 'RELEASE_ADJUSTMENT';
 
     /**
-     * Fees paid for funding risk reserve.
+     * Fees paid for a funding risk reserve.
      */
     public const RESERVE_HOLD = 'RESERVE_HOLD';
 
     /**
-     * Fees released from risk reserve.
+     * Fees released from a risk reserve.
      */
     public const RESERVE_RELEASE = 'RESERVE_RELEASE';
 
@@ -145,14 +145,14 @@ class ActivityType
     public const RETURNED_PAYOUT = 'RETURNED_PAYOUT';
 
     /**
-     * A capital merchant cash advance (MCA) assessment. These are, generally,
-     * proportional to the merchant's sales but can be issued for other reasons related to the MCA.
+     * A capital merchant cash advance (MCA) assessment. These are generally proportional to the merchant's
+     * sales but can be issued for other reasons related to the MCA.
      */
     public const SQUARE_CAPITAL_PAYMENT = 'SQUARE_CAPITAL_PAYMENT';
 
     /**
-     * A capital merchant cash advance (MCA) assessment refund. These are, generally,
-     * proportional to the merchant's refunds but can be issued for other reasons related to the MCA.
+     * A capital merchant cash advance (MCA) assessment refund. These are generally proportional to the
+     * merchant's refunds but can be issued for other reasons related to the MCA.
      */
     public const SQUARE_CAPITAL_REVERSED_PAYMENT = 'SQUARE_CAPITAL_REVERSED_PAYMENT';
 
@@ -162,7 +162,7 @@ class ActivityType
     public const SUBSCRIPTION_FEE = 'SUBSCRIPTION_FEE';
 
     /**
-     * A Square subscription fee that has been refunded.
+     * A Square subscription fee that's been refunded.
      */
     public const SUBSCRIPTION_FEE_PAID_REFUND = 'SUBSCRIPTION_FEE_PAID_REFUND';
 
@@ -187,31 +187,124 @@ class ActivityType
     public const THIRD_PARTY_FEE_REFUND = 'THIRD_PARTY_FEE_REFUND';
 
     /**
-     * Balance change due to money transfer.
+     * The balance change due to money transfer.
      */
     public const PAYOUT = 'PAYOUT';
 
     /**
-     * Indicates the withholding of a portion of each payment by Square that has been
-     * automatically converted into bitcoin using Cash App. The seller manages their bitcoin in
-     * their Cash App account.
+     * Indicates that the portion of each payment withheld by Square was automatically converted into
+     * bitcoin using Cash App. The seller manages their bitcoin in their Cash App account.
      */
     public const AUTOMATIC_BITCOIN_CONVERSIONS = 'AUTOMATIC_BITCOIN_CONVERSIONS';
 
     /**
-     * Indicates a return of the payment withholding that had been scheduled to be converted
-     * into bitcoin using Cash App to the Square payments balance.
+     * Indicates that a withheld payment, which was scheduled to be converted into bitcoin using Cash App,
+     * was deposited back to the Square payments balance.
      */
     public const AUTOMATIC_BITCOIN_CONVERSIONS_REVERSED = 'AUTOMATIC_BITCOIN_CONVERSIONS_REVERSED';
 
     /**
-     * The repayment made toward the outstanding balance on the seller's Square credit card.
+     * Indicates that a repayment toward the outstanding balance on the seller's Square credit card was
+     * made.
      */
     public const CREDIT_CARD_REPAYMENT = 'CREDIT_CARD_REPAYMENT';
 
     /**
-     * The reversal of the repayment made toward the outstanding balance on the seller's
-     * Square credit card.
+     * Indicates that a repayment toward the outstanding balance on the seller's Square credit card was
+     * reversed.
      */
     public const CREDIT_CARD_REPAYMENT_REVERSED = 'CREDIT_CARD_REPAYMENT_REVERSED';
+
+    /**
+     * Cashback amount given by a Square Local Offers seller to their customer for a purchase.
+     */
+    public const LOCAL_OFFERS_CASHBACK = 'LOCAL_OFFERS_CASHBACK';
+
+    /**
+     * A commission fee paid by a Square Local Offers seller to Square for a purchase discovered through
+     * Square Local Offers.
+     */
+    public const LOCAL_OFFERS_FEE = 'LOCAL_OFFERS_FEE';
+
+    /**
+     * When activating Percentage Processing, a credit is applied to the seller’s account to offset any
+     * negative balance caused by a dispute.
+     */
+    public const PERCENTAGE_PROCESSING_ENROLLMENT = 'PERCENTAGE_PROCESSING_ENROLLMENT';
+
+    /**
+     * Deducting the outstanding Percentage Processing balance from the seller’s account. It's the final
+     * installment in repaying the dispute-induced negative balance through percentage processing.
+     */
+    public const PERCENTAGE_PROCESSING_DEACTIVATION = 'PERCENTAGE_PROCESSING_DEACTIVATION';
+
+    /**
+     * Withheld funds from a payment to cover a negative balance. It's an installment to repay the amount
+     * from a dispute that had been offset during Percentage Processing enrollment.
+     */
+    public const PERCENTAGE_PROCESSING_REPAYMENT = 'PERCENTAGE_PROCESSING_REPAYMENT';
+
+    /**
+     * The reversal of a percentage processing repayment that happens for example when a refund is issued
+     * for a payment.
+     */
+    public const PERCENTAGE_PROCESSING_REPAYMENT_REVERSED = 'PERCENTAGE_PROCESSING_REPAYMENT_REVERSED';
+
+    /**
+     * The processing fee for a payment. If sellers opt for Gross Settlement, i.e., direct bank withdrawal
+     * instead of deducting fees from daily sales, the processing fee is recorded separately as a new
+     * payout entry, not part of the CHARGE payout entry.
+     */
+    public const PROCESSING_FEE = 'PROCESSING_FEE';
+
+    /**
+     * The processing fee for a payment refund issued by sellers enrolled in Gross Settlement. The refunded
+     * processing fee is recorded separately as a new payout entry, not part of the REFUND payout entry.
+     */
+    public const PROCESSING_FEE_REFUND = 'PROCESSING_FEE_REFUND';
+
+    /**
+     * When undoing a processing fee refund in a Gross Settlement payment, this payout entry type is used.
+     */
+    public const UNDO_PROCESSING_FEE_REFUND = 'UNDO_PROCESSING_FEE_REFUND';
+
+    /**
+     * Fee collected during the sale or reload of a gift card. This fee, which is a portion of the amount
+     * loaded on the gift card, is deducted from the merchant's payment balance.
+     */
+    public const GIFT_CARD_LOAD_FEE = 'GIFT_CARD_LOAD_FEE';
+
+    /**
+     * Refund for fee charged during the sale or reload of a gift card.
+     */
+    public const GIFT_CARD_LOAD_FEE_REFUND = 'GIFT_CARD_LOAD_FEE_REFUND';
+
+    /**
+     * The undo of a refund for a fee charged during the sale or reload of a gift card.
+     */
+    public const UNDO_GIFT_CARD_LOAD_FEE_REFUND = 'UNDO_GIFT_CARD_LOAD_FEE_REFUND';
+
+    /**
+     * A transfer of funds to a banking folder. In the United States, the folder name is 'Checking Folder';
+     * in Canada, it's 'Balance Folder.'
+     */
+    public const BALANCE_FOLDERS_TRANSFER = 'BALANCE_FOLDERS_TRANSFER';
+
+    /**
+     * A reversal of transfer of funds from a banking folder. In the United States, the folder name is
+     * 'Checking Folder'; in Canada, it's 'Balance Folder.'
+     */
+    public const BALANCE_FOLDERS_TRANSFER_REVERSED = 'BALANCE_FOLDERS_TRANSFER_REVERSED';
+
+    /**
+     * A transfer of gift card funds to a central gift card pool account. In franchises, when gift cards
+     * are loaded or reloaded at any location, the money transfers to the franchisor's account.
+     */
+    public const GIFT_CARD_POOL_TRANSFER = 'GIFT_CARD_POOL_TRANSFER';
+
+    /**
+     * A reversal of transfer of gift card funds from a central gift card pool account. In franchises, when
+     * gift cards are loaded or reloaded at any location, the money transfers to the franchisor's account.
+     */
+    public const GIFT_CARD_POOL_TRANSFER_REVERSED = 'GIFT_CARD_POOL_TRANSFER_REVERSED';
 }
