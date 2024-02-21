@@ -105,6 +105,24 @@ class CatalogItemModifierListInfoBuilder
     }
 
     /**
+     * Sets ordinal field.
+     */
+    public function ordinal(?int $value): self
+    {
+        $this->instance->setOrdinal($value);
+        return $this;
+    }
+
+    /**
+     * Unsets ordinal field.
+     */
+    public function unsetOrdinal(): self
+    {
+        $this->instance->unsetOrdinal();
+        return $this;
+    }
+
+    /**
      * Initializes a new catalog item modifier list info object.
      */
     public function build(): CatalogItemModifierListInfo

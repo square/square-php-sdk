@@ -720,12 +720,22 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Returns Modifier List Data.
-     * A list of modifiers applicable to items at the time of sale.
+     * For a text-based modifier, this encapsulates the modifier's text when its `modifier_type` is `TEXT`.
+     * For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the
+     * buyer-supplied
+     * text string to be selected for the T-shirt at the time of sale.
      *
+     * For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
+     * at the time of sale. Each element of the modifier list is a `CatalogObject` instance of the
+     * `MODIFIER` type.
      * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
      * may contain "Ketchup", "Mustard", and "Relish" modifiers.
-     * Use the `selection_type` field to specify whether or not multiple selections from
-     * the modifier list are allowed.
+     *
+     * A non text-based modifier can be applied to the modified item once or multiple times, if the
+     * `selection_type` field
+     * is set to `SINGLE` or `MULTIPLE`, respectively. On the other hand, a text-based modifier can be
+     * applied to the item
+     * only once and the `selection_type` field is always set to `SINGLE`.
      */
     public function getModifierListData(): ?CatalogModifierList
     {
@@ -734,12 +744,22 @@ class CatalogObject implements \JsonSerializable
 
     /**
      * Sets Modifier List Data.
-     * A list of modifiers applicable to items at the time of sale.
+     * For a text-based modifier, this encapsulates the modifier's text when its `modifier_type` is `TEXT`.
+     * For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the
+     * buyer-supplied
+     * text string to be selected for the T-shirt at the time of sale.
      *
+     * For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
+     * at the time of sale. Each element of the modifier list is a `CatalogObject` instance of the
+     * `MODIFIER` type.
      * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
      * may contain "Ketchup", "Mustard", and "Relish" modifiers.
-     * Use the `selection_type` field to specify whether or not multiple selections from
-     * the modifier list are allowed.
+     *
+     * A non text-based modifier can be applied to the modified item once or multiple times, if the
+     * `selection_type` field
+     * is set to `SINGLE` or `MULTIPLE`, respectively. On the other hand, a text-based modifier can be
+     * applied to the item
+     * only once and the `selection_type` field is always set to `SINGLE`.
      *
      * @maps modifier_list_data
      */

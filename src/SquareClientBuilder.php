@@ -6,6 +6,7 @@ namespace Square;
 
 use Core\Types\Sdk\CoreCallback;
 use Core\Utils\CoreHelper;
+use Square\Authentication\BearerAuthCredentialsBuilder;
 
 class SquareClientBuilder
 {
@@ -131,9 +132,25 @@ class SquareClientBuilder
         return $this;
     }
 
+    /**
+     * @see SquareClientBuilder::bearerAuthCredentials
+     *
+     * @deprecated This builder setter is deprecated. Checkout the see also section for its
+     *             alternate.
+     *
+     * @param string $accessToken
+     *
+     * @return $this
+     */
     public function accessToken(string $accessToken): self
     {
         $this->config['accessToken'] = $accessToken;
+        return $this;
+    }
+
+    public function bearerAuthCredentials(BearerAuthCredentialsBuilder $bearerAuth): self
+    {
+        $this->config = array_merge($this->config, $bearerAuth->getConfiguration());
         return $this;
     }
 

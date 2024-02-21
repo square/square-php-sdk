@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2024-01-18'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2024-02-22'` |
 | `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `int` | Timeout for API calls in seconds.<br>*Default*: `60` |
@@ -19,14 +19,18 @@ The following parameters are configurable for the API Client:
 | `httpMethodsToRetry` | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT'` |
 | `additionalHeaders` | `array` | Additional headers to add to each API call<br>*Default*: `[]` |
 | `userAgentDetail` | `string` | User agent detail, to be appended with user-agent header. |
-| `accessToken` | `string` | The OAuth 2.0 Access Token to use for API requests. |
+| `bearerAuthCredentials` | [`BearerAuthCredentials`](auth/oauth-2-bearer-token.md) | The Credentials Setter for OAuth 2 Bearer token |
 
 The API client can be initialized as follows:
 
 ```php
 $client = SquareClientBuilder::init()
-    ->accessToken('AccessToken')
-    ->squareVersion('2024-01-18')
+    ->bearerAuthCredentials(
+        BearerAuthCredentialsBuilder::init(
+            'AccessToken'
+        )
+    )
+    ->squareVersion('2024-02-22')
     ->environment('production')
     ->customUrl('https://connect.squareup.com')
     ->build();
@@ -48,10 +52,15 @@ API calls return an `ApiResponse` object that includes the following fields:
 require_once "vendor/autoload.php";
 
 use Square\SquareClientBuilder;
+use Square\Authentication\BearerAuthCredentialsBuilder;
 
 $client = SquareClientBuilder::init()
-    ->accessToken('AccessToken')
-    ->squareVersion('2024-01-18')
+    ->bearerAuthCredentials(
+        BearerAuthCredentialsBuilder::init(
+            'AccessToken'
+        )
+    )
+    ->squareVersion('2024-02-22')
     ->build();
 
 $apiResponse = $client->getLocationsApi()->listLocations();

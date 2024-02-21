@@ -153,8 +153,8 @@ class CheckoutApi extends BaseApi
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
      *        Provide this cursor to retrieve the next set of results for the original query.
      *        If a cursor is not provided, the endpoint returns the first page of the results.
-     *        For more  information, see [Pagination](https://developer.squareup.
-     *        com/docs/basics/api101/pagination).
+     *        For more  information, see [Pagination](https://developer.squareup.com/docs/build-
+     *        basics/common-api-patterns/pagination).
      * @param int|null $limit A limit on the number of results to return per page. The limit is
      *        advisory and
      *        the implementation might return more or less results. If the supplied limit is

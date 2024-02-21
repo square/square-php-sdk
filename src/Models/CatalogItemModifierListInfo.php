@@ -7,7 +7,9 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * Options to control the properties of a `CatalogModifierList` applied to a `CatalogItem` instance.
+ * References a text-based modifier or a list of non text-based modifiers applied to a `CatalogItem`
+ * instance
+ * and specifies supported behaviors of the application.
  */
 class CatalogItemModifierListInfo implements \JsonSerializable
 {
@@ -35,6 +37,11 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * @var array
      */
     private $enabled = [];
+
+    /**
+     * @var array
+     */
+    private $ordinal = [];
 
     /**
      * @param string $modifierListId
@@ -207,6 +214,44 @@ class CatalogItemModifierListInfo implements \JsonSerializable
     }
 
     /**
+     * Returns Ordinal.
+     * The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list
+     * applied
+     * to a `CatalogItem` instance.
+     */
+    public function getOrdinal(): ?int
+    {
+        if (count($this->ordinal) == 0) {
+            return null;
+        }
+        return $this->ordinal['value'];
+    }
+
+    /**
+     * Sets Ordinal.
+     * The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list
+     * applied
+     * to a `CatalogItem` instance.
+     *
+     * @maps ordinal
+     */
+    public function setOrdinal(?int $ordinal): void
+    {
+        $this->ordinal['value'] = $ordinal;
+    }
+
+    /**
+     * Unsets Ordinal.
+     * The position of this `CatalogItemModifierListInfo` object within the `modifier_list_info` list
+     * applied
+     * to a `CatalogItem` instance.
+     */
+    public function unsetOrdinal(): void
+    {
+        $this->ordinal = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -230,6 +275,9 @@ class CatalogItemModifierListInfo implements \JsonSerializable
         }
         if (!empty($this->enabled)) {
             $json['enabled']                = $this->enabled['value'];
+        }
+        if (!empty($this->ordinal)) {
+            $json['ordinal']                = $this->ordinal['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

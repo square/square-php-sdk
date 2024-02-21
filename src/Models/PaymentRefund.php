@@ -218,8 +218,8 @@ class PaymentRefund implements \JsonSerializable
      * Returns Destination Type.
      * The destination type for this refund.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, and
-     * `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`,
+     * `EXTERNAL`, and `SQUARE_ACCOUNT`.
      */
     public function getDestinationType(): ?string
     {
@@ -233,8 +233,8 @@ class PaymentRefund implements \JsonSerializable
      * Sets Destination Type.
      * The destination type for this refund.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, and
-     * `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`,
+     * `EXTERNAL`, and `SQUARE_ACCOUNT`.
      *
      * @maps destination_type
      */
@@ -247,8 +247,8 @@ class PaymentRefund implements \JsonSerializable
      * Unsets Destination Type.
      * The destination type for this refund.
      *
-     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`, and
-     * `EXTERNAL`.
+     * Current values include `CARD`, `BANK_ACCOUNT`, `WALLET`, `BUY_NOW_PAY_LATER`, `CASH`,
+     * `EXTERNAL`, and `SQUARE_ACCOUNT`.
      */
     public function unsetDestinationType(): void
     {
