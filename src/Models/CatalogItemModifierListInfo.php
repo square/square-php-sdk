@@ -115,6 +115,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Returns Min Selected Modifiers.
      * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      */
     public function getMinSelectedModifiers(): ?int
     {
@@ -128,6 +141,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Sets Min Selected Modifiers.
      * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      *
      * @maps min_selected_modifiers
      */
@@ -140,6 +166,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Unsets Min Selected Modifiers.
      * If 0 or larger, the smallest number of `CatalogModifier`s that must be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      */
     public function unsetMinSelectedModifiers(): void
     {
@@ -150,6 +189,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Returns Max Selected Modifiers.
      * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      */
     public function getMaxSelectedModifiers(): ?int
     {
@@ -163,6 +215,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Sets Max Selected Modifiers.
      * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      *
      * @maps max_selected_modifiers
      */
@@ -175,6 +240,19 @@ class CatalogItemModifierListInfo implements \JsonSerializable
      * Unsets Max Selected Modifiers.
      * If 0 or larger, the largest number of `CatalogModifier`s that can be selected from this
      * `CatalogModifierList`.
+     * The default value is `-1`.
+     *
+     * When  `CatalogModifierList.selection_type` is `MULTIPLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that from zero to the maximum number of
+     * modifiers of
+     * the `CatalogModifierList` can be selected from the `CatalogModifierList`.
+     *
+     * When the `CatalogModifierList.selection_type` is `SINGLE`, `CatalogModifierListInfo.
+     * min_selected_modifiers=-1`
+     * and `CatalogModifierListInfo.max_selected_modifier=-1` means that exactly one modifier must be
+     * present in
+     * and can be selected from the `CatalogModifierList`
      */
     public function unsetMaxSelectedModifiers(): void
     {
