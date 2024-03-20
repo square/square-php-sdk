@@ -27,7 +27,7 @@ class ConfigurationDefaults
 
     public const HTTP_METHODS_TO_RETRY = ['GET', 'PUT'];
 
-    public const SQUARE_VERSION = '2024-02-22';
+    public const SQUARE_VERSION = '2024-03-20';
 
     public const ADDITIONAL_HEADERS = [];
 

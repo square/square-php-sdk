@@ -43,7 +43,8 @@ class TenderType
     public const BANK_ACCOUNT = 'BANK_ACCOUNT';
 
     /**
-     * A payment from a digital wallet, e.g. Cash App.
+     * A payment from a digital wallet, e.g. Cash App, Paypay, Rakuten Pay,
+     * Au Pay, D Barai, Merpay, Wechat Pay, Alipay.
      *
      * Note: Some "digital wallets", including Google Pay and Apple Pay, facilitate
      * card payments.  Those payments have the `CARD` type.
