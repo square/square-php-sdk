@@ -164,7 +164,7 @@ class SquareClient implements ConfigurationInterface
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/35.1.0.20240320 ({api-version}) {engine}/{engine-version} ({os-' .
+                'Square-PHP-SDK/36.0.0.20240417 ({api-version}) {engine}/{engine-version} ({os-' .
                 'info}) {detail}'
             )
             ->userAgentConfig(
@@ -319,7 +319,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '35.1.0.20240320';
+        return '36.0.0.20240417';
     }
 
     /**
