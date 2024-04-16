@@ -794,8 +794,8 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Created At.
-     * The timestamp for when the order was created, in RFC 3339 format (for example, "2016-09-04T23:59:33.
-     * 123Z").
+     * The timestamp for when the order was created, at server side, in RFC 3339 format (for example, "2016-
+     * 09-04T23:59:33.123Z").
      */
     public function getCreatedAt(): ?string
     {
@@ -804,8 +804,8 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Created At.
-     * The timestamp for when the order was created, in RFC 3339 format (for example, "2016-09-04T23:59:33.
-     * 123Z").
+     * The timestamp for when the order was created, at server side, in RFC 3339 format (for example, "2016-
+     * 09-04T23:59:33.123Z").
      *
      * @maps created_at
      */
@@ -816,8 +816,8 @@ class Order implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     * The timestamp for when the order was last updated, in RFC 3339 format (for example, "2016-09-04T23:
-     * 59:33.123Z").
+     * The timestamp for when the order was last updated, at server side, in RFC 3339 format (for example,
+     * "2016-09-04T23:59:33.123Z").
      */
     public function getUpdatedAt(): ?string
     {
@@ -826,8 +826,8 @@ class Order implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     * The timestamp for when the order was last updated, in RFC 3339 format (for example, "2016-09-04T23:
-     * 59:33.123Z").
+     * The timestamp for when the order was last updated, at server side, in RFC 3339 format (for example,
+     * "2016-09-04T23:59:33.123Z").
      *
      * @maps updated_at
      */
