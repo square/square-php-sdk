@@ -61,6 +61,24 @@ class DestinationDetailsCardRefundDetailsBuilder
     }
 
     /**
+     * Sets auth result code field.
+     */
+    public function authResultCode(?string $value): self
+    {
+        $this->instance->setAuthResultCode($value);
+        return $this;
+    }
+
+    /**
+     * Unsets auth result code field.
+     */
+    public function unsetAuthResultCode(): self
+    {
+        $this->instance->unsetAuthResultCode();
+        return $this;
+    }
+
+    /**
      * Initializes a new destination details card refund details object.
      */
     public function build(): DestinationDetailsCardRefundDetails

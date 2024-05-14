@@ -6,6 +6,7 @@ namespace Square\Authentication;
 
 use Core\Authentication\CoreAuth;
 use Core\Request\Parameters\HeaderParam;
+use Core\Utils\CoreHelper;
 use Square\BearerAuthCredentials;
 
 /**
@@ -22,7 +23,9 @@ class BearerAuthManager extends CoreAuth implements BearerAuthCredentials
      */
     public function __construct(string $accessToken)
     {
-        parent::__construct(HeaderParam::init('Authorization', 'Bearer ' . $accessToken)->required());
+        parent::__construct(
+            HeaderParam::init('Authorization', CoreHelper::getBearerAuthString($accessToken))->requiredNonEmpty()
+        );
         $this->accessToken = $accessToken;
     }
 

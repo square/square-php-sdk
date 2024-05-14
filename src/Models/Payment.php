@@ -212,6 +212,11 @@ class Payment implements \JsonSerializable
     private $applicationDetails;
 
     /**
+     * @var bool|null
+     */
+    private $isOfflinePayment;
+
+    /**
      * @var array
      */
     private $versionToken = [];
@@ -1245,6 +1250,26 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Is Offline Payment.
+     * Whether or not this payment was taken offline.
+     */
+    public function getIsOfflinePayment(): ?bool
+    {
+        return $this->isOfflinePayment;
+    }
+
+    /**
+     * Sets Is Offline Payment.
+     * Whether or not this payment was taken offline.
+     *
+     * @maps is_offline_payment
+     */
+    public function setIsOfflinePayment(?bool $isOfflinePayment): void
+    {
+        $this->isOfflinePayment = $isOfflinePayment;
+    }
+
+    /**
      * Returns Version Token.
      * Used for optimistic concurrency. This opaque token identifies a specific version of the
      * `Payment` object.
@@ -1410,6 +1435,9 @@ class Payment implements \JsonSerializable
         }
         if (isset($this->applicationDetails)) {
             $json['application_details']              = $this->applicationDetails;
+        }
+        if (isset($this->isOfflinePayment)) {
+            $json['is_offline_payment']               = $this->isOfflinePayment;
         }
         if (!empty($this->versionToken)) {
             $json['version_token']                    = $this->versionToken['value'];

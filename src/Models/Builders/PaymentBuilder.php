@@ -414,6 +414,15 @@ class PaymentBuilder
     }
 
     /**
+     * Sets is offline payment field.
+     */
+    public function isOfflinePayment(?bool $value): self
+    {
+        $this->instance->setIsOfflinePayment($value);
+        return $this;
+    }
+
+    /**
      * Sets version token field.
      */
     public function versionToken(?string $value): self

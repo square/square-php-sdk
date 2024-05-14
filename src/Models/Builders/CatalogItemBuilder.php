@@ -108,6 +108,24 @@ class CatalogItemBuilder
     }
 
     /**
+     * Sets is taxable field.
+     */
+    public function isTaxable(?bool $value): self
+    {
+        $this->instance->setIsTaxable($value);
+        return $this;
+    }
+
+    /**
+     * Unsets is taxable field.
+     */
+    public function unsetIsTaxable(): self
+    {
+        $this->instance->unsetIsTaxable();
+        return $this;
+    }
+
+    /**
      * Sets available online field.
      */
     public function availableOnline(?bool $value): self
