@@ -35,6 +35,11 @@ class CatalogItem implements \JsonSerializable
     /**
      * @var array
      */
+    private $isTaxable = [];
+
+    /**
+     * @var array
+     */
     private $availableOnline = [];
 
     /**
@@ -303,6 +308,38 @@ class CatalogItem implements \JsonSerializable
     public function unsetLabelColor(): void
     {
         $this->labelColor = [];
+    }
+
+    /**
+     * Returns Is Taxable.
+     * Indicates whether the item is taxable (`true`) or non-taxable (`false`). Default is `true`.
+     */
+    public function getIsTaxable(): ?bool
+    {
+        if (count($this->isTaxable) == 0) {
+            return null;
+        }
+        return $this->isTaxable['value'];
+    }
+
+    /**
+     * Sets Is Taxable.
+     * Indicates whether the item is taxable (`true`) or non-taxable (`false`). Default is `true`.
+     *
+     * @maps is_taxable
+     */
+    public function setIsTaxable(?bool $isTaxable): void
+    {
+        $this->isTaxable['value'] = $isTaxable;
+    }
+
+    /**
+     * Unsets Is Taxable.
+     * Indicates whether the item is taxable (`true`) or non-taxable (`false`). Default is `true`.
+     */
+    public function unsetIsTaxable(): void
+    {
+        $this->isTaxable = [];
     }
 
     /**
@@ -1095,6 +1132,9 @@ class CatalogItem implements \JsonSerializable
         }
         if (!empty($this->labelColor)) {
             $json['label_color']               = $this->labelColor['value'];
+        }
+        if (!empty($this->isTaxable)) {
+            $json['is_taxable']                = $this->isTaxable['value'];
         }
         if (!empty($this->availableOnline)) {
             $json['available_online']          = $this->availableOnline['value'];

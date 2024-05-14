@@ -51,6 +51,7 @@ Represents a payment processed by the Square API.
 | `receiptUrl` | `?string` | Optional | The URL for the payment's receipt.<br>The field is only populated for COMPLETED payments.<br>**Constraints**: *Maximum Length*: `255` | getReceiptUrl(): ?string | setReceiptUrl(?string receiptUrl): void |
 | `deviceDetails` | [`?DeviceDetails`](../../doc/models/device-details.md) | Optional | Details about the device that took the payment. | getDeviceDetails(): ?DeviceDetails | setDeviceDetails(?DeviceDetails deviceDetails): void |
 | `applicationDetails` | [`?ApplicationDetails`](../../doc/models/application-details.md) | Optional | Details about the application that took the payment. | getApplicationDetails(): ?ApplicationDetails | setApplicationDetails(?ApplicationDetails applicationDetails): void |
+| `isOfflinePayment` | `?bool` | Optional | Whether or not this payment was taken offline. | getIsOfflinePayment(): ?bool | setIsOfflinePayment(?bool isOfflinePayment): void |
 | `versionToken` | `?string` | Optional | Used for optimistic concurrency. This opaque token identifies a specific version of the<br>`Payment` object. | getVersionToken(): ?string | setVersionToken(?string versionToken): void |
 
 ## Example (as JSON)
