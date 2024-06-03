@@ -31,7 +31,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Returns Type.
-     * Name of the affected object’s type.
+     * The name of the affected object’s type.
      */
     public function getType(): ?string
     {
@@ -43,7 +43,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Sets Type.
-     * Name of the affected object’s type.
+     * The name of the affected object’s type.
      *
      * @maps type
      */
@@ -54,7 +54,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Unsets Type.
-     * Name of the affected object’s type.
+     * The name of the affected object’s type.
      */
     public function unsetType(): void
     {
@@ -63,7 +63,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Returns Id.
-     * ID of the affected object.
+     * The ID of the affected object.
      */
     public function getId(): ?string
     {
@@ -72,7 +72,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Sets Id.
-     * ID of the affected object.
+     * The ID of the affected object.
      *
      * @maps id
      */
@@ -83,7 +83,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Returns Deleted.
-     * Is true if the affected object was deleted. Otherwise absent.
+     * This is true if the affected object has been deleted; otherwise, it's absent.
      */
     public function getDeleted(): ?bool
     {
@@ -95,7 +95,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Sets Deleted.
-     * Is true if the affected object was deleted. Otherwise absent.
+     * This is true if the affected object has been deleted; otherwise, it's absent.
      *
      * @maps deleted
      */
@@ -106,7 +106,7 @@ class EventData implements \JsonSerializable
 
     /**
      * Unsets Deleted.
-     * Is true if the affected object was deleted. Otherwise absent.
+     * This is true if the affected object has been deleted; otherwise, it's absent.
      */
     public function unsetDeleted(): void
     {
@@ -115,8 +115,8 @@ class EventData implements \JsonSerializable
 
     /**
      * Returns Object.
-     * An object containing fields and values relevant to the event. Is absent if affected object was
-     * deleted.
+     * An object containing fields and values relevant to the event. It is absent if the affected object
+     * has been deleted.
      *
      * @return mixed
      */
@@ -130,8 +130,8 @@ class EventData implements \JsonSerializable
 
     /**
      * Sets Object.
-     * An object containing fields and values relevant to the event. Is absent if affected object was
-     * deleted.
+     * An object containing fields and values relevant to the event. It is absent if the affected object
+     * has been deleted.
      *
      * @maps object
      *
@@ -144,8 +144,8 @@ class EventData implements \JsonSerializable
 
     /**
      * Unsets Object.
-     * An object containing fields and values relevant to the event. Is absent if affected object was
-     * deleted.
+     * An object containing fields and values relevant to the event. It is absent if the affected object
+     * has been deleted.
      */
     public function unsetObject(): void
     {
