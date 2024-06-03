@@ -24,6 +24,7 @@ use Square\Apis\CustomerSegmentsApi;
 use Square\Apis\DevicesApi;
 use Square\Apis\DisputesApi;
 use Square\Apis\EmployeesApi;
+use Square\Apis\EventsApi;
 use Square\Apis\GiftCardActivitiesApi;
 use Square\Apis\GiftCardsApi;
 use Square\Apis\InventoryApi;
@@ -91,6 +92,8 @@ class SquareClient implements ConfigurationInterface
     private $disputes;
 
     private $employees;
+
+    private $events;
 
     private $giftCards;
 
@@ -164,7 +167,7 @@ class SquareClient implements ConfigurationInterface
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/37.0.0.20240515 ({api-version}) {engine}/{engine-version} ({os-' .
+                'Square-PHP-SDK/37.1.0.20240604 ({api-version}) {engine}/{engine-version} ({os-' .
                 'info}) {detail}'
             )
             ->userAgentConfig(
@@ -319,7 +322,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '37.0.0.20240515';
+        return '37.1.0.20240604';
     }
 
     /**
@@ -529,6 +532,17 @@ class SquareClient implements ConfigurationInterface
             $this->employees = new EmployeesApi($this->client);
         }
         return $this->employees;
+    }
+
+    /**
+     * Returns Events Api
+     */
+    public function getEventsApi(): EventsApi
+    {
+        if ($this->events == null) {
+            $this->events = new EventsApi($this->client);
+        }
+        return $this->events;
     }
 
     /**

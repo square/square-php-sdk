@@ -72,7 +72,7 @@ class Event implements \JsonSerializable
 
     /**
      * Returns Location Id.
-     * The ID of the location associated with the event.
+     * The ID of the target location associated with the event.
      */
     public function getLocationId(): ?string
     {
@@ -84,7 +84,7 @@ class Event implements \JsonSerializable
 
     /**
      * Sets Location Id.
-     * The ID of the location associated with the event.
+     * The ID of the target location associated with the event.
      *
      * @maps location_id
      */
@@ -95,7 +95,7 @@ class Event implements \JsonSerializable
 
     /**
      * Unsets Location Id.
-     * The ID of the location associated with the event.
+     * The ID of the target location associated with the event.
      */
     public function unsetLocationId(): void
     {

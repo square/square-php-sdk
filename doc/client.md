@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2024-05-15'` |
+| `squareVersion` | `string` | Square Connect API versions<br>*Default*: `'2024-06-04'` |
 | `customUrl` | `string` | Sets the base URL requests are made to. Defaults to `https://connect.squareup.com`<br>*Default*: `'https://connect.squareup.com'` |
 | `environment` | `string` | The API environment. <br> **Default: `production`** |
 | `timeout` | `int` | Timeout for API calls in seconds.<br>*Default*: `60` |
@@ -30,7 +30,7 @@ $client = SquareClientBuilder::init()
             'AccessToken'
         )
     )
-    ->squareVersion('2024-05-15')
+    ->squareVersion('2024-06-04')
     ->environment('production')
     ->customUrl('https://connect.squareup.com')
     ->build();
@@ -60,7 +60,7 @@ $client = SquareClientBuilder::init()
             'AccessToken'
         )
     )
-    ->squareVersion('2024-05-15')
+    ->squareVersion('2024-06-04')
     ->build();
 
 $apiResponse = $client->getLocationsApi()->listLocations();
@@ -101,6 +101,7 @@ The gateway for the SDK. This class acts as a factory for the Apis and also hold
 | getDevicesApi() | Gets DevicesApi |
 | getDisputesApi() | Gets DisputesApi |
 | getEmployeesApi() | Gets EmployeesApi |
+| getEventsApi() | Gets EventsApi |
 | getGiftCardsApi() | Gets GiftCardsApi |
 | getGiftCardActivitiesApi() | Gets GiftCardActivitiesApi |
 | getInventoryApi() | Gets InventoryApi |
