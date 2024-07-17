@@ -22,6 +22,22 @@ class WebhooksHelperTest extends TestCase
         $this->assertTrue($isValid);
     }
 
+    public function testEscapedCharactersPass(): void 
+    {
+        $specialRequestBody = '{"data":{"type":"webhooks","id":">id<"}}';
+        $escapedSignatureHeader = 'Cxt7+aTi4rKgcA0bC4g9EHdVtLSDWdqccmL5MvihU4U=';
+        $defaultSignatureKey = 'signature-key';
+        $defaultNotificationUrl = 'https://webhook.site/webhooks';
+
+        $isValid = WebhooksHelper::isValidWebhookEventSignature(
+            $specialRequestBody,
+            $escapedSignatureHeader,
+            $defaultSignatureKey,
+            $defaultNotificationUrl
+        );
+        $this->assertTrue($isValid);
+    }
+
     public function testSignatureValidationFailsOnNotificationUrlMismatch(): void
     {
         $isValid = WebhooksHelper::isValidWebhookEventSignature(
