@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Authentication;
 
 use Core\Authentication\CoreAuth;
+use Square\ConfigurationDefaults;
 use Core\Request\Parameters\HeaderParam;
 use Core\Utils\CoreHelper;
 use Square\BearerAuthCredentials;
@@ -14,19 +15,18 @@ use Square\BearerAuthCredentials;
  */
 class BearerAuthManager extends CoreAuth implements BearerAuthCredentials
 {
-    private $accessToken;
-
     /**
-     * Returns an instance of this class.
-     *
-     * @param string $accessToken The OAuth 2.0 Access Token to use for API requests.
+     * @var array
      */
-    public function __construct(string $accessToken)
+    private $config;
+
+    public function __construct(array $config)
     {
+        $this->config = $config;
         parent::__construct(
-            HeaderParam::init('Authorization', CoreHelper::getBearerAuthString($accessToken))->requiredNonEmpty()
+            HeaderParam::init('Authorization', CoreHelper::getBearerAuthString($this->getAccessToken()))
+                ->requiredNonEmpty()
         );
-        $this->accessToken = $accessToken;
     }
 
     /**
@@ -34,7 +34,7 @@ class BearerAuthManager extends CoreAuth implements BearerAuthCredentials
      */
     public function getAccessToken(): string
     {
-        return $this->accessToken;
+        return $this->config['accessToken'] ?? ConfigurationDefaults::ACCESS_TOKEN;
     }
 
     /**
@@ -44,6 +44,6 @@ class BearerAuthManager extends CoreAuth implements BearerAuthCredentials
      */
     public function equals(string $accessToken): bool
     {
-        return $accessToken == $this->accessToken;
+        return $accessToken == $this->getAccessToken();
     }
 }

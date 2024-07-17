@@ -158,16 +158,14 @@ class SquareClient implements ConfigurationInterface
     public function __construct(array $config = [])
     {
         $this->config = array_merge(ConfigurationDefaults::_ALL, CoreHelper::clone($config));
-        $this->bearerAuthManager = new BearerAuthManager(
-            $this->config['accessToken'] ?? ConfigurationDefaults::ACCESS_TOKEN
-        );
+        $this->bearerAuthManager = new BearerAuthManager($this->config);
         $this->validateConfig();
         $this->client = ClientBuilder::init(new HttpClient(Configuration::init($this)))
             ->converter(new CompatibilityConverter())
             ->jsonHelper(ApiHelper::getJsonHelper())
             ->apiCallback($this->config['httpCallback'] ?? null)
             ->userAgent(
-                'Square-PHP-SDK/37.1.0.20240604 ({api-version}) {engine}/{engine-version} ({os-' .
+                'Square-PHP-SDK/37.1.1.20240717 ({api-version}) {engine}/{engine-version} ({os-' .
                 'info}) {detail}'
             )
             ->userAgentConfig(
@@ -322,7 +320,7 @@ class SquareClient implements ConfigurationInterface
      */
     public function getSdkVersion(): string
     {
-        return '37.1.0.20240604';
+        return '37.1.1.20240717';
     }
 
     /**

@@ -108,9 +108,9 @@ class UpdateInvoiceRequest implements \JsonSerializable
 
     /**
      * Returns Fields to Clear.
-     * The list of fields to clear.
-     * For examples, see [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-
-     * invoices).
+     * The list of fields to clear. Although this field is currently supported, we
+     * recommend using null values or the `remove` field when possible. For examples, see
+     * [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-invoices).
      *
      * @return string[]|null
      */
@@ -124,9 +124,9 @@ class UpdateInvoiceRequest implements \JsonSerializable
 
     /**
      * Sets Fields to Clear.
-     * The list of fields to clear.
-     * For examples, see [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-
-     * invoices).
+     * The list of fields to clear. Although this field is currently supported, we
+     * recommend using null values or the `remove` field when possible. For examples, see
+     * [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-invoices).
      *
      * @maps fields_to_clear
      *
@@ -139,9 +139,9 @@ class UpdateInvoiceRequest implements \JsonSerializable
 
     /**
      * Unsets Fields to Clear.
-     * The list of fields to clear.
-     * For examples, see [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-
-     * invoices).
+     * The list of fields to clear. Although this field is currently supported, we
+     * recommend using null values or the `remove` field when possible. For examples, see
+     * [Update an Invoice](https://developer.squareup.com/docs/invoices-api/update-invoices).
      */
     public function unsetFieldsToClear(): void
     {
