@@ -15,6 +15,7 @@ use Square\Models\DeviceDetails;
 use Square\Models\DigitalWalletDetails;
 use Square\Models\ExternalPaymentDetails;
 use Square\Models\Money;
+use Square\Models\OfflinePaymentDetails;
 use Square\Models\Payment;
 use Square\Models\RiskEvaluation;
 use Square\Models\SquareAccountDetails;
@@ -306,6 +307,15 @@ class PaymentBuilder
     }
 
     /**
+     * Unsets team member id field.
+     */
+    public function unsetTeamMemberId(): self
+    {
+        $this->instance->unsetTeamMemberId();
+        return $this;
+    }
+
+    /**
      * Sets refund ids field.
      */
     public function refundIds(?array $value): self
@@ -419,6 +429,15 @@ class PaymentBuilder
     public function isOfflinePayment(?bool $value): self
     {
         $this->instance->setIsOfflinePayment($value);
+        return $this;
+    }
+
+    /**
+     * Sets offline payment details field.
+     */
+    public function offlinePaymentDetails(?OfflinePaymentDetails $value): self
+    {
+        $this->instance->setOfflinePaymentDetails($value);
         return $this;
     }
 

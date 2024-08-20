@@ -203,6 +203,8 @@ class GiftCardActivityActivate implements \JsonSerializable
      * For applications that use the Square Orders API to process payments, Square has the necessary
      * instrument IDs to perform compliance checks.
      *
+     * Each buyer payment instrument ID can contain a maximum of 255 characters.
+     *
      * @return string[]|null
      */
     public function getBuyerPaymentInstrumentIds(): ?array
@@ -225,6 +227,8 @@ class GiftCardActivityActivate implements \JsonSerializable
      * For applications that use the Square Orders API to process payments, Square has the necessary
      * instrument IDs to perform compliance checks.
      *
+     * Each buyer payment instrument ID can contain a maximum of 255 characters.
+     *
      * @maps buyer_payment_instrument_ids
      *
      * @param string[]|null $buyerPaymentInstrumentIds
@@ -245,6 +249,8 @@ class GiftCardActivityActivate implements \JsonSerializable
      *
      * For applications that use the Square Orders API to process payments, Square has the necessary
      * instrument IDs to perform compliance checks.
+     *
+     * Each buyer payment instrument ID can contain a maximum of 255 characters.
      */
     public function unsetBuyerPaymentInstrumentIds(): void
     {

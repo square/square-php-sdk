@@ -26,8 +26,9 @@ class GiftCardStatus
 
     /**
      * The gift card is pending activation.
-     * This is the initial state when a gift card is created. You must activate the gift card
-     * before it can be used.
+     * This is the initial state when a gift card is created. Typically, you'll call
+     * [CreateGiftCardActivity]($e/GiftCardActivities/CreateGiftCardActivity) to create an
+     * `ACTIVATE` activity that activates the gift card with an initial balance before first use.
      */
     public const PENDING = 'PENDING';
 }

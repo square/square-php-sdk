@@ -11,6 +11,7 @@ use Square\Models\CreatePaymentRequest;
 use Square\Models\CustomerDetails;
 use Square\Models\ExternalPaymentDetails;
 use Square\Models\Money;
+use Square\Models\OfflinePaymentDetails;
 
 /**
  * Builder for model CreatePaymentRequest
@@ -223,6 +224,15 @@ class CreatePaymentRequestBuilder
     public function customerDetails(?CustomerDetails $value): self
     {
         $this->instance->setCustomerDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets offline payment details field.
+     */
+    public function offlinePaymentDetails(?OfflinePaymentDetails $value): self
+    {
+        $this->instance->setOfflinePaymentDetails($value);
         return $this;
     }
 

@@ -35,6 +35,7 @@ Describes a request to create a payment using
 | `cashDetails` | [`?CashPaymentDetails`](../../doc/models/cash-payment-details.md) | Optional | Stores details about a cash payment. Contains only non-confidential information. For more information, see<br>[Take Cash Payments](https://developer.squareup.com/docs/payments-api/take-payments/cash-payments). | getCashDetails(): ?CashPaymentDetails | setCashDetails(?CashPaymentDetails cashDetails): void |
 | `externalDetails` | [`?ExternalPaymentDetails`](../../doc/models/external-payment-details.md) | Optional | Stores details about an external payment. Contains only non-confidential information.<br>For more information, see<br>[Take External Payments](https://developer.squareup.com/docs/payments-api/take-payments/external-payments). | getExternalDetails(): ?ExternalPaymentDetails | setExternalDetails(?ExternalPaymentDetails externalDetails): void |
 | `customerDetails` | [`?CustomerDetails`](../../doc/models/customer-details.md) | Optional | Details about the customer making the payment. | getCustomerDetails(): ?CustomerDetails | setCustomerDetails(?CustomerDetails customerDetails): void |
+| `offlinePaymentDetails` | [`?OfflinePaymentDetails`](../../doc/models/offline-payment-details.md) | Optional | Details specific to offline payments. | getOfflinePaymentDetails(): ?OfflinePaymentDetails | setOfflinePaymentDetails(?OfflinePaymentDetails offlinePaymentDetails): void |
 
 ## Example (as JSON)
 
