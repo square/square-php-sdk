@@ -62,6 +62,23 @@ class PaymentsApi extends BaseApi
      *        greater than 100, it is ignored and the default value is used instead.
      *
      *        Default: `100`
+     * @param bool|null $isOfflinePayment Whether the payment was taken offline or not.
+     * @param string|null $offlineBeginTime Indicates the start of the time range for which to
+     *        retrieve offline payments, in RFC 3339
+     *        format for timestamps. The range is determined using the
+     *        `offline_payment_details.client_created_at` field for each Payment. If set, payments
+     *        without a
+     *        value set in `offline_payment_details.client_created_at` will not be returned.
+     *
+     *        Default: The current time.
+     * @param string|null $offlineEndTime Indicates the end of the time range for which to retrieve
+     *        offline payments, in RFC 3339
+     *        format for timestamps. The range is determined using the
+     *        `offline_payment_details.client_created_at` field for each Payment. If set, payments
+     *        without a
+     *        value set in `offline_payment_details.client_created_at` will not be returned.
+     *
+     *        Default: The current time.
      *
      * @return ApiResponse Response from the API call
      */
@@ -74,7 +91,10 @@ class PaymentsApi extends BaseApi
         ?int $total = null,
         ?string $last4 = null,
         ?string $cardBrand = null,
-        ?int $limit = null
+        ?int $limit = null,
+        ?bool $isOfflinePayment = false,
+        ?string $offlineBeginTime = null,
+        ?string $offlineEndTime = null
     ): ApiResponse {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/payments')
             ->auth('global')
@@ -87,7 +107,10 @@ class PaymentsApi extends BaseApi
                 QueryParam::init('total', $total),
                 QueryParam::init('last_4', $last4),
                 QueryParam::init('card_brand', $cardBrand),
-                QueryParam::init('limit', $limit)
+                QueryParam::init('limit', $limit),
+                QueryParam::init('is_offline_payment', $isOfflinePayment),
+                QueryParam::init('offline_begin_time', $offlineBeginTime),
+                QueryParam::init('offline_end_time', $offlineEndTime)
             );
 
         $_resHandler = $this->responseHandler()->type(ListPaymentsResponse::class)->returnApiResponse();

@@ -107,14 +107,11 @@ class OAuthApi extends BaseApi
      * If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED`
      * error.
      *
-     * @param string $authorization Client APPLICATION_SECRET
-     *
      * @return ApiResponse Response from the API call
      */
-    public function retrieveTokenStatus(string $authorization): ApiResponse
+    public function retrieveTokenStatus(): ApiResponse
     {
-        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/token/status')
-            ->parameters(HeaderParam::init('Authorization', $authorization));
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/oauth2/token/status')->auth('global');
 
         $_resHandler = $this->responseHandler()->type(RetrieveTokenStatusResponse::class)->returnApiResponse();
 

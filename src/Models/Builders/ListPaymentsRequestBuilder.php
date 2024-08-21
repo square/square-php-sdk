@@ -195,6 +195,60 @@ class ListPaymentsRequestBuilder
     }
 
     /**
+     * Sets is offline payment field.
+     */
+    public function isOfflinePayment(?bool $value): self
+    {
+        $this->instance->setIsOfflinePayment($value);
+        return $this;
+    }
+
+    /**
+     * Unsets is offline payment field.
+     */
+    public function unsetIsOfflinePayment(): self
+    {
+        $this->instance->unsetIsOfflinePayment();
+        return $this;
+    }
+
+    /**
+     * Sets offline begin time field.
+     */
+    public function offlineBeginTime(?string $value): self
+    {
+        $this->instance->setOfflineBeginTime($value);
+        return $this;
+    }
+
+    /**
+     * Unsets offline begin time field.
+     */
+    public function unsetOfflineBeginTime(): self
+    {
+        $this->instance->unsetOfflineBeginTime();
+        return $this;
+    }
+
+    /**
+     * Sets offline end time field.
+     */
+    public function offlineEndTime(?string $value): self
+    {
+        $this->instance->setOfflineEndTime($value);
+        return $this;
+    }
+
+    /**
+     * Unsets offline end time field.
+     */
+    public function unsetOfflineEndTime(): self
+    {
+        $this->instance->unsetOfflineEndTime();
+        return $this;
+    }
+
+    /**
      * Initializes a new list payments request object.
      */
     public function build(): ListPaymentsRequest

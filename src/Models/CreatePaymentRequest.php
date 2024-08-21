@@ -128,6 +128,11 @@ class CreatePaymentRequest implements \JsonSerializable
     private $customerDetails;
 
     /**
+     * @var OfflinePaymentDetails|null
+     */
+    private $offlinePaymentDetails;
+
+    /**
      * @param string $sourceId
      * @param string $idempotencyKey
      */
@@ -792,6 +797,26 @@ class CreatePaymentRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Offline Payment Details.
+     * Details specific to offline payments.
+     */
+    public function getOfflinePaymentDetails(): ?OfflinePaymentDetails
+    {
+        return $this->offlinePaymentDetails;
+    }
+
+    /**
+     * Sets Offline Payment Details.
+     * Details specific to offline payments.
+     *
+     * @maps offline_payment_details
+     */
+    public function setOfflinePaymentDetails(?OfflinePaymentDetails $offlinePaymentDetails): void
+    {
+        $this->offlinePaymentDetails = $offlinePaymentDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -867,6 +892,9 @@ class CreatePaymentRequest implements \JsonSerializable
         }
         if (isset($this->customerDetails)) {
             $json['customer_details']                 = $this->customerDetails;
+        }
+        if (isset($this->offlinePaymentDetails)) {
+            $json['offline_payment_details']          = $this->offlinePaymentDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

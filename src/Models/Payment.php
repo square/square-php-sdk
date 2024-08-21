@@ -147,9 +147,9 @@ class Payment implements \JsonSerializable
     private $employeeId;
 
     /**
-     * @var string|null
+     * @var array
      */
-    private $teamMemberId;
+    private $teamMemberId = [];
 
     /**
      * @var string[]|null
@@ -215,6 +215,11 @@ class Payment implements \JsonSerializable
      * @var bool|null
      */
     private $isOfflinePayment;
+
+    /**
+     * @var OfflinePaymentDetails|null
+     */
+    private $offlinePaymentDetails;
 
     /**
      * @var array
@@ -945,7 +950,10 @@ class Payment implements \JsonSerializable
      */
     public function getTeamMemberId(): ?string
     {
-        return $this->teamMemberId;
+        if (count($this->teamMemberId) == 0) {
+            return null;
+        }
+        return $this->teamMemberId['value'];
     }
 
     /**
@@ -956,7 +964,16 @@ class Payment implements \JsonSerializable
      */
     public function setTeamMemberId(?string $teamMemberId): void
     {
-        $this->teamMemberId = $teamMemberId;
+        $this->teamMemberId['value'] = $teamMemberId;
+    }
+
+    /**
+     * Unsets Team Member Id.
+     * An optional ID of the [TeamMember](entity:TeamMember) associated with taking the payment.
+     */
+    public function unsetTeamMemberId(): void
+    {
+        $this->teamMemberId = [];
     }
 
     /**
@@ -1270,6 +1287,26 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Offline Payment Details.
+     * Details specific to offline payments.
+     */
+    public function getOfflinePaymentDetails(): ?OfflinePaymentDetails
+    {
+        return $this->offlinePaymentDetails;
+    }
+
+    /**
+     * Sets Offline Payment Details.
+     * Details specific to offline payments.
+     *
+     * @maps offline_payment_details
+     */
+    public function setOfflinePaymentDetails(?OfflinePaymentDetails $offlinePaymentDetails): void
+    {
+        $this->offlinePaymentDetails = $offlinePaymentDetails;
+    }
+
+    /**
      * Returns Version Token.
      * Used for optimistic concurrency. This opaque token identifies a specific version of the
      * `Payment` object.
@@ -1397,8 +1434,8 @@ class Payment implements \JsonSerializable
         if (isset($this->employeeId)) {
             $json['employee_id']                      = $this->employeeId;
         }
-        if (isset($this->teamMemberId)) {
-            $json['team_member_id']                   = $this->teamMemberId;
+        if (!empty($this->teamMemberId)) {
+            $json['team_member_id']                   = $this->teamMemberId['value'];
         }
         if (isset($this->refundIds)) {
             $json['refund_ids']                       = $this->refundIds;
@@ -1438,6 +1475,9 @@ class Payment implements \JsonSerializable
         }
         if (isset($this->isOfflinePayment)) {
             $json['is_offline_payment']               = $this->isOfflinePayment;
+        }
+        if (isset($this->offlinePaymentDetails)) {
+            $json['offline_payment_details']          = $this->offlinePaymentDetails;
         }
         if (!empty($this->versionToken)) {
             $json['version_token']                    = $this->versionToken['value'];

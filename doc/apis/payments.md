@@ -38,7 +38,10 @@ function listPayments(
     ?int $total = null,
     ?string $last4 = null,
     ?string $cardBrand = null,
-    ?int $limit = null
+    ?int $limit = null,
+    ?bool $isOfflinePayment = false,
+    ?string $offlineBeginTime = null,
+    ?string $offlineEndTime = null
 ): ApiResponse
 ```
 
@@ -55,6 +58,9 @@ function listPayments(
 | `last4` | `?string` | Query, Optional | The last four digits of a payment card. |
 | `cardBrand` | `?string` | Query, Optional | The brand of the payment card (for example, VISA). |
 | `limit` | `?int` | Query, Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>The default value of 100 is also the maximum allowed value. If the provided value is<br>greater than 100, it is ignored and the default value is used instead.<br><br>Default: `100` |
+| `isOfflinePayment` | `?bool` | Query, Optional | Whether the payment was taken offline or not. |
+| `offlineBeginTime` | `?string` | Query, Optional | Indicates the start of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
+| `offlineEndTime` | `?string` | Query, Optional | Indicates the end of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. |
 
 ## Response Type
 
@@ -63,7 +69,20 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ## Example Usage
 
 ```php
-$apiResponse = $paymentsApi->listPayments();
+$isOfflinePayment = false;
+
+$apiResponse = $paymentsApi->listPayments(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    $isOfflinePayment
+);
 
 if ($apiResponse->isSuccess()) {
     $listPaymentsResponse = $apiResponse->getResult();

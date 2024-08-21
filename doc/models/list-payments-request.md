@@ -23,6 +23,9 @@ The maximum results per page is 100.
 | `last4` | `?string` | Optional | The last four digits of a payment card. | getLast4(): ?string | setLast4(?string last4): void |
 | `cardBrand` | `?string` | Optional | The brand of the payment card (for example, VISA). | getCardBrand(): ?string | setCardBrand(?string cardBrand): void |
 | `limit` | `?int` | Optional | The maximum number of results to be returned in a single page.<br>It is possible to receive fewer results than the specified limit on a given page.<br><br>The default value of 100 is also the maximum allowed value. If the provided value is<br>greater than 100, it is ignored and the default value is used instead.<br><br>Default: `100` | getLimit(): ?int | setLimit(?int limit): void |
+| `isOfflinePayment` | `?bool` | Optional | Whether the payment was taken offline or not. | getIsOfflinePayment(): ?bool | setIsOfflinePayment(?bool isOfflinePayment): void |
+| `offlineBeginTime` | `?string` | Optional | Indicates the start of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. | getOfflineBeginTime(): ?string | setOfflineBeginTime(?string offlineBeginTime): void |
+| `offlineEndTime` | `?string` | Optional | Indicates the end of the time range for which to retrieve offline payments, in RFC 3339<br>format for timestamps. The range is determined using the<br>`offline_payment_details.client_created_at` field for each Payment. If set, payments without a<br>value set in `offline_payment_details.client_created_at` will not be returned.<br><br>Default: The current time. | getOfflineEndTime(): ?string | setOfflineEndTime(?string offlineEndTime): void |
 
 ## Example (as JSON)
 

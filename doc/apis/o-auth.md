@@ -154,17 +154,9 @@ where `ACCESS_TOKEN` is a
 
 If the access token is expired or not a valid access token, the endpoint returns an `UNAUTHORIZED` error.
 
-:information_source: **Note** This endpoint does not require authentication.
-
 ```php
-function retrieveTokenStatus(string $authorization): ApiResponse
+function retrieveTokenStatus(): ApiResponse
 ```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `authorization` | `string` | Header, Required | Client APPLICATION_SECRET |
 
 ## Response Type
 
@@ -173,9 +165,7 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ## Example Usage
 
 ```php
-$authorization = 'Client CLIENT_SECRET';
-
-$apiResponse = $oAuthApi->retrieveTokenStatus($authorization);
+$apiResponse = $oAuthApi->retrieveTokenStatus();
 
 if ($apiResponse->isSuccess()) {
     $retrieveTokenStatusResponse = $apiResponse->getResult();

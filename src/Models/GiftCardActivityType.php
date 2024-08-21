@@ -49,13 +49,10 @@ class GiftCardActivityType
     /**
      * Added money to a gift card from a refunded transaction. A `REFUND` activity might be linked to
      * a Square payment, depending on how the payment and refund are processed. For example:
-     * - A gift card payment processed by Square can be refunded to the same gift card using Square Point
-     * of Sale,
-     * the Square Seller Dashboard, or the Refunds API.
-     * - A cross-tender payment processed by Square can be refunded to a gift card using Square Point of
-     * Sale or the
-     * Square Seller Dashboard. The payment source might be a credit card or different gift card.
-     * - A payment processed using a custom payment processing system can be refunded to the same gift card.
+     * - A payment processed by Square can be refunded to a `PENDING` or `ACTIVE` gift card using the
+     * Square
+     * Seller Dashboard, Square Point of Sale, or Refunds API.
+     * - A payment processed using a custom processing system can be refunded to the same gift card.
      */
     public const REFUND = 'REFUND';
 
