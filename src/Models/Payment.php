@@ -164,6 +164,11 @@ class Payment implements \JsonSerializable
     /**
      * @var string|null
      */
+    private $terminalCheckoutId;
+
+    /**
+     * @var string|null
+     */
     private $buyerEmailAddress;
 
     /**
@@ -1031,6 +1036,26 @@ class Payment implements \JsonSerializable
     }
 
     /**
+     * Returns Terminal Checkout Id.
+     * An optional ID for a Terminal checkout that is associated with the payment.
+     */
+    public function getTerminalCheckoutId(): ?string
+    {
+        return $this->terminalCheckoutId;
+    }
+
+    /**
+     * Sets Terminal Checkout Id.
+     * An optional ID for a Terminal checkout that is associated with the payment.
+     *
+     * @maps terminal_checkout_id
+     */
+    public function setTerminalCheckoutId(?string $terminalCheckoutId): void
+    {
+        $this->terminalCheckoutId = $terminalCheckoutId;
+    }
+
+    /**
      * Returns Buyer Email Address.
      * The buyer's email address.
      */
@@ -1442,6 +1467,9 @@ class Payment implements \JsonSerializable
         }
         if (isset($this->riskEvaluation)) {
             $json['risk_evaluation']                  = $this->riskEvaluation;
+        }
+        if (isset($this->terminalCheckoutId)) {
+            $json['terminal_checkout_id']             = $this->terminalCheckoutId;
         }
         if (isset($this->buyerEmailAddress)) {
             $json['buyer_email_address']              = $this->buyerEmailAddress;

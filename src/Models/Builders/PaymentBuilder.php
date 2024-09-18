@@ -334,6 +334,15 @@ class PaymentBuilder
     }
 
     /**
+     * Sets terminal checkout id field.
+     */
+    public function terminalCheckoutId(?string $value): self
+    {
+        $this->instance->setTerminalCheckoutId($value);
+        return $this;
+    }
+
+    /**
      * Sets buyer email address field.
      */
     public function buyerEmailAddress(?string $value): self
