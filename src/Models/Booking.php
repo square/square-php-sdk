@@ -94,6 +94,11 @@ class Booking implements \JsonSerializable
     private $source;
 
     /**
+     * @var Address|null
+     */
+    private $address;
+
+    /**
      * Returns Id.
      * A unique ID of this object representing a booking.
      */
@@ -513,6 +518,30 @@ class Booking implements \JsonSerializable
     }
 
     /**
+     * Returns Address.
+     * Represents a postal address in a country.
+     * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
+     * basics/working-with-addresses).
+     */
+    public function getAddress(): ?Address
+    {
+        return $this->address;
+    }
+
+    /**
+     * Sets Address.
+     * Represents a postal address in a country.
+     * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
+     * basics/working-with-addresses).
+     *
+     * @maps address
+     */
+    public function setAddress(?Address $address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -571,6 +600,9 @@ class Booking implements \JsonSerializable
         }
         if (isset($this->source)) {
             $json['source']                  = $this->source;
+        }
+        if (isset($this->address)) {
+            $json['address']                 = $this->address;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

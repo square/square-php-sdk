@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Address;
 use Square\Models\Booking;
 use Square\Models\BookingCreatorDetails;
 
@@ -228,6 +229,15 @@ class BookingBuilder
     public function source(?string $value): self
     {
         $this->instance->setSource($value);
+        return $this;
+    }
+
+    /**
+     * Sets address field.
+     */
+    public function address(?Address $value): self
+    {
+        $this->instance->setAddress($value);
         return $this;
     }
 
