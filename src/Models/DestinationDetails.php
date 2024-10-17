@@ -17,6 +17,16 @@ class DestinationDetails implements \JsonSerializable
     private $cardDetails;
 
     /**
+     * @var DestinationDetailsCashRefundDetails|null
+     */
+    private $cashDetails;
+
+    /**
+     * @var DestinationDetailsExternalRefundDetails|null
+     */
+    private $externalDetails;
+
+    /**
      * Returns Card Details.
      */
     public function getCardDetails(): ?DestinationDetailsCardRefundDetails
@@ -35,6 +45,46 @@ class DestinationDetails implements \JsonSerializable
     }
 
     /**
+     * Returns Cash Details.
+     * Stores details about a cash refund. Contains only non-confidential information.
+     */
+    public function getCashDetails(): ?DestinationDetailsCashRefundDetails
+    {
+        return $this->cashDetails;
+    }
+
+    /**
+     * Sets Cash Details.
+     * Stores details about a cash refund. Contains only non-confidential information.
+     *
+     * @maps cash_details
+     */
+    public function setCashDetails(?DestinationDetailsCashRefundDetails $cashDetails): void
+    {
+        $this->cashDetails = $cashDetails;
+    }
+
+    /**
+     * Returns External Details.
+     * Stores details about an external refund. Contains only non-confidential information.
+     */
+    public function getExternalDetails(): ?DestinationDetailsExternalRefundDetails
+    {
+        return $this->externalDetails;
+    }
+
+    /**
+     * Sets External Details.
+     * Stores details about an external refund. Contains only non-confidential information.
+     *
+     * @maps external_details
+     */
+    public function setExternalDetails(?DestinationDetailsExternalRefundDetails $externalDetails): void
+    {
+        $this->externalDetails = $externalDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -47,7 +97,13 @@ class DestinationDetails implements \JsonSerializable
     {
         $json = [];
         if (isset($this->cardDetails)) {
-            $json['card_details'] = $this->cardDetails;
+            $json['card_details']     = $this->cardDetails;
+        }
+        if (isset($this->cashDetails)) {
+            $json['cash_details']     = $this->cashDetails;
+        }
+        if (isset($this->externalDetails)) {
+            $json['external_details'] = $this->externalDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;
