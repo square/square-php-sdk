@@ -7,6 +7,8 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\DestinationDetails;
 use Square\Models\DestinationDetailsCardRefundDetails;
+use Square\Models\DestinationDetailsCashRefundDetails;
+use Square\Models\DestinationDetailsExternalRefundDetails;
 
 /**
  * Builder for model DestinationDetails
@@ -39,6 +41,24 @@ class DestinationDetailsBuilder
     public function cardDetails(?DestinationDetailsCardRefundDetails $value): self
     {
         $this->instance->setCardDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets cash details field.
+     */
+    public function cashDetails(?DestinationDetailsCashRefundDetails $value): self
+    {
+        $this->instance->setCashDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets external details field.
+     */
+    public function externalDetails(?DestinationDetailsExternalRefundDetails $value): self
+    {
+        $this->instance->setExternalDetails($value);
         return $this;
     }
 
