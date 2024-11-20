@@ -39,9 +39,15 @@ class ActivityType
     public const CHARGE = 'CHARGE';
 
     /**
-     * Any fees involved with deposits such as instant deposits.
+     * A fee assessed because of a deposit, such as an instant deposit.
      */
     public const DEPOSIT_FEE = 'DEPOSIT_FEE';
+
+    /**
+     * Indicates that Square returned a fee that was previously assessed because of a deposit, such as an
+     * instant deposit, back to the seller's account.
+     */
+    public const DEPOSIT_FEE_REVERSED = 'DEPOSIT_FEE_REVERSED';
 
     /**
      * The balance change due to a dispute event.
@@ -187,7 +193,7 @@ class ActivityType
     public const THIRD_PARTY_FEE_REFUND = 'THIRD_PARTY_FEE_REFUND';
 
     /**
-     * The balance change due to money transfer.
+     * The balance change due to a money transfer. Note that this type is never returned by the Payouts API.
      */
     public const PAYOUT = 'PAYOUT';
 
@@ -307,4 +313,15 @@ class ActivityType
      * gift cards are loaded or reloaded at any location, the money transfers to the franchisor's account.
      */
     public const GIFT_CARD_POOL_TRANSFER_REVERSED = 'GIFT_CARD_POOL_TRANSFER_REVERSED';
+
+    /**
+     * A payroll payment that was transferred to a team member’s bank account.
+     */
+    public const SQUARE_PAYROLL_TRANSFER = 'SQUARE_PAYROLL_TRANSFER';
+
+    /**
+     * A payroll payment to a team member’s bank account that was deposited back to the seller’s account by
+     * Square.
+     */
+    public const SQUARE_PAYROLL_TRANSFER_REVERSED = 'SQUARE_PAYROLL_TRANSFER_REVERSED';
 }

@@ -200,7 +200,6 @@ $body = BulkUpdateTeamMembersRequestBuilder::init(
             ->teamMember(
                 TeamMemberBuilder::init()
                     ->referenceId('reference_id_2')
-                    ->isOwner(false)
                     ->status(TeamMemberStatus::ACTIVE)
                     ->givenName('Jane')
                     ->familyName('Smith')
@@ -218,7 +217,6 @@ $body = BulkUpdateTeamMembersRequestBuilder::init(
             ->teamMember(
                 TeamMemberBuilder::init()
                     ->referenceId('reference_id_1')
-                    ->isOwner(false)
                     ->status(TeamMemberStatus::ACTIVE)
                     ->givenName('Joe')
                     ->familyName('Doe')

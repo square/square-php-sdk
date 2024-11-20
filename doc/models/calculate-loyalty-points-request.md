@@ -23,7 +23,7 @@ Represents a [CalculateLoyaltyPoints](../../doc/apis/loyalty.md#calculate-loyalt
   "order_id": "RFZfrdtm3mhO1oGzf5Cx7fEMsmGZY",
   "transaction_amount_money": {
     "amount": 64,
-    "currency": "KWD"
+    "currency": "ANG"
   }
 }
 ```

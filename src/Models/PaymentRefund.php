@@ -88,6 +88,11 @@ class PaymentRefund implements \JsonSerializable
     private $teamMemberId;
 
     /**
+     * @var string|null
+     */
+    private $terminalRefundId;
+
+    /**
      * @param string $id
      * @param Money $amountMoney
      */
@@ -533,6 +538,26 @@ class PaymentRefund implements \JsonSerializable
     }
 
     /**
+     * Returns Terminal Refund Id.
+     * An optional ID for a Terminal refund.
+     */
+    public function getTerminalRefundId(): ?string
+    {
+        return $this->terminalRefundId;
+    }
+
+    /**
+     * Sets Terminal Refund Id.
+     * An optional ID for a Terminal refund.
+     *
+     * @maps terminal_refund_id
+     */
+    public function setTerminalRefundId(?string $terminalRefundId): void
+    {
+        $this->terminalRefundId = $terminalRefundId;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -584,6 +609,9 @@ class PaymentRefund implements \JsonSerializable
         }
         if (isset($this->teamMemberId)) {
             $json['team_member_id']      = $this->teamMemberId;
+        }
+        if (isset($this->terminalRefundId)) {
+            $json['terminal_refund_id']  = $this->terminalRefundId;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

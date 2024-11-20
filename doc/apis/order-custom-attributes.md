@@ -294,14 +294,10 @@ $body = BulkDeleteOrderCustomAttributesRequestBuilder::init(
     [
         'cover-count' => BulkDeleteOrderCustomAttributesRequestDeleteCustomAttributeBuilder::init(
             '7BbXGEIWNldxAzrtGf9GPVZTwZ4F'
-        )
-            ->key('cover-count')
-            ->build(),
+        )->build(),
         'table-number' => BulkDeleteOrderCustomAttributesRequestDeleteCustomAttributeBuilder::init(
             '7BbXGEIWNldxAzrtGf9GPVZTwZ4F'
-        )
-            ->key('table-number')
-            ->build()
+        )->build()
     ]
 )->build();
 

@@ -576,11 +576,14 @@ class ErrorCode
     public const REFUND_ALREADY_PENDING = 'REFUND_ALREADY_PENDING';
 
     /**
-     * The payment is not refundable. For example, the payment has been disputed and is no longer eligible
-     * for
-     * refunds.
+     * The payment is not refundable. For example, the payment is too old to be refunded.
      */
     public const PAYMENT_NOT_REFUNDABLE = 'PAYMENT_NOT_REFUNDABLE';
+
+    /**
+     * The payment is not refundable because it has been disputed.
+     */
+    public const PAYMENT_NOT_REFUNDABLE_DUE_TO_DISPUTE = 'PAYMENT_NOT_REFUNDABLE_DUE_TO_DISPUTE';
 
     /**
      * Request failed - The card issuer declined the refund.

@@ -278,15 +278,9 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = BulkDeleteLocationCustomAttributesRequestBuilder::init(
     [
-        'id1' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
-            ->key('bestseller')
-            ->build(),
-        'id2' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
-            ->key('bestseller')
-            ->build(),
-        'id3' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()
-            ->key('phone-number')
-            ->build()
+        'id1' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build(),
+        'id2' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build(),
+        'id3' => BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequestBuilder::init()->build()
     ]
 )->build();
 

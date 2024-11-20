@@ -215,6 +215,15 @@ class PaymentRefundBuilder
     }
 
     /**
+     * Sets terminal refund id field.
+     */
+    public function terminalRefundId(?string $value): self
+    {
+        $this->instance->setTerminalRefundId($value);
+        return $this;
+    }
+
+    /**
      * Initializes a new payment refund object.
      */
     public function build(): PaymentRefund
