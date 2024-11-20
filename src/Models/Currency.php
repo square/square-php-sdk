@@ -671,9 +671,14 @@ class Currency
     public const SHP = 'SHP';
 
     /**
-     * Sierra Leonean leone
+     * Sierra Leonean first leone
      */
     public const SLL = 'SLL';
+
+    /**
+     * Sierra Leonean second leone
+     */
+    public const SLE = 'SLE';
 
     /**
      * Somali shilling

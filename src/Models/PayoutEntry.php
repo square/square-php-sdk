@@ -78,6 +78,11 @@ class PayoutEntry implements \JsonSerializable
     private $typeDepositFeeDetails;
 
     /**
+     * @var PaymentBalanceActivityDepositFeeReversedDetail|null
+     */
+    private $typeDepositFeeReversedDetails;
+
+    /**
      * @var PaymentBalanceActivityDisputeDetail|null
      */
     private $typeDisputeDetails;
@@ -156,6 +161,16 @@ class PayoutEntry implements \JsonSerializable
      * @var PaymentBalanceActivityThirdPartyFeeRefundDetail|null
      */
     private $typeThirdPartyFeeRefundDetails;
+
+    /**
+     * @var PaymentBalanceActivitySquarePayrollTransferDetail|null
+     */
+    private $typeSquarePayrollTransferDetails;
+
+    /**
+     * @var PaymentBalanceActivitySquarePayrollTransferReversedDetail|null
+     */
+    private $typeSquarePayrollTransferReversedDetails;
 
     /**
      * @param string $id
@@ -468,6 +483,25 @@ class PayoutEntry implements \JsonSerializable
     }
 
     /**
+     * Returns Type Deposit Fee Reversed Details.
+     */
+    public function getTypeDepositFeeReversedDetails(): ?PaymentBalanceActivityDepositFeeReversedDetail
+    {
+        return $this->typeDepositFeeReversedDetails;
+    }
+
+    /**
+     * Sets Type Deposit Fee Reversed Details.
+     *
+     * @maps type_deposit_fee_reversed_details
+     */
+    public function setTypeDepositFeeReversedDetails(
+        ?PaymentBalanceActivityDepositFeeReversedDetail $typeDepositFeeReversedDetails
+    ): void {
+        $this->typeDepositFeeReversedDetails = $typeDepositFeeReversedDetails;
+    }
+
+    /**
      * Returns Type Dispute Details.
      */
     public function getTypeDisputeDetails(): ?PaymentBalanceActivityDisputeDetail
@@ -766,6 +800,45 @@ class PayoutEntry implements \JsonSerializable
     }
 
     /**
+     * Returns Type Square Payroll Transfer Details.
+     */
+    public function getTypeSquarePayrollTransferDetails(): ?PaymentBalanceActivitySquarePayrollTransferDetail
+    {
+        return $this->typeSquarePayrollTransferDetails;
+    }
+
+    /**
+     * Sets Type Square Payroll Transfer Details.
+     *
+     * @maps type_square_payroll_transfer_details
+     */
+    public function setTypeSquarePayrollTransferDetails(
+        ?PaymentBalanceActivitySquarePayrollTransferDetail $typeSquarePayrollTransferDetails
+    ): void {
+        $this->typeSquarePayrollTransferDetails = $typeSquarePayrollTransferDetails;
+    }
+
+    /**
+     * Returns Type Square Payroll Transfer Reversed Details.
+     */
+    // phpcs:ignore
+    public function getTypeSquarePayrollTransferReversedDetails(): ?PaymentBalanceActivitySquarePayrollTransferReversedDetail
+    {
+        return $this->typeSquarePayrollTransferReversedDetails;
+    }
+
+    /**
+     * Sets Type Square Payroll Transfer Reversed Details.
+     *
+     * @maps type_square_payroll_transfer_reversed_details
+     */
+    public function setTypeSquarePayrollTransferReversedDetails(
+        ?PaymentBalanceActivitySquarePayrollTransferReversedDetail $typeSquarePayrollTransferReversedDetails
+    ): void {
+        $this->typeSquarePayrollTransferReversedDetails = $typeSquarePayrollTransferReversedDetails;
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -777,88 +850,97 @@ class PayoutEntry implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['id']                                               = $this->id;
-        $json['payout_id']                                        = $this->payoutId;
+        $json['id']                                                = $this->id;
+        $json['payout_id']                                         = $this->payoutId;
         if (!empty($this->effectiveAt)) {
-            $json['effective_at']                                 = $this->effectiveAt['value'];
+            $json['effective_at']                                  = $this->effectiveAt['value'];
         }
         if (isset($this->type)) {
-            $json['type']                                         = $this->type;
+            $json['type']                                          = $this->type;
         }
         if (isset($this->grossAmountMoney)) {
-            $json['gross_amount_money']                           = $this->grossAmountMoney;
+            $json['gross_amount_money']                            = $this->grossAmountMoney;
         }
         if (isset($this->feeAmountMoney)) {
-            $json['fee_amount_money']                             = $this->feeAmountMoney;
+            $json['fee_amount_money']                              = $this->feeAmountMoney;
         }
         if (isset($this->netAmountMoney)) {
-            $json['net_amount_money']                             = $this->netAmountMoney;
+            $json['net_amount_money']                              = $this->netAmountMoney;
         }
         if (isset($this->typeAppFeeRevenueDetails)) {
-            $json['type_app_fee_revenue_details']                 = $this->typeAppFeeRevenueDetails;
+            $json['type_app_fee_revenue_details']                  = $this->typeAppFeeRevenueDetails;
         }
         if (isset($this->typeAppFeeRefundDetails)) {
-            $json['type_app_fee_refund_details']                  = $this->typeAppFeeRefundDetails;
+            $json['type_app_fee_refund_details']                   = $this->typeAppFeeRefundDetails;
         }
         if (isset($this->typeAutomaticSavingsDetails)) {
-            $json['type_automatic_savings_details']               = $this->typeAutomaticSavingsDetails;
+            $json['type_automatic_savings_details']                = $this->typeAutomaticSavingsDetails;
         }
         if (isset($this->typeAutomaticSavingsReversedDetails)) {
-            $json['type_automatic_savings_reversed_details']      = $this->typeAutomaticSavingsReversedDetails;
+            $json['type_automatic_savings_reversed_details']       = $this->typeAutomaticSavingsReversedDetails;
         }
         if (isset($this->typeChargeDetails)) {
-            $json['type_charge_details']                          = $this->typeChargeDetails;
+            $json['type_charge_details']                           = $this->typeChargeDetails;
         }
         if (isset($this->typeDepositFeeDetails)) {
-            $json['type_deposit_fee_details']                     = $this->typeDepositFeeDetails;
+            $json['type_deposit_fee_details']                      = $this->typeDepositFeeDetails;
+        }
+        if (isset($this->typeDepositFeeReversedDetails)) {
+            $json['type_deposit_fee_reversed_details']             = $this->typeDepositFeeReversedDetails;
         }
         if (isset($this->typeDisputeDetails)) {
-            $json['type_dispute_details']                         = $this->typeDisputeDetails;
+            $json['type_dispute_details']                          = $this->typeDisputeDetails;
         }
         if (isset($this->typeFeeDetails)) {
-            $json['type_fee_details']                             = $this->typeFeeDetails;
+            $json['type_fee_details']                              = $this->typeFeeDetails;
         }
         if (isset($this->typeFreeProcessingDetails)) {
-            $json['type_free_processing_details']                 = $this->typeFreeProcessingDetails;
+            $json['type_free_processing_details']                  = $this->typeFreeProcessingDetails;
         }
         if (isset($this->typeHoldAdjustmentDetails)) {
-            $json['type_hold_adjustment_details']                 = $this->typeHoldAdjustmentDetails;
+            $json['type_hold_adjustment_details']                  = $this->typeHoldAdjustmentDetails;
         }
         if (isset($this->typeOpenDisputeDetails)) {
-            $json['type_open_dispute_details']                    = $this->typeOpenDisputeDetails;
+            $json['type_open_dispute_details']                     = $this->typeOpenDisputeDetails;
         }
         if (isset($this->typeOtherDetails)) {
-            $json['type_other_details']                           = $this->typeOtherDetails;
+            $json['type_other_details']                            = $this->typeOtherDetails;
         }
         if (isset($this->typeOtherAdjustmentDetails)) {
-            $json['type_other_adjustment_details']                = $this->typeOtherAdjustmentDetails;
+            $json['type_other_adjustment_details']                 = $this->typeOtherAdjustmentDetails;
         }
         if (isset($this->typeRefundDetails)) {
-            $json['type_refund_details']                          = $this->typeRefundDetails;
+            $json['type_refund_details']                           = $this->typeRefundDetails;
         }
         if (isset($this->typeReleaseAdjustmentDetails)) {
-            $json['type_release_adjustment_details']              = $this->typeReleaseAdjustmentDetails;
+            $json['type_release_adjustment_details']               = $this->typeReleaseAdjustmentDetails;
         }
         if (isset($this->typeReserveHoldDetails)) {
-            $json['type_reserve_hold_details']                    = $this->typeReserveHoldDetails;
+            $json['type_reserve_hold_details']                     = $this->typeReserveHoldDetails;
         }
         if (isset($this->typeReserveReleaseDetails)) {
-            $json['type_reserve_release_details']                 = $this->typeReserveReleaseDetails;
+            $json['type_reserve_release_details']                  = $this->typeReserveReleaseDetails;
         }
         if (isset($this->typeSquareCapitalPaymentDetails)) {
-            $json['type_square_capital_payment_details']          = $this->typeSquareCapitalPaymentDetails;
+            $json['type_square_capital_payment_details']           = $this->typeSquareCapitalPaymentDetails;
         }
         if (isset($this->typeSquareCapitalReversedPaymentDetails)) {
-            $json['type_square_capital_reversed_payment_details'] = $this->typeSquareCapitalReversedPaymentDetails;
+            $json['type_square_capital_reversed_payment_details']  = $this->typeSquareCapitalReversedPaymentDetails;
         }
         if (isset($this->typeTaxOnFeeDetails)) {
-            $json['type_tax_on_fee_details']                      = $this->typeTaxOnFeeDetails;
+            $json['type_tax_on_fee_details']                       = $this->typeTaxOnFeeDetails;
         }
         if (isset($this->typeThirdPartyFeeDetails)) {
-            $json['type_third_party_fee_details']                 = $this->typeThirdPartyFeeDetails;
+            $json['type_third_party_fee_details']                  = $this->typeThirdPartyFeeDetails;
         }
         if (isset($this->typeThirdPartyFeeRefundDetails)) {
-            $json['type_third_party_fee_refund_details']          = $this->typeThirdPartyFeeRefundDetails;
+            $json['type_third_party_fee_refund_details']           = $this->typeThirdPartyFeeRefundDetails;
+        }
+        if (isset($this->typeSquarePayrollTransferDetails)) {
+            $json['type_square_payroll_transfer_details']          = $this->typeSquarePayrollTransferDetails;
+        }
+        if (isset($this->typeSquarePayrollTransferReversedDetails)) {
+            $json['type_square_payroll_transfer_reversed_details'] = $this->typeSquarePayrollTransferReversedDetails;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

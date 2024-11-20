@@ -278,12 +278,8 @@ This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` met
 ```php
 $body = BulkDeleteMerchantCustomAttributesRequestBuilder::init(
     [
-        'id1' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()
-            ->key('alternative_seller_name')
-            ->build(),
-        'id2' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()
-            ->key('has_seen_tutorial')
-            ->build()
+        'id1' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()->build(),
+        'id2' => BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequestBuilder::init()->build()
     ]
 )->build();
 

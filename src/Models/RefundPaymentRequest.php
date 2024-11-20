@@ -224,10 +224,10 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Returns Destination Id.
      * The ID indicating where funds will be refunded to. Required for unlinked refunds. For more
-     * information, see [Create an unlinked refund](https://developer.squareup.com/docs/payments-api/refund-
-     * payments#create-an-unlinked-refund).
+     * information, see [Process an Unlinked Refund](https://developer.squareup.com/docs/refunds-
+     * api/unlinked-refunds).
      *
-     * For refunds linked to Square payments, destination_id is usually omitted; in this case, funds
+     * For refunds linked to Square payments, `destination_id` is usually omitted; in this case, funds
      * will be returned to the original payment source. The field may be specified in order to request
      * a cross-method refund to a gift card. For more information,
      * see [Cross-method refunds to gift cards](https://developer.squareup.com/docs/payments-api/refund-
@@ -244,10 +244,10 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Sets Destination Id.
      * The ID indicating where funds will be refunded to. Required for unlinked refunds. For more
-     * information, see [Create an unlinked refund](https://developer.squareup.com/docs/payments-api/refund-
-     * payments#create-an-unlinked-refund).
+     * information, see [Process an Unlinked Refund](https://developer.squareup.com/docs/refunds-
+     * api/unlinked-refunds).
      *
-     * For refunds linked to Square payments, destination_id is usually omitted; in this case, funds
+     * For refunds linked to Square payments, `destination_id` is usually omitted; in this case, funds
      * will be returned to the original payment source. The field may be specified in order to request
      * a cross-method refund to a gift card. For more information,
      * see [Cross-method refunds to gift cards](https://developer.squareup.com/docs/payments-api/refund-
@@ -263,10 +263,10 @@ class RefundPaymentRequest implements \JsonSerializable
     /**
      * Unsets Destination Id.
      * The ID indicating where funds will be refunded to. Required for unlinked refunds. For more
-     * information, see [Create an unlinked refund](https://developer.squareup.com/docs/payments-api/refund-
-     * payments#create-an-unlinked-refund).
+     * information, see [Process an Unlinked Refund](https://developer.squareup.com/docs/refunds-
+     * api/unlinked-refunds).
      *
-     * For refunds linked to Square payments, destination_id is usually omitted; in this case, funds
+     * For refunds linked to Square payments, `destination_id` is usually omitted; in this case, funds
      * will be returned to the original payment source. The field may be specified in order to request
      * a cross-method refund to a gift card. For more information,
      * see [Cross-method refunds to gift cards](https://developer.squareup.com/docs/payments-api/refund-

@@ -12,6 +12,7 @@ use Square\Models\PaymentBalanceActivityAutomaticSavingsDetail;
 use Square\Models\PaymentBalanceActivityAutomaticSavingsReversedDetail;
 use Square\Models\PaymentBalanceActivityChargeDetail;
 use Square\Models\PaymentBalanceActivityDepositFeeDetail;
+use Square\Models\PaymentBalanceActivityDepositFeeReversedDetail;
 use Square\Models\PaymentBalanceActivityDisputeDetail;
 use Square\Models\PaymentBalanceActivityFeeDetail;
 use Square\Models\PaymentBalanceActivityFreeProcessingDetail;
@@ -25,6 +26,8 @@ use Square\Models\PaymentBalanceActivityReserveHoldDetail;
 use Square\Models\PaymentBalanceActivityReserveReleaseDetail;
 use Square\Models\PaymentBalanceActivitySquareCapitalPaymentDetail;
 use Square\Models\PaymentBalanceActivitySquareCapitalReversedPaymentDetail;
+use Square\Models\PaymentBalanceActivitySquarePayrollTransferDetail;
+use Square\Models\PaymentBalanceActivitySquarePayrollTransferReversedDetail;
 use Square\Models\PaymentBalanceActivityTaxOnFeeDetail;
 use Square\Models\PaymentBalanceActivityThirdPartyFeeDetail;
 use Square\Models\PaymentBalanceActivityThirdPartyFeeRefundDetail;
@@ -161,6 +164,15 @@ class PayoutEntryBuilder
     public function typeDepositFeeDetails(?PaymentBalanceActivityDepositFeeDetail $value): self
     {
         $this->instance->setTypeDepositFeeDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets type deposit fee reversed details field.
+     */
+    public function typeDepositFeeReversedDetails(?PaymentBalanceActivityDepositFeeReversedDetail $value): self
+    {
+        $this->instance->setTypeDepositFeeReversedDetails($value);
         return $this;
     }
 
@@ -306,6 +318,25 @@ class PayoutEntryBuilder
     public function typeThirdPartyFeeRefundDetails(?PaymentBalanceActivityThirdPartyFeeRefundDetail $value): self
     {
         $this->instance->setTypeThirdPartyFeeRefundDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets type square payroll transfer details field.
+     */
+    public function typeSquarePayrollTransferDetails(?PaymentBalanceActivitySquarePayrollTransferDetail $value): self
+    {
+        $this->instance->setTypeSquarePayrollTransferDetails($value);
+        return $this;
+    }
+
+    /**
+     * Sets type square payroll transfer reversed details field.
+     */
+    public function typeSquarePayrollTransferReversedDetails(
+        ?PaymentBalanceActivitySquarePayrollTransferReversedDetail $value
+    ): self {
+        $this->instance->setTypeSquarePayrollTransferReversedDetails($value);
         return $this;
     }
 

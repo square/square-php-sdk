@@ -25,6 +25,7 @@ The total amount of the payout will equal the sum of the payout entries for a ba
 | `typeAutomaticSavingsReversedDetails` | [`?PaymentBalanceActivityAutomaticSavingsReversedDetail`](../../doc/models/payment-balance-activity-automatic-savings-reversed-detail.md) | Optional | - | getTypeAutomaticSavingsReversedDetails(): ?PaymentBalanceActivityAutomaticSavingsReversedDetail | setTypeAutomaticSavingsReversedDetails(?PaymentBalanceActivityAutomaticSavingsReversedDetail typeAutomaticSavingsReversedDetails): void |
 | `typeChargeDetails` | [`?PaymentBalanceActivityChargeDetail`](../../doc/models/payment-balance-activity-charge-detail.md) | Optional | - | getTypeChargeDetails(): ?PaymentBalanceActivityChargeDetail | setTypeChargeDetails(?PaymentBalanceActivityChargeDetail typeChargeDetails): void |
 | `typeDepositFeeDetails` | [`?PaymentBalanceActivityDepositFeeDetail`](../../doc/models/payment-balance-activity-deposit-fee-detail.md) | Optional | - | getTypeDepositFeeDetails(): ?PaymentBalanceActivityDepositFeeDetail | setTypeDepositFeeDetails(?PaymentBalanceActivityDepositFeeDetail typeDepositFeeDetails): void |
+| `typeDepositFeeReversedDetails` | [`?PaymentBalanceActivityDepositFeeReversedDetail`](../../doc/models/payment-balance-activity-deposit-fee-reversed-detail.md) | Optional | - | getTypeDepositFeeReversedDetails(): ?PaymentBalanceActivityDepositFeeReversedDetail | setTypeDepositFeeReversedDetails(?PaymentBalanceActivityDepositFeeReversedDetail typeDepositFeeReversedDetails): void |
 | `typeDisputeDetails` | [`?PaymentBalanceActivityDisputeDetail`](../../doc/models/payment-balance-activity-dispute-detail.md) | Optional | - | getTypeDisputeDetails(): ?PaymentBalanceActivityDisputeDetail | setTypeDisputeDetails(?PaymentBalanceActivityDisputeDetail typeDisputeDetails): void |
 | `typeFeeDetails` | [`?PaymentBalanceActivityFeeDetail`](../../doc/models/payment-balance-activity-fee-detail.md) | Optional | - | getTypeFeeDetails(): ?PaymentBalanceActivityFeeDetail | setTypeFeeDetails(?PaymentBalanceActivityFeeDetail typeFeeDetails): void |
 | `typeFreeProcessingDetails` | [`?PaymentBalanceActivityFreeProcessingDetail`](../../doc/models/payment-balance-activity-free-processing-detail.md) | Optional | - | getTypeFreeProcessingDetails(): ?PaymentBalanceActivityFreeProcessingDetail | setTypeFreeProcessingDetails(?PaymentBalanceActivityFreeProcessingDetail typeFreeProcessingDetails): void |
@@ -41,6 +42,8 @@ The total amount of the payout will equal the sum of the payout entries for a ba
 | `typeTaxOnFeeDetails` | [`?PaymentBalanceActivityTaxOnFeeDetail`](../../doc/models/payment-balance-activity-tax-on-fee-detail.md) | Optional | - | getTypeTaxOnFeeDetails(): ?PaymentBalanceActivityTaxOnFeeDetail | setTypeTaxOnFeeDetails(?PaymentBalanceActivityTaxOnFeeDetail typeTaxOnFeeDetails): void |
 | `typeThirdPartyFeeDetails` | [`?PaymentBalanceActivityThirdPartyFeeDetail`](../../doc/models/payment-balance-activity-third-party-fee-detail.md) | Optional | - | getTypeThirdPartyFeeDetails(): ?PaymentBalanceActivityThirdPartyFeeDetail | setTypeThirdPartyFeeDetails(?PaymentBalanceActivityThirdPartyFeeDetail typeThirdPartyFeeDetails): void |
 | `typeThirdPartyFeeRefundDetails` | [`?PaymentBalanceActivityThirdPartyFeeRefundDetail`](../../doc/models/payment-balance-activity-third-party-fee-refund-detail.md) | Optional | - | getTypeThirdPartyFeeRefundDetails(): ?PaymentBalanceActivityThirdPartyFeeRefundDetail | setTypeThirdPartyFeeRefundDetails(?PaymentBalanceActivityThirdPartyFeeRefundDetail typeThirdPartyFeeRefundDetails): void |
+| `typeSquarePayrollTransferDetails` | [`?PaymentBalanceActivitySquarePayrollTransferDetail`](../../doc/models/payment-balance-activity-square-payroll-transfer-detail.md) | Optional | - | getTypeSquarePayrollTransferDetails(): ?PaymentBalanceActivitySquarePayrollTransferDetail | setTypeSquarePayrollTransferDetails(?PaymentBalanceActivitySquarePayrollTransferDetail typeSquarePayrollTransferDetails): void |
+| `typeSquarePayrollTransferReversedDetails` | [`?PaymentBalanceActivitySquarePayrollTransferReversedDetail`](../../doc/models/payment-balance-activity-square-payroll-transfer-reversed-detail.md) | Optional | - | getTypeSquarePayrollTransferReversedDetails(): ?PaymentBalanceActivitySquarePayrollTransferReversedDetail | setTypeSquarePayrollTransferReversedDetails(?PaymentBalanceActivitySquarePayrollTransferReversedDetail typeSquarePayrollTransferReversedDetails): void |
 
 ## Example (as JSON)
 
@@ -49,18 +52,18 @@ The total amount of the payout will equal the sum of the payout entries for a ba
   "id": "id8",
   "payout_id": "payout_id4",
   "effective_at": "effective_at8",
-  "type": "SQUARE_CAPITAL_REVERSED_PAYMENT",
+  "type": "AUTOMATIC_SAVINGS_REVERSED",
   "gross_amount_money": {
     "amount": 186,
-    "currency": "BWP"
+    "currency": "MNT"
   },
   "fee_amount_money": {
     "amount": 126,
-    "currency": "NIO"
+    "currency": "CHF"
   },
   "net_amount_money": {
     "amount": 6,
-    "currency": "LTL"
+    "currency": "XPT"
   }
 }
 ```
