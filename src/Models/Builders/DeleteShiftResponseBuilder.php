@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteShiftResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteShiftResponse
@@ -25,7 +26,7 @@ class DeleteShiftResponseBuilder
     }
 
     /**
-     * Initializes a new delete shift response Builder object.
+     * Initializes a new Delete Shift Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteShiftResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteShiftResponseBuilder
     }
 
     /**
-     * Initializes a new delete shift response object.
+     * Initializes a new Delete Shift Response object.
      */
     public function build(): DeleteShiftResponse
     {

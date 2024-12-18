@@ -26,7 +26,7 @@ class ShiftWorkdayBuilder
     }
 
     /**
-     * Initializes a new shift workday Builder object.
+     * Initializes a new Shift Workday Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class ShiftWorkdayBuilder
 
     /**
      * Sets date range field.
+     *
+     * @param DateRange|null $value
      */
     public function dateRange(?DateRange $value): self
     {
@@ -44,6 +46,8 @@ class ShiftWorkdayBuilder
 
     /**
      * Sets match shifts by field.
+     *
+     * @param string|null $value
      */
     public function matchShiftsBy(?string $value): self
     {
@@ -53,6 +57,8 @@ class ShiftWorkdayBuilder
 
     /**
      * Sets default timezone field.
+     *
+     * @param string|null $value
      */
     public function defaultTimezone(?string $value): self
     {
@@ -70,7 +76,7 @@ class ShiftWorkdayBuilder
     }
 
     /**
-     * Initializes a new shift workday object.
+     * Initializes a new Shift Workday object.
      */
     public function build(): ShiftWorkday
     {

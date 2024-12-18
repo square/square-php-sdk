@@ -25,7 +25,7 @@ class DeviceComponentDetailsMeasurementBuilder
     }
 
     /**
-     * Initializes a new device component details measurement Builder object.
+     * Initializes a new Device Component Details Measurement Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsMeasurementBuilder
 
     /**
      * Sets value field.
+     *
+     * @param int|null $value
      */
     public function value(?int $value): self
     {
@@ -51,7 +53,7 @@ class DeviceComponentDetailsMeasurementBuilder
     }
 
     /**
-     * Initializes a new device component details measurement object.
+     * Initializes a new Device Component Details Measurement object.
      */
     public function build(): DeviceComponentDetailsMeasurement
     {

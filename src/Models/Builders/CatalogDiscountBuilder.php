@@ -26,7 +26,7 @@ class CatalogDiscountBuilder
     }
 
     /**
-     * Initializes a new catalog discount Builder object.
+     * Initializes a new Catalog Discount Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -53,6 +55,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets discount type field.
+     *
+     * @param string|null $value
      */
     public function discountType(?string $value): self
     {
@@ -62,6 +66,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -80,6 +86,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -89,6 +97,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets pin required field.
+     *
+     * @param bool|null $value
      */
     public function pinRequired(?bool $value): self
     {
@@ -107,6 +117,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets label color field.
+     *
+     * @param string|null $value
      */
     public function labelColor(?string $value): self
     {
@@ -125,6 +137,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets modify tax basis field.
+     *
+     * @param string|null $value
      */
     public function modifyTaxBasis(?string $value): self
     {
@@ -134,6 +148,8 @@ class CatalogDiscountBuilder
 
     /**
      * Sets maximum amount money field.
+     *
+     * @param Money|null $value
      */
     public function maximumAmountMoney(?Money $value): self
     {
@@ -142,7 +158,7 @@ class CatalogDiscountBuilder
     }
 
     /**
-     * Initializes a new catalog discount object.
+     * Initializes a new Catalog Discount object.
      */
     public function build(): CatalogDiscount
     {

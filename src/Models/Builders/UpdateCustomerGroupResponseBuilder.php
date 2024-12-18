@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomerGroup;
+use Square\Models\Error;
 use Square\Models\UpdateCustomerGroupResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateCustomerGroupResponseBuilder
     }
 
     /**
-     * Initializes a new update customer group response Builder object.
+     * Initializes a new Update Customer Group Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateCustomerGroupResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpdateCustomerGroupResponseBuilder
 
     /**
      * Sets group field.
+     *
+     * @param CustomerGroup|null $value
      */
     public function group(?CustomerGroup $value): self
     {
@@ -52,7 +57,7 @@ class UpdateCustomerGroupResponseBuilder
     }
 
     /**
-     * Initializes a new update customer group response object.
+     * Initializes a new Update Customer Group Response object.
      */
     public function build(): UpdateCustomerGroupResponse
     {

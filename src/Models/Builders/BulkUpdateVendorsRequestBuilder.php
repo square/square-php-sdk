@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpdateVendorsRequest;
+use Square\Models\UpdateVendorRequest;
 
 /**
  * Builder for model BulkUpdateVendorsRequest
@@ -25,7 +26,9 @@ class BulkUpdateVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk update vendors request Builder object.
+     * Initializes a new Bulk Update Vendors Request Builder object.
+     *
+     * @param array<string,UpdateVendorRequest> $vendors
      */
     public static function init(array $vendors): self
     {
@@ -33,7 +36,7 @@ class BulkUpdateVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk update vendors request object.
+     * Initializes a new Bulk Update Vendors Request object.
      */
     public function build(): BulkUpdateVendorsRequest
     {

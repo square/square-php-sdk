@@ -26,7 +26,7 @@ class OrderReturnTaxBuilder
     }
 
     /**
-     * Initializes a new order return tax Builder object.
+     * Initializes a new Order Return Tax Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets source tax uid field.
+     *
+     * @param string|null $value
      */
     public function sourceTaxUid(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -89,6 +95,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -107,6 +115,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -125,6 +135,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -134,6 +146,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -152,6 +166,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -161,6 +177,8 @@ class OrderReturnTaxBuilder
 
     /**
      * Sets scope field.
+     *
+     * @param string|null $value
      */
     public function scope(?string $value): self
     {
@@ -169,7 +187,7 @@ class OrderReturnTaxBuilder
     }
 
     /**
-     * Initializes a new order return tax object.
+     * Initializes a new Order Return Tax object.
      */
     public function build(): OrderReturnTax
     {

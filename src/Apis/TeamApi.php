@@ -6,6 +6,7 @@ namespace Square\Apis;
 
 use Core\Request\Parameters\BodyParam;
 use Core\Request\Parameters\HeaderParam;
+use Core\Request\Parameters\QueryParam;
 use Core\Request\Parameters\TemplateParam;
 use CoreInterfaces\Core\Request\RequestMethod;
 use Square\Http\ApiResponse;
@@ -13,12 +14,18 @@ use Square\Models\BulkCreateTeamMembersRequest;
 use Square\Models\BulkCreateTeamMembersResponse;
 use Square\Models\BulkUpdateTeamMembersRequest;
 use Square\Models\BulkUpdateTeamMembersResponse;
+use Square\Models\CreateJobRequest;
+use Square\Models\CreateJobResponse;
 use Square\Models\CreateTeamMemberRequest;
 use Square\Models\CreateTeamMemberResponse;
+use Square\Models\ListJobsResponse;
+use Square\Models\RetrieveJobResponse;
 use Square\Models\RetrieveTeamMemberResponse;
 use Square\Models\RetrieveWageSettingResponse;
 use Square\Models\SearchTeamMembersRequest;
 use Square\Models\SearchTeamMembersResponse;
+use Square\Models\UpdateJobRequest;
+use Square\Models\UpdateJobResponse;
 use Square\Models\UpdateTeamMemberRequest;
 use Square\Models\UpdateTeamMemberResponse;
 use Square\Models\UpdateWageSettingRequest;
@@ -111,10 +118,96 @@ class TeamApi extends BaseApi
     }
 
     /**
+     * Lists jobs in a seller account. Results are sorted by title in ascending order.
+     *
+     * @param string|null $cursor The pagination cursor returned by the previous call to this
+     *        endpoint. Provide this
+     *        cursor to retrieve the next page of results for your original request. For more
+     *        information,
+     *        see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-
+     *        patterns/pagination).
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function listJobs(?string $cursor = null): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/team-members/jobs')
+            ->auth('global')
+            ->parameters(QueryParam::init('cursor', $cursor));
+
+        $_resHandler = $this->responseHandler()->type(ListJobsResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Creates a job in a seller account. A job defines a title and tip eligibility. Note that
+     * compensation is defined in a [job assignment]($m/JobAssignment) in a team member's wage setting.
+     *
+     * @param CreateJobRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function createJob(CreateJobRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::POST, '/v2/team-members/jobs')
+            ->auth('global')
+            ->parameters(HeaderParam::init('Content-Type', 'application/json'), BodyParam::init($body));
+
+        $_resHandler = $this->responseHandler()->type(CreateJobResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Retrieves a specified job.
+     *
+     * @param string $jobId The ID of the job to retrieve.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function retrieveJob(string $jobId): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/team-members/jobs/{job_id}')
+            ->auth('global')
+            ->parameters(TemplateParam::init('job_id', $jobId));
+
+        $_resHandler = $this->responseHandler()->type(RetrieveJobResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
+     * Updates the title or tip eligibility of a job. Changes to the title propagate to all
+     * `JobAssignment`, `Shift`, and `TeamMemberWage` objects that reference the job ID. Changes to
+     * tip eligibility propagate to all `TeamMemberWage` objects that reference the job ID.
+     *
+     * @param string $jobId The ID of the job to update.
+     * @param UpdateJobRequest $body An object containing the fields to POST for the request. See
+     *        the corresponding object definition for field details.
+     *
+     * @return ApiResponse Response from the API call
+     */
+    public function updateJob(string $jobId, UpdateJobRequest $body): ApiResponse
+    {
+        $_reqBuilder = $this->requestBuilder(RequestMethod::PUT, '/v2/team-members/jobs/{job_id}')
+            ->auth('global')
+            ->parameters(
+                TemplateParam::init('job_id', $jobId),
+                HeaderParam::init('Content-Type', 'application/json'),
+                BodyParam::init($body)
+            );
+
+        $_resHandler = $this->responseHandler()->type(UpdateJobResponse::class)->returnApiResponse();
+
+        return $this->execute($_reqBuilder, $_resHandler);
+    }
+
+    /**
      * Returns a paginated list of `TeamMember` objects for a business.
-     * The list can be filtered by the following:
-     * - location IDs
-     * - `status`
+     * The list can be filtered by location IDs, `ACTIVE` or `INACTIVE` status, or whether
+     * the team member is the Square account owner.
      *
      * @param SearchTeamMembersRequest $body An object containing the fields to POST for the
      *        request.
@@ -182,9 +275,13 @@ class TeamApi extends BaseApi
 
     /**
      * Retrieves a `WageSetting` object for a team member specified
-     * by `TeamMember.id`.
-     * Learn about [Troubleshooting the Team API](https://developer.squareup.
+     * by `TeamMember.id`. For more information, see
+     * [Troubleshooting the Team API](https://developer.squareup.
      * com/docs/team/troubleshooting#retrievewagesetting).
+     *
+     * Square recommends using [RetrieveTeamMember]($e/Team/RetrieveTeamMember) or
+     * [SearchTeamMembers]($e/Team/SearchTeamMembers)
+     * to get this information directly from the `TeamMember.wage_setting` field.
      *
      * @param string $teamMemberId The ID of the team member for which to retrieve the wage setting.
      *
@@ -203,11 +300,15 @@ class TeamApi extends BaseApi
 
     /**
      * Creates or updates a `WageSetting` object. The object is created if a
-     * `WageSetting` with the specified `team_member_id` does not exist. Otherwise,
+     * `WageSetting` with the specified `team_member_id` doesn't exist. Otherwise,
      * it fully replaces the `WageSetting` object for the team member.
-     * The `WageSetting` is returned on a successful update.
-     * Learn about [Troubleshooting the Team API](https://developer.squareup.
-     * com/docs/team/troubleshooting#create-or-update-a-wage-setting).
+     * The `WageSetting` is returned on a successful update. For more information, see
+     * [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#create-or-
+     * update-a-wage-setting).
+     *
+     * Square recommends using [CreateTeamMember]($e/Team/CreateTeamMember) or
+     * [UpdateTeamMember]($e/Team/UpdateTeamMember)
+     * to manage the `TeamMember.wage_setting` field directly.
      *
      * @param string $teamMemberId The ID of the team member for which to update the `WageSetting`
      *        object.

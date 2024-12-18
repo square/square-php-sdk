@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CalculateLoyaltyPointsResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model CalculateLoyaltyPointsResponse
@@ -25,7 +26,7 @@ class CalculateLoyaltyPointsResponseBuilder
     }
 
     /**
-     * Initializes a new calculate loyalty points response Builder object.
+     * Initializes a new Calculate Loyalty Points Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CalculateLoyaltyPointsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class CalculateLoyaltyPointsResponseBuilder
 
     /**
      * Sets points field.
+     *
+     * @param int|null $value
      */
     public function points(?int $value): self
     {
@@ -52,6 +57,8 @@ class CalculateLoyaltyPointsResponseBuilder
 
     /**
      * Sets promotion points field.
+     *
+     * @param int|null $value
      */
     public function promotionPoints(?int $value): self
     {
@@ -60,7 +67,7 @@ class CalculateLoyaltyPointsResponseBuilder
     }
 
     /**
-     * Initializes a new calculate loyalty points response object.
+     * Initializes a new Calculate Loyalty Points Response object.
      */
     public function build(): CalculateLoyaltyPointsResponse
     {

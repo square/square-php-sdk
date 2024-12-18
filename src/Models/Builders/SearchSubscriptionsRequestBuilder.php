@@ -26,7 +26,7 @@ class SearchSubscriptionsRequestBuilder
     }
 
     /**
-     * Initializes a new search subscriptions request Builder object.
+     * Initializes a new Search Subscriptions Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchSubscriptionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -44,6 +46,8 @@ class SearchSubscriptionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchSubscriptionsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param SearchSubscriptionsQuery|null $value
      */
     public function query(?SearchSubscriptionsQuery $value): self
     {
@@ -62,6 +68,8 @@ class SearchSubscriptionsRequestBuilder
 
     /**
      * Sets include field.
+     *
+     * @param string[]|null $value
      */
     public function include(?array $value): self
     {
@@ -70,7 +78,7 @@ class SearchSubscriptionsRequestBuilder
     }
 
     /**
-     * Initializes a new search subscriptions request object.
+     * Initializes a new Search Subscriptions Request object.
      */
     public function build(): SearchSubscriptionsRequest
     {

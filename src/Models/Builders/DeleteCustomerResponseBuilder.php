@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteCustomerResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteCustomerResponse
@@ -25,7 +26,7 @@ class DeleteCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new delete customer response Builder object.
+     * Initializes a new Delete Customer Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteCustomerResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new delete customer response object.
+     * Initializes a new Delete Customer Response object.
      */
     public function build(): DeleteCustomerResponse
     {

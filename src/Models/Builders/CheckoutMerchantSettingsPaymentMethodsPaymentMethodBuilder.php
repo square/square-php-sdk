@@ -25,7 +25,7 @@ class CheckoutMerchantSettingsPaymentMethodsPaymentMethodBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods payment method Builder object.
+     * Initializes a new Checkout Merchant Settings Payment Methods Payment Method Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CheckoutMerchantSettingsPaymentMethodsPaymentMethodBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -51,7 +53,7 @@ class CheckoutMerchantSettingsPaymentMethodsPaymentMethodBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods payment method object.
+     * Initializes a new Checkout Merchant Settings Payment Methods Payment Method object.
      */
     public function build(): CheckoutMerchantSettingsPaymentMethodsPaymentMethod
     {

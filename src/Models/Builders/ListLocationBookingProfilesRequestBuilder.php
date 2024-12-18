@@ -25,7 +25,7 @@ class ListLocationBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new list location booking profiles request Builder object.
+     * Initializes a new List Location Booking Profiles Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListLocationBookingProfilesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -52,6 +54,8 @@ class ListLocationBookingProfilesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +73,7 @@ class ListLocationBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new list location booking profiles request object.
+     * Initializes a new List Location Booking Profiles Request object.
      */
     public function build(): ListLocationBookingProfilesRequest
     {

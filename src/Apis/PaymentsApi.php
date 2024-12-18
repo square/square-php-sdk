@@ -41,7 +41,8 @@ class PaymentsApi extends BaseApi
      *        range is determined using the `created_at` field for each Payment.
      *
      *        Default: The current time.
-     * @param string|null $sortOrder The order in which results are listed by `Payment.created_at`:
+     * @param string|null $sortOrder The order in which results are listed by
+     *        `ListPaymentsRequest.sort_field`:
      *        - `ASC` - Oldest to newest.
      *        - `DESC` - Newest to oldest (default).
      * @param string|null $cursor A pagination cursor returned by a previous call to this endpoint.
@@ -79,6 +80,13 @@ class PaymentsApi extends BaseApi
      *        value set in `offline_payment_details.client_created_at` will not be returned.
      *
      *        Default: The current time.
+     * @param string|null $updatedAtBeginTime Indicates the start of the time range to retrieve
+     *        payments for, in RFC 3339 format.  The
+     *        range is determined using the `updated_at` field for each Payment.
+     * @param string|null $updatedAtEndTime Indicates the end of the time range to retrieve payments
+     *        for, in RFC 3339 format.  The
+     *        range is determined using the `updated_at` field for each Payment.
+     * @param string|null $sortField The field used to sort results by. The default is `CREATED_AT`.
      *
      * @return ApiResponse Response from the API call
      */
@@ -94,7 +102,10 @@ class PaymentsApi extends BaseApi
         ?int $limit = null,
         ?bool $isOfflinePayment = false,
         ?string $offlineBeginTime = null,
-        ?string $offlineEndTime = null
+        ?string $offlineEndTime = null,
+        ?string $updatedAtBeginTime = null,
+        ?string $updatedAtEndTime = null,
+        ?string $sortField = null
     ): ApiResponse {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/v2/payments')
             ->auth('global')
@@ -110,7 +121,10 @@ class PaymentsApi extends BaseApi
                 QueryParam::init('limit', $limit),
                 QueryParam::init('is_offline_payment', $isOfflinePayment),
                 QueryParam::init('offline_begin_time', $offlineBeginTime),
-                QueryParam::init('offline_end_time', $offlineEndTime)
+                QueryParam::init('offline_end_time', $offlineEndTime),
+                QueryParam::init('updated_at_begin_time', $updatedAtBeginTime),
+                QueryParam::init('updated_at_end_time', $updatedAtEndTime),
+                QueryParam::init('sort_field', $sortField)
             );
 
         $_resHandler = $this->responseHandler()->type(ListPaymentsResponse::class)->returnApiResponse();

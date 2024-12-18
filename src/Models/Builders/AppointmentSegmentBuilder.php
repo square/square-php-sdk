@@ -25,7 +25,9 @@ class AppointmentSegmentBuilder
     }
 
     /**
-     * Initializes a new appointment segment Builder object.
+     * Initializes a new Appointment Segment Builder object.
+     *
+     * @param string $teamMemberId
      */
     public static function init(string $teamMemberId): self
     {
@@ -34,6 +36,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets duration minutes field.
+     *
+     * @param int|null $value
      */
     public function durationMinutes(?int $value): self
     {
@@ -52,6 +56,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets service variation id field.
+     *
+     * @param string|null $value
      */
     public function serviceVariationId(?string $value): self
     {
@@ -70,6 +76,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets service variation version field.
+     *
+     * @param int|null $value
      */
     public function serviceVariationVersion(?int $value): self
     {
@@ -88,6 +96,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets intermission minutes field.
+     *
+     * @param int|null $value
      */
     public function intermissionMinutes(?int $value): self
     {
@@ -97,6 +107,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets any team member field.
+     *
+     * @param bool|null $value
      */
     public function anyTeamMember(?bool $value): self
     {
@@ -106,6 +118,8 @@ class AppointmentSegmentBuilder
 
     /**
      * Sets resource ids field.
+     *
+     * @param string[]|null $value
      */
     public function resourceIds(?array $value): self
     {
@@ -114,7 +128,7 @@ class AppointmentSegmentBuilder
     }
 
     /**
-     * Initializes a new appointment segment object.
+     * Initializes a new Appointment Segment object.
      */
     public function build(): AppointmentSegment
     {

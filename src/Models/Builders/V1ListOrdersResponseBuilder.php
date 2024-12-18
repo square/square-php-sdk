@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\V1ListOrdersResponse;
+use Square\Models\V1Order;
 
 /**
  * Builder for model V1ListOrdersResponse
@@ -25,7 +26,7 @@ class V1ListOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new v1 list orders response Builder object.
+     * Initializes a new V1 List Orders Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class V1ListOrdersResponseBuilder
 
     /**
      * Sets items field.
+     *
+     * @param V1Order[]|null $value
      */
     public function items(?array $value): self
     {
@@ -42,7 +45,7 @@ class V1ListOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new v1 list orders response object.
+     * Initializes a new V1 List Orders Response object.
      */
     public function build(): V1ListOrdersResponse
     {

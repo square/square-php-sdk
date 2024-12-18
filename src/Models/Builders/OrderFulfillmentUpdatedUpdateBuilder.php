@@ -25,7 +25,7 @@ class OrderFulfillmentUpdatedUpdateBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated update Builder object.
+     * Initializes a new Order Fulfillment Updated Update Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderFulfillmentUpdatedUpdateBuilder
 
     /**
      * Sets fulfillment uid field.
+     *
+     * @param string|null $value
      */
     public function fulfillmentUid(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderFulfillmentUpdatedUpdateBuilder
 
     /**
      * Sets old state field.
+     *
+     * @param string|null $value
      */
     public function oldState(?string $value): self
     {
@@ -61,6 +65,8 @@ class OrderFulfillmentUpdatedUpdateBuilder
 
     /**
      * Sets new state field.
+     *
+     * @param string|null $value
      */
     public function newState(?string $value): self
     {
@@ -69,7 +75,7 @@ class OrderFulfillmentUpdatedUpdateBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated update object.
+     * Initializes a new Order Fulfillment Updated Update object.
      */
     public function build(): OrderFulfillmentUpdatedUpdate
     {

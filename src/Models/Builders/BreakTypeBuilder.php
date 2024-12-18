@@ -25,7 +25,12 @@ class BreakTypeBuilder
     }
 
     /**
-     * Initializes a new break type Builder object.
+     * Initializes a new Break Type Builder object.
+     *
+     * @param string $locationId
+     * @param string $breakName
+     * @param string $expectedDuration
+     * @param bool $isPaid
      */
     public static function init(string $locationId, string $breakName, string $expectedDuration, bool $isPaid): self
     {
@@ -34,6 +39,8 @@ class BreakTypeBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +50,8 @@ class BreakTypeBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -52,6 +61,8 @@ class BreakTypeBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -61,6 +72,8 @@ class BreakTypeBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -69,7 +82,7 @@ class BreakTypeBuilder
     }
 
     /**
-     * Initializes a new break type object.
+     * Initializes a new Break Type object.
      */
     public function build(): BreakType
     {

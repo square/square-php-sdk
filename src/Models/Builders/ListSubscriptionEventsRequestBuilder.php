@@ -25,7 +25,7 @@ class ListSubscriptionEventsRequestBuilder
     }
 
     /**
-     * Initializes a new list subscription events request Builder object.
+     * Initializes a new List Subscription Events Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListSubscriptionEventsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListSubscriptionEventsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -69,7 +73,7 @@ class ListSubscriptionEventsRequestBuilder
     }
 
     /**
-     * Initializes a new list subscription events request object.
+     * Initializes a new List Subscription Events Request object.
      */
     public function build(): ListSubscriptionEventsRequest
     {

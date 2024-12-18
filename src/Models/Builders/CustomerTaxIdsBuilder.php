@@ -25,7 +25,7 @@ class CustomerTaxIdsBuilder
     }
 
     /**
-     * Initializes a new customer tax ids Builder object.
+     * Initializes a new Customer Tax Ids Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerTaxIdsBuilder
 
     /**
      * Sets eu vat field.
+     *
+     * @param string|null $value
      */
     public function euVat(?string $value): self
     {
@@ -51,7 +53,7 @@ class CustomerTaxIdsBuilder
     }
 
     /**
-     * Initializes a new customer tax ids object.
+     * Initializes a new Customer Tax Ids object.
      */
     public function build(): CustomerTaxIds
     {

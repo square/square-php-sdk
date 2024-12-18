@@ -25,7 +25,7 @@ class RetrieveLocationCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve location custom attribute definition request Builder object.
+     * Initializes a new Retrieve Location Custom Attribute Definition Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveLocationCustomAttributeDefinitionRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -42,7 +44,7 @@ class RetrieveLocationCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve location custom attribute definition request object.
+     * Initializes a new Retrieve Location Custom Attribute Definition Request object.
      */
     public function build(): RetrieveLocationCustomAttributeDefinitionRequest
     {

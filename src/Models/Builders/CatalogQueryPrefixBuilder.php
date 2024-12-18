@@ -25,7 +25,10 @@ class CatalogQueryPrefixBuilder
     }
 
     /**
-     * Initializes a new catalog query prefix Builder object.
+     * Initializes a new Catalog Query Prefix Builder object.
+     *
+     * @param string $attributeName
+     * @param string $attributePrefix
      */
     public static function init(string $attributeName, string $attributePrefix): self
     {
@@ -33,7 +36,7 @@ class CatalogQueryPrefixBuilder
     }
 
     /**
-     * Initializes a new catalog query prefix object.
+     * Initializes a new Catalog Query Prefix object.
      */
     public function build(): CatalogQueryPrefix
     {

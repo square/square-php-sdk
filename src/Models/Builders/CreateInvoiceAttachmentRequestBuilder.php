@@ -25,7 +25,7 @@ class CreateInvoiceAttachmentRequestBuilder
     }
 
     /**
-     * Initializes a new create invoice attachment request Builder object.
+     * Initializes a new Create Invoice Attachment Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CreateInvoiceAttachmentRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,6 +45,8 @@ class CreateInvoiceAttachmentRequestBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -51,7 +55,7 @@ class CreateInvoiceAttachmentRequestBuilder
     }
 
     /**
-     * Initializes a new create invoice attachment request object.
+     * Initializes a new Create Invoice Attachment Request object.
      */
     public function build(): CreateInvoiceAttachmentRequest
     {

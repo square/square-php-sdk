@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogItemOptionValueForItemVariation;
 use Square\Models\CatalogItemVariation;
 use Square\Models\CatalogStockConversion;
+use Square\Models\ItemVariationLocationOverrides;
 use Square\Models\Money;
 
 /**
@@ -27,7 +29,7 @@ class CatalogItemVariationBuilder
     }
 
     /**
-     * Initializes a new catalog item variation Builder object.
+     * Initializes a new Catalog Item Variation Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +38,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets item id field.
+     *
+     * @param string|null $value
      */
     public function itemId(?string $value): self
     {
@@ -54,6 +58,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -72,6 +78,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets sku field.
+     *
+     * @param string|null $value
      */
     public function sku(?string $value): self
     {
@@ -90,6 +98,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets upc field.
+     *
+     * @param string|null $value
      */
     public function upc(?string $value): self
     {
@@ -108,6 +118,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -117,6 +129,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets pricing type field.
+     *
+     * @param string|null $value
      */
     public function pricingType(?string $value): self
     {
@@ -126,6 +140,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets price money field.
+     *
+     * @param Money|null $value
      */
     public function priceMoney(?Money $value): self
     {
@@ -135,6 +151,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets location overrides field.
+     *
+     * @param ItemVariationLocationOverrides[]|null $value
      */
     public function locationOverrides(?array $value): self
     {
@@ -153,6 +171,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets track inventory field.
+     *
+     * @param bool|null $value
      */
     public function trackInventory(?bool $value): self
     {
@@ -171,6 +191,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets inventory alert type field.
+     *
+     * @param string|null $value
      */
     public function inventoryAlertType(?string $value): self
     {
@@ -180,6 +202,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets inventory alert threshold field.
+     *
+     * @param int|null $value
      */
     public function inventoryAlertThreshold(?int $value): self
     {
@@ -198,6 +222,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets user data field.
+     *
+     * @param string|null $value
      */
     public function userData(?string $value): self
     {
@@ -216,6 +242,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets service duration field.
+     *
+     * @param int|null $value
      */
     public function serviceDuration(?int $value): self
     {
@@ -234,6 +262,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets available for booking field.
+     *
+     * @param bool|null $value
      */
     public function availableForBooking(?bool $value): self
     {
@@ -252,6 +282,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets item option values field.
+     *
+     * @param CatalogItemOptionValueForItemVariation[]|null $value
      */
     public function itemOptionValues(?array $value): self
     {
@@ -270,6 +302,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets measurement unit id field.
+     *
+     * @param string|null $value
      */
     public function measurementUnitId(?string $value): self
     {
@@ -288,6 +322,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets sellable field.
+     *
+     * @param bool|null $value
      */
     public function sellable(?bool $value): self
     {
@@ -306,6 +342,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets stockable field.
+     *
+     * @param bool|null $value
      */
     public function stockable(?bool $value): self
     {
@@ -324,6 +362,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets image ids field.
+     *
+     * @param string[]|null $value
      */
     public function imageIds(?array $value): self
     {
@@ -342,6 +382,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets team member ids field.
+     *
+     * @param string[]|null $value
      */
     public function teamMemberIds(?array $value): self
     {
@@ -360,6 +402,8 @@ class CatalogItemVariationBuilder
 
     /**
      * Sets stockable conversion field.
+     *
+     * @param CatalogStockConversion|null $value
      */
     public function stockableConversion(?CatalogStockConversion $value): self
     {
@@ -368,7 +412,7 @@ class CatalogItemVariationBuilder
     }
 
     /**
-     * Initializes a new catalog item variation object.
+     * Initializes a new Catalog Item Variation object.
      */
     public function build(): CatalogItemVariation
     {

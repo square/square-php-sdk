@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateVendorResponse;
+use Square\Models\Error;
 use Square\Models\Vendor;
 
 /**
@@ -26,7 +27,7 @@ class CreateVendorResponseBuilder
     }
 
     /**
-     * Initializes a new create vendor response Builder object.
+     * Initializes a new Create Vendor Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateVendorResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateVendorResponseBuilder
 
     /**
      * Sets vendor field.
+     *
+     * @param Vendor|null $value
      */
     public function vendor(?Vendor $value): self
     {
@@ -52,7 +57,7 @@ class CreateVendorResponseBuilder
     }
 
     /**
-     * Initializes a new create vendor response object.
+     * Initializes a new Create Vendor Response object.
      */
     public function build(): CreateVendorResponse
     {

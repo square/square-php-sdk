@@ -25,7 +25,9 @@ class CatalogQueryRangeBuilder
     }
 
     /**
-     * Initializes a new catalog query range Builder object.
+     * Initializes a new Catalog Query Range Builder object.
+     *
+     * @param string $attributeName
      */
     public static function init(string $attributeName): self
     {
@@ -34,6 +36,8 @@ class CatalogQueryRangeBuilder
 
     /**
      * Sets attribute min value field.
+     *
+     * @param int|null $value
      */
     public function attributeMinValue(?int $value): self
     {
@@ -52,6 +56,8 @@ class CatalogQueryRangeBuilder
 
     /**
      * Sets attribute max value field.
+     *
+     * @param int|null $value
      */
     public function attributeMaxValue(?int $value): self
     {
@@ -69,7 +75,7 @@ class CatalogQueryRangeBuilder
     }
 
     /**
-     * Initializes a new catalog query range object.
+     * Initializes a new Catalog Query Range object.
      */
     public function build(): CatalogQueryRange
     {

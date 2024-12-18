@@ -25,7 +25,7 @@ class ConfirmationDecisionBuilder
     }
 
     /**
-     * Initializes a new confirmation decision Builder object.
+     * Initializes a new Confirmation Decision Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ConfirmationDecisionBuilder
 
     /**
      * Sets has agreed field.
+     *
+     * @param bool|null $value
      */
     public function hasAgreed(?bool $value): self
     {
@@ -42,7 +44,7 @@ class ConfirmationDecisionBuilder
     }
 
     /**
-     * Initializes a new confirmation decision object.
+     * Initializes a new Confirmation Decision object.
      */
     public function build(): ConfirmationDecision
     {

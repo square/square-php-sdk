@@ -25,7 +25,7 @@ class CatalogTaxBuilder
     }
 
     /**
-     * Initializes a new catalog tax Builder object.
+     * Initializes a new Catalog Tax Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets calculation phase field.
+     *
+     * @param string|null $value
      */
     public function calculationPhase(?string $value): self
     {
@@ -61,6 +65,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets inclusion type field.
+     *
+     * @param string|null $value
      */
     public function inclusionType(?string $value): self
     {
@@ -70,6 +76,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -88,6 +96,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets applies to custom amounts field.
+     *
+     * @param bool|null $value
      */
     public function appliesToCustomAmounts(?bool $value): self
     {
@@ -106,6 +116,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -124,6 +136,8 @@ class CatalogTaxBuilder
 
     /**
      * Sets applies to product set id field.
+     *
+     * @param string|null $value
      */
     public function appliesToProductSetId(?string $value): self
     {
@@ -141,7 +155,7 @@ class CatalogTaxBuilder
     }
 
     /**
-     * Initializes a new catalog tax object.
+     * Initializes a new Catalog Tax object.
      */
     public function build(): CatalogTax
     {

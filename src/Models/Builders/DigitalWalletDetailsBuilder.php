@@ -26,7 +26,7 @@ class DigitalWalletDetailsBuilder
     }
 
     /**
-     * Initializes a new digital wallet details Builder object.
+     * Initializes a new Digital Wallet Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class DigitalWalletDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -53,6 +55,8 @@ class DigitalWalletDetailsBuilder
 
     /**
      * Sets brand field.
+     *
+     * @param string|null $value
      */
     public function brand(?string $value): self
     {
@@ -71,6 +75,8 @@ class DigitalWalletDetailsBuilder
 
     /**
      * Sets cash app details field.
+     *
+     * @param CashAppDetails|null $value
      */
     public function cashAppDetails(?CashAppDetails $value): self
     {
@@ -79,7 +85,7 @@ class DigitalWalletDetailsBuilder
     }
 
     /**
-     * Initializes a new digital wallet details object.
+     * Initializes a new Digital Wallet Details object.
      */
     public function build(): DigitalWalletDetails
     {

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\BookingCustomAttributeDeleteResponse;
 use Square\Models\BulkDeleteBookingCustomAttributesResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkDeleteBookingCustomAttributesResponse
@@ -25,7 +27,7 @@ class BulkDeleteBookingCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete booking custom attributes response Builder object.
+     * Initializes a new Bulk Delete Booking Custom Attributes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkDeleteBookingCustomAttributesResponseBuilder
 
     /**
      * Sets values field.
+     *
+     * @param array<string,BookingCustomAttributeDeleteResponse>|null $value
      */
     public function values(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkDeleteBookingCustomAttributesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkDeleteBookingCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete booking custom attributes response object.
+     * Initializes a new Bulk Delete Booking Custom Attributes Response object.
      */
     public function build(): BulkDeleteBookingCustomAttributesResponse
     {

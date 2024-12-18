@@ -25,7 +25,7 @@ class LocationBookingProfileBuilder
     }
 
     /**
-     * Initializes a new location booking profile Builder object.
+     * Initializes a new Location Booking Profile Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class LocationBookingProfileBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -52,6 +54,8 @@ class LocationBookingProfileBuilder
 
     /**
      * Sets booking site url field.
+     *
+     * @param string|null $value
      */
     public function bookingSiteUrl(?string $value): self
     {
@@ -70,6 +74,8 @@ class LocationBookingProfileBuilder
 
     /**
      * Sets online booking enabled field.
+     *
+     * @param bool|null $value
      */
     public function onlineBookingEnabled(?bool $value): self
     {
@@ -87,7 +93,7 @@ class LocationBookingProfileBuilder
     }
 
     /**
-     * Initializes a new location booking profile object.
+     * Initializes a new Location Booking Profile object.
      */
     public function build(): LocationBookingProfile
     {

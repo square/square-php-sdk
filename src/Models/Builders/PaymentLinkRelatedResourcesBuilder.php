@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogObject;
+use Square\Models\Order;
 use Square\Models\PaymentLinkRelatedResources;
 
 /**
@@ -25,7 +27,7 @@ class PaymentLinkRelatedResourcesBuilder
     }
 
     /**
-     * Initializes a new payment link related resources Builder object.
+     * Initializes a new Payment Link Related Resources Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class PaymentLinkRelatedResourcesBuilder
 
     /**
      * Sets orders field.
+     *
+     * @param Order[]|null $value
      */
     public function orders(?array $value): self
     {
@@ -52,6 +56,8 @@ class PaymentLinkRelatedResourcesBuilder
 
     /**
      * Sets subscription plans field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function subscriptionPlans(?array $value): self
     {
@@ -69,7 +75,7 @@ class PaymentLinkRelatedResourcesBuilder
     }
 
     /**
-     * Initializes a new payment link related resources object.
+     * Initializes a new Payment Link Related Resources object.
      */
     public function build(): PaymentLinkRelatedResources
     {

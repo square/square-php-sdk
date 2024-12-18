@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Component;
 use Square\Models\Device;
 use Square\Models\DeviceAttributes;
 use Square\Models\DeviceStatus;
@@ -27,7 +28,9 @@ class DeviceBuilder
     }
 
     /**
-     * Initializes a new device Builder object.
+     * Initializes a new Device Builder object.
+     *
+     * @param DeviceAttributes $attributes
      */
     public static function init(DeviceAttributes $attributes): self
     {
@@ -36,6 +39,8 @@ class DeviceBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +50,8 @@ class DeviceBuilder
 
     /**
      * Sets components field.
+     *
+     * @param Component[]|null $value
      */
     public function components(?array $value): self
     {
@@ -63,6 +70,8 @@ class DeviceBuilder
 
     /**
      * Sets status field.
+     *
+     * @param DeviceStatus|null $value
      */
     public function status(?DeviceStatus $value): self
     {
@@ -71,7 +80,7 @@ class DeviceBuilder
     }
 
     /**
-     * Initializes a new device object.
+     * Initializes a new Device object.
      */
     public function build(): Device
     {

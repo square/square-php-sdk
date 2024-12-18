@@ -25,7 +25,7 @@ class SubscriptionSourceBuilder
     }
 
     /**
-     * Initializes a new subscription source Builder object.
+     * Initializes a new Subscription Source Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SubscriptionSourceBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -51,7 +53,7 @@ class SubscriptionSourceBuilder
     }
 
     /**
-     * Initializes a new subscription source object.
+     * Initializes a new Subscription Source object.
      */
     public function build(): SubscriptionSource
     {

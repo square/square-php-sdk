@@ -25,7 +25,9 @@ class MerchantBuilder
     }
 
     /**
-     * Initializes a new merchant Builder object.
+     * Initializes a new Merchant Builder object.
+     *
+     * @param string $country
      */
     public static function init(string $country): self
     {
@@ -34,6 +36,8 @@ class MerchantBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +47,8 @@ class MerchantBuilder
 
     /**
      * Sets business name field.
+     *
+     * @param string|null $value
      */
     public function businessName(?string $value): self
     {
@@ -61,6 +67,8 @@ class MerchantBuilder
 
     /**
      * Sets language code field.
+     *
+     * @param string|null $value
      */
     public function languageCode(?string $value): self
     {
@@ -79,6 +87,8 @@ class MerchantBuilder
 
     /**
      * Sets currency field.
+     *
+     * @param string|null $value
      */
     public function currency(?string $value): self
     {
@@ -88,6 +98,8 @@ class MerchantBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -97,6 +109,8 @@ class MerchantBuilder
 
     /**
      * Sets main location id field.
+     *
+     * @param string|null $value
      */
     public function mainLocationId(?string $value): self
     {
@@ -115,6 +129,8 @@ class MerchantBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -123,7 +139,7 @@ class MerchantBuilder
     }
 
     /**
-     * Initializes a new merchant object.
+     * Initializes a new Merchant object.
      */
     public function build(): Merchant
     {

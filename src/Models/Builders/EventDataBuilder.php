@@ -25,7 +25,7 @@ class EventDataBuilder
     }
 
     /**
-     * Initializes a new event data Builder object.
+     * Initializes a new Event Data Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class EventDataBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -52,6 +54,8 @@ class EventDataBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -61,6 +65,8 @@ class EventDataBuilder
 
     /**
      * Sets deleted field.
+     *
+     * @param bool|null $value
      */
     public function deleted(?bool $value): self
     {
@@ -79,6 +85,8 @@ class EventDataBuilder
 
     /**
      * Sets object field.
+     *
+     * @param mixed $value
      */
     public function object($value): self
     {
@@ -96,7 +104,7 @@ class EventDataBuilder
     }
 
     /**
-     * Initializes a new event data object.
+     * Initializes a new Event Data object.
      */
     public function build(): EventData
     {

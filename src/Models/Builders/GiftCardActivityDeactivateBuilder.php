@@ -25,7 +25,9 @@ class GiftCardActivityDeactivateBuilder
     }
 
     /**
-     * Initializes a new gift card activity deactivate Builder object.
+     * Initializes a new Gift Card Activity Deactivate Builder object.
+     *
+     * @param string $reason
      */
     public static function init(string $reason): self
     {
@@ -33,7 +35,7 @@ class GiftCardActivityDeactivateBuilder
     }
 
     /**
-     * Initializes a new gift card activity deactivate object.
+     * Initializes a new Gift Card Activity Deactivate object.
      */
     public function build(): GiftCardActivityDeactivate
     {

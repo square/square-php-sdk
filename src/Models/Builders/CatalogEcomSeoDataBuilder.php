@@ -25,7 +25,7 @@ class CatalogEcomSeoDataBuilder
     }
 
     /**
-     * Initializes a new catalog ecom seo data Builder object.
+     * Initializes a new Catalog Ecom Seo Data Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogEcomSeoDataBuilder
 
     /**
      * Sets page title field.
+     *
+     * @param string|null $value
      */
     public function pageTitle(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogEcomSeoDataBuilder
 
     /**
      * Sets page description field.
+     *
+     * @param string|null $value
      */
     public function pageDescription(?string $value): self
     {
@@ -70,6 +74,8 @@ class CatalogEcomSeoDataBuilder
 
     /**
      * Sets permalink field.
+     *
+     * @param string|null $value
      */
     public function permalink(?string $value): self
     {
@@ -87,7 +93,7 @@ class CatalogEcomSeoDataBuilder
     }
 
     /**
-     * Initializes a new catalog ecom seo data object.
+     * Initializes a new Catalog Ecom Seo Data object.
      */
     public function build(): CatalogEcomSeoData
     {

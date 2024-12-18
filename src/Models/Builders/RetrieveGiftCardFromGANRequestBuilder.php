@@ -25,7 +25,9 @@ class RetrieveGiftCardFromGANRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from ganrequest Builder object.
+     * Initializes a new Retrieve Gift Card From GAN Request Builder object.
+     *
+     * @param string $gan
      */
     public static function init(string $gan): self
     {
@@ -33,7 +35,7 @@ class RetrieveGiftCardFromGANRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from ganrequest object.
+     * Initializes a new Retrieve Gift Card From GAN Request object.
      */
     public function build(): RetrieveGiftCardFromGANRequest
     {

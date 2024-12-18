@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Money;
+use Square\Models\OrderLineItemAppliedTax;
 use Square\Models\OrderReturnServiceCharge;
 
 /**
@@ -26,7 +27,7 @@ class OrderReturnServiceChargeBuilder
     }
 
     /**
-     * Initializes a new order return service charge Builder object.
+     * Initializes a new Order Return Service Charge Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +56,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets source service charge uid field.
+     *
+     * @param string|null $value
      */
     public function sourceServiceChargeUid(?string $value): self
     {
@@ -71,6 +76,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -89,6 +96,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -107,6 +116,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -125,6 +136,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -143,6 +156,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -152,6 +167,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -161,6 +178,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets total money field.
+     *
+     * @param Money|null $value
      */
     public function totalMoney(?Money $value): self
     {
@@ -170,6 +189,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets total tax money field.
+     *
+     * @param Money|null $value
      */
     public function totalTaxMoney(?Money $value): self
     {
@@ -179,6 +200,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets calculation phase field.
+     *
+     * @param string|null $value
      */
     public function calculationPhase(?string $value): self
     {
@@ -188,6 +211,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets taxable field.
+     *
+     * @param bool|null $value
      */
     public function taxable(?bool $value): self
     {
@@ -206,6 +231,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets applied taxes field.
+     *
+     * @param OrderLineItemAppliedTax[]|null $value
      */
     public function appliedTaxes(?array $value): self
     {
@@ -224,6 +251,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets treatment type field.
+     *
+     * @param string|null $value
      */
     public function treatmentType(?string $value): self
     {
@@ -233,6 +262,8 @@ class OrderReturnServiceChargeBuilder
 
     /**
      * Sets scope field.
+     *
+     * @param string|null $value
      */
     public function scope(?string $value): self
     {
@@ -241,7 +272,7 @@ class OrderReturnServiceChargeBuilder
     }
 
     /**
-     * Initializes a new order return service charge object.
+     * Initializes a new Order Return Service Charge object.
      */
     public function build(): OrderReturnServiceCharge
     {

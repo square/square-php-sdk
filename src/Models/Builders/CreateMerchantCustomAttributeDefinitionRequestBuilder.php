@@ -26,7 +26,9 @@ class CreateMerchantCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new create merchant custom attribute definition request Builder object.
+     * Initializes a new Create Merchant Custom Attribute Definition Request Builder object.
+     *
+     * @param CustomAttributeDefinition $customAttributeDefinition
      */
     public static function init(CustomAttributeDefinition $customAttributeDefinition): self
     {
@@ -35,6 +37,8 @@ class CreateMerchantCustomAttributeDefinitionRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateMerchantCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new create merchant custom attribute definition request object.
+     * Initializes a new Create Merchant Custom Attribute Definition Request object.
      */
     public function build(): CreateMerchantCustomAttributeDefinitionRequest
     {

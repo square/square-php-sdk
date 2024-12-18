@@ -26,7 +26,7 @@ class ModifierLocationOverridesBuilder
     }
 
     /**
-     * Initializes a new modifier location overrides Builder object.
+     * Initializes a new Modifier Location Overrides Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class ModifierLocationOverridesBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -53,6 +55,8 @@ class ModifierLocationOverridesBuilder
 
     /**
      * Sets price money field.
+     *
+     * @param Money|null $value
      */
     public function priceMoney(?Money $value): self
     {
@@ -62,6 +66,8 @@ class ModifierLocationOverridesBuilder
 
     /**
      * Sets sold out field.
+     *
+     * @param bool|null $value
      */
     public function soldOut(?bool $value): self
     {
@@ -70,7 +76,7 @@ class ModifierLocationOverridesBuilder
     }
 
     /**
-     * Initializes a new modifier location overrides object.
+     * Initializes a new Modifier Location Overrides object.
      */
     public function build(): ModifierLocationOverrides
     {

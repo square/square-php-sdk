@@ -25,7 +25,7 @@ class ListCatalogRequestBuilder
     }
 
     /**
-     * Initializes a new list catalog request Builder object.
+     * Initializes a new List Catalog Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListCatalogRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListCatalogRequestBuilder
 
     /**
      * Sets types field.
+     *
+     * @param string|null $value
      */
     public function types(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListCatalogRequestBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -87,7 +93,7 @@ class ListCatalogRequestBuilder
     }
 
     /**
-     * Initializes a new list catalog request object.
+     * Initializes a new List Catalog Request object.
      */
     public function build(): ListCatalogRequest
     {

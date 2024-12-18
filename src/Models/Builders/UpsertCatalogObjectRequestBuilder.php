@@ -26,7 +26,10 @@ class UpsertCatalogObjectRequestBuilder
     }
 
     /**
-     * Initializes a new upsert catalog object request Builder object.
+     * Initializes a new Upsert Catalog Object Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param CatalogObject $object
      */
     public static function init(string $idempotencyKey, CatalogObject $object): self
     {
@@ -34,7 +37,7 @@ class UpsertCatalogObjectRequestBuilder
     }
 
     /**
-     * Initializes a new upsert catalog object request object.
+     * Initializes a new Upsert Catalog Object Request object.
      */
     public function build(): UpsertCatalogObjectRequest
     {

@@ -25,7 +25,7 @@ class ListTeamMemberWagesRequestBuilder
     }
 
     /**
-     * Initializes a new list team member wages request Builder object.
+     * Initializes a new List Team Member Wages Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListTeamMemberWagesRequestBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListTeamMemberWagesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListTeamMemberWagesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -87,7 +93,7 @@ class ListTeamMemberWagesRequestBuilder
     }
 
     /**
-     * Initializes a new list team member wages request object.
+     * Initializes a new List Team Member Wages Request object.
      */
     public function build(): ListTeamMemberWagesRequest
     {

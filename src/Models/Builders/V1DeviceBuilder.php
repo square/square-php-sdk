@@ -25,7 +25,7 @@ class V1DeviceBuilder
     }
 
     /**
-     * Initializes a new v1 device Builder object.
+     * Initializes a new V1 Device Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class V1DeviceBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class V1DeviceBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -60,7 +64,7 @@ class V1DeviceBuilder
     }
 
     /**
-     * Initializes a new v1 device object.
+     * Initializes a new V1 Device object.
      */
     public function build(): V1Device
     {

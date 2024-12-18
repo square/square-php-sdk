@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateInvoiceResponse;
+use Square\Models\Error;
 use Square\Models\Invoice;
 
 /**
@@ -26,7 +27,7 @@ class CreateInvoiceResponseBuilder
     }
 
     /**
-     * Initializes a new create invoice response Builder object.
+     * Initializes a new Create Invoice Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateInvoiceResponseBuilder
 
     /**
      * Sets invoice field.
+     *
+     * @param Invoice|null $value
      */
     public function invoice(?Invoice $value): self
     {
@@ -44,6 +47,8 @@ class CreateInvoiceResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CreateInvoiceResponseBuilder
     }
 
     /**
-     * Initializes a new create invoice response object.
+     * Initializes a new Create Invoice Response object.
      */
     public function build(): CreateInvoiceResponse
     {

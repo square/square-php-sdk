@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogSubscriptionPlanVariation;
+use Square\Models\SubscriptionPhase;
 
 /**
  * Builder for model CatalogSubscriptionPlanVariation
@@ -25,7 +26,10 @@ class CatalogSubscriptionPlanVariationBuilder
     }
 
     /**
-     * Initializes a new catalog subscription plan variation Builder object.
+     * Initializes a new Catalog Subscription Plan Variation Builder object.
+     *
+     * @param string $name
+     * @param SubscriptionPhase[] $phases
      */
     public static function init(string $name, array $phases): self
     {
@@ -34,6 +38,8 @@ class CatalogSubscriptionPlanVariationBuilder
 
     /**
      * Sets subscription plan id field.
+     *
+     * @param string|null $value
      */
     public function subscriptionPlanId(?string $value): self
     {
@@ -52,6 +58,8 @@ class CatalogSubscriptionPlanVariationBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -70,6 +78,8 @@ class CatalogSubscriptionPlanVariationBuilder
 
     /**
      * Sets can prorate field.
+     *
+     * @param bool|null $value
      */
     public function canProrate(?bool $value): self
     {
@@ -88,6 +98,8 @@ class CatalogSubscriptionPlanVariationBuilder
 
     /**
      * Sets successor plan variation id field.
+     *
+     * @param string|null $value
      */
     public function successorPlanVariationId(?string $value): self
     {
@@ -105,7 +117,7 @@ class CatalogSubscriptionPlanVariationBuilder
     }
 
     /**
-     * Initializes a new catalog subscription plan variation object.
+     * Initializes a new Catalog Subscription Plan Variation object.
      */
     public function build(): CatalogSubscriptionPlanVariation
     {

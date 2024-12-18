@@ -26,7 +26,9 @@ class UpsertSnippetRequestBuilder
     }
 
     /**
-     * Initializes a new upsert snippet request Builder object.
+     * Initializes a new Upsert Snippet Request Builder object.
+     *
+     * @param Snippet $snippet
      */
     public static function init(Snippet $snippet): self
     {
@@ -34,7 +36,7 @@ class UpsertSnippetRequestBuilder
     }
 
     /**
-     * Initializes a new upsert snippet request object.
+     * Initializes a new Upsert Snippet Request object.
      */
     public function build(): UpsertSnippetRequest
     {

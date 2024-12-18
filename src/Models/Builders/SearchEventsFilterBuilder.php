@@ -26,7 +26,7 @@ class SearchEventsFilterBuilder
     }
 
     /**
-     * Initializes a new search events filter Builder object.
+     * Initializes a new Search Events Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchEventsFilterBuilder
 
     /**
      * Sets event types field.
+     *
+     * @param string[]|null $value
      */
     public function eventTypes(?array $value): self
     {
@@ -53,6 +55,8 @@ class SearchEventsFilterBuilder
 
     /**
      * Sets merchant ids field.
+     *
+     * @param string[]|null $value
      */
     public function merchantIds(?array $value): self
     {
@@ -71,6 +75,8 @@ class SearchEventsFilterBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -89,6 +95,8 @@ class SearchEventsFilterBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param TimeRange|null $value
      */
     public function createdAt(?TimeRange $value): self
     {
@@ -97,7 +105,7 @@ class SearchEventsFilterBuilder
     }
 
     /**
-     * Initializes a new search events filter object.
+     * Initializes a new Search Events Filter object.
      */
     public function build(): SearchEventsFilter
     {

@@ -26,7 +26,9 @@ class UpdateVendorRequestBuilder
     }
 
     /**
-     * Initializes a new update vendor request Builder object.
+     * Initializes a new Update Vendor Request Builder object.
+     *
+     * @param Vendor $vendor
      */
     public static function init(Vendor $vendor): self
     {
@@ -35,6 +37,8 @@ class UpdateVendorRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpdateVendorRequestBuilder
     }
 
     /**
-     * Initializes a new update vendor request object.
+     * Initializes a new Update Vendor Request object.
      */
     public function build(): UpdateVendorRequest
     {

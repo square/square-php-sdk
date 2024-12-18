@@ -26,7 +26,10 @@ class GiftCardActivityAdjustDecrementBuilder
     }
 
     /**
-     * Initializes a new gift card activity adjust decrement Builder object.
+     * Initializes a new Gift Card Activity Adjust Decrement Builder object.
+     *
+     * @param Money $amountMoney
+     * @param string $reason
      */
     public static function init(Money $amountMoney, string $reason): self
     {
@@ -34,7 +37,7 @@ class GiftCardActivityAdjustDecrementBuilder
     }
 
     /**
-     * Initializes a new gift card activity adjust decrement object.
+     * Initializes a new Gift Card Activity Adjust Decrement object.
      */
     public function build(): GiftCardActivityAdjustDecrement
     {

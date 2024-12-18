@@ -26,7 +26,7 @@ class TerminalActionQueryFilterBuilder
     }
 
     /**
-     * Initializes a new terminal action query filter Builder object.
+     * Initializes a new Terminal Action Query Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class TerminalActionQueryFilterBuilder
 
     /**
      * Sets device id field.
+     *
+     * @param string|null $value
      */
     public function deviceId(?string $value): self
     {
@@ -53,6 +55,8 @@ class TerminalActionQueryFilterBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param TimeRange|null $value
      */
     public function createdAt(?TimeRange $value): self
     {
@@ -62,6 +66,8 @@ class TerminalActionQueryFilterBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -80,6 +86,8 @@ class TerminalActionQueryFilterBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -88,7 +96,7 @@ class TerminalActionQueryFilterBuilder
     }
 
     /**
-     * Initializes a new terminal action query filter object.
+     * Initializes a new Terminal Action Query Filter object.
      */
     public function build(): TerminalActionQueryFilter
     {

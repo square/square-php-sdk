@@ -25,7 +25,7 @@ class ClearpayDetailsBuilder
     }
 
     /**
-     * Initializes a new clearpay details Builder object.
+     * Initializes a new Clearpay Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ClearpayDetailsBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -51,7 +53,7 @@ class ClearpayDetailsBuilder
     }
 
     /**
-     * Initializes a new clearpay details object.
+     * Initializes a new Clearpay Details object.
      */
     public function build(): ClearpayDetails
     {

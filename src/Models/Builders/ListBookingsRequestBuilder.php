@@ -25,7 +25,7 @@ class ListBookingsRequestBuilder
     }
 
     /**
-     * Initializes a new list bookings request Builder object.
+     * Initializes a new List Bookings Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -52,6 +54,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -88,6 +94,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -106,6 +114,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -124,6 +134,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets start at min field.
+     *
+     * @param string|null $value
      */
     public function startAtMin(?string $value): self
     {
@@ -142,6 +154,8 @@ class ListBookingsRequestBuilder
 
     /**
      * Sets start at max field.
+     *
+     * @param string|null $value
      */
     public function startAtMax(?string $value): self
     {
@@ -159,7 +173,7 @@ class ListBookingsRequestBuilder
     }
 
     /**
-     * Initializes a new list bookings request object.
+     * Initializes a new List Bookings Request object.
      */
     public function build(): ListBookingsRequest
     {

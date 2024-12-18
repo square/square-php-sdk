@@ -25,7 +25,9 @@ class RegisterDomainRequestBuilder
     }
 
     /**
-     * Initializes a new register domain request Builder object.
+     * Initializes a new Register Domain Request Builder object.
+     *
+     * @param string $domainName
      */
     public static function init(string $domainName): self
     {
@@ -33,7 +35,7 @@ class RegisterDomainRequestBuilder
     }
 
     /**
-     * Initializes a new register domain request object.
+     * Initializes a new Register Domain Request object.
      */
     public function build(): RegisterDomainRequest
     {

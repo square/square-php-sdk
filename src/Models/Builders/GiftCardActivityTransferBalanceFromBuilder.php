@@ -26,7 +26,10 @@ class GiftCardActivityTransferBalanceFromBuilder
     }
 
     /**
-     * Initializes a new gift card activity transfer balance from Builder object.
+     * Initializes a new Gift Card Activity Transfer Balance From Builder object.
+     *
+     * @param string $transferToGiftCardId
+     * @param Money $amountMoney
      */
     public static function init(string $transferToGiftCardId, Money $amountMoney): self
     {
@@ -34,7 +37,7 @@ class GiftCardActivityTransferBalanceFromBuilder
     }
 
     /**
-     * Initializes a new gift card activity transfer balance from object.
+     * Initializes a new Gift Card Activity Transfer Balance From object.
      */
     public function build(): GiftCardActivityTransferBalanceFrom
     {

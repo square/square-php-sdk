@@ -26,7 +26,7 @@ class OrderQuantityUnitBuilder
     }
 
     /**
-     * Initializes a new order quantity unit Builder object.
+     * Initializes a new Order Quantity Unit Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderQuantityUnitBuilder
 
     /**
      * Sets measurement unit field.
+     *
+     * @param MeasurementUnit|null $value
      */
     public function measurementUnit(?MeasurementUnit $value): self
     {
@@ -44,6 +46,8 @@ class OrderQuantityUnitBuilder
 
     /**
      * Sets precision field.
+     *
+     * @param int|null $value
      */
     public function precision(?int $value): self
     {
@@ -62,6 +66,8 @@ class OrderQuantityUnitBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -80,6 +86,8 @@ class OrderQuantityUnitBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -97,7 +105,7 @@ class OrderQuantityUnitBuilder
     }
 
     /**
-     * Initializes a new order quantity unit object.
+     * Initializes a new Order Quantity Unit object.
      */
     public function build(): OrderQuantityUnit
     {

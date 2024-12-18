@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogInfoResponse;
 use Square\Models\CatalogInfoResponseLimits;
+use Square\Models\Error;
 use Square\Models\StandardUnitDescriptionGroup;
 
 /**
@@ -27,7 +28,7 @@ class CatalogInfoResponseBuilder
     }
 
     /**
-     * Initializes a new catalog info response Builder object.
+     * Initializes a new Catalog Info Response Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +37,8 @@ class CatalogInfoResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -45,6 +48,8 @@ class CatalogInfoResponseBuilder
 
     /**
      * Sets limits field.
+     *
+     * @param CatalogInfoResponseLimits|null $value
      */
     public function limits(?CatalogInfoResponseLimits $value): self
     {
@@ -54,6 +59,8 @@ class CatalogInfoResponseBuilder
 
     /**
      * Sets standard unit description group field.
+     *
+     * @param StandardUnitDescriptionGroup|null $value
      */
     public function standardUnitDescriptionGroup(?StandardUnitDescriptionGroup $value): self
     {
@@ -62,7 +69,7 @@ class CatalogInfoResponseBuilder
     }
 
     /**
-     * Initializes a new catalog info response object.
+     * Initializes a new Catalog Info Response object.
      */
     public function build(): CatalogInfoResponse
     {

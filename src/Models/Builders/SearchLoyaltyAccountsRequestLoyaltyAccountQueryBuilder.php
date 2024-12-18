@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\LoyaltyAccountMapping;
 use Square\Models\SearchLoyaltyAccountsRequestLoyaltyAccountQuery;
 
 /**
@@ -25,7 +26,7 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQueryBuilder
     }
 
     /**
-     * Initializes a new search loyalty accounts request loyalty account query Builder object.
+     * Initializes a new Search Loyalty Accounts Request Loyalty Account Query Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQueryBuilder
 
     /**
      * Sets mappings field.
+     *
+     * @param LoyaltyAccountMapping[]|null $value
      */
     public function mappings(?array $value): self
     {
@@ -52,6 +55,8 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQueryBuilder
 
     /**
      * Sets customer ids field.
+     *
+     * @param string[]|null $value
      */
     public function customerIds(?array $value): self
     {
@@ -69,7 +74,7 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQueryBuilder
     }
 
     /**
-     * Initializes a new search loyalty accounts request loyalty account query object.
+     * Initializes a new Search Loyalty Accounts Request Loyalty Account Query object.
      */
     public function build(): SearchLoyaltyAccountsRequestLoyaltyAccountQuery
     {

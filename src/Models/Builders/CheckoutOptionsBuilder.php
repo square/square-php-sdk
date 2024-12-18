@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\AcceptedPaymentMethods;
 use Square\Models\CheckoutOptions;
+use Square\Models\CustomField;
 use Square\Models\Money;
 use Square\Models\ShippingFee;
 
@@ -28,7 +29,7 @@ class CheckoutOptionsBuilder
     }
 
     /**
-     * Initializes a new checkout options Builder object.
+     * Initializes a new Checkout Options Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets allow tipping field.
+     *
+     * @param bool|null $value
      */
     public function allowTipping(?bool $value): self
     {
@@ -55,6 +58,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets custom fields field.
+     *
+     * @param CustomField[]|null $value
      */
     public function customFields(?array $value): self
     {
@@ -73,6 +78,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets subscription plan id field.
+     *
+     * @param string|null $value
      */
     public function subscriptionPlanId(?string $value): self
     {
@@ -91,6 +98,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets redirect url field.
+     *
+     * @param string|null $value
      */
     public function redirectUrl(?string $value): self
     {
@@ -109,6 +118,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets merchant support email field.
+     *
+     * @param string|null $value
      */
     public function merchantSupportEmail(?string $value): self
     {
@@ -127,6 +138,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets ask for shipping address field.
+     *
+     * @param bool|null $value
      */
     public function askForShippingAddress(?bool $value): self
     {
@@ -145,6 +158,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets accepted payment methods field.
+     *
+     * @param AcceptedPaymentMethods|null $value
      */
     public function acceptedPaymentMethods(?AcceptedPaymentMethods $value): self
     {
@@ -154,6 +169,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets app fee money field.
+     *
+     * @param Money|null $value
      */
     public function appFeeMoney(?Money $value): self
     {
@@ -163,6 +180,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets shipping fee field.
+     *
+     * @param ShippingFee|null $value
      */
     public function shippingFee(?ShippingFee $value): self
     {
@@ -172,6 +191,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets enable coupon field.
+     *
+     * @param bool|null $value
      */
     public function enableCoupon(?bool $value): self
     {
@@ -190,6 +211,8 @@ class CheckoutOptionsBuilder
 
     /**
      * Sets enable loyalty field.
+     *
+     * @param bool|null $value
      */
     public function enableLoyalty(?bool $value): self
     {
@@ -207,7 +230,7 @@ class CheckoutOptionsBuilder
     }
 
     /**
-     * Initializes a new checkout options object.
+     * Initializes a new Checkout Options object.
      */
     public function build(): CheckoutOptions
     {

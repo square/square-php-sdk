@@ -25,7 +25,10 @@ class V1PhoneNumberBuilder
     }
 
     /**
-     * Initializes a new v1 phone number Builder object.
+     * Initializes a new V1 Phone Number Builder object.
+     *
+     * @param string $callingCode
+     * @param string $number
      */
     public static function init(string $callingCode, string $number): self
     {
@@ -33,7 +36,7 @@ class V1PhoneNumberBuilder
     }
 
     /**
-     * Initializes a new v1 phone number object.
+     * Initializes a new V1 Phone Number object.
      */
     public function build(): V1PhoneNumber
     {

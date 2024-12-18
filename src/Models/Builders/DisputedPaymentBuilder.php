@@ -25,7 +25,7 @@ class DisputedPaymentBuilder
     }
 
     /**
-     * Initializes a new disputed payment Builder object.
+     * Initializes a new Disputed Payment Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DisputedPaymentBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class DisputedPaymentBuilder
     }
 
     /**
-     * Initializes a new disputed payment object.
+     * Initializes a new Disputed Payment object.
      */
     public function build(): DisputedPayment
     {

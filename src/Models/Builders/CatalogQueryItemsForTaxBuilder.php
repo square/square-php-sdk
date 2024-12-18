@@ -25,7 +25,9 @@ class CatalogQueryItemsForTaxBuilder
     }
 
     /**
-     * Initializes a new catalog query items for tax Builder object.
+     * Initializes a new Catalog Query Items For Tax Builder object.
+     *
+     * @param string[] $taxIds
      */
     public static function init(array $taxIds): self
     {
@@ -33,7 +35,7 @@ class CatalogQueryItemsForTaxBuilder
     }
 
     /**
-     * Initializes a new catalog query items for tax object.
+     * Initializes a new Catalog Query Items For Tax object.
      */
     public function build(): CatalogQueryItemsForTax
     {

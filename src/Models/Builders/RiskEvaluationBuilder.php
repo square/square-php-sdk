@@ -25,7 +25,7 @@ class RiskEvaluationBuilder
     }
 
     /**
-     * Initializes a new risk evaluation Builder object.
+     * Initializes a new Risk Evaluation Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RiskEvaluationBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -43,6 +45,8 @@ class RiskEvaluationBuilder
 
     /**
      * Sets risk level field.
+     *
+     * @param string|null $value
      */
     public function riskLevel(?string $value): self
     {
@@ -51,7 +55,7 @@ class RiskEvaluationBuilder
     }
 
     /**
-     * Initializes a new risk evaluation object.
+     * Initializes a new Risk Evaluation object.
      */
     public function build(): RiskEvaluation
     {

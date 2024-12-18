@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\Event;
+use Square\Models\EventMetadata;
 use Square\Models\SearchEventsResponse;
 
 /**
@@ -25,7 +28,7 @@ class SearchEventsResponseBuilder
     }
 
     /**
-     * Initializes a new search events response Builder object.
+     * Initializes a new Search Events Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +37,8 @@ class SearchEventsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +48,8 @@ class SearchEventsResponseBuilder
 
     /**
      * Sets events field.
+     *
+     * @param Event[]|null $value
      */
     public function events(?array $value): self
     {
@@ -52,6 +59,8 @@ class SearchEventsResponseBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param EventMetadata[]|null $value
      */
     public function metadata(?array $value): self
     {
@@ -61,6 +70,8 @@ class SearchEventsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +80,7 @@ class SearchEventsResponseBuilder
     }
 
     /**
-     * Initializes a new search events response object.
+     * Initializes a new Search Events Response object.
      */
     public function build(): SearchEventsResponse
     {

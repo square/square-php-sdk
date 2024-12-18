@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogItemModifierListInfo;
+use Square\Models\CatalogModifierOverride;
 
 /**
  * Builder for model CatalogItemModifierListInfo
@@ -25,7 +26,9 @@ class CatalogItemModifierListInfoBuilder
     }
 
     /**
-     * Initializes a new catalog item modifier list info Builder object.
+     * Initializes a new Catalog Item Modifier List Info Builder object.
+     *
+     * @param string $modifierListId
      */
     public static function init(string $modifierListId): self
     {
@@ -34,6 +37,8 @@ class CatalogItemModifierListInfoBuilder
 
     /**
      * Sets modifier overrides field.
+     *
+     * @param CatalogModifierOverride[]|null $value
      */
     public function modifierOverrides(?array $value): self
     {
@@ -52,6 +57,8 @@ class CatalogItemModifierListInfoBuilder
 
     /**
      * Sets min selected modifiers field.
+     *
+     * @param int|null $value
      */
     public function minSelectedModifiers(?int $value): self
     {
@@ -70,6 +77,8 @@ class CatalogItemModifierListInfoBuilder
 
     /**
      * Sets max selected modifiers field.
+     *
+     * @param int|null $value
      */
     public function maxSelectedModifiers(?int $value): self
     {
@@ -88,6 +97,8 @@ class CatalogItemModifierListInfoBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -106,6 +117,8 @@ class CatalogItemModifierListInfoBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -123,7 +136,7 @@ class CatalogItemModifierListInfoBuilder
     }
 
     /**
-     * Initializes a new catalog item modifier list info object.
+     * Initializes a new Catalog Item Modifier List Info object.
      */
     public function build(): CatalogItemModifierListInfo
     {

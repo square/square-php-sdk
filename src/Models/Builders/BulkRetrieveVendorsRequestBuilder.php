@@ -25,7 +25,7 @@ class BulkRetrieveVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve vendors request Builder object.
+     * Initializes a new Bulk Retrieve Vendors Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BulkRetrieveVendorsRequestBuilder
 
     /**
      * Sets vendor ids field.
+     *
+     * @param string[]|null $value
      */
     public function vendorIds(?array $value): self
     {
@@ -51,7 +53,7 @@ class BulkRetrieveVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve vendors request object.
+     * Initializes a new Bulk Retrieve Vendors Request object.
      */
     public function build(): BulkRetrieveVendorsRequest
     {

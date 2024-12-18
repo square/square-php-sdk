@@ -25,7 +25,7 @@ class BusinessHoursPeriodBuilder
     }
 
     /**
-     * Initializes a new business hours period Builder object.
+     * Initializes a new Business Hours Period Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BusinessHoursPeriodBuilder
 
     /**
      * Sets day of week field.
+     *
+     * @param string|null $value
      */
     public function dayOfWeek(?string $value): self
     {
@@ -43,6 +45,8 @@ class BusinessHoursPeriodBuilder
 
     /**
      * Sets start local time field.
+     *
+     * @param string|null $value
      */
     public function startLocalTime(?string $value): self
     {
@@ -61,6 +65,8 @@ class BusinessHoursPeriodBuilder
 
     /**
      * Sets end local time field.
+     *
+     * @param string|null $value
      */
     public function endLocalTime(?string $value): self
     {
@@ -78,7 +84,7 @@ class BusinessHoursPeriodBuilder
     }
 
     /**
-     * Initializes a new business hours period object.
+     * Initializes a new Business Hours Period object.
      */
     public function build(): BusinessHoursPeriod
     {

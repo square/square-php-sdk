@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\Destination;
 use Square\Models\Money;
 use Square\Models\Payout;
+use Square\Models\PayoutFee;
 
 /**
  * Builder for model Payout
@@ -27,7 +28,10 @@ class PayoutBuilder
     }
 
     /**
-     * Initializes a new payout Builder object.
+     * Initializes a new Payout Builder object.
+     *
+     * @param string $id
+     * @param string $locationId
      */
     public static function init(string $id, string $locationId): self
     {
@@ -36,6 +40,8 @@ class PayoutBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -45,6 +51,8 @@ class PayoutBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -54,6 +62,8 @@ class PayoutBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -63,6 +73,8 @@ class PayoutBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -72,6 +84,8 @@ class PayoutBuilder
 
     /**
      * Sets destination field.
+     *
+     * @param Destination|null $value
      */
     public function destination(?Destination $value): self
     {
@@ -81,6 +95,8 @@ class PayoutBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -90,6 +106,8 @@ class PayoutBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -99,6 +117,8 @@ class PayoutBuilder
 
     /**
      * Sets payout fee field.
+     *
+     * @param PayoutFee[]|null $value
      */
     public function payoutFee(?array $value): self
     {
@@ -117,6 +137,8 @@ class PayoutBuilder
 
     /**
      * Sets arrival date field.
+     *
+     * @param string|null $value
      */
     public function arrivalDate(?string $value): self
     {
@@ -135,6 +157,8 @@ class PayoutBuilder
 
     /**
      * Sets end to end id field.
+     *
+     * @param string|null $value
      */
     public function endToEndId(?string $value): self
     {
@@ -152,7 +176,7 @@ class PayoutBuilder
     }
 
     /**
-     * Initializes a new payout object.
+     * Initializes a new Payout object.
      */
     public function build(): Payout
     {

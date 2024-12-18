@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\GetPayoutResponse;
 use Square\Models\Payout;
 
@@ -26,7 +27,7 @@ class GetPayoutResponseBuilder
     }
 
     /**
-     * Initializes a new get payout response Builder object.
+     * Initializes a new Get Payout Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetPayoutResponseBuilder
 
     /**
      * Sets payout field.
+     *
+     * @param Payout|null $value
      */
     public function payout(?Payout $value): self
     {
@@ -44,6 +47,8 @@ class GetPayoutResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class GetPayoutResponseBuilder
     }
 
     /**
-     * Initializes a new get payout response object.
+     * Initializes a new Get Payout Response object.
      */
     public function build(): GetPayoutResponse
     {

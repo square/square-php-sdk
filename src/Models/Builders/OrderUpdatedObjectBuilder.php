@@ -26,7 +26,7 @@ class OrderUpdatedObjectBuilder
     }
 
     /**
-     * Initializes a new order updated object Builder object.
+     * Initializes a new Order Updated Object Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderUpdatedObjectBuilder
 
     /**
      * Sets order updated field.
+     *
+     * @param OrderUpdated|null $value
      */
     public function orderUpdated(?OrderUpdated $value): self
     {
@@ -43,7 +45,7 @@ class OrderUpdatedObjectBuilder
     }
 
     /**
-     * Initializes a new order updated object object.
+     * Initializes a new Order Updated Object object.
      */
     public function build(): OrderUpdatedObject
     {

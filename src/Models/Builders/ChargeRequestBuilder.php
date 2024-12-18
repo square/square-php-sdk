@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
 use Square\Models\ChargeRequest;
+use Square\Models\ChargeRequestAdditionalRecipient;
 use Square\Models\Money;
 
 /**
@@ -27,7 +28,10 @@ class ChargeRequestBuilder
     }
 
     /**
-     * Initializes a new charge request Builder object.
+     * Initializes a new Charge Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param Money $amountMoney
      */
     public static function init(string $idempotencyKey, Money $amountMoney): self
     {
@@ -36,6 +40,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets card nonce field.
+     *
+     * @param string|null $value
      */
     public function cardNonce(?string $value): self
     {
@@ -54,6 +60,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets customer card id field.
+     *
+     * @param string|null $value
      */
     public function customerCardId(?string $value): self
     {
@@ -72,6 +80,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets delay capture field.
+     *
+     * @param bool|null $value
      */
     public function delayCapture(?bool $value): self
     {
@@ -90,6 +100,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -108,6 +120,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -126,6 +140,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -144,6 +160,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets billing address field.
+     *
+     * @param Address|null $value
      */
     public function billingAddress(?Address $value): self
     {
@@ -153,6 +171,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets shipping address field.
+     *
+     * @param Address|null $value
      */
     public function shippingAddress(?Address $value): self
     {
@@ -162,6 +182,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets buyer email address field.
+     *
+     * @param string|null $value
      */
     public function buyerEmailAddress(?string $value): self
     {
@@ -180,6 +202,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -198,6 +222,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets additional recipients field.
+     *
+     * @param ChargeRequestAdditionalRecipient[]|null $value
      */
     public function additionalRecipients(?array $value): self
     {
@@ -216,6 +242,8 @@ class ChargeRequestBuilder
 
     /**
      * Sets verification token field.
+     *
+     * @param string|null $value
      */
     public function verificationToken(?string $value): self
     {
@@ -233,7 +261,7 @@ class ChargeRequestBuilder
     }
 
     /**
-     * Initializes a new charge request object.
+     * Initializes a new Charge Request object.
      */
     public function build(): ChargeRequest
     {

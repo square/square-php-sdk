@@ -25,7 +25,7 @@ class EmployeeBuilder
     }
 
     /**
-     * Initializes a new employee Builder object.
+     * Initializes a new Employee Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class EmployeeBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class EmployeeBuilder
 
     /**
      * Sets first name field.
+     *
+     * @param string|null $value
      */
     public function firstName(?string $value): self
     {
@@ -61,6 +65,8 @@ class EmployeeBuilder
 
     /**
      * Sets last name field.
+     *
+     * @param string|null $value
      */
     public function lastName(?string $value): self
     {
@@ -79,6 +85,8 @@ class EmployeeBuilder
 
     /**
      * Sets email field.
+     *
+     * @param string|null $value
      */
     public function email(?string $value): self
     {
@@ -97,6 +105,8 @@ class EmployeeBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -115,6 +125,8 @@ class EmployeeBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -133,6 +145,8 @@ class EmployeeBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -142,6 +156,8 @@ class EmployeeBuilder
 
     /**
      * Sets is owner field.
+     *
+     * @param bool|null $value
      */
     public function isOwner(?bool $value): self
     {
@@ -160,6 +176,8 @@ class EmployeeBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -169,6 +187,8 @@ class EmployeeBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -177,7 +197,7 @@ class EmployeeBuilder
     }
 
     /**
-     * Initializes a new employee object.
+     * Initializes a new Employee object.
      */
     public function build(): Employee
     {

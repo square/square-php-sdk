@@ -25,7 +25,7 @@ class CashAppDetailsBuilder
     }
 
     /**
-     * Initializes a new cash app details Builder object.
+     * Initializes a new Cash App Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CashAppDetailsBuilder
 
     /**
      * Sets buyer full name field.
+     *
+     * @param string|null $value
      */
     public function buyerFullName(?string $value): self
     {
@@ -52,6 +54,8 @@ class CashAppDetailsBuilder
 
     /**
      * Sets buyer country code field.
+     *
+     * @param string|null $value
      */
     public function buyerCountryCode(?string $value): self
     {
@@ -70,6 +74,8 @@ class CashAppDetailsBuilder
 
     /**
      * Sets buyer cashtag field.
+     *
+     * @param string|null $value
      */
     public function buyerCashtag(?string $value): self
     {
@@ -78,7 +84,7 @@ class CashAppDetailsBuilder
     }
 
     /**
-     * Initializes a new cash app details object.
+     * Initializes a new Cash App Details object.
      */
     public function build(): CashAppDetails
     {

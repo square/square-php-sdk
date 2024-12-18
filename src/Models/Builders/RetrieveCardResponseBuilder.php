@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Card;
+use Square\Models\Error;
 use Square\Models\RetrieveCardResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveCardResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve card response Builder object.
+     * Initializes a new Retrieve Card Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveCardResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveCardResponseBuilder
 
     /**
      * Sets card field.
+     *
+     * @param Card|null $value
      */
     public function card(?Card $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveCardResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve card response object.
+     * Initializes a new Retrieve Card Response object.
      */
     public function build(): RetrieveCardResponse
     {

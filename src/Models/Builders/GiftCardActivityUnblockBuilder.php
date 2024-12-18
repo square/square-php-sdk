@@ -25,7 +25,7 @@ class GiftCardActivityUnblockBuilder
     }
 
     /**
-     * Initializes a new gift card activity unblock Builder object.
+     * Initializes a new Gift Card Activity Unblock Builder object.
      */
     public static function init(): self
     {
@@ -33,7 +33,7 @@ class GiftCardActivityUnblockBuilder
     }
 
     /**
-     * Initializes a new gift card activity unblock object.
+     * Initializes a new Gift Card Activity Unblock object.
      */
     public function build(): GiftCardActivityUnblock
     {

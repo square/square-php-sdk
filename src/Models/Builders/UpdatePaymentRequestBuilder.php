@@ -26,7 +26,9 @@ class UpdatePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new update payment request Builder object.
+     * Initializes a new Update Payment Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -35,6 +37,8 @@ class UpdatePaymentRequestBuilder
 
     /**
      * Sets payment field.
+     *
+     * @param Payment|null $value
      */
     public function payment(?Payment $value): self
     {
@@ -43,7 +47,7 @@ class UpdatePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new update payment request object.
+     * Initializes a new Update Payment Request object.
      */
     public function build(): UpdatePaymentRequest
     {

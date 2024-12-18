@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\CheckoutLocationSettings;
 use Square\Models\CheckoutLocationSettingsBranding;
 use Square\Models\CheckoutLocationSettingsCoupons;
+use Square\Models\CheckoutLocationSettingsPolicy;
 use Square\Models\CheckoutLocationSettingsTipping;
 
 /**
@@ -28,7 +29,7 @@ class CheckoutLocationSettingsBuilder
     }
 
     /**
-     * Initializes a new checkout location settings Builder object.
+     * Initializes a new Checkout Location Settings Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -55,6 +58,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets customer notes enabled field.
+     *
+     * @param bool|null $value
      */
     public function customerNotesEnabled(?bool $value): self
     {
@@ -73,6 +78,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets policies field.
+     *
+     * @param CheckoutLocationSettingsPolicy[]|null $value
      */
     public function policies(?array $value): self
     {
@@ -91,6 +98,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets branding field.
+     *
+     * @param CheckoutLocationSettingsBranding|null $value
      */
     public function branding(?CheckoutLocationSettingsBranding $value): self
     {
@@ -100,6 +109,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets tipping field.
+     *
+     * @param CheckoutLocationSettingsTipping|null $value
      */
     public function tipping(?CheckoutLocationSettingsTipping $value): self
     {
@@ -109,6 +120,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets coupons field.
+     *
+     * @param CheckoutLocationSettingsCoupons|null $value
      */
     public function coupons(?CheckoutLocationSettingsCoupons $value): self
     {
@@ -118,6 +131,8 @@ class CheckoutLocationSettingsBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -126,7 +141,7 @@ class CheckoutLocationSettingsBuilder
     }
 
     /**
-     * Initializes a new checkout location settings object.
+     * Initializes a new Checkout Location Settings object.
      */
     public function build(): CheckoutLocationSettings
     {

@@ -7,6 +7,10 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Money;
 use Square\Models\OrderLineItem;
+use Square\Models\OrderLineItemAppliedDiscount;
+use Square\Models\OrderLineItemAppliedServiceCharge;
+use Square\Models\OrderLineItemAppliedTax;
+use Square\Models\OrderLineItemModifier;
 use Square\Models\OrderLineItemPricingBlocklists;
 use Square\Models\OrderQuantityUnit;
 
@@ -28,7 +32,9 @@ class OrderLineItemBuilder
     }
 
     /**
-     * Initializes a new order line item Builder object.
+     * Initializes a new Order Line Item Builder object.
+     *
+     * @param string $quantity
      */
     public static function init(string $quantity): self
     {
@@ -37,6 +43,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -55,6 +63,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -73,6 +83,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets quantity unit field.
+     *
+     * @param OrderQuantityUnit|null $value
      */
     public function quantityUnit(?OrderQuantityUnit $value): self
     {
@@ -82,6 +94,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -100,6 +114,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -118,6 +134,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -136,6 +154,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets variation name field.
+     *
+     * @param string|null $value
      */
     public function variationName(?string $value): self
     {
@@ -154,6 +174,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets item type field.
+     *
+     * @param string|null $value
      */
     public function itemType(?string $value): self
     {
@@ -163,6 +185,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -181,6 +205,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets modifiers field.
+     *
+     * @param OrderLineItemModifier[]|null $value
      */
     public function modifiers(?array $value): self
     {
@@ -199,6 +225,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets applied taxes field.
+     *
+     * @param OrderLineItemAppliedTax[]|null $value
      */
     public function appliedTaxes(?array $value): self
     {
@@ -217,6 +245,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets applied discounts field.
+     *
+     * @param OrderLineItemAppliedDiscount[]|null $value
      */
     public function appliedDiscounts(?array $value): self
     {
@@ -235,6 +265,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets applied service charges field.
+     *
+     * @param OrderLineItemAppliedServiceCharge[]|null $value
      */
     public function appliedServiceCharges(?array $value): self
     {
@@ -253,6 +285,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets base price money field.
+     *
+     * @param Money|null $value
      */
     public function basePriceMoney(?Money $value): self
     {
@@ -262,6 +296,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets variation total price money field.
+     *
+     * @param Money|null $value
      */
     public function variationTotalPriceMoney(?Money $value): self
     {
@@ -271,6 +307,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets gross sales money field.
+     *
+     * @param Money|null $value
      */
     public function grossSalesMoney(?Money $value): self
     {
@@ -280,6 +318,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets total tax money field.
+     *
+     * @param Money|null $value
      */
     public function totalTaxMoney(?Money $value): self
     {
@@ -289,6 +329,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets total discount money field.
+     *
+     * @param Money|null $value
      */
     public function totalDiscountMoney(?Money $value): self
     {
@@ -298,6 +340,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets total money field.
+     *
+     * @param Money|null $value
      */
     public function totalMoney(?Money $value): self
     {
@@ -307,6 +351,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets pricing blocklists field.
+     *
+     * @param OrderLineItemPricingBlocklists|null $value
      */
     public function pricingBlocklists(?OrderLineItemPricingBlocklists $value): self
     {
@@ -316,6 +362,8 @@ class OrderLineItemBuilder
 
     /**
      * Sets total service charge money field.
+     *
+     * @param Money|null $value
      */
     public function totalServiceChargeMoney(?Money $value): self
     {
@@ -324,7 +372,7 @@ class OrderLineItemBuilder
     }
 
     /**
-     * Initializes a new order line item object.
+     * Initializes a new Order Line Item object.
      */
     public function build(): OrderLineItem
     {

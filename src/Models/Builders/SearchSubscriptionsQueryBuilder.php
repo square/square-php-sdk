@@ -26,7 +26,7 @@ class SearchSubscriptionsQueryBuilder
     }
 
     /**
-     * Initializes a new search subscriptions query Builder object.
+     * Initializes a new Search Subscriptions Query Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchSubscriptionsQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param SearchSubscriptionsFilter|null $value
      */
     public function filter(?SearchSubscriptionsFilter $value): self
     {
@@ -43,7 +45,7 @@ class SearchSubscriptionsQueryBuilder
     }
 
     /**
-     * Initializes a new search subscriptions query object.
+     * Initializes a new Search Subscriptions Query object.
      */
     public function build(): SearchSubscriptionsQuery
     {

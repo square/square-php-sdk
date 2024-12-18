@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Fulfillment;
 use Square\Models\FulfillmentDeliveryDetails;
+use Square\Models\FulfillmentFulfillmentEntry;
 use Square\Models\FulfillmentPickupDetails;
 use Square\Models\FulfillmentShipmentDetails;
 
@@ -28,7 +29,7 @@ class FulfillmentBuilder
     }
 
     /**
-     * Initializes a new fulfillment Builder object.
+     * Initializes a new Fulfillment Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class FulfillmentBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -55,6 +58,8 @@ class FulfillmentBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -64,6 +69,8 @@ class FulfillmentBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -73,6 +80,8 @@ class FulfillmentBuilder
 
     /**
      * Sets line item application field.
+     *
+     * @param string|null $value
      */
     public function lineItemApplication(?string $value): self
     {
@@ -82,6 +91,8 @@ class FulfillmentBuilder
 
     /**
      * Sets entries field.
+     *
+     * @param FulfillmentFulfillmentEntry[]|null $value
      */
     public function entries(?array $value): self
     {
@@ -91,6 +102,8 @@ class FulfillmentBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -109,6 +122,8 @@ class FulfillmentBuilder
 
     /**
      * Sets pickup details field.
+     *
+     * @param FulfillmentPickupDetails|null $value
      */
     public function pickupDetails(?FulfillmentPickupDetails $value): self
     {
@@ -118,6 +133,8 @@ class FulfillmentBuilder
 
     /**
      * Sets shipment details field.
+     *
+     * @param FulfillmentShipmentDetails|null $value
      */
     public function shipmentDetails(?FulfillmentShipmentDetails $value): self
     {
@@ -127,6 +144,8 @@ class FulfillmentBuilder
 
     /**
      * Sets delivery details field.
+     *
+     * @param FulfillmentDeliveryDetails|null $value
      */
     public function deliveryDetails(?FulfillmentDeliveryDetails $value): self
     {
@@ -135,7 +154,7 @@ class FulfillmentBuilder
     }
 
     /**
-     * Initializes a new fulfillment object.
+     * Initializes a new Fulfillment object.
      */
     public function build(): Fulfillment
     {

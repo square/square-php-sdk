@@ -26,7 +26,7 @@ class BusinessAppointmentSettingsBuilder
     }
 
     /**
-     * Initializes a new business appointment settings Builder object.
+     * Initializes a new Business Appointment Settings Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets location types field.
+     *
+     * @param string[]|null $value
      */
     public function locationTypes(?array $value): self
     {
@@ -53,6 +55,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets alignment time field.
+     *
+     * @param string|null $value
      */
     public function alignmentTime(?string $value): self
     {
@@ -62,6 +66,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets min booking lead time seconds field.
+     *
+     * @param int|null $value
      */
     public function minBookingLeadTimeSeconds(?int $value): self
     {
@@ -80,6 +86,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets max booking lead time seconds field.
+     *
+     * @param int|null $value
      */
     public function maxBookingLeadTimeSeconds(?int $value): self
     {
@@ -98,6 +106,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets any team member booking enabled field.
+     *
+     * @param bool|null $value
      */
     public function anyTeamMemberBookingEnabled(?bool $value): self
     {
@@ -116,6 +126,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets multiple service booking enabled field.
+     *
+     * @param bool|null $value
      */
     public function multipleServiceBookingEnabled(?bool $value): self
     {
@@ -134,6 +146,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets max appointments per day limit type field.
+     *
+     * @param string|null $value
      */
     public function maxAppointmentsPerDayLimitType(?string $value): self
     {
@@ -143,6 +157,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets max appointments per day limit field.
+     *
+     * @param int|null $value
      */
     public function maxAppointmentsPerDayLimit(?int $value): self
     {
@@ -161,6 +177,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets cancellation window seconds field.
+     *
+     * @param int|null $value
      */
     public function cancellationWindowSeconds(?int $value): self
     {
@@ -179,6 +197,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets cancellation fee money field.
+     *
+     * @param Money|null $value
      */
     public function cancellationFeeMoney(?Money $value): self
     {
@@ -188,6 +208,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets cancellation policy field.
+     *
+     * @param string|null $value
      */
     public function cancellationPolicy(?string $value): self
     {
@@ -197,6 +219,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets cancellation policy text field.
+     *
+     * @param string|null $value
      */
     public function cancellationPolicyText(?string $value): self
     {
@@ -215,6 +239,8 @@ class BusinessAppointmentSettingsBuilder
 
     /**
      * Sets skip booking flow staff selection field.
+     *
+     * @param bool|null $value
      */
     public function skipBookingFlowStaffSelection(?bool $value): self
     {
@@ -232,7 +258,7 @@ class BusinessAppointmentSettingsBuilder
     }
 
     /**
-     * Initializes a new business appointment settings object.
+     * Initializes a new Business Appointment Settings object.
      */
     public function build(): BusinessAppointmentSettings
     {

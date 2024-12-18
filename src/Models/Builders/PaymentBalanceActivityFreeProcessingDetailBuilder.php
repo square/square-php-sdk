@@ -25,7 +25,7 @@ class PaymentBalanceActivityFreeProcessingDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity free processing detail Builder object.
+     * Initializes a new Payment Balance Activity Free Processing Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityFreeProcessingDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityFreeProcessingDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity free processing detail object.
+     * Initializes a new Payment Balance Activity Free Processing Detail object.
      */
     public function build(): PaymentBalanceActivityFreeProcessingDetail
     {

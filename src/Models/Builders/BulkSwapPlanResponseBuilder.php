@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkSwapPlanResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkSwapPlanResponse
@@ -25,7 +26,7 @@ class BulkSwapPlanResponseBuilder
     }
 
     /**
-     * Initializes a new bulk swap plan response Builder object.
+     * Initializes a new Bulk Swap Plan Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class BulkSwapPlanResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class BulkSwapPlanResponseBuilder
 
     /**
      * Sets affected subscriptions field.
+     *
+     * @param int|null $value
      */
     public function affectedSubscriptions(?int $value): self
     {
@@ -51,7 +56,7 @@ class BulkSwapPlanResponseBuilder
     }
 
     /**
-     * Initializes a new bulk swap plan response object.
+     * Initializes a new Bulk Swap Plan Response object.
      */
     public function build(): BulkSwapPlanResponse
     {

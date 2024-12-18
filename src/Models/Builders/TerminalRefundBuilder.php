@@ -26,7 +26,12 @@ class TerminalRefundBuilder
     }
 
     /**
-     * Initializes a new terminal refund Builder object.
+     * Initializes a new Terminal Refund Builder object.
+     *
+     * @param string $paymentId
+     * @param Money $amountMoney
+     * @param string $reason
+     * @param string $deviceId
      */
     public static function init(string $paymentId, Money $amountMoney, string $reason, string $deviceId): self
     {
@@ -35,6 +40,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +51,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets refund id field.
+     *
+     * @param string|null $value
      */
     public function refundId(?string $value): self
     {
@@ -53,6 +62,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -62,6 +73,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets deadline duration field.
+     *
+     * @param string|null $value
      */
     public function deadlineDuration(?string $value): self
     {
@@ -80,6 +93,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -89,6 +104,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -98,6 +115,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -107,6 +126,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -116,6 +137,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets app id field.
+     *
+     * @param string|null $value
      */
     public function appId(?string $value): self
     {
@@ -125,6 +148,8 @@ class TerminalRefundBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -133,7 +158,7 @@ class TerminalRefundBuilder
     }
 
     /**
-     * Initializes a new terminal refund object.
+     * Initializes a new Terminal Refund object.
      */
     public function build(): TerminalRefund
     {

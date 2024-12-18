@@ -25,7 +25,7 @@ class SearchVendorsRequestFilterBuilder
     }
 
     /**
-     * Initializes a new search vendors request filter Builder object.
+     * Initializes a new Search Vendors Request Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchVendorsRequestFilterBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string[]|null $value
      */
     public function name(?array $value): self
     {
@@ -52,6 +54,8 @@ class SearchVendorsRequestFilterBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string[]|null $value
      */
     public function status(?array $value): self
     {
@@ -69,7 +73,7 @@ class SearchVendorsRequestFilterBuilder
     }
 
     /**
-     * Initializes a new search vendors request filter object.
+     * Initializes a new Search Vendors Request Filter object.
      */
     public function build(): SearchVendorsRequestFilter
     {

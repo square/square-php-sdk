@@ -30,7 +30,7 @@ class CustomerCustomAttributeFilterValueBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filter value Builder object.
+     * Initializes a new Customer Custom Attribute Filter Value Builder object.
      */
     public static function init(): self
     {
@@ -39,6 +39,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets email field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function email(?CustomerTextFilter $value): self
     {
@@ -48,6 +50,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets phone field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function phone(?CustomerTextFilter $value): self
     {
@@ -57,6 +61,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets text field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function text(?CustomerTextFilter $value): self
     {
@@ -66,6 +72,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets selection field.
+     *
+     * @param FilterValue|null $value
      */
     public function selection(?FilterValue $value): self
     {
@@ -75,6 +83,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets date field.
+     *
+     * @param TimeRange|null $value
      */
     public function date(?TimeRange $value): self
     {
@@ -84,6 +94,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets number field.
+     *
+     * @param FloatNumberRange|null $value
      */
     public function number(?FloatNumberRange $value): self
     {
@@ -93,6 +105,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets boolean field.
+     *
+     * @param bool|null $value
      */
     public function boolean(?bool $value): self
     {
@@ -111,6 +125,8 @@ class CustomerCustomAttributeFilterValueBuilder
 
     /**
      * Sets address field.
+     *
+     * @param CustomerAddressFilter|null $value
      */
     public function address(?CustomerAddressFilter $value): self
     {
@@ -119,7 +135,7 @@ class CustomerCustomAttributeFilterValueBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filter value object.
+     * Initializes a new Customer Custom Attribute Filter Value object.
      */
     public function build(): CustomerCustomAttributeFilterValue
     {

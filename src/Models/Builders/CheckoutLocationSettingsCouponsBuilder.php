@@ -25,7 +25,7 @@ class CheckoutLocationSettingsCouponsBuilder
     }
 
     /**
-     * Initializes a new checkout location settings coupons Builder object.
+     * Initializes a new Checkout Location Settings Coupons Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CheckoutLocationSettingsCouponsBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -51,7 +53,7 @@ class CheckoutLocationSettingsCouponsBuilder
     }
 
     /**
-     * Initializes a new checkout location settings coupons object.
+     * Initializes a new Checkout Location Settings Coupons object.
      */
     public function build(): CheckoutLocationSettingsCoupons
     {

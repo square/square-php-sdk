@@ -26,7 +26,7 @@ class CustomerAddressFilterBuilder
     }
 
     /**
-     * Initializes a new customer address filter Builder object.
+     * Initializes a new Customer Address Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CustomerAddressFilterBuilder
 
     /**
      * Sets postal code field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function postalCode(?CustomerTextFilter $value): self
     {
@@ -44,6 +46,8 @@ class CustomerAddressFilterBuilder
 
     /**
      * Sets country field.
+     *
+     * @param string|null $value
      */
     public function country(?string $value): self
     {
@@ -52,7 +56,7 @@ class CustomerAddressFilterBuilder
     }
 
     /**
-     * Initializes a new customer address filter object.
+     * Initializes a new Customer Address Filter object.
      */
     public function build(): CustomerAddressFilter
     {

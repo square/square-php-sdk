@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteLocationCustomAttributeResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteLocationCustomAttributeResponse
@@ -25,7 +26,7 @@ class DeleteLocationCustomAttributeResponseBuilder
     }
 
     /**
-     * Initializes a new delete location custom attribute response Builder object.
+     * Initializes a new Delete Location Custom Attribute Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteLocationCustomAttributeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteLocationCustomAttributeResponseBuilder
     }
 
     /**
-     * Initializes a new delete location custom attribute response object.
+     * Initializes a new Delete Location Custom Attribute Response object.
      */
     public function build(): DeleteLocationCustomAttributeResponse
     {

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListTeamMemberWagesResponse;
+use Square\Models\TeamMemberWage;
 
 /**
  * Builder for model ListTeamMemberWagesResponse
@@ -25,7 +27,7 @@ class ListTeamMemberWagesResponseBuilder
     }
 
     /**
-     * Initializes a new list team member wages response Builder object.
+     * Initializes a new List Team Member Wages Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListTeamMemberWagesResponseBuilder
 
     /**
      * Sets team member wages field.
+     *
+     * @param TeamMemberWage[]|null $value
      */
     public function teamMemberWages(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListTeamMemberWagesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListTeamMemberWagesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListTeamMemberWagesResponseBuilder
     }
 
     /**
-     * Initializes a new list team member wages response object.
+     * Initializes a new List Team Member Wages Response object.
      */
     public function build(): ListTeamMemberWagesResponse
     {

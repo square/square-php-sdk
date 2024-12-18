@@ -25,7 +25,9 @@ class ReceiptOptionsBuilder
     }
 
     /**
-     * Initializes a new receipt options Builder object.
+     * Initializes a new Receipt Options Builder object.
+     *
+     * @param string $paymentId
      */
     public static function init(string $paymentId): self
     {
@@ -34,6 +36,8 @@ class ReceiptOptionsBuilder
 
     /**
      * Sets print only field.
+     *
+     * @param bool|null $value
      */
     public function printOnly(?bool $value): self
     {
@@ -52,6 +56,8 @@ class ReceiptOptionsBuilder
 
     /**
      * Sets is duplicate field.
+     *
+     * @param bool|null $value
      */
     public function isDuplicate(?bool $value): self
     {
@@ -69,7 +75,7 @@ class ReceiptOptionsBuilder
     }
 
     /**
-     * Initializes a new receipt options object.
+     * Initializes a new Receipt Options object.
      */
     public function build(): ReceiptOptions
     {

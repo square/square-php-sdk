@@ -25,7 +25,9 @@ class RetrieveCashDrawerShiftRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve cash drawer shift request Builder object.
+     * Initializes a new Retrieve Cash Drawer Shift Request Builder object.
+     *
+     * @param string $locationId
      */
     public static function init(string $locationId): self
     {
@@ -33,7 +35,7 @@ class RetrieveCashDrawerShiftRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve cash drawer shift request object.
+     * Initializes a new Retrieve Cash Drawer Shift Request object.
      */
     public function build(): RetrieveCashDrawerShiftRequest
     {

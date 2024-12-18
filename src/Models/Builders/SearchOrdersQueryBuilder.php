@@ -27,7 +27,7 @@ class SearchOrdersQueryBuilder
     }
 
     /**
-     * Initializes a new search orders query Builder object.
+     * Initializes a new Search Orders Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class SearchOrdersQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param SearchOrdersFilter|null $value
      */
     public function filter(?SearchOrdersFilter $value): self
     {
@@ -45,6 +47,8 @@ class SearchOrdersQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param SearchOrdersSort|null $value
      */
     public function sort(?SearchOrdersSort $value): self
     {
@@ -53,7 +57,7 @@ class SearchOrdersQueryBuilder
     }
 
     /**
-     * Initializes a new search orders query object.
+     * Initializes a new Search Orders Query object.
      */
     public function build(): SearchOrdersQuery
     {

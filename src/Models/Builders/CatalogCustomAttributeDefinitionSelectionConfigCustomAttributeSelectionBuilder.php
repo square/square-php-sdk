@@ -25,8 +25,10 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelectionBui
     }
 
     /**
-     * Initializes a new catalog custom attribute definition selection config custom attribute selection
+     * Initializes a new Catalog Custom Attribute Definition Selection Config Custom Attribute Selection
      * Builder object.
+     *
+     * @param string $name
      */
     public static function init(string $name): self
     {
@@ -35,6 +37,8 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelectionBui
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,7 +56,7 @@ class CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelectionBui
     }
 
     /**
-     * Initializes a new catalog custom attribute definition selection config custom attribute selection
+     * Initializes a new Catalog Custom Attribute Definition Selection Config Custom Attribute Selection
      * object.
      */
     public function build(): CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection

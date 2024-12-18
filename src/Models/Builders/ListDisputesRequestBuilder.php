@@ -25,7 +25,7 @@ class ListDisputesRequestBuilder
     }
 
     /**
-     * Initializes a new list disputes request Builder object.
+     * Initializes a new List Disputes Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListDisputesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListDisputesRequestBuilder
 
     /**
      * Sets states field.
+     *
+     * @param string[]|null $value
      */
     public function states(?array $value): self
     {
@@ -70,6 +74,8 @@ class ListDisputesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -87,7 +93,7 @@ class ListDisputesRequestBuilder
     }
 
     /**
-     * Initializes a new list disputes request object.
+     * Initializes a new List Disputes Request object.
      */
     public function build(): ListDisputesRequest
     {

@@ -27,7 +27,7 @@ class TerminalCheckoutQueryBuilder
     }
 
     /**
-     * Initializes a new terminal checkout query Builder object.
+     * Initializes a new Terminal Checkout Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class TerminalCheckoutQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param TerminalCheckoutQueryFilter|null $value
      */
     public function filter(?TerminalCheckoutQueryFilter $value): self
     {
@@ -45,6 +47,8 @@ class TerminalCheckoutQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param TerminalCheckoutQuerySort|null $value
      */
     public function sort(?TerminalCheckoutQuerySort $value): self
     {
@@ -53,7 +57,7 @@ class TerminalCheckoutQueryBuilder
     }
 
     /**
-     * Initializes a new terminal checkout query object.
+     * Initializes a new Terminal Checkout Query object.
      */
     public function build(): TerminalCheckoutQuery
     {

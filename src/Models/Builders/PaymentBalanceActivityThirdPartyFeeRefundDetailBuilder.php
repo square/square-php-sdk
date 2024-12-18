@@ -25,7 +25,7 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity third party fee refund detail Builder object.
+     * Initializes a new Payment Balance Activity Third Party Fee Refund Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetailBuilder
 
     /**
      * Sets refund id field.
+     *
+     * @param string|null $value
      */
     public function refundId(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity third party fee refund detail object.
+     * Initializes a new Payment Balance Activity Third Party Fee Refund Detail object.
      */
     public function build(): PaymentBalanceActivityThirdPartyFeeRefundDetail
     {

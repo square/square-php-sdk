@@ -25,7 +25,10 @@ class LoyaltyProgramTerminologyBuilder
     }
 
     /**
-     * Initializes a new loyalty program terminology Builder object.
+     * Initializes a new Loyalty Program Terminology Builder object.
+     *
+     * @param string $one
+     * @param string $other
      */
     public static function init(string $one, string $other): self
     {
@@ -33,7 +36,7 @@ class LoyaltyProgramTerminologyBuilder
     }
 
     /**
-     * Initializes a new loyalty program terminology object.
+     * Initializes a new Loyalty Program Terminology object.
      */
     public function build(): LoyaltyProgramTerminology
     {

@@ -25,7 +25,9 @@ class V1UpdateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new v1 update order request Builder object.
+     * Initializes a new V1 Update Order Request Builder object.
+     *
+     * @param string $action
      */
     public static function init(string $action): self
     {
@@ -34,6 +36,8 @@ class V1UpdateOrderRequestBuilder
 
     /**
      * Sets shipped tracking number field.
+     *
+     * @param string|null $value
      */
     public function shippedTrackingNumber(?string $value): self
     {
@@ -52,6 +56,8 @@ class V1UpdateOrderRequestBuilder
 
     /**
      * Sets completed note field.
+     *
+     * @param string|null $value
      */
     public function completedNote(?string $value): self
     {
@@ -70,6 +76,8 @@ class V1UpdateOrderRequestBuilder
 
     /**
      * Sets refunded note field.
+     *
+     * @param string|null $value
      */
     public function refundedNote(?string $value): self
     {
@@ -88,6 +96,8 @@ class V1UpdateOrderRequestBuilder
 
     /**
      * Sets canceled note field.
+     *
+     * @param string|null $value
      */
     public function canceledNote(?string $value): self
     {
@@ -105,7 +115,7 @@ class V1UpdateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new v1 update order request object.
+     * Initializes a new V1 Update Order Request object.
      */
     public function build(): V1UpdateOrderRequest
     {

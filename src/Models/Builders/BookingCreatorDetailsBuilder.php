@@ -25,7 +25,7 @@ class BookingCreatorDetailsBuilder
     }
 
     /**
-     * Initializes a new booking creator details Builder object.
+     * Initializes a new Booking Creator Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BookingCreatorDetailsBuilder
 
     /**
      * Sets creator type field.
+     *
+     * @param string|null $value
      */
     public function creatorType(?string $value): self
     {
@@ -43,6 +45,8 @@ class BookingCreatorDetailsBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -52,6 +56,8 @@ class BookingCreatorDetailsBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -60,7 +66,7 @@ class BookingCreatorDetailsBuilder
     }
 
     /**
-     * Initializes a new booking creator details object.
+     * Initializes a new Booking Creator Details object.
      */
     public function build(): BookingCreatorDetails
     {

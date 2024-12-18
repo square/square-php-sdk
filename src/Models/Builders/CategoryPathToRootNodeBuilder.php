@@ -25,7 +25,7 @@ class CategoryPathToRootNodeBuilder
     }
 
     /**
-     * Initializes a new category path to root node Builder object.
+     * Initializes a new Category Path To Root Node Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CategoryPathToRootNodeBuilder
 
     /**
      * Sets category id field.
+     *
+     * @param string|null $value
      */
     public function categoryId(?string $value): self
     {
@@ -52,6 +54,8 @@ class CategoryPathToRootNodeBuilder
 
     /**
      * Sets category name field.
+     *
+     * @param string|null $value
      */
     public function categoryName(?string $value): self
     {
@@ -69,7 +73,7 @@ class CategoryPathToRootNodeBuilder
     }
 
     /**
-     * Initializes a new category path to root node object.
+     * Initializes a new Category Path To Root Node object.
      */
     public function build(): CategoryPathToRootNode
     {

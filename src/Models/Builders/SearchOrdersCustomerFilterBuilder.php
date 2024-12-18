@@ -25,7 +25,7 @@ class SearchOrdersCustomerFilterBuilder
     }
 
     /**
-     * Initializes a new search orders customer filter Builder object.
+     * Initializes a new Search Orders Customer Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchOrdersCustomerFilterBuilder
 
     /**
      * Sets customer ids field.
+     *
+     * @param string[]|null $value
      */
     public function customerIds(?array $value): self
     {
@@ -51,7 +53,7 @@ class SearchOrdersCustomerFilterBuilder
     }
 
     /**
-     * Initializes a new search orders customer filter object.
+     * Initializes a new Search Orders Customer Filter object.
      */
     public function build(): SearchOrdersCustomerFilter
     {

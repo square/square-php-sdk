@@ -25,7 +25,7 @@ class DeviceStatusBuilder
     }
 
     /**
-     * Initializes a new device status Builder object.
+     * Initializes a new Device Status Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceStatusBuilder
 
     /**
      * Sets category field.
+     *
+     * @param string|null $value
      */
     public function category(?string $value): self
     {
@@ -42,7 +44,7 @@ class DeviceStatusBuilder
     }
 
     /**
-     * Initializes a new device status object.
+     * Initializes a new Device Status object.
      */
     public function build(): DeviceStatus
     {

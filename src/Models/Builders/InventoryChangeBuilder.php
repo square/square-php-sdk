@@ -29,7 +29,7 @@ class InventoryChangeBuilder
     }
 
     /**
-     * Initializes a new inventory change Builder object.
+     * Initializes a new Inventory Change Builder object.
      */
     public static function init(): self
     {
@@ -38,6 +38,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -47,6 +49,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets physical count field.
+     *
+     * @param InventoryPhysicalCount|null $value
      */
     public function physicalCount(?InventoryPhysicalCount $value): self
     {
@@ -56,6 +60,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets adjustment field.
+     *
+     * @param InventoryAdjustment|null $value
      */
     public function adjustment(?InventoryAdjustment $value): self
     {
@@ -65,6 +71,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets transfer field.
+     *
+     * @param InventoryTransfer|null $value
      */
     public function transfer(?InventoryTransfer $value): self
     {
@@ -74,6 +82,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets measurement unit field.
+     *
+     * @param CatalogMeasurementUnit|null $value
      */
     public function measurementUnit(?CatalogMeasurementUnit $value): self
     {
@@ -83,6 +93,8 @@ class InventoryChangeBuilder
 
     /**
      * Sets measurement unit id field.
+     *
+     * @param string|null $value
      */
     public function measurementUnitId(?string $value): self
     {
@@ -91,7 +103,7 @@ class InventoryChangeBuilder
     }
 
     /**
-     * Initializes a new inventory change object.
+     * Initializes a new Inventory Change object.
      */
     public function build(): InventoryChange
     {

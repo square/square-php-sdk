@@ -25,7 +25,9 @@ class GiftCardActivityClearBalanceBuilder
     }
 
     /**
-     * Initializes a new gift card activity clear balance Builder object.
+     * Initializes a new Gift Card Activity Clear Balance Builder object.
+     *
+     * @param string $reason
      */
     public static function init(string $reason): self
     {
@@ -33,7 +35,7 @@ class GiftCardActivityClearBalanceBuilder
     }
 
     /**
-     * Initializes a new gift card activity clear balance object.
+     * Initializes a new Gift Card Activity Clear Balance object.
      */
     public function build(): GiftCardActivityClearBalance
     {

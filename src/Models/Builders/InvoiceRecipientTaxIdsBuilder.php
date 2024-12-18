@@ -25,7 +25,7 @@ class InvoiceRecipientTaxIdsBuilder
     }
 
     /**
-     * Initializes a new invoice recipient tax ids Builder object.
+     * Initializes a new Invoice Recipient Tax Ids Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoiceRecipientTaxIdsBuilder
 
     /**
      * Sets eu vat field.
+     *
+     * @param string|null $value
      */
     public function euVat(?string $value): self
     {
@@ -42,7 +44,7 @@ class InvoiceRecipientTaxIdsBuilder
     }
 
     /**
-     * Initializes a new invoice recipient tax ids object.
+     * Initializes a new Invoice Recipient Tax Ids object.
      */
     public function build(): InvoiceRecipientTaxIds
     {

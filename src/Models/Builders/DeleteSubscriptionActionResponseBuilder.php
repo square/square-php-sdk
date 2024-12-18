@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteSubscriptionActionResponse;
+use Square\Models\Error;
 use Square\Models\Subscription;
 
 /**
@@ -26,7 +27,7 @@ class DeleteSubscriptionActionResponseBuilder
     }
 
     /**
-     * Initializes a new delete subscription action response Builder object.
+     * Initializes a new Delete Subscription Action Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class DeleteSubscriptionActionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class DeleteSubscriptionActionResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -52,7 +57,7 @@ class DeleteSubscriptionActionResponseBuilder
     }
 
     /**
-     * Initializes a new delete subscription action response object.
+     * Initializes a new Delete Subscription Action Response object.
      */
     public function build(): DeleteSubscriptionActionResponse
     {

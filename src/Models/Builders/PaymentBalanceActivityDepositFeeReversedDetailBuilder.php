@@ -25,7 +25,7 @@ class PaymentBalanceActivityDepositFeeReversedDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity deposit fee reversed detail Builder object.
+     * Initializes a new Payment Balance Activity Deposit Fee Reversed Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityDepositFeeReversedDetailBuilder
 
     /**
      * Sets payout id field.
+     *
+     * @param string|null $value
      */
     public function payoutId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityDepositFeeReversedDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity deposit fee reversed detail object.
+     * Initializes a new Payment Balance Activity Deposit Fee Reversed Detail object.
      */
     public function build(): PaymentBalanceActivityDepositFeeReversedDetail
     {

@@ -25,7 +25,7 @@ class ACHDetailsBuilder
     }
 
     /**
-     * Initializes a new achdetails Builder object.
+     * Initializes a new ACH Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ACHDetailsBuilder
 
     /**
      * Sets routing number field.
+     *
+     * @param string|null $value
      */
     public function routingNumber(?string $value): self
     {
@@ -52,6 +54,8 @@ class ACHDetailsBuilder
 
     /**
      * Sets account number suffix field.
+     *
+     * @param string|null $value
      */
     public function accountNumberSuffix(?string $value): self
     {
@@ -70,6 +74,8 @@ class ACHDetailsBuilder
 
     /**
      * Sets account type field.
+     *
+     * @param string|null $value
      */
     public function accountType(?string $value): self
     {
@@ -87,7 +93,7 @@ class ACHDetailsBuilder
     }
 
     /**
-     * Initializes a new achdetails object.
+     * Initializes a new ACH Details object.
      */
     public function build(): ACHDetails
     {

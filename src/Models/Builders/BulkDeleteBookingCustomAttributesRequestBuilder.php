@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\BookingCustomAttributeDeleteRequest;
 use Square\Models\BulkDeleteBookingCustomAttributesRequest;
 
 /**
@@ -25,7 +26,9 @@ class BulkDeleteBookingCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete booking custom attributes request Builder object.
+     * Initializes a new Bulk Delete Booking Custom Attributes Request Builder object.
+     *
+     * @param array<string,BookingCustomAttributeDeleteRequest> $values
      */
     public static function init(array $values): self
     {
@@ -33,7 +36,7 @@ class BulkDeleteBookingCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete booking custom attributes request object.
+     * Initializes a new Bulk Delete Booking Custom Attributes Request object.
      */
     public function build(): BulkDeleteBookingCustomAttributesRequest
     {

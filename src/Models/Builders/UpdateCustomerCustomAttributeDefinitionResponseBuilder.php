@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomAttributeDefinition;
+use Square\Models\Error;
 use Square\Models\UpdateCustomerCustomAttributeDefinitionResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateCustomerCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new update customer custom attribute definition response Builder object.
+     * Initializes a new Update Customer Custom Attribute Definition Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateCustomerCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets custom attribute definition field.
+     *
+     * @param CustomAttributeDefinition|null $value
      */
     public function customAttributeDefinition(?CustomAttributeDefinition $value): self
     {
@@ -44,6 +47,8 @@ class UpdateCustomerCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateCustomerCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new update customer custom attribute definition response object.
+     * Initializes a new Update Customer Custom Attribute Definition Response object.
      */
     public function build(): UpdateCustomerCustomAttributeDefinitionResponse
     {

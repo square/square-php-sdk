@@ -25,7 +25,7 @@ class FloatNumberRangeBuilder
     }
 
     /**
-     * Initializes a new float number range Builder object.
+     * Initializes a new Float Number Range Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class FloatNumberRangeBuilder
 
     /**
      * Sets start at field.
+     *
+     * @param string|null $value
      */
     public function startAt(?string $value): self
     {
@@ -52,6 +54,8 @@ class FloatNumberRangeBuilder
 
     /**
      * Sets end at field.
+     *
+     * @param string|null $value
      */
     public function endAt(?string $value): self
     {
@@ -69,7 +73,7 @@ class FloatNumberRangeBuilder
     }
 
     /**
-     * Initializes a new float number range object.
+     * Initializes a new Float Number Range object.
      */
     public function build(): FloatNumberRange
     {

@@ -25,7 +25,7 @@ class SiteBuilder
     }
 
     /**
-     * Initializes a new site Builder object.
+     * Initializes a new Site Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SiteBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class SiteBuilder
 
     /**
      * Sets site title field.
+     *
+     * @param string|null $value
      */
     public function siteTitle(?string $value): self
     {
@@ -61,6 +65,8 @@ class SiteBuilder
 
     /**
      * Sets domain field.
+     *
+     * @param string|null $value
      */
     public function domain(?string $value): self
     {
@@ -79,6 +85,8 @@ class SiteBuilder
 
     /**
      * Sets is published field.
+     *
+     * @param bool|null $value
      */
     public function isPublished(?bool $value): self
     {
@@ -97,6 +105,8 @@ class SiteBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -106,6 +116,8 @@ class SiteBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -114,7 +126,7 @@ class SiteBuilder
     }
 
     /**
-     * Initializes a new site object.
+     * Initializes a new Site object.
      */
     public function build(): Site
     {

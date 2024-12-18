@@ -26,7 +26,9 @@ class UpdateInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new update invoice request Builder object.
+     * Initializes a new Update Invoice Request Builder object.
+     *
+     * @param Invoice $invoice
      */
     public static function init(Invoice $invoice): self
     {
@@ -35,6 +37,8 @@ class UpdateInvoiceRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -53,6 +57,8 @@ class UpdateInvoiceRequestBuilder
 
     /**
      * Sets fields to clear field.
+     *
+     * @param string[]|null $value
      */
     public function fieldsToClear(?array $value): self
     {
@@ -70,7 +76,7 @@ class UpdateInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new update invoice request object.
+     * Initializes a new Update Invoice Request object.
      */
     public function build(): UpdateInvoiceRequest
     {

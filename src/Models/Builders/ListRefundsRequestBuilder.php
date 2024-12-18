@@ -25,7 +25,7 @@ class ListRefundsRequestBuilder
     }
 
     /**
-     * Initializes a new list refunds request Builder object.
+     * Initializes a new List Refunds Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListRefundsRequestBuilder
 
     /**
      * Sets begin time field.
+     *
+     * @param string|null $value
      */
     public function beginTime(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListRefundsRequestBuilder
 
     /**
      * Sets end time field.
+     *
+     * @param string|null $value
      */
     public function endTime(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListRefundsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -79,6 +85,8 @@ class ListRefundsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -96,7 +104,7 @@ class ListRefundsRequestBuilder
     }
 
     /**
-     * Initializes a new list refunds request object.
+     * Initializes a new List Refunds Request object.
      */
     public function build(): ListRefundsRequest
     {

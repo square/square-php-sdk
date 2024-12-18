@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\AdditionalRecipient;
 use Square\Models\Money;
 use Square\Models\Refund;
 
@@ -26,7 +27,14 @@ class RefundBuilder
     }
 
     /**
-     * Initializes a new refund Builder object.
+     * Initializes a new Refund Builder object.
+     *
+     * @param string $id
+     * @param string $locationId
+     * @param string $tenderId
+     * @param string $reason
+     * @param Money $amountMoney
+     * @param string $status
      */
     public static function init(
         string $id,
@@ -41,6 +49,8 @@ class RefundBuilder
 
     /**
      * Sets transaction id field.
+     *
+     * @param string|null $value
      */
     public function transactionId(?string $value): self
     {
@@ -59,6 +69,8 @@ class RefundBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -68,6 +80,8 @@ class RefundBuilder
 
     /**
      * Sets processing fee money field.
+     *
+     * @param Money|null $value
      */
     public function processingFeeMoney(?Money $value): self
     {
@@ -77,6 +91,8 @@ class RefundBuilder
 
     /**
      * Sets additional recipients field.
+     *
+     * @param AdditionalRecipient[]|null $value
      */
     public function additionalRecipients(?array $value): self
     {
@@ -94,7 +110,7 @@ class RefundBuilder
     }
 
     /**
-     * Initializes a new refund object.
+     * Initializes a new Refund object.
      */
     public function build(): Refund
     {

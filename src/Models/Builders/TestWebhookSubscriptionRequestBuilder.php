@@ -25,7 +25,7 @@ class TestWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new test webhook subscription request Builder object.
+     * Initializes a new Test Webhook Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TestWebhookSubscriptionRequestBuilder
 
     /**
      * Sets event type field.
+     *
+     * @param string|null $value
      */
     public function eventType(?string $value): self
     {
@@ -51,7 +53,7 @@ class TestWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new test webhook subscription request object.
+     * Initializes a new Test Webhook Subscription Request object.
      */
     public function build(): TestWebhookSubscriptionRequest
     {

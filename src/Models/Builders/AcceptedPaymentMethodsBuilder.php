@@ -25,7 +25,7 @@ class AcceptedPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new accepted payment methods Builder object.
+     * Initializes a new Accepted Payment Methods Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class AcceptedPaymentMethodsBuilder
 
     /**
      * Sets apple pay field.
+     *
+     * @param bool|null $value
      */
     public function applePay(?bool $value): self
     {
@@ -52,6 +54,8 @@ class AcceptedPaymentMethodsBuilder
 
     /**
      * Sets google pay field.
+     *
+     * @param bool|null $value
      */
     public function googlePay(?bool $value): self
     {
@@ -70,6 +74,8 @@ class AcceptedPaymentMethodsBuilder
 
     /**
      * Sets cash app pay field.
+     *
+     * @param bool|null $value
      */
     public function cashAppPay(?bool $value): self
     {
@@ -88,6 +94,8 @@ class AcceptedPaymentMethodsBuilder
 
     /**
      * Sets afterpay clearpay field.
+     *
+     * @param bool|null $value
      */
     public function afterpayClearpay(?bool $value): self
     {
@@ -105,7 +113,7 @@ class AcceptedPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new accepted payment methods object.
+     * Initializes a new Accepted Payment Methods object.
      */
     public function build(): AcceptedPaymentMethods
     {

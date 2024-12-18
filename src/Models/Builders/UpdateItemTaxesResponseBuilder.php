@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\UpdateItemTaxesResponse;
 
 /**
@@ -25,7 +26,7 @@ class UpdateItemTaxesResponseBuilder
     }
 
     /**
-     * Initializes a new update item taxes response Builder object.
+     * Initializes a new Update Item Taxes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class UpdateItemTaxesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class UpdateItemTaxesResponseBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -51,7 +56,7 @@ class UpdateItemTaxesResponseBuilder
     }
 
     /**
-     * Initializes a new update item taxes response object.
+     * Initializes a new Update Item Taxes Response object.
      */
     public function build(): UpdateItemTaxesResponse
     {

@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkDeleteLocationCustomAttributesResponse;
+use Square\Models\BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkDeleteLocationCustomAttributesResponse
@@ -25,7 +27,9 @@ class BulkDeleteLocationCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes response Builder object.
+     * Initializes a new Bulk Delete Location Custom Attributes Response Builder object.
+     *
+     * @param array<string,BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteResponse> $values
      */
     public static function init(array $values): self
     {
@@ -34,6 +38,8 @@ class BulkDeleteLocationCustomAttributesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +48,7 @@ class BulkDeleteLocationCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes response object.
+     * Initializes a new Bulk Delete Location Custom Attributes Response object.
      */
     public function build(): BulkDeleteLocationCustomAttributesResponse
     {

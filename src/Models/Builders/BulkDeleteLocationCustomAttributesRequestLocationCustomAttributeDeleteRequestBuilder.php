@@ -26,8 +26,8 @@ class BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequ
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes request location custom attribute delete
-     * request Builder object.
+     * Initializes a new Bulk Delete Location Custom Attributes Request Location Custom Attribute Delete
+     * Request Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequ
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -44,8 +46,8 @@ class BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequ
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes request location custom attribute delete
-     * request object.
+     * Initializes a new Bulk Delete Location Custom Attributes Request Location Custom Attribute Delete
+     * Request object.
      */
     public function build(): BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest
     {

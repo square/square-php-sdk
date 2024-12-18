@@ -25,7 +25,10 @@ class MeasurementUnitCustomBuilder
     }
 
     /**
-     * Initializes a new measurement unit custom Builder object.
+     * Initializes a new Measurement Unit Custom Builder object.
+     *
+     * @param string $name
+     * @param string $abbreviation
      */
     public static function init(string $name, string $abbreviation): self
     {
@@ -33,7 +36,7 @@ class MeasurementUnitCustomBuilder
     }
 
     /**
-     * Initializes a new measurement unit custom object.
+     * Initializes a new Measurement Unit Custom object.
      */
     public function build(): MeasurementUnitCustom
     {

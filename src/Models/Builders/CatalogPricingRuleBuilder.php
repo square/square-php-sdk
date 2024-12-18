@@ -26,7 +26,7 @@ class CatalogPricingRuleBuilder
     }
 
     /**
-     * Initializes a new catalog pricing rule Builder object.
+     * Initializes a new Catalog Pricing Rule Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -53,6 +55,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets time period ids field.
+     *
+     * @param string[]|null $value
      */
     public function timePeriodIds(?array $value): self
     {
@@ -71,6 +75,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets discount id field.
+     *
+     * @param string|null $value
      */
     public function discountId(?string $value): self
     {
@@ -89,6 +95,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets match products id field.
+     *
+     * @param string|null $value
      */
     public function matchProductsId(?string $value): self
     {
@@ -107,6 +115,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets apply products id field.
+     *
+     * @param string|null $value
      */
     public function applyProductsId(?string $value): self
     {
@@ -125,6 +135,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets exclude products id field.
+     *
+     * @param string|null $value
      */
     public function excludeProductsId(?string $value): self
     {
@@ -143,6 +155,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets valid from date field.
+     *
+     * @param string|null $value
      */
     public function validFromDate(?string $value): self
     {
@@ -161,6 +175,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets valid from local time field.
+     *
+     * @param string|null $value
      */
     public function validFromLocalTime(?string $value): self
     {
@@ -179,6 +195,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets valid until date field.
+     *
+     * @param string|null $value
      */
     public function validUntilDate(?string $value): self
     {
@@ -197,6 +215,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets valid until local time field.
+     *
+     * @param string|null $value
      */
     public function validUntilLocalTime(?string $value): self
     {
@@ -215,6 +235,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets exclude strategy field.
+     *
+     * @param string|null $value
      */
     public function excludeStrategy(?string $value): self
     {
@@ -224,6 +246,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets minimum order subtotal money field.
+     *
+     * @param Money|null $value
      */
     public function minimumOrderSubtotalMoney(?Money $value): self
     {
@@ -233,6 +257,8 @@ class CatalogPricingRuleBuilder
 
     /**
      * Sets customer group ids any field.
+     *
+     * @param string[]|null $value
      */
     public function customerGroupIdsAny(?array $value): self
     {
@@ -250,7 +276,7 @@ class CatalogPricingRuleBuilder
     }
 
     /**
-     * Initializes a new catalog pricing rule object.
+     * Initializes a new Catalog Pricing Rule object.
      */
     public function build(): CatalogPricingRule
     {

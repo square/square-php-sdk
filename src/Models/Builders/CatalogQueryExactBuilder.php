@@ -25,7 +25,10 @@ class CatalogQueryExactBuilder
     }
 
     /**
-     * Initializes a new catalog query exact Builder object.
+     * Initializes a new Catalog Query Exact Builder object.
+     *
+     * @param string $attributeName
+     * @param string $attributeValue
      */
     public static function init(string $attributeName, string $attributeValue): self
     {
@@ -33,7 +36,7 @@ class CatalogQueryExactBuilder
     }
 
     /**
-     * Initializes a new catalog query exact object.
+     * Initializes a new Catalog Query Exact object.
      */
     public function build(): CatalogQueryExact
     {

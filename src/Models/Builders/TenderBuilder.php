@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\AdditionalRecipient;
 use Square\Models\Money;
 use Square\Models\Tender;
 use Square\Models\TenderBankAccountDetails;
@@ -31,7 +32,9 @@ class TenderBuilder
     }
 
     /**
-     * Initializes a new tender Builder object.
+     * Initializes a new Tender Builder object.
+     *
+     * @param string $type
      */
     public static function init(string $type): self
     {
@@ -40,6 +43,8 @@ class TenderBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -49,6 +54,8 @@ class TenderBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -67,6 +74,8 @@ class TenderBuilder
 
     /**
      * Sets transaction id field.
+     *
+     * @param string|null $value
      */
     public function transactionId(?string $value): self
     {
@@ -85,6 +94,8 @@ class TenderBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -94,6 +105,8 @@ class TenderBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -112,6 +125,8 @@ class TenderBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -121,6 +136,8 @@ class TenderBuilder
 
     /**
      * Sets tip money field.
+     *
+     * @param Money|null $value
      */
     public function tipMoney(?Money $value): self
     {
@@ -130,6 +147,8 @@ class TenderBuilder
 
     /**
      * Sets processing fee money field.
+     *
+     * @param Money|null $value
      */
     public function processingFeeMoney(?Money $value): self
     {
@@ -139,6 +158,8 @@ class TenderBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -157,6 +178,8 @@ class TenderBuilder
 
     /**
      * Sets card details field.
+     *
+     * @param TenderCardDetails|null $value
      */
     public function cardDetails(?TenderCardDetails $value): self
     {
@@ -166,6 +189,8 @@ class TenderBuilder
 
     /**
      * Sets cash details field.
+     *
+     * @param TenderCashDetails|null $value
      */
     public function cashDetails(?TenderCashDetails $value): self
     {
@@ -175,6 +200,8 @@ class TenderBuilder
 
     /**
      * Sets bank account details field.
+     *
+     * @param TenderBankAccountDetails|null $value
      */
     public function bankAccountDetails(?TenderBankAccountDetails $value): self
     {
@@ -184,6 +211,8 @@ class TenderBuilder
 
     /**
      * Sets buy now pay later details field.
+     *
+     * @param TenderBuyNowPayLaterDetails|null $value
      */
     public function buyNowPayLaterDetails(?TenderBuyNowPayLaterDetails $value): self
     {
@@ -193,6 +222,8 @@ class TenderBuilder
 
     /**
      * Sets square account details field.
+     *
+     * @param TenderSquareAccountDetails|null $value
      */
     public function squareAccountDetails(?TenderSquareAccountDetails $value): self
     {
@@ -202,6 +233,8 @@ class TenderBuilder
 
     /**
      * Sets additional recipients field.
+     *
+     * @param AdditionalRecipient[]|null $value
      */
     public function additionalRecipients(?array $value): self
     {
@@ -220,6 +253,8 @@ class TenderBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -237,7 +272,7 @@ class TenderBuilder
     }
 
     /**
-     * Initializes a new tender object.
+     * Initializes a new Tender object.
      */
     public function build(): Tender
     {

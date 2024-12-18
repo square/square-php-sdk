@@ -25,7 +25,7 @@ class CatalogItemOptionValueForItemVariationBuilder
     }
 
     /**
-     * Initializes a new catalog item option value for item variation Builder object.
+     * Initializes a new Catalog Item Option Value For Item Variation Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogItemOptionValueForItemVariationBuilder
 
     /**
      * Sets item option id field.
+     *
+     * @param string|null $value
      */
     public function itemOptionId(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogItemOptionValueForItemVariationBuilder
 
     /**
      * Sets item option value id field.
+     *
+     * @param string|null $value
      */
     public function itemOptionValueId(?string $value): self
     {
@@ -69,7 +73,7 @@ class CatalogItemOptionValueForItemVariationBuilder
     }
 
     /**
-     * Initializes a new catalog item option value for item variation object.
+     * Initializes a new Catalog Item Option Value For Item Variation object.
      */
     public function build(): CatalogItemOptionValueForItemVariation
     {

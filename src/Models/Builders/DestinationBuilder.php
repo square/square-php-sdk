@@ -25,7 +25,7 @@ class DestinationBuilder
     }
 
     /**
-     * Initializes a new destination Builder object.
+     * Initializes a new Destination Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DestinationBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -43,6 +45,8 @@ class DestinationBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -51,7 +55,7 @@ class DestinationBuilder
     }
 
     /**
-     * Initializes a new destination object.
+     * Initializes a new Destination object.
      */
     public function build(): Destination
     {

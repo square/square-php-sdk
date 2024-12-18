@@ -25,7 +25,7 @@ class ListBookingCustomAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Initializes a new list booking custom attribute definitions request Builder object.
+     * Initializes a new List Booking Custom Attribute Definitions Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListBookingCustomAttributeDefinitionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -52,6 +54,8 @@ class ListBookingCustomAttributeDefinitionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +73,7 @@ class ListBookingCustomAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Initializes a new list booking custom attribute definitions request object.
+     * Initializes a new List Booking Custom Attribute Definitions Request object.
      */
     public function build(): ListBookingCustomAttributeDefinitionsRequest
     {

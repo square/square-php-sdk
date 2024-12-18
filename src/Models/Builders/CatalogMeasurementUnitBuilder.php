@@ -26,7 +26,7 @@ class CatalogMeasurementUnitBuilder
     }
 
     /**
-     * Initializes a new catalog measurement unit Builder object.
+     * Initializes a new Catalog Measurement Unit Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CatalogMeasurementUnitBuilder
 
     /**
      * Sets measurement unit field.
+     *
+     * @param MeasurementUnit|null $value
      */
     public function measurementUnit(?MeasurementUnit $value): self
     {
@@ -44,6 +46,8 @@ class CatalogMeasurementUnitBuilder
 
     /**
      * Sets precision field.
+     *
+     * @param int|null $value
      */
     public function precision(?int $value): self
     {
@@ -61,7 +65,7 @@ class CatalogMeasurementUnitBuilder
     }
 
     /**
-     * Initializes a new catalog measurement unit object.
+     * Initializes a new Catalog Measurement Unit object.
      */
     public function build(): CatalogMeasurementUnit
     {

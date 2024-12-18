@@ -6,7 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Money;
+use Square\Models\Phase;
 use Square\Models\Subscription;
+use Square\Models\SubscriptionAction;
 use Square\Models\SubscriptionSource;
 
 /**
@@ -27,7 +29,7 @@ class SubscriptionBuilder
     }
 
     /**
-     * Initializes a new subscription Builder object.
+     * Initializes a new Subscription Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +38,8 @@ class SubscriptionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +49,8 @@ class SubscriptionBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -54,6 +60,8 @@ class SubscriptionBuilder
 
     /**
      * Sets plan variation id field.
+     *
+     * @param string|null $value
      */
     public function planVariationId(?string $value): self
     {
@@ -63,6 +71,8 @@ class SubscriptionBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -72,6 +82,8 @@ class SubscriptionBuilder
 
     /**
      * Sets start date field.
+     *
+     * @param string|null $value
      */
     public function startDate(?string $value): self
     {
@@ -81,6 +93,8 @@ class SubscriptionBuilder
 
     /**
      * Sets canceled date field.
+     *
+     * @param string|null $value
      */
     public function canceledDate(?string $value): self
     {
@@ -99,6 +113,8 @@ class SubscriptionBuilder
 
     /**
      * Sets charged through date field.
+     *
+     * @param string|null $value
      */
     public function chargedThroughDate(?string $value): self
     {
@@ -108,6 +124,8 @@ class SubscriptionBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -117,6 +135,8 @@ class SubscriptionBuilder
 
     /**
      * Sets tax percentage field.
+     *
+     * @param string|null $value
      */
     public function taxPercentage(?string $value): self
     {
@@ -135,6 +155,8 @@ class SubscriptionBuilder
 
     /**
      * Sets invoice ids field.
+     *
+     * @param string[]|null $value
      */
     public function invoiceIds(?array $value): self
     {
@@ -144,6 +166,8 @@ class SubscriptionBuilder
 
     /**
      * Sets price override money field.
+     *
+     * @param Money|null $value
      */
     public function priceOverrideMoney(?Money $value): self
     {
@@ -153,6 +177,8 @@ class SubscriptionBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -162,6 +188,8 @@ class SubscriptionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -171,6 +199,8 @@ class SubscriptionBuilder
 
     /**
      * Sets card id field.
+     *
+     * @param string|null $value
      */
     public function cardId(?string $value): self
     {
@@ -189,6 +219,8 @@ class SubscriptionBuilder
 
     /**
      * Sets timezone field.
+     *
+     * @param string|null $value
      */
     public function timezone(?string $value): self
     {
@@ -198,6 +230,8 @@ class SubscriptionBuilder
 
     /**
      * Sets source field.
+     *
+     * @param SubscriptionSource|null $value
      */
     public function source(?SubscriptionSource $value): self
     {
@@ -207,6 +241,8 @@ class SubscriptionBuilder
 
     /**
      * Sets actions field.
+     *
+     * @param SubscriptionAction[]|null $value
      */
     public function actions(?array $value): self
     {
@@ -225,6 +261,8 @@ class SubscriptionBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -234,6 +272,8 @@ class SubscriptionBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param Phase[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -242,7 +282,7 @@ class SubscriptionBuilder
     }
 
     /**
-     * Initializes a new subscription object.
+     * Initializes a new Subscription object.
      */
     public function build(): Subscription
     {

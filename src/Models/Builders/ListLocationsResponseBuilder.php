@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListLocationsResponse;
+use Square\Models\Location;
 
 /**
  * Builder for model ListLocationsResponse
@@ -25,7 +27,7 @@ class ListLocationsResponseBuilder
     }
 
     /**
-     * Initializes a new list locations response Builder object.
+     * Initializes a new List Locations Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListLocationsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListLocationsResponseBuilder
 
     /**
      * Sets locations field.
+     *
+     * @param Location[]|null $value
      */
     public function locations(?array $value): self
     {
@@ -51,7 +57,7 @@ class ListLocationsResponseBuilder
     }
 
     /**
-     * Initializes a new list locations response object.
+     * Initializes a new List Locations Response object.
      */
     public function build(): ListLocationsResponse
     {

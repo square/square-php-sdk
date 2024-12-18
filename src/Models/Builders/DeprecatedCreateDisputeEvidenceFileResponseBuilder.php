@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\DeprecatedCreateDisputeEvidenceFileResponse;
 use Square\Models\DisputeEvidence;
+use Square\Models\Error;
 
 /**
  * Builder for model DeprecatedCreateDisputeEvidenceFileResponse
@@ -26,7 +27,7 @@ class DeprecatedCreateDisputeEvidenceFileResponseBuilder
     }
 
     /**
-     * Initializes a new deprecated create dispute evidence file response Builder object.
+     * Initializes a new Deprecated Create Dispute Evidence File Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class DeprecatedCreateDisputeEvidenceFileResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class DeprecatedCreateDisputeEvidenceFileResponseBuilder
 
     /**
      * Sets evidence field.
+     *
+     * @param DisputeEvidence|null $value
      */
     public function evidence(?DisputeEvidence $value): self
     {
@@ -52,7 +57,7 @@ class DeprecatedCreateDisputeEvidenceFileResponseBuilder
     }
 
     /**
-     * Initializes a new deprecated create dispute evidence file response object.
+     * Initializes a new Deprecated Create Dispute Evidence File Response object.
      */
     public function build(): DeprecatedCreateDisputeEvidenceFileResponse
     {

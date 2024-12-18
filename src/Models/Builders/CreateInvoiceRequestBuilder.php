@@ -26,7 +26,9 @@ class CreateInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new create invoice request Builder object.
+     * Initializes a new Create Invoice Request Builder object.
+     *
+     * @param Invoice $invoice
      */
     public static function init(Invoice $invoice): self
     {
@@ -35,6 +37,8 @@ class CreateInvoiceRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new create invoice request object.
+     * Initializes a new Create Invoice Request object.
      */
     public function build(): CreateInvoiceRequest
     {

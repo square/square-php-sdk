@@ -25,7 +25,7 @@ class RetrieveCustomerCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve customer custom attribute definition request Builder object.
+     * Initializes a new Retrieve Customer Custom Attribute Definition Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveCustomerCustomAttributeDefinitionRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -42,7 +44,7 @@ class RetrieveCustomerCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve customer custom attribute definition request object.
+     * Initializes a new Retrieve Customer Custom Attribute Definition Request object.
      */
     public function build(): RetrieveCustomerCustomAttributeDefinitionRequest
     {

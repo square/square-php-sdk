@@ -26,7 +26,9 @@ class CreateShiftRequestBuilder
     }
 
     /**
-     * Initializes a new create shift request Builder object.
+     * Initializes a new Create Shift Request Builder object.
+     *
+     * @param Shift $shift
      */
     public static function init(Shift $shift): self
     {
@@ -35,6 +37,8 @@ class CreateShiftRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateShiftRequestBuilder
     }
 
     /**
-     * Initializes a new create shift request object.
+     * Initializes a new Create Shift Request object.
      */
     public function build(): CreateShiftRequest
     {

@@ -27,7 +27,7 @@ class SearchEventsQueryBuilder
     }
 
     /**
-     * Initializes a new search events query Builder object.
+     * Initializes a new Search Events Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class SearchEventsQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param SearchEventsFilter|null $value
      */
     public function filter(?SearchEventsFilter $value): self
     {
@@ -45,6 +47,8 @@ class SearchEventsQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param SearchEventsSort|null $value
      */
     public function sort(?SearchEventsSort $value): self
     {
@@ -53,7 +57,7 @@ class SearchEventsQueryBuilder
     }
 
     /**
-     * Initializes a new search events query object.
+     * Initializes a new Search Events Query object.
      */
     public function build(): SearchEventsQuery
     {

@@ -25,7 +25,7 @@ class FilterValueBuilder
     }
 
     /**
-     * Initializes a new filter value Builder object.
+     * Initializes a new Filter Value Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class FilterValueBuilder
 
     /**
      * Sets all field.
+     *
+     * @param string[]|null $value
      */
     public function all(?array $value): self
     {
@@ -52,6 +54,8 @@ class FilterValueBuilder
 
     /**
      * Sets any field.
+     *
+     * @param string[]|null $value
      */
     public function any(?array $value): self
     {
@@ -70,6 +74,8 @@ class FilterValueBuilder
 
     /**
      * Sets none field.
+     *
+     * @param string[]|null $value
      */
     public function none(?array $value): self
     {
@@ -87,7 +93,7 @@ class FilterValueBuilder
     }
 
     /**
-     * Initializes a new filter value object.
+     * Initializes a new Filter Value object.
      */
     public function build(): FilterValue
     {

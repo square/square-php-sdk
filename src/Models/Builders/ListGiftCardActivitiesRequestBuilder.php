@@ -25,7 +25,7 @@ class ListGiftCardActivitiesRequestBuilder
     }
 
     /**
-     * Initializes a new list gift card activities request Builder object.
+     * Initializes a new List Gift Card Activities Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets gift card id field.
+     *
+     * @param string|null $value
      */
     public function giftCardId(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -88,6 +94,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets begin time field.
+     *
+     * @param string|null $value
      */
     public function beginTime(?string $value): self
     {
@@ -106,6 +114,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets end time field.
+     *
+     * @param string|null $value
      */
     public function endTime(?string $value): self
     {
@@ -124,6 +134,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -142,6 +154,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -160,6 +174,8 @@ class ListGiftCardActivitiesRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -177,7 +193,7 @@ class ListGiftCardActivitiesRequestBuilder
     }
 
     /**
-     * Initializes a new list gift card activities request object.
+     * Initializes a new List Gift Card Activities Request object.
      */
     public function build(): ListGiftCardActivitiesRequest
     {

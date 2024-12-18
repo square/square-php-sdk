@@ -25,7 +25,9 @@ class PublishInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new publish invoice request Builder object.
+     * Initializes a new Publish Invoice Request Builder object.
+     *
+     * @param int $version
      */
     public static function init(int $version): self
     {
@@ -34,6 +36,8 @@ class PublishInvoiceRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -51,7 +55,7 @@ class PublishInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new publish invoice request object.
+     * Initializes a new Publish Invoice Request object.
      */
     public function build(): PublishInvoiceRequest
     {

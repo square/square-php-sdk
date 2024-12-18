@@ -25,7 +25,7 @@ class CreateMobileAuthorizationCodeRequestBuilder
     }
 
     /**
-     * Initializes a new create mobile authorization code request Builder object.
+     * Initializes a new Create Mobile Authorization Code Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CreateMobileAuthorizationCodeRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -42,7 +44,7 @@ class CreateMobileAuthorizationCodeRequestBuilder
     }
 
     /**
-     * Initializes a new create mobile authorization code request object.
+     * Initializes a new Create Mobile Authorization Code Request object.
      */
     public function build(): CreateMobileAuthorizationCodeRequest
     {

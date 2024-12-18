@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchTeamMembersResponse;
+use Square\Models\TeamMember;
 
 /**
  * Builder for model SearchTeamMembersResponse
@@ -25,7 +27,7 @@ class SearchTeamMembersResponseBuilder
     }
 
     /**
-     * Initializes a new search team members response Builder object.
+     * Initializes a new Search Team Members Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchTeamMembersResponseBuilder
 
     /**
      * Sets team members field.
+     *
+     * @param TeamMember[]|null $value
      */
     public function teamMembers(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchTeamMembersResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class SearchTeamMembersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class SearchTeamMembersResponseBuilder
     }
 
     /**
-     * Initializes a new search team members response object.
+     * Initializes a new Search Team Members Response object.
      */
     public function build(): SearchTeamMembersResponse
     {

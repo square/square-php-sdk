@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\AddGroupToCustomerResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model AddGroupToCustomerResponse
@@ -25,7 +26,7 @@ class AddGroupToCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new add group to customer response Builder object.
+     * Initializes a new Add Group To Customer Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class AddGroupToCustomerResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class AddGroupToCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new add group to customer response object.
+     * Initializes a new Add Group To Customer Response object.
      */
     public function build(): AddGroupToCustomerResponse
     {

@@ -25,7 +25,7 @@ class CatalogIdMappingBuilder
     }
 
     /**
-     * Initializes a new catalog id mapping Builder object.
+     * Initializes a new Catalog Id Mapping Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogIdMappingBuilder
 
     /**
      * Sets client object id field.
+     *
+     * @param string|null $value
      */
     public function clientObjectId(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogIdMappingBuilder
 
     /**
      * Sets object id field.
+     *
+     * @param string|null $value
      */
     public function objectId(?string $value): self
     {
@@ -69,7 +73,7 @@ class CatalogIdMappingBuilder
     }
 
     /**
-     * Initializes a new catalog id mapping object.
+     * Initializes a new Catalog Id Mapping object.
      */
     public function build(): CatalogIdMapping
     {

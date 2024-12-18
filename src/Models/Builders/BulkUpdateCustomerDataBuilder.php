@@ -27,7 +27,7 @@ class BulkUpdateCustomerDataBuilder
     }
 
     /**
-     * Initializes a new bulk update customer data Builder object.
+     * Initializes a new Bulk Update Customer Data Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets given name field.
+     *
+     * @param string|null $value
      */
     public function givenName(?string $value): self
     {
@@ -54,6 +56,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets family name field.
+     *
+     * @param string|null $value
      */
     public function familyName(?string $value): self
     {
@@ -72,6 +76,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets company name field.
+     *
+     * @param string|null $value
      */
     public function companyName(?string $value): self
     {
@@ -90,6 +96,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets nickname field.
+     *
+     * @param string|null $value
      */
     public function nickname(?string $value): self
     {
@@ -108,6 +116,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -126,6 +136,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -135,6 +147,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -153,6 +167,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -171,6 +187,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -189,6 +207,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets birthday field.
+     *
+     * @param string|null $value
      */
     public function birthday(?string $value): self
     {
@@ -207,6 +227,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param CustomerTaxIds|null $value
      */
     public function taxIds(?CustomerTaxIds $value): self
     {
@@ -216,6 +238,8 @@ class BulkUpdateCustomerDataBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -224,7 +248,7 @@ class BulkUpdateCustomerDataBuilder
     }
 
     /**
-     * Initializes a new bulk update customer data object.
+     * Initializes a new Bulk Update Customer Data object.
      */
     public function build(): BulkUpdateCustomerData
     {

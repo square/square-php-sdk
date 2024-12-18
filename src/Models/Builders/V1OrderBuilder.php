@@ -6,8 +6,10 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
+use Square\Models\Error;
 use Square\Models\V1Money;
 use Square\Models\V1Order;
+use Square\Models\V1OrderHistoryEntry;
 use Square\Models\V1Tender;
 
 /**
@@ -28,7 +30,7 @@ class V1OrderBuilder
     }
 
     /**
-     * Initializes a new v1 order Builder object.
+     * Initializes a new V1 Order Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +39,8 @@ class V1OrderBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -55,6 +59,8 @@ class V1OrderBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -64,6 +70,8 @@ class V1OrderBuilder
 
     /**
      * Sets buyer email field.
+     *
+     * @param string|null $value
      */
     public function buyerEmail(?string $value): self
     {
@@ -82,6 +90,8 @@ class V1OrderBuilder
 
     /**
      * Sets recipient name field.
+     *
+     * @param string|null $value
      */
     public function recipientName(?string $value): self
     {
@@ -100,6 +110,8 @@ class V1OrderBuilder
 
     /**
      * Sets recipient phone number field.
+     *
+     * @param string|null $value
      */
     public function recipientPhoneNumber(?string $value): self
     {
@@ -118,6 +130,8 @@ class V1OrderBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -127,6 +141,8 @@ class V1OrderBuilder
 
     /**
      * Sets shipping address field.
+     *
+     * @param Address|null $value
      */
     public function shippingAddress(?Address $value): self
     {
@@ -136,6 +152,8 @@ class V1OrderBuilder
 
     /**
      * Sets subtotal money field.
+     *
+     * @param V1Money|null $value
      */
     public function subtotalMoney(?V1Money $value): self
     {
@@ -145,6 +163,8 @@ class V1OrderBuilder
 
     /**
      * Sets total shipping money field.
+     *
+     * @param V1Money|null $value
      */
     public function totalShippingMoney(?V1Money $value): self
     {
@@ -154,6 +174,8 @@ class V1OrderBuilder
 
     /**
      * Sets total tax money field.
+     *
+     * @param V1Money|null $value
      */
     public function totalTaxMoney(?V1Money $value): self
     {
@@ -163,6 +185,8 @@ class V1OrderBuilder
 
     /**
      * Sets total price money field.
+     *
+     * @param V1Money|null $value
      */
     public function totalPriceMoney(?V1Money $value): self
     {
@@ -172,6 +196,8 @@ class V1OrderBuilder
 
     /**
      * Sets total discount money field.
+     *
+     * @param V1Money|null $value
      */
     public function totalDiscountMoney(?V1Money $value): self
     {
@@ -181,6 +207,8 @@ class V1OrderBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -190,6 +218,8 @@ class V1OrderBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -199,6 +229,8 @@ class V1OrderBuilder
 
     /**
      * Sets expires at field.
+     *
+     * @param string|null $value
      */
     public function expiresAt(?string $value): self
     {
@@ -217,6 +249,8 @@ class V1OrderBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -235,6 +269,8 @@ class V1OrderBuilder
 
     /**
      * Sets buyer note field.
+     *
+     * @param string|null $value
      */
     public function buyerNote(?string $value): self
     {
@@ -253,6 +289,8 @@ class V1OrderBuilder
 
     /**
      * Sets completed note field.
+     *
+     * @param string|null $value
      */
     public function completedNote(?string $value): self
     {
@@ -271,6 +309,8 @@ class V1OrderBuilder
 
     /**
      * Sets refunded note field.
+     *
+     * @param string|null $value
      */
     public function refundedNote(?string $value): self
     {
@@ -289,6 +329,8 @@ class V1OrderBuilder
 
     /**
      * Sets canceled note field.
+     *
+     * @param string|null $value
      */
     public function canceledNote(?string $value): self
     {
@@ -307,6 +349,8 @@ class V1OrderBuilder
 
     /**
      * Sets tender field.
+     *
+     * @param V1Tender|null $value
      */
     public function tender(?V1Tender $value): self
     {
@@ -316,6 +360,8 @@ class V1OrderBuilder
 
     /**
      * Sets order history field.
+     *
+     * @param V1OrderHistoryEntry[]|null $value
      */
     public function orderHistory(?array $value): self
     {
@@ -334,6 +380,8 @@ class V1OrderBuilder
 
     /**
      * Sets promo code field.
+     *
+     * @param string|null $value
      */
     public function promoCode(?string $value): self
     {
@@ -352,6 +400,8 @@ class V1OrderBuilder
 
     /**
      * Sets btc receive address field.
+     *
+     * @param string|null $value
      */
     public function btcReceiveAddress(?string $value): self
     {
@@ -370,6 +420,8 @@ class V1OrderBuilder
 
     /**
      * Sets btc price satoshi field.
+     *
+     * @param float|null $value
      */
     public function btcPriceSatoshi(?float $value): self
     {
@@ -387,7 +439,7 @@ class V1OrderBuilder
     }
 
     /**
-     * Initializes a new v1 order object.
+     * Initializes a new V1 Order object.
      */
     public function build(): V1Order
     {

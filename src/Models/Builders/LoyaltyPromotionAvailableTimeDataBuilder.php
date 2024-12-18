@@ -25,7 +25,9 @@ class LoyaltyPromotionAvailableTimeDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion available time data Builder object.
+     * Initializes a new Loyalty Promotion Available Time Data Builder object.
+     *
+     * @param string[] $timePeriods
      */
     public static function init(array $timePeriods): self
     {
@@ -34,6 +36,8 @@ class LoyaltyPromotionAvailableTimeDataBuilder
 
     /**
      * Sets start date field.
+     *
+     * @param string|null $value
      */
     public function startDate(?string $value): self
     {
@@ -43,6 +47,8 @@ class LoyaltyPromotionAvailableTimeDataBuilder
 
     /**
      * Sets end date field.
+     *
+     * @param string|null $value
      */
     public function endDate(?string $value): self
     {
@@ -51,7 +57,7 @@ class LoyaltyPromotionAvailableTimeDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion available time data object.
+     * Initializes a new Loyalty Promotion Available Time Data object.
      */
     public function build(): LoyaltyPromotionAvailableTimeData
     {

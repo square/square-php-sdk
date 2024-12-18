@@ -25,7 +25,7 @@ class CatalogCustomAttributeDefinitionStringConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition string config Builder object.
+     * Initializes a new Catalog Custom Attribute Definition String Config Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogCustomAttributeDefinitionStringConfigBuilder
 
     /**
      * Sets enforce uniqueness field.
+     *
+     * @param bool|null $value
      */
     public function enforceUniqueness(?bool $value): self
     {
@@ -51,7 +53,7 @@ class CatalogCustomAttributeDefinitionStringConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition string config object.
+     * Initializes a new Catalog Custom Attribute Definition String Config object.
      */
     public function build(): CatalogCustomAttributeDefinitionStringConfig
     {

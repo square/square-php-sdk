@@ -30,7 +30,7 @@ class LoyaltyEventFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event filter Builder object.
+     * Initializes a new Loyalty Event Filter Builder object.
      */
     public static function init(): self
     {
@@ -39,6 +39,8 @@ class LoyaltyEventFilterBuilder
 
     /**
      * Sets loyalty account filter field.
+     *
+     * @param LoyaltyEventLoyaltyAccountFilter|null $value
      */
     public function loyaltyAccountFilter(?LoyaltyEventLoyaltyAccountFilter $value): self
     {
@@ -48,6 +50,8 @@ class LoyaltyEventFilterBuilder
 
     /**
      * Sets type filter field.
+     *
+     * @param LoyaltyEventTypeFilter|null $value
      */
     public function typeFilter(?LoyaltyEventTypeFilter $value): self
     {
@@ -57,6 +61,8 @@ class LoyaltyEventFilterBuilder
 
     /**
      * Sets date time filter field.
+     *
+     * @param LoyaltyEventDateTimeFilter|null $value
      */
     public function dateTimeFilter(?LoyaltyEventDateTimeFilter $value): self
     {
@@ -66,6 +72,8 @@ class LoyaltyEventFilterBuilder
 
     /**
      * Sets location filter field.
+     *
+     * @param LoyaltyEventLocationFilter|null $value
      */
     public function locationFilter(?LoyaltyEventLocationFilter $value): self
     {
@@ -75,6 +83,8 @@ class LoyaltyEventFilterBuilder
 
     /**
      * Sets order filter field.
+     *
+     * @param LoyaltyEventOrderFilter|null $value
      */
     public function orderFilter(?LoyaltyEventOrderFilter $value): self
     {
@@ -83,7 +93,7 @@ class LoyaltyEventFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event filter object.
+     * Initializes a new Loyalty Event Filter object.
      */
     public function build(): LoyaltyEventFilter
     {

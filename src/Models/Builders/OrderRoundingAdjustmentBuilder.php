@@ -26,7 +26,7 @@ class OrderRoundingAdjustmentBuilder
     }
 
     /**
-     * Initializes a new order rounding adjustment Builder object.
+     * Initializes a new Order Rounding Adjustment Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderRoundingAdjustmentBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderRoundingAdjustmentBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderRoundingAdjustmentBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -79,7 +85,7 @@ class OrderRoundingAdjustmentBuilder
     }
 
     /**
-     * Initializes a new order rounding adjustment object.
+     * Initializes a new Order Rounding Adjustment object.
      */
     public function build(): OrderRoundingAdjustment
     {

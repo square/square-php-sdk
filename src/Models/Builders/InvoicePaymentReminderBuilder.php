@@ -25,7 +25,7 @@ class InvoicePaymentReminderBuilder
     }
 
     /**
-     * Initializes a new invoice payment reminder Builder object.
+     * Initializes a new Invoice Payment Reminder Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoicePaymentReminderBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -43,6 +45,8 @@ class InvoicePaymentReminderBuilder
 
     /**
      * Sets relative scheduled days field.
+     *
+     * @param int|null $value
      */
     public function relativeScheduledDays(?int $value): self
     {
@@ -61,6 +65,8 @@ class InvoicePaymentReminderBuilder
 
     /**
      * Sets message field.
+     *
+     * @param string|null $value
      */
     public function message(?string $value): self
     {
@@ -79,6 +85,8 @@ class InvoicePaymentReminderBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -88,6 +96,8 @@ class InvoicePaymentReminderBuilder
 
     /**
      * Sets sent at field.
+     *
+     * @param string|null $value
      */
     public function sentAt(?string $value): self
     {
@@ -96,7 +106,7 @@ class InvoicePaymentReminderBuilder
     }
 
     /**
-     * Initializes a new invoice payment reminder object.
+     * Initializes a new Invoice Payment Reminder object.
      */
     public function build(): InvoicePaymentReminder
     {

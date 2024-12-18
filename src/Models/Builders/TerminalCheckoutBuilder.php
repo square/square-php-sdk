@@ -28,7 +28,10 @@ class TerminalCheckoutBuilder
     }
 
     /**
-     * Initializes a new terminal checkout Builder object.
+     * Initializes a new Terminal Checkout Builder object.
+     *
+     * @param Money $amountMoney
+     * @param DeviceCheckoutOptions $deviceOptions
      */
     public static function init(Money $amountMoney, DeviceCheckoutOptions $deviceOptions): self
     {
@@ -37,6 +40,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -46,6 +51,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -64,6 +71,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -82,6 +91,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -100,6 +111,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets payment options field.
+     *
+     * @param PaymentOptions|null $value
      */
     public function paymentOptions(?PaymentOptions $value): self
     {
@@ -109,6 +122,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets deadline duration field.
+     *
+     * @param string|null $value
      */
     public function deadlineDuration(?string $value): self
     {
@@ -127,6 +142,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -136,6 +153,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -145,6 +164,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets payment ids field.
+     *
+     * @param string[]|null $value
      */
     public function paymentIds(?array $value): self
     {
@@ -154,6 +175,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -163,6 +186,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -172,6 +197,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets app id field.
+     *
+     * @param string|null $value
      */
     public function appId(?string $value): self
     {
@@ -181,6 +208,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -190,6 +219,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets payment type field.
+     *
+     * @param string|null $value
      */
     public function paymentType(?string $value): self
     {
@@ -199,6 +230,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -217,6 +250,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -235,6 +270,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets app fee money field.
+     *
+     * @param Money|null $value
      */
     public function appFeeMoney(?Money $value): self
     {
@@ -244,6 +281,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets statement description identifier field.
+     *
+     * @param string|null $value
      */
     public function statementDescriptionIdentifier(?string $value): self
     {
@@ -262,6 +301,8 @@ class TerminalCheckoutBuilder
 
     /**
      * Sets tip money field.
+     *
+     * @param Money|null $value
      */
     public function tipMoney(?Money $value): self
     {
@@ -270,7 +311,7 @@ class TerminalCheckoutBuilder
     }
 
     /**
-     * Initializes a new terminal checkout object.
+     * Initializes a new Terminal Checkout object.
      */
     public function build(): TerminalCheckout
     {

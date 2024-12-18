@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveTeamMemberBookingProfileResponse;
 use Square\Models\TeamMemberBookingProfile;
 
@@ -26,7 +27,7 @@ class RetrieveTeamMemberBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve team member booking profile response Builder object.
+     * Initializes a new Retrieve Team Member Booking Profile Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveTeamMemberBookingProfileResponseBuilder
 
     /**
      * Sets team member booking profile field.
+     *
+     * @param TeamMemberBookingProfile|null $value
      */
     public function teamMemberBookingProfile(?TeamMemberBookingProfile $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveTeamMemberBookingProfileResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveTeamMemberBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve team member booking profile response object.
+     * Initializes a new Retrieve Team Member Booking Profile Response object.
      */
     public function build(): RetrieveTeamMemberBookingProfileResponse
     {

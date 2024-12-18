@@ -27,7 +27,7 @@ class TerminalActionQueryBuilder
     }
 
     /**
-     * Initializes a new terminal action query Builder object.
+     * Initializes a new Terminal Action Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class TerminalActionQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param TerminalActionQueryFilter|null $value
      */
     public function filter(?TerminalActionQueryFilter $value): self
     {
@@ -45,6 +47,8 @@ class TerminalActionQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param TerminalActionQuerySort|null $value
      */
     public function sort(?TerminalActionQuerySort $value): self
     {
@@ -53,7 +57,7 @@ class TerminalActionQueryBuilder
     }
 
     /**
-     * Initializes a new terminal action query object.
+     * Initializes a new Terminal Action Query object.
      */
     public function build(): TerminalActionQuery
     {

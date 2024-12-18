@@ -25,7 +25,7 @@ class OfflinePaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new offline payment details Builder object.
+     * Initializes a new Offline Payment Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OfflinePaymentDetailsBuilder
 
     /**
      * Sets client created at field.
+     *
+     * @param string|null $value
      */
     public function clientCreatedAt(?string $value): self
     {
@@ -42,7 +44,7 @@ class OfflinePaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new offline payment details object.
+     * Initializes a new Offline Payment Details object.
      */
     public function build(): OfflinePaymentDetails
     {

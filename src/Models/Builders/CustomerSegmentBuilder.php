@@ -25,7 +25,9 @@ class CustomerSegmentBuilder
     }
 
     /**
-     * Initializes a new customer segment Builder object.
+     * Initializes a new Customer Segment Builder object.
+     *
+     * @param string $name
      */
     public static function init(string $name): self
     {
@@ -34,6 +36,8 @@ class CustomerSegmentBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +47,8 @@ class CustomerSegmentBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -52,6 +58,8 @@ class CustomerSegmentBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -60,7 +68,7 @@ class CustomerSegmentBuilder
     }
 
     /**
-     * Initializes a new customer segment object.
+     * Initializes a new Customer Segment object.
      */
     public function build(): CustomerSegment
     {

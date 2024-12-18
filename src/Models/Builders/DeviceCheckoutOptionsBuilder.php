@@ -26,7 +26,9 @@ class DeviceCheckoutOptionsBuilder
     }
 
     /**
-     * Initializes a new device checkout options Builder object.
+     * Initializes a new Device Checkout Options Builder object.
+     *
+     * @param string $deviceId
      */
     public static function init(string $deviceId): self
     {
@@ -35,6 +37,8 @@ class DeviceCheckoutOptionsBuilder
 
     /**
      * Sets skip receipt screen field.
+     *
+     * @param bool|null $value
      */
     public function skipReceiptScreen(?bool $value): self
     {
@@ -53,6 +57,8 @@ class DeviceCheckoutOptionsBuilder
 
     /**
      * Sets collect signature field.
+     *
+     * @param bool|null $value
      */
     public function collectSignature(?bool $value): self
     {
@@ -71,6 +77,8 @@ class DeviceCheckoutOptionsBuilder
 
     /**
      * Sets tip settings field.
+     *
+     * @param TipSettings|null $value
      */
     public function tipSettings(?TipSettings $value): self
     {
@@ -80,6 +88,8 @@ class DeviceCheckoutOptionsBuilder
 
     /**
      * Sets show itemized cart field.
+     *
+     * @param bool|null $value
      */
     public function showItemizedCart(?bool $value): self
     {
@@ -97,7 +107,7 @@ class DeviceCheckoutOptionsBuilder
     }
 
     /**
-     * Initializes a new device checkout options object.
+     * Initializes a new Device Checkout Options object.
      */
     public function build(): DeviceCheckoutOptions
     {

@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
+use Square\Models\Refund;
+use Square\Models\Tender;
 use Square\Models\Transaction;
 
 /**
@@ -26,7 +28,7 @@ class TransactionBuilder
     }
 
     /**
-     * Initializes a new transaction Builder object.
+     * Initializes a new Transaction Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class TransactionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +48,8 @@ class TransactionBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -62,6 +68,8 @@ class TransactionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -71,6 +79,8 @@ class TransactionBuilder
 
     /**
      * Sets tenders field.
+     *
+     * @param Tender[]|null $value
      */
     public function tenders(?array $value): self
     {
@@ -89,6 +99,8 @@ class TransactionBuilder
 
     /**
      * Sets refunds field.
+     *
+     * @param Refund[]|null $value
      */
     public function refunds(?array $value): self
     {
@@ -107,6 +119,8 @@ class TransactionBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -125,6 +139,8 @@ class TransactionBuilder
 
     /**
      * Sets product field.
+     *
+     * @param string|null $value
      */
     public function product(?string $value): self
     {
@@ -134,6 +150,8 @@ class TransactionBuilder
 
     /**
      * Sets client id field.
+     *
+     * @param string|null $value
      */
     public function clientId(?string $value): self
     {
@@ -152,6 +170,8 @@ class TransactionBuilder
 
     /**
      * Sets shipping address field.
+     *
+     * @param Address|null $value
      */
     public function shippingAddress(?Address $value): self
     {
@@ -161,6 +181,8 @@ class TransactionBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -178,7 +200,7 @@ class TransactionBuilder
     }
 
     /**
-     * Initializes a new transaction object.
+     * Initializes a new Transaction object.
      */
     public function build(): Transaction
     {

@@ -25,7 +25,7 @@ class ListCustomerGroupsRequestBuilder
     }
 
     /**
-     * Initializes a new list customer groups request Builder object.
+     * Initializes a new List Customer Groups Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListCustomerGroupsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListCustomerGroupsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -69,7 +73,7 @@ class ListCustomerGroupsRequestBuilder
     }
 
     /**
-     * Initializes a new list customer groups request object.
+     * Initializes a new List Customer Groups Request object.
      */
     public function build(): ListCustomerGroupsRequest
     {

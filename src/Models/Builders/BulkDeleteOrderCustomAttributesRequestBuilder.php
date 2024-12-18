@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkDeleteOrderCustomAttributesRequest;
+use Square\Models\BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute;
 
 /**
  * Builder for model BulkDeleteOrderCustomAttributesRequest
@@ -25,7 +26,9 @@ class BulkDeleteOrderCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete order custom attributes request Builder object.
+     * Initializes a new Bulk Delete Order Custom Attributes Request Builder object.
+     *
+     * @param array<string,BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute> $values
      */
     public static function init(array $values): self
     {
@@ -33,7 +36,7 @@ class BulkDeleteOrderCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete order custom attributes request object.
+     * Initializes a new Bulk Delete Order Custom Attributes Request object.
      */
     public function build(): BulkDeleteOrderCustomAttributesRequest
     {

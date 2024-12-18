@@ -25,7 +25,7 @@ class DeviceComponentDetailsNetworkInterfaceDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details network interface details Builder object.
+     * Initializes a new Device Component Details Network Interface Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsNetworkInterfaceDetailsBuilder
 
     /**
      * Sets ip address v 4 field.
+     *
+     * @param string|null $value
      */
     public function ipAddressV4(?string $value): self
     {
@@ -51,7 +53,7 @@ class DeviceComponentDetailsNetworkInterfaceDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details network interface details object.
+     * Initializes a new Device Component Details Network Interface Details object.
      */
     public function build(): DeviceComponentDetailsNetworkInterfaceDetails
     {

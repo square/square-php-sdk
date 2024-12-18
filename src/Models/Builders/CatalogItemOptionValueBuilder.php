@@ -25,7 +25,7 @@ class CatalogItemOptionValueBuilder
     }
 
     /**
-     * Initializes a new catalog item option value Builder object.
+     * Initializes a new Catalog Item Option Value Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogItemOptionValueBuilder
 
     /**
      * Sets item option id field.
+     *
+     * @param string|null $value
      */
     public function itemOptionId(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogItemOptionValueBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -70,6 +74,8 @@ class CatalogItemOptionValueBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -88,6 +94,8 @@ class CatalogItemOptionValueBuilder
 
     /**
      * Sets color field.
+     *
+     * @param string|null $value
      */
     public function color(?string $value): self
     {
@@ -106,6 +114,8 @@ class CatalogItemOptionValueBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -123,7 +133,7 @@ class CatalogItemOptionValueBuilder
     }
 
     /**
-     * Initializes a new catalog item option value object.
+     * Initializes a new Catalog Item Option Value object.
      */
     public function build(): CatalogItemOptionValue
     {

@@ -26,7 +26,10 @@ class CreateTerminalCheckoutRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal checkout request Builder object.
+     * Initializes a new Create Terminal Checkout Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param TerminalCheckout $checkout
      */
     public static function init(string $idempotencyKey, TerminalCheckout $checkout): self
     {
@@ -34,7 +37,7 @@ class CreateTerminalCheckoutRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal checkout request object.
+     * Initializes a new Create Terminal Checkout Request object.
      */
     public function build(): CreateTerminalCheckoutRequest
     {

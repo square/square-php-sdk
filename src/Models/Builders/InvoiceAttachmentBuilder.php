@@ -25,7 +25,7 @@ class InvoiceAttachmentBuilder
     }
 
     /**
-     * Initializes a new invoice attachment Builder object.
+     * Initializes a new Invoice Attachment Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets filename field.
+     *
+     * @param string|null $value
      */
     public function filename(?string $value): self
     {
@@ -52,6 +56,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -61,6 +67,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets filesize field.
+     *
+     * @param int|null $value
      */
     public function filesize(?int $value): self
     {
@@ -70,6 +78,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets hash field.
+     *
+     * @param string|null $value
      */
     public function hash(?string $value): self
     {
@@ -79,6 +89,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets mime type field.
+     *
+     * @param string|null $value
      */
     public function mimeType(?string $value): self
     {
@@ -88,6 +100,8 @@ class InvoiceAttachmentBuilder
 
     /**
      * Sets uploaded at field.
+     *
+     * @param string|null $value
      */
     public function uploadedAt(?string $value): self
     {
@@ -96,7 +110,7 @@ class InvoiceAttachmentBuilder
     }
 
     /**
-     * Initializes a new invoice attachment object.
+     * Initializes a new Invoice Attachment object.
      */
     public function build(): InvoiceAttachment
     {

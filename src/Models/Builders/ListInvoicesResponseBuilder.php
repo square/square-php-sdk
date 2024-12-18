@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\Invoice;
 use Square\Models\ListInvoicesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListInvoicesResponseBuilder
     }
 
     /**
-     * Initializes a new list invoices response Builder object.
+     * Initializes a new List Invoices Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListInvoicesResponseBuilder
 
     /**
      * Sets invoices field.
+     *
+     * @param Invoice[]|null $value
      */
     public function invoices(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListInvoicesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListInvoicesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListInvoicesResponseBuilder
     }
 
     /**
-     * Initializes a new list invoices response object.
+     * Initializes a new List Invoices Response object.
      */
     public function build(): ListInvoicesResponse
     {

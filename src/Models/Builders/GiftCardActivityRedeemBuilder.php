@@ -26,7 +26,9 @@ class GiftCardActivityRedeemBuilder
     }
 
     /**
-     * Initializes a new gift card activity redeem Builder object.
+     * Initializes a new Gift Card Activity Redeem Builder object.
+     *
+     * @param Money $amountMoney
      */
     public static function init(Money $amountMoney): self
     {
@@ -35,6 +37,8 @@ class GiftCardActivityRedeemBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -44,6 +48,8 @@ class GiftCardActivityRedeemBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -62,6 +68,8 @@ class GiftCardActivityRedeemBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -70,7 +78,7 @@ class GiftCardActivityRedeemBuilder
     }
 
     /**
-     * Initializes a new gift card activity redeem object.
+     * Initializes a new Gift Card Activity Redeem object.
      */
     public function build(): GiftCardActivityRedeem
     {

@@ -26,7 +26,7 @@ class TenderCashDetailsBuilder
     }
 
     /**
-     * Initializes a new tender cash details Builder object.
+     * Initializes a new Tender Cash Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class TenderCashDetailsBuilder
 
     /**
      * Sets buyer tendered money field.
+     *
+     * @param Money|null $value
      */
     public function buyerTenderedMoney(?Money $value): self
     {
@@ -44,6 +46,8 @@ class TenderCashDetailsBuilder
 
     /**
      * Sets change back money field.
+     *
+     * @param Money|null $value
      */
     public function changeBackMoney(?Money $value): self
     {
@@ -52,7 +56,7 @@ class TenderCashDetailsBuilder
     }
 
     /**
-     * Initializes a new tender cash details object.
+     * Initializes a new Tender Cash Details object.
      */
     public function build(): TenderCashDetails
     {

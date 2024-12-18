@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteCatalogObjectResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteCatalogObjectResponse
@@ -25,7 +26,7 @@ class DeleteCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new delete catalog object response Builder object.
+     * Initializes a new Delete Catalog Object Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteCatalogObjectResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class DeleteCatalogObjectResponseBuilder
 
     /**
      * Sets deleted object ids field.
+     *
+     * @param string[]|null $value
      */
     public function deletedObjectIds(?array $value): self
     {
@@ -52,6 +57,8 @@ class DeleteCatalogObjectResponseBuilder
 
     /**
      * Sets deleted at field.
+     *
+     * @param string|null $value
      */
     public function deletedAt(?string $value): self
     {
@@ -60,7 +67,7 @@ class DeleteCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new delete catalog object response object.
+     * Initializes a new Delete Catalog Object Response object.
      */
     public function build(): DeleteCatalogObjectResponse
     {

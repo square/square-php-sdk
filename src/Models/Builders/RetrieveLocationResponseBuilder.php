@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Location;
 use Square\Models\RetrieveLocationResponse;
 
@@ -26,7 +27,7 @@ class RetrieveLocationResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location response Builder object.
+     * Initializes a new Retrieve Location Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveLocationResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveLocationResponseBuilder
 
     /**
      * Sets location field.
+     *
+     * @param Location|null $value
      */
     public function location(?Location $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveLocationResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location response object.
+     * Initializes a new Retrieve Location Response object.
      */
     public function build(): RetrieveLocationResponse
     {

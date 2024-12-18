@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateInvoiceAttachmentResponse;
+use Square\Models\Error;
 use Square\Models\InvoiceAttachment;
 
 /**
@@ -26,7 +27,7 @@ class CreateInvoiceAttachmentResponseBuilder
     }
 
     /**
-     * Initializes a new create invoice attachment response Builder object.
+     * Initializes a new Create Invoice Attachment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateInvoiceAttachmentResponseBuilder
 
     /**
      * Sets attachment field.
+     *
+     * @param InvoiceAttachment|null $value
      */
     public function attachment(?InvoiceAttachment $value): self
     {
@@ -44,6 +47,8 @@ class CreateInvoiceAttachmentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CreateInvoiceAttachmentResponseBuilder
     }
 
     /**
-     * Initializes a new create invoice attachment response object.
+     * Initializes a new Create Invoice Attachment Response object.
      */
     public function build(): CreateInvoiceAttachmentResponse
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogCustomAttributeDefinitionSelectionConfig;
+use Square\Models\CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection;
 
 /**
  * Builder for model CatalogCustomAttributeDefinitionSelectionConfig
@@ -25,7 +26,7 @@ class CatalogCustomAttributeDefinitionSelectionConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition selection config Builder object.
+     * Initializes a new Catalog Custom Attribute Definition Selection Config Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CatalogCustomAttributeDefinitionSelectionConfigBuilder
 
     /**
      * Sets max allowed selections field.
+     *
+     * @param int|null $value
      */
     public function maxAllowedSelections(?int $value): self
     {
@@ -52,6 +55,8 @@ class CatalogCustomAttributeDefinitionSelectionConfigBuilder
 
     /**
      * Sets allowed selections field.
+     *
+     * @param CatalogCustomAttributeDefinitionSelectionConfigCustomAttributeSelection[]|null $value
      */
     public function allowedSelections(?array $value): self
     {
@@ -69,7 +74,7 @@ class CatalogCustomAttributeDefinitionSelectionConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition selection config object.
+     * Initializes a new Catalog Custom Attribute Definition Selection Config object.
      */
     public function build(): CatalogCustomAttributeDefinitionSelectionConfig
     {

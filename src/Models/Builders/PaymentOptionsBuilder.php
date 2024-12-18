@@ -25,7 +25,7 @@ class PaymentOptionsBuilder
     }
 
     /**
-     * Initializes a new payment options Builder object.
+     * Initializes a new Payment Options Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentOptionsBuilder
 
     /**
      * Sets autocomplete field.
+     *
+     * @param bool|null $value
      */
     public function autocomplete(?bool $value): self
     {
@@ -52,6 +54,8 @@ class PaymentOptionsBuilder
 
     /**
      * Sets delay duration field.
+     *
+     * @param string|null $value
      */
     public function delayDuration(?string $value): self
     {
@@ -70,6 +74,8 @@ class PaymentOptionsBuilder
 
     /**
      * Sets accept partial authorization field.
+     *
+     * @param bool|null $value
      */
     public function acceptPartialAuthorization(?bool $value): self
     {
@@ -88,6 +94,8 @@ class PaymentOptionsBuilder
 
     /**
      * Sets delay action field.
+     *
+     * @param string|null $value
      */
     public function delayAction(?string $value): self
     {
@@ -96,7 +104,7 @@ class PaymentOptionsBuilder
     }
 
     /**
-     * Initializes a new payment options object.
+     * Initializes a new Payment Options object.
      */
     public function build(): PaymentOptions
     {

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchSubscriptionsResponse;
+use Square\Models\Subscription;
 
 /**
  * Builder for model SearchSubscriptionsResponse
@@ -25,7 +27,7 @@ class SearchSubscriptionsResponseBuilder
     }
 
     /**
-     * Initializes a new search subscriptions response Builder object.
+     * Initializes a new Search Subscriptions Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchSubscriptionsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchSubscriptionsResponseBuilder
 
     /**
      * Sets subscriptions field.
+     *
+     * @param Subscription[]|null $value
      */
     public function subscriptions(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchSubscriptionsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class SearchSubscriptionsResponseBuilder
     }
 
     /**
-     * Initializes a new search subscriptions response object.
+     * Initializes a new Search Subscriptions Response object.
      */
     public function build(): SearchSubscriptionsResponse
     {

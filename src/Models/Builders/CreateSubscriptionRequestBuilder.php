@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CreateSubscriptionRequest;
 use Square\Models\Money;
+use Square\Models\Phase;
 use Square\Models\SubscriptionSource;
 
 /**
@@ -27,7 +28,10 @@ class CreateSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new create subscription request Builder object.
+     * Initializes a new Create Subscription Request Builder object.
+     *
+     * @param string $locationId
+     * @param string $customerId
      */
     public static function init(string $locationId, string $customerId): self
     {
@@ -36,6 +40,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -45,6 +51,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets plan variation id field.
+     *
+     * @param string|null $value
      */
     public function planVariationId(?string $value): self
     {
@@ -54,6 +62,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets start date field.
+     *
+     * @param string|null $value
      */
     public function startDate(?string $value): self
     {
@@ -63,6 +73,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets canceled date field.
+     *
+     * @param string|null $value
      */
     public function canceledDate(?string $value): self
     {
@@ -72,6 +84,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets tax percentage field.
+     *
+     * @param string|null $value
      */
     public function taxPercentage(?string $value): self
     {
@@ -81,6 +95,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets price override money field.
+     *
+     * @param Money|null $value
      */
     public function priceOverrideMoney(?Money $value): self
     {
@@ -90,6 +106,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets card id field.
+     *
+     * @param string|null $value
      */
     public function cardId(?string $value): self
     {
@@ -99,6 +117,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets timezone field.
+     *
+     * @param string|null $value
      */
     public function timezone(?string $value): self
     {
@@ -108,6 +128,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets source field.
+     *
+     * @param SubscriptionSource|null $value
      */
     public function source(?SubscriptionSource $value): self
     {
@@ -117,6 +139,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -126,6 +150,8 @@ class CreateSubscriptionRequestBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param Phase[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -134,7 +160,7 @@ class CreateSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new create subscription request object.
+     * Initializes a new Create Subscription Request object.
      */
     public function build(): CreateSubscriptionRequest
     {

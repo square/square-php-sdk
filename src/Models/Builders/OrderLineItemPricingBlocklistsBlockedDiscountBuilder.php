@@ -25,7 +25,7 @@ class OrderLineItemPricingBlocklistsBlockedDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists blocked discount Builder object.
+     * Initializes a new Order Line Item Pricing Blocklists Blocked Discount Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderLineItemPricingBlocklistsBlockedDiscountBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderLineItemPricingBlocklistsBlockedDiscountBuilder
 
     /**
      * Sets discount uid field.
+     *
+     * @param string|null $value
      */
     public function discountUid(?string $value): self
     {
@@ -70,6 +74,8 @@ class OrderLineItemPricingBlocklistsBlockedDiscountBuilder
 
     /**
      * Sets discount catalog object id field.
+     *
+     * @param string|null $value
      */
     public function discountCatalogObjectId(?string $value): self
     {
@@ -87,7 +93,7 @@ class OrderLineItemPricingBlocklistsBlockedDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists blocked discount object.
+     * Initializes a new Order Line Item Pricing Blocklists Blocked Discount object.
      */
     public function build(): OrderLineItemPricingBlocklistsBlockedDiscount
     {

@@ -25,7 +25,7 @@ class TeamMemberBookingProfileBuilder
     }
 
     /**
-     * Initializes a new team member booking profile Builder object.
+     * Initializes a new Team Member Booking Profile Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TeamMemberBookingProfileBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -43,6 +45,8 @@ class TeamMemberBookingProfileBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -52,6 +56,8 @@ class TeamMemberBookingProfileBuilder
 
     /**
      * Sets display name field.
+     *
+     * @param string|null $value
      */
     public function displayName(?string $value): self
     {
@@ -61,6 +67,8 @@ class TeamMemberBookingProfileBuilder
 
     /**
      * Sets is bookable field.
+     *
+     * @param bool|null $value
      */
     public function isBookable(?bool $value): self
     {
@@ -79,6 +87,8 @@ class TeamMemberBookingProfileBuilder
 
     /**
      * Sets profile image url field.
+     *
+     * @param string|null $value
      */
     public function profileImageUrl(?string $value): self
     {
@@ -87,7 +97,7 @@ class TeamMemberBookingProfileBuilder
     }
 
     /**
-     * Initializes a new team member booking profile object.
+     * Initializes a new Team Member Booking Profile object.
      */
     public function build(): TeamMemberBookingProfile
     {

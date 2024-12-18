@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\LoyaltyProgram;
 use Square\Models\RetrieveLoyaltyProgramResponse;
 
@@ -26,7 +27,7 @@ class RetrieveLoyaltyProgramResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve loyalty program response Builder object.
+     * Initializes a new Retrieve Loyalty Program Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveLoyaltyProgramResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveLoyaltyProgramResponseBuilder
 
     /**
      * Sets program field.
+     *
+     * @param LoyaltyProgram|null $value
      */
     public function program(?LoyaltyProgram $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveLoyaltyProgramResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve loyalty program response object.
+     * Initializes a new Retrieve Loyalty Program Response object.
      */
     public function build(): RetrieveLoyaltyProgramResponse
     {

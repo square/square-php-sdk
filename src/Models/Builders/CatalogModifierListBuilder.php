@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogModifierList;
+use Square\Models\CatalogObject;
 
 /**
  * Builder for model CatalogModifierList
@@ -25,7 +26,7 @@ class CatalogModifierListBuilder
     }
 
     /**
-     * Initializes a new catalog modifier list Builder object.
+     * Initializes a new Catalog Modifier List Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +55,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -70,6 +75,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets selection type field.
+     *
+     * @param string|null $value
      */
     public function selectionType(?string $value): self
     {
@@ -79,6 +86,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets modifiers field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function modifiers(?array $value): self
     {
@@ -97,6 +106,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets image ids field.
+     *
+     * @param string[]|null $value
      */
     public function imageIds(?array $value): self
     {
@@ -115,6 +126,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets modifier type field.
+     *
+     * @param string|null $value
      */
     public function modifierType(?string $value): self
     {
@@ -124,6 +137,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets max length field.
+     *
+     * @param int|null $value
      */
     public function maxLength(?int $value): self
     {
@@ -142,6 +157,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets text required field.
+     *
+     * @param bool|null $value
      */
     public function textRequired(?bool $value): self
     {
@@ -160,6 +177,8 @@ class CatalogModifierListBuilder
 
     /**
      * Sets internal name field.
+     *
+     * @param string|null $value
      */
     public function internalName(?string $value): self
     {
@@ -177,7 +196,7 @@ class CatalogModifierListBuilder
     }
 
     /**
-     * Initializes a new catalog modifier list object.
+     * Initializes a new Catalog Modifier List object.
      */
     public function build(): CatalogModifierList
     {

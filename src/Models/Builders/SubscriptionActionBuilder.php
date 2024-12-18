@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Phase;
 use Square\Models\SubscriptionAction;
 
 /**
@@ -25,7 +26,7 @@ class SubscriptionActionBuilder
     }
 
     /**
-     * Initializes a new subscription action Builder object.
+     * Initializes a new Subscription Action Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +46,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -52,6 +57,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets effective date field.
+     *
+     * @param string|null $value
      */
     public function effectiveDate(?string $value): self
     {
@@ -70,6 +77,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -88,6 +97,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param Phase[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -106,6 +117,8 @@ class SubscriptionActionBuilder
 
     /**
      * Sets new plan variation id field.
+     *
+     * @param string|null $value
      */
     public function newPlanVariationId(?string $value): self
     {
@@ -123,7 +136,7 @@ class SubscriptionActionBuilder
     }
 
     /**
-     * Initializes a new subscription action object.
+     * Initializes a new Subscription Action object.
      */
     public function build(): SubscriptionAction
     {

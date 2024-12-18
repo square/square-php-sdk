@@ -27,7 +27,7 @@ class FulfillmentPickupDetailsBuilder
     }
 
     /**
-     * Initializes a new fulfillment pickup details Builder object.
+     * Initializes a new Fulfillment Pickup Details Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets recipient field.
+     *
+     * @param FulfillmentRecipient|null $value
      */
     public function recipient(?FulfillmentRecipient $value): self
     {
@@ -45,6 +47,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets expires at field.
+     *
+     * @param string|null $value
      */
     public function expiresAt(?string $value): self
     {
@@ -63,6 +67,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets auto complete duration field.
+     *
+     * @param string|null $value
      */
     public function autoCompleteDuration(?string $value): self
     {
@@ -81,6 +87,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets schedule type field.
+     *
+     * @param string|null $value
      */
     public function scheduleType(?string $value): self
     {
@@ -90,6 +98,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets pickup at field.
+     *
+     * @param string|null $value
      */
     public function pickupAt(?string $value): self
     {
@@ -108,6 +118,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets pickup window duration field.
+     *
+     * @param string|null $value
      */
     public function pickupWindowDuration(?string $value): self
     {
@@ -126,6 +138,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets prep time duration field.
+     *
+     * @param string|null $value
      */
     public function prepTimeDuration(?string $value): self
     {
@@ -144,6 +158,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -162,6 +178,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets placed at field.
+     *
+     * @param string|null $value
      */
     public function placedAt(?string $value): self
     {
@@ -171,6 +189,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets accepted at field.
+     *
+     * @param string|null $value
      */
     public function acceptedAt(?string $value): self
     {
@@ -180,6 +200,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets rejected at field.
+     *
+     * @param string|null $value
      */
     public function rejectedAt(?string $value): self
     {
@@ -189,6 +211,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets ready at field.
+     *
+     * @param string|null $value
      */
     public function readyAt(?string $value): self
     {
@@ -198,6 +222,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets expired at field.
+     *
+     * @param string|null $value
      */
     public function expiredAt(?string $value): self
     {
@@ -207,6 +233,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets picked up at field.
+     *
+     * @param string|null $value
      */
     public function pickedUpAt(?string $value): self
     {
@@ -216,6 +244,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets canceled at field.
+     *
+     * @param string|null $value
      */
     public function canceledAt(?string $value): self
     {
@@ -225,6 +255,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -243,6 +275,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets is curbside pickup field.
+     *
+     * @param bool|null $value
      */
     public function isCurbsidePickup(?bool $value): self
     {
@@ -261,6 +295,8 @@ class FulfillmentPickupDetailsBuilder
 
     /**
      * Sets curbside pickup details field.
+     *
+     * @param FulfillmentPickupDetailsCurbsidePickupDetails|null $value
      */
     public function curbsidePickupDetails(?FulfillmentPickupDetailsCurbsidePickupDetails $value): self
     {
@@ -269,7 +305,7 @@ class FulfillmentPickupDetailsBuilder
     }
 
     /**
-     * Initializes a new fulfillment pickup details object.
+     * Initializes a new Fulfillment Pickup Details object.
      */
     public function build(): FulfillmentPickupDetails
     {

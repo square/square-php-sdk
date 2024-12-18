@@ -26,7 +26,7 @@ class V1TenderBuilder
     }
 
     /**
-     * Initializes a new v1 tender Builder object.
+     * Initializes a new V1 Tender Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class V1TenderBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class V1TenderBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -53,6 +57,8 @@ class V1TenderBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -71,6 +77,8 @@ class V1TenderBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -89,6 +97,8 @@ class V1TenderBuilder
 
     /**
      * Sets receipt url field.
+     *
+     * @param string|null $value
      */
     public function receiptUrl(?string $value): self
     {
@@ -107,6 +117,8 @@ class V1TenderBuilder
 
     /**
      * Sets card brand field.
+     *
+     * @param string|null $value
      */
     public function cardBrand(?string $value): self
     {
@@ -116,6 +128,8 @@ class V1TenderBuilder
 
     /**
      * Sets pan suffix field.
+     *
+     * @param string|null $value
      */
     public function panSuffix(?string $value): self
     {
@@ -134,6 +148,8 @@ class V1TenderBuilder
 
     /**
      * Sets entry method field.
+     *
+     * @param string|null $value
      */
     public function entryMethod(?string $value): self
     {
@@ -143,6 +159,8 @@ class V1TenderBuilder
 
     /**
      * Sets payment note field.
+     *
+     * @param string|null $value
      */
     public function paymentNote(?string $value): self
     {
@@ -161,6 +179,8 @@ class V1TenderBuilder
 
     /**
      * Sets total money field.
+     *
+     * @param V1Money|null $value
      */
     public function totalMoney(?V1Money $value): self
     {
@@ -170,6 +190,8 @@ class V1TenderBuilder
 
     /**
      * Sets tendered money field.
+     *
+     * @param V1Money|null $value
      */
     public function tenderedMoney(?V1Money $value): self
     {
@@ -179,6 +201,8 @@ class V1TenderBuilder
 
     /**
      * Sets tendered at field.
+     *
+     * @param string|null $value
      */
     public function tenderedAt(?string $value): self
     {
@@ -197,6 +221,8 @@ class V1TenderBuilder
 
     /**
      * Sets settled at field.
+     *
+     * @param string|null $value
      */
     public function settledAt(?string $value): self
     {
@@ -215,6 +241,8 @@ class V1TenderBuilder
 
     /**
      * Sets change back money field.
+     *
+     * @param V1Money|null $value
      */
     public function changeBackMoney(?V1Money $value): self
     {
@@ -224,6 +252,8 @@ class V1TenderBuilder
 
     /**
      * Sets refunded money field.
+     *
+     * @param V1Money|null $value
      */
     public function refundedMoney(?V1Money $value): self
     {
@@ -233,6 +263,8 @@ class V1TenderBuilder
 
     /**
      * Sets is exchange field.
+     *
+     * @param bool|null $value
      */
     public function isExchange(?bool $value): self
     {
@@ -250,7 +282,7 @@ class V1TenderBuilder
     }
 
     /**
-     * Initializes a new v1 tender object.
+     * Initializes a new V1 Tender object.
      */
     public function build(): V1Tender
     {

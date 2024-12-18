@@ -31,7 +31,10 @@ class CreatePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new create payment request Builder object.
+     * Initializes a new Create Payment Request Builder object.
+     *
+     * @param string $sourceId
+     * @param string $idempotencyKey
      */
     public static function init(string $sourceId, string $idempotencyKey): self
     {
@@ -40,6 +43,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -49,6 +54,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets tip money field.
+     *
+     * @param Money|null $value
      */
     public function tipMoney(?Money $value): self
     {
@@ -58,6 +65,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets app fee money field.
+     *
+     * @param Money|null $value
      */
     public function appFeeMoney(?Money $value): self
     {
@@ -67,6 +76,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets delay duration field.
+     *
+     * @param string|null $value
      */
     public function delayDuration(?string $value): self
     {
@@ -76,6 +87,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets delay action field.
+     *
+     * @param string|null $value
      */
     public function delayAction(?string $value): self
     {
@@ -85,6 +98,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets autocomplete field.
+     *
+     * @param bool|null $value
      */
     public function autocomplete(?bool $value): self
     {
@@ -94,6 +109,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -103,6 +120,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -112,6 +131,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -121,6 +142,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -130,6 +153,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -139,6 +164,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets verification token field.
+     *
+     * @param string|null $value
      */
     public function verificationToken(?string $value): self
     {
@@ -148,6 +175,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets accept partial authorization field.
+     *
+     * @param bool|null $value
      */
     public function acceptPartialAuthorization(?bool $value): self
     {
@@ -157,6 +186,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets buyer email address field.
+     *
+     * @param string|null $value
      */
     public function buyerEmailAddress(?string $value): self
     {
@@ -165,7 +196,20 @@ class CreatePaymentRequestBuilder
     }
 
     /**
+     * Sets buyer phone number field.
+     *
+     * @param string|null $value
+     */
+    public function buyerPhoneNumber(?string $value): self
+    {
+        $this->instance->setBuyerPhoneNumber($value);
+        return $this;
+    }
+
+    /**
      * Sets billing address field.
+     *
+     * @param Address|null $value
      */
     public function billingAddress(?Address $value): self
     {
@@ -175,6 +219,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets shipping address field.
+     *
+     * @param Address|null $value
      */
     public function shippingAddress(?Address $value): self
     {
@@ -184,6 +230,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -193,6 +241,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets statement description identifier field.
+     *
+     * @param string|null $value
      */
     public function statementDescriptionIdentifier(?string $value): self
     {
@@ -202,6 +252,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets cash details field.
+     *
+     * @param CashPaymentDetails|null $value
      */
     public function cashDetails(?CashPaymentDetails $value): self
     {
@@ -211,6 +263,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets external details field.
+     *
+     * @param ExternalPaymentDetails|null $value
      */
     public function externalDetails(?ExternalPaymentDetails $value): self
     {
@@ -220,6 +274,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets customer details field.
+     *
+     * @param CustomerDetails|null $value
      */
     public function customerDetails(?CustomerDetails $value): self
     {
@@ -229,6 +285,8 @@ class CreatePaymentRequestBuilder
 
     /**
      * Sets offline payment details field.
+     *
+     * @param OfflinePaymentDetails|null $value
      */
     public function offlinePaymentDetails(?OfflinePaymentDetails $value): self
     {
@@ -237,7 +295,7 @@ class CreatePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new create payment request object.
+     * Initializes a new Create Payment Request object.
      */
     public function build(): CreatePaymentRequest
     {

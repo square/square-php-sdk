@@ -25,7 +25,9 @@ class LoyaltyPromotionTriggerLimitBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion trigger limit Builder object.
+     * Initializes a new Loyalty Promotion Trigger Limit Builder object.
+     *
+     * @param int $times
      */
     public static function init(int $times): self
     {
@@ -34,6 +36,8 @@ class LoyaltyPromotionTriggerLimitBuilder
 
     /**
      * Sets interval field.
+     *
+     * @param string|null $value
      */
     public function interval(?string $value): self
     {
@@ -42,7 +46,7 @@ class LoyaltyPromotionTriggerLimitBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion trigger limit object.
+     * Initializes a new Loyalty Promotion Trigger Limit object.
      */
     public function build(): LoyaltyPromotionTriggerLimit
     {

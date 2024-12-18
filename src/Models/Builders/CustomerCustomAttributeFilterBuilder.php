@@ -27,7 +27,9 @@ class CustomerCustomAttributeFilterBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filter Builder object.
+     * Initializes a new Customer Custom Attribute Filter Builder object.
+     *
+     * @param string $key
      */
     public static function init(string $key): self
     {
@@ -36,6 +38,8 @@ class CustomerCustomAttributeFilterBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param CustomerCustomAttributeFilterValue|null $value
      */
     public function filter(?CustomerCustomAttributeFilterValue $value): self
     {
@@ -45,6 +49,8 @@ class CustomerCustomAttributeFilterBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param TimeRange|null $value
      */
     public function updatedAt(?TimeRange $value): self
     {
@@ -53,7 +59,7 @@ class CustomerCustomAttributeFilterBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filter object.
+     * Initializes a new Customer Custom Attribute Filter object.
      */
     public function build(): CustomerCustomAttributeFilter
     {

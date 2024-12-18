@@ -25,7 +25,7 @@ class CatalogAvailabilityPeriodBuilder
     }
 
     /**
-     * Initializes a new catalog availability period Builder object.
+     * Initializes a new Catalog Availability Period Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogAvailabilityPeriodBuilder
 
     /**
      * Sets start local time field.
+     *
+     * @param string|null $value
      */
     public function startLocalTime(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogAvailabilityPeriodBuilder
 
     /**
      * Sets end local time field.
+     *
+     * @param string|null $value
      */
     public function endLocalTime(?string $value): self
     {
@@ -70,6 +74,8 @@ class CatalogAvailabilityPeriodBuilder
 
     /**
      * Sets day of week field.
+     *
+     * @param string|null $value
      */
     public function dayOfWeek(?string $value): self
     {
@@ -78,7 +84,7 @@ class CatalogAvailabilityPeriodBuilder
     }
 
     /**
-     * Initializes a new catalog availability period object.
+     * Initializes a new Catalog Availability Period object.
      */
     public function build(): CatalogAvailabilityPeriod
     {

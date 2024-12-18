@@ -26,7 +26,11 @@ class AccumulateLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new accumulate loyalty points request Builder object.
+     * Initializes a new Accumulate Loyalty Points Request Builder object.
+     *
+     * @param LoyaltyEventAccumulatePoints $accumulatePoints
+     * @param string $idempotencyKey
+     * @param string $locationId
      */
     public static function init(
         LoyaltyEventAccumulatePoints $accumulatePoints,
@@ -37,7 +41,7 @@ class AccumulateLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new accumulate loyalty points request object.
+     * Initializes a new Accumulate Loyalty Points Request object.
      */
     public function build(): AccumulateLoyaltyPointsRequest
     {

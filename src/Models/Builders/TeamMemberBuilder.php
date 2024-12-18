@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\TeamMember;
 use Square\Models\TeamMemberAssignedLocations;
+use Square\Models\WageSetting;
 
 /**
  * Builder for model TeamMember
@@ -26,7 +27,7 @@ class TeamMemberBuilder
     }
 
     /**
-     * Initializes a new team member Builder object.
+     * Initializes a new Team Member Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class TeamMemberBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +47,8 @@ class TeamMemberBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -62,6 +67,8 @@ class TeamMemberBuilder
 
     /**
      * Sets is owner field.
+     *
+     * @param bool|null $value
      */
     public function isOwner(?bool $value): self
     {
@@ -71,6 +78,8 @@ class TeamMemberBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -80,6 +89,8 @@ class TeamMemberBuilder
 
     /**
      * Sets given name field.
+     *
+     * @param string|null $value
      */
     public function givenName(?string $value): self
     {
@@ -98,6 +109,8 @@ class TeamMemberBuilder
 
     /**
      * Sets family name field.
+     *
+     * @param string|null $value
      */
     public function familyName(?string $value): self
     {
@@ -116,6 +129,8 @@ class TeamMemberBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -134,6 +149,8 @@ class TeamMemberBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -152,6 +169,8 @@ class TeamMemberBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -161,6 +180,8 @@ class TeamMemberBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -170,6 +191,8 @@ class TeamMemberBuilder
 
     /**
      * Sets assigned locations field.
+     *
+     * @param TeamMemberAssignedLocations|null $value
      */
     public function assignedLocations(?TeamMemberAssignedLocations $value): self
     {
@@ -178,7 +201,18 @@ class TeamMemberBuilder
     }
 
     /**
-     * Initializes a new team member object.
+     * Sets wage setting field.
+     *
+     * @param WageSetting|null $value
+     */
+    public function wageSetting(?WageSetting $value): self
+    {
+        $this->instance->setWageSetting($value);
+        return $this;
+    }
+
+    /**
+     * Initializes a new Team Member object.
      */
     public function build(): TeamMember
     {

@@ -26,7 +26,7 @@ class ProcessingFeeBuilder
     }
 
     /**
-     * Initializes a new processing fee Builder object.
+     * Initializes a new Processing Fee Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class ProcessingFeeBuilder
 
     /**
      * Sets effective at field.
+     *
+     * @param string|null $value
      */
     public function effectiveAt(?string $value): self
     {
@@ -53,6 +55,8 @@ class ProcessingFeeBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -71,6 +75,8 @@ class ProcessingFeeBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -79,7 +85,7 @@ class ProcessingFeeBuilder
     }
 
     /**
-     * Initializes a new processing fee object.
+     * Initializes a new Processing Fee object.
      */
     public function build(): ProcessingFee
     {

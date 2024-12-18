@@ -25,7 +25,18 @@ class BankAccountBuilder
     }
 
     /**
-     * Initializes a new bank account Builder object.
+     * Initializes a new Bank Account Builder object.
+     *
+     * @param string $id
+     * @param string $accountNumberSuffix
+     * @param string $country
+     * @param string $currency
+     * @param string $accountType
+     * @param string $holderName
+     * @param string $primaryBankIdentificationNumber
+     * @param string $status
+     * @param bool $creditable
+     * @param bool $debitable
      */
     public static function init(
         string $id,
@@ -55,6 +66,8 @@ class BankAccountBuilder
 
     /**
      * Sets secondary bank identification number field.
+     *
+     * @param string|null $value
      */
     public function secondaryBankIdentificationNumber(?string $value): self
     {
@@ -73,6 +86,8 @@ class BankAccountBuilder
 
     /**
      * Sets debit mandate reference id field.
+     *
+     * @param string|null $value
      */
     public function debitMandateReferenceId(?string $value): self
     {
@@ -91,6 +106,8 @@ class BankAccountBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -109,6 +126,8 @@ class BankAccountBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -127,6 +146,8 @@ class BankAccountBuilder
 
     /**
      * Sets fingerprint field.
+     *
+     * @param string|null $value
      */
     public function fingerprint(?string $value): self
     {
@@ -145,6 +166,8 @@ class BankAccountBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -154,6 +177,8 @@ class BankAccountBuilder
 
     /**
      * Sets bank name field.
+     *
+     * @param string|null $value
      */
     public function bankName(?string $value): self
     {
@@ -171,7 +196,7 @@ class BankAccountBuilder
     }
 
     /**
-     * Initializes a new bank account object.
+     * Initializes a new Bank Account object.
      */
     public function build(): BankAccount
     {

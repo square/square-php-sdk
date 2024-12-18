@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SquareAccountDetails;
 
 /**
@@ -25,7 +26,7 @@ class SquareAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new square account details Builder object.
+     * Initializes a new Square Account Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class SquareAccountDetailsBuilder
 
     /**
      * Sets payment source token field.
+     *
+     * @param string|null $value
      */
     public function paymentSourceToken(?string $value): self
     {
@@ -52,6 +55,8 @@ class SquareAccountDetailsBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -69,7 +74,7 @@ class SquareAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new square account details object.
+     * Initializes a new Square Account Details object.
      */
     public function build(): SquareAccountDetails
     {

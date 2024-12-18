@@ -25,7 +25,7 @@ class InvoiceCustomFieldBuilder
     }
 
     /**
-     * Initializes a new invoice custom field Builder object.
+     * Initializes a new Invoice Custom Field Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoiceCustomFieldBuilder
 
     /**
      * Sets label field.
+     *
+     * @param string|null $value
      */
     public function label(?string $value): self
     {
@@ -52,6 +54,8 @@ class InvoiceCustomFieldBuilder
 
     /**
      * Sets value field.
+     *
+     * @param string|null $value
      */
     public function value(?string $value): self
     {
@@ -70,6 +74,8 @@ class InvoiceCustomFieldBuilder
 
     /**
      * Sets placement field.
+     *
+     * @param string|null $value
      */
     public function placement(?string $value): self
     {
@@ -78,7 +84,7 @@ class InvoiceCustomFieldBuilder
     }
 
     /**
-     * Initializes a new invoice custom field object.
+     * Initializes a new Invoice Custom Field object.
      */
     public function build(): InvoiceCustomField
     {

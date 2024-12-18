@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListSubscriptionEventsResponse;
+use Square\Models\SubscriptionEvent;
 
 /**
  * Builder for model ListSubscriptionEventsResponse
@@ -25,7 +27,7 @@ class ListSubscriptionEventsResponseBuilder
     }
 
     /**
-     * Initializes a new list subscription events response Builder object.
+     * Initializes a new List Subscription Events Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListSubscriptionEventsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListSubscriptionEventsResponseBuilder
 
     /**
      * Sets subscription events field.
+     *
+     * @param SubscriptionEvent[]|null $value
      */
     public function subscriptionEvents(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListSubscriptionEventsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListSubscriptionEventsResponseBuilder
     }
 
     /**
-     * Initializes a new list subscription events response object.
+     * Initializes a new List Subscription Events Response object.
      */
     public function build(): ListSubscriptionEventsResponse
     {

@@ -25,7 +25,7 @@ class RangeBuilder
     }
 
     /**
-     * Initializes a new range Builder object.
+     * Initializes a new Range Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RangeBuilder
 
     /**
      * Sets min field.
+     *
+     * @param string|null $value
      */
     public function min(?string $value): self
     {
@@ -52,6 +54,8 @@ class RangeBuilder
 
     /**
      * Sets max field.
+     *
+     * @param string|null $value
      */
     public function max(?string $value): self
     {
@@ -69,7 +73,7 @@ class RangeBuilder
     }
 
     /**
-     * Initializes a new range object.
+     * Initializes a new Range object.
      */
     public function build(): Range
     {

@@ -25,7 +25,9 @@ class BulkDeleteCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete customers request Builder object.
+     * Initializes a new Bulk Delete Customers Request Builder object.
+     *
+     * @param string[] $customerIds
      */
     public static function init(array $customerIds): self
     {
@@ -33,7 +35,7 @@ class BulkDeleteCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete customers request object.
+     * Initializes a new Bulk Delete Customers Request object.
      */
     public function build(): BulkDeleteCustomersRequest
     {

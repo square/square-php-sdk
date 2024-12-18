@@ -25,7 +25,7 @@ class CustomerPreferencesBuilder
     }
 
     /**
-     * Initializes a new customer preferences Builder object.
+     * Initializes a new Customer Preferences Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerPreferencesBuilder
 
     /**
      * Sets email unsubscribed field.
+     *
+     * @param bool|null $value
      */
     public function emailUnsubscribed(?bool $value): self
     {
@@ -51,7 +53,7 @@ class CustomerPreferencesBuilder
     }
 
     /**
-     * Initializes a new customer preferences object.
+     * Initializes a new Customer Preferences object.
      */
     public function build(): CustomerPreferences
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\BankAccount;
+use Square\Models\Error;
 use Square\Models\ListBankAccountsResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListBankAccountsResponseBuilder
     }
 
     /**
-     * Initializes a new list bank accounts response Builder object.
+     * Initializes a new List Bank Accounts Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListBankAccountsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListBankAccountsResponseBuilder
 
     /**
      * Sets bank accounts field.
+     *
+     * @param BankAccount[]|null $value
      */
     public function bankAccounts(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListBankAccountsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListBankAccountsResponseBuilder
     }
 
     /**
-     * Initializes a new list bank accounts response object.
+     * Initializes a new List Bank Accounts Response object.
      */
     public function build(): ListBankAccountsResponse
     {

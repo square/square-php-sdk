@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Card;
+use Square\Models\Error;
 use Square\Models\ListCardsResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListCardsResponseBuilder
     }
 
     /**
-     * Initializes a new list cards response Builder object.
+     * Initializes a new List Cards Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListCardsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListCardsResponseBuilder
 
     /**
      * Sets cards field.
+     *
+     * @param Card[]|null $value
      */
     public function cards(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListCardsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListCardsResponseBuilder
     }
 
     /**
-     * Initializes a new list cards response object.
+     * Initializes a new List Cards Response object.
      */
     public function build(): ListCardsResponse
     {

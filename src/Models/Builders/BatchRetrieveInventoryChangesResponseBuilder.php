@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchRetrieveInventoryChangesResponse;
+use Square\Models\Error;
+use Square\Models\InventoryChange;
 
 /**
  * Builder for model BatchRetrieveInventoryChangesResponse
@@ -25,7 +27,7 @@ class BatchRetrieveInventoryChangesResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory changes response Builder object.
+     * Initializes a new Batch Retrieve Inventory Changes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BatchRetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class BatchRetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets changes field.
+     *
+     * @param InventoryChange[]|null $value
      */
     public function changes(?array $value): self
     {
@@ -52,6 +58,8 @@ class BatchRetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class BatchRetrieveInventoryChangesResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory changes response object.
+     * Initializes a new Batch Retrieve Inventory Changes Response object.
      */
     public function build(): BatchRetrieveInventoryChangesResponse
     {

@@ -25,7 +25,7 @@ class ListWorkweekConfigsRequestBuilder
     }
 
     /**
-     * Initializes a new list workweek configs request Builder object.
+     * Initializes a new List Workweek Configs Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListWorkweekConfigsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -52,6 +54,8 @@ class ListWorkweekConfigsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +73,7 @@ class ListWorkweekConfigsRequestBuilder
     }
 
     /**
-     * Initializes a new list workweek configs request object.
+     * Initializes a new List Workweek Configs Request object.
      */
     public function build(): ListWorkweekConfigsRequest
     {

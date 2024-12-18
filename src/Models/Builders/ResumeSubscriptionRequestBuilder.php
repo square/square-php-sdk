@@ -25,7 +25,7 @@ class ResumeSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new resume subscription request Builder object.
+     * Initializes a new Resume Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ResumeSubscriptionRequestBuilder
 
     /**
      * Sets resume effective date field.
+     *
+     * @param string|null $value
      */
     public function resumeEffectiveDate(?string $value): self
     {
@@ -52,6 +54,8 @@ class ResumeSubscriptionRequestBuilder
 
     /**
      * Sets resume change timing field.
+     *
+     * @param string|null $value
      */
     public function resumeChangeTiming(?string $value): self
     {
@@ -60,7 +64,7 @@ class ResumeSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new resume subscription request object.
+     * Initializes a new Resume Subscription Request object.
      */
     public function build(): ResumeSubscriptionRequest
     {

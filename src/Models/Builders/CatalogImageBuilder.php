@@ -25,7 +25,7 @@ class CatalogImageBuilder
     }
 
     /**
-     * Initializes a new catalog image Builder object.
+     * Initializes a new Catalog Image Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogImageBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogImageBuilder
 
     /**
      * Sets url field.
+     *
+     * @param string|null $value
      */
     public function url(?string $value): self
     {
@@ -70,6 +74,8 @@ class CatalogImageBuilder
 
     /**
      * Sets caption field.
+     *
+     * @param string|null $value
      */
     public function caption(?string $value): self
     {
@@ -88,6 +94,8 @@ class CatalogImageBuilder
 
     /**
      * Sets photo studio order id field.
+     *
+     * @param string|null $value
      */
     public function photoStudioOrderId(?string $value): self
     {
@@ -105,7 +113,7 @@ class CatalogImageBuilder
     }
 
     /**
-     * Initializes a new catalog image object.
+     * Initializes a new Catalog Image object.
      */
     public function build(): CatalogImage
     {

@@ -26,7 +26,7 @@ class SearchTerminalRefundsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal refunds request Builder object.
+     * Initializes a new Search Terminal Refunds Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchTerminalRefundsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param TerminalRefundQuery|null $value
      */
     public function query(?TerminalRefundQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchTerminalRefundsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -53,6 +57,8 @@ class SearchTerminalRefundsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -61,7 +67,7 @@ class SearchTerminalRefundsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal refunds request object.
+     * Initializes a new Search Terminal Refunds Request object.
      */
     public function build(): SearchTerminalRefundsRequest
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CustomerGroup;
+use Square\Models\Error;
 use Square\Models\ListCustomerGroupsResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListCustomerGroupsResponseBuilder
     }
 
     /**
-     * Initializes a new list customer groups response Builder object.
+     * Initializes a new List Customer Groups Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListCustomerGroupsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListCustomerGroupsResponseBuilder
 
     /**
      * Sets groups field.
+     *
+     * @param CustomerGroup[]|null $value
      */
     public function groups(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListCustomerGroupsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListCustomerGroupsResponseBuilder
     }
 
     /**
-     * Initializes a new list customer groups response object.
+     * Initializes a new List Customer Groups Response object.
      */
     public function build(): ListCustomerGroupsResponse
     {

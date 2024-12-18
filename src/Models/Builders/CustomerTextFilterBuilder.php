@@ -25,7 +25,7 @@ class CustomerTextFilterBuilder
     }
 
     /**
-     * Initializes a new customer text filter Builder object.
+     * Initializes a new Customer Text Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerTextFilterBuilder
 
     /**
      * Sets exact field.
+     *
+     * @param string|null $value
      */
     public function exact(?string $value): self
     {
@@ -52,6 +54,8 @@ class CustomerTextFilterBuilder
 
     /**
      * Sets fuzzy field.
+     *
+     * @param string|null $value
      */
     public function fuzzy(?string $value): self
     {
@@ -69,7 +73,7 @@ class CustomerTextFilterBuilder
     }
 
     /**
-     * Initializes a new customer text filter object.
+     * Initializes a new Customer Text Filter object.
      */
     public function build(): CustomerTextFilter
     {

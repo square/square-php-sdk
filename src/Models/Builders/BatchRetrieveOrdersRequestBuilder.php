@@ -25,7 +25,9 @@ class BatchRetrieveOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve orders request Builder object.
+     * Initializes a new Batch Retrieve Orders Request Builder object.
+     *
+     * @param string[] $orderIds
      */
     public static function init(array $orderIds): self
     {
@@ -34,6 +36,8 @@ class BatchRetrieveOrdersRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -51,7 +55,7 @@ class BatchRetrieveOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve orders request object.
+     * Initializes a new Batch Retrieve Orders Request object.
      */
     public function build(): BatchRetrieveOrdersRequest
     {

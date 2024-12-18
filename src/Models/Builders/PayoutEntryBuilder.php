@@ -51,7 +51,10 @@ class PayoutEntryBuilder
     }
 
     /**
-     * Initializes a new payout entry Builder object.
+     * Initializes a new Payout Entry Builder object.
+     *
+     * @param string $id
+     * @param string $payoutId
      */
     public static function init(string $id, string $payoutId): self
     {
@@ -60,6 +63,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets effective at field.
+     *
+     * @param string|null $value
      */
     public function effectiveAt(?string $value): self
     {
@@ -78,6 +83,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -87,6 +94,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets gross amount money field.
+     *
+     * @param Money|null $value
      */
     public function grossAmountMoney(?Money $value): self
     {
@@ -96,6 +105,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets fee amount money field.
+     *
+     * @param Money|null $value
      */
     public function feeAmountMoney(?Money $value): self
     {
@@ -105,6 +116,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets net amount money field.
+     *
+     * @param Money|null $value
      */
     public function netAmountMoney(?Money $value): self
     {
@@ -114,6 +127,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type app fee revenue details field.
+     *
+     * @param PaymentBalanceActivityAppFeeRevenueDetail|null $value
      */
     public function typeAppFeeRevenueDetails(?PaymentBalanceActivityAppFeeRevenueDetail $value): self
     {
@@ -123,6 +138,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type app fee refund details field.
+     *
+     * @param PaymentBalanceActivityAppFeeRefundDetail|null $value
      */
     public function typeAppFeeRefundDetails(?PaymentBalanceActivityAppFeeRefundDetail $value): self
     {
@@ -132,6 +149,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type automatic savings details field.
+     *
+     * @param PaymentBalanceActivityAutomaticSavingsDetail|null $value
      */
     public function typeAutomaticSavingsDetails(?PaymentBalanceActivityAutomaticSavingsDetail $value): self
     {
@@ -141,6 +160,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type automatic savings reversed details field.
+     *
+     * @param PaymentBalanceActivityAutomaticSavingsReversedDetail|null $value
      */
     public function typeAutomaticSavingsReversedDetails(
         ?PaymentBalanceActivityAutomaticSavingsReversedDetail $value
@@ -151,6 +172,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type charge details field.
+     *
+     * @param PaymentBalanceActivityChargeDetail|null $value
      */
     public function typeChargeDetails(?PaymentBalanceActivityChargeDetail $value): self
     {
@@ -160,6 +183,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type deposit fee details field.
+     *
+     * @param PaymentBalanceActivityDepositFeeDetail|null $value
      */
     public function typeDepositFeeDetails(?PaymentBalanceActivityDepositFeeDetail $value): self
     {
@@ -169,6 +194,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type deposit fee reversed details field.
+     *
+     * @param PaymentBalanceActivityDepositFeeReversedDetail|null $value
      */
     public function typeDepositFeeReversedDetails(?PaymentBalanceActivityDepositFeeReversedDetail $value): self
     {
@@ -178,6 +205,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type dispute details field.
+     *
+     * @param PaymentBalanceActivityDisputeDetail|null $value
      */
     public function typeDisputeDetails(?PaymentBalanceActivityDisputeDetail $value): self
     {
@@ -187,6 +216,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type fee details field.
+     *
+     * @param PaymentBalanceActivityFeeDetail|null $value
      */
     public function typeFeeDetails(?PaymentBalanceActivityFeeDetail $value): self
     {
@@ -196,6 +227,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type free processing details field.
+     *
+     * @param PaymentBalanceActivityFreeProcessingDetail|null $value
      */
     public function typeFreeProcessingDetails(?PaymentBalanceActivityFreeProcessingDetail $value): self
     {
@@ -205,6 +238,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type hold adjustment details field.
+     *
+     * @param PaymentBalanceActivityHoldAdjustmentDetail|null $value
      */
     public function typeHoldAdjustmentDetails(?PaymentBalanceActivityHoldAdjustmentDetail $value): self
     {
@@ -214,6 +249,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type open dispute details field.
+     *
+     * @param PaymentBalanceActivityOpenDisputeDetail|null $value
      */
     public function typeOpenDisputeDetails(?PaymentBalanceActivityOpenDisputeDetail $value): self
     {
@@ -223,6 +260,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type other details field.
+     *
+     * @param PaymentBalanceActivityOtherDetail|null $value
      */
     public function typeOtherDetails(?PaymentBalanceActivityOtherDetail $value): self
     {
@@ -232,6 +271,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type other adjustment details field.
+     *
+     * @param PaymentBalanceActivityOtherAdjustmentDetail|null $value
      */
     public function typeOtherAdjustmentDetails(?PaymentBalanceActivityOtherAdjustmentDetail $value): self
     {
@@ -241,6 +282,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type refund details field.
+     *
+     * @param PaymentBalanceActivityRefundDetail|null $value
      */
     public function typeRefundDetails(?PaymentBalanceActivityRefundDetail $value): self
     {
@@ -250,6 +293,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type release adjustment details field.
+     *
+     * @param PaymentBalanceActivityReleaseAdjustmentDetail|null $value
      */
     public function typeReleaseAdjustmentDetails(?PaymentBalanceActivityReleaseAdjustmentDetail $value): self
     {
@@ -259,6 +304,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type reserve hold details field.
+     *
+     * @param PaymentBalanceActivityReserveHoldDetail|null $value
      */
     public function typeReserveHoldDetails(?PaymentBalanceActivityReserveHoldDetail $value): self
     {
@@ -268,6 +315,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type reserve release details field.
+     *
+     * @param PaymentBalanceActivityReserveReleaseDetail|null $value
      */
     public function typeReserveReleaseDetails(?PaymentBalanceActivityReserveReleaseDetail $value): self
     {
@@ -277,6 +326,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type square capital payment details field.
+     *
+     * @param PaymentBalanceActivitySquareCapitalPaymentDetail|null $value
      */
     public function typeSquareCapitalPaymentDetails(?PaymentBalanceActivitySquareCapitalPaymentDetail $value): self
     {
@@ -286,6 +337,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type square capital reversed payment details field.
+     *
+     * @param PaymentBalanceActivitySquareCapitalReversedPaymentDetail|null $value
      */
     public function typeSquareCapitalReversedPaymentDetails(
         ?PaymentBalanceActivitySquareCapitalReversedPaymentDetail $value
@@ -296,6 +349,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type tax on fee details field.
+     *
+     * @param PaymentBalanceActivityTaxOnFeeDetail|null $value
      */
     public function typeTaxOnFeeDetails(?PaymentBalanceActivityTaxOnFeeDetail $value): self
     {
@@ -305,6 +360,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type third party fee details field.
+     *
+     * @param PaymentBalanceActivityThirdPartyFeeDetail|null $value
      */
     public function typeThirdPartyFeeDetails(?PaymentBalanceActivityThirdPartyFeeDetail $value): self
     {
@@ -314,6 +371,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type third party fee refund details field.
+     *
+     * @param PaymentBalanceActivityThirdPartyFeeRefundDetail|null $value
      */
     public function typeThirdPartyFeeRefundDetails(?PaymentBalanceActivityThirdPartyFeeRefundDetail $value): self
     {
@@ -323,6 +382,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type square payroll transfer details field.
+     *
+     * @param PaymentBalanceActivitySquarePayrollTransferDetail|null $value
      */
     public function typeSquarePayrollTransferDetails(?PaymentBalanceActivitySquarePayrollTransferDetail $value): self
     {
@@ -332,6 +393,8 @@ class PayoutEntryBuilder
 
     /**
      * Sets type square payroll transfer reversed details field.
+     *
+     * @param PaymentBalanceActivitySquarePayrollTransferReversedDetail|null $value
      */
     public function typeSquarePayrollTransferReversedDetails(
         ?PaymentBalanceActivitySquarePayrollTransferReversedDetail $value
@@ -341,7 +404,7 @@ class PayoutEntryBuilder
     }
 
     /**
-     * Initializes a new payout entry object.
+     * Initializes a new Payout Entry object.
      */
     public function build(): PayoutEntry
     {

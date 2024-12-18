@@ -26,7 +26,7 @@ class CardBuilder
     }
 
     /**
-     * Initializes a new card Builder object.
+     * Initializes a new Card Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CardBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class CardBuilder
 
     /**
      * Sets card brand field.
+     *
+     * @param string|null $value
      */
     public function cardBrand(?string $value): self
     {
@@ -53,6 +57,8 @@ class CardBuilder
 
     /**
      * Sets last 4 field.
+     *
+     * @param string|null $value
      */
     public function last4(?string $value): self
     {
@@ -62,6 +68,8 @@ class CardBuilder
 
     /**
      * Sets exp month field.
+     *
+     * @param int|null $value
      */
     public function expMonth(?int $value): self
     {
@@ -80,6 +88,8 @@ class CardBuilder
 
     /**
      * Sets exp year field.
+     *
+     * @param int|null $value
      */
     public function expYear(?int $value): self
     {
@@ -98,6 +108,8 @@ class CardBuilder
 
     /**
      * Sets cardholder name field.
+     *
+     * @param string|null $value
      */
     public function cardholderName(?string $value): self
     {
@@ -116,6 +128,8 @@ class CardBuilder
 
     /**
      * Sets billing address field.
+     *
+     * @param Address|null $value
      */
     public function billingAddress(?Address $value): self
     {
@@ -125,6 +139,8 @@ class CardBuilder
 
     /**
      * Sets fingerprint field.
+     *
+     * @param string|null $value
      */
     public function fingerprint(?string $value): self
     {
@@ -134,6 +150,8 @@ class CardBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -152,6 +170,8 @@ class CardBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -161,6 +181,8 @@ class CardBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -179,6 +201,8 @@ class CardBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -188,6 +212,8 @@ class CardBuilder
 
     /**
      * Sets card type field.
+     *
+     * @param string|null $value
      */
     public function cardType(?string $value): self
     {
@@ -197,6 +223,8 @@ class CardBuilder
 
     /**
      * Sets prepaid type field.
+     *
+     * @param string|null $value
      */
     public function prepaidType(?string $value): self
     {
@@ -206,6 +234,8 @@ class CardBuilder
 
     /**
      * Sets bin field.
+     *
+     * @param string|null $value
      */
     public function bin(?string $value): self
     {
@@ -215,6 +245,8 @@ class CardBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -224,6 +256,8 @@ class CardBuilder
 
     /**
      * Sets card co brand field.
+     *
+     * @param string|null $value
      */
     public function cardCoBrand(?string $value): self
     {
@@ -232,7 +266,7 @@ class CardBuilder
     }
 
     /**
-     * Initializes a new card object.
+     * Initializes a new Card object.
      */
     public function build(): Card
     {

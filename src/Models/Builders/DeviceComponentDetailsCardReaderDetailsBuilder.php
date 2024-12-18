@@ -25,7 +25,7 @@ class DeviceComponentDetailsCardReaderDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details card reader details Builder object.
+     * Initializes a new Device Component Details Card Reader Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsCardReaderDetailsBuilder
 
     /**
      * Sets version field.
+     *
+     * @param string|null $value
      */
     public function version(?string $value): self
     {
@@ -42,7 +44,7 @@ class DeviceComponentDetailsCardReaderDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details card reader details object.
+     * Initializes a new Device Component Details Card Reader Details object.
      */
     public function build(): DeviceComponentDetailsCardReaderDetails
     {

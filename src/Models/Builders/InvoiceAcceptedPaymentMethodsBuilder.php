@@ -25,7 +25,7 @@ class InvoiceAcceptedPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new invoice accepted payment methods Builder object.
+     * Initializes a new Invoice Accepted Payment Methods Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoiceAcceptedPaymentMethodsBuilder
 
     /**
      * Sets card field.
+     *
+     * @param bool|null $value
      */
     public function card(?bool $value): self
     {
@@ -52,6 +54,8 @@ class InvoiceAcceptedPaymentMethodsBuilder
 
     /**
      * Sets square gift card field.
+     *
+     * @param bool|null $value
      */
     public function squareGiftCard(?bool $value): self
     {
@@ -70,6 +74,8 @@ class InvoiceAcceptedPaymentMethodsBuilder
 
     /**
      * Sets bank account field.
+     *
+     * @param bool|null $value
      */
     public function bankAccount(?bool $value): self
     {
@@ -88,6 +94,8 @@ class InvoiceAcceptedPaymentMethodsBuilder
 
     /**
      * Sets buy now pay later field.
+     *
+     * @param bool|null $value
      */
     public function buyNowPayLater(?bool $value): self
     {
@@ -106,6 +114,8 @@ class InvoiceAcceptedPaymentMethodsBuilder
 
     /**
      * Sets cash app pay field.
+     *
+     * @param bool|null $value
      */
     public function cashAppPay(?bool $value): self
     {
@@ -123,7 +133,7 @@ class InvoiceAcceptedPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new invoice accepted payment methods object.
+     * Initializes a new Invoice Accepted Payment Methods object.
      */
     public function build(): InvoiceAcceptedPaymentMethods
     {

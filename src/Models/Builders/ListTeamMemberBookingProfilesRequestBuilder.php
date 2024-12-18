@@ -25,7 +25,7 @@ class ListTeamMemberBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new list team member booking profiles request Builder object.
+     * Initializes a new List Team Member Booking Profiles Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListTeamMemberBookingProfilesRequestBuilder
 
     /**
      * Sets bookable only field.
+     *
+     * @param bool|null $value
      */
     public function bookableOnly(?bool $value): self
     {
@@ -52,6 +54,8 @@ class ListTeamMemberBookingProfilesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListTeamMemberBookingProfilesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -88,6 +94,8 @@ class ListTeamMemberBookingProfilesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -105,7 +113,7 @@ class ListTeamMemberBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new list team member booking profiles request object.
+     * Initializes a new List Team Member Booking Profiles Request object.
      */
     public function build(): ListTeamMemberBookingProfilesRequest
     {

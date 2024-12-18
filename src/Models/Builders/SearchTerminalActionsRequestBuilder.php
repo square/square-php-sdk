@@ -26,7 +26,7 @@ class SearchTerminalActionsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal actions request Builder object.
+     * Initializes a new Search Terminal Actions Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchTerminalActionsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param TerminalActionQuery|null $value
      */
     public function query(?TerminalActionQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchTerminalActionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -53,6 +57,8 @@ class SearchTerminalActionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -61,7 +67,7 @@ class SearchTerminalActionsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal actions request object.
+     * Initializes a new Search Terminal Actions Request object.
      */
     public function build(): SearchTerminalActionsRequest
     {

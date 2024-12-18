@@ -25,7 +25,7 @@ class ListOrderCustomAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Initializes a new list order custom attribute definitions request Builder object.
+     * Initializes a new List Order Custom Attribute Definitions Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListOrderCustomAttributeDefinitionsRequestBuilder
 
     /**
      * Sets visibility filter field.
+     *
+     * @param string|null $value
      */
     public function visibilityFilter(?string $value): self
     {
@@ -43,6 +45,8 @@ class ListOrderCustomAttributeDefinitionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +65,8 @@ class ListOrderCustomAttributeDefinitionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -78,7 +84,7 @@ class ListOrderCustomAttributeDefinitionsRequestBuilder
     }
 
     /**
-     * Initializes a new list order custom attribute definitions request object.
+     * Initializes a new List Order Custom Attribute Definitions Request object.
      */
     public function build(): ListOrderCustomAttributeDefinitionsRequest
     {

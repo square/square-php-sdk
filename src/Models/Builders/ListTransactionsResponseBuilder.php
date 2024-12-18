@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListTransactionsResponse;
+use Square\Models\Transaction;
 
 /**
  * Builder for model ListTransactionsResponse
@@ -25,7 +27,7 @@ class ListTransactionsResponseBuilder
     }
 
     /**
-     * Initializes a new list transactions response Builder object.
+     * Initializes a new List Transactions Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListTransactionsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListTransactionsResponseBuilder
 
     /**
      * Sets transactions field.
+     *
+     * @param Transaction[]|null $value
      */
     public function transactions(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListTransactionsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListTransactionsResponseBuilder
     }
 
     /**
-     * Initializes a new list transactions response object.
+     * Initializes a new List Transactions Response object.
      */
     public function build(): ListTransactionsResponse
     {

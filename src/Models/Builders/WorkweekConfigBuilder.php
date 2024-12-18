@@ -25,7 +25,10 @@ class WorkweekConfigBuilder
     }
 
     /**
-     * Initializes a new workweek config Builder object.
+     * Initializes a new Workweek Config Builder object.
+     *
+     * @param string $startOfWeek
+     * @param string $startOfDayLocalTime
      */
     public static function init(string $startOfWeek, string $startOfDayLocalTime): self
     {
@@ -34,6 +37,8 @@ class WorkweekConfigBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +48,8 @@ class WorkweekConfigBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -52,6 +59,8 @@ class WorkweekConfigBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -61,6 +70,8 @@ class WorkweekConfigBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -69,7 +80,7 @@ class WorkweekConfigBuilder
     }
 
     /**
-     * Initializes a new workweek config object.
+     * Initializes a new Workweek Config object.
      */
     public function build(): WorkweekConfig
     {

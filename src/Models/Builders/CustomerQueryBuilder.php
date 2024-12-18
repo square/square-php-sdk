@@ -27,7 +27,7 @@ class CustomerQueryBuilder
     }
 
     /**
-     * Initializes a new customer query Builder object.
+     * Initializes a new Customer Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class CustomerQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param CustomerFilter|null $value
      */
     public function filter(?CustomerFilter $value): self
     {
@@ -45,6 +47,8 @@ class CustomerQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param CustomerSort|null $value
      */
     public function sort(?CustomerSort $value): self
     {
@@ -53,7 +57,7 @@ class CustomerQueryBuilder
     }
 
     /**
-     * Initializes a new customer query object.
+     * Initializes a new Customer Query object.
      */
     public function build(): CustomerQuery
     {

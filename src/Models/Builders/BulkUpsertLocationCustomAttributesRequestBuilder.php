@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpsertLocationCustomAttributesRequest;
+use Square\Models\BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest;
 
 /**
  * Builder for model BulkUpsertLocationCustomAttributesRequest
@@ -25,7 +26,9 @@ class BulkUpsertLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes request Builder object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Request Builder object.
+     *
+     * @param array<string,BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest> $values
      */
     public static function init(array $values): self
     {
@@ -33,7 +36,7 @@ class BulkUpsertLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes request object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Request object.
      */
     public function build(): BulkUpsertLocationCustomAttributesRequest
     {

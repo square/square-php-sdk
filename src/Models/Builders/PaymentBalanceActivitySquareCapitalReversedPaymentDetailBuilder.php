@@ -25,7 +25,7 @@ class PaymentBalanceActivitySquareCapitalReversedPaymentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square capital reversed payment detail Builder object.
+     * Initializes a new Payment Balance Activity Square Capital Reversed Payment Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivitySquareCapitalReversedPaymentDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivitySquareCapitalReversedPaymentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square capital reversed payment detail object.
+     * Initializes a new Payment Balance Activity Square Capital Reversed Payment Detail object.
      */
     public function build(): PaymentBalanceActivitySquareCapitalReversedPaymentDetail
     {

@@ -25,7 +25,7 @@ class ListBankAccountsRequestBuilder
     }
 
     /**
-     * Initializes a new list bank accounts request Builder object.
+     * Initializes a new List Bank Accounts Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListBankAccountsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListBankAccountsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListBankAccountsRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -87,7 +93,7 @@ class ListBankAccountsRequestBuilder
     }
 
     /**
-     * Initializes a new list bank accounts request object.
+     * Initializes a new List Bank Accounts Request object.
      */
     public function build(): ListBankAccountsRequest
     {

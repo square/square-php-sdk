@@ -26,7 +26,9 @@ class UpdateWorkweekConfigRequestBuilder
     }
 
     /**
-     * Initializes a new update workweek config request Builder object.
+     * Initializes a new Update Workweek Config Request Builder object.
+     *
+     * @param WorkweekConfig $workweekConfig
      */
     public static function init(WorkweekConfig $workweekConfig): self
     {
@@ -34,7 +36,7 @@ class UpdateWorkweekConfigRequestBuilder
     }
 
     /**
-     * Initializes a new update workweek config request object.
+     * Initializes a new Update Workweek Config Request object.
      */
     public function build(): UpdateWorkweekConfigRequest
     {

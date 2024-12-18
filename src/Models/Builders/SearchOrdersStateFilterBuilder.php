@@ -25,7 +25,9 @@ class SearchOrdersStateFilterBuilder
     }
 
     /**
-     * Initializes a new search orders state filter Builder object.
+     * Initializes a new Search Orders State Filter Builder object.
+     *
+     * @param string[] $states
      */
     public static function init(array $states): self
     {
@@ -33,7 +35,7 @@ class SearchOrdersStateFilterBuilder
     }
 
     /**
-     * Initializes a new search orders state filter object.
+     * Initializes a new Search Orders State Filter object.
      */
     public function build(): SearchOrdersStateFilter
     {

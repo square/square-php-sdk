@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Dispute;
+use Square\Models\Error;
 use Square\Models\ListDisputesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListDisputesResponseBuilder
     }
 
     /**
-     * Initializes a new list disputes response Builder object.
+     * Initializes a new List Disputes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListDisputesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListDisputesResponseBuilder
 
     /**
      * Sets disputes field.
+     *
+     * @param Dispute[]|null $value
      */
     public function disputes(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListDisputesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListDisputesResponseBuilder
     }
 
     /**
-     * Initializes a new list disputes response object.
+     * Initializes a new List Disputes Response object.
      */
     public function build(): ListDisputesResponse
     {

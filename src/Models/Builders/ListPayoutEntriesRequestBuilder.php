@@ -25,7 +25,7 @@ class ListPayoutEntriesRequestBuilder
     }
 
     /**
-     * Initializes a new list payout entries request Builder object.
+     * Initializes a new List Payout Entries Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListPayoutEntriesRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -43,6 +45,8 @@ class ListPayoutEntriesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +65,8 @@ class ListPayoutEntriesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -78,7 +84,7 @@ class ListPayoutEntriesRequestBuilder
     }
 
     /**
-     * Initializes a new list payout entries request object.
+     * Initializes a new List Payout Entries Request object.
      */
     public function build(): ListPayoutEntriesRequest
     {

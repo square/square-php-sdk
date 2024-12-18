@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
 use Square\Models\Vendor;
+use Square\Models\VendorContact;
 
 /**
  * Builder for model Vendor
@@ -26,7 +27,7 @@ class VendorBuilder
     }
 
     /**
-     * Initializes a new vendor Builder object.
+     * Initializes a new Vendor Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class VendorBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +47,8 @@ class VendorBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -53,6 +58,8 @@ class VendorBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -62,6 +69,8 @@ class VendorBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -80,6 +89,8 @@ class VendorBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -89,6 +100,8 @@ class VendorBuilder
 
     /**
      * Sets contacts field.
+     *
+     * @param VendorContact[]|null $value
      */
     public function contacts(?array $value): self
     {
@@ -107,6 +120,8 @@ class VendorBuilder
 
     /**
      * Sets account number field.
+     *
+     * @param string|null $value
      */
     public function accountNumber(?string $value): self
     {
@@ -125,6 +140,8 @@ class VendorBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -143,6 +160,8 @@ class VendorBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -152,6 +171,8 @@ class VendorBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -160,7 +181,7 @@ class VendorBuilder
     }
 
     /**
-     * Initializes a new vendor object.
+     * Initializes a new Vendor object.
      */
     public function build(): Vendor
     {

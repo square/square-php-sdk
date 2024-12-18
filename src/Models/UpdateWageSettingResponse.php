@@ -24,7 +24,8 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Returns Wage Setting.
-     * An object representing a team member's wage information.
+     * Represents information about the overtime exemption status, job assignments, and compensation
+     * for a [team member]($m/TeamMember).
      */
     public function getWageSetting(): ?WageSetting
     {
@@ -33,7 +34,8 @@ class UpdateWageSettingResponse implements \JsonSerializable
 
     /**
      * Sets Wage Setting.
-     * An object representing a team member's wage information.
+     * Represents information about the overtime exemption status, job assignments, and compensation
+     * for a [team member]($m/TeamMember).
      *
      * @maps wage_setting
      */

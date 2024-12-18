@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveTransactionResponse;
 use Square\Models\Transaction;
 
@@ -26,7 +27,7 @@ class RetrieveTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve transaction response Builder object.
+     * Initializes a new Retrieve Transaction Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveTransactionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveTransactionResponseBuilder
 
     /**
      * Sets transaction field.
+     *
+     * @param Transaction|null $value
      */
     public function transaction(?Transaction $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve transaction response object.
+     * Initializes a new Retrieve Transaction Response object.
      */
     public function build(): RetrieveTransactionResponse
     {

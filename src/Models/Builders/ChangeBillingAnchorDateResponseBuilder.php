@@ -6,7 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\ChangeBillingAnchorDateResponse;
+use Square\Models\Error;
 use Square\Models\Subscription;
+use Square\Models\SubscriptionAction;
 
 /**
  * Builder for model ChangeBillingAnchorDateResponse
@@ -26,7 +28,7 @@ class ChangeBillingAnchorDateResponseBuilder
     }
 
     /**
-     * Initializes a new change billing anchor date response Builder object.
+     * Initializes a new Change Billing Anchor Date Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class ChangeBillingAnchorDateResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +48,8 @@ class ChangeBillingAnchorDateResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -53,6 +59,8 @@ class ChangeBillingAnchorDateResponseBuilder
 
     /**
      * Sets actions field.
+     *
+     * @param SubscriptionAction[]|null $value
      */
     public function actions(?array $value): self
     {
@@ -61,7 +69,7 @@ class ChangeBillingAnchorDateResponseBuilder
     }
 
     /**
-     * Initializes a new change billing anchor date response object.
+     * Initializes a new Change Billing Anchor Date Response object.
      */
     public function build(): ChangeBillingAnchorDateResponse
     {

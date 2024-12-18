@@ -25,7 +25,9 @@ class ListCashDrawerShiftEventsRequestBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shift events request Builder object.
+     * Initializes a new List Cash Drawer Shift Events Request Builder object.
+     *
+     * @param string $locationId
      */
     public static function init(string $locationId): self
     {
@@ -34,6 +36,8 @@ class ListCashDrawerShiftEventsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -52,6 +56,8 @@ class ListCashDrawerShiftEventsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +75,7 @@ class ListCashDrawerShiftEventsRequestBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shift events request object.
+     * Initializes a new List Cash Drawer Shift Events Request object.
      */
     public function build(): ListCashDrawerShiftEventsRequest
     {

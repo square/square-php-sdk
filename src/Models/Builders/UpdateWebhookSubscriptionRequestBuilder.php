@@ -26,7 +26,7 @@ class UpdateWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription request Builder object.
+     * Initializes a new Update Webhook Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class UpdateWebhookSubscriptionRequestBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param WebhookSubscription|null $value
      */
     public function subscription(?WebhookSubscription $value): self
     {
@@ -43,7 +45,7 @@ class UpdateWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription request object.
+     * Initializes a new Update Webhook Subscription Request object.
      */
     public function build(): UpdateWebhookSubscriptionRequest
     {

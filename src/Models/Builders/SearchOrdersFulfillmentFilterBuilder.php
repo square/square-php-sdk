@@ -25,7 +25,7 @@ class SearchOrdersFulfillmentFilterBuilder
     }
 
     /**
-     * Initializes a new search orders fulfillment filter Builder object.
+     * Initializes a new Search Orders Fulfillment Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchOrdersFulfillmentFilterBuilder
 
     /**
      * Sets fulfillment types field.
+     *
+     * @param string[]|null $value
      */
     public function fulfillmentTypes(?array $value): self
     {
@@ -52,6 +54,8 @@ class SearchOrdersFulfillmentFilterBuilder
 
     /**
      * Sets fulfillment states field.
+     *
+     * @param string[]|null $value
      */
     public function fulfillmentStates(?array $value): self
     {
@@ -69,7 +73,7 @@ class SearchOrdersFulfillmentFilterBuilder
     }
 
     /**
-     * Initializes a new search orders fulfillment filter object.
+     * Initializes a new Search Orders Fulfillment Filter object.
      */
     public function build(): SearchOrdersFulfillmentFilter
     {

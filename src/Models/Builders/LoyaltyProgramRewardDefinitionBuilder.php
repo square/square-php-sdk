@@ -26,7 +26,10 @@ class LoyaltyProgramRewardDefinitionBuilder
     }
 
     /**
-     * Initializes a new loyalty program reward definition Builder object.
+     * Initializes a new Loyalty Program Reward Definition Builder object.
+     *
+     * @param string $scope
+     * @param string $discountType
      */
     public static function init(string $scope, string $discountType): self
     {
@@ -35,6 +38,8 @@ class LoyaltyProgramRewardDefinitionBuilder
 
     /**
      * Sets percentage discount field.
+     *
+     * @param string|null $value
      */
     public function percentageDiscount(?string $value): self
     {
@@ -44,6 +49,8 @@ class LoyaltyProgramRewardDefinitionBuilder
 
     /**
      * Sets catalog object ids field.
+     *
+     * @param string[]|null $value
      */
     public function catalogObjectIds(?array $value): self
     {
@@ -53,6 +60,8 @@ class LoyaltyProgramRewardDefinitionBuilder
 
     /**
      * Sets fixed discount money field.
+     *
+     * @param Money|null $value
      */
     public function fixedDiscountMoney(?Money $value): self
     {
@@ -62,6 +71,8 @@ class LoyaltyProgramRewardDefinitionBuilder
 
     /**
      * Sets max discount money field.
+     *
+     * @param Money|null $value
      */
     public function maxDiscountMoney(?Money $value): self
     {
@@ -70,7 +81,7 @@ class LoyaltyProgramRewardDefinitionBuilder
     }
 
     /**
-     * Initializes a new loyalty program reward definition object.
+     * Initializes a new Loyalty Program Reward Definition object.
      */
     public function build(): LoyaltyProgramRewardDefinition
     {

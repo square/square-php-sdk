@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\AdditionalRecipient;
 use Square\Models\Address;
 use Square\Models\Checkout;
 use Square\Models\Order;
@@ -27,7 +28,7 @@ class CheckoutBuilder
     }
 
     /**
-     * Initializes a new checkout Builder object.
+     * Initializes a new Checkout Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +37,8 @@ class CheckoutBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +48,8 @@ class CheckoutBuilder
 
     /**
      * Sets checkout page url field.
+     *
+     * @param string|null $value
      */
     public function checkoutPageUrl(?string $value): self
     {
@@ -63,6 +68,8 @@ class CheckoutBuilder
 
     /**
      * Sets ask for shipping address field.
+     *
+     * @param bool|null $value
      */
     public function askForShippingAddress(?bool $value): self
     {
@@ -81,6 +88,8 @@ class CheckoutBuilder
 
     /**
      * Sets merchant support email field.
+     *
+     * @param string|null $value
      */
     public function merchantSupportEmail(?string $value): self
     {
@@ -99,6 +108,8 @@ class CheckoutBuilder
 
     /**
      * Sets pre populate buyer email field.
+     *
+     * @param string|null $value
      */
     public function prePopulateBuyerEmail(?string $value): self
     {
@@ -117,6 +128,8 @@ class CheckoutBuilder
 
     /**
      * Sets pre populate shipping address field.
+     *
+     * @param Address|null $value
      */
     public function prePopulateShippingAddress(?Address $value): self
     {
@@ -126,6 +139,8 @@ class CheckoutBuilder
 
     /**
      * Sets redirect url field.
+     *
+     * @param string|null $value
      */
     public function redirectUrl(?string $value): self
     {
@@ -144,6 +159,8 @@ class CheckoutBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -153,6 +170,8 @@ class CheckoutBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -162,6 +181,8 @@ class CheckoutBuilder
 
     /**
      * Sets additional recipients field.
+     *
+     * @param AdditionalRecipient[]|null $value
      */
     public function additionalRecipients(?array $value): self
     {
@@ -179,7 +200,7 @@ class CheckoutBuilder
     }
 
     /**
-     * Initializes a new checkout object.
+     * Initializes a new Checkout object.
      */
     public function build(): Checkout
     {

@@ -26,7 +26,7 @@ class FulfillmentShipmentDetailsBuilder
     }
 
     /**
-     * Initializes a new fulfillment shipment details Builder object.
+     * Initializes a new Fulfillment Shipment Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets recipient field.
+     *
+     * @param FulfillmentRecipient|null $value
      */
     public function recipient(?FulfillmentRecipient $value): self
     {
@@ -44,6 +46,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets carrier field.
+     *
+     * @param string|null $value
      */
     public function carrier(?string $value): self
     {
@@ -62,6 +66,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets shipping note field.
+     *
+     * @param string|null $value
      */
     public function shippingNote(?string $value): self
     {
@@ -80,6 +86,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets shipping type field.
+     *
+     * @param string|null $value
      */
     public function shippingType(?string $value): self
     {
@@ -98,6 +106,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets tracking number field.
+     *
+     * @param string|null $value
      */
     public function trackingNumber(?string $value): self
     {
@@ -116,6 +126,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets tracking url field.
+     *
+     * @param string|null $value
      */
     public function trackingUrl(?string $value): self
     {
@@ -134,6 +146,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets placed at field.
+     *
+     * @param string|null $value
      */
     public function placedAt(?string $value): self
     {
@@ -143,6 +157,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets in progress at field.
+     *
+     * @param string|null $value
      */
     public function inProgressAt(?string $value): self
     {
@@ -152,6 +168,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets packaged at field.
+     *
+     * @param string|null $value
      */
     public function packagedAt(?string $value): self
     {
@@ -161,6 +179,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets expected shipped at field.
+     *
+     * @param string|null $value
      */
     public function expectedShippedAt(?string $value): self
     {
@@ -179,6 +199,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets shipped at field.
+     *
+     * @param string|null $value
      */
     public function shippedAt(?string $value): self
     {
@@ -188,6 +210,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets canceled at field.
+     *
+     * @param string|null $value
      */
     public function canceledAt(?string $value): self
     {
@@ -206,6 +230,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -224,6 +250,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets failed at field.
+     *
+     * @param string|null $value
      */
     public function failedAt(?string $value): self
     {
@@ -233,6 +261,8 @@ class FulfillmentShipmentDetailsBuilder
 
     /**
      * Sets failure reason field.
+     *
+     * @param string|null $value
      */
     public function failureReason(?string $value): self
     {
@@ -250,7 +280,7 @@ class FulfillmentShipmentDetailsBuilder
     }
 
     /**
-     * Initializes a new fulfillment shipment details object.
+     * Initializes a new Fulfillment Shipment Details object.
      */
     public function build(): FulfillmentShipmentDetails
     {

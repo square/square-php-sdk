@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RevokeTokenResponse;
 
 /**
@@ -25,7 +26,7 @@ class RevokeTokenResponseBuilder
     }
 
     /**
-     * Initializes a new revoke token response Builder object.
+     * Initializes a new Revoke Token Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class RevokeTokenResponseBuilder
 
     /**
      * Sets success field.
+     *
+     * @param bool|null $value
      */
     public function success(?bool $value): self
     {
@@ -43,6 +46,8 @@ class RevokeTokenResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +56,7 @@ class RevokeTokenResponseBuilder
     }
 
     /**
-     * Initializes a new revoke token response object.
+     * Initializes a new Revoke Token Response object.
      */
     public function build(): RevokeTokenResponse
     {

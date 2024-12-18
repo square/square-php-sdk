@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\SignatureImage;
 use Square\Models\SignatureOptions;
 
 /**
@@ -25,7 +26,10 @@ class SignatureOptionsBuilder
     }
 
     /**
-     * Initializes a new signature options Builder object.
+     * Initializes a new Signature Options Builder object.
+     *
+     * @param string $title
+     * @param string $body
      */
     public static function init(string $title, string $body): self
     {
@@ -34,6 +38,8 @@ class SignatureOptionsBuilder
 
     /**
      * Sets signature field.
+     *
+     * @param SignatureImage[]|null $value
      */
     public function signature(?array $value): self
     {
@@ -42,7 +48,7 @@ class SignatureOptionsBuilder
     }
 
     /**
-     * Initializes a new signature options object.
+     * Initializes a new Signature Options object.
      */
     public function build(): SignatureOptions
     {

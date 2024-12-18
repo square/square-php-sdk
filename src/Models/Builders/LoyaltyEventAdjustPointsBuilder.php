@@ -25,7 +25,9 @@ class LoyaltyEventAdjustPointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event adjust points Builder object.
+     * Initializes a new Loyalty Event Adjust Points Builder object.
+     *
+     * @param int $points
      */
     public static function init(int $points): self
     {
@@ -34,6 +36,8 @@ class LoyaltyEventAdjustPointsBuilder
 
     /**
      * Sets loyalty program id field.
+     *
+     * @param string|null $value
      */
     public function loyaltyProgramId(?string $value): self
     {
@@ -43,6 +47,8 @@ class LoyaltyEventAdjustPointsBuilder
 
     /**
      * Sets reason field.
+     *
+     * @param string|null $value
      */
     public function reason(?string $value): self
     {
@@ -60,7 +66,7 @@ class LoyaltyEventAdjustPointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event adjust points object.
+     * Initializes a new Loyalty Event Adjust Points object.
      */
     public function build(): LoyaltyEventAdjustPoints
     {

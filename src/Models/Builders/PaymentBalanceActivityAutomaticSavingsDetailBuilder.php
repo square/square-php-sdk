@@ -25,7 +25,7 @@ class PaymentBalanceActivityAutomaticSavingsDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity automatic savings detail Builder object.
+     * Initializes a new Payment Balance Activity Automatic Savings Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityAutomaticSavingsDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityAutomaticSavingsDetailBuilder
 
     /**
      * Sets payout id field.
+     *
+     * @param string|null $value
      */
     public function payoutId(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityAutomaticSavingsDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity automatic savings detail object.
+     * Initializes a new Payment Balance Activity Automatic Savings Detail object.
      */
     public function build(): PaymentBalanceActivityAutomaticSavingsDetail
     {

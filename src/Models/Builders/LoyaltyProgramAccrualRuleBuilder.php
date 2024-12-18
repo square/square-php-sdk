@@ -29,7 +29,9 @@ class LoyaltyProgramAccrualRuleBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule Builder object.
+     * Initializes a new Loyalty Program Accrual Rule Builder object.
+     *
+     * @param string $accrualType
      */
     public static function init(string $accrualType): self
     {
@@ -38,6 +40,8 @@ class LoyaltyProgramAccrualRuleBuilder
 
     /**
      * Sets points field.
+     *
+     * @param int|null $value
      */
     public function points(?int $value): self
     {
@@ -56,6 +60,8 @@ class LoyaltyProgramAccrualRuleBuilder
 
     /**
      * Sets visit data field.
+     *
+     * @param LoyaltyProgramAccrualRuleVisitData|null $value
      */
     public function visitData(?LoyaltyProgramAccrualRuleVisitData $value): self
     {
@@ -65,6 +71,8 @@ class LoyaltyProgramAccrualRuleBuilder
 
     /**
      * Sets spend data field.
+     *
+     * @param LoyaltyProgramAccrualRuleSpendData|null $value
      */
     public function spendData(?LoyaltyProgramAccrualRuleSpendData $value): self
     {
@@ -74,6 +82,8 @@ class LoyaltyProgramAccrualRuleBuilder
 
     /**
      * Sets item variation data field.
+     *
+     * @param LoyaltyProgramAccrualRuleItemVariationData|null $value
      */
     public function itemVariationData(?LoyaltyProgramAccrualRuleItemVariationData $value): self
     {
@@ -83,6 +93,8 @@ class LoyaltyProgramAccrualRuleBuilder
 
     /**
      * Sets category data field.
+     *
+     * @param LoyaltyProgramAccrualRuleCategoryData|null $value
      */
     public function categoryData(?LoyaltyProgramAccrualRuleCategoryData $value): self
     {
@@ -91,7 +103,7 @@ class LoyaltyProgramAccrualRuleBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule object.
+     * Initializes a new Loyalty Program Accrual Rule object.
      */
     public function build(): LoyaltyProgramAccrualRule
     {

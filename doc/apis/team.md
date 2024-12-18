@@ -13,6 +13,10 @@ $teamApi = $client->getTeamApi();
 * [Create Team Member](../../doc/apis/team.md#create-team-member)
 * [Bulk Create Team Members](../../doc/apis/team.md#bulk-create-team-members)
 * [Bulk Update Team Members](../../doc/apis/team.md#bulk-update-team-members)
+* [List Jobs](../../doc/apis/team.md#list-jobs)
+* [Create Job](../../doc/apis/team.md#create-job)
+* [Retrieve Job](../../doc/apis/team.md#retrieve-job)
+* [Update Job](../../doc/apis/team.md#update-job)
 * [Search Team Members](../../doc/apis/team.md#search-team-members)
 * [Retrieve Team Member](../../doc/apis/team.md#retrieve-team-member)
 * [Update Team Member](../../doc/apis/team.md#update-team-member)
@@ -66,6 +70,38 @@ $body = CreateTeamMemberRequestBuilder::init()
                             'GA2Y9HSJ8KRYT'
                         ]
                     )
+                    ->build()
+            )
+            ->wageSetting(
+                WageSettingBuilder::init()
+                    ->jobAssignments(
+                        [
+                            JobAssignmentBuilder::init(
+                                JobAssignmentPayType::SALARY
+                            )
+                                ->annualRate(
+                                    MoneyBuilder::init()
+                                        ->amount(3000000)
+                                        ->currency(Currency::USD)
+                                        ->build()
+                                )
+                                ->weeklyHours(40)
+                                ->jobId('FjS8x95cqHiMenw4f1NAUH4P')
+                                ->build(),
+                            JobAssignmentBuilder::init(
+                                JobAssignmentPayType::HOURLY
+                            )
+                                ->hourlyRate(
+                                    MoneyBuilder::init()
+                                        ->amount(2000)
+                                        ->currency(Currency::USD)
+                                        ->build()
+                                )
+                                ->jobId('VDNpRv8da51NU8qZFC5zDWpF')
+                                ->build()
+                        ]
+                    )
+                    ->isOvertimeExempt(true)
                     ->build()
             )
             ->build()
@@ -253,13 +289,177 @@ var_dump($apiResponse->getHeaders());
 ```
 
 
+# List Jobs
+
+Lists jobs in a seller account. Results are sorted by title in ascending order.
+
+```php
+function listJobs(?string $cursor = null): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `cursor` | `?string` | Query, Optional | The pagination cursor returned by the previous call to this endpoint. Provide this<br>cursor to retrieve the next page of results for your original request. For more information,<br>see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-patterns/pagination). |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`ListJobsResponse`](../../doc/models/list-jobs-response.md).
+
+## Example Usage
+
+```php
+$apiResponse = $teamApi->listJobs();
+
+if ($apiResponse->isSuccess()) {
+    $listJobsResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Create Job
+
+Creates a job in a seller account. A job defines a title and tip eligibility. Note that
+compensation is defined in a [job assignment](../../doc/models/job-assignment.md) in a team member's wage setting.
+
+```php
+function createJob(CreateJobRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`CreateJobRequest`](../../doc/models/create-job-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`CreateJobResponse`](../../doc/models/create-job-response.md).
+
+## Example Usage
+
+```php
+$body = CreateJobRequestBuilder::init(
+    JobBuilder::init()
+        ->title('Cashier')
+        ->isTipEligible(true)
+        ->build(),
+    'idempotency-key-0'
+)->build();
+
+$apiResponse = $teamApi->createJob($body);
+
+if ($apiResponse->isSuccess()) {
+    $createJobResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Retrieve Job
+
+Retrieves a specified job.
+
+```php
+function retrieveJob(string $jobId): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `jobId` | `string` | Template, Required | The ID of the job to retrieve. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`RetrieveJobResponse`](../../doc/models/retrieve-job-response.md).
+
+## Example Usage
+
+```php
+$jobId = 'job_id2';
+
+$apiResponse = $teamApi->retrieveJob($jobId);
+
+if ($apiResponse->isSuccess()) {
+    $retrieveJobResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
+# Update Job
+
+Updates the title or tip eligibility of a job. Changes to the title propagate to all
+`JobAssignment`, `Shift`, and `TeamMemberWage` objects that reference the job ID. Changes to
+tip eligibility propagate to all `TeamMemberWage` objects that reference the job ID.
+
+```php
+function updateJob(string $jobId, UpdateJobRequest $body): ApiResponse
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `jobId` | `string` | Template, Required | The ID of the job to update. |
+| `body` | [`UpdateJobRequest`](../../doc/models/update-job-request.md) | Body, Required | An object containing the fields to POST for the request.<br><br>See the corresponding object definition for field details. |
+
+## Response Type
+
+This method returns a `Square\Utils\ApiResponse` instance. The `getResult()` method on this instance returns the response data which is of type [`UpdateJobResponse`](../../doc/models/update-job-response.md).
+
+## Example Usage
+
+```php
+$jobId = 'job_id2';
+
+$body = UpdateJobRequestBuilder::init(
+    JobBuilder::init()
+        ->title('Cashier 1')
+        ->isTipEligible(true)
+        ->build()
+)->build();
+
+$apiResponse = $teamApi->updateJob(
+    $jobId,
+    $body
+);
+
+if ($apiResponse->isSuccess()) {
+    $updateJobResponse = $apiResponse->getResult();
+} else {
+    $errors = $apiResponse->getErrors();
+}
+
+// Getting more response information
+var_dump($apiResponse->getStatusCode());
+var_dump($apiResponse->getHeaders());
+```
+
+
 # Search Team Members
 
 Returns a paginated list of `TeamMember` objects for a business.
-The list can be filtered by the following:
-
-- location IDs
-- `status`
+The list can be filtered by location IDs, `ACTIVE` or `INACTIVE` status, or whether
+the team member is the Square account owner.
 
 ```php
 function searchTeamMembers(SearchTeamMembersRequest $body): ApiResponse
@@ -417,8 +617,11 @@ var_dump($apiResponse->getHeaders());
 # Retrieve Wage Setting
 
 Retrieves a `WageSetting` object for a team member specified
-by `TeamMember.id`.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting).
+by `TeamMember.id`. For more information, see
+[Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#retrievewagesetting).
+
+Square recommends using [RetrieveTeamMember](../../doc/apis/team.md#retrieve-team-member) or [SearchTeamMembers](../../doc/apis/team.md#search-team-members)
+to get this information directly from the `TeamMember.wage_setting` field.
 
 ```php
 function retrieveWageSetting(string $teamMemberId): ApiResponse
@@ -456,10 +659,13 @@ var_dump($apiResponse->getHeaders());
 # Update Wage Setting
 
 Creates or updates a `WageSetting` object. The object is created if a
-`WageSetting` with the specified `team_member_id` does not exist. Otherwise,
+`WageSetting` with the specified `team_member_id` doesn't exist. Otherwise,
 it fully replaces the `WageSetting` object for the team member.
-The `WageSetting` is returned on a successful update.
-Learn about [Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting).
+The `WageSetting` is returned on a successful update. For more information, see
+[Troubleshooting the Team API](https://developer.squareup.com/docs/team/troubleshooting#create-or-update-a-wage-setting).
+
+Square recommends using [CreateTeamMember](../../doc/apis/team.md#create-team-member) or [UpdateTeamMember](../../doc/apis/team.md#update-team-member)
+to manage the `TeamMember.wage_setting` field directly.
 
 ```php
 function updateWageSetting(string $teamMemberId, UpdateWageSettingRequest $body): ApiResponse
@@ -486,9 +692,9 @@ $body = UpdateWageSettingRequestBuilder::init(
         ->jobAssignments(
             [
                 JobAssignmentBuilder::init(
-                    'Manager',
                     JobAssignmentPayType::SALARY
                 )
+                    ->jobTitle('Manager')
                     ->annualRate(
                         MoneyBuilder::init()
                             ->amount(3000000)
@@ -498,12 +704,12 @@ $body = UpdateWageSettingRequestBuilder::init(
                     ->weeklyHours(40)
                     ->build(),
                 JobAssignmentBuilder::init(
-                    'Cashier',
                     JobAssignmentPayType::HOURLY
                 )
+                    ->jobTitle('Cashier')
                     ->hourlyRate(
                         MoneyBuilder::init()
-                            ->amount(1200)
+                            ->amount(2000)
                             ->currency(Currency::USD)
                             ->build()
                     )

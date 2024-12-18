@@ -27,7 +27,7 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods Builder object.
+     * Initializes a new Checkout Merchant Settings Payment Methods Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
 
     /**
      * Sets apple pay field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsPaymentMethod|null $value
      */
     public function applePay(?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $value): self
     {
@@ -45,6 +47,8 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
 
     /**
      * Sets google pay field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsPaymentMethod|null $value
      */
     public function googlePay(?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $value): self
     {
@@ -54,6 +58,8 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
 
     /**
      * Sets cash app field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsPaymentMethod|null $value
      */
     public function cashApp(?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $value): self
     {
@@ -63,6 +69,8 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
 
     /**
      * Sets afterpay clearpay field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay|null $value
      */
     public function afterpayClearpay(?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay $value): self
     {
@@ -71,7 +79,7 @@ class CheckoutMerchantSettingsPaymentMethodsBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods object.
+     * Initializes a new Checkout Merchant Settings Payment Methods object.
      */
     public function build(): CheckoutMerchantSettingsPaymentMethods
     {

@@ -25,7 +25,10 @@ class ErrorBuilder
     }
 
     /**
-     * Initializes a new error Builder object.
+     * Initializes a new Error Builder object.
+     *
+     * @param string $category
+     * @param string $code
      */
     public static function init(string $category, string $code): self
     {
@@ -34,6 +37,8 @@ class ErrorBuilder
 
     /**
      * Sets detail field.
+     *
+     * @param string|null $value
      */
     public function detail(?string $value): self
     {
@@ -43,6 +48,8 @@ class ErrorBuilder
 
     /**
      * Sets field field.
+     *
+     * @param string|null $value
      */
     public function field(?string $value): self
     {
@@ -51,7 +58,7 @@ class ErrorBuilder
     }
 
     /**
-     * Initializes a new error object.
+     * Initializes a new Error object.
      */
     public function build(): Error
     {

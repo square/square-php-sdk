@@ -25,7 +25,9 @@ class BulkRetrieveBookingsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve bookings request Builder object.
+     * Initializes a new Bulk Retrieve Bookings Request Builder object.
+     *
+     * @param string[] $bookingIds
      */
     public static function init(array $bookingIds): self
     {
@@ -33,7 +35,7 @@ class BulkRetrieveBookingsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve bookings request object.
+     * Initializes a new Bulk Retrieve Bookings Request object.
      */
     public function build(): BulkRetrieveBookingsRequest
     {

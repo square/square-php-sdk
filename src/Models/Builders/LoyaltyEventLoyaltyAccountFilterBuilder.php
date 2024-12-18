@@ -25,7 +25,9 @@ class LoyaltyEventLoyaltyAccountFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event loyalty account filter Builder object.
+     * Initializes a new Loyalty Event Loyalty Account Filter Builder object.
+     *
+     * @param string $loyaltyAccountId
      */
     public static function init(string $loyaltyAccountId): self
     {
@@ -33,7 +35,7 @@ class LoyaltyEventLoyaltyAccountFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event loyalty account filter object.
+     * Initializes a new Loyalty Event Loyalty Account Filter object.
      */
     public function build(): LoyaltyEventLoyaltyAccountFilter
     {

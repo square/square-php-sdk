@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\GiftCard;
 use Square\Models\RetrieveGiftCardFromGANResponse;
 
@@ -26,7 +27,7 @@ class RetrieveGiftCardFromGANResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from ganresponse Builder object.
+     * Initializes a new Retrieve Gift Card From GAN Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveGiftCardFromGANResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveGiftCardFromGANResponseBuilder
 
     /**
      * Sets gift card field.
+     *
+     * @param GiftCard|null $value
      */
     public function giftCard(?GiftCard $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveGiftCardFromGANResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from ganresponse object.
+     * Initializes a new Retrieve Gift Card From GAN Response object.
      */
     public function build(): RetrieveGiftCardFromGANResponse
     {

@@ -26,7 +26,11 @@ class SelectOptionsBuilder
     }
 
     /**
-     * Initializes a new select options Builder object.
+     * Initializes a new Select Options Builder object.
+     *
+     * @param string $title
+     * @param string $body
+     * @param SelectOption[] $options
      */
     public static function init(string $title, string $body, array $options): self
     {
@@ -35,6 +39,8 @@ class SelectOptionsBuilder
 
     /**
      * Sets selected option field.
+     *
+     * @param SelectOption|null $value
      */
     public function selectedOption(?SelectOption $value): self
     {
@@ -43,7 +49,7 @@ class SelectOptionsBuilder
     }
 
     /**
-     * Initializes a new select options object.
+     * Initializes a new Select Options object.
      */
     public function build(): SelectOptions
     {

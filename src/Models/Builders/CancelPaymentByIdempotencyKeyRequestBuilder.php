@@ -25,7 +25,9 @@ class CancelPaymentByIdempotencyKeyRequestBuilder
     }
 
     /**
-     * Initializes a new cancel payment by idempotency key request Builder object.
+     * Initializes a new Cancel Payment By Idempotency Key Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -33,7 +35,7 @@ class CancelPaymentByIdempotencyKeyRequestBuilder
     }
 
     /**
-     * Initializes a new cancel payment by idempotency key request object.
+     * Initializes a new Cancel Payment By Idempotency Key Request object.
      */
     public function build(): CancelPaymentByIdempotencyKeyRequest
     {

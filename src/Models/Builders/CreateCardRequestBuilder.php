@@ -26,7 +26,11 @@ class CreateCardRequestBuilder
     }
 
     /**
-     * Initializes a new create card request Builder object.
+     * Initializes a new Create Card Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $sourceId
+     * @param Card $card
      */
     public static function init(string $idempotencyKey, string $sourceId, Card $card): self
     {
@@ -35,6 +39,8 @@ class CreateCardRequestBuilder
 
     /**
      * Sets verification token field.
+     *
+     * @param string|null $value
      */
     public function verificationToken(?string $value): self
     {
@@ -43,7 +49,7 @@ class CreateCardRequestBuilder
     }
 
     /**
-     * Initializes a new create card request object.
+     * Initializes a new Create Card Request object.
      */
     public function build(): CreateCardRequest
     {

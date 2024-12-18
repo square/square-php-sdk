@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CaptureTransactionResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model CaptureTransactionResponse
@@ -25,7 +26,7 @@ class CaptureTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new capture transaction response Builder object.
+     * Initializes a new Capture Transaction Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CaptureTransactionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class CaptureTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new capture transaction response object.
+     * Initializes a new Capture Transaction Response object.
      */
     public function build(): CaptureTransactionResponse
     {

@@ -25,7 +25,7 @@ class CatalogProductSetBuilder
     }
 
     /**
-     * Initializes a new catalog product set Builder object.
+     * Initializes a new Catalog Product Set Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets product ids any field.
+     *
+     * @param string[]|null $value
      */
     public function productIdsAny(?array $value): self
     {
@@ -70,6 +74,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets product ids all field.
+     *
+     * @param string[]|null $value
      */
     public function productIdsAll(?array $value): self
     {
@@ -88,6 +94,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets quantity exact field.
+     *
+     * @param int|null $value
      */
     public function quantityExact(?int $value): self
     {
@@ -106,6 +114,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets quantity min field.
+     *
+     * @param int|null $value
      */
     public function quantityMin(?int $value): self
     {
@@ -124,6 +134,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets quantity max field.
+     *
+     * @param int|null $value
      */
     public function quantityMax(?int $value): self
     {
@@ -142,6 +154,8 @@ class CatalogProductSetBuilder
 
     /**
      * Sets all products field.
+     *
+     * @param bool|null $value
      */
     public function allProducts(?bool $value): self
     {
@@ -159,7 +173,7 @@ class CatalogProductSetBuilder
     }
 
     /**
-     * Initializes a new catalog product set object.
+     * Initializes a new Catalog Product Set object.
      */
     public function build(): CatalogProductSet
     {

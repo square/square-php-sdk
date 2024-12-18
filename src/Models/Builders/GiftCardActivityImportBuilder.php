@@ -26,7 +26,9 @@ class GiftCardActivityImportBuilder
     }
 
     /**
-     * Initializes a new gift card activity import Builder object.
+     * Initializes a new Gift Card Activity Import Builder object.
+     *
+     * @param Money $amountMoney
      */
     public static function init(Money $amountMoney): self
     {
@@ -34,7 +36,7 @@ class GiftCardActivityImportBuilder
     }
 
     /**
-     * Initializes a new gift card activity import object.
+     * Initializes a new Gift Card Activity Import object.
      */
     public function build(): GiftCardActivityImport
     {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\MBreak;
 use Square\Models\Money;
 use Square\Models\Shift;
 use Square\Models\ShiftWage;
@@ -27,7 +28,10 @@ class ShiftBuilder
     }
 
     /**
-     * Initializes a new shift Builder object.
+     * Initializes a new Shift Builder object.
+     *
+     * @param string $locationId
+     * @param string $startAt
      */
     public static function init(string $locationId, string $startAt): self
     {
@@ -36,6 +40,8 @@ class ShiftBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +51,8 @@ class ShiftBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -63,6 +71,8 @@ class ShiftBuilder
 
     /**
      * Sets timezone field.
+     *
+     * @param string|null $value
      */
     public function timezone(?string $value): self
     {
@@ -81,6 +91,8 @@ class ShiftBuilder
 
     /**
      * Sets end at field.
+     *
+     * @param string|null $value
      */
     public function endAt(?string $value): self
     {
@@ -99,6 +111,8 @@ class ShiftBuilder
 
     /**
      * Sets wage field.
+     *
+     * @param ShiftWage|null $value
      */
     public function wage(?ShiftWage $value): self
     {
@@ -108,6 +122,8 @@ class ShiftBuilder
 
     /**
      * Sets breaks field.
+     *
+     * @param MBreak[]|null $value
      */
     public function breaks(?array $value): self
     {
@@ -126,6 +142,8 @@ class ShiftBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -135,6 +153,8 @@ class ShiftBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -144,6 +164,8 @@ class ShiftBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -153,6 +175,8 @@ class ShiftBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -162,6 +186,8 @@ class ShiftBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -180,6 +206,8 @@ class ShiftBuilder
 
     /**
      * Sets declared cash tip money field.
+     *
+     * @param Money|null $value
      */
     public function declaredCashTipMoney(?Money $value): self
     {
@@ -188,7 +216,7 @@ class ShiftBuilder
     }
 
     /**
-     * Initializes a new shift object.
+     * Initializes a new Shift object.
      */
     public function build(): Shift
     {

@@ -26,7 +26,7 @@ class MeasurementUnitBuilder
     }
 
     /**
-     * Initializes a new measurement unit Builder object.
+     * Initializes a new Measurement Unit Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets custom unit field.
+     *
+     * @param MeasurementUnitCustom|null $value
      */
     public function customUnit(?MeasurementUnitCustom $value): self
     {
@@ -44,6 +46,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets area unit field.
+     *
+     * @param string|null $value
      */
     public function areaUnit(?string $value): self
     {
@@ -53,6 +57,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets length unit field.
+     *
+     * @param string|null $value
      */
     public function lengthUnit(?string $value): self
     {
@@ -62,6 +68,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets volume unit field.
+     *
+     * @param string|null $value
      */
     public function volumeUnit(?string $value): self
     {
@@ -71,6 +79,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets weight unit field.
+     *
+     * @param string|null $value
      */
     public function weightUnit(?string $value): self
     {
@@ -80,6 +90,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets generic unit field.
+     *
+     * @param string|null $value
      */
     public function genericUnit(?string $value): self
     {
@@ -89,6 +101,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets time unit field.
+     *
+     * @param string|null $value
      */
     public function timeUnit(?string $value): self
     {
@@ -98,6 +112,8 @@ class MeasurementUnitBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -106,7 +122,7 @@ class MeasurementUnitBuilder
     }
 
     /**
-     * Initializes a new measurement unit object.
+     * Initializes a new Measurement Unit object.
      */
     public function build(): MeasurementUnit
     {

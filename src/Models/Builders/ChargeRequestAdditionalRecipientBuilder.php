@@ -26,7 +26,11 @@ class ChargeRequestAdditionalRecipientBuilder
     }
 
     /**
-     * Initializes a new charge request additional recipient Builder object.
+     * Initializes a new Charge Request Additional Recipient Builder object.
+     *
+     * @param string $locationId
+     * @param string $description
+     * @param Money $amountMoney
      */
     public static function init(string $locationId, string $description, Money $amountMoney): self
     {
@@ -34,7 +38,7 @@ class ChargeRequestAdditionalRecipientBuilder
     }
 
     /**
-     * Initializes a new charge request additional recipient object.
+     * Initializes a new Charge Request Additional Recipient object.
      */
     public function build(): ChargeRequestAdditionalRecipient
     {

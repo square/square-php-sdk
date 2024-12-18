@@ -26,7 +26,7 @@ class OrderCreatedObjectBuilder
     }
 
     /**
-     * Initializes a new order created object Builder object.
+     * Initializes a new Order Created Object Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderCreatedObjectBuilder
 
     /**
      * Sets order created field.
+     *
+     * @param OrderCreated|null $value
      */
     public function orderCreated(?OrderCreated $value): self
     {
@@ -43,7 +45,7 @@ class OrderCreatedObjectBuilder
     }
 
     /**
-     * Initializes a new order created object object.
+     * Initializes a new Order Created Object object.
      */
     public function build(): OrderCreatedObject
     {

@@ -27,8 +27,11 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes request location custom attribute upsert
-     * request Builder object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Request Location Custom Attribute Upsert
+     * Request Builder object.
+     *
+     * @param string $locationId
+     * @param CustomAttribute $customAttribute
      */
     public static function init(string $locationId, CustomAttribute $customAttribute): self
     {
@@ -40,6 +43,8 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -57,8 +62,8 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes request location custom attribute upsert
-     * request object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Request Location Custom Attribute Upsert
+     * Request object.
      */
     public function build(): BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequest
     {

@@ -27,7 +27,10 @@ class LoyaltyProgramRewardTierBuilder
     }
 
     /**
-     * Initializes a new loyalty program reward tier Builder object.
+     * Initializes a new Loyalty Program Reward Tier Builder object.
+     *
+     * @param int $points
+     * @param CatalogObjectReference $pricingRuleReference
      */
     public static function init(int $points, CatalogObjectReference $pricingRuleReference): self
     {
@@ -36,6 +39,8 @@ class LoyaltyProgramRewardTierBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +50,8 @@ class LoyaltyProgramRewardTierBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -54,6 +61,8 @@ class LoyaltyProgramRewardTierBuilder
 
     /**
      * Sets definition field.
+     *
+     * @param LoyaltyProgramRewardDefinition|null $value
      */
     public function definition(?LoyaltyProgramRewardDefinition $value): self
     {
@@ -63,6 +72,8 @@ class LoyaltyProgramRewardTierBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -71,7 +82,7 @@ class LoyaltyProgramRewardTierBuilder
     }
 
     /**
-     * Initializes a new loyalty program reward tier object.
+     * Initializes a new Loyalty Program Reward Tier object.
      */
     public function build(): LoyaltyProgramRewardTier
     {

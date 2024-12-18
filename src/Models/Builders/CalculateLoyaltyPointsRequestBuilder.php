@@ -26,7 +26,7 @@ class CalculateLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new calculate loyalty points request Builder object.
+     * Initializes a new Calculate Loyalty Points Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CalculateLoyaltyPointsRequestBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -53,6 +55,8 @@ class CalculateLoyaltyPointsRequestBuilder
 
     /**
      * Sets transaction amount money field.
+     *
+     * @param Money|null $value
      */
     public function transactionAmountMoney(?Money $value): self
     {
@@ -62,6 +66,8 @@ class CalculateLoyaltyPointsRequestBuilder
 
     /**
      * Sets loyalty account id field.
+     *
+     * @param string|null $value
      */
     public function loyaltyAccountId(?string $value): self
     {
@@ -79,7 +85,7 @@ class CalculateLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new calculate loyalty points request object.
+     * Initializes a new Calculate Loyalty Points Request object.
      */
     public function build(): CalculateLoyaltyPointsRequest
     {

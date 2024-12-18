@@ -26,7 +26,7 @@ class FulfillmentRecipientBuilder
     }
 
     /**
-     * Initializes a new fulfillment recipient Builder object.
+     * Initializes a new Fulfillment Recipient Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class FulfillmentRecipientBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -53,6 +55,8 @@ class FulfillmentRecipientBuilder
 
     /**
      * Sets display name field.
+     *
+     * @param string|null $value
      */
     public function displayName(?string $value): self
     {
@@ -71,6 +75,8 @@ class FulfillmentRecipientBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -89,6 +95,8 @@ class FulfillmentRecipientBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -107,6 +115,8 @@ class FulfillmentRecipientBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -115,7 +125,7 @@ class FulfillmentRecipientBuilder
     }
 
     /**
-     * Initializes a new fulfillment recipient object.
+     * Initializes a new Fulfillment Recipient object.
      */
     public function build(): FulfillmentRecipient
     {

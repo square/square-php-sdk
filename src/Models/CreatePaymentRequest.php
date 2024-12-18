@@ -93,6 +93,11 @@ class CreatePaymentRequest implements \JsonSerializable
     private $buyerEmailAddress;
 
     /**
+     * @var string|null
+     */
+    private $buyerPhoneNumber;
+
+    /**
      * @var Address|null
      */
     private $billingAddress;
@@ -627,6 +632,36 @@ class CreatePaymentRequest implements \JsonSerializable
     }
 
     /**
+     * Returns Buyer Phone Number.
+     * The buyer's phone number.
+     * Must follow the following format:
+     * 1. A leading + symbol (followed by a country code)
+     * 2. The phone number can contain spaces and the special characters `(` , `)` , `-` , and `.`.
+     * Alphabetical characters aren't allowed.
+     * 3. The phone number must contain between 9 and 16 digits.
+     */
+    public function getBuyerPhoneNumber(): ?string
+    {
+        return $this->buyerPhoneNumber;
+    }
+
+    /**
+     * Sets Buyer Phone Number.
+     * The buyer's phone number.
+     * Must follow the following format:
+     * 1. A leading + symbol (followed by a country code)
+     * 2. The phone number can contain spaces and the special characters `(` , `)` , `-` , and `.`.
+     * Alphabetical characters aren't allowed.
+     * 3. The phone number must contain between 9 and 16 digits.
+     *
+     * @maps buyer_phone_number
+     */
+    public function setBuyerPhoneNumber(?string $buyerPhoneNumber): void
+    {
+        $this->buyerPhoneNumber = $buyerPhoneNumber;
+    }
+
+    /**
      * Returns Billing Address.
      * Represents a postal address in a country.
      * For more information, see [Working with Addresses](https://developer.squareup.com/docs/build-
@@ -871,6 +906,9 @@ class CreatePaymentRequest implements \JsonSerializable
         }
         if (isset($this->buyerEmailAddress)) {
             $json['buyer_email_address']              = $this->buyerEmailAddress;
+        }
+        if (isset($this->buyerPhoneNumber)) {
+            $json['buyer_phone_number']               = $this->buyerPhoneNumber;
         }
         if (isset($this->billingAddress)) {
             $json['billing_address']                  = $this->billingAddress;

@@ -25,7 +25,9 @@ class LoyaltyEventLocationFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event location filter Builder object.
+     * Initializes a new Loyalty Event Location Filter Builder object.
+     *
+     * @param string[] $locationIds
      */
     public static function init(array $locationIds): self
     {
@@ -33,7 +35,7 @@ class LoyaltyEventLocationFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event location filter object.
+     * Initializes a new Loyalty Event Location Filter object.
      */
     public function build(): LoyaltyEventLocationFilter
     {

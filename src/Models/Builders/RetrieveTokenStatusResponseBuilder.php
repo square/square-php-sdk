@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveTokenStatusResponse;
 
 /**
@@ -25,7 +26,7 @@ class RetrieveTokenStatusResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve token status response Builder object.
+     * Initializes a new Retrieve Token Status Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class RetrieveTokenStatusResponseBuilder
 
     /**
      * Sets scopes field.
+     *
+     * @param string[]|null $value
      */
     public function scopes(?array $value): self
     {
@@ -43,6 +46,8 @@ class RetrieveTokenStatusResponseBuilder
 
     /**
      * Sets expires at field.
+     *
+     * @param string|null $value
      */
     public function expiresAt(?string $value): self
     {
@@ -52,6 +57,8 @@ class RetrieveTokenStatusResponseBuilder
 
     /**
      * Sets client id field.
+     *
+     * @param string|null $value
      */
     public function clientId(?string $value): self
     {
@@ -61,6 +68,8 @@ class RetrieveTokenStatusResponseBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -70,6 +79,8 @@ class RetrieveTokenStatusResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -78,7 +89,7 @@ class RetrieveTokenStatusResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve token status response object.
+     * Initializes a new Retrieve Token Status Response object.
      */
     public function build(): RetrieveTokenStatusResponse
     {

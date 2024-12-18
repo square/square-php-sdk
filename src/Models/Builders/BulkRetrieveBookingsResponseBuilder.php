@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkRetrieveBookingsResponse;
+use Square\Models\Error;
+use Square\Models\RetrieveBookingResponse;
 
 /**
  * Builder for model BulkRetrieveBookingsResponse
@@ -25,7 +27,7 @@ class BulkRetrieveBookingsResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve bookings response Builder object.
+     * Initializes a new Bulk Retrieve Bookings Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkRetrieveBookingsResponseBuilder
 
     /**
      * Sets bookings field.
+     *
+     * @param array<string,RetrieveBookingResponse>|null $value
      */
     public function bookings(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkRetrieveBookingsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkRetrieveBookingsResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve bookings response object.
+     * Initializes a new Bulk Retrieve Bookings Response object.
      */
     public function build(): BulkRetrieveBookingsResponse
     {

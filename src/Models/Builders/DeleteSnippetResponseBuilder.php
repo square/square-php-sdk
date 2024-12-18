@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteSnippetResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteSnippetResponse
@@ -25,7 +26,7 @@ class DeleteSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new delete snippet response Builder object.
+     * Initializes a new Delete Snippet Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteSnippetResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new delete snippet response object.
+     * Initializes a new Delete Snippet Response object.
      */
     public function build(): DeleteSnippetResponse
     {

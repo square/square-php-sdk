@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkCreateTeamMembersRequest;
+use Square\Models\CreateTeamMemberRequest;
 
 /**
  * Builder for model BulkCreateTeamMembersRequest
@@ -25,7 +26,9 @@ class BulkCreateTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create team members request Builder object.
+     * Initializes a new Bulk Create Team Members Request Builder object.
+     *
+     * @param array<string,CreateTeamMemberRequest> $teamMembers
      */
     public static function init(array $teamMembers): self
     {
@@ -33,7 +36,7 @@ class BulkCreateTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create team members request object.
+     * Initializes a new Bulk Create Team Members Request object.
      */
     public function build(): BulkCreateTeamMembersRequest
     {

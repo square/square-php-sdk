@@ -25,7 +25,7 @@ class PaymentBalanceActivityTaxOnFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity tax on fee detail Builder object.
+     * Initializes a new Payment Balance Activity Tax On Fee Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityTaxOnFeeDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityTaxOnFeeDetailBuilder
 
     /**
      * Sets tax rate description field.
+     *
+     * @param string|null $value
      */
     public function taxRateDescription(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityTaxOnFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity tax on fee detail object.
+     * Initializes a new Payment Balance Activity Tax On Fee Detail object.
      */
     public function build(): PaymentBalanceActivityTaxOnFeeDetail
     {

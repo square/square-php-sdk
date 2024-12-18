@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogModifier;
+use Square\Models\ModifierLocationOverrides;
 use Square\Models\Money;
 
 /**
@@ -26,7 +27,7 @@ class CatalogModifierBuilder
     }
 
     /**
-     * Initializes a new catalog modifier Builder object.
+     * Initializes a new Catalog Modifier Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -53,6 +56,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets price money field.
+     *
+     * @param Money|null $value
      */
     public function priceMoney(?Money $value): self
     {
@@ -62,6 +67,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -80,6 +87,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets modifier list id field.
+     *
+     * @param string|null $value
      */
     public function modifierListId(?string $value): self
     {
@@ -98,6 +107,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets location overrides field.
+     *
+     * @param ModifierLocationOverrides[]|null $value
      */
     public function locationOverrides(?array $value): self
     {
@@ -116,6 +127,8 @@ class CatalogModifierBuilder
 
     /**
      * Sets image id field.
+     *
+     * @param string|null $value
      */
     public function imageId(?string $value): self
     {
@@ -133,7 +146,7 @@ class CatalogModifierBuilder
     }
 
     /**
-     * Initializes a new catalog modifier object.
+     * Initializes a new Catalog Modifier object.
      */
     public function build(): CatalogModifier
     {

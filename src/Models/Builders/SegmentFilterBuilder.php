@@ -26,7 +26,9 @@ class SegmentFilterBuilder
     }
 
     /**
-     * Initializes a new segment filter Builder object.
+     * Initializes a new Segment Filter Builder object.
+     *
+     * @param string $serviceVariationId
      */
     public static function init(string $serviceVariationId): self
     {
@@ -35,6 +37,8 @@ class SegmentFilterBuilder
 
     /**
      * Sets team member id filter field.
+     *
+     * @param FilterValue|null $value
      */
     public function teamMemberIdFilter(?FilterValue $value): self
     {
@@ -43,7 +47,7 @@ class SegmentFilterBuilder
     }
 
     /**
-     * Initializes a new segment filter object.
+     * Initializes a new Segment Filter object.
      */
     public function build(): SegmentFilter
     {

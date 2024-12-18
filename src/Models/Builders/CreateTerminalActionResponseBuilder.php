@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateTerminalActionResponse;
+use Square\Models\Error;
 use Square\Models\TerminalAction;
 
 /**
@@ -26,7 +27,7 @@ class CreateTerminalActionResponseBuilder
     }
 
     /**
-     * Initializes a new create terminal action response Builder object.
+     * Initializes a new Create Terminal Action Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateTerminalActionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateTerminalActionResponseBuilder
 
     /**
      * Sets action field.
+     *
+     * @param TerminalAction|null $value
      */
     public function action(?TerminalAction $value): self
     {
@@ -52,7 +57,7 @@ class CreateTerminalActionResponseBuilder
     }
 
     /**
-     * Initializes a new create terminal action response object.
+     * Initializes a new Create Terminal Action Response object.
      */
     public function build(): CreateTerminalActionResponse
     {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\InventoryAdjustment;
 use Square\Models\RetrieveInventoryAdjustmentResponse;
 
@@ -26,7 +27,7 @@ class RetrieveInventoryAdjustmentResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory adjustment response Builder object.
+     * Initializes a new Retrieve Inventory Adjustment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveInventoryAdjustmentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveInventoryAdjustmentResponseBuilder
 
     /**
      * Sets adjustment field.
+     *
+     * @param InventoryAdjustment|null $value
      */
     public function adjustment(?InventoryAdjustment $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveInventoryAdjustmentResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory adjustment response object.
+     * Initializes a new Retrieve Inventory Adjustment Response object.
      */
     public function build(): RetrieveInventoryAdjustmentResponse
     {

@@ -25,7 +25,10 @@ class SelectOptionBuilder
     }
 
     /**
-     * Initializes a new select option Builder object.
+     * Initializes a new Select Option Builder object.
+     *
+     * @param string $referenceId
+     * @param string $title
      */
     public static function init(string $referenceId, string $title): self
     {
@@ -33,7 +36,7 @@ class SelectOptionBuilder
     }
 
     /**
-     * Initializes a new select option object.
+     * Initializes a new Select Option object.
      */
     public function build(): SelectOption
     {

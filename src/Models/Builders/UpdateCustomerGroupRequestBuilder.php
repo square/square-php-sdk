@@ -26,7 +26,9 @@ class UpdateCustomerGroupRequestBuilder
     }
 
     /**
-     * Initializes a new update customer group request Builder object.
+     * Initializes a new Update Customer Group Request Builder object.
+     *
+     * @param CustomerGroup $group
      */
     public static function init(CustomerGroup $group): self
     {
@@ -34,7 +36,7 @@ class UpdateCustomerGroupRequestBuilder
     }
 
     /**
-     * Initializes a new update customer group request object.
+     * Initializes a new Update Customer Group Request object.
      */
     public function build(): UpdateCustomerGroupRequest
     {

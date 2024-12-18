@@ -25,7 +25,7 @@ class UpdateWebhookSubscriptionSignatureKeyRequestBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription signature key request Builder object.
+     * Initializes a new Update Webhook Subscription Signature Key Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class UpdateWebhookSubscriptionSignatureKeyRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -51,7 +53,7 @@ class UpdateWebhookSubscriptionSignatureKeyRequestBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription signature key request object.
+     * Initializes a new Update Webhook Subscription Signature Key Request object.
      */
     public function build(): UpdateWebhookSubscriptionSignatureKeyRequest
     {

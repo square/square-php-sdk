@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogObject;
+use Square\Models\Error;
 use Square\Models\SearchCatalogItemsResponse;
 
 /**
@@ -25,7 +27,7 @@ class SearchCatalogItemsResponseBuilder
     }
 
     /**
-     * Initializes a new search catalog items response Builder object.
+     * Initializes a new Search Catalog Items Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchCatalogItemsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchCatalogItemsResponseBuilder
 
     /**
      * Sets items field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function items(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchCatalogItemsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +69,8 @@ class SearchCatalogItemsResponseBuilder
 
     /**
      * Sets matched variation ids field.
+     *
+     * @param string[]|null $value
      */
     public function matchedVariationIds(?array $value): self
     {
@@ -69,7 +79,7 @@ class SearchCatalogItemsResponseBuilder
     }
 
     /**
-     * Initializes a new search catalog items response object.
+     * Initializes a new Search Catalog Items Response object.
      */
     public function build(): SearchCatalogItemsResponse
     {

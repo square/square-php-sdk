@@ -25,7 +25,7 @@ class CatalogItemOptionForItemBuilder
     }
 
     /**
-     * Initializes a new catalog item option for item Builder object.
+     * Initializes a new Catalog Item Option For Item Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogItemOptionForItemBuilder
 
     /**
      * Sets item option id field.
+     *
+     * @param string|null $value
      */
     public function itemOptionId(?string $value): self
     {
@@ -51,7 +53,7 @@ class CatalogItemOptionForItemBuilder
     }
 
     /**
-     * Initializes a new catalog item option for item object.
+     * Initializes a new Catalog Item Option For Item object.
      */
     public function build(): CatalogItemOptionForItem
     {

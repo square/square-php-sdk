@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CloneOrderResponse;
+use Square\Models\Error;
 use Square\Models\Order;
 
 /**
@@ -26,7 +27,7 @@ class CloneOrderResponseBuilder
     }
 
     /**
-     * Initializes a new clone order response Builder object.
+     * Initializes a new Clone Order Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CloneOrderResponseBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -44,6 +47,8 @@ class CloneOrderResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CloneOrderResponseBuilder
     }
 
     /**
-     * Initializes a new clone order response object.
+     * Initializes a new Clone Order Response object.
      */
     public function build(): CloneOrderResponse
     {

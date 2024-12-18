@@ -26,7 +26,10 @@ class ExternalPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new external payment details Builder object.
+     * Initializes a new External Payment Details Builder object.
+     *
+     * @param string $type
+     * @param string $source
      */
     public static function init(string $type, string $source): self
     {
@@ -35,6 +38,8 @@ class ExternalPaymentDetailsBuilder
 
     /**
      * Sets source id field.
+     *
+     * @param string|null $value
      */
     public function sourceId(?string $value): self
     {
@@ -53,6 +58,8 @@ class ExternalPaymentDetailsBuilder
 
     /**
      * Sets source fee money field.
+     *
+     * @param Money|null $value
      */
     public function sourceFeeMoney(?Money $value): self
     {
@@ -61,7 +68,7 @@ class ExternalPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new external payment details object.
+     * Initializes a new External Payment Details object.
      */
     public function build(): ExternalPaymentDetails
     {

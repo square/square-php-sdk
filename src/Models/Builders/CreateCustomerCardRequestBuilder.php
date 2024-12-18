@@ -26,7 +26,9 @@ class CreateCustomerCardRequestBuilder
     }
 
     /**
-     * Initializes a new create customer card request Builder object.
+     * Initializes a new Create Customer Card Request Builder object.
+     *
+     * @param string $cardNonce
      */
     public static function init(string $cardNonce): self
     {
@@ -35,6 +37,8 @@ class CreateCustomerCardRequestBuilder
 
     /**
      * Sets billing address field.
+     *
+     * @param Address|null $value
      */
     public function billingAddress(?Address $value): self
     {
@@ -44,6 +48,8 @@ class CreateCustomerCardRequestBuilder
 
     /**
      * Sets cardholder name field.
+     *
+     * @param string|null $value
      */
     public function cardholderName(?string $value): self
     {
@@ -53,6 +59,8 @@ class CreateCustomerCardRequestBuilder
 
     /**
      * Sets verification token field.
+     *
+     * @param string|null $value
      */
     public function verificationToken(?string $value): self
     {
@@ -61,7 +69,7 @@ class CreateCustomerCardRequestBuilder
     }
 
     /**
-     * Initializes a new create customer card request object.
+     * Initializes a new Create Customer Card Request object.
      */
     public function build(): CreateCustomerCardRequest
     {

@@ -25,7 +25,11 @@ class CatalogStockConversionBuilder
     }
 
     /**
-     * Initializes a new catalog stock conversion Builder object.
+     * Initializes a new Catalog Stock Conversion Builder object.
+     *
+     * @param string $stockableItemVariationId
+     * @param string $stockableQuantity
+     * @param string $nonstockableQuantity
      */
     public static function init(
         string $stockableItemVariationId,
@@ -38,7 +42,7 @@ class CatalogStockConversionBuilder
     }
 
     /**
-     * Initializes a new catalog stock conversion object.
+     * Initializes a new Catalog Stock Conversion object.
      */
     public function build(): CatalogStockConversion
     {

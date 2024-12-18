@@ -26,7 +26,10 @@ class CreateDeviceCodeRequestBuilder
     }
 
     /**
-     * Initializes a new create device code request Builder object.
+     * Initializes a new Create Device Code Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param DeviceCode $deviceCode
      */
     public static function init(string $idempotencyKey, DeviceCode $deviceCode): self
     {
@@ -34,7 +37,7 @@ class CreateDeviceCodeRequestBuilder
     }
 
     /**
-     * Initializes a new create device code request object.
+     * Initializes a new Create Device Code Request object.
      */
     public function build(): CreateDeviceCodeRequest
     {

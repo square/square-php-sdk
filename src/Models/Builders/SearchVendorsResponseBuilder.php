@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchVendorsResponse;
+use Square\Models\Vendor;
 
 /**
  * Builder for model SearchVendorsResponse
@@ -25,7 +27,7 @@ class SearchVendorsResponseBuilder
     }
 
     /**
-     * Initializes a new search vendors response Builder object.
+     * Initializes a new Search Vendors Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchVendorsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchVendorsResponseBuilder
 
     /**
      * Sets vendors field.
+     *
+     * @param Vendor[]|null $value
      */
     public function vendors(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchVendorsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class SearchVendorsResponseBuilder
     }
 
     /**
-     * Initializes a new search vendors response object.
+     * Initializes a new Search Vendors Response object.
      */
     public function build(): SearchVendorsResponse
     {

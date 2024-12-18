@@ -25,7 +25,7 @@ class PaymentBalanceActivityReserveHoldDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity reserve hold detail Builder object.
+     * Initializes a new Payment Balance Activity Reserve Hold Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityReserveHoldDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityReserveHoldDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity reserve hold detail object.
+     * Initializes a new Payment Balance Activity Reserve Hold Detail object.
      */
     public function build(): PaymentBalanceActivityReserveHoldDetail
     {

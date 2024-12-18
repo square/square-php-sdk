@@ -6,6 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchUpsertCatalogObjectsResponse;
+use Square\Models\CatalogIdMapping;
+use Square\Models\CatalogObject;
+use Square\Models\Error;
 
 /**
  * Builder for model BatchUpsertCatalogObjectsResponse
@@ -25,7 +28,7 @@ class BatchUpsertCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch upsert catalog objects response Builder object.
+     * Initializes a new Batch Upsert Catalog Objects Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +37,8 @@ class BatchUpsertCatalogObjectsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +48,8 @@ class BatchUpsertCatalogObjectsResponseBuilder
 
     /**
      * Sets objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function objects(?array $value): self
     {
@@ -52,6 +59,8 @@ class BatchUpsertCatalogObjectsResponseBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -61,6 +70,8 @@ class BatchUpsertCatalogObjectsResponseBuilder
 
     /**
      * Sets id mappings field.
+     *
+     * @param CatalogIdMapping[]|null $value
      */
     public function idMappings(?array $value): self
     {
@@ -69,7 +80,7 @@ class BatchUpsertCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch upsert catalog objects response object.
+     * Initializes a new Batch Upsert Catalog Objects Response object.
      */
     public function build(): BatchUpsertCatalogObjectsResponse
     {

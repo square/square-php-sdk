@@ -25,7 +25,7 @@ class TerminalRefundQuerySortBuilder
     }
 
     /**
-     * Initializes a new terminal refund query sort Builder object.
+     * Initializes a new Terminal Refund Query Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TerminalRefundQuerySortBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -51,7 +53,7 @@ class TerminalRefundQuerySortBuilder
     }
 
     /**
-     * Initializes a new terminal refund query sort object.
+     * Initializes a new Terminal Refund Query Sort object.
      */
     public function build(): TerminalRefundQuerySort
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateRefundResponse;
+use Square\Models\Error;
 use Square\Models\Refund;
 
 /**
@@ -26,7 +27,7 @@ class CreateRefundResponseBuilder
     }
 
     /**
-     * Initializes a new create refund response Builder object.
+     * Initializes a new Create Refund Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateRefundResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateRefundResponseBuilder
 
     /**
      * Sets refund field.
+     *
+     * @param Refund|null $value
      */
     public function refund(?Refund $value): self
     {
@@ -52,7 +57,7 @@ class CreateRefundResponseBuilder
     }
 
     /**
-     * Initializes a new create refund response object.
+     * Initializes a new Create Refund Response object.
      */
     public function build(): CreateRefundResponse
     {

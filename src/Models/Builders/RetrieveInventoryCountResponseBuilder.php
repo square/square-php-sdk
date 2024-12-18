@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\InventoryCount;
 use Square\Models\RetrieveInventoryCountResponse;
 
 /**
@@ -25,7 +27,7 @@ class RetrieveInventoryCountResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory count response Builder object.
+     * Initializes a new Retrieve Inventory Count Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class RetrieveInventoryCountResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class RetrieveInventoryCountResponseBuilder
 
     /**
      * Sets counts field.
+     *
+     * @param InventoryCount[]|null $value
      */
     public function counts(?array $value): self
     {
@@ -52,6 +58,8 @@ class RetrieveInventoryCountResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class RetrieveInventoryCountResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory count response object.
+     * Initializes a new Retrieve Inventory Count Response object.
      */
     public function build(): RetrieveInventoryCountResponse
     {

@@ -25,7 +25,7 @@ class ListLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new list location custom attributes request Builder object.
+     * Initializes a new List Location Custom Attributes Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListLocationCustomAttributesRequestBuilder
 
     /**
      * Sets visibility filter field.
+     *
+     * @param string|null $value
      */
     public function visibilityFilter(?string $value): self
     {
@@ -43,6 +45,8 @@ class ListLocationCustomAttributesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -61,6 +65,8 @@ class ListLocationCustomAttributesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -79,6 +85,8 @@ class ListLocationCustomAttributesRequestBuilder
 
     /**
      * Sets with definitions field.
+     *
+     * @param bool|null $value
      */
     public function withDefinitions(?bool $value): self
     {
@@ -96,7 +104,7 @@ class ListLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new list location custom attributes request object.
+     * Initializes a new List Location Custom Attributes Request object.
      */
     public function build(): ListLocationCustomAttributesRequest
     {

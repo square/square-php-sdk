@@ -27,7 +27,7 @@ class SearchVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new search vendors request Builder object.
+     * Initializes a new Search Vendors Request Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class SearchVendorsRequestBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param SearchVendorsRequestFilter|null $value
      */
     public function filter(?SearchVendorsRequestFilter $value): self
     {
@@ -45,6 +47,8 @@ class SearchVendorsRequestBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param SearchVendorsRequestSort|null $value
      */
     public function sort(?SearchVendorsRequestSort $value): self
     {
@@ -54,6 +58,8 @@ class SearchVendorsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -62,7 +68,7 @@ class SearchVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new search vendors request object.
+     * Initializes a new Search Vendors Request object.
      */
     public function build(): SearchVendorsRequest
     {

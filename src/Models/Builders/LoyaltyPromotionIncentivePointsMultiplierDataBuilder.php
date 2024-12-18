@@ -25,7 +25,7 @@ class LoyaltyPromotionIncentivePointsMultiplierDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion incentive points multiplier data Builder object.
+     * Initializes a new Loyalty Promotion Incentive Points Multiplier Data Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class LoyaltyPromotionIncentivePointsMultiplierDataBuilder
 
     /**
      * Sets points multiplier field.
+     *
+     * @param int|null $value
      */
     public function pointsMultiplier(?int $value): self
     {
@@ -52,6 +54,8 @@ class LoyaltyPromotionIncentivePointsMultiplierDataBuilder
 
     /**
      * Sets multiplier field.
+     *
+     * @param string|null $value
      */
     public function multiplier(?string $value): self
     {
@@ -69,7 +73,7 @@ class LoyaltyPromotionIncentivePointsMultiplierDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion incentive points multiplier data object.
+     * Initializes a new Loyalty Promotion Incentive Points Multiplier Data object.
      */
     public function build(): LoyaltyPromotionIncentivePointsMultiplierData
     {

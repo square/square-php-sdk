@@ -25,7 +25,7 @@ class V1OrderHistoryEntryBuilder
     }
 
     /**
-     * Initializes a new v1 order history entry Builder object.
+     * Initializes a new V1 Order History Entry Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class V1OrderHistoryEntryBuilder
 
     /**
      * Sets action field.
+     *
+     * @param string|null $value
      */
     public function action(?string $value): self
     {
@@ -43,6 +45,8 @@ class V1OrderHistoryEntryBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -51,7 +55,7 @@ class V1OrderHistoryEntryBuilder
     }
 
     /**
-     * Initializes a new v1 order history entry object.
+     * Initializes a new V1 Order History Entry object.
      */
     public function build(): V1OrderHistoryEntry
     {

@@ -25,7 +25,7 @@ class RetrieveCatalogObjectRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve catalog object request Builder object.
+     * Initializes a new Retrieve Catalog Object Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveCatalogObjectRequestBuilder
 
     /**
      * Sets include related objects field.
+     *
+     * @param bool|null $value
      */
     public function includeRelatedObjects(?bool $value): self
     {
@@ -52,6 +54,8 @@ class RetrieveCatalogObjectRequestBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -70,6 +74,8 @@ class RetrieveCatalogObjectRequestBuilder
 
     /**
      * Sets include category path to root field.
+     *
+     * @param bool|null $value
      */
     public function includeCategoryPathToRoot(?bool $value): self
     {
@@ -87,7 +93,7 @@ class RetrieveCatalogObjectRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve catalog object request object.
+     * Initializes a new Retrieve Catalog Object Request object.
      */
     public function build(): RetrieveCatalogObjectRequest
     {

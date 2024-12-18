@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomAttributeDefinition;
+use Square\Models\Error;
 use Square\Models\RetrieveLocationCustomAttributeDefinitionResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveLocationCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location custom attribute definition response Builder object.
+     * Initializes a new Retrieve Location Custom Attribute Definition Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveLocationCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets custom attribute definition field.
+     *
+     * @param CustomAttributeDefinition|null $value
      */
     public function customAttributeDefinition(?CustomAttributeDefinition $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveLocationCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveLocationCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location custom attribute definition response object.
+     * Initializes a new Retrieve Location Custom Attribute Definition Response object.
      */
     public function build(): RetrieveLocationCustomAttributeDefinitionResponse
     {

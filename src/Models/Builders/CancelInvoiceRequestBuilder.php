@@ -25,7 +25,9 @@ class CancelInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new cancel invoice request Builder object.
+     * Initializes a new Cancel Invoice Request Builder object.
+     *
+     * @param int $version
      */
     public static function init(int $version): self
     {
@@ -33,7 +35,7 @@ class CancelInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new cancel invoice request object.
+     * Initializes a new Cancel Invoice Request object.
      */
     public function build(): CancelInvoiceRequest
     {

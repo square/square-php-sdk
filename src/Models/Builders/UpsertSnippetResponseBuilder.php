@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Snippet;
 use Square\Models\UpsertSnippetResponse;
 
@@ -26,7 +27,7 @@ class UpsertSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new upsert snippet response Builder object.
+     * Initializes a new Upsert Snippet Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpsertSnippetResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpsertSnippetResponseBuilder
 
     /**
      * Sets snippet field.
+     *
+     * @param Snippet|null $value
      */
     public function snippet(?Snippet $value): self
     {
@@ -52,7 +57,7 @@ class UpsertSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new upsert snippet response object.
+     * Initializes a new Upsert Snippet Response object.
      */
     public function build(): UpsertSnippetResponse
     {

@@ -28,7 +28,7 @@ class DestinationDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details Builder object.
+     * Initializes a new Destination Details Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +37,8 @@ class DestinationDetailsBuilder
 
     /**
      * Sets card details field.
+     *
+     * @param DestinationDetailsCardRefundDetails|null $value
      */
     public function cardDetails(?DestinationDetailsCardRefundDetails $value): self
     {
@@ -46,6 +48,8 @@ class DestinationDetailsBuilder
 
     /**
      * Sets cash details field.
+     *
+     * @param DestinationDetailsCashRefundDetails|null $value
      */
     public function cashDetails(?DestinationDetailsCashRefundDetails $value): self
     {
@@ -55,6 +59,8 @@ class DestinationDetailsBuilder
 
     /**
      * Sets external details field.
+     *
+     * @param DestinationDetailsExternalRefundDetails|null $value
      */
     public function externalDetails(?DestinationDetailsExternalRefundDetails $value): self
     {
@@ -63,7 +69,7 @@ class DestinationDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details object.
+     * Initializes a new Destination Details object.
      */
     public function build(): DestinationDetails
     {

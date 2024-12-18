@@ -26,7 +26,7 @@ class SearchLoyaltyAccountsRequestBuilder
     }
 
     /**
-     * Initializes a new search loyalty accounts request Builder object.
+     * Initializes a new Search Loyalty Accounts Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchLoyaltyAccountsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param SearchLoyaltyAccountsRequestLoyaltyAccountQuery|null $value
      */
     public function query(?SearchLoyaltyAccountsRequestLoyaltyAccountQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchLoyaltyAccountsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchLoyaltyAccountsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,7 +67,7 @@ class SearchLoyaltyAccountsRequestBuilder
     }
 
     /**
-     * Initializes a new search loyalty accounts request object.
+     * Initializes a new Search Loyalty Accounts Request object.
      */
     public function build(): SearchLoyaltyAccountsRequest
     {

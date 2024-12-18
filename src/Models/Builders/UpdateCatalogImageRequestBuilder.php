@@ -25,7 +25,9 @@ class UpdateCatalogImageRequestBuilder
     }
 
     /**
-     * Initializes a new update catalog image request Builder object.
+     * Initializes a new Update Catalog Image Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -33,7 +35,7 @@ class UpdateCatalogImageRequestBuilder
     }
 
     /**
-     * Initializes a new update catalog image request object.
+     * Initializes a new Update Catalog Image Request object.
      */
     public function build(): UpdateCatalogImageRequest
     {

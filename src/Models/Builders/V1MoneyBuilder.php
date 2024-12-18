@@ -25,7 +25,7 @@ class V1MoneyBuilder
     }
 
     /**
-     * Initializes a new v1 money Builder object.
+     * Initializes a new V1 Money Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class V1MoneyBuilder
 
     /**
      * Sets amount field.
+     *
+     * @param int|null $value
      */
     public function amount(?int $value): self
     {
@@ -52,6 +54,8 @@ class V1MoneyBuilder
 
     /**
      * Sets currency code field.
+     *
+     * @param string|null $value
      */
     public function currencyCode(?string $value): self
     {
@@ -60,7 +64,7 @@ class V1MoneyBuilder
     }
 
     /**
-     * Initializes a new v1 money object.
+     * Initializes a new V1 Money object.
      */
     public function build(): V1Money
     {

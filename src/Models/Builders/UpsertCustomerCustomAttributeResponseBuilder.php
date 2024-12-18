@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomAttribute;
+use Square\Models\Error;
 use Square\Models\UpsertCustomerCustomAttributeResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpsertCustomerCustomAttributeResponseBuilder
     }
 
     /**
-     * Initializes a new upsert customer custom attribute response Builder object.
+     * Initializes a new Upsert Customer Custom Attribute Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpsertCustomerCustomAttributeResponseBuilder
 
     /**
      * Sets custom attribute field.
+     *
+     * @param CustomAttribute|null $value
      */
     public function customAttribute(?CustomAttribute $value): self
     {
@@ -44,6 +47,8 @@ class UpsertCustomerCustomAttributeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpsertCustomerCustomAttributeResponseBuilder
     }
 
     /**
-     * Initializes a new upsert customer custom attribute response object.
+     * Initializes a new Upsert Customer Custom Attribute Response object.
      */
     public function build(): UpsertCustomerCustomAttributeResponse
     {

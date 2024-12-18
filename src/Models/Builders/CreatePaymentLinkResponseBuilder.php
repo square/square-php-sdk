@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreatePaymentLinkResponse;
+use Square\Models\Error;
 use Square\Models\PaymentLink;
 use Square\Models\PaymentLinkRelatedResources;
 
@@ -27,7 +28,7 @@ class CreatePaymentLinkResponseBuilder
     }
 
     /**
-     * Initializes a new create payment link response Builder object.
+     * Initializes a new Create Payment Link Response Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +37,8 @@ class CreatePaymentLinkResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -45,6 +48,8 @@ class CreatePaymentLinkResponseBuilder
 
     /**
      * Sets payment link field.
+     *
+     * @param PaymentLink|null $value
      */
     public function paymentLink(?PaymentLink $value): self
     {
@@ -54,6 +59,8 @@ class CreatePaymentLinkResponseBuilder
 
     /**
      * Sets related resources field.
+     *
+     * @param PaymentLinkRelatedResources|null $value
      */
     public function relatedResources(?PaymentLinkRelatedResources $value): self
     {
@@ -62,7 +69,7 @@ class CreatePaymentLinkResponseBuilder
     }
 
     /**
-     * Initializes a new create payment link response object.
+     * Initializes a new Create Payment Link Response object.
      */
     public function build(): CreatePaymentLinkResponse
     {

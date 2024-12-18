@@ -25,7 +25,7 @@ class ListCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new list customers request Builder object.
+     * Initializes a new List Customers Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListCustomersRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListCustomersRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListCustomersRequestBuilder
 
     /**
      * Sets sort field field.
+     *
+     * @param string|null $value
      */
     public function sortField(?string $value): self
     {
@@ -79,6 +85,8 @@ class ListCustomersRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -88,6 +96,8 @@ class ListCustomersRequestBuilder
 
     /**
      * Sets count field.
+     *
+     * @param bool|null $value
      */
     public function count(?bool $value): self
     {
@@ -105,7 +115,7 @@ class ListCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new list customers request object.
+     * Initializes a new List Customers Request object.
      */
     public function build(): ListCustomersRequest
     {

@@ -67,6 +67,11 @@ class TeamMember implements \JsonSerializable
     private $assignedLocations;
 
     /**
+     * @var WageSetting|null
+     */
+    private $wageSetting;
+
+    /**
      * Returns Id.
      * The unique ID for the team member.
      */
@@ -224,7 +229,8 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Email Address.
-     * The email address associated with the team member.
+     * The email address associated with the team member. After accepting the invitation
+     * from Square, only the team member can change this value.
      */
     public function getEmailAddress(): ?string
     {
@@ -236,7 +242,8 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Email Address.
-     * The email address associated with the team member.
+     * The email address associated with the team member. After accepting the invitation
+     * from Square, only the team member can change this value.
      *
      * @maps email_address
      */
@@ -247,7 +254,8 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Unsets Email Address.
-     * The email address associated with the team member.
+     * The email address associated with the team member. After accepting the invitation
+     * from Square, only the team member can change this value.
      */
     public function unsetEmailAddress(): void
     {
@@ -294,8 +302,7 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Created At.
-     * The timestamp, in RFC 3339 format, describing when the team member was created.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the team member was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -304,8 +311,7 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Created At.
-     * The timestamp, in RFC 3339 format, describing when the team member was created.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the team member was created, in RFC 3339 format.
      *
      * @maps created_at
      */
@@ -316,8 +322,7 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     * The timestamp, in RFC 3339 format, describing when the team member was last updated.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the team member was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
     {
@@ -326,8 +331,7 @@ class TeamMember implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     * The timestamp, in RFC 3339 format, describing when the team member was last updated.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the team member was last updated, in RFC 3339 format.
      *
      * @maps updated_at
      */
@@ -354,6 +358,28 @@ class TeamMember implements \JsonSerializable
     public function setAssignedLocations(?TeamMemberAssignedLocations $assignedLocations): void
     {
         $this->assignedLocations = $assignedLocations;
+    }
+
+    /**
+     * Returns Wage Setting.
+     * Represents information about the overtime exemption status, job assignments, and compensation
+     * for a [team member]($m/TeamMember).
+     */
+    public function getWageSetting(): ?WageSetting
+    {
+        return $this->wageSetting;
+    }
+
+    /**
+     * Sets Wage Setting.
+     * Represents information about the overtime exemption status, job assignments, and compensation
+     * for a [team member]($m/TeamMember).
+     *
+     * @maps wage_setting
+     */
+    public function setWageSetting(?WageSetting $wageSetting): void
+    {
+        $this->wageSetting = $wageSetting;
     }
 
     /**
@@ -400,6 +426,9 @@ class TeamMember implements \JsonSerializable
         }
         if (isset($this->assignedLocations)) {
             $json['assigned_locations'] = $this->assignedLocations;
+        }
+        if (isset($this->wageSetting)) {
+            $json['wage_setting']       = $this->wageSetting;
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

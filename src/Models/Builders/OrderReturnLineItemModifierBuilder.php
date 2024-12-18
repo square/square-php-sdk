@@ -26,7 +26,7 @@ class OrderReturnLineItemModifierBuilder
     }
 
     /**
-     * Initializes a new order return line item modifier Builder object.
+     * Initializes a new Order Return Line Item Modifier Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets source modifier uid field.
+     *
+     * @param string|null $value
      */
     public function sourceModifierUid(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -89,6 +95,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -107,6 +115,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -125,6 +135,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets base price money field.
+     *
+     * @param Money|null $value
      */
     public function basePriceMoney(?Money $value): self
     {
@@ -134,6 +146,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets total price money field.
+     *
+     * @param Money|null $value
      */
     public function totalPriceMoney(?Money $value): self
     {
@@ -143,6 +157,8 @@ class OrderReturnLineItemModifierBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -160,7 +176,7 @@ class OrderReturnLineItemModifierBuilder
     }
 
     /**
-     * Initializes a new order return line item modifier object.
+     * Initializes a new Order Return Line Item Modifier object.
      */
     public function build(): OrderReturnLineItemModifier
     {

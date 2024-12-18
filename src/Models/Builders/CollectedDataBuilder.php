@@ -25,7 +25,7 @@ class CollectedDataBuilder
     }
 
     /**
-     * Initializes a new collected data Builder object.
+     * Initializes a new Collected Data Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CollectedDataBuilder
 
     /**
      * Sets input text field.
+     *
+     * @param string|null $value
      */
     public function inputText(?string $value): self
     {
@@ -42,7 +44,7 @@ class CollectedDataBuilder
     }
 
     /**
-     * Initializes a new collected data object.
+     * Initializes a new Collected Data object.
      */
     public function build(): CollectedData
     {

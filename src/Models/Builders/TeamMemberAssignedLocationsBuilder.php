@@ -25,7 +25,7 @@ class TeamMemberAssignedLocationsBuilder
     }
 
     /**
-     * Initializes a new team member assigned locations Builder object.
+     * Initializes a new Team Member Assigned Locations Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TeamMemberAssignedLocationsBuilder
 
     /**
      * Sets assignment type field.
+     *
+     * @param string|null $value
      */
     public function assignmentType(?string $value): self
     {
@@ -43,6 +45,8 @@ class TeamMemberAssignedLocationsBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -60,7 +64,7 @@ class TeamMemberAssignedLocationsBuilder
     }
 
     /**
-     * Initializes a new team member assigned locations object.
+     * Initializes a new Team Member Assigned Locations object.
      */
     public function build(): TeamMemberAssignedLocations
     {

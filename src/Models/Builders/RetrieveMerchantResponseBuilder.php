@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Merchant;
 use Square\Models\RetrieveMerchantResponse;
 
@@ -26,7 +27,7 @@ class RetrieveMerchantResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve merchant response Builder object.
+     * Initializes a new Retrieve Merchant Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveMerchantResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveMerchantResponseBuilder
 
     /**
      * Sets merchant field.
+     *
+     * @param Merchant|null $value
      */
     public function merchant(?Merchant $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveMerchantResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve merchant response object.
+     * Initializes a new Retrieve Merchant Response object.
      */
     public function build(): RetrieveMerchantResponse
     {

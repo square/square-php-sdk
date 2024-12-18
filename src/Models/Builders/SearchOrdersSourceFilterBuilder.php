@@ -25,7 +25,7 @@ class SearchOrdersSourceFilterBuilder
     }
 
     /**
-     * Initializes a new search orders source filter Builder object.
+     * Initializes a new Search Orders Source Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchOrdersSourceFilterBuilder
 
     /**
      * Sets source names field.
+     *
+     * @param string[]|null $value
      */
     public function sourceNames(?array $value): self
     {
@@ -51,7 +53,7 @@ class SearchOrdersSourceFilterBuilder
     }
 
     /**
-     * Initializes a new search orders source filter object.
+     * Initializes a new Search Orders Source Filter object.
      */
     public function build(): SearchOrdersSourceFilter
     {

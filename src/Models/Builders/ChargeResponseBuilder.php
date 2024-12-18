@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\ChargeResponse;
+use Square\Models\Error;
 use Square\Models\Transaction;
 
 /**
@@ -26,7 +27,7 @@ class ChargeResponseBuilder
     }
 
     /**
-     * Initializes a new charge response Builder object.
+     * Initializes a new Charge Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class ChargeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class ChargeResponseBuilder
 
     /**
      * Sets transaction field.
+     *
+     * @param Transaction|null $value
      */
     public function transaction(?Transaction $value): self
     {
@@ -52,7 +57,7 @@ class ChargeResponseBuilder
     }
 
     /**
-     * Initializes a new charge response object.
+     * Initializes a new Charge Response object.
      */
     public function build(): ChargeResponse
     {

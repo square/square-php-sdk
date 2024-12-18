@@ -26,7 +26,7 @@ class SubscriptionPricingBuilder
     }
 
     /**
-     * Initializes a new subscription pricing Builder object.
+     * Initializes a new Subscription Pricing Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SubscriptionPricingBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -44,6 +46,8 @@ class SubscriptionPricingBuilder
 
     /**
      * Sets discount ids field.
+     *
+     * @param string[]|null $value
      */
     public function discountIds(?array $value): self
     {
@@ -62,6 +66,8 @@ class SubscriptionPricingBuilder
 
     /**
      * Sets price money field.
+     *
+     * @param Money|null $value
      */
     public function priceMoney(?Money $value): self
     {
@@ -70,7 +76,7 @@ class SubscriptionPricingBuilder
     }
 
     /**
-     * Initializes a new subscription pricing object.
+     * Initializes a new Subscription Pricing object.
      */
     public function build(): SubscriptionPricing
     {

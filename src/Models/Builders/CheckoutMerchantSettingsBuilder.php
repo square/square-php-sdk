@@ -26,7 +26,7 @@ class CheckoutMerchantSettingsBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings Builder object.
+     * Initializes a new Checkout Merchant Settings Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CheckoutMerchantSettingsBuilder
 
     /**
      * Sets payment methods field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethods|null $value
      */
     public function paymentMethods(?CheckoutMerchantSettingsPaymentMethods $value): self
     {
@@ -44,6 +46,8 @@ class CheckoutMerchantSettingsBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -52,7 +56,7 @@ class CheckoutMerchantSettingsBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings object.
+     * Initializes a new Checkout Merchant Settings object.
      */
     public function build(): CheckoutMerchantSettings
     {

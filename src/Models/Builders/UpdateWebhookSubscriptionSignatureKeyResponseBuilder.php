@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\UpdateWebhookSubscriptionSignatureKeyResponse;
 
 /**
@@ -25,7 +26,7 @@ class UpdateWebhookSubscriptionSignatureKeyResponseBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription signature key response Builder object.
+     * Initializes a new Update Webhook Subscription Signature Key Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class UpdateWebhookSubscriptionSignatureKeyResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class UpdateWebhookSubscriptionSignatureKeyResponseBuilder
 
     /**
      * Sets signature key field.
+     *
+     * @param string|null $value
      */
     public function signatureKey(?string $value): self
     {
@@ -51,7 +56,7 @@ class UpdateWebhookSubscriptionSignatureKeyResponseBuilder
     }
 
     /**
-     * Initializes a new update webhook subscription signature key response object.
+     * Initializes a new Update Webhook Subscription Signature Key Response object.
      */
     public function build(): UpdateWebhookSubscriptionSignatureKeyResponse
     {

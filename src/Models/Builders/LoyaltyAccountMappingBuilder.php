@@ -25,7 +25,7 @@ class LoyaltyAccountMappingBuilder
     }
 
     /**
-     * Initializes a new loyalty account mapping Builder object.
+     * Initializes a new Loyalty Account Mapping Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class LoyaltyAccountMappingBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class LoyaltyAccountMappingBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -52,6 +56,8 @@ class LoyaltyAccountMappingBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -69,7 +75,7 @@ class LoyaltyAccountMappingBuilder
     }
 
     /**
-     * Initializes a new loyalty account mapping object.
+     * Initializes a new Loyalty Account Mapping object.
      */
     public function build(): LoyaltyAccountMapping
     {

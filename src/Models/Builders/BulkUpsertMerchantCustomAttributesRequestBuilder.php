@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpsertMerchantCustomAttributesRequest;
+use Square\Models\BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest;
 
 /**
  * Builder for model BulkUpsertMerchantCustomAttributesRequest
@@ -25,7 +26,9 @@ class BulkUpsertMerchantCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk upsert merchant custom attributes request Builder object.
+     * Initializes a new Bulk Upsert Merchant Custom Attributes Request Builder object.
+     *
+     * @param array<string,BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest> $values
      */
     public static function init(array $values): self
     {
@@ -33,7 +36,7 @@ class BulkUpsertMerchantCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk upsert merchant custom attributes request object.
+     * Initializes a new Bulk Upsert Merchant Custom Attributes Request object.
      */
     public function build(): BulkUpsertMerchantCustomAttributesRequest
     {

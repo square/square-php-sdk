@@ -25,7 +25,10 @@ class OrderRewardBuilder
     }
 
     /**
-     * Initializes a new order reward Builder object.
+     * Initializes a new Order Reward Builder object.
+     *
+     * @param string $id
+     * @param string $rewardTierId
      */
     public static function init(string $id, string $rewardTierId): self
     {
@@ -33,7 +36,7 @@ class OrderRewardBuilder
     }
 
     /**
-     * Initializes a new order reward object.
+     * Initializes a new Order Reward object.
      */
     public function build(): OrderReward
     {

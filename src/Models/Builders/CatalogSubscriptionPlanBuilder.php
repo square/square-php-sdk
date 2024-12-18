@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogObject;
 use Square\Models\CatalogSubscriptionPlan;
+use Square\Models\SubscriptionPhase;
 
 /**
  * Builder for model CatalogSubscriptionPlan
@@ -25,7 +27,9 @@ class CatalogSubscriptionPlanBuilder
     }
 
     /**
-     * Initializes a new catalog subscription plan Builder object.
+     * Initializes a new Catalog Subscription Plan Builder object.
+     *
+     * @param string $name
      */
     public static function init(string $name): self
     {
@@ -34,6 +38,8 @@ class CatalogSubscriptionPlanBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param SubscriptionPhase[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -52,6 +58,8 @@ class CatalogSubscriptionPlanBuilder
 
     /**
      * Sets subscription plan variations field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function subscriptionPlanVariations(?array $value): self
     {
@@ -70,6 +78,8 @@ class CatalogSubscriptionPlanBuilder
 
     /**
      * Sets eligible item ids field.
+     *
+     * @param string[]|null $value
      */
     public function eligibleItemIds(?array $value): self
     {
@@ -88,6 +98,8 @@ class CatalogSubscriptionPlanBuilder
 
     /**
      * Sets eligible category ids field.
+     *
+     * @param string[]|null $value
      */
     public function eligibleCategoryIds(?array $value): self
     {
@@ -106,6 +118,8 @@ class CatalogSubscriptionPlanBuilder
 
     /**
      * Sets all items field.
+     *
+     * @param bool|null $value
      */
     public function allItems(?bool $value): self
     {
@@ -123,7 +137,7 @@ class CatalogSubscriptionPlanBuilder
     }
 
     /**
-     * Initializes a new catalog subscription plan object.
+     * Initializes a new Catalog Subscription Plan object.
      */
     public function build(): CatalogSubscriptionPlan
     {

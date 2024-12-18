@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Availability;
+use Square\Models\Error;
 use Square\Models\SearchAvailabilityResponse;
 
 /**
@@ -25,7 +27,7 @@ class SearchAvailabilityResponseBuilder
     }
 
     /**
-     * Initializes a new search availability response Builder object.
+     * Initializes a new Search Availability Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchAvailabilityResponseBuilder
 
     /**
      * Sets availabilities field.
+     *
+     * @param Availability[]|null $value
      */
     public function availabilities(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchAvailabilityResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class SearchAvailabilityResponseBuilder
     }
 
     /**
-     * Initializes a new search availability response object.
+     * Initializes a new Search Availability Response object.
      */
     public function build(): SearchAvailabilityResponse
     {

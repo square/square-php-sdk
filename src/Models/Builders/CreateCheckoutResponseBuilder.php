@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Checkout;
 use Square\Models\CreateCheckoutResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model CreateCheckoutResponse
@@ -26,7 +27,7 @@ class CreateCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new create checkout response Builder object.
+     * Initializes a new Create Checkout Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateCheckoutResponseBuilder
 
     /**
      * Sets checkout field.
+     *
+     * @param Checkout|null $value
      */
     public function checkout(?Checkout $value): self
     {
@@ -44,6 +47,8 @@ class CreateCheckoutResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CreateCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new create checkout response object.
+     * Initializes a new Create Checkout Response object.
      */
     public function build(): CreateCheckoutResponse
     {

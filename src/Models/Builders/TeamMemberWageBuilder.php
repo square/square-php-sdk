@@ -26,7 +26,7 @@ class TeamMemberWageBuilder
     }
 
     /**
-     * Initializes a new team member wage Builder object.
+     * Initializes a new Team Member Wage Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -62,6 +66,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets title field.
+     *
+     * @param string|null $value
      */
     public function title(?string $value): self
     {
@@ -80,6 +86,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets hourly rate field.
+     *
+     * @param Money|null $value
      */
     public function hourlyRate(?Money $value): self
     {
@@ -89,6 +97,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets job id field.
+     *
+     * @param string|null $value
      */
     public function jobId(?string $value): self
     {
@@ -107,6 +117,8 @@ class TeamMemberWageBuilder
 
     /**
      * Sets tip eligible field.
+     *
+     * @param bool|null $value
      */
     public function tipEligible(?bool $value): self
     {
@@ -124,7 +136,7 @@ class TeamMemberWageBuilder
     }
 
     /**
-     * Initializes a new team member wage object.
+     * Initializes a new Team Member Wage object.
      */
     public function build(): TeamMemberWage
     {

@@ -25,7 +25,9 @@ class InvoiceFilterBuilder
     }
 
     /**
-     * Initializes a new invoice filter Builder object.
+     * Initializes a new Invoice Filter Builder object.
+     *
+     * @param string[] $locationIds
      */
     public static function init(array $locationIds): self
     {
@@ -34,6 +36,8 @@ class InvoiceFilterBuilder
 
     /**
      * Sets customer ids field.
+     *
+     * @param string[]|null $value
      */
     public function customerIds(?array $value): self
     {
@@ -51,7 +55,7 @@ class InvoiceFilterBuilder
     }
 
     /**
-     * Initializes a new invoice filter object.
+     * Initializes a new Invoice Filter object.
      */
     public function build(): InvoiceFilter
     {

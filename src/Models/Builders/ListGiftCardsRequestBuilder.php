@@ -25,7 +25,7 @@ class ListGiftCardsRequestBuilder
     }
 
     /**
-     * Initializes a new list gift cards request Builder object.
+     * Initializes a new List Gift Cards Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListGiftCardsRequestBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListGiftCardsRequestBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListGiftCardsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -88,6 +94,8 @@ class ListGiftCardsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -106,6 +114,8 @@ class ListGiftCardsRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -123,7 +133,7 @@ class ListGiftCardsRequestBuilder
     }
 
     /**
-     * Initializes a new list gift cards request object.
+     * Initializes a new List Gift Cards Request object.
      */
     public function build(): ListGiftCardsRequest
     {

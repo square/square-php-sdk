@@ -7,14 +7,16 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * An object describing a job that a team member is assigned to.
+ * Represents a job assigned to a [team member]($m/TeamMember), including the compensation the team
+ * member earns for the job. Job assignments are listed in the team member's [wage
+ * setting]($m/WageSetting).
  */
 class JobAssignment implements \JsonSerializable
 {
     /**
-     * @var string
+     * @var array
      */
-    private $jobTitle;
+    private $jobTitle = [];
 
     /**
      * @var string
@@ -37,12 +39,15 @@ class JobAssignment implements \JsonSerializable
     private $weeklyHours = [];
 
     /**
-     * @param string $jobTitle
+     * @var array
+     */
+    private $jobId = [];
+
+    /**
      * @param string $payType
      */
-    public function __construct(string $jobTitle, string $payType)
+    public function __construct(string $payType)
     {
-        $this->jobTitle = $jobTitle;
         $this->payType = $payType;
     }
 
@@ -50,21 +55,32 @@ class JobAssignment implements \JsonSerializable
      * Returns Job Title.
      * The title of the job.
      */
-    public function getJobTitle(): string
+    public function getJobTitle(): ?string
     {
-        return $this->jobTitle;
+        if (count($this->jobTitle) == 0) {
+            return null;
+        }
+        return $this->jobTitle['value'];
     }
 
     /**
      * Sets Job Title.
      * The title of the job.
      *
-     * @required
      * @maps job_title
      */
-    public function setJobTitle(string $jobTitle): void
+    public function setJobTitle(?string $jobTitle): void
     {
-        $this->jobTitle = $jobTitle;
+        $this->jobTitle['value'] = $jobTitle;
+    }
+
+    /**
+     * Unsets Job Title.
+     * The title of the job.
+     */
+    public function unsetJobTitle(): void
+    {
+        $this->jobTitle = [];
     }
 
     /**
@@ -185,6 +201,38 @@ class JobAssignment implements \JsonSerializable
     }
 
     /**
+     * Returns Job Id.
+     * The ID of the [job]($m/Job).
+     */
+    public function getJobId(): ?string
+    {
+        if (count($this->jobId) == 0) {
+            return null;
+        }
+        return $this->jobId['value'];
+    }
+
+    /**
+     * Sets Job Id.
+     * The ID of the [job]($m/Job).
+     *
+     * @maps job_id
+     */
+    public function setJobId(?string $jobId): void
+    {
+        $this->jobId['value'] = $jobId;
+    }
+
+    /**
+     * Unsets Job Id.
+     * The ID of the [job]($m/Job).
+     */
+    public function unsetJobId(): void
+    {
+        $this->jobId = [];
+    }
+
+    /**
      * Encode this object to JSON
      *
      * @param bool $asArrayWhenEmpty Whether to serialize this model as an array whenever no fields
@@ -196,7 +244,9 @@ class JobAssignment implements \JsonSerializable
     public function jsonSerialize(bool $asArrayWhenEmpty = false)
     {
         $json = [];
-        $json['job_title']        = $this->jobTitle;
+        if (!empty($this->jobTitle)) {
+            $json['job_title']    = $this->jobTitle['value'];
+        }
         $json['pay_type']         = $this->payType;
         if (isset($this->hourlyRate)) {
             $json['hourly_rate']  = $this->hourlyRate;
@@ -206,6 +256,9 @@ class JobAssignment implements \JsonSerializable
         }
         if (!empty($this->weeklyHours)) {
             $json['weekly_hours'] = $this->weeklyHours['value'];
+        }
+        if (!empty($this->jobId)) {
+            $json['job_id']       = $this->jobId['value'];
         }
         $json = array_filter($json, function ($val) {
             return $val !== null;

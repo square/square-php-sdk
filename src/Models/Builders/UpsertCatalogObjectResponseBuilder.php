@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogIdMapping;
 use Square\Models\CatalogObject;
+use Square\Models\Error;
 use Square\Models\UpsertCatalogObjectResponse;
 
 /**
@@ -26,7 +28,7 @@ class UpsertCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new upsert catalog object response Builder object.
+     * Initializes a new Upsert Catalog Object Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class UpsertCatalogObjectResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +48,8 @@ class UpsertCatalogObjectResponseBuilder
 
     /**
      * Sets catalog object field.
+     *
+     * @param CatalogObject|null $value
      */
     public function catalogObject(?CatalogObject $value): self
     {
@@ -53,6 +59,8 @@ class UpsertCatalogObjectResponseBuilder
 
     /**
      * Sets id mappings field.
+     *
+     * @param CatalogIdMapping[]|null $value
      */
     public function idMappings(?array $value): self
     {
@@ -61,7 +69,7 @@ class UpsertCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new upsert catalog object response object.
+     * Initializes a new Upsert Catalog Object Response object.
      */
     public function build(): UpsertCatalogObjectResponse
     {

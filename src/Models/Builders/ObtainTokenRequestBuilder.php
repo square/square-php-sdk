@@ -25,7 +25,10 @@ class ObtainTokenRequestBuilder
     }
 
     /**
-     * Initializes a new obtain token request Builder object.
+     * Initializes a new Obtain Token Request Builder object.
+     *
+     * @param string $clientId
+     * @param string $grantType
      */
     public static function init(string $clientId, string $grantType): self
     {
@@ -34,6 +37,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets client secret field.
+     *
+     * @param string|null $value
      */
     public function clientSecret(?string $value): self
     {
@@ -52,6 +57,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets code field.
+     *
+     * @param string|null $value
      */
     public function code(?string $value): self
     {
@@ -70,6 +77,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets redirect uri field.
+     *
+     * @param string|null $value
      */
     public function redirectUri(?string $value): self
     {
@@ -88,6 +97,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets refresh token field.
+     *
+     * @param string|null $value
      */
     public function refreshToken(?string $value): self
     {
@@ -106,6 +117,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets migration token field.
+     *
+     * @param string|null $value
      */
     public function migrationToken(?string $value): self
     {
@@ -124,6 +137,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets scopes field.
+     *
+     * @param string[]|null $value
      */
     public function scopes(?array $value): self
     {
@@ -142,6 +157,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets short lived field.
+     *
+     * @param bool|null $value
      */
     public function shortLived(?bool $value): self
     {
@@ -160,6 +177,8 @@ class ObtainTokenRequestBuilder
 
     /**
      * Sets code verifier field.
+     *
+     * @param string|null $value
      */
     public function codeVerifier(?string $value): self
     {
@@ -177,7 +196,7 @@ class ObtainTokenRequestBuilder
     }
 
     /**
-     * Initializes a new obtain token request object.
+     * Initializes a new Obtain Token Request object.
      */
     public function build(): ObtainTokenRequest
     {

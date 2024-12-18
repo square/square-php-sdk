@@ -26,7 +26,9 @@ class LoyaltyProgramAccrualRuleVisitDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule visit data Builder object.
+     * Initializes a new Loyalty Program Accrual Rule Visit Data Builder object.
+     *
+     * @param string $taxMode
      */
     public static function init(string $taxMode): self
     {
@@ -35,6 +37,8 @@ class LoyaltyProgramAccrualRuleVisitDataBuilder
 
     /**
      * Sets minimum amount money field.
+     *
+     * @param Money|null $value
      */
     public function minimumAmountMoney(?Money $value): self
     {
@@ -43,7 +47,7 @@ class LoyaltyProgramAccrualRuleVisitDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule visit data object.
+     * Initializes a new Loyalty Program Accrual Rule Visit Data object.
      */
     public function build(): LoyaltyProgramAccrualRuleVisitData
     {

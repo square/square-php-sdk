@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchUpsertCatalogObjectsRequest;
+use Square\Models\CatalogObjectBatch;
 
 /**
  * Builder for model BatchUpsertCatalogObjectsRequest
@@ -25,7 +26,10 @@ class BatchUpsertCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch upsert catalog objects request Builder object.
+     * Initializes a new Batch Upsert Catalog Objects Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param CatalogObjectBatch[] $batches
      */
     public static function init(string $idempotencyKey, array $batches): self
     {
@@ -33,7 +37,7 @@ class BatchUpsertCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch upsert catalog objects request object.
+     * Initializes a new Batch Upsert Catalog Objects Request object.
      */
     public function build(): BatchUpsertCatalogObjectsRequest
     {

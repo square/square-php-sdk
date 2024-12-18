@@ -25,7 +25,9 @@ class LoyaltyEventTypeFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event type filter Builder object.
+     * Initializes a new Loyalty Event Type Filter Builder object.
+     *
+     * @param string[] $types
      */
     public static function init(array $types): self
     {
@@ -33,7 +35,7 @@ class LoyaltyEventTypeFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event type filter object.
+     * Initializes a new Loyalty Event Type Filter object.
      */
     public function build(): LoyaltyEventTypeFilter
     {

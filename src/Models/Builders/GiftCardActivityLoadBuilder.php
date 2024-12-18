@@ -26,7 +26,7 @@ class GiftCardActivityLoadBuilder
     }
 
     /**
-     * Initializes a new gift card activity load Builder object.
+     * Initializes a new Gift Card Activity Load Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class GiftCardActivityLoadBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -44,6 +46,8 @@ class GiftCardActivityLoadBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -62,6 +66,8 @@ class GiftCardActivityLoadBuilder
 
     /**
      * Sets line item uid field.
+     *
+     * @param string|null $value
      */
     public function lineItemUid(?string $value): self
     {
@@ -80,6 +86,8 @@ class GiftCardActivityLoadBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -98,6 +106,8 @@ class GiftCardActivityLoadBuilder
 
     /**
      * Sets buyer payment instrument ids field.
+     *
+     * @param string[]|null $value
      */
     public function buyerPaymentInstrumentIds(?array $value): self
     {
@@ -115,7 +125,7 @@ class GiftCardActivityLoadBuilder
     }
 
     /**
-     * Initializes a new gift card activity load object.
+     * Initializes a new Gift Card Activity Load object.
      */
     public function build(): GiftCardActivityLoad
     {

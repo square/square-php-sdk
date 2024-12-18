@@ -26,7 +26,9 @@ class SearchInvoicesRequestBuilder
     }
 
     /**
-     * Initializes a new search invoices request Builder object.
+     * Initializes a new Search Invoices Request Builder object.
+     *
+     * @param InvoiceQuery $query
      */
     public static function init(InvoiceQuery $query): self
     {
@@ -35,6 +37,8 @@ class SearchInvoicesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -44,6 +48,8 @@ class SearchInvoicesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,7 +58,7 @@ class SearchInvoicesRequestBuilder
     }
 
     /**
-     * Initializes a new search invoices request object.
+     * Initializes a new Search Invoices Request object.
      */
     public function build(): SearchInvoicesRequest
     {

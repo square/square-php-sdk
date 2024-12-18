@@ -26,7 +26,10 @@ class AdjustLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new adjust loyalty points request Builder object.
+     * Initializes a new Adjust Loyalty Points Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param LoyaltyEventAdjustPoints $adjustPoints
      */
     public static function init(string $idempotencyKey, LoyaltyEventAdjustPoints $adjustPoints): self
     {
@@ -35,6 +38,8 @@ class AdjustLoyaltyPointsRequestBuilder
 
     /**
      * Sets allow negative balance field.
+     *
+     * @param bool|null $value
      */
     public function allowNegativeBalance(?bool $value): self
     {
@@ -52,7 +57,7 @@ class AdjustLoyaltyPointsRequestBuilder
     }
 
     /**
-     * Initializes a new adjust loyalty points request object.
+     * Initializes a new Adjust Loyalty Points Request object.
      */
     public function build(): AdjustLoyaltyPointsRequest
     {

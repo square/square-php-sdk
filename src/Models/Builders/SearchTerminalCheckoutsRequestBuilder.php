@@ -26,7 +26,7 @@ class SearchTerminalCheckoutsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal checkouts request Builder object.
+     * Initializes a new Search Terminal Checkouts Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchTerminalCheckoutsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param TerminalCheckoutQuery|null $value
      */
     public function query(?TerminalCheckoutQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchTerminalCheckoutsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -53,6 +57,8 @@ class SearchTerminalCheckoutsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -61,7 +67,7 @@ class SearchTerminalCheckoutsRequestBuilder
     }
 
     /**
-     * Initializes a new search terminal checkouts request object.
+     * Initializes a new Search Terminal Checkouts Request object.
      */
     public function build(): SearchTerminalCheckoutsRequest
     {

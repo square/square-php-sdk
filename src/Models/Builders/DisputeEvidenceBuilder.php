@@ -26,7 +26,7 @@ class DisputeEvidenceBuilder
     }
 
     /**
-     * Initializes a new dispute evidence Builder object.
+     * Initializes a new Dispute Evidence Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets evidence id field.
+     *
+     * @param string|null $value
      */
     public function evidenceId(?string $value): self
     {
@@ -53,6 +55,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -62,6 +66,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets dispute id field.
+     *
+     * @param string|null $value
      */
     public function disputeId(?string $value): self
     {
@@ -80,6 +86,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets evidence file field.
+     *
+     * @param DisputeEvidenceFile|null $value
      */
     public function evidenceFile(?DisputeEvidenceFile $value): self
     {
@@ -89,6 +97,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets evidence text field.
+     *
+     * @param string|null $value
      */
     public function evidenceText(?string $value): self
     {
@@ -107,6 +117,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets uploaded at field.
+     *
+     * @param string|null $value
      */
     public function uploadedAt(?string $value): self
     {
@@ -125,6 +137,8 @@ class DisputeEvidenceBuilder
 
     /**
      * Sets evidence type field.
+     *
+     * @param string|null $value
      */
     public function evidenceType(?string $value): self
     {
@@ -133,7 +147,7 @@ class DisputeEvidenceBuilder
     }
 
     /**
-     * Initializes a new dispute evidence object.
+     * Initializes a new Dispute Evidence object.
      */
     public function build(): DisputeEvidence
     {

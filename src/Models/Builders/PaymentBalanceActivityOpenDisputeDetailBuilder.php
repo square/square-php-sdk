@@ -25,7 +25,7 @@ class PaymentBalanceActivityOpenDisputeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity open dispute detail Builder object.
+     * Initializes a new Payment Balance Activity Open Dispute Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityOpenDisputeDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityOpenDisputeDetailBuilder
 
     /**
      * Sets dispute id field.
+     *
+     * @param string|null $value
      */
     public function disputeId(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityOpenDisputeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity open dispute detail object.
+     * Initializes a new Payment Balance Activity Open Dispute Detail object.
      */
     public function build(): PaymentBalanceActivityOpenDisputeDetail
     {

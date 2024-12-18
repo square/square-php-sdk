@@ -26,7 +26,7 @@ class SearchCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new search catalog objects request Builder object.
+     * Initializes a new Search Catalog Objects Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -44,6 +46,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets object types field.
+     *
+     * @param string[]|null $value
      */
     public function objectTypes(?array $value): self
     {
@@ -53,6 +57,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets include deleted objects field.
+     *
+     * @param bool|null $value
      */
     public function includeDeletedObjects(?bool $value): self
     {
@@ -62,6 +68,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets include related objects field.
+     *
+     * @param bool|null $value
      */
     public function includeRelatedObjects(?bool $value): self
     {
@@ -71,6 +79,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets begin time field.
+     *
+     * @param string|null $value
      */
     public function beginTime(?string $value): self
     {
@@ -80,6 +90,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param CatalogQuery|null $value
      */
     public function query(?CatalogQuery $value): self
     {
@@ -89,6 +101,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -98,6 +112,8 @@ class SearchCatalogObjectsRequestBuilder
 
     /**
      * Sets include category path to root field.
+     *
+     * @param bool|null $value
      */
     public function includeCategoryPathToRoot(?bool $value): self
     {
@@ -106,7 +122,7 @@ class SearchCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new search catalog objects request object.
+     * Initializes a new Search Catalog Objects Request object.
      */
     public function build(): SearchCatalogObjectsRequest
     {

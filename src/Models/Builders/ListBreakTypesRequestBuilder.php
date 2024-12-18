@@ -25,7 +25,7 @@ class ListBreakTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list break types request Builder object.
+     * Initializes a new List Break Types Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListBreakTypesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListBreakTypesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListBreakTypesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -87,7 +93,7 @@ class ListBreakTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list break types request object.
+     * Initializes a new List Break Types Request object.
      */
     public function build(): ListBreakTypesRequest
     {

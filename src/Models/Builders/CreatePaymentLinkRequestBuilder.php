@@ -29,7 +29,7 @@ class CreatePaymentLinkRequestBuilder
     }
 
     /**
-     * Initializes a new create payment link request Builder object.
+     * Initializes a new Create Payment Link Request Builder object.
      */
     public static function init(): self
     {
@@ -38,6 +38,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -47,6 +49,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -56,6 +60,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets quick pay field.
+     *
+     * @param QuickPay|null $value
      */
     public function quickPay(?QuickPay $value): self
     {
@@ -65,6 +71,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -74,6 +82,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets checkout options field.
+     *
+     * @param CheckoutOptions|null $value
      */
     public function checkoutOptions(?CheckoutOptions $value): self
     {
@@ -83,6 +93,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets pre populated data field.
+     *
+     * @param PrePopulatedData|null $value
      */
     public function prePopulatedData(?PrePopulatedData $value): self
     {
@@ -92,6 +104,8 @@ class CreatePaymentLinkRequestBuilder
 
     /**
      * Sets payment note field.
+     *
+     * @param string|null $value
      */
     public function paymentNote(?string $value): self
     {
@@ -100,7 +114,7 @@ class CreatePaymentLinkRequestBuilder
     }
 
     /**
-     * Initializes a new create payment link request object.
+     * Initializes a new Create Payment Link Request object.
      */
     public function build(): CreatePaymentLinkRequest
     {

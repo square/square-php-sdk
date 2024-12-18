@@ -29,7 +29,11 @@ class LoyaltyPromotionBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion Builder object.
+     * Initializes a new Loyalty Promotion Builder object.
+     *
+     * @param string $name
+     * @param LoyaltyPromotionIncentive $incentive
+     * @param LoyaltyPromotionAvailableTimeData $availableTime
      */
     public static function init(
         string $name,
@@ -41,6 +45,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -50,6 +56,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets trigger limit field.
+     *
+     * @param LoyaltyPromotionTriggerLimit|null $value
      */
     public function triggerLimit(?LoyaltyPromotionTriggerLimit $value): self
     {
@@ -59,6 +67,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -68,6 +78,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -77,6 +89,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets canceled at field.
+     *
+     * @param string|null $value
      */
     public function canceledAt(?string $value): self
     {
@@ -86,6 +100,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -95,6 +111,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets loyalty program id field.
+     *
+     * @param string|null $value
      */
     public function loyaltyProgramId(?string $value): self
     {
@@ -104,6 +122,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets minimum spend amount money field.
+     *
+     * @param Money|null $value
      */
     public function minimumSpendAmountMoney(?Money $value): self
     {
@@ -113,6 +133,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets qualifying item variation ids field.
+     *
+     * @param string[]|null $value
      */
     public function qualifyingItemVariationIds(?array $value): self
     {
@@ -131,6 +153,8 @@ class LoyaltyPromotionBuilder
 
     /**
      * Sets qualifying category ids field.
+     *
+     * @param string[]|null $value
      */
     public function qualifyingCategoryIds(?array $value): self
     {
@@ -148,7 +172,7 @@ class LoyaltyPromotionBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion object.
+     * Initializes a new Loyalty Promotion object.
      */
     public function build(): LoyaltyPromotion
     {

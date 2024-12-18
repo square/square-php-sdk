@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\ACHDetails;
 use Square\Models\BankAccountPaymentDetails;
+use Square\Models\Error;
 
 /**
  * Builder for model BankAccountPaymentDetails
@@ -26,7 +27,7 @@ class BankAccountPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new bank account payment details Builder object.
+     * Initializes a new Bank Account Payment Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets bank name field.
+     *
+     * @param string|null $value
      */
     public function bankName(?string $value): self
     {
@@ -53,6 +56,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets transfer type field.
+     *
+     * @param string|null $value
      */
     public function transferType(?string $value): self
     {
@@ -71,6 +76,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets account ownership type field.
+     *
+     * @param string|null $value
      */
     public function accountOwnershipType(?string $value): self
     {
@@ -89,6 +96,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets fingerprint field.
+     *
+     * @param string|null $value
      */
     public function fingerprint(?string $value): self
     {
@@ -107,6 +116,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets country field.
+     *
+     * @param string|null $value
      */
     public function country(?string $value): self
     {
@@ -125,6 +136,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets statement description field.
+     *
+     * @param string|null $value
      */
     public function statementDescription(?string $value): self
     {
@@ -143,6 +156,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets ach details field.
+     *
+     * @param ACHDetails|null $value
      */
     public function achDetails(?ACHDetails $value): self
     {
@@ -152,6 +167,8 @@ class BankAccountPaymentDetailsBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -169,7 +186,7 @@ class BankAccountPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new bank account payment details object.
+     * Initializes a new Bank Account Payment Details object.
      */
     public function build(): BankAccountPaymentDetails
     {

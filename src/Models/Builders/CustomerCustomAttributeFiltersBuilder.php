@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CustomerCustomAttributeFilter;
 use Square\Models\CustomerCustomAttributeFilters;
 
 /**
@@ -25,7 +26,7 @@ class CustomerCustomAttributeFiltersBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filters Builder object.
+     * Initializes a new Customer Custom Attribute Filters Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CustomerCustomAttributeFiltersBuilder
 
     /**
      * Sets filters field.
+     *
+     * @param CustomerCustomAttributeFilter[]|null $value
      */
     public function filters(?array $value): self
     {
@@ -51,7 +54,7 @@ class CustomerCustomAttributeFiltersBuilder
     }
 
     /**
-     * Initializes a new customer custom attribute filters object.
+     * Initializes a new Customer Custom Attribute Filters object.
      */
     public function build(): CustomerCustomAttributeFilters
     {

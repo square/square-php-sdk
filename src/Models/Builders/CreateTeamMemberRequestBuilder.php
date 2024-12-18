@@ -26,7 +26,7 @@ class CreateTeamMemberRequestBuilder
     }
 
     /**
-     * Initializes a new create team member request Builder object.
+     * Initializes a new Create Team Member Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CreateTeamMemberRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -44,6 +46,8 @@ class CreateTeamMemberRequestBuilder
 
     /**
      * Sets team member field.
+     *
+     * @param TeamMember|null $value
      */
     public function teamMember(?TeamMember $value): self
     {
@@ -52,7 +56,7 @@ class CreateTeamMemberRequestBuilder
     }
 
     /**
-     * Initializes a new create team member request object.
+     * Initializes a new Create Team Member Request object.
      */
     public function build(): CreateTeamMemberRequest
     {

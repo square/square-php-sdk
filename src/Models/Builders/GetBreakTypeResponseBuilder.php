@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BreakType;
+use Square\Models\Error;
 use Square\Models\GetBreakTypeResponse;
 
 /**
@@ -26,7 +27,7 @@ class GetBreakTypeResponseBuilder
     }
 
     /**
-     * Initializes a new get break type response Builder object.
+     * Initializes a new Get Break Type Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetBreakTypeResponseBuilder
 
     /**
      * Sets break type field.
+     *
+     * @param BreakType|null $value
      */
     public function breakType(?BreakType $value): self
     {
@@ -44,6 +47,8 @@ class GetBreakTypeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class GetBreakTypeResponseBuilder
     }
 
     /**
-     * Initializes a new get break type response object.
+     * Initializes a new Get Break Type Response object.
      */
     public function build(): GetBreakTypeResponse
     {

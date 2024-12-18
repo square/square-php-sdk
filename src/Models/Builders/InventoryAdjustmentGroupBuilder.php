@@ -25,7 +25,7 @@ class InventoryAdjustmentGroupBuilder
     }
 
     /**
-     * Initializes a new inventory adjustment group Builder object.
+     * Initializes a new Inventory Adjustment Group Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InventoryAdjustmentGroupBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class InventoryAdjustmentGroupBuilder
 
     /**
      * Sets root adjustment id field.
+     *
+     * @param string|null $value
      */
     public function rootAdjustmentId(?string $value): self
     {
@@ -52,6 +56,8 @@ class InventoryAdjustmentGroupBuilder
 
     /**
      * Sets from state field.
+     *
+     * @param string|null $value
      */
     public function fromState(?string $value): self
     {
@@ -61,6 +67,8 @@ class InventoryAdjustmentGroupBuilder
 
     /**
      * Sets to state field.
+     *
+     * @param string|null $value
      */
     public function toState(?string $value): self
     {
@@ -69,7 +77,7 @@ class InventoryAdjustmentGroupBuilder
     }
 
     /**
-     * Initializes a new inventory adjustment group object.
+     * Initializes a new Inventory Adjustment Group object.
      */
     public function build(): InventoryAdjustmentGroup
     {

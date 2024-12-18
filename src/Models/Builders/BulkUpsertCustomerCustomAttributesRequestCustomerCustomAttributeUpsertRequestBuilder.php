@@ -27,8 +27,11 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert customer custom attributes request customer custom attribute upsert
-     * request Builder object.
+     * Initializes a new Bulk Upsert Customer Custom Attributes Request Customer Custom Attribute Upsert
+     * Request Builder object.
+     *
+     * @param string $customerId
+     * @param CustomAttribute $customAttribute
      */
     public static function init(string $customerId, CustomAttribute $customAttribute): self
     {
@@ -40,6 +43,8 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -57,8 +62,8 @@ class BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert customer custom attributes request customer custom attribute upsert
-     * request object.
+     * Initializes a new Bulk Upsert Customer Custom Attributes Request Customer Custom Attribute Upsert
+     * Request object.
      */
     public function build(): BulkUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertRequest
     {

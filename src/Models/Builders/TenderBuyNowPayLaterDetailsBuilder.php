@@ -25,7 +25,7 @@ class TenderBuyNowPayLaterDetailsBuilder
     }
 
     /**
-     * Initializes a new tender buy now pay later details Builder object.
+     * Initializes a new Tender Buy Now Pay Later Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TenderBuyNowPayLaterDetailsBuilder
 
     /**
      * Sets buy now pay later brand field.
+     *
+     * @param string|null $value
      */
     public function buyNowPayLaterBrand(?string $value): self
     {
@@ -43,6 +45,8 @@ class TenderBuyNowPayLaterDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -51,7 +55,7 @@ class TenderBuyNowPayLaterDetailsBuilder
     }
 
     /**
-     * Initializes a new tender buy now pay later details object.
+     * Initializes a new Tender Buy Now Pay Later Details object.
      */
     public function build(): TenderBuyNowPayLaterDetails
     {

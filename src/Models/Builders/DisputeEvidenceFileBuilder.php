@@ -25,7 +25,7 @@ class DisputeEvidenceFileBuilder
     }
 
     /**
-     * Initializes a new dispute evidence file Builder object.
+     * Initializes a new Dispute Evidence File Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DisputeEvidenceFileBuilder
 
     /**
      * Sets filename field.
+     *
+     * @param string|null $value
      */
     public function filename(?string $value): self
     {
@@ -52,6 +54,8 @@ class DisputeEvidenceFileBuilder
 
     /**
      * Sets filetype field.
+     *
+     * @param string|null $value
      */
     public function filetype(?string $value): self
     {
@@ -69,7 +73,7 @@ class DisputeEvidenceFileBuilder
     }
 
     /**
-     * Initializes a new dispute evidence file object.
+     * Initializes a new Dispute Evidence File object.
      */
     public function build(): DisputeEvidenceFile
     {

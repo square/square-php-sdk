@@ -26,7 +26,9 @@ class GiftCardBuilder
     }
 
     /**
-     * Initializes a new gift card Builder object.
+     * Initializes a new Gift Card Builder object.
+     *
+     * @param string $type
      */
     public static function init(string $type): self
     {
@@ -35,6 +37,8 @@ class GiftCardBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +48,8 @@ class GiftCardBuilder
 
     /**
      * Sets gan source field.
+     *
+     * @param string|null $value
      */
     public function ganSource(?string $value): self
     {
@@ -53,6 +59,8 @@ class GiftCardBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -62,6 +70,8 @@ class GiftCardBuilder
 
     /**
      * Sets balance money field.
+     *
+     * @param Money|null $value
      */
     public function balanceMoney(?Money $value): self
     {
@@ -71,6 +81,8 @@ class GiftCardBuilder
 
     /**
      * Sets gan field.
+     *
+     * @param string|null $value
      */
     public function gan(?string $value): self
     {
@@ -89,6 +101,8 @@ class GiftCardBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -98,6 +112,8 @@ class GiftCardBuilder
 
     /**
      * Sets customer ids field.
+     *
+     * @param string[]|null $value
      */
     public function customerIds(?array $value): self
     {
@@ -106,7 +122,7 @@ class GiftCardBuilder
     }
 
     /**
-     * Initializes a new gift card object.
+     * Initializes a new Gift Card object.
      */
     public function build(): GiftCard
     {

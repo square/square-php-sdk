@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\JobAssignment;
 use Square\Models\WageSetting;
 
 /**
@@ -25,7 +26,7 @@ class WageSettingBuilder
     }
 
     /**
-     * Initializes a new wage setting Builder object.
+     * Initializes a new Wage Setting Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class WageSettingBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -52,6 +55,8 @@ class WageSettingBuilder
 
     /**
      * Sets job assignments field.
+     *
+     * @param JobAssignment[]|null $value
      */
     public function jobAssignments(?array $value): self
     {
@@ -70,6 +75,8 @@ class WageSettingBuilder
 
     /**
      * Sets is overtime exempt field.
+     *
+     * @param bool|null $value
      */
     public function isOvertimeExempt(?bool $value): self
     {
@@ -88,6 +95,8 @@ class WageSettingBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -97,6 +106,8 @@ class WageSettingBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -106,6 +117,8 @@ class WageSettingBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -114,7 +127,7 @@ class WageSettingBuilder
     }
 
     /**
-     * Initializes a new wage setting object.
+     * Initializes a new Wage Setting object.
      */
     public function build(): WageSetting
     {

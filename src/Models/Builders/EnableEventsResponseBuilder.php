@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\EnableEventsResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model EnableEventsResponse
@@ -25,7 +26,7 @@ class EnableEventsResponseBuilder
     }
 
     /**
-     * Initializes a new enable events response Builder object.
+     * Initializes a new Enable Events Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class EnableEventsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class EnableEventsResponseBuilder
     }
 
     /**
-     * Initializes a new enable events response object.
+     * Initializes a new Enable Events Response object.
      */
     public function build(): EnableEventsResponse
     {

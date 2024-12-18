@@ -25,7 +25,7 @@ class CatalogV1IdBuilder
     }
 
     /**
-     * Initializes a new catalog v1 id Builder object.
+     * Initializes a new Catalog V1 Id Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogV1IdBuilder
 
     /**
      * Sets catalog v 1 id field.
+     *
+     * @param string|null $value
      */
     public function catalogV1Id(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogV1IdBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -69,7 +73,7 @@ class CatalogV1IdBuilder
     }
 
     /**
-     * Initializes a new catalog v1 id object.
+     * Initializes a new Catalog V1 Id object.
      */
     public function build(): CatalogV1Id
     {
