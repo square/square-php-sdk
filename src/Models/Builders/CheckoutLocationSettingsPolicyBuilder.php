@@ -25,7 +25,7 @@ class CheckoutLocationSettingsPolicyBuilder
     }
 
     /**
-     * Initializes a new checkout location settings policy Builder object.
+     * Initializes a new Checkout Location Settings Policy Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CheckoutLocationSettingsPolicyBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,6 +54,8 @@ class CheckoutLocationSettingsPolicyBuilder
 
     /**
      * Sets title field.
+     *
+     * @param string|null $value
      */
     public function title(?string $value): self
     {
@@ -70,6 +74,8 @@ class CheckoutLocationSettingsPolicyBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -87,7 +93,7 @@ class CheckoutLocationSettingsPolicyBuilder
     }
 
     /**
-     * Initializes a new checkout location settings policy object.
+     * Initializes a new Checkout Location Settings Policy object.
      */
     public function build(): CheckoutLocationSettingsPolicy
     {

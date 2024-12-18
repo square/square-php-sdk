@@ -25,7 +25,7 @@ class ListWebhookEventTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list webhook event types request Builder object.
+     * Initializes a new List Webhook Event Types Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListWebhookEventTypesRequestBuilder
 
     /**
      * Sets api version field.
+     *
+     * @param string|null $value
      */
     public function apiVersion(?string $value): self
     {
@@ -51,7 +53,7 @@ class ListWebhookEventTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list webhook event types request object.
+     * Initializes a new List Webhook Event Types Request object.
      */
     public function build(): ListWebhookEventTypesRequest
     {

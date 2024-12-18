@@ -26,7 +26,7 @@ class OrderMoneyAmountsBuilder
     }
 
     /**
-     * Initializes a new order money amounts Builder object.
+     * Initializes a new Order Money Amounts Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderMoneyAmountsBuilder
 
     /**
      * Sets total money field.
+     *
+     * @param Money|null $value
      */
     public function totalMoney(?Money $value): self
     {
@@ -44,6 +46,8 @@ class OrderMoneyAmountsBuilder
 
     /**
      * Sets tax money field.
+     *
+     * @param Money|null $value
      */
     public function taxMoney(?Money $value): self
     {
@@ -53,6 +57,8 @@ class OrderMoneyAmountsBuilder
 
     /**
      * Sets discount money field.
+     *
+     * @param Money|null $value
      */
     public function discountMoney(?Money $value): self
     {
@@ -62,6 +68,8 @@ class OrderMoneyAmountsBuilder
 
     /**
      * Sets tip money field.
+     *
+     * @param Money|null $value
      */
     public function tipMoney(?Money $value): self
     {
@@ -71,6 +79,8 @@ class OrderMoneyAmountsBuilder
 
     /**
      * Sets service charge money field.
+     *
+     * @param Money|null $value
      */
     public function serviceChargeMoney(?Money $value): self
     {
@@ -79,7 +89,7 @@ class OrderMoneyAmountsBuilder
     }
 
     /**
-     * Initializes a new order money amounts object.
+     * Initializes a new Order Money Amounts object.
      */
     public function build(): OrderMoneyAmounts
     {

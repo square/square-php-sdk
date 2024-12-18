@@ -25,7 +25,7 @@ class CatalogCustomAttributeValueBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute value Builder object.
+     * Initializes a new Catalog Custom Attribute Value Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets string value field.
+     *
+     * @param string|null $value
      */
     public function stringValue(?string $value): self
     {
@@ -70,6 +74,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets custom attribute definition id field.
+     *
+     * @param string|null $value
      */
     public function customAttributeDefinitionId(?string $value): self
     {
@@ -79,6 +85,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -88,6 +96,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets number value field.
+     *
+     * @param string|null $value
      */
     public function numberValue(?string $value): self
     {
@@ -106,6 +116,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets boolean value field.
+     *
+     * @param bool|null $value
      */
     public function booleanValue(?bool $value): self
     {
@@ -124,6 +136,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets selection uid values field.
+     *
+     * @param string[]|null $value
      */
     public function selectionUidValues(?array $value): self
     {
@@ -142,6 +156,8 @@ class CatalogCustomAttributeValueBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -150,7 +166,7 @@ class CatalogCustomAttributeValueBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute value object.
+     * Initializes a new Catalog Custom Attribute Value object.
      */
     public function build(): CatalogCustomAttributeValue
     {

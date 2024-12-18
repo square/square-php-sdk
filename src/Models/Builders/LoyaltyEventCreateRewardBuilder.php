@@ -25,7 +25,10 @@ class LoyaltyEventCreateRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty event create reward Builder object.
+     * Initializes a new Loyalty Event Create Reward Builder object.
+     *
+     * @param string $loyaltyProgramId
+     * @param int $points
      */
     public static function init(string $loyaltyProgramId, int $points): self
     {
@@ -34,6 +37,8 @@ class LoyaltyEventCreateRewardBuilder
 
     /**
      * Sets reward id field.
+     *
+     * @param string|null $value
      */
     public function rewardId(?string $value): self
     {
@@ -42,7 +47,7 @@ class LoyaltyEventCreateRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty event create reward object.
+     * Initializes a new Loyalty Event Create Reward object.
      */
     public function build(): LoyaltyEventCreateReward
     {

@@ -25,7 +25,7 @@ class SignatureImageBuilder
     }
 
     /**
-     * Initializes a new signature image Builder object.
+     * Initializes a new Signature Image Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SignatureImageBuilder
 
     /**
      * Sets image type field.
+     *
+     * @param string|null $value
      */
     public function imageType(?string $value): self
     {
@@ -43,6 +45,8 @@ class SignatureImageBuilder
 
     /**
      * Sets data field.
+     *
+     * @param string|null $value
      */
     public function data(?string $value): self
     {
@@ -51,7 +55,7 @@ class SignatureImageBuilder
     }
 
     /**
-     * Initializes a new signature image object.
+     * Initializes a new Signature Image object.
      */
     public function build(): SignatureImage
     {

@@ -25,7 +25,7 @@ class ChangeBillingAnchorDateRequestBuilder
     }
 
     /**
-     * Initializes a new change billing anchor date request Builder object.
+     * Initializes a new Change Billing Anchor Date Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ChangeBillingAnchorDateRequestBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -52,6 +54,8 @@ class ChangeBillingAnchorDateRequestBuilder
 
     /**
      * Sets effective date field.
+     *
+     * @param string|null $value
      */
     public function effectiveDate(?string $value): self
     {
@@ -69,7 +73,7 @@ class ChangeBillingAnchorDateRequestBuilder
     }
 
     /**
-     * Initializes a new change billing anchor date request object.
+     * Initializes a new Change Billing Anchor Date Request object.
      */
     public function build(): ChangeBillingAnchorDateRequest
     {

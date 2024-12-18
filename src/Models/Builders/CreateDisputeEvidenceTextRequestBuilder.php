@@ -25,7 +25,10 @@ class CreateDisputeEvidenceTextRequestBuilder
     }
 
     /**
-     * Initializes a new create dispute evidence text request Builder object.
+     * Initializes a new Create Dispute Evidence Text Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $evidenceText
      */
     public static function init(string $idempotencyKey, string $evidenceText): self
     {
@@ -34,6 +37,8 @@ class CreateDisputeEvidenceTextRequestBuilder
 
     /**
      * Sets evidence type field.
+     *
+     * @param string|null $value
      */
     public function evidenceType(?string $value): self
     {
@@ -42,7 +47,7 @@ class CreateDisputeEvidenceTextRequestBuilder
     }
 
     /**
-     * Initializes a new create dispute evidence text request object.
+     * Initializes a new Create Dispute Evidence Text Request object.
      */
     public function build(): CreateDisputeEvidenceTextRequest
     {

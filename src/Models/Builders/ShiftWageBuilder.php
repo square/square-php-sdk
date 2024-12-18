@@ -26,7 +26,7 @@ class ShiftWageBuilder
     }
 
     /**
-     * Initializes a new shift wage Builder object.
+     * Initializes a new Shift Wage Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class ShiftWageBuilder
 
     /**
      * Sets title field.
+     *
+     * @param string|null $value
      */
     public function title(?string $value): self
     {
@@ -53,6 +55,8 @@ class ShiftWageBuilder
 
     /**
      * Sets hourly rate field.
+     *
+     * @param Money|null $value
      */
     public function hourlyRate(?Money $value): self
     {
@@ -62,6 +66,8 @@ class ShiftWageBuilder
 
     /**
      * Sets job id field.
+     *
+     * @param string|null $value
      */
     public function jobId(?string $value): self
     {
@@ -71,6 +77,8 @@ class ShiftWageBuilder
 
     /**
      * Sets tip eligible field.
+     *
+     * @param bool|null $value
      */
     public function tipEligible(?bool $value): self
     {
@@ -88,7 +96,7 @@ class ShiftWageBuilder
     }
 
     /**
-     * Initializes a new shift wage object.
+     * Initializes a new Shift Wage object.
      */
     public function build(): ShiftWage
     {

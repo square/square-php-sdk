@@ -25,7 +25,7 @@ class CustomerCreationSourceFilterBuilder
     }
 
     /**
-     * Initializes a new customer creation source filter Builder object.
+     * Initializes a new Customer Creation Source Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerCreationSourceFilterBuilder
 
     /**
      * Sets values field.
+     *
+     * @param string[]|null $value
      */
     public function values(?array $value): self
     {
@@ -52,6 +54,8 @@ class CustomerCreationSourceFilterBuilder
 
     /**
      * Sets rule field.
+     *
+     * @param string|null $value
      */
     public function rule(?string $value): self
     {
@@ -60,7 +64,7 @@ class CustomerCreationSourceFilterBuilder
     }
 
     /**
-     * Initializes a new customer creation source filter object.
+     * Initializes a new Customer Creation Source Filter object.
      */
     public function build(): CustomerCreationSourceFilter
     {

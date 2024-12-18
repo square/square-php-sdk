@@ -25,7 +25,9 @@ class LoyaltyProgramAccrualRuleItemVariationDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule item variation data Builder object.
+     * Initializes a new Loyalty Program Accrual Rule Item Variation Data Builder object.
+     *
+     * @param string $itemVariationId
      */
     public static function init(string $itemVariationId): self
     {
@@ -33,7 +35,7 @@ class LoyaltyProgramAccrualRuleItemVariationDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule item variation data object.
+     * Initializes a new Loyalty Program Accrual Rule Item Variation Data object.
      */
     public function build(): LoyaltyProgramAccrualRuleItemVariationData
     {

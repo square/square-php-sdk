@@ -25,7 +25,7 @@ class TenderSquareAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new tender square account details Builder object.
+     * Initializes a new Tender Square Account Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TenderSquareAccountDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -42,7 +44,7 @@ class TenderSquareAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new tender square account details object.
+     * Initializes a new Tender Square Account Details object.
      */
     public function build(): TenderSquareAccountDetails
     {

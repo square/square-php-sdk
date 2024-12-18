@@ -25,7 +25,7 @@ class SourceApplicationBuilder
     }
 
     /**
-     * Initializes a new source application Builder object.
+     * Initializes a new Source Application Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SourceApplicationBuilder
 
     /**
      * Sets product field.
+     *
+     * @param string|null $value
      */
     public function product(?string $value): self
     {
@@ -43,6 +45,8 @@ class SourceApplicationBuilder
 
     /**
      * Sets application id field.
+     *
+     * @param string|null $value
      */
     public function applicationId(?string $value): self
     {
@@ -61,6 +65,8 @@ class SourceApplicationBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -78,7 +84,7 @@ class SourceApplicationBuilder
     }
 
     /**
-     * Initializes a new source application object.
+     * Initializes a new Source Application object.
      */
     public function build(): SourceApplication
     {

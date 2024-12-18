@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogObject;
 use Square\Models\CatalogObjectBatch;
 
 /**
@@ -25,7 +26,9 @@ class CatalogObjectBatchBuilder
     }
 
     /**
-     * Initializes a new catalog object batch Builder object.
+     * Initializes a new Catalog Object Batch Builder object.
+     *
+     * @param CatalogObject[] $objects
      */
     public static function init(array $objects): self
     {
@@ -33,7 +36,7 @@ class CatalogObjectBatchBuilder
     }
 
     /**
-     * Initializes a new catalog object batch object.
+     * Initializes a new Catalog Object Batch object.
      */
     public function build(): CatalogObjectBatch
     {

@@ -26,7 +26,10 @@ class AdditionalRecipientBuilder
     }
 
     /**
-     * Initializes a new additional recipient Builder object.
+     * Initializes a new Additional Recipient Builder object.
+     *
+     * @param string $locationId
+     * @param Money $amountMoney
      */
     public static function init(string $locationId, Money $amountMoney): self
     {
@@ -35,6 +38,8 @@ class AdditionalRecipientBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -53,6 +58,8 @@ class AdditionalRecipientBuilder
 
     /**
      * Sets receivable id field.
+     *
+     * @param string|null $value
      */
     public function receivableId(?string $value): self
     {
@@ -70,7 +77,7 @@ class AdditionalRecipientBuilder
     }
 
     /**
-     * Initializes a new additional recipient object.
+     * Initializes a new Additional Recipient object.
      */
     public function build(): AdditionalRecipient
     {

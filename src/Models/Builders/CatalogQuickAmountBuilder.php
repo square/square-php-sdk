@@ -26,7 +26,10 @@ class CatalogQuickAmountBuilder
     }
 
     /**
-     * Initializes a new catalog quick amount Builder object.
+     * Initializes a new Catalog Quick Amount Builder object.
+     *
+     * @param string $type
+     * @param Money $amount
      */
     public static function init(string $type, Money $amount): self
     {
@@ -35,6 +38,8 @@ class CatalogQuickAmountBuilder
 
     /**
      * Sets score field.
+     *
+     * @param int|null $value
      */
     public function score(?int $value): self
     {
@@ -53,6 +58,8 @@ class CatalogQuickAmountBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -70,7 +77,7 @@ class CatalogQuickAmountBuilder
     }
 
     /**
-     * Initializes a new catalog quick amount object.
+     * Initializes a new Catalog Quick Amount object.
      */
     public function build(): CatalogQuickAmount
     {

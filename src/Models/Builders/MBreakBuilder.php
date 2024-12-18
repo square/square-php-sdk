@@ -25,7 +25,13 @@ class MBreakBuilder
     }
 
     /**
-     * Initializes a new mbreak Builder object.
+     * Initializes a new M Break Builder object.
+     *
+     * @param string $startAt
+     * @param string $breakTypeId
+     * @param string $name
+     * @param string $expectedDuration
+     * @param bool $isPaid
      */
     public static function init(
         string $startAt,
@@ -39,6 +45,8 @@ class MBreakBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -48,6 +56,8 @@ class MBreakBuilder
 
     /**
      * Sets end at field.
+     *
+     * @param string|null $value
      */
     public function endAt(?string $value): self
     {
@@ -65,7 +75,7 @@ class MBreakBuilder
     }
 
     /**
-     * Initializes a new mbreak object.
+     * Initializes a new M Break object.
      */
     public function build(): MBreak
     {

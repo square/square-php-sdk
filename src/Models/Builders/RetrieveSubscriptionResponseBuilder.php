@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveSubscriptionResponse;
 use Square\Models\Subscription;
 
@@ -26,7 +27,7 @@ class RetrieveSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve subscription response Builder object.
+     * Initializes a new Retrieve Subscription Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveSubscriptionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveSubscriptionResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve subscription response object.
+     * Initializes a new Retrieve Subscription Response object.
      */
     public function build(): RetrieveSubscriptionResponse
     {

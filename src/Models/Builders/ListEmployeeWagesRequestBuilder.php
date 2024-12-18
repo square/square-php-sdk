@@ -25,7 +25,7 @@ class ListEmployeeWagesRequestBuilder
     }
 
     /**
-     * Initializes a new list employee wages request Builder object.
+     * Initializes a new List Employee Wages Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListEmployeeWagesRequestBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListEmployeeWagesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -70,6 +74,8 @@ class ListEmployeeWagesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -87,7 +93,7 @@ class ListEmployeeWagesRequestBuilder
     }
 
     /**
-     * Initializes a new list employee wages request object.
+     * Initializes a new List Employee Wages Request object.
      */
     public function build(): ListEmployeeWagesRequest
     {

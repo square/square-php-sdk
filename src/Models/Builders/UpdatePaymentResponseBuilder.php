@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Payment;
 use Square\Models\UpdatePaymentResponse;
 
@@ -26,7 +27,7 @@ class UpdatePaymentResponseBuilder
     }
 
     /**
-     * Initializes a new update payment response Builder object.
+     * Initializes a new Update Payment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdatePaymentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpdatePaymentResponseBuilder
 
     /**
      * Sets payment field.
+     *
+     * @param Payment|null $value
      */
     public function payment(?Payment $value): self
     {
@@ -52,7 +57,7 @@ class UpdatePaymentResponseBuilder
     }
 
     /**
-     * Initializes a new update payment response object.
+     * Initializes a new Update Payment Response object.
      */
     public function build(): UpdatePaymentResponse
     {

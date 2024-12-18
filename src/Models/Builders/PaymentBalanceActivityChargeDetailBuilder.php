@@ -25,7 +25,7 @@ class PaymentBalanceActivityChargeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity charge detail Builder object.
+     * Initializes a new Payment Balance Activity Charge Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityChargeDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityChargeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity charge detail object.
+     * Initializes a new Payment Balance Activity Charge Detail object.
      */
     public function build(): PaymentBalanceActivityChargeDetail
     {

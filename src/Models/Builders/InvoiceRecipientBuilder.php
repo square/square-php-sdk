@@ -27,7 +27,7 @@ class InvoiceRecipientBuilder
     }
 
     /**
-     * Initializes a new invoice recipient Builder object.
+     * Initializes a new Invoice Recipient Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -54,6 +56,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets given name field.
+     *
+     * @param string|null $value
      */
     public function givenName(?string $value): self
     {
@@ -63,6 +67,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets family name field.
+     *
+     * @param string|null $value
      */
     public function familyName(?string $value): self
     {
@@ -72,6 +78,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -81,6 +89,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -90,6 +100,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -99,6 +111,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets company name field.
+     *
+     * @param string|null $value
      */
     public function companyName(?string $value): self
     {
@@ -108,6 +122,8 @@ class InvoiceRecipientBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param InvoiceRecipientTaxIds|null $value
      */
     public function taxIds(?InvoiceRecipientTaxIds $value): self
     {
@@ -116,7 +132,7 @@ class InvoiceRecipientBuilder
     }
 
     /**
-     * Initializes a new invoice recipient object.
+     * Initializes a new Invoice Recipient object.
      */
     public function build(): InvoiceRecipient
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteInvoiceAttachmentResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteInvoiceAttachmentResponse
@@ -25,7 +26,7 @@ class DeleteInvoiceAttachmentResponseBuilder
     }
 
     /**
-     * Initializes a new delete invoice attachment response Builder object.
+     * Initializes a new Delete Invoice Attachment Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteInvoiceAttachmentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteInvoiceAttachmentResponseBuilder
     }
 
     /**
-     * Initializes a new delete invoice attachment response object.
+     * Initializes a new Delete Invoice Attachment Response object.
      */
     public function build(): DeleteInvoiceAttachmentResponse
     {

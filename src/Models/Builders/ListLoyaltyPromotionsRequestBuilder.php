@@ -25,7 +25,7 @@ class ListLoyaltyPromotionsRequestBuilder
     }
 
     /**
-     * Initializes a new list loyalty promotions request Builder object.
+     * Initializes a new List Loyalty Promotions Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListLoyaltyPromotionsRequestBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -43,6 +45,8 @@ class ListLoyaltyPromotionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +65,8 @@ class ListLoyaltyPromotionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -78,7 +84,7 @@ class ListLoyaltyPromotionsRequestBuilder
     }
 
     /**
-     * Initializes a new list loyalty promotions request object.
+     * Initializes a new List Loyalty Promotions Request object.
      */
     public function build(): ListLoyaltyPromotionsRequest
     {

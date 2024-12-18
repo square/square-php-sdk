@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\TeamMember;
 use Square\Models\UpdateTeamMemberResponse;
 
@@ -26,7 +27,7 @@ class UpdateTeamMemberResponseBuilder
     }
 
     /**
-     * Initializes a new update team member response Builder object.
+     * Initializes a new Update Team Member Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateTeamMemberResponseBuilder
 
     /**
      * Sets team member field.
+     *
+     * @param TeamMember|null $value
      */
     public function teamMember(?TeamMember $value): self
     {
@@ -44,6 +47,8 @@ class UpdateTeamMemberResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateTeamMemberResponseBuilder
     }
 
     /**
-     * Initializes a new update team member response object.
+     * Initializes a new Update Team Member Response object.
      */
     public function build(): UpdateTeamMemberResponse
     {

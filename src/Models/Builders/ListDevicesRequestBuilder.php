@@ -25,7 +25,7 @@ class ListDevicesRequestBuilder
     }
 
     /**
-     * Initializes a new list devices request Builder object.
+     * Initializes a new List Devices Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListDevicesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListDevicesRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -61,6 +65,8 @@ class ListDevicesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -79,6 +85,8 @@ class ListDevicesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -96,7 +104,7 @@ class ListDevicesRequestBuilder
     }
 
     /**
-     * Initializes a new list devices request object.
+     * Initializes a new List Devices Request object.
      */
     public function build(): ListDevicesRequest
     {

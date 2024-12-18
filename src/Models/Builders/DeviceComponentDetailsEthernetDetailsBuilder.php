@@ -25,7 +25,7 @@ class DeviceComponentDetailsEthernetDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details ethernet details Builder object.
+     * Initializes a new Device Component Details Ethernet Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsEthernetDetailsBuilder
 
     /**
      * Sets active field.
+     *
+     * @param bool|null $value
      */
     public function active(?bool $value): self
     {
@@ -52,6 +54,8 @@ class DeviceComponentDetailsEthernetDetailsBuilder
 
     /**
      * Sets ip address v 4 field.
+     *
+     * @param string|null $value
      */
     public function ipAddressV4(?string $value): self
     {
@@ -69,7 +73,7 @@ class DeviceComponentDetailsEthernetDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details ethernet details object.
+     * Initializes a new Device Component Details Ethernet Details object.
      */
     public function build(): DeviceComponentDetailsEthernetDetails
     {

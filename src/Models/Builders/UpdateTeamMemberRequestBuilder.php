@@ -26,7 +26,7 @@ class UpdateTeamMemberRequestBuilder
     }
 
     /**
-     * Initializes a new update team member request Builder object.
+     * Initializes a new Update Team Member Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class UpdateTeamMemberRequestBuilder
 
     /**
      * Sets team member field.
+     *
+     * @param TeamMember|null $value
      */
     public function teamMember(?TeamMember $value): self
     {
@@ -43,7 +45,7 @@ class UpdateTeamMemberRequestBuilder
     }
 
     /**
-     * Initializes a new update team member request object.
+     * Initializes a new Update Team Member Request object.
      */
     public function build(): UpdateTeamMemberRequest
     {

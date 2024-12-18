@@ -25,7 +25,9 @@ class UpdateItemTaxesRequestBuilder
     }
 
     /**
-     * Initializes a new update item taxes request Builder object.
+     * Initializes a new Update Item Taxes Request Builder object.
+     *
+     * @param string[] $itemIds
      */
     public static function init(array $itemIds): self
     {
@@ -34,6 +36,8 @@ class UpdateItemTaxesRequestBuilder
 
     /**
      * Sets taxes to enable field.
+     *
+     * @param string[]|null $value
      */
     public function taxesToEnable(?array $value): self
     {
@@ -52,6 +56,8 @@ class UpdateItemTaxesRequestBuilder
 
     /**
      * Sets taxes to disable field.
+     *
+     * @param string[]|null $value
      */
     public function taxesToDisable(?array $value): self
     {
@@ -69,7 +75,7 @@ class UpdateItemTaxesRequestBuilder
     }
 
     /**
-     * Initializes a new update item taxes request object.
+     * Initializes a new Update Item Taxes Request object.
      */
     public function build(): UpdateItemTaxesRequest
     {

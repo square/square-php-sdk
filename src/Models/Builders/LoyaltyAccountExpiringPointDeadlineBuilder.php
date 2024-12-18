@@ -25,7 +25,10 @@ class LoyaltyAccountExpiringPointDeadlineBuilder
     }
 
     /**
-     * Initializes a new loyalty account expiring point deadline Builder object.
+     * Initializes a new Loyalty Account Expiring Point Deadline Builder object.
+     *
+     * @param int $points
+     * @param string $expiresAt
      */
     public static function init(int $points, string $expiresAt): self
     {
@@ -33,7 +36,7 @@ class LoyaltyAccountExpiringPointDeadlineBuilder
     }
 
     /**
-     * Initializes a new loyalty account expiring point deadline object.
+     * Initializes a new Loyalty Account Expiring Point Deadline object.
      */
     public function build(): LoyaltyAccountExpiringPointDeadline
     {

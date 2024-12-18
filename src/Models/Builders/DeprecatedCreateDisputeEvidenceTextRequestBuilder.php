@@ -25,7 +25,10 @@ class DeprecatedCreateDisputeEvidenceTextRequestBuilder
     }
 
     /**
-     * Initializes a new deprecated create dispute evidence text request Builder object.
+     * Initializes a new Deprecated Create Dispute Evidence Text Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $evidenceText
      */
     public static function init(string $idempotencyKey, string $evidenceText): self
     {
@@ -34,6 +37,8 @@ class DeprecatedCreateDisputeEvidenceTextRequestBuilder
 
     /**
      * Sets evidence type field.
+     *
+     * @param string|null $value
      */
     public function evidenceType(?string $value): self
     {
@@ -42,7 +47,7 @@ class DeprecatedCreateDisputeEvidenceTextRequestBuilder
     }
 
     /**
-     * Initializes a new deprecated create dispute evidence text request object.
+     * Initializes a new Deprecated Create Dispute Evidence Text Request object.
      */
     public function build(): DeprecatedCreateDisputeEvidenceTextRequest
     {

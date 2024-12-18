@@ -26,7 +26,7 @@ class SearchOrdersDateTimeFilterBuilder
     }
 
     /**
-     * Initializes a new search orders date time filter Builder object.
+     * Initializes a new Search Orders Date Time Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchOrdersDateTimeFilterBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param TimeRange|null $value
      */
     public function createdAt(?TimeRange $value): self
     {
@@ -44,6 +46,8 @@ class SearchOrdersDateTimeFilterBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param TimeRange|null $value
      */
     public function updatedAt(?TimeRange $value): self
     {
@@ -53,6 +57,8 @@ class SearchOrdersDateTimeFilterBuilder
 
     /**
      * Sets closed at field.
+     *
+     * @param TimeRange|null $value
      */
     public function closedAt(?TimeRange $value): self
     {
@@ -61,7 +67,7 @@ class SearchOrdersDateTimeFilterBuilder
     }
 
     /**
-     * Initializes a new search orders date time filter object.
+     * Initializes a new Search Orders Date Time Filter object.
      */
     public function build(): SearchOrdersDateTimeFilter
     {

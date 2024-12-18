@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\BookingCustomAttributeUpsertResponse;
 use Square\Models\BulkUpsertBookingCustomAttributesResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkUpsertBookingCustomAttributesResponse
@@ -25,7 +27,7 @@ class BulkUpsertBookingCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk upsert booking custom attributes response Builder object.
+     * Initializes a new Bulk Upsert Booking Custom Attributes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkUpsertBookingCustomAttributesResponseBuilder
 
     /**
      * Sets values field.
+     *
+     * @param array<string,BookingCustomAttributeUpsertResponse>|null $value
      */
     public function values(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkUpsertBookingCustomAttributesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkUpsertBookingCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk upsert booking custom attributes response object.
+     * Initializes a new Bulk Upsert Booking Custom Attributes Response object.
      */
     public function build(): BulkUpsertBookingCustomAttributesResponse
     {

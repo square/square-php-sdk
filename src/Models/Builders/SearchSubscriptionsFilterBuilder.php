@@ -25,7 +25,7 @@ class SearchSubscriptionsFilterBuilder
     }
 
     /**
-     * Initializes a new search subscriptions filter Builder object.
+     * Initializes a new Search Subscriptions Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchSubscriptionsFilterBuilder
 
     /**
      * Sets customer ids field.
+     *
+     * @param string[]|null $value
      */
     public function customerIds(?array $value): self
     {
@@ -52,6 +54,8 @@ class SearchSubscriptionsFilterBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -70,6 +74,8 @@ class SearchSubscriptionsFilterBuilder
 
     /**
      * Sets source names field.
+     *
+     * @param string[]|null $value
      */
     public function sourceNames(?array $value): self
     {
@@ -87,7 +93,7 @@ class SearchSubscriptionsFilterBuilder
     }
 
     /**
-     * Initializes a new search subscriptions filter object.
+     * Initializes a new Search Subscriptions Filter object.
      */
     public function build(): SearchSubscriptionsFilter
     {

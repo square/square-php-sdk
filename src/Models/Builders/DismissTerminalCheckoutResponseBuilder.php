@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DismissTerminalCheckoutResponse;
+use Square\Models\Error;
 use Square\Models\TerminalCheckout;
 
 /**
@@ -26,7 +27,7 @@ class DismissTerminalCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new dismiss terminal checkout response Builder object.
+     * Initializes a new Dismiss Terminal Checkout Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class DismissTerminalCheckoutResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class DismissTerminalCheckoutResponseBuilder
 
     /**
      * Sets checkout field.
+     *
+     * @param TerminalCheckout|null $value
      */
     public function checkout(?TerminalCheckout $value): self
     {
@@ -52,7 +57,7 @@ class DismissTerminalCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new dismiss terminal checkout response object.
+     * Initializes a new Dismiss Terminal Checkout Response object.
      */
     public function build(): DismissTerminalCheckoutResponse
     {

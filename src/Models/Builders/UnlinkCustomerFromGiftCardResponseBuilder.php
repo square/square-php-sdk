@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\GiftCard;
 use Square\Models\UnlinkCustomerFromGiftCardResponse;
 
@@ -26,7 +27,7 @@ class UnlinkCustomerFromGiftCardResponseBuilder
     }
 
     /**
-     * Initializes a new unlink customer from gift card response Builder object.
+     * Initializes a new Unlink Customer From Gift Card Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UnlinkCustomerFromGiftCardResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UnlinkCustomerFromGiftCardResponseBuilder
 
     /**
      * Sets gift card field.
+     *
+     * @param GiftCard|null $value
      */
     public function giftCard(?GiftCard $value): self
     {
@@ -52,7 +57,7 @@ class UnlinkCustomerFromGiftCardResponseBuilder
     }
 
     /**
-     * Initializes a new unlink customer from gift card response object.
+     * Initializes a new Unlink Customer From Gift Card Response object.
      */
     public function build(): UnlinkCustomerFromGiftCardResponse
     {

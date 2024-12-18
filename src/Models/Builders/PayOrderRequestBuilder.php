@@ -25,7 +25,9 @@ class PayOrderRequestBuilder
     }
 
     /**
-     * Initializes a new pay order request Builder object.
+     * Initializes a new Pay Order Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -34,6 +36,8 @@ class PayOrderRequestBuilder
 
     /**
      * Sets order version field.
+     *
+     * @param int|null $value
      */
     public function orderVersion(?int $value): self
     {
@@ -52,6 +56,8 @@ class PayOrderRequestBuilder
 
     /**
      * Sets payment ids field.
+     *
+     * @param string[]|null $value
      */
     public function paymentIds(?array $value): self
     {
@@ -69,7 +75,7 @@ class PayOrderRequestBuilder
     }
 
     /**
-     * Initializes a new pay order request object.
+     * Initializes a new Pay Order Request object.
      */
     public function build(): PayOrderRequest
     {

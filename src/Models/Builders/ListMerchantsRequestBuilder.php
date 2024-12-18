@@ -25,7 +25,7 @@ class ListMerchantsRequestBuilder
     }
 
     /**
-     * Initializes a new list merchants request Builder object.
+     * Initializes a new List Merchants Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListMerchantsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param int|null $value
      */
     public function cursor(?int $value): self
     {
@@ -51,7 +53,7 @@ class ListMerchantsRequestBuilder
     }
 
     /**
-     * Initializes a new list merchants request object.
+     * Initializes a new List Merchants Request object.
      */
     public function build(): ListMerchantsRequest
     {

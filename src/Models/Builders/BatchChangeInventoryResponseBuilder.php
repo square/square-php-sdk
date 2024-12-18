@@ -6,6 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchChangeInventoryResponse;
+use Square\Models\Error;
+use Square\Models\InventoryChange;
+use Square\Models\InventoryCount;
 
 /**
  * Builder for model BatchChangeInventoryResponse
@@ -25,7 +28,7 @@ class BatchChangeInventoryResponseBuilder
     }
 
     /**
-     * Initializes a new batch change inventory response Builder object.
+     * Initializes a new Batch Change Inventory Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +37,8 @@ class BatchChangeInventoryResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +48,8 @@ class BatchChangeInventoryResponseBuilder
 
     /**
      * Sets counts field.
+     *
+     * @param InventoryCount[]|null $value
      */
     public function counts(?array $value): self
     {
@@ -52,6 +59,8 @@ class BatchChangeInventoryResponseBuilder
 
     /**
      * Sets changes field.
+     *
+     * @param InventoryChange[]|null $value
      */
     public function changes(?array $value): self
     {
@@ -60,7 +69,7 @@ class BatchChangeInventoryResponseBuilder
     }
 
     /**
-     * Initializes a new batch change inventory response object.
+     * Initializes a new Batch Change Inventory Response object.
      */
     public function build(): BatchChangeInventoryResponse
     {

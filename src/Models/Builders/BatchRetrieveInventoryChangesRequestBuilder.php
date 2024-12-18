@@ -25,7 +25,7 @@ class BatchRetrieveInventoryChangesRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory changes request Builder object.
+     * Initializes a new Batch Retrieve Inventory Changes Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets catalog object ids field.
+     *
+     * @param string[]|null $value
      */
     public function catalogObjectIds(?array $value): self
     {
@@ -52,6 +54,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -70,6 +74,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets types field.
+     *
+     * @param string[]|null $value
      */
     public function types(?array $value): self
     {
@@ -88,6 +94,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets states field.
+     *
+     * @param string[]|null $value
      */
     public function states(?array $value): self
     {
@@ -106,6 +114,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets updated after field.
+     *
+     * @param string|null $value
      */
     public function updatedAfter(?string $value): self
     {
@@ -124,6 +134,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets updated before field.
+     *
+     * @param string|null $value
      */
     public function updatedBefore(?string $value): self
     {
@@ -142,6 +154,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -160,6 +174,8 @@ class BatchRetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -177,7 +193,7 @@ class BatchRetrieveInventoryChangesRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory changes request object.
+     * Initializes a new Batch Retrieve Inventory Changes Request object.
      */
     public function build(): BatchRetrieveInventoryChangesRequest
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CancelPaymentResponse;
+use Square\Models\Error;
 use Square\Models\Payment;
 
 /**
@@ -26,7 +27,7 @@ class CancelPaymentResponseBuilder
     }
 
     /**
-     * Initializes a new cancel payment response Builder object.
+     * Initializes a new Cancel Payment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CancelPaymentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CancelPaymentResponseBuilder
 
     /**
      * Sets payment field.
+     *
+     * @param Payment|null $value
      */
     public function payment(?Payment $value): self
     {
@@ -52,7 +57,7 @@ class CancelPaymentResponseBuilder
     }
 
     /**
-     * Initializes a new cancel payment response object.
+     * Initializes a new Cancel Payment Response object.
      */
     public function build(): CancelPaymentResponse
     {

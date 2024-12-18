@@ -26,7 +26,9 @@ class SearchAvailabilityRequestBuilder
     }
 
     /**
-     * Initializes a new search availability request Builder object.
+     * Initializes a new Search Availability Request Builder object.
+     *
+     * @param SearchAvailabilityQuery $query
      */
     public static function init(SearchAvailabilityQuery $query): self
     {
@@ -34,7 +36,7 @@ class SearchAvailabilityRequestBuilder
     }
 
     /**
-     * Initializes a new search availability request object.
+     * Initializes a new Search Availability Request object.
      */
     public function build(): SearchAvailabilityRequest
     {

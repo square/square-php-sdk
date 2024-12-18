@@ -25,7 +25,7 @@ class SubscriptionEventInfoBuilder
     }
 
     /**
-     * Initializes a new subscription event info Builder object.
+     * Initializes a new Subscription Event Info Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SubscriptionEventInfoBuilder
 
     /**
      * Sets detail field.
+     *
+     * @param string|null $value
      */
     public function detail(?string $value): self
     {
@@ -52,6 +54,8 @@ class SubscriptionEventInfoBuilder
 
     /**
      * Sets code field.
+     *
+     * @param string|null $value
      */
     public function code(?string $value): self
     {
@@ -60,7 +64,7 @@ class SubscriptionEventInfoBuilder
     }
 
     /**
-     * Initializes a new subscription event info object.
+     * Initializes a new Subscription Event Info object.
      */
     public function build(): SubscriptionEventInfo
     {

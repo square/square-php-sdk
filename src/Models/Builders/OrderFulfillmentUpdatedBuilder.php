@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\OrderFulfillmentUpdated;
+use Square\Models\OrderFulfillmentUpdatedUpdate;
 
 /**
  * Builder for model OrderFulfillmentUpdated
@@ -25,7 +26,7 @@ class OrderFulfillmentUpdatedBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated Builder object.
+     * Initializes a new Order Fulfillment Updated Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -52,6 +55,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -61,6 +66,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -79,6 +86,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -88,6 +97,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -97,6 +108,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -106,6 +119,8 @@ class OrderFulfillmentUpdatedBuilder
 
     /**
      * Sets fulfillment update field.
+     *
+     * @param OrderFulfillmentUpdatedUpdate[]|null $value
      */
     public function fulfillmentUpdate(?array $value): self
     {
@@ -123,7 +138,7 @@ class OrderFulfillmentUpdatedBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated object.
+     * Initializes a new Order Fulfillment Updated object.
      */
     public function build(): OrderFulfillmentUpdated
     {

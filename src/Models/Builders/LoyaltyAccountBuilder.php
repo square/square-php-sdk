@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\LoyaltyAccount;
+use Square\Models\LoyaltyAccountExpiringPointDeadline;
 use Square\Models\LoyaltyAccountMapping;
 
 /**
@@ -26,7 +27,9 @@ class LoyaltyAccountBuilder
     }
 
     /**
-     * Initializes a new loyalty account Builder object.
+     * Initializes a new Loyalty Account Builder object.
+     *
+     * @param string $programId
      */
     public static function init(string $programId): self
     {
@@ -35,6 +38,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +49,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets balance field.
+     *
+     * @param int|null $value
      */
     public function balance(?int $value): self
     {
@@ -53,6 +60,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets lifetime points field.
+     *
+     * @param int|null $value
      */
     public function lifetimePoints(?int $value): self
     {
@@ -62,6 +71,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -80,6 +91,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets enrolled at field.
+     *
+     * @param string|null $value
      */
     public function enrolledAt(?string $value): self
     {
@@ -98,6 +111,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -107,6 +122,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -116,6 +133,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets mapping field.
+     *
+     * @param LoyaltyAccountMapping|null $value
      */
     public function mapping(?LoyaltyAccountMapping $value): self
     {
@@ -125,6 +144,8 @@ class LoyaltyAccountBuilder
 
     /**
      * Sets expiring point deadlines field.
+     *
+     * @param LoyaltyAccountExpiringPointDeadline[]|null $value
      */
     public function expiringPointDeadlines(?array $value): self
     {
@@ -142,7 +163,7 @@ class LoyaltyAccountBuilder
     }
 
     /**
-     * Initializes a new loyalty account object.
+     * Initializes a new Loyalty Account object.
      */
     public function build(): LoyaltyAccount
     {

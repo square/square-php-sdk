@@ -25,7 +25,7 @@ class MoneyBuilder
     }
 
     /**
-     * Initializes a new money Builder object.
+     * Initializes a new Money Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class MoneyBuilder
 
     /**
      * Sets amount field.
+     *
+     * @param int|null $value
      */
     public function amount(?int $value): self
     {
@@ -52,6 +54,8 @@ class MoneyBuilder
 
     /**
      * Sets currency field.
+     *
+     * @param string|null $value
      */
     public function currency(?string $value): self
     {
@@ -60,7 +64,7 @@ class MoneyBuilder
     }
 
     /**
-     * Initializes a new money object.
+     * Initializes a new Money object.
      */
     public function build(): Money
     {

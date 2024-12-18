@@ -25,7 +25,9 @@ class CloneOrderRequestBuilder
     }
 
     /**
-     * Initializes a new clone order request Builder object.
+     * Initializes a new Clone Order Request Builder object.
+     *
+     * @param string $orderId
      */
     public static function init(string $orderId): self
     {
@@ -34,6 +36,8 @@ class CloneOrderRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -43,6 +47,8 @@ class CloneOrderRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -60,7 +66,7 @@ class CloneOrderRequestBuilder
     }
 
     /**
-     * Initializes a new clone order request object.
+     * Initializes a new Clone Order Request object.
      */
     public function build(): CloneOrderRequest
     {

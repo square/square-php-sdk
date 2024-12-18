@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BankAccount;
+use Square\Models\Error;
 use Square\Models\GetBankAccountResponse;
 
 /**
@@ -26,7 +27,7 @@ class GetBankAccountResponseBuilder
     }
 
     /**
-     * Initializes a new get bank account response Builder object.
+     * Initializes a new Get Bank Account Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetBankAccountResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class GetBankAccountResponseBuilder
 
     /**
      * Sets bank account field.
+     *
+     * @param BankAccount|null $value
      */
     public function bankAccount(?BankAccount $value): self
     {
@@ -52,7 +57,7 @@ class GetBankAccountResponseBuilder
     }
 
     /**
-     * Initializes a new get bank account response object.
+     * Initializes a new Get Bank Account Response object.
      */
     public function build(): GetBankAccountResponse
     {

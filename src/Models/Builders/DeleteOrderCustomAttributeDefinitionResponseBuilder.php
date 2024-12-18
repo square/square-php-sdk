@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteOrderCustomAttributeDefinitionResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteOrderCustomAttributeDefinitionResponse
@@ -25,7 +26,7 @@ class DeleteOrderCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new delete order custom attribute definition response Builder object.
+     * Initializes a new Delete Order Custom Attribute Definition Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteOrderCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteOrderCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new delete order custom attribute definition response object.
+     * Initializes a new Delete Order Custom Attribute Definition Response object.
      */
     public function build(): DeleteOrderCustomAttributeDefinitionResponse
     {

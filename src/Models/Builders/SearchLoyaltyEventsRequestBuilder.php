@@ -26,7 +26,7 @@ class SearchLoyaltyEventsRequestBuilder
     }
 
     /**
-     * Initializes a new search loyalty events request Builder object.
+     * Initializes a new Search Loyalty Events Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchLoyaltyEventsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param LoyaltyEventQuery|null $value
      */
     public function query(?LoyaltyEventQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchLoyaltyEventsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchLoyaltyEventsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,7 +67,7 @@ class SearchLoyaltyEventsRequestBuilder
     }
 
     /**
-     * Initializes a new search loyalty events request object.
+     * Initializes a new Search Loyalty Events Request object.
      */
     public function build(): SearchLoyaltyEventsRequest
     {

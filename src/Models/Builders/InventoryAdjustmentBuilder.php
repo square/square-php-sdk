@@ -28,7 +28,7 @@ class InventoryAdjustmentBuilder
     }
 
     /**
-     * Initializes a new inventory adjustment Builder object.
+     * Initializes a new Inventory Adjustment Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +37,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -46,6 +48,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -64,6 +68,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets from state field.
+     *
+     * @param string|null $value
      */
     public function fromState(?string $value): self
     {
@@ -73,6 +79,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets to state field.
+     *
+     * @param string|null $value
      */
     public function toState(?string $value): self
     {
@@ -82,6 +90,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -100,6 +110,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -118,6 +130,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets catalog object type field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectType(?string $value): self
     {
@@ -136,6 +150,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -154,6 +170,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets total price money field.
+     *
+     * @param Money|null $value
      */
     public function totalPriceMoney(?Money $value): self
     {
@@ -163,6 +181,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets occurred at field.
+     *
+     * @param string|null $value
      */
     public function occurredAt(?string $value): self
     {
@@ -181,6 +201,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -190,6 +212,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets source field.
+     *
+     * @param SourceApplication|null $value
      */
     public function source(?SourceApplication $value): self
     {
@@ -199,6 +223,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -217,6 +243,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -235,6 +263,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets transaction id field.
+     *
+     * @param string|null $value
      */
     public function transactionId(?string $value): self
     {
@@ -244,6 +274,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets refund id field.
+     *
+     * @param string|null $value
      */
     public function refundId(?string $value): self
     {
@@ -253,6 +285,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets purchase order id field.
+     *
+     * @param string|null $value
      */
     public function purchaseOrderId(?string $value): self
     {
@@ -262,6 +296,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets goods receipt id field.
+     *
+     * @param string|null $value
      */
     public function goodsReceiptId(?string $value): self
     {
@@ -271,6 +307,8 @@ class InventoryAdjustmentBuilder
 
     /**
      * Sets adjustment group field.
+     *
+     * @param InventoryAdjustmentGroup|null $value
      */
     public function adjustmentGroup(?InventoryAdjustmentGroup $value): self
     {
@@ -279,7 +317,7 @@ class InventoryAdjustmentBuilder
     }
 
     /**
-     * Initializes a new inventory adjustment object.
+     * Initializes a new Inventory Adjustment object.
      */
     public function build(): InventoryAdjustment
     {

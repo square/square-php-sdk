@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteLoyaltyRewardResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteLoyaltyRewardResponse
@@ -25,7 +26,7 @@ class DeleteLoyaltyRewardResponseBuilder
     }
 
     /**
-     * Initializes a new delete loyalty reward response Builder object.
+     * Initializes a new Delete Loyalty Reward Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteLoyaltyRewardResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteLoyaltyRewardResponseBuilder
     }
 
     /**
-     * Initializes a new delete loyalty reward response object.
+     * Initializes a new Delete Loyalty Reward Response object.
      */
     public function build(): DeleteLoyaltyRewardResponse
     {

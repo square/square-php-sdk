@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogObject;
+use Square\Models\Error;
 use Square\Models\RetrieveCatalogObjectResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve catalog object response Builder object.
+     * Initializes a new Retrieve Catalog Object Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveCatalogObjectResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveCatalogObjectResponseBuilder
 
     /**
      * Sets object field.
+     *
+     * @param CatalogObject|null $value
      */
     public function object(?CatalogObject $value): self
     {
@@ -53,6 +58,8 @@ class RetrieveCatalogObjectResponseBuilder
 
     /**
      * Sets related objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function relatedObjects(?array $value): self
     {
@@ -61,7 +68,7 @@ class RetrieveCatalogObjectResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve catalog object response object.
+     * Initializes a new Retrieve Catalog Object Response object.
      */
     public function build(): RetrieveCatalogObjectResponse
     {

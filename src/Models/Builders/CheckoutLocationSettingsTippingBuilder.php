@@ -26,7 +26,7 @@ class CheckoutLocationSettingsTippingBuilder
     }
 
     /**
-     * Initializes a new checkout location settings tipping Builder object.
+     * Initializes a new Checkout Location Settings Tipping Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CheckoutLocationSettingsTippingBuilder
 
     /**
      * Sets percentages field.
+     *
+     * @param int[]|null $value
      */
     public function percentages(?array $value): self
     {
@@ -53,6 +55,8 @@ class CheckoutLocationSettingsTippingBuilder
 
     /**
      * Sets smart tipping enabled field.
+     *
+     * @param bool|null $value
      */
     public function smartTippingEnabled(?bool $value): self
     {
@@ -71,6 +75,8 @@ class CheckoutLocationSettingsTippingBuilder
 
     /**
      * Sets default percent field.
+     *
+     * @param int|null $value
      */
     public function defaultPercent(?int $value): self
     {
@@ -89,6 +95,8 @@ class CheckoutLocationSettingsTippingBuilder
 
     /**
      * Sets smart tips field.
+     *
+     * @param Money[]|null $value
      */
     public function smartTips(?array $value): self
     {
@@ -107,6 +115,8 @@ class CheckoutLocationSettingsTippingBuilder
 
     /**
      * Sets default smart tip field.
+     *
+     * @param Money|null $value
      */
     public function defaultSmartTip(?Money $value): self
     {
@@ -115,7 +125,7 @@ class CheckoutLocationSettingsTippingBuilder
     }
 
     /**
-     * Initializes a new checkout location settings tipping object.
+     * Initializes a new Checkout Location Settings Tipping object.
      */
     public function build(): CheckoutLocationSettingsTipping
     {

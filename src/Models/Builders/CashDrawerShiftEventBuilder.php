@@ -26,7 +26,7 @@ class CashDrawerShiftEventBuilder
     }
 
     /**
-     * Initializes a new cash drawer shift event Builder object.
+     * Initializes a new Cash Drawer Shift Event Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets event type field.
+     *
+     * @param string|null $value
      */
     public function eventType(?string $value): self
     {
@@ -53,6 +57,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets event money field.
+     *
+     * @param Money|null $value
      */
     public function eventMoney(?Money $value): self
     {
@@ -62,6 +68,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -71,6 +79,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -89,6 +99,8 @@ class CashDrawerShiftEventBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -97,7 +109,7 @@ class CashDrawerShiftEventBuilder
     }
 
     /**
-     * Initializes a new cash drawer shift event object.
+     * Initializes a new Cash Drawer Shift Event object.
      */
     public function build(): CashDrawerShiftEvent
     {

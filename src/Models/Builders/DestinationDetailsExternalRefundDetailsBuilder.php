@@ -25,7 +25,10 @@ class DestinationDetailsExternalRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details external refund details Builder object.
+     * Initializes a new Destination Details External Refund Details Builder object.
+     *
+     * @param string $type
+     * @param string $source
      */
     public static function init(string $type, string $source): self
     {
@@ -34,6 +37,8 @@ class DestinationDetailsExternalRefundDetailsBuilder
 
     /**
      * Sets source id field.
+     *
+     * @param string|null $value
      */
     public function sourceId(?string $value): self
     {
@@ -51,7 +56,7 @@ class DestinationDetailsExternalRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details external refund details object.
+     * Initializes a new Destination Details External Refund Details object.
      */
     public function build(): DestinationDetailsExternalRefundDetails
     {

@@ -25,7 +25,7 @@ class DeleteCustomerRequestBuilder
     }
 
     /**
-     * Initializes a new delete customer request Builder object.
+     * Initializes a new Delete Customer Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeleteCustomerRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -42,7 +44,7 @@ class DeleteCustomerRequestBuilder
     }
 
     /**
-     * Initializes a new delete customer request object.
+     * Initializes a new Delete Customer Request object.
      */
     public function build(): DeleteCustomerRequest
     {

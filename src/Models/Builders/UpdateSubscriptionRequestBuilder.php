@@ -26,7 +26,7 @@ class UpdateSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new update subscription request Builder object.
+     * Initializes a new Update Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class UpdateSubscriptionRequestBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -43,7 +45,7 @@ class UpdateSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new update subscription request object.
+     * Initializes a new Update Subscription Request object.
      */
     public function build(): UpdateSubscriptionRequest
     {

@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CreateOrderCustomAttributeDefinitionResponse;
 use Square\Models\CustomAttributeDefinition;
+use Square\Models\Error;
 
 /**
  * Builder for model CreateOrderCustomAttributeDefinitionResponse
@@ -26,7 +27,7 @@ class CreateOrderCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new create order custom attribute definition response Builder object.
+     * Initializes a new Create Order Custom Attribute Definition Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateOrderCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets custom attribute definition field.
+     *
+     * @param CustomAttributeDefinition|null $value
      */
     public function customAttributeDefinition(?CustomAttributeDefinition $value): self
     {
@@ -44,6 +47,8 @@ class CreateOrderCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CreateOrderCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new create order custom attribute definition response object.
+     * Initializes a new Create Order Custom Attribute Definition Response object.
      */
     public function build(): CreateOrderCustomAttributeDefinitionResponse
     {

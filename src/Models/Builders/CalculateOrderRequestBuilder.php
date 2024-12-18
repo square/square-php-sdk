@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CalculateOrderRequest;
 use Square\Models\Order;
+use Square\Models\OrderReward;
 
 /**
  * Builder for model CalculateOrderRequest
@@ -26,7 +27,9 @@ class CalculateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new calculate order request Builder object.
+     * Initializes a new Calculate Order Request Builder object.
+     *
+     * @param Order $order
      */
     public static function init(Order $order): self
     {
@@ -35,6 +38,8 @@ class CalculateOrderRequestBuilder
 
     /**
      * Sets proposed rewards field.
+     *
+     * @param OrderReward[]|null $value
      */
     public function proposedRewards(?array $value): self
     {
@@ -52,7 +57,7 @@ class CalculateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new calculate order request object.
+     * Initializes a new Calculate Order Request object.
      */
     public function build(): CalculateOrderRequest
     {

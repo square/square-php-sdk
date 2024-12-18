@@ -26,7 +26,9 @@ class OrderLineItemAppliedDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item applied discount Builder object.
+     * Initializes a new Order Line Item Applied Discount Builder object.
+     *
+     * @param string $discountUid
      */
     public static function init(string $discountUid): self
     {
@@ -35,6 +37,8 @@ class OrderLineItemAppliedDiscountBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +57,8 @@ class OrderLineItemAppliedDiscountBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -61,7 +67,7 @@ class OrderLineItemAppliedDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item applied discount object.
+     * Initializes a new Order Line Item Applied Discount object.
      */
     public function build(): OrderLineItemAppliedDiscount
     {

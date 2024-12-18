@@ -25,7 +25,7 @@ class OrderCreatedBuilder
     }
 
     /**
-     * Initializes a new order created Builder object.
+     * Initializes a new Order Created Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderCreatedBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderCreatedBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -61,6 +65,8 @@ class OrderCreatedBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -79,6 +85,8 @@ class OrderCreatedBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -88,6 +96,8 @@ class OrderCreatedBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -96,7 +106,7 @@ class OrderCreatedBuilder
     }
 
     /**
-     * Initializes a new order created object.
+     * Initializes a new Order Created object.
      */
     public function build(): OrderCreated
     {

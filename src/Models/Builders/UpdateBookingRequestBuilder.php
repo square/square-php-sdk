@@ -26,7 +26,9 @@ class UpdateBookingRequestBuilder
     }
 
     /**
-     * Initializes a new update booking request Builder object.
+     * Initializes a new Update Booking Request Builder object.
+     *
+     * @param Booking $booking
      */
     public static function init(Booking $booking): self
     {
@@ -35,6 +37,8 @@ class UpdateBookingRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpdateBookingRequestBuilder
     }
 
     /**
-     * Initializes a new update booking request object.
+     * Initializes a new Update Booking Request object.
      */
     public function build(): UpdateBookingRequest
     {

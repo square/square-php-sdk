@@ -26,7 +26,7 @@ class OrderReturnDiscountBuilder
     }
 
     /**
-     * Initializes a new order return discount Builder object.
+     * Initializes a new Order Return Discount Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets source discount uid field.
+     *
+     * @param string|null $value
      */
     public function sourceDiscountUid(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -89,6 +95,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -107,6 +115,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -125,6 +135,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -134,6 +146,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -152,6 +166,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -161,6 +177,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -170,6 +188,8 @@ class OrderReturnDiscountBuilder
 
     /**
      * Sets scope field.
+     *
+     * @param string|null $value
      */
     public function scope(?string $value): self
     {
@@ -178,7 +198,7 @@ class OrderReturnDiscountBuilder
     }
 
     /**
-     * Initializes a new order return discount object.
+     * Initializes a new Order Return Discount object.
      */
     public function build(): OrderReturnDiscount
     {

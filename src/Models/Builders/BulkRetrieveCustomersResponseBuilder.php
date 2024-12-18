@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkRetrieveCustomersResponse;
+use Square\Models\Error;
+use Square\Models\RetrieveCustomerResponse;
 
 /**
  * Builder for model BulkRetrieveCustomersResponse
@@ -25,7 +27,7 @@ class BulkRetrieveCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve customers response Builder object.
+     * Initializes a new Bulk Retrieve Customers Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkRetrieveCustomersResponseBuilder
 
     /**
      * Sets responses field.
+     *
+     * @param array<string,RetrieveCustomerResponse>|null $value
      */
     public function responses(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkRetrieveCustomersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkRetrieveCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve customers response object.
+     * Initializes a new Bulk Retrieve Customers Response object.
      */
     public function build(): BulkRetrieveCustomersResponse
     {

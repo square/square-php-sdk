@@ -25,7 +25,7 @@ class SubscriptionTestResultBuilder
     }
 
     /**
-     * Initializes a new subscription test result Builder object.
+     * Initializes a new Subscription Test Result Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SubscriptionTestResultBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class SubscriptionTestResultBuilder
 
     /**
      * Sets status code field.
+     *
+     * @param int|null $value
      */
     public function statusCode(?int $value): self
     {
@@ -61,6 +65,8 @@ class SubscriptionTestResultBuilder
 
     /**
      * Sets payload field.
+     *
+     * @param string|null $value
      */
     public function payload(?string $value): self
     {
@@ -79,6 +85,8 @@ class SubscriptionTestResultBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -88,6 +96,8 @@ class SubscriptionTestResultBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -96,7 +106,7 @@ class SubscriptionTestResultBuilder
     }
 
     /**
-     * Initializes a new subscription test result object.
+     * Initializes a new Subscription Test Result object.
      */
     public function build(): SubscriptionTestResult
     {

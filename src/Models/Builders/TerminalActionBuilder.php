@@ -33,7 +33,7 @@ class TerminalActionBuilder
     }
 
     /**
-     * Initializes a new terminal action Builder object.
+     * Initializes a new Terminal Action Builder object.
      */
     public static function init(): self
     {
@@ -42,6 +42,8 @@ class TerminalActionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -51,6 +53,8 @@ class TerminalActionBuilder
 
     /**
      * Sets device id field.
+     *
+     * @param string|null $value
      */
     public function deviceId(?string $value): self
     {
@@ -69,6 +73,8 @@ class TerminalActionBuilder
 
     /**
      * Sets deadline duration field.
+     *
+     * @param string|null $value
      */
     public function deadlineDuration(?string $value): self
     {
@@ -87,6 +93,8 @@ class TerminalActionBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -96,6 +104,8 @@ class TerminalActionBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -105,6 +115,8 @@ class TerminalActionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -114,6 +126,8 @@ class TerminalActionBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -123,6 +137,8 @@ class TerminalActionBuilder
 
     /**
      * Sets app id field.
+     *
+     * @param string|null $value
      */
     public function appId(?string $value): self
     {
@@ -132,6 +148,8 @@ class TerminalActionBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -141,6 +159,8 @@ class TerminalActionBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -150,6 +170,8 @@ class TerminalActionBuilder
 
     /**
      * Sets qr code options field.
+     *
+     * @param QrCodeOptions|null $value
      */
     public function qrCodeOptions(?QrCodeOptions $value): self
     {
@@ -159,6 +181,8 @@ class TerminalActionBuilder
 
     /**
      * Sets save card options field.
+     *
+     * @param SaveCardOptions|null $value
      */
     public function saveCardOptions(?SaveCardOptions $value): self
     {
@@ -168,6 +192,8 @@ class TerminalActionBuilder
 
     /**
      * Sets signature options field.
+     *
+     * @param SignatureOptions|null $value
      */
     public function signatureOptions(?SignatureOptions $value): self
     {
@@ -177,6 +203,8 @@ class TerminalActionBuilder
 
     /**
      * Sets confirmation options field.
+     *
+     * @param ConfirmationOptions|null $value
      */
     public function confirmationOptions(?ConfirmationOptions $value): self
     {
@@ -186,6 +214,8 @@ class TerminalActionBuilder
 
     /**
      * Sets receipt options field.
+     *
+     * @param ReceiptOptions|null $value
      */
     public function receiptOptions(?ReceiptOptions $value): self
     {
@@ -195,6 +225,8 @@ class TerminalActionBuilder
 
     /**
      * Sets data collection options field.
+     *
+     * @param DataCollectionOptions|null $value
      */
     public function dataCollectionOptions(?DataCollectionOptions $value): self
     {
@@ -204,6 +236,8 @@ class TerminalActionBuilder
 
     /**
      * Sets select options field.
+     *
+     * @param SelectOptions|null $value
      */
     public function selectOptions(?SelectOptions $value): self
     {
@@ -213,6 +247,8 @@ class TerminalActionBuilder
 
     /**
      * Sets device metadata field.
+     *
+     * @param DeviceMetadata|null $value
      */
     public function deviceMetadata(?DeviceMetadata $value): self
     {
@@ -222,6 +258,8 @@ class TerminalActionBuilder
 
     /**
      * Sets await next action field.
+     *
+     * @param bool|null $value
      */
     public function awaitNextAction(?bool $value): self
     {
@@ -240,6 +278,8 @@ class TerminalActionBuilder
 
     /**
      * Sets await next action duration field.
+     *
+     * @param string|null $value
      */
     public function awaitNextActionDuration(?string $value): self
     {
@@ -257,7 +297,7 @@ class TerminalActionBuilder
     }
 
     /**
-     * Initializes a new terminal action object.
+     * Initializes a new Terminal Action object.
      */
     public function build(): TerminalAction
     {

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListTeamMemberBookingProfilesResponse;
+use Square\Models\TeamMemberBookingProfile;
 
 /**
  * Builder for model ListTeamMemberBookingProfilesResponse
@@ -25,7 +27,7 @@ class ListTeamMemberBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new list team member booking profiles response Builder object.
+     * Initializes a new List Team Member Booking Profiles Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListTeamMemberBookingProfilesResponseBuilder
 
     /**
      * Sets team member booking profiles field.
+     *
+     * @param TeamMemberBookingProfile[]|null $value
      */
     public function teamMemberBookingProfiles(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListTeamMemberBookingProfilesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListTeamMemberBookingProfilesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListTeamMemberBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new list team member booking profiles response object.
+     * Initializes a new List Team Member Booking Profiles Response object.
      */
     public function build(): ListTeamMemberBookingProfilesResponse
     {

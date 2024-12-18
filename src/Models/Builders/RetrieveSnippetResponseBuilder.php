@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveSnippetResponse;
 use Square\Models\Snippet;
 
@@ -26,7 +27,7 @@ class RetrieveSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve snippet response Builder object.
+     * Initializes a new Retrieve Snippet Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveSnippetResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveSnippetResponseBuilder
 
     /**
      * Sets snippet field.
+     *
+     * @param Snippet|null $value
      */
     public function snippet(?Snippet $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveSnippetResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve snippet response object.
+     * Initializes a new Retrieve Snippet Response object.
      */
     public function build(): RetrieveSnippetResponse
     {

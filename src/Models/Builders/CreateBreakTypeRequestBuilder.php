@@ -26,7 +26,9 @@ class CreateBreakTypeRequestBuilder
     }
 
     /**
-     * Initializes a new create break type request Builder object.
+     * Initializes a new Create Break Type Request Builder object.
+     *
+     * @param BreakType $breakType
      */
     public static function init(BreakType $breakType): self
     {
@@ -35,6 +37,8 @@ class CreateBreakTypeRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateBreakTypeRequestBuilder
     }
 
     /**
-     * Initializes a new create break type request object.
+     * Initializes a new Create Break Type Request object.
      */
     public function build(): CreateBreakTypeRequest
     {

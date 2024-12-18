@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListSitesResponse;
+use Square\Models\Site;
 
 /**
  * Builder for model ListSitesResponse
@@ -25,7 +27,7 @@ class ListSitesResponseBuilder
     }
 
     /**
-     * Initializes a new list sites response Builder object.
+     * Initializes a new List Sites Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListSitesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListSitesResponseBuilder
 
     /**
      * Sets sites field.
+     *
+     * @param Site[]|null $value
      */
     public function sites(?array $value): self
     {
@@ -51,7 +57,7 @@ class ListSitesResponseBuilder
     }
 
     /**
-     * Initializes a new list sites response object.
+     * Initializes a new List Sites Response object.
      */
     public function build(): ListSitesResponse
     {

@@ -25,7 +25,7 @@ class ListCardsRequestBuilder
     }
 
     /**
-     * Initializes a new list cards request Builder object.
+     * Initializes a new List Cards Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListCardsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListCardsRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListCardsRequestBuilder
 
     /**
      * Sets include disabled field.
+     *
+     * @param bool|null $value
      */
     public function includeDisabled(?bool $value): self
     {
@@ -88,6 +94,8 @@ class ListCardsRequestBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -106,6 +114,8 @@ class ListCardsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -114,7 +124,7 @@ class ListCardsRequestBuilder
     }
 
     /**
-     * Initializes a new list cards request object.
+     * Initializes a new List Cards Request object.
      */
     public function build(): ListCardsRequest
     {

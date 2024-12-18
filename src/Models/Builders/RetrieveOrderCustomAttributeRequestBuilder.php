@@ -25,7 +25,7 @@ class RetrieveOrderCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve order custom attribute request Builder object.
+     * Initializes a new Retrieve Order Custom Attribute Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveOrderCustomAttributeRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -43,6 +45,8 @@ class RetrieveOrderCustomAttributeRequestBuilder
 
     /**
      * Sets with definition field.
+     *
+     * @param bool|null $value
      */
     public function withDefinition(?bool $value): self
     {
@@ -60,7 +64,7 @@ class RetrieveOrderCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve order custom attribute request object.
+     * Initializes a new Retrieve Order Custom Attribute Request object.
      */
     public function build(): RetrieveOrderCustomAttributeRequest
     {

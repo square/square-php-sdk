@@ -25,7 +25,7 @@ class CatalogObjectReferenceBuilder
     }
 
     /**
-     * Initializes a new catalog object reference Builder object.
+     * Initializes a new Catalog Object Reference Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogObjectReferenceBuilder
 
     /**
      * Sets object id field.
+     *
+     * @param string|null $value
      */
     public function objectId(?string $value): self
     {
@@ -52,6 +54,8 @@ class CatalogObjectReferenceBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -69,7 +73,7 @@ class CatalogObjectReferenceBuilder
     }
 
     /**
-     * Initializes a new catalog object reference object.
+     * Initializes a new Catalog Object Reference object.
      */
     public function build(): CatalogObjectReference
     {

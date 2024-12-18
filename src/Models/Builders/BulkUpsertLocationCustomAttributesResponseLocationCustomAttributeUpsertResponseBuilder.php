@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse;
 use Square\Models\CustomAttribute;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse
@@ -27,8 +28,8 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes response location custom attribute upsert
-     * response Builder object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Response Location Custom Attribute Upsert
+     * Response Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -46,6 +49,8 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
 
     /**
      * Sets custom attribute field.
+     *
+     * @param CustomAttribute|null $value
      */
     public function customAttribute(?CustomAttribute $value): self
     {
@@ -55,6 +60,8 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -63,8 +70,8 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes response location custom attribute upsert
-     * response object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Response Location Custom Attribute Upsert
+     * Response object.
      */
     public function build(): BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse
     {

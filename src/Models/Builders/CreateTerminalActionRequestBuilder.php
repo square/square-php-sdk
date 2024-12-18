@@ -26,7 +26,10 @@ class CreateTerminalActionRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal action request Builder object.
+     * Initializes a new Create Terminal Action Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param TerminalAction $action
      */
     public static function init(string $idempotencyKey, TerminalAction $action): self
     {
@@ -34,7 +37,7 @@ class CreateTerminalActionRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal action request object.
+     * Initializes a new Create Terminal Action Request object.
      */
     public function build(): CreateTerminalActionRequest
     {

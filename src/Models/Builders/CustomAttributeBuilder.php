@@ -26,7 +26,7 @@ class CustomAttributeBuilder
     }
 
     /**
-     * Initializes a new custom attribute Builder object.
+     * Initializes a new Custom Attribute Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -53,6 +55,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets value field.
+     *
+     * @param mixed $value
      */
     public function value($value): self
     {
@@ -71,6 +75,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -80,6 +86,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets visibility field.
+     *
+     * @param string|null $value
      */
     public function visibility(?string $value): self
     {
@@ -89,6 +97,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets definition field.
+     *
+     * @param CustomAttributeDefinition|null $value
      */
     public function definition(?CustomAttributeDefinition $value): self
     {
@@ -98,6 +108,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -107,6 +119,8 @@ class CustomAttributeBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -115,7 +129,7 @@ class CustomAttributeBuilder
     }
 
     /**
-     * Initializes a new custom attribute object.
+     * Initializes a new Custom Attribute object.
      */
     public function build(): CustomAttribute
     {

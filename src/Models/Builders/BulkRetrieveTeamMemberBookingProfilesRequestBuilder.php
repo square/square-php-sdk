@@ -25,7 +25,9 @@ class BulkRetrieveTeamMemberBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve team member booking profiles request Builder object.
+     * Initializes a new Bulk Retrieve Team Member Booking Profiles Request Builder object.
+     *
+     * @param string[] $teamMemberIds
      */
     public static function init(array $teamMemberIds): self
     {
@@ -33,7 +35,7 @@ class BulkRetrieveTeamMemberBookingProfilesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve team member booking profiles request object.
+     * Initializes a new Bulk Retrieve Team Member Booking Profiles Request object.
      */
     public function build(): BulkRetrieveTeamMemberBookingProfilesRequest
     {

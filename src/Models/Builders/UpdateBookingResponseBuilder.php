@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Booking;
+use Square\Models\Error;
 use Square\Models\UpdateBookingResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateBookingResponseBuilder
     }
 
     /**
-     * Initializes a new update booking response Builder object.
+     * Initializes a new Update Booking Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateBookingResponseBuilder
 
     /**
      * Sets booking field.
+     *
+     * @param Booking|null $value
      */
     public function booking(?Booking $value): self
     {
@@ -44,6 +47,8 @@ class UpdateBookingResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateBookingResponseBuilder
     }
 
     /**
-     * Initializes a new update booking response object.
+     * Initializes a new Update Booking Response object.
      */
     public function build(): UpdateBookingResponse
     {

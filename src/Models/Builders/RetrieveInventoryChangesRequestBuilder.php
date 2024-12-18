@@ -25,7 +25,7 @@ class RetrieveInventoryChangesRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory changes request Builder object.
+     * Initializes a new Retrieve Inventory Changes Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string|null $value
      */
     public function locationIds(?string $value): self
     {
@@ -52,6 +54,8 @@ class RetrieveInventoryChangesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -69,7 +73,7 @@ class RetrieveInventoryChangesRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory changes request object.
+     * Initializes a new Retrieve Inventory Changes Request object.
      */
     public function build(): RetrieveInventoryChangesRequest
     {

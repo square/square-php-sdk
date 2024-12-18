@@ -26,7 +26,7 @@ class SearchOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new search orders request Builder object.
+     * Initializes a new Search Orders Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchOrdersRequestBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -44,6 +46,8 @@ class SearchOrdersRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -53,6 +57,8 @@ class SearchOrdersRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param SearchOrdersQuery|null $value
      */
     public function query(?SearchOrdersQuery $value): self
     {
@@ -62,6 +68,8 @@ class SearchOrdersRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -71,6 +79,8 @@ class SearchOrdersRequestBuilder
 
     /**
      * Sets return entries field.
+     *
+     * @param bool|null $value
      */
     public function returnEntries(?bool $value): self
     {
@@ -79,7 +89,7 @@ class SearchOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new search orders request object.
+     * Initializes a new Search Orders Request object.
      */
     public function build(): SearchOrdersRequest
     {

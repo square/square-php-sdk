@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
+use Square\Models\AppointmentSegment;
 use Square\Models\Booking;
 use Square\Models\BookingCreatorDetails;
 
@@ -27,7 +28,7 @@ class BookingBuilder
     }
 
     /**
-     * Initializes a new booking Builder object.
+     * Initializes a new Booking Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +37,8 @@ class BookingBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +48,8 @@ class BookingBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -54,6 +59,8 @@ class BookingBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -63,6 +70,8 @@ class BookingBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -72,6 +81,8 @@ class BookingBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -81,6 +92,8 @@ class BookingBuilder
 
     /**
      * Sets start at field.
+     *
+     * @param string|null $value
      */
     public function startAt(?string $value): self
     {
@@ -99,6 +112,8 @@ class BookingBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -117,6 +132,8 @@ class BookingBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -135,6 +152,8 @@ class BookingBuilder
 
     /**
      * Sets customer note field.
+     *
+     * @param string|null $value
      */
     public function customerNote(?string $value): self
     {
@@ -153,6 +172,8 @@ class BookingBuilder
 
     /**
      * Sets seller note field.
+     *
+     * @param string|null $value
      */
     public function sellerNote(?string $value): self
     {
@@ -171,6 +192,8 @@ class BookingBuilder
 
     /**
      * Sets appointment segments field.
+     *
+     * @param AppointmentSegment[]|null $value
      */
     public function appointmentSegments(?array $value): self
     {
@@ -189,6 +212,8 @@ class BookingBuilder
 
     /**
      * Sets transition time minutes field.
+     *
+     * @param int|null $value
      */
     public function transitionTimeMinutes(?int $value): self
     {
@@ -198,6 +223,8 @@ class BookingBuilder
 
     /**
      * Sets all day field.
+     *
+     * @param bool|null $value
      */
     public function allDay(?bool $value): self
     {
@@ -207,6 +234,8 @@ class BookingBuilder
 
     /**
      * Sets location type field.
+     *
+     * @param string|null $value
      */
     public function locationType(?string $value): self
     {
@@ -216,6 +245,8 @@ class BookingBuilder
 
     /**
      * Sets creator details field.
+     *
+     * @param BookingCreatorDetails|null $value
      */
     public function creatorDetails(?BookingCreatorDetails $value): self
     {
@@ -225,6 +256,8 @@ class BookingBuilder
 
     /**
      * Sets source field.
+     *
+     * @param string|null $value
      */
     public function source(?string $value): self
     {
@@ -234,6 +267,8 @@ class BookingBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -242,7 +277,7 @@ class BookingBuilder
     }
 
     /**
-     * Initializes a new booking object.
+     * Initializes a new Booking object.
      */
     public function build(): Booking
     {

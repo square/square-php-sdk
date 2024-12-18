@@ -26,7 +26,7 @@ class OrderFulfillmentUpdatedObjectBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated object Builder object.
+     * Initializes a new Order Fulfillment Updated Object Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderFulfillmentUpdatedObjectBuilder
 
     /**
      * Sets order fulfillment updated field.
+     *
+     * @param OrderFulfillmentUpdated|null $value
      */
     public function orderFulfillmentUpdated(?OrderFulfillmentUpdated $value): self
     {
@@ -43,7 +45,7 @@ class OrderFulfillmentUpdatedObjectBuilder
     }
 
     /**
-     * Initializes a new order fulfillment updated object object.
+     * Initializes a new Order Fulfillment Updated Object object.
      */
     public function build(): OrderFulfillmentUpdatedObject
     {

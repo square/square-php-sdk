@@ -26,7 +26,7 @@ class InventoryTransferBuilder
     }
 
     /**
-     * Initializes a new inventory transfer Builder object.
+     * Initializes a new Inventory Transfer Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -62,6 +66,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -71,6 +77,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets from location id field.
+     *
+     * @param string|null $value
      */
     public function fromLocationId(?string $value): self
     {
@@ -89,6 +97,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets to location id field.
+     *
+     * @param string|null $value
      */
     public function toLocationId(?string $value): self
     {
@@ -107,6 +117,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -125,6 +137,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets catalog object type field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectType(?string $value): self
     {
@@ -143,6 +157,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -161,6 +177,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets occurred at field.
+     *
+     * @param string|null $value
      */
     public function occurredAt(?string $value): self
     {
@@ -179,6 +197,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -188,6 +208,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets source field.
+     *
+     * @param SourceApplication|null $value
      */
     public function source(?SourceApplication $value): self
     {
@@ -197,6 +219,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -215,6 +239,8 @@ class InventoryTransferBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -232,7 +258,7 @@ class InventoryTransferBuilder
     }
 
     /**
-     * Initializes a new inventory transfer object.
+     * Initializes a new Inventory Transfer object.
      */
     public function build(): InventoryTransfer
     {

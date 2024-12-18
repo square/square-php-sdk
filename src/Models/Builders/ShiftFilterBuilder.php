@@ -27,7 +27,7 @@ class ShiftFilterBuilder
     }
 
     /**
-     * Initializes a new shift filter Builder object.
+     * Initializes a new Shift Filter Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -54,6 +56,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets employee ids field.
+     *
+     * @param string[]|null $value
      */
     public function employeeIds(?array $value): self
     {
@@ -72,6 +76,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -81,6 +87,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets start field.
+     *
+     * @param TimeRange|null $value
      */
     public function start(?TimeRange $value): self
     {
@@ -90,6 +98,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets end field.
+     *
+     * @param TimeRange|null $value
      */
     public function end(?TimeRange $value): self
     {
@@ -99,6 +109,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets workday field.
+     *
+     * @param ShiftWorkday|null $value
      */
     public function workday(?ShiftWorkday $value): self
     {
@@ -108,6 +120,8 @@ class ShiftFilterBuilder
 
     /**
      * Sets team member ids field.
+     *
+     * @param string[]|null $value
      */
     public function teamMemberIds(?array $value): self
     {
@@ -125,7 +139,7 @@ class ShiftFilterBuilder
     }
 
     /**
-     * Initializes a new shift filter object.
+     * Initializes a new Shift Filter object.
      */
     public function build(): ShiftFilter
     {

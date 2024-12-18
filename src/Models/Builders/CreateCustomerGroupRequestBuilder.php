@@ -26,7 +26,9 @@ class CreateCustomerGroupRequestBuilder
     }
 
     /**
-     * Initializes a new create customer group request Builder object.
+     * Initializes a new Create Customer Group Request Builder object.
+     *
+     * @param CustomerGroup $group
      */
     public static function init(CustomerGroup $group): self
     {
@@ -35,6 +37,8 @@ class CreateCustomerGroupRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateCustomerGroupRequestBuilder
     }
 
     /**
-     * Initializes a new create customer group request object.
+     * Initializes a new Create Customer Group Request object.
      */
     public function build(): CreateCustomerGroupRequest
     {

@@ -25,7 +25,9 @@ class CatalogQueryTextBuilder
     }
 
     /**
-     * Initializes a new catalog query text Builder object.
+     * Initializes a new Catalog Query Text Builder object.
+     *
+     * @param string[] $keywords
      */
     public static function init(array $keywords): self
     {
@@ -33,7 +35,7 @@ class CatalogQueryTextBuilder
     }
 
     /**
-     * Initializes a new catalog query text object.
+     * Initializes a new Catalog Query Text object.
      */
     public function build(): CatalogQueryText
     {

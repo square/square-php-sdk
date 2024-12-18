@@ -26,7 +26,7 @@ class OrderLineItemDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item discount Builder object.
+     * Initializes a new Order Line Item Discount Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -89,6 +95,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -107,6 +115,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -116,6 +126,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -134,6 +146,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -143,6 +157,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -152,6 +168,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -170,6 +188,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets scope field.
+     *
+     * @param string|null $value
      */
     public function scope(?string $value): self
     {
@@ -179,6 +199,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets reward ids field.
+     *
+     * @param string[]|null $value
      */
     public function rewardIds(?array $value): self
     {
@@ -188,6 +210,8 @@ class OrderLineItemDiscountBuilder
 
     /**
      * Sets pricing rule id field.
+     *
+     * @param string|null $value
      */
     public function pricingRuleId(?string $value): self
     {
@@ -196,7 +220,7 @@ class OrderLineItemDiscountBuilder
     }
 
     /**
-     * Initializes a new order line item discount object.
+     * Initializes a new Order Line Item Discount object.
      */
     public function build(): OrderLineItemDiscount
     {

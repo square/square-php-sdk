@@ -25,7 +25,7 @@ class V1ListOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new v1 list orders request Builder object.
+     * Initializes a new V1 List Orders Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class V1ListOrdersRequestBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -43,6 +45,8 @@ class V1ListOrdersRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -61,6 +65,8 @@ class V1ListOrdersRequestBuilder
 
     /**
      * Sets batch token field.
+     *
+     * @param string|null $value
      */
     public function batchToken(?string $value): self
     {
@@ -78,7 +84,7 @@ class V1ListOrdersRequestBuilder
     }
 
     /**
-     * Initializes a new v1 list orders request object.
+     * Initializes a new V1 List Orders Request object.
      */
     public function build(): V1ListOrdersRequest
     {

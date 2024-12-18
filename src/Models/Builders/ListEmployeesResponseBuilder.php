@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Employee;
+use Square\Models\Error;
 use Square\Models\ListEmployeesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListEmployeesResponseBuilder
     }
 
     /**
-     * Initializes a new list employees response Builder object.
+     * Initializes a new List Employees Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListEmployeesResponseBuilder
 
     /**
      * Sets employees field.
+     *
+     * @param Employee[]|null $value
      */
     public function employees(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListEmployeesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListEmployeesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListEmployeesResponseBuilder
     }
 
     /**
-     * Initializes a new list employees response object.
+     * Initializes a new List Employees Response object.
      */
     public function build(): ListEmployeesResponse
     {

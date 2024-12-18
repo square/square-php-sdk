@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomAttributeDefinition;
+use Square\Models\Error;
 use Square\Models\RetrieveBookingCustomAttributeDefinitionResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveBookingCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve booking custom attribute definition response Builder object.
+     * Initializes a new Retrieve Booking Custom Attribute Definition Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveBookingCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets custom attribute definition field.
+     *
+     * @param CustomAttributeDefinition|null $value
      */
     public function customAttributeDefinition(?CustomAttributeDefinition $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveBookingCustomAttributeDefinitionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveBookingCustomAttributeDefinitionResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve booking custom attribute definition response object.
+     * Initializes a new Retrieve Booking Custom Attribute Definition Response object.
      */
     public function build(): RetrieveBookingCustomAttributeDefinitionResponse
     {

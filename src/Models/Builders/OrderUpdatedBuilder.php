@@ -25,7 +25,7 @@ class OrderUpdatedBuilder
     }
 
     /**
-     * Initializes a new order updated Builder object.
+     * Initializes a new Order Updated Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -61,6 +65,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -79,6 +85,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -88,6 +96,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -97,6 +107,8 @@ class OrderUpdatedBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -105,7 +117,7 @@ class OrderUpdatedBuilder
     }
 
     /**
-     * Initializes a new order updated object.
+     * Initializes a new Order Updated object.
      */
     public function build(): OrderUpdated
     {

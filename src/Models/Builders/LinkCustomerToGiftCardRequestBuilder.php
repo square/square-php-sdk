@@ -25,7 +25,9 @@ class LinkCustomerToGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new link customer to gift card request Builder object.
+     * Initializes a new Link Customer To Gift Card Request Builder object.
+     *
+     * @param string $customerId
      */
     public static function init(string $customerId): self
     {
@@ -33,7 +35,7 @@ class LinkCustomerToGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new link customer to gift card request object.
+     * Initializes a new Link Customer To Gift Card Request object.
      */
     public function build(): LinkCustomerToGiftCardRequest
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\GiftCardActivity;
 use Square\Models\ListGiftCardActivitiesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListGiftCardActivitiesResponseBuilder
     }
 
     /**
-     * Initializes a new list gift card activities response Builder object.
+     * Initializes a new List Gift Card Activities Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListGiftCardActivitiesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListGiftCardActivitiesResponseBuilder
 
     /**
      * Sets gift card activities field.
+     *
+     * @param GiftCardActivity[]|null $value
      */
     public function giftCardActivities(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListGiftCardActivitiesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListGiftCardActivitiesResponseBuilder
     }
 
     /**
-     * Initializes a new list gift card activities response object.
+     * Initializes a new List Gift Card Activities Response object.
      */
     public function build(): ListGiftCardActivitiesResponse
     {

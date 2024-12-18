@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogItemFoodAndBeverageDetails;
+use Square\Models\CatalogItemFoodAndBeverageDetailsDietaryPreference;
+use Square\Models\CatalogItemFoodAndBeverageDetailsIngredient;
 
 /**
  * Builder for model CatalogItemFoodAndBeverageDetails
@@ -25,7 +27,7 @@ class CatalogItemFoodAndBeverageDetailsBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details Builder object.
+     * Initializes a new Catalog Item Food And Beverage Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class CatalogItemFoodAndBeverageDetailsBuilder
 
     /**
      * Sets calorie count field.
+     *
+     * @param int|null $value
      */
     public function calorieCount(?int $value): self
     {
@@ -52,6 +56,8 @@ class CatalogItemFoodAndBeverageDetailsBuilder
 
     /**
      * Sets dietary preferences field.
+     *
+     * @param CatalogItemFoodAndBeverageDetailsDietaryPreference[]|null $value
      */
     public function dietaryPreferences(?array $value): self
     {
@@ -70,6 +76,8 @@ class CatalogItemFoodAndBeverageDetailsBuilder
 
     /**
      * Sets ingredients field.
+     *
+     * @param CatalogItemFoodAndBeverageDetailsIngredient[]|null $value
      */
     public function ingredients(?array $value): self
     {
@@ -87,7 +95,7 @@ class CatalogItemFoodAndBeverageDetailsBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details object.
+     * Initializes a new Catalog Item Food And Beverage Details object.
      */
     public function build(): CatalogItemFoodAndBeverageDetails
     {

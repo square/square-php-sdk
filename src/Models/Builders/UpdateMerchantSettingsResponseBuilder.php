@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CheckoutMerchantSettings;
+use Square\Models\Error;
 use Square\Models\UpdateMerchantSettingsResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateMerchantSettingsResponseBuilder
     }
 
     /**
-     * Initializes a new update merchant settings response Builder object.
+     * Initializes a new Update Merchant Settings Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateMerchantSettingsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpdateMerchantSettingsResponseBuilder
 
     /**
      * Sets merchant settings field.
+     *
+     * @param CheckoutMerchantSettings|null $value
      */
     public function merchantSettings(?CheckoutMerchantSettings $value): self
     {
@@ -52,7 +57,7 @@ class UpdateMerchantSettingsResponseBuilder
     }
 
     /**
-     * Initializes a new update merchant settings response object.
+     * Initializes a new Update Merchant Settings Response object.
      */
     public function build(): UpdateMerchantSettingsResponse
     {

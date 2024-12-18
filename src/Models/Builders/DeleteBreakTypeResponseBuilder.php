@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteBreakTypeResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteBreakTypeResponse
@@ -25,7 +26,7 @@ class DeleteBreakTypeResponseBuilder
     }
 
     /**
-     * Initializes a new delete break type response Builder object.
+     * Initializes a new Delete Break Type Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteBreakTypeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteBreakTypeResponseBuilder
     }
 
     /**
-     * Initializes a new delete break type response object.
+     * Initializes a new Delete Break Type Response object.
      */
     public function build(): DeleteBreakTypeResponse
     {

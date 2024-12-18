@@ -26,7 +26,9 @@ class UpdateBookingCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new update booking custom attribute definition request Builder object.
+     * Initializes a new Update Booking Custom Attribute Definition Request Builder object.
+     *
+     * @param CustomAttributeDefinition $customAttributeDefinition
      */
     public static function init(CustomAttributeDefinition $customAttributeDefinition): self
     {
@@ -35,6 +37,8 @@ class UpdateBookingCustomAttributeDefinitionRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpdateBookingCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new update booking custom attribute definition request object.
+     * Initializes a new Update Booking Custom Attribute Definition Request object.
      */
     public function build(): UpdateBookingCustomAttributeDefinitionRequest
     {

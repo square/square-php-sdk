@@ -25,7 +25,7 @@ class CatalogItemFoodAndBeverageDetailsIngredientBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details ingredient Builder object.
+     * Initializes a new Catalog Item Food And Beverage Details Ingredient Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogItemFoodAndBeverageDetailsIngredientBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -43,6 +45,8 @@ class CatalogItemFoodAndBeverageDetailsIngredientBuilder
 
     /**
      * Sets standard name field.
+     *
+     * @param string|null $value
      */
     public function standardName(?string $value): self
     {
@@ -52,6 +56,8 @@ class CatalogItemFoodAndBeverageDetailsIngredientBuilder
 
     /**
      * Sets custom name field.
+     *
+     * @param string|null $value
      */
     public function customName(?string $value): self
     {
@@ -69,7 +75,7 @@ class CatalogItemFoodAndBeverageDetailsIngredientBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details ingredient object.
+     * Initializes a new Catalog Item Food And Beverage Details Ingredient object.
      */
     public function build(): CatalogItemFoodAndBeverageDetailsIngredient
     {

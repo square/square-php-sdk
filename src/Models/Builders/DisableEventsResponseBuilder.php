@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DisableEventsResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DisableEventsResponse
@@ -25,7 +26,7 @@ class DisableEventsResponseBuilder
     }
 
     /**
-     * Initializes a new disable events response Builder object.
+     * Initializes a new Disable Events Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DisableEventsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DisableEventsResponseBuilder
     }
 
     /**
-     * Initializes a new disable events response object.
+     * Initializes a new Disable Events Response object.
      */
     public function build(): DisableEventsResponse
     {

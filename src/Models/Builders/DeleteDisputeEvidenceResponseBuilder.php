@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteDisputeEvidenceResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteDisputeEvidenceResponse
@@ -25,7 +26,7 @@ class DeleteDisputeEvidenceResponseBuilder
     }
 
     /**
-     * Initializes a new delete dispute evidence response Builder object.
+     * Initializes a new Delete Dispute Evidence Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteDisputeEvidenceResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteDisputeEvidenceResponseBuilder
     }
 
     /**
-     * Initializes a new delete dispute evidence response object.
+     * Initializes a new Delete Dispute Evidence Response object.
      */
     public function build(): DeleteDisputeEvidenceResponse
     {

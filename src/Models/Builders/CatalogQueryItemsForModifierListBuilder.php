@@ -25,7 +25,9 @@ class CatalogQueryItemsForModifierListBuilder
     }
 
     /**
-     * Initializes a new catalog query items for modifier list Builder object.
+     * Initializes a new Catalog Query Items For Modifier List Builder object.
+     *
+     * @param string[] $modifierListIds
      */
     public static function init(array $modifierListIds): self
     {
@@ -33,7 +35,7 @@ class CatalogQueryItemsForModifierListBuilder
     }
 
     /**
-     * Initializes a new catalog query items for modifier list object.
+     * Initializes a new Catalog Query Items For Modifier List object.
      */
     public function build(): CatalogQueryItemsForModifierList
     {

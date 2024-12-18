@@ -30,7 +30,7 @@ class CustomerFilterBuilder
     }
 
     /**
-     * Initializes a new customer filter Builder object.
+     * Initializes a new Customer Filter Builder object.
      */
     public static function init(): self
     {
@@ -39,6 +39,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets creation source field.
+     *
+     * @param CustomerCreationSourceFilter|null $value
      */
     public function creationSource(?CustomerCreationSourceFilter $value): self
     {
@@ -48,6 +50,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param TimeRange|null $value
      */
     public function createdAt(?TimeRange $value): self
     {
@@ -57,6 +61,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param TimeRange|null $value
      */
     public function updatedAt(?TimeRange $value): self
     {
@@ -66,6 +72,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function emailAddress(?CustomerTextFilter $value): self
     {
@@ -75,6 +83,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function phoneNumber(?CustomerTextFilter $value): self
     {
@@ -84,6 +94,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param CustomerTextFilter|null $value
      */
     public function referenceId(?CustomerTextFilter $value): self
     {
@@ -93,6 +105,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets group ids field.
+     *
+     * @param FilterValue|null $value
      */
     public function groupIds(?FilterValue $value): self
     {
@@ -102,6 +116,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets custom attribute field.
+     *
+     * @param CustomerCustomAttributeFilters|null $value
      */
     public function customAttribute(?CustomerCustomAttributeFilters $value): self
     {
@@ -111,6 +127,8 @@ class CustomerFilterBuilder
 
     /**
      * Sets segment ids field.
+     *
+     * @param FilterValue|null $value
      */
     public function segmentIds(?FilterValue $value): self
     {
@@ -119,7 +137,7 @@ class CustomerFilterBuilder
     }
 
     /**
-     * Initializes a new customer filter object.
+     * Initializes a new Customer Filter object.
      */
     public function build(): CustomerFilter
     {

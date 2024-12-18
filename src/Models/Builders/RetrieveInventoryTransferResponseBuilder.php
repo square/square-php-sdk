@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\InventoryTransfer;
 use Square\Models\RetrieveInventoryTransferResponse;
 
@@ -26,7 +27,7 @@ class RetrieveInventoryTransferResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory transfer response Builder object.
+     * Initializes a new Retrieve Inventory Transfer Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveInventoryTransferResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveInventoryTransferResponseBuilder
 
     /**
      * Sets transfer field.
+     *
+     * @param InventoryTransfer|null $value
      */
     public function transfer(?InventoryTransfer $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveInventoryTransferResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory transfer response object.
+     * Initializes a new Retrieve Inventory Transfer Response object.
      */
     public function build(): RetrieveInventoryTransferResponse
     {

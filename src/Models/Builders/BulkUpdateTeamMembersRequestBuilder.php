@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpdateTeamMembersRequest;
+use Square\Models\UpdateTeamMemberRequest;
 
 /**
  * Builder for model BulkUpdateTeamMembersRequest
@@ -25,7 +26,9 @@ class BulkUpdateTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk update team members request Builder object.
+     * Initializes a new Bulk Update Team Members Request Builder object.
+     *
+     * @param array<string,UpdateTeamMemberRequest> $teamMembers
      */
     public static function init(array $teamMembers): self
     {
@@ -33,7 +36,7 @@ class BulkUpdateTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk update team members request object.
+     * Initializes a new Bulk Update Team Members Request object.
      */
     public function build(): BulkUpdateTeamMembersRequest
     {

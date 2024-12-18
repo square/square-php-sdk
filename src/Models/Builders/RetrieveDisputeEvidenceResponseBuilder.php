@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DisputeEvidence;
+use Square\Models\Error;
 use Square\Models\RetrieveDisputeEvidenceResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveDisputeEvidenceResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve dispute evidence response Builder object.
+     * Initializes a new Retrieve Dispute Evidence Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveDisputeEvidenceResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveDisputeEvidenceResponseBuilder
 
     /**
      * Sets evidence field.
+     *
+     * @param DisputeEvidence|null $value
      */
     public function evidence(?DisputeEvidence $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveDisputeEvidenceResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve dispute evidence response object.
+     * Initializes a new Retrieve Dispute Evidence Response object.
      */
     public function build(): RetrieveDisputeEvidenceResponse
     {

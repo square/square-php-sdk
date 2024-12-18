@@ -26,7 +26,7 @@ class SearchTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new search team members request Builder object.
+     * Initializes a new Search Team Members Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchTeamMembersRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param SearchTeamMembersQuery|null $value
      */
     public function query(?SearchTeamMembersQuery $value): self
     {
@@ -44,6 +46,8 @@ class SearchTeamMembersRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchTeamMembersRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,7 +67,7 @@ class SearchTeamMembersRequestBuilder
     }
 
     /**
-     * Initializes a new search team members request object.
+     * Initializes a new Search Team Members Request object.
      */
     public function build(): SearchTeamMembersRequest
     {

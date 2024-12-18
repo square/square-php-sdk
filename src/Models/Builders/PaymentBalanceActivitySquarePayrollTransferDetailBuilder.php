@@ -25,7 +25,7 @@ class PaymentBalanceActivitySquarePayrollTransferDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square payroll transfer detail Builder object.
+     * Initializes a new Payment Balance Activity Square Payroll Transfer Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivitySquarePayrollTransferDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivitySquarePayrollTransferDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square payroll transfer detail object.
+     * Initializes a new Payment Balance Activity Square Payroll Transfer Detail object.
      */
     public function build(): PaymentBalanceActivitySquarePayrollTransferDetail
     {

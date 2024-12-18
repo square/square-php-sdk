@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchShiftsResponse;
+use Square\Models\Shift;
 
 /**
  * Builder for model SearchShiftsResponse
@@ -25,7 +27,7 @@ class SearchShiftsResponseBuilder
     }
 
     /**
-     * Initializes a new search shifts response Builder object.
+     * Initializes a new Search Shifts Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchShiftsResponseBuilder
 
     /**
      * Sets shifts field.
+     *
+     * @param Shift[]|null $value
      */
     public function shifts(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchShiftsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class SearchShiftsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class SearchShiftsResponseBuilder
     }
 
     /**
-     * Initializes a new search shifts response object.
+     * Initializes a new Search Shifts Response object.
      */
     public function build(): SearchShiftsResponse
     {

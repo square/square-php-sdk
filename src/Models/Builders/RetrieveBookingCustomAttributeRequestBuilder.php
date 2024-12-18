@@ -25,7 +25,7 @@ class RetrieveBookingCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve booking custom attribute request Builder object.
+     * Initializes a new Retrieve Booking Custom Attribute Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveBookingCustomAttributeRequestBuilder
 
     /**
      * Sets with definition field.
+     *
+     * @param bool|null $value
      */
     public function withDefinition(?bool $value): self
     {
@@ -52,6 +54,8 @@ class RetrieveBookingCustomAttributeRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -60,7 +64,7 @@ class RetrieveBookingCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve booking custom attribute request object.
+     * Initializes a new Retrieve Booking Custom Attribute Request object.
      */
     public function build(): RetrieveBookingCustomAttributeRequest
     {

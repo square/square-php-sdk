@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\VoidTransactionResponse;
 
 /**
@@ -25,7 +26,7 @@ class VoidTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new void transaction response Builder object.
+     * Initializes a new Void Transaction Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class VoidTransactionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class VoidTransactionResponseBuilder
     }
 
     /**
-     * Initializes a new void transaction response object.
+     * Initializes a new Void Transaction Response object.
      */
     public function build(): VoidTransactionResponse
     {

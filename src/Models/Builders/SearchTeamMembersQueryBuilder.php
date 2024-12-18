@@ -26,7 +26,7 @@ class SearchTeamMembersQueryBuilder
     }
 
     /**
-     * Initializes a new search team members query Builder object.
+     * Initializes a new Search Team Members Query Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchTeamMembersQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param SearchTeamMembersFilter|null $value
      */
     public function filter(?SearchTeamMembersFilter $value): self
     {
@@ -43,7 +45,7 @@ class SearchTeamMembersQueryBuilder
     }
 
     /**
-     * Initializes a new search team members query object.
+     * Initializes a new Search Team Members Query object.
      */
     public function build(): SearchTeamMembersQuery
     {

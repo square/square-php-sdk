@@ -25,7 +25,7 @@ class ShiftSortBuilder
     }
 
     /**
-     * Initializes a new shift sort Builder object.
+     * Initializes a new Shift Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ShiftSortBuilder
 
     /**
      * Sets field field.
+     *
+     * @param string|null $value
      */
     public function field(?string $value): self
     {
@@ -43,6 +45,8 @@ class ShiftSortBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -51,7 +55,7 @@ class ShiftSortBuilder
     }
 
     /**
-     * Initializes a new shift sort object.
+     * Initializes a new Shift Sort object.
      */
     public function build(): ShiftSort
     {

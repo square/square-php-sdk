@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CustomAttributeDefinition;
+use Square\Models\Error;
 use Square\Models\ListOrderCustomAttributeDefinitionsResponse;
 
 /**
@@ -25,7 +27,9 @@ class ListOrderCustomAttributeDefinitionsResponseBuilder
     }
 
     /**
-     * Initializes a new list order custom attribute definitions response Builder object.
+     * Initializes a new List Order Custom Attribute Definitions Response Builder object.
+     *
+     * @param CustomAttributeDefinition[] $customAttributeDefinitions
      */
     public static function init(array $customAttributeDefinitions): self
     {
@@ -34,6 +38,8 @@ class ListOrderCustomAttributeDefinitionsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -43,6 +49,8 @@ class ListOrderCustomAttributeDefinitionsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +59,7 @@ class ListOrderCustomAttributeDefinitionsResponseBuilder
     }
 
     /**
-     * Initializes a new list order custom attribute definitions response object.
+     * Initializes a new List Order Custom Attribute Definitions Response object.
      */
     public function build(): ListOrderCustomAttributeDefinitionsResponse
     {

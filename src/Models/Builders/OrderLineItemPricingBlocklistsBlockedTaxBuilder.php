@@ -25,7 +25,7 @@ class OrderLineItemPricingBlocklistsBlockedTaxBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists blocked tax Builder object.
+     * Initializes a new Order Line Item Pricing Blocklists Blocked Tax Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderLineItemPricingBlocklistsBlockedTaxBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderLineItemPricingBlocklistsBlockedTaxBuilder
 
     /**
      * Sets tax uid field.
+     *
+     * @param string|null $value
      */
     public function taxUid(?string $value): self
     {
@@ -70,6 +74,8 @@ class OrderLineItemPricingBlocklistsBlockedTaxBuilder
 
     /**
      * Sets tax catalog object id field.
+     *
+     * @param string|null $value
      */
     public function taxCatalogObjectId(?string $value): self
     {
@@ -87,7 +93,7 @@ class OrderLineItemPricingBlocklistsBlockedTaxBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists blocked tax object.
+     * Initializes a new Order Line Item Pricing Blocklists Blocked Tax object.
      */
     public function build(): OrderLineItemPricingBlocklistsBlockedTax
     {

@@ -7,6 +7,7 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\CreateCustomerResponse;
 use Square\Models\Customer;
+use Square\Models\Error;
 
 /**
  * Builder for model CreateCustomerResponse
@@ -26,7 +27,7 @@ class CreateCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new create customer response Builder object.
+     * Initializes a new Create Customer Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateCustomerResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateCustomerResponseBuilder
 
     /**
      * Sets customer field.
+     *
+     * @param Customer|null $value
      */
     public function customer(?Customer $value): self
     {
@@ -52,7 +57,7 @@ class CreateCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new create customer response object.
+     * Initializes a new Create Customer Response object.
      */
     public function build(): CreateCustomerResponse
     {

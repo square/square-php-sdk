@@ -27,7 +27,9 @@ class SubscriptionPhaseBuilder
     }
 
     /**
-     * Initializes a new subscription phase Builder object.
+     * Initializes a new Subscription Phase Builder object.
+     *
+     * @param string $cadence
      */
     public static function init(string $cadence): self
     {
@@ -36,6 +38,8 @@ class SubscriptionPhaseBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -54,6 +58,8 @@ class SubscriptionPhaseBuilder
 
     /**
      * Sets periods field.
+     *
+     * @param int|null $value
      */
     public function periods(?int $value): self
     {
@@ -72,6 +78,8 @@ class SubscriptionPhaseBuilder
 
     /**
      * Sets recurring price money field.
+     *
+     * @param Money|null $value
      */
     public function recurringPriceMoney(?Money $value): self
     {
@@ -81,6 +89,8 @@ class SubscriptionPhaseBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -99,6 +109,8 @@ class SubscriptionPhaseBuilder
 
     /**
      * Sets pricing field.
+     *
+     * @param SubscriptionPricing|null $value
      */
     public function pricing(?SubscriptionPricing $value): self
     {
@@ -107,7 +119,7 @@ class SubscriptionPhaseBuilder
     }
 
     /**
-     * Initializes a new subscription phase object.
+     * Initializes a new Subscription Phase object.
      */
     public function build(): SubscriptionPhase
     {

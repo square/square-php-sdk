@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchRetrieveCatalogObjectsResponse;
+use Square\Models\CatalogObject;
+use Square\Models\Error;
 
 /**
  * Builder for model BatchRetrieveCatalogObjectsResponse
@@ -25,7 +27,7 @@ class BatchRetrieveCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve catalog objects response Builder object.
+     * Initializes a new Batch Retrieve Catalog Objects Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BatchRetrieveCatalogObjectsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class BatchRetrieveCatalogObjectsResponseBuilder
 
     /**
      * Sets objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function objects(?array $value): self
     {
@@ -52,6 +58,8 @@ class BatchRetrieveCatalogObjectsResponseBuilder
 
     /**
      * Sets related objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function relatedObjects(?array $value): self
     {
@@ -60,7 +68,7 @@ class BatchRetrieveCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve catalog objects response object.
+     * Initializes a new Batch Retrieve Catalog Objects Response object.
      */
     public function build(): BatchRetrieveCatalogObjectsResponse
     {

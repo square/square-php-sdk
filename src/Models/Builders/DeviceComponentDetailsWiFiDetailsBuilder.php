@@ -26,7 +26,7 @@ class DeviceComponentDetailsWiFiDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details wi fi details Builder object.
+     * Initializes a new Device Component Details Wi Fi Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class DeviceComponentDetailsWiFiDetailsBuilder
 
     /**
      * Sets active field.
+     *
+     * @param bool|null $value
      */
     public function active(?bool $value): self
     {
@@ -53,6 +55,8 @@ class DeviceComponentDetailsWiFiDetailsBuilder
 
     /**
      * Sets ssid field.
+     *
+     * @param string|null $value
      */
     public function ssid(?string $value): self
     {
@@ -71,6 +75,8 @@ class DeviceComponentDetailsWiFiDetailsBuilder
 
     /**
      * Sets ip address v 4 field.
+     *
+     * @param string|null $value
      */
     public function ipAddressV4(?string $value): self
     {
@@ -89,6 +95,8 @@ class DeviceComponentDetailsWiFiDetailsBuilder
 
     /**
      * Sets secure connection field.
+     *
+     * @param string|null $value
      */
     public function secureConnection(?string $value): self
     {
@@ -107,6 +115,8 @@ class DeviceComponentDetailsWiFiDetailsBuilder
 
     /**
      * Sets signal strength field.
+     *
+     * @param DeviceComponentDetailsMeasurement|null $value
      */
     public function signalStrength(?DeviceComponentDetailsMeasurement $value): self
     {
@@ -115,7 +125,7 @@ class DeviceComponentDetailsWiFiDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details wi fi details object.
+     * Initializes a new Device Component Details Wi Fi Details object.
      */
     public function build(): DeviceComponentDetailsWiFiDetails
     {

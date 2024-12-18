@@ -25,7 +25,7 @@ class InventoryCountBuilder
     }
 
     /**
-     * Initializes a new inventory count Builder object.
+     * Initializes a new Inventory Count Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InventoryCountBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -52,6 +54,8 @@ class InventoryCountBuilder
 
     /**
      * Sets catalog object type field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectType(?string $value): self
     {
@@ -70,6 +74,8 @@ class InventoryCountBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -79,6 +85,8 @@ class InventoryCountBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -97,6 +105,8 @@ class InventoryCountBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -115,6 +125,8 @@ class InventoryCountBuilder
 
     /**
      * Sets calculated at field.
+     *
+     * @param string|null $value
      */
     public function calculatedAt(?string $value): self
     {
@@ -124,6 +136,8 @@ class InventoryCountBuilder
 
     /**
      * Sets is estimated field.
+     *
+     * @param bool|null $value
      */
     public function isEstimated(?bool $value): self
     {
@@ -132,7 +146,7 @@ class InventoryCountBuilder
     }
 
     /**
-     * Initializes a new inventory count object.
+     * Initializes a new Inventory Count object.
      */
     public function build(): InventoryCount
     {

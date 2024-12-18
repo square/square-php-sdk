@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkDeleteCustomersResponse;
+use Square\Models\DeleteCustomerResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkDeleteCustomersResponse
@@ -25,7 +27,7 @@ class BulkDeleteCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete customers response Builder object.
+     * Initializes a new Bulk Delete Customers Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkDeleteCustomersResponseBuilder
 
     /**
      * Sets responses field.
+     *
+     * @param array<string,DeleteCustomerResponse>|null $value
      */
     public function responses(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkDeleteCustomersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkDeleteCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk delete customers response object.
+     * Initializes a new Bulk Delete Customers Response object.
      */
     public function build(): BulkDeleteCustomersResponse
     {

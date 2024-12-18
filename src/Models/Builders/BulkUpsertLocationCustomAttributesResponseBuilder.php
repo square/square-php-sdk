@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkUpsertLocationCustomAttributesResponse;
+use Square\Models\BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkUpsertLocationCustomAttributesResponse
@@ -25,7 +27,7 @@ class BulkUpsertLocationCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes response Builder object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkUpsertLocationCustomAttributesResponseBuilder
 
     /**
      * Sets values field.
+     *
+     * @param array<string,BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertResponse>|null $value
      */
     public function values(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkUpsertLocationCustomAttributesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkUpsertLocationCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk upsert location custom attributes response object.
+     * Initializes a new Bulk Upsert Location Custom Attributes Response object.
      */
     public function build(): BulkUpsertLocationCustomAttributesResponse
     {

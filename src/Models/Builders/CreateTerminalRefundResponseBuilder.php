@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateTerminalRefundResponse;
+use Square\Models\Error;
 use Square\Models\TerminalRefund;
 
 /**
@@ -26,7 +27,7 @@ class CreateTerminalRefundResponseBuilder
     }
 
     /**
-     * Initializes a new create terminal refund response Builder object.
+     * Initializes a new Create Terminal Refund Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateTerminalRefundResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateTerminalRefundResponseBuilder
 
     /**
      * Sets refund field.
+     *
+     * @param TerminalRefund|null $value
      */
     public function refund(?TerminalRefund $value): self
     {
@@ -52,7 +57,7 @@ class CreateTerminalRefundResponseBuilder
     }
 
     /**
-     * Initializes a new create terminal refund response object.
+     * Initializes a new Create Terminal Refund Response object.
      */
     public function build(): CreateTerminalRefundResponse
     {

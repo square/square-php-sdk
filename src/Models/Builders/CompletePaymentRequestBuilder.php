@@ -25,7 +25,7 @@ class CompletePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new complete payment request Builder object.
+     * Initializes a new Complete Payment Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CompletePaymentRequestBuilder
 
     /**
      * Sets version token field.
+     *
+     * @param string|null $value
      */
     public function versionToken(?string $value): self
     {
@@ -51,7 +53,7 @@ class CompletePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new complete payment request object.
+     * Initializes a new Complete Payment Request object.
      */
     public function build(): CompletePaymentRequest
     {

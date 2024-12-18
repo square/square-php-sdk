@@ -25,7 +25,7 @@ class CatalogQueryItemVariationsForItemOptionValuesBuilder
     }
 
     /**
-     * Initializes a new catalog query item variations for item option values Builder object.
+     * Initializes a new Catalog Query Item Variations For Item Option Values Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogQueryItemVariationsForItemOptionValuesBuilder
 
     /**
      * Sets item option value ids field.
+     *
+     * @param string[]|null $value
      */
     public function itemOptionValueIds(?array $value): self
     {
@@ -51,7 +53,7 @@ class CatalogQueryItemVariationsForItemOptionValuesBuilder
     }
 
     /**
-     * Initializes a new catalog query item variations for item option values object.
+     * Initializes a new Catalog Query Item Variations For Item Option Values object.
      */
     public function build(): CatalogQueryItemVariationsForItemOptionValues
     {

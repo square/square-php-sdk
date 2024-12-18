@@ -25,7 +25,9 @@ class LoyaltyEventRedeemRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty event redeem reward Builder object.
+     * Initializes a new Loyalty Event Redeem Reward Builder object.
+     *
+     * @param string $loyaltyProgramId
      */
     public static function init(string $loyaltyProgramId): self
     {
@@ -34,6 +36,8 @@ class LoyaltyEventRedeemRewardBuilder
 
     /**
      * Sets reward id field.
+     *
+     * @param string|null $value
      */
     public function rewardId(?string $value): self
     {
@@ -43,6 +47,8 @@ class LoyaltyEventRedeemRewardBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -51,7 +57,7 @@ class LoyaltyEventRedeemRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty event redeem reward object.
+     * Initializes a new Loyalty Event Redeem Reward object.
      */
     public function build(): LoyaltyEventRedeemReward
     {

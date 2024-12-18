@@ -26,7 +26,9 @@ class UpdateShiftRequestBuilder
     }
 
     /**
-     * Initializes a new update shift request Builder object.
+     * Initializes a new Update Shift Request Builder object.
+     *
+     * @param Shift $shift
      */
     public static function init(Shift $shift): self
     {
@@ -34,7 +36,7 @@ class UpdateShiftRequestBuilder
     }
 
     /**
-     * Initializes a new update shift request object.
+     * Initializes a new Update Shift Request object.
      */
     public function build(): UpdateShiftRequest
     {

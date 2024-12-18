@@ -25,7 +25,7 @@ class ApplicationDetailsBuilder
     }
 
     /**
-     * Initializes a new application details Builder object.
+     * Initializes a new Application Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ApplicationDetailsBuilder
 
     /**
      * Sets square product field.
+     *
+     * @param string|null $value
      */
     public function squareProduct(?string $value): self
     {
@@ -43,6 +45,8 @@ class ApplicationDetailsBuilder
 
     /**
      * Sets application id field.
+     *
+     * @param string|null $value
      */
     public function applicationId(?string $value): self
     {
@@ -60,7 +64,7 @@ class ApplicationDetailsBuilder
     }
 
     /**
-     * Initializes a new application details object.
+     * Initializes a new Application Details object.
      */
     public function build(): ApplicationDetails
     {

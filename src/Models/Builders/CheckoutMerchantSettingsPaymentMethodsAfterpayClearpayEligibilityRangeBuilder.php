@@ -26,8 +26,11 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRangeBuil
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods afterpay clearpay eligibility range
+     * Initializes a new Checkout Merchant Settings Payment Methods Afterpay Clearpay Eligibility Range
      * Builder object.
+     *
+     * @param Money $min
+     * @param Money $max
      */
     public static function init(Money $min, Money $max): self
     {
@@ -35,7 +38,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRangeBuil
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods afterpay clearpay eligibility range
+     * Initializes a new Checkout Merchant Settings Payment Methods Afterpay Clearpay Eligibility Range
      * object.
      */
     public function build(): CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange

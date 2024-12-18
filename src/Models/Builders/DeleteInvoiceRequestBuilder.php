@@ -25,7 +25,7 @@ class DeleteInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new delete invoice request Builder object.
+     * Initializes a new Delete Invoice Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeleteInvoiceRequestBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -42,7 +44,7 @@ class DeleteInvoiceRequestBuilder
     }
 
     /**
-     * Initializes a new delete invoice request object.
+     * Initializes a new Delete Invoice Request object.
      */
     public function build(): DeleteInvoiceRequest
     {

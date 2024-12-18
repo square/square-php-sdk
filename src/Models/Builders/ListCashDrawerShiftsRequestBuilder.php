@@ -25,7 +25,9 @@ class ListCashDrawerShiftsRequestBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shifts request Builder object.
+     * Initializes a new List Cash Drawer Shifts Request Builder object.
+     *
+     * @param string $locationId
      */
     public static function init(string $locationId): self
     {
@@ -34,6 +36,8 @@ class ListCashDrawerShiftsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -43,6 +47,8 @@ class ListCashDrawerShiftsRequestBuilder
 
     /**
      * Sets begin time field.
+     *
+     * @param string|null $value
      */
     public function beginTime(?string $value): self
     {
@@ -61,6 +67,8 @@ class ListCashDrawerShiftsRequestBuilder
 
     /**
      * Sets end time field.
+     *
+     * @param string|null $value
      */
     public function endTime(?string $value): self
     {
@@ -79,6 +87,8 @@ class ListCashDrawerShiftsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -97,6 +107,8 @@ class ListCashDrawerShiftsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -114,7 +126,7 @@ class ListCashDrawerShiftsRequestBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shifts request object.
+     * Initializes a new List Cash Drawer Shifts Request object.
      */
     public function build(): ListCashDrawerShiftsRequest
     {

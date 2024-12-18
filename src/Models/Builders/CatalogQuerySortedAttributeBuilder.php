@@ -25,7 +25,9 @@ class CatalogQuerySortedAttributeBuilder
     }
 
     /**
-     * Initializes a new catalog query sorted attribute Builder object.
+     * Initializes a new Catalog Query Sorted Attribute Builder object.
+     *
+     * @param string $attributeName
      */
     public static function init(string $attributeName): self
     {
@@ -34,6 +36,8 @@ class CatalogQuerySortedAttributeBuilder
 
     /**
      * Sets initial attribute value field.
+     *
+     * @param string|null $value
      */
     public function initialAttributeValue(?string $value): self
     {
@@ -52,6 +56,8 @@ class CatalogQuerySortedAttributeBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -60,7 +66,7 @@ class CatalogQuerySortedAttributeBuilder
     }
 
     /**
-     * Initializes a new catalog query sorted attribute object.
+     * Initializes a new Catalog Query Sorted Attribute object.
      */
     public function build(): CatalogQuerySortedAttribute
     {

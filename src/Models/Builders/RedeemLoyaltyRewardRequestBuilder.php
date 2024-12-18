@@ -25,7 +25,10 @@ class RedeemLoyaltyRewardRequestBuilder
     }
 
     /**
-     * Initializes a new redeem loyalty reward request Builder object.
+     * Initializes a new Redeem Loyalty Reward Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $locationId
      */
     public static function init(string $idempotencyKey, string $locationId): self
     {
@@ -33,7 +36,7 @@ class RedeemLoyaltyRewardRequestBuilder
     }
 
     /**
-     * Initializes a new redeem loyalty reward request object.
+     * Initializes a new Redeem Loyalty Reward Request object.
      */
     public function build(): RedeemLoyaltyRewardRequest
     {

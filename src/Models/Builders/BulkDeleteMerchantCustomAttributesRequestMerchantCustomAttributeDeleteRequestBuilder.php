@@ -26,8 +26,8 @@ class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequ
     }
 
     /**
-     * Initializes a new bulk delete merchant custom attributes request merchant custom attribute delete
-     * request Builder object.
+     * Initializes a new Bulk Delete Merchant Custom Attributes Request Merchant Custom Attribute Delete
+     * Request Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequ
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -44,8 +46,8 @@ class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequ
     }
 
     /**
-     * Initializes a new bulk delete merchant custom attributes request merchant custom attribute delete
-     * request object.
+     * Initializes a new Bulk Delete Merchant Custom Attributes Request Merchant Custom Attribute Delete
+     * Request object.
      */
     public function build(): BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequest
     {

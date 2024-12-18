@@ -25,7 +25,7 @@ class DeviceCodeBuilder
     }
 
     /**
-     * Initializes a new device code Builder object.
+     * Initializes a new Device Code Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -61,6 +65,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets code field.
+     *
+     * @param string|null $value
      */
     public function code(?string $value): self
     {
@@ -70,6 +76,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets device id field.
+     *
+     * @param string|null $value
      */
     public function deviceId(?string $value): self
     {
@@ -79,6 +87,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -97,6 +107,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -106,6 +118,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets pair by field.
+     *
+     * @param string|null $value
      */
     public function pairBy(?string $value): self
     {
@@ -115,6 +129,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -124,6 +140,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets status changed at field.
+     *
+     * @param string|null $value
      */
     public function statusChangedAt(?string $value): self
     {
@@ -133,6 +151,8 @@ class DeviceCodeBuilder
 
     /**
      * Sets paired at field.
+     *
+     * @param string|null $value
      */
     public function pairedAt(?string $value): self
     {
@@ -141,7 +161,7 @@ class DeviceCodeBuilder
     }
 
     /**
-     * Initializes a new device code object.
+     * Initializes a new Device Code object.
      */
     public function build(): DeviceCode
     {

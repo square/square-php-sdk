@@ -25,7 +25,9 @@ class CustomerGroupBuilder
     }
 
     /**
-     * Initializes a new customer group Builder object.
+     * Initializes a new Customer Group Builder object.
+     *
+     * @param string $name
      */
     public static function init(string $name): self
     {
@@ -34,6 +36,8 @@ class CustomerGroupBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +47,8 @@ class CustomerGroupBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -52,6 +58,8 @@ class CustomerGroupBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -60,7 +68,7 @@ class CustomerGroupBuilder
     }
 
     /**
-     * Initializes a new customer group object.
+     * Initializes a new Customer Group object.
      */
     public function build(): CustomerGroup
     {

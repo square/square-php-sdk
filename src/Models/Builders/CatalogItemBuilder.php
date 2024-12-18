@@ -8,6 +8,9 @@ use Core\Utils\CoreHelper;
 use Square\Models\CatalogEcomSeoData;
 use Square\Models\CatalogItem;
 use Square\Models\CatalogItemFoodAndBeverageDetails;
+use Square\Models\CatalogItemModifierListInfo;
+use Square\Models\CatalogItemOptionForItem;
+use Square\Models\CatalogObject;
 use Square\Models\CatalogObjectCategory;
 
 /**
@@ -28,7 +31,7 @@ class CatalogItemBuilder
     }
 
     /**
-     * Initializes a new catalog item Builder object.
+     * Initializes a new Catalog Item Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +40,8 @@ class CatalogItemBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -55,6 +60,8 @@ class CatalogItemBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -73,6 +80,8 @@ class CatalogItemBuilder
 
     /**
      * Sets abbreviation field.
+     *
+     * @param string|null $value
      */
     public function abbreviation(?string $value): self
     {
@@ -91,6 +100,8 @@ class CatalogItemBuilder
 
     /**
      * Sets label color field.
+     *
+     * @param string|null $value
      */
     public function labelColor(?string $value): self
     {
@@ -109,6 +120,8 @@ class CatalogItemBuilder
 
     /**
      * Sets is taxable field.
+     *
+     * @param bool|null $value
      */
     public function isTaxable(?bool $value): self
     {
@@ -127,6 +140,8 @@ class CatalogItemBuilder
 
     /**
      * Sets available online field.
+     *
+     * @param bool|null $value
      */
     public function availableOnline(?bool $value): self
     {
@@ -145,6 +160,8 @@ class CatalogItemBuilder
 
     /**
      * Sets available for pickup field.
+     *
+     * @param bool|null $value
      */
     public function availableForPickup(?bool $value): self
     {
@@ -163,6 +180,8 @@ class CatalogItemBuilder
 
     /**
      * Sets available electronically field.
+     *
+     * @param bool|null $value
      */
     public function availableElectronically(?bool $value): self
     {
@@ -181,6 +200,8 @@ class CatalogItemBuilder
 
     /**
      * Sets category id field.
+     *
+     * @param string|null $value
      */
     public function categoryId(?string $value): self
     {
@@ -199,6 +220,8 @@ class CatalogItemBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param string[]|null $value
      */
     public function taxIds(?array $value): self
     {
@@ -217,6 +240,8 @@ class CatalogItemBuilder
 
     /**
      * Sets modifier list info field.
+     *
+     * @param CatalogItemModifierListInfo[]|null $value
      */
     public function modifierListInfo(?array $value): self
     {
@@ -235,6 +260,8 @@ class CatalogItemBuilder
 
     /**
      * Sets variations field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function variations(?array $value): self
     {
@@ -253,6 +280,8 @@ class CatalogItemBuilder
 
     /**
      * Sets product type field.
+     *
+     * @param string|null $value
      */
     public function productType(?string $value): self
     {
@@ -262,6 +291,8 @@ class CatalogItemBuilder
 
     /**
      * Sets skip modifier screen field.
+     *
+     * @param bool|null $value
      */
     public function skipModifierScreen(?bool $value): self
     {
@@ -280,6 +311,8 @@ class CatalogItemBuilder
 
     /**
      * Sets item options field.
+     *
+     * @param CatalogItemOptionForItem[]|null $value
      */
     public function itemOptions(?array $value): self
     {
@@ -298,6 +331,8 @@ class CatalogItemBuilder
 
     /**
      * Sets image ids field.
+     *
+     * @param string[]|null $value
      */
     public function imageIds(?array $value): self
     {
@@ -316,6 +351,8 @@ class CatalogItemBuilder
 
     /**
      * Sets sort name field.
+     *
+     * @param string|null $value
      */
     public function sortName(?string $value): self
     {
@@ -334,6 +371,8 @@ class CatalogItemBuilder
 
     /**
      * Sets categories field.
+     *
+     * @param CatalogObjectCategory[]|null $value
      */
     public function categories(?array $value): self
     {
@@ -352,6 +391,8 @@ class CatalogItemBuilder
 
     /**
      * Sets description html field.
+     *
+     * @param string|null $value
      */
     public function descriptionHtml(?string $value): self
     {
@@ -370,6 +411,8 @@ class CatalogItemBuilder
 
     /**
      * Sets description plaintext field.
+     *
+     * @param string|null $value
      */
     public function descriptionPlaintext(?string $value): self
     {
@@ -379,6 +422,8 @@ class CatalogItemBuilder
 
     /**
      * Sets channels field.
+     *
+     * @param string[]|null $value
      */
     public function channels(?array $value): self
     {
@@ -397,6 +442,8 @@ class CatalogItemBuilder
 
     /**
      * Sets is archived field.
+     *
+     * @param bool|null $value
      */
     public function isArchived(?bool $value): self
     {
@@ -415,6 +462,8 @@ class CatalogItemBuilder
 
     /**
      * Sets ecom seo data field.
+     *
+     * @param CatalogEcomSeoData|null $value
      */
     public function ecomSeoData(?CatalogEcomSeoData $value): self
     {
@@ -424,6 +473,8 @@ class CatalogItemBuilder
 
     /**
      * Sets food and beverage details field.
+     *
+     * @param CatalogItemFoodAndBeverageDetails|null $value
      */
     public function foodAndBeverageDetails(?CatalogItemFoodAndBeverageDetails $value): self
     {
@@ -433,6 +484,8 @@ class CatalogItemBuilder
 
     /**
      * Sets reporting category field.
+     *
+     * @param CatalogObjectCategory|null $value
      */
     public function reportingCategory(?CatalogObjectCategory $value): self
     {
@@ -441,7 +494,7 @@ class CatalogItemBuilder
     }
 
     /**
-     * Initializes a new catalog item object.
+     * Initializes a new Catalog Item object.
      */
     public function build(): CatalogItem
     {

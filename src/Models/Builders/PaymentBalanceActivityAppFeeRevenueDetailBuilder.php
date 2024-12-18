@@ -25,7 +25,7 @@ class PaymentBalanceActivityAppFeeRevenueDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity app fee revenue detail Builder object.
+     * Initializes a new Payment Balance Activity App Fee Revenue Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityAppFeeRevenueDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityAppFeeRevenueDetailBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityAppFeeRevenueDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity app fee revenue detail object.
+     * Initializes a new Payment Balance Activity App Fee Revenue Detail object.
      */
     public function build(): PaymentBalanceActivityAppFeeRevenueDetail
     {

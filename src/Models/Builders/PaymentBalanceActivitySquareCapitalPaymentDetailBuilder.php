@@ -25,7 +25,7 @@ class PaymentBalanceActivitySquareCapitalPaymentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square capital payment detail Builder object.
+     * Initializes a new Payment Balance Activity Square Capital Payment Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivitySquareCapitalPaymentDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivitySquareCapitalPaymentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity square capital payment detail object.
+     * Initializes a new Payment Balance Activity Square Capital Payment Detail object.
      */
     public function build(): PaymentBalanceActivitySquareCapitalPaymentDetail
     {

@@ -27,7 +27,7 @@ class TerminalRefundQueryBuilder
     }
 
     /**
-     * Initializes a new terminal refund query Builder object.
+     * Initializes a new Terminal Refund Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class TerminalRefundQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param TerminalRefundQueryFilter|null $value
      */
     public function filter(?TerminalRefundQueryFilter $value): self
     {
@@ -45,6 +47,8 @@ class TerminalRefundQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param TerminalRefundQuerySort|null $value
      */
     public function sort(?TerminalRefundQuerySort $value): self
     {
@@ -53,7 +57,7 @@ class TerminalRefundQueryBuilder
     }
 
     /**
-     * Initializes a new terminal refund query object.
+     * Initializes a new Terminal Refund Query object.
      */
     public function build(): TerminalRefundQuery
     {

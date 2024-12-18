@@ -25,7 +25,9 @@ class PhaseInputBuilder
     }
 
     /**
-     * Initializes a new phase input Builder object.
+     * Initializes a new Phase Input Builder object.
+     *
+     * @param int $ordinal
      */
     public static function init(int $ordinal): self
     {
@@ -34,6 +36,8 @@ class PhaseInputBuilder
 
     /**
      * Sets order template id field.
+     *
+     * @param string|null $value
      */
     public function orderTemplateId(?string $value): self
     {
@@ -51,7 +55,7 @@ class PhaseInputBuilder
     }
 
     /**
-     * Initializes a new phase input object.
+     * Initializes a new Phase Input object.
      */
     public function build(): PhaseInput
     {

@@ -26,7 +26,7 @@ class PrePopulatedDataBuilder
     }
 
     /**
-     * Initializes a new pre populated data Builder object.
+     * Initializes a new Pre Populated Data Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class PrePopulatedDataBuilder
 
     /**
      * Sets buyer email field.
+     *
+     * @param string|null $value
      */
     public function buyerEmail(?string $value): self
     {
@@ -53,6 +55,8 @@ class PrePopulatedDataBuilder
 
     /**
      * Sets buyer phone number field.
+     *
+     * @param string|null $value
      */
     public function buyerPhoneNumber(?string $value): self
     {
@@ -71,6 +75,8 @@ class PrePopulatedDataBuilder
 
     /**
      * Sets buyer address field.
+     *
+     * @param Address|null $value
      */
     public function buyerAddress(?Address $value): self
     {
@@ -79,7 +85,7 @@ class PrePopulatedDataBuilder
     }
 
     /**
-     * Initializes a new pre populated data object.
+     * Initializes a new Pre Populated Data object.
      */
     public function build(): PrePopulatedData
     {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Order;
 use Square\Models\UpdateOrderResponse;
 
@@ -26,7 +27,7 @@ class UpdateOrderResponseBuilder
     }
 
     /**
-     * Initializes a new update order response Builder object.
+     * Initializes a new Update Order Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateOrderResponseBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -44,6 +47,8 @@ class UpdateOrderResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateOrderResponseBuilder
     }
 
     /**
-     * Initializes a new update order response object.
+     * Initializes a new Update Order Response object.
      */
     public function build(): UpdateOrderResponse
     {

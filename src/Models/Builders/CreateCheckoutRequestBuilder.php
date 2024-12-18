@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
+use Square\Models\ChargeRequestAdditionalRecipient;
 use Square\Models\CreateCheckoutRequest;
 use Square\Models\CreateOrderRequest;
 
@@ -27,7 +28,10 @@ class CreateCheckoutRequestBuilder
     }
 
     /**
-     * Initializes a new create checkout request Builder object.
+     * Initializes a new Create Checkout Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param CreateOrderRequest $order
      */
     public static function init(string $idempotencyKey, CreateOrderRequest $order): self
     {
@@ -36,6 +40,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets ask for shipping address field.
+     *
+     * @param bool|null $value
      */
     public function askForShippingAddress(?bool $value): self
     {
@@ -45,6 +51,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets merchant support email field.
+     *
+     * @param string|null $value
      */
     public function merchantSupportEmail(?string $value): self
     {
@@ -54,6 +62,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets pre populate buyer email field.
+     *
+     * @param string|null $value
      */
     public function prePopulateBuyerEmail(?string $value): self
     {
@@ -63,6 +73,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets pre populate shipping address field.
+     *
+     * @param Address|null $value
      */
     public function prePopulateShippingAddress(?Address $value): self
     {
@@ -72,6 +84,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets redirect url field.
+     *
+     * @param string|null $value
      */
     public function redirectUrl(?string $value): self
     {
@@ -81,6 +95,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets additional recipients field.
+     *
+     * @param ChargeRequestAdditionalRecipient[]|null $value
      */
     public function additionalRecipients(?array $value): self
     {
@@ -90,6 +106,8 @@ class CreateCheckoutRequestBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -98,7 +116,7 @@ class CreateCheckoutRequestBuilder
     }
 
     /**
-     * Initializes a new create checkout request object.
+     * Initializes a new Create Checkout Request object.
      */
     public function build(): CreateCheckoutRequest
     {

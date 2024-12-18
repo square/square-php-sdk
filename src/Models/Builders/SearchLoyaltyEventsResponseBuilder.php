@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\LoyaltyEvent;
 use Square\Models\SearchLoyaltyEventsResponse;
 
 /**
@@ -25,7 +27,7 @@ class SearchLoyaltyEventsResponseBuilder
     }
 
     /**
-     * Initializes a new search loyalty events response Builder object.
+     * Initializes a new Search Loyalty Events Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchLoyaltyEventsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchLoyaltyEventsResponseBuilder
 
     /**
      * Sets events field.
+     *
+     * @param LoyaltyEvent[]|null $value
      */
     public function events(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchLoyaltyEventsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class SearchLoyaltyEventsResponseBuilder
     }
 
     /**
-     * Initializes a new search loyalty events response object.
+     * Initializes a new Search Loyalty Events Response object.
      */
     public function build(): SearchLoyaltyEventsResponse
     {

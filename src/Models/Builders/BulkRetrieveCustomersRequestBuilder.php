@@ -25,7 +25,9 @@ class BulkRetrieveCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve customers request Builder object.
+     * Initializes a new Bulk Retrieve Customers Request Builder object.
+     *
+     * @param string[] $customerIds
      */
     public static function init(array $customerIds): self
     {
@@ -33,7 +35,7 @@ class BulkRetrieveCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve customers request object.
+     * Initializes a new Bulk Retrieve Customers Request object.
      */
     public function build(): BulkRetrieveCustomersRequest
     {

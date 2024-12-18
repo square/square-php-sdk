@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListMerchantsResponse;
+use Square\Models\Merchant;
 
 /**
  * Builder for model ListMerchantsResponse
@@ -25,7 +27,7 @@ class ListMerchantsResponseBuilder
     }
 
     /**
-     * Initializes a new list merchants response Builder object.
+     * Initializes a new List Merchants Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListMerchantsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListMerchantsResponseBuilder
 
     /**
      * Sets merchant field.
+     *
+     * @param Merchant[]|null $value
      */
     public function merchant(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListMerchantsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param int|null $value
      */
     public function cursor(?int $value): self
     {
@@ -60,7 +68,7 @@ class ListMerchantsResponseBuilder
     }
 
     /**
-     * Initializes a new list merchants response object.
+     * Initializes a new List Merchants Response object.
      */
     public function build(): ListMerchantsResponse
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Customer;
+use Square\Models\Error;
 use Square\Models\SearchCustomersResponse;
 
 /**
@@ -25,7 +27,7 @@ class SearchCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new search customers response Builder object.
+     * Initializes a new Search Customers Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchCustomersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchCustomersResponseBuilder
 
     /**
      * Sets customers field.
+     *
+     * @param Customer[]|null $value
      */
     public function customers(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchCustomersResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +69,8 @@ class SearchCustomersResponseBuilder
 
     /**
      * Sets count field.
+     *
+     * @param int|null $value
      */
     public function count(?int $value): self
     {
@@ -69,7 +79,7 @@ class SearchCustomersResponseBuilder
     }
 
     /**
-     * Initializes a new search customers response object.
+     * Initializes a new Search Customers Response object.
      */
     public function build(): SearchCustomersResponse
     {

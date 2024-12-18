@@ -26,7 +26,7 @@ class CreateLocationRequestBuilder
     }
 
     /**
-     * Initializes a new create location request Builder object.
+     * Initializes a new Create Location Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CreateLocationRequestBuilder
 
     /**
      * Sets location field.
+     *
+     * @param Location|null $value
      */
     public function location(?Location $value): self
     {
@@ -43,7 +45,7 @@ class CreateLocationRequestBuilder
     }
 
     /**
-     * Initializes a new create location request object.
+     * Initializes a new Create Location Request object.
      */
     public function build(): CreateLocationRequest
     {

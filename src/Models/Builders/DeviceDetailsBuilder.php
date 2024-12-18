@@ -25,7 +25,7 @@ class DeviceDetailsBuilder
     }
 
     /**
-     * Initializes a new device details Builder object.
+     * Initializes a new Device Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceDetailsBuilder
 
     /**
      * Sets device id field.
+     *
+     * @param string|null $value
      */
     public function deviceId(?string $value): self
     {
@@ -52,6 +54,8 @@ class DeviceDetailsBuilder
 
     /**
      * Sets device installation id field.
+     *
+     * @param string|null $value
      */
     public function deviceInstallationId(?string $value): self
     {
@@ -70,6 +74,8 @@ class DeviceDetailsBuilder
 
     /**
      * Sets device name field.
+     *
+     * @param string|null $value
      */
     public function deviceName(?string $value): self
     {
@@ -87,7 +93,7 @@ class DeviceDetailsBuilder
     }
 
     /**
-     * Initializes a new device details object.
+     * Initializes a new Device Details object.
      */
     public function build(): DeviceDetails
     {

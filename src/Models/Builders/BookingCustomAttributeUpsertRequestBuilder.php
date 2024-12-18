@@ -26,7 +26,10 @@ class BookingCustomAttributeUpsertRequestBuilder
     }
 
     /**
-     * Initializes a new booking custom attribute upsert request Builder object.
+     * Initializes a new Booking Custom Attribute Upsert Request Builder object.
+     *
+     * @param string $bookingId
+     * @param CustomAttribute $customAttribute
      */
     public static function init(string $bookingId, CustomAttribute $customAttribute): self
     {
@@ -35,6 +38,8 @@ class BookingCustomAttributeUpsertRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +57,7 @@ class BookingCustomAttributeUpsertRequestBuilder
     }
 
     /**
-     * Initializes a new booking custom attribute upsert request object.
+     * Initializes a new Booking Custom Attribute Upsert Request object.
      */
     public function build(): BookingCustomAttributeUpsertRequest
     {

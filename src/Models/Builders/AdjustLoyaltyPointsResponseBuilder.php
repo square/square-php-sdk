@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\AdjustLoyaltyPointsResponse;
+use Square\Models\Error;
 use Square\Models\LoyaltyEvent;
 
 /**
@@ -26,7 +27,7 @@ class AdjustLoyaltyPointsResponseBuilder
     }
 
     /**
-     * Initializes a new adjust loyalty points response Builder object.
+     * Initializes a new Adjust Loyalty Points Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class AdjustLoyaltyPointsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class AdjustLoyaltyPointsResponseBuilder
 
     /**
      * Sets event field.
+     *
+     * @param LoyaltyEvent|null $value
      */
     public function event(?LoyaltyEvent $value): self
     {
@@ -52,7 +57,7 @@ class AdjustLoyaltyPointsResponseBuilder
     }
 
     /**
-     * Initializes a new adjust loyalty points response object.
+     * Initializes a new Adjust Loyalty Points Response object.
      */
     public function build(): AdjustLoyaltyPointsResponse
     {

@@ -26,7 +26,7 @@ class BusinessBookingProfileBuilder
     }
 
     /**
-     * Initializes a new business booking profile Builder object.
+     * Initializes a new Business Booking Profile Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets seller id field.
+     *
+     * @param string|null $value
      */
     public function sellerId(?string $value): self
     {
@@ -53,6 +55,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -62,6 +66,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets booking enabled field.
+     *
+     * @param bool|null $value
      */
     public function bookingEnabled(?bool $value): self
     {
@@ -80,6 +86,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets customer timezone choice field.
+     *
+     * @param string|null $value
      */
     public function customerTimezoneChoice(?string $value): self
     {
@@ -89,6 +97,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets booking policy field.
+     *
+     * @param string|null $value
      */
     public function bookingPolicy(?string $value): self
     {
@@ -98,6 +108,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets allow user cancel field.
+     *
+     * @param bool|null $value
      */
     public function allowUserCancel(?bool $value): self
     {
@@ -116,6 +128,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets business appointment settings field.
+     *
+     * @param BusinessAppointmentSettings|null $value
      */
     public function businessAppointmentSettings(?BusinessAppointmentSettings $value): self
     {
@@ -125,6 +139,8 @@ class BusinessBookingProfileBuilder
 
     /**
      * Sets support seller level writes field.
+     *
+     * @param bool|null $value
      */
     public function supportSellerLevelWrites(?bool $value): self
     {
@@ -142,7 +158,7 @@ class BusinessBookingProfileBuilder
     }
 
     /**
-     * Initializes a new business booking profile object.
+     * Initializes a new Business Booking Profile object.
      */
     public function build(): BusinessBookingProfile
     {

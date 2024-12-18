@@ -26,7 +26,9 @@ class LoyaltyEventDateTimeFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event date time filter Builder object.
+     * Initializes a new Loyalty Event Date Time Filter Builder object.
+     *
+     * @param TimeRange $createdAt
      */
     public static function init(TimeRange $createdAt): self
     {
@@ -34,7 +36,7 @@ class LoyaltyEventDateTimeFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event date time filter object.
+     * Initializes a new Loyalty Event Date Time Filter object.
      */
     public function build(): LoyaltyEventDateTimeFilter
     {

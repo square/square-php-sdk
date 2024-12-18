@@ -25,7 +25,10 @@ class FulfillmentFulfillmentEntryBuilder
     }
 
     /**
-     * Initializes a new fulfillment fulfillment entry Builder object.
+     * Initializes a new Fulfillment Fulfillment Entry Builder object.
+     *
+     * @param string $lineItemUid
+     * @param string $quantity
      */
     public static function init(string $lineItemUid, string $quantity): self
     {
@@ -34,6 +37,8 @@ class FulfillmentFulfillmentEntryBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,6 +57,8 @@ class FulfillmentFulfillmentEntryBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -69,7 +76,7 @@ class FulfillmentFulfillmentEntryBuilder
     }
 
     /**
-     * Initializes a new fulfillment fulfillment entry object.
+     * Initializes a new Fulfillment Fulfillment Entry object.
      */
     public function build(): FulfillmentFulfillmentEntry
     {

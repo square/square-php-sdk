@@ -25,7 +25,7 @@ class CheckoutLocationSettingsBrandingBuilder
     }
 
     /**
-     * Initializes a new checkout location settings branding Builder object.
+     * Initializes a new Checkout Location Settings Branding Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CheckoutLocationSettingsBrandingBuilder
 
     /**
      * Sets header type field.
+     *
+     * @param string|null $value
      */
     public function headerType(?string $value): self
     {
@@ -43,6 +45,8 @@ class CheckoutLocationSettingsBrandingBuilder
 
     /**
      * Sets button color field.
+     *
+     * @param string|null $value
      */
     public function buttonColor(?string $value): self
     {
@@ -61,6 +65,8 @@ class CheckoutLocationSettingsBrandingBuilder
 
     /**
      * Sets button shape field.
+     *
+     * @param string|null $value
      */
     public function buttonShape(?string $value): self
     {
@@ -69,7 +75,7 @@ class CheckoutLocationSettingsBrandingBuilder
     }
 
     /**
-     * Initializes a new checkout location settings branding object.
+     * Initializes a new Checkout Location Settings Branding object.
      */
     public function build(): CheckoutLocationSettingsBranding
     {

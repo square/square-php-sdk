@@ -26,7 +26,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods afterpay clearpay Builder object.
+     * Initializes a new Checkout Merchant Settings Payment Methods Afterpay Clearpay Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayBuilder
 
     /**
      * Sets order eligibility range field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange|null $value
      */
     public function orderEligibilityRange(
         ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange $value
@@ -45,6 +47,8 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayBuilder
 
     /**
      * Sets item eligibility range field.
+     *
+     * @param CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange|null $value
      */
     public function itemEligibilityRange(
         ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange $value
@@ -55,6 +59,8 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -63,7 +69,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayBuilder
     }
 
     /**
-     * Initializes a new checkout merchant settings payment methods afterpay clearpay object.
+     * Initializes a new Checkout Merchant Settings Payment Methods Afterpay Clearpay object.
      */
     public function build(): CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay
     {

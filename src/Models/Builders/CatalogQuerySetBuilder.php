@@ -25,7 +25,10 @@ class CatalogQuerySetBuilder
     }
 
     /**
-     * Initializes a new catalog query set Builder object.
+     * Initializes a new Catalog Query Set Builder object.
+     *
+     * @param string $attributeName
+     * @param string[] $attributeValues
      */
     public static function init(string $attributeName, array $attributeValues): self
     {
@@ -33,7 +36,7 @@ class CatalogQuerySetBuilder
     }
 
     /**
-     * Initializes a new catalog query set object.
+     * Initializes a new Catalog Query Set object.
      */
     public function build(): CatalogQuerySet
     {

@@ -26,15 +26,39 @@ class JobAssignmentBuilder
     }
 
     /**
-     * Initializes a new job assignment Builder object.
+     * Initializes a new Job Assignment Builder object.
+     *
+     * @param string $payType
      */
-    public static function init(string $jobTitle, string $payType): self
+    public static function init(string $payType): self
     {
-        return new self(new JobAssignment($jobTitle, $payType));
+        return new self(new JobAssignment($payType));
+    }
+
+    /**
+     * Sets job title field.
+     *
+     * @param string|null $value
+     */
+    public function jobTitle(?string $value): self
+    {
+        $this->instance->setJobTitle($value);
+        return $this;
+    }
+
+    /**
+     * Unsets job title field.
+     */
+    public function unsetJobTitle(): self
+    {
+        $this->instance->unsetJobTitle();
+        return $this;
     }
 
     /**
      * Sets hourly rate field.
+     *
+     * @param Money|null $value
      */
     public function hourlyRate(?Money $value): self
     {
@@ -44,6 +68,8 @@ class JobAssignmentBuilder
 
     /**
      * Sets annual rate field.
+     *
+     * @param Money|null $value
      */
     public function annualRate(?Money $value): self
     {
@@ -53,6 +79,8 @@ class JobAssignmentBuilder
 
     /**
      * Sets weekly hours field.
+     *
+     * @param int|null $value
      */
     public function weeklyHours(?int $value): self
     {
@@ -70,7 +98,27 @@ class JobAssignmentBuilder
     }
 
     /**
-     * Initializes a new job assignment object.
+     * Sets job id field.
+     *
+     * @param string|null $value
+     */
+    public function jobId(?string $value): self
+    {
+        $this->instance->setJobId($value);
+        return $this;
+    }
+
+    /**
+     * Unsets job id field.
+     */
+    public function unsetJobId(): self
+    {
+        $this->instance->unsetJobId();
+        return $this;
+    }
+
+    /**
+     * Initializes a new Job Assignment object.
      */
     public function build(): JobAssignment
     {

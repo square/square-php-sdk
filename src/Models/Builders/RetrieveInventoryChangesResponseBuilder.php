@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\InventoryChange;
 use Square\Models\RetrieveInventoryChangesResponse;
 
 /**
@@ -25,7 +27,7 @@ class RetrieveInventoryChangesResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory changes response Builder object.
+     * Initializes a new Retrieve Inventory Changes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class RetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class RetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets changes field.
+     *
+     * @param InventoryChange[]|null $value
      */
     public function changes(?array $value): self
     {
@@ -52,6 +58,8 @@ class RetrieveInventoryChangesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class RetrieveInventoryChangesResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve inventory changes response object.
+     * Initializes a new Retrieve Inventory Changes Response object.
      */
     public function build(): RetrieveInventoryChangesResponse
     {

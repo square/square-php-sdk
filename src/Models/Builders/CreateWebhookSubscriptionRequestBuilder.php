@@ -26,7 +26,9 @@ class CreateWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new create webhook subscription request Builder object.
+     * Initializes a new Create Webhook Subscription Request Builder object.
+     *
+     * @param WebhookSubscription $subscription
      */
     public static function init(WebhookSubscription $subscription): self
     {
@@ -35,6 +37,8 @@ class CreateWebhookSubscriptionRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -43,7 +47,7 @@ class CreateWebhookSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new create webhook subscription request object.
+     * Initializes a new Create Webhook Subscription Request object.
      */
     public function build(): CreateWebhookSubscriptionRequest
     {

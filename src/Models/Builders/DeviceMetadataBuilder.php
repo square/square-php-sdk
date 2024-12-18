@@ -25,7 +25,7 @@ class DeviceMetadataBuilder
     }
 
     /**
-     * Initializes a new device metadata Builder object.
+     * Initializes a new Device Metadata Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets battery percentage field.
+     *
+     * @param string|null $value
      */
     public function batteryPercentage(?string $value): self
     {
@@ -52,6 +54,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets charging state field.
+     *
+     * @param string|null $value
      */
     public function chargingState(?string $value): self
     {
@@ -70,6 +74,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -88,6 +94,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -106,6 +114,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets network connection type field.
+     *
+     * @param string|null $value
      */
     public function networkConnectionType(?string $value): self
     {
@@ -124,6 +134,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets payment region field.
+     *
+     * @param string|null $value
      */
     public function paymentRegion(?string $value): self
     {
@@ -142,6 +154,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets serial number field.
+     *
+     * @param string|null $value
      */
     public function serialNumber(?string $value): self
     {
@@ -160,6 +174,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets os version field.
+     *
+     * @param string|null $value
      */
     public function osVersion(?string $value): self
     {
@@ -178,6 +194,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets app version field.
+     *
+     * @param string|null $value
      */
     public function appVersion(?string $value): self
     {
@@ -196,6 +214,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets wifi network name field.
+     *
+     * @param string|null $value
      */
     public function wifiNetworkName(?string $value): self
     {
@@ -214,6 +234,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets wifi network strength field.
+     *
+     * @param string|null $value
      */
     public function wifiNetworkStrength(?string $value): self
     {
@@ -232,6 +254,8 @@ class DeviceMetadataBuilder
 
     /**
      * Sets ip address field.
+     *
+     * @param string|null $value
      */
     public function ipAddress(?string $value): self
     {
@@ -249,7 +273,7 @@ class DeviceMetadataBuilder
     }
 
     /**
-     * Initializes a new device metadata object.
+     * Initializes a new Device Metadata object.
      */
     public function build(): DeviceMetadata
     {

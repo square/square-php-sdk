@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\LocationBookingProfile;
 use Square\Models\RetrieveLocationBookingProfileResponse;
 
@@ -26,7 +27,7 @@ class RetrieveLocationBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location booking profile response Builder object.
+     * Initializes a new Retrieve Location Booking Profile Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveLocationBookingProfileResponseBuilder
 
     /**
      * Sets location booking profile field.
+     *
+     * @param LocationBookingProfile|null $value
      */
     public function locationBookingProfile(?LocationBookingProfile $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveLocationBookingProfileResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveLocationBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve location booking profile response object.
+     * Initializes a new Retrieve Location Booking Profile Response object.
      */
     public function build(): RetrieveLocationBookingProfileResponse
     {

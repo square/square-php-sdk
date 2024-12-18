@@ -25,7 +25,7 @@ class PaginationCursorBuilder
     }
 
     /**
-     * Initializes a new pagination cursor Builder object.
+     * Initializes a new Pagination Cursor Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaginationCursorBuilder
 
     /**
      * Sets order value field.
+     *
+     * @param string|null $value
      */
     public function orderValue(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaginationCursorBuilder
     }
 
     /**
-     * Initializes a new pagination cursor object.
+     * Initializes a new Pagination Cursor object.
      */
     public function build(): PaginationCursor
     {

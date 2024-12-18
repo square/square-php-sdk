@@ -25,7 +25,7 @@ class PaymentBalanceActivityThirdPartyFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity third party fee detail Builder object.
+     * Initializes a new Payment Balance Activity Third Party Fee Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityThirdPartyFeeDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityThirdPartyFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity third party fee detail object.
+     * Initializes a new Payment Balance Activity Third Party Fee Detail object.
      */
     public function build(): PaymentBalanceActivityThirdPartyFeeDetail
     {

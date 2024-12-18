@@ -25,7 +25,9 @@ class CatalogModifierOverrideBuilder
     }
 
     /**
-     * Initializes a new catalog modifier override Builder object.
+     * Initializes a new Catalog Modifier Override Builder object.
+     *
+     * @param string $modifierId
      */
     public static function init(string $modifierId): self
     {
@@ -34,6 +36,8 @@ class CatalogModifierOverrideBuilder
 
     /**
      * Sets on by default field.
+     *
+     * @param bool|null $value
      */
     public function onByDefault(?bool $value): self
     {
@@ -51,7 +55,7 @@ class CatalogModifierOverrideBuilder
     }
 
     /**
-     * Initializes a new catalog modifier override object.
+     * Initializes a new Catalog Modifier Override object.
      */
     public function build(): CatalogModifierOverride
     {

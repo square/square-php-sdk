@@ -25,7 +25,7 @@ class CardPaymentTimelineBuilder
     }
 
     /**
-     * Initializes a new card payment timeline Builder object.
+     * Initializes a new Card Payment Timeline Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CardPaymentTimelineBuilder
 
     /**
      * Sets authorized at field.
+     *
+     * @param string|null $value
      */
     public function authorizedAt(?string $value): self
     {
@@ -52,6 +54,8 @@ class CardPaymentTimelineBuilder
 
     /**
      * Sets captured at field.
+     *
+     * @param string|null $value
      */
     public function capturedAt(?string $value): self
     {
@@ -70,6 +74,8 @@ class CardPaymentTimelineBuilder
 
     /**
      * Sets voided at field.
+     *
+     * @param string|null $value
      */
     public function voidedAt(?string $value): self
     {
@@ -87,7 +93,7 @@ class CardPaymentTimelineBuilder
     }
 
     /**
-     * Initializes a new card payment timeline object.
+     * Initializes a new Card Payment Timeline object.
      */
     public function build(): CardPaymentTimeline
     {

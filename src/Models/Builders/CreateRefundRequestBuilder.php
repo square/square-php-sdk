@@ -26,7 +26,11 @@ class CreateRefundRequestBuilder
     }
 
     /**
-     * Initializes a new create refund request Builder object.
+     * Initializes a new Create Refund Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $tenderId
+     * @param Money $amountMoney
      */
     public static function init(string $idempotencyKey, string $tenderId, Money $amountMoney): self
     {
@@ -35,6 +39,8 @@ class CreateRefundRequestBuilder
 
     /**
      * Sets reason field.
+     *
+     * @param string|null $value
      */
     public function reason(?string $value): self
     {
@@ -43,7 +49,7 @@ class CreateRefundRequestBuilder
     }
 
     /**
-     * Initializes a new create refund request object.
+     * Initializes a new Create Refund Request object.
      */
     public function build(): CreateRefundRequest
     {

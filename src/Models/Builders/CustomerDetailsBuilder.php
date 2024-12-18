@@ -25,7 +25,7 @@ class CustomerDetailsBuilder
     }
 
     /**
-     * Initializes a new customer details Builder object.
+     * Initializes a new Customer Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerDetailsBuilder
 
     /**
      * Sets customer initiated field.
+     *
+     * @param bool|null $value
      */
     public function customerInitiated(?bool $value): self
     {
@@ -52,6 +54,8 @@ class CustomerDetailsBuilder
 
     /**
      * Sets seller keyed in field.
+     *
+     * @param bool|null $value
      */
     public function sellerKeyedIn(?bool $value): self
     {
@@ -69,7 +73,7 @@ class CustomerDetailsBuilder
     }
 
     /**
-     * Initializes a new customer details object.
+     * Initializes a new Customer Details object.
      */
     public function build(): CustomerDetails
     {

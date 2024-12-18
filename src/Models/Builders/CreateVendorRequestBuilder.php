@@ -26,7 +26,9 @@ class CreateVendorRequestBuilder
     }
 
     /**
-     * Initializes a new create vendor request Builder object.
+     * Initializes a new Create Vendor Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -35,6 +37,8 @@ class CreateVendorRequestBuilder
 
     /**
      * Sets vendor field.
+     *
+     * @param Vendor|null $value
      */
     public function vendor(?Vendor $value): self
     {
@@ -43,7 +47,7 @@ class CreateVendorRequestBuilder
     }
 
     /**
-     * Initializes a new create vendor request object.
+     * Initializes a new Create Vendor Request object.
      */
     public function build(): CreateVendorRequest
     {

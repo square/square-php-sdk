@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CashDrawerShift;
+use Square\Models\Error;
 use Square\Models\RetrieveCashDrawerShiftResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveCashDrawerShiftResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve cash drawer shift response Builder object.
+     * Initializes a new Retrieve Cash Drawer Shift Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveCashDrawerShiftResponseBuilder
 
     /**
      * Sets cash drawer shift field.
+     *
+     * @param CashDrawerShift|null $value
      */
     public function cashDrawerShift(?CashDrawerShift $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveCashDrawerShiftResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveCashDrawerShiftResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve cash drawer shift response object.
+     * Initializes a new Retrieve Cash Drawer Shift Response object.
      */
     public function build(): RetrieveCashDrawerShiftResponse
     {

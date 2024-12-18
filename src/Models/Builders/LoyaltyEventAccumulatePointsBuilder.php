@@ -25,7 +25,7 @@ class LoyaltyEventAccumulatePointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event accumulate points Builder object.
+     * Initializes a new Loyalty Event Accumulate Points Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class LoyaltyEventAccumulatePointsBuilder
 
     /**
      * Sets loyalty program id field.
+     *
+     * @param string|null $value
      */
     public function loyaltyProgramId(?string $value): self
     {
@@ -43,6 +45,8 @@ class LoyaltyEventAccumulatePointsBuilder
 
     /**
      * Sets points field.
+     *
+     * @param int|null $value
      */
     public function points(?int $value): self
     {
@@ -61,6 +65,8 @@ class LoyaltyEventAccumulatePointsBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -78,7 +84,7 @@ class LoyaltyEventAccumulatePointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event accumulate points object.
+     * Initializes a new Loyalty Event Accumulate Points object.
      */
     public function build(): LoyaltyEventAccumulatePoints
     {

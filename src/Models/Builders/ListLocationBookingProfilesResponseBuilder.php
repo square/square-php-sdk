@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListLocationBookingProfilesResponse;
+use Square\Models\LocationBookingProfile;
 
 /**
  * Builder for model ListLocationBookingProfilesResponse
@@ -25,7 +27,7 @@ class ListLocationBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new list location booking profiles response Builder object.
+     * Initializes a new List Location Booking Profiles Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListLocationBookingProfilesResponseBuilder
 
     /**
      * Sets location booking profiles field.
+     *
+     * @param LocationBookingProfile[]|null $value
      */
     public function locationBookingProfiles(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListLocationBookingProfilesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListLocationBookingProfilesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListLocationBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new list location booking profiles response object.
+     * Initializes a new List Location Booking Profiles Response object.
      */
     public function build(): ListLocationBookingProfilesResponse
     {

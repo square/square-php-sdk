@@ -25,7 +25,9 @@ class CustomFieldBuilder
     }
 
     /**
-     * Initializes a new custom field Builder object.
+     * Initializes a new Custom Field Builder object.
+     *
+     * @param string $title
      */
     public static function init(string $title): self
     {
@@ -33,7 +35,7 @@ class CustomFieldBuilder
     }
 
     /**
-     * Initializes a new custom field object.
+     * Initializes a new Custom Field object.
      */
     public function build(): CustomField
     {

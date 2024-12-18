@@ -25,7 +25,9 @@ class LoyaltyProgramAccrualRuleCategoryDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule category data Builder object.
+     * Initializes a new Loyalty Program Accrual Rule Category Data Builder object.
+     *
+     * @param string $categoryId
      */
     public static function init(string $categoryId): self
     {
@@ -33,7 +35,7 @@ class LoyaltyProgramAccrualRuleCategoryDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule category data object.
+     * Initializes a new Loyalty Program Accrual Rule Category Data object.
      */
     public function build(): LoyaltyProgramAccrualRuleCategoryData
     {

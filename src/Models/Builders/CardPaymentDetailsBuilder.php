@@ -9,6 +9,7 @@ use Square\Models\Card;
 use Square\Models\CardPaymentDetails;
 use Square\Models\CardPaymentTimeline;
 use Square\Models\DeviceDetails;
+use Square\Models\Error;
 
 /**
  * Builder for model CardPaymentDetails
@@ -28,7 +29,7 @@ class CardPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new card payment details Builder object.
+     * Initializes a new Card Payment Details Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -55,6 +58,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets card field.
+     *
+     * @param Card|null $value
      */
     public function card(?Card $value): self
     {
@@ -64,6 +69,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets entry method field.
+     *
+     * @param string|null $value
      */
     public function entryMethod(?string $value): self
     {
@@ -82,6 +89,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets cvv status field.
+     *
+     * @param string|null $value
      */
     public function cvvStatus(?string $value): self
     {
@@ -100,6 +109,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets avs status field.
+     *
+     * @param string|null $value
      */
     public function avsStatus(?string $value): self
     {
@@ -118,6 +129,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets auth result code field.
+     *
+     * @param string|null $value
      */
     public function authResultCode(?string $value): self
     {
@@ -136,6 +149,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets application identifier field.
+     *
+     * @param string|null $value
      */
     public function applicationIdentifier(?string $value): self
     {
@@ -154,6 +169,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets application name field.
+     *
+     * @param string|null $value
      */
     public function applicationName(?string $value): self
     {
@@ -172,6 +189,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets application cryptogram field.
+     *
+     * @param string|null $value
      */
     public function applicationCryptogram(?string $value): self
     {
@@ -190,6 +209,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets verification method field.
+     *
+     * @param string|null $value
      */
     public function verificationMethod(?string $value): self
     {
@@ -208,6 +229,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets verification results field.
+     *
+     * @param string|null $value
      */
     public function verificationResults(?string $value): self
     {
@@ -226,6 +249,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets statement description field.
+     *
+     * @param string|null $value
      */
     public function statementDescription(?string $value): self
     {
@@ -244,6 +269,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets device details field.
+     *
+     * @param DeviceDetails|null $value
      */
     public function deviceDetails(?DeviceDetails $value): self
     {
@@ -253,6 +280,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets card payment timeline field.
+     *
+     * @param CardPaymentTimeline|null $value
      */
     public function cardPaymentTimeline(?CardPaymentTimeline $value): self
     {
@@ -262,6 +291,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets refund requires card presence field.
+     *
+     * @param bool|null $value
      */
     public function refundRequiresCardPresence(?bool $value): self
     {
@@ -280,6 +311,8 @@ class CardPaymentDetailsBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -297,7 +330,7 @@ class CardPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new card payment details object.
+     * Initializes a new Card Payment Details object.
      */
     public function build(): CardPaymentDetails
     {

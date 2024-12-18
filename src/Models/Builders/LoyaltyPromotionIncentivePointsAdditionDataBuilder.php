@@ -25,7 +25,9 @@ class LoyaltyPromotionIncentivePointsAdditionDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion incentive points addition data Builder object.
+     * Initializes a new Loyalty Promotion Incentive Points Addition Data Builder object.
+     *
+     * @param int $pointsAddition
      */
     public static function init(int $pointsAddition): self
     {
@@ -33,7 +35,7 @@ class LoyaltyPromotionIncentivePointsAdditionDataBuilder
     }
 
     /**
-     * Initializes a new loyalty promotion incentive points addition data object.
+     * Initializes a new Loyalty Promotion Incentive Points Addition Data object.
      */
     public function build(): LoyaltyPromotionIncentivePointsAdditionData
     {

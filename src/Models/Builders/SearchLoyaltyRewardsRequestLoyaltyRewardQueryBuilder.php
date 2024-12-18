@@ -25,7 +25,9 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQueryBuilder
     }
 
     /**
-     * Initializes a new search loyalty rewards request loyalty reward query Builder object.
+     * Initializes a new Search Loyalty Rewards Request Loyalty Reward Query Builder object.
+     *
+     * @param string $loyaltyAccountId
      */
     public static function init(string $loyaltyAccountId): self
     {
@@ -34,6 +36,8 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQueryBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -42,7 +46,7 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQueryBuilder
     }
 
     /**
-     * Initializes a new search loyalty rewards request loyalty reward query object.
+     * Initializes a new Search Loyalty Rewards Request Loyalty Reward Query object.
      */
     public function build(): SearchLoyaltyRewardsRequestLoyaltyRewardQuery
     {

@@ -25,7 +25,7 @@ class ListDisputeEvidenceRequestBuilder
     }
 
     /**
-     * Initializes a new list dispute evidence request Builder object.
+     * Initializes a new List Dispute Evidence Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListDisputeEvidenceRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -51,7 +53,7 @@ class ListDisputeEvidenceRequestBuilder
     }
 
     /**
-     * Initializes a new list dispute evidence request object.
+     * Initializes a new List Dispute Evidence Request object.
      */
     public function build(): ListDisputeEvidenceRequest
     {

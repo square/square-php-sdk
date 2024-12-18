@@ -25,7 +25,7 @@ class PaymentBalanceActivityAppFeeRefundDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity app fee refund detail Builder object.
+     * Initializes a new Payment Balance Activity App Fee Refund Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityAppFeeRefundDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityAppFeeRefundDetailBuilder
 
     /**
      * Sets refund id field.
+     *
+     * @param string|null $value
      */
     public function refundId(?string $value): self
     {
@@ -70,6 +74,8 @@ class PaymentBalanceActivityAppFeeRefundDetailBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -87,7 +93,7 @@ class PaymentBalanceActivityAppFeeRefundDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity app fee refund detail object.
+     * Initializes a new Payment Balance Activity App Fee Refund Detail object.
      */
     public function build(): PaymentBalanceActivityAppFeeRefundDetail
     {

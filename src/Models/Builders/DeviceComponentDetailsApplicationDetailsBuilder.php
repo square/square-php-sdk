@@ -25,7 +25,7 @@ class DeviceComponentDetailsApplicationDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details application details Builder object.
+     * Initializes a new Device Component Details Application Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsApplicationDetailsBuilder
 
     /**
      * Sets application type field.
+     *
+     * @param string|null $value
      */
     public function applicationType(?string $value): self
     {
@@ -43,6 +45,8 @@ class DeviceComponentDetailsApplicationDetailsBuilder
 
     /**
      * Sets version field.
+     *
+     * @param string|null $value
      */
     public function version(?string $value): self
     {
@@ -52,6 +56,8 @@ class DeviceComponentDetailsApplicationDetailsBuilder
 
     /**
      * Sets session location field.
+     *
+     * @param string|null $value
      */
     public function sessionLocation(?string $value): self
     {
@@ -70,6 +76,8 @@ class DeviceComponentDetailsApplicationDetailsBuilder
 
     /**
      * Sets device code id field.
+     *
+     * @param string|null $value
      */
     public function deviceCodeId(?string $value): self
     {
@@ -87,7 +95,7 @@ class DeviceComponentDetailsApplicationDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details application details object.
+     * Initializes a new Device Component Details Application Details object.
      */
     public function build(): DeviceComponentDetailsApplicationDetails
     {

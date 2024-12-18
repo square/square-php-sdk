@@ -26,7 +26,7 @@ class SearchEventsRequestBuilder
     }
 
     /**
-     * Initializes a new search events request Builder object.
+     * Initializes a new Search Events Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchEventsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -44,6 +46,8 @@ class SearchEventsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchEventsRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param SearchEventsQuery|null $value
      */
     public function query(?SearchEventsQuery $value): self
     {
@@ -61,7 +67,7 @@ class SearchEventsRequestBuilder
     }
 
     /**
-     * Initializes a new search events request object.
+     * Initializes a new Search Events Request object.
      */
     public function build(): SearchEventsRequest
     {

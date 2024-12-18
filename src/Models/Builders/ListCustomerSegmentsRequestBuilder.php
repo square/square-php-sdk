@@ -25,7 +25,7 @@ class ListCustomerSegmentsRequestBuilder
     }
 
     /**
-     * Initializes a new list customer segments request Builder object.
+     * Initializes a new List Customer Segments Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListCustomerSegmentsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListCustomerSegmentsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -69,7 +73,7 @@ class ListCustomerSegmentsRequestBuilder
     }
 
     /**
-     * Initializes a new list customer segments request object.
+     * Initializes a new List Customer Segments Request object.
      */
     public function build(): ListCustomerSegmentsRequest
     {

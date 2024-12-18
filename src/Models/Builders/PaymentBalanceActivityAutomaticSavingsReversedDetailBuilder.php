@@ -25,7 +25,7 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity automatic savings reversed detail Builder object.
+     * Initializes a new Payment Balance Activity Automatic Savings Reversed Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -52,6 +54,8 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetailBuilder
 
     /**
      * Sets payout id field.
+     *
+     * @param string|null $value
      */
     public function payoutId(?string $value): self
     {
@@ -69,7 +73,7 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity automatic savings reversed detail object.
+     * Initializes a new Payment Balance Activity Automatic Savings Reversed Detail object.
      */
     public function build(): PaymentBalanceActivityAutomaticSavingsReversedDetail
     {

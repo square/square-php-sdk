@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListWorkweekConfigsResponse;
+use Square\Models\WorkweekConfig;
 
 /**
  * Builder for model ListWorkweekConfigsResponse
@@ -25,7 +27,7 @@ class ListWorkweekConfigsResponseBuilder
     }
 
     /**
-     * Initializes a new list workweek configs response Builder object.
+     * Initializes a new List Workweek Configs Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListWorkweekConfigsResponseBuilder
 
     /**
      * Sets workweek configs field.
+     *
+     * @param WorkweekConfig[]|null $value
      */
     public function workweekConfigs(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListWorkweekConfigsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListWorkweekConfigsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListWorkweekConfigsResponseBuilder
     }
 
     /**
-     * Initializes a new list workweek configs response object.
+     * Initializes a new List Workweek Configs Response object.
      */
     public function build(): ListWorkweekConfigsResponse
     {

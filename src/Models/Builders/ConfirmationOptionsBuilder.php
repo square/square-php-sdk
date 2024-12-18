@@ -26,7 +26,11 @@ class ConfirmationOptionsBuilder
     }
 
     /**
-     * Initializes a new confirmation options Builder object.
+     * Initializes a new Confirmation Options Builder object.
+     *
+     * @param string $title
+     * @param string $body
+     * @param string $agreeButtonText
      */
     public static function init(string $title, string $body, string $agreeButtonText): self
     {
@@ -35,6 +39,8 @@ class ConfirmationOptionsBuilder
 
     /**
      * Sets disagree button text field.
+     *
+     * @param string|null $value
      */
     public function disagreeButtonText(?string $value): self
     {
@@ -53,6 +59,8 @@ class ConfirmationOptionsBuilder
 
     /**
      * Sets decision field.
+     *
+     * @param ConfirmationDecision|null $value
      */
     public function decision(?ConfirmationDecision $value): self
     {
@@ -61,7 +69,7 @@ class ConfirmationOptionsBuilder
     }
 
     /**
-     * Initializes a new confirmation options object.
+     * Initializes a new Confirmation Options object.
      */
     public function build(): ConfirmationOptions
     {

@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\OrderLineItemPricingBlocklists;
+use Square\Models\OrderLineItemPricingBlocklistsBlockedDiscount;
+use Square\Models\OrderLineItemPricingBlocklistsBlockedTax;
 
 /**
  * Builder for model OrderLineItemPricingBlocklists
@@ -25,7 +27,7 @@ class OrderLineItemPricingBlocklistsBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists Builder object.
+     * Initializes a new Order Line Item Pricing Blocklists Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class OrderLineItemPricingBlocklistsBuilder
 
     /**
      * Sets blocked discounts field.
+     *
+     * @param OrderLineItemPricingBlocklistsBlockedDiscount[]|null $value
      */
     public function blockedDiscounts(?array $value): self
     {
@@ -52,6 +56,8 @@ class OrderLineItemPricingBlocklistsBuilder
 
     /**
      * Sets blocked taxes field.
+     *
+     * @param OrderLineItemPricingBlocklistsBlockedTax[]|null $value
      */
     public function blockedTaxes(?array $value): self
     {
@@ -69,7 +75,7 @@ class OrderLineItemPricingBlocklistsBuilder
     }
 
     /**
-     * Initializes a new order line item pricing blocklists object.
+     * Initializes a new Order Line Item Pricing Blocklists object.
      */
     public function build(): OrderLineItemPricingBlocklists
     {

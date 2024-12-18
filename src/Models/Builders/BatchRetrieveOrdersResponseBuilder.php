@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchRetrieveOrdersResponse;
+use Square\Models\Error;
+use Square\Models\Order;
 
 /**
  * Builder for model BatchRetrieveOrdersResponse
@@ -25,7 +27,7 @@ class BatchRetrieveOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve orders response Builder object.
+     * Initializes a new Batch Retrieve Orders Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BatchRetrieveOrdersResponseBuilder
 
     /**
      * Sets orders field.
+     *
+     * @param Order[]|null $value
      */
     public function orders(?array $value): self
     {
@@ -43,6 +47,8 @@ class BatchRetrieveOrdersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BatchRetrieveOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new batch retrieve orders response object.
+     * Initializes a new Batch Retrieve Orders Response object.
      */
     public function build(): BatchRetrieveOrdersResponse
     {

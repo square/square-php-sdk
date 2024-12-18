@@ -25,7 +25,11 @@ class BulkSwapPlanRequestBuilder
     }
 
     /**
-     * Initializes a new bulk swap plan request Builder object.
+     * Initializes a new Bulk Swap Plan Request Builder object.
+     *
+     * @param string $newPlanVariationId
+     * @param string $oldPlanVariationId
+     * @param string $locationId
      */
     public static function init(string $newPlanVariationId, string $oldPlanVariationId, string $locationId): self
     {
@@ -33,7 +37,7 @@ class BulkSwapPlanRequestBuilder
     }
 
     /**
-     * Initializes a new bulk swap plan request object.
+     * Initializes a new Bulk Swap Plan Request object.
      */
     public function build(): BulkSwapPlanRequest
     {

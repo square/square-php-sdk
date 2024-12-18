@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkCreateVendorsRequest;
+use Square\Models\Vendor;
 
 /**
  * Builder for model BulkCreateVendorsRequest
@@ -25,7 +26,9 @@ class BulkCreateVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create vendors request Builder object.
+     * Initializes a new Bulk Create Vendors Request Builder object.
+     *
+     * @param array<string,Vendor> $vendors
      */
     public static function init(array $vendors): self
     {
@@ -33,7 +36,7 @@ class BulkCreateVendorsRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create vendors request object.
+     * Initializes a new Bulk Create Vendors Request object.
      */
     public function build(): BulkCreateVendorsRequest
     {

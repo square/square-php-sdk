@@ -26,7 +26,7 @@ class PayoutFeeBuilder
     }
 
     /**
-     * Initializes a new payout fee Builder object.
+     * Initializes a new Payout Fee Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class PayoutFeeBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -44,6 +46,8 @@ class PayoutFeeBuilder
 
     /**
      * Sets effective at field.
+     *
+     * @param string|null $value
      */
     public function effectiveAt(?string $value): self
     {
@@ -62,6 +66,8 @@ class PayoutFeeBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -70,7 +76,7 @@ class PayoutFeeBuilder
     }
 
     /**
-     * Initializes a new payout fee object.
+     * Initializes a new Payout Fee object.
      */
     public function build(): PayoutFee
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CompletePaymentResponse;
+use Square\Models\Error;
 use Square\Models\Payment;
 
 /**
@@ -26,7 +27,7 @@ class CompletePaymentResponseBuilder
     }
 
     /**
-     * Initializes a new complete payment response Builder object.
+     * Initializes a new Complete Payment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CompletePaymentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CompletePaymentResponseBuilder
 
     /**
      * Sets payment field.
+     *
+     * @param Payment|null $value
      */
     public function payment(?Payment $value): self
     {
@@ -52,7 +57,7 @@ class CompletePaymentResponseBuilder
     }
 
     /**
-     * Initializes a new complete payment response object.
+     * Initializes a new Complete Payment Response object.
      */
     public function build(): CompletePaymentResponse
     {

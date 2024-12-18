@@ -26,7 +26,7 @@ class LoyaltyEventQueryBuilder
     }
 
     /**
-     * Initializes a new loyalty event query Builder object.
+     * Initializes a new Loyalty Event Query Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class LoyaltyEventQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param LoyaltyEventFilter|null $value
      */
     public function filter(?LoyaltyEventFilter $value): self
     {
@@ -43,7 +45,7 @@ class LoyaltyEventQueryBuilder
     }
 
     /**
-     * Initializes a new loyalty event query object.
+     * Initializes a new Loyalty Event Query object.
      */
     public function build(): LoyaltyEventQuery
     {

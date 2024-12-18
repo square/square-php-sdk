@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkCreateTeamMembersResponse;
+use Square\Models\CreateTeamMemberResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkCreateTeamMembersResponse
@@ -25,7 +27,7 @@ class BulkCreateTeamMembersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk create team members response Builder object.
+     * Initializes a new Bulk Create Team Members Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkCreateTeamMembersResponseBuilder
 
     /**
      * Sets team members field.
+     *
+     * @param array<string,CreateTeamMemberResponse>|null $value
      */
     public function teamMembers(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkCreateTeamMembersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkCreateTeamMembersResponseBuilder
     }
 
     /**
-     * Initializes a new bulk create team members response object.
+     * Initializes a new Bulk Create Team Members Response object.
      */
     public function build(): BulkCreateTeamMembersResponse
     {

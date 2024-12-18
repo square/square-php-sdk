@@ -25,7 +25,7 @@ class TaxIdsBuilder
     }
 
     /**
-     * Initializes a new tax ids Builder object.
+     * Initializes a new Tax Ids Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TaxIdsBuilder
 
     /**
      * Sets eu vat field.
+     *
+     * @param string|null $value
      */
     public function euVat(?string $value): self
     {
@@ -43,6 +45,8 @@ class TaxIdsBuilder
 
     /**
      * Sets fr siret field.
+     *
+     * @param string|null $value
      */
     public function frSiret(?string $value): self
     {
@@ -52,6 +56,8 @@ class TaxIdsBuilder
 
     /**
      * Sets fr naf field.
+     *
+     * @param string|null $value
      */
     public function frNaf(?string $value): self
     {
@@ -61,6 +67,8 @@ class TaxIdsBuilder
 
     /**
      * Sets es nif field.
+     *
+     * @param string|null $value
      */
     public function esNif(?string $value): self
     {
@@ -70,6 +78,8 @@ class TaxIdsBuilder
 
     /**
      * Sets jp qii field.
+     *
+     * @param string|null $value
      */
     public function jpQii(?string $value): self
     {
@@ -78,7 +88,7 @@ class TaxIdsBuilder
     }
 
     /**
-     * Initializes a new tax ids object.
+     * Initializes a new Tax Ids object.
      */
     public function build(): TaxIds
     {

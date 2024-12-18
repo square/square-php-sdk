@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\EventTypeMetadata;
 use Square\Models\ListEventTypesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListEventTypesResponseBuilder
     }
 
     /**
-     * Initializes a new list event types response Builder object.
+     * Initializes a new List Event Types Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListEventTypesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListEventTypesResponseBuilder
 
     /**
      * Sets event types field.
+     *
+     * @param string[]|null $value
      */
     public function eventTypes(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListEventTypesResponseBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param EventTypeMetadata[]|null $value
      */
     public function metadata(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListEventTypesResponseBuilder
     }
 
     /**
-     * Initializes a new list event types response object.
+     * Initializes a new List Event Types Response object.
      */
     public function build(): ListEventTypesResponse
     {

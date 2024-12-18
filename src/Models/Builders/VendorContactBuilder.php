@@ -25,7 +25,9 @@ class VendorContactBuilder
     }
 
     /**
-     * Initializes a new vendor contact Builder object.
+     * Initializes a new Vendor Contact Builder object.
+     *
+     * @param int $ordinal
      */
     public static function init(int $ordinal): self
     {
@@ -34,6 +36,8 @@ class VendorContactBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +47,8 @@ class VendorContactBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -61,6 +67,8 @@ class VendorContactBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -79,6 +87,8 @@ class VendorContactBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -97,6 +107,8 @@ class VendorContactBuilder
 
     /**
      * Sets removed field.
+     *
+     * @param bool|null $value
      */
     public function removed(?bool $value): self
     {
@@ -114,7 +126,7 @@ class VendorContactBuilder
     }
 
     /**
-     * Initializes a new vendor contact object.
+     * Initializes a new Vendor Contact object.
      */
     public function build(): VendorContact
     {

@@ -25,7 +25,7 @@ class CustomerSortBuilder
     }
 
     /**
-     * Initializes a new customer sort Builder object.
+     * Initializes a new Customer Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomerSortBuilder
 
     /**
      * Sets field field.
+     *
+     * @param string|null $value
      */
     public function field(?string $value): self
     {
@@ -43,6 +45,8 @@ class CustomerSortBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -51,7 +55,7 @@ class CustomerSortBuilder
     }
 
     /**
-     * Initializes a new customer sort object.
+     * Initializes a new Customer Sort object.
      */
     public function build(): CustomerSort
     {

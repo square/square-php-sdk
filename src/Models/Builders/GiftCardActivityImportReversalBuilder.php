@@ -26,7 +26,9 @@ class GiftCardActivityImportReversalBuilder
     }
 
     /**
-     * Initializes a new gift card activity import reversal Builder object.
+     * Initializes a new Gift Card Activity Import Reversal Builder object.
+     *
+     * @param Money $amountMoney
      */
     public static function init(Money $amountMoney): self
     {
@@ -34,7 +36,7 @@ class GiftCardActivityImportReversalBuilder
     }
 
     /**
-     * Initializes a new gift card activity import reversal object.
+     * Initializes a new Gift Card Activity Import Reversal object.
      */
     public function build(): GiftCardActivityImportReversal
     {

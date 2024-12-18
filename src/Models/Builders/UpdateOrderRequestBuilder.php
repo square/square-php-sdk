@@ -26,7 +26,7 @@ class UpdateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new update order request Builder object.
+     * Initializes a new Update Order Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class UpdateOrderRequestBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -44,6 +46,8 @@ class UpdateOrderRequestBuilder
 
     /**
      * Sets fields to clear field.
+     *
+     * @param string[]|null $value
      */
     public function fieldsToClear(?array $value): self
     {
@@ -62,6 +66,8 @@ class UpdateOrderRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -79,7 +85,7 @@ class UpdateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new update order request object.
+     * Initializes a new Update Order Request object.
      */
     public function build(): UpdateOrderRequest
     {

@@ -26,7 +26,7 @@ class OrderReturnTipBuilder
     }
 
     /**
-     * Initializes a new order return tip Builder object.
+     * Initializes a new Order Return Tip Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderReturnTipBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderReturnTipBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -62,6 +66,8 @@ class OrderReturnTipBuilder
 
     /**
      * Sets source tender uid field.
+     *
+     * @param string|null $value
      */
     public function sourceTenderUid(?string $value): self
     {
@@ -80,6 +86,8 @@ class OrderReturnTipBuilder
 
     /**
      * Sets source tender id field.
+     *
+     * @param string|null $value
      */
     public function sourceTenderId(?string $value): self
     {
@@ -97,7 +105,7 @@ class OrderReturnTipBuilder
     }
 
     /**
-     * Initializes a new order return tip object.
+     * Initializes a new Order Return Tip object.
      */
     public function build(): OrderReturnTip
     {

@@ -7,6 +7,9 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\Invoice;
 use Square\Models\InvoiceAcceptedPaymentMethods;
+use Square\Models\InvoiceAttachment;
+use Square\Models\InvoiceCustomField;
+use Square\Models\InvoicePaymentRequest;
 use Square\Models\InvoiceRecipient;
 use Square\Models\Money;
 
@@ -28,7 +31,7 @@ class InvoiceBuilder
     }
 
     /**
-     * Initializes a new invoice Builder object.
+     * Initializes a new Invoice Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +40,8 @@ class InvoiceBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -46,6 +51,8 @@ class InvoiceBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -55,6 +62,8 @@ class InvoiceBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -73,6 +82,8 @@ class InvoiceBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -91,6 +102,8 @@ class InvoiceBuilder
 
     /**
      * Sets primary recipient field.
+     *
+     * @param InvoiceRecipient|null $value
      */
     public function primaryRecipient(?InvoiceRecipient $value): self
     {
@@ -100,6 +113,8 @@ class InvoiceBuilder
 
     /**
      * Sets payment requests field.
+     *
+     * @param InvoicePaymentRequest[]|null $value
      */
     public function paymentRequests(?array $value): self
     {
@@ -118,6 +133,8 @@ class InvoiceBuilder
 
     /**
      * Sets delivery method field.
+     *
+     * @param string|null $value
      */
     public function deliveryMethod(?string $value): self
     {
@@ -127,6 +144,8 @@ class InvoiceBuilder
 
     /**
      * Sets invoice number field.
+     *
+     * @param string|null $value
      */
     public function invoiceNumber(?string $value): self
     {
@@ -145,6 +164,8 @@ class InvoiceBuilder
 
     /**
      * Sets title field.
+     *
+     * @param string|null $value
      */
     public function title(?string $value): self
     {
@@ -163,6 +184,8 @@ class InvoiceBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -181,6 +204,8 @@ class InvoiceBuilder
 
     /**
      * Sets scheduled at field.
+     *
+     * @param string|null $value
      */
     public function scheduledAt(?string $value): self
     {
@@ -199,6 +224,8 @@ class InvoiceBuilder
 
     /**
      * Sets public url field.
+     *
+     * @param string|null $value
      */
     public function publicUrl(?string $value): self
     {
@@ -208,6 +235,8 @@ class InvoiceBuilder
 
     /**
      * Sets next payment amount money field.
+     *
+     * @param Money|null $value
      */
     public function nextPaymentAmountMoney(?Money $value): self
     {
@@ -217,6 +246,8 @@ class InvoiceBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -226,6 +257,8 @@ class InvoiceBuilder
 
     /**
      * Sets timezone field.
+     *
+     * @param string|null $value
      */
     public function timezone(?string $value): self
     {
@@ -235,6 +268,8 @@ class InvoiceBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -244,6 +279,8 @@ class InvoiceBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -253,6 +290,8 @@ class InvoiceBuilder
 
     /**
      * Sets accepted payment methods field.
+     *
+     * @param InvoiceAcceptedPaymentMethods|null $value
      */
     public function acceptedPaymentMethods(?InvoiceAcceptedPaymentMethods $value): self
     {
@@ -262,6 +301,8 @@ class InvoiceBuilder
 
     /**
      * Sets custom fields field.
+     *
+     * @param InvoiceCustomField[]|null $value
      */
     public function customFields(?array $value): self
     {
@@ -280,6 +321,8 @@ class InvoiceBuilder
 
     /**
      * Sets subscription id field.
+     *
+     * @param string|null $value
      */
     public function subscriptionId(?string $value): self
     {
@@ -289,6 +332,8 @@ class InvoiceBuilder
 
     /**
      * Sets sale or service date field.
+     *
+     * @param string|null $value
      */
     public function saleOrServiceDate(?string $value): self
     {
@@ -307,6 +352,8 @@ class InvoiceBuilder
 
     /**
      * Sets payment conditions field.
+     *
+     * @param string|null $value
      */
     public function paymentConditions(?string $value): self
     {
@@ -325,6 +372,8 @@ class InvoiceBuilder
 
     /**
      * Sets store payment method enabled field.
+     *
+     * @param bool|null $value
      */
     public function storePaymentMethodEnabled(?bool $value): self
     {
@@ -343,6 +392,8 @@ class InvoiceBuilder
 
     /**
      * Sets attachments field.
+     *
+     * @param InvoiceAttachment[]|null $value
      */
     public function attachments(?array $value): self
     {
@@ -351,7 +402,7 @@ class InvoiceBuilder
     }
 
     /**
-     * Initializes a new invoice object.
+     * Initializes a new Invoice object.
      */
     public function build(): Invoice
     {

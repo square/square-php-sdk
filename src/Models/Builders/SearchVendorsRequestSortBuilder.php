@@ -25,7 +25,7 @@ class SearchVendorsRequestSortBuilder
     }
 
     /**
-     * Initializes a new search vendors request sort Builder object.
+     * Initializes a new Search Vendors Request Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchVendorsRequestSortBuilder
 
     /**
      * Sets field field.
+     *
+     * @param string|null $value
      */
     public function field(?string $value): self
     {
@@ -43,6 +45,8 @@ class SearchVendorsRequestSortBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -51,7 +55,7 @@ class SearchVendorsRequestSortBuilder
     }
 
     /**
-     * Initializes a new search vendors request sort object.
+     * Initializes a new Search Vendors Request Sort object.
      */
     public function build(): SearchVendorsRequestSort
     {

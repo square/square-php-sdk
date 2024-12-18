@@ -5,12 +5,21 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Fulfillment;
 use Square\Models\Money;
 use Square\Models\Order;
+use Square\Models\OrderLineItem;
+use Square\Models\OrderLineItemDiscount;
+use Square\Models\OrderLineItemTax;
 use Square\Models\OrderMoneyAmounts;
 use Square\Models\OrderPricingOptions;
+use Square\Models\OrderReturn;
+use Square\Models\OrderReward;
 use Square\Models\OrderRoundingAdjustment;
+use Square\Models\OrderServiceCharge;
 use Square\Models\OrderSource;
+use Square\Models\Refund;
+use Square\Models\Tender;
 
 /**
  * Builder for model Order
@@ -30,7 +39,9 @@ class OrderBuilder
     }
 
     /**
-     * Initializes a new order Builder object.
+     * Initializes a new Order Builder object.
+     *
+     * @param string $locationId
      */
     public static function init(string $locationId): self
     {
@@ -39,6 +50,8 @@ class OrderBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -48,6 +61,8 @@ class OrderBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -66,6 +81,8 @@ class OrderBuilder
 
     /**
      * Sets source field.
+     *
+     * @param OrderSource|null $value
      */
     public function source(?OrderSource $value): self
     {
@@ -75,6 +92,8 @@ class OrderBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -93,6 +112,8 @@ class OrderBuilder
 
     /**
      * Sets line items field.
+     *
+     * @param OrderLineItem[]|null $value
      */
     public function lineItems(?array $value): self
     {
@@ -111,6 +132,8 @@ class OrderBuilder
 
     /**
      * Sets taxes field.
+     *
+     * @param OrderLineItemTax[]|null $value
      */
     public function taxes(?array $value): self
     {
@@ -129,6 +152,8 @@ class OrderBuilder
 
     /**
      * Sets discounts field.
+     *
+     * @param OrderLineItemDiscount[]|null $value
      */
     public function discounts(?array $value): self
     {
@@ -147,6 +172,8 @@ class OrderBuilder
 
     /**
      * Sets service charges field.
+     *
+     * @param OrderServiceCharge[]|null $value
      */
     public function serviceCharges(?array $value): self
     {
@@ -165,6 +192,8 @@ class OrderBuilder
 
     /**
      * Sets fulfillments field.
+     *
+     * @param Fulfillment[]|null $value
      */
     public function fulfillments(?array $value): self
     {
@@ -183,6 +212,8 @@ class OrderBuilder
 
     /**
      * Sets returns field.
+     *
+     * @param OrderReturn[]|null $value
      */
     public function returns(?array $value): self
     {
@@ -192,6 +223,8 @@ class OrderBuilder
 
     /**
      * Sets return amounts field.
+     *
+     * @param OrderMoneyAmounts|null $value
      */
     public function returnAmounts(?OrderMoneyAmounts $value): self
     {
@@ -201,6 +234,8 @@ class OrderBuilder
 
     /**
      * Sets net amounts field.
+     *
+     * @param OrderMoneyAmounts|null $value
      */
     public function netAmounts(?OrderMoneyAmounts $value): self
     {
@@ -210,6 +245,8 @@ class OrderBuilder
 
     /**
      * Sets rounding adjustment field.
+     *
+     * @param OrderRoundingAdjustment|null $value
      */
     public function roundingAdjustment(?OrderRoundingAdjustment $value): self
     {
@@ -219,6 +256,8 @@ class OrderBuilder
 
     /**
      * Sets tenders field.
+     *
+     * @param Tender[]|null $value
      */
     public function tenders(?array $value): self
     {
@@ -228,6 +267,8 @@ class OrderBuilder
 
     /**
      * Sets refunds field.
+     *
+     * @param Refund[]|null $value
      */
     public function refunds(?array $value): self
     {
@@ -237,6 +278,8 @@ class OrderBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -255,6 +298,8 @@ class OrderBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -264,6 +309,8 @@ class OrderBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -273,6 +320,8 @@ class OrderBuilder
 
     /**
      * Sets closed at field.
+     *
+     * @param string|null $value
      */
     public function closedAt(?string $value): self
     {
@@ -282,6 +331,8 @@ class OrderBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -291,6 +342,8 @@ class OrderBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -300,6 +353,8 @@ class OrderBuilder
 
     /**
      * Sets total money field.
+     *
+     * @param Money|null $value
      */
     public function totalMoney(?Money $value): self
     {
@@ -309,6 +364,8 @@ class OrderBuilder
 
     /**
      * Sets total tax money field.
+     *
+     * @param Money|null $value
      */
     public function totalTaxMoney(?Money $value): self
     {
@@ -318,6 +375,8 @@ class OrderBuilder
 
     /**
      * Sets total discount money field.
+     *
+     * @param Money|null $value
      */
     public function totalDiscountMoney(?Money $value): self
     {
@@ -327,6 +386,8 @@ class OrderBuilder
 
     /**
      * Sets total tip money field.
+     *
+     * @param Money|null $value
      */
     public function totalTipMoney(?Money $value): self
     {
@@ -336,6 +397,8 @@ class OrderBuilder
 
     /**
      * Sets total service charge money field.
+     *
+     * @param Money|null $value
      */
     public function totalServiceChargeMoney(?Money $value): self
     {
@@ -345,6 +408,8 @@ class OrderBuilder
 
     /**
      * Sets ticket name field.
+     *
+     * @param string|null $value
      */
     public function ticketName(?string $value): self
     {
@@ -363,6 +428,8 @@ class OrderBuilder
 
     /**
      * Sets pricing options field.
+     *
+     * @param OrderPricingOptions|null $value
      */
     public function pricingOptions(?OrderPricingOptions $value): self
     {
@@ -372,6 +439,8 @@ class OrderBuilder
 
     /**
      * Sets rewards field.
+     *
+     * @param OrderReward[]|null $value
      */
     public function rewards(?array $value): self
     {
@@ -381,6 +450,8 @@ class OrderBuilder
 
     /**
      * Sets net amount due money field.
+     *
+     * @param Money|null $value
      */
     public function netAmountDueMoney(?Money $value): self
     {
@@ -389,7 +460,7 @@ class OrderBuilder
     }
 
     /**
-     * Initializes a new order object.
+     * Initializes a new Order object.
      */
     public function build(): Order
     {

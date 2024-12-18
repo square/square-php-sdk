@@ -25,7 +25,7 @@ class WebhookSubscriptionBuilder
     }
 
     /**
-     * Initializes a new webhook subscription Builder object.
+     * Initializes a new Webhook Subscription Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -61,6 +65,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets enabled field.
+     *
+     * @param bool|null $value
      */
     public function enabled(?bool $value): self
     {
@@ -79,6 +85,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets event types field.
+     *
+     * @param string[]|null $value
      */
     public function eventTypes(?array $value): self
     {
@@ -97,6 +105,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets notification url field.
+     *
+     * @param string|null $value
      */
     public function notificationUrl(?string $value): self
     {
@@ -115,6 +125,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets api version field.
+     *
+     * @param string|null $value
      */
     public function apiVersion(?string $value): self
     {
@@ -133,6 +145,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets signature key field.
+     *
+     * @param string|null $value
      */
     public function signatureKey(?string $value): self
     {
@@ -142,6 +156,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -151,6 +167,8 @@ class WebhookSubscriptionBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -159,7 +177,7 @@ class WebhookSubscriptionBuilder
     }
 
     /**
-     * Initializes a new webhook subscription object.
+     * Initializes a new Webhook Subscription object.
      */
     public function build(): WebhookSubscription
     {

@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\DestinationDetails;
 use Square\Models\Money;
 use Square\Models\PaymentRefund;
+use Square\Models\ProcessingFee;
 
 /**
  * Builder for model PaymentRefund
@@ -27,7 +28,10 @@ class PaymentRefundBuilder
     }
 
     /**
-     * Initializes a new payment refund Builder object.
+     * Initializes a new Payment Refund Builder object.
+     *
+     * @param string $id
+     * @param Money $amountMoney
      */
     public static function init(string $id, Money $amountMoney): self
     {
@@ -36,6 +40,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -54,6 +60,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -72,6 +80,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets unlinked field.
+     *
+     * @param bool|null $value
      */
     public function unlinked(?bool $value): self
     {
@@ -81,6 +91,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets destination type field.
+     *
+     * @param string|null $value
      */
     public function destinationType(?string $value): self
     {
@@ -99,6 +111,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets destination details field.
+     *
+     * @param DestinationDetails|null $value
      */
     public function destinationDetails(?DestinationDetails $value): self
     {
@@ -108,6 +122,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets app fee money field.
+     *
+     * @param Money|null $value
      */
     public function appFeeMoney(?Money $value): self
     {
@@ -117,6 +133,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets processing fee field.
+     *
+     * @param ProcessingFee[]|null $value
      */
     public function processingFee(?array $value): self
     {
@@ -135,6 +153,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -153,6 +173,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -171,6 +193,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets reason field.
+     *
+     * @param string|null $value
      */
     public function reason(?string $value): self
     {
@@ -189,6 +213,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -198,6 +224,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -207,6 +235,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -216,6 +246,8 @@ class PaymentRefundBuilder
 
     /**
      * Sets terminal refund id field.
+     *
+     * @param string|null $value
      */
     public function terminalRefundId(?string $value): self
     {
@@ -224,7 +256,7 @@ class PaymentRefundBuilder
     }
 
     /**
-     * Initializes a new payment refund object.
+     * Initializes a new Payment Refund object.
      */
     public function build(): PaymentRefund
     {

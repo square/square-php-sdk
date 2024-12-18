@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogQuickAmount;
 use Square\Models\CatalogQuickAmountsSettings;
 
 /**
@@ -25,7 +26,9 @@ class CatalogQuickAmountsSettingsBuilder
     }
 
     /**
-     * Initializes a new catalog quick amounts settings Builder object.
+     * Initializes a new Catalog Quick Amounts Settings Builder object.
+     *
+     * @param string $option
      */
     public static function init(string $option): self
     {
@@ -34,6 +37,8 @@ class CatalogQuickAmountsSettingsBuilder
 
     /**
      * Sets eligible for auto amounts field.
+     *
+     * @param bool|null $value
      */
     public function eligibleForAutoAmounts(?bool $value): self
     {
@@ -52,6 +57,8 @@ class CatalogQuickAmountsSettingsBuilder
 
     /**
      * Sets amounts field.
+     *
+     * @param CatalogQuickAmount[]|null $value
      */
     public function amounts(?array $value): self
     {
@@ -69,7 +76,7 @@ class CatalogQuickAmountsSettingsBuilder
     }
 
     /**
-     * Initializes a new catalog quick amounts settings object.
+     * Initializes a new Catalog Quick Amounts Settings object.
      */
     public function build(): CatalogQuickAmountsSettings
     {

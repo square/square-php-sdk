@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\InvoicePaymentReminder;
 use Square\Models\InvoicePaymentRequest;
 use Square\Models\Money;
 
@@ -26,7 +27,7 @@ class InvoicePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new invoice payment request Builder object.
+     * Initializes a new Invoice Payment Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +56,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets request method field.
+     *
+     * @param string|null $value
      */
     public function requestMethod(?string $value): self
     {
@@ -62,6 +67,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets request type field.
+     *
+     * @param string|null $value
      */
     public function requestType(?string $value): self
     {
@@ -71,6 +78,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets due date field.
+     *
+     * @param string|null $value
      */
     public function dueDate(?string $value): self
     {
@@ -89,6 +98,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets fixed amount requested money field.
+     *
+     * @param Money|null $value
      */
     public function fixedAmountRequestedMoney(?Money $value): self
     {
@@ -98,6 +109,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets percentage requested field.
+     *
+     * @param string|null $value
      */
     public function percentageRequested(?string $value): self
     {
@@ -116,6 +129,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets tipping enabled field.
+     *
+     * @param bool|null $value
      */
     public function tippingEnabled(?bool $value): self
     {
@@ -134,6 +149,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets automatic payment source field.
+     *
+     * @param string|null $value
      */
     public function automaticPaymentSource(?string $value): self
     {
@@ -143,6 +160,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets card id field.
+     *
+     * @param string|null $value
      */
     public function cardId(?string $value): self
     {
@@ -161,6 +180,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets reminders field.
+     *
+     * @param InvoicePaymentReminder[]|null $value
      */
     public function reminders(?array $value): self
     {
@@ -179,6 +200,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets computed amount money field.
+     *
+     * @param Money|null $value
      */
     public function computedAmountMoney(?Money $value): self
     {
@@ -188,6 +211,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets total completed amount money field.
+     *
+     * @param Money|null $value
      */
     public function totalCompletedAmountMoney(?Money $value): self
     {
@@ -197,6 +222,8 @@ class InvoicePaymentRequestBuilder
 
     /**
      * Sets rounding adjustment included money field.
+     *
+     * @param Money|null $value
      */
     public function roundingAdjustmentIncludedMoney(?Money $value): self
     {
@@ -205,7 +232,7 @@ class InvoicePaymentRequestBuilder
     }
 
     /**
-     * Initializes a new invoice payment request object.
+     * Initializes a new Invoice Payment Request object.
      */
     public function build(): InvoicePaymentRequest
     {

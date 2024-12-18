@@ -26,7 +26,7 @@ class CreateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new create order request Builder object.
+     * Initializes a new Create Order Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CreateOrderRequestBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -44,6 +46,8 @@ class CreateOrderRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class CreateOrderRequestBuilder
     }
 
     /**
-     * Initializes a new create order request object.
+     * Initializes a new Create Order Request object.
      */
     public function build(): CreateOrderRequest
     {

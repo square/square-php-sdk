@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateLoyaltyAccountResponse;
+use Square\Models\Error;
 use Square\Models\LoyaltyAccount;
 
 /**
@@ -26,7 +27,7 @@ class CreateLoyaltyAccountResponseBuilder
     }
 
     /**
-     * Initializes a new create loyalty account response Builder object.
+     * Initializes a new Create Loyalty Account Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateLoyaltyAccountResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateLoyaltyAccountResponseBuilder
 
     /**
      * Sets loyalty account field.
+     *
+     * @param LoyaltyAccount|null $value
      */
     public function loyaltyAccount(?LoyaltyAccount $value): self
     {
@@ -52,7 +57,7 @@ class CreateLoyaltyAccountResponseBuilder
     }
 
     /**
-     * Initializes a new create loyalty account response object.
+     * Initializes a new Create Loyalty Account Response object.
      */
     public function build(): CreateLoyaltyAccountResponse
     {

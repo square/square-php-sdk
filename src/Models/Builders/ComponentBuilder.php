@@ -30,7 +30,9 @@ class ComponentBuilder
     }
 
     /**
-     * Initializes a new component Builder object.
+     * Initializes a new Component Builder object.
+     *
+     * @param string $type
      */
     public static function init(string $type): self
     {
@@ -39,6 +41,8 @@ class ComponentBuilder
 
     /**
      * Sets application details field.
+     *
+     * @param DeviceComponentDetailsApplicationDetails|null $value
      */
     public function applicationDetails(?DeviceComponentDetailsApplicationDetails $value): self
     {
@@ -48,6 +52,8 @@ class ComponentBuilder
 
     /**
      * Sets card reader details field.
+     *
+     * @param DeviceComponentDetailsCardReaderDetails|null $value
      */
     public function cardReaderDetails(?DeviceComponentDetailsCardReaderDetails $value): self
     {
@@ -57,6 +63,8 @@ class ComponentBuilder
 
     /**
      * Sets battery details field.
+     *
+     * @param DeviceComponentDetailsBatteryDetails|null $value
      */
     public function batteryDetails(?DeviceComponentDetailsBatteryDetails $value): self
     {
@@ -66,6 +74,8 @@ class ComponentBuilder
 
     /**
      * Sets wifi details field.
+     *
+     * @param DeviceComponentDetailsWiFiDetails|null $value
      */
     public function wifiDetails(?DeviceComponentDetailsWiFiDetails $value): self
     {
@@ -75,6 +85,8 @@ class ComponentBuilder
 
     /**
      * Sets ethernet details field.
+     *
+     * @param DeviceComponentDetailsEthernetDetails|null $value
      */
     public function ethernetDetails(?DeviceComponentDetailsEthernetDetails $value): self
     {
@@ -83,7 +95,7 @@ class ComponentBuilder
     }
 
     /**
-     * Initializes a new component object.
+     * Initializes a new Component object.
      */
     public function build(): Component
     {

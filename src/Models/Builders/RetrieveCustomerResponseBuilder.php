@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Customer;
+use Square\Models\Error;
 use Square\Models\RetrieveCustomerResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve customer response Builder object.
+     * Initializes a new Retrieve Customer Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveCustomerResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveCustomerResponseBuilder
 
     /**
      * Sets customer field.
+     *
+     * @param Customer|null $value
      */
     public function customer(?Customer $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve customer response object.
+     * Initializes a new Retrieve Customer Response object.
      */
     public function build(): RetrieveCustomerResponse
     {

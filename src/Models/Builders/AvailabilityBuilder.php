@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\AppointmentSegment;
 use Square\Models\Availability;
 
 /**
@@ -25,7 +26,7 @@ class AvailabilityBuilder
     }
 
     /**
-     * Initializes a new availability Builder object.
+     * Initializes a new Availability Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class AvailabilityBuilder
 
     /**
      * Sets start at field.
+     *
+     * @param string|null $value
      */
     public function startAt(?string $value): self
     {
@@ -52,6 +55,8 @@ class AvailabilityBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -61,6 +66,8 @@ class AvailabilityBuilder
 
     /**
      * Sets appointment segments field.
+     *
+     * @param AppointmentSegment[]|null $value
      */
     public function appointmentSegments(?array $value): self
     {
@@ -78,7 +85,7 @@ class AvailabilityBuilder
     }
 
     /**
-     * Initializes a new availability object.
+     * Initializes a new Availability object.
      */
     public function build(): Availability
     {

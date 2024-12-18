@@ -26,7 +26,9 @@ class OrderLineItemAppliedTaxBuilder
     }
 
     /**
-     * Initializes a new order line item applied tax Builder object.
+     * Initializes a new Order Line Item Applied Tax Builder object.
+     *
+     * @param string $taxUid
      */
     public static function init(string $taxUid): self
     {
@@ -35,6 +37,8 @@ class OrderLineItemAppliedTaxBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +57,8 @@ class OrderLineItemAppliedTaxBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -61,7 +67,7 @@ class OrderLineItemAppliedTaxBuilder
     }
 
     /**
-     * Initializes a new order line item applied tax object.
+     * Initializes a new Order Line Item Applied Tax object.
      */
     public function build(): OrderLineItemAppliedTax
     {

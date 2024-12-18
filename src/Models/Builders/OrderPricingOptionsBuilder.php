@@ -25,7 +25,7 @@ class OrderPricingOptionsBuilder
     }
 
     /**
-     * Initializes a new order pricing options Builder object.
+     * Initializes a new Order Pricing Options Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderPricingOptionsBuilder
 
     /**
      * Sets auto apply discounts field.
+     *
+     * @param bool|null $value
      */
     public function autoApplyDiscounts(?bool $value): self
     {
@@ -52,6 +54,8 @@ class OrderPricingOptionsBuilder
 
     /**
      * Sets auto apply taxes field.
+     *
+     * @param bool|null $value
      */
     public function autoApplyTaxes(?bool $value): self
     {
@@ -69,7 +73,7 @@ class OrderPricingOptionsBuilder
     }
 
     /**
-     * Initializes a new order pricing options object.
+     * Initializes a new Order Pricing Options object.
      */
     public function build(): OrderPricingOptions
     {

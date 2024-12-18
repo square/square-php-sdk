@@ -25,7 +25,7 @@ class ListWebhookSubscriptionsRequestBuilder
     }
 
     /**
-     * Initializes a new list webhook subscriptions request Builder object.
+     * Initializes a new List Webhook Subscriptions Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListWebhookSubscriptionsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListWebhookSubscriptionsRequestBuilder
 
     /**
      * Sets include disabled field.
+     *
+     * @param bool|null $value
      */
     public function includeDisabled(?bool $value): self
     {
@@ -70,6 +74,8 @@ class ListWebhookSubscriptionsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -79,6 +85,8 @@ class ListWebhookSubscriptionsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -96,7 +104,7 @@ class ListWebhookSubscriptionsRequestBuilder
     }
 
     /**
-     * Initializes a new list webhook subscriptions request object.
+     * Initializes a new List Webhook Subscriptions Request object.
      */
     public function build(): ListWebhookSubscriptionsRequest
     {

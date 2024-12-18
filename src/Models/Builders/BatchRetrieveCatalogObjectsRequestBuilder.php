@@ -25,7 +25,9 @@ class BatchRetrieveCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve catalog objects request Builder object.
+     * Initializes a new Batch Retrieve Catalog Objects Request Builder object.
+     *
+     * @param string[] $objectIds
      */
     public static function init(array $objectIds): self
     {
@@ -34,6 +36,8 @@ class BatchRetrieveCatalogObjectsRequestBuilder
 
     /**
      * Sets include related objects field.
+     *
+     * @param bool|null $value
      */
     public function includeRelatedObjects(?bool $value): self
     {
@@ -52,6 +56,8 @@ class BatchRetrieveCatalogObjectsRequestBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -70,6 +76,8 @@ class BatchRetrieveCatalogObjectsRequestBuilder
 
     /**
      * Sets include deleted objects field.
+     *
+     * @param bool|null $value
      */
     public function includeDeletedObjects(?bool $value): self
     {
@@ -88,6 +96,8 @@ class BatchRetrieveCatalogObjectsRequestBuilder
 
     /**
      * Sets include category path to root field.
+     *
+     * @param bool|null $value
      */
     public function includeCategoryPathToRoot(?bool $value): self
     {
@@ -105,7 +115,7 @@ class BatchRetrieveCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve catalog objects request object.
+     * Initializes a new Batch Retrieve Catalog Objects Request object.
      */
     public function build(): BatchRetrieveCatalogObjectsRequest
     {

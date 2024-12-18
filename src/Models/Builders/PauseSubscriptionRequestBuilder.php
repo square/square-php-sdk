@@ -25,7 +25,7 @@ class PauseSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new pause subscription request Builder object.
+     * Initializes a new Pause Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PauseSubscriptionRequestBuilder
 
     /**
      * Sets pause effective date field.
+     *
+     * @param string|null $value
      */
     public function pauseEffectiveDate(?string $value): self
     {
@@ -52,6 +54,8 @@ class PauseSubscriptionRequestBuilder
 
     /**
      * Sets pause cycle duration field.
+     *
+     * @param int|null $value
      */
     public function pauseCycleDuration(?int $value): self
     {
@@ -70,6 +74,8 @@ class PauseSubscriptionRequestBuilder
 
     /**
      * Sets resume effective date field.
+     *
+     * @param string|null $value
      */
     public function resumeEffectiveDate(?string $value): self
     {
@@ -88,6 +94,8 @@ class PauseSubscriptionRequestBuilder
 
     /**
      * Sets resume change timing field.
+     *
+     * @param string|null $value
      */
     public function resumeChangeTiming(?string $value): self
     {
@@ -97,6 +105,8 @@ class PauseSubscriptionRequestBuilder
 
     /**
      * Sets pause reason field.
+     *
+     * @param string|null $value
      */
     public function pauseReason(?string $value): self
     {
@@ -114,7 +124,7 @@ class PauseSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new pause subscription request object.
+     * Initializes a new Pause Subscription Request object.
      */
     public function build(): PauseSubscriptionRequest
     {

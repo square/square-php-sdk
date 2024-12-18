@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\SearchAvailabilityFilter;
+use Square\Models\SegmentFilter;
 use Square\Models\TimeRange;
 
 /**
@@ -26,7 +27,9 @@ class SearchAvailabilityFilterBuilder
     }
 
     /**
-     * Initializes a new search availability filter Builder object.
+     * Initializes a new Search Availability Filter Builder object.
+     *
+     * @param TimeRange $startAtRange
      */
     public static function init(TimeRange $startAtRange): self
     {
@@ -35,6 +38,8 @@ class SearchAvailabilityFilterBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -53,6 +58,8 @@ class SearchAvailabilityFilterBuilder
 
     /**
      * Sets segment filters field.
+     *
+     * @param SegmentFilter[]|null $value
      */
     public function segmentFilters(?array $value): self
     {
@@ -71,6 +78,8 @@ class SearchAvailabilityFilterBuilder
 
     /**
      * Sets booking id field.
+     *
+     * @param string|null $value
      */
     public function bookingId(?string $value): self
     {
@@ -88,7 +97,7 @@ class SearchAvailabilityFilterBuilder
     }
 
     /**
-     * Initializes a new search availability filter object.
+     * Initializes a new Search Availability Filter object.
      */
     public function build(): SearchAvailabilityFilter
     {

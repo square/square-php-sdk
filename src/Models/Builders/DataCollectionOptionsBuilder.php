@@ -26,7 +26,11 @@ class DataCollectionOptionsBuilder
     }
 
     /**
-     * Initializes a new data collection options Builder object.
+     * Initializes a new Data Collection Options Builder object.
+     *
+     * @param string $title
+     * @param string $body
+     * @param string $inputType
      */
     public static function init(string $title, string $body, string $inputType): self
     {
@@ -35,6 +39,8 @@ class DataCollectionOptionsBuilder
 
     /**
      * Sets collected data field.
+     *
+     * @param CollectedData|null $value
      */
     public function collectedData(?CollectedData $value): self
     {
@@ -43,7 +49,7 @@ class DataCollectionOptionsBuilder
     }
 
     /**
-     * Initializes a new data collection options object.
+     * Initializes a new Data Collection Options object.
      */
     public function build(): DataCollectionOptions
     {

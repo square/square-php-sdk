@@ -25,7 +25,7 @@ class CustomAttributeDefinitionBuilder
     }
 
     /**
-     * Initializes a new custom attribute definition Builder object.
+     * Initializes a new Custom Attribute Definition Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -52,6 +54,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets schema field.
+     *
+     * @param mixed $value
      */
     public function schema($value): self
     {
@@ -70,6 +74,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -88,6 +94,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -106,6 +114,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets visibility field.
+     *
+     * @param string|null $value
      */
     public function visibility(?string $value): self
     {
@@ -115,6 +125,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -124,6 +136,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -133,6 +147,8 @@ class CustomAttributeDefinitionBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -141,7 +157,7 @@ class CustomAttributeDefinitionBuilder
     }
 
     /**
-     * Initializes a new custom attribute definition object.
+     * Initializes a new Custom Attribute Definition object.
      */
     public function build(): CustomAttributeDefinition
     {

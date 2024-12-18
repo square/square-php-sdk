@@ -26,7 +26,9 @@ class UpdatePaymentLinkRequestBuilder
     }
 
     /**
-     * Initializes a new update payment link request Builder object.
+     * Initializes a new Update Payment Link Request Builder object.
+     *
+     * @param PaymentLink $paymentLink
      */
     public static function init(PaymentLink $paymentLink): self
     {
@@ -34,7 +36,7 @@ class UpdatePaymentLinkRequestBuilder
     }
 
     /**
-     * Initializes a new update payment link request object.
+     * Initializes a new Update Payment Link Request object.
      */
     public function build(): UpdatePaymentLinkRequest
     {

@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\CatalogAvailabilityPeriod;
 use Square\Models\CatalogCategory;
 use Square\Models\CatalogCustomAttributeDefinition;
+use Square\Models\CatalogCustomAttributeValue;
 use Square\Models\CatalogDiscount;
 use Square\Models\CatalogImage;
 use Square\Models\CatalogItem;
@@ -25,6 +26,7 @@ use Square\Models\CatalogSubscriptionPlan;
 use Square\Models\CatalogSubscriptionPlanVariation;
 use Square\Models\CatalogTax;
 use Square\Models\CatalogTimePeriod;
+use Square\Models\CatalogV1Id;
 
 /**
  * Builder for model CatalogObject
@@ -44,7 +46,10 @@ class CatalogObjectBuilder
     }
 
     /**
-     * Initializes a new catalog object Builder object.
+     * Initializes a new Catalog Object Builder object.
+     *
+     * @param string $type
+     * @param string $id
      */
     public static function init(string $type, string $id): self
     {
@@ -53,6 +58,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -62,6 +69,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -71,6 +80,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets is deleted field.
+     *
+     * @param bool|null $value
      */
     public function isDeleted(?bool $value): self
     {
@@ -89,6 +100,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets custom attribute values field.
+     *
+     * @param array<string,CatalogCustomAttributeValue>|null $value
      */
     public function customAttributeValues(?array $value): self
     {
@@ -107,6 +120,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets catalog v 1 ids field.
+     *
+     * @param CatalogV1Id[]|null $value
      */
     public function catalogV1Ids(?array $value): self
     {
@@ -125,6 +140,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets present at all locations field.
+     *
+     * @param bool|null $value
      */
     public function presentAtAllLocations(?bool $value): self
     {
@@ -143,6 +160,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets present at location ids field.
+     *
+     * @param string[]|null $value
      */
     public function presentAtLocationIds(?array $value): self
     {
@@ -161,6 +180,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets absent at location ids field.
+     *
+     * @param string[]|null $value
      */
     public function absentAtLocationIds(?array $value): self
     {
@@ -179,6 +200,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets item data field.
+     *
+     * @param CatalogItem|null $value
      */
     public function itemData(?CatalogItem $value): self
     {
@@ -188,6 +211,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets category data field.
+     *
+     * @param CatalogCategory|null $value
      */
     public function categoryData(?CatalogCategory $value): self
     {
@@ -197,6 +222,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets item variation data field.
+     *
+     * @param CatalogItemVariation|null $value
      */
     public function itemVariationData(?CatalogItemVariation $value): self
     {
@@ -206,6 +233,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets tax data field.
+     *
+     * @param CatalogTax|null $value
      */
     public function taxData(?CatalogTax $value): self
     {
@@ -215,6 +244,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets discount data field.
+     *
+     * @param CatalogDiscount|null $value
      */
     public function discountData(?CatalogDiscount $value): self
     {
@@ -224,6 +255,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets modifier list data field.
+     *
+     * @param CatalogModifierList|null $value
      */
     public function modifierListData(?CatalogModifierList $value): self
     {
@@ -233,6 +266,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets modifier data field.
+     *
+     * @param CatalogModifier|null $value
      */
     public function modifierData(?CatalogModifier $value): self
     {
@@ -242,6 +277,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets time period data field.
+     *
+     * @param CatalogTimePeriod|null $value
      */
     public function timePeriodData(?CatalogTimePeriod $value): self
     {
@@ -251,6 +288,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets product set data field.
+     *
+     * @param CatalogProductSet|null $value
      */
     public function productSetData(?CatalogProductSet $value): self
     {
@@ -260,6 +299,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets pricing rule data field.
+     *
+     * @param CatalogPricingRule|null $value
      */
     public function pricingRuleData(?CatalogPricingRule $value): self
     {
@@ -269,6 +310,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets image data field.
+     *
+     * @param CatalogImage|null $value
      */
     public function imageData(?CatalogImage $value): self
     {
@@ -278,6 +321,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets measurement unit data field.
+     *
+     * @param CatalogMeasurementUnit|null $value
      */
     public function measurementUnitData(?CatalogMeasurementUnit $value): self
     {
@@ -287,6 +332,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets subscription plan data field.
+     *
+     * @param CatalogSubscriptionPlan|null $value
      */
     public function subscriptionPlanData(?CatalogSubscriptionPlan $value): self
     {
@@ -296,6 +343,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets item option data field.
+     *
+     * @param CatalogItemOption|null $value
      */
     public function itemOptionData(?CatalogItemOption $value): self
     {
@@ -305,6 +354,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets item option value data field.
+     *
+     * @param CatalogItemOptionValue|null $value
      */
     public function itemOptionValueData(?CatalogItemOptionValue $value): self
     {
@@ -314,6 +365,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets custom attribute definition data field.
+     *
+     * @param CatalogCustomAttributeDefinition|null $value
      */
     public function customAttributeDefinitionData(?CatalogCustomAttributeDefinition $value): self
     {
@@ -323,6 +376,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets quick amounts settings data field.
+     *
+     * @param CatalogQuickAmountsSettings|null $value
      */
     public function quickAmountsSettingsData(?CatalogQuickAmountsSettings $value): self
     {
@@ -332,6 +387,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets subscription plan variation data field.
+     *
+     * @param CatalogSubscriptionPlanVariation|null $value
      */
     public function subscriptionPlanVariationData(?CatalogSubscriptionPlanVariation $value): self
     {
@@ -341,6 +398,8 @@ class CatalogObjectBuilder
 
     /**
      * Sets availability period data field.
+     *
+     * @param CatalogAvailabilityPeriod|null $value
      */
     public function availabilityPeriodData(?CatalogAvailabilityPeriod $value): self
     {
@@ -349,7 +408,7 @@ class CatalogObjectBuilder
     }
 
     /**
-     * Initializes a new catalog object object.
+     * Initializes a new Catalog Object object.
      */
     public function build(): CatalogObject
     {

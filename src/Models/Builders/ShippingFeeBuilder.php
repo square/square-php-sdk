@@ -26,7 +26,9 @@ class ShippingFeeBuilder
     }
 
     /**
-     * Initializes a new shipping fee Builder object.
+     * Initializes a new Shipping Fee Builder object.
+     *
+     * @param Money $charge
      */
     public static function init(Money $charge): self
     {
@@ -35,6 +37,8 @@ class ShippingFeeBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,7 +56,7 @@ class ShippingFeeBuilder
     }
 
     /**
-     * Initializes a new shipping fee object.
+     * Initializes a new Shipping Fee object.
      */
     public function build(): ShippingFee
     {

@@ -26,7 +26,9 @@ class UpsertLocationCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new upsert location custom attribute request Builder object.
+     * Initializes a new Upsert Location Custom Attribute Request Builder object.
+     *
+     * @param CustomAttribute $customAttribute
      */
     public static function init(CustomAttribute $customAttribute): self
     {
@@ -35,6 +37,8 @@ class UpsertLocationCustomAttributeRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpsertLocationCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new upsert location custom attribute request object.
+     * Initializes a new Upsert Location Custom Attribute Request object.
      */
     public function build(): UpsertLocationCustomAttributeRequest
     {

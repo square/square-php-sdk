@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchDeleteCatalogObjectsResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BatchDeleteCatalogObjectsResponse
@@ -25,7 +26,7 @@ class BatchDeleteCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch delete catalog objects response Builder object.
+     * Initializes a new Batch Delete Catalog Objects Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class BatchDeleteCatalogObjectsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class BatchDeleteCatalogObjectsResponseBuilder
 
     /**
      * Sets deleted object ids field.
+     *
+     * @param string[]|null $value
      */
     public function deletedObjectIds(?array $value): self
     {
@@ -52,6 +57,8 @@ class BatchDeleteCatalogObjectsResponseBuilder
 
     /**
      * Sets deleted at field.
+     *
+     * @param string|null $value
      */
     public function deletedAt(?string $value): self
     {
@@ -60,7 +67,7 @@ class BatchDeleteCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new batch delete catalog objects response object.
+     * Initializes a new Batch Delete Catalog Objects Response object.
      */
     public function build(): BatchDeleteCatalogObjectsResponse
     {

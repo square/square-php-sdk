@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\EmployeeWage;
+use Square\Models\Error;
 use Square\Models\GetEmployeeWageResponse;
 
 /**
@@ -26,7 +27,7 @@ class GetEmployeeWageResponseBuilder
     }
 
     /**
-     * Initializes a new get employee wage response Builder object.
+     * Initializes a new Get Employee Wage Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetEmployeeWageResponseBuilder
 
     /**
      * Sets employee wage field.
+     *
+     * @param EmployeeWage|null $value
      */
     public function employeeWage(?EmployeeWage $value): self
     {
@@ -44,6 +47,8 @@ class GetEmployeeWageResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class GetEmployeeWageResponseBuilder
     }
 
     /**
-     * Initializes a new get employee wage response object.
+     * Initializes a new Get Employee Wage Response object.
      */
     public function build(): GetEmployeeWageResponse
     {

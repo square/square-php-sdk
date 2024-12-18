@@ -25,7 +25,7 @@ class SearchEventsSortBuilder
     }
 
     /**
-     * Initializes a new search events sort Builder object.
+     * Initializes a new Search Events Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchEventsSortBuilder
 
     /**
      * Sets field field.
+     *
+     * @param string|null $value
      */
     public function field(?string $value): self
     {
@@ -43,6 +45,8 @@ class SearchEventsSortBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -51,7 +55,7 @@ class SearchEventsSortBuilder
     }
 
     /**
-     * Initializes a new search events sort object.
+     * Initializes a new Search Events Sort object.
      */
     public function build(): SearchEventsSort
     {

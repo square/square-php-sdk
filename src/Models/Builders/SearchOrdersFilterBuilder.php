@@ -30,7 +30,7 @@ class SearchOrdersFilterBuilder
     }
 
     /**
-     * Initializes a new search orders filter Builder object.
+     * Initializes a new Search Orders Filter Builder object.
      */
     public static function init(): self
     {
@@ -39,6 +39,8 @@ class SearchOrdersFilterBuilder
 
     /**
      * Sets state filter field.
+     *
+     * @param SearchOrdersStateFilter|null $value
      */
     public function stateFilter(?SearchOrdersStateFilter $value): self
     {
@@ -48,6 +50,8 @@ class SearchOrdersFilterBuilder
 
     /**
      * Sets date time filter field.
+     *
+     * @param SearchOrdersDateTimeFilter|null $value
      */
     public function dateTimeFilter(?SearchOrdersDateTimeFilter $value): self
     {
@@ -57,6 +61,8 @@ class SearchOrdersFilterBuilder
 
     /**
      * Sets fulfillment filter field.
+     *
+     * @param SearchOrdersFulfillmentFilter|null $value
      */
     public function fulfillmentFilter(?SearchOrdersFulfillmentFilter $value): self
     {
@@ -66,6 +72,8 @@ class SearchOrdersFilterBuilder
 
     /**
      * Sets source filter field.
+     *
+     * @param SearchOrdersSourceFilter|null $value
      */
     public function sourceFilter(?SearchOrdersSourceFilter $value): self
     {
@@ -75,6 +83,8 @@ class SearchOrdersFilterBuilder
 
     /**
      * Sets customer filter field.
+     *
+     * @param SearchOrdersCustomerFilter|null $value
      */
     public function customerFilter(?SearchOrdersCustomerFilter $value): self
     {
@@ -83,7 +93,7 @@ class SearchOrdersFilterBuilder
     }
 
     /**
-     * Initializes a new search orders filter object.
+     * Initializes a new Search Orders Filter object.
      */
     public function build(): SearchOrdersFilter
     {

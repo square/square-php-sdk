@@ -26,7 +26,10 @@ class CreateLoyaltyRewardRequestBuilder
     }
 
     /**
-     * Initializes a new create loyalty reward request Builder object.
+     * Initializes a new Create Loyalty Reward Request Builder object.
+     *
+     * @param LoyaltyReward $reward
+     * @param string $idempotencyKey
      */
     public static function init(LoyaltyReward $reward, string $idempotencyKey): self
     {
@@ -34,7 +37,7 @@ class CreateLoyaltyRewardRequestBuilder
     }
 
     /**
-     * Initializes a new create loyalty reward request object.
+     * Initializes a new Create Loyalty Reward Request object.
      */
     public function build(): CreateLoyaltyRewardRequest
     {

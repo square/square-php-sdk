@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Subscription;
+use Square\Models\SubscriptionAction;
 use Square\Models\SwapPlanResponse;
 
 /**
@@ -26,7 +28,7 @@ class SwapPlanResponseBuilder
     }
 
     /**
-     * Initializes a new swap plan response Builder object.
+     * Initializes a new Swap Plan Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class SwapPlanResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +48,8 @@ class SwapPlanResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -53,6 +59,8 @@ class SwapPlanResponseBuilder
 
     /**
      * Sets actions field.
+     *
+     * @param SubscriptionAction[]|null $value
      */
     public function actions(?array $value): self
     {
@@ -61,7 +69,7 @@ class SwapPlanResponseBuilder
     }
 
     /**
-     * Initializes a new swap plan response object.
+     * Initializes a new Swap Plan Response object.
      */
     public function build(): SwapPlanResponse
     {

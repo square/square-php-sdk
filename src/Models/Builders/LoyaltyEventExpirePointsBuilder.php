@@ -25,7 +25,10 @@ class LoyaltyEventExpirePointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event expire points Builder object.
+     * Initializes a new Loyalty Event Expire Points Builder object.
+     *
+     * @param string $loyaltyProgramId
+     * @param int $points
      */
     public static function init(string $loyaltyProgramId, int $points): self
     {
@@ -33,7 +36,7 @@ class LoyaltyEventExpirePointsBuilder
     }
 
     /**
-     * Initializes a new loyalty event expire points object.
+     * Initializes a new Loyalty Event Expire Points object.
      */
     public function build(): LoyaltyEventExpirePoints
     {

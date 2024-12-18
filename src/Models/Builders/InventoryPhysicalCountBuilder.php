@@ -26,7 +26,7 @@ class InventoryPhysicalCountBuilder
     }
 
     /**
-     * Initializes a new inventory physical count Builder object.
+     * Initializes a new Inventory Physical Count Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -62,6 +66,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -80,6 +86,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets catalog object type field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectType(?string $value): self
     {
@@ -98,6 +106,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -107,6 +117,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -125,6 +137,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -143,6 +157,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets source field.
+     *
+     * @param SourceApplication|null $value
      */
     public function source(?SourceApplication $value): self
     {
@@ -152,6 +168,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -170,6 +188,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -188,6 +208,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets occurred at field.
+     *
+     * @param string|null $value
      */
     public function occurredAt(?string $value): self
     {
@@ -206,6 +228,8 @@ class InventoryPhysicalCountBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -214,7 +238,7 @@ class InventoryPhysicalCountBuilder
     }
 
     /**
-     * Initializes a new inventory physical count object.
+     * Initializes a new Inventory Physical Count object.
      */
     public function build(): InventoryPhysicalCount
     {

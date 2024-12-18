@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Device;
+use Square\Models\Error;
 use Square\Models\GetDeviceResponse;
 
 /**
@@ -26,7 +27,7 @@ class GetDeviceResponseBuilder
     }
 
     /**
-     * Initializes a new get device response Builder object.
+     * Initializes a new Get Device Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetDeviceResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class GetDeviceResponseBuilder
 
     /**
      * Sets device field.
+     *
+     * @param Device|null $value
      */
     public function device(?Device $value): self
     {
@@ -52,7 +57,7 @@ class GetDeviceResponseBuilder
     }
 
     /**
-     * Initializes a new get device response object.
+     * Initializes a new Get Device Response object.
      */
     public function build(): GetDeviceResponse
     {

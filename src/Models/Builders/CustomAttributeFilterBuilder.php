@@ -26,7 +26,7 @@ class CustomAttributeFilterBuilder
     }
 
     /**
-     * Initializes a new custom attribute filter Builder object.
+     * Initializes a new Custom Attribute Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets custom attribute definition id field.
+     *
+     * @param string|null $value
      */
     public function customAttributeDefinitionId(?string $value): self
     {
@@ -53,6 +55,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -71,6 +75,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets string filter field.
+     *
+     * @param string|null $value
      */
     public function stringFilter(?string $value): self
     {
@@ -89,6 +95,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets number filter field.
+     *
+     * @param Range|null $value
      */
     public function numberFilter(?Range $value): self
     {
@@ -98,6 +106,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets selection uids filter field.
+     *
+     * @param string[]|null $value
      */
     public function selectionUidsFilter(?array $value): self
     {
@@ -116,6 +126,8 @@ class CustomAttributeFilterBuilder
 
     /**
      * Sets bool filter field.
+     *
+     * @param bool|null $value
      */
     public function boolFilter(?bool $value): self
     {
@@ -133,7 +145,7 @@ class CustomAttributeFilterBuilder
     }
 
     /**
-     * Initializes a new custom attribute filter object.
+     * Initializes a new Custom Attribute Filter object.
      */
     public function build(): CustomAttributeFilter
     {

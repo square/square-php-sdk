@@ -25,7 +25,7 @@ class OrderEntryBuilder
     }
 
     /**
-     * Initializes a new order entry Builder object.
+     * Initializes a new Order Entry Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderEntryBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderEntryBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -61,6 +65,8 @@ class OrderEntryBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -78,7 +84,7 @@ class OrderEntryBuilder
     }
 
     /**
-     * Initializes a new order entry object.
+     * Initializes a new Order Entry object.
      */
     public function build(): OrderEntry
     {

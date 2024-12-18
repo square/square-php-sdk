@@ -25,7 +25,7 @@ class ListDeviceCodesRequestBuilder
     }
 
     /**
-     * Initializes a new list device codes request Builder object.
+     * Initializes a new List Device Codes Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListDeviceCodesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListDeviceCodesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListDeviceCodesRequestBuilder
 
     /**
      * Sets product type field.
+     *
+     * @param string|null $value
      */
     public function productType(?string $value): self
     {
@@ -79,6 +85,8 @@ class ListDeviceCodesRequestBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string[]|null $value
      */
     public function status(?array $value): self
     {
@@ -96,7 +104,7 @@ class ListDeviceCodesRequestBuilder
     }
 
     /**
-     * Initializes a new list device codes request object.
+     * Initializes a new List Device Codes Request object.
      */
     public function build(): ListDeviceCodesRequest
     {

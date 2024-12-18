@@ -26,7 +26,9 @@ class OrderLineItemAppliedServiceChargeBuilder
     }
 
     /**
-     * Initializes a new order line item applied service charge Builder object.
+     * Initializes a new Order Line Item Applied Service Charge Builder object.
+     *
+     * @param string $serviceChargeUid
      */
     public static function init(string $serviceChargeUid): self
     {
@@ -35,6 +37,8 @@ class OrderLineItemAppliedServiceChargeBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +57,8 @@ class OrderLineItemAppliedServiceChargeBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -61,7 +67,7 @@ class OrderLineItemAppliedServiceChargeBuilder
     }
 
     /**
-     * Initializes a new order line item applied service charge object.
+     * Initializes a new Order Line Item Applied Service Charge object.
      */
     public function build(): OrderLineItemAppliedServiceCharge
     {

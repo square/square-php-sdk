@@ -25,7 +25,7 @@ class ListEmployeesRequestBuilder
     }
 
     /**
-     * Initializes a new list employees request Builder object.
+     * Initializes a new List Employees Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListEmployeesRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListEmployeesRequestBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -61,6 +65,8 @@ class ListEmployeesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -79,6 +85,8 @@ class ListEmployeesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -96,7 +104,7 @@ class ListEmployeesRequestBuilder
     }
 
     /**
-     * Initializes a new list employees request object.
+     * Initializes a new List Employees Request object.
      */
     public function build(): ListEmployeesRequest
     {

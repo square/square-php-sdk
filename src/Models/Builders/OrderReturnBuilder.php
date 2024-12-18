@@ -7,6 +7,11 @@ namespace Square\Models\Builders;
 use Core\Utils\CoreHelper;
 use Square\Models\OrderMoneyAmounts;
 use Square\Models\OrderReturn;
+use Square\Models\OrderReturnDiscount;
+use Square\Models\OrderReturnLineItem;
+use Square\Models\OrderReturnServiceCharge;
+use Square\Models\OrderReturnTax;
+use Square\Models\OrderReturnTip;
 use Square\Models\OrderRoundingAdjustment;
 
 /**
@@ -27,7 +32,7 @@ class OrderReturnBuilder
     }
 
     /**
-     * Initializes a new order return Builder object.
+     * Initializes a new Order Return Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +41,8 @@ class OrderReturnBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -54,6 +61,8 @@ class OrderReturnBuilder
 
     /**
      * Sets source order id field.
+     *
+     * @param string|null $value
      */
     public function sourceOrderId(?string $value): self
     {
@@ -72,6 +81,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return line items field.
+     *
+     * @param OrderReturnLineItem[]|null $value
      */
     public function returnLineItems(?array $value): self
     {
@@ -90,6 +101,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return service charges field.
+     *
+     * @param OrderReturnServiceCharge[]|null $value
      */
     public function returnServiceCharges(?array $value): self
     {
@@ -108,6 +121,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return taxes field.
+     *
+     * @param OrderReturnTax[]|null $value
      */
     public function returnTaxes(?array $value): self
     {
@@ -117,6 +132,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return discounts field.
+     *
+     * @param OrderReturnDiscount[]|null $value
      */
     public function returnDiscounts(?array $value): self
     {
@@ -126,6 +143,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return tips field.
+     *
+     * @param OrderReturnTip[]|null $value
      */
     public function returnTips(?array $value): self
     {
@@ -144,6 +163,8 @@ class OrderReturnBuilder
 
     /**
      * Sets rounding adjustment field.
+     *
+     * @param OrderRoundingAdjustment|null $value
      */
     public function roundingAdjustment(?OrderRoundingAdjustment $value): self
     {
@@ -153,6 +174,8 @@ class OrderReturnBuilder
 
     /**
      * Sets return amounts field.
+     *
+     * @param OrderMoneyAmounts|null $value
      */
     public function returnAmounts(?OrderMoneyAmounts $value): self
     {
@@ -161,7 +184,7 @@ class OrderReturnBuilder
     }
 
     /**
-     * Initializes a new order return object.
+     * Initializes a new Order Return object.
      */
     public function build(): OrderReturn
     {

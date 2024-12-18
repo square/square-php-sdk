@@ -26,7 +26,7 @@ class DestinationDetailsCardRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details card refund details Builder object.
+     * Initializes a new Destination Details Card Refund Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class DestinationDetailsCardRefundDetailsBuilder
 
     /**
      * Sets card field.
+     *
+     * @param Card|null $value
      */
     public function card(?Card $value): self
     {
@@ -44,6 +46,8 @@ class DestinationDetailsCardRefundDetailsBuilder
 
     /**
      * Sets entry method field.
+     *
+     * @param string|null $value
      */
     public function entryMethod(?string $value): self
     {
@@ -62,6 +66,8 @@ class DestinationDetailsCardRefundDetailsBuilder
 
     /**
      * Sets auth result code field.
+     *
+     * @param string|null $value
      */
     public function authResultCode(?string $value): self
     {
@@ -79,7 +85,7 @@ class DestinationDetailsCardRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details card refund details object.
+     * Initializes a new Destination Details Card Refund Details object.
      */
     public function build(): DestinationDetailsCardRefundDetails
     {

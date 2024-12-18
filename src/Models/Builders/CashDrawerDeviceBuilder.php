@@ -25,7 +25,7 @@ class CashDrawerDeviceBuilder
     }
 
     /**
-     * Initializes a new cash drawer device Builder object.
+     * Initializes a new Cash Drawer Device Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CashDrawerDeviceBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class CashDrawerDeviceBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -60,7 +64,7 @@ class CashDrawerDeviceBuilder
     }
 
     /**
-     * Initializes a new cash drawer device object.
+     * Initializes a new Cash Drawer Device object.
      */
     public function build(): CashDrawerDevice
     {

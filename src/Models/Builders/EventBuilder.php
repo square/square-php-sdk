@@ -26,7 +26,7 @@ class EventBuilder
     }
 
     /**
-     * Initializes a new event Builder object.
+     * Initializes a new Event Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class EventBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -53,6 +55,8 @@ class EventBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -71,6 +75,8 @@ class EventBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -89,6 +95,8 @@ class EventBuilder
 
     /**
      * Sets event id field.
+     *
+     * @param string|null $value
      */
     public function eventId(?string $value): self
     {
@@ -107,6 +115,8 @@ class EventBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -116,6 +126,8 @@ class EventBuilder
 
     /**
      * Sets data field.
+     *
+     * @param EventData|null $value
      */
     public function data(?EventData $value): self
     {
@@ -124,7 +136,7 @@ class EventBuilder
     }
 
     /**
-     * Initializes a new event object.
+     * Initializes a new Event object.
      */
     public function build(): Event
     {

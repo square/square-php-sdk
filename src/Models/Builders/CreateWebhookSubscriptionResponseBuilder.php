@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateWebhookSubscriptionResponse;
+use Square\Models\Error;
 use Square\Models\WebhookSubscription;
 
 /**
@@ -26,7 +27,7 @@ class CreateWebhookSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new create webhook subscription response Builder object.
+     * Initializes a new Create Webhook Subscription Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateWebhookSubscriptionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateWebhookSubscriptionResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param WebhookSubscription|null $value
      */
     public function subscription(?WebhookSubscription $value): self
     {
@@ -52,7 +57,7 @@ class CreateWebhookSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new create webhook subscription response object.
+     * Initializes a new Create Webhook Subscription Response object.
      */
     public function build(): CreateWebhookSubscriptionResponse
     {

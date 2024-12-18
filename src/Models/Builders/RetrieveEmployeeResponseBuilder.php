@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Employee;
+use Square\Models\Error;
 use Square\Models\RetrieveEmployeeResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveEmployeeResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve employee response Builder object.
+     * Initializes a new Retrieve Employee Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveEmployeeResponseBuilder
 
     /**
      * Sets employee field.
+     *
+     * @param Employee|null $value
      */
     public function employee(?Employee $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveEmployeeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveEmployeeResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve employee response object.
+     * Initializes a new Retrieve Employee Response object.
      */
     public function build(): RetrieveEmployeeResponse
     {

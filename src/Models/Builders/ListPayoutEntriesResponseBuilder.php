@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ListPayoutEntriesResponse;
+use Square\Models\PayoutEntry;
 
 /**
  * Builder for model ListPayoutEntriesResponse
@@ -25,7 +27,7 @@ class ListPayoutEntriesResponseBuilder
     }
 
     /**
-     * Initializes a new list payout entries response Builder object.
+     * Initializes a new List Payout Entries Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListPayoutEntriesResponseBuilder
 
     /**
      * Sets payout entries field.
+     *
+     * @param PayoutEntry[]|null $value
      */
     public function payoutEntries(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListPayoutEntriesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListPayoutEntriesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListPayoutEntriesResponseBuilder
     }
 
     /**
-     * Initializes a new list payout entries response object.
+     * Initializes a new List Payout Entries Response object.
      */
     public function build(): ListPayoutEntriesResponse
     {

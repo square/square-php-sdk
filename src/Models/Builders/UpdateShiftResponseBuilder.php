@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\Shift;
 use Square\Models\UpdateShiftResponse;
 
@@ -26,7 +27,7 @@ class UpdateShiftResponseBuilder
     }
 
     /**
-     * Initializes a new update shift response Builder object.
+     * Initializes a new Update Shift Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateShiftResponseBuilder
 
     /**
      * Sets shift field.
+     *
+     * @param Shift|null $value
      */
     public function shift(?Shift $value): self
     {
@@ -44,6 +47,8 @@ class UpdateShiftResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateShiftResponseBuilder
     }
 
     /**
-     * Initializes a new update shift response object.
+     * Initializes a new Update Shift Response object.
      */
     public function build(): UpdateShiftResponse
     {

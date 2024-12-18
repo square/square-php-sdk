@@ -25,7 +25,7 @@ class CatalogInfoResponseLimitsBuilder
     }
 
     /**
-     * Initializes a new catalog info response limits Builder object.
+     * Initializes a new Catalog Info Response Limits Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets batch upsert max objects per batch field.
+     *
+     * @param int|null $value
      */
     public function batchUpsertMaxObjectsPerBatch(?int $value): self
     {
@@ -52,6 +54,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets batch upsert max total objects field.
+     *
+     * @param int|null $value
      */
     public function batchUpsertMaxTotalObjects(?int $value): self
     {
@@ -70,6 +74,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets batch retrieve max object ids field.
+     *
+     * @param int|null $value
      */
     public function batchRetrieveMaxObjectIds(?int $value): self
     {
@@ -88,6 +94,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets search max page limit field.
+     *
+     * @param int|null $value
      */
     public function searchMaxPageLimit(?int $value): self
     {
@@ -106,6 +114,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets batch delete max object ids field.
+     *
+     * @param int|null $value
      */
     public function batchDeleteMaxObjectIds(?int $value): self
     {
@@ -124,6 +134,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item taxes max item ids field.
+     *
+     * @param int|null $value
      */
     public function updateItemTaxesMaxItemIds(?int $value): self
     {
@@ -142,6 +154,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item taxes max taxes to enable field.
+     *
+     * @param int|null $value
      */
     public function updateItemTaxesMaxTaxesToEnable(?int $value): self
     {
@@ -160,6 +174,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item taxes max taxes to disable field.
+     *
+     * @param int|null $value
      */
     public function updateItemTaxesMaxTaxesToDisable(?int $value): self
     {
@@ -178,6 +194,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item modifier lists max item ids field.
+     *
+     * @param int|null $value
      */
     public function updateItemModifierListsMaxItemIds(?int $value): self
     {
@@ -196,6 +214,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item modifier lists max modifier lists to enable field.
+     *
+     * @param int|null $value
      */
     public function updateItemModifierListsMaxModifierListsToEnable(?int $value): self
     {
@@ -214,6 +234,8 @@ class CatalogInfoResponseLimitsBuilder
 
     /**
      * Sets update item modifier lists max modifier lists to disable field.
+     *
+     * @param int|null $value
      */
     public function updateItemModifierListsMaxModifierListsToDisable(?int $value): self
     {
@@ -231,7 +253,7 @@ class CatalogInfoResponseLimitsBuilder
     }
 
     /**
-     * Initializes a new catalog info response limits object.
+     * Initializes a new Catalog Info Response Limits object.
      */
     public function build(): CatalogInfoResponseLimits
     {

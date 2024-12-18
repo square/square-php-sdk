@@ -27,7 +27,9 @@ class PaymentLinkBuilder
     }
 
     /**
-     * Initializes a new payment link Builder object.
+     * Initializes a new Payment Link Builder object.
+     *
+     * @param int $version
      */
     public static function init(int $version): self
     {
@@ -36,6 +38,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +49,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -63,6 +69,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -72,6 +80,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets checkout options field.
+     *
+     * @param CheckoutOptions|null $value
      */
     public function checkoutOptions(?CheckoutOptions $value): self
     {
@@ -81,6 +91,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets pre populated data field.
+     *
+     * @param PrePopulatedData|null $value
      */
     public function prePopulatedData(?PrePopulatedData $value): self
     {
@@ -90,6 +102,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets url field.
+     *
+     * @param string|null $value
      */
     public function url(?string $value): self
     {
@@ -99,6 +113,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets long url field.
+     *
+     * @param string|null $value
      */
     public function longUrl(?string $value): self
     {
@@ -108,6 +124,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -117,6 +135,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -126,6 +146,8 @@ class PaymentLinkBuilder
 
     /**
      * Sets payment note field.
+     *
+     * @param string|null $value
      */
     public function paymentNote(?string $value): self
     {
@@ -143,7 +165,7 @@ class PaymentLinkBuilder
     }
 
     /**
-     * Initializes a new payment link object.
+     * Initializes a new Payment Link object.
      */
     public function build(): PaymentLink
     {

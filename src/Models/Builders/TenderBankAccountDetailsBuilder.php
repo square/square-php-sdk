@@ -25,7 +25,7 @@ class TenderBankAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new tender bank account details Builder object.
+     * Initializes a new Tender Bank Account Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TenderBankAccountDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -42,7 +44,7 @@ class TenderBankAccountDetailsBuilder
     }
 
     /**
-     * Initializes a new tender bank account details object.
+     * Initializes a new Tender Bank Account Details object.
      */
     public function build(): TenderBankAccountDetails
     {

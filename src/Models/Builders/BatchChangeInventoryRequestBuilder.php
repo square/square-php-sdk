@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BatchChangeInventoryRequest;
+use Square\Models\InventoryChange;
 
 /**
  * Builder for model BatchChangeInventoryRequest
@@ -25,7 +26,9 @@ class BatchChangeInventoryRequestBuilder
     }
 
     /**
-     * Initializes a new batch change inventory request Builder object.
+     * Initializes a new Batch Change Inventory Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -34,6 +37,8 @@ class BatchChangeInventoryRequestBuilder
 
     /**
      * Sets changes field.
+     *
+     * @param InventoryChange[]|null $value
      */
     public function changes(?array $value): self
     {
@@ -52,6 +57,8 @@ class BatchChangeInventoryRequestBuilder
 
     /**
      * Sets ignore unchanged counts field.
+     *
+     * @param bool|null $value
      */
     public function ignoreUnchangedCounts(?bool $value): self
     {
@@ -69,7 +76,7 @@ class BatchChangeInventoryRequestBuilder
     }
 
     /**
-     * Initializes a new batch change inventory request object.
+     * Initializes a new Batch Change Inventory Request object.
      */
     public function build(): BatchChangeInventoryRequest
     {

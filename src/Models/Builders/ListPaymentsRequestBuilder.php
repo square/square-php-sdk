@@ -25,7 +25,7 @@ class ListPaymentsRequestBuilder
     }
 
     /**
-     * Initializes a new list payments request Builder object.
+     * Initializes a new List Payments Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets begin time field.
+     *
+     * @param string|null $value
      */
     public function beginTime(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets end time field.
+     *
+     * @param string|null $value
      */
     public function endTime(?string $value): self
     {
@@ -70,6 +74,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -88,6 +94,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -106,6 +114,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -124,6 +134,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets total field.
+     *
+     * @param int|null $value
      */
     public function total(?int $value): self
     {
@@ -142,6 +154,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets last 4 field.
+     *
+     * @param string|null $value
      */
     public function last4(?string $value): self
     {
@@ -160,6 +174,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets card brand field.
+     *
+     * @param string|null $value
      */
     public function cardBrand(?string $value): self
     {
@@ -178,6 +194,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -196,6 +214,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets is offline payment field.
+     *
+     * @param bool|null $value
      */
     public function isOfflinePayment(?bool $value): self
     {
@@ -214,6 +234,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets offline begin time field.
+     *
+     * @param string|null $value
      */
     public function offlineBeginTime(?string $value): self
     {
@@ -232,6 +254,8 @@ class ListPaymentsRequestBuilder
 
     /**
      * Sets offline end time field.
+     *
+     * @param string|null $value
      */
     public function offlineEndTime(?string $value): self
     {
@@ -249,7 +273,58 @@ class ListPaymentsRequestBuilder
     }
 
     /**
-     * Initializes a new list payments request object.
+     * Sets updated at begin time field.
+     *
+     * @param string|null $value
+     */
+    public function updatedAtBeginTime(?string $value): self
+    {
+        $this->instance->setUpdatedAtBeginTime($value);
+        return $this;
+    }
+
+    /**
+     * Unsets updated at begin time field.
+     */
+    public function unsetUpdatedAtBeginTime(): self
+    {
+        $this->instance->unsetUpdatedAtBeginTime();
+        return $this;
+    }
+
+    /**
+     * Sets updated at end time field.
+     *
+     * @param string|null $value
+     */
+    public function updatedAtEndTime(?string $value): self
+    {
+        $this->instance->setUpdatedAtEndTime($value);
+        return $this;
+    }
+
+    /**
+     * Unsets updated at end time field.
+     */
+    public function unsetUpdatedAtEndTime(): self
+    {
+        $this->instance->unsetUpdatedAtEndTime();
+        return $this;
+    }
+
+    /**
+     * Sets sort field field.
+     *
+     * @param string|null $value
+     */
+    public function sortField(?string $value): self
+    {
+        $this->instance->setSortField($value);
+        return $this;
+    }
+
+    /**
+     * Initializes a new List Payments Request object.
      */
     public function build(): ListPaymentsRequest
     {

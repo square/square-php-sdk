@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Phase;
 use Square\Models\SubscriptionEvent;
 use Square\Models\SubscriptionEventInfo;
 
@@ -26,7 +27,12 @@ class SubscriptionEventBuilder
     }
 
     /**
-     * Initializes a new subscription event Builder object.
+     * Initializes a new Subscription Event Builder object.
+     *
+     * @param string $id
+     * @param string $subscriptionEventType
+     * @param string $effectiveDate
+     * @param string $planVariationId
      */
     public static function init(
         string $id,
@@ -39,6 +45,8 @@ class SubscriptionEventBuilder
 
     /**
      * Sets monthly billing anchor date field.
+     *
+     * @param int|null $value
      */
     public function monthlyBillingAnchorDate(?int $value): self
     {
@@ -48,6 +56,8 @@ class SubscriptionEventBuilder
 
     /**
      * Sets info field.
+     *
+     * @param SubscriptionEventInfo|null $value
      */
     public function info(?SubscriptionEventInfo $value): self
     {
@@ -57,6 +67,8 @@ class SubscriptionEventBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param Phase[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -74,7 +86,7 @@ class SubscriptionEventBuilder
     }
 
     /**
-     * Initializes a new subscription event object.
+     * Initializes a new Subscription Event object.
      */
     public function build(): SubscriptionEvent
     {

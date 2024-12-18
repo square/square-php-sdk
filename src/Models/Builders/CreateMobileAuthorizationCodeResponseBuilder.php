@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateMobileAuthorizationCodeResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model CreateMobileAuthorizationCodeResponse
@@ -25,7 +26,7 @@ class CreateMobileAuthorizationCodeResponseBuilder
     }
 
     /**
-     * Initializes a new create mobile authorization code response Builder object.
+     * Initializes a new Create Mobile Authorization Code Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CreateMobileAuthorizationCodeResponseBuilder
 
     /**
      * Sets authorization code field.
+     *
+     * @param string|null $value
      */
     public function authorizationCode(?string $value): self
     {
@@ -43,6 +46,8 @@ class CreateMobileAuthorizationCodeResponseBuilder
 
     /**
      * Sets expires at field.
+     *
+     * @param string|null $value
      */
     public function expiresAt(?string $value): self
     {
@@ -52,6 +57,8 @@ class CreateMobileAuthorizationCodeResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +67,7 @@ class CreateMobileAuthorizationCodeResponseBuilder
     }
 
     /**
-     * Initializes a new create mobile authorization code response object.
+     * Initializes a new Create Mobile Authorization Code Response object.
      */
     public function build(): CreateMobileAuthorizationCodeResponse
     {

@@ -25,7 +25,7 @@ class TerminalCheckoutQuerySortBuilder
     }
 
     /**
-     * Initializes a new terminal checkout query sort Builder object.
+     * Initializes a new Terminal Checkout Query Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TerminalCheckoutQuerySortBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -42,7 +44,7 @@ class TerminalCheckoutQuerySortBuilder
     }
 
     /**
-     * Initializes a new terminal checkout query sort object.
+     * Initializes a new Terminal Checkout Query Sort object.
      */
     public function build(): TerminalCheckoutQuerySort
     {

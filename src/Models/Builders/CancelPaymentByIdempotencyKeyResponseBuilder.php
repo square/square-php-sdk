@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CancelPaymentByIdempotencyKeyResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model CancelPaymentByIdempotencyKeyResponse
@@ -25,7 +26,7 @@ class CancelPaymentByIdempotencyKeyResponseBuilder
     }
 
     /**
-     * Initializes a new cancel payment by idempotency key response Builder object.
+     * Initializes a new Cancel Payment By Idempotency Key Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CancelPaymentByIdempotencyKeyResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class CancelPaymentByIdempotencyKeyResponseBuilder
     }
 
     /**
-     * Initializes a new cancel payment by idempotency key response object.
+     * Initializes a new Cancel Payment By Idempotency Key Response object.
      */
     public function build(): CancelPaymentByIdempotencyKeyResponse
     {

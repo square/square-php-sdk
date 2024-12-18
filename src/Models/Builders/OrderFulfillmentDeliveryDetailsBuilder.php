@@ -26,7 +26,7 @@ class OrderFulfillmentDeliveryDetailsBuilder
     }
 
     /**
-     * Initializes a new order fulfillment delivery details Builder object.
+     * Initializes a new Order Fulfillment Delivery Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets recipient field.
+     *
+     * @param OrderFulfillmentRecipient|null $value
      */
     public function recipient(?OrderFulfillmentRecipient $value): self
     {
@@ -44,6 +46,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets schedule type field.
+     *
+     * @param string|null $value
      */
     public function scheduleType(?string $value): self
     {
@@ -53,6 +57,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets placed at field.
+     *
+     * @param string|null $value
      */
     public function placedAt(?string $value): self
     {
@@ -62,6 +68,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets deliver at field.
+     *
+     * @param string|null $value
      */
     public function deliverAt(?string $value): self
     {
@@ -80,6 +88,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets prep time duration field.
+     *
+     * @param string|null $value
      */
     public function prepTimeDuration(?string $value): self
     {
@@ -98,6 +108,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets delivery window duration field.
+     *
+     * @param string|null $value
      */
     public function deliveryWindowDuration(?string $value): self
     {
@@ -116,6 +128,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -134,6 +148,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets completed at field.
+     *
+     * @param string|null $value
      */
     public function completedAt(?string $value): self
     {
@@ -152,6 +168,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets in progress at field.
+     *
+     * @param string|null $value
      */
     public function inProgressAt(?string $value): self
     {
@@ -161,6 +179,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets rejected at field.
+     *
+     * @param string|null $value
      */
     public function rejectedAt(?string $value): self
     {
@@ -170,6 +190,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets ready at field.
+     *
+     * @param string|null $value
      */
     public function readyAt(?string $value): self
     {
@@ -179,6 +201,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets delivered at field.
+     *
+     * @param string|null $value
      */
     public function deliveredAt(?string $value): self
     {
@@ -188,6 +212,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets canceled at field.
+     *
+     * @param string|null $value
      */
     public function canceledAt(?string $value): self
     {
@@ -197,6 +223,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets cancel reason field.
+     *
+     * @param string|null $value
      */
     public function cancelReason(?string $value): self
     {
@@ -215,6 +243,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets courier pickup at field.
+     *
+     * @param string|null $value
      */
     public function courierPickupAt(?string $value): self
     {
@@ -233,6 +263,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets courier pickup window duration field.
+     *
+     * @param string|null $value
      */
     public function courierPickupWindowDuration(?string $value): self
     {
@@ -251,6 +283,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets is no contact delivery field.
+     *
+     * @param bool|null $value
      */
     public function isNoContactDelivery(?bool $value): self
     {
@@ -269,6 +303,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets dropoff notes field.
+     *
+     * @param string|null $value
      */
     public function dropoffNotes(?string $value): self
     {
@@ -287,6 +323,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets courier provider name field.
+     *
+     * @param string|null $value
      */
     public function courierProviderName(?string $value): self
     {
@@ -305,6 +343,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets courier support phone number field.
+     *
+     * @param string|null $value
      */
     public function courierSupportPhoneNumber(?string $value): self
     {
@@ -323,6 +363,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets square delivery id field.
+     *
+     * @param string|null $value
      */
     public function squareDeliveryId(?string $value): self
     {
@@ -341,6 +383,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets external delivery id field.
+     *
+     * @param string|null $value
      */
     public function externalDeliveryId(?string $value): self
     {
@@ -359,6 +403,8 @@ class OrderFulfillmentDeliveryDetailsBuilder
 
     /**
      * Sets managed delivery field.
+     *
+     * @param bool|null $value
      */
     public function managedDelivery(?bool $value): self
     {
@@ -376,7 +422,7 @@ class OrderFulfillmentDeliveryDetailsBuilder
     }
 
     /**
-     * Initializes a new order fulfillment delivery details object.
+     * Initializes a new Order Fulfillment Delivery Details object.
      */
     public function build(): OrderFulfillmentDeliveryDetails
     {

@@ -26,7 +26,9 @@ class UpdateWageSettingRequestBuilder
     }
 
     /**
-     * Initializes a new update wage setting request Builder object.
+     * Initializes a new Update Wage Setting Request Builder object.
+     *
+     * @param WageSetting $wageSetting
      */
     public static function init(WageSetting $wageSetting): self
     {
@@ -34,7 +36,7 @@ class UpdateWageSettingRequestBuilder
     }
 
     /**
-     * Initializes a new update wage setting request object.
+     * Initializes a new Update Wage Setting Request object.
      */
     public function build(): UpdateWageSettingRequest
     {

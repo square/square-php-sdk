@@ -26,7 +26,9 @@ class UpdateLocationSettingsRequestBuilder
     }
 
     /**
-     * Initializes a new update location settings request Builder object.
+     * Initializes a new Update Location Settings Request Builder object.
+     *
+     * @param CheckoutLocationSettings $locationSettings
      */
     public static function init(CheckoutLocationSettings $locationSettings): self
     {
@@ -34,7 +36,7 @@ class UpdateLocationSettingsRequestBuilder
     }
 
     /**
-     * Initializes a new update location settings request object.
+     * Initializes a new Update Location Settings Request object.
      */
     public function build(): UpdateLocationSettingsRequest
     {

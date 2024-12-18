@@ -25,7 +25,7 @@ class SearchTeamMembersFilterBuilder
     }
 
     /**
-     * Initializes a new search team members filter Builder object.
+     * Initializes a new Search Team Members Filter Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class SearchTeamMembersFilterBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -52,6 +54,8 @@ class SearchTeamMembersFilterBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -61,6 +65,8 @@ class SearchTeamMembersFilterBuilder
 
     /**
      * Sets is owner field.
+     *
+     * @param bool|null $value
      */
     public function isOwner(?bool $value): self
     {
@@ -78,7 +84,7 @@ class SearchTeamMembersFilterBuilder
     }
 
     /**
-     * Initializes a new search team members filter object.
+     * Initializes a new Search Team Members Filter object.
      */
     public function build(): SearchTeamMembersFilter
     {

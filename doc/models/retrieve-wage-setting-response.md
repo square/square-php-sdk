@@ -11,7 +11,7 @@ Represents a response from a retrieve request containing the specified `WageSett
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `wageSetting` | [`?WageSetting`](../../doc/models/wage-setting.md) | Optional | An object representing a team member's wage information. | getWageSetting(): ?WageSetting | setWageSetting(?WageSetting wageSetting): void |
+| `wageSetting` | [`?WageSetting`](../../doc/models/wage-setting.md) | Optional | Represents information about the overtime exemption status, job assignments, and compensation<br>for a [team member](../../doc/models/team-member.md). | getWageSetting(): ?WageSetting | setWageSetting(?WageSetting wageSetting): void |
 | `errors` | [`?(Error[])`](../../doc/models/error.md) | Optional | The errors that occurred during the request. | getErrors(): ?array | setErrors(?array errors): void |
 
 ## Example (as JSON)
@@ -33,7 +33,8 @@ Represents a response from a retrieve request containing the specified `WageSett
         },
         "job_title": "Manager",
         "pay_type": "SALARY",
-        "weekly_hours": 40
+        "weekly_hours": 40,
+        "job_id": "job_id2"
       }
     ],
     "team_member_id": "1yJlHapkseYnNPETIU1B",

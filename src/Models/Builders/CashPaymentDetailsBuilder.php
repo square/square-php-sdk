@@ -26,7 +26,9 @@ class CashPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new cash payment details Builder object.
+     * Initializes a new Cash Payment Details Builder object.
+     *
+     * @param Money $buyerSuppliedMoney
      */
     public static function init(Money $buyerSuppliedMoney): self
     {
@@ -35,6 +37,8 @@ class CashPaymentDetailsBuilder
 
     /**
      * Sets change back money field.
+     *
+     * @param Money|null $value
      */
     public function changeBackMoney(?Money $value): self
     {
@@ -43,7 +47,7 @@ class CashPaymentDetailsBuilder
     }
 
     /**
-     * Initializes a new cash payment details object.
+     * Initializes a new Cash Payment Details object.
      */
     public function build(): CashPaymentDetails
     {

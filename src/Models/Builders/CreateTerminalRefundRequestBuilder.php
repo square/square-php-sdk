@@ -26,7 +26,9 @@ class CreateTerminalRefundRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal refund request Builder object.
+     * Initializes a new Create Terminal Refund Request Builder object.
+     *
+     * @param string $idempotencyKey
      */
     public static function init(string $idempotencyKey): self
     {
@@ -35,6 +37,8 @@ class CreateTerminalRefundRequestBuilder
 
     /**
      * Sets refund field.
+     *
+     * @param TerminalRefund|null $value
      */
     public function refund(?TerminalRefund $value): self
     {
@@ -43,7 +47,7 @@ class CreateTerminalRefundRequestBuilder
     }
 
     /**
-     * Initializes a new create terminal refund request object.
+     * Initializes a new Create Terminal Refund Request object.
      */
     public function build(): CreateTerminalRefundRequest
     {

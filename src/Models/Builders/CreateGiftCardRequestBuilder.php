@@ -26,7 +26,11 @@ class CreateGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new create gift card request Builder object.
+     * Initializes a new Create Gift Card Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param string $locationId
+     * @param GiftCard $giftCard
      */
     public static function init(string $idempotencyKey, string $locationId, GiftCard $giftCard): self
     {
@@ -34,7 +38,7 @@ class CreateGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new create gift card request object.
+     * Initializes a new Create Gift Card Request object.
      */
     public function build(): CreateGiftCardRequest
     {

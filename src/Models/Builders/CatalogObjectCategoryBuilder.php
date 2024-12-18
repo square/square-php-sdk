@@ -25,7 +25,7 @@ class CatalogObjectCategoryBuilder
     }
 
     /**
-     * Initializes a new catalog object category Builder object.
+     * Initializes a new Catalog Object Category Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogObjectCategoryBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +45,8 @@ class CatalogObjectCategoryBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -60,7 +64,7 @@ class CatalogObjectCategoryBuilder
     }
 
     /**
-     * Initializes a new catalog object category object.
+     * Initializes a new Catalog Object Category object.
      */
     public function build(): CatalogObjectCategory
     {

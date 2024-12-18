@@ -35,7 +35,7 @@ class CatalogQueryBuilder
     }
 
     /**
-     * Initializes a new catalog query Builder object.
+     * Initializes a new Catalog Query Builder object.
      */
     public static function init(): self
     {
@@ -44,6 +44,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets sorted attribute query field.
+     *
+     * @param CatalogQuerySortedAttribute|null $value
      */
     public function sortedAttributeQuery(?CatalogQuerySortedAttribute $value): self
     {
@@ -53,6 +55,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets exact query field.
+     *
+     * @param CatalogQueryExact|null $value
      */
     public function exactQuery(?CatalogQueryExact $value): self
     {
@@ -62,6 +66,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets set query field.
+     *
+     * @param CatalogQuerySet|null $value
      */
     public function setQuery(?CatalogQuerySet $value): self
     {
@@ -71,6 +77,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets prefix query field.
+     *
+     * @param CatalogQueryPrefix|null $value
      */
     public function prefixQuery(?CatalogQueryPrefix $value): self
     {
@@ -80,6 +88,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets range query field.
+     *
+     * @param CatalogQueryRange|null $value
      */
     public function rangeQuery(?CatalogQueryRange $value): self
     {
@@ -89,6 +99,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets text query field.
+     *
+     * @param CatalogQueryText|null $value
      */
     public function textQuery(?CatalogQueryText $value): self
     {
@@ -98,6 +110,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets items for tax query field.
+     *
+     * @param CatalogQueryItemsForTax|null $value
      */
     public function itemsForTaxQuery(?CatalogQueryItemsForTax $value): self
     {
@@ -107,6 +121,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets items for modifier list query field.
+     *
+     * @param CatalogQueryItemsForModifierList|null $value
      */
     public function itemsForModifierListQuery(?CatalogQueryItemsForModifierList $value): self
     {
@@ -116,6 +132,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets items for item options query field.
+     *
+     * @param CatalogQueryItemsForItemOptions|null $value
      */
     public function itemsForItemOptionsQuery(?CatalogQueryItemsForItemOptions $value): self
     {
@@ -125,6 +143,8 @@ class CatalogQueryBuilder
 
     /**
      * Sets item variations for item option values query field.
+     *
+     * @param CatalogQueryItemVariationsForItemOptionValues|null $value
      */
     public function itemVariationsForItemOptionValuesQuery(?CatalogQueryItemVariationsForItemOptionValues $value): self
     {
@@ -133,7 +153,7 @@ class CatalogQueryBuilder
     }
 
     /**
-     * Initializes a new catalog query object.
+     * Initializes a new Catalog Query object.
      */
     public function build(): CatalogQuery
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CashDrawerShiftSummary;
+use Square\Models\Error;
 use Square\Models\ListCashDrawerShiftsResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListCashDrawerShiftsResponseBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shifts response Builder object.
+     * Initializes a new List Cash Drawer Shifts Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListCashDrawerShiftsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -43,6 +47,8 @@ class ListCashDrawerShiftsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListCashDrawerShiftsResponseBuilder
 
     /**
      * Sets cash drawer shifts field.
+     *
+     * @param CashDrawerShiftSummary[]|null $value
      */
     public function cashDrawerShifts(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListCashDrawerShiftsResponseBuilder
     }
 
     /**
-     * Initializes a new list cash drawer shifts response object.
+     * Initializes a new List Cash Drawer Shifts Response object.
      */
     public function build(): ListCashDrawerShiftsResponse
     {

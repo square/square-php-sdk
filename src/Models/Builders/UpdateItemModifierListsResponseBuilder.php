@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\UpdateItemModifierListsResponse;
 
 /**
@@ -25,7 +26,7 @@ class UpdateItemModifierListsResponseBuilder
     }
 
     /**
-     * Initializes a new update item modifier lists response Builder object.
+     * Initializes a new Update Item Modifier Lists Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class UpdateItemModifierListsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class UpdateItemModifierListsResponseBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -51,7 +56,7 @@ class UpdateItemModifierListsResponseBuilder
     }
 
     /**
-     * Initializes a new update item modifier lists response object.
+     * Initializes a new Update Item Modifier Lists Response object.
      */
     public function build(): UpdateItemModifierListsResponse
     {

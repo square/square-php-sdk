@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkRetrieveTeamMemberBookingProfilesResponse;
+use Square\Models\Error;
+use Square\Models\RetrieveTeamMemberBookingProfileResponse;
 
 /**
  * Builder for model BulkRetrieveTeamMemberBookingProfilesResponse
@@ -25,7 +27,7 @@ class BulkRetrieveTeamMemberBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve team member booking profiles response Builder object.
+     * Initializes a new Bulk Retrieve Team Member Booking Profiles Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkRetrieveTeamMemberBookingProfilesResponseBuilder
 
     /**
      * Sets team member booking profiles field.
+     *
+     * @param array<string,RetrieveTeamMemberBookingProfileResponse>|null $value
      */
     public function teamMemberBookingProfiles(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkRetrieveTeamMemberBookingProfilesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkRetrieveTeamMemberBookingProfilesResponseBuilder
     }
 
     /**
-     * Initializes a new bulk retrieve team member booking profiles response object.
+     * Initializes a new Bulk Retrieve Team Member Booking Profiles Response object.
      */
     public function build(): BulkRetrieveTeamMemberBookingProfilesResponse
     {

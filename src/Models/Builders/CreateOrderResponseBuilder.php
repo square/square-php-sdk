@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateOrderResponse;
+use Square\Models\Error;
 use Square\Models\Order;
 
 /**
@@ -26,7 +27,7 @@ class CreateOrderResponseBuilder
     }
 
     /**
-     * Initializes a new create order response Builder object.
+     * Initializes a new Create Order Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateOrderResponseBuilder
 
     /**
      * Sets order field.
+     *
+     * @param Order|null $value
      */
     public function order(?Order $value): self
     {
@@ -44,6 +47,8 @@ class CreateOrderResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class CreateOrderResponseBuilder
     }
 
     /**
-     * Initializes a new create order response object.
+     * Initializes a new Create Order Response object.
      */
     public function build(): CreateOrderResponse
     {

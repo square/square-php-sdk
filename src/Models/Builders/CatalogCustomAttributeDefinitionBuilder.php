@@ -29,7 +29,11 @@ class CatalogCustomAttributeDefinitionBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition Builder object.
+     * Initializes a new Catalog Custom Attribute Definition Builder object.
+     *
+     * @param string $type
+     * @param string $name
+     * @param string[] $allowedObjectTypes
      */
     public static function init(string $type, string $name, array $allowedObjectTypes): self
     {
@@ -38,6 +42,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -56,6 +62,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets source application field.
+     *
+     * @param SourceApplication|null $value
      */
     public function sourceApplication(?SourceApplication $value): self
     {
@@ -65,6 +73,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets seller visibility field.
+     *
+     * @param string|null $value
      */
     public function sellerVisibility(?string $value): self
     {
@@ -74,6 +84,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets app visibility field.
+     *
+     * @param string|null $value
      */
     public function appVisibility(?string $value): self
     {
@@ -83,6 +95,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets string config field.
+     *
+     * @param CatalogCustomAttributeDefinitionStringConfig|null $value
      */
     public function stringConfig(?CatalogCustomAttributeDefinitionStringConfig $value): self
     {
@@ -92,6 +106,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets number config field.
+     *
+     * @param CatalogCustomAttributeDefinitionNumberConfig|null $value
      */
     public function numberConfig(?CatalogCustomAttributeDefinitionNumberConfig $value): self
     {
@@ -101,6 +117,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets selection config field.
+     *
+     * @param CatalogCustomAttributeDefinitionSelectionConfig|null $value
      */
     public function selectionConfig(?CatalogCustomAttributeDefinitionSelectionConfig $value): self
     {
@@ -110,6 +128,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets custom attribute usage count field.
+     *
+     * @param int|null $value
      */
     public function customAttributeUsageCount(?int $value): self
     {
@@ -119,6 +139,8 @@ class CatalogCustomAttributeDefinitionBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -136,7 +158,7 @@ class CatalogCustomAttributeDefinitionBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition object.
+     * Initializes a new Catalog Custom Attribute Definition object.
      */
     public function build(): CatalogCustomAttributeDefinition
     {

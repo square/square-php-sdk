@@ -25,7 +25,7 @@ class RetrieveSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve subscription request Builder object.
+     * Initializes a new Retrieve Subscription Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RetrieveSubscriptionRequestBuilder
 
     /**
      * Sets include field.
+     *
+     * @param string|null $value
      */
     public function include(?string $value): self
     {
@@ -51,7 +53,7 @@ class RetrieveSubscriptionRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve subscription request object.
+     * Initializes a new Retrieve Subscription Request object.
      */
     public function build(): RetrieveSubscriptionRequest
     {

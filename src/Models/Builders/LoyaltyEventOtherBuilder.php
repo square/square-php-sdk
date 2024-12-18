@@ -25,7 +25,10 @@ class LoyaltyEventOtherBuilder
     }
 
     /**
-     * Initializes a new loyalty event other Builder object.
+     * Initializes a new Loyalty Event Other Builder object.
+     *
+     * @param string $loyaltyProgramId
+     * @param int $points
      */
     public static function init(string $loyaltyProgramId, int $points): self
     {
@@ -33,7 +36,7 @@ class LoyaltyEventOtherBuilder
     }
 
     /**
-     * Initializes a new loyalty event other object.
+     * Initializes a new Loyalty Event Other object.
      */
     public function build(): LoyaltyEventOther
     {

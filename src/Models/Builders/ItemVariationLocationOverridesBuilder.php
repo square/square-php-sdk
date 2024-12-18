@@ -26,7 +26,7 @@ class ItemVariationLocationOverridesBuilder
     }
 
     /**
-     * Initializes a new item variation location overrides Builder object.
+     * Initializes a new Item Variation Location Overrides Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -53,6 +55,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets price money field.
+     *
+     * @param Money|null $value
      */
     public function priceMoney(?Money $value): self
     {
@@ -62,6 +66,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets pricing type field.
+     *
+     * @param string|null $value
      */
     public function pricingType(?string $value): self
     {
@@ -71,6 +77,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets track inventory field.
+     *
+     * @param bool|null $value
      */
     public function trackInventory(?bool $value): self
     {
@@ -89,6 +97,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets inventory alert type field.
+     *
+     * @param string|null $value
      */
     public function inventoryAlertType(?string $value): self
     {
@@ -98,6 +108,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets inventory alert threshold field.
+     *
+     * @param int|null $value
      */
     public function inventoryAlertThreshold(?int $value): self
     {
@@ -116,6 +128,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets sold out field.
+     *
+     * @param bool|null $value
      */
     public function soldOut(?bool $value): self
     {
@@ -125,6 +139,8 @@ class ItemVariationLocationOverridesBuilder
 
     /**
      * Sets sold out valid until field.
+     *
+     * @param string|null $value
      */
     public function soldOutValidUntil(?string $value): self
     {
@@ -133,7 +149,7 @@ class ItemVariationLocationOverridesBuilder
     }
 
     /**
-     * Initializes a new item variation location overrides object.
+     * Initializes a new Item Variation Location Overrides object.
      */
     public function build(): ItemVariationLocationOverrides
     {

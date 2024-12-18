@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CheckoutLocationSettings;
+use Square\Models\Error;
 use Square\Models\UpdateLocationSettingsResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateLocationSettingsResponseBuilder
     }
 
     /**
-     * Initializes a new update location settings response Builder object.
+     * Initializes a new Update Location Settings Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateLocationSettingsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpdateLocationSettingsResponseBuilder
 
     /**
      * Sets location settings field.
+     *
+     * @param CheckoutLocationSettings|null $value
      */
     public function locationSettings(?CheckoutLocationSettings $value): self
     {
@@ -52,7 +57,7 @@ class UpdateLocationSettingsResponseBuilder
     }
 
     /**
-     * Initializes a new update location settings response object.
+     * Initializes a new Update Location Settings Response object.
      */
     public function build(): UpdateLocationSettingsResponse
     {

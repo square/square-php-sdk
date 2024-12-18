@@ -26,7 +26,9 @@ class GiftCardActivityUnlinkedActivityRefundBuilder
     }
 
     /**
-     * Initializes a new gift card activity unlinked activity refund Builder object.
+     * Initializes a new Gift Card Activity Unlinked Activity Refund Builder object.
+     *
+     * @param Money $amountMoney
      */
     public static function init(Money $amountMoney): self
     {
@@ -35,6 +37,8 @@ class GiftCardActivityUnlinkedActivityRefundBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -53,6 +57,8 @@ class GiftCardActivityUnlinkedActivityRefundBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -61,7 +67,7 @@ class GiftCardActivityUnlinkedActivityRefundBuilder
     }
 
     /**
-     * Initializes a new gift card activity unlinked activity refund object.
+     * Initializes a new Gift Card Activity Unlinked Activity Refund object.
      */
     public function build(): GiftCardActivityUnlinkedActivityRefund
     {

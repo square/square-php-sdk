@@ -25,7 +25,9 @@ class UnlinkCustomerFromGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new unlink customer from gift card request Builder object.
+     * Initializes a new Unlink Customer From Gift Card Request Builder object.
+     *
+     * @param string $customerId
      */
     public static function init(string $customerId): self
     {
@@ -33,7 +35,7 @@ class UnlinkCustomerFromGiftCardRequestBuilder
     }
 
     /**
-     * Initializes a new unlink customer from gift card request object.
+     * Initializes a new Unlink Customer From Gift Card Request object.
      */
     public function build(): UnlinkCustomerFromGiftCardRequest
     {

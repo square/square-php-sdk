@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\Address;
+use Square\Models\Card;
 use Square\Models\Customer;
 use Square\Models\CustomerPreferences;
 use Square\Models\CustomerTaxIds;
@@ -28,7 +29,7 @@ class CustomerBuilder
     }
 
     /**
-     * Initializes a new customer Builder object.
+     * Initializes a new Customer Builder object.
      */
     public static function init(): self
     {
@@ -37,6 +38,8 @@ class CustomerBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -46,6 +49,8 @@ class CustomerBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -55,6 +60,8 @@ class CustomerBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -64,6 +71,8 @@ class CustomerBuilder
 
     /**
      * Sets cards field.
+     *
+     * @param Card[]|null $value
      */
     public function cards(?array $value): self
     {
@@ -82,6 +91,8 @@ class CustomerBuilder
 
     /**
      * Sets given name field.
+     *
+     * @param string|null $value
      */
     public function givenName(?string $value): self
     {
@@ -100,6 +111,8 @@ class CustomerBuilder
 
     /**
      * Sets family name field.
+     *
+     * @param string|null $value
      */
     public function familyName(?string $value): self
     {
@@ -118,6 +131,8 @@ class CustomerBuilder
 
     /**
      * Sets nickname field.
+     *
+     * @param string|null $value
      */
     public function nickname(?string $value): self
     {
@@ -136,6 +151,8 @@ class CustomerBuilder
 
     /**
      * Sets company name field.
+     *
+     * @param string|null $value
      */
     public function companyName(?string $value): self
     {
@@ -154,6 +171,8 @@ class CustomerBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -172,6 +191,8 @@ class CustomerBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -181,6 +202,8 @@ class CustomerBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -199,6 +222,8 @@ class CustomerBuilder
 
     /**
      * Sets birthday field.
+     *
+     * @param string|null $value
      */
     public function birthday(?string $value): self
     {
@@ -217,6 +242,8 @@ class CustomerBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -235,6 +262,8 @@ class CustomerBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -253,6 +282,8 @@ class CustomerBuilder
 
     /**
      * Sets preferences field.
+     *
+     * @param CustomerPreferences|null $value
      */
     public function preferences(?CustomerPreferences $value): self
     {
@@ -262,6 +293,8 @@ class CustomerBuilder
 
     /**
      * Sets creation source field.
+     *
+     * @param string|null $value
      */
     public function creationSource(?string $value): self
     {
@@ -271,6 +304,8 @@ class CustomerBuilder
 
     /**
      * Sets group ids field.
+     *
+     * @param string[]|null $value
      */
     public function groupIds(?array $value): self
     {
@@ -289,6 +324,8 @@ class CustomerBuilder
 
     /**
      * Sets segment ids field.
+     *
+     * @param string[]|null $value
      */
     public function segmentIds(?array $value): self
     {
@@ -307,6 +344,8 @@ class CustomerBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -316,6 +355,8 @@ class CustomerBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param CustomerTaxIds|null $value
      */
     public function taxIds(?CustomerTaxIds $value): self
     {
@@ -324,7 +365,7 @@ class CustomerBuilder
     }
 
     /**
-     * Initializes a new customer object.
+     * Initializes a new Customer object.
      */
     public function build(): Customer
     {

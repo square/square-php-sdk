@@ -25,7 +25,7 @@ class DeviceComponentDetailsBatteryDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details battery details Builder object.
+     * Initializes a new Device Component Details Battery Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DeviceComponentDetailsBatteryDetailsBuilder
 
     /**
      * Sets visible percent field.
+     *
+     * @param int|null $value
      */
     public function visiblePercent(?int $value): self
     {
@@ -52,6 +54,8 @@ class DeviceComponentDetailsBatteryDetailsBuilder
 
     /**
      * Sets external power field.
+     *
+     * @param string|null $value
      */
     public function externalPower(?string $value): self
     {
@@ -60,7 +64,7 @@ class DeviceComponentDetailsBatteryDetailsBuilder
     }
 
     /**
-     * Initializes a new device component details battery details object.
+     * Initializes a new Device Component Details Battery Details object.
      */
     public function build(): DeviceComponentDetailsBatteryDetails
     {

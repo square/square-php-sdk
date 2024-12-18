@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CreateLocationResponse;
+use Square\Models\Error;
 use Square\Models\Location;
 
 /**
@@ -26,7 +27,7 @@ class CreateLocationResponseBuilder
     }
 
     /**
-     * Initializes a new create location response Builder object.
+     * Initializes a new Create Location Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class CreateLocationResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class CreateLocationResponseBuilder
 
     /**
      * Sets location field.
+     *
+     * @param Location|null $value
      */
     public function location(?Location $value): self
     {
@@ -52,7 +57,7 @@ class CreateLocationResponseBuilder
     }
 
     /**
-     * Initializes a new create location response object.
+     * Initializes a new Create Location Response object.
      */
     public function build(): CreateLocationResponse
     {

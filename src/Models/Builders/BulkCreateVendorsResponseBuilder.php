@@ -6,6 +6,8 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkCreateVendorsResponse;
+use Square\Models\CreateVendorResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model BulkCreateVendorsResponse
@@ -25,7 +27,7 @@ class BulkCreateVendorsResponseBuilder
     }
 
     /**
-     * Initializes a new bulk create vendors response Builder object.
+     * Initializes a new Bulk Create Vendors Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class BulkCreateVendorsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class BulkCreateVendorsResponseBuilder
 
     /**
      * Sets responses field.
+     *
+     * @param array<string,CreateVendorResponse>|null $value
      */
     public function responses(?array $value): self
     {
@@ -51,7 +57,7 @@ class BulkCreateVendorsResponseBuilder
     }
 
     /**
-     * Initializes a new bulk create vendors response object.
+     * Initializes a new Bulk Create Vendors Response object.
      */
     public function build(): BulkCreateVendorsResponse
     {

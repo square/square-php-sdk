@@ -25,7 +25,9 @@ class SnippetBuilder
     }
 
     /**
-     * Initializes a new snippet Builder object.
+     * Initializes a new Snippet Builder object.
+     *
+     * @param string $content
      */
     public static function init(string $content): self
     {
@@ -34,6 +36,8 @@ class SnippetBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +47,8 @@ class SnippetBuilder
 
     /**
      * Sets site id field.
+     *
+     * @param string|null $value
      */
     public function siteId(?string $value): self
     {
@@ -52,6 +58,8 @@ class SnippetBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -61,6 +69,8 @@ class SnippetBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -69,7 +79,7 @@ class SnippetBuilder
     }
 
     /**
-     * Initializes a new snippet object.
+     * Initializes a new Snippet object.
      */
     public function build(): Snippet
     {

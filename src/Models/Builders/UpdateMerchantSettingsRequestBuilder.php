@@ -26,7 +26,9 @@ class UpdateMerchantSettingsRequestBuilder
     }
 
     /**
-     * Initializes a new update merchant settings request Builder object.
+     * Initializes a new Update Merchant Settings Request Builder object.
+     *
+     * @param CheckoutMerchantSettings $merchantSettings
      */
     public static function init(CheckoutMerchantSettings $merchantSettings): self
     {
@@ -34,7 +36,7 @@ class UpdateMerchantSettingsRequestBuilder
     }
 
     /**
-     * Initializes a new update merchant settings request object.
+     * Initializes a new Update Merchant Settings Request object.
      */
     public function build(): UpdateMerchantSettingsRequest
     {

@@ -25,7 +25,7 @@ class TipSettingsBuilder
     }
 
     /**
-     * Initializes a new tip settings Builder object.
+     * Initializes a new Tip Settings Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TipSettingsBuilder
 
     /**
      * Sets allow tipping field.
+     *
+     * @param bool|null $value
      */
     public function allowTipping(?bool $value): self
     {
@@ -52,6 +54,8 @@ class TipSettingsBuilder
 
     /**
      * Sets separate tip screen field.
+     *
+     * @param bool|null $value
      */
     public function separateTipScreen(?bool $value): self
     {
@@ -70,6 +74,8 @@ class TipSettingsBuilder
 
     /**
      * Sets custom tip field field.
+     *
+     * @param bool|null $value
      */
     public function customTipField(?bool $value): self
     {
@@ -88,6 +94,8 @@ class TipSettingsBuilder
 
     /**
      * Sets tip percentages field.
+     *
+     * @param int[]|null $value
      */
     public function tipPercentages(?array $value): self
     {
@@ -106,6 +114,8 @@ class TipSettingsBuilder
 
     /**
      * Sets smart tipping field.
+     *
+     * @param bool|null $value
      */
     public function smartTipping(?bool $value): self
     {
@@ -123,7 +133,7 @@ class TipSettingsBuilder
     }
 
     /**
-     * Initializes a new tip settings object.
+     * Initializes a new Tip Settings object.
      */
     public function build(): TipSettings
     {

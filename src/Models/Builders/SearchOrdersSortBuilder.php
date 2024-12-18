@@ -25,7 +25,9 @@ class SearchOrdersSortBuilder
     }
 
     /**
-     * Initializes a new search orders sort Builder object.
+     * Initializes a new Search Orders Sort Builder object.
+     *
+     * @param string $sortField
      */
     public static function init(string $sortField): self
     {
@@ -34,6 +36,8 @@ class SearchOrdersSortBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -42,7 +46,7 @@ class SearchOrdersSortBuilder
     }
 
     /**
-     * Initializes a new search orders sort object.
+     * Initializes a new Search Orders Sort object.
      */
     public function build(): SearchOrdersSort
     {

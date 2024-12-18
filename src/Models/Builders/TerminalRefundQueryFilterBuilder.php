@@ -26,7 +26,7 @@ class TerminalRefundQueryFilterBuilder
     }
 
     /**
-     * Initializes a new terminal refund query filter Builder object.
+     * Initializes a new Terminal Refund Query Filter Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class TerminalRefundQueryFilterBuilder
 
     /**
      * Sets device id field.
+     *
+     * @param string|null $value
      */
     public function deviceId(?string $value): self
     {
@@ -53,6 +55,8 @@ class TerminalRefundQueryFilterBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param TimeRange|null $value
      */
     public function createdAt(?TimeRange $value): self
     {
@@ -62,6 +66,8 @@ class TerminalRefundQueryFilterBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -79,7 +85,7 @@ class TerminalRefundQueryFilterBuilder
     }
 
     /**
-     * Initializes a new terminal refund query filter object.
+     * Initializes a new Terminal Refund Query Filter object.
      */
     public function build(): TerminalRefundQueryFilter
     {

@@ -25,7 +25,9 @@ class LoyaltyEventOrderFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event order filter Builder object.
+     * Initializes a new Loyalty Event Order Filter Builder object.
+     *
+     * @param string $orderId
      */
     public static function init(string $orderId): self
     {
@@ -33,7 +35,7 @@ class LoyaltyEventOrderFilterBuilder
     }
 
     /**
-     * Initializes a new loyalty event order filter object.
+     * Initializes a new Loyalty Event Order Filter object.
      */
     public function build(): LoyaltyEventOrderFilter
     {

@@ -38,7 +38,14 @@ class CheckoutOptionsPaymentType
     public const FELICA_ALL = 'FELICA_ALL';
 
     /**
-     * Launches the PayPay checkout screen for the buyer to complete.
+     * Replaced by `QR_CODE`.
      */
     public const PAYPAY = 'PAYPAY';
+
+    /**
+     * Launches Square's QR Code checkout screen for the buyer to complete.
+     * Displays a single code that supports all digital wallets connected to the target
+     * Seller location (e.g. PayPay)
+     */
+    public const QR_CODE = 'QR_CODE';
 }

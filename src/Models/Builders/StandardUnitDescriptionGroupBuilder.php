@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\StandardUnitDescription;
 use Square\Models\StandardUnitDescriptionGroup;
 
 /**
@@ -25,7 +26,7 @@ class StandardUnitDescriptionGroupBuilder
     }
 
     /**
-     * Initializes a new standard unit description group Builder object.
+     * Initializes a new Standard Unit Description Group Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class StandardUnitDescriptionGroupBuilder
 
     /**
      * Sets standard unit descriptions field.
+     *
+     * @param StandardUnitDescription[]|null $value
      */
     public function standardUnitDescriptions(?array $value): self
     {
@@ -52,6 +55,8 @@ class StandardUnitDescriptionGroupBuilder
 
     /**
      * Sets language code field.
+     *
+     * @param string|null $value
      */
     public function languageCode(?string $value): self
     {
@@ -69,7 +74,7 @@ class StandardUnitDescriptionGroupBuilder
     }
 
     /**
-     * Initializes a new standard unit description group object.
+     * Initializes a new Standard Unit Description Group object.
      */
     public function build(): StandardUnitDescriptionGroup
     {

@@ -25,7 +25,7 @@ class AddressBuilder
     }
 
     /**
-     * Initializes a new address Builder object.
+     * Initializes a new Address Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class AddressBuilder
 
     /**
      * Sets address line 1 field.
+     *
+     * @param string|null $value
      */
     public function addressLine1(?string $value): self
     {
@@ -52,6 +54,8 @@ class AddressBuilder
 
     /**
      * Sets address line 2 field.
+     *
+     * @param string|null $value
      */
     public function addressLine2(?string $value): self
     {
@@ -70,6 +74,8 @@ class AddressBuilder
 
     /**
      * Sets address line 3 field.
+     *
+     * @param string|null $value
      */
     public function addressLine3(?string $value): self
     {
@@ -88,6 +94,8 @@ class AddressBuilder
 
     /**
      * Sets locality field.
+     *
+     * @param string|null $value
      */
     public function locality(?string $value): self
     {
@@ -106,6 +114,8 @@ class AddressBuilder
 
     /**
      * Sets sublocality field.
+     *
+     * @param string|null $value
      */
     public function sublocality(?string $value): self
     {
@@ -124,6 +134,8 @@ class AddressBuilder
 
     /**
      * Sets sublocality 2 field.
+     *
+     * @param string|null $value
      */
     public function sublocality2(?string $value): self
     {
@@ -142,6 +154,8 @@ class AddressBuilder
 
     /**
      * Sets sublocality 3 field.
+     *
+     * @param string|null $value
      */
     public function sublocality3(?string $value): self
     {
@@ -160,6 +174,8 @@ class AddressBuilder
 
     /**
      * Sets administrative district level 1 field.
+     *
+     * @param string|null $value
      */
     public function administrativeDistrictLevel1(?string $value): self
     {
@@ -178,6 +194,8 @@ class AddressBuilder
 
     /**
      * Sets administrative district level 2 field.
+     *
+     * @param string|null $value
      */
     public function administrativeDistrictLevel2(?string $value): self
     {
@@ -196,6 +214,8 @@ class AddressBuilder
 
     /**
      * Sets administrative district level 3 field.
+     *
+     * @param string|null $value
      */
     public function administrativeDistrictLevel3(?string $value): self
     {
@@ -214,6 +234,8 @@ class AddressBuilder
 
     /**
      * Sets postal code field.
+     *
+     * @param string|null $value
      */
     public function postalCode(?string $value): self
     {
@@ -232,6 +254,8 @@ class AddressBuilder
 
     /**
      * Sets country field.
+     *
+     * @param string|null $value
      */
     public function country(?string $value): self
     {
@@ -241,6 +265,8 @@ class AddressBuilder
 
     /**
      * Sets first name field.
+     *
+     * @param string|null $value
      */
     public function firstName(?string $value): self
     {
@@ -259,6 +285,8 @@ class AddressBuilder
 
     /**
      * Sets last name field.
+     *
+     * @param string|null $value
      */
     public function lastName(?string $value): self
     {
@@ -276,7 +304,7 @@ class AddressBuilder
     }
 
     /**
-     * Initializes a new address object.
+     * Initializes a new Address object.
      */
     public function build(): Address
     {

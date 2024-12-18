@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
+use Square\Models\Order;
+use Square\Models\OrderEntry;
 use Square\Models\SearchOrdersResponse;
 
 /**
@@ -25,7 +28,7 @@ class SearchOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new search orders response Builder object.
+     * Initializes a new Search Orders Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +37,8 @@ class SearchOrdersResponseBuilder
 
     /**
      * Sets order entries field.
+     *
+     * @param OrderEntry[]|null $value
      */
     public function orderEntries(?array $value): self
     {
@@ -43,6 +48,8 @@ class SearchOrdersResponseBuilder
 
     /**
      * Sets orders field.
+     *
+     * @param Order[]|null $value
      */
     public function orders(?array $value): self
     {
@@ -52,6 +59,8 @@ class SearchOrdersResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -61,6 +70,8 @@ class SearchOrdersResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -69,7 +80,7 @@ class SearchOrdersResponseBuilder
     }
 
     /**
-     * Initializes a new search orders response object.
+     * Initializes a new Search Orders Response object.
      */
     public function build(): SearchOrdersResponse
     {

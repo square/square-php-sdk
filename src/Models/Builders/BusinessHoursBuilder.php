@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BusinessHours;
+use Square\Models\BusinessHoursPeriod;
 
 /**
  * Builder for model BusinessHours
@@ -25,7 +26,7 @@ class BusinessHoursBuilder
     }
 
     /**
-     * Initializes a new business hours Builder object.
+     * Initializes a new Business Hours Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class BusinessHoursBuilder
 
     /**
      * Sets periods field.
+     *
+     * @param BusinessHoursPeriod[]|null $value
      */
     public function periods(?array $value): self
     {
@@ -51,7 +54,7 @@ class BusinessHoursBuilder
     }
 
     /**
-     * Initializes a new business hours object.
+     * Initializes a new Business Hours object.
      */
     public function build(): BusinessHours
     {

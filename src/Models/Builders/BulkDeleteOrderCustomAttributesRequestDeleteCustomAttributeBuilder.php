@@ -25,7 +25,9 @@ class BulkDeleteOrderCustomAttributesRequestDeleteCustomAttributeBuilder
     }
 
     /**
-     * Initializes a new bulk delete order custom attributes request delete custom attribute Builder object.
+     * Initializes a new Bulk Delete Order Custom Attributes Request Delete Custom Attribute Builder object.
+     *
+     * @param string $orderId
      */
     public static function init(string $orderId): self
     {
@@ -34,6 +36,8 @@ class BulkDeleteOrderCustomAttributesRequestDeleteCustomAttributeBuilder
 
     /**
      * Sets key field.
+     *
+     * @param string|null $value
      */
     public function key(?string $value): self
     {
@@ -42,7 +46,7 @@ class BulkDeleteOrderCustomAttributesRequestDeleteCustomAttributeBuilder
     }
 
     /**
-     * Initializes a new bulk delete order custom attributes request delete custom attribute object.
+     * Initializes a new Bulk Delete Order Custom Attributes Request Delete Custom Attribute object.
      */
     public function build(): BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute
     {

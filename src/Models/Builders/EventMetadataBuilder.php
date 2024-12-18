@@ -25,7 +25,7 @@ class EventMetadataBuilder
     }
 
     /**
-     * Initializes a new event metadata Builder object.
+     * Initializes a new Event Metadata Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class EventMetadataBuilder
 
     /**
      * Sets event id field.
+     *
+     * @param string|null $value
      */
     public function eventId(?string $value): self
     {
@@ -52,6 +54,8 @@ class EventMetadataBuilder
 
     /**
      * Sets api version field.
+     *
+     * @param string|null $value
      */
     public function apiVersion(?string $value): self
     {
@@ -69,7 +73,7 @@ class EventMetadataBuilder
     }
 
     /**
-     * Initializes a new event metadata object.
+     * Initializes a new Event Metadata object.
      */
     public function build(): EventMetadata
     {

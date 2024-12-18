@@ -25,7 +25,7 @@ class BatchRetrieveInventoryCountsRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory counts request Builder object.
+     * Initializes a new Batch Retrieve Inventory Counts Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets catalog object ids field.
+     *
+     * @param string[]|null $value
      */
     public function catalogObjectIds(?array $value): self
     {
@@ -52,6 +54,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -70,6 +74,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets updated after field.
+     *
+     * @param string|null $value
      */
     public function updatedAfter(?string $value): self
     {
@@ -88,6 +94,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -106,6 +114,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets states field.
+     *
+     * @param string[]|null $value
      */
     public function states(?array $value): self
     {
@@ -124,6 +134,8 @@ class BatchRetrieveInventoryCountsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -141,7 +153,7 @@ class BatchRetrieveInventoryCountsRequestBuilder
     }
 
     /**
-     * Initializes a new batch retrieve inventory counts request object.
+     * Initializes a new Batch Retrieve Inventory Counts Request object.
      */
     public function build(): BatchRetrieveInventoryCountsRequest
     {

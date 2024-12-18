@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\UpdateWageSettingResponse;
 use Square\Models\WageSetting;
 
@@ -26,7 +27,7 @@ class UpdateWageSettingResponseBuilder
     }
 
     /**
-     * Initializes a new update wage setting response Builder object.
+     * Initializes a new Update Wage Setting Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateWageSettingResponseBuilder
 
     /**
      * Sets wage setting field.
+     *
+     * @param WageSetting|null $value
      */
     public function wageSetting(?WageSetting $value): self
     {
@@ -44,6 +47,8 @@ class UpdateWageSettingResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateWageSettingResponseBuilder
     }
 
     /**
-     * Initializes a new update wage setting response object.
+     * Initializes a new Update Wage Setting Response object.
      */
     public function build(): UpdateWageSettingResponse
     {

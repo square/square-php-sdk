@@ -27,7 +27,7 @@ class BuyNowPayLaterDetailsBuilder
     }
 
     /**
-     * Initializes a new buy now pay later details Builder object.
+     * Initializes a new Buy Now Pay Later Details Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class BuyNowPayLaterDetailsBuilder
 
     /**
      * Sets brand field.
+     *
+     * @param string|null $value
      */
     public function brand(?string $value): self
     {
@@ -54,6 +56,8 @@ class BuyNowPayLaterDetailsBuilder
 
     /**
      * Sets afterpay details field.
+     *
+     * @param AfterpayDetails|null $value
      */
     public function afterpayDetails(?AfterpayDetails $value): self
     {
@@ -63,6 +67,8 @@ class BuyNowPayLaterDetailsBuilder
 
     /**
      * Sets clearpay details field.
+     *
+     * @param ClearpayDetails|null $value
      */
     public function clearpayDetails(?ClearpayDetails $value): self
     {
@@ -71,7 +77,7 @@ class BuyNowPayLaterDetailsBuilder
     }
 
     /**
-     * Initializes a new buy now pay later details object.
+     * Initializes a new Buy Now Pay Later Details object.
      */
     public function build(): BuyNowPayLaterDetails
     {

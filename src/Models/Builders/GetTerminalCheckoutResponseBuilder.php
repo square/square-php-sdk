@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\GetTerminalCheckoutResponse;
 use Square\Models\TerminalCheckout;
 
@@ -26,7 +27,7 @@ class GetTerminalCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new get terminal checkout response Builder object.
+     * Initializes a new Get Terminal Checkout Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class GetTerminalCheckoutResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class GetTerminalCheckoutResponseBuilder
 
     /**
      * Sets checkout field.
+     *
+     * @param TerminalCheckout|null $value
      */
     public function checkout(?TerminalCheckout $value): self
     {
@@ -52,7 +57,7 @@ class GetTerminalCheckoutResponseBuilder
     }
 
     /**
-     * Initializes a new get terminal checkout response object.
+     * Initializes a new Get Terminal Checkout Response object.
      */
     public function build(): GetTerminalCheckoutResponse
     {

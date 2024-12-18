@@ -25,7 +25,10 @@ class LoyaltyRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty reward Builder object.
+     * Initializes a new Loyalty Reward Builder object.
+     *
+     * @param string $loyaltyAccountId
+     * @param string $rewardTierId
      */
     public static function init(string $loyaltyAccountId, string $rewardTierId): self
     {
@@ -34,6 +37,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -43,6 +48,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -52,6 +59,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets points field.
+     *
+     * @param int|null $value
      */
     public function points(?int $value): self
     {
@@ -61,6 +70,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets order id field.
+     *
+     * @param string|null $value
      */
     public function orderId(?string $value): self
     {
@@ -79,6 +90,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -88,6 +101,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -97,6 +112,8 @@ class LoyaltyRewardBuilder
 
     /**
      * Sets redeemed at field.
+     *
+     * @param string|null $value
      */
     public function redeemedAt(?string $value): self
     {
@@ -105,7 +122,7 @@ class LoyaltyRewardBuilder
     }
 
     /**
-     * Initializes a new loyalty reward object.
+     * Initializes a new Loyalty Reward object.
      */
     public function build(): LoyaltyReward
     {

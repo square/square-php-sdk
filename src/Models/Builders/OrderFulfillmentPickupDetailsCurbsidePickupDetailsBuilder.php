@@ -25,7 +25,7 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetailsBuilder
     }
 
     /**
-     * Initializes a new order fulfillment pickup details curbside pickup details Builder object.
+     * Initializes a new Order Fulfillment Pickup Details Curbside Pickup Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetailsBuilder
 
     /**
      * Sets curbside details field.
+     *
+     * @param string|null $value
      */
     public function curbsideDetails(?string $value): self
     {
@@ -52,6 +54,8 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetailsBuilder
 
     /**
      * Sets buyer arrived at field.
+     *
+     * @param string|null $value
      */
     public function buyerArrivedAt(?string $value): self
     {
@@ -69,7 +73,7 @@ class OrderFulfillmentPickupDetailsCurbsidePickupDetailsBuilder
     }
 
     /**
-     * Initializes a new order fulfillment pickup details curbside pickup details object.
+     * Initializes a new Order Fulfillment Pickup Details Curbside Pickup Details object.
      */
     public function build(): OrderFulfillmentPickupDetailsCurbsidePickupDetails
     {

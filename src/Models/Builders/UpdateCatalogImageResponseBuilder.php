@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogObject;
+use Square\Models\Error;
 use Square\Models\UpdateCatalogImageResponse;
 
 /**
@@ -26,7 +27,7 @@ class UpdateCatalogImageResponseBuilder
     }
 
     /**
-     * Initializes a new update catalog image response Builder object.
+     * Initializes a new Update Catalog Image Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateCatalogImageResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class UpdateCatalogImageResponseBuilder
 
     /**
      * Sets image field.
+     *
+     * @param CatalogObject|null $value
      */
     public function image(?CatalogObject $value): self
     {
@@ -52,7 +57,7 @@ class UpdateCatalogImageResponseBuilder
     }
 
     /**
-     * Initializes a new update catalog image response object.
+     * Initializes a new Update Catalog Image Response object.
      */
     public function build(): UpdateCatalogImageResponse
     {

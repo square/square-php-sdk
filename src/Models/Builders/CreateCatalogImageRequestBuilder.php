@@ -26,7 +26,10 @@ class CreateCatalogImageRequestBuilder
     }
 
     /**
-     * Initializes a new create catalog image request Builder object.
+     * Initializes a new Create Catalog Image Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param CatalogObject $image
      */
     public static function init(string $idempotencyKey, CatalogObject $image): self
     {
@@ -35,6 +38,8 @@ class CreateCatalogImageRequestBuilder
 
     /**
      * Sets object id field.
+     *
+     * @param string|null $value
      */
     public function objectId(?string $value): self
     {
@@ -44,6 +49,8 @@ class CreateCatalogImageRequestBuilder
 
     /**
      * Sets is primary field.
+     *
+     * @param bool|null $value
      */
     public function isPrimary(?bool $value): self
     {
@@ -52,7 +59,7 @@ class CreateCatalogImageRequestBuilder
     }
 
     /**
-     * Initializes a new create catalog image request object.
+     * Initializes a new Create Catalog Image Request object.
      */
     public function build(): CreateCatalogImageRequest
     {

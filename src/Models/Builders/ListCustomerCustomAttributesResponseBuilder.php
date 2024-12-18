@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CustomAttribute;
+use Square\Models\Error;
 use Square\Models\ListCustomerCustomAttributesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListCustomerCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new list customer custom attributes response Builder object.
+     * Initializes a new List Customer Custom Attributes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListCustomerCustomAttributesResponseBuilder
 
     /**
      * Sets custom attributes field.
+     *
+     * @param CustomAttribute[]|null $value
      */
     public function customAttributes(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListCustomerCustomAttributesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class ListCustomerCustomAttributesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -60,7 +68,7 @@ class ListCustomerCustomAttributesResponseBuilder
     }
 
     /**
-     * Initializes a new list customer custom attributes response object.
+     * Initializes a new List Customer Custom Attributes Response object.
      */
     public function build(): ListCustomerCustomAttributesResponse
     {

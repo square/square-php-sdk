@@ -25,7 +25,7 @@ class InvoiceSortBuilder
     }
 
     /**
-     * Initializes a new invoice sort Builder object.
+     * Initializes a new Invoice Sort Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class InvoiceSortBuilder
 
     /**
      * Sets order field.
+     *
+     * @param string|null $value
      */
     public function order(?string $value): self
     {
@@ -42,7 +44,7 @@ class InvoiceSortBuilder
     }
 
     /**
-     * Initializes a new invoice sort object.
+     * Initializes a new Invoice Sort object.
      */
     public function build(): InvoiceSort
     {

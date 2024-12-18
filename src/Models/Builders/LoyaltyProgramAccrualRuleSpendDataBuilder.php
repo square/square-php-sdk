@@ -26,7 +26,10 @@ class LoyaltyProgramAccrualRuleSpendDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule spend data Builder object.
+     * Initializes a new Loyalty Program Accrual Rule Spend Data Builder object.
+     *
+     * @param Money $amountMoney
+     * @param string $taxMode
      */
     public static function init(Money $amountMoney, string $taxMode): self
     {
@@ -35,6 +38,8 @@ class LoyaltyProgramAccrualRuleSpendDataBuilder
 
     /**
      * Sets excluded category ids field.
+     *
+     * @param string[]|null $value
      */
     public function excludedCategoryIds(?array $value): self
     {
@@ -53,6 +58,8 @@ class LoyaltyProgramAccrualRuleSpendDataBuilder
 
     /**
      * Sets excluded item variation ids field.
+     *
+     * @param string[]|null $value
      */
     public function excludedItemVariationIds(?array $value): self
     {
@@ -70,7 +77,7 @@ class LoyaltyProgramAccrualRuleSpendDataBuilder
     }
 
     /**
-     * Initializes a new loyalty program accrual rule spend data object.
+     * Initializes a new Loyalty Program Accrual Rule Spend Data object.
      */
     public function build(): LoyaltyProgramAccrualRuleSpendData
     {

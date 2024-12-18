@@ -25,7 +25,7 @@ class CatalogTimePeriodBuilder
     }
 
     /**
-     * Initializes a new catalog time period Builder object.
+     * Initializes a new Catalog Time Period Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogTimePeriodBuilder
 
     /**
      * Sets event field.
+     *
+     * @param string|null $value
      */
     public function event(?string $value): self
     {
@@ -51,7 +53,7 @@ class CatalogTimePeriodBuilder
     }
 
     /**
-     * Initializes a new catalog time period object.
+     * Initializes a new Catalog Time Period object.
      */
     public function build(): CatalogTimePeriod
     {

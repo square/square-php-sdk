@@ -25,7 +25,7 @@ class EventTypeMetadataBuilder
     }
 
     /**
-     * Initializes a new event type metadata Builder object.
+     * Initializes a new Event Type Metadata Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class EventTypeMetadataBuilder
 
     /**
      * Sets event type field.
+     *
+     * @param string|null $value
      */
     public function eventType(?string $value): self
     {
@@ -43,6 +45,8 @@ class EventTypeMetadataBuilder
 
     /**
      * Sets api version introduced field.
+     *
+     * @param string|null $value
      */
     public function apiVersionIntroduced(?string $value): self
     {
@@ -52,6 +56,8 @@ class EventTypeMetadataBuilder
 
     /**
      * Sets release status field.
+     *
+     * @param string|null $value
      */
     public function releaseStatus(?string $value): self
     {
@@ -60,7 +66,7 @@ class EventTypeMetadataBuilder
     }
 
     /**
-     * Initializes a new event type metadata object.
+     * Initializes a new Event Type Metadata object.
      */
     public function build(): EventTypeMetadata
     {

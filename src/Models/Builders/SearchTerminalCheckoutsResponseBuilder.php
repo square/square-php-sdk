@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchTerminalCheckoutsResponse;
+use Square\Models\TerminalCheckout;
 
 /**
  * Builder for model SearchTerminalCheckoutsResponse
@@ -25,7 +27,7 @@ class SearchTerminalCheckoutsResponseBuilder
     }
 
     /**
-     * Initializes a new search terminal checkouts response Builder object.
+     * Initializes a new Search Terminal Checkouts Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchTerminalCheckoutsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchTerminalCheckoutsResponseBuilder
 
     /**
      * Sets checkouts field.
+     *
+     * @param TerminalCheckout[]|null $value
      */
     public function checkouts(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchTerminalCheckoutsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class SearchTerminalCheckoutsResponseBuilder
     }
 
     /**
-     * Initializes a new search terminal checkouts response object.
+     * Initializes a new Search Terminal Checkouts Response object.
      */
     public function build(): SearchTerminalCheckoutsResponse
     {

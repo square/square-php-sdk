@@ -25,7 +25,7 @@ class CatalogCustomAttributeDefinitionNumberConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition number config Builder object.
+     * Initializes a new Catalog Custom Attribute Definition Number Config Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogCustomAttributeDefinitionNumberConfigBuilder
 
     /**
      * Sets precision field.
+     *
+     * @param int|null $value
      */
     public function precision(?int $value): self
     {
@@ -51,7 +53,7 @@ class CatalogCustomAttributeDefinitionNumberConfigBuilder
     }
 
     /**
-     * Initializes a new catalog custom attribute definition number config object.
+     * Initializes a new Catalog Custom Attribute Definition Number Config object.
      */
     public function build(): CatalogCustomAttributeDefinitionNumberConfig
     {

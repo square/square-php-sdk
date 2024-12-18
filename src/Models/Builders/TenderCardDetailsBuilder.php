@@ -26,7 +26,7 @@ class TenderCardDetailsBuilder
     }
 
     /**
-     * Initializes a new tender card details Builder object.
+     * Initializes a new Tender Card Details Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class TenderCardDetailsBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -44,6 +46,8 @@ class TenderCardDetailsBuilder
 
     /**
      * Sets card field.
+     *
+     * @param Card|null $value
      */
     public function card(?Card $value): self
     {
@@ -53,6 +57,8 @@ class TenderCardDetailsBuilder
 
     /**
      * Sets entry method field.
+     *
+     * @param string|null $value
      */
     public function entryMethod(?string $value): self
     {
@@ -61,7 +67,7 @@ class TenderCardDetailsBuilder
     }
 
     /**
-     * Initializes a new tender card details object.
+     * Initializes a new Tender Card Details object.
      */
     public function build(): TenderCardDetails
     {

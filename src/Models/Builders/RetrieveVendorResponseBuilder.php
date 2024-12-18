@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveVendorResponse;
 use Square\Models\Vendor;
 
@@ -26,7 +27,7 @@ class RetrieveVendorResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve vendor response Builder object.
+     * Initializes a new Retrieve Vendor Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveVendorResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveVendorResponseBuilder
 
     /**
      * Sets vendor field.
+     *
+     * @param Vendor|null $value
      */
     public function vendor(?Vendor $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveVendorResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve vendor response object.
+     * Initializes a new Retrieve Vendor Response object.
      */
     public function build(): RetrieveVendorResponse
     {

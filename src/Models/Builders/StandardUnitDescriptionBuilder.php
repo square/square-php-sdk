@@ -26,7 +26,7 @@ class StandardUnitDescriptionBuilder
     }
 
     /**
-     * Initializes a new standard unit description Builder object.
+     * Initializes a new Standard Unit Description Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class StandardUnitDescriptionBuilder
 
     /**
      * Sets unit field.
+     *
+     * @param MeasurementUnit|null $value
      */
     public function unit(?MeasurementUnit $value): self
     {
@@ -44,6 +46,8 @@ class StandardUnitDescriptionBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -62,6 +66,8 @@ class StandardUnitDescriptionBuilder
 
     /**
      * Sets abbreviation field.
+     *
+     * @param string|null $value
      */
     public function abbreviation(?string $value): self
     {
@@ -79,7 +85,7 @@ class StandardUnitDescriptionBuilder
     }
 
     /**
-     * Initializes a new standard unit description object.
+     * Initializes a new Standard Unit Description object.
      */
     public function build(): StandardUnitDescription
     {

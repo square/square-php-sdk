@@ -25,7 +25,9 @@ class LoyaltyProgramExpirationPolicyBuilder
     }
 
     /**
-     * Initializes a new loyalty program expiration policy Builder object.
+     * Initializes a new Loyalty Program Expiration Policy Builder object.
+     *
+     * @param string $expirationDuration
      */
     public static function init(string $expirationDuration): self
     {
@@ -33,7 +35,7 @@ class LoyaltyProgramExpirationPolicyBuilder
     }
 
     /**
-     * Initializes a new loyalty program expiration policy object.
+     * Initializes a new Loyalty Program Expiration Policy object.
      */
     public function build(): LoyaltyProgramExpirationPolicy
     {

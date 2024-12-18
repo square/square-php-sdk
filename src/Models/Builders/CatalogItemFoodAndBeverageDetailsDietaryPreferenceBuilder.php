@@ -25,7 +25,7 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreferenceBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details dietary preference Builder object.
+     * Initializes a new Catalog Item Food And Beverage Details Dietary Preference Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreferenceBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -43,6 +45,8 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreferenceBuilder
 
     /**
      * Sets standard name field.
+     *
+     * @param string|null $value
      */
     public function standardName(?string $value): self
     {
@@ -52,6 +56,8 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreferenceBuilder
 
     /**
      * Sets custom name field.
+     *
+     * @param string|null $value
      */
     public function customName(?string $value): self
     {
@@ -69,7 +75,7 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreferenceBuilder
     }
 
     /**
-     * Initializes a new catalog item food and beverage details dietary preference object.
+     * Initializes a new Catalog Item Food And Beverage Details Dietary Preference object.
      */
     public function build(): CatalogItemFoodAndBeverageDetailsDietaryPreference
     {

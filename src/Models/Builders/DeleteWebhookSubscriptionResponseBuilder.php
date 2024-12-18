@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeleteWebhookSubscriptionResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeleteWebhookSubscriptionResponse
@@ -25,7 +26,7 @@ class DeleteWebhookSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new delete webhook subscription response Builder object.
+     * Initializes a new Delete Webhook Subscription Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeleteWebhookSubscriptionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class DeleteWebhookSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new delete webhook subscription response object.
+     * Initializes a new Delete Webhook Subscription Response object.
      */
     public function build(): DeleteWebhookSubscriptionResponse
     {

@@ -25,7 +25,9 @@ class ListInvoicesRequestBuilder
     }
 
     /**
-     * Initializes a new list invoices request Builder object.
+     * Initializes a new List Invoices Request Builder object.
+     *
+     * @param string $locationId
      */
     public static function init(string $locationId): self
     {
@@ -34,6 +36,8 @@ class ListInvoicesRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +56,8 @@ class ListInvoicesRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -69,7 +75,7 @@ class ListInvoicesRequestBuilder
     }
 
     /**
-     * Initializes a new list invoices request object.
+     * Initializes a new List Invoices Request object.
      */
     public function build(): ListInvoicesRequest
     {

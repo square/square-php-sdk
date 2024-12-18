@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BusinessBookingProfile;
+use Square\Models\Error;
 use Square\Models\RetrieveBusinessBookingProfileResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveBusinessBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve business booking profile response Builder object.
+     * Initializes a new Retrieve Business Booking Profile Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveBusinessBookingProfileResponseBuilder
 
     /**
      * Sets business booking profile field.
+     *
+     * @param BusinessBookingProfile|null $value
      */
     public function businessBookingProfile(?BusinessBookingProfile $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveBusinessBookingProfileResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveBusinessBookingProfileResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve business booking profile response object.
+     * Initializes a new Retrieve Business Booking Profile Response object.
      */
     public function build(): RetrieveBusinessBookingProfileResponse
     {

@@ -25,7 +25,7 @@ class TimeRangeBuilder
     }
 
     /**
-     * Initializes a new time range Builder object.
+     * Initializes a new Time Range Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class TimeRangeBuilder
 
     /**
      * Sets start at field.
+     *
+     * @param string|null $value
      */
     public function startAt(?string $value): self
     {
@@ -52,6 +54,8 @@ class TimeRangeBuilder
 
     /**
      * Sets end at field.
+     *
+     * @param string|null $value
      */
     public function endAt(?string $value): self
     {
@@ -69,7 +73,7 @@ class TimeRangeBuilder
     }
 
     /**
-     * Initializes a new time range object.
+     * Initializes a new Time Range object.
      */
     public function build(): TimeRange
     {

@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\PauseSubscriptionResponse;
 use Square\Models\Subscription;
+use Square\Models\SubscriptionAction;
 
 /**
  * Builder for model PauseSubscriptionResponse
@@ -26,7 +28,7 @@ class PauseSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new pause subscription response Builder object.
+     * Initializes a new Pause Subscription Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class PauseSubscriptionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +48,8 @@ class PauseSubscriptionResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -53,6 +59,8 @@ class PauseSubscriptionResponseBuilder
 
     /**
      * Sets actions field.
+     *
+     * @param SubscriptionAction[]|null $value
      */
     public function actions(?array $value): self
     {
@@ -61,7 +69,7 @@ class PauseSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new pause subscription response object.
+     * Initializes a new Pause Subscription Response object.
      */
     public function build(): PauseSubscriptionResponse
     {

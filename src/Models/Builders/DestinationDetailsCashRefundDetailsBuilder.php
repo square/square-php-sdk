@@ -26,7 +26,9 @@ class DestinationDetailsCashRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details cash refund details Builder object.
+     * Initializes a new Destination Details Cash Refund Details Builder object.
+     *
+     * @param Money $sellerSuppliedMoney
      */
     public static function init(Money $sellerSuppliedMoney): self
     {
@@ -35,6 +37,8 @@ class DestinationDetailsCashRefundDetailsBuilder
 
     /**
      * Sets change back money field.
+     *
+     * @param Money|null $value
      */
     public function changeBackMoney(?Money $value): self
     {
@@ -43,7 +47,7 @@ class DestinationDetailsCashRefundDetailsBuilder
     }
 
     /**
-     * Initializes a new destination details cash refund details object.
+     * Initializes a new Destination Details Cash Refund Details object.
      */
     public function build(): DestinationDetailsCashRefundDetails
     {

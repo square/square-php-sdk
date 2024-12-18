@@ -41,7 +41,10 @@ class GiftCardActivityBuilder
     }
 
     /**
-     * Initializes a new gift card activity Builder object.
+     * Initializes a new Gift Card Activity Builder object.
+     *
+     * @param string $type
+     * @param string $locationId
      */
     public static function init(string $type, string $locationId): self
     {
@@ -50,6 +53,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -59,6 +64,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -68,6 +75,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets gift card id field.
+     *
+     * @param string|null $value
      */
     public function giftCardId(?string $value): self
     {
@@ -86,6 +95,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets gift card gan field.
+     *
+     * @param string|null $value
      */
     public function giftCardGan(?string $value): self
     {
@@ -104,6 +115,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets gift card balance money field.
+     *
+     * @param Money|null $value
      */
     public function giftCardBalanceMoney(?Money $value): self
     {
@@ -113,6 +126,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets load activity details field.
+     *
+     * @param GiftCardActivityLoad|null $value
      */
     public function loadActivityDetails(?GiftCardActivityLoad $value): self
     {
@@ -122,6 +137,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets activate activity details field.
+     *
+     * @param GiftCardActivityActivate|null $value
      */
     public function activateActivityDetails(?GiftCardActivityActivate $value): self
     {
@@ -131,6 +148,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets redeem activity details field.
+     *
+     * @param GiftCardActivityRedeem|null $value
      */
     public function redeemActivityDetails(?GiftCardActivityRedeem $value): self
     {
@@ -140,6 +159,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets clear balance activity details field.
+     *
+     * @param GiftCardActivityClearBalance|null $value
      */
     public function clearBalanceActivityDetails(?GiftCardActivityClearBalance $value): self
     {
@@ -149,6 +170,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets deactivate activity details field.
+     *
+     * @param GiftCardActivityDeactivate|null $value
      */
     public function deactivateActivityDetails(?GiftCardActivityDeactivate $value): self
     {
@@ -158,6 +181,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets adjust increment activity details field.
+     *
+     * @param GiftCardActivityAdjustIncrement|null $value
      */
     public function adjustIncrementActivityDetails(?GiftCardActivityAdjustIncrement $value): self
     {
@@ -167,6 +192,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets adjust decrement activity details field.
+     *
+     * @param GiftCardActivityAdjustDecrement|null $value
      */
     public function adjustDecrementActivityDetails(?GiftCardActivityAdjustDecrement $value): self
     {
@@ -176,6 +203,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets refund activity details field.
+     *
+     * @param GiftCardActivityRefund|null $value
      */
     public function refundActivityDetails(?GiftCardActivityRefund $value): self
     {
@@ -185,6 +214,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets unlinked activity refund activity details field.
+     *
+     * @param GiftCardActivityUnlinkedActivityRefund|null $value
      */
     public function unlinkedActivityRefundActivityDetails(?GiftCardActivityUnlinkedActivityRefund $value): self
     {
@@ -194,6 +225,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets import activity details field.
+     *
+     * @param GiftCardActivityImport|null $value
      */
     public function importActivityDetails(?GiftCardActivityImport $value): self
     {
@@ -203,6 +236,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets block activity details field.
+     *
+     * @param GiftCardActivityBlock|null $value
      */
     public function blockActivityDetails(?GiftCardActivityBlock $value): self
     {
@@ -212,6 +247,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets unblock activity details field.
+     *
+     * @param GiftCardActivityUnblock|null $value
      */
     public function unblockActivityDetails(?GiftCardActivityUnblock $value): self
     {
@@ -221,6 +258,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets import reversal activity details field.
+     *
+     * @param GiftCardActivityImportReversal|null $value
      */
     public function importReversalActivityDetails(?GiftCardActivityImportReversal $value): self
     {
@@ -230,6 +269,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets transfer balance to activity details field.
+     *
+     * @param GiftCardActivityTransferBalanceTo|null $value
      */
     public function transferBalanceToActivityDetails(?GiftCardActivityTransferBalanceTo $value): self
     {
@@ -239,6 +280,8 @@ class GiftCardActivityBuilder
 
     /**
      * Sets transfer balance from activity details field.
+     *
+     * @param GiftCardActivityTransferBalanceFrom|null $value
      */
     public function transferBalanceFromActivityDetails(?GiftCardActivityTransferBalanceFrom $value): self
     {
@@ -247,7 +290,7 @@ class GiftCardActivityBuilder
     }
 
     /**
-     * Initializes a new gift card activity object.
+     * Initializes a new Gift Card Activity object.
      */
     public function build(): GiftCardActivity
     {

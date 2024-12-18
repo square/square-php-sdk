@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\UpdateWorkweekConfigResponse;
 use Square\Models\WorkweekConfig;
 
@@ -26,7 +27,7 @@ class UpdateWorkweekConfigResponseBuilder
     }
 
     /**
-     * Initializes a new update workweek config response Builder object.
+     * Initializes a new Update Workweek Config Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class UpdateWorkweekConfigResponseBuilder
 
     /**
      * Sets workweek config field.
+     *
+     * @param WorkweekConfig|null $value
      */
     public function workweekConfig(?WorkweekConfig $value): self
     {
@@ -44,6 +47,8 @@ class UpdateWorkweekConfigResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class UpdateWorkweekConfigResponseBuilder
     }
 
     /**
-     * Initializes a new update workweek config response object.
+     * Initializes a new Update Workweek Config Response object.
      */
     public function build(): UpdateWorkweekConfigResponse
     {

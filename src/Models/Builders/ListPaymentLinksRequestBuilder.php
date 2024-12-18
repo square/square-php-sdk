@@ -25,7 +25,7 @@ class ListPaymentLinksRequestBuilder
     }
 
     /**
-     * Initializes a new list payment links request Builder object.
+     * Initializes a new List Payment Links Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListPaymentLinksRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +54,8 @@ class ListPaymentLinksRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -69,7 +73,7 @@ class ListPaymentLinksRequestBuilder
     }
 
     /**
-     * Initializes a new list payment links request object.
+     * Initializes a new List Payment Links Request object.
      */
     public function build(): ListPaymentLinksRequest
     {

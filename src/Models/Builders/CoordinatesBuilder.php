@@ -25,7 +25,7 @@ class CoordinatesBuilder
     }
 
     /**
-     * Initializes a new coordinates Builder object.
+     * Initializes a new Coordinates Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CoordinatesBuilder
 
     /**
      * Sets latitude field.
+     *
+     * @param float|null $value
      */
     public function latitude(?float $value): self
     {
@@ -52,6 +54,8 @@ class CoordinatesBuilder
 
     /**
      * Sets longitude field.
+     *
+     * @param float|null $value
      */
     public function longitude(?float $value): self
     {
@@ -69,7 +73,7 @@ class CoordinatesBuilder
     }
 
     /**
-     * Initializes a new coordinates object.
+     * Initializes a new Coordinates object.
      */
     public function build(): Coordinates
     {

@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\DeletePaymentLinkResponse;
+use Square\Models\Error;
 
 /**
  * Builder for model DeletePaymentLinkResponse
@@ -25,7 +26,7 @@ class DeletePaymentLinkResponseBuilder
     }
 
     /**
-     * Initializes a new delete payment link response Builder object.
+     * Initializes a new Delete Payment Link Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class DeletePaymentLinkResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class DeletePaymentLinkResponseBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -52,6 +57,8 @@ class DeletePaymentLinkResponseBuilder
 
     /**
      * Sets cancelled order id field.
+     *
+     * @param string|null $value
      */
     public function cancelledOrderId(?string $value): self
     {
@@ -60,7 +67,7 @@ class DeletePaymentLinkResponseBuilder
     }
 
     /**
-     * Initializes a new delete payment link response object.
+     * Initializes a new Delete Payment Link Response object.
      */
     public function build(): DeletePaymentLinkResponse
     {

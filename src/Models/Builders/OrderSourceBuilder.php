@@ -25,7 +25,7 @@ class OrderSourceBuilder
     }
 
     /**
-     * Initializes a new order source Builder object.
+     * Initializes a new Order Source Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class OrderSourceBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -51,7 +53,7 @@ class OrderSourceBuilder
     }
 
     /**
-     * Initializes a new order source object.
+     * Initializes a new Order Source object.
      */
     public function build(): OrderSource
     {

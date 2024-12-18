@@ -27,8 +27,11 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert merchant custom attributes request merchant custom attribute upsert
-     * request Builder object.
+     * Initializes a new Bulk Upsert Merchant Custom Attributes Request Merchant Custom Attribute Upsert
+     * Request Builder object.
+     *
+     * @param string $merchantId
+     * @param CustomAttribute $customAttribute
      */
     public static function init(string $merchantId, CustomAttribute $customAttribute): self
     {
@@ -40,6 +43,8 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -57,8 +62,8 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
     }
 
     /**
-     * Initializes a new bulk upsert merchant custom attributes request merchant custom attribute upsert
-     * request object.
+     * Initializes a new Bulk Upsert Merchant Custom Attributes Request Merchant Custom Attribute Upsert
+     * Request object.
      */
     public function build(): BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequest
     {

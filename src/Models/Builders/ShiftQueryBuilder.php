@@ -27,7 +27,7 @@ class ShiftQueryBuilder
     }
 
     /**
-     * Initializes a new shift query Builder object.
+     * Initializes a new Shift Query Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class ShiftQueryBuilder
 
     /**
      * Sets filter field.
+     *
+     * @param ShiftFilter|null $value
      */
     public function filter(?ShiftFilter $value): self
     {
@@ -45,6 +47,8 @@ class ShiftQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param ShiftSort|null $value
      */
     public function sort(?ShiftSort $value): self
     {
@@ -53,7 +57,7 @@ class ShiftQueryBuilder
     }
 
     /**
-     * Initializes a new shift query object.
+     * Initializes a new Shift Query object.
      */
     public function build(): ShiftQuery
     {

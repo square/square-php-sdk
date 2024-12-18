@@ -27,7 +27,7 @@ class CashDrawerShiftBuilder
     }
 
     /**
-     * Initializes a new cash drawer shift Builder object.
+     * Initializes a new Cash Drawer Shift Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +47,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -54,6 +58,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets opened at field.
+     *
+     * @param string|null $value
      */
     public function openedAt(?string $value): self
     {
@@ -72,6 +78,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets ended at field.
+     *
+     * @param string|null $value
      */
     public function endedAt(?string $value): self
     {
@@ -90,6 +98,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets closed at field.
+     *
+     * @param string|null $value
      */
     public function closedAt(?string $value): self
     {
@@ -108,6 +118,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -126,6 +138,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets opened cash money field.
+     *
+     * @param Money|null $value
      */
     public function openedCashMoney(?Money $value): self
     {
@@ -135,6 +149,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets cash payment money field.
+     *
+     * @param Money|null $value
      */
     public function cashPaymentMoney(?Money $value): self
     {
@@ -144,6 +160,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets cash refunds money field.
+     *
+     * @param Money|null $value
      */
     public function cashRefundsMoney(?Money $value): self
     {
@@ -153,6 +171,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets cash paid in money field.
+     *
+     * @param Money|null $value
      */
     public function cashPaidInMoney(?Money $value): self
     {
@@ -162,6 +182,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets cash paid out money field.
+     *
+     * @param Money|null $value
      */
     public function cashPaidOutMoney(?Money $value): self
     {
@@ -171,6 +193,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets expected cash money field.
+     *
+     * @param Money|null $value
      */
     public function expectedCashMoney(?Money $value): self
     {
@@ -180,6 +204,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets closed cash money field.
+     *
+     * @param Money|null $value
      */
     public function closedCashMoney(?Money $value): self
     {
@@ -189,6 +215,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets device field.
+     *
+     * @param CashDrawerDevice|null $value
      */
     public function device(?CashDrawerDevice $value): self
     {
@@ -198,6 +226,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -207,6 +237,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -216,6 +248,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -225,6 +259,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets team member ids field.
+     *
+     * @param string[]|null $value
      */
     public function teamMemberIds(?array $value): self
     {
@@ -234,6 +270,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets opening team member id field.
+     *
+     * @param string|null $value
      */
     public function openingTeamMemberId(?string $value): self
     {
@@ -243,6 +281,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets ending team member id field.
+     *
+     * @param string|null $value
      */
     public function endingTeamMemberId(?string $value): self
     {
@@ -252,6 +292,8 @@ class CashDrawerShiftBuilder
 
     /**
      * Sets closing team member id field.
+     *
+     * @param string|null $value
      */
     public function closingTeamMemberId(?string $value): self
     {
@@ -260,7 +302,7 @@ class CashDrawerShiftBuilder
     }
 
     /**
-     * Initializes a new cash drawer shift object.
+     * Initializes a new Cash Drawer Shift object.
      */
     public function build(): CashDrawerShift
     {

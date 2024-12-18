@@ -25,7 +25,7 @@ class CancelBookingRequestBuilder
     }
 
     /**
-     * Initializes a new cancel booking request Builder object.
+     * Initializes a new Cancel Booking Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CancelBookingRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,6 +54,8 @@ class CancelBookingRequestBuilder
 
     /**
      * Sets booking version field.
+     *
+     * @param int|null $value
      */
     public function bookingVersion(?int $value): self
     {
@@ -69,7 +73,7 @@ class CancelBookingRequestBuilder
     }
 
     /**
-     * Initializes a new cancel booking request object.
+     * Initializes a new Cancel Booking Request object.
      */
     public function build(): CancelBookingRequest
     {

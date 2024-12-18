@@ -28,7 +28,10 @@ class RefundPaymentRequestBuilder
     }
 
     /**
-     * Initializes a new refund payment request Builder object.
+     * Initializes a new Refund Payment Request Builder object.
+     *
+     * @param string $idempotencyKey
+     * @param Money $amountMoney
      */
     public static function init(string $idempotencyKey, Money $amountMoney): self
     {
@@ -37,6 +40,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets app fee money field.
+     *
+     * @param Money|null $value
      */
     public function appFeeMoney(?Money $value): self
     {
@@ -46,6 +51,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -64,6 +71,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets destination id field.
+     *
+     * @param string|null $value
      */
     public function destinationId(?string $value): self
     {
@@ -82,6 +91,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets unlinked field.
+     *
+     * @param bool|null $value
      */
     public function unlinked(?bool $value): self
     {
@@ -100,6 +111,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -118,6 +131,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets customer id field.
+     *
+     * @param string|null $value
      */
     public function customerId(?string $value): self
     {
@@ -136,6 +151,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets reason field.
+     *
+     * @param string|null $value
      */
     public function reason(?string $value): self
     {
@@ -154,6 +171,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets payment version token field.
+     *
+     * @param string|null $value
      */
     public function paymentVersionToken(?string $value): self
     {
@@ -172,6 +191,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets team member id field.
+     *
+     * @param string|null $value
      */
     public function teamMemberId(?string $value): self
     {
@@ -190,6 +211,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets cash details field.
+     *
+     * @param DestinationDetailsCashRefundDetails|null $value
      */
     public function cashDetails(?DestinationDetailsCashRefundDetails $value): self
     {
@@ -199,6 +222,8 @@ class RefundPaymentRequestBuilder
 
     /**
      * Sets external details field.
+     *
+     * @param DestinationDetailsExternalRefundDetails|null $value
      */
     public function externalDetails(?DestinationDetailsExternalRefundDetails $value): self
     {
@@ -207,7 +232,7 @@ class RefundPaymentRequestBuilder
     }
 
     /**
-     * Initializes a new refund payment request object.
+     * Initializes a new Refund Payment Request object.
      */
     public function build(): RefundPaymentRequest
     {

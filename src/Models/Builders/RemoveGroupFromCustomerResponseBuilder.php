@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RemoveGroupFromCustomerResponse;
 
 /**
@@ -25,7 +26,7 @@ class RemoveGroupFromCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new remove group from customer response Builder object.
+     * Initializes a new Remove Group From Customer Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class RemoveGroupFromCustomerResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -42,7 +45,7 @@ class RemoveGroupFromCustomerResponseBuilder
     }
 
     /**
-     * Initializes a new remove group from customer response object.
+     * Initializes a new Remove Group From Customer Response object.
      */
     public function build(): RemoveGroupFromCustomerResponse
     {

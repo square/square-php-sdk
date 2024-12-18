@@ -26,7 +26,10 @@ class CreateLoyaltyPromotionRequestBuilder
     }
 
     /**
-     * Initializes a new create loyalty promotion request Builder object.
+     * Initializes a new Create Loyalty Promotion Request Builder object.
+     *
+     * @param LoyaltyPromotion $loyaltyPromotion
+     * @param string $idempotencyKey
      */
     public static function init(LoyaltyPromotion $loyaltyPromotion, string $idempotencyKey): self
     {
@@ -34,7 +37,7 @@ class CreateLoyaltyPromotionRequestBuilder
     }
 
     /**
-     * Initializes a new create loyalty promotion request object.
+     * Initializes a new Create Loyalty Promotion Request object.
      */
     public function build(): CreateLoyaltyPromotionRequest
     {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\PhaseInput;
 use Square\Models\SwapPlanRequest;
 
 /**
@@ -25,7 +26,7 @@ class SwapPlanRequestBuilder
     }
 
     /**
-     * Initializes a new swap plan request Builder object.
+     * Initializes a new Swap Plan Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class SwapPlanRequestBuilder
 
     /**
      * Sets new plan variation id field.
+     *
+     * @param string|null $value
      */
     public function newPlanVariationId(?string $value): self
     {
@@ -52,6 +55,8 @@ class SwapPlanRequestBuilder
 
     /**
      * Sets phases field.
+     *
+     * @param PhaseInput[]|null $value
      */
     public function phases(?array $value): self
     {
@@ -69,7 +74,7 @@ class SwapPlanRequestBuilder
     }
 
     /**
-     * Initializes a new swap plan request object.
+     * Initializes a new Swap Plan Request object.
      */
     public function build(): SwapPlanRequest
     {

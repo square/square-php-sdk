@@ -25,7 +25,9 @@ class UpdateItemModifierListsRequestBuilder
     }
 
     /**
-     * Initializes a new update item modifier lists request Builder object.
+     * Initializes a new Update Item Modifier Lists Request Builder object.
+     *
+     * @param string[] $itemIds
      */
     public static function init(array $itemIds): self
     {
@@ -34,6 +36,8 @@ class UpdateItemModifierListsRequestBuilder
 
     /**
      * Sets modifier lists to enable field.
+     *
+     * @param string[]|null $value
      */
     public function modifierListsToEnable(?array $value): self
     {
@@ -52,6 +56,8 @@ class UpdateItemModifierListsRequestBuilder
 
     /**
      * Sets modifier lists to disable field.
+     *
+     * @param string[]|null $value
      */
     public function modifierListsToDisable(?array $value): self
     {
@@ -69,7 +75,7 @@ class UpdateItemModifierListsRequestBuilder
     }
 
     /**
-     * Initializes a new update item modifier lists request object.
+     * Initializes a new Update Item Modifier Lists Request object.
      */
     public function build(): UpdateItemModifierListsRequest
     {

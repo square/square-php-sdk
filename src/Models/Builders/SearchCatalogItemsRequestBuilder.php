@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CustomAttributeFilter;
 use Square\Models\SearchCatalogItemsRequest;
 
 /**
@@ -25,7 +26,7 @@ class SearchCatalogItemsRequestBuilder
     }
 
     /**
-     * Initializes a new search catalog items request Builder object.
+     * Initializes a new Search Catalog Items Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets text filter field.
+     *
+     * @param string|null $value
      */
     public function textFilter(?string $value): self
     {
@@ -43,6 +46,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets category ids field.
+     *
+     * @param string[]|null $value
      */
     public function categoryIds(?array $value): self
     {
@@ -52,6 +57,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets stock levels field.
+     *
+     * @param string[]|null $value
      */
     public function stockLevels(?array $value): self
     {
@@ -61,6 +68,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets enabled location ids field.
+     *
+     * @param string[]|null $value
      */
     public function enabledLocationIds(?array $value): self
     {
@@ -70,6 +79,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -79,6 +90,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -88,6 +101,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets sort order field.
+     *
+     * @param string|null $value
      */
     public function sortOrder(?string $value): self
     {
@@ -97,6 +112,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets product types field.
+     *
+     * @param string[]|null $value
      */
     public function productTypes(?array $value): self
     {
@@ -106,6 +123,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets custom attribute filters field.
+     *
+     * @param CustomAttributeFilter[]|null $value
      */
     public function customAttributeFilters(?array $value): self
     {
@@ -115,6 +134,8 @@ class SearchCatalogItemsRequestBuilder
 
     /**
      * Sets archived state field.
+     *
+     * @param string|null $value
      */
     public function archivedState(?string $value): self
     {
@@ -123,7 +144,7 @@ class SearchCatalogItemsRequestBuilder
     }
 
     /**
-     * Initializes a new search catalog items request object.
+     * Initializes a new Search Catalog Items Request object.
      */
     public function build(): SearchCatalogItemsRequest
     {

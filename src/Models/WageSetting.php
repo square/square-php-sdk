@@ -7,7 +7,8 @@ namespace Square\Models;
 use stdClass;
 
 /**
- * An object representing a team member's wage information.
+ * Represents information about the overtime exemption status, job assignments, and compensation
+ * for a [team member]($m/TeamMember).
  */
 class WageSetting implements \JsonSerializable
 {
@@ -43,7 +44,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Team Member Id.
-     * The unique ID of the `TeamMember` whom this wage setting describes.
+     * The ID of the team member associated with the wage setting.
      */
     public function getTeamMemberId(): ?string
     {
@@ -55,7 +56,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Team Member Id.
-     * The unique ID of the `TeamMember` whom this wage setting describes.
+     * The ID of the team member associated with the wage setting.
      *
      * @maps team_member_id
      */
@@ -66,7 +67,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Unsets Team Member Id.
-     * The unique ID of the `TeamMember` whom this wage setting describes.
+     * The ID of the team member associated with the wage setting.
      */
     public function unsetTeamMemberId(): void
     {
@@ -75,10 +76,8 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Job Assignments.
-     * Required. The ordered list of jobs that the team member is assigned to.
+     * **Required** The ordered list of jobs that the team member is assigned to.
      * The first job assignment is considered the team member's primary job.
-     *
-     * The minimum length is 1 and the maximum length is 12.
      *
      * @return JobAssignment[]|null
      */
@@ -92,10 +91,8 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Job Assignments.
-     * Required. The ordered list of jobs that the team member is assigned to.
+     * **Required** The ordered list of jobs that the team member is assigned to.
      * The first job assignment is considered the team member's primary job.
-     *
-     * The minimum length is 1 and the maximum length is 12.
      *
      * @maps job_assignments
      *
@@ -108,10 +105,8 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Unsets Job Assignments.
-     * Required. The ordered list of jobs that the team member is assigned to.
+     * **Required** The ordered list of jobs that the team member is assigned to.
      * The first job assignment is considered the team member's primary job.
-     *
-     * The minimum length is 1 and the maximum length is 12.
      */
     public function unsetJobAssignments(): void
     {
@@ -152,7 +147,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Version.
-     * Used for resolving concurrency issues. The request fails if the version
+     * **Read only** Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write, potentially overwriting data from another write. For more information,
      * see [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
@@ -165,7 +160,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Version.
-     * Used for resolving concurrency issues. The request fails if the version
+     * **Read only** Used for resolving concurrency issues. The request fails if the version
      * provided does not match the server version at the time of the request. If not provided,
      * Square executes a blind write, potentially overwriting data from another write. For more information,
      * see [optimistic concurrency](https://developer.squareup.com/docs/working-with-apis/optimistic-
@@ -180,8 +175,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Created At.
-     * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the wage setting was created, in RFC 3339 format.
      */
     public function getCreatedAt(): ?string
     {
@@ -190,8 +184,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Created At.
-     * The timestamp, in RFC 3339 format, describing when the wage setting object was created.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the wage setting was created, in RFC 3339 format.
      *
      * @maps created_at
      */
@@ -202,8 +195,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Returns Updated At.
-     * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the wage setting was last updated, in RFC 3339 format.
      */
     public function getUpdatedAt(): ?string
     {
@@ -212,8 +204,7 @@ class WageSetting implements \JsonSerializable
 
     /**
      * Sets Updated At.
-     * The timestamp, in RFC 3339 format, describing when the wage setting object was last updated.
-     * For example, "2018-10-04T04:00:00-07:00" or "2019-02-05T12:00:00Z".
+     * The timestamp when the wage setting was last updated, in RFC 3339 format.
      *
      * @maps updated_at
      */

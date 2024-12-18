@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\BulkCreateCustomerData;
 use Square\Models\BulkCreateCustomersRequest;
 
 /**
@@ -25,7 +26,9 @@ class BulkCreateCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create customers request Builder object.
+     * Initializes a new Bulk Create Customers Request Builder object.
+     *
+     * @param array<string,BulkCreateCustomerData> $customers
      */
     public static function init(array $customers): self
     {
@@ -33,7 +36,7 @@ class BulkCreateCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new bulk create customers request object.
+     * Initializes a new Bulk Create Customers Request object.
      */
     public function build(): BulkCreateCustomersRequest
     {

@@ -25,7 +25,11 @@ class QrCodeOptionsBuilder
     }
 
     /**
-     * Initializes a new qr code options Builder object.
+     * Initializes a new Qr Code Options Builder object.
+     *
+     * @param string $title
+     * @param string $body
+     * @param string $barcodeContents
      */
     public static function init(string $title, string $body, string $barcodeContents): self
     {
@@ -33,7 +37,7 @@ class QrCodeOptionsBuilder
     }
 
     /**
-     * Initializes a new qr code options object.
+     * Initializes a new Qr Code Options object.
      */
     public function build(): QrCodeOptions
     {

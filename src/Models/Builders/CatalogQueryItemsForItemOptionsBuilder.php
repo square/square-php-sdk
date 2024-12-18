@@ -25,7 +25,7 @@ class CatalogQueryItemsForItemOptionsBuilder
     }
 
     /**
-     * Initializes a new catalog query items for item options Builder object.
+     * Initializes a new Catalog Query Items For Item Options Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class CatalogQueryItemsForItemOptionsBuilder
 
     /**
      * Sets item option ids field.
+     *
+     * @param string[]|null $value
      */
     public function itemOptionIds(?array $value): self
     {
@@ -51,7 +53,7 @@ class CatalogQueryItemsForItemOptionsBuilder
     }
 
     /**
-     * Initializes a new catalog query items for item options object.
+     * Initializes a new Catalog Query Items For Item Options object.
      */
     public function build(): CatalogQueryItemsForItemOptions
     {

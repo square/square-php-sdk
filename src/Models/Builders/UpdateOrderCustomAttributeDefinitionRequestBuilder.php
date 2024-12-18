@@ -26,7 +26,9 @@ class UpdateOrderCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new update order custom attribute definition request Builder object.
+     * Initializes a new Update Order Custom Attribute Definition Request Builder object.
+     *
+     * @param CustomAttributeDefinition $customAttributeDefinition
      */
     public static function init(CustomAttributeDefinition $customAttributeDefinition): self
     {
@@ -35,6 +37,8 @@ class UpdateOrderCustomAttributeDefinitionRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpdateOrderCustomAttributeDefinitionRequestBuilder
     }
 
     /**
-     * Initializes a new update order custom attribute definition request object.
+     * Initializes a new Update Order Custom Attribute Definition Request object.
      */
     public function build(): UpdateOrderCustomAttributeDefinitionRequest
     {

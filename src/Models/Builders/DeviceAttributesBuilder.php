@@ -25,7 +25,9 @@ class DeviceAttributesBuilder
     }
 
     /**
-     * Initializes a new device attributes Builder object.
+     * Initializes a new Device Attributes Builder object.
+     *
+     * @param string $manufacturer
      */
     public static function init(string $manufacturer): self
     {
@@ -34,6 +36,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets model field.
+     *
+     * @param string|null $value
      */
     public function model(?string $value): self
     {
@@ -52,6 +56,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -70,6 +76,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets manufacturers id field.
+     *
+     * @param string|null $value
      */
     public function manufacturersId(?string $value): self
     {
@@ -88,6 +96,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -97,6 +107,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets version field.
+     *
+     * @param string|null $value
      */
     public function version(?string $value): self
     {
@@ -106,6 +118,8 @@ class DeviceAttributesBuilder
 
     /**
      * Sets merchant token field.
+     *
+     * @param string|null $value
      */
     public function merchantToken(?string $value): self
     {
@@ -123,7 +137,7 @@ class DeviceAttributesBuilder
     }
 
     /**
-     * Initializes a new device attributes object.
+     * Initializes a new Device Attributes object.
      */
     public function build(): DeviceAttributes
     {

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\CatalogObject;
+use Square\Models\Error;
 use Square\Models\SearchCatalogObjectsResponse;
 
 /**
@@ -25,7 +27,7 @@ class SearchCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new search catalog objects response Builder object.
+     * Initializes a new Search Catalog Objects Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchCatalogObjectsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchCatalogObjectsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -52,6 +58,8 @@ class SearchCatalogObjectsResponseBuilder
 
     /**
      * Sets objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function objects(?array $value): self
     {
@@ -61,6 +69,8 @@ class SearchCatalogObjectsResponseBuilder
 
     /**
      * Sets related objects field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function relatedObjects(?array $value): self
     {
@@ -70,6 +80,8 @@ class SearchCatalogObjectsResponseBuilder
 
     /**
      * Sets latest time field.
+     *
+     * @param string|null $value
      */
     public function latestTime(?string $value): self
     {
@@ -78,7 +90,7 @@ class SearchCatalogObjectsResponseBuilder
     }
 
     /**
-     * Initializes a new search catalog objects response object.
+     * Initializes a new Search Catalog Objects Response object.
      */
     public function build(): SearchCatalogObjectsResponse
     {

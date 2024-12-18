@@ -25,7 +25,7 @@ class ListEventTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list event types request Builder object.
+     * Initializes a new List Event Types Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class ListEventTypesRequestBuilder
 
     /**
      * Sets api version field.
+     *
+     * @param string|null $value
      */
     public function apiVersion(?string $value): self
     {
@@ -51,7 +53,7 @@ class ListEventTypesRequestBuilder
     }
 
     /**
-     * Initializes a new list event types request object.
+     * Initializes a new List Event Types Request object.
      */
     public function build(): ListEventTypesRequest
     {

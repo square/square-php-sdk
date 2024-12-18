@@ -26,7 +26,9 @@ class UpdateBreakTypeRequestBuilder
     }
 
     /**
-     * Initializes a new update break type request Builder object.
+     * Initializes a new Update Break Type Request Builder object.
+     *
+     * @param BreakType $breakType
      */
     public static function init(BreakType $breakType): self
     {
@@ -34,7 +36,7 @@ class UpdateBreakTypeRequestBuilder
     }
 
     /**
-     * Initializes a new update break type request object.
+     * Initializes a new Update Break Type Request object.
      */
     public function build(): UpdateBreakTypeRequest
     {

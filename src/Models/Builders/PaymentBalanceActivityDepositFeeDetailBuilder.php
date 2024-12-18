@@ -25,7 +25,7 @@ class PaymentBalanceActivityDepositFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity deposit fee detail Builder object.
+     * Initializes a new Payment Balance Activity Deposit Fee Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityDepositFeeDetailBuilder
 
     /**
      * Sets payout id field.
+     *
+     * @param string|null $value
      */
     public function payoutId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityDepositFeeDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity deposit fee detail object.
+     * Initializes a new Payment Balance Activity Deposit Fee Detail object.
      */
     public function build(): PaymentBalanceActivityDepositFeeDetail
     {

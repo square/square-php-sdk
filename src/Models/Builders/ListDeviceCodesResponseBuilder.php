@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\DeviceCode;
+use Square\Models\Error;
 use Square\Models\ListDeviceCodesResponse;
 
 /**
@@ -25,7 +27,7 @@ class ListDeviceCodesResponseBuilder
     }
 
     /**
-     * Initializes a new list device codes response Builder object.
+     * Initializes a new List Device Codes Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class ListDeviceCodesResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class ListDeviceCodesResponseBuilder
 
     /**
      * Sets device codes field.
+     *
+     * @param DeviceCode[]|null $value
      */
     public function deviceCodes(?array $value): self
     {
@@ -52,6 +58,8 @@ class ListDeviceCodesResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class ListDeviceCodesResponseBuilder
     }
 
     /**
-     * Initializes a new list device codes response object.
+     * Initializes a new List Device Codes Response object.
      */
     public function build(): ListDeviceCodesResponse
     {

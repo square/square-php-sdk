@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\ObtainTokenResponse;
 
 /**
@@ -25,7 +26,7 @@ class ObtainTokenResponseBuilder
     }
 
     /**
-     * Initializes a new obtain token response Builder object.
+     * Initializes a new Obtain Token Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets access token field.
+     *
+     * @param string|null $value
      */
     public function accessToken(?string $value): self
     {
@@ -43,6 +46,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets token type field.
+     *
+     * @param string|null $value
      */
     public function tokenType(?string $value): self
     {
@@ -52,6 +57,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets expires at field.
+     *
+     * @param string|null $value
      */
     public function expiresAt(?string $value): self
     {
@@ -61,6 +68,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -70,6 +79,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets subscription id field.
+     *
+     * @param string|null $value
      */
     public function subscriptionId(?string $value): self
     {
@@ -79,6 +90,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets plan id field.
+     *
+     * @param string|null $value
      */
     public function planId(?string $value): self
     {
@@ -88,6 +101,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets id token field.
+     *
+     * @param string|null $value
      */
     public function idToken(?string $value): self
     {
@@ -97,6 +112,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets refresh token field.
+     *
+     * @param string|null $value
      */
     public function refreshToken(?string $value): self
     {
@@ -106,6 +123,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets short lived field.
+     *
+     * @param bool|null $value
      */
     public function shortLived(?bool $value): self
     {
@@ -115,6 +134,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -124,6 +145,8 @@ class ObtainTokenResponseBuilder
 
     /**
      * Sets refresh token expires at field.
+     *
+     * @param string|null $value
      */
     public function refreshTokenExpiresAt(?string $value): self
     {
@@ -132,7 +155,7 @@ class ObtainTokenResponseBuilder
     }
 
     /**
-     * Initializes a new obtain token response object.
+     * Initializes a new Obtain Token Response object.
      */
     public function build(): ObtainTokenResponse
     {

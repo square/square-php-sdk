@@ -26,7 +26,7 @@ class SearchCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new search customers request Builder object.
+     * Initializes a new Search Customers Request Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class SearchCustomersRequestBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -44,6 +46,8 @@ class SearchCustomersRequestBuilder
 
     /**
      * Sets limit field.
+     *
+     * @param int|null $value
      */
     public function limit(?int $value): self
     {
@@ -53,6 +57,8 @@ class SearchCustomersRequestBuilder
 
     /**
      * Sets query field.
+     *
+     * @param CustomerQuery|null $value
      */
     public function query(?CustomerQuery $value): self
     {
@@ -62,6 +68,8 @@ class SearchCustomersRequestBuilder
 
     /**
      * Sets count field.
+     *
+     * @param bool|null $value
      */
     public function count(?bool $value): self
     {
@@ -70,7 +78,7 @@ class SearchCustomersRequestBuilder
     }
 
     /**
-     * Initializes a new search customers request object.
+     * Initializes a new Search Customers Request object.
      */
     public function build(): SearchCustomersRequest
     {

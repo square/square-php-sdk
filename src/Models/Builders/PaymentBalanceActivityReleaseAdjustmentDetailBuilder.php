@@ -25,7 +25,7 @@ class PaymentBalanceActivityReleaseAdjustmentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity release adjustment detail Builder object.
+     * Initializes a new Payment Balance Activity Release Adjustment Detail Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PaymentBalanceActivityReleaseAdjustmentDetailBuilder
 
     /**
      * Sets payment id field.
+     *
+     * @param string|null $value
      */
     public function paymentId(?string $value): self
     {
@@ -51,7 +53,7 @@ class PaymentBalanceActivityReleaseAdjustmentDetailBuilder
     }
 
     /**
-     * Initializes a new payment balance activity release adjustment detail object.
+     * Initializes a new Payment Balance Activity Release Adjustment Detail object.
      */
     public function build(): PaymentBalanceActivityReleaseAdjustmentDetail
     {

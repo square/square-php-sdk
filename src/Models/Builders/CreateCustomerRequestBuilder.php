@@ -27,7 +27,7 @@ class CreateCustomerRequestBuilder
     }
 
     /**
-     * Initializes a new create customer request Builder object.
+     * Initializes a new Create Customer Request Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -45,6 +47,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets given name field.
+     *
+     * @param string|null $value
      */
     public function givenName(?string $value): self
     {
@@ -54,6 +58,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets family name field.
+     *
+     * @param string|null $value
      */
     public function familyName(?string $value): self
     {
@@ -63,6 +69,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets company name field.
+     *
+     * @param string|null $value
      */
     public function companyName(?string $value): self
     {
@@ -72,6 +80,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets nickname field.
+     *
+     * @param string|null $value
      */
     public function nickname(?string $value): self
     {
@@ -81,6 +91,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -90,6 +102,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -99,6 +113,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -108,6 +124,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -117,6 +135,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets note field.
+     *
+     * @param string|null $value
      */
     public function note(?string $value): self
     {
@@ -126,6 +146,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets birthday field.
+     *
+     * @param string|null $value
      */
     public function birthday(?string $value): self
     {
@@ -135,6 +157,8 @@ class CreateCustomerRequestBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param CustomerTaxIds|null $value
      */
     public function taxIds(?CustomerTaxIds $value): self
     {
@@ -143,7 +167,7 @@ class CreateCustomerRequestBuilder
     }
 
     /**
-     * Initializes a new create customer request object.
+     * Initializes a new Create Customer Request object.
      */
     public function build(): CreateCustomerRequest
     {

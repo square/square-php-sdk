@@ -26,7 +26,9 @@ class UpsertOrderCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new upsert order custom attribute request Builder object.
+     * Initializes a new Upsert Order Custom Attribute Request Builder object.
+     *
+     * @param CustomAttribute $customAttribute
      */
     public static function init(CustomAttribute $customAttribute): self
     {
@@ -35,6 +37,8 @@ class UpsertOrderCustomAttributeRequestBuilder
 
     /**
      * Sets idempotency key field.
+     *
+     * @param string|null $value
      */
     public function idempotencyKey(?string $value): self
     {
@@ -52,7 +56,7 @@ class UpsertOrderCustomAttributeRequestBuilder
     }
 
     /**
-     * Initializes a new upsert order custom attribute request object.
+     * Initializes a new Upsert Order Custom Attribute Request object.
      */
     public function build(): UpsertOrderCustomAttributeRequest
     {

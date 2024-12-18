@@ -25,7 +25,7 @@ class AfterpayDetailsBuilder
     }
 
     /**
-     * Initializes a new afterpay details Builder object.
+     * Initializes a new Afterpay Details Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class AfterpayDetailsBuilder
 
     /**
      * Sets email address field.
+     *
+     * @param string|null $value
      */
     public function emailAddress(?string $value): self
     {
@@ -51,7 +53,7 @@ class AfterpayDetailsBuilder
     }
 
     /**
-     * Initializes a new afterpay details object.
+     * Initializes a new Afterpay Details object.
      */
     public function build(): AfterpayDetails
     {

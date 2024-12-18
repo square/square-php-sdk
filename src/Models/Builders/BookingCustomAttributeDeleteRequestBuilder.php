@@ -25,7 +25,10 @@ class BookingCustomAttributeDeleteRequestBuilder
     }
 
     /**
-     * Initializes a new booking custom attribute delete request Builder object.
+     * Initializes a new Booking Custom Attribute Delete Request Builder object.
+     *
+     * @param string $bookingId
+     * @param string $key
      */
     public static function init(string $bookingId, string $key): self
     {
@@ -33,7 +36,7 @@ class BookingCustomAttributeDeleteRequestBuilder
     }
 
     /**
-     * Initializes a new booking custom attribute delete request object.
+     * Initializes a new Booking Custom Attribute Delete Request object.
      */
     public function build(): BookingCustomAttributeDeleteRequest
     {

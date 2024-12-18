@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RegisterDomainResponse;
 
 /**
@@ -25,7 +26,7 @@ class RegisterDomainResponseBuilder
     }
 
     /**
-     * Initializes a new register domain response Builder object.
+     * Initializes a new Register Domain Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class RegisterDomainResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +46,8 @@ class RegisterDomainResponseBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -51,7 +56,7 @@ class RegisterDomainResponseBuilder
     }
 
     /**
-     * Initializes a new register domain response object.
+     * Initializes a new Register Domain Response object.
      */
     public function build(): RegisterDomainResponse
     {

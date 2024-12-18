@@ -6,7 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\LoyaltyProgram;
+use Square\Models\LoyaltyProgramAccrualRule;
 use Square\Models\LoyaltyProgramExpirationPolicy;
+use Square\Models\LoyaltyProgramRewardTier;
 use Square\Models\LoyaltyProgramTerminology;
 
 /**
@@ -27,7 +29,7 @@ class LoyaltyProgramBuilder
     }
 
     /**
-     * Initializes a new loyalty program Builder object.
+     * Initializes a new Loyalty Program Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +38,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -45,6 +49,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -54,6 +60,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets reward tiers field.
+     *
+     * @param LoyaltyProgramRewardTier[]|null $value
      */
     public function rewardTiers(?array $value): self
     {
@@ -72,6 +80,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets expiration policy field.
+     *
+     * @param LoyaltyProgramExpirationPolicy|null $value
      */
     public function expirationPolicy(?LoyaltyProgramExpirationPolicy $value): self
     {
@@ -81,6 +91,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets terminology field.
+     *
+     * @param LoyaltyProgramTerminology|null $value
      */
     public function terminology(?LoyaltyProgramTerminology $value): self
     {
@@ -90,6 +102,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets location ids field.
+     *
+     * @param string[]|null $value
      */
     public function locationIds(?array $value): self
     {
@@ -108,6 +122,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -117,6 +133,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -126,6 +144,8 @@ class LoyaltyProgramBuilder
 
     /**
      * Sets accrual rules field.
+     *
+     * @param LoyaltyProgramAccrualRule[]|null $value
      */
     public function accrualRules(?array $value): self
     {
@@ -143,7 +163,7 @@ class LoyaltyProgramBuilder
     }
 
     /**
-     * Initializes a new loyalty program object.
+     * Initializes a new Loyalty Program object.
      */
     public function build(): LoyaltyProgram
     {

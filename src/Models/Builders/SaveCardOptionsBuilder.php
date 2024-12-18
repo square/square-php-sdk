@@ -25,7 +25,9 @@ class SaveCardOptionsBuilder
     }
 
     /**
-     * Initializes a new save card options Builder object.
+     * Initializes a new Save Card Options Builder object.
+     *
+     * @param string $customerId
      */
     public static function init(string $customerId): self
     {
@@ -34,6 +36,8 @@ class SaveCardOptionsBuilder
 
     /**
      * Sets card id field.
+     *
+     * @param string|null $value
      */
     public function cardId(?string $value): self
     {
@@ -43,6 +47,8 @@ class SaveCardOptionsBuilder
 
     /**
      * Sets reference id field.
+     *
+     * @param string|null $value
      */
     public function referenceId(?string $value): self
     {
@@ -60,7 +66,7 @@ class SaveCardOptionsBuilder
     }
 
     /**
-     * Initializes a new save card options object.
+     * Initializes a new Save Card Options object.
      */
     public function build(): SaveCardOptions
     {

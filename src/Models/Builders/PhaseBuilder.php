@@ -25,7 +25,7 @@ class PhaseBuilder
     }
 
     /**
-     * Initializes a new phase Builder object.
+     * Initializes a new Phase Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class PhaseBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -52,6 +54,8 @@ class PhaseBuilder
 
     /**
      * Sets ordinal field.
+     *
+     * @param int|null $value
      */
     public function ordinal(?int $value): self
     {
@@ -70,6 +74,8 @@ class PhaseBuilder
 
     /**
      * Sets order template id field.
+     *
+     * @param string|null $value
      */
     public function orderTemplateId(?string $value): self
     {
@@ -88,6 +94,8 @@ class PhaseBuilder
 
     /**
      * Sets plan phase uid field.
+     *
+     * @param string|null $value
      */
     public function planPhaseUid(?string $value): self
     {
@@ -105,7 +113,7 @@ class PhaseBuilder
     }
 
     /**
-     * Initializes a new phase object.
+     * Initializes a new Phase object.
      */
     public function build(): Phase
     {

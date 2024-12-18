@@ -6,7 +6,9 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CancelSubscriptionResponse;
+use Square\Models\Error;
 use Square\Models\Subscription;
+use Square\Models\SubscriptionAction;
 
 /**
  * Builder for model CancelSubscriptionResponse
@@ -26,7 +28,7 @@ class CancelSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new cancel subscription response Builder object.
+     * Initializes a new Cancel Subscription Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +37,8 @@ class CancelSubscriptionResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +48,8 @@ class CancelSubscriptionResponseBuilder
 
     /**
      * Sets subscription field.
+     *
+     * @param Subscription|null $value
      */
     public function subscription(?Subscription $value): self
     {
@@ -53,6 +59,8 @@ class CancelSubscriptionResponseBuilder
 
     /**
      * Sets actions field.
+     *
+     * @param SubscriptionAction[]|null $value
      */
     public function actions(?array $value): self
     {
@@ -61,7 +69,7 @@ class CancelSubscriptionResponseBuilder
     }
 
     /**
-     * Initializes a new cancel subscription response object.
+     * Initializes a new Cancel Subscription Response object.
      */
     public function build(): CancelSubscriptionResponse
     {

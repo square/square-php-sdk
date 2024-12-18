@@ -25,7 +25,7 @@ class RevokeTokenRequestBuilder
     }
 
     /**
-     * Initializes a new revoke token request Builder object.
+     * Initializes a new Revoke Token Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class RevokeTokenRequestBuilder
 
     /**
      * Sets client id field.
+     *
+     * @param string|null $value
      */
     public function clientId(?string $value): self
     {
@@ -52,6 +54,8 @@ class RevokeTokenRequestBuilder
 
     /**
      * Sets access token field.
+     *
+     * @param string|null $value
      */
     public function accessToken(?string $value): self
     {
@@ -70,6 +74,8 @@ class RevokeTokenRequestBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -88,6 +94,8 @@ class RevokeTokenRequestBuilder
 
     /**
      * Sets revoke only access token field.
+     *
+     * @param bool|null $value
      */
     public function revokeOnlyAccessToken(?bool $value): self
     {
@@ -105,7 +113,7 @@ class RevokeTokenRequestBuilder
     }
 
     /**
-     * Initializes a new revoke token request object.
+     * Initializes a new Revoke Token Request object.
      */
     public function build(): RevokeTokenRequest
     {

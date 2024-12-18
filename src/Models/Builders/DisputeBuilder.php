@@ -27,7 +27,7 @@ class DisputeBuilder
     }
 
     /**
-     * Initializes a new dispute Builder object.
+     * Initializes a new Dispute Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +36,8 @@ class DisputeBuilder
 
     /**
      * Sets dispute id field.
+     *
+     * @param string|null $value
      */
     public function disputeId(?string $value): self
     {
@@ -54,6 +56,8 @@ class DisputeBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -63,6 +67,8 @@ class DisputeBuilder
 
     /**
      * Sets amount money field.
+     *
+     * @param Money|null $value
      */
     public function amountMoney(?Money $value): self
     {
@@ -72,6 +78,8 @@ class DisputeBuilder
 
     /**
      * Sets reason field.
+     *
+     * @param string|null $value
      */
     public function reason(?string $value): self
     {
@@ -81,6 +89,8 @@ class DisputeBuilder
 
     /**
      * Sets state field.
+     *
+     * @param string|null $value
      */
     public function state(?string $value): self
     {
@@ -90,6 +100,8 @@ class DisputeBuilder
 
     /**
      * Sets due at field.
+     *
+     * @param string|null $value
      */
     public function dueAt(?string $value): self
     {
@@ -108,6 +120,8 @@ class DisputeBuilder
 
     /**
      * Sets disputed payment field.
+     *
+     * @param DisputedPayment|null $value
      */
     public function disputedPayment(?DisputedPayment $value): self
     {
@@ -117,6 +131,8 @@ class DisputeBuilder
 
     /**
      * Sets evidence ids field.
+     *
+     * @param string[]|null $value
      */
     public function evidenceIds(?array $value): self
     {
@@ -135,6 +151,8 @@ class DisputeBuilder
 
     /**
      * Sets card brand field.
+     *
+     * @param string|null $value
      */
     public function cardBrand(?string $value): self
     {
@@ -144,6 +162,8 @@ class DisputeBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -153,6 +173,8 @@ class DisputeBuilder
 
     /**
      * Sets updated at field.
+     *
+     * @param string|null $value
      */
     public function updatedAt(?string $value): self
     {
@@ -162,6 +184,8 @@ class DisputeBuilder
 
     /**
      * Sets brand dispute id field.
+     *
+     * @param string|null $value
      */
     public function brandDisputeId(?string $value): self
     {
@@ -180,6 +204,8 @@ class DisputeBuilder
 
     /**
      * Sets reported date field.
+     *
+     * @param string|null $value
      */
     public function reportedDate(?string $value): self
     {
@@ -198,6 +224,8 @@ class DisputeBuilder
 
     /**
      * Sets reported at field.
+     *
+     * @param string|null $value
      */
     public function reportedAt(?string $value): self
     {
@@ -216,6 +244,8 @@ class DisputeBuilder
 
     /**
      * Sets version field.
+     *
+     * @param int|null $value
      */
     public function version(?int $value): self
     {
@@ -225,6 +255,8 @@ class DisputeBuilder
 
     /**
      * Sets location id field.
+     *
+     * @param string|null $value
      */
     public function locationId(?string $value): self
     {
@@ -242,7 +274,7 @@ class DisputeBuilder
     }
 
     /**
-     * Initializes a new dispute object.
+     * Initializes a new Dispute object.
      */
     public function build(): Dispute
     {

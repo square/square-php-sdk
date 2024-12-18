@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\SearchTerminalActionsResponse;
+use Square\Models\TerminalAction;
 
 /**
  * Builder for model SearchTerminalActionsResponse
@@ -25,7 +27,7 @@ class SearchTerminalActionsResponseBuilder
     }
 
     /**
-     * Initializes a new search terminal actions response Builder object.
+     * Initializes a new Search Terminal Actions Response Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +36,8 @@ class SearchTerminalActionsResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -43,6 +47,8 @@ class SearchTerminalActionsResponseBuilder
 
     /**
      * Sets action field.
+     *
+     * @param TerminalAction[]|null $value
      */
     public function action(?array $value): self
     {
@@ -52,6 +58,8 @@ class SearchTerminalActionsResponseBuilder
 
     /**
      * Sets cursor field.
+     *
+     * @param string|null $value
      */
     public function cursor(?string $value): self
     {
@@ -60,7 +68,7 @@ class SearchTerminalActionsResponseBuilder
     }
 
     /**
-     * Initializes a new search terminal actions response object.
+     * Initializes a new Search Terminal Actions Response object.
      */
     public function build(): SearchTerminalActionsResponse
     {

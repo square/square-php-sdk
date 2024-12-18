@@ -27,7 +27,9 @@ class InvoiceQueryBuilder
     }
 
     /**
-     * Initializes a new invoice query Builder object.
+     * Initializes a new Invoice Query Builder object.
+     *
+     * @param InvoiceFilter $filter
      */
     public static function init(InvoiceFilter $filter): self
     {
@@ -36,6 +38,8 @@ class InvoiceQueryBuilder
 
     /**
      * Sets sort field.
+     *
+     * @param InvoiceSort|null $value
      */
     public function sort(?InvoiceSort $value): self
     {
@@ -44,7 +48,7 @@ class InvoiceQueryBuilder
     }
 
     /**
-     * Initializes a new invoice query object.
+     * Initializes a new Invoice Query object.
      */
     public function build(): InvoiceQuery
     {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\GiftCard;
 use Square\Models\RetrieveGiftCardFromNonceResponse;
 
@@ -26,7 +27,7 @@ class RetrieveGiftCardFromNonceResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from nonce response Builder object.
+     * Initializes a new Retrieve Gift Card From Nonce Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveGiftCardFromNonceResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveGiftCardFromNonceResponseBuilder
 
     /**
      * Sets gift card field.
+     *
+     * @param GiftCard|null $value
      */
     public function giftCard(?GiftCard $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveGiftCardFromNonceResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from nonce response object.
+     * Initializes a new Retrieve Gift Card From Nonce Response object.
      */
     public function build(): RetrieveGiftCardFromNonceResponse
     {

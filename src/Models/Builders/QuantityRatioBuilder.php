@@ -25,7 +25,7 @@ class QuantityRatioBuilder
     }
 
     /**
-     * Initializes a new quantity ratio Builder object.
+     * Initializes a new Quantity Ratio Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class QuantityRatioBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param int|null $value
      */
     public function quantity(?int $value): self
     {
@@ -52,6 +54,8 @@ class QuantityRatioBuilder
 
     /**
      * Sets quantity denominator field.
+     *
+     * @param int|null $value
      */
     public function quantityDenominator(?int $value): self
     {
@@ -69,7 +73,7 @@ class QuantityRatioBuilder
     }
 
     /**
-     * Initializes a new quantity ratio object.
+     * Initializes a new Quantity Ratio object.
      */
     public function build(): QuantityRatio
     {

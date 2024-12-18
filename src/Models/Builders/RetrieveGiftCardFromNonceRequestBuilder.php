@@ -25,7 +25,9 @@ class RetrieveGiftCardFromNonceRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from nonce request Builder object.
+     * Initializes a new Retrieve Gift Card From Nonce Request Builder object.
+     *
+     * @param string $nonce
      */
     public static function init(string $nonce): self
     {
@@ -33,7 +35,7 @@ class RetrieveGiftCardFromNonceRequestBuilder
     }
 
     /**
-     * Initializes a new retrieve gift card from nonce request object.
+     * Initializes a new Retrieve Gift Card From Nonce Request object.
      */
     public function build(): RetrieveGiftCardFromNonceRequest
     {

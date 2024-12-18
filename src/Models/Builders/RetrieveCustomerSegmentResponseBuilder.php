@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CustomerSegment;
+use Square\Models\Error;
 use Square\Models\RetrieveCustomerSegmentResponse;
 
 /**
@@ -26,7 +27,7 @@ class RetrieveCustomerSegmentResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve customer segment response Builder object.
+     * Initializes a new Retrieve Customer Segment Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveCustomerSegmentResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveCustomerSegmentResponseBuilder
 
     /**
      * Sets segment field.
+     *
+     * @param CustomerSegment|null $value
      */
     public function segment(?CustomerSegment $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveCustomerSegmentResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve customer segment response object.
+     * Initializes a new Retrieve Customer Segment Response object.
      */
     public function build(): RetrieveCustomerSegmentResponse
     {

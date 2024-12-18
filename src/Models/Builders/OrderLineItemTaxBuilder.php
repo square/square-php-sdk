@@ -26,7 +26,7 @@ class OrderLineItemTaxBuilder
     }
 
     /**
-     * Initializes a new order line item tax Builder object.
+     * Initializes a new Order Line Item Tax Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -89,6 +95,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -107,6 +115,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -116,6 +126,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets percentage field.
+     *
+     * @param string|null $value
      */
     public function percentage(?string $value): self
     {
@@ -134,6 +146,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -152,6 +166,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets applied money field.
+     *
+     * @param Money|null $value
      */
     public function appliedMoney(?Money $value): self
     {
@@ -161,6 +177,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets scope field.
+     *
+     * @param string|null $value
      */
     public function scope(?string $value): self
     {
@@ -170,6 +188,8 @@ class OrderLineItemTaxBuilder
 
     /**
      * Sets auto applied field.
+     *
+     * @param bool|null $value
      */
     public function autoApplied(?bool $value): self
     {
@@ -178,7 +198,7 @@ class OrderLineItemTaxBuilder
     }
 
     /**
-     * Initializes a new order line item tax object.
+     * Initializes a new Order Line Item Tax object.
      */
     public function build(): OrderLineItemTax
     {

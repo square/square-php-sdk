@@ -29,7 +29,7 @@ class LocationBuilder
     }
 
     /**
-     * Initializes a new location Builder object.
+     * Initializes a new Location Builder object.
      */
     public static function init(): self
     {
@@ -38,6 +38,8 @@ class LocationBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -47,6 +49,8 @@ class LocationBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -65,6 +69,8 @@ class LocationBuilder
 
     /**
      * Sets address field.
+     *
+     * @param Address|null $value
      */
     public function address(?Address $value): self
     {
@@ -74,6 +80,8 @@ class LocationBuilder
 
     /**
      * Sets timezone field.
+     *
+     * @param string|null $value
      */
     public function timezone(?string $value): self
     {
@@ -92,6 +100,8 @@ class LocationBuilder
 
     /**
      * Sets capabilities field.
+     *
+     * @param string[]|null $value
      */
     public function capabilities(?array $value): self
     {
@@ -101,6 +111,8 @@ class LocationBuilder
 
     /**
      * Sets status field.
+     *
+     * @param string|null $value
      */
     public function status(?string $value): self
     {
@@ -110,6 +122,8 @@ class LocationBuilder
 
     /**
      * Sets created at field.
+     *
+     * @param string|null $value
      */
     public function createdAt(?string $value): self
     {
@@ -119,6 +133,8 @@ class LocationBuilder
 
     /**
      * Sets merchant id field.
+     *
+     * @param string|null $value
      */
     public function merchantId(?string $value): self
     {
@@ -128,6 +144,8 @@ class LocationBuilder
 
     /**
      * Sets country field.
+     *
+     * @param string|null $value
      */
     public function country(?string $value): self
     {
@@ -137,6 +155,8 @@ class LocationBuilder
 
     /**
      * Sets language code field.
+     *
+     * @param string|null $value
      */
     public function languageCode(?string $value): self
     {
@@ -155,6 +175,8 @@ class LocationBuilder
 
     /**
      * Sets currency field.
+     *
+     * @param string|null $value
      */
     public function currency(?string $value): self
     {
@@ -164,6 +186,8 @@ class LocationBuilder
 
     /**
      * Sets phone number field.
+     *
+     * @param string|null $value
      */
     public function phoneNumber(?string $value): self
     {
@@ -182,6 +206,8 @@ class LocationBuilder
 
     /**
      * Sets business name field.
+     *
+     * @param string|null $value
      */
     public function businessName(?string $value): self
     {
@@ -200,6 +226,8 @@ class LocationBuilder
 
     /**
      * Sets type field.
+     *
+     * @param string|null $value
      */
     public function type(?string $value): self
     {
@@ -209,6 +237,8 @@ class LocationBuilder
 
     /**
      * Sets website url field.
+     *
+     * @param string|null $value
      */
     public function websiteUrl(?string $value): self
     {
@@ -227,6 +257,8 @@ class LocationBuilder
 
     /**
      * Sets business hours field.
+     *
+     * @param BusinessHours|null $value
      */
     public function businessHours(?BusinessHours $value): self
     {
@@ -236,6 +268,8 @@ class LocationBuilder
 
     /**
      * Sets business email field.
+     *
+     * @param string|null $value
      */
     public function businessEmail(?string $value): self
     {
@@ -254,6 +288,8 @@ class LocationBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -272,6 +308,8 @@ class LocationBuilder
 
     /**
      * Sets twitter username field.
+     *
+     * @param string|null $value
      */
     public function twitterUsername(?string $value): self
     {
@@ -290,6 +328,8 @@ class LocationBuilder
 
     /**
      * Sets instagram username field.
+     *
+     * @param string|null $value
      */
     public function instagramUsername(?string $value): self
     {
@@ -308,6 +348,8 @@ class LocationBuilder
 
     /**
      * Sets facebook url field.
+     *
+     * @param string|null $value
      */
     public function facebookUrl(?string $value): self
     {
@@ -326,6 +368,8 @@ class LocationBuilder
 
     /**
      * Sets coordinates field.
+     *
+     * @param Coordinates|null $value
      */
     public function coordinates(?Coordinates $value): self
     {
@@ -335,6 +379,8 @@ class LocationBuilder
 
     /**
      * Sets logo url field.
+     *
+     * @param string|null $value
      */
     public function logoUrl(?string $value): self
     {
@@ -344,6 +390,8 @@ class LocationBuilder
 
     /**
      * Sets pos background url field.
+     *
+     * @param string|null $value
      */
     public function posBackgroundUrl(?string $value): self
     {
@@ -353,6 +401,8 @@ class LocationBuilder
 
     /**
      * Sets mcc field.
+     *
+     * @param string|null $value
      */
     public function mcc(?string $value): self
     {
@@ -371,6 +421,8 @@ class LocationBuilder
 
     /**
      * Sets full format logo url field.
+     *
+     * @param string|null $value
      */
     public function fullFormatLogoUrl(?string $value): self
     {
@@ -380,6 +432,8 @@ class LocationBuilder
 
     /**
      * Sets tax ids field.
+     *
+     * @param TaxIds|null $value
      */
     public function taxIds(?TaxIds $value): self
     {
@@ -388,7 +442,7 @@ class LocationBuilder
     }
 
     /**
-     * Initializes a new location object.
+     * Initializes a new Location object.
      */
     public function build(): Location
     {

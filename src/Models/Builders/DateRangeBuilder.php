@@ -25,7 +25,7 @@ class DateRangeBuilder
     }
 
     /**
-     * Initializes a new date range Builder object.
+     * Initializes a new Date Range Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class DateRangeBuilder
 
     /**
      * Sets start date field.
+     *
+     * @param string|null $value
      */
     public function startDate(?string $value): self
     {
@@ -52,6 +54,8 @@ class DateRangeBuilder
 
     /**
      * Sets end date field.
+     *
+     * @param string|null $value
      */
     public function endDate(?string $value): self
     {
@@ -69,7 +73,7 @@ class DateRangeBuilder
     }
 
     /**
-     * Initializes a new date range object.
+     * Initializes a new Date Range object.
      */
     public function build(): DateRange
     {

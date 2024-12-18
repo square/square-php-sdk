@@ -25,7 +25,7 @@ class BatchDeleteCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch delete catalog objects request Builder object.
+     * Initializes a new Batch Delete Catalog Objects Request Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +34,8 @@ class BatchDeleteCatalogObjectsRequestBuilder
 
     /**
      * Sets object ids field.
+     *
+     * @param string[]|null $value
      */
     public function objectIds(?array $value): self
     {
@@ -51,7 +53,7 @@ class BatchDeleteCatalogObjectsRequestBuilder
     }
 
     /**
-     * Initializes a new batch delete catalog objects request object.
+     * Initializes a new Batch Delete Catalog Objects Request object.
      */
     public function build(): BatchDeleteCatalogObjectsRequest
     {

@@ -26,7 +26,7 @@ class EmployeeWageBuilder
     }
 
     /**
-     * Initializes a new employee wage Builder object.
+     * Initializes a new Employee Wage Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class EmployeeWageBuilder
 
     /**
      * Sets id field.
+     *
+     * @param string|null $value
      */
     public function id(?string $value): self
     {
@@ -44,6 +46,8 @@ class EmployeeWageBuilder
 
     /**
      * Sets employee id field.
+     *
+     * @param string|null $value
      */
     public function employeeId(?string $value): self
     {
@@ -62,6 +66,8 @@ class EmployeeWageBuilder
 
     /**
      * Sets title field.
+     *
+     * @param string|null $value
      */
     public function title(?string $value): self
     {
@@ -80,6 +86,8 @@ class EmployeeWageBuilder
 
     /**
      * Sets hourly rate field.
+     *
+     * @param Money|null $value
      */
     public function hourlyRate(?Money $value): self
     {
@@ -88,7 +96,7 @@ class EmployeeWageBuilder
     }
 
     /**
-     * Initializes a new employee wage object.
+     * Initializes a new Employee Wage object.
      */
     public function build(): EmployeeWage
     {

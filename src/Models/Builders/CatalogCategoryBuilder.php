@@ -8,6 +8,7 @@ use Core\Utils\CoreHelper;
 use Square\Models\CatalogCategory;
 use Square\Models\CatalogEcomSeoData;
 use Square\Models\CatalogObjectCategory;
+use Square\Models\CategoryPathToRootNode;
 
 /**
  * Builder for model CatalogCategory
@@ -27,7 +28,7 @@ class CatalogCategoryBuilder
     }
 
     /**
-     * Initializes a new catalog category Builder object.
+     * Initializes a new Catalog Category Builder object.
      */
     public static function init(): self
     {
@@ -36,6 +37,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -54,6 +57,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets image ids field.
+     *
+     * @param string[]|null $value
      */
     public function imageIds(?array $value): self
     {
@@ -72,6 +77,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets category type field.
+     *
+     * @param string|null $value
      */
     public function categoryType(?string $value): self
     {
@@ -81,6 +88,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets parent category field.
+     *
+     * @param CatalogObjectCategory|null $value
      */
     public function parentCategory(?CatalogObjectCategory $value): self
     {
@@ -90,6 +99,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets is top level field.
+     *
+     * @param bool|null $value
      */
     public function isTopLevel(?bool $value): self
     {
@@ -108,6 +119,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets channels field.
+     *
+     * @param string[]|null $value
      */
     public function channels(?array $value): self
     {
@@ -126,6 +139,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets availability period ids field.
+     *
+     * @param string[]|null $value
      */
     public function availabilityPeriodIds(?array $value): self
     {
@@ -144,6 +159,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets online visibility field.
+     *
+     * @param bool|null $value
      */
     public function onlineVisibility(?bool $value): self
     {
@@ -162,6 +179,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets root category field.
+     *
+     * @param string|null $value
      */
     public function rootCategory(?string $value): self
     {
@@ -171,6 +190,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets ecom seo data field.
+     *
+     * @param CatalogEcomSeoData|null $value
      */
     public function ecomSeoData(?CatalogEcomSeoData $value): self
     {
@@ -180,6 +201,8 @@ class CatalogCategoryBuilder
 
     /**
      * Sets path to root field.
+     *
+     * @param CategoryPathToRootNode[]|null $value
      */
     public function pathToRoot(?array $value): self
     {
@@ -197,7 +220,7 @@ class CatalogCategoryBuilder
     }
 
     /**
-     * Initializes a new catalog category object.
+     * Initializes a new Catalog Category object.
      */
     public function build(): CatalogCategory
     {

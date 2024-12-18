@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\LoyaltyEvent;
 use Square\Models\RedeemLoyaltyRewardResponse;
 
@@ -26,7 +27,7 @@ class RedeemLoyaltyRewardResponseBuilder
     }
 
     /**
-     * Initializes a new redeem loyalty reward response Builder object.
+     * Initializes a new Redeem Loyalty Reward Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RedeemLoyaltyRewardResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -44,6 +47,8 @@ class RedeemLoyaltyRewardResponseBuilder
 
     /**
      * Sets event field.
+     *
+     * @param LoyaltyEvent|null $value
      */
     public function event(?LoyaltyEvent $value): self
     {
@@ -52,7 +57,7 @@ class RedeemLoyaltyRewardResponseBuilder
     }
 
     /**
-     * Initializes a new redeem loyalty reward response object.
+     * Initializes a new Redeem Loyalty Reward Response object.
      */
     public function build(): RedeemLoyaltyRewardResponse
     {

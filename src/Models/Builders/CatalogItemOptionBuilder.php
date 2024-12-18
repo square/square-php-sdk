@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\CatalogItemOption;
+use Square\Models\CatalogObject;
 
 /**
  * Builder for model CatalogItemOption
@@ -25,7 +26,7 @@ class CatalogItemOptionBuilder
     }
 
     /**
-     * Initializes a new catalog item option Builder object.
+     * Initializes a new Catalog Item Option Builder object.
      */
     public static function init(): self
     {
@@ -34,6 +35,8 @@ class CatalogItemOptionBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -52,6 +55,8 @@ class CatalogItemOptionBuilder
 
     /**
      * Sets display name field.
+     *
+     * @param string|null $value
      */
     public function displayName(?string $value): self
     {
@@ -70,6 +75,8 @@ class CatalogItemOptionBuilder
 
     /**
      * Sets description field.
+     *
+     * @param string|null $value
      */
     public function description(?string $value): self
     {
@@ -88,6 +95,8 @@ class CatalogItemOptionBuilder
 
     /**
      * Sets show colors field.
+     *
+     * @param bool|null $value
      */
     public function showColors(?bool $value): self
     {
@@ -106,6 +115,8 @@ class CatalogItemOptionBuilder
 
     /**
      * Sets values field.
+     *
+     * @param CatalogObject[]|null $value
      */
     public function values(?array $value): self
     {
@@ -123,7 +134,7 @@ class CatalogItemOptionBuilder
     }
 
     /**
-     * Initializes a new catalog item option object.
+     * Initializes a new Catalog Item Option object.
      */
     public function build(): CatalogItemOption
     {

@@ -26,7 +26,11 @@ class QuickPayBuilder
     }
 
     /**
-     * Initializes a new quick pay Builder object.
+     * Initializes a new Quick Pay Builder object.
+     *
+     * @param string $name
+     * @param Money $priceMoney
+     * @param string $locationId
      */
     public static function init(string $name, Money $priceMoney, string $locationId): self
     {
@@ -34,7 +38,7 @@ class QuickPayBuilder
     }
 
     /**
-     * Initializes a new quick pay object.
+     * Initializes a new Quick Pay object.
      */
     public function build(): QuickPay
     {

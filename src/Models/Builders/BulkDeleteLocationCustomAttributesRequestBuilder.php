@@ -6,6 +6,7 @@ namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
 use Square\Models\BulkDeleteLocationCustomAttributesRequest;
+use Square\Models\BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest;
 
 /**
  * Builder for model BulkDeleteLocationCustomAttributesRequest
@@ -25,7 +26,9 @@ class BulkDeleteLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes request Builder object.
+     * Initializes a new Bulk Delete Location Custom Attributes Request Builder object.
+     *
+     * @param array<string,BulkDeleteLocationCustomAttributesRequestLocationCustomAttributeDeleteRequest> $values
      */
     public static function init(array $values): self
     {
@@ -33,7 +36,7 @@ class BulkDeleteLocationCustomAttributesRequestBuilder
     }
 
     /**
-     * Initializes a new bulk delete location custom attributes request object.
+     * Initializes a new Bulk Delete Location Custom Attributes Request object.
      */
     public function build(): BulkDeleteLocationCustomAttributesRequest
     {

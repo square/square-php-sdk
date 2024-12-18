@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Square\Models\Builders;
 
 use Core\Utils\CoreHelper;
+use Square\Models\Error;
 use Square\Models\RetrieveTeamMemberResponse;
 use Square\Models\TeamMember;
 
@@ -26,7 +27,7 @@ class RetrieveTeamMemberResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve team member response Builder object.
+     * Initializes a new Retrieve Team Member Response Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +36,8 @@ class RetrieveTeamMemberResponseBuilder
 
     /**
      * Sets team member field.
+     *
+     * @param TeamMember|null $value
      */
     public function teamMember(?TeamMember $value): self
     {
@@ -44,6 +47,8 @@ class RetrieveTeamMemberResponseBuilder
 
     /**
      * Sets errors field.
+     *
+     * @param Error[]|null $value
      */
     public function errors(?array $value): self
     {
@@ -52,7 +57,7 @@ class RetrieveTeamMemberResponseBuilder
     }
 
     /**
-     * Initializes a new retrieve team member response object.
+     * Initializes a new Retrieve Team Member Response object.
      */
     public function build(): RetrieveTeamMemberResponse
     {

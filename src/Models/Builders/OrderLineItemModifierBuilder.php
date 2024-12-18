@@ -26,7 +26,7 @@ class OrderLineItemModifierBuilder
     }
 
     /**
-     * Initializes a new order line item modifier Builder object.
+     * Initializes a new Order Line Item Modifier Builder object.
      */
     public static function init(): self
     {
@@ -35,6 +35,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets uid field.
+     *
+     * @param string|null $value
      */
     public function uid(?string $value): self
     {
@@ -53,6 +55,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets catalog object id field.
+     *
+     * @param string|null $value
      */
     public function catalogObjectId(?string $value): self
     {
@@ -71,6 +75,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets catalog version field.
+     *
+     * @param int|null $value
      */
     public function catalogVersion(?int $value): self
     {
@@ -89,6 +95,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets name field.
+     *
+     * @param string|null $value
      */
     public function name(?string $value): self
     {
@@ -107,6 +115,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets quantity field.
+     *
+     * @param string|null $value
      */
     public function quantity(?string $value): self
     {
@@ -125,6 +135,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets base price money field.
+     *
+     * @param Money|null $value
      */
     public function basePriceMoney(?Money $value): self
     {
@@ -134,6 +146,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets total price money field.
+     *
+     * @param Money|null $value
      */
     public function totalPriceMoney(?Money $value): self
     {
@@ -143,6 +157,8 @@ class OrderLineItemModifierBuilder
 
     /**
      * Sets metadata field.
+     *
+     * @param array<string,string>|null $value
      */
     public function metadata(?array $value): self
     {
@@ -160,7 +176,7 @@ class OrderLineItemModifierBuilder
     }
 
     /**
-     * Initializes a new order line item modifier object.
+     * Initializes a new Order Line Item Modifier object.
      */
     public function build(): OrderLineItemModifier
     {
