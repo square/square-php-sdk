@@ -64,7 +64,6 @@ class Refund implements \JsonSerializable
     /**
      * @param string $id
      * @param string $locationId
-     * @param string|null $tenderId
      * @param string $reason
      * @param Money $amountMoney
      * @param string $status
