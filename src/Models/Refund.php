@@ -27,9 +27,9 @@ class Refund implements \JsonSerializable
     private $transactionId = [];
 
     /**
-     * @var string
+     * @var array
      */
-    private $tenderId;
+    private $tenderId = [];
 
     /**
      * @var string|null
@@ -64,7 +64,7 @@ class Refund implements \JsonSerializable
     /**
      * @param string $id
      * @param string $locationId
-     * @param string $tenderId
+     * @param string|null $tenderId
      * @param string $reason
      * @param Money $amountMoney
      * @param string $status
@@ -72,14 +72,12 @@ class Refund implements \JsonSerializable
     public function __construct(
         string $id,
         string $locationId,
-        string $tenderId,
         string $reason,
         Money $amountMoney,
         string $status
     ) {
         $this->id = $id;
         $this->locationId = $locationId;
-        $this->tenderId = $tenderId;
         $this->reason = $reason;
         $this->amountMoney = $amountMoney;
         $this->status = $status;
@@ -163,21 +161,32 @@ class Refund implements \JsonSerializable
      * Returns Tender Id.
      * The ID of the refunded tender.
      */
-    public function getTenderId(): string
+    public function getTenderId(): ?string
     {
-        return $this->tenderId;
+        if (count($this->tenderId) == 0) {
+            return null;
+        }
+        return $this->tenderId['value'];
     }
 
     /**
      * Sets Tender Id.
      * The ID of the refunded tender.
      *
-     * @required
      * @maps tender_id
      */
-    public function setTenderId(string $tenderId): void
+    public function setTenderId(?string $tenderId): void
     {
-        $this->tenderId = $tenderId;
+        $this->tenderId['value'] = $tenderId;
+    }
+
+    /**
+     * Unsets Tender Id.
+     * The ID of the refunded tender.
+     */
+    public function unsetTenderId(): void
+    {
+        $this->tenderId = [];
     }
 
     /**
@@ -363,7 +372,9 @@ class Refund implements \JsonSerializable
         if (!empty($this->transactionId)) {
             $json['transaction_id']        = $this->transactionId['value'];
         }
-        $json['tender_id']                 = $this->tenderId;
+        if (!empty($this->tenderId)) {
+            $json['tender_id']             = $this->tenderId['value'];
+        }
         if (isset($this->createdAt)) {
             $json['created_at']            = $this->createdAt;
         }
