@@ -1,831 +1,316 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Square;
 
-use Core\ClientBuilder;
-use Core\Request\Parameters\AdditionalHeaderParams;
-use Core\Request\Parameters\HeaderParam;
-use Core\Request\Parameters\TemplateParam;
-use Core\Utils\CoreHelper;
-use Square\Apis\ApplePayApi;
-use Square\Apis\BankAccountsApi;
-use Square\Apis\BookingCustomAttributesApi;
-use Square\Apis\BookingsApi;
-use Square\Apis\CardsApi;
-use Square\Apis\CashDrawersApi;
-use Square\Apis\CatalogApi;
-use Square\Apis\CheckoutApi;
-use Square\Apis\CustomerCustomAttributesApi;
-use Square\Apis\CustomerGroupsApi;
-use Square\Apis\CustomersApi;
-use Square\Apis\CustomerSegmentsApi;
-use Square\Apis\DevicesApi;
-use Square\Apis\DisputesApi;
-use Square\Apis\EmployeesApi;
-use Square\Apis\EventsApi;
-use Square\Apis\GiftCardActivitiesApi;
-use Square\Apis\GiftCardsApi;
-use Square\Apis\InventoryApi;
-use Square\Apis\InvoicesApi;
-use Square\Apis\LaborApi;
-use Square\Apis\LocationCustomAttributesApi;
-use Square\Apis\LocationsApi;
-use Square\Apis\LoyaltyApi;
-use Square\Apis\MerchantCustomAttributesApi;
-use Square\Apis\MerchantsApi;
-use Square\Apis\MobileAuthorizationApi;
-use Square\Apis\OAuthApi;
-use Square\Apis\OrderCustomAttributesApi;
-use Square\Apis\OrdersApi;
-use Square\Apis\PaymentsApi;
-use Square\Apis\PayoutsApi;
-use Square\Apis\RefundsApi;
-use Square\Apis\SitesApi;
-use Square\Apis\SnippetsApi;
-use Square\Apis\SubscriptionsApi;
-use Square\Apis\TeamApi;
-use Square\Apis\TerminalApi;
-use Square\Apis\TransactionsApi;
-use Square\Apis\V1TransactionsApi;
-use Square\Apis\VendorsApi;
-use Square\Apis\WebhookSubscriptionsApi;
-use Square\Authentication\BearerAuthCredentialsBuilder;
-use Square\Authentication\BearerAuthManager;
-use Square\Utils\CompatibilityConverter;
-use Unirest\Configuration;
-use Unirest\HttpClient;
+use Square\Mobile\MobileClient;
+use Square\OAuth\OAuthClient;
+use Square\V1Transactions\V1TransactionsClient;
+use Square\ApplePay\ApplePayClient;
+use Square\BankAccounts\BankAccountsClient;
+use Square\Bookings\BookingsClient;
+use Square\Cards\CardsClient;
+use Square\Catalog\CatalogClient;
+use Square\Customers\CustomersClient;
+use Square\Devices\DevicesClient;
+use Square\Disputes\DisputesClient;
+use Square\Employees\EmployeesClient;
+use Square\Events\EventsClient;
+use Square\GiftCards\GiftCardsClient;
+use Square\Inventory\InventoryClient;
+use Square\Invoices\InvoicesClient;
+use Square\Locations\LocationsClient;
+use Square\Loyalty\LoyaltyClient;
+use Square\Merchants\MerchantsClient;
+use Square\Checkout\CheckoutClient;
+use Square\Orders\OrdersClient;
+use Square\Payments\PaymentsClient;
+use Square\Payouts\PayoutsClient;
+use Square\Refunds\RefundsClient;
+use Square\Sites\SitesClient;
+use Square\Snippets\SnippetsClient;
+use Square\Subscriptions\SubscriptionsClient;
+use Square\TeamMembers\TeamMembersClient;
+use Square\Team\TeamClient;
+use Square\Terminal\TerminalClient;
+use Square\Vendors\VendorsClient;
+use Square\CashDrawers\CashDrawersClient;
+use Square\Labor\LaborClient;
+use Square\Webhooks\WebhooksClient;
+use GuzzleHttp\ClientInterface;
+use Square\Core\Client\RawClient;
+use Exception;
 
-class SquareClient implements ConfigurationInterface
+class SquareClient
 {
-    private $mobileAuthorization;
-
-    private $oAuth;
-
-    private $v1Transactions;
-
-    private $applePay;
-
-    private $bankAccounts;
-
-    private $bookings;
-
-    private $bookingCustomAttributes;
-
-    private $cards;
-
-    private $cashDrawers;
-
-    private $catalog;
-
-    private $customers;
-
-    private $customerCustomAttributes;
-
-    private $customerGroups;
-
-    private $customerSegments;
-
-    private $devices;
-
-    private $disputes;
-
-    private $employees;
-
-    private $events;
-
-    private $giftCards;
-
-    private $giftCardActivities;
-
-    private $inventory;
-
-    private $invoices;
-
-    private $labor;
-
-    private $locations;
-
-    private $locationCustomAttributes;
-
-    private $checkout;
-
-    private $transactions;
-
-    private $loyalty;
-
-    private $merchants;
-
-    private $merchantCustomAttributes;
-
-    private $orders;
-
-    private $orderCustomAttributes;
-
-    private $payments;
-
-    private $payouts;
-
-    private $refunds;
-
-    private $sites;
-
-    private $snippets;
-
-    private $subscriptions;
-
-    private $team;
-
-    private $terminal;
-
-    private $vendors;
-
-    private $webhookSubscriptions;
-
-    private $bearerAuthManager;
-
-    private $config;
-
-    private $client;
+    /**
+     * @var MobileClient $mobile
+     */
+    public MobileClient $mobile;
 
     /**
-     * @see SquareClientBuilder::init()
-     * @see SquareClientBuilder::build()
-     *
-     * @param array $config
+     * @var OAuthClient $oAuth
      */
-    public function __construct(array $config = [])
-    {
-        $this->config = array_merge(ConfigurationDefaults::_ALL, CoreHelper::clone($config));
-        $this->bearerAuthManager = new BearerAuthManager($this->config);
-        $this->validateConfig();
-        $this->client = ClientBuilder::init(new HttpClient(Configuration::init($this)))
-            ->converter(new CompatibilityConverter())
-            ->jsonHelper(ApiHelper::getJsonHelper())
-            ->apiCallback($this->config['httpCallback'] ?? null)
-            ->userAgent(
-                'Square-PHP-SDK/40.0.0.20250123 ({api-version}) {engine}/{engine-version} ({os-' .
-                'info}) {detail}'
-            )
-            ->userAgentConfig(
-                [
-                    '{api-version}' => $this->getSquareVersion(),
-                    '{detail}' => rawurlencode($this->getUserAgentDetail())
-                ]
-            )
-            ->globalConfig($this->getGlobalConfiguration())
-            ->globalRuntimeParam(AdditionalHeaderParams::init($this->getAdditionalHeaders()))
-            ->serverUrls(self::ENVIRONMENT_MAP[$this->getEnvironment()], Server::DEFAULT_)
-            ->authManagers(['global' => $this->bearerAuthManager])
-            ->build();
-    }
+    public OAuthClient $oAuth;
 
     /**
-     * Create a builder with the current client's configurations.
-     *
-     * @return SquareClientBuilder SquareClientBuilder instance
+     * @var V1TransactionsClient $v1Transactions
      */
-    public function toBuilder(): SquareClientBuilder
-    {
-        $builder = SquareClientBuilder::init()
-            ->timeout($this->getTimeout())
-            ->enableRetries($this->shouldEnableRetries())
-            ->numberOfRetries($this->getNumberOfRetries())
-            ->retryInterval($this->getRetryInterval())
-            ->backOffFactor($this->getBackOffFactor())
-            ->maximumRetryWaitTime($this->getMaximumRetryWaitTime())
-            ->retryOnTimeout($this->shouldRetryOnTimeout())
-            ->httpStatusCodesToRetry($this->getHttpStatusCodesToRetry())
-            ->httpMethodsToRetry($this->getHttpMethodsToRetry())
-            ->squareVersion($this->getSquareVersion())
-            ->additionalHeaders($this->getAdditionalHeaders())
-            ->userAgentDetail($this->getUserAgentDetail())
-            ->environment($this->getEnvironment())
-            ->customUrl($this->getCustomUrl())
-            ->httpCallback($this->config['httpCallback'] ?? null);
-
-        $bearerAuth = $this->getBearerAuthCredentialsBuilder();
-        if ($bearerAuth != null) {
-            $builder->bearerAuthCredentials($bearerAuth);
-        }
-        return $builder;
-    }
-
-    public function getTimeout(): int
-    {
-        return $this->config['timeout'] ?? ConfigurationDefaults::TIMEOUT;
-    }
-
-    public function shouldEnableRetries(): bool
-    {
-        return $this->config['enableRetries'] ?? ConfigurationDefaults::ENABLE_RETRIES;
-    }
-
-    public function getNumberOfRetries(): int
-    {
-        return $this->config['numberOfRetries'] ?? ConfigurationDefaults::NUMBER_OF_RETRIES;
-    }
-
-    public function getRetryInterval(): float
-    {
-        return $this->config['retryInterval'] ?? ConfigurationDefaults::RETRY_INTERVAL;
-    }
-
-    public function getBackOffFactor(): float
-    {
-        return $this->config['backOffFactor'] ?? ConfigurationDefaults::BACK_OFF_FACTOR;
-    }
-
-    public function getMaximumRetryWaitTime(): int
-    {
-        return $this->config['maximumRetryWaitTime'] ?? ConfigurationDefaults::MAXIMUM_RETRY_WAIT_TIME;
-    }
-
-    public function shouldRetryOnTimeout(): bool
-    {
-        return $this->config['retryOnTimeout'] ?? ConfigurationDefaults::RETRY_ON_TIMEOUT;
-    }
-
-    public function getHttpStatusCodesToRetry(): array
-    {
-        return $this->config['httpStatusCodesToRetry'] ?? ConfigurationDefaults::HTTP_STATUS_CODES_TO_RETRY;
-    }
-
-    public function getHttpMethodsToRetry(): array
-    {
-        return $this->config['httpMethodsToRetry'] ?? ConfigurationDefaults::HTTP_METHODS_TO_RETRY;
-    }
-
-    public function getSquareVersion(): string
-    {
-        return $this->config['squareVersion'] ?? ConfigurationDefaults::SQUARE_VERSION;
-    }
-
-    public function getAdditionalHeaders(): array
-    {
-        return $this->config['additionalHeaders'] ?? ConfigurationDefaults::ADDITIONAL_HEADERS;
-    }
-
-    public function getUserAgentDetail(): string
-    {
-        return $this->config['userAgentDetail'] ?? ConfigurationDefaults::USER_AGENT_DETAIL;
-    }
-
-    public function getEnvironment(): string
-    {
-        return $this->config['environment'] ?? ConfigurationDefaults::ENVIRONMENT;
-    }
-
-    public function getCustomUrl(): string
-    {
-        return $this->config['customUrl'] ?? ConfigurationDefaults::CUSTOM_URL;
-    }
-
-    public function getBearerAuthCredentials(): BearerAuthCredentials
-    {
-        return $this->bearerAuthManager;
-    }
-
-    public function getBearerAuthCredentialsBuilder(): ?BearerAuthCredentialsBuilder
-    {
-        if (empty($this->bearerAuthManager->getAccessToken())) {
-            return null;
-        }
-        return BearerAuthCredentialsBuilder::init($this->bearerAuthManager->getAccessToken());
-    }
+    public V1TransactionsClient $v1Transactions;
 
     /**
-     * Get the client configuration as an associative array
-     *
-     * @see SquareClientBuilder::getConfiguration()
+     * @var ApplePayClient $applePay
      */
-    public function getConfiguration(): array
-    {
-        return $this->toBuilder()->getConfiguration();
-    }
+    public ApplePayClient $applePay;
 
     /**
-     * Clone this client and override given configuration options
-     *
-     * @see SquareClientBuilder::build()
+     * @var BankAccountsClient $bankAccounts
      */
-    public function withConfiguration(array $config): self
-    {
-        return new self(array_merge($this->config, $config));
-    }
+    public BankAccountsClient $bankAccounts;
 
     /**
-     * Get current SDK version
+     * @var BookingsClient $bookings
      */
-    public function getSdkVersion(): string
-    {
-        return '40.0.0.20250123';
-    }
+    public BookingsClient $bookings;
 
     /**
-     * Validate required configuration variables
+     * @var CardsClient $cards
      */
-    private function validateConfig(): void
-    {
-        SquareClientBuilder::init()
-            ->additionalHeaders($this->getAdditionalHeaders())
-            ->userAgentDetail($this->getUserAgentDetail());
-    }
+    public CardsClient $cards;
 
     /**
-     * Get the base uri for a given server in the current environment.
-     *
-     * @param string $server Server name
-     *
-     * @return string Base URI
+     * @var CatalogClient $catalog
      */
-    public function getBaseUri(string $server = Server::DEFAULT_): string
-    {
-        return $this->client->getGlobalRequest($server)->getQueryUrl();
-    }
+    public CatalogClient $catalog;
 
     /**
-     * Returns Mobile Authorization Api
+     * @var CustomersClient $customers
      */
-    public function getMobileAuthorizationApi(): MobileAuthorizationApi
-    {
-        if ($this->mobileAuthorization == null) {
-            $this->mobileAuthorization = new MobileAuthorizationApi($this->client);
-        }
-        return $this->mobileAuthorization;
-    }
+    public CustomersClient $customers;
 
     /**
-     * Returns O Auth Api
+     * @var DevicesClient $devices
      */
-    public function getOAuthApi(): OAuthApi
-    {
-        if ($this->oAuth == null) {
-            $this->oAuth = new OAuthApi($this->client);
-        }
-        return $this->oAuth;
-    }
+    public DevicesClient $devices;
 
     /**
-     * Returns V1 Transactions Api
+     * @var DisputesClient $disputes
      */
-    public function getV1TransactionsApi(): V1TransactionsApi
-    {
-        if ($this->v1Transactions == null) {
-            $this->v1Transactions = new V1TransactionsApi($this->client);
-        }
-        return $this->v1Transactions;
-    }
+    public DisputesClient $disputes;
 
     /**
-     * Returns Apple Pay Api
+     * @var EmployeesClient $employees
      */
-    public function getApplePayApi(): ApplePayApi
-    {
-        if ($this->applePay == null) {
-            $this->applePay = new ApplePayApi($this->client);
-        }
-        return $this->applePay;
-    }
+    public EmployeesClient $employees;
 
     /**
-     * Returns Bank Accounts Api
+     * @var EventsClient $events
      */
-    public function getBankAccountsApi(): BankAccountsApi
-    {
-        if ($this->bankAccounts == null) {
-            $this->bankAccounts = new BankAccountsApi($this->client);
-        }
-        return $this->bankAccounts;
-    }
+    public EventsClient $events;
 
     /**
-     * Returns Bookings Api
+     * @var GiftCardsClient $giftCards
      */
-    public function getBookingsApi(): BookingsApi
-    {
-        if ($this->bookings == null) {
-            $this->bookings = new BookingsApi($this->client);
-        }
-        return $this->bookings;
-    }
+    public GiftCardsClient $giftCards;
 
     /**
-     * Returns Booking Custom Attributes Api
+     * @var InventoryClient $inventory
      */
-    public function getBookingCustomAttributesApi(): BookingCustomAttributesApi
-    {
-        if ($this->bookingCustomAttributes == null) {
-            $this->bookingCustomAttributes = new BookingCustomAttributesApi($this->client);
-        }
-        return $this->bookingCustomAttributes;
-    }
+    public InventoryClient $inventory;
 
     /**
-     * Returns Cards Api
+     * @var InvoicesClient $invoices
      */
-    public function getCardsApi(): CardsApi
-    {
-        if ($this->cards == null) {
-            $this->cards = new CardsApi($this->client);
-        }
-        return $this->cards;
-    }
+    public InvoicesClient $invoices;
 
     /**
-     * Returns Cash Drawers Api
+     * @var LocationsClient $locations
      */
-    public function getCashDrawersApi(): CashDrawersApi
-    {
-        if ($this->cashDrawers == null) {
-            $this->cashDrawers = new CashDrawersApi($this->client);
-        }
-        return $this->cashDrawers;
-    }
+    public LocationsClient $locations;
 
     /**
-     * Returns Catalog Api
+     * @var LoyaltyClient $loyalty
      */
-    public function getCatalogApi(): CatalogApi
-    {
-        if ($this->catalog == null) {
-            $this->catalog = new CatalogApi($this->client);
-        }
-        return $this->catalog;
-    }
+    public LoyaltyClient $loyalty;
 
     /**
-     * Returns Customers Api
+     * @var MerchantsClient $merchants
      */
-    public function getCustomersApi(): CustomersApi
-    {
-        if ($this->customers == null) {
-            $this->customers = new CustomersApi($this->client);
-        }
-        return $this->customers;
-    }
+    public MerchantsClient $merchants;
 
     /**
-     * Returns Customer Custom Attributes Api
+     * @var CheckoutClient $checkout
      */
-    public function getCustomerCustomAttributesApi(): CustomerCustomAttributesApi
-    {
-        if ($this->customerCustomAttributes == null) {
-            $this->customerCustomAttributes = new CustomerCustomAttributesApi($this->client);
-        }
-        return $this->customerCustomAttributes;
-    }
+    public CheckoutClient $checkout;
 
     /**
-     * Returns Customer Groups Api
+     * @var OrdersClient $orders
      */
-    public function getCustomerGroupsApi(): CustomerGroupsApi
-    {
-        if ($this->customerGroups == null) {
-            $this->customerGroups = new CustomerGroupsApi($this->client);
-        }
-        return $this->customerGroups;
-    }
+    public OrdersClient $orders;
 
     /**
-     * Returns Customer Segments Api
+     * @var PaymentsClient $payments
      */
-    public function getCustomerSegmentsApi(): CustomerSegmentsApi
-    {
-        if ($this->customerSegments == null) {
-            $this->customerSegments = new CustomerSegmentsApi($this->client);
-        }
-        return $this->customerSegments;
-    }
+    public PaymentsClient $payments;
 
     /**
-     * Returns Devices Api
+     * @var PayoutsClient $payouts
      */
-    public function getDevicesApi(): DevicesApi
-    {
-        if ($this->devices == null) {
-            $this->devices = new DevicesApi($this->client);
-        }
-        return $this->devices;
-    }
+    public PayoutsClient $payouts;
 
     /**
-     * Returns Disputes Api
+     * @var RefundsClient $refunds
      */
-    public function getDisputesApi(): DisputesApi
-    {
-        if ($this->disputes == null) {
-            $this->disputes = new DisputesApi($this->client);
-        }
-        return $this->disputes;
-    }
+    public RefundsClient $refunds;
 
     /**
-     * Returns Employees Api
+     * @var SitesClient $sites
      */
-    public function getEmployeesApi(): EmployeesApi
-    {
-        if ($this->employees == null) {
-            $this->employees = new EmployeesApi($this->client);
-        }
-        return $this->employees;
-    }
+    public SitesClient $sites;
 
     /**
-     * Returns Events Api
+     * @var SnippetsClient $snippets
      */
-    public function getEventsApi(): EventsApi
-    {
-        if ($this->events == null) {
-            $this->events = new EventsApi($this->client);
-        }
-        return $this->events;
-    }
+    public SnippetsClient $snippets;
 
     /**
-     * Returns Gift Cards Api
+     * @var SubscriptionsClient $subscriptions
      */
-    public function getGiftCardsApi(): GiftCardsApi
-    {
-        if ($this->giftCards == null) {
-            $this->giftCards = new GiftCardsApi($this->client);
-        }
-        return $this->giftCards;
-    }
+    public SubscriptionsClient $subscriptions;
 
     /**
-     * Returns Gift Card Activities Api
+     * @var TeamMembersClient $teamMembers
      */
-    public function getGiftCardActivitiesApi(): GiftCardActivitiesApi
-    {
-        if ($this->giftCardActivities == null) {
-            $this->giftCardActivities = new GiftCardActivitiesApi($this->client);
-        }
-        return $this->giftCardActivities;
-    }
+    public TeamMembersClient $teamMembers;
 
     /**
-     * Returns Inventory Api
+     * @var TeamClient $team
      */
-    public function getInventoryApi(): InventoryApi
-    {
-        if ($this->inventory == null) {
-            $this->inventory = new InventoryApi($this->client);
-        }
-        return $this->inventory;
-    }
+    public TeamClient $team;
 
     /**
-     * Returns Invoices Api
+     * @var TerminalClient $terminal
      */
-    public function getInvoicesApi(): InvoicesApi
-    {
-        if ($this->invoices == null) {
-            $this->invoices = new InvoicesApi($this->client);
-        }
-        return $this->invoices;
-    }
+    public TerminalClient $terminal;
 
     /**
-     * Returns Labor Api
+     * @var VendorsClient $vendors
      */
-    public function getLaborApi(): LaborApi
-    {
-        if ($this->labor == null) {
-            $this->labor = new LaborApi($this->client);
-        }
-        return $this->labor;
-    }
+    public VendorsClient $vendors;
 
     /**
-     * Returns Locations Api
+     * @var CashDrawersClient $cashDrawers
      */
-    public function getLocationsApi(): LocationsApi
-    {
-        if ($this->locations == null) {
-            $this->locations = new LocationsApi($this->client);
-        }
-        return $this->locations;
-    }
+    public CashDrawersClient $cashDrawers;
 
     /**
-     * Returns Location Custom Attributes Api
+     * @var LaborClient $labor
      */
-    public function getLocationCustomAttributesApi(): LocationCustomAttributesApi
-    {
-        if ($this->locationCustomAttributes == null) {
-            $this->locationCustomAttributes = new LocationCustomAttributesApi($this->client);
-        }
-        return $this->locationCustomAttributes;
-    }
+    public LaborClient $labor;
 
     /**
-     * Returns Checkout Api
+     * @var WebhooksClient $webhooks
      */
-    public function getCheckoutApi(): CheckoutApi
-    {
-        if ($this->checkout == null) {
-            $this->checkout = new CheckoutApi($this->client);
-        }
-        return $this->checkout;
-    }
+    public WebhooksClient $webhooks;
 
     /**
-     * Returns Transactions Api
+     * @var array{
+     *   baseUrl?: string,
+     *   client?: ClientInterface,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     * } $options
      */
-    public function getTransactionsApi(): TransactionsApi
-    {
-        if ($this->transactions == null) {
-            $this->transactions = new TransactionsApi($this->client);
-        }
-        return $this->transactions;
-    }
+    private array $options;
 
     /**
-     * Returns Loyalty Api
+     * @var RawClient $client
      */
-    public function getLoyaltyApi(): LoyaltyApi
-    {
-        if ($this->loyalty == null) {
-            $this->loyalty = new LoyaltyApi($this->client);
-        }
-        return $this->loyalty;
-    }
+    private RawClient $client;
 
     /**
-     * Returns Merchants Api
+     * @param ?string $token The token to use for authentication.
+     * @param ?string $version
+     * @param ?array{
+     *   baseUrl?: string,
+     *   client?: ClientInterface,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     * } $options
      */
-    public function getMerchantsApi(): MerchantsApi
-    {
-        if ($this->merchants == null) {
-            $this->merchants = new MerchantsApi($this->client);
-        }
-        return $this->merchants;
-    }
-
-    /**
-     * Returns Merchant Custom Attributes Api
-     */
-    public function getMerchantCustomAttributesApi(): MerchantCustomAttributesApi
-    {
-        if ($this->merchantCustomAttributes == null) {
-            $this->merchantCustomAttributes = new MerchantCustomAttributesApi($this->client);
-        }
-        return $this->merchantCustomAttributes;
-    }
-
-    /**
-     * Returns Orders Api
-     */
-    public function getOrdersApi(): OrdersApi
-    {
-        if ($this->orders == null) {
-            $this->orders = new OrdersApi($this->client);
-        }
-        return $this->orders;
-    }
-
-    /**
-     * Returns Order Custom Attributes Api
-     */
-    public function getOrderCustomAttributesApi(): OrderCustomAttributesApi
-    {
-        if ($this->orderCustomAttributes == null) {
-            $this->orderCustomAttributes = new OrderCustomAttributesApi($this->client);
-        }
-        return $this->orderCustomAttributes;
-    }
-
-    /**
-     * Returns Payments Api
-     */
-    public function getPaymentsApi(): PaymentsApi
-    {
-        if ($this->payments == null) {
-            $this->payments = new PaymentsApi($this->client);
-        }
-        return $this->payments;
-    }
-
-    /**
-     * Returns Payouts Api
-     */
-    public function getPayoutsApi(): PayoutsApi
-    {
-        if ($this->payouts == null) {
-            $this->payouts = new PayoutsApi($this->client);
-        }
-        return $this->payouts;
-    }
-
-    /**
-     * Returns Refunds Api
-     */
-    public function getRefundsApi(): RefundsApi
-    {
-        if ($this->refunds == null) {
-            $this->refunds = new RefundsApi($this->client);
-        }
-        return $this->refunds;
-    }
-
-    /**
-     * Returns Sites Api
-     */
-    public function getSitesApi(): SitesApi
-    {
-        if ($this->sites == null) {
-            $this->sites = new SitesApi($this->client);
-        }
-        return $this->sites;
-    }
-
-    /**
-     * Returns Snippets Api
-     */
-    public function getSnippetsApi(): SnippetsApi
-    {
-        if ($this->snippets == null) {
-            $this->snippets = new SnippetsApi($this->client);
-        }
-        return $this->snippets;
-    }
-
-    /**
-     * Returns Subscriptions Api
-     */
-    public function getSubscriptionsApi(): SubscriptionsApi
-    {
-        if ($this->subscriptions == null) {
-            $this->subscriptions = new SubscriptionsApi($this->client);
-        }
-        return $this->subscriptions;
-    }
-
-    /**
-     * Returns Team Api
-     */
-    public function getTeamApi(): TeamApi
-    {
-        if ($this->team == null) {
-            $this->team = new TeamApi($this->client);
-        }
-        return $this->team;
-    }
-
-    /**
-     * Returns Terminal Api
-     */
-    public function getTerminalApi(): TerminalApi
-    {
-        if ($this->terminal == null) {
-            $this->terminal = new TerminalApi($this->client);
-        }
-        return $this->terminal;
-    }
-
-    /**
-     * Returns Vendors Api
-     */
-    public function getVendorsApi(): VendorsApi
-    {
-        if ($this->vendors == null) {
-            $this->vendors = new VendorsApi($this->client);
-        }
-        return $this->vendors;
-    }
-
-    /**
-     * Returns Webhook Subscriptions Api
-     */
-    public function getWebhookSubscriptionsApi(): WebhookSubscriptionsApi
-    {
-        if ($this->webhookSubscriptions == null) {
-            $this->webhookSubscriptions = new WebhookSubscriptionsApi($this->client);
-        }
-        return $this->webhookSubscriptions;
-    }
-
-    /**
-     * Get the defined global configurations
-     */
-    private function getGlobalConfiguration(): array
-    {
-        return [
-            TemplateParam::init('custom_url', $this->getCustomUrl())->dontEncode(),
-            HeaderParam::init('Square-Version', $this->getSquareVersion())
+    public function __construct(
+        ?string $token = null,
+        ?string $version = null,
+        ?array $options = null,
+    ) {
+        $token ??= $this->getFromEnvOrThrow('SQUARE_TOKEN', 'Please pass in token or set the environment variable SQUARE_TOKEN.');
+        $defaultHeaders = [
+            'Authorization' => "Bearer $token",
+            'Square-Version' => '2025-02-20',
+            'X-Fern-Language' => 'PHP',
+            'X-Fern-SDK-Name' => 'Square',
+            'X-Fern-SDK-Version' => '0.0.350',
+            'User-Agent' => 'square/square/0.0.350',
         ];
+        if ($version != null) {
+            $defaultHeaders['Square-Version'] = $version;
+        }
+
+        $this->options = $options ?? [];
+        $this->options['headers'] = array_merge(
+            $defaultHeaders,
+            $this->options['headers'] ?? [],
+        );
+
+        $this->client = new RawClient(
+            options: $this->options,
+        );
+
+        $this->mobile = new MobileClient($this->client, $this->options);
+        $this->oAuth = new OAuthClient($this->client, $this->options);
+        $this->v1Transactions = new V1TransactionsClient($this->client, $this->options);
+        $this->applePay = new ApplePayClient($this->client, $this->options);
+        $this->bankAccounts = new BankAccountsClient($this->client, $this->options);
+        $this->bookings = new BookingsClient($this->client, $this->options);
+        $this->cards = new CardsClient($this->client, $this->options);
+        $this->catalog = new CatalogClient($this->client, $this->options);
+        $this->customers = new CustomersClient($this->client, $this->options);
+        $this->devices = new DevicesClient($this->client, $this->options);
+        $this->disputes = new DisputesClient($this->client, $this->options);
+        $this->employees = new EmployeesClient($this->client, $this->options);
+        $this->events = new EventsClient($this->client, $this->options);
+        $this->giftCards = new GiftCardsClient($this->client, $this->options);
+        $this->inventory = new InventoryClient($this->client, $this->options);
+        $this->invoices = new InvoicesClient($this->client, $this->options);
+        $this->locations = new LocationsClient($this->client, $this->options);
+        $this->loyalty = new LoyaltyClient($this->client, $this->options);
+        $this->merchants = new MerchantsClient($this->client, $this->options);
+        $this->checkout = new CheckoutClient($this->client, $this->options);
+        $this->orders = new OrdersClient($this->client, $this->options);
+        $this->payments = new PaymentsClient($this->client, $this->options);
+        $this->payouts = new PayoutsClient($this->client, $this->options);
+        $this->refunds = new RefundsClient($this->client, $this->options);
+        $this->sites = new SitesClient($this->client, $this->options);
+        $this->snippets = new SnippetsClient($this->client, $this->options);
+        $this->subscriptions = new SubscriptionsClient($this->client, $this->options);
+        $this->teamMembers = new TeamMembersClient($this->client, $this->options);
+        $this->team = new TeamClient($this->client, $this->options);
+        $this->terminal = new TerminalClient($this->client, $this->options);
+        $this->vendors = new VendorsClient($this->client, $this->options);
+        $this->cashDrawers = new CashDrawersClient($this->client, $this->options);
+        $this->labor = new LaborClient($this->client, $this->options);
+        $this->webhooks = new WebhooksClient($this->client, $this->options);
     }
 
     /**
-     * A map of all base urls used in different environments and servers
-     *
-     * @var array
+     * @param string $env
+     * @param string $message
+     * @return string
      */
-    private const ENVIRONMENT_MAP = [
-        Environment::PRODUCTION => [Server::DEFAULT_ => 'https://connect.squareup.com'],
-        Environment::SANDBOX => [Server::DEFAULT_ => 'https://connect.squareupsandbox.com'],
-        Environment::CUSTOM => [Server::DEFAULT_ => '{custom_url}']
-    ];
+    private function getFromEnvOrThrow(string $env, string $message): string
+    {
+        $value = getenv($env);
+        return $value ? (string) $value : throw new Exception($message);
+    }
 }
