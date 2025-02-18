@@ -2,6 +2,9 @@
 
 namespace Square\Exceptions;
 
+use Square\Types\Error;
+use Square\Types\ErrorCategory;
+use Square\Types\ErrorCode;
 use Throwable;
 
 /**
@@ -10,9 +13,19 @@ use Throwable;
 class SquareApiException extends SquareException
 {
     /**
+     * @var int
+     */
+    private int $statusCode;
+
+    /**
      * @var mixed $body
      */
     private mixed $body;
+
+    /**
+     * @var Error[]
+     */
+    private array $errors;
 
     /**
      * @param string $message
@@ -21,18 +34,99 @@ class SquareApiException extends SquareException
      * @param ?Throwable $previous
      */
     public function __construct(
-        string $message,
-        int $statusCode,
-        mixed $body,
-        ?Throwable $previous = null,
-    ) {
+        string     $message,
+        int        $statusCode,
+        mixed      $body,
+        ?Throwable $previous = null,)
+    {
+        parent::__construct(
+            $this->buildMessage(
+                $message,
+                $statusCode,
+                $body
+            ),
+            $statusCode,
+            $previous
+        );
+        $this->statusCode = $statusCode;
         $this->body = $body;
-        parent::__construct($message, $statusCode, $previous);
+        $this->errors = $this->parseErrors($body);
+    }
+
+    private function buildMessage(string $message, int $statusCode, mixed $body): string
+    {
+        $message = "$message\nStatus code: $statusCode";
+
+        if($body == null || $body == '') {
+            return $message;
+        }
+
+        if(is_string($body)) {
+            return "$message\nBody: $body";
+        }
+
+        return "$message\nBody: " . json_encode($body, JSON_PRETTY_PRINT);
     }
 
     /**
-     * Returns the body of the response that triggered the exception.
-     *
+     * @param mixed $body
+     * @return Error[]
+     */
+    private function parseErrors(mixed $body): array
+    {
+        /** @var array{
+         *   category: value-of<ErrorCategory>,
+         *   code: value-of<ErrorCode>,
+         * } $fallbackError
+         */
+        $fallbackError = [
+            'category' => 'API_ERROR',
+            'code' => 'Unknown',
+        ];
+
+        if($body === null) {
+            return [new Error($fallbackError)];
+        }
+        if (is_string($body)) {
+            $body = json_decode($body, true);
+        }
+        if(is_object($body)) {
+            $jsonOrFalse = json_encode($body);
+            if($jsonOrFalse === false) {
+                return [new Error($fallbackError)];
+            }
+            $body = json_decode($jsonOrFalse, true);
+        }
+        if (is_array($body)){
+            if(array_key_exists('errors', $body)) {
+                $errors = $body['errors'];
+                if(!is_array($errors)) {
+                    return [new Error($fallbackError)];
+                }
+                return array_map(fn($error) => new Error($error), $errors);
+            }
+            else{
+                return [new Error([
+                    'category' => 'API_ERROR',
+                    'code' => $body["type"] ?? 'Unknown',
+                    'detail' => $body["message"] ?? null,
+                    'field' => $body["field"] ?? null,
+                ])];
+            }
+        }
+
+        return [new Error($fallbackError)];
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    /**
      * @return mixed
      */
     public function getBody(): mixed
@@ -41,13 +135,10 @@ class SquareApiException extends SquareException
     }
 
     /**
-     * @return string
+     * @return Error[]
      */
-    public function __toString(): string
+    public function getErrors(): array
     {
-        if (empty($this->body)) {
-            return "$this->message; Status Code: $this->code\n";
-        }
-        return "$this->message; Status Code: $this->code; Body: " . $this->body . "\n";
+        return $this->errors;
     }
 }
