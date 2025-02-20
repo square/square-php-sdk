@@ -1,0 +1,8 @@
+parameters:
+    level: max
+    reportUnmatchedIgnoredErrors: false
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - src/Legacy

@@ -18,21 +18,19 @@ class WebhooksHelper {
      * @return bool                     `true` if the signature is valid, indicating that the event can be trusted as it came from Square. `false` if the signature validation fails, indicating that the event did not come from Square, so it may be malicious and should be discarded.
      * @throws Exception                If the signatureKey or notificationUrl is null or empty.
      */
-    public static function isValidWebhookEventSignature(
+    public static function verifySignature(
         string $requestBody,
         string $signatureHeader,
         string $signatureKey,
         string $notificationUrl
     ): bool {
-
-        if ($requestBody === null) {
+        if (strlen($requestBody) === 0) {
             return false;
         }
-
-        if ($signatureKey === null || strlen($signatureKey) === 0) {
+        if (strlen($signatureKey) === 0) {
             throw new Exception('signatureKey is null or empty');
         }
-        if ($notificationUrl === null || strlen($notificationUrl) === 0) {
+        if (strlen($notificationUrl) === 0) {
             throw new Exception('notificationUrl is null or empty');
         }
 
@@ -43,7 +41,7 @@ class WebhooksHelper {
 
         // Compute the hash value
         $hash = hash_hmac('sha256', $payloadBytes, $signatureKeyBytes, true);
-        
+
         // Compare the computed hash vs the value in the signature header
         $hashBase64 = base64_encode($hash);
 

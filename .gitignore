@@ -1,5 +1,5 @@
-composer.phar
+.idea
+.php-cs-fixer.cache
+.phpunit.result.cache
 composer.lock
 vendor/
-.phpunit.result.cache
-coverage/

@@ -1,199 +1,302 @@
 # Square PHP SDK
 
-[![Build](https://github.com/square/square-php-sdk/actions/workflows/php.yml/badge.svg)](https://github.com/square/square-php-sdk/actions/workflows/php.yml)
-[![PHP version](https://badge.fury.io/ph/square%2Fsquare.svg)](https://badge.fury.io/ph/square%2Fsquare)
-[![Apache-2 license](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
+[![php shield](https://img.shields.io/badge/php-packagist-pink)](https://packagist.org/packages/square/square)
 
-Use this library to integrate Square payments into your app and grow your business with Square APIs including Catalog, Customers, Employees, Inventory, Labor, Locations, and Orders.
-
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Quickstart](#quickstart)
-* [Usage](#usage)
-* [Tests](#tests)
-* [SDK Reference](#sdk-reference)
-* [Deprecated APIs](#deprecated-apis)
-
+The Square PHP library provides convenient access to the Square API from PHP.
 
 ## Requirements
 
 Use of the Square PHP SDK requires:
-
-* PHP 7.4 through PHP ^8.0
+* PHP ^8.1
 
 ## Installation
 
-For more information, see [Set Up Your Square SDK for a PHP Project](https://developer.squareup.com/docs/sdks/php/setup-project).
+Use Composer to configure and install to configure and install the Square PHP SDK:
 
-## Quickstart
-
-For more information, see [Square PHP SDK Quickstart](https://developer.squareup.com/docs/sdks/php/quick-start).
+```shell
+composer require square/square
+```
 
 ## Usage
-For more information, see [Using the Square PHP SDK](https://developer.squareup.com/docs/sdks/php/using-php-sdk).
 
-## Tests
+```php
+use Square\SquareClient;
+use Square\Payments\Requests\CreatePaymentRequest;
+use Square\Types\CashPaymentDetails;
+use Square\Types\Currency;
+use Square\Types\Money;
 
-First, clone the repo locally and `cd` into the directory.
-
-```sh
-git clone https://github.com/square/square-php-sdk.git
-cd square-php-sdk
+$square = new SquareClient();
+$response = $square->payments->create(
+    request: new CreatePaymentRequest(
+        [
+            'idempotencyKey' => '4935a656-a929-4792-b97c-8848be85c27c',
+            'sourceId' => 'CASH',
+            'amountMoney' => new Money([
+                'amount' => 100,
+                'currency' => Currency::Usd->value
+            ]),
+            'tipMoney' => new Money([
+                'amount' => 50,
+                'currency' => Currency::Usd->value
+            ]),
+            'cashDetails' => new CashPaymentDetails([
+                'buyerSuppliedMoney' => new Money([
+                    'amount' => 200,
+                    'currency' => Currency::Usd->value
+                ])
+            ]),
+        ],
+    )
+);
 ```
 
-Next, make sure you've downloaded Composer, following the instructions [here](https://getcomposer.org/download/)
-and then run the following command from the root of the repository:
+## Instantiation
 
-```sh
-composer install
+To get started with the Square SDK, instantiate the `SquareClient` class as follows:
+
+```php
+use Square\SquareClient;
+
+$square = new SquareClient("SQUARE_TOKEN");
 ```
 
-Before running the tests, find a sandbox token in your [Developer Dashboard] and set environment variables:
+Alternatively, you can omit the token when constructing the client. 
+In this case, the SDK will automatically read the token from the
+`SQUARE_TOKEN` environment variable:
 
-```sh
-export SQUARE_ACCESS_TOKEN=mytoken
-export SQUARE_ENVIRONMENT=sandbox
+```php
+use Square\SquareClient;
+
+$square = new SquareClient(); // Token is read from the SQUARE_TOKEN environment variable.
 ```
 
-Run the tests:
+### Environment and Custom URLs
 
-```sh
-composer run test
+This SDK allows you to configure different environments or custom URLs for API requests.
+You can either use the predefined environments or specify your own custom URL.
+
+#### Environments
+
+```php
+use Square\SquareClient;
+use Square\Environments;
+
+$square = new SquareClient(options: [
+  'baseUrl' => Environments::Production->value // Used by default
+]);
 ```
 
-All environment variables:
-* `SQUARE_TIMEOUT` - number
-* `SQUARE_NUMBER_OF_RETRIES` - number
-* `SQUARE_MAXIMUM_RETRY_WAIT_TIME` - number
-* `SQUARE_SQUARE_VERSION` - string
-* `SQUARE_USER_AGENT_DETAIL` - string
-* `SQUARE_CUSTOM_URL` - string
-* `SQUARE_ACCESS_TOKEN` - string
-* `SQUARE_ENVIRONMENT` - string - one of production, sandbox, custom
+#### Custom URL
 
-## SDK Reference
+```php
+use Square\SquareClient;
 
-### Payments
-* [Payments]
-* [Refunds]
-* [Disputes]
-* [Checkout]
-* [Apple Pay]
-* [Cards]
-* [Payouts]
+$square = new SquareClient(options: [
+  'baseUrl' => 'https://custom-staging.com'
+]);
+```
 
-### Terminal
-* [Terminal]
+## Enums
 
-### Orders
-* [Orders]
-* [Order Custom Attributes]
+This SDK leverages PHP 8.1’s first-class enums to improve type safety and usability. In order to maintain forward
+compatibility with the API —- where new enum values may be introduced in the future -— we define enum properties
+as `string` and use `value-of` annotations to specify the corresponding enum type.
 
-### Subscriptions
-* [Subscriptions]
+### Example Usage
+```php
+use Square\Types\InvoicePaymentRequest;
+use Square\Types\InvoiceRequestType;
 
-### Invoices
-* [Invoices]
+$paymentRequest = new InvoicePaymentRequest([
+    'requestType' => InvoiceRequestType::Balance->value,
+    ...
+]);
+```
 
-### Items
-* [Catalog]
-* [Inventory]
+### PHPDoc Annotations
+```php
+/**
+ * @param ?value-of<InvoiceRequestType> $requestType Optional request type for the invoice.
+ */
+```
 
-### Customers
-* [Customers]
-* [Customer Custom Attributes]
-* [Customer Groups]
-* [Customer Segments]
+## Automatic Pagination
 
-### Loyalty
-* [Loyalty]
+List endpoints are paginated. The SDK provides an iterator so that you can simply loop over the items:
 
-### Gift Cards
-* [Gift Cards]
-* [Gift Card Activities]
+```php
+use Square\Payments\Requests\ListPaymentsRequest;
 
-### Bookings
-* [Bookings]
-* [Booking Custom Attributes]
+$payments = $square->payments->list(
+    new ListPaymentsRequest([
+        'total' => 100,
+    ]),
+);
 
-### Business
-* [Merchants]
-* [Merchant Custom Attributes]
-* [Locations]
-* [Location Custom Attributes]
-* [Devices]
-* [Cash Drawers]
-* [Vendors]
+foreach ($payments as $payment) {
+    echo sprintf(
+        "payment: ID: %s Created at: %s, Updated at: %s\n",
+        $payment->getId(),
+        $payment->getCreatedAt(),
+        $payment->getUpdatedAt(),
+    );
+}
+```
 
-### Team
-* [Team]
-* [Labor]
+You can also iterate page-by-page:
 
-### Financials
-* [Bank Accounts]
+```php
+foreach ($payments->getPages() as $page) {
+    foreach ($page->getItems() as $payment) {
+        echo sprintf(
+            "payment: ID: %s Created at: %s, Updated at: %s\n",
+            $payment->getId(),
+            $payment->getCreatedAt(),
+            $payment->getUpdatedAt(),
+        );
+    }
+}
+```
 
-### Online
-* [Sites]
-* [Snippets]
+## Timeouts
 
-### Authorization
-* [Mobile Authorization]
-* [OAuth]
+Setting a timeout for each individual request is as simple as using the `timeout` request option. Setting a one second
+timeout for an individual API call looks like the following:
 
-### Webhook Subscriptions
-* [Webhook Subscriptions]
-## Deprecated APIs
+```php
+$payments = $square->payments->list(
+    request: new ListPaymentsRequest([
+        'total' => 100,
+    ]),
+    options: [
+        'timeout' = 1.0,
+    ],
+);
+```
 
-The following Square APIs are [deprecated](https://developer.squareup.com/docs/build-basics/api-lifecycle):
+## Exception Handling
 
-* [Employees] - replaced by the [Team] API. For more information, see [Migrate from the Employees API](https://developer.squareup.com/docs/team/migrate-from-v2-employees).
- 
-* [Transactions] - replaced by the [Orders] and [Payments] APIs.  For more information, see [Migrate from the Transactions API](https://developer.squareup.com/docs/payments-api/migrate-from-transactions-api).
+When the API returns a non-zero status code, (`4xx` or `5xx` response), a `SquareApiException` will be thrown:
+```php
+use Square\Exceptions\SquareApiException;
+use Square\Exceptions\SquareException;
 
+try {
+    $square->payments->create(...);
+} catch (SquareApiException $e) {
+    echo 'Square API Exception occurred: ' . $e->getMessage() . "\n";
+    echo 'Status Code: ' . $e->getCode() . "\n";
+    echo 'Response Body: ' . $e->getBody() . "\n";
+    // Optionally, rethrow the exception or handle accordingly.
+}
+```
 
-[//]: # "Link anchor definitions"
-[Square Logo]: https://docs.connect.squareup.com/images/github/github-square-logo.svg
-[Developer Dashboard]: https://developer.squareup.com/apps
-[Square API]: https://squareup.com/developers
-[sign up for a developer account]: https://squareup.com/signup?v=developers
-[Client]: doc/client.md
-[Devices]: doc/apis/devices.md
-[Disputes]: doc/apis/disputes.md
-[Terminal]: doc/apis/terminal.md
-[Cash Drawers]: doc/apis/cash-drawers.md
-[Vendors]: doc/apis/vendors.md
-[Customer Groups]: doc/apis/customer-groups.md
-[Customer Custom Attributes]: doc/apis/customer-custom-attributes.md
-[Customer Segments]: doc/apis/customer-segments.md
-[Bank Accounts]: doc/apis/bank-accounts.md
-[Payments]: doc/apis/payments.md
-[Checkout]: doc/apis/checkout.md
-[Catalog]: doc/apis/catalog.md
-[Customers]: doc/apis/customers.md
-[Inventory]: doc/apis/inventory.md
-[Labor]: doc/apis/labor.md
-[Loyalty]: doc/apis/loyalty.md
-[Bookings]: doc/apis/bookings.md
-[Booking Custom Attributes]: doc/api/booking-custom-attributes.md
-[Locations]: doc/apis/locations.md
-[Location Custom Attributes]: doc/api/location-custom-attributes.md
-[Merchants]: doc/apis/merchants.md
-[Merchant Custom Attributes]: doc/api/merchant-custom-attributes.md
-[Orders]: doc/apis/orders.md
-[Order Custom Attributes]: doc/api/order-custom-attributes.md
-[Invoices]: doc/apis/invoices.md
-[Apple Pay]: doc/apis/apple-pay.md
-[Refunds]: doc/apis/refunds.md
-[Subscriptions]: doc/apis/subscriptions.md
-[Mobile Authorization]: doc/apis/mobile-authorization.md
-[OAuth]: doc/apis/o-auth.md
-[Team]: doc/apis/team.md
-[Sites]: doc/apis/sites.md
-[Snippets]: doc/apis/snippets.md
-[Cards]: doc/apis/cards.md
-[Payouts]: doc/apis/payouts.md
-[Gift Cards]: doc/apis/gift-cards.md
-[Gift Card Activities]: doc/apis/gift-card-activities.md
-[Employees]: doc/apis/employees.md
-[Transactions]: doc/apis/transactions.md
-[Webhook Subscriptions]: doc/api/webhook-subscriptions.md
+## Webhook Signature Verification
+
+The SDK provides utility methods that allow you to verify webhook signatures and ensure
+that all webhook events originate from Square. The `WebhooksHelper.verifySignature` method
+can be used to verify the signature like so:
+
+```php
+use Square\Utils\WebhooksHelper;
+
+$isValid = WebhooksHelper.verifySignature(
+    requestBody: $requestBody,
+    signatureHeader: $headers['x-square-hmacsha256-signature'],
+    signatureKey: 'YOUR_SIGNATURE_KEY',
+    notificationUrl: 'https://example.com/webhook', // The URL where event notifications are sent.
+)
+```
+
+## Legacy SDK
+
+While the new SDK has a lot of improvements, we at Square understand that it takes time to upgrade when there are breaking changes.
+To make the migration easier, the new SDK also exports the legacy SDK as `Square\Legacy\...`. Here's an example of how you can use the
+legacy SDK alongside the new SDK inside a single file:
+
+```php
+use Square\SquareClient;
+use Square\Legacy\SquareClient as LegacySquareClient;
+
+$square = new SquareClient();
+$legacyClient = new LegacySquareClient();
+```
+
+We recommend migrating to the new SDK using the following steps:
+
+1. Upgrade the package to `^41.0.0`
+2. Search and replace all requires and imports from `Square\...` to `Square\Legacy\...`
+
+3. Gradually move over to use the new SDK by importing it from the `Square\...` import.
+
+## Advanced
+
+### Custom HTTP Client
+
+This SDK is built to work with any HTTP client that implements Guzzle’s `ClientInterface`. By default, if no client
+is provided, the SDK will use Guzzle’s default HTTP client. However, you can pass your own client that adheres to
+`ClientInterface`:
+
+```php
+use GuzzleHttp\Client;
+use Square\SquareClient;
+
+// Create a custom Guzzle client with specific configuration.
+$client = new Client([
+    'timeout' => 5.0,
+]);
+
+// Pass the custom client when creating an instance of the class.
+$square = new SquareClient(options: [
+    'client' => $client
+]);
+```
+
+### Send Additional Properties
+
+All endpoints support sending additional request body properties and query parameters that are not already supported by
+the SDK. This is useful whenever you need to interact with an unreleased or hidden feature.
+
+For example, suppose that a new feature was rolled out that allowed users to list all deactivated team members. You could
+set the relevant query parameters like so:
+
+```php
+use Square\TeamMembers\Requests\SearchTeamMembersRequest;
+
+$teamMembers = $square->teamMembers->search(
+    request: new SearchTeamMembersRequest([
+        'limit' => 100,
+    ]),
+    options: [
+        'queryParameters' = [
+            'status' => 'DEACTIVATED'
+        ],
+    ],
+);
+```
+
+### Receive Additional Properties
+
+Every response type includes the `getAdditionalProperties` method, which returns an `array` that contains any properties in the
+JSON response that were not specified in the returned class. Similar to the use case for sending additional parameters, this can
+be useful for API features not present in the SDK yet.
+
+You can access the additional properties like so:
+
+```php
+$payments = $square->payments->create(...);
+$additionalProperties = $payments->getAdditionalProperties();
+```
+
+## Contributing
+
+While we value open-source contributions to this SDK, this library
+is generated programmatically. Additions made directly to this library
+would have to be moved over to our generation code, otherwise they would
+be overwritten upon the next generated release. Feel free to open a PR as a
+proof of concept, but know that we will not be able to merge it as-is.
+We suggest opening an issue first to discuss with us!
+
+On the other hand, contributions to the README are always very welcome!

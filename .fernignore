@@ -1,0 +1,9 @@
+# Specify files that shouldn't be modified by Fern
+
+.github/workflows/ci.yml
+README.md
+phpstan.neon
+src/Exceptions/SquareApiException.php
+src/Legacy
+src/Utils/WebhooksHelper.php
+tests/Integration
