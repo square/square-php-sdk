@@ -259,6 +259,15 @@ class Invoice extends JsonSerializableType
     private ?array $attachments;
 
     /**
+     * The ID of the [team member](entity:TeamMember) who created the invoice.
+     * This field is present only on invoices created in the Square Dashboard or Square Invoices app by a logged-in team member.
+     *
+     * @var ?string $creatorTeamMemberId
+     */
+    #[JsonProperty('creator_team_member_id')]
+    private ?string $creatorTeamMemberId;
+
+    /**
      * @param array{
      *   id?: ?string,
      *   version?: ?int,
@@ -284,6 +293,7 @@ class Invoice extends JsonSerializableType
      *   paymentConditions?: ?string,
      *   storePaymentMethodEnabled?: ?bool,
      *   attachments?: ?array<InvoiceAttachment>,
+     *   creatorTeamMemberId?: ?string,
      * } $values
      */
     public function __construct(
@@ -313,6 +323,7 @@ class Invoice extends JsonSerializableType
         $this->paymentConditions = $values['paymentConditions'] ?? null;
         $this->storePaymentMethodEnabled = $values['storePaymentMethodEnabled'] ?? null;
         $this->attachments = $values['attachments'] ?? null;
+        $this->creatorTeamMemberId = $values['creatorTeamMemberId'] ?? null;
     }
 
     /**
@@ -720,6 +731,23 @@ class Invoice extends JsonSerializableType
     public function setAttachments(?array $value = null): self
     {
         $this->attachments = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getCreatorTeamMemberId(): ?string
+    {
+        return $this->creatorTeamMemberId;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setCreatorTeamMemberId(?string $value = null): self
+    {
+        $this->creatorTeamMemberId = $value;
         return $this;
     }
 

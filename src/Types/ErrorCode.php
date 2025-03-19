@@ -115,6 +115,7 @@ enum ErrorCode: string
     case SourceExpired = "SOURCE_EXPIRED";
     case UnsupportedLoyaltyRewardTier = "UNSUPPORTED_LOYALTY_REWARD_TIER";
     case LocationMismatch = "LOCATION_MISMATCH";
+    case OrderUnpaidNotReturnable = "ORDER_UNPAID_NOT_RETURNABLE";
     case IdempotencyKeyReused = "IDEMPOTENCY_KEY_REUSED";
     case UnexpectedValue = "UNEXPECTED_VALUE";
     case SandboxNotSupported = "SANDBOX_NOT_SUPPORTED";

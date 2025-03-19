@@ -51,7 +51,11 @@ class Card extends JsonSerializableType
     private ?string $cardholderName;
 
     /**
-     * @var ?Address $billingAddress The billing address for this card.
+     * The billing address for this card. `US` postal codes can be provided as a 5-digit zip code
+     * or 9-digit ZIP+4 (example: `12345-6789`). For a full list of field meanings by country, see
+     * [Working with Addresses](https://developer.squareup.com/docs/build-basics/common-data-types/working-with-addresses).
+     *
+     * @var ?Address $billingAddress
      */
     #[JsonProperty('billing_address')]
     private ?Address $billingAddress;
@@ -67,7 +71,7 @@ class Card extends JsonSerializableType
     private ?string $fingerprint;
 
     /**
-     * @var ?string $customerId **Required** The ID of a customer created using the Customers API to be associated with the card.
+     * @var ?string $customerId **Required** The ID of a [customer](entity:Customer) to be associated with the card.
      */
     #[JsonProperty('customer_id')]
     private ?string $customerId;
@@ -105,8 +109,7 @@ class Card extends JsonSerializableType
     private ?string $cardType;
 
     /**
-     * Indicates whether the Card is prepaid or not.
-     * The Card object includes this field only in response to Payments API calls.
+     * Indicates whether the card is prepaid or not.
      * See [CardPrepaidType](#type-cardprepaidtype) for possible values
      *
      * @var ?value-of<CardPrepaidType> $prepaidType
@@ -144,6 +147,39 @@ class Card extends JsonSerializableType
     private ?string $cardCoBrand;
 
     /**
+     * An alert from the issuing bank about the card status. Alerts can indicate whether
+     * future charges to the card are likely to fail. For more information, see
+     * [Manage Card on File Declines](https://developer.squareup.com/docs/cards-api/manage-card-on-file-declines).
+     *
+     * This field is present only if there's an active issuer alert.
+     * See [IssuerAlert](#type-issueralert) for possible values
+     *
+     * @var ?'ISSUER_ALERT_CARD_CLOSED' $issuerAlert
+     */
+    #[JsonProperty('issuer_alert')]
+    private ?string $issuerAlert;
+
+    /**
+     * The timestamp of when the current issuer alert was received and processed, in
+     * RFC 3339 format.
+     *
+     * This field is present only if there's an active issuer alert.
+     *
+     * @var ?string $issuerAlertAt
+     */
+    #[JsonProperty('issuer_alert_at')]
+    private ?string $issuerAlertAt;
+
+    /**
+     * Indicates whether the card is linked to a Health Savings Account (HSA) or Flexible
+     * Spending Account (FSA), based on the card BIN.
+     *
+     * @var ?bool $hsaFsa
+     */
+    #[JsonProperty('hsa_fsa')]
+    private ?bool $hsaFsa;
+
+    /**
      * @param array{
      *   id?: ?string,
      *   cardBrand?: ?value-of<CardBrand>,
@@ -162,6 +198,9 @@ class Card extends JsonSerializableType
      *   bin?: ?string,
      *   version?: ?int,
      *   cardCoBrand?: ?value-of<CardCoBrand>,
+     *   issuerAlert?: ?'ISSUER_ALERT_CARD_CLOSED',
+     *   issuerAlertAt?: ?string,
+     *   hsaFsa?: ?bool,
      * } $values
      */
     public function __construct(
@@ -184,6 +223,9 @@ class Card extends JsonSerializableType
         $this->bin = $values['bin'] ?? null;
         $this->version = $values['version'] ?? null;
         $this->cardCoBrand = $values['cardCoBrand'] ?? null;
+        $this->issuerAlert = $values['issuerAlert'] ?? null;
+        $this->issuerAlertAt = $values['issuerAlertAt'] ?? null;
+        $this->hsaFsa = $values['hsaFsa'] ?? null;
     }
 
     /**
@@ -472,6 +514,57 @@ class Card extends JsonSerializableType
     public function setCardCoBrand(?string $value = null): self
     {
         $this->cardCoBrand = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?'ISSUER_ALERT_CARD_CLOSED'
+     */
+    public function getIssuerAlert(): ?string
+    {
+        return $this->issuerAlert;
+    }
+
+    /**
+     * @param ?'ISSUER_ALERT_CARD_CLOSED' $value
+     */
+    public function setIssuerAlert(?string $value = null): self
+    {
+        $this->issuerAlert = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getIssuerAlertAt(): ?string
+    {
+        return $this->issuerAlertAt;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setIssuerAlertAt(?string $value = null): self
+    {
+        $this->issuerAlertAt = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getHsaFsa(): ?bool
+    {
+        return $this->hsaFsa;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setHsaFsa(?bool $value = null): self
+    {
+        $this->hsaFsa = $value;
         return $this;
     }
 
