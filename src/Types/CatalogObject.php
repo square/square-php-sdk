@@ -48,6 +48,8 @@ class CatalogObject extends JsonSerializableType
      *   |'CHECKOUT_LINK'
      *   |'ADDRESS'
      *   |'SUBSCRIPTION_PRODUCT'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * ) $type
      */
@@ -81,6 +83,8 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectCheckoutLink
      *   |CatalogObjectAddress
      *   |CatalogObjectSubscriptionProduct
+     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * ) $value
      */
@@ -115,6 +119,8 @@ class CatalogObject extends JsonSerializableType
      *   |'CHECKOUT_LINK'
      *   |'ADDRESS'
      *   |'SUBSCRIPTION_PRODUCT'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * ),
      *   value: (
@@ -144,6 +150,8 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectCheckoutLink
      *   |CatalogObjectAddress
      *   |CatalogObjectSubscriptionProduct
+     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * ),
      * } $values
@@ -183,6 +191,8 @@ class CatalogObject extends JsonSerializableType
      *   |'CHECKOUT_LINK'
      *   |'ADDRESS'
      *   |'SUBSCRIPTION_PRODUCT'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * )
      */
@@ -219,6 +229,8 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectCheckoutLink
      *   |CatalogObjectAddress
      *   |CatalogObjectSubscriptionProduct
+     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * )
      */
@@ -536,6 +548,30 @@ class CatalogObject extends JsonSerializableType
         return new CatalogObject([
             'type' => 'SUBSCRIPTION_PRODUCT',
             'value' => $subscriptionProduct,
+        ]);
+    }
+
+    /**
+     * @param CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation
+     * @return CatalogObject
+     */
+    public static function subscriptionPlanVariation(CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation): CatalogObject
+    {
+        return new CatalogObject([
+            'type' => 'SUBSCRIPTION_PLAN_VARIATION',
+            'value' => $subscriptionPlanVariation,
+        ]);
+    }
+
+    /**
+     * @param CatalogObjectAvailabilityPeriod $availabilityPeriod
+     * @return CatalogObject
+     */
+    public static function availabilityPeriod(CatalogObjectAvailabilityPeriod $availabilityPeriod): CatalogObject
+    {
+        return new CatalogObject([
+            'type' => 'AVAILABILITY_PERIOD',
+            'value' => $availabilityPeriod,
         ]);
     }
 
@@ -1112,6 +1148,50 @@ class CatalogObject extends JsonSerializableType
     }
 
     /**
+     * @return bool
+     */
+    public function isSubscriptionPlanVariation(): bool
+    {
+        return $this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION';
+    }
+
+    /**
+     * @return CatalogObjectSubscriptionPlanVariation
+     */
+    public function asSubscriptionPlanVariation(): CatalogObjectSubscriptionPlanVariation
+    {
+        if (!($this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION')) {
+            throw new Exception(
+                "Expected SUBSCRIPTION_PLAN_VARIATION; got " . $this->type . " with value of type " . get_debug_type($this->value),
+            );
+        }
+
+        return $this->value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAvailabilityPeriod(): bool
+    {
+        return $this->value instanceof CatalogObjectAvailabilityPeriod && $this->type === 'AVAILABILITY_PERIOD';
+    }
+
+    /**
+     * @return CatalogObjectAvailabilityPeriod
+     */
+    public function asAvailabilityPeriod(): CatalogObjectAvailabilityPeriod
+    {
+        if (!($this->value instanceof CatalogObjectAvailabilityPeriod && $this->type === 'AVAILABILITY_PERIOD')) {
+            throw new Exception(
+                "Expected AVAILABILITY_PERIOD; got " . $this->type . " with value of type " . get_debug_type($this->value),
+            );
+        }
+
+        return $this->value;
+    }
+
+    /**
      * @return string
      */
     public function __toString(): string
@@ -1233,6 +1313,14 @@ class CatalogObject extends JsonSerializableType
                 break;
             case 'SUBSCRIPTION_PRODUCT':
                 $value = $this->asSubscriptionProduct()->jsonSerialize();
+                $result = array_merge($value, $result);
+                break;
+            case 'SUBSCRIPTION_PLAN_VARIATION':
+                $value = $this->asSubscriptionPlanVariation()->jsonSerialize();
+                $result = array_merge($value, $result);
+                break;
+            case 'AVAILABILITY_PERIOD':
+                $value = $this->asAvailabilityPeriod()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
             case '_unknown':
@@ -1360,6 +1448,12 @@ class CatalogObject extends JsonSerializableType
                 break;
             case 'SUBSCRIPTION_PRODUCT':
                 $args['value'] = CatalogObjectSubscriptionProduct::jsonDeserialize($data);
+                break;
+            case 'SUBSCRIPTION_PLAN_VARIATION':
+                $args['value'] = CatalogObjectSubscriptionPlanVariation::jsonDeserialize($data);
+                break;
+            case 'AVAILABILITY_PERIOD':
+                $args['value'] = CatalogObjectAvailabilityPeriod::jsonDeserialize($data);
                 break;
             case '_unknown':
             default:
