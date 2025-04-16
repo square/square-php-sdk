@@ -127,6 +127,18 @@ class CatalogItem extends JsonSerializableType
     private ?array $itemOptions;
 
     /**
+     * @var ?string $ecomUri Deprecated; see go/ecomUriUseCases. A URI pointing to a published e-commerce product page for the Item.
+     */
+    #[JsonProperty('ecom_uri')]
+    private ?string $ecomUri;
+
+    /**
+     * @var ?array<string> $ecomImageUris Deprecated; see go/ecomUriUseCases. A comma-separated list of encoded URIs pointing to a set of published e-commerce images for the Item.
+     */
+    #[JsonProperty('ecom_image_uris'), ArrayType(['string'])]
+    private ?array $ecomImageUris;
+
+    /**
      * The IDs of images associated with this `CatalogItem` instance.
      * These images will be shown to customers in Square Online Store.
      * The first image will show up as the icon for this item in POS.
@@ -224,6 +236,12 @@ class CatalogItem extends JsonSerializableType
     private ?CatalogObjectCategory $reportingCategory;
 
     /**
+     * @var ?bool $isAlcoholic Indicates whether this item is alcoholic (`true`) or not (`false`).
+     */
+    #[JsonProperty('is_alcoholic')]
+    private ?bool $isAlcoholic;
+
+    /**
      * @param array{
      *   name?: ?string,
      *   description?: ?string,
@@ -237,6 +255,8 @@ class CatalogItem extends JsonSerializableType
      *   productType?: ?value-of<CatalogItemProductType>,
      *   skipModifierScreen?: ?bool,
      *   itemOptions?: ?array<CatalogItemOptionForItem>,
+     *   ecomUri?: ?string,
+     *   ecomImageUris?: ?array<string>,
      *   imageIds?: ?array<string>,
      *   sortName?: ?string,
      *   categories?: ?array<CatalogObjectCategory>,
@@ -247,6 +267,7 @@ class CatalogItem extends JsonSerializableType
      *   ecomSeoData?: ?CatalogEcomSeoData,
      *   foodAndBeverageDetails?: ?CatalogItemFoodAndBeverageDetails,
      *   reportingCategory?: ?CatalogObjectCategory,
+     *   isAlcoholic?: ?bool,
      * } $values
      */
     public function __construct(
@@ -264,6 +285,8 @@ class CatalogItem extends JsonSerializableType
         $this->productType = $values['productType'] ?? null;
         $this->skipModifierScreen = $values['skipModifierScreen'] ?? null;
         $this->itemOptions = $values['itemOptions'] ?? null;
+        $this->ecomUri = $values['ecomUri'] ?? null;
+        $this->ecomImageUris = $values['ecomImageUris'] ?? null;
         $this->imageIds = $values['imageIds'] ?? null;
         $this->sortName = $values['sortName'] ?? null;
         $this->categories = $values['categories'] ?? null;
@@ -274,6 +297,7 @@ class CatalogItem extends JsonSerializableType
         $this->ecomSeoData = $values['ecomSeoData'] ?? null;
         $this->foodAndBeverageDetails = $values['foodAndBeverageDetails'] ?? null;
         $this->reportingCategory = $values['reportingCategory'] ?? null;
+        $this->isAlcoholic = $values['isAlcoholic'] ?? null;
     }
 
     /**
@@ -481,6 +505,40 @@ class CatalogItem extends JsonSerializableType
     }
 
     /**
+     * @return ?string
+     */
+    public function getEcomUri(): ?string
+    {
+        return $this->ecomUri;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setEcomUri(?string $value = null): self
+    {
+        $this->ecomUri = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?array<string>
+     */
+    public function getEcomImageUris(): ?array
+    {
+        return $this->ecomImageUris;
+    }
+
+    /**
+     * @param ?array<string> $value
+     */
+    public function setEcomImageUris(?array $value = null): self
+    {
+        $this->ecomImageUris = $value;
+        return $this;
+    }
+
+    /**
      * @return ?array<string>
      */
     public function getImageIds(): ?array
@@ -647,6 +705,23 @@ class CatalogItem extends JsonSerializableType
     public function setReportingCategory(?CatalogObjectCategory $value = null): self
     {
         $this->reportingCategory = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getIsAlcoholic(): ?bool
+    {
+        return $this->isAlcoholic;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setIsAlcoholic(?bool $value = null): self
+    {
+        $this->isAlcoholic = $value;
         return $this;
     }
 

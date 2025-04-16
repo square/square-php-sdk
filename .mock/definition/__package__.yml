@@ -3378,6 +3378,38 @@ types:
           from the `amount_money` and `buyer_supplied_money` fields.
     source:
       openapi: openapi/openapi.json
+  CatalogAvailabilityPeriod:
+    docs: Represents a time period of availability.
+    properties:
+      start_local_time:
+        type: optional<nullable<string>>
+        docs: >-
+          The start time of an availability period, specified in local time
+          using partial-time
+
+          RFC 3339 format. For example, `8:30:00` for a period starting at 8:30
+          in the morning.
+
+          Note that the seconds value is always :00, but it is appended for
+          conformance to the RFC.
+      end_local_time:
+        type: optional<nullable<string>>
+        docs: >-
+          The end time of an availability period, specified in local time using
+          partial-time
+
+          RFC 3339 format. For example, `21:00:00` for a period ending at 9:00
+          in the evening.
+
+          Note that the seconds value is always :00, but it is appended for
+          conformance to the RFC.
+      day_of_week:
+        type: optional<DayOfWeek>
+        docs: |-
+          The day of the week for this availability period.
+          See [DayOfWeek](#type-dayofweek) for possible values
+    source:
+      openapi: openapi/openapi.json
   CatalogCategory:
     docs: A category to which a `CatalogItem` instance belongs.
     properties:
@@ -4188,6 +4220,16 @@ types:
           variations in a specified order.
 
           Maximum: 6 item options.
+      ecom_uri:
+        type: optional<nullable<string>>
+        docs: >-
+          Deprecated; see go/ecomUriUseCases. A URI pointing to a published
+          e-commerce product page for the Item.
+      ecom_image_uris:
+        type: optional<nullable<list<string>>>
+        docs: >-
+          Deprecated; see go/ecomUriUseCases. A comma-separated list of encoded
+          URIs pointing to a set of published e-commerce images for the Item.
       image_ids:
         type: optional<nullable<list<string>>>
         docs: |-
@@ -4287,6 +4329,9 @@ types:
       reporting_category:
         type: optional<CatalogObjectCategory>
         docs: The item's reporting category.
+      is_alcoholic:
+        type: optional<nullable<boolean>>
+        docs: Indicates whether this item is alcoholic (`true`) or not (`false`).
     source:
       openapi: openapi/openapi.json
   CatalogItemFoodAndBeverageDetails:
@@ -5129,6 +5174,8 @@ types:
       CHECKOUT_LINK: CatalogObjectCheckoutLink
       ADDRESS: CatalogObjectAddress
       SUBSCRIPTION_PRODUCT: CatalogObjectSubscriptionProduct
+      SUBSCRIPTION_PLAN_VARIATION: CatalogObjectSubscriptionPlanVariation
+      AVAILABILITY_PERIOD: CatalogObjectAvailabilityPeriod
     source:
       openapi: openapi/openapi.json
   CatalogObjectBatch:
@@ -6154,6 +6201,43 @@ types:
         docs: >-
           If true, all items in the merchant's catalog are subscribable by this
           SubscriptionPlan.
+    source:
+      openapi: openapi/openapi.json
+  CatalogSubscriptionPlanVariation:
+    docs: >-
+      Describes a subscription plan variation. A subscription plan variation
+      represents how the subscription for a product or service is sold.
+
+      For more information, see [Subscription Plans and
+      Variations](https://developer.squareup.com/docs/subscriptions-api/plans-and-variations).
+    properties:
+      name:
+        type: string
+        docs: The name of the plan variation.
+      phases:
+        docs: >-
+          A list containing each [SubscriptionPhase](entity:SubscriptionPhase)
+          for this plan variation.
+        type: list<SubscriptionPhase>
+      subscription_plan_id:
+        type: optional<nullable<string>>
+        docs: The id of the subscription plan, if there is one.
+      monthly_billing_anchor_date:
+        type: optional<nullable<long>>
+        docs: The day of the month the billing period starts.
+      can_prorate:
+        type: optional<nullable<boolean>>
+        docs: Whether bills for this plan variation can be split for proration.
+      successor_plan_variation_id:
+        type: optional<nullable<string>>
+        docs: >-
+          The ID of a "successor" plan variation to this one. If the field is
+          set, and this object is disabled at all
+
+          locations, it indicates that this variation is deprecated and the
+          object identified by the successor ID be used in
+
+          its stead.
     source:
       openapi: openapi/openapi.json
   CatalogTax:
@@ -13464,12 +13548,20 @@ types:
       public_url:
         type: optional<string>
         docs: >-
-          The URL of the Square-hosted invoice page.
+          A temporary link to the Square-hosted payment page where the customer
+          can pay the
 
-          After you publish the invoice using the `PublishInvoice` endpoint,
-          Square hosts the invoice
+          invoice. If the link expires, customers can provide the email address
+          or phone number
 
-          page and returns the page URL in the response.
+          associated with the invoice and request a new link directly from the
+          expired payment page. 
+
+
+          This field is added after the invoice is published and reaches the
+          scheduled date
+
+          (if one is defined).
         access: read-only
       next_payment_amount_money:
         type: optional<Money>
@@ -14181,7 +14273,7 @@ types:
       - CANCELED
       - FAILED
       - PAYMENT_PENDING
-    docs: Indicates the status of an invoice.
+    docs: Indicates the status of an [invoice](entity:Invoice).
     source:
       openapi: openapi/openapi.json
   ItemVariationLocationOverrides:
@@ -20691,9 +20783,10 @@ types:
         type: optional<nullable<boolean>>
         docs: >-
           Indicates whether the `Payment` objects created from this
-          `TerminalCheckout` are automatically
+          `TerminalCheckout` are
 
-          `COMPLETED` or left in an `APPROVED` state for later modification.
+          automatically `COMPLETED` or left in an `APPROVED` state for later
+          modification.
 
 
           Default: true
@@ -25001,9 +25094,7 @@ types:
         docs: The reference to the Square order ID for the checkout request.
       payment_options:
         type: optional<PaymentOptions>
-        docs: >-
-          Payment-specific options for the checkout request. Supported only in
-          the US.
+        docs: Payment-specific options for the checkout request.
       device_options:
         type: DeviceCheckoutOptions
         docs: >-
@@ -25114,9 +25205,6 @@ types:
           To set this field, PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS OAuth
           permission is required. For more information, see
           [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
-
-
-          Supported only in the US.
       statement_description_identifier:
         type: optional<nullable<string>>
         docs: >-
@@ -25126,8 +25214,7 @@ types:
           part of the statement description. This can be, for example, an
           invoice number, ticket number,
 
-          or short description that uniquely identifies the purchase. Supported
-          only in the US.
+          or short description that uniquely identifies the purchase.
         validation:
           maxLength: 20
       tip_money:
@@ -25137,9 +25224,7 @@ types:
           may only be set for a
 
           checkout that has tipping disabled (`tip_settings.allow_tipping` is
-          `false`). Supported only in
-
-          the US.
+          `false`).
     source:
       openapi: openapi/openapi.json
   TerminalCheckoutQuery:
@@ -26935,6 +27020,28 @@ types:
         docs: >-
           Structured data for a `CatalogQuickAmountsSettings`, set for
           CatalogObjects of type `QUICK_AMOUNTS_SETTINGS`.
+    extends:
+      - CatalogObjectBase
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectSubscriptionPlanVariation:
+    properties:
+      subscription_plan_variation_data:
+        type: optional<CatalogSubscriptionPlanVariation>
+        docs: >-
+          Structured data for a `CatalogSubscriptionPlanVariation`, set for
+          CatalogObjects of type `SUBSCRIPTION_PLAN_VARIATION`.
+    extends:
+      - CatalogObjectBase
+    source:
+      openapi: openapi/openapi.json
+  CatalogObjectAvailabilityPeriod:
+    properties:
+      availability_period_data:
+        type: optional<CatalogAvailabilityPeriod>
+        docs: >-
+          Structured data for a `CatalogAvailabilityPeriod`, set for
+          CatalogObjects of type `AVAILABILITY_PERIOD`.
     extends:
       - CatalogObjectBase
     source:
