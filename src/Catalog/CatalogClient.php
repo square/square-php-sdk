@@ -112,7 +112,7 @@ class CatalogClient
      * @throws SquareException
      * @throws SquareApiException
      */
-    public function batchDelete(BatchDeleteCatalogObjectsRequest $request = new BatchDeleteCatalogObjectsRequest(), ?array $options = null): BatchDeleteCatalogObjectsResponse
+    public function batchDelete(BatchDeleteCatalogObjectsRequest $request, ?array $options = null): BatchDeleteCatalogObjectsResponse
     {
         $options = array_merge($this->options, $options ?? []);
         try {

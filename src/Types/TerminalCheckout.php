@@ -50,7 +50,7 @@ class TerminalCheckout extends JsonSerializableType
     private ?string $orderId;
 
     /**
-     * @var ?PaymentOptions $paymentOptions Payment-specific options for the checkout request. Supported only in the US.
+     * @var ?PaymentOptions $paymentOptions Payment-specific options for the checkout request.
      */
     #[JsonProperty('payment_options')]
     private ?PaymentOptions $paymentOptions;
@@ -158,8 +158,6 @@ class TerminalCheckout extends JsonSerializableType
      *
      * To set this field, PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS OAuth permission is required. For more information, see [Permissions](https://developer.squareup.com/docs/payments-api/take-payments-and-collect-fees#permissions).
      *
-     * Supported only in the US.
-     *
      * @var ?Money $appFeeMoney
      */
     #[JsonProperty('app_fee_money')]
@@ -168,7 +166,7 @@ class TerminalCheckout extends JsonSerializableType
     /**
      * Optional additional payment information to include on the customer's card statement as
      * part of the statement description. This can be, for example, an invoice number, ticket number,
-     * or short description that uniquely identifies the purchase. Supported only in the US.
+     * or short description that uniquely identifies the purchase.
      *
      * @var ?string $statementDescriptionIdentifier
      */
@@ -177,8 +175,7 @@ class TerminalCheckout extends JsonSerializableType
 
     /**
      * The amount designated as a tip, in addition to `amount_money`. This may only be set for a
-     * checkout that has tipping disabled (`tip_settings.allow_tipping` is `false`). Supported only in
-     * the US.
+     * checkout that has tipping disabled (`tip_settings.allow_tipping` is `false`).
      *
      * @var ?Money $tipMoney
      */
