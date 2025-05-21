@@ -17,15 +17,29 @@ class CatalogModifierOverride extends JsonSerializableType
     private string $modifierId;
 
     /**
-     * @var ?bool $onByDefault If `true`, this `CatalogModifier` should be selected by default for this `CatalogItem`.
+     * @var ?bool $onByDefault __Deprecated__: Use `on_by_default_override` instead.
      */
     #[JsonProperty('on_by_default')]
     private ?bool $onByDefault;
 
     /**
+     * @var mixed $hiddenOnlineOverride
+     */
+    #[JsonProperty('hidden_online_override')]
+    private mixed $hiddenOnlineOverride;
+
+    /**
+     * @var mixed $onByDefaultOverride
+     */
+    #[JsonProperty('on_by_default_override')]
+    private mixed $onByDefaultOverride;
+
+    /**
      * @param array{
      *   modifierId: string,
      *   onByDefault?: ?bool,
+     *   hiddenOnlineOverride?: mixed,
+     *   onByDefaultOverride?: mixed,
      * } $values
      */
     public function __construct(
@@ -33,6 +47,8 @@ class CatalogModifierOverride extends JsonSerializableType
     ) {
         $this->modifierId = $values['modifierId'];
         $this->onByDefault = $values['onByDefault'] ?? null;
+        $this->hiddenOnlineOverride = $values['hiddenOnlineOverride'] ?? null;
+        $this->onByDefaultOverride = $values['onByDefaultOverride'] ?? null;
     }
 
     /**
@@ -66,6 +82,40 @@ class CatalogModifierOverride extends JsonSerializableType
     public function setOnByDefault(?bool $value = null): self
     {
         $this->onByDefault = $value;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHiddenOnlineOverride(): mixed
+    {
+        return $this->hiddenOnlineOverride;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setHiddenOnlineOverride(mixed $value = null): self
+    {
+        $this->hiddenOnlineOverride = $value;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOnByDefaultOverride(): mixed
+    {
+        return $this->onByDefaultOverride;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    public function setOnByDefaultOverride(mixed $value = null): self
+    {
+        $this->onByDefaultOverride = $value;
         return $this;
     }
 
