@@ -6,8 +6,9 @@ use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
 
 /**
- * The hourly wage rate that a team member earns on a `Shift` for doing the job
- * specified by the `title` property of this object.
+ * Job and wage information for a [team member](entity:TeamMember).
+ * This convenience object provides details needed to specify the `wage`
+ * field for a [timecard](entity:Timecard).
  */
 class TeamMemberWage extends JsonSerializableType
 {
@@ -39,10 +40,7 @@ class TeamMemberWage extends JsonSerializableType
     private ?Money $hourlyRate;
 
     /**
-     * An identifier for the job that this wage relates to. This cannot be
-     * used to retrieve the job.
-     *
-     * @var ?string $jobId
+     * @var ?string $jobId An identifier for the [job](entity:Job) that this wage relates to.
      */
     #[JsonProperty('job_id')]
     private ?string $jobId;

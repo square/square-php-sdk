@@ -1,4 +1,5 @@
 <?php
+
 namespace Square\Utils;
 
 use Exception;
@@ -6,7 +7,8 @@ use Exception;
 /**
  * Utility to help with Square Webhooks
  */
-class WebhooksHelper {
+class WebhooksHelper
+{
     /**
      * Verifies and validates an event notification.
      * See the documentation for more details.
@@ -34,13 +36,16 @@ class WebhooksHelper {
             throw new Exception('notificationUrl is null or empty');
         }
 
-        // Perform UTF-8 encoding to bytes
+        // Compute the payload.
         $payload = $notificationUrl . $requestBody;
-        $payloadBytes = mb_convert_encoding($payload, 'UTF-8');
-        $signatureKeyBytes = mb_convert_encoding($signatureKey, 'UTF-8');
 
         // Compute the hash value
-        $hash = hash_hmac('sha256', $payloadBytes, $signatureKeyBytes, true);
+        $hash = hash_hmac(
+            algo: 'sha256',
+            data: $payload,
+            key: $signatureKey,
+            binary: true
+        );
 
         // Compare the computed hash vs the value in the signature header
         $hashBase64 = base64_encode($hash);

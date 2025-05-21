@@ -3,6 +3,7 @@
 namespace Square\Invoices\Requests;
 
 use Square\Core\Json\JsonSerializableType;
+use Square\Types\CreateInvoiceAttachmentRequestData;
 use Square\Core\Json\JsonProperty;
 use Square\Utils\File;
 
@@ -14,10 +15,10 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     private string $invoiceId;
 
     /**
-     * @var mixed $request
+     * @var ?CreateInvoiceAttachmentRequestData $request
      */
     #[JsonProperty('request')]
-    private mixed $request;
+    private ?CreateInvoiceAttachmentRequestData $request;
 
     /**
      * @var ?File $imageFile
@@ -27,7 +28,7 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     /**
      * @param array{
      *   invoiceId: string,
-     *   request?: mixed,
+     *   request?: ?CreateInvoiceAttachmentRequestData,
      *   imageFile?: ?File,
      * } $values
      */
@@ -57,17 +58,17 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     }
 
     /**
-     * @return mixed
+     * @return ?CreateInvoiceAttachmentRequestData
      */
-    public function getRequest(): mixed
+    public function getRequest(): ?CreateInvoiceAttachmentRequestData
     {
         return $this->request;
     }
 
     /**
-     * @param mixed $value
+     * @param ?CreateInvoiceAttachmentRequestData $value
      */
-    public function setRequest(mixed $value = null): self
+    public function setRequest(?CreateInvoiceAttachmentRequestData $value = null): self
     {
         $this->request = $value;
         return $this;

@@ -30,25 +30,16 @@ class CatalogObject extends JsonSerializableType
      *   |'DISCOUNT'
      *   |'MODIFIER_LIST'
      *   |'MODIFIER'
-     *   |'DINING_OPTION'
-     *   |'TAX_EXEMPTION'
-     *   |'SERVICE_CHARGE'
      *   |'PRICING_RULE'
      *   |'PRODUCT_SET'
      *   |'TIME_PERIOD'
      *   |'MEASUREMENT_UNIT'
-     *   |'SUBSCRIPTION_PLAN'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
      *   |'ITEM_OPTION'
      *   |'ITEM_OPTION_VAL'
      *   |'CUSTOM_ATTRIBUTE_DEFINITION'
      *   |'QUICK_AMOUNTS_SETTINGS'
-     *   |'COMPONENT'
-     *   |'COMPOSITION'
-     *   |'RESOURCE'
-     *   |'CHECKOUT_LINK'
-     *   |'ADDRESS'
-     *   |'SUBSCRIPTION_PRODUCT'
-     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'SUBSCRIPTION_PLAN'
      *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * ) $type
@@ -65,25 +56,16 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectDiscount
      *   |CatalogObjectModifierList
      *   |CatalogObjectModifier
-     *   |CatalogObjectDiningOption
-     *   |CatalogObjectTaxExemption
-     *   |CatalogObjectServiceCharge
      *   |CatalogObjectPricingRule
      *   |CatalogObjectProductSet
      *   |CatalogObjectTimePeriod
      *   |CatalogObjectMeasurementUnit
-     *   |CatalogObjectSubscriptionPlan
+     *   |CatalogObjectSubscriptionPlanVariation
      *   |CatalogObjectItemOption
      *   |CatalogObjectItemOptionValue
      *   |CatalogObjectCustomAttributeDefinition
      *   |CatalogObjectQuickAmountsSettings
-     *   |CatalogObjectComponent
-     *   |CatalogObjectComposition
-     *   |CatalogObjectResource
-     *   |CatalogObjectCheckoutLink
-     *   |CatalogObjectAddress
-     *   |CatalogObjectSubscriptionProduct
-     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectSubscriptionPlan
      *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * ) $value
@@ -101,25 +83,16 @@ class CatalogObject extends JsonSerializableType
      *   |'DISCOUNT'
      *   |'MODIFIER_LIST'
      *   |'MODIFIER'
-     *   |'DINING_OPTION'
-     *   |'TAX_EXEMPTION'
-     *   |'SERVICE_CHARGE'
      *   |'PRICING_RULE'
      *   |'PRODUCT_SET'
      *   |'TIME_PERIOD'
      *   |'MEASUREMENT_UNIT'
-     *   |'SUBSCRIPTION_PLAN'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
      *   |'ITEM_OPTION'
      *   |'ITEM_OPTION_VAL'
      *   |'CUSTOM_ATTRIBUTE_DEFINITION'
      *   |'QUICK_AMOUNTS_SETTINGS'
-     *   |'COMPONENT'
-     *   |'COMPOSITION'
-     *   |'RESOURCE'
-     *   |'CHECKOUT_LINK'
-     *   |'ADDRESS'
-     *   |'SUBSCRIPTION_PRODUCT'
-     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'SUBSCRIPTION_PLAN'
      *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * ),
@@ -132,25 +105,16 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectDiscount
      *   |CatalogObjectModifierList
      *   |CatalogObjectModifier
-     *   |CatalogObjectDiningOption
-     *   |CatalogObjectTaxExemption
-     *   |CatalogObjectServiceCharge
      *   |CatalogObjectPricingRule
      *   |CatalogObjectProductSet
      *   |CatalogObjectTimePeriod
      *   |CatalogObjectMeasurementUnit
-     *   |CatalogObjectSubscriptionPlan
+     *   |CatalogObjectSubscriptionPlanVariation
      *   |CatalogObjectItemOption
      *   |CatalogObjectItemOptionValue
      *   |CatalogObjectCustomAttributeDefinition
      *   |CatalogObjectQuickAmountsSettings
-     *   |CatalogObjectComponent
-     *   |CatalogObjectComposition
-     *   |CatalogObjectResource
-     *   |CatalogObjectCheckoutLink
-     *   |CatalogObjectAddress
-     *   |CatalogObjectSubscriptionProduct
-     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectSubscriptionPlan
      *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * ),
@@ -173,25 +137,16 @@ class CatalogObject extends JsonSerializableType
      *   |'DISCOUNT'
      *   |'MODIFIER_LIST'
      *   |'MODIFIER'
-     *   |'DINING_OPTION'
-     *   |'TAX_EXEMPTION'
-     *   |'SERVICE_CHARGE'
      *   |'PRICING_RULE'
      *   |'PRODUCT_SET'
      *   |'TIME_PERIOD'
      *   |'MEASUREMENT_UNIT'
-     *   |'SUBSCRIPTION_PLAN'
+     *   |'SUBSCRIPTION_PLAN_VARIATION'
      *   |'ITEM_OPTION'
      *   |'ITEM_OPTION_VAL'
      *   |'CUSTOM_ATTRIBUTE_DEFINITION'
      *   |'QUICK_AMOUNTS_SETTINGS'
-     *   |'COMPONENT'
-     *   |'COMPOSITION'
-     *   |'RESOURCE'
-     *   |'CHECKOUT_LINK'
-     *   |'ADDRESS'
-     *   |'SUBSCRIPTION_PRODUCT'
-     *   |'SUBSCRIPTION_PLAN_VARIATION'
+     *   |'SUBSCRIPTION_PLAN'
      *   |'AVAILABILITY_PERIOD'
      *   |'_unknown'
      * )
@@ -211,25 +166,16 @@ class CatalogObject extends JsonSerializableType
      *   |CatalogObjectDiscount
      *   |CatalogObjectModifierList
      *   |CatalogObjectModifier
-     *   |CatalogObjectDiningOption
-     *   |CatalogObjectTaxExemption
-     *   |CatalogObjectServiceCharge
      *   |CatalogObjectPricingRule
      *   |CatalogObjectProductSet
      *   |CatalogObjectTimePeriod
      *   |CatalogObjectMeasurementUnit
-     *   |CatalogObjectSubscriptionPlan
+     *   |CatalogObjectSubscriptionPlanVariation
      *   |CatalogObjectItemOption
      *   |CatalogObjectItemOptionValue
      *   |CatalogObjectCustomAttributeDefinition
      *   |CatalogObjectQuickAmountsSettings
-     *   |CatalogObjectComponent
-     *   |CatalogObjectComposition
-     *   |CatalogObjectResource
-     *   |CatalogObjectCheckoutLink
-     *   |CatalogObjectAddress
-     *   |CatalogObjectSubscriptionProduct
-     *   |CatalogObjectSubscriptionPlanVariation
+     *   |CatalogObjectSubscriptionPlan
      *   |CatalogObjectAvailabilityPeriod
      *   |mixed
      * )
@@ -336,42 +282,6 @@ class CatalogObject extends JsonSerializableType
     }
 
     /**
-     * @param CatalogObjectDiningOption $diningOption
-     * @return CatalogObject
-     */
-    public static function diningOption(CatalogObjectDiningOption $diningOption): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'DINING_OPTION',
-            'value' => $diningOption,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectTaxExemption $taxExemption
-     * @return CatalogObject
-     */
-    public static function taxExemption(CatalogObjectTaxExemption $taxExemption): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'TAX_EXEMPTION',
-            'value' => $taxExemption,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectServiceCharge $serviceCharge
-     * @return CatalogObject
-     */
-    public static function serviceCharge(CatalogObjectServiceCharge $serviceCharge): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'SERVICE_CHARGE',
-            'value' => $serviceCharge,
-        ]);
-    }
-
-    /**
      * @param CatalogObjectPricingRule $pricingRule
      * @return CatalogObject
      */
@@ -420,14 +330,14 @@ class CatalogObject extends JsonSerializableType
     }
 
     /**
-     * @param CatalogObjectSubscriptionPlan $subscriptionPlan
+     * @param CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation
      * @return CatalogObject
      */
-    public static function subscriptionPlan(CatalogObjectSubscriptionPlan $subscriptionPlan): CatalogObject
+    public static function subscriptionPlanVariation(CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation): CatalogObject
     {
         return new CatalogObject([
-            'type' => 'SUBSCRIPTION_PLAN',
-            'value' => $subscriptionPlan,
+            'type' => 'SUBSCRIPTION_PLAN_VARIATION',
+            'value' => $subscriptionPlanVariation,
         ]);
     }
 
@@ -480,86 +390,14 @@ class CatalogObject extends JsonSerializableType
     }
 
     /**
-     * @param CatalogObjectComponent $component
+     * @param CatalogObjectSubscriptionPlan $subscriptionPlan
      * @return CatalogObject
      */
-    public static function component(CatalogObjectComponent $component): CatalogObject
+    public static function subscriptionPlan(CatalogObjectSubscriptionPlan $subscriptionPlan): CatalogObject
     {
         return new CatalogObject([
-            'type' => 'COMPONENT',
-            'value' => $component,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectComposition $composition
-     * @return CatalogObject
-     */
-    public static function composition(CatalogObjectComposition $composition): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'COMPOSITION',
-            'value' => $composition,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectResource $resource
-     * @return CatalogObject
-     */
-    public static function resource(CatalogObjectResource $resource): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'RESOURCE',
-            'value' => $resource,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectCheckoutLink $checkoutLink
-     * @return CatalogObject
-     */
-    public static function checkoutLink(CatalogObjectCheckoutLink $checkoutLink): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'CHECKOUT_LINK',
-            'value' => $checkoutLink,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectAddress $address
-     * @return CatalogObject
-     */
-    public static function address(CatalogObjectAddress $address): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'ADDRESS',
-            'value' => $address,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectSubscriptionProduct $subscriptionProduct
-     * @return CatalogObject
-     */
-    public static function subscriptionProduct(CatalogObjectSubscriptionProduct $subscriptionProduct): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'SUBSCRIPTION_PRODUCT',
-            'value' => $subscriptionProduct,
-        ]);
-    }
-
-    /**
-     * @param CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation
-     * @return CatalogObject
-     */
-    public static function subscriptionPlanVariation(CatalogObjectSubscriptionPlanVariation $subscriptionPlanVariation): CatalogObject
-    {
-        return new CatalogObject([
-            'type' => 'SUBSCRIPTION_PLAN_VARIATION',
-            'value' => $subscriptionPlanVariation,
+            'type' => 'SUBSCRIPTION_PLAN',
+            'value' => $subscriptionPlan,
         ]);
     }
 
@@ -754,72 +592,6 @@ class CatalogObject extends JsonSerializableType
     /**
      * @return bool
      */
-    public function isDiningOption(): bool
-    {
-        return $this->value instanceof CatalogObjectDiningOption && $this->type === 'DINING_OPTION';
-    }
-
-    /**
-     * @return CatalogObjectDiningOption
-     */
-    public function asDiningOption(): CatalogObjectDiningOption
-    {
-        if (!($this->value instanceof CatalogObjectDiningOption && $this->type === 'DINING_OPTION')) {
-            throw new Exception(
-                "Expected DINING_OPTION; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isTaxExemption(): bool
-    {
-        return $this->value instanceof CatalogObjectTaxExemption && $this->type === 'TAX_EXEMPTION';
-    }
-
-    /**
-     * @return CatalogObjectTaxExemption
-     */
-    public function asTaxExemption(): CatalogObjectTaxExemption
-    {
-        if (!($this->value instanceof CatalogObjectTaxExemption && $this->type === 'TAX_EXEMPTION')) {
-            throw new Exception(
-                "Expected TAX_EXEMPTION; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isServiceCharge(): bool
-    {
-        return $this->value instanceof CatalogObjectServiceCharge && $this->type === 'SERVICE_CHARGE';
-    }
-
-    /**
-     * @return CatalogObjectServiceCharge
-     */
-    public function asServiceCharge(): CatalogObjectServiceCharge
-    {
-        if (!($this->value instanceof CatalogObjectServiceCharge && $this->type === 'SERVICE_CHARGE')) {
-            throw new Exception(
-                "Expected SERVICE_CHARGE; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
     public function isPricingRule(): bool
     {
         return $this->value instanceof CatalogObjectPricingRule && $this->type === 'PRICING_RULE';
@@ -908,19 +680,19 @@ class CatalogObject extends JsonSerializableType
     /**
      * @return bool
      */
-    public function isSubscriptionPlan(): bool
+    public function isSubscriptionPlanVariation(): bool
     {
-        return $this->value instanceof CatalogObjectSubscriptionPlan && $this->type === 'SUBSCRIPTION_PLAN';
+        return $this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION';
     }
 
     /**
-     * @return CatalogObjectSubscriptionPlan
+     * @return CatalogObjectSubscriptionPlanVariation
      */
-    public function asSubscriptionPlan(): CatalogObjectSubscriptionPlan
+    public function asSubscriptionPlanVariation(): CatalogObjectSubscriptionPlanVariation
     {
-        if (!($this->value instanceof CatalogObjectSubscriptionPlan && $this->type === 'SUBSCRIPTION_PLAN')) {
+        if (!($this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION')) {
             throw new Exception(
-                "Expected SUBSCRIPTION_PLAN; got " . $this->type . " with value of type " . get_debug_type($this->value),
+                "Expected SUBSCRIPTION_PLAN_VARIATION; got " . $this->type . " with value of type " . get_debug_type($this->value),
             );
         }
 
@@ -1018,151 +790,19 @@ class CatalogObject extends JsonSerializableType
     /**
      * @return bool
      */
-    public function isComponent(): bool
+    public function isSubscriptionPlan(): bool
     {
-        return $this->value instanceof CatalogObjectComponent && $this->type === 'COMPONENT';
+        return $this->value instanceof CatalogObjectSubscriptionPlan && $this->type === 'SUBSCRIPTION_PLAN';
     }
 
     /**
-     * @return CatalogObjectComponent
+     * @return CatalogObjectSubscriptionPlan
      */
-    public function asComponent(): CatalogObjectComponent
+    public function asSubscriptionPlan(): CatalogObjectSubscriptionPlan
     {
-        if (!($this->value instanceof CatalogObjectComponent && $this->type === 'COMPONENT')) {
+        if (!($this->value instanceof CatalogObjectSubscriptionPlan && $this->type === 'SUBSCRIPTION_PLAN')) {
             throw new Exception(
-                "Expected COMPONENT; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isComposition(): bool
-    {
-        return $this->value instanceof CatalogObjectComposition && $this->type === 'COMPOSITION';
-    }
-
-    /**
-     * @return CatalogObjectComposition
-     */
-    public function asComposition(): CatalogObjectComposition
-    {
-        if (!($this->value instanceof CatalogObjectComposition && $this->type === 'COMPOSITION')) {
-            throw new Exception(
-                "Expected COMPOSITION; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isResource(): bool
-    {
-        return $this->value instanceof CatalogObjectResource && $this->type === 'RESOURCE';
-    }
-
-    /**
-     * @return CatalogObjectResource
-     */
-    public function asResource(): CatalogObjectResource
-    {
-        if (!($this->value instanceof CatalogObjectResource && $this->type === 'RESOURCE')) {
-            throw new Exception(
-                "Expected RESOURCE; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isCheckoutLink(): bool
-    {
-        return $this->value instanceof CatalogObjectCheckoutLink && $this->type === 'CHECKOUT_LINK';
-    }
-
-    /**
-     * @return CatalogObjectCheckoutLink
-     */
-    public function asCheckoutLink(): CatalogObjectCheckoutLink
-    {
-        if (!($this->value instanceof CatalogObjectCheckoutLink && $this->type === 'CHECKOUT_LINK')) {
-            throw new Exception(
-                "Expected CHECKOUT_LINK; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAddress(): bool
-    {
-        return $this->value instanceof CatalogObjectAddress && $this->type === 'ADDRESS';
-    }
-
-    /**
-     * @return CatalogObjectAddress
-     */
-    public function asAddress(): CatalogObjectAddress
-    {
-        if (!($this->value instanceof CatalogObjectAddress && $this->type === 'ADDRESS')) {
-            throw new Exception(
-                "Expected ADDRESS; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSubscriptionProduct(): bool
-    {
-        return $this->value instanceof CatalogObjectSubscriptionProduct && $this->type === 'SUBSCRIPTION_PRODUCT';
-    }
-
-    /**
-     * @return CatalogObjectSubscriptionProduct
-     */
-    public function asSubscriptionProduct(): CatalogObjectSubscriptionProduct
-    {
-        if (!($this->value instanceof CatalogObjectSubscriptionProduct && $this->type === 'SUBSCRIPTION_PRODUCT')) {
-            throw new Exception(
-                "Expected SUBSCRIPTION_PRODUCT; got " . $this->type . " with value of type " . get_debug_type($this->value),
-            );
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSubscriptionPlanVariation(): bool
-    {
-        return $this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION';
-    }
-
-    /**
-     * @return CatalogObjectSubscriptionPlanVariation
-     */
-    public function asSubscriptionPlanVariation(): CatalogObjectSubscriptionPlanVariation
-    {
-        if (!($this->value instanceof CatalogObjectSubscriptionPlanVariation && $this->type === 'SUBSCRIPTION_PLAN_VARIATION')) {
-            throw new Exception(
-                "Expected SUBSCRIPTION_PLAN_VARIATION; got " . $this->type . " with value of type " . get_debug_type($this->value),
+                "Expected SUBSCRIPTION_PLAN; got " . $this->type . " with value of type " . get_debug_type($this->value),
             );
         }
 
@@ -1243,18 +883,6 @@ class CatalogObject extends JsonSerializableType
                 $value = $this->asModifier()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
-            case 'DINING_OPTION':
-                $value = $this->asDiningOption()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'TAX_EXEMPTION':
-                $value = $this->asTaxExemption()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'SERVICE_CHARGE':
-                $value = $this->asServiceCharge()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
             case 'PRICING_RULE':
                 $value = $this->asPricingRule()->jsonSerialize();
                 $result = array_merge($value, $result);
@@ -1271,8 +899,8 @@ class CatalogObject extends JsonSerializableType
                 $value = $this->asMeasurementUnit()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
-            case 'SUBSCRIPTION_PLAN':
-                $value = $this->asSubscriptionPlan()->jsonSerialize();
+            case 'SUBSCRIPTION_PLAN_VARIATION':
+                $value = $this->asSubscriptionPlanVariation()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
             case 'ITEM_OPTION':
@@ -1291,32 +919,8 @@ class CatalogObject extends JsonSerializableType
                 $value = $this->asQuickAmountsSettings()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
-            case 'COMPONENT':
-                $value = $this->asComponent()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'COMPOSITION':
-                $value = $this->asComposition()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'RESOURCE':
-                $value = $this->asResource()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'CHECKOUT_LINK':
-                $value = $this->asCheckoutLink()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'ADDRESS':
-                $value = $this->asAddress()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'SUBSCRIPTION_PRODUCT':
-                $value = $this->asSubscriptionProduct()->jsonSerialize();
-                $result = array_merge($value, $result);
-                break;
-            case 'SUBSCRIPTION_PLAN_VARIATION':
-                $value = $this->asSubscriptionPlanVariation()->jsonSerialize();
+            case 'SUBSCRIPTION_PLAN':
+                $value = $this->asSubscriptionPlan()->jsonSerialize();
                 $result = array_merge($value, $result);
                 break;
             case 'AVAILABILITY_PERIOD':
@@ -1395,15 +999,6 @@ class CatalogObject extends JsonSerializableType
             case 'MODIFIER':
                 $args['value'] = CatalogObjectModifier::jsonDeserialize($data);
                 break;
-            case 'DINING_OPTION':
-                $args['value'] = CatalogObjectDiningOption::jsonDeserialize($data);
-                break;
-            case 'TAX_EXEMPTION':
-                $args['value'] = CatalogObjectTaxExemption::jsonDeserialize($data);
-                break;
-            case 'SERVICE_CHARGE':
-                $args['value'] = CatalogObjectServiceCharge::jsonDeserialize($data);
-                break;
             case 'PRICING_RULE':
                 $args['value'] = CatalogObjectPricingRule::jsonDeserialize($data);
                 break;
@@ -1416,8 +1011,8 @@ class CatalogObject extends JsonSerializableType
             case 'MEASUREMENT_UNIT':
                 $args['value'] = CatalogObjectMeasurementUnit::jsonDeserialize($data);
                 break;
-            case 'SUBSCRIPTION_PLAN':
-                $args['value'] = CatalogObjectSubscriptionPlan::jsonDeserialize($data);
+            case 'SUBSCRIPTION_PLAN_VARIATION':
+                $args['value'] = CatalogObjectSubscriptionPlanVariation::jsonDeserialize($data);
                 break;
             case 'ITEM_OPTION':
                 $args['value'] = CatalogObjectItemOption::jsonDeserialize($data);
@@ -1431,26 +1026,8 @@ class CatalogObject extends JsonSerializableType
             case 'QUICK_AMOUNTS_SETTINGS':
                 $args['value'] = CatalogObjectQuickAmountsSettings::jsonDeserialize($data);
                 break;
-            case 'COMPONENT':
-                $args['value'] = CatalogObjectComponent::jsonDeserialize($data);
-                break;
-            case 'COMPOSITION':
-                $args['value'] = CatalogObjectComposition::jsonDeserialize($data);
-                break;
-            case 'RESOURCE':
-                $args['value'] = CatalogObjectResource::jsonDeserialize($data);
-                break;
-            case 'CHECKOUT_LINK':
-                $args['value'] = CatalogObjectCheckoutLink::jsonDeserialize($data);
-                break;
-            case 'ADDRESS':
-                $args['value'] = CatalogObjectAddress::jsonDeserialize($data);
-                break;
-            case 'SUBSCRIPTION_PRODUCT':
-                $args['value'] = CatalogObjectSubscriptionProduct::jsonDeserialize($data);
-                break;
-            case 'SUBSCRIPTION_PLAN_VARIATION':
-                $args['value'] = CatalogObjectSubscriptionPlanVariation::jsonDeserialize($data);
+            case 'SUBSCRIPTION_PLAN':
+                $args['value'] = CatalogObjectSubscriptionPlan::jsonDeserialize($data);
                 break;
             case 'AVAILABILITY_PERIOD':
                 $args['value'] = CatalogObjectAvailabilityPeriod::jsonDeserialize($data);

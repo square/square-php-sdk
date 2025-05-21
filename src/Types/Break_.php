@@ -6,7 +6,7 @@ use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
 
 /**
- * A record of an employee's break during a shift.
+ * A record of a team member's break on a [timecard](entity:Timecard).
  */
 class Break_ extends JsonSerializableType
 {
@@ -17,7 +17,7 @@ class Break_ extends JsonSerializableType
     private ?string $id;
 
     /**
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
      * the minute is respected; seconds are truncated.
      *
      * @var string $startAt
@@ -26,7 +26,7 @@ class Break_ extends JsonSerializableType
     private string $startAt;
 
     /**
-     * RFC 3339; follows the same timezone information as `Shift`. Precision up to
+     * RFC 3339; follows the same timezone information as the [timecard](entity:Timecard). Precision up to
      * the minute is respected; seconds are truncated.
      *
      * @var ?string $endAt
@@ -35,7 +35,7 @@ class Break_ extends JsonSerializableType
     private ?string $endAt;
 
     /**
-     * @var string $breakTypeId The `BreakType` that this `Break` was templated on.
+     * @var string $breakTypeId The [BreakType](entity:BreakType) that this break was templated on.
      */
     #[JsonProperty('break_type_id')]
     private string $breakTypeId;
@@ -49,6 +49,8 @@ class Break_ extends JsonSerializableType
     /**
      * Format: RFC-3339 P[n]Y[n]M[n]DT[n]H[n]M[n]S. The expected length of
      * the break.
+     *
+     * Example for break expected duration of 15 minutes: PT15M
      *
      * @var string $expectedDuration
      */

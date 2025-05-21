@@ -18,6 +18,7 @@ use Square\Events\EventsClient;
 use Square\GiftCards\GiftCardsClient;
 use Square\Inventory\InventoryClient;
 use Square\Invoices\InvoicesClient;
+use Square\Labor\LaborClient;
 use Square\Locations\LocationsClient;
 use Square\Loyalty\LoyaltyClient;
 use Square\Merchants\MerchantsClient;
@@ -34,7 +35,6 @@ use Square\Team\TeamClient;
 use Square\Terminal\TerminalClient;
 use Square\Vendors\VendorsClient;
 use Square\CashDrawers\CashDrawersClient;
-use Square\Labor\LaborClient;
 use Square\Webhooks\WebhooksClient;
 use GuzzleHttp\ClientInterface;
 use Square\Core\Client\RawClient;
@@ -123,6 +123,11 @@ class SquareClient
     public InvoicesClient $invoices;
 
     /**
+     * @var LaborClient $labor
+     */
+    public LaborClient $labor;
+
+    /**
      * @var LocationsClient $locations
      */
     public LocationsClient $locations;
@@ -203,11 +208,6 @@ class SquareClient
     public CashDrawersClient $cashDrawers;
 
     /**
-     * @var LaborClient $labor
-     */
-    public LaborClient $labor;
-
-    /**
      * @var WebhooksClient $webhooks
      */
     public WebhooksClient $webhooks;
@@ -247,11 +247,11 @@ class SquareClient
         $token ??= $this->getFromEnvOrThrow('SQUARE_TOKEN', 'Please pass in token or set the environment variable SQUARE_TOKEN.');
         $defaultHeaders = [
             'Authorization' => "Bearer $token",
-            'Square-Version' => '2025-04-16',
+            'Square-Version' => '2025-05-21',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '42.1.0.20250416',
-            'User-Agent' => 'square/square/42.1.0.20250416',
+            'X-Fern-SDK-Version' => '42.2.0.20250521',
+            'User-Agent' => 'square/square/42.2.0.20250521',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;
@@ -283,6 +283,7 @@ class SquareClient
         $this->giftCards = new GiftCardsClient($this->client, $this->options);
         $this->inventory = new InventoryClient($this->client, $this->options);
         $this->invoices = new InvoicesClient($this->client, $this->options);
+        $this->labor = new LaborClient($this->client, $this->options);
         $this->locations = new LocationsClient($this->client, $this->options);
         $this->loyalty = new LoyaltyClient($this->client, $this->options);
         $this->merchants = new MerchantsClient($this->client, $this->options);
@@ -299,7 +300,6 @@ class SquareClient
         $this->terminal = new TerminalClient($this->client, $this->options);
         $this->vendors = new VendorsClient($this->client, $this->options);
         $this->cashDrawers = new CashDrawersClient($this->client, $this->options);
-        $this->labor = new LaborClient($this->client, $this->options);
         $this->webhooks = new WebhooksClient($this->client, $this->options);
     }
 

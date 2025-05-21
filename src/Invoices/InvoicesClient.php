@@ -30,7 +30,6 @@ use Square\Types\DeleteInvoiceResponse;
 use Square\Invoices\Requests\CreateInvoiceAttachmentRequest;
 use Square\Types\CreateInvoiceAttachmentResponse;
 use Square\Core\Multipart\MultipartFormData;
-use Square\Core\Json\JsonEncoder;
 use Square\Core\Multipart\MultipartApiRequest;
 use Square\Invoices\Requests\DeleteInvoiceAttachmentRequest;
 use Square\Types\DeleteInvoiceAttachmentResponse;
@@ -433,7 +432,7 @@ class InvoicesClient
         if ($request->getRequest() != null) {
             $body->add(
                 name: 'request',
-                value: JsonEncoder::encode($request->getRequest()),
+                value: $request->getRequest()->toJson(),
                 contentType: 'application/json; charset=utf-8',
             );
         }

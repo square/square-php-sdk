@@ -7,18 +7,11 @@ use Square\Core\Json\JsonProperty;
 use Square\Core\Types\ArrayType;
 
 /**
- * For a text-based modifier, this encapsulates the modifier's text when its `modifier_type` is `TEXT`.
- * For example, to sell T-shirts with custom prints, a text-based modifier can be used to capture the buyer-supplied
- * text string to be selected for the T-shirt at the time of sale.
- *
- * For non text-based modifiers, this encapsulates a non-empty list of modifiers applicable to items
- * at the time of sale. Each element of the modifier list is a `CatalogObject` instance of the `MODIFIER` type.
- * For example, a "Condiments" modifier list applicable to a "Hot Dog" item
- * may contain "Ketchup", "Mustard", and "Relish" modifiers.
- *
- * A non text-based modifier can be applied to the modified item once or multiple times, if the `selection_type` field
- * is set to `SINGLE` or `MULTIPLE`, respectively. On the other hand, a text-based modifier can be applied to the item
- * only once and the `selection_type` field is always set to `SINGLE`.
+ * A container for a list of modifiers, or a text-based modifier.
+ * For text-based modifiers, this represents text configuration for an item. (For example, custom text to print on a t-shirt).
+ * For non text-based modifiers, this represents a list of modifiers that can be applied to items at the time of sale.
+ * (For example, a list of condiments for a hot dog, or a list of ice cream flavors).
+ * Each element of the modifier list is a `CatalogObject` instance of the `MODIFIER` type.
  */
 class CatalogModifierList extends JsonSerializableType
 {
@@ -38,10 +31,8 @@ class CatalogModifierList extends JsonSerializableType
     private ?int $ordinal;
 
     /**
-     * Indicates whether a single (`SINGLE`) or multiple (`MULTIPLE`) modifiers from the list
-     * can be applied to a single `CatalogItem`.
-     *
-     * For text-based modifiers, the `selection_type` attribute is always `SINGLE`. The other value is ignored.
+     * __Deprecated__: Indicates whether a single (`SINGLE`) modifier or multiple (`MULTIPLE`) modifiers can be selected. Use
+     * `min_selected_modifiers` and `max_selected_modifiers` instead.
      * See [CatalogModifierListSelectionType](#type-catalogmodifierlistselectiontype) for possible values
      *
      * @var ?value-of<CatalogModifierListSelectionType> $selectionType
@@ -74,6 +65,18 @@ class CatalogModifierList extends JsonSerializableType
      */
     #[JsonProperty('image_ids'), ArrayType(['string'])]
     private ?array $imageIds;
+
+    /**
+     * @var ?bool $allowQuantities When `true`, allows multiple quantities of the same modifier to be selected.
+     */
+    #[JsonProperty('allow_quantities')]
+    private ?bool $allowQuantities;
+
+    /**
+     * @var ?bool $isConversational True if modifiers belonging to this list can be used conversationally.
+     */
+    #[JsonProperty('is_conversational')]
+    private ?bool $isConversational;
 
     /**
      * The type of the modifier.
@@ -121,16 +124,60 @@ class CatalogModifierList extends JsonSerializableType
     private ?string $internalName;
 
     /**
+     * The minimum number of modifiers that must be selected from this list. The value can be overridden with `CatalogItemModifierListInfo`.
+     *
+     * Values:
+     *
+     * - 0: No selection is required.
+     * - -1: Default value, the attribute was not set by the client. Treated as no selection required.
+     * - &gt;0: The required minimum modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+     * - &lt; -1: Invalid. Treated as no selection required.
+     *
+     * @var ?int $minSelectedModifiers
+     */
+    #[JsonProperty('min_selected_modifiers')]
+    private ?int $minSelectedModifiers;
+
+    /**
+     * The maximum number of modifiers that must be selected from this list. The value can be overridden with `CatalogItemModifierListInfo`.
+     *
+     * Values:
+     *
+     * - 0: No maximum limit.
+     * - -1: Default value, the attribute was not set by the client. Treated as no maximum limit.
+     * - &gt;0: The maximum total modifier selections. This can be larger than the total `CatalogModifiers` when `allow_quantities` is enabled.
+     * - &lt; -1: Invalid. Treated as no maximum limit.
+     *
+     * @var ?int $maxSelectedModifiers
+     */
+    #[JsonProperty('max_selected_modifiers')]
+    private ?int $maxSelectedModifiers;
+
+    /**
+     * If `true`, modifiers from this list are hidden from customer receipts. The default value is `false`.
+     * This setting can be overridden with `CatalogItemModifierListInfo.hidden_from_customer_override`.
+     *
+     * @var ?bool $hiddenFromCustomer
+     */
+    #[JsonProperty('hidden_from_customer')]
+    private ?bool $hiddenFromCustomer;
+
+    /**
      * @param array{
      *   name?: ?string,
      *   ordinal?: ?int,
      *   selectionType?: ?value-of<CatalogModifierListSelectionType>,
      *   modifiers?: ?array<CatalogObject>,
      *   imageIds?: ?array<string>,
+     *   allowQuantities?: ?bool,
+     *   isConversational?: ?bool,
      *   modifierType?: ?value-of<CatalogModifierListModifierType>,
      *   maxLength?: ?int,
      *   textRequired?: ?bool,
      *   internalName?: ?string,
+     *   minSelectedModifiers?: ?int,
+     *   maxSelectedModifiers?: ?int,
+     *   hiddenFromCustomer?: ?bool,
      * } $values
      */
     public function __construct(
@@ -141,10 +188,15 @@ class CatalogModifierList extends JsonSerializableType
         $this->selectionType = $values['selectionType'] ?? null;
         $this->modifiers = $values['modifiers'] ?? null;
         $this->imageIds = $values['imageIds'] ?? null;
+        $this->allowQuantities = $values['allowQuantities'] ?? null;
+        $this->isConversational = $values['isConversational'] ?? null;
         $this->modifierType = $values['modifierType'] ?? null;
         $this->maxLength = $values['maxLength'] ?? null;
         $this->textRequired = $values['textRequired'] ?? null;
         $this->internalName = $values['internalName'] ?? null;
+        $this->minSelectedModifiers = $values['minSelectedModifiers'] ?? null;
+        $this->maxSelectedModifiers = $values['maxSelectedModifiers'] ?? null;
+        $this->hiddenFromCustomer = $values['hiddenFromCustomer'] ?? null;
     }
 
     /**
@@ -233,6 +285,40 @@ class CatalogModifierList extends JsonSerializableType
     }
 
     /**
+     * @return ?bool
+     */
+    public function getAllowQuantities(): ?bool
+    {
+        return $this->allowQuantities;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setAllowQuantities(?bool $value = null): self
+    {
+        $this->allowQuantities = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getIsConversational(): ?bool
+    {
+        return $this->isConversational;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setIsConversational(?bool $value = null): self
+    {
+        $this->isConversational = $value;
+        return $this;
+    }
+
+    /**
      * @return ?value-of<CatalogModifierListModifierType>
      */
     public function getModifierType(): ?string
@@ -297,6 +383,57 @@ class CatalogModifierList extends JsonSerializableType
     public function setInternalName(?string $value = null): self
     {
         $this->internalName = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?int
+     */
+    public function getMinSelectedModifiers(): ?int
+    {
+        return $this->minSelectedModifiers;
+    }
+
+    /**
+     * @param ?int $value
+     */
+    public function setMinSelectedModifiers(?int $value = null): self
+    {
+        $this->minSelectedModifiers = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?int
+     */
+    public function getMaxSelectedModifiers(): ?int
+    {
+        return $this->maxSelectedModifiers;
+    }
+
+    /**
+     * @param ?int $value
+     */
+    public function setMaxSelectedModifiers(?int $value = null): self
+    {
+        $this->maxSelectedModifiers = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getHiddenFromCustomer(): ?bool
+    {
+        return $this->hiddenFromCustomer;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setHiddenFromCustomer(?bool $value = null): self
+    {
+        $this->hiddenFromCustomer = $value;
         return $this;
     }
 
