@@ -29,15 +29,6 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     private ?string $name;
 
     /**
-     * Provides details about the reward tier definition.
-     * DEPRECATED at version 2020-12-16. Replaced by the `pricing_rule_reference` field.
-     *
-     * @var ?LoyaltyProgramRewardDefinition $definition
-     */
-    #[JsonProperty('definition')]
-    private ?LoyaltyProgramRewardDefinition $definition;
-
-    /**
      * @var ?string $createdAt The timestamp when the reward tier was created, in RFC 3339 format.
      */
     #[JsonProperty('created_at')]
@@ -61,7 +52,6 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
      *   pricingRuleReference: CatalogObjectReference,
      *   id?: ?string,
      *   name?: ?string,
-     *   definition?: ?LoyaltyProgramRewardDefinition,
      *   createdAt?: ?string,
      * } $values
      */
@@ -71,7 +61,6 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
         $this->id = $values['id'] ?? null;
         $this->points = $values['points'];
         $this->name = $values['name'] ?? null;
-        $this->definition = $values['definition'] ?? null;
         $this->createdAt = $values['createdAt'] ?? null;
         $this->pricingRuleReference = $values['pricingRuleReference'];
     }
@@ -124,23 +113,6 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
-        return $this;
-    }
-
-    /**
-     * @return ?LoyaltyProgramRewardDefinition
-     */
-    public function getDefinition(): ?LoyaltyProgramRewardDefinition
-    {
-        return $this->definition;
-    }
-
-    /**
-     * @param ?LoyaltyProgramRewardDefinition $value
-     */
-    public function setDefinition(?LoyaltyProgramRewardDefinition $value = null): self
-    {
-        $this->definition = $value;
         return $this;
     }
 

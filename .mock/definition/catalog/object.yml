@@ -72,8 +72,8 @@ service:
         - request:
             idempotency_key: af3d1afc-7212-4300-b463-0bfc5314a5ae
             object:
-              id: id
-              type: ITEM
+              type: IMAGE
+              id: '#Cocoa'
           response:
             body:
               errors:
@@ -82,10 +82,11 @@ service:
                   detail: detail
                   field: field
               catalog_object:
-                id: id
-                updated_at: updated_at
-                version: 1000000
-                is_deleted: true
+                type: ITEM
+                id: R2TA2FOBUGCJZNIWJSOSNAI4
+                updated_at: '2021-06-14T15:51:39.021Z'
+                version: 1623685899021
+                is_deleted: false
                 custom_attribute_values:
                   key: {}
                 catalog_v1_ids:
@@ -97,9 +98,9 @@ service:
                   - absent_at_location_ids
                 image_id: image_id
                 item_data:
-                  name: name
-                  description: description
-                  abbreviation: abbreviation
+                  name: Cocoa
+                  description: Hot Chocolate
+                  abbreviation: Ch
                   label_color: label_color
                   is_taxable: true
                   category_id: category_id
@@ -117,13 +118,12 @@ service:
                   image_ids:
                     - image_ids
                   sort_name: sort_name
-                  description_html: description_html
-                  description_plaintext: description_plaintext
+                  description_html: <p><strong>Hot</strong> Chocolate</p>
+                  description_plaintext: Hot Chocolate
                   channels:
                     - channels
                   is_archived: true
                   is_alcoholic: true
-                type: ITEM
               id_mappings:
                 - client_object_id: '#Cocoa'
                   object_id: R2TA2FOBUGCJZNIWJSOSNAI4
@@ -244,10 +244,11 @@ service:
                   detail: detail
                   field: field
               object:
-                id: id
-                updated_at: updated_at
-                version: 1000000
-                is_deleted: true
+                type: ITEM
+                id: W62UWFY35CWMYGVWK6TWJDNI
+                updated_at: '2016-11-16T22:25:24.878Z'
+                version: 1479335124878
+                is_deleted: false
                 custom_attribute_values:
                   key: {}
                 catalog_v1_ids:
@@ -259,14 +260,14 @@ service:
                   - absent_at_location_ids
                 image_id: image_id
                 item_data:
-                  name: name
-                  description: description
+                  name: Tea
+                  description: Hot Leaf Juice
                   abbreviation: abbreviation
                   label_color: label_color
                   is_taxable: true
                   category_id: category_id
                   tax_ids:
-                    - tax_ids
+                    - HURXQOOAIC4IZSI2BEXQRYFY
                   modifier_list_info:
                     - modifier_list_id: modifier_list_id
                   product_type: REGULAR
@@ -279,18 +280,22 @@ service:
                   image_ids:
                     - image_ids
                   sort_name: sort_name
+                  categories:
+                    - type: CATEGORY
+                      id: BJNQCF2FJ6S6UIDT65ABHLRX
+                      ordinal: 0
                   description_html: description_html
                   description_plaintext: description_plaintext
                   channels:
                     - channels
                   is_archived: true
                   is_alcoholic: true
-                type: ITEM
               related_objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: BJNQCF2FJ6S6UIDT65ABHLRX
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -301,12 +306,11 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  ordinal: 1000000
-                  type: CATEGORY
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: TAX
+                  id: HURXQOOAIC4IZSI2BEXQRYFY
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -317,7 +321,12 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: TAX
+                  tax_data:
+                    name: Sales Tax
+                    calculation_phase: TAX_SUBTOTAL_PHASE
+                    inclusion_type: ADDITIVE
+                    percentage: '5.0'
+                    enabled: true
     delete:
       path: /v2/catalog/object/{object_id}
       method: DELETE

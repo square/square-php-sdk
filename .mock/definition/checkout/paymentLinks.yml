@@ -275,8 +275,8 @@ service:
                       amount: 0
                       currency: USD
                 subscription_plans:
-                  - id: id
-                    type: ITEM
+                  - type: ITEM
+                    id: id
     get:
       path: /v2/online-checkout/payment-links/{id}
       method: GET
