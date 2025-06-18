@@ -30,10 +30,10 @@ class Refund extends JsonSerializableType
     private ?string $transactionId;
 
     /**
-     * @var string $tenderId The ID of the refunded tender.
+     * @var ?string $tenderId The ID of the refunded tender.
      */
     #[JsonProperty('tender_id')]
-    private string $tenderId;
+    private ?string $tenderId;
 
     /**
      * @var ?string $createdAt The timestamp for when the refund was created, in RFC 3339 format.
@@ -82,11 +82,11 @@ class Refund extends JsonSerializableType
      * @param array{
      *   id: string,
      *   locationId: string,
-     *   tenderId: string,
      *   reason: string,
      *   amountMoney: Money,
      *   status: value-of<RefundStatus>,
      *   transactionId?: ?string,
+     *   tenderId?: ?string,
      *   createdAt?: ?string,
      *   processingFeeMoney?: ?Money,
      *   additionalRecipients?: ?array<AdditionalRecipient>,
@@ -98,7 +98,7 @@ class Refund extends JsonSerializableType
         $this->id = $values['id'];
         $this->locationId = $values['locationId'];
         $this->transactionId = $values['transactionId'] ?? null;
-        $this->tenderId = $values['tenderId'];
+        $this->tenderId = $values['tenderId'] ?? null;
         $this->createdAt = $values['createdAt'] ?? null;
         $this->reason = $values['reason'];
         $this->amountMoney = $values['amountMoney'];
@@ -159,17 +159,17 @@ class Refund extends JsonSerializableType
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getTenderId(): string
+    public function getTenderId(): ?string
     {
         return $this->tenderId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setTenderId(string $value): self
+    public function setTenderId(?string $value = null): self
     {
         $this->tenderId = $value;
         return $this;

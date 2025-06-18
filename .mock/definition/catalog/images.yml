@@ -51,7 +51,8 @@ service:
                   detail: detail
                   field: field
               image:
-                id: id
+                type: IMAGE
+                id: KQLFFHA6K6J3YQAQAWDQAL57
                 updated_at: updated_at
                 version: 1000000
                 is_deleted: true
@@ -67,10 +68,9 @@ service:
                 image_id: image_id
                 image_data:
                   name: name
-                  url: url
-                  caption: caption
+                  url: https://...
+                  caption: A picture of a cup of coffee
                   photo_studio_order_id: photo_studio_order_id
-                type: IMAGE
     update:
       path: /v2/catalog/images/{image_id}
       method: PUT
@@ -120,7 +120,8 @@ service:
                   detail: detail
                   field: field
               image:
-                id: id
+                type: IMAGE
+                id: L52QOQN2SW3M5QTF9JOCQKNB
                 updated_at: updated_at
                 version: 1000000
                 is_deleted: true
@@ -135,10 +136,9 @@ service:
                   - absent_at_location_ids
                 image_id: image_id
                 image_data:
-                  name: name
-                  url: url
-                  caption: caption
+                  name: Coffee
+                  url: https://...
+                  caption: A picture of a cup of coffee
                   photo_studio_order_id: photo_studio_order_id
-                type: IMAGE
   source:
     openapi: openapi/openapi.json

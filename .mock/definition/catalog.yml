@@ -200,10 +200,11 @@ service:
                   detail: detail
                   field: field
               objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: W62UWFY35CWMYGVWK6TWJDNI
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -214,11 +215,20 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                  item_data:
+                    name: Tea
+                    description: Hot Leaf Juice
+                    tax_ids:
+                      - HURXQOOAIC4IZSI2BEXQRYFY
+                    categories:
+                      - type: CATEGORY
+                        id: BJNQCF2FJ6S6UIDT65ABHLRX
+                        ordinal: 0
+                - type: ITEM
+                  id: AA27W3M2GGTF3H6AVPNB77CK
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -229,12 +239,21 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
+                  item_data:
+                    name: Coffee
+                    description: Hot Bean Juice
+                    tax_ids:
+                      - HURXQOOAIC4IZSI2BEXQRYFY
+                    categories:
+                      - type: CATEGORY
+                        id: BJNQCF2FJ6S6UIDT65ABHLRX
+                        ordinal: 0
               related_objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: BJNQCF2FJ6S6UIDT65ABHLRX
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -245,12 +264,11 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  ordinal: 1000000
-                  type: CATEGORY
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: TAX
+                  id: HURXQOOAIC4IZSI2BEXQRYFY
+                  updated_at: '2016-11-16T22:25:24.878Z'
+                  version: 1479335124878
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -261,7 +279,12 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: TAX
+                  tax_data:
+                    name: Sales Tax
+                    calculation_phase: TAX_SUBTOTAL_PHASE
+                    inclusion_type: ADDITIVE
+                    percentage: '5.0'
+                    enabled: true
     batchUpsert:
       path: /v2/catalog/batch-upsert
       method: POST
@@ -394,14 +417,25 @@ service:
             idempotency_key: 789ff020-f723-43a9-b4b5-43b5dc1fa3dc
             batches:
               - objects:
-                  - id: id
-                    type: ITEM
-                  - id: id
-                    type: ITEM
-                  - id: id
-                    type: ITEM
-                  - id: id
-                    type: TAX
+                  - type: IMAGE
+                    id: '#Tea'
+                    present_at_all_locations: true
+                  - type: IMAGE
+                    id: '#Coffee'
+                    present_at_all_locations: true
+                  - type: ITEM
+                    id: '#Beverages'
+                    present_at_all_locations: true
+                  - type: TAX
+                    id: '#SalesTax'
+                    present_at_all_locations: true
+                    tax_data:
+                      name: Sales Tax
+                      calculation_phase: TAX_SUBTOTAL_PHASE
+                      inclusion_type: ADDITIVE
+                      percentage: '5.0'
+                      applies_to_custom_amounts: true
+                      enabled: true
           response:
             body:
               errors:
@@ -410,10 +444,11 @@ service:
                   detail: detail
                   field: field
               objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: 67GA7XA2FWMRYY2VCONTYZJR
+                  updated_at: '2023-11-30T19:24:35.4Z'
+                  version: 1701372275400
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -424,11 +459,25 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                  item_data:
+                    name: Tea
+                    description: Hot Leaf Juice
+                    is_taxable: true
+                    tax_ids:
+                      - HP5VNYPKZKTNCKZ2Z5NPUH6A
+                    product_type: REGULAR
+                    categories:
+                      - type: CATEGORY
+                        id: XCS4SCGN4WQYE2VU4U3TKXEH
+                        ordinal: -2251731094208512
+                    description_html: <p><strong>Hot</strong> Leaf Juice</p>
+                    description_plaintext: Hot Leaf Juice
+                    is_archived: false
+                - type: ITEM
+                  id: MQ4TZKOG3SR2EQI3TWEK4AH7
+                  updated_at: '2023-11-30T19:24:35.4Z'
+                  version: 1701372275400
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -439,11 +488,25 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                  item_data:
+                    name: Coffee
+                    description: Hot Bean Juice
+                    is_taxable: true
+                    tax_ids:
+                      - HP5VNYPKZKTNCKZ2Z5NPUH6A
+                    product_type: REGULAR
+                    categories:
+                      - type: CATEGORY
+                        id: XCS4SCGN4WQYE2VU4U3TKXEH
+                        ordinal: -2251662374731776
+                    description_html: <p>Hot <em>Bean Juice</em></p>
+                    description_plaintext: Hot Bean Juice
+                    is_archived: false
+                - type: CATEGORY
+                  id: XCS4SCGN4WQYE2VU4U3TKXEH
+                  updated_at: '2023-11-30T19:24:35.4Z'
+                  version: 1701372275400
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -455,11 +518,16 @@ service:
                     - absent_at_location_ids
                   image_id: image_id
                   ordinal: 1000000
-                  type: CATEGORY
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                  category_data:
+                    name: Beverages
+                    category_type: REGULAR_CATEGORY
+                    is_top_level: true
+                    online_visibility: true
+                - type: TAX
+                  id: HP5VNYPKZKTNCKZ2Z5NPUH6A
+                  updated_at: '2023-11-30T19:24:35.4Z'
+                  version: 1701372275400
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -470,7 +538,13 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: TAX
+                  tax_data:
+                    name: Sales Tax
+                    calculation_phase: TAX_SUBTOTAL_PHASE
+                    inclusion_type: ADDITIVE
+                    percentage: '5.0'
+                    applies_to_custom_amounts: true
+                    enabled: true
               updated_at: updated_at
               id_mappings:
                 - client_object_id: '#Tea'
@@ -628,10 +702,11 @@ service:
                   field: field
               cursor: cursor
               objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: 5ZYQZZ2IECPVJ2IJ5KQPRDC3
+                  updated_at: '2017-02-21T14:50:26.495Z'
+                  version: 1487688626495
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -642,12 +717,11 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  ordinal: 1000000
-                  type: CATEGORY
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: TAX
+                  id: L5R47DGBZOOVKCAFIXC56AEN
+                  updated_at: '2017-02-21T14:50:26.495Z'
+                  version: 1487688626495
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -658,7 +732,12 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: TAX
+                  tax_data:
+                    name: Sales Tax
+                    calculation_phase: TAX_SUBTOTAL_PHASE
+                    inclusion_type: ADDITIVE
+                    percentage: '5.0'
+                    enabled: true
     search:
       path: /v2/catalog/search
       method: POST
@@ -848,10 +927,11 @@ service:
                   field: field
               cursor: cursor
               objects:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: X5DZ5NWWAQ44CKBLKIFQGOWK
+                  updated_at: '2017-10-26T15:41:32.337Z'
+                  version: 1509032492337
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -862,11 +942,21 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                  item_data:
+                    name: Tea - Black
+                    description: A delicious blend of black tea.
+                    tax_ids:
+                      - ZXITPM6RWHZ7GZ7EIP3YKECM
+                    product_type: REGULAR
+                    categories:
+                      - type: CATEGORY
+                        id: E7CLE5RZZ744BHWVQQEAHI2C
+                        ordinal: 0
+                - type: ITEM
+                  id: NNNEM3LA656Q46NXLWCNI7S5
+                  updated_at: '2017-10-26T15:41:23.232Z'
+                  version: 1509032483232
+                  is_deleted: false
                   custom_attribute_values:
                     key: {}
                   catalog_v1_ids:
@@ -877,9 +967,19 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
+                  item_data:
+                    name: Tea - Green
+                    description: Relaxing green herbal tea.
+                    tax_ids:
+                      - ZXITPM6RWHZ7GZ7EIP3YKECM
+                    product_type: REGULAR
+                    categories:
+                      - type: CATEGORY
+                        id: E7CLE5RZZ744BHWVQQEAHI2C
+                        ordinal: 0
               related_objects:
-                - id: id
+                - type: ITEM
+                  id: id
                   updated_at: updated_at
                   version: 1000000
                   is_deleted: true
@@ -893,7 +993,6 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
               latest_time: latest_time
     SearchItems:
       path: /v2/catalog/search-catalog-items
@@ -1044,12 +1143,32 @@ service:
                   detail: detail
                   field: field
               items:
-                - id: id
-                  updated_at: updated_at
-                  version: 1000000
-                  is_deleted: true
+                - type: ITEM
+                  id: GPOKJPTV2KDLVKCADJ7I77EZ
+                  updated_at: '2020-06-18T17:55:56.646Z'
+                  version: 1592502956646
+                  is_deleted: false
                   custom_attribute_values:
-                    key: {}
+                    BRAND:
+                      name: Brand
+                      string_value: Dark Horse
+                      custom_attribute_definition_id: BRAND_DEFINITION_ID
+                      type: STRING
+                      key: BRAND
+                    VARIETAL:
+                      name: Varietal
+                      custom_attribute_definition_id: VARIETAL_DEFINITION_ID
+                      type: SELECTION
+                      selection_uid_values:
+                        - MERLOT_SELECTION_ID
+                        - selection_uid_values
+                      key: VARIETAL
+                    VINTAGE:
+                      name: Vintage
+                      custom_attribute_definition_id: EI7IJQDUKYSHULREPIPH6HNU
+                      type: NUMBER
+                      number_value: number_value
+                      key: VINTAGE
                   catalog_v1_ids:
                     - {}
                   present_at_all_locations: true
@@ -1058,7 +1177,11 @@ service:
                   absent_at_location_ids:
                     - absent_at_location_ids
                   image_id: image_id
-                  type: ITEM
+                  item_data:
+                    name: Dark Horse Merlot 2018
+                    description: A nice red wine
+                    product_type: REGULAR
+                    is_archived: false
               cursor: cursor
               matched_variation_ids:
                 - VBJNPHCOKDFECR6VU25WRJUD
