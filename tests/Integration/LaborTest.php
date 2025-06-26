@@ -20,10 +20,14 @@ use Square\Labor\Shifts\Requests\GetShiftsRequest;
 use Square\Labor\Shifts\Requests\UpdateShiftRequest;
 use Square\Labor\WorkweekConfigs\Requests\ListWorkweekConfigsRequest;
 use Square\SquareClient;
-use Square\Types\CreateTeamMemberRequest;
 use Square\Types\BreakType;
 use Square\Types\Money;
+use Square\TeamMembers\Requests\SearchTeamMembersRequest;
+use Square\Types\SearchTeamMembersQuery;
+use Square\Types\SearchTeamMembersFilter;
 use Square\Types\Shift;
+use Square\Types\ShiftQuery;
+use Square\Types\ShiftFilter;
 use Square\Types\ShiftWage;
 use Square\Types\TeamMember;
 
@@ -42,19 +46,35 @@ class LaborTest extends TestCase
     public static function setUpBeforeClass(): void
     {
         self::$client = Helpers::createClient();
-        self::$locationId = Helpers::createLocation(self::$client );
 
-        // Create team member for testing
-        $teamResponse = self::$client->teamMembers->create(new CreateTeamMemberRequest([
-            'idempotencyKey' => uniqid(),
-            'teamMember' => new TeamMember([
-                'givenName' => 'Sherlock',
-                'familyName' => 'Holmes',
-            ]),
+        // Get first available location
+        $locations = self::$client->locations->list();
+        $locationsList = $locations->getLocations();
+        if ($locationsList === null || count($locationsList) === 0) {
+            throw new RuntimeException('No locations available for testing');
+        }
+        $locationId = $locationsList[0]->getId();
+        if ($locationId === null) {
+            throw new RuntimeException('Location ID not present');
+        }
+        self::$locationId = $locationId;
+
+        // Get first available team member at this location
+        $filter = new SearchTeamMembersFilter([
+            'locationIds' => [self::$locationId],
+            'status' => 'ACTIVE',
+        ]);
+        $query = new SearchTeamMembersQuery(['filter' => $filter]);
+        $teamMembersResponse = self::$client->teamMembers->search(new SearchTeamMembersRequest([
+            'query' => $query,
         ]));
-        $memberId = $teamResponse->getTeamMember()?->getId();
-        if(!$memberId) {
-            throw new RuntimeException('Failed to create team member.');
+        $teamMembers = $teamMembersResponse->getTeamMembers();
+        if ($teamMembers === null || count($teamMembers) === 0) {
+            throw new RuntimeException('No team members available at location ' . self::$locationId);
+        }
+        $memberId = $teamMembers[0]->getId();
+        if ($memberId === null) {
+            throw new RuntimeException('Team member ID not present');
         }
         self::$memberId = $memberId;
 
@@ -96,10 +116,12 @@ class LaborTest extends TestCase
         try {
             self::$client->labor->shifts->delete(new DeleteShiftsRequest(['id' => self::$shiftId]));
         } catch (Exception) {
+            // Test may have already deleted the shift
         }
         try {
             self::$client->labor->breakTypes->delete(new DeleteBreakTypesRequest(['id' => self::$breakId]));
         } catch (Exception) {
+            // Test may have already deleted the break
         }
     }
 
@@ -207,22 +229,38 @@ class LaborTest extends TestCase
      */
     public function testDeleteShift(): void
     {
-        // create team member
-        $teamMemberResponse = self::$client->teamMembers->create(new CreateTeamMemberRequest([
-            'idempotencyKey' => uniqid(),
-            'teamMember' => new TeamMember([
-                'givenName' => 'Sherlock',
-                'familyName' => 'Holmes',
+        // First search for existing shifts for this team member
+        $searchRequest = new SearchShiftsRequest([
+            'query' => new ShiftQuery([
+                'filter' => new ShiftFilter([
+                    'teamMemberIds' => [self::$memberId],
+                ]),
             ]),
-        ]));
+            'limit' => 100,
+        ]);
+        $existingShifts = self::$client->labor->shifts->search($searchRequest);
 
-        // create shift
+        // Delete any existing shifts
+        if ($existingShifts->getShifts()) {
+            foreach ($existingShifts->getShifts() as $shift) {
+                if ($shift->getId()) {
+                    self::$client->labor->shifts->delete(new DeleteShiftsRequest(['id' => $shift->getId()]));
+                }
+            }
+        }
+
+        // Start the shift 10 seconds from now and end it 20 seconds from now
+        $startTime = new DateTime('+10 seconds');
+        $endTime = new DateTime('+20 seconds');
+
+        // Create shift
         $shiftResponse = self::$client->labor->shifts->create(new CreateShiftRequest([
             'idempotencyKey' => uniqid(),
             'shift' => new Shift([
-                'startAt' => self::formatDateString(new DateTime()),
+                'startAt' => self::formatDateString($startTime),
+                'endAt' => self::formatDateString($endTime),
                 'locationId' => self::$locationId,
-                'teamMemberId' => $teamMemberResponse->getTeamMember()?->getId(),
+                'teamMemberId' => self::$memberId,
             ]),
         ]));
         $shift = $shiftResponse->getShift();
@@ -233,6 +271,10 @@ class LaborTest extends TestCase
         if(!$shiftId) {
             throw new RuntimeException('Shift ID is null.');
         }
+
+        // Add a small delay to ensure the shift is fully created
+        sleep(1);
+
         $response = self::$client->labor->shifts->delete(new DeleteShiftsRequest(['id' => $shiftId]));
         $this->assertNotNull($response);
     }
