@@ -11,10 +11,10 @@ use Square\Core\Json\JsonProperty;
 class LoyaltyEventRedeemReward extends JsonSerializableType
 {
     /**
-     * @var string $loyaltyProgramId The ID of the [loyalty program](entity:LoyaltyProgram).
+     * @var ?string $loyaltyProgramId The ID of the [loyalty program](entity:LoyaltyProgram).
      */
     #[JsonProperty('loyalty_program_id')]
-    private string $loyaltyProgramId;
+    private ?string $loyaltyProgramId;
 
     /**
      * The ID of the redeemed [loyalty reward](entity:LoyaltyReward).
@@ -36,31 +36,31 @@ class LoyaltyEventRedeemReward extends JsonSerializableType
 
     /**
      * @param array{
-     *   loyaltyProgramId: string,
+     *   loyaltyProgramId?: ?string,
      *   rewardId?: ?string,
      *   orderId?: ?string,
      * } $values
      */
     public function __construct(
-        array $values,
+        array $values = [],
     ) {
-        $this->loyaltyProgramId = $values['loyaltyProgramId'];
+        $this->loyaltyProgramId = $values['loyaltyProgramId'] ?? null;
         $this->rewardId = $values['rewardId'] ?? null;
         $this->orderId = $values['orderId'] ?? null;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getLoyaltyProgramId(): string
+    public function getLoyaltyProgramId(): ?string
     {
         return $this->loyaltyProgramId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setLoyaltyProgramId(string $value): self
+    public function setLoyaltyProgramId(?string $value = null): self
     {
         $this->loyaltyProgramId = $value;
         return $this;

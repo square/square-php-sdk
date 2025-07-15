@@ -20,10 +20,10 @@ class CustomerSegment extends JsonSerializableType
     private ?string $id;
 
     /**
-     * @var string $name The name of the segment.
+     * @var ?string $name The name of the segment.
      */
     #[JsonProperty('name')]
-    private string $name;
+    private ?string $name;
 
     /**
      * @var ?string $createdAt The timestamp when the segment was created, in RFC 3339 format.
@@ -39,17 +39,17 @@ class CustomerSegment extends JsonSerializableType
 
     /**
      * @param array{
-     *   name: string,
      *   id?: ?string,
+     *   name?: ?string,
      *   createdAt?: ?string,
      *   updatedAt?: ?string,
      * } $values
      */
     public function __construct(
-        array $values,
+        array $values = [],
     ) {
         $this->id = $values['id'] ?? null;
-        $this->name = $values['name'];
+        $this->name = $values['name'] ?? null;
         $this->createdAt = $values['createdAt'] ?? null;
         $this->updatedAt = $values['updatedAt'] ?? null;
     }
@@ -72,17 +72,17 @@ class CustomerSegment extends JsonSerializableType
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setName(string $value): self
+    public function setName(?string $value = null): self
     {
         $this->name = $value;
         return $this;

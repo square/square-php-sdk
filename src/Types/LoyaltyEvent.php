@@ -12,10 +12,10 @@ use Square\Core\Json\JsonProperty;
 class LoyaltyEvent extends JsonSerializableType
 {
     /**
-     * @var string $id The Square-assigned ID of the loyalty event.
+     * @var ?string $id The Square-assigned ID of the loyalty event.
      */
     #[JsonProperty('id')]
-    private string $id;
+    private ?string $id;
 
     /**
      * The type of the loyalty event.
@@ -27,10 +27,10 @@ class LoyaltyEvent extends JsonSerializableType
     private string $type;
 
     /**
-     * @var string $createdAt The timestamp when the event was created, in RFC 3339 format.
+     * @var ?string $createdAt The timestamp when the event was created, in RFC 3339 format.
      */
     #[JsonProperty('created_at')]
-    private string $createdAt;
+    private ?string $createdAt;
 
     /**
      * @var ?LoyaltyEventAccumulatePoints $accumulatePoints Provides metadata when the event `type` is `ACCUMULATE_POINTS`.
@@ -63,10 +63,10 @@ class LoyaltyEvent extends JsonSerializableType
     private ?LoyaltyEventAdjustPoints $adjustPoints;
 
     /**
-     * @var string $loyaltyAccountId The ID of the [loyalty account](entity:LoyaltyAccount) associated with the event.
+     * @var ?string $loyaltyAccountId The ID of the [loyalty account](entity:LoyaltyAccount) associated with the event.
      */
     #[JsonProperty('loyalty_account_id')]
-    private string $loyaltyAccountId;
+    private ?string $loyaltyAccountId;
 
     /**
      * @var ?string $locationId The ID of the [location](entity:Location) where the event occurred.
@@ -103,16 +103,16 @@ class LoyaltyEvent extends JsonSerializableType
 
     /**
      * @param array{
-     *   id: string,
      *   type: value-of<LoyaltyEventType>,
-     *   createdAt: string,
-     *   loyaltyAccountId: string,
      *   source: value-of<LoyaltyEventSource>,
+     *   id?: ?string,
+     *   createdAt?: ?string,
      *   accumulatePoints?: ?LoyaltyEventAccumulatePoints,
      *   createReward?: ?LoyaltyEventCreateReward,
      *   redeemReward?: ?LoyaltyEventRedeemReward,
      *   deleteReward?: ?LoyaltyEventDeleteReward,
      *   adjustPoints?: ?LoyaltyEventAdjustPoints,
+     *   loyaltyAccountId?: ?string,
      *   locationId?: ?string,
      *   expirePoints?: ?LoyaltyEventExpirePoints,
      *   otherEvent?: ?LoyaltyEventOther,
@@ -122,15 +122,15 @@ class LoyaltyEvent extends JsonSerializableType
     public function __construct(
         array $values,
     ) {
-        $this->id = $values['id'];
+        $this->id = $values['id'] ?? null;
         $this->type = $values['type'];
-        $this->createdAt = $values['createdAt'];
+        $this->createdAt = $values['createdAt'] ?? null;
         $this->accumulatePoints = $values['accumulatePoints'] ?? null;
         $this->createReward = $values['createReward'] ?? null;
         $this->redeemReward = $values['redeemReward'] ?? null;
         $this->deleteReward = $values['deleteReward'] ?? null;
         $this->adjustPoints = $values['adjustPoints'] ?? null;
-        $this->loyaltyAccountId = $values['loyaltyAccountId'];
+        $this->loyaltyAccountId = $values['loyaltyAccountId'] ?? null;
         $this->locationId = $values['locationId'] ?? null;
         $this->source = $values['source'];
         $this->expirePoints = $values['expirePoints'] ?? null;
@@ -139,17 +139,17 @@ class LoyaltyEvent extends JsonSerializableType
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setId(string $value): self
+    public function setId(?string $value = null): self
     {
         $this->id = $value;
         return $this;
@@ -173,17 +173,17 @@ class LoyaltyEvent extends JsonSerializableType
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->createdAt;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setCreatedAt(string $value): self
+    public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
         return $this;
@@ -275,17 +275,17 @@ class LoyaltyEvent extends JsonSerializableType
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getLoyaltyAccountId(): string
+    public function getLoyaltyAccountId(): ?string
     {
         return $this->loyaltyAccountId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setLoyaltyAccountId(string $value): self
+    public function setLoyaltyAccountId(?string $value = null): self
     {
         $this->loyaltyAccountId = $value;
         return $this;

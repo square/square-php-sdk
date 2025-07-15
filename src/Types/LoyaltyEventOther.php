@@ -11,10 +11,10 @@ use Square\Core\Json\JsonProperty;
 class LoyaltyEventOther extends JsonSerializableType
 {
     /**
-     * @var string $loyaltyProgramId The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
+     * @var ?string $loyaltyProgramId The Square-assigned ID of the [loyalty program](entity:LoyaltyProgram).
      */
     #[JsonProperty('loyalty_program_id')]
-    private string $loyaltyProgramId;
+    private ?string $loyaltyProgramId;
 
     /**
      * @var int $points The number of points added or removed.
@@ -24,29 +24,29 @@ class LoyaltyEventOther extends JsonSerializableType
 
     /**
      * @param array{
-     *   loyaltyProgramId: string,
      *   points: int,
+     *   loyaltyProgramId?: ?string,
      * } $values
      */
     public function __construct(
         array $values,
     ) {
-        $this->loyaltyProgramId = $values['loyaltyProgramId'];
+        $this->loyaltyProgramId = $values['loyaltyProgramId'] ?? null;
         $this->points = $values['points'];
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getLoyaltyProgramId(): string
+    public function getLoyaltyProgramId(): ?string
     {
         return $this->loyaltyProgramId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setLoyaltyProgramId(string $value): self
+    public function setLoyaltyProgramId(?string $value = null): self
     {
         $this->loyaltyProgramId = $value;
         return $this;
