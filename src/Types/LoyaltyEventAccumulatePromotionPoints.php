@@ -23,35 +23,35 @@ class LoyaltyEventAccumulatePromotionPoints extends JsonSerializableType
     private ?string $loyaltyPromotionId;
 
     /**
-     * @var int $points The number of points earned by the event.
+     * @var ?int $points The number of points earned by the event.
      */
     #[JsonProperty('points')]
-    private int $points;
+    private ?int $points;
 
     /**
      * The ID of the [order](entity:Order) for which the buyer earned the promotion points.
      * Only applications that use the Orders API to process orders can trigger this event.
      *
-     * @var string $orderId
+     * @var ?string $orderId
      */
     #[JsonProperty('order_id')]
-    private string $orderId;
+    private ?string $orderId;
 
     /**
      * @param array{
-     *   points: int,
-     *   orderId: string,
      *   loyaltyProgramId?: ?string,
      *   loyaltyPromotionId?: ?string,
+     *   points?: ?int,
+     *   orderId?: ?string,
      * } $values
      */
     public function __construct(
-        array $values,
+        array $values = [],
     ) {
         $this->loyaltyProgramId = $values['loyaltyProgramId'] ?? null;
         $this->loyaltyPromotionId = $values['loyaltyPromotionId'] ?? null;
-        $this->points = $values['points'];
-        $this->orderId = $values['orderId'];
+        $this->points = $values['points'] ?? null;
+        $this->orderId = $values['orderId'] ?? null;
     }
 
     /**
@@ -89,34 +89,34 @@ class LoyaltyEventAccumulatePromotionPoints extends JsonSerializableType
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getPoints(): int
+    public function getPoints(): ?int
     {
         return $this->points;
     }
 
     /**
-     * @param int $value
+     * @param ?int $value
      */
-    public function setPoints(int $value): self
+    public function setPoints(?int $value = null): self
     {
         $this->points = $value;
         return $this;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getOrderId(): string
+    public function getOrderId(): ?string
     {
         return $this->orderId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setOrderId(string $value): self
+    public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
         return $this;
