@@ -11,10 +11,10 @@ use Square\Core\Json\JsonProperty;
 class LoyaltyEventDeleteReward extends JsonSerializableType
 {
     /**
-     * @var string $loyaltyProgramId The ID of the [loyalty program](entity:LoyaltyProgram).
+     * @var ?string $loyaltyProgramId The ID of the [loyalty program](entity:LoyaltyProgram).
      */
     #[JsonProperty('loyalty_program_id')]
-    private string $loyaltyProgramId;
+    private ?string $loyaltyProgramId;
 
     /**
      * The ID of the deleted [loyalty reward](entity:LoyaltyReward).
@@ -26,38 +26,38 @@ class LoyaltyEventDeleteReward extends JsonSerializableType
     private ?string $rewardId;
 
     /**
-     * @var int $points The number of points returned to the loyalty account.
+     * @var ?int $points The number of points returned to the loyalty account.
      */
     #[JsonProperty('points')]
-    private int $points;
+    private ?int $points;
 
     /**
      * @param array{
-     *   loyaltyProgramId: string,
-     *   points: int,
+     *   loyaltyProgramId?: ?string,
      *   rewardId?: ?string,
+     *   points?: ?int,
      * } $values
      */
     public function __construct(
-        array $values,
+        array $values = [],
     ) {
-        $this->loyaltyProgramId = $values['loyaltyProgramId'];
+        $this->loyaltyProgramId = $values['loyaltyProgramId'] ?? null;
         $this->rewardId = $values['rewardId'] ?? null;
-        $this->points = $values['points'];
+        $this->points = $values['points'] ?? null;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getLoyaltyProgramId(): string
+    public function getLoyaltyProgramId(): ?string
     {
         return $this->loyaltyProgramId;
     }
 
     /**
-     * @param string $value
+     * @param ?string $value
      */
-    public function setLoyaltyProgramId(string $value): self
+    public function setLoyaltyProgramId(?string $value = null): self
     {
         $this->loyaltyProgramId = $value;
         return $this;
@@ -81,17 +81,17 @@ class LoyaltyEventDeleteReward extends JsonSerializableType
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getPoints(): int
+    public function getPoints(): ?int
     {
         return $this->points;
     }
 
     /**
-     * @param int $value
+     * @param ?int $value
      */
-    public function setPoints(int $value): self
+    public function setPoints(?int $value = null): self
     {
         $this->points = $value;
         return $this;
