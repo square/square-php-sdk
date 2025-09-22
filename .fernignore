@@ -7,4 +7,3 @@ src/Exceptions/SquareApiException.php
 src/Legacy
 src/Utils/WebhooksHelper.php
 tests/Integration
-src/Core/Client/RawClient.php
