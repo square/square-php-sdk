@@ -41,12 +41,19 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     private ?DeviceComponentDetailsMeasurement $signalStrength;
 
     /**
+     * @var ?string $macAddress The mac address of the device in this network.
+     */
+    #[JsonProperty('mac_address')]
+    private ?string $macAddress;
+
+    /**
      * @param array{
      *   active?: ?bool,
      *   ssid?: ?string,
      *   ipAddressV4?: ?string,
      *   secureConnection?: ?string,
      *   signalStrength?: ?DeviceComponentDetailsMeasurement,
+     *   macAddress?: ?string,
      * } $values
      */
     public function __construct(
@@ -57,6 +64,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
         $this->ipAddressV4 = $values['ipAddressV4'] ?? null;
         $this->secureConnection = $values['secureConnection'] ?? null;
         $this->signalStrength = $values['signalStrength'] ?? null;
+        $this->macAddress = $values['macAddress'] ?? null;
     }
 
     /**
@@ -141,6 +149,23 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setSignalStrength(?DeviceComponentDetailsMeasurement $value = null): self
     {
         $this->signalStrength = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getMacAddress(): ?string
+    {
+        return $this->macAddress;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setMacAddress(?string $value = null): self
+    {
+        $this->macAddress = $value;
         return $this;
     }
 

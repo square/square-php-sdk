@@ -11,7 +11,7 @@ class DeviceAttributes extends JsonSerializableType
      * The device type.
      * See [DeviceType](#type-devicetype) for possible values
      *
-     * @var 'TERMINAL' $type
+     * @var value-of<DeviceAttributesDeviceType> $type
      */
     #[JsonProperty('type')]
     private string $type;
@@ -66,7 +66,7 @@ class DeviceAttributes extends JsonSerializableType
 
     /**
      * @param array{
-     *   type: 'TERMINAL',
+     *   type: value-of<DeviceAttributesDeviceType>,
      *   manufacturer: string,
      *   model?: ?string,
      *   name?: ?string,
@@ -90,7 +90,7 @@ class DeviceAttributes extends JsonSerializableType
     }
 
     /**
-     * @return 'TERMINAL'
+     * @return value-of<DeviceAttributesDeviceType>
      */
     public function getType(): string
     {
@@ -98,7 +98,7 @@ class DeviceAttributes extends JsonSerializableType
     }
 
     /**
-     * @param 'TERMINAL' $value
+     * @param value-of<DeviceAttributesDeviceType> $value
      */
     public function setType(string $value): self
     {

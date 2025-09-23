@@ -9,4 +9,5 @@ enum SubscriptionActionType: string
     case Resume = "RESUME";
     case SwapPlan = "SWAP_PLAN";
     case ChangeBillingAnchorDate = "CHANGE_BILLING_ANCHOR_DATE";
+    case Complete = "COMPLETE";
 }
