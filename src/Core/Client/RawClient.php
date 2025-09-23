@@ -250,9 +250,6 @@ class RawClient
         if (is_string($value)) {
             return urlencode($value);
         }
-        if (is_bool($value)) {
-            return $value ? 'true' : 'false';
-        }
         if (is_scalar($value)) {
             return urlencode((string)$value);
         }
