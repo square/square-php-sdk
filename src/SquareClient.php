@@ -250,8 +250,8 @@ class SquareClient
             'Square-Version' => '2025-09-24',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '43.1.0.20250924',
-            'User-Agent' => 'square/square/43.1.0.20250924',
+            'X-Fern-SDK-Version' => '43.1.1.20250924',
+            'User-Agent' => 'square/square/43.1.1.20250924',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;
