@@ -15,6 +15,9 @@ use JsonException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Square\Terminal\Actions\Requests\SearchTerminalActionsRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\TerminalAction;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchTerminalActionsResponse;
 use Square\Terminal\Actions\Requests\GetActionsRequest;
 use Square\Types\GetTerminalActionResponse;
@@ -125,47 +128,20 @@ class ActionsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchTerminalActionsResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<TerminalAction>
      */
-    public function search(SearchTerminalActionsRequest $request = new SearchTerminalActionsRequest(), ?array $options = null): SearchTerminalActionsResponse
+    public function search(SearchTerminalActionsRequest $request = new SearchTerminalActionsRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/terminals/actions/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchTerminalActionsResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchTerminalActionsRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchTerminalActionsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchTerminalActionsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchTerminalActionsResponse $response) => $response?->getAction() ?? [],
         );
     }
 
@@ -256,6 +232,62 @@ class ActionsClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return CancelTerminalActionResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Retrieves a filtered list of Terminal action requests created by the account making the request. Terminal action requests are available for 30 days.
+     *
+     * @param SearchTerminalActionsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchTerminalActionsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchTerminalActionsRequest $request = new SearchTerminalActionsRequest(), ?array $options = null): SearchTerminalActionsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/terminals/actions/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchTerminalActionsResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);

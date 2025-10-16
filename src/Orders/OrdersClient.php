@@ -23,6 +23,9 @@ use Square\Types\CalculateOrderResponse;
 use Square\Orders\Requests\CloneOrderRequest;
 use Square\Types\CloneOrderResponse;
 use Square\Orders\Requests\SearchOrdersRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\Order;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchOrdersResponse;
 use Square\Orders\Requests\GetOrdersRequest;
 use Square\Types\GetOrderResponse;
@@ -340,47 +343,20 @@ class OrdersClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchOrdersResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<Order>
      */
-    public function search(SearchOrdersRequest $request = new SearchOrdersRequest(), ?array $options = null): SearchOrdersResponse
+    public function search(SearchOrdersRequest $request = new SearchOrdersRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/orders/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchOrdersResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchOrdersRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchOrdersRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchOrdersResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchOrdersResponse $response) => $response?->getOrders() ?? [],
         );
     }
 
@@ -555,6 +531,78 @@ class OrdersClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return PayOrderResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Search all orders for one or more locations. Orders include all sales,
+     * returns, and exchanges regardless of how or when they entered the Square
+     * ecosystem (such as Point of Sale, Invoices, and Connect APIs).
+     *
+     * `SearchOrders` requests need to specify which locations to search and define a
+     * [SearchOrdersQuery](entity:SearchOrdersQuery) object that controls
+     * how to sort or filter the results. Your `SearchOrdersQuery` can:
+     *
+     *   Set filter criteria.
+     *   Set the sort order.
+     *   Determine whether to return results as complete `Order` objects or as
+     * [OrderEntry](entity:OrderEntry) objects.
+     *
+     * Note that details for orders processed with Square Point of Sale while in
+     * offline mode might not be transmitted to Square for up to 72 hours. Offline
+     * orders have a `created_at` value that reflects the time the order was created,
+     * not the time it was subsequently transmitted to Square.
+     *
+     * @param SearchOrdersRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchOrdersResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchOrdersRequest $request = new SearchOrdersRequest(), ?array $options = null): SearchOrdersResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/orders/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchOrdersResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);

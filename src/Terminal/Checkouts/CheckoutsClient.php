@@ -15,6 +15,9 @@ use JsonException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Square\Terminal\Checkouts\Requests\SearchTerminalCheckoutsRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\TerminalCheckout;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchTerminalCheckoutsResponse;
 use Square\Terminal\Checkouts\Requests\GetCheckoutsRequest;
 use Square\Types\GetTerminalCheckoutResponse;
@@ -126,47 +129,20 @@ class CheckoutsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchTerminalCheckoutsResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<TerminalCheckout>
      */
-    public function search(SearchTerminalCheckoutsRequest $request = new SearchTerminalCheckoutsRequest(), ?array $options = null): SearchTerminalCheckoutsResponse
+    public function search(SearchTerminalCheckoutsRequest $request = new SearchTerminalCheckoutsRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/terminals/checkouts/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchTerminalCheckoutsResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchTerminalCheckoutsRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchTerminalCheckoutsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchTerminalCheckoutsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchTerminalCheckoutsResponse $response) => $response?->getCheckouts() ?? [],
         );
     }
 
@@ -257,6 +233,62 @@ class CheckoutsClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return CancelTerminalCheckoutResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Returns a filtered list of Terminal checkout requests created by the application making the request. Only Terminal checkout requests created for the merchant scoped to the OAuth token are returned. Terminal checkout requests are available for 30 days.
+     *
+     * @param SearchTerminalCheckoutsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchTerminalCheckoutsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchTerminalCheckoutsRequest $request = new SearchTerminalCheckoutsRequest(), ?array $options = null): SearchTerminalCheckoutsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/terminals/checkouts/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchTerminalCheckoutsResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);

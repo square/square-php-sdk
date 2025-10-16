@@ -18,13 +18,13 @@ use Square\Inventory\Requests\GetAdjustmentInventoryRequest;
 use Square\Types\BatchChangeInventoryRequest;
 use Square\Types\BatchChangeInventoryResponse;
 use Square\Types\BatchRetrieveInventoryChangesRequest;
-use Square\Types\BatchGetInventoryChangesResponse;
-use Square\Types\BatchGetInventoryCountsRequest;
-use Square\Types\BatchGetInventoryCountsResponse;
 use Square\Core\Pagination\Pager;
 use Square\Types\InventoryChange;
 use Square\Core\Pagination\CursorPager;
+use Square\Types\BatchGetInventoryChangesResponse;
+use Square\Types\BatchGetInventoryCountsRequest;
 use Square\Types\InventoryCount;
+use Square\Types\BatchGetInventoryCountsResponse;
 use Square\Inventory\Requests\DeprecatedGetPhysicalCountInventoryRequest;
 use Square\Types\GetInventoryPhysicalCountResponse;
 use Square\Inventory\Requests\GetPhysicalCountInventoryRequest;
@@ -253,47 +253,20 @@ class InventoryClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return BatchGetInventoryChangesResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<InventoryChange>
      */
-    public function deprecatedBatchGetChanges(BatchRetrieveInventoryChangesRequest $request, ?array $options = null): BatchGetInventoryChangesResponse
+    public function deprecatedBatchGetChanges(BatchRetrieveInventoryChangesRequest $request, ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/inventory/batch-retrieve-changes",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return BatchGetInventoryChangesResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (BatchRetrieveInventoryChangesRequest $request) => $this->_deprecatedBatchGetChanges($request, $options),
+            setCursor: function (BatchRetrieveInventoryChangesRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (BatchGetInventoryChangesResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (BatchGetInventoryChangesResponse $response) => $response?->getChanges() ?? [],
         );
     }
 
@@ -310,47 +283,20 @@ class InventoryClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return BatchGetInventoryCountsResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<InventoryCount>
      */
-    public function deprecatedBatchGetCounts(BatchGetInventoryCountsRequest $request, ?array $options = null): BatchGetInventoryCountsResponse
+    public function deprecatedBatchGetCounts(BatchGetInventoryCountsRequest $request, ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/inventory/batch-retrieve-counts",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return BatchGetInventoryCountsResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (BatchGetInventoryCountsRequest $request) => $this->_deprecatedBatchGetCounts($request, $options),
+            setCursor: function (BatchGetInventoryCountsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (BatchGetInventoryCountsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (BatchGetInventoryCountsResponse $response) => $response?->getCounts() ?? [],
         );
     }
 
@@ -727,6 +673,120 @@ class InventoryClient
             getNextCursor: fn (GetInventoryChangesResponse $response) => $response?->getCursor() ?? null,
             /* @phpstan-ignore-next-line */
             getItems: fn (GetInventoryChangesResponse $response) => $response?->getChanges() ?? [],
+        );
+    }
+
+    /**
+     * Deprecated version of [BatchRetrieveInventoryChanges](api-endpoint:Inventory-BatchRetrieveInventoryChanges) after the endpoint URL
+     * is updated to conform to the standard convention.
+     *
+     * @param BatchRetrieveInventoryChangesRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return BatchGetInventoryChangesResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _deprecatedBatchGetChanges(BatchRetrieveInventoryChangesRequest $request, ?array $options = null): BatchGetInventoryChangesResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/batch-retrieve-changes",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return BatchGetInventoryChangesResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Deprecated version of [BatchRetrieveInventoryCounts](api-endpoint:Inventory-BatchRetrieveInventoryCounts) after the endpoint URL
+     * is updated to conform to the standard convention.
+     *
+     * @param BatchGetInventoryCountsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return BatchGetInventoryCountsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _deprecatedBatchGetCounts(BatchGetInventoryCountsRequest $request, ?array $options = null): BatchGetInventoryCountsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/batch-retrieve-counts",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return BatchGetInventoryCountsResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
         );
     }
 

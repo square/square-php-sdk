@@ -17,6 +17,9 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Square\Subscriptions\Requests\BulkSwapPlanRequest;
 use Square\Types\BulkSwapPlanResponse;
 use Square\Subscriptions\Requests\SearchSubscriptionsRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\Subscription;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchSubscriptionsResponse;
 use Square\Subscriptions\Requests\GetSubscriptionsRequest;
 use Square\Types\GetSubscriptionResponse;
@@ -29,9 +32,7 @@ use Square\Types\ChangeBillingAnchorDateResponse;
 use Square\Subscriptions\Requests\CancelSubscriptionsRequest;
 use Square\Types\CancelSubscriptionResponse;
 use Square\Subscriptions\Requests\ListEventsSubscriptionsRequest;
-use Square\Core\Pagination\Pager;
 use Square\Types\SubscriptionEvent;
-use Square\Core\Pagination\CursorPager;
 use Square\Types\ListSubscriptionEventsResponse;
 use Square\Subscriptions\Requests\PauseSubscriptionRequest;
 use Square\Types\PauseSubscriptionResponse;
@@ -221,47 +222,20 @@ class SubscriptionsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchSubscriptionsResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<Subscription>
      */
-    public function search(SearchSubscriptionsRequest $request = new SearchSubscriptionsRequest(), ?array $options = null): SearchSubscriptionsResponse
+    public function search(SearchSubscriptionsRequest $request = new SearchSubscriptionsRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/subscriptions/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchSubscriptionsResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchSubscriptionsRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchSubscriptionsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchSubscriptionsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchSubscriptionsResponse $response) => $response?->getSubscriptions() ?? [],
         );
     }
 
@@ -726,6 +700,75 @@ class SubscriptionsClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return SwapPlanResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Searches for subscriptions.
+     *
+     * Results are ordered chronologically by subscription creation date. If
+     * the request specifies more than one location ID,
+     * the endpoint orders the result
+     * by location ID, and then by creation date within each location. If no locations are given
+     * in the query, all locations are searched.
+     *
+     * You can also optionally specify `customer_ids` to search by customer.
+     * If left unset, all customers
+     * associated with the specified locations are returned.
+     * If the request specifies customer IDs, the endpoint orders results
+     * first by location, within location by customer ID, and within
+     * customer by subscription creation date.
+     *
+     * @param SearchSubscriptionsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchSubscriptionsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchSubscriptionsRequest $request = new SearchSubscriptionsRequest(), ?array $options = null): SearchSubscriptionsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/subscriptions/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchSubscriptionsResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);

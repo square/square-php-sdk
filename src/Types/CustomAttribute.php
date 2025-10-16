@@ -30,6 +30,11 @@ class CustomAttribute extends JsonSerializableType
     private ?string $key;
 
     /**
+     * The value assigned to the custom attribute. It is validated against the custom
+     * attribute definition's schema on write operations. For more information about custom
+     * attribute values,
+     * see [Custom Attributes Overview](https://developer.squareup.com/docs/devtools/customattributes/overview).
+     *
      * @var mixed $value
      */
     #[JsonProperty('value')]

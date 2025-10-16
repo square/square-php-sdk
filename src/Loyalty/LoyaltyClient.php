@@ -8,6 +8,9 @@ use Square\Loyalty\Rewards\RewardsClient;
 use GuzzleHttp\ClientInterface;
 use Square\Core\Client\RawClient;
 use Square\Loyalty\Requests\SearchLoyaltyEventsRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\LoyaltyEvent;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchLoyaltyEventsResponse;
 use Square\Exceptions\SquareException;
 use Square\Exceptions\SquareApiException;
@@ -91,11 +94,47 @@ class LoyaltyClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
+     * @return Pager<LoyaltyEvent>
+     */
+    public function searchEvents(SearchLoyaltyEventsRequest $request = new SearchLoyaltyEventsRequest(), ?array $options = null): Pager
+    {
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchLoyaltyEventsRequest $request) => $this->_searchEvents($request, $options),
+            setCursor: function (SearchLoyaltyEventsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchLoyaltyEventsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchLoyaltyEventsResponse $response) => $response?->getEvents() ?? [],
+        );
+    }
+
+    /**
+     * Searches for loyalty events.
+     *
+     * A Square loyalty program maintains a ledger of events that occur during the lifetime of a
+     * buyer's loyalty account. Each change in the point balance
+     * (for example, points earned, points redeemed, and points expired) is
+     * recorded in the ledger. Using this endpoint, you can search the ledger for events.
+     *
+     * Search results are sorted by `created_at` in descending order.
+     *
+     * @param SearchLoyaltyEventsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
      * @return SearchLoyaltyEventsResponse
      * @throws SquareException
      * @throws SquareApiException
      */
-    public function searchEvents(SearchLoyaltyEventsRequest $request = new SearchLoyaltyEventsRequest(), ?array $options = null): SearchLoyaltyEventsResponse
+    private function _searchEvents(SearchLoyaltyEventsRequest $request = new SearchLoyaltyEventsRequest(), ?array $options = null): SearchLoyaltyEventsResponse
     {
         $options = array_merge($this->options, $options ?? []);
         try {

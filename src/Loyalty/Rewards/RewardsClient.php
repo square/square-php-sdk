@@ -15,6 +15,9 @@ use JsonException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Square\Loyalty\Rewards\Requests\SearchLoyaltyRewardsRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\LoyaltyReward;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchLoyaltyRewardsResponse;
 use Square\Loyalty\Rewards\Requests\GetRewardsRequest;
 use Square\Types\GetLoyaltyRewardResponse;
@@ -140,47 +143,20 @@ class RewardsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchLoyaltyRewardsResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<LoyaltyReward>
      */
-    public function search(SearchLoyaltyRewardsRequest $request = new SearchLoyaltyRewardsRequest(), ?array $options = null): SearchLoyaltyRewardsResponse
+    public function search(SearchLoyaltyRewardsRequest $request = new SearchLoyaltyRewardsRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/loyalty/rewards/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchLoyaltyRewardsResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchLoyaltyRewardsRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchLoyaltyRewardsRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchLoyaltyRewardsResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchLoyaltyRewardsResponse $response) => $response?->getRewards() ?? [],
         );
     }
 
@@ -345,6 +321,68 @@ class RewardsClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return RedeemLoyaltyRewardResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Searches for loyalty rewards. This endpoint accepts a request with no query filters and returns results for all loyalty accounts.
+     * If you include a `query` object, `loyalty_account_id` is required and `status` is  optional.
+     *
+     * If you know a reward ID, use the
+     * [RetrieveLoyaltyReward](api-endpoint:Loyalty-RetrieveLoyaltyReward) endpoint.
+     *
+     * Search results are sorted by `updated_at` in descending order.
+     *
+     * @param SearchLoyaltyRewardsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchLoyaltyRewardsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchLoyaltyRewardsRequest $request = new SearchLoyaltyRewardsRequest(), ?array $options = null): SearchLoyaltyRewardsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/loyalty/rewards/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchLoyaltyRewardsResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);

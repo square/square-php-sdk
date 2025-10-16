@@ -20,6 +20,9 @@ use Square\Types\BatchCreateTeamMembersResponse;
 use Square\TeamMembers\Requests\BatchUpdateTeamMembersRequest;
 use Square\Types\BatchUpdateTeamMembersResponse;
 use Square\TeamMembers\Requests\SearchTeamMembersRequest;
+use Square\Core\Pagination\Pager;
+use Square\Types\TeamMember;
+use Square\Core\Pagination\CursorPager;
 use Square\Types\SearchTeamMembersResponse;
 use Square\TeamMembers\Requests\GetTeamMembersRequest;
 use Square\Types\GetTeamMemberResponse;
@@ -264,47 +267,20 @@ class TeamMembersClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return SearchTeamMembersResponse
-     * @throws SquareException
-     * @throws SquareApiException
+     * @return Pager<TeamMember>
      */
-    public function search(SearchTeamMembersRequest $request = new SearchTeamMembersRequest(), ?array $options = null): SearchTeamMembersResponse
+    public function search(SearchTeamMembersRequest $request = new SearchTeamMembersRequest(), ?array $options = null): Pager
     {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/team-members/search",
-                    method: HttpMethod::POST,
-                    body: $request,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return SearchTeamMembersResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
+        return new CursorPager(
+            request: $request,
+            getNextPage: fn (SearchTeamMembersRequest $request) => $this->_search($request, $options),
+            setCursor: function (SearchTeamMembersRequest $request, ?string $cursor) {
+                $request->setCursor($cursor);
+            },
+            /* @phpstan-ignore-next-line */
+            getNextCursor: fn (SearchTeamMembersResponse $response) => $response?->getCursor() ?? null,
+            /* @phpstan-ignore-next-line */
+            getItems: fn (SearchTeamMembersResponse $response) => $response?->getTeamMembers() ?? [],
         );
     }
 
@@ -398,6 +374,64 @@ class TeamMembersClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return UpdateTeamMemberResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Returns a paginated list of `TeamMember` objects for a business.
+     * The list can be filtered by location IDs, `ACTIVE` or `INACTIVE` status, or whether
+     * the team member is the Square account owner.
+     *
+     * @param SearchTeamMembersRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return SearchTeamMembersResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    private function _search(SearchTeamMembersRequest $request = new SearchTeamMembersRequest(), ?array $options = null): SearchTeamMembersResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/team-members/search",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return SearchTeamMembersResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
