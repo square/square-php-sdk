@@ -7,11 +7,6 @@ use Square\Core\Json\JsonSerializableType;
 class GetPromotionsRequest extends JsonSerializableType
 {
     /**
-     * @var string $promotionId The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
-     */
-    private string $promotionId;
-
-    /**
      * The ID of the base [loyalty program](entity:LoyaltyProgram). To get the program ID,
      * call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using the `main` keyword.
      *
@@ -20,33 +15,21 @@ class GetPromotionsRequest extends JsonSerializableType
     private string $programId;
 
     /**
+     * @var string $promotionId The ID of the [loyalty promotion](entity:LoyaltyPromotion) to retrieve.
+     */
+    private string $promotionId;
+
+    /**
      * @param array{
-     *   promotionId: string,
      *   programId: string,
+     *   promotionId: string,
      * } $values
      */
     public function __construct(
         array $values,
     ) {
-        $this->promotionId = $values['promotionId'];
         $this->programId = $values['programId'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getPromotionId(): string
-    {
-        return $this->promotionId;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setPromotionId(string $value): self
-    {
-        $this->promotionId = $value;
-        return $this;
+        $this->promotionId = $values['promotionId'];
     }
 
     /**
@@ -63,6 +46,23 @@ class GetPromotionsRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPromotionId(): string
+    {
+        return $this->promotionId;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setPromotionId(string $value): self
+    {
+        $this->promotionId = $value;
         return $this;
     }
 }
