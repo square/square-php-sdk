@@ -10,6 +10,7 @@ use Square\BankAccounts\BankAccountsClient;
 use Square\Bookings\BookingsClient;
 use Square\Cards\CardsClient;
 use Square\Catalog\CatalogClient;
+use Square\Channels\ChannelsClient;
 use Square\Customers\CustomersClient;
 use Square\Devices\DevicesClient;
 use Square\Disputes\DisputesClient;
@@ -33,6 +34,7 @@ use Square\Subscriptions\SubscriptionsClient;
 use Square\TeamMembers\TeamMembersClient;
 use Square\Team\TeamClient;
 use Square\Terminal\TerminalClient;
+use Square\TransferOrders\TransferOrdersClient;
 use Square\Vendors\VendorsClient;
 use Square\CashDrawers\CashDrawersClient;
 use Square\Webhooks\WebhooksClient;
@@ -81,6 +83,11 @@ class SquareClient
      * @var CatalogClient $catalog
      */
     public CatalogClient $catalog;
+
+    /**
+     * @var ChannelsClient $channels
+     */
+    public ChannelsClient $channels;
 
     /**
      * @var CustomersClient $customers
@@ -198,6 +205,11 @@ class SquareClient
     public TerminalClient $terminal;
 
     /**
+     * @var TransferOrdersClient $transferOrders
+     */
+    public TransferOrdersClient $transferOrders;
+
+    /**
      * @var VendorsClient $vendors
      */
     public VendorsClient $vendors;
@@ -247,11 +259,11 @@ class SquareClient
         $token ??= $this->getFromEnvOrThrow('SQUARE_TOKEN', 'Please pass in token or set the environment variable SQUARE_TOKEN.');
         $defaultHeaders = [
             'Authorization' => "Bearer $token",
-            'Square-Version' => '2025-09-24',
+            'Square-Version' => '2025-10-16',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '43.1.1.20250924',
-            'User-Agent' => 'square/square/43.1.1.20250924',
+            'X-Fern-SDK-Version' => '43.2.0.20251016',
+            'User-Agent' => 'square/square/43.2.0.20251016',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;
@@ -275,6 +287,7 @@ class SquareClient
         $this->bookings = new BookingsClient($this->client, $this->options);
         $this->cards = new CardsClient($this->client, $this->options);
         $this->catalog = new CatalogClient($this->client, $this->options);
+        $this->channels = new ChannelsClient($this->client, $this->options);
         $this->customers = new CustomersClient($this->client, $this->options);
         $this->devices = new DevicesClient($this->client, $this->options);
         $this->disputes = new DisputesClient($this->client, $this->options);
@@ -298,6 +311,7 @@ class SquareClient
         $this->teamMembers = new TeamMembersClient($this->client, $this->options);
         $this->team = new TeamClient($this->client, $this->options);
         $this->terminal = new TerminalClient($this->client, $this->options);
+        $this->transferOrders = new TransferOrdersClient($this->client, $this->options);
         $this->vendors = new VendorsClient($this->client, $this->options);
         $this->cashDrawers = new CashDrawersClient($this->client, $this->options);
         $this->webhooks = new WebhooksClient($this->client, $this->options);
