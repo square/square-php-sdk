@@ -48,7 +48,7 @@ class DevicesTest extends TestCase
     public function testListDeviceCodes(): void
     {
         $this->markTestSkipped("This test is skipped because the server has been erroring inconsistently.");
-        $response = self::$client->devices->codes->list();
+        $response = self::$client->devices->codes->list(); // @phpstan-ignore-line
         $page = $response->getPages()->current();
         $deviceCodes = $page->getItems();
         $this->assertNotNull($deviceCodes);
