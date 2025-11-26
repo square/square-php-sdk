@@ -1,0 +1,26 @@
+{
+  "cliVersion": "2.8.1",
+  "generatorName": "fernapi/fern-php-sdk",
+  "generatorVersion": "1.22.3",
+  "generatorConfig": {
+    "clientName": "SquareClient",
+    "namespace": "Square",
+    "packageName": "square/square",
+    "propertyAccess": "private",
+    "inlinePathParameters": true,
+    "composerJson": {
+      "description": "Use Square APIs to manage and run business including payment, customer, product, inventory, and employee management.",
+      "author": {
+        "name": "Square Developer Platform",
+        "url": "https://developer.squareup.com",
+        "email": "developers@squareup.com"
+      },
+      "homepage": "https://squareup.com/developers",
+      "require": {
+        "apimatic/unirest-php": "^4.0.0",
+        "apimatic/core-interfaces": "~0.1.5",
+        "apimatic/core": "~0.3.12"
+      }
+    }
+  }
+}
