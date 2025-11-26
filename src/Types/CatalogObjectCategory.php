@@ -26,6 +26,12 @@ class CatalogObjectCategory extends JsonSerializableType
     private ?int $ordinal;
 
     /**
+     * @var ?'CATEGORY' $type
+     */
+    #[JsonProperty('type')]
+    private ?string $type;
+
+    /**
      * @var ?CatalogCategory $categoryData Structured data for a `CatalogCategory`, set for CatalogObjects of type `CATEGORY`.
      */
     #[JsonProperty('category_data')]
@@ -129,6 +135,7 @@ class CatalogObjectCategory extends JsonSerializableType
      * @param array{
      *   id?: ?string,
      *   ordinal?: ?int,
+     *   type?: ?'CATEGORY',
      *   categoryData?: ?CatalogCategory,
      *   updatedAt?: ?string,
      *   version?: ?int,
@@ -146,6 +153,7 @@ class CatalogObjectCategory extends JsonSerializableType
     ) {
         $this->id = $values['id'] ?? null;
         $this->ordinal = $values['ordinal'] ?? null;
+        $this->type = $values['type'] ?? null;
         $this->categoryData = $values['categoryData'] ?? null;
         $this->updatedAt = $values['updatedAt'] ?? null;
         $this->version = $values['version'] ?? null;
@@ -189,6 +197,23 @@ class CatalogObjectCategory extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?'CATEGORY'
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param ?'CATEGORY' $value
+     */
+    public function setType(?string $value = null): self
+    {
+        $this->type = $value;
         return $this;
     }
 
