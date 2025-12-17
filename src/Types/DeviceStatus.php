@@ -8,7 +8,7 @@ use Square\Core\Json\JsonProperty;
 class DeviceStatus extends JsonSerializableType
 {
     /**
-     * Category of the device status.
+     *
      * See [Category](#type-category) for possible values
      *
      * @var ?value-of<DeviceStatusCategory> $category
