@@ -11,7 +11,7 @@ use Square\Core\Json\JsonProperty;
 class DeviceComponentDetailsMeasurement extends JsonSerializableType
 {
     /**
-     * @var ?int $value Value of measure.
+     * @var ?int $value
      */
     #[JsonProperty('value')]
     private ?int $value;
