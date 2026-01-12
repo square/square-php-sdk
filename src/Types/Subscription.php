@@ -179,12 +179,6 @@ class Subscription extends JsonSerializableType
     private ?array $phases;
 
     /**
-     * @var ?string $completedDate The `YYYY-MM-DD`-formatted date when the subscription enters a terminal state.
-     */
-    #[JsonProperty('completed_date')]
-    private ?string $completedDate;
-
-    /**
      * @param array{
      *   id?: ?string,
      *   locationId?: ?string,
@@ -205,7 +199,6 @@ class Subscription extends JsonSerializableType
      *   actions?: ?array<SubscriptionAction>,
      *   monthlyBillingAnchorDate?: ?int,
      *   phases?: ?array<Phase>,
-     *   completedDate?: ?string,
      * } $values
      */
     public function __construct(
@@ -230,7 +223,6 @@ class Subscription extends JsonSerializableType
         $this->actions = $values['actions'] ?? null;
         $this->monthlyBillingAnchorDate = $values['monthlyBillingAnchorDate'] ?? null;
         $this->phases = $values['phases'] ?? null;
-        $this->completedDate = $values['completedDate'] ?? null;
     }
 
     /**
@@ -553,23 +545,6 @@ class Subscription extends JsonSerializableType
     public function setPhases(?array $value = null): self
     {
         $this->phases = $value;
-        return $this;
-    }
-
-    /**
-     * @return ?string
-     */
-    public function getCompletedDate(): ?string
-    {
-        return $this->completedDate;
-    }
-
-    /**
-     * @param ?string $value
-     */
-    public function setCompletedDate(?string $value = null): self
-    {
-        $this->completedDate = $value;
         return $this;
     }
 
