@@ -7,3 +7,4 @@ src/Exceptions/SquareApiException.php
 src/Legacy
 src/Utils/WebhooksHelper.php
 tests/Integration
+changelog.md

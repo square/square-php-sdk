@@ -130,10 +130,7 @@ class RawClient
     ): array {
         return match (get_class($request)) {
             JsonApiRequest::class => array_merge(
-                [
-                    "Content-Type" => "application/json",
-                    "Accept" => "*/*",
-                ],
+                ["Content-Type" => "application/json"],
                 $this->headers,
                 $request->headers,
                 $options['headers'] ?? [],
@@ -252,9 +249,6 @@ class RawClient
     {
         if (is_string($value)) {
             return urlencode($value);
-        }
-        if (is_bool($value)) {
-            return $value ? 'true' : 'false';
         }
         if (is_scalar($value)) {
             return urlencode((string)$value);
