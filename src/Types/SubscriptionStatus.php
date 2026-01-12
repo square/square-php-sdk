@@ -9,5 +9,4 @@ enum SubscriptionStatus: string
     case Canceled = "CANCELED";
     case Deactivated = "DEACTIVATED";
     case Paused = "PAUSED";
-    case Completed = "COMPLETED";
 }
