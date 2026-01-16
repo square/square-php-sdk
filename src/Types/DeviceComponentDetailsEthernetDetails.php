@@ -20,16 +20,9 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     private ?string $ipAddressV4;
 
     /**
-     * @var ?string $macAddress The mac address of the device in this network.
-     */
-    #[JsonProperty('mac_address')]
-    private ?string $macAddress;
-
-    /**
      * @param array{
      *   active?: ?bool,
      *   ipAddressV4?: ?string,
-     *   macAddress?: ?string,
      * } $values
      */
     public function __construct(
@@ -37,7 +30,6 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     ) {
         $this->active = $values['active'] ?? null;
         $this->ipAddressV4 = $values['ipAddressV4'] ?? null;
-        $this->macAddress = $values['macAddress'] ?? null;
     }
 
     /**
@@ -71,23 +63,6 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     public function setIpAddressV4(?string $value = null): self
     {
         $this->ipAddressV4 = $value;
-        return $this;
-    }
-
-    /**
-     * @return ?string
-     */
-    public function getMacAddress(): ?string
-    {
-        return $this->macAddress;
-    }
-
-    /**
-     * @param ?string $value
-     */
-    public function setMacAddress(?string $value = null): self
-    {
-        $this->macAddress = $value;
         return $this;
     }
 
