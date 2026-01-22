@@ -40,10 +40,21 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     private ?Money $appliedMoney;
 
     /**
+     * Indicates whether the tax was automatically applied to the order based on
+     * the catalog configuration. For an example, see
+     * [Automatically Apply Taxes to an Order](https://developer.squareup.com/docs/orders-api/apply-taxes-and-discounts/auto-apply-taxes).
+     *
+     * @var ?bool $autoApplied
+     */
+    #[JsonProperty('auto_applied')]
+    private ?bool $autoApplied;
+
+    /**
      * @param array{
      *   taxUid: string,
      *   uid?: ?string,
      *   appliedMoney?: ?Money,
+     *   autoApplied?: ?bool,
      * } $values
      */
     public function __construct(
@@ -52,6 +63,7 @@ class OrderLineItemAppliedTax extends JsonSerializableType
         $this->uid = $values['uid'] ?? null;
         $this->taxUid = $values['taxUid'];
         $this->appliedMoney = $values['appliedMoney'] ?? null;
+        $this->autoApplied = $values['autoApplied'] ?? null;
     }
 
     /**
@@ -102,6 +114,23 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getAutoApplied(): ?bool
+    {
+        return $this->autoApplied;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setAutoApplied(?bool $value = null): self
+    {
+        $this->autoApplied = $value;
         return $this;
     }
 

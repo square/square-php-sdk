@@ -51,6 +51,17 @@ class CatalogModifier extends JsonSerializableType
     private ?array $locationOverrides;
 
     /**
+     * (Optional) Name that the restaurant wants to display to their kitchen workers
+     * instead of the customer-facing name.
+     * e.g., customer name might be "Double Baconize" and the
+     * kitchen name is "Add 2x bacon"
+     *
+     * @var ?string $kitchenName
+     */
+    #[JsonProperty('kitchen_name')]
+    private ?string $kitchenName;
+
+    /**
      * The ID of the image associated with this `CatalogModifier` instance.
      * Currently this image is not displayed by Square, but is free to be displayed in 3rd party applications.
      *
@@ -73,6 +84,7 @@ class CatalogModifier extends JsonSerializableType
      *   ordinal?: ?int,
      *   modifierListId?: ?string,
      *   locationOverrides?: ?array<ModifierLocationOverrides>,
+     *   kitchenName?: ?string,
      *   imageId?: ?string,
      *   hiddenOnline?: ?bool,
      * } $values
@@ -86,6 +98,7 @@ class CatalogModifier extends JsonSerializableType
         $this->ordinal = $values['ordinal'] ?? null;
         $this->modifierListId = $values['modifierListId'] ?? null;
         $this->locationOverrides = $values['locationOverrides'] ?? null;
+        $this->kitchenName = $values['kitchenName'] ?? null;
         $this->imageId = $values['imageId'] ?? null;
         $this->hiddenOnline = $values['hiddenOnline'] ?? null;
     }
@@ -189,6 +202,23 @@ class CatalogModifier extends JsonSerializableType
     public function setLocationOverrides(?array $value = null): self
     {
         $this->locationOverrides = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getKitchenName(): ?string
+    {
+        return $this->kitchenName;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setKitchenName(?string $value = null): self
+    {
+        $this->kitchenName = $value;
         return $this;
     }
 

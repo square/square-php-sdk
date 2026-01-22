@@ -154,6 +154,12 @@ class BankAccount extends JsonSerializableType
     private ?string $bankName;
 
     /**
+     * @var ?string $customerId The ID of the customer who owns the bank account
+     */
+    #[JsonProperty('customer_id')]
+    private ?string $customerId;
+
+    /**
      * @param array{
      *   id: string,
      *   accountNumberSuffix: string,
@@ -172,6 +178,7 @@ class BankAccount extends JsonSerializableType
      *   fingerprint?: ?string,
      *   version?: ?int,
      *   bankName?: ?string,
+     *   customerId?: ?string,
      * } $values
      */
     public function __construct(
@@ -194,6 +201,7 @@ class BankAccount extends JsonSerializableType
         $this->fingerprint = $values['fingerprint'] ?? null;
         $this->version = $values['version'] ?? null;
         $this->bankName = $values['bankName'] ?? null;
+        $this->customerId = $values['customerId'] ?? null;
     }
 
     /**
@@ -482,6 +490,23 @@ class BankAccount extends JsonSerializableType
     public function setBankName(?string $value = null): self
     {
         $this->bankName = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getCustomerId(): ?string
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setCustomerId(?string $value = null): self
+    {
+        $this->customerId = $value;
         return $this;
     }
 

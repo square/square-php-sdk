@@ -9,8 +9,8 @@ use Square\Core\Pagination\Pager;
 use Square\Types\BankAccount;
 use Square\Core\Pagination\CursorPager;
 use Square\Types\ListBankAccountsResponse;
-use Square\BankAccounts\Requests\GetByV1IdBankAccountsRequest;
-use Square\Types\GetBankAccountByV1IdResponse;
+use Square\BankAccounts\Requests\CreateBankAccountRequest;
+use Square\Types\CreateBankAccountResponse;
 use Square\Exceptions\SquareException;
 use Square\Exceptions\SquareApiException;
 use Square\Core\Json\JsonApiRequest;
@@ -19,8 +19,12 @@ use Square\Core\Client\HttpMethod;
 use JsonException;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
+use Square\BankAccounts\Requests\GetByV1IdBankAccountsRequest;
+use Square\Types\GetBankAccountByV1IdResponse;
 use Square\BankAccounts\Requests\GetBankAccountsRequest;
 use Square\Types\GetBankAccountResponse;
+use Square\BankAccounts\Requests\DisableBankAccountRequest;
+use Square\Types\DisableBankAccountResponse;
 
 class BankAccountsClient
 {
@@ -31,7 +35,7 @@ class BankAccountsClient
      *   maxRetries?: int,
      *   timeout?: float,
      *   headers?: array<string, string>,
-     * } $options
+     * } $options @phpstan-ignore-next-line Property is used in endpoint methods via HttpEndpointGenerator
      */
     private array $options;
 
@@ -84,6 +88,62 @@ class BankAccountsClient
             getNextCursor: fn (ListBankAccountsResponse $response) => $response?->getCursor() ?? null,
             /* @phpstan-ignore-next-line */
             getItems: fn (ListBankAccountsResponse $response) => $response?->getBankAccounts() ?? [],
+        );
+    }
+
+    /**
+     * Store a bank account on file for a square account
+     *
+     * @param CreateBankAccountRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return CreateBankAccountResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function createBankAccount(CreateBankAccountRequest $request, ?array $options = null): CreateBankAccountResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/bank-accounts",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return CreateBankAccountResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
         );
     }
 
@@ -143,8 +203,7 @@ class BankAccountsClient
     }
 
     /**
-     * Returns details of a [BankAccount](entity:BankAccount)
-     * linked to a Square account.
+     * Retrieve details of a [BankAccount](entity:BankAccount) bank account linked to a Square account.
      *
      * @param GetBankAccountsRequest $request
      * @param ?array{
@@ -199,6 +258,61 @@ class BankAccountsClient
     }
 
     /**
+     * Disable a bank account.
+     *
+     * @param DisableBankAccountRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return DisableBankAccountResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function disableBankAccount(DisableBankAccountRequest $request, ?array $options = null): DisableBankAccountResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/bank-accounts/{$request->getBankAccountId()}/disable",
+                    method: HttpMethod::POST,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return DisableBankAccountResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (RequestException $e) {
+            $response = $e->getResponse();
+            if ($response === null) {
+                throw new SquareException(message: $e->getMessage(), previous: $e);
+            }
+            throw new SquareApiException(
+                message: "API request failed",
+                statusCode: $response->getStatusCode(),
+                body: $response->getBody()->getContents(),
+            );
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
      * Returns a list of [BankAccount](entity:BankAccount) objects linked to a Square account.
      *
      * @param ListBankAccountsRequest $request
@@ -226,6 +340,9 @@ class BankAccountsClient
         }
         if ($request->getLocationId() != null) {
             $query['location_id'] = $request->getLocationId();
+        }
+        if ($request->getCustomerId() != null) {
+            $query['customer_id'] = $request->getCustomerId();
         }
         try {
             $response = $this->client->sendRequest(

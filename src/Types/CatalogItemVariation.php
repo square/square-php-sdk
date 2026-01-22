@@ -212,6 +212,17 @@ class CatalogItemVariation extends JsonSerializableType
     private ?CatalogStockConversion $stockableConversion;
 
     /**
+     * (Optional) Name that the restaurant wants to display to their kitchen workers
+     * instead of the customer-facing name.
+     * e.g., customer name might be "Mega-Jumbo Triplesized" and the
+     * kitchen name is "Large container"
+     *
+     * @var ?string $kitchenName
+     */
+    #[JsonProperty('kitchen_name')]
+    private ?string $kitchenName;
+
+    /**
      * @param array{
      *   itemId?: ?string,
      *   name?: ?string,
@@ -234,6 +245,7 @@ class CatalogItemVariation extends JsonSerializableType
      *   imageIds?: ?array<string>,
      *   teamMemberIds?: ?array<string>,
      *   stockableConversion?: ?CatalogStockConversion,
+     *   kitchenName?: ?string,
      * } $values
      */
     public function __construct(
@@ -260,6 +272,7 @@ class CatalogItemVariation extends JsonSerializableType
         $this->imageIds = $values['imageIds'] ?? null;
         $this->teamMemberIds = $values['teamMemberIds'] ?? null;
         $this->stockableConversion = $values['stockableConversion'] ?? null;
+        $this->kitchenName = $values['kitchenName'] ?? null;
     }
 
     /**
@@ -616,6 +629,23 @@ class CatalogItemVariation extends JsonSerializableType
     public function setStockableConversion(?CatalogStockConversion $value = null): self
     {
         $this->stockableConversion = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getKitchenName(): ?string
+    {
+        return $this->kitchenName;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setKitchenName(?string $value = null): self
+    {
+        $this->kitchenName = $value;
         return $this;
     }
 

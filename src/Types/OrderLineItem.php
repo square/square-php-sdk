@@ -163,7 +163,10 @@ class OrderLineItem extends JsonSerializableType
     private ?array $appliedServiceCharges;
 
     /**
-     * @var ?Money $basePriceMoney The base price for a single unit of the line item.
+     * The base price for a single unit of the line item. Note - If inclusive tax is set on
+     * this item it will be included in this value.
+     *
+     * @var ?Money $basePriceMoney
      */
     #[JsonProperty('base_price_money')]
     private ?Money $basePriceMoney;
@@ -171,7 +174,8 @@ class OrderLineItem extends JsonSerializableType
     /**
      * The total price of all item variations sold in this line item.
      * The price is calculated as `base_price_money` multiplied by `quantity`.
-     * It does not include modifiers.
+     * It does not include modifiers. Note - If inclusive tax is set on
+     * this item it will be included in this value.
      *
      * @var ?Money $variationTotalPriceMoney
      */

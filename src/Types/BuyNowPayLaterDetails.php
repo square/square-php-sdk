@@ -4,6 +4,7 @@ namespace Square\Types;
 
 use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
+use Square\Core\Types\ArrayType;
 
 /**
  * Additional details about a Buy Now Pay Later payment type.
@@ -38,10 +39,17 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     private ?ClearpayDetails $clearpayDetails;
 
     /**
+     * @var ?array<Error> $errors Information about errors encountered during the payment.
+     */
+    #[JsonProperty('errors'), ArrayType([Error::class])]
+    private ?array $errors;
+
+    /**
      * @param array{
      *   brand?: ?string,
      *   afterpayDetails?: ?AfterpayDetails,
      *   clearpayDetails?: ?ClearpayDetails,
+     *   errors?: ?array<Error>,
      * } $values
      */
     public function __construct(
@@ -50,6 +58,7 @@ class BuyNowPayLaterDetails extends JsonSerializableType
         $this->brand = $values['brand'] ?? null;
         $this->afterpayDetails = $values['afterpayDetails'] ?? null;
         $this->clearpayDetails = $values['clearpayDetails'] ?? null;
+        $this->errors = $values['errors'] ?? null;
     }
 
     /**
@@ -100,6 +109,23 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     public function setClearpayDetails(?ClearpayDetails $value = null): self
     {
         $this->clearpayDetails = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?array<Error>
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param ?array<Error> $value
+     */
+    public function setErrors(?array $value = null): self
+    {
+        $this->errors = $value;
         return $this;
     }
 

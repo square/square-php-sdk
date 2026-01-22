@@ -4,6 +4,7 @@ namespace Square\Types;
 
 use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
+use Square\Core\Types\ArrayType;
 
 /**
  * Additional details about `WALLET` type payments. Contains only non-confidential information.
@@ -21,7 +22,7 @@ class DigitalWalletDetails extends JsonSerializableType
 
     /**
      * The brand used for the `WALLET` payment. The brand can be `CASH_APP`, `PAYPAY`, `ALIPAY`,
-     * `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY` or `UNKNOWN`.
+     * `RAKUTEN_PAY`, `AU_PAY`, `D_BARAI`, `MERPAY`, `WECHAT_PAY`, `LIGHTNING` or `UNKNOWN`.
      *
      * @var ?string $brand
      */
@@ -35,10 +36,17 @@ class DigitalWalletDetails extends JsonSerializableType
     private ?CashAppDetails $cashAppDetails;
 
     /**
+     * @var ?array<Error> $errors Information about errors encountered during the payment.
+     */
+    #[JsonProperty('errors'), ArrayType([Error::class])]
+    private ?array $errors;
+
+    /**
      * @param array{
      *   status?: ?string,
      *   brand?: ?string,
      *   cashAppDetails?: ?CashAppDetails,
+     *   errors?: ?array<Error>,
      * } $values
      */
     public function __construct(
@@ -47,6 +55,7 @@ class DigitalWalletDetails extends JsonSerializableType
         $this->status = $values['status'] ?? null;
         $this->brand = $values['brand'] ?? null;
         $this->cashAppDetails = $values['cashAppDetails'] ?? null;
+        $this->errors = $values['errors'] ?? null;
     }
 
     /**
@@ -97,6 +106,23 @@ class DigitalWalletDetails extends JsonSerializableType
     public function setCashAppDetails(?CashAppDetails $value = null): self
     {
         $this->cashAppDetails = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?array<Error>
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param ?array<Error> $value
+     */
+    public function setErrors(?array $value = null): self
+    {
+        $this->errors = $value;
         return $this;
     }
 

@@ -127,6 +127,16 @@ class ObtainTokenRequest extends JsonSerializableType
     private ?string $codeVerifier;
 
     /**
+     * Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+     * When set to `true`, the OAuth flow returns a JWT to your application, used in the
+     * same way as a regular token. The default value is `false`.
+     *
+     * @var ?bool $useJwt
+     */
+    #[JsonProperty('use_jwt')]
+    private ?bool $useJwt;
+
+    /**
      * @param array{
      *   clientId: string,
      *   grantType: string,
@@ -138,6 +148,7 @@ class ObtainTokenRequest extends JsonSerializableType
      *   scopes?: ?array<string>,
      *   shortLived?: ?bool,
      *   codeVerifier?: ?string,
+     *   useJwt?: ?bool,
      * } $values
      */
     public function __construct(
@@ -153,6 +164,7 @@ class ObtainTokenRequest extends JsonSerializableType
         $this->scopes = $values['scopes'] ?? null;
         $this->shortLived = $values['shortLived'] ?? null;
         $this->codeVerifier = $values['codeVerifier'] ?? null;
+        $this->useJwt = $values['useJwt'] ?? null;
     }
 
     /**
@@ -322,6 +334,23 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setCodeVerifier(?string $value = null): self
     {
         $this->codeVerifier = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getUseJwt(): ?bool
+    {
+        return $this->useJwt;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setUseJwt(?bool $value = null): self
+    {
+        $this->useJwt = $value;
         return $this;
     }
 }

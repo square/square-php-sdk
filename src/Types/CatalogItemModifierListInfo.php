@@ -70,22 +70,43 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     private ?int $ordinal;
 
     /**
-     * @var mixed $allowQuantities
+     * Controls whether multiple quantities of the same modifier can be selected for this item.
+     * - `YES` means that every modifier in the `CatalogModifierList` can have multiple quantities
+     * selected for this item.
+     * - `NO` means that each modifier in the `CatalogModifierList` can be selected only once for this item.
+     * - `NOT_SET` means that the `allow_quantities` setting on the `CatalogModifierList` is obeyed.
+     * See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+     *
+     * @var ?value-of<CatalogModifierToggleOverrideType> $allowQuantities
      */
     #[JsonProperty('allow_quantities')]
-    private mixed $allowQuantities;
+    private ?string $allowQuantities;
 
     /**
-     * @var mixed $isConversational
+     * Controls whether conversational mode is enabled for modifiers on this item.
+     *
+     * - `YES` means conversational mode is enabled for every modifier in the `CatalogModifierList`.
+     * - `NO` means that conversational mode is not enabled for any modifier in the `CatalogModifierList`.
+     * - `NOT_SET` means that conversational mode is not enabled for any modifier in the `CatalogModifierList`.
+     * See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+     *
+     * @var ?value-of<CatalogModifierToggleOverrideType> $isConversational
      */
     #[JsonProperty('is_conversational')]
-    private mixed $isConversational;
+    private ?string $isConversational;
 
     /**
-     * @var mixed $hiddenFromCustomerOverride
+     * Controls whether all modifiers for this item are hidden from customer receipts.
+     * - `YES` means that all modifiers in the `CatalogModifierList` are hidden from customer
+     * receipts for this item.
+     * - `NO` means that all modifiers in the `CatalogModifierList` are visible on customer receipts for this item.
+     * - `NOT_SET` means that the `hidden_from_customer` setting on the `CatalogModifierList` is obeyed.
+     * See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+     *
+     * @var ?value-of<CatalogModifierToggleOverrideType> $hiddenFromCustomerOverride
      */
     #[JsonProperty('hidden_from_customer_override')]
-    private mixed $hiddenFromCustomerOverride;
+    private ?string $hiddenFromCustomerOverride;
 
     /**
      * @param array{
@@ -95,9 +116,9 @@ class CatalogItemModifierListInfo extends JsonSerializableType
      *   maxSelectedModifiers?: ?int,
      *   enabled?: ?bool,
      *   ordinal?: ?int,
-     *   allowQuantities?: mixed,
-     *   isConversational?: mixed,
-     *   hiddenFromCustomerOverride?: mixed,
+     *   allowQuantities?: ?value-of<CatalogModifierToggleOverrideType>,
+     *   isConversational?: ?value-of<CatalogModifierToggleOverrideType>,
+     *   hiddenFromCustomerOverride?: ?value-of<CatalogModifierToggleOverrideType>,
      * } $values
      */
     public function __construct(
@@ -217,51 +238,51 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     }
 
     /**
-     * @return mixed
+     * @return ?value-of<CatalogModifierToggleOverrideType>
      */
-    public function getAllowQuantities(): mixed
+    public function getAllowQuantities(): ?string
     {
         return $this->allowQuantities;
     }
 
     /**
-     * @param mixed $value
+     * @param ?value-of<CatalogModifierToggleOverrideType> $value
      */
-    public function setAllowQuantities(mixed $value = null): self
+    public function setAllowQuantities(?string $value = null): self
     {
         $this->allowQuantities = $value;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return ?value-of<CatalogModifierToggleOverrideType>
      */
-    public function getIsConversational(): mixed
+    public function getIsConversational(): ?string
     {
         return $this->isConversational;
     }
 
     /**
-     * @param mixed $value
+     * @param ?value-of<CatalogModifierToggleOverrideType> $value
      */
-    public function setIsConversational(mixed $value = null): self
+    public function setIsConversational(?string $value = null): self
     {
         $this->isConversational = $value;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return ?value-of<CatalogModifierToggleOverrideType>
      */
-    public function getHiddenFromCustomerOverride(): mixed
+    public function getHiddenFromCustomerOverride(): ?string
     {
         return $this->hiddenFromCustomerOverride;
     }
 
     /**
-     * @param mixed $value
+     * @param ?value-of<CatalogModifierToggleOverrideType> $value
      */
-    public function setHiddenFromCustomerOverride(mixed $value = null): self
+    public function setHiddenFromCustomerOverride(?string $value = null): self
     {
         $this->hiddenFromCustomerOverride = $value;
         return $this;

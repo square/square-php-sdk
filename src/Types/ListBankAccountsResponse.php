@@ -12,16 +12,16 @@ use Square\Core\Types\ArrayType;
 class ListBankAccountsResponse extends JsonSerializableType
 {
     /**
-     * @var ?array<Error> $errors Information on errors encountered during the request.
-     */
-    #[JsonProperty('errors'), ArrayType([Error::class])]
-    private ?array $errors;
-
-    /**
      * @var ?array<BankAccount> $bankAccounts List of BankAccounts associated with this account.
      */
     #[JsonProperty('bank_accounts'), ArrayType([BankAccount::class])]
     private ?array $bankAccounts;
+
+    /**
+     * @var ?array<Error> $errors Information on errors encountered during the request.
+     */
+    #[JsonProperty('errors'), ArrayType([Error::class])]
+    private ?array $errors;
 
     /**
      * When a response is truncated, it includes a cursor that you can
@@ -37,34 +37,17 @@ class ListBankAccountsResponse extends JsonSerializableType
 
     /**
      * @param array{
-     *   errors?: ?array<Error>,
      *   bankAccounts?: ?array<BankAccount>,
+     *   errors?: ?array<Error>,
      *   cursor?: ?string,
      * } $values
      */
     public function __construct(
         array $values = [],
     ) {
-        $this->errors = $values['errors'] ?? null;
         $this->bankAccounts = $values['bankAccounts'] ?? null;
+        $this->errors = $values['errors'] ?? null;
         $this->cursor = $values['cursor'] ?? null;
-    }
-
-    /**
-     * @return ?array<Error>
-     */
-    public function getErrors(): ?array
-    {
-        return $this->errors;
-    }
-
-    /**
-     * @param ?array<Error> $value
-     */
-    public function setErrors(?array $value = null): self
-    {
-        $this->errors = $value;
-        return $this;
     }
 
     /**
@@ -81,6 +64,23 @@ class ListBankAccountsResponse extends JsonSerializableType
     public function setBankAccounts(?array $value = null): self
     {
         $this->bankAccounts = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?array<Error>
+     */
+    public function getErrors(): ?array
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param ?array<Error> $value
+     */
+    public function setErrors(?array $value = null): self
+    {
+        $this->errors = $value;
         return $this;
     }
 

@@ -127,6 +127,18 @@ class Card extends JsonSerializableType
     private ?string $bin;
 
     /**
+     * @var ?string $createdAt Timestamp for when the card object was created on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+     */
+    #[JsonProperty('created_at')]
+    private ?string $createdAt;
+
+    /**
+     * @var ?string $disabledAt Timestamp for when the card object was disabled on Square’s servers. In RFC 3339 format, e.g., "2016-09-04T23:59:33.123Z".
+     */
+    #[JsonProperty('disabled_at')]
+    private ?string $disabledAt;
+
+    /**
      * Current version number of the card. Increments with each card update. Requests to update an
      * existing Card object will be rejected unless the version in the request matches the current
      * version for the Card.
@@ -196,6 +208,8 @@ class Card extends JsonSerializableType
      *   cardType?: ?value-of<CardType>,
      *   prepaidType?: ?value-of<CardPrepaidType>,
      *   bin?: ?string,
+     *   createdAt?: ?string,
+     *   disabledAt?: ?string,
      *   version?: ?int,
      *   cardCoBrand?: ?value-of<CardCoBrand>,
      *   issuerAlert?: ?'ISSUER_ALERT_CARD_CLOSED',
@@ -221,6 +235,8 @@ class Card extends JsonSerializableType
         $this->cardType = $values['cardType'] ?? null;
         $this->prepaidType = $values['prepaidType'] ?? null;
         $this->bin = $values['bin'] ?? null;
+        $this->createdAt = $values['createdAt'] ?? null;
+        $this->disabledAt = $values['disabledAt'] ?? null;
         $this->version = $values['version'] ?? null;
         $this->cardCoBrand = $values['cardCoBrand'] ?? null;
         $this->issuerAlert = $values['issuerAlert'] ?? null;
@@ -480,6 +496,40 @@ class Card extends JsonSerializableType
     public function setBin(?string $value = null): self
     {
         $this->bin = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setCreatedAt(?string $value = null): self
+    {
+        $this->createdAt = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getDisabledAt(): ?string
+    {
+        return $this->disabledAt;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setDisabledAt(?string $value = null): self
+    {
+        $this->disabledAt = $value;
         return $this;
     }
 

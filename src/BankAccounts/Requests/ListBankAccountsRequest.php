@@ -35,10 +35,19 @@ class ListBankAccountsRequest extends JsonSerializableType
     private ?string $locationId;
 
     /**
+     * Customer ID. You can specify this optional filter
+     * to retrieve only the linked bank accounts belonging to a specific customer.
+     *
+     * @var ?string $customerId
+     */
+    private ?string $customerId;
+
+    /**
      * @param array{
      *   cursor?: ?string,
      *   limit?: ?int,
      *   locationId?: ?string,
+     *   customerId?: ?string,
      * } $values
      */
     public function __construct(
@@ -47,6 +56,7 @@ class ListBankAccountsRequest extends JsonSerializableType
         $this->cursor = $values['cursor'] ?? null;
         $this->limit = $values['limit'] ?? null;
         $this->locationId = $values['locationId'] ?? null;
+        $this->customerId = $values['customerId'] ?? null;
     }
 
     /**
@@ -97,6 +107,23 @@ class ListBankAccountsRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getCustomerId(): ?string
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setCustomerId(?string $value = null): self
+    {
+        $this->customerId = $value;
         return $this;
     }
 }

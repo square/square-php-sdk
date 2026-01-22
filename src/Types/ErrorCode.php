@@ -116,6 +116,7 @@ enum ErrorCode: string
     case UnsupportedLoyaltyRewardTier = "UNSUPPORTED_LOYALTY_REWARD_TIER";
     case LocationMismatch = "LOCATION_MISMATCH";
     case OrderUnpaidNotReturnable = "ORDER_UNPAID_NOT_RETURNABLE";
+    case PartialPaymentDelayCaptureNotSupported = "PARTIAL_PAYMENT_DELAY_CAPTURE_NOT_SUPPORTED";
     case IdempotencyKeyReused = "IDEMPOTENCY_KEY_REUSED";
     case UnexpectedValue = "UNEXPECTED_VALUE";
     case SandboxNotSupported = "SANDBOX_NOT_SUPPORTED";
@@ -131,6 +132,7 @@ enum ErrorCode: string
     case PlaidError = "PLAID_ERROR";
     case PlaidErrorItemLoginRequired = "PLAID_ERROR_ITEM_LOGIN_REQUIRED";
     case PlaidErrorRateLimit = "PLAID_ERROR_RATE_LIMIT";
+    case PaymentSourceNotEnabledForTarget = "PAYMENT_SOURCE_NOT_ENABLED_FOR_TARGET";
     case CardDeclined = "CARD_DECLINED";
     case VerifyCvvFailure = "VERIFY_CVV_FAILURE";
     case VerifyAvsFailure = "VERIFY_AVS_FAILURE";
