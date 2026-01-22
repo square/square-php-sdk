@@ -15983,32 +15983,6 @@ $client->vendors->update(
 </dl>
 </details>
 
-## Mobile
-<details><summary><code>$client-&gt;mobile-&gt;authorizationCode()</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```php
-$client->mobile->authorizationCode();
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 ## Bookings CustomAttributeDefinitions
 <details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;list($request) -> ListBookingCustomAttributeDefinitionsResponse</code></summary>
 <dl>
