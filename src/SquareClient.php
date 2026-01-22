@@ -35,7 +35,6 @@ use Square\Team\TeamClient;
 use Square\Terminal\TerminalClient;
 use Square\TransferOrders\TransferOrdersClient;
 use Square\Vendors\VendorsClient;
-use Square\Mobile\MobileClient;
 use Square\CashDrawers\CashDrawersClient;
 use Square\Webhooks\WebhooksClient;
 use GuzzleHttp\ClientInterface;
@@ -210,11 +209,6 @@ class SquareClient
     public VendorsClient $vendors;
 
     /**
-     * @var MobileClient $mobile
-     */
-    public MobileClient $mobile;
-
-    /**
      * @var CashDrawersClient $cashDrawers
      */
     public CashDrawersClient $cashDrawers;
@@ -313,7 +307,6 @@ class SquareClient
         $this->terminal = new TerminalClient($this->client, $this->options);
         $this->transferOrders = new TransferOrdersClient($this->client, $this->options);
         $this->vendors = new VendorsClient($this->client, $this->options);
-        $this->mobile = new MobileClient($this->client, $this->options);
         $this->cashDrawers = new CashDrawersClient($this->client, $this->options);
         $this->webhooks = new WebhooksClient($this->client, $this->options);
     }
