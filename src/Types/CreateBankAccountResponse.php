@@ -7,12 +7,12 @@ use Square\Core\Json\JsonProperty;
 use Square\Core\Types\ArrayType;
 
 /**
- * Response object returned by `GetBankAccount`.
+ * Response object returned by CreateBankAccount.
  */
-class GetBankAccountResponse extends JsonSerializableType
+class CreateBankAccountResponse extends JsonSerializableType
 {
     /**
-     * @var ?BankAccount $bankAccount The requested `BankAccount` object.
+     * @var ?BankAccount $bankAccount The 'BankAccount' that was created.
      */
     #[JsonProperty('bank_account')]
     private ?BankAccount $bankAccount;

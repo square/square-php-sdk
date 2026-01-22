@@ -45,12 +45,24 @@ class DeviceCheckoutOptions extends JsonSerializableType
     private ?bool $showItemizedCart;
 
     /**
+     * Controls whether the mobile client applies Auto Card Surcharge (ACS) during checkout.
+     * If true, ACS is applied based on Dashboard configuration.
+     * If false, ACS is not applied regardless of that configuration.
+     * For more information, see [Add a Card Surcharge](https://developer.squareupstaging.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge).
+     *
+     * @var ?bool $allowAutoCardSurcharge
+     */
+    #[JsonProperty('allow_auto_card_surcharge')]
+    private ?bool $allowAutoCardSurcharge;
+
+    /**
      * @param array{
      *   deviceId: string,
      *   skipReceiptScreen?: ?bool,
      *   collectSignature?: ?bool,
      *   tipSettings?: ?TipSettings,
      *   showItemizedCart?: ?bool,
+     *   allowAutoCardSurcharge?: ?bool,
      * } $values
      */
     public function __construct(
@@ -61,6 +73,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
         $this->collectSignature = $values['collectSignature'] ?? null;
         $this->tipSettings = $values['tipSettings'] ?? null;
         $this->showItemizedCart = $values['showItemizedCart'] ?? null;
+        $this->allowAutoCardSurcharge = $values['allowAutoCardSurcharge'] ?? null;
     }
 
     /**
@@ -145,6 +158,23 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setShowItemizedCart(?bool $value = null): self
     {
         $this->showItemizedCart = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getAllowAutoCardSurcharge(): ?bool
+    {
+        return $this->allowAutoCardSurcharge;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setAllowAutoCardSurcharge(?bool $value = null): self
+    {
+        $this->allowAutoCardSurcharge = $value;
         return $this;
     }
 

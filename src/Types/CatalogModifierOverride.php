@@ -23,23 +23,36 @@ class CatalogModifierOverride extends JsonSerializableType
     private ?bool $onByDefault;
 
     /**
-     * @var mixed $hiddenOnlineOverride
+     * If `YES`, this setting overrides the `hidden_online` setting on the `CatalogModifier` object,
+     * and the modifier is always hidden from online sales channels.
+     * If `NO`, the modifier is not hidden. It is always visible in online sales channels for this catalog item.
+     * `NOT_SET` means the `hidden_online` setting on the `CatalogModifier` object is obeyed.
+     * See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+     *
+     * @var ?value-of<CatalogModifierToggleOverrideType> $hiddenOnlineOverride
      */
     #[JsonProperty('hidden_online_override')]
-    private mixed $hiddenOnlineOverride;
+    private ?string $hiddenOnlineOverride;
 
     /**
-     * @var mixed $onByDefaultOverride
+     * If `YES`, this setting overrides the `on_by_default` setting on the `CatalogModifier` object,
+     * and the modifier is always selected by default for the catalog item.
+     *
+     * If `NO`, the modifier is not selected by default for this catalog item.
+     * `NOT_SET` means the `on_by_default` setting on the `CatalogModifier` object is obeyed.
+     * See [CatalogModifierToggleOverrideType](#type-catalogmodifiertoggleoverridetype) for possible values
+     *
+     * @var ?value-of<CatalogModifierToggleOverrideType> $onByDefaultOverride
      */
     #[JsonProperty('on_by_default_override')]
-    private mixed $onByDefaultOverride;
+    private ?string $onByDefaultOverride;
 
     /**
      * @param array{
      *   modifierId: string,
      *   onByDefault?: ?bool,
-     *   hiddenOnlineOverride?: mixed,
-     *   onByDefaultOverride?: mixed,
+     *   hiddenOnlineOverride?: ?value-of<CatalogModifierToggleOverrideType>,
+     *   onByDefaultOverride?: ?value-of<CatalogModifierToggleOverrideType>,
      * } $values
      */
     public function __construct(
@@ -86,34 +99,34 @@ class CatalogModifierOverride extends JsonSerializableType
     }
 
     /**
-     * @return mixed
+     * @return ?value-of<CatalogModifierToggleOverrideType>
      */
-    public function getHiddenOnlineOverride(): mixed
+    public function getHiddenOnlineOverride(): ?string
     {
         return $this->hiddenOnlineOverride;
     }
 
     /**
-     * @param mixed $value
+     * @param ?value-of<CatalogModifierToggleOverrideType> $value
      */
-    public function setHiddenOnlineOverride(mixed $value = null): self
+    public function setHiddenOnlineOverride(?string $value = null): self
     {
         $this->hiddenOnlineOverride = $value;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return ?value-of<CatalogModifierToggleOverrideType>
      */
-    public function getOnByDefaultOverride(): mixed
+    public function getOnByDefaultOverride(): ?string
     {
         return $this->onByDefaultOverride;
     }
 
     /**
-     * @param mixed $value
+     * @param ?value-of<CatalogModifierToggleOverrideType> $value
      */
-    public function setOnByDefaultOverride(mixed $value = null): self
+    public function setOnByDefaultOverride(?string $value = null): self
     {
         $this->onByDefaultOverride = $value;
         return $this;

@@ -1,7 +1,7 @@
 {
-  "cliVersion": "2.8.1",
+  "cliVersion": "3.38.0",
   "generatorName": "fernapi/fern-php-sdk",
-  "generatorVersion": "1.22.3",
+  "generatorVersion": "1.25.2",
   "generatorConfig": {
     "clientName": "SquareClient",
     "namespace": "Square",
@@ -22,5 +22,6 @@
         "apimatic/core": "~0.3.12"
       }
     }
-  }
+  },
+  "sdkVersion": "44.0.0.20260122"
 }

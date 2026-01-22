@@ -128,7 +128,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     private ?array $appliedTaxes;
 
     /**
-     * The treatment type of the service charge.
+     * Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
      * See [OrderServiceChargeTreatmentType](#type-orderservicechargetreatmenttype) for possible values
      *
      * @var ?value-of<OrderServiceChargeTreatmentType> $treatmentType
@@ -153,6 +153,15 @@ class OrderReturnServiceCharge extends JsonSerializableType
     private ?string $scope;
 
     /**
+     * The type of the service charge.
+     * See [OrderServiceChargeType](#type-orderservicechargetype) for possible values
+     *
+     * @var ?value-of<OrderServiceChargeType> $type
+     */
+    #[JsonProperty('type')]
+    private ?string $type;
+
+    /**
      * @param array{
      *   uid?: ?string,
      *   sourceServiceChargeUid?: ?string,
@@ -169,6 +178,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
      *   appliedTaxes?: ?array<OrderLineItemAppliedTax>,
      *   treatmentType?: ?value-of<OrderServiceChargeTreatmentType>,
      *   scope?: ?value-of<OrderServiceChargeScope>,
+     *   type?: ?value-of<OrderServiceChargeType>,
      * } $values
      */
     public function __construct(
@@ -189,6 +199,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
         $this->appliedTaxes = $values['appliedTaxes'] ?? null;
         $this->treatmentType = $values['treatmentType'] ?? null;
         $this->scope = $values['scope'] ?? null;
+        $this->type = $values['type'] ?? null;
     }
 
     /**
@@ -443,6 +454,23 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setScope(?string $value = null): self
     {
         $this->scope = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?value-of<OrderServiceChargeType>
+     */
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param ?value-of<OrderServiceChargeType> $value
+     */
+    public function setType(?string $value = null): self
+    {
+        $this->type = $value;
         return $this;
     }
 

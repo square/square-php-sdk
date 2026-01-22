@@ -1,79 +1,6 @@
 # Reference
-## Mobile
-<details><summary><code>$client->mobile->authorizationCode($request) -> CreateMobileAuthorizationCodeResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-__Note:__ This endpoint is used by the deprecated Reader SDK. 
-Developers should update their integration to use the [Mobile Payments SDK](https://developer.squareup.com/docs/mobile-payments-sdk), which includes its own authorization methods. 
-
-Generates code to authorize a mobile application to connect to a Square card reader.
-
-Authorization codes are one-time-use codes and expire 60 minutes after being issued.
-
-The `Authorization` header you provide to this endpoint must have the following format:
-
-```
-Authorization: Bearer ACCESS_TOKEN
-```
-
-Replace `ACCESS_TOKEN` with a
-[valid production authorization credential](https://developer.squareup.com/docs/build-basics/access-tokens).
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```php
-$client->mobile->authorizationCode(
-    new CreateMobileAuthorizationCodeRequest([
-        'locationId' => 'YOUR_LOCATION_ID',
-    ]),
-);
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**$locationId:** `?string` — The Square location ID that the authorization code should be tied to.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 ## OAuth
-<details><summary><code>$client->oAuth->revokeToken($request) -> RevokeTokenResponse</code></summary>
+<details><summary><code>$client-&gt;oAuth-&gt;revokeToken($request) -> RevokeTokenResponse</code></summary>
 <dl>
 <dd>
 
@@ -182,7 +109,7 @@ Default: `false`
 </dl>
 </details>
 
-<details><summary><code>$client->oAuth->obtainToken($request) -> ObtainTokenResponse</code></summary>
+<details><summary><code>$client-&gt;oAuth-&gt;obtainToken($request) -> ObtainTokenResponse</code></summary>
 <dl>
 <dd>
 
@@ -385,6 +312,18 @@ Required for the PKCE flow if `grant_type` is `authorization_code`.
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**$useJwt:** `?bool` 
+
+Indicates whether to use a JWT (JSON Web Token) as the OAuth access token.
+When set to `true`, the OAuth flow returns a JWT to your application, used in the
+same way as a regular token. The default value is `false`.
+    
+</dd>
+</dl>
 </dd>
 </dl>
 
@@ -393,7 +332,7 @@ Required for the PKCE flow if `grant_type` is `authorization_code`.
 </dl>
 </details>
 
-<details><summary><code>$client->oAuth->retrieveTokenStatus() -> RetrieveTokenStatusResponse</code></summary>
+<details><summary><code>$client-&gt;oAuth-&gt;retrieveTokenStatus() -> RetrieveTokenStatusResponse</code></summary>
 <dl>
 <dd>
 
@@ -445,7 +384,7 @@ $client->oAuth->retrieveTokenStatus();
 </dl>
 </details>
 
-<details><summary><code>$client->oAuth->authorize()</code></summary>
+<details><summary><code>$client-&gt;oAuth-&gt;authorize()</code></summary>
 <dl>
 <dd>
 
@@ -471,7 +410,7 @@ $client->oAuth->authorize();
 </details>
 
 ## V1Transactions
-<details><summary><code>$client->v1Transactions->v1ListOrders($request) -> array</code></summary>
+<details><summary><code>$client-&gt;v1Transactions-&gt;v1ListOrders($request) -> array</code></summary>
 <dl>
 <dd>
 
@@ -559,7 +498,7 @@ original query to the endpoint.
 </dl>
 </details>
 
-<details><summary><code>$client->v1Transactions->v1RetrieveOrder($request) -> V1Order</code></summary>
+<details><summary><code>$client-&gt;v1Transactions-&gt;v1RetrieveOrder($request) -> V1Order</code></summary>
 <dl>
 <dd>
 
@@ -626,7 +565,7 @@ $client->v1Transactions->v1RetrieveOrder(
 </dl>
 </details>
 
-<details><summary><code>$client->v1Transactions->v1UpdateOrder($request) -> V1Order</code></summary>
+<details><summary><code>$client-&gt;v1Transactions-&gt;v1UpdateOrder($request) -> V1Order</code></summary>
 <dl>
 <dd>
 
@@ -738,7 +677,7 @@ See [V1UpdateOrderRequestAction](#type-v1updateorderrequestaction) for possible 
 </details>
 
 ## ApplePay
-<details><summary><code>$client->applePay->registerDomain($request) -> RegisterDomainResponse</code></summary>
+<details><summary><code>$client-&gt;applePay-&gt;registerDomain($request) -> RegisterDomainResponse</code></summary>
 <dl>
 <dd>
 
@@ -810,7 +749,7 @@ $client->applePay->registerDomain(
 </details>
 
 ## BankAccounts
-<details><summary><code>$client->bankAccounts->list($request) -> ListBankAccountsResponse</code></summary>
+<details><summary><code>$client-&gt;bankAccounts-&gt;list($request) -> ListBankAccountsResponse</code></summary>
 <dl>
 <dd>
 
@@ -842,6 +781,7 @@ $client->bankAccounts->list(
         'cursor' => 'cursor',
         'limit' => 1,
         'locationId' => 'location_id',
+        'customerId' => 'customer_id',
     ]),
 );
 ```
@@ -861,7 +801,7 @@ $client->bankAccounts->list(
 **$cursor:** `?string` 
 
 The pagination cursor returned by a previous call to this endpoint.
-Use it in the next `ListBankAccounts` request to retrieve the next set 
+Use it in the next `ListBankAccounts` request to retrieve the next set
 of results.
 
 See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagination) guide for more information.
@@ -874,8 +814,8 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 
 **$limit:** `?int` 
 
-Upper limit on the number of bank accounts to return in the response. 
-Currently, 1000 is the largest supported limit. You can specify a limit 
+Upper limit on the number of bank accounts to return in the response.
+Currently, 1000 is the largest supported limit. You can specify a limit
 of up to 1000 bank accounts. This is also the default limit.
     
 </dd>
@@ -886,8 +826,19 @@ of up to 1000 bank accounts. This is also the default limit.
 
 **$locationId:** `?string` 
 
-Location ID. You can specify this optional filter 
+Location ID. You can specify this optional filter
 to retrieve only the linked bank accounts belonging to a specific location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**$customerId:** `?string` 
+
+Customer ID. You can specify this optional filter
+to retrieve only the linked bank accounts belonging to a specific customer.
     
 </dd>
 </dl>
@@ -899,7 +850,89 @@ to retrieve only the linked bank accounts belonging to a specific location.
 </dl>
 </details>
 
-<details><summary><code>$client->bankAccounts->getByV1Id($request) -> GetBankAccountByV1IdResponse</code></summary>
+<details><summary><code>$client-&gt;bankAccounts-&gt;createBankAccount($request) -> CreateBankAccountResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Store a bank account on file for a square account
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```php
+$client->bankAccounts->createBankAccount(
+    new CreateBankAccountRequest([
+        'idempotencyKey' => '4e43559a-f0fd-47d3-9da2-7ea1f97d94be',
+        'sourceId' => 'bnon:CA4SEHsQwr0rx6DbWLD5BQaqMnoYAQ',
+        'customerId' => 'HM3B2D5JKGZ69359BTEHXM2V8M',
+    ]),
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**$idempotencyKey:** `string` 
+
+Unique ID. For more information, see the
+[Idempotency](https://developer.squareup.com/docs/working-with-apis/idempotency).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**$sourceId:** `string` 
+
+The ID of the source that represents the bank account information to be stored. This field
+accepts the payment token created by WebSDK
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**$customerId:** `?string` — The ID of the customer associated with the bank account to be stored.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>$client-&gt;bankAccounts-&gt;getByV1Id($request) -> GetBankAccountByV1IdResponse</code></summary>
 <dl>
 <dd>
 
@@ -960,7 +993,7 @@ Connect V1 ID of the desired `BankAccount`. For more information, see
 </dl>
 </details>
 
-<details><summary><code>$client->bankAccounts->get($request) -> GetBankAccountResponse</code></summary>
+<details><summary><code>$client-&gt;bankAccounts-&gt;get($request) -> GetBankAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -972,8 +1005,7 @@ Connect V1 ID of the desired `BankAccount`. For more information, see
 <dl>
 <dd>
 
-Returns details of a [BankAccount](entity:BankAccount)
-linked to a Square account.
+Retrieve details of a [BankAccount](entity:BankAccount) bank account linked to a Square account.
 </dd>
 </dl>
 </dd>
@@ -1019,8 +1051,66 @@ $client->bankAccounts->get(
 </dl>
 </details>
 
+<details><summary><code>$client-&gt;bankAccounts-&gt;disableBankAccount($request) -> DisableBankAccountResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Disable a bank account.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```php
+$client->bankAccounts->disableBankAccount(
+    new DisableBankAccountRequest([
+        'bankAccountId' => 'bank_account_id',
+    ]),
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**$bankAccountId:** `string` — The ID of the bank account to disable.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Bookings
-<details><summary><code>$client->bookings->list($request) -> ListBookingsResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;list($request) -> ListBookingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1135,7 +1225,7 @@ $client->bookings->list(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->create($request) -> CreateBookingResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;create($request) -> CreateBookingResponse</code></summary>
 <dl>
 <dd>
 
@@ -1214,7 +1304,7 @@ $client->bookings->create(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->searchAvailability($request) -> SearchAvailabilityResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;searchAvailability($request) -> SearchAvailabilityResponse</code></summary>
 <dl>
 <dd>
 
@@ -1279,7 +1369,7 @@ $client->bookings->searchAvailability(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->bulkRetrieveBookings($request) -> BulkRetrieveBookingsResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;bulkRetrieveBookings($request) -> BulkRetrieveBookingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1342,7 +1432,7 @@ $client->bookings->bulkRetrieveBookings(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->getBusinessProfile() -> GetBusinessBookingProfileResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;getBusinessProfile() -> GetBusinessBookingProfileResponse</code></summary>
 <dl>
 <dd>
 
@@ -1381,7 +1471,7 @@ $client->bookings->getBusinessProfile();
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->retrieveLocationBookingProfile($request) -> RetrieveLocationBookingProfileResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;retrieveLocationBookingProfile($request) -> RetrieveLocationBookingProfileResponse</code></summary>
 <dl>
 <dd>
 
@@ -1439,7 +1529,7 @@ $client->bookings->retrieveLocationBookingProfile(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->bulkRetrieveTeamMemberBookingProfiles($request) -> BulkRetrieveTeamMemberBookingProfilesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;bulkRetrieveTeamMemberBookingProfiles($request) -> BulkRetrieveTeamMemberBookingProfilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -1499,7 +1589,7 @@ $client->bookings->bulkRetrieveTeamMemberBookingProfiles(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->get($request) -> GetBookingResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;get($request) -> GetBookingResponse</code></summary>
 <dl>
 <dd>
 
@@ -1560,7 +1650,7 @@ $client->bookings->get(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->update($request) -> UpdateBookingResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;update($request) -> UpdateBookingResponse</code></summary>
 <dl>
 <dd>
 
@@ -1641,7 +1731,7 @@ $client->bookings->update(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->cancel($request) -> CancelBookingResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;cancel($request) -> CancelBookingResponse</code></summary>
 <dl>
 <dd>
 
@@ -1722,7 +1812,7 @@ $client->bookings->cancel(
 </details>
 
 ## Cards
-<details><summary><code>$client->cards->list($request) -> ListCardsResponse</code></summary>
+<details><summary><code>$client-&gt;cards-&gt;list($request) -> ListCardsResponse</code></summary>
 <dl>
 <dd>
 
@@ -1831,7 +1921,7 @@ This field defaults to ASC.
 </dl>
 </details>
 
-<details><summary><code>$client->cards->create($request) -> CreateCardResponse</code></summary>
+<details><summary><code>$client-&gt;cards-&gt;create($request) -> CreateCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -1940,7 +2030,7 @@ See the [SCA Overview](https://developer.squareup.com/docs/sca-overview).
 </dl>
 </details>
 
-<details><summary><code>$client->cards->get($request) -> GetCardResponse</code></summary>
+<details><summary><code>$client-&gt;cards-&gt;get($request) -> GetCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -1998,7 +2088,7 @@ $client->cards->get(
 </dl>
 </details>
 
-<details><summary><code>$client->cards->disable($request) -> DisableCardResponse</code></summary>
+<details><summary><code>$client-&gt;cards-&gt;disable($request) -> DisableCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -2058,7 +2148,7 @@ $client->cards->disable(
 </details>
 
 ## Catalog
-<details><summary><code>$client->catalog->batchDelete($request) -> BatchDeleteCatalogObjectsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;batchDelete($request) -> BatchDeleteCatalogObjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2136,7 +2226,7 @@ CatalogItem will delete its CatalogItemVariation.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->batchGet($request) -> BatchGetCatalogObjectsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;batchGet($request) -> BatchGetCatalogObjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2260,7 +2350,7 @@ in the response payload.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->batchUpsert($request) -> BatchUpsertCatalogObjectsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;batchUpsert($request) -> BatchUpsertCatalogObjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2388,7 +2478,7 @@ be inserted or updated.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->info() -> CatalogInfoResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;info() -> CatalogInfoResponse</code></summary>
 <dl>
 <dd>
 
@@ -2428,7 +2518,7 @@ $client->catalog->info();
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->list($request) -> ListCatalogResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;list($request) -> ListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -2535,7 +2625,7 @@ current version of the catalog.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->search($request) -> SearchCatalogObjectsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;search($request) -> SearchCatalogObjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2708,7 +2798,7 @@ is higher than the maximum limit of 1,000, it will be ignored.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->searchItems($request) -> SearchCatalogItemsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;searchItems($request) -> SearchCatalogItemsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2896,7 +2986,7 @@ a single call to the [SearchCatalogItems](api-endpoint:Catalog-SearchCatalogItem
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->updateItemModifierLists($request) -> UpdateItemModifierListsResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;updateItemModifierLists($request) -> UpdateItemModifierListsResponse</code></summary>
 <dl>
 <dd>
 
@@ -2988,7 +3078,7 @@ At least one of `modifier_lists_to_enable` or `modifier_lists_to_disable` must b
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->updateItemTaxes($request) -> UpdateItemTaxesResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;updateItemTaxes($request) -> UpdateItemTaxesResponse</code></summary>
 <dl>
 <dd>
 
@@ -3083,7 +3173,7 @@ At least one of `taxes_to_enable` or `taxes_to_disable` must be specified.
 </details>
 
 ## Channels
-<details><summary><code>$client->channels->list($request) -> ListChannelsResponse</code></summary>
+<details><summary><code>$client-&gt;channels-&gt;list($request) -> ListChannelsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3180,7 +3270,7 @@ When not provided the returned results will be cap at 100 channels.
 </dl>
 </details>
 
-<details><summary><code>$client->channels->bulkRetrieve($request) -> BulkRetrieveChannelsResponse</code></summary>
+<details><summary><code>$client-&gt;channels-&gt;bulkRetrieve($request) -> BulkRetrieveChannelsResponse</code></summary>
 <dl>
 <dd>
 
@@ -3242,7 +3332,7 @@ $client->channels->bulkRetrieve(
 </dl>
 </details>
 
-<details><summary><code>$client->channels->get($request) -> RetrieveChannelResponse</code></summary>
+<details><summary><code>$client-&gt;channels-&gt;get($request) -> RetrieveChannelResponse</code></summary>
 <dl>
 <dd>
 
@@ -3301,7 +3391,7 @@ $client->channels->get(
 </details>
 
 ## Customers
-<details><summary><code>$client->customers->list($request) -> ListCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;list($request) -> ListCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3422,7 +3512,7 @@ The default value is `false`.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->create($request) -> CreateCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;create($request) -> CreateCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -3634,7 +3724,7 @@ see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it
 </dl>
 </details>
 
-<details><summary><code>$client->customers->batchCreate($request) -> BulkCreateCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;batchCreate($request) -> BulkCreateCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3742,7 +3832,7 @@ customer profile.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->bulkDeleteCustomers($request) -> BulkDeleteCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;bulkDeleteCustomers($request) -> BulkDeleteCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3806,7 +3896,7 @@ $client->customers->bulkDeleteCustomers(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->bulkRetrieveCustomers($request) -> BulkRetrieveCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;bulkRetrieveCustomers($request) -> BulkRetrieveCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3870,7 +3960,7 @@ $client->customers->bulkRetrieveCustomers(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->bulkUpdateCustomers($request) -> BulkUpdateCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;bulkUpdateCustomers($request) -> BulkUpdateCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3950,7 +4040,7 @@ update a field, specify the new value. To remove a field, specify `null`.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->search($request) -> SearchCustomersResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;search($request) -> SearchCustomersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4083,7 +4173,7 @@ The default value is `false`.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->get($request) -> GetCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;get($request) -> GetCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -4141,7 +4231,7 @@ $client->customers->get(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->update($request) -> UpdateCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;update($request) -> UpdateCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -4347,7 +4437,7 @@ see [Customer tax IDs](https://developer.squareup.com/docs/customers-api/what-it
 </dl>
 </details>
 
-<details><summary><code>$client->customers->delete($request) -> DeleteCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;delete($request) -> DeleteCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -4421,7 +4511,7 @@ As a best practice, you should include this parameter to enable [optimistic conc
 </details>
 
 ## Devices
-<details><summary><code>$client->devices->list($request) -> ListDevicesResponse</code></summary>
+<details><summary><code>$client-&gt;devices-&gt;list($request) -> ListDevicesResponse</code></summary>
 <dl>
 <dd>
 
@@ -4515,7 +4605,7 @@ The order in which results are listed.
 </dl>
 </details>
 
-<details><summary><code>$client->devices->get($request) -> GetDeviceResponse</code></summary>
+<details><summary><code>$client-&gt;devices-&gt;get($request) -> GetDeviceResponse</code></summary>
 <dl>
 <dd>
 
@@ -4574,7 +4664,7 @@ $client->devices->get(
 </details>
 
 ## Disputes
-<details><summary><code>$client->disputes->list($request) -> ListDisputesResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;list($request) -> ListDisputesResponse</code></summary>
 <dl>
 <dd>
 
@@ -4657,7 +4747,7 @@ If not specified, the endpoint returns disputes associated with all locations.
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->get($request) -> GetDisputeResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;get($request) -> GetDisputeResponse</code></summary>
 <dl>
 <dd>
 
@@ -4715,7 +4805,7 @@ $client->disputes->get(
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->accept($request) -> AcceptDisputeResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;accept($request) -> AcceptDisputeResponse</code></summary>
 <dl>
 <dd>
 
@@ -4777,7 +4867,7 @@ $client->disputes->accept(
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->createEvidenceFile($request) -> CreateDisputeEvidenceFileResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;createEvidenceFile($request) -> CreateDisputeEvidenceFileResponse</code></summary>
 <dl>
 <dd>
 
@@ -4836,7 +4926,7 @@ $client->disputes->createEvidenceFile(
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->createEvidenceText($request) -> CreateDisputeEvidenceTextResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;createEvidenceText($request) -> CreateDisputeEvidenceTextResponse</code></summary>
 <dl>
 <dd>
 
@@ -4924,7 +5014,7 @@ See [DisputeEvidenceType](#type-disputeevidencetype) for possible values
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->submitEvidence($request) -> SubmitEvidenceResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;submitEvidence($request) -> SubmitEvidenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -4989,7 +5079,7 @@ $client->disputes->submitEvidence(
 </details>
 
 ## Employees
-<details><summary><code>$client->employees->list($request) -> ListEmployeesResponse</code></summary>
+<details><summary><code>$client-&gt;employees-&gt;list($request) -> ListEmployeesResponse</code></summary>
 <dl>
 <dd>
 
@@ -5074,7 +5164,7 @@ $client->employees->list(
 </dl>
 </details>
 
-<details><summary><code>$client->employees->get($request) -> GetEmployeeResponse</code></summary>
+<details><summary><code>$client-&gt;employees-&gt;get($request) -> GetEmployeeResponse</code></summary>
 <dl>
 <dd>
 
@@ -5133,7 +5223,7 @@ $client->employees->get(
 </details>
 
 ## Events
-<details><summary><code>$client->events->searchEvents($request) -> SearchEventsResponse</code></summary>
+<details><summary><code>$client-&gt;events-&gt;searchEvents($request) -> SearchEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5215,7 +5305,7 @@ Default: 100
 </dl>
 </details>
 
-<details><summary><code>$client->events->disableEvents() -> DisableEventsResponse</code></summary>
+<details><summary><code>$client-&gt;events-&gt;disableEvents() -> DisableEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5256,7 +5346,7 @@ $client->events->disableEvents();
 </dl>
 </details>
 
-<details><summary><code>$client->events->enableEvents() -> EnableEventsResponse</code></summary>
+<details><summary><code>$client-&gt;events-&gt;enableEvents() -> EnableEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5295,7 +5385,7 @@ $client->events->enableEvents();
 </dl>
 </details>
 
-<details><summary><code>$client->events->listEventTypes($request) -> ListEventTypesResponse</code></summary>
+<details><summary><code>$client-&gt;events-&gt;listEventTypes($request) -> ListEventTypesResponse</code></summary>
 <dl>
 <dd>
 
@@ -5354,7 +5444,7 @@ $client->events->listEventTypes(
 </details>
 
 ## GiftCards
-<details><summary><code>$client->giftCards->list($request) -> ListGiftCardsResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;list($request) -> ListGiftCardsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5464,7 +5554,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/worki
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->create($request) -> CreateGiftCardResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;create($request) -> CreateGiftCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -5569,7 +5659,7 @@ include `gan` and provide the GAN that is printed on the gift card.
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->getFromGan($request) -> GetGiftCardFromGanResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;getFromGan($request) -> GetGiftCardFromGanResponse</code></summary>
 <dl>
 <dd>
 
@@ -5631,7 +5721,7 @@ Square-issued gift cards have 16-digit GANs.
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->getFromNonce($request) -> GetGiftCardFromNonceResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;getFromNonce($request) -> GetGiftCardFromNonceResponse</code></summary>
 <dl>
 <dd>
 
@@ -5692,7 +5782,7 @@ Web Payments SDK or In-App Payments SDK.
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->linkCustomer($request) -> LinkCustomerToGiftCardResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;linkCustomer($request) -> LinkCustomerToGiftCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -5759,7 +5849,7 @@ $client->giftCards->linkCustomer(
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->unlinkCustomer($request) -> UnlinkCustomerFromGiftCardResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;unlinkCustomer($request) -> UnlinkCustomerFromGiftCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -5826,7 +5916,7 @@ $client->giftCards->unlinkCustomer(
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->get($request) -> GetGiftCardResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;get($request) -> GetGiftCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -5885,7 +5975,7 @@ $client->giftCards->get(
 </details>
 
 ## Inventory
-<details><summary><code>$client->inventory->deprecatedGetAdjustment($request) -> GetInventoryAdjustmentResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;deprecatedGetAdjustment($request) -> GetInventoryAdjustmentResponse</code></summary>
 <dl>
 <dd>
 
@@ -5944,7 +6034,7 @@ $client->inventory->deprecatedGetAdjustment(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->getAdjustment($request) -> GetInventoryAdjustmentResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;getAdjustment($request) -> GetInventoryAdjustmentResponse</code></summary>
 <dl>
 <dd>
 
@@ -6003,7 +6093,7 @@ $client->inventory->getAdjustment(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->deprecatedBatchChange($request) -> BatchChangeInventoryResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;deprecatedBatchChange($request) -> BatchChangeInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -6077,7 +6167,7 @@ $client->inventory->deprecatedBatchChange(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->deprecatedBatchGetChanges($request) -> BatchGetInventoryChangesResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;deprecatedBatchGetChanges($request) -> BatchGetInventoryChangesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6149,7 +6239,7 @@ $client->inventory->deprecatedBatchGetChanges(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->deprecatedBatchGetCounts($request) -> BatchGetInventoryCountsResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;deprecatedBatchGetCounts($request) -> BatchGetInventoryCountsResponse</code></summary>
 <dl>
 <dd>
 
@@ -6214,7 +6304,7 @@ $client->inventory->deprecatedBatchGetCounts(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->batchCreateChanges($request) -> BatchChangeInventoryResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;batchCreateChanges($request) -> BatchChangeInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -6291,7 +6381,7 @@ $client->inventory->batchCreateChanges(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->batchGetChanges($request) -> BatchGetInventoryChangesResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;batchGetChanges($request) -> BatchGetInventoryChangesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6369,7 +6459,7 @@ $client->inventory->batchGetChanges(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->batchGetCounts($request) -> BatchGetInventoryCountsResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;batchGetCounts($request) -> BatchGetInventoryCountsResponse</code></summary>
 <dl>
 <dd>
 
@@ -6443,7 +6533,7 @@ $client->inventory->batchGetCounts(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->deprecatedGetPhysicalCount($request) -> GetInventoryPhysicalCountResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;deprecatedGetPhysicalCount($request) -> GetInventoryPhysicalCountResponse</code></summary>
 <dl>
 <dd>
 
@@ -6505,7 +6595,7 @@ ID of the
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->getPhysicalCount($request) -> GetInventoryPhysicalCountResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;getPhysicalCount($request) -> GetInventoryPhysicalCountResponse</code></summary>
 <dl>
 <dd>
 
@@ -6567,7 +6657,7 @@ ID of the
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->getTransfer($request) -> GetInventoryTransferResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;getTransfer($request) -> GetInventoryTransferResponse</code></summary>
 <dl>
 <dd>
 
@@ -6626,7 +6716,7 @@ $client->inventory->getTransfer(
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->get($request) -> GetInventoryCountResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;get($request) -> GetInventoryCountResponse</code></summary>
 <dl>
 <dd>
 
@@ -6713,7 +6803,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>$client->inventory->changes($request) -> GetInventoryChangesResponse</code></summary>
+<details><summary><code>$client-&gt;inventory-&gt;changes($request) -> GetInventoryChangesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6810,7 +6900,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </details>
 
 ## Invoices
-<details><summary><code>$client->invoices->list($request) -> ListInvoicesResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;list($request) -> ListInvoicesResponse</code></summary>
 <dl>
 <dd>
 
@@ -6896,7 +6986,7 @@ If not provided, the server uses a default limit of 100 invoices.
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->create($request) -> CreateInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;create($request) -> CreateInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7019,7 +7109,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->search($request) -> SearchInvoicesResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;search($request) -> SearchInvoicesResponse</code></summary>
 <dl>
 <dd>
 
@@ -7121,7 +7211,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->get($request) -> GetInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;get($request) -> GetInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7179,7 +7269,7 @@ $client->invoices->get(
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->update($request) -> UpdateInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;update($request) -> UpdateInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7289,7 +7379,7 @@ recommend using null values or the `remove` field when possible. For examples, s
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->delete($request) -> DeleteInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;delete($request) -> DeleteInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7362,7 +7452,7 @@ If you do not know the version, you can call [GetInvoice](api-endpoint:Invoices-
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->createInvoiceAttachment($request) -> CreateInvoiceAttachmentResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;createInvoiceAttachment($request) -> CreateInvoiceAttachmentResponse</code></summary>
 <dl>
 <dd>
 
@@ -7427,7 +7517,7 @@ $client->invoices->createInvoiceAttachment(
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->deleteInvoiceAttachment($request) -> DeleteInvoiceAttachmentResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;deleteInvoiceAttachment($request) -> DeleteInvoiceAttachmentResponse</code></summary>
 <dl>
 <dd>
 
@@ -7495,7 +7585,7 @@ $client->invoices->deleteInvoiceAttachment(
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->cancel($request) -> CancelInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;cancel($request) -> CancelInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7569,7 +7659,7 @@ If you do not know the version, you can call
 </dl>
 </details>
 
-<details><summary><code>$client->invoices->publish($request) -> PublishInvoiceResponse</code></summary>
+<details><summary><code>$client-&gt;invoices-&gt;publish($request) -> PublishInvoiceResponse</code></summary>
 <dl>
 <dd>
 
@@ -7668,7 +7758,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </details>
 
 ## Labor
-<details><summary><code>$client->labor->createScheduledShift($request) -> CreateScheduledShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;createScheduledShift($request) -> CreateScheduledShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -7764,7 +7854,7 @@ shift location specified in `location_id`. Example for Pacific Standard Time: 20
 </dl>
 </details>
 
-<details><summary><code>$client->labor->bulkPublishScheduledShifts($request) -> BulkPublishScheduledShiftsResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;bulkPublishScheduledShifts($request) -> BulkPublishScheduledShiftsResponse</code></summary>
 <dl>
 <dd>
 
@@ -7849,7 +7939,7 @@ See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudienc
 </dl>
 </details>
 
-<details><summary><code>$client->labor->searchScheduledShifts($request) -> SearchScheduledShiftsResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;searchScheduledShifts($request) -> SearchScheduledShiftsResponse</code></summary>
 <dl>
 <dd>
 
@@ -7938,7 +8028,7 @@ information, see [Pagination](https://developer.squareup.com/docs/build-basics/c
 </dl>
 </details>
 
-<details><summary><code>$client->labor->retrieveScheduledShift($request) -> RetrieveScheduledShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;retrieveScheduledShift($request) -> RetrieveScheduledShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -7996,7 +8086,7 @@ $client->labor->retrieveScheduledShift(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->updateScheduledShift($request) -> UpdateScheduledShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;updateScheduledShift($request) -> UpdateScheduledShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -8097,7 +8187,7 @@ omitted, Square executes a blind write, potentially overwriting data from anothe
 </dl>
 </details>
 
-<details><summary><code>$client->labor->publishScheduledShift($request) -> PublishScheduledShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;publishScheduledShift($request) -> PublishScheduledShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -8195,7 +8285,7 @@ See [ScheduledShiftNotificationAudience](#type-scheduledshiftnotificationaudienc
 </dl>
 </details>
 
-<details><summary><code>$client->labor->createTimecard($request) -> CreateTimecardResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;createTimecard($request) -> CreateTimecardResponse</code></summary>
 <dl>
 <dd>
 
@@ -8306,7 +8396,7 @@ $client->labor->createTimecard(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->searchTimecards($request) -> SearchTimecardsResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;searchTimecards($request) -> SearchTimecardsResponse</code></summary>
 <dl>
 <dd>
 
@@ -8405,7 +8495,7 @@ $client->labor->searchTimecards(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->retrieveTimecard($request) -> RetrieveTimecardResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;retrieveTimecard($request) -> RetrieveTimecardResponse</code></summary>
 <dl>
 <dd>
 
@@ -8463,7 +8553,7 @@ $client->labor->retrieveTimecard(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->updateTimecard($request) -> UpdateTimecardResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;updateTimecard($request) -> UpdateTimecardResponse</code></summary>
 <dl>
 <dd>
 
@@ -8566,7 +8656,7 @@ $client->labor->updateTimecard(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->deleteTimecard($request) -> DeleteTimecardResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;deleteTimecard($request) -> DeleteTimecardResponse</code></summary>
 <dl>
 <dd>
 
@@ -8625,7 +8715,7 @@ $client->labor->deleteTimecard(
 </details>
 
 ## Locations
-<details><summary><code>$client->locations->list() -> ListLocationsResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;list() -> ListLocationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -8665,7 +8755,7 @@ $client->locations->list();
 </dl>
 </details>
 
-<details><summary><code>$client->locations->create($request) -> CreateLocationResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;create($request) -> CreateLocationResponse</code></summary>
 <dl>
 <dd>
 
@@ -8742,7 +8832,7 @@ The remaining fields are automatically added based on the data from the [main lo
 </dl>
 </details>
 
-<details><summary><code>$client->locations->get($request) -> GetLocationResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;get($request) -> GetLocationResponse</code></summary>
 <dl>
 <dd>
 
@@ -8804,7 +8894,7 @@ The ID of the location to retrieve. Specify the string
 </dl>
 </details>
 
-<details><summary><code>$client->locations->update($request) -> UpdateLocationResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;update($request) -> UpdateLocationResponse</code></summary>
 <dl>
 <dd>
 
@@ -8892,7 +8982,7 @@ $client->locations->update(
 </dl>
 </details>
 
-<details><summary><code>$client->locations->checkouts($request) -> CreateCheckoutResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;checkouts($request) -> CreateCheckoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -9181,7 +9271,7 @@ This value cannot exceed 60 characters.
 </details>
 
 ## Loyalty
-<details><summary><code>$client->loyalty->searchEvents($request) -> SearchLoyaltyEventsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;searchEvents($request) -> SearchLoyaltyEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9283,7 +9373,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </details>
 
 ## Merchants
-<details><summary><code>$client->merchants->list($request) -> ListMerchantsResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;list($request) -> ListMerchantsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9350,7 +9440,7 @@ $client->merchants->list(
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->get($request) -> GetMerchantResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;get($request) -> GetMerchantResponse</code></summary>
 <dl>
 <dd>
 
@@ -9412,7 +9502,7 @@ then retrieve the merchant that is currently accessible to this call.
 </details>
 
 ## Checkout
-<details><summary><code>$client->checkout->retrieveLocationSettings($request) -> RetrieveLocationSettingsResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;retrieveLocationSettings($request) -> RetrieveLocationSettingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9470,7 +9560,7 @@ $client->checkout->retrieveLocationSettings(
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->updateLocationSettings($request) -> UpdateLocationSettingsResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;updateLocationSettings($request) -> UpdateLocationSettingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9537,7 +9627,7 @@ $client->checkout->updateLocationSettings(
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->retrieveMerchantSettings() -> RetrieveMerchantSettingsResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;retrieveMerchantSettings() -> RetrieveMerchantSettingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9576,7 +9666,7 @@ $client->checkout->retrieveMerchantSettings();
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->updateMerchantSettings($request) -> UpdateMerchantSettingsResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;updateMerchantSettings($request) -> UpdateMerchantSettingsResponse</code></summary>
 <dl>
 <dd>
 
@@ -9635,7 +9725,7 @@ $client->checkout->updateMerchantSettings(
 </details>
 
 ## Orders
-<details><summary><code>$client->orders->create($request) -> CreateOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;create($request) -> CreateOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -9757,7 +9847,7 @@ $client->orders->create(
 </dl>
 </details>
 
-<details><summary><code>$client->orders->batchGet($request) -> BatchGetOrdersResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;batchGet($request) -> BatchGetOrdersResponse</code></summary>
 <dl>
 <dd>
 
@@ -9832,7 +9922,7 @@ orders within the scope of the current authorization's merchant ID.
 </dl>
 </details>
 
-<details><summary><code>$client->orders->calculate($request) -> CalculateOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;calculate($request) -> CalculateOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -9931,7 +10021,7 @@ random strings used only to reference the reward tier.
 </dl>
 </details>
 
-<details><summary><code>$client->orders->clone($request) -> CloneOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;clone($request) -> CloneOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -10022,7 +10112,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->orders->search($request) -> SearchOrdersResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;search($request) -> SearchOrdersResponse</code></summary>
 <dl>
 <dd>
 
@@ -10175,7 +10265,7 @@ Default: `false`.
 </dl>
 </details>
 
-<details><summary><code>$client->orders->get($request) -> GetOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;get($request) -> GetOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -10233,7 +10323,7 @@ $client->orders->get(
 </dl>
 </details>
 
-<details><summary><code>$client->orders->update($request) -> UpdateOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;update($request) -> UpdateOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -10365,7 +10455,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->orders->pay($request) -> PayOrderResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;pay($request) -> PayOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -10475,7 +10565,7 @@ The payment total must match the order total.
 </details>
 
 ## Payments
-<details><summary><code>$client->payments->list($request) -> ListPaymentsResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;list($request) -> ListPaymentsResponse</code></summary>
 <dl>
 <dd>
 
@@ -10713,7 +10803,7 @@ range is determined using the `updated_at` field for each Payment.
 </dl>
 </details>
 
-<details><summary><code>$client->payments->create($request) -> CreatePaymentResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;create($request) -> CreatePaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -10836,6 +10926,8 @@ The amount designated as a tip, in addition to `amount_money`.
 The amount must be specified in the smallest denomination of the applicable currency
 (for example, US dollar amounts are specified in cents). For more information, see
 [Working with Monetary Amounts](https://developer.squareup.com/docs/build-basics/working-with-monetary-amounts).
+
+Tips for external vendors such as a 3rd party delivery courier must be recorded using Order.service_charges.
 
 The currency code must match the currency associated with the business
 that is accepting the payment.
@@ -11115,7 +11207,7 @@ internal 1st-party callers only.
 </dl>
 </details>
 
-<details><summary><code>$client->payments->cancelByIdempotencyKey($request) -> CancelPaymentByIdempotencyKeyResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;cancelByIdempotencyKey($request) -> CancelPaymentByIdempotencyKeyResponse</code></summary>
 <dl>
 <dd>
 
@@ -11183,7 +11275,7 @@ $client->payments->cancelByIdempotencyKey(
 </dl>
 </details>
 
-<details><summary><code>$client->payments->get($request) -> GetPaymentResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;get($request) -> GetPaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -11241,7 +11333,7 @@ $client->payments->get(
 </dl>
 </details>
 
-<details><summary><code>$client->payments->update($request) -> UpdatePaymentResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;update($request) -> UpdatePaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -11333,7 +11425,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->payments->cancel($request) -> CancelPaymentResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;cancel($request) -> CancelPaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -11392,7 +11484,7 @@ $client->payments->cancel(
 </dl>
 </details>
 
-<details><summary><code>$client->payments->complete($request) -> CompletePaymentResponse</code></summary>
+<details><summary><code>$client-&gt;payments-&gt;complete($request) -> CompletePaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -11466,7 +11558,7 @@ the update fails and a response with a VERSION_MISMATCH error is returned.
 </details>
 
 ## Payouts
-<details><summary><code>$client->payouts->list($request) -> ListPayoutsResponse</code></summary>
+<details><summary><code>$client-&gt;payouts-&gt;list($request) -> ListPayoutsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11600,7 +11692,7 @@ Default: `100`
 </dl>
 </details>
 
-<details><summary><code>$client->payouts->get($request) -> GetPayoutResponse</code></summary>
+<details><summary><code>$client-&gt;payouts-&gt;get($request) -> GetPayoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -11659,7 +11751,7 @@ $client->payouts->get(
 </dl>
 </details>
 
-<details><summary><code>$client->payouts->listEntries($request) -> ListPayoutEntriesResponse</code></summary>
+<details><summary><code>$client-&gt;payouts-&gt;listEntries($request) -> ListPayoutEntriesResponse</code></summary>
 <dl>
 <dd>
 
@@ -11757,7 +11849,7 @@ Default: `100`
 </details>
 
 ## Refunds
-<details><summary><code>$client->refunds->list($request) -> ListPaymentRefundsResponse</code></summary>
+<details><summary><code>$client-&gt;refunds-&gt;list($request) -> ListPaymentRefundsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11962,7 +12054,7 @@ Default: The current time.
 </dl>
 </details>
 
-<details><summary><code>$client->refunds->refundPayment($request) -> RefundPaymentResponse</code></summary>
+<details><summary><code>$client-&gt;refunds-&gt;refundPayment($request) -> RefundPaymentResponse</code></summary>
 <dl>
 <dd>
 
@@ -12193,7 +12285,7 @@ Additional details required when recording an unlinked external refund
 </dl>
 </details>
 
-<details><summary><code>$client->refunds->get($request) -> GetPaymentRefundResponse</code></summary>
+<details><summary><code>$client-&gt;refunds-&gt;get($request) -> GetPaymentRefundResponse</code></summary>
 <dl>
 <dd>
 
@@ -12252,7 +12344,7 @@ $client->refunds->get(
 </details>
 
 ## Sites
-<details><summary><code>$client->sites->list() -> ListSitesResponse</code></summary>
+<details><summary><code>$client-&gt;sites-&gt;list() -> ListSitesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12295,7 +12387,7 @@ $client->sites->list();
 </details>
 
 ## Snippets
-<details><summary><code>$client->snippets->get($request) -> GetSnippetResponse</code></summary>
+<details><summary><code>$client-&gt;snippets-&gt;get($request) -> GetSnippetResponse</code></summary>
 <dl>
 <dd>
 
@@ -12358,7 +12450,7 @@ $client->snippets->get(
 </dl>
 </details>
 
-<details><summary><code>$client->snippets->upsert($request) -> UpsertSnippetResponse</code></summary>
+<details><summary><code>$client-&gt;snippets-&gt;upsert($request) -> UpsertSnippetResponse</code></summary>
 <dl>
 <dd>
 
@@ -12433,7 +12525,7 @@ $client->snippets->upsert(
 </dl>
 </details>
 
-<details><summary><code>$client->snippets->delete($request) -> DeleteSnippetResponse</code></summary>
+<details><summary><code>$client-&gt;snippets-&gt;delete($request) -> DeleteSnippetResponse</code></summary>
 <dl>
 <dd>
 
@@ -12497,7 +12589,7 @@ $client->snippets->delete(
 </details>
 
 ## Subscriptions
-<details><summary><code>$client->subscriptions->create($request) -> CreateSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;create($request) -> CreateSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -12709,7 +12801,7 @@ a list of time zones, see [List of tz database time zones](https://en.wikipedia.
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->bulkSwapPlan($request) -> BulkSwapPlanResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;bulkSwapPlan($request) -> BulkSwapPlanResponse</code></summary>
 <dl>
 <dd>
 
@@ -12794,7 +12886,7 @@ day.
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->search($request) -> SearchSubscriptionsResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;search($request) -> SearchSubscriptionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -12920,7 +13012,7 @@ The supported values are:
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->get($request) -> GetSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;get($request) -> GetSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -12993,7 +13085,7 @@ The supported query parameter values are:
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->update($request) -> UpdateSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;update($request) -> UpdateSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -13067,7 +13159,7 @@ be treated as a request to clear the relevant data.
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->deleteAction($request) -> DeleteSubscriptionActionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;deleteAction($request) -> DeleteSubscriptionActionResponse</code></summary>
 <dl>
 <dd>
 
@@ -13134,7 +13226,7 @@ $client->subscriptions->deleteAction(
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->changeBillingAnchorDate($request) -> ChangeBillingAnchorDateResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;changeBillingAnchorDate($request) -> ChangeBillingAnchorDateResponse</code></summary>
 <dl>
 <dd>
 
@@ -13216,7 +13308,7 @@ is changed immediately.
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->cancel($request) -> CancelSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;cancel($request) -> CancelSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -13276,7 +13368,7 @@ $client->subscriptions->cancel(
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->listEvents($request) -> ListSubscriptionEventsResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;listEvents($request) -> ListSubscriptionEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -13361,7 +13453,7 @@ in a paged response.
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->pause($request) -> PauseSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;pause($request) -> PauseSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -13477,7 +13569,7 @@ See [ChangeTiming](#type-changetiming) for possible values
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->resume($request) -> ResumeSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;resume($request) -> ResumeSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -13555,7 +13647,7 @@ See [ChangeTiming](#type-changetiming) for possible values
 </dl>
 </details>
 
-<details><summary><code>$client->subscriptions->swapPlan($request) -> SwapPlanResponse</code></summary>
+<details><summary><code>$client-&gt;subscriptions-&gt;swapPlan($request) -> SwapPlanResponse</code></summary>
 <dl>
 <dd>
 
@@ -13642,7 +13734,7 @@ This field is required.
 </details>
 
 ## TeamMembers
-<details><summary><code>$client->teamMembers->create($request) -> CreateTeamMemberResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;create($request) -> CreateTeamMemberResponse</code></summary>
 <dl>
 <dd>
 
@@ -13742,7 +13834,7 @@ $client->teamMembers->create(
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->batchCreate($request) -> BatchCreateTeamMembersResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;batchCreate($request) -> BatchCreateTeamMembersResponse</code></summary>
 <dl>
 <dd>
 
@@ -13840,7 +13932,7 @@ call [ListJobs](api-endpoint:Team-ListJobs).
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->batchUpdate($request) -> BatchUpdateTeamMembersResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;batchUpdate($request) -> BatchUpdateTeamMembersResponse</code></summary>
 <dl>
 <dd>
 
@@ -13942,7 +14034,7 @@ call [ListJobs](api-endpoint:Team-ListJobs) to get the required `job_id` values.
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->search($request) -> SearchTeamMembersResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;search($request) -> SearchTeamMembersResponse</code></summary>
 <dl>
 <dd>
 
@@ -14029,7 +14121,7 @@ The opaque cursor for fetching the next page. For more information, see
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->get($request) -> GetTeamMemberResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;get($request) -> GetTeamMemberResponse</code></summary>
 <dl>
 <dd>
 
@@ -14088,7 +14180,7 @@ $client->teamMembers->get(
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->update($request) -> UpdateTeamMemberResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;update($request) -> UpdateTeamMemberResponse</code></summary>
 <dl>
 <dd>
 
@@ -14195,7 +14287,7 @@ $client->teamMembers->update(
 </details>
 
 ## Team
-<details><summary><code>$client->team->listJobs($request) -> ListJobsResponse</code></summary>
+<details><summary><code>$client-&gt;team-&gt;listJobs($request) -> ListJobsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14257,7 +14349,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>$client->team->createJob($request) -> CreateJobResponse</code></summary>
+<details><summary><code>$client-&gt;team-&gt;createJob($request) -> CreateJobResponse</code></summary>
 <dl>
 <dd>
 
@@ -14332,7 +14424,7 @@ but must be unique for each request. For more information, see
 </dl>
 </details>
 
-<details><summary><code>$client->team->retrieveJob($request) -> RetrieveJobResponse</code></summary>
+<details><summary><code>$client-&gt;team-&gt;retrieveJob($request) -> RetrieveJobResponse</code></summary>
 <dl>
 <dd>
 
@@ -14390,7 +14482,7 @@ $client->team->retrieveJob(
 </dl>
 </details>
 
-<details><summary><code>$client->team->updateJob($request) -> UpdateJobResponse</code></summary>
+<details><summary><code>$client-&gt;team-&gt;updateJob($request) -> UpdateJobResponse</code></summary>
 <dl>
 <dd>
 
@@ -14466,7 +14558,7 @@ to be included in the request. Optionally include `version` to enable optimistic
 </details>
 
 ## Terminal
-<details><summary><code>$client->terminal->dismissTerminalAction($request) -> DismissTerminalActionResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;dismissTerminalAction($request) -> DismissTerminalActionResponse</code></summary>
 <dl>
 <dd>
 
@@ -14526,7 +14618,7 @@ $client->terminal->dismissTerminalAction(
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->dismissTerminalCheckout($request) -> DismissTerminalCheckoutResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;dismissTerminalCheckout($request) -> DismissTerminalCheckoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -14584,7 +14676,7 @@ $client->terminal->dismissTerminalCheckout(
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->dismissTerminalRefund($request) -> DismissTerminalRefundResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;dismissTerminalRefund($request) -> DismissTerminalRefundResponse</code></summary>
 <dl>
 <dd>
 
@@ -14643,7 +14735,7 @@ $client->terminal->dismissTerminalRefund(
 </details>
 
 ## TransferOrders
-<details><summary><code>$client->transferOrders->create($request) -> CreateTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;create($request) -> CreateTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -14749,7 +14841,7 @@ any valid string but must be unique for every CreateTransferOrder request.
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->search($request) -> SearchTransferOrdersResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;search($request) -> SearchTransferOrdersResponse</code></summary>
 <dl>
 <dd>
 
@@ -14848,7 +14940,7 @@ $client->transferOrders->search(
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->get($request) -> RetrieveTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;get($request) -> RetrieveTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -14912,7 +15004,7 @@ $client->transferOrders->get(
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->update($request) -> UpdateTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;update($request) -> UpdateTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -15020,7 +15112,7 @@ $client->transferOrders->update(
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->delete($request) -> DeleteTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;delete($request) -> DeleteTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -15091,7 +15183,7 @@ $client->transferOrders->delete(
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->cancel($request) -> CancelTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;cancel($request) -> CancelTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -15179,7 +15271,7 @@ any valid string but must be unique for every UpdateTransferOrder request.
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->receive($request) -> ReceiveTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;receive($request) -> ReceiveTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -15228,13 +15320,13 @@ $client->transferOrders->receive(
         'receipt' => new TransferOrderGoodsReceipt([
             'lineItems' => [
                 new TransferOrderGoodsReceiptLineItem([
-                    'transferOrderLineUid' => 'transfer_order_line_uid',
+                    'transferOrderLineUid' => '1',
                     'quantityReceived' => '3',
                     'quantityDamaged' => '1',
                     'quantityCanceled' => '1',
                 ]),
                 new TransferOrderGoodsReceiptLineItem([
-                    'transferOrderLineUid' => 'transfer_order_line_uid',
+                    'transferOrderLineUid' => '2',
                     'quantityReceived' => '2',
                     'quantityCanceled' => '1',
                 ]),
@@ -15293,7 +15385,7 @@ $client->transferOrders->receive(
 </dl>
 </details>
 
-<details><summary><code>$client->transferOrders->start($request) -> StartTransferOrderResponse</code></summary>
+<details><summary><code>$client-&gt;transferOrders-&gt;start($request) -> StartTransferOrderResponse</code></summary>
 <dl>
 <dd>
 
@@ -15380,7 +15472,7 @@ any valid string but must be unique for every UpdateTransferOrder request.
 </details>
 
 ## Vendors
-<details><summary><code>$client->vendors->batchCreate($request) -> BatchCreateVendorsResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;batchCreate($request) -> BatchCreateVendorsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15460,7 +15552,7 @@ $client->vendors->batchCreate(
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->batchGet($request) -> BatchGetVendorsResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;batchGet($request) -> BatchGetVendorsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15520,7 +15612,7 @@ $client->vendors->batchGet(
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->batchUpdate($request) -> BatchUpdateVendorsResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;batchUpdate($request) -> BatchUpdateVendorsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15588,7 +15680,7 @@ objects. The set is represented by  a collection of `Vendor`-ID/`UpdateVendorReq
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->create($request) -> CreateVendorResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;create($request) -> CreateVendorResponse</code></summary>
 <dl>
 <dd>
 
@@ -15681,7 +15773,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->search($request) -> SearchVendorsResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;search($request) -> SearchVendorsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15758,7 +15850,7 @@ See the [Pagination](https://developer.squareup.com/docs/working-with-apis/pagin
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->get($request) -> GetVendorResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;get($request) -> GetVendorResponse</code></summary>
 <dl>
 <dd>
 
@@ -15816,7 +15908,7 @@ $client->vendors->get(
 </dl>
 </details>
 
-<details><summary><code>$client->vendors->update($request) -> UpdateVendorResponse</code></summary>
+<details><summary><code>$client-&gt;vendors-&gt;update($request) -> UpdateVendorResponse</code></summary>
 <dl>
 <dd>
 
@@ -15891,8 +15983,34 @@ $client->vendors->update(
 </dl>
 </details>
 
+## Mobile
+<details><summary><code>$client-&gt;mobile-&gt;authorizationCode()</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```php
+$client->mobile->authorizationCode();
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Bookings CustomAttributeDefinitions
-<details><summary><code>$client->bookings->customAttributeDefinitions->list($request) -> ListBookingCustomAttributeDefinitionsResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;list($request) -> ListBookingCustomAttributeDefinitionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15970,7 +16088,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributeDefinitions->create($request) -> CreateBookingCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;create($request) -> CreateBookingCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -16061,7 +16179,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributeDefinitions->get($request) -> RetrieveBookingCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;get($request) -> RetrieveBookingCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -16139,7 +16257,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributeDefinitions->update($request) -> UpdateBookingCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;update($request) -> UpdateBookingCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -16236,7 +16354,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributeDefinitions->delete($request) -> DeleteBookingCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;delete($request) -> DeleteBookingCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -16301,7 +16419,7 @@ $client->bookings->customAttributeDefinitions->delete(
 </details>
 
 ## Bookings CustomAttributes
-<details><summary><code>$client->bookings->customAttributes->batchDelete($request) -> BulkDeleteBookingCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;batchDelete($request) -> BulkDeleteBookingCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -16374,7 +16492,7 @@ information needed to delete a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributes->batchUpsert($request) -> BulkUpsertBookingCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;batchUpsert($request) -> BulkUpsertBookingCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -16447,7 +16565,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributes->list($request) -> ListBookingCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;list($request) -> ListBookingCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -16547,7 +16665,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributes->get($request) -> RetrieveBookingCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;get($request) -> RetrieveBookingCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -16648,7 +16766,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributes->upsert($request) -> UpsertBookingCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;upsert($request) -> UpsertBookingCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -16754,7 +16872,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->customAttributes->delete($request) -> DeleteBookingCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;customAttributes-&gt;delete($request) -> DeleteBookingCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -16832,7 +16950,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Bookings LocationProfiles
-<details><summary><code>$client->bookings->locationProfiles->list($request) -> ListLocationBookingProfilesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;locationProfiles-&gt;list($request) -> ListLocationBookingProfilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -16900,7 +17018,7 @@ $client->bookings->locationProfiles->list(
 </details>
 
 ## Bookings TeamMemberProfiles
-<details><summary><code>$client->bookings->teamMemberProfiles->list($request) -> ListTeamMemberBookingProfilesResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;teamMemberProfiles-&gt;list($request) -> ListTeamMemberBookingProfilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -16985,7 +17103,7 @@ $client->bookings->teamMemberProfiles->list(
 </dl>
 </details>
 
-<details><summary><code>$client->bookings->teamMemberProfiles->get($request) -> GetTeamMemberBookingProfileResponse</code></summary>
+<details><summary><code>$client-&gt;bookings-&gt;teamMemberProfiles-&gt;get($request) -> GetTeamMemberBookingProfileResponse</code></summary>
 <dl>
 <dd>
 
@@ -17044,7 +17162,7 @@ $client->bookings->teamMemberProfiles->get(
 </details>
 
 ## CashDrawers Shifts
-<details><summary><code>$client->cashDrawers->shifts->list($request) -> ListCashDrawerShiftsResponse</code></summary>
+<details><summary><code>$client-&gt;cashDrawers-&gt;shifts-&gt;list($request) -> ListCashDrawerShiftsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17154,7 +17272,7 @@ default, 1000 max).
 </dl>
 </details>
 
-<details><summary><code>$client->cashDrawers->shifts->get($request) -> GetCashDrawerShiftResponse</code></summary>
+<details><summary><code>$client-&gt;cashDrawers-&gt;shifts-&gt;get($request) -> GetCashDrawerShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -17222,7 +17340,7 @@ $client->cashDrawers->shifts->get(
 </dl>
 </details>
 
-<details><summary><code>$client->cashDrawers->shifts->listEvents($request) -> ListCashDrawerShiftEventsResponse</code></summary>
+<details><summary><code>$client-&gt;cashDrawers-&gt;shifts-&gt;listEvents($request) -> ListCashDrawerShiftEventsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17311,7 +17429,7 @@ default, 1000 max).
 </details>
 
 ## Catalog Images
-<details><summary><code>$client->catalog->images->create($request) -> CreateCatalogImageResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;images-&gt;create($request) -> CreateCatalogImageResponse</code></summary>
 <dl>
 <dd>
 
@@ -17357,7 +17475,7 @@ $client->catalog->images->create(
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->images->update($request) -> UpdateCatalogImageResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;images-&gt;update($request) -> UpdateCatalogImageResponse</code></summary>
 <dl>
 <dd>
 
@@ -17419,7 +17537,7 @@ $client->catalog->images->update(
 </details>
 
 ## Catalog Object
-<details><summary><code>$client->catalog->object->upsert($request) -> UpsertCatalogObjectResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;object-&gt;upsert($request) -> UpsertCatalogObjectResponse</code></summary>
 <dl>
 <dd>
 
@@ -17508,7 +17626,7 @@ A CatalogObject to be created or updated.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->object->get($request) -> GetCatalogObjectResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;object-&gt;get($request) -> GetCatalogObjectResponse</code></summary>
 <dl>
 <dd>
 
@@ -17624,7 +17742,7 @@ in the response payload.
 </dl>
 </details>
 
-<details><summary><code>$client->catalog->object->delete($request) -> DeleteCatalogObjectResponse</code></summary>
+<details><summary><code>$client-&gt;catalog-&gt;object-&gt;delete($request) -> DeleteCatalogObjectResponse</code></summary>
 <dl>
 <dd>
 
@@ -17696,7 +17814,7 @@ catalog item will delete its catalog item variations).
 </details>
 
 ## Checkout PaymentLinks
-<details><summary><code>$client->checkout->paymentLinks->list($request) -> ListPaymentLinksResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;paymentLinks-&gt;list($request) -> ListPaymentLinksResponse</code></summary>
 <dl>
 <dd>
 
@@ -17774,7 +17892,7 @@ Default value: `100`
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->paymentLinks->create($request) -> CreatePaymentLinkResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;paymentLinks-&gt;create($request) -> CreatePaymentLinkResponse</code></summary>
 <dl>
 <dd>
 
@@ -17912,7 +18030,7 @@ For more information, see [Prepopulate the shipping address](https://developer.s
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->paymentLinks->get($request) -> GetPaymentLinkResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;paymentLinks-&gt;get($request) -> GetPaymentLinkResponse</code></summary>
 <dl>
 <dd>
 
@@ -17970,7 +18088,7 @@ $client->checkout->paymentLinks->get(
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->paymentLinks->update($request) -> UpdatePaymentLinkResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;paymentLinks-&gt;update($request) -> UpdatePaymentLinkResponse</code></summary>
 <dl>
 <dd>
 
@@ -18047,7 +18165,7 @@ For more information, see [Update a payment link](https://developer.squareup.com
 </dl>
 </details>
 
-<details><summary><code>$client->checkout->paymentLinks->delete($request) -> DeletePaymentLinkResponse</code></summary>
+<details><summary><code>$client-&gt;checkout-&gt;paymentLinks-&gt;delete($request) -> DeletePaymentLinkResponse</code></summary>
 <dl>
 <dd>
 
@@ -18106,7 +18224,7 @@ $client->checkout->paymentLinks->delete(
 </details>
 
 ## Customers CustomAttributeDefinitions
-<details><summary><code>$client->customers->customAttributeDefinitions->list($request) -> ListCustomerCustomAttributeDefinitionsResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;list($request) -> ListCustomerCustomAttributeDefinitionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18186,7 +18304,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributeDefinitions->create($request) -> CreateCustomerCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;create($request) -> CreateCustomerCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -18280,7 +18398,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributeDefinitions->get($request) -> GetCustomerCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;get($request) -> GetCustomerCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -18359,7 +18477,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributeDefinitions->update($request) -> UpdateCustomerCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;update($request) -> UpdateCustomerCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -18462,7 +18580,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributeDefinitions->delete($request) -> DeleteCustomerCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;delete($request) -> DeleteCustomerCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -18525,7 +18643,7 @@ $client->customers->customAttributeDefinitions->delete(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributeDefinitions->batchUpsert($request) -> BatchUpsertCustomerCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributeDefinitions-&gt;batchUpsert($request) -> BatchUpsertCustomerCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -18637,7 +18755,7 @@ information needed to create or update a custom attribute.
 </details>
 
 ## Customers Groups
-<details><summary><code>$client->customers->groups->list($request) -> ListCustomerGroupsResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;list($request) -> ListCustomerGroupsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18714,7 +18832,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->create($request) -> CreateCustomerGroupResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;create($request) -> CreateCustomerGroupResponse</code></summary>
 <dl>
 <dd>
 
@@ -18784,7 +18902,7 @@ $client->customers->groups->create(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->get($request) -> GetCustomerGroupResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;get($request) -> GetCustomerGroupResponse</code></summary>
 <dl>
 <dd>
 
@@ -18842,7 +18960,7 @@ $client->customers->groups->get(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->update($request) -> UpdateCustomerGroupResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;update($request) -> UpdateCustomerGroupResponse</code></summary>
 <dl>
 <dd>
 
@@ -18911,7 +19029,7 @@ $client->customers->groups->update(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->delete($request) -> DeleteCustomerGroupResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;delete($request) -> DeleteCustomerGroupResponse</code></summary>
 <dl>
 <dd>
 
@@ -18969,7 +19087,7 @@ $client->customers->groups->delete(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->add($request) -> AddGroupToCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;add($request) -> AddGroupToCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -19039,7 +19157,7 @@ $client->customers->groups->add(
 </dl>
 </details>
 
-<details><summary><code>$client->customers->groups->remove($request) -> RemoveGroupFromCustomerResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;groups-&gt;remove($request) -> RemoveGroupFromCustomerResponse</code></summary>
 <dl>
 <dd>
 
@@ -19110,7 +19228,7 @@ $client->customers->groups->remove(
 </details>
 
 ## Customers Segments
-<details><summary><code>$client->customers->segments->list($request) -> ListCustomerSegmentsResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;segments-&gt;list($request) -> ListCustomerSegmentsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19187,7 +19305,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->customers->segments->get($request) -> GetCustomerSegmentResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;segments-&gt;get($request) -> GetCustomerSegmentResponse</code></summary>
 <dl>
 <dd>
 
@@ -19246,7 +19364,7 @@ $client->customers->segments->get(
 </details>
 
 ## Customers Cards
-<details><summary><code>$client->customers->cards->create($request) -> CreateCustomerCardResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;cards-&gt;create($request) -> CreateCustomerCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -19369,7 +19487,7 @@ challenge results to indicate that Square has verified the buyer identity.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->cards->delete($request) -> DeleteCustomerCardResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;cards-&gt;delete($request) -> DeleteCustomerCardResponse</code></summary>
 <dl>
 <dd>
 
@@ -19437,7 +19555,7 @@ $client->customers->cards->delete(
 </details>
 
 ## Customers CustomAttributes
-<details><summary><code>$client->customers->customAttributes->list($request) -> ListCustomerCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributes-&gt;list($request) -> ListCustomerCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -19541,7 +19659,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributes->get($request) -> GetCustomerCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributes-&gt;get($request) -> GetCustomerCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -19646,7 +19764,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributes->upsert($request) -> UpsertCustomerCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributes-&gt;upsert($request) -> UpsertCustomerCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -19756,7 +19874,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->customers->customAttributes->delete($request) -> DeleteCustomerCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;customers-&gt;customAttributes-&gt;delete($request) -> DeleteCustomerCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -19832,7 +19950,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Devices Codes
-<details><summary><code>$client->devices->codes->list($request) -> ListDeviceCodesResponse</code></summary>
+<details><summary><code>$client-&gt;devices-&gt;codes-&gt;list($request) -> ListDeviceCodesResponse</code></summary>
 <dl>
 <dd>
 
@@ -19931,7 +20049,7 @@ Returns DeviceCodes of status `PAIRED` and `UNPAIRED` if empty.
 </dl>
 </details>
 
-<details><summary><code>$client->devices->codes->create($request) -> CreateDeviceCodeResponse</code></summary>
+<details><summary><code>$client-&gt;devices-&gt;codes-&gt;create($request) -> CreateDeviceCodeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20008,7 +20126,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>$client->devices->codes->get($request) -> GetDeviceCodeResponse</code></summary>
+<details><summary><code>$client-&gt;devices-&gt;codes-&gt;get($request) -> GetDeviceCodeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20067,7 +20185,7 @@ $client->devices->codes->get(
 </details>
 
 ## Disputes Evidence
-<details><summary><code>$client->disputes->evidence->list($request) -> ListDisputeEvidenceResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;evidence-&gt;list($request) -> ListDisputeEvidenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -20138,7 +20256,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->evidence->get($request) -> GetDisputeEvidenceResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;evidence-&gt;get($request) -> GetDisputeEvidenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -20207,7 +20325,7 @@ $client->disputes->evidence->get(
 </dl>
 </details>
 
-<details><summary><code>$client->disputes->evidence->delete($request) -> DeleteDisputeEvidenceResponse</code></summary>
+<details><summary><code>$client-&gt;disputes-&gt;evidence-&gt;delete($request) -> DeleteDisputeEvidenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -20276,7 +20394,7 @@ $client->disputes->evidence->delete(
 </details>
 
 ## GiftCards Activities
-<details><summary><code>$client->giftCards->activities->list($request) -> ListGiftCardActivitiesResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;activities-&gt;list($request) -> ListGiftCardActivitiesResponse</code></summary>
 <dl>
 <dd>
 
@@ -20429,7 +20547,7 @@ The order in which the endpoint returns the activities, based on `created_at`.
 </dl>
 </details>
 
-<details><summary><code>$client->giftCards->activities->create($request) -> CreateGiftCardActivityResponse</code></summary>
+<details><summary><code>$client-&gt;giftCards-&gt;activities-&gt;create($request) -> CreateGiftCardActivityResponse</code></summary>
 <dl>
 <dd>
 
@@ -20509,7 +20627,7 @@ gift card, the `location_id` where the activity occurred, and the activity `type
 </details>
 
 ## Labor BreakTypes
-<details><summary><code>$client->labor->breakTypes->list($request) -> ListBreakTypesResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;breakTypes-&gt;list($request) -> ListBreakTypesResponse</code></summary>
 <dl>
 <dd>
 
@@ -20591,7 +20709,7 @@ and 200. The default is 200.
 </dl>
 </details>
 
-<details><summary><code>$client->labor->breakTypes->create($request) -> CreateBreakTypeResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;breakTypes-&gt;create($request) -> CreateBreakTypeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20676,7 +20794,7 @@ $client->labor->breakTypes->create(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->breakTypes->get($request) -> GetBreakTypeResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;breakTypes-&gt;get($request) -> GetBreakTypeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20734,7 +20852,7 @@ $client->labor->breakTypes->get(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->breakTypes->update($request) -> UpdateBreakTypeResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;breakTypes-&gt;update($request) -> UpdateBreakTypeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20807,7 +20925,7 @@ $client->labor->breakTypes->update(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->breakTypes->delete($request) -> DeleteBreakTypeResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;breakTypes-&gt;delete($request) -> DeleteBreakTypeResponse</code></summary>
 <dl>
 <dd>
 
@@ -20868,7 +20986,7 @@ $client->labor->breakTypes->delete(
 </details>
 
 ## Labor EmployeeWages
-<details><summary><code>$client->labor->employeeWages->list($request) -> ListEmployeeWagesResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;employeeWages-&gt;list($request) -> ListEmployeeWagesResponse</code></summary>
 <dl>
 <dd>
 
@@ -20947,7 +21065,7 @@ The maximum number of `EmployeeWage` results to return per page. The number can 
 </dl>
 </details>
 
-<details><summary><code>$client->labor->employeeWages->get($request) -> GetEmployeeWageResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;employeeWages-&gt;get($request) -> GetEmployeeWageResponse</code></summary>
 <dl>
 <dd>
 
@@ -21006,7 +21124,7 @@ $client->labor->employeeWages->get(
 </details>
 
 ## Labor Shifts
-<details><summary><code>$client->labor->shifts->create($request) -> CreateShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;shifts-&gt;create($request) -> CreateShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -21117,7 +21235,7 @@ $client->labor->shifts->create(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->shifts->search($request) -> SearchShiftsResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;shifts-&gt;search($request) -> SearchShiftsResponse</code></summary>
 <dl>
 <dd>
 
@@ -21216,7 +21334,7 @@ $client->labor->shifts->search(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->shifts->get($request) -> GetShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;shifts-&gt;get($request) -> GetShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -21274,7 +21392,7 @@ $client->labor->shifts->get(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->shifts->update($request) -> UpdateShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;shifts-&gt;update($request) -> UpdateShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -21376,7 +21494,7 @@ $client->labor->shifts->update(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->shifts->delete($request) -> DeleteShiftResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;shifts-&gt;delete($request) -> DeleteShiftResponse</code></summary>
 <dl>
 <dd>
 
@@ -21435,7 +21553,7 @@ $client->labor->shifts->delete(
 </details>
 
 ## Labor TeamMemberWages
-<details><summary><code>$client->labor->teamMemberWages->list($request) -> ListTeamMemberWagesResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;teamMemberWages-&gt;list($request) -> ListTeamMemberWagesResponse</code></summary>
 <dl>
 <dd>
 
@@ -21517,7 +21635,7 @@ The maximum number of `TeamMemberWage` results to return per page. The number ca
 </dl>
 </details>
 
-<details><summary><code>$client->labor->teamMemberWages->get($request) -> GetTeamMemberWageResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;teamMemberWages-&gt;get($request) -> GetTeamMemberWageResponse</code></summary>
 <dl>
 <dd>
 
@@ -21576,7 +21694,7 @@ $client->labor->teamMemberWages->get(
 </details>
 
 ## Labor WorkweekConfigs
-<details><summary><code>$client->labor->workweekConfigs->list($request) -> ListWorkweekConfigsResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;workweekConfigs-&gt;list($request) -> ListWorkweekConfigsResponse</code></summary>
 <dl>
 <dd>
 
@@ -21643,7 +21761,7 @@ $client->labor->workweekConfigs->list(
 </dl>
 </details>
 
-<details><summary><code>$client->labor->workweekConfigs->get($request) -> UpdateWorkweekConfigResponse</code></summary>
+<details><summary><code>$client-&gt;labor-&gt;workweekConfigs-&gt;get($request) -> UpdateWorkweekConfigResponse</code></summary>
 <dl>
 <dd>
 
@@ -21715,7 +21833,7 @@ $client->labor->workweekConfigs->get(
 </details>
 
 ## Locations CustomAttributeDefinitions
-<details><summary><code>$client->locations->customAttributeDefinitions->list($request) -> ListLocationCustomAttributeDefinitionsResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributeDefinitions-&gt;list($request) -> ListLocationCustomAttributeDefinitionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -21802,7 +21920,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributeDefinitions->create($request) -> CreateLocationCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributeDefinitions-&gt;create($request) -> CreateLocationCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -21891,7 +22009,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributeDefinitions->get($request) -> RetrieveLocationCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributeDefinitions-&gt;get($request) -> RetrieveLocationCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -21968,7 +22086,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributeDefinitions->update($request) -> UpdateLocationCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributeDefinitions-&gt;update($request) -> UpdateLocationCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -22067,7 +22185,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributeDefinitions->delete($request) -> DeleteLocationCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributeDefinitions-&gt;delete($request) -> DeleteLocationCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -22129,7 +22247,7 @@ $client->locations->customAttributeDefinitions->delete(
 </details>
 
 ## Locations CustomAttributes
-<details><summary><code>$client->locations->customAttributes->batchDelete($request) -> BulkDeleteLocationCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;batchDelete($request) -> BulkDeleteLocationCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -22202,7 +22320,7 @@ The keys must be unique and are used to map to the corresponding response.
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributes->batchUpsert($request) -> BulkUpsertLocationCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;batchUpsert($request) -> BulkUpsertLocationCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -22295,7 +22413,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributes->list($request) -> ListLocationCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;list($request) -> ListLocationCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -22406,7 +22524,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributes->get($request) -> RetrieveLocationCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;get($request) -> RetrieveLocationCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -22508,7 +22626,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributes->upsert($request) -> UpsertLocationCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;upsert($request) -> UpsertLocationCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -22613,7 +22731,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->locations->customAttributes->delete($request) -> DeleteLocationCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;customAttributes-&gt;delete($request) -> DeleteLocationCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -22687,7 +22805,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Locations Transactions
-<details><summary><code>$client->locations->transactions->list($request) -> ListTransactionsResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;list($request) -> ListTransactionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -22808,7 +22926,7 @@ See [Paginating results](https://developer.squareup.com/docs/working-with-apis/p
 </dl>
 </details>
 
-<details><summary><code>$client->locations->transactions->get($request) -> GetTransactionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;get($request) -> GetTransactionResponse</code></summary>
 <dl>
 <dd>
 
@@ -22875,7 +22993,7 @@ $client->locations->transactions->get(
 </dl>
 </details>
 
-<details><summary><code>$client->locations->transactions->capture($request) -> CaptureTransactionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;capture($request) -> CaptureTransactionResponse</code></summary>
 <dl>
 <dd>
 
@@ -22947,7 +23065,7 @@ $client->locations->transactions->capture(
 </dl>
 </details>
 
-<details><summary><code>$client->locations->transactions->void($request) -> VoidTransactionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;void($request) -> VoidTransactionResponse</code></summary>
 <dl>
 <dd>
 
@@ -23020,7 +23138,7 @@ $client->locations->transactions->void(
 </details>
 
 ## Loyalty Accounts
-<details><summary><code>$client->loyalty->accounts->create($request) -> CreateLoyaltyAccountResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;accounts-&gt;create($request) -> CreateLoyaltyAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -23095,7 +23213,7 @@ Keys can be any valid string, but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->accounts->search($request) -> SearchLoyaltyAccountsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;accounts-&gt;search($request) -> SearchLoyaltyAccountsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23187,7 +23305,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->accounts->get($request) -> GetLoyaltyAccountResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;accounts-&gt;get($request) -> GetLoyaltyAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -23245,7 +23363,7 @@ $client->loyalty->accounts->get(
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->accounts->accumulatePoints($request) -> AccumulateLoyaltyPointsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;accounts-&gt;accumulatePoints($request) -> AccumulateLoyaltyPointsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23352,7 +23470,7 @@ Keys can be any valid string but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->accounts->adjust($request) -> AdjustLoyaltyPointsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;accounts-&gt;adjust($request) -> AdjustLoyaltyPointsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23454,7 +23572,7 @@ the specified number of points would result in a negative balance. The default v
 </details>
 
 ## Loyalty Programs
-<details><summary><code>$client->loyalty->programs->list() -> ListLoyaltyProgramsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;list() -> ListLoyaltyProgramsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23497,7 +23615,7 @@ $client->loyalty->programs->list();
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->programs->get($request) -> GetLoyaltyProgramResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;get($request) -> GetLoyaltyProgramResponse</code></summary>
 <dl>
 <dd>
 
@@ -23557,7 +23675,7 @@ $client->loyalty->programs->get(
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->programs->calculate($request) -> CalculateLoyaltyPointsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;calculate($request) -> CalculateLoyaltyPointsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23673,7 +23791,7 @@ for regardless of the trigger limit.
 </details>
 
 ## Loyalty Rewards
-<details><summary><code>$client->loyalty->rewards->create($request) -> CreateLoyaltyRewardResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;rewards-&gt;create($request) -> CreateLoyaltyRewardResponse</code></summary>
 <dl>
 <dd>
 
@@ -23754,7 +23872,7 @@ Keys can be any valid string, but must be unique for every request.
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->rewards->search($request) -> SearchLoyaltyRewardsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;rewards-&gt;search($request) -> SearchLoyaltyRewardsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23846,7 +23964,7 @@ see [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->rewards->get($request) -> GetLoyaltyRewardResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;rewards-&gt;get($request) -> GetLoyaltyRewardResponse</code></summary>
 <dl>
 <dd>
 
@@ -23904,7 +24022,7 @@ $client->loyalty->rewards->get(
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->rewards->delete($request) -> DeleteLoyaltyRewardResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;rewards-&gt;delete($request) -> DeleteLoyaltyRewardResponse</code></summary>
 <dl>
 <dd>
 
@@ -23970,7 +24088,7 @@ $client->loyalty->rewards->delete(
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->rewards->redeem($request) -> RedeemLoyaltyRewardResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;rewards-&gt;redeem($request) -> RedeemLoyaltyRewardResponse</code></summary>
 <dl>
 <dd>
 
@@ -24060,7 +24178,7 @@ Keys can be any valid string, but must be unique for every request.
 </details>
 
 ## Loyalty Programs Promotions
-<details><summary><code>$client->loyalty->programs->promotions->list($request) -> ListLoyaltyPromotionsResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;promotions-&gt;list($request) -> ListLoyaltyPromotionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -24161,7 +24279,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->programs->promotions->create($request) -> CreateLoyaltyPromotionResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;promotions-&gt;create($request) -> CreateLoyaltyPromotionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24279,7 +24397,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->programs->promotions->get($request) -> GetLoyaltyPromotionResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;promotions-&gt;get($request) -> GetLoyaltyPromotionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24349,7 +24467,7 @@ call [RetrieveLoyaltyProgram](api-endpoint:Loyalty-RetrieveLoyaltyProgram) using
 </dl>
 </details>
 
-<details><summary><code>$client->loyalty->programs->promotions->cancel($request) -> CancelLoyaltyPromotionResponse</code></summary>
+<details><summary><code>$client-&gt;loyalty-&gt;programs-&gt;promotions-&gt;cancel($request) -> CancelLoyaltyPromotionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24425,7 +24543,7 @@ promotion that has an `ACTIVE` or `SCHEDULED` status.
 </details>
 
 ## Merchants CustomAttributeDefinitions
-<details><summary><code>$client->merchants->customAttributeDefinitions->list($request) -> ListMerchantCustomAttributeDefinitionsResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributeDefinitions-&gt;list($request) -> ListMerchantCustomAttributeDefinitionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -24512,7 +24630,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/build
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributeDefinitions->create($request) -> CreateMerchantCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributeDefinitions-&gt;create($request) -> CreateMerchantCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24601,7 +24719,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributeDefinitions->get($request) -> RetrieveMerchantCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributeDefinitions-&gt;get($request) -> RetrieveMerchantCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24678,7 +24796,7 @@ is higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributeDefinitions->update($request) -> UpdateMerchantCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributeDefinitions-&gt;update($request) -> UpdateMerchantCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24776,7 +24894,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributeDefinitions->delete($request) -> DeleteMerchantCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributeDefinitions-&gt;delete($request) -> DeleteMerchantCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -24838,7 +24956,7 @@ $client->merchants->customAttributeDefinitions->delete(
 </details>
 
 ## Merchants CustomAttributes
-<details><summary><code>$client->merchants->customAttributes->batchDelete($request) -> BulkDeleteMerchantCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;batchDelete($request) -> BulkDeleteMerchantCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -24908,7 +25026,7 @@ The keys must be unique and are used to map to the corresponding response.
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributes->batchUpsert($request) -> BulkUpsertMerchantCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;batchUpsert($request) -> BulkUpsertMerchantCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -24994,7 +25112,7 @@ information needed to create or update a custom attribute.
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributes->list($request) -> ListMerchantCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;list($request) -> ListMerchantCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -25105,7 +25223,7 @@ attribute, information about the data type, or other definition details. The def
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributes->get($request) -> RetrieveMerchantCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;get($request) -> RetrieveMerchantCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -25207,7 +25325,7 @@ higher than the current version, Square returns a `BAD_REQUEST` error.
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributes->upsert($request) -> UpsertMerchantCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;upsert($request) -> UpsertMerchantCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -25312,7 +25430,7 @@ see [Idempotency](https://developer.squareup.com/docs/build-basics/common-api-pa
 </dl>
 </details>
 
-<details><summary><code>$client->merchants->customAttributes->delete($request) -> DeleteMerchantCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;merchants-&gt;customAttributes-&gt;delete($request) -> DeleteMerchantCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -25386,7 +25504,7 @@ definition owner, you must use the qualified key.
 </details>
 
 ## Orders CustomAttributeDefinitions
-<details><summary><code>$client->orders->customAttributeDefinitions->list($request) -> ListOrderCustomAttributeDefinitionsResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributeDefinitions-&gt;list($request) -> ListOrderCustomAttributeDefinitionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -25476,7 +25594,7 @@ For more information, see [Pagination](https://developer.squareup.com/docs/worki
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributeDefinitions->create($request) -> CreateOrderCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributeDefinitions-&gt;create($request) -> CreateOrderCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -25565,7 +25683,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributeDefinitions->get($request) -> RetrieveOrderCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributeDefinitions-&gt;get($request) -> RetrieveOrderCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -25639,7 +25757,7 @@ control, include this optional field and specify the current version of the cust
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributeDefinitions->update($request) -> UpdateOrderCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributeDefinitions-&gt;update($request) -> UpdateOrderCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -25730,7 +25848,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributeDefinitions->delete($request) -> DeleteOrderCustomAttributeDefinitionResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributeDefinitions-&gt;delete($request) -> DeleteOrderCustomAttributeDefinitionResponse</code></summary>
 <dl>
 <dd>
 
@@ -25791,7 +25909,7 @@ $client->orders->customAttributeDefinitions->delete(
 </details>
 
 ## Orders CustomAttributes
-<details><summary><code>$client->orders->customAttributes->batchDelete($request) -> BulkDeleteOrderCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;batchDelete($request) -> BulkDeleteOrderCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -25871,7 +25989,7 @@ $client->orders->customAttributes->batchDelete(
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributes->batchUpsert($request) -> BulkUpsertOrderCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;batchUpsert($request) -> BulkUpsertOrderCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -25959,7 +26077,7 @@ $client->orders->customAttributes->batchUpsert(
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributes->list($request) -> ListOrderCustomAttributesResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;list($request) -> ListOrderCustomAttributesResponse</code></summary>
 <dl>
 <dd>
 
@@ -26073,7 +26191,7 @@ information about the data type, or other definition details. The default value 
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributes->get($request) -> RetrieveOrderCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;get($request) -> RetrieveOrderCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -26175,7 +26293,7 @@ information about the data type, or other definition details. The default value 
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributes->upsert($request) -> UpsertOrderCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;upsert($request) -> UpsertOrderCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -26285,7 +26403,7 @@ For more information, see [Idempotency](https://developer.squareup.com/docs/buil
 </dl>
 </details>
 
-<details><summary><code>$client->orders->customAttributes->delete($request) -> DeleteOrderCustomAttributeResponse</code></summary>
+<details><summary><code>$client-&gt;orders-&gt;customAttributes-&gt;delete($request) -> DeleteOrderCustomAttributeResponse</code></summary>
 <dl>
 <dd>
 
@@ -26360,7 +26478,7 @@ existing custom attribute definition.
 </details>
 
 ## TeamMembers WageSetting
-<details><summary><code>$client->teamMembers->wageSetting->get($request) -> GetWageSettingResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;wageSetting-&gt;get($request) -> GetWageSettingResponse</code></summary>
 <dl>
 <dd>
 
@@ -26423,7 +26541,7 @@ $client->teamMembers->wageSetting->get(
 </dl>
 </details>
 
-<details><summary><code>$client->teamMembers->wageSetting->update($request) -> UpdateWageSettingResponse</code></summary>
+<details><summary><code>$client-&gt;teamMembers-&gt;wageSetting-&gt;update($request) -> UpdateWageSettingResponse</code></summary>
 <dl>
 <dd>
 
@@ -26525,7 +26643,7 @@ This value is ignored if `job_id` is also provided.
 </details>
 
 ## Terminal Actions
-<details><summary><code>$client->terminal->actions->create($request) -> CreateTerminalActionResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;actions-&gt;create($request) -> CreateTerminalActionResponse</code></summary>
 <dl>
 <dd>
 
@@ -26606,7 +26724,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->actions->search($request) -> SearchTerminalActionsResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;actions-&gt;search($request) -> SearchTerminalActionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26698,7 +26816,7 @@ information.
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->actions->get($request) -> GetTerminalActionResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;actions-&gt;get($request) -> GetTerminalActionResponse</code></summary>
 <dl>
 <dd>
 
@@ -26756,7 +26874,7 @@ $client->terminal->actions->get(
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->actions->cancel($request) -> CancelTerminalActionResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;actions-&gt;cancel($request) -> CancelTerminalActionResponse</code></summary>
 <dl>
 <dd>
 
@@ -26815,7 +26933,7 @@ $client->terminal->actions->cancel(
 </details>
 
 ## Terminal Checkouts
-<details><summary><code>$client->terminal->checkouts->create($request) -> CreateTerminalCheckoutResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;checkouts-&gt;create($request) -> CreateTerminalCheckoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -26898,7 +27016,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->checkouts->search($request) -> SearchTerminalCheckoutsResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;checkouts-&gt;search($request) -> SearchTerminalCheckoutsResponse</code></summary>
 <dl>
 <dd>
 
@@ -26984,7 +27102,7 @@ See [Pagination](https://developer.squareup.com/docs/build-basics/common-api-pat
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->checkouts->get($request) -> GetTerminalCheckoutResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;checkouts-&gt;get($request) -> GetTerminalCheckoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -27042,7 +27160,7 @@ $client->terminal->checkouts->get(
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->checkouts->cancel($request) -> CancelTerminalCheckoutResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;checkouts-&gt;cancel($request) -> CancelTerminalCheckoutResponse</code></summary>
 <dl>
 <dd>
 
@@ -27101,7 +27219,7 @@ $client->terminal->checkouts->cancel(
 </details>
 
 ## Terminal Refunds
-<details><summary><code>$client->terminal->refunds->create($request) -> CreateTerminalRefundResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;refunds-&gt;create($request) -> CreateTerminalRefundResponse</code></summary>
 <dl>
 <dd>
 
@@ -27181,7 +27299,7 @@ See [Idempotency keys](https://developer.squareup.com/docs/build-basics/common-a
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->refunds->search($request) -> SearchTerminalRefundsResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;refunds-&gt;search($request) -> SearchTerminalRefundsResponse</code></summary>
 <dl>
 <dd>
 
@@ -27267,7 +27385,7 @@ Provide this cursor to retrieve the next set of results for the original query.
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->refunds->get($request) -> GetTerminalRefundResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;refunds-&gt;get($request) -> GetTerminalRefundResponse</code></summary>
 <dl>
 <dd>
 
@@ -27325,7 +27443,7 @@ $client->terminal->refunds->get(
 </dl>
 </details>
 
-<details><summary><code>$client->terminal->refunds->cancel($request) -> CancelTerminalRefundResponse</code></summary>
+<details><summary><code>$client-&gt;terminal-&gt;refunds-&gt;cancel($request) -> CancelTerminalRefundResponse</code></summary>
 <dl>
 <dd>
 
@@ -27384,7 +27502,7 @@ $client->terminal->refunds->cancel(
 </details>
 
 ## Webhooks EventTypes
-<details><summary><code>$client->webhooks->eventTypes->list($request) -> ListWebhookEventTypesResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;eventTypes-&gt;list($request) -> ListWebhookEventTypesResponse</code></summary>
 <dl>
 <dd>
 
@@ -27443,7 +27561,7 @@ $client->webhooks->eventTypes->list(
 </details>
 
 ## Webhooks Subscriptions
-<details><summary><code>$client->webhooks->subscriptions->list($request) -> ListWebhookSubscriptionsResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;list($request) -> ListWebhookSubscriptionsResponse</code></summary>
 <dl>
 <dd>
 
@@ -27545,7 +27663,7 @@ Default: 100
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->create($request) -> CreateWebhookSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;create($request) -> CreateWebhookSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -27620,7 +27738,7 @@ $client->webhooks->subscriptions->create(
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->get($request) -> GetWebhookSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;get($request) -> GetWebhookSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -27678,7 +27796,7 @@ $client->webhooks->subscriptions->get(
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->update($request) -> UpdateWebhookSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;update($request) -> UpdateWebhookSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -27748,7 +27866,7 @@ $client->webhooks->subscriptions->update(
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->delete($request) -> DeleteWebhookSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;delete($request) -> DeleteWebhookSubscriptionResponse</code></summary>
 <dl>
 <dd>
 
@@ -27806,7 +27924,7 @@ $client->webhooks->subscriptions->delete(
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->updateSignatureKey($request) -> UpdateWebhookSubscriptionSignatureKeyResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;updateSignatureKey($request) -> UpdateWebhookSubscriptionSignatureKeyResponse</code></summary>
 <dl>
 <dd>
 
@@ -27873,7 +27991,7 @@ $client->webhooks->subscriptions->updateSignatureKey(
 </dl>
 </details>
 
-<details><summary><code>$client->webhooks->subscriptions->test($request) -> TestWebhookSubscriptionResponse</code></summary>
+<details><summary><code>$client-&gt;webhooks-&gt;subscriptions-&gt;test($request) -> TestWebhookSubscriptionResponse</code></summary>
 <dl>
 <dd>
 

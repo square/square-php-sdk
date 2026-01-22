@@ -59,6 +59,12 @@ class CatalogItem extends JsonSerializableType
     private ?string $categoryId;
 
     /**
+     * @var ?string $buyerFacingName The override to a product name to display to users
+     */
+    #[JsonProperty('buyer_facing_name')]
+    private ?string $buyerFacingName;
+
+    /**
      * A set of IDs indicating the taxes enabled for
      * this item. When updating an item, any taxes listed here will be added to the item.
      * Taxes may also be added to or deleted from an item using `UpdateItemTaxes`.
@@ -203,6 +209,17 @@ class CatalogItem extends JsonSerializableType
     private ?string $descriptionPlaintext;
 
     /**
+     * (Optional) Name that the restaurant wants to display to their kitchen workers
+     * instead of the customer-facing name.
+     * e.g., customer name might be "Big John's Mega Burger" and the
+     * kitchen name is "12oz beef burger"
+     *
+     * @var ?string $kitchenName
+     */
+    #[JsonProperty('kitchen_name')]
+    private ?string $kitchenName;
+
+    /**
      * A list of IDs representing channels, such as a Square Online site, where the item can be made visible or available.
      * This field is read only and cannot be edited.
      *
@@ -249,6 +266,7 @@ class CatalogItem extends JsonSerializableType
      *   labelColor?: ?string,
      *   isTaxable?: ?bool,
      *   categoryId?: ?string,
+     *   buyerFacingName?: ?string,
      *   taxIds?: ?array<string>,
      *   modifierListInfo?: ?array<CatalogItemModifierListInfo>,
      *   variations?: ?array<CatalogObject>,
@@ -262,6 +280,7 @@ class CatalogItem extends JsonSerializableType
      *   categories?: ?array<CatalogObjectCategory>,
      *   descriptionHtml?: ?string,
      *   descriptionPlaintext?: ?string,
+     *   kitchenName?: ?string,
      *   channels?: ?array<string>,
      *   isArchived?: ?bool,
      *   ecomSeoData?: ?CatalogEcomSeoData,
@@ -279,6 +298,7 @@ class CatalogItem extends JsonSerializableType
         $this->labelColor = $values['labelColor'] ?? null;
         $this->isTaxable = $values['isTaxable'] ?? null;
         $this->categoryId = $values['categoryId'] ?? null;
+        $this->buyerFacingName = $values['buyerFacingName'] ?? null;
         $this->taxIds = $values['taxIds'] ?? null;
         $this->modifierListInfo = $values['modifierListInfo'] ?? null;
         $this->variations = $values['variations'] ?? null;
@@ -292,6 +312,7 @@ class CatalogItem extends JsonSerializableType
         $this->categories = $values['categories'] ?? null;
         $this->descriptionHtml = $values['descriptionHtml'] ?? null;
         $this->descriptionPlaintext = $values['descriptionPlaintext'] ?? null;
+        $this->kitchenName = $values['kitchenName'] ?? null;
         $this->channels = $values['channels'] ?? null;
         $this->isArchived = $values['isArchived'] ?? null;
         $this->ecomSeoData = $values['ecomSeoData'] ?? null;
@@ -399,6 +420,23 @@ class CatalogItem extends JsonSerializableType
     public function setCategoryId(?string $value = null): self
     {
         $this->categoryId = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getBuyerFacingName(): ?string
+    {
+        return $this->buyerFacingName;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setBuyerFacingName(?string $value = null): self
+    {
+        $this->buyerFacingName = $value;
         return $this;
     }
 
@@ -620,6 +658,23 @@ class CatalogItem extends JsonSerializableType
     public function setDescriptionPlaintext(?string $value = null): self
     {
         $this->descriptionPlaintext = $value;
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getKitchenName(): ?string
+    {
+        return $this->kitchenName;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setKitchenName(?string $value = null): self
+    {
+        $this->kitchenName = $value;
         return $this;
     }
 

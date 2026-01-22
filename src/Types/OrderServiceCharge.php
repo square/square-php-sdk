@@ -19,7 +19,7 @@ class OrderServiceCharge extends JsonSerializableType
     private ?string $uid;
 
     /**
-     * @var ?string $name The name of the service charge.
+     * @var ?string $name The name of the service charge. This is unused and null for AUTO_GRATUITY to match the behavior on Bills.
      */
     #[JsonProperty('name')]
     private ?string $name;
@@ -162,7 +162,7 @@ class OrderServiceCharge extends JsonSerializableType
     private ?string $type;
 
     /**
-     * The treatment type of the service charge.
+     * Indicates whether the service charge will be treated as a value-holding line item or apportioned toward a line item.
      * See [OrderServiceChargeTreatmentType](#type-orderservicechargetreatmenttype) for possible values
      *
      * @var ?value-of<OrderServiceChargeTreatmentType> $treatmentType
