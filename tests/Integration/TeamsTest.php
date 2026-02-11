@@ -37,45 +37,49 @@ class TeamsTest extends TestCase
     {
         self::$client = Helpers::createClient();
 
-        // Create team member for testing
-        $createRequest = new CreateTeamMemberRequest([
-            'idempotencyKey' => uniqid(),
-            'teamMember' => new TeamMember([
-                'givenName' => 'Sherlock',
-                'familyName' => 'Holmes',
-            ])
-        ]);
-        $memberResponse = self::$client->teamMembers->create($createRequest);
-        $member = $memberResponse->getTeamMember();
-        if ($member === null || $member->getId() === null) {
-            throw new RuntimeException('Member is null or ID is null.');
-        }
-        self::$memberId = $member->getId();
-
-        // Create bulk team members for testing
-        $bulkRequest = new BatchCreateTeamMembersRequest([
-            'teamMembers' => [
-                'id1' => new CreateTeamMemberRequest([
-                    'teamMember' => new TeamMember([
-                        'givenName' => 'Donatello',
-                        'familyName' => 'Splinter',
-                    ]),
-                ]),
-                'id2' => new CreateTeamMemberRequest([
-                    'teamMember' => new TeamMember([
-                        'givenName' => 'Leonardo',
-                        'familyName' => 'Splinter',
-                    ]),
-                ]),
-            ],
-        ]);
-        $bulkResponse = self::$client->teamMembers->batchCreate($bulkRequest);
-        foreach ($bulkResponse->getTeamMembers() ?? [] as $result) {
-            $teamMember = $result->getTeamMember();
-            if ($teamMember === null || $teamMember->getId() === null) {
-                throw new RuntimeException('Team member is null or ID is null.');
+        try {
+            // Create team member for testing
+            $createRequest = new CreateTeamMemberRequest([
+                'idempotencyKey' => uniqid(),
+                'teamMember' => new TeamMember([
+                    'givenName' => 'Sherlock',
+                    'familyName' => 'Holmes',
+                ])
+            ]);
+            $memberResponse = self::$client->teamMembers->create($createRequest);
+            $member = $memberResponse->getTeamMember();
+            if ($member === null || $member->getId() === null) {
+                throw new RuntimeException('Member is null or ID is null.');
             }
-            self::$bulkMemberIds[] = $teamMember->getId();
+            self::$memberId = $member->getId();
+
+            // Create bulk team members for testing
+            $bulkRequest = new BatchCreateTeamMembersRequest([
+                'teamMembers' => [
+                    'id1' => new CreateTeamMemberRequest([
+                        'teamMember' => new TeamMember([
+                            'givenName' => 'Donatello',
+                            'familyName' => 'Splinter',
+                        ]),
+                    ]),
+                    'id2' => new CreateTeamMemberRequest([
+                        'teamMember' => new TeamMember([
+                            'givenName' => 'Leonardo',
+                            'familyName' => 'Splinter',
+                        ]),
+                    ]),
+                ],
+            ]);
+            $bulkResponse = self::$client->teamMembers->batchCreate($bulkRequest);
+            foreach ($bulkResponse->getTeamMembers() ?? [] as $result) {
+                $teamMember = $result->getTeamMember();
+                if ($teamMember === null || $teamMember->getId() === null) {
+                    throw new RuntimeException('Team member is null or ID is null.');
+                }
+                self::$bulkMemberIds[] = $teamMember->getId();
+            }
+        } catch (SquareApiException $e) {
+            self::markTestSkipped("Skipping TeamsTest: Square API returned a server error during setup: " . $e->getMessage());
         }
     }
 
