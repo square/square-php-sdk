@@ -62,6 +62,7 @@ class AcceptedPaymentMethods extends JsonSerializableType
     public function setApplePay(?bool $value = null): self
     {
         $this->applePay = $value;
+        $this->_setField('applePay');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class AcceptedPaymentMethods extends JsonSerializableType
     public function setGooglePay(?bool $value = null): self
     {
         $this->googlePay = $value;
+        $this->_setField('googlePay');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class AcceptedPaymentMethods extends JsonSerializableType
     public function setCashAppPay(?bool $value = null): self
     {
         $this->cashAppPay = $value;
+        $this->_setField('cashAppPay');
         return $this;
     }
 
@@ -113,6 +116,7 @@ class AcceptedPaymentMethods extends JsonSerializableType
     public function setAfterpayClearpay(?bool $value = null): self
     {
         $this->afterpayClearpay = $value;
+        $this->_setField('afterpayClearpay');
         return $this;
     }
 

@@ -65,6 +65,7 @@ class ListPaymentRefundsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class ListPaymentRefundsResponse extends JsonSerializableType
     public function setRefunds(?array $value = null): self
     {
         $this->refunds = $value;
+        $this->_setField('refunds');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class ListPaymentRefundsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

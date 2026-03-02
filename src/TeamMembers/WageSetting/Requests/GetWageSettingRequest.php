@@ -36,6 +36,7 @@ class GetWageSettingRequest extends JsonSerializableType
     public function setTeamMemberId(string $value): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 }

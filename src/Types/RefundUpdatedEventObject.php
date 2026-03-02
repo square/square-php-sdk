@@ -38,6 +38,7 @@ class RefundUpdatedEventObject extends JsonSerializableType
     public function setRefund(?PaymentRefund $value = null): self
     {
         $this->refund = $value;
+        $this->_setField('refund');
         return $this;
     }
 

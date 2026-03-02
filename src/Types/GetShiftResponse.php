@@ -52,6 +52,7 @@ class GetShiftResponse extends JsonSerializableType
     public function setShift(?Shift $value = null): self
     {
         $this->shift = $value;
+        $this->_setField('shift');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class GetShiftResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

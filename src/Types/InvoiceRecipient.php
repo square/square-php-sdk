@@ -108,6 +108,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -125,6 +126,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setGivenName(?string $value = null): self
     {
         $this->givenName = $value;
+        $this->_setField('givenName');
         return $this;
     }
 
@@ -142,6 +144,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setFamilyName(?string $value = null): self
     {
         $this->familyName = $value;
+        $this->_setField('familyName');
         return $this;
     }
 
@@ -159,6 +162,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -176,6 +180,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 
@@ -193,6 +198,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -210,6 +216,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setCompanyName(?string $value = null): self
     {
         $this->companyName = $value;
+        $this->_setField('companyName');
         return $this;
     }
 
@@ -227,6 +234,7 @@ class InvoiceRecipient extends JsonSerializableType
     public function setTaxIds(?InvoiceRecipientTaxIds $value = null): self
     {
         $this->taxIds = $value;
+        $this->_setField('taxIds');
         return $this;
     }
 

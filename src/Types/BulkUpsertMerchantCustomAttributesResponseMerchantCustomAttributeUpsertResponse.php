@@ -58,6 +58,7 @@ class BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpsertRes
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpsertRes
     public function setCustomAttribute(?CustomAttribute $value = null): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class BulkUpsertMerchantCustomAttributesResponseMerchantCustomAttributeUpsertRes
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

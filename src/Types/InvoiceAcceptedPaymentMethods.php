@@ -85,6 +85,7 @@ class InvoiceAcceptedPaymentMethods extends JsonSerializableType
     public function setCard(?bool $value = null): self
     {
         $this->card = $value;
+        $this->_setField('card');
         return $this;
     }
 
@@ -102,6 +103,7 @@ class InvoiceAcceptedPaymentMethods extends JsonSerializableType
     public function setSquareGiftCard(?bool $value = null): self
     {
         $this->squareGiftCard = $value;
+        $this->_setField('squareGiftCard');
         return $this;
     }
 
@@ -119,6 +121,7 @@ class InvoiceAcceptedPaymentMethods extends JsonSerializableType
     public function setBankAccount(?bool $value = null): self
     {
         $this->bankAccount = $value;
+        $this->_setField('bankAccount');
         return $this;
     }
 
@@ -136,6 +139,7 @@ class InvoiceAcceptedPaymentMethods extends JsonSerializableType
     public function setBuyNowPayLater(?bool $value = null): self
     {
         $this->buyNowPayLater = $value;
+        $this->_setField('buyNowPayLater');
         return $this;
     }
 
@@ -153,6 +157,7 @@ class InvoiceAcceptedPaymentMethods extends JsonSerializableType
     public function setCashAppPay(?bool $value = null): self
     {
         $this->cashAppPay = $value;
+        $this->_setField('cashAppPay');
         return $this;
     }
 

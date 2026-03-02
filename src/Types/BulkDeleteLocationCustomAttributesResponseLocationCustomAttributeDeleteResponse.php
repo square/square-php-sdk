@@ -51,6 +51,7 @@ class BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteRes
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class BulkDeleteLocationCustomAttributesResponseLocationCustomAttributeDeleteRes
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

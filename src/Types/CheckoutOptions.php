@@ -132,6 +132,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setAllowTipping(?bool $value = null): self
     {
         $this->allowTipping = $value;
+        $this->_setField('allowTipping');
         return $this;
     }
 
@@ -149,6 +150,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setCustomFields(?array $value = null): self
     {
         $this->customFields = $value;
+        $this->_setField('customFields');
         return $this;
     }
 
@@ -166,6 +168,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setSubscriptionPlanId(?string $value = null): self
     {
         $this->subscriptionPlanId = $value;
+        $this->_setField('subscriptionPlanId');
         return $this;
     }
 
@@ -183,6 +186,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setRedirectUrl(?string $value = null): self
     {
         $this->redirectUrl = $value;
+        $this->_setField('redirectUrl');
         return $this;
     }
 
@@ -200,6 +204,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setMerchantSupportEmail(?string $value = null): self
     {
         $this->merchantSupportEmail = $value;
+        $this->_setField('merchantSupportEmail');
         return $this;
     }
 
@@ -217,6 +222,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setAskForShippingAddress(?bool $value = null): self
     {
         $this->askForShippingAddress = $value;
+        $this->_setField('askForShippingAddress');
         return $this;
     }
 
@@ -234,6 +240,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setAcceptedPaymentMethods(?AcceptedPaymentMethods $value = null): self
     {
         $this->acceptedPaymentMethods = $value;
+        $this->_setField('acceptedPaymentMethods');
         return $this;
     }
 
@@ -251,6 +258,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setAppFeeMoney(?Money $value = null): self
     {
         $this->appFeeMoney = $value;
+        $this->_setField('appFeeMoney');
         return $this;
     }
 
@@ -268,6 +276,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setShippingFee(?ShippingFee $value = null): self
     {
         $this->shippingFee = $value;
+        $this->_setField('shippingFee');
         return $this;
     }
 
@@ -285,6 +294,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setEnableCoupon(?bool $value = null): self
     {
         $this->enableCoupon = $value;
+        $this->_setField('enableCoupon');
         return $this;
     }
 
@@ -302,6 +312,7 @@ class CheckoutOptions extends JsonSerializableType
     public function setEnableLoyalty(?bool $value = null): self
     {
         $this->enableLoyalty = $value;
+        $this->_setField('enableLoyalty');
         return $this;
     }
 

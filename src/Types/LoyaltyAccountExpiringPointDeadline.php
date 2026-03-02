@@ -49,6 +49,7 @@ class LoyaltyAccountExpiringPointDeadline extends JsonSerializableType
     public function setPoints(int $value): self
     {
         $this->points = $value;
+        $this->_setField('points');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class LoyaltyAccountExpiringPointDeadline extends JsonSerializableType
     public function setExpiresAt(string $value): self
     {
         $this->expiresAt = $value;
+        $this->_setField('expiresAt');
         return $this;
     }
 

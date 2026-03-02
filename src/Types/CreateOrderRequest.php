@@ -58,6 +58,7 @@ class CreateOrderRequest extends JsonSerializableType
     public function setOrder(?Order $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CreateOrderRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 

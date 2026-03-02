@@ -53,6 +53,7 @@ class FulfillmentPickupDetailsCurbsidePickupDetails extends JsonSerializableType
     public function setCurbsideDetails(?string $value = null): self
     {
         $this->curbsideDetails = $value;
+        $this->_setField('curbsideDetails');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class FulfillmentPickupDetailsCurbsidePickupDetails extends JsonSerializableType
     public function setBuyerArrivedAt(?string $value = null): self
     {
         $this->buyerArrivedAt = $value;
+        $this->_setField('buyerArrivedAt');
         return $this;
     }
 

@@ -52,6 +52,7 @@ class InvoiceQuery extends JsonSerializableType
     public function setFilter(InvoiceFilter $value): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class InvoiceQuery extends JsonSerializableType
     public function setSort(?InvoiceSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

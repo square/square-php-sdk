@@ -53,6 +53,7 @@ class LoyaltyProgramAccrualRuleVisitData extends JsonSerializableType
     public function setMinimumAmountMoney(?Money $value = null): self
     {
         $this->minimumAmountMoney = $value;
+        $this->_setField('minimumAmountMoney');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class LoyaltyProgramAccrualRuleVisitData extends JsonSerializableType
     public function setTaxMode(string $value): self
     {
         $this->taxMode = $value;
+        $this->_setField('taxMode');
         return $this;
     }
 

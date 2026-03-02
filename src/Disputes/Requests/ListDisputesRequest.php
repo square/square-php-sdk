@@ -58,6 +58,7 @@ class ListDisputesRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class ListDisputesRequest extends JsonSerializableType
     public function setStates(?string $value = null): self
     {
         $this->states = $value;
+        $this->_setField('states');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class ListDisputesRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 }

@@ -39,6 +39,7 @@ class UpdateMerchantSettingsRequest extends JsonSerializableType
     public function setMerchantSettings(CheckoutMerchantSettings $value): self
     {
         $this->merchantSettings = $value;
+        $this->_setField('merchantSettings');
         return $this;
     }
 }

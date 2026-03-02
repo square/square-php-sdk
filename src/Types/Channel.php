@@ -103,6 +103,7 @@ class Channel extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -120,6 +121,7 @@ class Channel extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -137,6 +139,7 @@ class Channel extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -154,6 +157,7 @@ class Channel extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -171,6 +175,7 @@ class Channel extends JsonSerializableType
     public function setReference(?Reference $value = null): self
     {
         $this->reference = $value;
+        $this->_setField('reference');
         return $this;
     }
 
@@ -188,6 +193,7 @@ class Channel extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -205,6 +211,7 @@ class Channel extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -222,6 +229,7 @@ class Channel extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

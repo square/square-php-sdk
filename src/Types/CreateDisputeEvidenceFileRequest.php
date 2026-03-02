@@ -63,6 +63,7 @@ class CreateDisputeEvidenceFileRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class CreateDisputeEvidenceFileRequest extends JsonSerializableType
     public function setEvidenceType(?string $value = null): self
     {
         $this->evidenceType = $value;
+        $this->_setField('evidenceType');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class CreateDisputeEvidenceFileRequest extends JsonSerializableType
     public function setContentType(?string $value = null): self
     {
         $this->contentType = $value;
+        $this->_setField('contentType');
         return $this;
     }
 

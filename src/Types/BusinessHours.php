@@ -42,6 +42,7 @@ class BusinessHours extends JsonSerializableType
     public function setPeriods(?array $value = null): self
     {
         $this->periods = $value;
+        $this->_setField('periods');
         return $this;
     }
 

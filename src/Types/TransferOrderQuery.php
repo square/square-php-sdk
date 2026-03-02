@@ -49,6 +49,7 @@ class TransferOrderQuery extends JsonSerializableType
     public function setFilter(?TransferOrderFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class TransferOrderQuery extends JsonSerializableType
     public function setSort(?TransferOrderSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

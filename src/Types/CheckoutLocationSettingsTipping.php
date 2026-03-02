@@ -76,6 +76,7 @@ class CheckoutLocationSettingsTipping extends JsonSerializableType
     public function setPercentages(?array $value = null): self
     {
         $this->percentages = $value;
+        $this->_setField('percentages');
         return $this;
     }
 
@@ -93,6 +94,7 @@ class CheckoutLocationSettingsTipping extends JsonSerializableType
     public function setSmartTippingEnabled(?bool $value = null): self
     {
         $this->smartTippingEnabled = $value;
+        $this->_setField('smartTippingEnabled');
         return $this;
     }
 
@@ -110,6 +112,7 @@ class CheckoutLocationSettingsTipping extends JsonSerializableType
     public function setDefaultPercent(?int $value = null): self
     {
         $this->defaultPercent = $value;
+        $this->_setField('defaultPercent');
         return $this;
     }
 
@@ -127,6 +130,7 @@ class CheckoutLocationSettingsTipping extends JsonSerializableType
     public function setSmartTips(?array $value = null): self
     {
         $this->smartTips = $value;
+        $this->_setField('smartTips');
         return $this;
     }
 
@@ -144,6 +148,7 @@ class CheckoutLocationSettingsTipping extends JsonSerializableType
     public function setDefaultSmartTip(?Money $value = null): self
     {
         $this->defaultSmartTip = $value;
+        $this->_setField('defaultSmartTip');
         return $this;
     }
 

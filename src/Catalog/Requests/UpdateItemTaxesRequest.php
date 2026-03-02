@@ -64,6 +64,7 @@ class UpdateItemTaxesRequest extends JsonSerializableType
     public function setItemIds(array $value): self
     {
         $this->itemIds = $value;
+        $this->_setField('itemIds');
         return $this;
     }
 
@@ -81,6 +82,7 @@ class UpdateItemTaxesRequest extends JsonSerializableType
     public function setTaxesToEnable(?array $value = null): self
     {
         $this->taxesToEnable = $value;
+        $this->_setField('taxesToEnable');
         return $this;
     }
 
@@ -98,6 +100,7 @@ class UpdateItemTaxesRequest extends JsonSerializableType
     public function setTaxesToDisable(?array $value = null): self
     {
         $this->taxesToDisable = $value;
+        $this->_setField('taxesToDisable');
         return $this;
     }
 }

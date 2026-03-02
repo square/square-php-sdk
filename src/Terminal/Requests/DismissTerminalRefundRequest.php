@@ -36,6 +36,7 @@ class DismissTerminalRefundRequest extends JsonSerializableType
     public function setTerminalRefundId(string $value): self
     {
         $this->terminalRefundId = $value;
+        $this->_setField('terminalRefundId');
         return $this;
     }
 }

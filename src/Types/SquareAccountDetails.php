@@ -50,6 +50,7 @@ class SquareAccountDetails extends JsonSerializableType
     public function setPaymentSourceToken(?string $value = null): self
     {
         $this->paymentSourceToken = $value;
+        $this->_setField('paymentSourceToken');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class SquareAccountDetails extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

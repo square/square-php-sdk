@@ -189,6 +189,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -206,6 +207,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setTimePeriodIds(?array $value = null): self
     {
         $this->timePeriodIds = $value;
+        $this->_setField('timePeriodIds');
         return $this;
     }
 
@@ -223,6 +225,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setDiscountId(?string $value = null): self
     {
         $this->discountId = $value;
+        $this->_setField('discountId');
         return $this;
     }
 
@@ -240,6 +243,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setMatchProductsId(?string $value = null): self
     {
         $this->matchProductsId = $value;
+        $this->_setField('matchProductsId');
         return $this;
     }
 
@@ -257,6 +261,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setApplyProductsId(?string $value = null): self
     {
         $this->applyProductsId = $value;
+        $this->_setField('applyProductsId');
         return $this;
     }
 
@@ -274,6 +279,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setExcludeProductsId(?string $value = null): self
     {
         $this->excludeProductsId = $value;
+        $this->_setField('excludeProductsId');
         return $this;
     }
 
@@ -291,6 +297,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setValidFromDate(?string $value = null): self
     {
         $this->validFromDate = $value;
+        $this->_setField('validFromDate');
         return $this;
     }
 
@@ -308,6 +315,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setValidFromLocalTime(?string $value = null): self
     {
         $this->validFromLocalTime = $value;
+        $this->_setField('validFromLocalTime');
         return $this;
     }
 
@@ -325,6 +333,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setValidUntilDate(?string $value = null): self
     {
         $this->validUntilDate = $value;
+        $this->_setField('validUntilDate');
         return $this;
     }
 
@@ -342,6 +351,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setValidUntilLocalTime(?string $value = null): self
     {
         $this->validUntilLocalTime = $value;
+        $this->_setField('validUntilLocalTime');
         return $this;
     }
 
@@ -359,6 +369,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setExcludeStrategy(?string $value = null): self
     {
         $this->excludeStrategy = $value;
+        $this->_setField('excludeStrategy');
         return $this;
     }
 
@@ -376,6 +387,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setMinimumOrderSubtotalMoney(?Money $value = null): self
     {
         $this->minimumOrderSubtotalMoney = $value;
+        $this->_setField('minimumOrderSubtotalMoney');
         return $this;
     }
 
@@ -393,6 +405,7 @@ class CatalogPricingRule extends JsonSerializableType
     public function setCustomerGroupIdsAny(?array $value = null): self
     {
         $this->customerGroupIdsAny = $value;
+        $this->_setField('customerGroupIdsAny');
         return $this;
     }
 

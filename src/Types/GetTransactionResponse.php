@@ -53,6 +53,7 @@ class GetTransactionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class GetTransactionResponse extends JsonSerializableType
     public function setTransaction(?Transaction $value = null): self
     {
         $this->transaction = $value;
+        $this->_setField('transaction');
         return $this;
     }
 

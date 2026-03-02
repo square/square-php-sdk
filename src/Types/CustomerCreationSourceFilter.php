@@ -62,6 +62,7 @@ class CustomerCreationSourceFilter extends JsonSerializableType
     public function setValues(?array $value = null): self
     {
         $this->values = $value;
+        $this->_setField('values');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class CustomerCreationSourceFilter extends JsonSerializableType
     public function setRule(?string $value = null): self
     {
         $this->rule = $value;
+        $this->_setField('rule');
         return $this;
     }
 

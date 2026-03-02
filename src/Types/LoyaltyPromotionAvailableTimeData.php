@@ -78,6 +78,7 @@ class LoyaltyPromotionAvailableTimeData extends JsonSerializableType
     public function setStartDate(?string $value = null): self
     {
         $this->startDate = $value;
+        $this->_setField('startDate');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class LoyaltyPromotionAvailableTimeData extends JsonSerializableType
     public function setEndDate(?string $value = null): self
     {
         $this->endDate = $value;
+        $this->_setField('endDate');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class LoyaltyPromotionAvailableTimeData extends JsonSerializableType
     public function setTimePeriods(array $value): self
     {
         $this->timePeriods = $value;
+        $this->_setField('timePeriods');
         return $this;
     }
 

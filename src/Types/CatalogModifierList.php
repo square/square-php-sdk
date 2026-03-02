@@ -213,6 +213,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -230,6 +231,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -247,6 +249,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setSelectionType(?string $value = null): self
     {
         $this->selectionType = $value;
+        $this->_setField('selectionType');
         return $this;
     }
 
@@ -264,6 +267,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setModifiers(?array $value = null): self
     {
         $this->modifiers = $value;
+        $this->_setField('modifiers');
         return $this;
     }
 
@@ -281,6 +285,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setImageIds(?array $value = null): self
     {
         $this->imageIds = $value;
+        $this->_setField('imageIds');
         return $this;
     }
 
@@ -298,6 +303,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setAllowQuantities(?bool $value = null): self
     {
         $this->allowQuantities = $value;
+        $this->_setField('allowQuantities');
         return $this;
     }
 
@@ -315,6 +321,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setIsConversational(?bool $value = null): self
     {
         $this->isConversational = $value;
+        $this->_setField('isConversational');
         return $this;
     }
 
@@ -332,6 +339,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setModifierType(?string $value = null): self
     {
         $this->modifierType = $value;
+        $this->_setField('modifierType');
         return $this;
     }
 
@@ -349,6 +357,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setMaxLength(?int $value = null): self
     {
         $this->maxLength = $value;
+        $this->_setField('maxLength');
         return $this;
     }
 
@@ -366,6 +375,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setTextRequired(?bool $value = null): self
     {
         $this->textRequired = $value;
+        $this->_setField('textRequired');
         return $this;
     }
 
@@ -383,6 +393,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setInternalName(?string $value = null): self
     {
         $this->internalName = $value;
+        $this->_setField('internalName');
         return $this;
     }
 
@@ -400,6 +411,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setMinSelectedModifiers(?int $value = null): self
     {
         $this->minSelectedModifiers = $value;
+        $this->_setField('minSelectedModifiers');
         return $this;
     }
 
@@ -417,6 +429,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setMaxSelectedModifiers(?int $value = null): self
     {
         $this->maxSelectedModifiers = $value;
+        $this->_setField('maxSelectedModifiers');
         return $this;
     }
 
@@ -434,6 +447,7 @@ class CatalogModifierList extends JsonSerializableType
     public function setHiddenFromCustomer(?bool $value = null): self
     {
         $this->hiddenFromCustomer = $value;
+        $this->_setField('hiddenFromCustomer');
         return $this;
     }
 

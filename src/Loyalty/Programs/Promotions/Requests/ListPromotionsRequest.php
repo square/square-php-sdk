@@ -73,6 +73,7 @@ class ListPromotionsRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class ListPromotionsRequest extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class ListPromotionsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -124,6 +127,7 @@ class ListPromotionsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 }

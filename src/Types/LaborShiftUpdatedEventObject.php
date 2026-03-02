@@ -38,6 +38,7 @@ class LaborShiftUpdatedEventObject extends JsonSerializableType
     public function setShift(?Shift $value = null): self
     {
         $this->shift = $value;
+        $this->_setField('shift');
         return $this;
     }
 

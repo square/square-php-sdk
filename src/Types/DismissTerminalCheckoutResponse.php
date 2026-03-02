@@ -47,6 +47,7 @@ class DismissTerminalCheckoutResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class DismissTerminalCheckoutResponse extends JsonSerializableType
     public function setCheckout(?TerminalCheckout $value = null): self
     {
         $this->checkout = $value;
+        $this->_setField('checkout');
         return $this;
     }
 

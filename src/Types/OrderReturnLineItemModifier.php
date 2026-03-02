@@ -116,6 +116,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -133,6 +134,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setSourceModifierUid(?string $value = null): self
     {
         $this->sourceModifierUid = $value;
+        $this->_setField('sourceModifierUid');
         return $this;
     }
 
@@ -150,6 +152,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -167,6 +170,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 
@@ -184,6 +188,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -201,6 +206,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setBasePriceMoney(?Money $value = null): self
     {
         $this->basePriceMoney = $value;
+        $this->_setField('basePriceMoney');
         return $this;
     }
 
@@ -218,6 +224,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setTotalPriceMoney(?Money $value = null): self
     {
         $this->totalPriceMoney = $value;
+        $this->_setField('totalPriceMoney');
         return $this;
     }
 
@@ -235,6 +242,7 @@ class OrderReturnLineItemModifier extends JsonSerializableType
     public function setQuantity(?string $value = null): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 

@@ -47,6 +47,7 @@ class SearchAvailabilityResponse extends JsonSerializableType
     public function setAvailabilities(?array $value = null): self
     {
         $this->availabilities = $value;
+        $this->_setField('availabilities');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class SearchAvailabilityResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

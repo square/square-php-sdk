@@ -46,6 +46,7 @@ class GetPromotionsRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class GetPromotionsRequest extends JsonSerializableType
     public function setPromotionId(string $value): self
     {
         $this->promotionId = $value;
+        $this->_setField('promotionId');
         return $this;
     }
 }

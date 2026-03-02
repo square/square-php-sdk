@@ -114,6 +114,7 @@ class BreakType extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -131,6 +132,7 @@ class BreakType extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -148,6 +150,7 @@ class BreakType extends JsonSerializableType
     public function setBreakName(string $value): self
     {
         $this->breakName = $value;
+        $this->_setField('breakName');
         return $this;
     }
 
@@ -165,6 +168,7 @@ class BreakType extends JsonSerializableType
     public function setExpectedDuration(string $value): self
     {
         $this->expectedDuration = $value;
+        $this->_setField('expectedDuration');
         return $this;
     }
 
@@ -182,6 +186,7 @@ class BreakType extends JsonSerializableType
     public function setIsPaid(bool $value): self
     {
         $this->isPaid = $value;
+        $this->_setField('isPaid');
         return $this;
     }
 
@@ -199,6 +204,7 @@ class BreakType extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -216,6 +222,7 @@ class BreakType extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -233,6 +240,7 @@ class BreakType extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

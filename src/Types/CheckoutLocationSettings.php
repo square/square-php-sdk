@@ -95,6 +95,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -112,6 +113,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setCustomerNotesEnabled(?bool $value = null): self
     {
         $this->customerNotesEnabled = $value;
+        $this->_setField('customerNotesEnabled');
         return $this;
     }
 
@@ -129,6 +131,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setPolicies(?array $value = null): self
     {
         $this->policies = $value;
+        $this->_setField('policies');
         return $this;
     }
 
@@ -146,6 +149,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setBranding(?CheckoutLocationSettingsBranding $value = null): self
     {
         $this->branding = $value;
+        $this->_setField('branding');
         return $this;
     }
 
@@ -163,6 +167,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setTipping(?CheckoutLocationSettingsTipping $value = null): self
     {
         $this->tipping = $value;
+        $this->_setField('tipping');
         return $this;
     }
 
@@ -180,6 +185,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setCoupons(?CheckoutLocationSettingsCoupons $value = null): self
     {
         $this->coupons = $value;
+        $this->_setField('coupons');
         return $this;
     }
 
@@ -197,6 +203,7 @@ class CheckoutLocationSettings extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

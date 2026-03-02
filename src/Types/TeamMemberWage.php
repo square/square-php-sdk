@@ -86,6 +86,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -103,6 +104,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -120,6 +122,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setTitle(?string $value = null): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -137,6 +140,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setHourlyRate(?Money $value = null): self
     {
         $this->hourlyRate = $value;
+        $this->_setField('hourlyRate');
         return $this;
     }
 
@@ -154,6 +158,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setJobId(?string $value = null): self
     {
         $this->jobId = $value;
+        $this->_setField('jobId');
         return $this;
     }
 
@@ -171,6 +176,7 @@ class TeamMemberWage extends JsonSerializableType
     public function setTipEligible(?bool $value = null): self
     {
         $this->tipEligible = $value;
+        $this->_setField('tipEligible');
         return $this;
     }
 

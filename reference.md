@@ -4898,6 +4898,7 @@ multipart/form-data file uploads in HEIC, HEIF, JPEG, PDF, PNG, and TIFF formats
 $client->disputes->createEvidenceFile(
     new CreateEvidenceFileDisputesRequest([
         'disputeId' => 'dispute_id',
+        'imageFile' => File::createFromString("example_image_file", "example_image_file"),
     ]),
 );
 ```
@@ -7489,6 +7490,7 @@ __NOTE:__ When testing in the Sandbox environment, the total file size is limite
 $client->invoices->createInvoiceAttachment(
     new CreateInvoiceAttachmentRequest([
         'invoiceId' => 'invoice_id',
+        'imageFile' => File::createFromString("example_image_file", "example_image_file"),
     ]),
 );
 ```
@@ -17436,7 +17438,9 @@ JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 
 ```php
 $client->catalog->images->create(
-    new CreateImagesRequest([]),
+    new CreateImagesRequest([
+        'imageFile' => File::createFromString("example_image_file", "example_image_file"),
+    ]),
 );
 ```
 </dd>
@@ -17482,6 +17486,7 @@ JPEG, PJPEG, PNG, or GIF format. The maximum file size is 15MB.
 $client->catalog->images->update(
     new UpdateImagesRequest([
         'imageId' => 'image_id',
+        'imageFile' => File::createFromString("example_image_file", "example_image_file"),
     ]),
 );
 ```
@@ -18320,7 +18325,7 @@ $client->customers->customAttributeDefinitions->create(
         'customAttributeDefinition' => new CustomAttributeDefinition([
             'key' => 'favoritemovie',
             'schema' => [
-                '\$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
+                '$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
             ],
             'name' => 'Favorite Movie',
             'description' => 'The favorite movie of the customer.',
@@ -21932,7 +21937,7 @@ $client->locations->customAttributeDefinitions->create(
         'customAttributeDefinition' => new CustomAttributeDefinition([
             'key' => 'bestseller',
             'schema' => [
-                '\$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
+                '$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
             ],
             'name' => 'Bestseller',
             'description' => 'Bestselling item at location',
@@ -24642,7 +24647,7 @@ $client->merchants->customAttributeDefinitions->create(
         'customAttributeDefinition' => new CustomAttributeDefinition([
             'key' => 'alternative_seller_name',
             'schema' => [
-                '\$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
+                '$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.String",
             ],
             'name' => 'Alternative Merchant Name',
             'description' => 'This is the other name this merchant goes by.',
@@ -25604,7 +25609,7 @@ $client->orders->customAttributeDefinitions->create(
         'customAttributeDefinition' => new CustomAttributeDefinition([
             'key' => 'cover-count',
             'schema' => [
-                '\$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number",
+                '$ref' => "https://developer-production-s.squarecdn.com/schemas/v1/common.json#squareup.common.Number",
             ],
             'name' => 'Cover count',
             'description' => 'The number of people seated at a table',
@@ -28034,3 +28039,4 @@ contained in the list of event types in the [Subscription](entity:WebhookSubscri
 </dd>
 </dl>
 </details>
+

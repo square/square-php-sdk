@@ -59,6 +59,7 @@ class SwapPlanRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class SwapPlanRequest extends JsonSerializableType
     public function setNewPlanVariationId(?string $value = null): self
     {
         $this->newPlanVariationId = $value;
+        $this->_setField('newPlanVariationId');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class SwapPlanRequest extends JsonSerializableType
     public function setPhases(?array $value = null): self
     {
         $this->phases = $value;
+        $this->_setField('phases');
         return $this;
     }
 }

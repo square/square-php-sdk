@@ -57,6 +57,7 @@ class OrderPricingOptions extends JsonSerializableType
     public function setAutoApplyDiscounts(?bool $value = null): self
     {
         $this->autoApplyDiscounts = $value;
+        $this->_setField('autoApplyDiscounts');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class OrderPricingOptions extends JsonSerializableType
     public function setAutoApplyTaxes(?bool $value = null): self
     {
         $this->autoApplyTaxes = $value;
+        $this->_setField('autoApplyTaxes');
         return $this;
     }
 

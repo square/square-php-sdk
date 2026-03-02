@@ -114,6 +114,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -131,6 +132,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -148,6 +150,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setQuickPay(?QuickPay $value = null): self
     {
         $this->quickPay = $value;
+        $this->_setField('quickPay');
         return $this;
     }
 
@@ -165,6 +168,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setOrder(?Order $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -182,6 +186,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setCheckoutOptions(?CheckoutOptions $value = null): self
     {
         $this->checkoutOptions = $value;
+        $this->_setField('checkoutOptions');
         return $this;
     }
 
@@ -199,6 +204,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setPrePopulatedData(?PrePopulatedData $value = null): self
     {
         $this->prePopulatedData = $value;
+        $this->_setField('prePopulatedData');
         return $this;
     }
 
@@ -216,6 +222,7 @@ class CreatePaymentLinkRequest extends JsonSerializableType
     public function setPaymentNote(?string $value = null): self
     {
         $this->paymentNote = $value;
+        $this->_setField('paymentNote');
         return $this;
     }
 }

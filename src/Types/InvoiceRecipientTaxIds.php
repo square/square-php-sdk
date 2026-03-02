@@ -43,6 +43,7 @@ class InvoiceRecipientTaxIds extends JsonSerializableType
     public function setEuVat(?string $value = null): self
     {
         $this->euVat = $value;
+        $this->_setField('euVat');
         return $this;
     }
 

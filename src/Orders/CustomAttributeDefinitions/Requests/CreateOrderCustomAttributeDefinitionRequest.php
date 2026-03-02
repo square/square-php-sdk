@@ -57,6 +57,7 @@ class CreateOrderCustomAttributeDefinitionRequest extends JsonSerializableType
     public function setCustomAttributeDefinition(CustomAttributeDefinition $value): self
     {
         $this->customAttributeDefinition = $value;
+        $this->_setField('customAttributeDefinition');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CreateOrderCustomAttributeDefinitionRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

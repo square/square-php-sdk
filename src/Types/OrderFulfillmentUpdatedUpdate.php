@@ -63,6 +63,7 @@ class OrderFulfillmentUpdatedUpdate extends JsonSerializableType
     public function setFulfillmentUid(?string $value = null): self
     {
         $this->fulfillmentUid = $value;
+        $this->_setField('fulfillmentUid');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class OrderFulfillmentUpdatedUpdate extends JsonSerializableType
     public function setOldState(?string $value = null): self
     {
         $this->oldState = $value;
+        $this->_setField('oldState');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class OrderFulfillmentUpdatedUpdate extends JsonSerializableType
     public function setNewState(?string $value = null): self
     {
         $this->newState = $value;
+        $this->_setField('newState');
         return $this;
     }
 

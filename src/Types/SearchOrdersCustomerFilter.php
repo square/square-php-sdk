@@ -48,6 +48,7 @@ class SearchOrdersCustomerFilter extends JsonSerializableType
     public function setCustomerIds(?array $value = null): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 

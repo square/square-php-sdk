@@ -61,6 +61,7 @@ class CashAppDetails extends JsonSerializableType
     public function setBuyerFullName(?string $value = null): self
     {
         $this->buyerFullName = $value;
+        $this->_setField('buyerFullName');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class CashAppDetails extends JsonSerializableType
     public function setBuyerCountryCode(?string $value = null): self
     {
         $this->buyerCountryCode = $value;
+        $this->_setField('buyerCountryCode');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class CashAppDetails extends JsonSerializableType
     public function setBuyerCashtag(?string $value = null): self
     {
         $this->buyerCashtag = $value;
+        $this->_setField('buyerCashtag');
         return $this;
     }
 

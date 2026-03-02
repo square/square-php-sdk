@@ -60,6 +60,7 @@ class CheckoutLocationSettingsBranding extends JsonSerializableType
     public function setHeaderType(?string $value = null): self
     {
         $this->headerType = $value;
+        $this->_setField('headerType');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class CheckoutLocationSettingsBranding extends JsonSerializableType
     public function setButtonColor(?string $value = null): self
     {
         $this->buttonColor = $value;
+        $this->_setField('buttonColor');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class CheckoutLocationSettingsBranding extends JsonSerializableType
     public function setButtonShape(?string $value = null): self
     {
         $this->buttonShape = $value;
+        $this->_setField('buttonShape');
         return $this;
     }
 

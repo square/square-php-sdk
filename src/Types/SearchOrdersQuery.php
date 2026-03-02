@@ -49,6 +49,7 @@ class SearchOrdersQuery extends JsonSerializableType
     public function setFilter(?SearchOrdersFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class SearchOrdersQuery extends JsonSerializableType
     public function setSort(?SearchOrdersSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

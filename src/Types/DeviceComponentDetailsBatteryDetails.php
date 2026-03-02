@@ -49,6 +49,7 @@ class DeviceComponentDetailsBatteryDetails extends JsonSerializableType
     public function setVisiblePercent(?int $value = null): self
     {
         $this->visiblePercent = $value;
+        $this->_setField('visiblePercent');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class DeviceComponentDetailsBatteryDetails extends JsonSerializableType
     public function setExternalPower(?string $value = null): self
     {
         $this->externalPower = $value;
+        $this->_setField('externalPower');
         return $this;
     }
 

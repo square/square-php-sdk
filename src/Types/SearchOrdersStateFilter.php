@@ -45,6 +45,7 @@ class SearchOrdersStateFilter extends JsonSerializableType
     public function setStates(array $value): self
     {
         $this->states = $value;
+        $this->_setField('states');
         return $this;
     }
 

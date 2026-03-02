@@ -203,6 +203,7 @@ class Customer extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -220,6 +221,7 @@ class Customer extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -237,6 +239,7 @@ class Customer extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -254,6 +257,7 @@ class Customer extends JsonSerializableType
     public function setGivenName(?string $value = null): self
     {
         $this->givenName = $value;
+        $this->_setField('givenName');
         return $this;
     }
 
@@ -271,6 +275,7 @@ class Customer extends JsonSerializableType
     public function setFamilyName(?string $value = null): self
     {
         $this->familyName = $value;
+        $this->_setField('familyName');
         return $this;
     }
 
@@ -288,6 +293,7 @@ class Customer extends JsonSerializableType
     public function setNickname(?string $value = null): self
     {
         $this->nickname = $value;
+        $this->_setField('nickname');
         return $this;
     }
 
@@ -305,6 +311,7 @@ class Customer extends JsonSerializableType
     public function setCompanyName(?string $value = null): self
     {
         $this->companyName = $value;
+        $this->_setField('companyName');
         return $this;
     }
 
@@ -322,6 +329,7 @@ class Customer extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -339,6 +347,7 @@ class Customer extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 
@@ -356,6 +365,7 @@ class Customer extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -373,6 +383,7 @@ class Customer extends JsonSerializableType
     public function setBirthday(?string $value = null): self
     {
         $this->birthday = $value;
+        $this->_setField('birthday');
         return $this;
     }
 
@@ -390,6 +401,7 @@ class Customer extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -407,6 +419,7 @@ class Customer extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -424,6 +437,7 @@ class Customer extends JsonSerializableType
     public function setPreferences(?CustomerPreferences $value = null): self
     {
         $this->preferences = $value;
+        $this->_setField('preferences');
         return $this;
     }
 
@@ -441,6 +455,7 @@ class Customer extends JsonSerializableType
     public function setCreationSource(?string $value = null): self
     {
         $this->creationSource = $value;
+        $this->_setField('creationSource');
         return $this;
     }
 
@@ -458,6 +473,7 @@ class Customer extends JsonSerializableType
     public function setGroupIds(?array $value = null): self
     {
         $this->groupIds = $value;
+        $this->_setField('groupIds');
         return $this;
     }
 
@@ -475,6 +491,7 @@ class Customer extends JsonSerializableType
     public function setSegmentIds(?array $value = null): self
     {
         $this->segmentIds = $value;
+        $this->_setField('segmentIds');
         return $this;
     }
 
@@ -492,6 +509,7 @@ class Customer extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -509,6 +527,7 @@ class Customer extends JsonSerializableType
     public function setTaxIds(?CustomerTaxIds $value = null): self
     {
         $this->taxIds = $value;
+        $this->_setField('taxIds');
         return $this;
     }
 

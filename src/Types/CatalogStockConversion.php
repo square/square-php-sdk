@@ -76,6 +76,7 @@ class CatalogStockConversion extends JsonSerializableType
     public function setStockableItemVariationId(string $value): self
     {
         $this->stockableItemVariationId = $value;
+        $this->_setField('stockableItemVariationId');
         return $this;
     }
 
@@ -93,6 +94,7 @@ class CatalogStockConversion extends JsonSerializableType
     public function setStockableQuantity(string $value): self
     {
         $this->stockableQuantity = $value;
+        $this->_setField('stockableQuantity');
         return $this;
     }
 
@@ -110,6 +112,7 @@ class CatalogStockConversion extends JsonSerializableType
     public function setNonstockableQuantity(string $value): self
     {
         $this->nonstockableQuantity = $value;
+        $this->_setField('nonstockableQuantity');
         return $this;
     }
 

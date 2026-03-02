@@ -72,6 +72,7 @@ class ListCodesRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -89,6 +90,7 @@ class ListCodesRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -106,6 +108,7 @@ class ListCodesRequest extends JsonSerializableType
     public function setProductType(?string $value = null): self
     {
         $this->productType = $value;
+        $this->_setField('productType');
         return $this;
     }
 
@@ -123,6 +126,7 @@ class ListCodesRequest extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 }

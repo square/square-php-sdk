@@ -49,6 +49,7 @@ class PhaseInput extends JsonSerializableType
     public function setOrdinal(int $value): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class PhaseInput extends JsonSerializableType
     public function setOrderTemplateId(?string $value = null): self
     {
         $this->orderTemplateId = $value;
+        $this->_setField('orderTemplateId');
         return $this;
     }
 

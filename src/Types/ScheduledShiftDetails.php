@@ -113,6 +113,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -130,6 +131,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -147,6 +149,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setJobId(?string $value = null): self
     {
         $this->jobId = $value;
+        $this->_setField('jobId');
         return $this;
     }
 
@@ -164,6 +167,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setStartAt(?string $value = null): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -181,6 +185,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setEndAt(?string $value = null): self
     {
         $this->endAt = $value;
+        $this->_setField('endAt');
         return $this;
     }
 
@@ -198,6 +203,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setNotes(?string $value = null): self
     {
         $this->notes = $value;
+        $this->_setField('notes');
         return $this;
     }
 
@@ -215,6 +221,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setIsDeleted(?bool $value = null): self
     {
         $this->isDeleted = $value;
+        $this->_setField('isDeleted');
         return $this;
     }
 
@@ -232,6 +239,7 @@ class ScheduledShiftDetails extends JsonSerializableType
     public function setTimezone(?string $value = null): self
     {
         $this->timezone = $value;
+        $this->_setField('timezone');
         return $this;
     }
 

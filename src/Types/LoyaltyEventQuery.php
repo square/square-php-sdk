@@ -41,6 +41,7 @@ class LoyaltyEventQuery extends JsonSerializableType
     public function setFilter(?LoyaltyEventFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 

@@ -51,6 +51,7 @@ class DeleteSubscriptionActionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class DeleteSubscriptionActionResponse extends JsonSerializableType
     public function setSubscription(?Subscription $value = null): self
     {
         $this->subscription = $value;
+        $this->_setField('subscription');
         return $this;
     }
 

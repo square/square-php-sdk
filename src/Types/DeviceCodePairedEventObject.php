@@ -38,6 +38,7 @@ class DeviceCodePairedEventObject extends JsonSerializableType
     public function setDeviceCode(?DeviceCode $value = null): self
     {
         $this->deviceCode = $value;
+        $this->_setField('deviceCode');
         return $this;
     }
 

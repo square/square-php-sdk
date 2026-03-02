@@ -61,6 +61,7 @@ class CatalogObjectTax extends JsonSerializableType
     public function setTaxData(?CatalogTax $value = null): self
     {
         $this->taxData = $value;
+        $this->_setField('taxData');
         return $this;
     }
 

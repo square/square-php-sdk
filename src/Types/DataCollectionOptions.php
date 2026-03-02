@@ -68,6 +68,7 @@ class DataCollectionOptions extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class DataCollectionOptions extends JsonSerializableType
     public function setBody(string $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class DataCollectionOptions extends JsonSerializableType
     public function setInputType(string $value): self
     {
         $this->inputType = $value;
+        $this->_setField('inputType');
         return $this;
     }
 
@@ -119,6 +122,7 @@ class DataCollectionOptions extends JsonSerializableType
     public function setCollectedData(?CollectedData $value = null): self
     {
         $this->collectedData = $value;
+        $this->_setField('collectedData');
         return $this;
     }
 

@@ -50,6 +50,7 @@ class StandardUnitDescriptionGroup extends JsonSerializableType
     public function setStandardUnitDescriptions(?array $value = null): self
     {
         $this->standardUnitDescriptions = $value;
+        $this->_setField('standardUnitDescriptions');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class StandardUnitDescriptionGroup extends JsonSerializableType
     public function setLanguageCode(?string $value = null): self
     {
         $this->languageCode = $value;
+        $this->_setField('languageCode');
         return $this;
     }
 

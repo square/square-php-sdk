@@ -71,6 +71,7 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class BulkUpsertLocationCustomAttributesRequestLocationCustomAttributeUpsertRequ
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 

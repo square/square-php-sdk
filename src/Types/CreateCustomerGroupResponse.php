@@ -53,6 +53,7 @@ class CreateCustomerGroupResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CreateCustomerGroupResponse extends JsonSerializableType
     public function setGroup(?CustomerGroup $value = null): self
     {
         $this->group = $value;
+        $this->_setField('group');
         return $this;
     }
 

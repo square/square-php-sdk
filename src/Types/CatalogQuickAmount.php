@@ -71,6 +71,7 @@ class CatalogQuickAmount extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class CatalogQuickAmount extends JsonSerializableType
     public function setAmount(Money $value): self
     {
         $this->amount = $value;
+        $this->_setField('amount');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class CatalogQuickAmount extends JsonSerializableType
     public function setScore(?int $value = null): self
     {
         $this->score = $value;
+        $this->_setField('score');
         return $this;
     }
 
@@ -122,6 +125,7 @@ class CatalogQuickAmount extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 

@@ -47,6 +47,7 @@ class GetTerminalActionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetTerminalActionResponse extends JsonSerializableType
     public function setAction(?TerminalAction $value = null): self
     {
         $this->action = $value;
+        $this->_setField('action');
         return $this;
     }
 

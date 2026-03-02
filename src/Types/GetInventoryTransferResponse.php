@@ -47,6 +47,7 @@ class GetInventoryTransferResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetInventoryTransferResponse extends JsonSerializableType
     public function setTransfer(?InventoryTransfer $value = null): self
     {
         $this->transfer = $value;
+        $this->_setField('transfer');
         return $this;
     }
 

@@ -116,6 +116,7 @@ class GiftCard extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -133,6 +134,7 @@ class GiftCard extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -150,6 +152,7 @@ class GiftCard extends JsonSerializableType
     public function setGanSource(?string $value = null): self
     {
         $this->ganSource = $value;
+        $this->_setField('ganSource');
         return $this;
     }
 
@@ -167,6 +170,7 @@ class GiftCard extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -184,6 +188,7 @@ class GiftCard extends JsonSerializableType
     public function setBalanceMoney(?Money $value = null): self
     {
         $this->balanceMoney = $value;
+        $this->_setField('balanceMoney');
         return $this;
     }
 
@@ -201,6 +206,7 @@ class GiftCard extends JsonSerializableType
     public function setGan(?string $value = null): self
     {
         $this->gan = $value;
+        $this->_setField('gan');
         return $this;
     }
 
@@ -218,6 +224,7 @@ class GiftCard extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -235,6 +242,7 @@ class GiftCard extends JsonSerializableType
     public function setCustomerIds(?array $value = null): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 

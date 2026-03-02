@@ -41,6 +41,7 @@ class SearchAvailabilityQuery extends JsonSerializableType
     public function setFilter(SearchAvailabilityFilter $value): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 

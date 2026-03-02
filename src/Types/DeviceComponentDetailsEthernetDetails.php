@@ -54,6 +54,7 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     public function setActive(?bool $value = null): self
     {
         $this->active = $value;
+        $this->_setField('active');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     public function setIpAddressV4(?string $value = null): self
     {
         $this->ipAddressV4 = $value;
+        $this->_setField('ipAddressV4');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class DeviceComponentDetailsEthernetDetails extends JsonSerializableType
     public function setMacAddress(?string $value = null): self
     {
         $this->macAddress = $value;
+        $this->_setField('macAddress');
         return $this;
     }
 

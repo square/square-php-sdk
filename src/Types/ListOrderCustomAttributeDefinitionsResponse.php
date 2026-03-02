@@ -62,6 +62,7 @@ class ListOrderCustomAttributeDefinitionsResponse extends JsonSerializableType
     public function setCustomAttributeDefinitions(array $value): self
     {
         $this->customAttributeDefinitions = $value;
+        $this->_setField('customAttributeDefinitions');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class ListOrderCustomAttributeDefinitionsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class ListOrderCustomAttributeDefinitionsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

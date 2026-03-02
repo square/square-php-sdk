@@ -36,6 +36,7 @@ class GetVendorsRequest extends JsonSerializableType
     public function setVendorId(string $value): self
     {
         $this->vendorId = $value;
+        $this->_setField('vendorId');
         return $this;
     }
 }

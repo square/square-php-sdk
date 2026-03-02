@@ -73,6 +73,7 @@ class SearchOrdersSourceFilter extends JsonSerializableType
     public function setSourceNames(?array $value = null): self
     {
         $this->sourceNames = $value;
+        $this->_setField('sourceNames');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class SearchOrdersSourceFilter extends JsonSerializableType
     public function setSourceApplicationIds(?array $value = null): self
     {
         $this->sourceApplicationIds = $value;
+        $this->_setField('sourceApplicationIds');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class SearchOrdersSourceFilter extends JsonSerializableType
     public function setSourceClientOus(?array $value = null): self
     {
         $this->sourceClientOus = $value;
+        $this->_setField('sourceClientOus');
         return $this;
     }
 

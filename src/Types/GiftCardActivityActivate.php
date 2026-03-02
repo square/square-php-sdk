@@ -106,6 +106,7 @@ class GiftCardActivityActivate extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -123,6 +124,7 @@ class GiftCardActivityActivate extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -140,6 +142,7 @@ class GiftCardActivityActivate extends JsonSerializableType
     public function setLineItemUid(?string $value = null): self
     {
         $this->lineItemUid = $value;
+        $this->_setField('lineItemUid');
         return $this;
     }
 
@@ -157,6 +160,7 @@ class GiftCardActivityActivate extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -174,6 +178,7 @@ class GiftCardActivityActivate extends JsonSerializableType
     public function setBuyerPaymentInstrumentIds(?array $value = null): self
     {
         $this->buyerPaymentInstrumentIds = $value;
+        $this->_setField('buyerPaymentInstrumentIds');
         return $this;
     }
 

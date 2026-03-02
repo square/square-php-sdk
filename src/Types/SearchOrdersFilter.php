@@ -80,6 +80,7 @@ class SearchOrdersFilter extends JsonSerializableType
     public function setStateFilter(?SearchOrdersStateFilter $value = null): self
     {
         $this->stateFilter = $value;
+        $this->_setField('stateFilter');
         return $this;
     }
 
@@ -97,6 +98,7 @@ class SearchOrdersFilter extends JsonSerializableType
     public function setDateTimeFilter(?SearchOrdersDateTimeFilter $value = null): self
     {
         $this->dateTimeFilter = $value;
+        $this->_setField('dateTimeFilter');
         return $this;
     }
 
@@ -114,6 +116,7 @@ class SearchOrdersFilter extends JsonSerializableType
     public function setFulfillmentFilter(?SearchOrdersFulfillmentFilter $value = null): self
     {
         $this->fulfillmentFilter = $value;
+        $this->_setField('fulfillmentFilter');
         return $this;
     }
 
@@ -131,6 +134,7 @@ class SearchOrdersFilter extends JsonSerializableType
     public function setSourceFilter(?SearchOrdersSourceFilter $value = null): self
     {
         $this->sourceFilter = $value;
+        $this->_setField('sourceFilter');
         return $this;
     }
 
@@ -148,6 +152,7 @@ class SearchOrdersFilter extends JsonSerializableType
     public function setCustomerFilter(?SearchOrdersCustomerFilter $value = null): self
     {
         $this->customerFilter = $value;
+        $this->_setField('customerFilter');
         return $this;
     }
 

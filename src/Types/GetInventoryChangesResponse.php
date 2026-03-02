@@ -60,6 +60,7 @@ class GetInventoryChangesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class GetInventoryChangesResponse extends JsonSerializableType
     public function setChanges(?array $value = null): self
     {
         $this->changes = $value;
+        $this->_setField('changes');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class GetInventoryChangesResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

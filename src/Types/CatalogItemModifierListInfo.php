@@ -149,6 +149,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setModifierListId(string $value): self
     {
         $this->modifierListId = $value;
+        $this->_setField('modifierListId');
         return $this;
     }
 
@@ -166,6 +167,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setModifierOverrides(?array $value = null): self
     {
         $this->modifierOverrides = $value;
+        $this->_setField('modifierOverrides');
         return $this;
     }
 
@@ -183,6 +185,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setMinSelectedModifiers(?int $value = null): self
     {
         $this->minSelectedModifiers = $value;
+        $this->_setField('minSelectedModifiers');
         return $this;
     }
 
@@ -200,6 +203,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setMaxSelectedModifiers(?int $value = null): self
     {
         $this->maxSelectedModifiers = $value;
+        $this->_setField('maxSelectedModifiers');
         return $this;
     }
 
@@ -217,6 +221,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 
@@ -234,6 +239,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -251,6 +257,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setAllowQuantities(?string $value = null): self
     {
         $this->allowQuantities = $value;
+        $this->_setField('allowQuantities');
         return $this;
     }
 
@@ -268,6 +275,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setIsConversational(?string $value = null): self
     {
         $this->isConversational = $value;
+        $this->_setField('isConversational');
         return $this;
     }
 
@@ -285,6 +293,7 @@ class CatalogItemModifierListInfo extends JsonSerializableType
     public function setHiddenFromCustomerOverride(?string $value = null): self
     {
         $this->hiddenFromCustomerOverride = $value;
+        $this->_setField('hiddenFromCustomerOverride');
         return $this;
     }
 

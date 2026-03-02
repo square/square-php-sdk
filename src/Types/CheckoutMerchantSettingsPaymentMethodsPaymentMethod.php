@@ -41,6 +41,7 @@ class CheckoutMerchantSettingsPaymentMethodsPaymentMethod extends JsonSerializab
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 

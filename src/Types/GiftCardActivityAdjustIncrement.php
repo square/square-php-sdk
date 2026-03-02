@@ -52,6 +52,7 @@ class GiftCardActivityAdjustIncrement extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class GiftCardActivityAdjustIncrement extends JsonSerializableType
     public function setReason(string $value): self
     {
         $this->reason = $value;
+        $this->_setField('reason');
         return $this;
     }
 

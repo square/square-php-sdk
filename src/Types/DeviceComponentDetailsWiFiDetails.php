@@ -81,6 +81,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setActive(?bool $value = null): self
     {
         $this->active = $value;
+        $this->_setField('active');
         return $this;
     }
 
@@ -98,6 +99,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setSsid(?string $value = null): self
     {
         $this->ssid = $value;
+        $this->_setField('ssid');
         return $this;
     }
 
@@ -115,6 +117,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setIpAddressV4(?string $value = null): self
     {
         $this->ipAddressV4 = $value;
+        $this->_setField('ipAddressV4');
         return $this;
     }
 
@@ -132,6 +135,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setSecureConnection(?string $value = null): self
     {
         $this->secureConnection = $value;
+        $this->_setField('secureConnection');
         return $this;
     }
 
@@ -149,6 +153,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setSignalStrength(?DeviceComponentDetailsMeasurement $value = null): self
     {
         $this->signalStrength = $value;
+        $this->_setField('signalStrength');
         return $this;
     }
 
@@ -166,6 +171,7 @@ class DeviceComponentDetailsWiFiDetails extends JsonSerializableType
     public function setMacAddress(?string $value = null): self
     {
         $this->macAddress = $value;
+        $this->_setField('macAddress');
         return $this;
     }
 

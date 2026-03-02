@@ -57,6 +57,7 @@ class CardPaymentTimeline extends JsonSerializableType
     public function setAuthorizedAt(?string $value = null): self
     {
         $this->authorizedAt = $value;
+        $this->_setField('authorizedAt');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CardPaymentTimeline extends JsonSerializableType
     public function setCapturedAt(?string $value = null): self
     {
         $this->capturedAt = $value;
+        $this->_setField('capturedAt');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class CardPaymentTimeline extends JsonSerializableType
     public function setVoidedAt(?string $value = null): self
     {
         $this->voidedAt = $value;
+        $this->_setField('voidedAt');
         return $this;
     }
 

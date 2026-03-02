@@ -374,6 +374,7 @@ class Order extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -391,6 +392,7 @@ class Order extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -408,6 +410,7 @@ class Order extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -425,6 +428,7 @@ class Order extends JsonSerializableType
     public function setSource(?OrderSource $value = null): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -442,6 +446,7 @@ class Order extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -459,6 +464,7 @@ class Order extends JsonSerializableType
     public function setLineItems(?array $value = null): self
     {
         $this->lineItems = $value;
+        $this->_setField('lineItems');
         return $this;
     }
 
@@ -476,6 +482,7 @@ class Order extends JsonSerializableType
     public function setTaxes(?array $value = null): self
     {
         $this->taxes = $value;
+        $this->_setField('taxes');
         return $this;
     }
 
@@ -493,6 +500,7 @@ class Order extends JsonSerializableType
     public function setDiscounts(?array $value = null): self
     {
         $this->discounts = $value;
+        $this->_setField('discounts');
         return $this;
     }
 
@@ -510,6 +518,7 @@ class Order extends JsonSerializableType
     public function setServiceCharges(?array $value = null): self
     {
         $this->serviceCharges = $value;
+        $this->_setField('serviceCharges');
         return $this;
     }
 
@@ -527,6 +536,7 @@ class Order extends JsonSerializableType
     public function setFulfillments(?array $value = null): self
     {
         $this->fulfillments = $value;
+        $this->_setField('fulfillments');
         return $this;
     }
 
@@ -544,6 +554,7 @@ class Order extends JsonSerializableType
     public function setReturns(?array $value = null): self
     {
         $this->returns = $value;
+        $this->_setField('returns');
         return $this;
     }
 
@@ -561,6 +572,7 @@ class Order extends JsonSerializableType
     public function setReturnAmounts(?OrderMoneyAmounts $value = null): self
     {
         $this->returnAmounts = $value;
+        $this->_setField('returnAmounts');
         return $this;
     }
 
@@ -578,6 +590,7 @@ class Order extends JsonSerializableType
     public function setNetAmounts(?OrderMoneyAmounts $value = null): self
     {
         $this->netAmounts = $value;
+        $this->_setField('netAmounts');
         return $this;
     }
 
@@ -595,6 +608,7 @@ class Order extends JsonSerializableType
     public function setRoundingAdjustment(?OrderRoundingAdjustment $value = null): self
     {
         $this->roundingAdjustment = $value;
+        $this->_setField('roundingAdjustment');
         return $this;
     }
 
@@ -612,6 +626,7 @@ class Order extends JsonSerializableType
     public function setTenders(?array $value = null): self
     {
         $this->tenders = $value;
+        $this->_setField('tenders');
         return $this;
     }
 
@@ -629,6 +644,7 @@ class Order extends JsonSerializableType
     public function setRefunds(?array $value = null): self
     {
         $this->refunds = $value;
+        $this->_setField('refunds');
         return $this;
     }
 
@@ -646,6 +662,7 @@ class Order extends JsonSerializableType
     public function setMetadata(?array $value = null): self
     {
         $this->metadata = $value;
+        $this->_setField('metadata');
         return $this;
     }
 
@@ -663,6 +680,7 @@ class Order extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -680,6 +698,7 @@ class Order extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -697,6 +716,7 @@ class Order extends JsonSerializableType
     public function setClosedAt(?string $value = null): self
     {
         $this->closedAt = $value;
+        $this->_setField('closedAt');
         return $this;
     }
 
@@ -714,6 +734,7 @@ class Order extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -731,6 +752,7 @@ class Order extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -748,6 +770,7 @@ class Order extends JsonSerializableType
     public function setTotalMoney(?Money $value = null): self
     {
         $this->totalMoney = $value;
+        $this->_setField('totalMoney');
         return $this;
     }
 
@@ -765,6 +788,7 @@ class Order extends JsonSerializableType
     public function setTotalTaxMoney(?Money $value = null): self
     {
         $this->totalTaxMoney = $value;
+        $this->_setField('totalTaxMoney');
         return $this;
     }
 
@@ -782,6 +806,7 @@ class Order extends JsonSerializableType
     public function setTotalDiscountMoney(?Money $value = null): self
     {
         $this->totalDiscountMoney = $value;
+        $this->_setField('totalDiscountMoney');
         return $this;
     }
 
@@ -799,6 +824,7 @@ class Order extends JsonSerializableType
     public function setTotalTipMoney(?Money $value = null): self
     {
         $this->totalTipMoney = $value;
+        $this->_setField('totalTipMoney');
         return $this;
     }
 
@@ -816,6 +842,7 @@ class Order extends JsonSerializableType
     public function setTotalServiceChargeMoney(?Money $value = null): self
     {
         $this->totalServiceChargeMoney = $value;
+        $this->_setField('totalServiceChargeMoney');
         return $this;
     }
 
@@ -833,6 +860,7 @@ class Order extends JsonSerializableType
     public function setTicketName(?string $value = null): self
     {
         $this->ticketName = $value;
+        $this->_setField('ticketName');
         return $this;
     }
 
@@ -850,6 +878,7 @@ class Order extends JsonSerializableType
     public function setPricingOptions(?OrderPricingOptions $value = null): self
     {
         $this->pricingOptions = $value;
+        $this->_setField('pricingOptions');
         return $this;
     }
 
@@ -867,6 +896,7 @@ class Order extends JsonSerializableType
     public function setRewards(?array $value = null): self
     {
         $this->rewards = $value;
+        $this->_setField('rewards');
         return $this;
     }
 
@@ -884,6 +914,7 @@ class Order extends JsonSerializableType
     public function setNetAmountDueMoney(?Money $value = null): self
     {
         $this->netAmountDueMoney = $value;
+        $this->_setField('netAmountDueMoney');
         return $this;
     }
 

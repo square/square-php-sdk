@@ -55,6 +55,7 @@ class SignatureOptions extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class SignatureOptions extends JsonSerializableType
     public function setBody(string $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class SignatureOptions extends JsonSerializableType
     public function setSignature(?array $value = null): self
     {
         $this->signature = $value;
+        $this->_setField('signature');
         return $this;
     }
 

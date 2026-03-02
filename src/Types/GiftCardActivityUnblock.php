@@ -44,6 +44,7 @@ class GiftCardActivityUnblock extends JsonSerializableType
     public function setReason(string $value): self
     {
         $this->reason = $value;
+        $this->_setField('reason');
         return $this;
     }
 

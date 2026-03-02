@@ -60,6 +60,7 @@ class SearchOrdersFulfillmentFilter extends JsonSerializableType
     public function setFulfillmentTypes(?array $value = null): self
     {
         $this->fulfillmentTypes = $value;
+        $this->_setField('fulfillmentTypes');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class SearchOrdersFulfillmentFilter extends JsonSerializableType
     public function setFulfillmentStates(?array $value = null): self
     {
         $this->fulfillmentStates = $value;
+        $this->_setField('fulfillmentStates');
         return $this;
     }
 

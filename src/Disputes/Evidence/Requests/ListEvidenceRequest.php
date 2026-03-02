@@ -47,6 +47,7 @@ class ListEvidenceRequest extends JsonSerializableType
     public function setDisputeId(string $value): self
     {
         $this->disputeId = $value;
+        $this->_setField('disputeId');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class ListEvidenceRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

@@ -44,6 +44,7 @@ class LoyaltyProgramExpirationPolicy extends JsonSerializableType
     public function setExpirationDuration(string $value): self
     {
         $this->expirationDuration = $value;
+        $this->_setField('expirationDuration');
         return $this;
     }
 

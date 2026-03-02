@@ -48,6 +48,7 @@ class CatalogCustomAttributeDefinitionNumberConfig extends JsonSerializableType
     public function setPrecision(?int $value = null): self
     {
         $this->precision = $value;
+        $this->_setField('precision');
         return $this;
     }
 

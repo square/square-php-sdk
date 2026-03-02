@@ -51,6 +51,7 @@ class ShiftQuery extends JsonSerializableType
     public function setFilter(?ShiftFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class ShiftQuery extends JsonSerializableType
     public function setSort(?ShiftSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

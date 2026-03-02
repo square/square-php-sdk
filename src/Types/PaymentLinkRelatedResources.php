@@ -47,6 +47,7 @@ class PaymentLinkRelatedResources extends JsonSerializableType
     public function setOrders(?array $value = null): self
     {
         $this->orders = $value;
+        $this->_setField('orders');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class PaymentLinkRelatedResources extends JsonSerializableType
     public function setSubscriptionPlans(?array $value = null): self
     {
         $this->subscriptionPlans = $value;
+        $this->_setField('subscriptionPlans');
         return $this;
     }
 

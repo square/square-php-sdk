@@ -56,6 +56,7 @@ class CreateTransferOrderLineData extends JsonSerializableType
     public function setItemVariationId(string $value): self
     {
         $this->itemVariationId = $value;
+        $this->_setField('itemVariationId');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class CreateTransferOrderLineData extends JsonSerializableType
     public function setQuantityOrdered(string $value): self
     {
         $this->quantityOrdered = $value;
+        $this->_setField('quantityOrdered');
         return $this;
     }
 

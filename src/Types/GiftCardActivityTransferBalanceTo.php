@@ -49,6 +49,7 @@ class GiftCardActivityTransferBalanceTo extends JsonSerializableType
     public function setTransferFromGiftCardId(string $value): self
     {
         $this->transferFromGiftCardId = $value;
+        $this->_setField('transferFromGiftCardId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class GiftCardActivityTransferBalanceTo extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 

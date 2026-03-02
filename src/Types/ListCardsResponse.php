@@ -67,6 +67,7 @@ class ListCardsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -84,6 +85,7 @@ class ListCardsResponse extends JsonSerializableType
     public function setCards(?array $value = null): self
     {
         $this->cards = $value;
+        $this->_setField('cards');
         return $this;
     }
 
@@ -101,6 +103,7 @@ class ListCardsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

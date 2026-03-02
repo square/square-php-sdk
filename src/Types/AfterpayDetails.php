@@ -41,6 +41,7 @@ class AfterpayDetails extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 

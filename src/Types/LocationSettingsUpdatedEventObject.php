@@ -38,6 +38,7 @@ class LocationSettingsUpdatedEventObject extends JsonSerializableType
     public function setLocationSettings(?CheckoutLocationSettings $value = null): self
     {
         $this->locationSettings = $value;
+        $this->_setField('locationSettings');
         return $this;
     }
 

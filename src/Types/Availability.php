@@ -58,6 +58,7 @@ class Availability extends JsonSerializableType
     public function setStartAt(?string $value = null): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class Availability extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class Availability extends JsonSerializableType
     public function setAppointmentSegments(?array $value = null): self
     {
         $this->appointmentSegments = $value;
+        $this->_setField('appointmentSegments');
         return $this;
     }
 

@@ -1,7 +1,7 @@
 {
-  "cliVersion": "3.38.0",
+  "cliVersion": "3.98.5",
   "generatorName": "fernapi/fern-php-sdk",
-  "generatorVersion": "1.25.2",
+  "generatorVersion": "2.1.5",
   "generatorConfig": {
     "clientName": "SquareClient",
     "namespace": "Square",
@@ -23,5 +23,5 @@
       }
     }
   },
-  "sdkVersion": "44.0.0.20260122"
+  "sdkVersion": "45.0.0.20260122"
 }

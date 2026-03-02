@@ -82,6 +82,7 @@ class GetObjectRequest extends JsonSerializableType
     public function setObjectId(string $value): self
     {
         $this->objectId = $value;
+        $this->_setField('objectId');
         return $this;
     }
 
@@ -99,6 +100,7 @@ class GetObjectRequest extends JsonSerializableType
     public function setIncludeRelatedObjects(?bool $value = null): self
     {
         $this->includeRelatedObjects = $value;
+        $this->_setField('includeRelatedObjects');
         return $this;
     }
 
@@ -116,6 +118,7 @@ class GetObjectRequest extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 
@@ -133,6 +136,7 @@ class GetObjectRequest extends JsonSerializableType
     public function setIncludeCategoryPathToRoot(?bool $value = null): self
     {
         $this->includeCategoryPathToRoot = $value;
+        $this->_setField('includeCategoryPathToRoot');
         return $this;
     }
 }

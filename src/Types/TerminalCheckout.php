@@ -247,6 +247,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -264,6 +265,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -281,6 +283,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -298,6 +301,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -315,6 +319,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -332,6 +337,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setPaymentOptions(?PaymentOptions $value = null): self
     {
         $this->paymentOptions = $value;
+        $this->_setField('paymentOptions');
         return $this;
     }
 
@@ -349,6 +355,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setDeviceOptions(DeviceCheckoutOptions $value): self
     {
         $this->deviceOptions = $value;
+        $this->_setField('deviceOptions');
         return $this;
     }
 
@@ -366,6 +373,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setDeadlineDuration(?string $value = null): self
     {
         $this->deadlineDuration = $value;
+        $this->_setField('deadlineDuration');
         return $this;
     }
 
@@ -383,6 +391,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -400,6 +409,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setCancelReason(?string $value = null): self
     {
         $this->cancelReason = $value;
+        $this->_setField('cancelReason');
         return $this;
     }
 
@@ -417,6 +427,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setPaymentIds(?array $value = null): self
     {
         $this->paymentIds = $value;
+        $this->_setField('paymentIds');
         return $this;
     }
 
@@ -434,6 +445,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -451,6 +463,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -468,6 +481,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setAppId(?string $value = null): self
     {
         $this->appId = $value;
+        $this->_setField('appId');
         return $this;
     }
 
@@ -485,6 +499,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -502,6 +517,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setPaymentType(?string $value = null): self
     {
         $this->paymentType = $value;
+        $this->_setField('paymentType');
         return $this;
     }
 
@@ -519,6 +535,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -536,6 +553,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -553,6 +571,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setAppFeeMoney(?Money $value = null): self
     {
         $this->appFeeMoney = $value;
+        $this->_setField('appFeeMoney');
         return $this;
     }
 
@@ -570,6 +589,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setStatementDescriptionIdentifier(?string $value = null): self
     {
         $this->statementDescriptionIdentifier = $value;
+        $this->_setField('statementDescriptionIdentifier');
         return $this;
     }
 
@@ -587,6 +607,7 @@ class TerminalCheckout extends JsonSerializableType
     public function setTipMoney(?Money $value = null): self
     {
         $this->tipMoney = $value;
+        $this->_setField('tipMoney');
         return $this;
     }
 

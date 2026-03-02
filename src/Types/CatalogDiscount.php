@@ -129,6 +129,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -146,6 +147,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setDiscountType(?string $value = null): self
     {
         $this->discountType = $value;
+        $this->_setField('discountType');
         return $this;
     }
 
@@ -163,6 +165,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setPercentage(?string $value = null): self
     {
         $this->percentage = $value;
+        $this->_setField('percentage');
         return $this;
     }
 
@@ -180,6 +183,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -197,6 +201,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setPinRequired(?bool $value = null): self
     {
         $this->pinRequired = $value;
+        $this->_setField('pinRequired');
         return $this;
     }
 
@@ -214,6 +219,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setLabelColor(?string $value = null): self
     {
         $this->labelColor = $value;
+        $this->_setField('labelColor');
         return $this;
     }
 
@@ -231,6 +237,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setModifyTaxBasis(?string $value = null): self
     {
         $this->modifyTaxBasis = $value;
+        $this->_setField('modifyTaxBasis');
         return $this;
     }
 
@@ -248,6 +255,7 @@ class CatalogDiscount extends JsonSerializableType
     public function setMaximumAmountMoney(?Money $value = null): self
     {
         $this->maximumAmountMoney = $value;
+        $this->_setField('maximumAmountMoney');
         return $this;
     }
 

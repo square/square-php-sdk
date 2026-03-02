@@ -75,6 +75,7 @@ class TerminalActionQueryFilter extends JsonSerializableType
     public function setDeviceId(?string $value = null): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class TerminalActionQueryFilter extends JsonSerializableType
     public function setCreatedAt(?TimeRange $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class TerminalActionQueryFilter extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class TerminalActionQueryFilter extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 

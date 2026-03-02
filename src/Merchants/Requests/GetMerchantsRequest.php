@@ -39,6 +39,7 @@ class GetMerchantsRequest extends JsonSerializableType
     public function setMerchantId(string $value): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 }

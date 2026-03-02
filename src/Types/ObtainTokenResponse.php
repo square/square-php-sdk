@@ -162,6 +162,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setAccessToken(?string $value = null): self
     {
         $this->accessToken = $value;
+        $this->_setField('accessToken');
         return $this;
     }
 
@@ -179,6 +180,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setTokenType(?string $value = null): self
     {
         $this->tokenType = $value;
+        $this->_setField('tokenType');
         return $this;
     }
 
@@ -196,6 +198,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setExpiresAt(?string $value = null): self
     {
         $this->expiresAt = $value;
+        $this->_setField('expiresAt');
         return $this;
     }
 
@@ -213,6 +216,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -230,6 +234,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setSubscriptionId(?string $value = null): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -247,6 +252,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setPlanId(?string $value = null): self
     {
         $this->planId = $value;
+        $this->_setField('planId');
         return $this;
     }
 
@@ -264,6 +270,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setIdToken(?string $value = null): self
     {
         $this->idToken = $value;
+        $this->_setField('idToken');
         return $this;
     }
 
@@ -281,6 +288,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setRefreshToken(?string $value = null): self
     {
         $this->refreshToken = $value;
+        $this->_setField('refreshToken');
         return $this;
     }
 
@@ -298,6 +306,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setShortLived(?bool $value = null): self
     {
         $this->shortLived = $value;
+        $this->_setField('shortLived');
         return $this;
     }
 
@@ -315,6 +324,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -332,6 +342,7 @@ class ObtainTokenResponse extends JsonSerializableType
     public function setRefreshTokenExpiresAt(?string $value = null): self
     {
         $this->refreshTokenExpiresAt = $value;
+        $this->_setField('refreshTokenExpiresAt');
         return $this;
     }
 

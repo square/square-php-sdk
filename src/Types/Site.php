@@ -81,6 +81,7 @@ class Site extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -98,6 +99,7 @@ class Site extends JsonSerializableType
     public function setSiteTitle(?string $value = null): self
     {
         $this->siteTitle = $value;
+        $this->_setField('siteTitle');
         return $this;
     }
 
@@ -115,6 +117,7 @@ class Site extends JsonSerializableType
     public function setDomain(?string $value = null): self
     {
         $this->domain = $value;
+        $this->_setField('domain');
         return $this;
     }
 
@@ -132,6 +135,7 @@ class Site extends JsonSerializableType
     public function setIsPublished(?bool $value = null): self
     {
         $this->isPublished = $value;
+        $this->_setField('isPublished');
         return $this;
     }
 
@@ -149,6 +153,7 @@ class Site extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -166,6 +171,7 @@ class Site extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

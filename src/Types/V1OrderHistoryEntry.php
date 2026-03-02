@@ -52,6 +52,7 @@ class V1OrderHistoryEntry extends JsonSerializableType
     public function setAction(?string $value = null): self
     {
         $this->action = $value;
+        $this->_setField('action');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class V1OrderHistoryEntry extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

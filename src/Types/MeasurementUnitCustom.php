@@ -52,6 +52,7 @@ class MeasurementUnitCustom extends JsonSerializableType
     public function setName(string $value): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class MeasurementUnitCustom extends JsonSerializableType
     public function setAbbreviation(string $value): self
     {
         $this->abbreviation = $value;
+        $this->_setField('abbreviation');
         return $this;
     }
 

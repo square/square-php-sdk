@@ -47,6 +47,7 @@ class CustomerCustomAttributeFilters extends JsonSerializableType
     public function setFilters(?array $value = null): self
     {
         $this->filters = $value;
+        $this->_setField('filters');
         return $this;
     }
 

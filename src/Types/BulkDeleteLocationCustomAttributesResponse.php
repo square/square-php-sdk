@@ -54,6 +54,7 @@ class BulkDeleteLocationCustomAttributesResponse extends JsonSerializableType
     public function setValues(array $value): self
     {
         $this->values = $value;
+        $this->_setField('values');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class BulkDeleteLocationCustomAttributesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -38,6 +38,7 @@ class OrderFulfillmentUpdatedObject extends JsonSerializableType
     public function setOrderFulfillmentUpdated(?OrderFulfillmentUpdated $value = null): self
     {
         $this->orderFulfillmentUpdated = $value;
+        $this->_setField('orderFulfillmentUpdated');
         return $this;
     }
 

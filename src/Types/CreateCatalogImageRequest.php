@@ -77,6 +77,7 @@ class CreateCatalogImageRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -94,6 +95,7 @@ class CreateCatalogImageRequest extends JsonSerializableType
     public function setObjectId(?string $value = null): self
     {
         $this->objectId = $value;
+        $this->_setField('objectId');
         return $this;
     }
 
@@ -111,6 +113,7 @@ class CreateCatalogImageRequest extends JsonSerializableType
     public function setImage(CatalogObject $value): self
     {
         $this->image = $value;
+        $this->_setField('image');
         return $this;
     }
 
@@ -128,6 +131,7 @@ class CreateCatalogImageRequest extends JsonSerializableType
     public function setIsPrimary(?bool $value = null): self
     {
         $this->isPrimary = $value;
+        $this->_setField('isPrimary');
         return $this;
     }
 

@@ -36,6 +36,7 @@ class DeprecatedGetAdjustmentInventoryRequest extends JsonSerializableType
     public function setAdjustmentId(string $value): self
     {
         $this->adjustmentId = $value;
+        $this->_setField('adjustmentId');
         return $this;
     }
 }

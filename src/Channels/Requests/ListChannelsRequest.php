@@ -69,6 +69,7 @@ class ListChannelsRequest extends JsonSerializableType
     public function setReferenceType(?string $value = null): self
     {
         $this->referenceType = $value;
+        $this->_setField('referenceType');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class ListChannelsRequest extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class ListChannelsRequest extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -120,6 +123,7 @@ class ListChannelsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -137,6 +141,7 @@ class ListChannelsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 }

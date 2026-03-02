@@ -96,6 +96,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -113,6 +114,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setStatusCode(?int $value = null): self
     {
         $this->statusCode = $value;
+        $this->_setField('statusCode');
         return $this;
     }
 
@@ -130,6 +132,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setPayload(?array $value = null): self
     {
         $this->payload = $value;
+        $this->_setField('payload');
         return $this;
     }
 
@@ -147,6 +150,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -164,6 +168,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -181,6 +186,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setNotificationUrl(?string $value = null): self
     {
         $this->notificationUrl = $value;
+        $this->_setField('notificationUrl');
         return $this;
     }
 
@@ -198,6 +204,7 @@ class SubscriptionTestResult extends JsonSerializableType
     public function setPassesFilter(?bool $value = null): self
     {
         $this->passesFilter = $value;
+        $this->_setField('passesFilter');
         return $this;
     }
 

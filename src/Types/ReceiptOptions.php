@@ -64,6 +64,7 @@ class ReceiptOptions extends JsonSerializableType
     public function setPaymentId(string $value): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -81,6 +82,7 @@ class ReceiptOptions extends JsonSerializableType
     public function setPrintOnly(?bool $value = null): self
     {
         $this->printOnly = $value;
+        $this->_setField('printOnly');
         return $this;
     }
 
@@ -98,6 +100,7 @@ class ReceiptOptions extends JsonSerializableType
     public function setIsDuplicate(?bool $value = null): self
     {
         $this->isDuplicate = $value;
+        $this->_setField('isDuplicate');
         return $this;
     }
 

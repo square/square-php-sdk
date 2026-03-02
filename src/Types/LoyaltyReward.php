@@ -109,6 +109,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -126,6 +127,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -143,6 +145,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setLoyaltyAccountId(string $value): self
     {
         $this->loyaltyAccountId = $value;
+        $this->_setField('loyaltyAccountId');
         return $this;
     }
 
@@ -160,6 +163,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setRewardTierId(string $value): self
     {
         $this->rewardTierId = $value;
+        $this->_setField('rewardTierId');
         return $this;
     }
 
@@ -177,6 +181,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setPoints(?int $value = null): self
     {
         $this->points = $value;
+        $this->_setField('points');
         return $this;
     }
 
@@ -194,6 +199,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -211,6 +217,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -228,6 +235,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -245,6 +253,7 @@ class LoyaltyReward extends JsonSerializableType
     public function setRedeemedAt(?string $value = null): self
     {
         $this->redeemedAt = $value;
+        $this->_setField('redeemedAt');
         return $this;
     }
 

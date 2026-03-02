@@ -89,6 +89,7 @@ class ListCustomersRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -106,6 +107,7 @@ class ListCustomersRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -123,6 +125,7 @@ class ListCustomersRequest extends JsonSerializableType
     public function setSortField(?string $value = null): self
     {
         $this->sortField = $value;
+        $this->_setField('sortField');
         return $this;
     }
 
@@ -140,6 +143,7 @@ class ListCustomersRequest extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 
@@ -157,6 +161,7 @@ class ListCustomersRequest extends JsonSerializableType
     public function setCount(?bool $value = null): self
     {
         $this->count = $value;
+        $this->_setField('count');
         return $this;
     }
 }

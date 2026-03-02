@@ -57,6 +57,7 @@ class DestinationDetails extends JsonSerializableType
     public function setCardDetails(?DestinationDetailsCardRefundDetails $value = null): self
     {
         $this->cardDetails = $value;
+        $this->_setField('cardDetails');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class DestinationDetails extends JsonSerializableType
     public function setCashDetails(?DestinationDetailsCashRefundDetails $value = null): self
     {
         $this->cashDetails = $value;
+        $this->_setField('cashDetails');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class DestinationDetails extends JsonSerializableType
     public function setExternalDetails(?DestinationDetailsExternalRefundDetails $value = null): self
     {
         $this->externalDetails = $value;
+        $this->_setField('externalDetails');
         return $this;
     }
 

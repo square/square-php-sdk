@@ -61,6 +61,7 @@ class UpdateItemModifierListsRequest extends JsonSerializableType
     public function setItemIds(array $value): self
     {
         $this->itemIds = $value;
+        $this->_setField('itemIds');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class UpdateItemModifierListsRequest extends JsonSerializableType
     public function setModifierListsToEnable(?array $value = null): self
     {
         $this->modifierListsToEnable = $value;
+        $this->_setField('modifierListsToEnable');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class UpdateItemModifierListsRequest extends JsonSerializableType
     public function setModifierListsToDisable(?array $value = null): self
     {
         $this->modifierListsToDisable = $value;
+        $this->_setField('modifierListsToDisable');
         return $this;
     }
 }

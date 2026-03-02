@@ -57,6 +57,7 @@ class CatalogQueryRange extends JsonSerializableType
     public function setAttributeName(string $value): self
     {
         $this->attributeName = $value;
+        $this->_setField('attributeName');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CatalogQueryRange extends JsonSerializableType
     public function setAttributeMinValue(?int $value = null): self
     {
         $this->attributeMinValue = $value;
+        $this->_setField('attributeMinValue');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class CatalogQueryRange extends JsonSerializableType
     public function setAttributeMaxValue(?int $value = null): self
     {
         $this->attributeMaxValue = $value;
+        $this->_setField('attributeMaxValue');
         return $this;
     }
 

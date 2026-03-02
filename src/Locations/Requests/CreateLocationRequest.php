@@ -43,6 +43,7 @@ class CreateLocationRequest extends JsonSerializableType
     public function setLocation(?Location $value = null): self
     {
         $this->location = $value;
+        $this->_setField('location');
         return $this;
     }
 }

@@ -58,6 +58,7 @@ class CustomerQuery extends JsonSerializableType
     public function setFilter(?CustomerFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CustomerQuery extends JsonSerializableType
     public function setSort(?CustomerSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

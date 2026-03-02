@@ -93,6 +93,7 @@ class ScheduledShift extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -110,6 +111,7 @@ class ScheduledShift extends JsonSerializableType
     public function setDraftShiftDetails(?ScheduledShiftDetails $value = null): self
     {
         $this->draftShiftDetails = $value;
+        $this->_setField('draftShiftDetails');
         return $this;
     }
 
@@ -127,6 +129,7 @@ class ScheduledShift extends JsonSerializableType
     public function setPublishedShiftDetails(?ScheduledShiftDetails $value = null): self
     {
         $this->publishedShiftDetails = $value;
+        $this->_setField('publishedShiftDetails');
         return $this;
     }
 
@@ -144,6 +147,7 @@ class ScheduledShift extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -161,6 +165,7 @@ class ScheduledShift extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -178,6 +183,7 @@ class ScheduledShift extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

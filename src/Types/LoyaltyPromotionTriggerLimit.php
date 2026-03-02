@@ -56,6 +56,7 @@ class LoyaltyPromotionTriggerLimit extends JsonSerializableType
     public function setTimes(int $value): self
     {
         $this->times = $value;
+        $this->_setField('times');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class LoyaltyPromotionTriggerLimit extends JsonSerializableType
     public function setInterval(?string $value = null): self
     {
         $this->interval = $value;
+        $this->_setField('interval');
         return $this;
     }
 

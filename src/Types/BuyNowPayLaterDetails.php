@@ -75,6 +75,7 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     public function setBrand(?string $value = null): self
     {
         $this->brand = $value;
+        $this->_setField('brand');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     public function setAfterpayDetails(?AfterpayDetails $value = null): self
     {
         $this->afterpayDetails = $value;
+        $this->_setField('afterpayDetails');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     public function setClearpayDetails(?ClearpayDetails $value = null): self
     {
         $this->clearpayDetails = $value;
+        $this->_setField('clearpayDetails');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class BuyNowPayLaterDetails extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

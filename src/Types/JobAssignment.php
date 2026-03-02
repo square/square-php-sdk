@@ -89,6 +89,7 @@ class JobAssignment extends JsonSerializableType
     public function setJobTitle(?string $value = null): self
     {
         $this->jobTitle = $value;
+        $this->_setField('jobTitle');
         return $this;
     }
 
@@ -106,6 +107,7 @@ class JobAssignment extends JsonSerializableType
     public function setPayType(string $value): self
     {
         $this->payType = $value;
+        $this->_setField('payType');
         return $this;
     }
 
@@ -123,6 +125,7 @@ class JobAssignment extends JsonSerializableType
     public function setHourlyRate(?Money $value = null): self
     {
         $this->hourlyRate = $value;
+        $this->_setField('hourlyRate');
         return $this;
     }
 
@@ -140,6 +143,7 @@ class JobAssignment extends JsonSerializableType
     public function setAnnualRate(?Money $value = null): self
     {
         $this->annualRate = $value;
+        $this->_setField('annualRate');
         return $this;
     }
 
@@ -157,6 +161,7 @@ class JobAssignment extends JsonSerializableType
     public function setWeeklyHours(?int $value = null): self
     {
         $this->weeklyHours = $value;
+        $this->_setField('weeklyHours');
         return $this;
     }
 
@@ -174,6 +179,7 @@ class JobAssignment extends JsonSerializableType
     public function setJobId(?string $value = null): self
     {
         $this->jobId = $value;
+        $this->_setField('jobId');
         return $this;
     }
 

@@ -151,6 +151,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setEmail(?CustomerTextFilter $value = null): self
     {
         $this->email = $value;
+        $this->_setField('email');
         return $this;
     }
 
@@ -168,6 +169,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setPhone(?CustomerTextFilter $value = null): self
     {
         $this->phone = $value;
+        $this->_setField('phone');
         return $this;
     }
 
@@ -185,6 +187,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setText(?CustomerTextFilter $value = null): self
     {
         $this->text = $value;
+        $this->_setField('text');
         return $this;
     }
 
@@ -202,6 +205,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setSelection(?FilterValue $value = null): self
     {
         $this->selection = $value;
+        $this->_setField('selection');
         return $this;
     }
 
@@ -219,6 +223,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setDate(?TimeRange $value = null): self
     {
         $this->date = $value;
+        $this->_setField('date');
         return $this;
     }
 
@@ -236,6 +241,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setNumber(?FloatNumberRange $value = null): self
     {
         $this->number = $value;
+        $this->_setField('number');
         return $this;
     }
 
@@ -253,6 +259,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setBoolean(?bool $value = null): self
     {
         $this->boolean = $value;
+        $this->_setField('boolean');
         return $this;
     }
 
@@ -270,6 +277,7 @@ class CustomerCustomAttributeFilterValue extends JsonSerializableType
     public function setAddress(?CustomerAddressFilter $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 

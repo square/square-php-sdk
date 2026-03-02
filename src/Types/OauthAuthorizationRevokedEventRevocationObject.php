@@ -49,6 +49,7 @@ class OauthAuthorizationRevokedEventRevocationObject extends JsonSerializableTyp
     public function setRevokedAt(?string $value = null): self
     {
         $this->revokedAt = $value;
+        $this->_setField('revokedAt');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class OauthAuthorizationRevokedEventRevocationObject extends JsonSerializableTyp
     public function setRevokerType(?string $value = null): self
     {
         $this->revokerType = $value;
+        $this->_setField('revokerType');
         return $this;
     }
 

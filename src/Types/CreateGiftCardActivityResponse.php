@@ -51,6 +51,7 @@ class CreateGiftCardActivityResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class CreateGiftCardActivityResponse extends JsonSerializableType
     public function setGiftCardActivity(?GiftCardActivity $value = null): self
     {
         $this->giftCardActivity = $value;
+        $this->_setField('giftCardActivity');
         return $this;
     }
 

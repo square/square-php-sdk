@@ -47,6 +47,7 @@ class LoyaltyEventTypeFilter extends JsonSerializableType
     public function setTypes(array $value): self
     {
         $this->types = $value;
+        $this->_setField('types');
         return $this;
     }
 

@@ -73,6 +73,7 @@ class LoyaltyPromotionIncentivePointsMultiplierData extends JsonSerializableType
     public function setPointsMultiplier(?int $value = null): self
     {
         $this->pointsMultiplier = $value;
+        $this->_setField('pointsMultiplier');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class LoyaltyPromotionIncentivePointsMultiplierData extends JsonSerializableType
     public function setMultiplier(?string $value = null): self
     {
         $this->multiplier = $value;
+        $this->_setField('multiplier');
         return $this;
     }
 

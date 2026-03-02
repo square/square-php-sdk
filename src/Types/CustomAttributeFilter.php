@@ -108,6 +108,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setCustomAttributeDefinitionId(?string $value = null): self
     {
         $this->customAttributeDefinitionId = $value;
+        $this->_setField('customAttributeDefinitionId');
         return $this;
     }
 
@@ -125,6 +126,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -142,6 +144,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setStringFilter(?string $value = null): self
     {
         $this->stringFilter = $value;
+        $this->_setField('stringFilter');
         return $this;
     }
 
@@ -159,6 +162,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setNumberFilter(?Range $value = null): self
     {
         $this->numberFilter = $value;
+        $this->_setField('numberFilter');
         return $this;
     }
 
@@ -176,6 +180,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setSelectionUidsFilter(?array $value = null): self
     {
         $this->selectionUidsFilter = $value;
+        $this->_setField('selectionUidsFilter');
         return $this;
     }
 
@@ -193,6 +198,7 @@ class CustomAttributeFilter extends JsonSerializableType
     public function setBoolFilter(?bool $value = null): self
     {
         $this->boolFilter = $value;
+        $this->_setField('boolFilter');
         return $this;
     }
 

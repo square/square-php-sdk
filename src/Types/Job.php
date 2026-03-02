@@ -92,6 +92,7 @@ class Job extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -109,6 +110,7 @@ class Job extends JsonSerializableType
     public function setTitle(?string $value = null): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -126,6 +128,7 @@ class Job extends JsonSerializableType
     public function setIsTipEligible(?bool $value = null): self
     {
         $this->isTipEligible = $value;
+        $this->_setField('isTipEligible');
         return $this;
     }
 
@@ -143,6 +146,7 @@ class Job extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -160,6 +164,7 @@ class Job extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -177,6 +182,7 @@ class Job extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 

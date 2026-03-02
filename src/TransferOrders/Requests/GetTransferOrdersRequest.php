@@ -36,6 +36,7 @@ class GetTransferOrdersRequest extends JsonSerializableType
     public function setTransferOrderId(string $value): self
     {
         $this->transferOrderId = $value;
+        $this->_setField('transferOrderId');
         return $this;
     }
 }

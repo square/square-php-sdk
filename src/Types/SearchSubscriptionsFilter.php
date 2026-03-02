@@ -59,6 +59,7 @@ class SearchSubscriptionsFilter extends JsonSerializableType
     public function setCustomerIds(?array $value = null): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class SearchSubscriptionsFilter extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class SearchSubscriptionsFilter extends JsonSerializableType
     public function setSourceNames(?array $value = null): self
     {
         $this->sourceNames = $value;
+        $this->_setField('sourceNames');
         return $this;
     }
 

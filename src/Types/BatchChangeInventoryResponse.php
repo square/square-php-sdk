@@ -55,6 +55,7 @@ class BatchChangeInventoryResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class BatchChangeInventoryResponse extends JsonSerializableType
     public function setCounts(?array $value = null): self
     {
         $this->counts = $value;
+        $this->_setField('counts');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class BatchChangeInventoryResponse extends JsonSerializableType
     public function setChanges(?array $value = null): self
     {
         $this->changes = $value;
+        $this->_setField('changes');
         return $this;
     }
 

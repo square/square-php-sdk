@@ -105,6 +105,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setSellerId(?string $value = null): self
     {
         $this->sellerId = $value;
+        $this->_setField('sellerId');
         return $this;
     }
 
@@ -122,6 +123,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -139,6 +141,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setBookingEnabled(?bool $value = null): self
     {
         $this->bookingEnabled = $value;
+        $this->_setField('bookingEnabled');
         return $this;
     }
 
@@ -156,6 +159,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setCustomerTimezoneChoice(?string $value = null): self
     {
         $this->customerTimezoneChoice = $value;
+        $this->_setField('customerTimezoneChoice');
         return $this;
     }
 
@@ -173,6 +177,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setBookingPolicy(?string $value = null): self
     {
         $this->bookingPolicy = $value;
+        $this->_setField('bookingPolicy');
         return $this;
     }
 
@@ -190,6 +195,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setAllowUserCancel(?bool $value = null): self
     {
         $this->allowUserCancel = $value;
+        $this->_setField('allowUserCancel');
         return $this;
     }
 
@@ -207,6 +213,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setBusinessAppointmentSettings(?BusinessAppointmentSettings $value = null): self
     {
         $this->businessAppointmentSettings = $value;
+        $this->_setField('businessAppointmentSettings');
         return $this;
     }
 
@@ -224,6 +231,7 @@ class BusinessBookingProfile extends JsonSerializableType
     public function setSupportSellerLevelWrites(?bool $value = null): self
     {
         $this->supportSellerLevelWrites = $value;
+        $this->_setField('supportSellerLevelWrites');
         return $this;
     }
 

@@ -36,6 +36,7 @@ class GetPaymentsRequest extends JsonSerializableType
     public function setPaymentId(string $value): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 }

@@ -47,6 +47,7 @@ class CreateBreakTypeRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateBreakTypeRequest extends JsonSerializableType
     public function setBreakType(BreakType $value): self
     {
         $this->breakType = $value;
+        $this->_setField('breakType');
         return $this;
     }
 }

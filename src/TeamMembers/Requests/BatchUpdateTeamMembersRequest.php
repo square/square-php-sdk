@@ -47,6 +47,7 @@ class BatchUpdateTeamMembersRequest extends JsonSerializableType
     public function setTeamMembers(array $value): self
     {
         $this->teamMembers = $value;
+        $this->_setField('teamMembers');
         return $this;
     }
 }

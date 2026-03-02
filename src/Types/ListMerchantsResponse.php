@@ -58,6 +58,7 @@ class ListMerchantsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class ListMerchantsResponse extends JsonSerializableType
     public function setMerchant(?array $value = null): self
     {
         $this->merchant = $value;
+        $this->_setField('merchant');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class ListMerchantsResponse extends JsonSerializableType
     public function setCursor(?int $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

@@ -70,6 +70,7 @@ class GetCustomAttributesRequest extends JsonSerializableType
     public function setMerchantId(string $value): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -87,6 +88,7 @@ class GetCustomAttributesRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -104,6 +106,7 @@ class GetCustomAttributesRequest extends JsonSerializableType
     public function setWithDefinition(?bool $value = null): self
     {
         $this->withDefinition = $value;
+        $this->_setField('withDefinition');
         return $this;
     }
 
@@ -121,6 +124,7 @@ class GetCustomAttributesRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 }

@@ -55,6 +55,7 @@ class GetCatalogObjectResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class GetCatalogObjectResponse extends JsonSerializableType
     public function setObject(?CatalogObject $value = null): self
     {
         $this->object = $value;
+        $this->_setField('object');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class GetCatalogObjectResponse extends JsonSerializableType
     public function setRelatedObjects(?array $value = null): self
     {
         $this->relatedObjects = $value;
+        $this->_setField('relatedObjects');
         return $this;
     }
 

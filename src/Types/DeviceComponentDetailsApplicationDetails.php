@@ -65,6 +65,7 @@ class DeviceComponentDetailsApplicationDetails extends JsonSerializableType
     public function setApplicationType(?string $value = null): self
     {
         $this->applicationType = $value;
+        $this->_setField('applicationType');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class DeviceComponentDetailsApplicationDetails extends JsonSerializableType
     public function setVersion(?string $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class DeviceComponentDetailsApplicationDetails extends JsonSerializableType
     public function setSessionLocation(?string $value = null): self
     {
         $this->sessionLocation = $value;
+        $this->_setField('sessionLocation');
         return $this;
     }
 
@@ -116,6 +119,7 @@ class DeviceComponentDetailsApplicationDetails extends JsonSerializableType
     public function setDeviceCodeId(?string $value = null): self
     {
         $this->deviceCodeId = $value;
+        $this->_setField('deviceCodeId');
         return $this;
     }
 

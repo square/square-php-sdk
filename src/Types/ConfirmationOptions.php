@@ -70,6 +70,7 @@ class ConfirmationOptions extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -87,6 +88,7 @@ class ConfirmationOptions extends JsonSerializableType
     public function setBody(string $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 
@@ -104,6 +106,7 @@ class ConfirmationOptions extends JsonSerializableType
     public function setAgreeButtonText(string $value): self
     {
         $this->agreeButtonText = $value;
+        $this->_setField('agreeButtonText');
         return $this;
     }
 
@@ -121,6 +124,7 @@ class ConfirmationOptions extends JsonSerializableType
     public function setDisagreeButtonText(?string $value = null): self
     {
         $this->disagreeButtonText = $value;
+        $this->_setField('disagreeButtonText');
         return $this;
     }
 
@@ -138,6 +142,7 @@ class ConfirmationOptions extends JsonSerializableType
     public function setDecision(?ConfirmationDecision $value = null): self
     {
         $this->decision = $value;
+        $this->_setField('decision');
         return $this;
     }
 

@@ -109,6 +109,7 @@ class Merchant extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -126,6 +127,7 @@ class Merchant extends JsonSerializableType
     public function setBusinessName(?string $value = null): self
     {
         $this->businessName = $value;
+        $this->_setField('businessName');
         return $this;
     }
 
@@ -143,6 +145,7 @@ class Merchant extends JsonSerializableType
     public function setCountry(string $value): self
     {
         $this->country = $value;
+        $this->_setField('country');
         return $this;
     }
 
@@ -160,6 +163,7 @@ class Merchant extends JsonSerializableType
     public function setLanguageCode(?string $value = null): self
     {
         $this->languageCode = $value;
+        $this->_setField('languageCode');
         return $this;
     }
 
@@ -177,6 +181,7 @@ class Merchant extends JsonSerializableType
     public function setCurrency(?string $value = null): self
     {
         $this->currency = $value;
+        $this->_setField('currency');
         return $this;
     }
 
@@ -194,6 +199,7 @@ class Merchant extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -211,6 +217,7 @@ class Merchant extends JsonSerializableType
     public function setMainLocationId(?string $value = null): self
     {
         $this->mainLocationId = $value;
+        $this->_setField('mainLocationId');
         return $this;
     }
 
@@ -228,6 +235,7 @@ class Merchant extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

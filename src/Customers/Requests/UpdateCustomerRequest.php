@@ -181,6 +181,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -198,6 +199,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setGivenName(?string $value = null): self
     {
         $this->givenName = $value;
+        $this->_setField('givenName');
         return $this;
     }
 
@@ -215,6 +217,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setFamilyName(?string $value = null): self
     {
         $this->familyName = $value;
+        $this->_setField('familyName');
         return $this;
     }
 
@@ -232,6 +235,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setCompanyName(?string $value = null): self
     {
         $this->companyName = $value;
+        $this->_setField('companyName');
         return $this;
     }
 
@@ -249,6 +253,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setNickname(?string $value = null): self
     {
         $this->nickname = $value;
+        $this->_setField('nickname');
         return $this;
     }
 
@@ -266,6 +271,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -283,6 +289,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 
@@ -300,6 +307,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -317,6 +325,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -334,6 +343,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -351,6 +361,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setBirthday(?string $value = null): self
     {
         $this->birthday = $value;
+        $this->_setField('birthday');
         return $this;
     }
 
@@ -368,6 +379,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -385,6 +397,7 @@ class UpdateCustomerRequest extends JsonSerializableType
     public function setTaxIds(?CustomerTaxIds $value = null): self
     {
         $this->taxIds = $value;
+        $this->_setField('taxIds');
         return $this;
     }
 }

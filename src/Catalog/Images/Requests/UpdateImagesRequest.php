@@ -54,6 +54,7 @@ class UpdateImagesRequest extends JsonSerializableType
     public function setImageId(string $value): self
     {
         $this->imageId = $value;
+        $this->_setField('imageId');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class UpdateImagesRequest extends JsonSerializableType
     public function setRequest(?UpdateCatalogImageRequest $value = null): self
     {
         $this->request = $value;
+        $this->_setField('request');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class UpdateImagesRequest extends JsonSerializableType
     public function setImageFile(?File $value = null): self
     {
         $this->imageFile = $value;
+        $this->_setField('imageFile');
         return $this;
     }
 }

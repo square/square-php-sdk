@@ -53,6 +53,7 @@ class CreateTerminalActionRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CreateTerminalActionRequest extends JsonSerializableType
     public function setAction(TerminalAction $value): self
     {
         $this->action = $value;
+        $this->_setField('action');
         return $this;
     }
 }

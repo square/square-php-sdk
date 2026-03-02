@@ -52,6 +52,7 @@ class CreateDeviceCodeRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CreateDeviceCodeRequest extends JsonSerializableType
     public function setDeviceCode(DeviceCode $value): self
     {
         $this->deviceCode = $value;
+        $this->_setField('deviceCode');
         return $this;
     }
 }

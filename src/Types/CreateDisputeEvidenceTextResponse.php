@@ -50,6 +50,7 @@ class CreateDisputeEvidenceTextResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CreateDisputeEvidenceTextResponse extends JsonSerializableType
     public function setEvidence(?DisputeEvidence $value = null): self
     {
         $this->evidence = $value;
+        $this->_setField('evidence');
         return $this;
     }
 

@@ -38,6 +38,7 @@ class PaymentBalanceActivitySquareCapitalReversedPaymentDetail extends JsonSeria
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 

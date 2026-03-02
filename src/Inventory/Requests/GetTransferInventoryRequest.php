@@ -36,6 +36,7 @@ class GetTransferInventoryRequest extends JsonSerializableType
     public function setTransferId(string $value): self
     {
         $this->transferId = $value;
+        $this->_setField('transferId');
         return $this;
     }
 }

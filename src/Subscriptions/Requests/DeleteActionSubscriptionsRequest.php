@@ -43,6 +43,7 @@ class DeleteActionSubscriptionsRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class DeleteActionSubscriptionsRequest extends JsonSerializableType
     public function setActionId(string $value): self
     {
         $this->actionId = $value;
+        $this->_setField('actionId');
         return $this;
     }
 }

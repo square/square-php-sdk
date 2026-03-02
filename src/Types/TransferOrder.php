@@ -207,6 +207,7 @@ class TransferOrder extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -224,6 +225,7 @@ class TransferOrder extends JsonSerializableType
     public function setSourceLocationId(?string $value = null): self
     {
         $this->sourceLocationId = $value;
+        $this->_setField('sourceLocationId');
         return $this;
     }
 
@@ -241,6 +243,7 @@ class TransferOrder extends JsonSerializableType
     public function setDestinationLocationId(?string $value = null): self
     {
         $this->destinationLocationId = $value;
+        $this->_setField('destinationLocationId');
         return $this;
     }
 
@@ -258,6 +261,7 @@ class TransferOrder extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -275,6 +279,7 @@ class TransferOrder extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -292,6 +297,7 @@ class TransferOrder extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -309,6 +315,7 @@ class TransferOrder extends JsonSerializableType
     public function setExpectedAt(?string $value = null): self
     {
         $this->expectedAt = $value;
+        $this->_setField('expectedAt');
         return $this;
     }
 
@@ -326,6 +333,7 @@ class TransferOrder extends JsonSerializableType
     public function setCompletedAt(?string $value = null): self
     {
         $this->completedAt = $value;
+        $this->_setField('completedAt');
         return $this;
     }
 
@@ -343,6 +351,7 @@ class TransferOrder extends JsonSerializableType
     public function setNotes(?string $value = null): self
     {
         $this->notes = $value;
+        $this->_setField('notes');
         return $this;
     }
 
@@ -360,6 +369,7 @@ class TransferOrder extends JsonSerializableType
     public function setTrackingNumber(?string $value = null): self
     {
         $this->trackingNumber = $value;
+        $this->_setField('trackingNumber');
         return $this;
     }
 
@@ -377,6 +387,7 @@ class TransferOrder extends JsonSerializableType
     public function setCreatedByTeamMemberId(?string $value = null): self
     {
         $this->createdByTeamMemberId = $value;
+        $this->_setField('createdByTeamMemberId');
         return $this;
     }
 
@@ -394,6 +405,7 @@ class TransferOrder extends JsonSerializableType
     public function setLineItems(?array $value = null): self
     {
         $this->lineItems = $value;
+        $this->_setField('lineItems');
         return $this;
     }
 
@@ -411,6 +423,7 @@ class TransferOrder extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 

@@ -164,6 +164,7 @@ class Fulfillment extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -181,6 +182,7 @@ class Fulfillment extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -198,6 +200,7 @@ class Fulfillment extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -215,6 +218,7 @@ class Fulfillment extends JsonSerializableType
     public function setLineItemApplication(?string $value = null): self
     {
         $this->lineItemApplication = $value;
+        $this->_setField('lineItemApplication');
         return $this;
     }
 
@@ -232,6 +236,7 @@ class Fulfillment extends JsonSerializableType
     public function setEntries(?array $value = null): self
     {
         $this->entries = $value;
+        $this->_setField('entries');
         return $this;
     }
 
@@ -249,6 +254,7 @@ class Fulfillment extends JsonSerializableType
     public function setMetadata(?array $value = null): self
     {
         $this->metadata = $value;
+        $this->_setField('metadata');
         return $this;
     }
 
@@ -266,6 +272,7 @@ class Fulfillment extends JsonSerializableType
     public function setPickupDetails(?FulfillmentPickupDetails $value = null): self
     {
         $this->pickupDetails = $value;
+        $this->_setField('pickupDetails');
         return $this;
     }
 
@@ -283,6 +290,7 @@ class Fulfillment extends JsonSerializableType
     public function setShipmentDetails(?FulfillmentShipmentDetails $value = null): self
     {
         $this->shipmentDetails = $value;
+        $this->_setField('shipmentDetails');
         return $this;
     }
 
@@ -300,6 +308,7 @@ class Fulfillment extends JsonSerializableType
     public function setDeliveryDetails(?FulfillmentDeliveryDetails $value = null): self
     {
         $this->deliveryDetails = $value;
+        $this->_setField('deliveryDetails');
         return $this;
     }
 

@@ -47,6 +47,7 @@ class BulkPublishScheduledShiftsData extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 

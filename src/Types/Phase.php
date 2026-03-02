@@ -65,6 +65,7 @@ class Phase extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class Phase extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class Phase extends JsonSerializableType
     public function setOrderTemplateId(?string $value = null): self
     {
         $this->orderTemplateId = $value;
+        $this->_setField('orderTemplateId');
         return $this;
     }
 
@@ -116,6 +119,7 @@ class Phase extends JsonSerializableType
     public function setPlanPhaseUid(?string $value = null): self
     {
         $this->planPhaseUid = $value;
+        $this->_setField('planPhaseUid');
         return $this;
     }
 

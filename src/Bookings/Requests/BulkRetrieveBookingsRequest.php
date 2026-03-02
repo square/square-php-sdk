@@ -39,6 +39,7 @@ class BulkRetrieveBookingsRequest extends JsonSerializableType
     public function setBookingIds(array $value): self
     {
         $this->bookingIds = $value;
+        $this->_setField('bookingIds');
         return $this;
     }
 }

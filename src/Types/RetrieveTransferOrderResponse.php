@@ -50,6 +50,7 @@ class RetrieveTransferOrderResponse extends JsonSerializableType
     public function setTransferOrder(?TransferOrder $value = null): self
     {
         $this->transferOrder = $value;
+        $this->_setField('transferOrder');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class RetrieveTransferOrderResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

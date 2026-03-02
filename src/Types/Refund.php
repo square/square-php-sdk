@@ -121,6 +121,7 @@ class Refund extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -138,6 +139,7 @@ class Refund extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -155,6 +157,7 @@ class Refund extends JsonSerializableType
     public function setTransactionId(?string $value = null): self
     {
         $this->transactionId = $value;
+        $this->_setField('transactionId');
         return $this;
     }
 
@@ -172,6 +175,7 @@ class Refund extends JsonSerializableType
     public function setTenderId(?string $value = null): self
     {
         $this->tenderId = $value;
+        $this->_setField('tenderId');
         return $this;
     }
 
@@ -189,6 +193,7 @@ class Refund extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -206,6 +211,7 @@ class Refund extends JsonSerializableType
     public function setReason(string $value): self
     {
         $this->reason = $value;
+        $this->_setField('reason');
         return $this;
     }
 
@@ -223,6 +229,7 @@ class Refund extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -240,6 +247,7 @@ class Refund extends JsonSerializableType
     public function setStatus(string $value): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -257,6 +265,7 @@ class Refund extends JsonSerializableType
     public function setProcessingFeeMoney(?Money $value = null): self
     {
         $this->processingFeeMoney = $value;
+        $this->_setField('processingFeeMoney');
         return $this;
     }
 
@@ -274,6 +283,7 @@ class Refund extends JsonSerializableType
     public function setAdditionalRecipients(?array $value = null): self
     {
         $this->additionalRecipients = $value;
+        $this->_setField('additionalRecipients');
         return $this;
     }
 

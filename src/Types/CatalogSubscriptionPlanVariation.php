@@ -87,6 +87,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setName(string $value): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -104,6 +105,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setPhases(array $value): self
     {
         $this->phases = $value;
+        $this->_setField('phases');
         return $this;
     }
 
@@ -121,6 +123,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setSubscriptionPlanId(?string $value = null): self
     {
         $this->subscriptionPlanId = $value;
+        $this->_setField('subscriptionPlanId');
         return $this;
     }
 
@@ -138,6 +141,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setMonthlyBillingAnchorDate(?int $value = null): self
     {
         $this->monthlyBillingAnchorDate = $value;
+        $this->_setField('monthlyBillingAnchorDate');
         return $this;
     }
 
@@ -155,6 +159,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setCanProrate(?bool $value = null): self
     {
         $this->canProrate = $value;
+        $this->_setField('canProrate');
         return $this;
     }
 
@@ -172,6 +177,7 @@ class CatalogSubscriptionPlanVariation extends JsonSerializableType
     public function setSuccessorPlanVariationId(?string $value = null): self
     {
         $this->successorPlanVariationId = $value;
+        $this->_setField('successorPlanVariationId');
         return $this;
     }
 

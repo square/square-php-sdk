@@ -206,6 +206,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -223,6 +224,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setRequestMethod(?string $value = null): self
     {
         $this->requestMethod = $value;
+        $this->_setField('requestMethod');
         return $this;
     }
 
@@ -240,6 +242,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setRequestType(?string $value = null): self
     {
         $this->requestType = $value;
+        $this->_setField('requestType');
         return $this;
     }
 
@@ -257,6 +260,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setDueDate(?string $value = null): self
     {
         $this->dueDate = $value;
+        $this->_setField('dueDate');
         return $this;
     }
 
@@ -274,6 +278,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setFixedAmountRequestedMoney(?Money $value = null): self
     {
         $this->fixedAmountRequestedMoney = $value;
+        $this->_setField('fixedAmountRequestedMoney');
         return $this;
     }
 
@@ -291,6 +296,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setPercentageRequested(?string $value = null): self
     {
         $this->percentageRequested = $value;
+        $this->_setField('percentageRequested');
         return $this;
     }
 
@@ -308,6 +314,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setTippingEnabled(?bool $value = null): self
     {
         $this->tippingEnabled = $value;
+        $this->_setField('tippingEnabled');
         return $this;
     }
 
@@ -325,6 +332,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setAutomaticPaymentSource(?string $value = null): self
     {
         $this->automaticPaymentSource = $value;
+        $this->_setField('automaticPaymentSource');
         return $this;
     }
 
@@ -342,6 +350,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setCardId(?string $value = null): self
     {
         $this->cardId = $value;
+        $this->_setField('cardId');
         return $this;
     }
 
@@ -359,6 +368,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setReminders(?array $value = null): self
     {
         $this->reminders = $value;
+        $this->_setField('reminders');
         return $this;
     }
 
@@ -376,6 +386,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setComputedAmountMoney(?Money $value = null): self
     {
         $this->computedAmountMoney = $value;
+        $this->_setField('computedAmountMoney');
         return $this;
     }
 
@@ -393,6 +404,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setTotalCompletedAmountMoney(?Money $value = null): self
     {
         $this->totalCompletedAmountMoney = $value;
+        $this->_setField('totalCompletedAmountMoney');
         return $this;
     }
 
@@ -410,6 +422,7 @@ class InvoicePaymentRequest extends JsonSerializableType
     public function setRoundingAdjustmentIncludedMoney(?Money $value = null): self
     {
         $this->roundingAdjustmentIncludedMoney = $value;
+        $this->_setField('roundingAdjustmentIncludedMoney');
         return $this;
     }
 

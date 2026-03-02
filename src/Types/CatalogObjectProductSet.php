@@ -61,6 +61,7 @@ class CatalogObjectProductSet extends JsonSerializableType
     public function setProductSetData(?CatalogProductSet $value = null): self
     {
         $this->productSetData = $value;
+        $this->_setField('productSetData');
         return $this;
     }
 

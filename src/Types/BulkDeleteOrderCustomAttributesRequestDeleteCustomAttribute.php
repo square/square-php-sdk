@@ -52,6 +52,7 @@ class BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute extends JsonSe
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class BulkDeleteOrderCustomAttributesRequestDeleteCustomAttribute extends JsonSe
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 

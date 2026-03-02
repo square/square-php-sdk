@@ -47,6 +47,7 @@ class GetTeamMemberBookingProfileResponse extends JsonSerializableType
     public function setTeamMemberBookingProfile(?TeamMemberBookingProfile $value = null): self
     {
         $this->teamMemberBookingProfile = $value;
+        $this->_setField('teamMemberBookingProfile');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetTeamMemberBookingProfileResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

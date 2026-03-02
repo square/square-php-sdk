@@ -114,6 +114,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -131,6 +132,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -148,6 +150,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 
@@ -165,6 +168,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setEventTypes(?array $value = null): self
     {
         $this->eventTypes = $value;
+        $this->_setField('eventTypes');
         return $this;
     }
 
@@ -182,6 +186,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setNotificationUrl(?string $value = null): self
     {
         $this->notificationUrl = $value;
+        $this->_setField('notificationUrl');
         return $this;
     }
 
@@ -199,6 +204,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setApiVersion(?string $value = null): self
     {
         $this->apiVersion = $value;
+        $this->_setField('apiVersion');
         return $this;
     }
 
@@ -216,6 +222,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setSignatureKey(?string $value = null): self
     {
         $this->signatureKey = $value;
+        $this->_setField('signatureKey');
         return $this;
     }
 
@@ -233,6 +240,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -250,6 +258,7 @@ class WebhookSubscription extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

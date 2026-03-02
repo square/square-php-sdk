@@ -51,6 +51,7 @@ class CreateJobRequest extends JsonSerializableType
     public function setJob(Job $value): self
     {
         $this->job = $value;
+        $this->_setField('job');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class CreateJobRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

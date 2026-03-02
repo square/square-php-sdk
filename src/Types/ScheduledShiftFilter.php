@@ -123,6 +123,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -140,6 +141,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setStart(?TimeRange $value = null): self
     {
         $this->start = $value;
+        $this->_setField('start');
         return $this;
     }
 
@@ -157,6 +159,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setEnd(?TimeRange $value = null): self
     {
         $this->end = $value;
+        $this->_setField('end');
         return $this;
     }
 
@@ -174,6 +177,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setWorkday(?ScheduledShiftWorkday $value = null): self
     {
         $this->workday = $value;
+        $this->_setField('workday');
         return $this;
     }
 
@@ -191,6 +195,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setTeamMemberIds(?array $value = null): self
     {
         $this->teamMemberIds = $value;
+        $this->_setField('teamMemberIds');
         return $this;
     }
 
@@ -208,6 +213,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setAssignmentStatus(?string $value = null): self
     {
         $this->assignmentStatus = $value;
+        $this->_setField('assignmentStatus');
         return $this;
     }
 
@@ -225,6 +231,7 @@ class ScheduledShiftFilter extends JsonSerializableType
     public function setScheduledShiftStatuses(?array $value = null): self
     {
         $this->scheduledShiftStatuses = $value;
+        $this->_setField('scheduledShiftStatuses');
         return $this;
     }
 

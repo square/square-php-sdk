@@ -139,6 +139,7 @@ class TeamMember extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -156,6 +157,7 @@ class TeamMember extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -173,6 +175,7 @@ class TeamMember extends JsonSerializableType
     public function setIsOwner(?bool $value = null): self
     {
         $this->isOwner = $value;
+        $this->_setField('isOwner');
         return $this;
     }
 
@@ -190,6 +193,7 @@ class TeamMember extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -207,6 +211,7 @@ class TeamMember extends JsonSerializableType
     public function setGivenName(?string $value = null): self
     {
         $this->givenName = $value;
+        $this->_setField('givenName');
         return $this;
     }
 
@@ -224,6 +229,7 @@ class TeamMember extends JsonSerializableType
     public function setFamilyName(?string $value = null): self
     {
         $this->familyName = $value;
+        $this->_setField('familyName');
         return $this;
     }
 
@@ -241,6 +247,7 @@ class TeamMember extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -258,6 +265,7 @@ class TeamMember extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -275,6 +283,7 @@ class TeamMember extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -292,6 +301,7 @@ class TeamMember extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -309,6 +319,7 @@ class TeamMember extends JsonSerializableType
     public function setAssignedLocations(?TeamMemberAssignedLocations $value = null): self
     {
         $this->assignedLocations = $value;
+        $this->_setField('assignedLocations');
         return $this;
     }
 
@@ -326,6 +337,7 @@ class TeamMember extends JsonSerializableType
     public function setWageSetting(?WageSetting $value = null): self
     {
         $this->wageSetting = $value;
+        $this->_setField('wageSetting');
         return $this;
     }
 

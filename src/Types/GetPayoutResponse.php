@@ -47,6 +47,7 @@ class GetPayoutResponse extends JsonSerializableType
     public function setPayout(?Payout $value = null): self
     {
         $this->payout = $value;
+        $this->_setField('payout');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetPayoutResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

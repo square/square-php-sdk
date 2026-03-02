@@ -51,6 +51,7 @@ class BulkSwapPlanResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class BulkSwapPlanResponse extends JsonSerializableType
     public function setAffectedSubscriptions(?int $value = null): self
     {
         $this->affectedSubscriptions = $value;
+        $this->_setField('affectedSubscriptions');
         return $this;
     }
 

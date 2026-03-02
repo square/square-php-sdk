@@ -67,6 +67,7 @@ class OrderLineItemPricingBlocklistsBlockedServiceCharge extends JsonSerializabl
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -84,6 +85,7 @@ class OrderLineItemPricingBlocklistsBlockedServiceCharge extends JsonSerializabl
     public function setServiceChargeUid(?string $value = null): self
     {
         $this->serviceChargeUid = $value;
+        $this->_setField('serviceChargeUid');
         return $this;
     }
 
@@ -101,6 +103,7 @@ class OrderLineItemPricingBlocklistsBlockedServiceCharge extends JsonSerializabl
     public function setServiceChargeCatalogObjectId(?string $value = null): self
     {
         $this->serviceChargeCatalogObjectId = $value;
+        $this->_setField('serviceChargeCatalogObjectId');
         return $this;
     }
 

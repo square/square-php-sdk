@@ -46,6 +46,7 @@ class SelectOption extends JsonSerializableType
     public function setReferenceId(string $value): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class SelectOption extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 

@@ -130,6 +130,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -147,6 +148,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setProductIdsAny(?array $value = null): self
     {
         $this->productIdsAny = $value;
+        $this->_setField('productIdsAny');
         return $this;
     }
 
@@ -164,6 +166,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setProductIdsAll(?array $value = null): self
     {
         $this->productIdsAll = $value;
+        $this->_setField('productIdsAll');
         return $this;
     }
 
@@ -181,6 +184,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setQuantityExact(?int $value = null): self
     {
         $this->quantityExact = $value;
+        $this->_setField('quantityExact');
         return $this;
     }
 
@@ -198,6 +202,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setQuantityMin(?int $value = null): self
     {
         $this->quantityMin = $value;
+        $this->_setField('quantityMin');
         return $this;
     }
 
@@ -215,6 +220,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setQuantityMax(?int $value = null): self
     {
         $this->quantityMax = $value;
+        $this->_setField('quantityMax');
         return $this;
     }
 
@@ -232,6 +238,7 @@ class CatalogProductSet extends JsonSerializableType
     public function setAllProducts(?bool $value = null): self
     {
         $this->allProducts = $value;
+        $this->_setField('allProducts');
         return $this;
     }
 

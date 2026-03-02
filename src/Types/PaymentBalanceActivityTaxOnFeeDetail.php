@@ -46,6 +46,7 @@ class PaymentBalanceActivityTaxOnFeeDetail extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class PaymentBalanceActivityTaxOnFeeDetail extends JsonSerializableType
     public function setTaxRateDescription(?string $value = null): self
     {
         $this->taxRateDescription = $value;
+        $this->_setField('taxRateDescription');
         return $this;
     }
 

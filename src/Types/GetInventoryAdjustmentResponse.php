@@ -47,6 +47,7 @@ class GetInventoryAdjustmentResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetInventoryAdjustmentResponse extends JsonSerializableType
     public function setAdjustment(?InventoryAdjustment $value = null): self
     {
         $this->adjustment = $value;
+        $this->_setField('adjustment');
         return $this;
     }
 

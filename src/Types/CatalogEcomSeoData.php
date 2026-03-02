@@ -57,6 +57,7 @@ class CatalogEcomSeoData extends JsonSerializableType
     public function setPageTitle(?string $value = null): self
     {
         $this->pageTitle = $value;
+        $this->_setField('pageTitle');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CatalogEcomSeoData extends JsonSerializableType
     public function setPageDescription(?string $value = null): self
     {
         $this->pageDescription = $value;
+        $this->_setField('pageDescription');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class CatalogEcomSeoData extends JsonSerializableType
     public function setPermalink(?string $value = null): self
     {
         $this->permalink = $value;
+        $this->_setField('permalink');
         return $this;
     }
 

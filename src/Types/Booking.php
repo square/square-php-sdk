@@ -187,6 +187,7 @@ class Booking extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -204,6 +205,7 @@ class Booking extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -221,6 +223,7 @@ class Booking extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -238,6 +241,7 @@ class Booking extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -255,6 +259,7 @@ class Booking extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -272,6 +277,7 @@ class Booking extends JsonSerializableType
     public function setStartAt(?string $value = null): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -289,6 +295,7 @@ class Booking extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -306,6 +313,7 @@ class Booking extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -323,6 +331,7 @@ class Booking extends JsonSerializableType
     public function setCustomerNote(?string $value = null): self
     {
         $this->customerNote = $value;
+        $this->_setField('customerNote');
         return $this;
     }
 
@@ -340,6 +349,7 @@ class Booking extends JsonSerializableType
     public function setSellerNote(?string $value = null): self
     {
         $this->sellerNote = $value;
+        $this->_setField('sellerNote');
         return $this;
     }
 
@@ -357,6 +367,7 @@ class Booking extends JsonSerializableType
     public function setAppointmentSegments(?array $value = null): self
     {
         $this->appointmentSegments = $value;
+        $this->_setField('appointmentSegments');
         return $this;
     }
 
@@ -374,6 +385,7 @@ class Booking extends JsonSerializableType
     public function setTransitionTimeMinutes(?int $value = null): self
     {
         $this->transitionTimeMinutes = $value;
+        $this->_setField('transitionTimeMinutes');
         return $this;
     }
 
@@ -391,6 +403,7 @@ class Booking extends JsonSerializableType
     public function setAllDay(?bool $value = null): self
     {
         $this->allDay = $value;
+        $this->_setField('allDay');
         return $this;
     }
 
@@ -408,6 +421,7 @@ class Booking extends JsonSerializableType
     public function setLocationType(?string $value = null): self
     {
         $this->locationType = $value;
+        $this->_setField('locationType');
         return $this;
     }
 
@@ -425,6 +439,7 @@ class Booking extends JsonSerializableType
     public function setCreatorDetails(?BookingCreatorDetails $value = null): self
     {
         $this->creatorDetails = $value;
+        $this->_setField('creatorDetails');
         return $this;
     }
 
@@ -442,6 +457,7 @@ class Booking extends JsonSerializableType
     public function setSource(?string $value = null): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -459,6 +475,7 @@ class Booking extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 

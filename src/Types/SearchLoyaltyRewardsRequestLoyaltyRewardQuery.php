@@ -52,6 +52,7 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery extends JsonSerializableType
     public function setLoyaltyAccountId(string $value): self
     {
         $this->loyaltyAccountId = $value;
+        $this->_setField('loyaltyAccountId');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class SearchLoyaltyRewardsRequestLoyaltyRewardQuery extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

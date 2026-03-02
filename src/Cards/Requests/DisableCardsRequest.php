@@ -36,6 +36,7 @@ class DisableCardsRequest extends JsonSerializableType
     public function setCardId(string $value): self
     {
         $this->cardId = $value;
+        $this->_setField('cardId');
         return $this;
     }
 }

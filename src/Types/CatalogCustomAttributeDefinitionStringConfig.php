@@ -47,6 +47,7 @@ class CatalogCustomAttributeDefinitionStringConfig extends JsonSerializableType
     public function setEnforceUniqueness(?bool $value = null): self
     {
         $this->enforceUniqueness = $value;
+        $this->_setField('enforceUniqueness');
         return $this;
     }
 

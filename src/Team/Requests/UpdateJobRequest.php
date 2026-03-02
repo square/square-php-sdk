@@ -49,6 +49,7 @@ class UpdateJobRequest extends JsonSerializableType
     public function setJobId(string $value): self
     {
         $this->jobId = $value;
+        $this->_setField('jobId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class UpdateJobRequest extends JsonSerializableType
     public function setJob(Job $value): self
     {
         $this->job = $value;
+        $this->_setField('job');
         return $this;
     }
 }

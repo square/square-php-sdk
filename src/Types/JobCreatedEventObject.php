@@ -38,6 +38,7 @@ class JobCreatedEventObject extends JsonSerializableType
     public function setJob(?Job $value = null): self
     {
         $this->job = $value;
+        $this->_setField('job');
         return $this;
     }
 

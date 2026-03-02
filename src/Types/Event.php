@@ -78,6 +78,7 @@ class Event extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class Event extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class Event extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -129,6 +132,7 @@ class Event extends JsonSerializableType
     public function setEventId(?string $value = null): self
     {
         $this->eventId = $value;
+        $this->_setField('eventId');
         return $this;
     }
 
@@ -146,6 +150,7 @@ class Event extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -163,6 +168,7 @@ class Event extends JsonSerializableType
     public function setData(?EventData $value = null): self
     {
         $this->data = $value;
+        $this->_setField('data');
         return $this;
     }
 

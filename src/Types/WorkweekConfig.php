@@ -95,6 +95,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -112,6 +113,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setStartOfWeek(string $value): self
     {
         $this->startOfWeek = $value;
+        $this->_setField('startOfWeek');
         return $this;
     }
 
@@ -129,6 +131,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setStartOfDayLocalTime(string $value): self
     {
         $this->startOfDayLocalTime = $value;
+        $this->_setField('startOfDayLocalTime');
         return $this;
     }
 
@@ -146,6 +149,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -163,6 +167,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -180,6 +185,7 @@ class WorkweekConfig extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

@@ -50,6 +50,7 @@ class CustomerCreatedEventEventContextMerge extends JsonSerializableType
     public function setFromCustomerIds(?array $value = null): self
     {
         $this->fromCustomerIds = $value;
+        $this->_setField('fromCustomerIds');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CustomerCreatedEventEventContextMerge extends JsonSerializableType
     public function setToCustomerId(?string $value = null): self
     {
         $this->toCustomerId = $value;
+        $this->_setField('toCustomerId');
         return $this;
     }
 

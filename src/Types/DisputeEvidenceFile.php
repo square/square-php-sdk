@@ -49,6 +49,7 @@ class DisputeEvidenceFile extends JsonSerializableType
     public function setFilename(?string $value = null): self
     {
         $this->filename = $value;
+        $this->_setField('filename');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class DisputeEvidenceFile extends JsonSerializableType
     public function setFiletype(?string $value = null): self
     {
         $this->filetype = $value;
+        $this->_setField('filetype');
         return $this;
     }
 

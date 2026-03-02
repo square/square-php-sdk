@@ -117,6 +117,7 @@ class CatalogModifier extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -134,6 +135,7 @@ class CatalogModifier extends JsonSerializableType
     public function setPriceMoney(?Money $value = null): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 
@@ -151,6 +153,7 @@ class CatalogModifier extends JsonSerializableType
     public function setOnByDefault(?bool $value = null): self
     {
         $this->onByDefault = $value;
+        $this->_setField('onByDefault');
         return $this;
     }
 
@@ -168,6 +171,7 @@ class CatalogModifier extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -185,6 +189,7 @@ class CatalogModifier extends JsonSerializableType
     public function setModifierListId(?string $value = null): self
     {
         $this->modifierListId = $value;
+        $this->_setField('modifierListId');
         return $this;
     }
 
@@ -202,6 +207,7 @@ class CatalogModifier extends JsonSerializableType
     public function setLocationOverrides(?array $value = null): self
     {
         $this->locationOverrides = $value;
+        $this->_setField('locationOverrides');
         return $this;
     }
 
@@ -219,6 +225,7 @@ class CatalogModifier extends JsonSerializableType
     public function setKitchenName(?string $value = null): self
     {
         $this->kitchenName = $value;
+        $this->_setField('kitchenName');
         return $this;
     }
 
@@ -236,6 +243,7 @@ class CatalogModifier extends JsonSerializableType
     public function setImageId(?string $value = null): self
     {
         $this->imageId = $value;
+        $this->_setField('imageId');
         return $this;
     }
 
@@ -253,6 +261,7 @@ class CatalogModifier extends JsonSerializableType
     public function setHiddenOnline(?bool $value = null): self
     {
         $this->hiddenOnline = $value;
+        $this->_setField('hiddenOnline');
         return $this;
     }
 

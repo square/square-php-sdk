@@ -42,6 +42,7 @@ class GetGiftCardFromGanRequest extends JsonSerializableType
     public function setGan(string $value): self
     {
         $this->gan = $value;
+        $this->_setField('gan');
         return $this;
     }
 }

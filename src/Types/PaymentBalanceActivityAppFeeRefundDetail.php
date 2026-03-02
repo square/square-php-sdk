@@ -54,6 +54,7 @@ class PaymentBalanceActivityAppFeeRefundDetail extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class PaymentBalanceActivityAppFeeRefundDetail extends JsonSerializableType
     public function setRefundId(?string $value = null): self
     {
         $this->refundId = $value;
+        $this->_setField('refundId');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class PaymentBalanceActivityAppFeeRefundDetail extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 

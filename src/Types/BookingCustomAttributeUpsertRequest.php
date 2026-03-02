@@ -74,6 +74,7 @@ class BookingCustomAttributeUpsertRequest extends JsonSerializableType
     public function setBookingId(string $value): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 
@@ -91,6 +92,7 @@ class BookingCustomAttributeUpsertRequest extends JsonSerializableType
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -108,6 +110,7 @@ class BookingCustomAttributeUpsertRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 

@@ -72,6 +72,7 @@ class DigitalWalletDetails extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -89,6 +90,7 @@ class DigitalWalletDetails extends JsonSerializableType
     public function setBrand(?string $value = null): self
     {
         $this->brand = $value;
+        $this->_setField('brand');
         return $this;
     }
 
@@ -106,6 +108,7 @@ class DigitalWalletDetails extends JsonSerializableType
     public function setCashAppDetails(?CashAppDetails $value = null): self
     {
         $this->cashAppDetails = $value;
+        $this->_setField('cashAppDetails');
         return $this;
     }
 
@@ -123,6 +126,7 @@ class DigitalWalletDetails extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -46,6 +46,7 @@ class UpdateLocationRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateLocationRequest extends JsonSerializableType
     public function setLocation(?Location $value = null): self
     {
         $this->location = $value;
+        $this->_setField('location');
         return $this;
     }
 }

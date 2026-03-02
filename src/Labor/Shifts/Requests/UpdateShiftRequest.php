@@ -46,6 +46,7 @@ class UpdateShiftRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateShiftRequest extends JsonSerializableType
     public function setShift(Shift $value): self
     {
         $this->shift = $value;
+        $this->_setField('shift');
         return $this;
     }
 }

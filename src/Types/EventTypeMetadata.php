@@ -57,6 +57,7 @@ class EventTypeMetadata extends JsonSerializableType
     public function setEventType(?string $value = null): self
     {
         $this->eventType = $value;
+        $this->_setField('eventType');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class EventTypeMetadata extends JsonSerializableType
     public function setApiVersionIntroduced(?string $value = null): self
     {
         $this->apiVersionIntroduced = $value;
+        $this->_setField('apiVersionIntroduced');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class EventTypeMetadata extends JsonSerializableType
     public function setReleaseStatus(?string $value = null): self
     {
         $this->releaseStatus = $value;
+        $this->_setField('releaseStatus');
         return $this;
     }
 

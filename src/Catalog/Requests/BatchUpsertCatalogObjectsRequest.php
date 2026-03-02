@@ -80,6 +80,7 @@ class BatchUpsertCatalogObjectsRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -97,6 +98,7 @@ class BatchUpsertCatalogObjectsRequest extends JsonSerializableType
     public function setBatches(array $value): self
     {
         $this->batches = $value;
+        $this->_setField('batches');
         return $this;
     }
 }

@@ -38,6 +38,7 @@ class PayoutSentEventObject extends JsonSerializableType
     public function setPayout(?Payout $value = null): self
     {
         $this->payout = $value;
+        $this->_setField('payout');
         return $this;
     }
 

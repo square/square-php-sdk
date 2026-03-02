@@ -41,6 +41,7 @@ class CustomerCreatedEventEventContext extends JsonSerializableType
     public function setMerge(?CustomerCreatedEventEventContextMerge $value = null): self
     {
         $this->merge = $value;
+        $this->_setField('merge');
         return $this;
     }
 

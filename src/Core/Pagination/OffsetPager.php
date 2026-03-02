@@ -5,7 +5,7 @@ namespace Square\Core\Pagination;
 use Generator;
 
 /**
- * @template TRequest
+ * @template TRequest of object
  * @template TResponse
  * @template TItem
  * @extends Pager<TItem>

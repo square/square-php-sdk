@@ -38,6 +38,7 @@ class DeviceComponentDetailsCardReaderDetails extends JsonSerializableType
     public function setVersion(?string $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 

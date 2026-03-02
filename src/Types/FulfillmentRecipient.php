@@ -102,6 +102,7 @@ class FulfillmentRecipient extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -119,6 +120,7 @@ class FulfillmentRecipient extends JsonSerializableType
     public function setDisplayName(?string $value = null): self
     {
         $this->displayName = $value;
+        $this->_setField('displayName');
         return $this;
     }
 
@@ -136,6 +138,7 @@ class FulfillmentRecipient extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -153,6 +156,7 @@ class FulfillmentRecipient extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -170,6 +174,7 @@ class FulfillmentRecipient extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 

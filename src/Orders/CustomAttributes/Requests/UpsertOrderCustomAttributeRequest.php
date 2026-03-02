@@ -75,6 +75,7 @@ class UpsertOrderCustomAttributeRequest extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class UpsertOrderCustomAttributeRequest extends JsonSerializableType
     public function setCustomAttributeKey(string $value): self
     {
         $this->customAttributeKey = $value;
+        $this->_setField('customAttributeKey');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class UpsertOrderCustomAttributeRequest extends JsonSerializableType
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class UpsertOrderCustomAttributeRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

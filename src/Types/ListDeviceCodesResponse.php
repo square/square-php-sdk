@@ -61,6 +61,7 @@ class ListDeviceCodesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class ListDeviceCodesResponse extends JsonSerializableType
     public function setDeviceCodes(?array $value = null): self
     {
         $this->deviceCodes = $value;
+        $this->_setField('deviceCodes');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class ListDeviceCodesResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

@@ -52,6 +52,7 @@ class SubscriptionEventInfo extends JsonSerializableType
     public function setDetail(?string $value = null): self
     {
         $this->detail = $value;
+        $this->_setField('detail');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class SubscriptionEventInfo extends JsonSerializableType
     public function setCode(?string $value = null): self
     {
         $this->code = $value;
+        $this->_setField('code');
         return $this;
     }
 

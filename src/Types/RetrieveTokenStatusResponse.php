@@ -75,6 +75,7 @@ class RetrieveTokenStatusResponse extends JsonSerializableType
     public function setScopes(?array $value = null): self
     {
         $this->scopes = $value;
+        $this->_setField('scopes');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class RetrieveTokenStatusResponse extends JsonSerializableType
     public function setExpiresAt(?string $value = null): self
     {
         $this->expiresAt = $value;
+        $this->_setField('expiresAt');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class RetrieveTokenStatusResponse extends JsonSerializableType
     public function setClientId(?string $value = null): self
     {
         $this->clientId = $value;
+        $this->_setField('clientId');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class RetrieveTokenStatusResponse extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -143,6 +147,7 @@ class RetrieveTokenStatusResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

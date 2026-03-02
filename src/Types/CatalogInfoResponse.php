@@ -55,6 +55,7 @@ class CatalogInfoResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class CatalogInfoResponse extends JsonSerializableType
     public function setLimits(?CatalogInfoResponseLimits $value = null): self
     {
         $this->limits = $value;
+        $this->_setField('limits');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class CatalogInfoResponse extends JsonSerializableType
     public function setStandardUnitDescriptionGroup(?StandardUnitDescriptionGroup $value = null): self
     {
         $this->standardUnitDescriptionGroup = $value;
+        $this->_setField('standardUnitDescriptionGroup');
         return $this;
     }
 

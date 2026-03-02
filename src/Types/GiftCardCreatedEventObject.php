@@ -41,6 +41,7 @@ class GiftCardCreatedEventObject extends JsonSerializableType
     public function setGiftCard(?GiftCard $value = null): self
     {
         $this->giftCard = $value;
+        $this->_setField('giftCard');
         return $this;
     }
 

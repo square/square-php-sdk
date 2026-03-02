@@ -46,6 +46,7 @@ class UpdateWorkweekConfigRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateWorkweekConfigRequest extends JsonSerializableType
     public function setWorkweekConfig(WorkweekConfig $value): self
     {
         $this->workweekConfig = $value;
+        $this->_setField('workweekConfig');
         return $this;
     }
 }

@@ -58,6 +58,7 @@ class ChangesInventoryRequest extends JsonSerializableType
     public function setCatalogObjectId(string $value): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class ChangesInventoryRequest extends JsonSerializableType
     public function setLocationIds(?string $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class ChangesInventoryRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

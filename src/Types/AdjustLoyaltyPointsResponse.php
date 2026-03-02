@@ -50,6 +50,7 @@ class AdjustLoyaltyPointsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class AdjustLoyaltyPointsResponse extends JsonSerializableType
     public function setEvent(?LoyaltyEvent $value = null): self
     {
         $this->event = $value;
+        $this->_setField('event');
         return $this;
     }
 

@@ -57,6 +57,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay extends JsonSeriali
     public function setOrderEligibilityRange(?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange $value = null): self
     {
         $this->orderEligibilityRange = $value;
+        $this->_setField('orderEligibilityRange');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay extends JsonSeriali
     public function setItemEligibilityRange(?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange $value = null): self
     {
         $this->itemEligibilityRange = $value;
+        $this->_setField('itemEligibilityRange');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay extends JsonSeriali
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 

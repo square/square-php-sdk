@@ -151,6 +151,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setBatchUpsertMaxObjectsPerBatch(?int $value = null): self
     {
         $this->batchUpsertMaxObjectsPerBatch = $value;
+        $this->_setField('batchUpsertMaxObjectsPerBatch');
         return $this;
     }
 
@@ -168,6 +169,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setBatchUpsertMaxTotalObjects(?int $value = null): self
     {
         $this->batchUpsertMaxTotalObjects = $value;
+        $this->_setField('batchUpsertMaxTotalObjects');
         return $this;
     }
 
@@ -185,6 +187,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setBatchRetrieveMaxObjectIds(?int $value = null): self
     {
         $this->batchRetrieveMaxObjectIds = $value;
+        $this->_setField('batchRetrieveMaxObjectIds');
         return $this;
     }
 
@@ -202,6 +205,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setSearchMaxPageLimit(?int $value = null): self
     {
         $this->searchMaxPageLimit = $value;
+        $this->_setField('searchMaxPageLimit');
         return $this;
     }
 
@@ -219,6 +223,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setBatchDeleteMaxObjectIds(?int $value = null): self
     {
         $this->batchDeleteMaxObjectIds = $value;
+        $this->_setField('batchDeleteMaxObjectIds');
         return $this;
     }
 
@@ -236,6 +241,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemTaxesMaxItemIds(?int $value = null): self
     {
         $this->updateItemTaxesMaxItemIds = $value;
+        $this->_setField('updateItemTaxesMaxItemIds');
         return $this;
     }
 
@@ -253,6 +259,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemTaxesMaxTaxesToEnable(?int $value = null): self
     {
         $this->updateItemTaxesMaxTaxesToEnable = $value;
+        $this->_setField('updateItemTaxesMaxTaxesToEnable');
         return $this;
     }
 
@@ -270,6 +277,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemTaxesMaxTaxesToDisable(?int $value = null): self
     {
         $this->updateItemTaxesMaxTaxesToDisable = $value;
+        $this->_setField('updateItemTaxesMaxTaxesToDisable');
         return $this;
     }
 
@@ -287,6 +295,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemModifierListsMaxItemIds(?int $value = null): self
     {
         $this->updateItemModifierListsMaxItemIds = $value;
+        $this->_setField('updateItemModifierListsMaxItemIds');
         return $this;
     }
 
@@ -304,6 +313,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemModifierListsMaxModifierListsToEnable(?int $value = null): self
     {
         $this->updateItemModifierListsMaxModifierListsToEnable = $value;
+        $this->_setField('updateItemModifierListsMaxModifierListsToEnable');
         return $this;
     }
 
@@ -321,6 +331,7 @@ class CatalogInfoResponseLimits extends JsonSerializableType
     public function setUpdateItemModifierListsMaxModifierListsToDisable(?int $value = null): self
     {
         $this->updateItemModifierListsMaxModifierListsToDisable = $value;
+        $this->_setField('updateItemModifierListsMaxModifierListsToDisable');
         return $this;
     }
 

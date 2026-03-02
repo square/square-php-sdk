@@ -76,6 +76,7 @@ class Error extends JsonSerializableType
     public function setCategory(string $value): self
     {
         $this->category = $value;
+        $this->_setField('category');
         return $this;
     }
 
@@ -93,6 +94,7 @@ class Error extends JsonSerializableType
     public function setCode(string $value): self
     {
         $this->code = $value;
+        $this->_setField('code');
         return $this;
     }
 
@@ -110,6 +112,7 @@ class Error extends JsonSerializableType
     public function setDetail(?string $value = null): self
     {
         $this->detail = $value;
+        $this->_setField('detail');
         return $this;
     }
 
@@ -127,6 +130,7 @@ class Error extends JsonSerializableType
     public function setField(?string $value = null): self
     {
         $this->field = $value;
+        $this->_setField('field');
         return $this;
     }
 

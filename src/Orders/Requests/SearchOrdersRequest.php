@@ -95,6 +95,7 @@ class SearchOrdersRequest extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -112,6 +113,7 @@ class SearchOrdersRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -129,6 +131,7 @@ class SearchOrdersRequest extends JsonSerializableType
     public function setQuery(?SearchOrdersQuery $value = null): self
     {
         $this->query = $value;
+        $this->_setField('query');
         return $this;
     }
 
@@ -146,6 +149,7 @@ class SearchOrdersRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -163,6 +167,7 @@ class SearchOrdersRequest extends JsonSerializableType
     public function setReturnEntries(?bool $value = null): self
     {
         $this->returnEntries = $value;
+        $this->_setField('returnEntries');
         return $this;
     }
 }

@@ -41,6 +41,7 @@ class DeviceComponentDetailsMeasurement extends JsonSerializableType
     public function setValue(?int $value = null): self
     {
         $this->value = $value;
+        $this->_setField('value');
         return $this;
     }
 

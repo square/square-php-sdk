@@ -53,6 +53,7 @@ class ListLocationsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class ListLocationsResponse extends JsonSerializableType
     public function setLocations(?array $value = null): self
     {
         $this->locations = $value;
+        $this->_setField('locations');
         return $this;
     }
 

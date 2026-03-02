@@ -71,6 +71,7 @@ class TransferOrderGoodsReceipt extends JsonSerializableType
     public function setLineItems(?array $value = null): self
     {
         $this->lineItems = $value;
+        $this->_setField('lineItems');
         return $this;
     }
 

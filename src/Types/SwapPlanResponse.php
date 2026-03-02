@@ -59,6 +59,7 @@ class SwapPlanResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class SwapPlanResponse extends JsonSerializableType
     public function setSubscription(?Subscription $value = null): self
     {
         $this->subscription = $value;
+        $this->_setField('subscription');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class SwapPlanResponse extends JsonSerializableType
     public function setActions(?array $value = null): self
     {
         $this->actions = $value;
+        $this->_setField('actions');
         return $this;
     }
 

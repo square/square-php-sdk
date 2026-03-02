@@ -74,6 +74,7 @@ class PublishScheduledShiftRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -91,6 +92,7 @@ class PublishScheduledShiftRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -108,6 +110,7 @@ class PublishScheduledShiftRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -125,6 +128,7 @@ class PublishScheduledShiftRequest extends JsonSerializableType
     public function setScheduledShiftNotificationAudience(?string $value = null): self
     {
         $this->scheduledShiftNotificationAudience = $value;
+        $this->_setField('scheduledShiftNotificationAudience');
         return $this;
     }
 }

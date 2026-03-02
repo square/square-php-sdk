@@ -63,6 +63,7 @@ class ModifierLocationOverrides extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class ModifierLocationOverrides extends JsonSerializableType
     public function setPriceMoney(?Money $value = null): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class ModifierLocationOverrides extends JsonSerializableType
     public function setSoldOut(?bool $value = null): self
     {
         $this->soldOut = $value;
+        $this->_setField('soldOut');
         return $this;
     }
 

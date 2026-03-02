@@ -54,6 +54,7 @@ class CatalogQuerySet extends JsonSerializableType
     public function setAttributeName(string $value): self
     {
         $this->attributeName = $value;
+        $this->_setField('attributeName');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CatalogQuerySet extends JsonSerializableType
     public function setAttributeValues(array $value): self
     {
         $this->attributeValues = $value;
+        $this->_setField('attributeValues');
         return $this;
     }
 

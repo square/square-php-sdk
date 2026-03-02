@@ -59,6 +59,7 @@ class CatalogIdMapping extends JsonSerializableType
     public function setClientObjectId(?string $value = null): self
     {
         $this->clientObjectId = $value;
+        $this->_setField('clientObjectId');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class CatalogIdMapping extends JsonSerializableType
     public function setObjectId(?string $value = null): self
     {
         $this->objectId = $value;
+        $this->_setField('objectId');
         return $this;
     }
 

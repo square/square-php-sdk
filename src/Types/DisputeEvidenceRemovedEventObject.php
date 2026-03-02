@@ -38,6 +38,7 @@ class DisputeEvidenceRemovedEventObject extends JsonSerializableType
     public function setObject(?Dispute $value = null): self
     {
         $this->object = $value;
+        $this->_setField('object');
         return $this;
     }
 

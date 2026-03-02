@@ -46,6 +46,7 @@ class UpdateWebhookSubscriptionRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateWebhookSubscriptionRequest extends JsonSerializableType
     public function setSubscription(?WebhookSubscription $value = null): self
     {
         $this->subscription = $value;
+        $this->_setField('subscription');
         return $this;
     }
 }

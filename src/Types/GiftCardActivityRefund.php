@@ -80,6 +80,7 @@ class GiftCardActivityRefund extends JsonSerializableType
     public function setRedeemActivityId(?string $value = null): self
     {
         $this->redeemActivityId = $value;
+        $this->_setField('redeemActivityId');
         return $this;
     }
 
@@ -97,6 +98,7 @@ class GiftCardActivityRefund extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -114,6 +116,7 @@ class GiftCardActivityRefund extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -131,6 +134,7 @@ class GiftCardActivityRefund extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 

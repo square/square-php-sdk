@@ -47,6 +47,7 @@ class CreateTimecardRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateTimecardRequest extends JsonSerializableType
     public function setTimecard(Timecard $value): self
     {
         $this->timecard = $value;
+        $this->_setField('timecard');
         return $this;
     }
 }

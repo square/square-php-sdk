@@ -49,6 +49,7 @@ class EventMetadata extends JsonSerializableType
     public function setEventId(?string $value = null): self
     {
         $this->eventId = $value;
+        $this->_setField('eventId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class EventMetadata extends JsonSerializableType
     public function setApiVersion(?string $value = null): self
     {
         $this->apiVersion = $value;
+        $this->_setField('apiVersion');
         return $this;
     }
 

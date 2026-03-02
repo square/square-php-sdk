@@ -185,6 +185,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setRecipient(?FulfillmentRecipient $value = null): self
     {
         $this->recipient = $value;
+        $this->_setField('recipient');
         return $this;
     }
 
@@ -202,6 +203,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setCarrier(?string $value = null): self
     {
         $this->carrier = $value;
+        $this->_setField('carrier');
         return $this;
     }
 
@@ -219,6 +221,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setShippingNote(?string $value = null): self
     {
         $this->shippingNote = $value;
+        $this->_setField('shippingNote');
         return $this;
     }
 
@@ -236,6 +239,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setShippingType(?string $value = null): self
     {
         $this->shippingType = $value;
+        $this->_setField('shippingType');
         return $this;
     }
 
@@ -253,6 +257,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setTrackingNumber(?string $value = null): self
     {
         $this->trackingNumber = $value;
+        $this->_setField('trackingNumber');
         return $this;
     }
 
@@ -270,6 +275,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setTrackingUrl(?string $value = null): self
     {
         $this->trackingUrl = $value;
+        $this->_setField('trackingUrl');
         return $this;
     }
 
@@ -287,6 +293,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setPlacedAt(?string $value = null): self
     {
         $this->placedAt = $value;
+        $this->_setField('placedAt');
         return $this;
     }
 
@@ -304,6 +311,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setInProgressAt(?string $value = null): self
     {
         $this->inProgressAt = $value;
+        $this->_setField('inProgressAt');
         return $this;
     }
 
@@ -321,6 +329,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setPackagedAt(?string $value = null): self
     {
         $this->packagedAt = $value;
+        $this->_setField('packagedAt');
         return $this;
     }
 
@@ -338,6 +347,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setExpectedShippedAt(?string $value = null): self
     {
         $this->expectedShippedAt = $value;
+        $this->_setField('expectedShippedAt');
         return $this;
     }
 
@@ -355,6 +365,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setShippedAt(?string $value = null): self
     {
         $this->shippedAt = $value;
+        $this->_setField('shippedAt');
         return $this;
     }
 
@@ -372,6 +383,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setCanceledAt(?string $value = null): self
     {
         $this->canceledAt = $value;
+        $this->_setField('canceledAt');
         return $this;
     }
 
@@ -389,6 +401,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setCancelReason(?string $value = null): self
     {
         $this->cancelReason = $value;
+        $this->_setField('cancelReason');
         return $this;
     }
 
@@ -406,6 +419,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setFailedAt(?string $value = null): self
     {
         $this->failedAt = $value;
+        $this->_setField('failedAt');
         return $this;
     }
 
@@ -423,6 +437,7 @@ class FulfillmentShipmentDetails extends JsonSerializableType
     public function setFailureReason(?string $value = null): self
     {
         $this->failureReason = $value;
+        $this->_setField('failureReason');
         return $this;
     }
 

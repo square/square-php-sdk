@@ -36,6 +36,7 @@ class GetPayoutsRequest extends JsonSerializableType
     public function setPayoutId(string $value): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 }

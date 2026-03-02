@@ -61,6 +61,7 @@ class CatalogObjectTimePeriod extends JsonSerializableType
     public function setTimePeriodData(?CatalogTimePeriod $value = null): self
     {
         $this->timePeriodData = $value;
+        $this->_setField('timePeriodData');
         return $this;
     }
 

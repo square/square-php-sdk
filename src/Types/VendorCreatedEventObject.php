@@ -49,6 +49,7 @@ class VendorCreatedEventObject extends JsonSerializableType
     public function setOperation(?string $value = null): self
     {
         $this->operation = $value;
+        $this->_setField('operation');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class VendorCreatedEventObject extends JsonSerializableType
     public function setVendor(?Vendor $value = null): self
     {
         $this->vendor = $value;
+        $this->_setField('vendor');
         return $this;
     }
 

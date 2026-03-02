@@ -99,6 +99,7 @@ class InventoryChange extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -116,6 +117,7 @@ class InventoryChange extends JsonSerializableType
     public function setPhysicalCount(?InventoryPhysicalCount $value = null): self
     {
         $this->physicalCount = $value;
+        $this->_setField('physicalCount');
         return $this;
     }
 
@@ -133,6 +135,7 @@ class InventoryChange extends JsonSerializableType
     public function setAdjustment(?InventoryAdjustment $value = null): self
     {
         $this->adjustment = $value;
+        $this->_setField('adjustment');
         return $this;
     }
 
@@ -150,6 +153,7 @@ class InventoryChange extends JsonSerializableType
     public function setTransfer(?InventoryTransfer $value = null): self
     {
         $this->transfer = $value;
+        $this->_setField('transfer');
         return $this;
     }
 
@@ -167,6 +171,7 @@ class InventoryChange extends JsonSerializableType
     public function setMeasurementUnit(?CatalogMeasurementUnit $value = null): self
     {
         $this->measurementUnit = $value;
+        $this->_setField('measurementUnit');
         return $this;
     }
 
@@ -184,6 +189,7 @@ class InventoryChange extends JsonSerializableType
     public function setMeasurementUnitId(?string $value = null): self
     {
         $this->measurementUnitId = $value;
+        $this->_setField('measurementUnitId');
         return $this;
     }
 

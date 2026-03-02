@@ -130,6 +130,7 @@ class PaymentLink extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -147,6 +148,7 @@ class PaymentLink extends JsonSerializableType
     public function setVersion(int $value): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -164,6 +166,7 @@ class PaymentLink extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -181,6 +184,7 @@ class PaymentLink extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -198,6 +202,7 @@ class PaymentLink extends JsonSerializableType
     public function setCheckoutOptions(?CheckoutOptions $value = null): self
     {
         $this->checkoutOptions = $value;
+        $this->_setField('checkoutOptions');
         return $this;
     }
 
@@ -215,6 +220,7 @@ class PaymentLink extends JsonSerializableType
     public function setPrePopulatedData(?PrePopulatedData $value = null): self
     {
         $this->prePopulatedData = $value;
+        $this->_setField('prePopulatedData');
         return $this;
     }
 
@@ -232,6 +238,7 @@ class PaymentLink extends JsonSerializableType
     public function setUrl(?string $value = null): self
     {
         $this->url = $value;
+        $this->_setField('url');
         return $this;
     }
 
@@ -249,6 +256,7 @@ class PaymentLink extends JsonSerializableType
     public function setLongUrl(?string $value = null): self
     {
         $this->longUrl = $value;
+        $this->_setField('longUrl');
         return $this;
     }
 
@@ -266,6 +274,7 @@ class PaymentLink extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -283,6 +292,7 @@ class PaymentLink extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -300,6 +310,7 @@ class PaymentLink extends JsonSerializableType
     public function setPaymentNote(?string $value = null): self
     {
         $this->paymentNote = $value;
+        $this->_setField('paymentNote');
         return $this;
     }
 

@@ -54,6 +54,7 @@ class UpdateWebhookSubscriptionSignatureKeyResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class UpdateWebhookSubscriptionSignatureKeyResponse extends JsonSerializableType
     public function setSignatureKey(?string $value = null): self
     {
         $this->signatureKey = $value;
+        $this->_setField('signatureKey');
         return $this;
     }
 

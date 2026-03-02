@@ -42,6 +42,7 @@ class TerminalCheckoutQuerySort extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 

@@ -46,6 +46,7 @@ class ShippingFee extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class ShippingFee extends JsonSerializableType
     public function setCharge(Money $value): self
     {
         $this->charge = $value;
+        $this->_setField('charge');
         return $this;
     }
 

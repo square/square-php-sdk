@@ -121,6 +121,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -138,6 +139,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setPriceMoney(?Money $value = null): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 
@@ -155,6 +157,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setPricingType(?string $value = null): self
     {
         $this->pricingType = $value;
+        $this->_setField('pricingType');
         return $this;
     }
 
@@ -172,6 +175,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setTrackInventory(?bool $value = null): self
     {
         $this->trackInventory = $value;
+        $this->_setField('trackInventory');
         return $this;
     }
 
@@ -189,6 +193,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setInventoryAlertType(?string $value = null): self
     {
         $this->inventoryAlertType = $value;
+        $this->_setField('inventoryAlertType');
         return $this;
     }
 
@@ -206,6 +211,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setInventoryAlertThreshold(?int $value = null): self
     {
         $this->inventoryAlertThreshold = $value;
+        $this->_setField('inventoryAlertThreshold');
         return $this;
     }
 
@@ -223,6 +229,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setSoldOut(?bool $value = null): self
     {
         $this->soldOut = $value;
+        $this->_setField('soldOut');
         return $this;
     }
 
@@ -240,6 +247,7 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     public function setSoldOutValidUntil(?string $value = null): self
     {
         $this->soldOutValidUntil = $value;
+        $this->_setField('soldOutValidUntil');
         return $this;
     }
 

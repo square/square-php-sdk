@@ -64,6 +64,7 @@ class InvoiceCustomField extends JsonSerializableType
     public function setLabel(?string $value = null): self
     {
         $this->label = $value;
+        $this->_setField('label');
         return $this;
     }
 
@@ -81,6 +82,7 @@ class InvoiceCustomField extends JsonSerializableType
     public function setValue(?string $value = null): self
     {
         $this->value = $value;
+        $this->_setField('value');
         return $this;
     }
 
@@ -98,6 +100,7 @@ class InvoiceCustomField extends JsonSerializableType
     public function setPlacement(?string $value = null): self
     {
         $this->placement = $value;
+        $this->_setField('placement');
         return $this;
     }
 

@@ -44,6 +44,7 @@ class UpdateVendorsRequest extends JsonSerializableType
     public function setVendorId(string $value): self
     {
         $this->vendorId = $value;
+        $this->_setField('vendorId');
         return $this;
     }
 
@@ -61,6 +62,7 @@ class UpdateVendorsRequest extends JsonSerializableType
     public function setBody(UpdateVendorRequest $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 }

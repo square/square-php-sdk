@@ -171,6 +171,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -188,6 +189,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -205,6 +207,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -222,6 +225,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setCatalogObjectType(?string $value = null): self
     {
         $this->catalogObjectType = $value;
+        $this->_setField('catalogObjectType');
         return $this;
     }
 
@@ -239,6 +243,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -256,6 +261,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -273,6 +279,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setQuantity(?string $value = null): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 
@@ -290,6 +297,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setSource(?SourceApplication $value = null): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -307,6 +315,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setEmployeeId(?string $value = null): self
     {
         $this->employeeId = $value;
+        $this->_setField('employeeId');
         return $this;
     }
 
@@ -324,6 +333,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -341,6 +351,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setOccurredAt(?string $value = null): self
     {
         $this->occurredAt = $value;
+        $this->_setField('occurredAt');
         return $this;
     }
 
@@ -358,6 +369,7 @@ class InventoryPhysicalCount extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

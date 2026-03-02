@@ -245,6 +245,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -262,6 +263,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -279,6 +281,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setOpenedAt(?string $value = null): self
     {
         $this->openedAt = $value;
+        $this->_setField('openedAt');
         return $this;
     }
 
@@ -296,6 +299,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setEndedAt(?string $value = null): self
     {
         $this->endedAt = $value;
+        $this->_setField('endedAt');
         return $this;
     }
 
@@ -313,6 +317,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setClosedAt(?string $value = null): self
     {
         $this->closedAt = $value;
+        $this->_setField('closedAt');
         return $this;
     }
 
@@ -330,6 +335,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -347,6 +353,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setOpenedCashMoney(?Money $value = null): self
     {
         $this->openedCashMoney = $value;
+        $this->_setField('openedCashMoney');
         return $this;
     }
 
@@ -364,6 +371,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setCashPaymentMoney(?Money $value = null): self
     {
         $this->cashPaymentMoney = $value;
+        $this->_setField('cashPaymentMoney');
         return $this;
     }
 
@@ -381,6 +389,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setCashRefundsMoney(?Money $value = null): self
     {
         $this->cashRefundsMoney = $value;
+        $this->_setField('cashRefundsMoney');
         return $this;
     }
 
@@ -398,6 +407,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setCashPaidInMoney(?Money $value = null): self
     {
         $this->cashPaidInMoney = $value;
+        $this->_setField('cashPaidInMoney');
         return $this;
     }
 
@@ -415,6 +425,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setCashPaidOutMoney(?Money $value = null): self
     {
         $this->cashPaidOutMoney = $value;
+        $this->_setField('cashPaidOutMoney');
         return $this;
     }
 
@@ -432,6 +443,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setExpectedCashMoney(?Money $value = null): self
     {
         $this->expectedCashMoney = $value;
+        $this->_setField('expectedCashMoney');
         return $this;
     }
 
@@ -449,6 +461,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setClosedCashMoney(?Money $value = null): self
     {
         $this->closedCashMoney = $value;
+        $this->_setField('closedCashMoney');
         return $this;
     }
 
@@ -466,6 +479,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setDevice(?CashDrawerDevice $value = null): self
     {
         $this->device = $value;
+        $this->_setField('device');
         return $this;
     }
 
@@ -483,6 +497,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -500,6 +515,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -517,6 +533,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -534,6 +551,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setTeamMemberIds(?array $value = null): self
     {
         $this->teamMemberIds = $value;
+        $this->_setField('teamMemberIds');
         return $this;
     }
 
@@ -551,6 +569,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setOpeningTeamMemberId(?string $value = null): self
     {
         $this->openingTeamMemberId = $value;
+        $this->_setField('openingTeamMemberId');
         return $this;
     }
 
@@ -568,6 +587,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setEndingTeamMemberId(?string $value = null): self
     {
         $this->endingTeamMemberId = $value;
+        $this->_setField('endingTeamMemberId');
         return $this;
     }
 
@@ -585,6 +605,7 @@ class CashDrawerShift extends JsonSerializableType
     public function setClosingTeamMemberId(?string $value = null): self
     {
         $this->closingTeamMemberId = $value;
+        $this->_setField('closingTeamMemberId');
         return $this;
     }
 

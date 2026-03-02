@@ -63,6 +63,7 @@ class ListBreakTypesResponse extends JsonSerializableType
     public function setBreakTypes(?array $value = null): self
     {
         $this->breakTypes = $value;
+        $this->_setField('breakTypes');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class ListBreakTypesResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class ListBreakTypesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

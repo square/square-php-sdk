@@ -68,6 +68,7 @@ class CatalogAvailabilityPeriod extends JsonSerializableType
     public function setStartLocalTime(?string $value = null): self
     {
         $this->startLocalTime = $value;
+        $this->_setField('startLocalTime');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class CatalogAvailabilityPeriod extends JsonSerializableType
     public function setEndLocalTime(?string $value = null): self
     {
         $this->endLocalTime = $value;
+        $this->_setField('endLocalTime');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class CatalogAvailabilityPeriod extends JsonSerializableType
     public function setDayOfWeek(?string $value = null): self
     {
         $this->dayOfWeek = $value;
+        $this->_setField('dayOfWeek');
         return $this;
     }
 

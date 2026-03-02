@@ -60,6 +60,7 @@ class CatalogMeasurementUnit extends JsonSerializableType
     public function setMeasurementUnit(?MeasurementUnit $value = null): self
     {
         $this->measurementUnit = $value;
+        $this->_setField('measurementUnit');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class CatalogMeasurementUnit extends JsonSerializableType
     public function setPrecision(?int $value = null): self
     {
         $this->precision = $value;
+        $this->_setField('precision');
         return $this;
     }
 

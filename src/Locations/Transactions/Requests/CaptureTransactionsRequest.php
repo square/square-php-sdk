@@ -43,6 +43,7 @@ class CaptureTransactionsRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class CaptureTransactionsRequest extends JsonSerializableType
     public function setTransactionId(string $value): self
     {
         $this->transactionId = $value;
+        $this->_setField('transactionId');
         return $this;
     }
 }

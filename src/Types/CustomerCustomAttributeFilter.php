@@ -72,6 +72,7 @@ class CustomerCustomAttributeFilter extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -89,6 +90,7 @@ class CustomerCustomAttributeFilter extends JsonSerializableType
     public function setFilter(?CustomerCustomAttributeFilterValue $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -106,6 +108,7 @@ class CustomerCustomAttributeFilter extends JsonSerializableType
     public function setUpdatedAt(?TimeRange $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

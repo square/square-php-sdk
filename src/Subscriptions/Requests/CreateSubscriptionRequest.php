@@ -174,6 +174,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -191,6 +192,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -208,6 +210,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setPlanVariationId(?string $value = null): self
     {
         $this->planVariationId = $value;
+        $this->_setField('planVariationId');
         return $this;
     }
 
@@ -225,6 +228,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -242,6 +246,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setStartDate(?string $value = null): self
     {
         $this->startDate = $value;
+        $this->_setField('startDate');
         return $this;
     }
 
@@ -259,6 +264,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setCanceledDate(?string $value = null): self
     {
         $this->canceledDate = $value;
+        $this->_setField('canceledDate');
         return $this;
     }
 
@@ -276,6 +282,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setTaxPercentage(?string $value = null): self
     {
         $this->taxPercentage = $value;
+        $this->_setField('taxPercentage');
         return $this;
     }
 
@@ -293,6 +300,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setPriceOverrideMoney(?Money $value = null): self
     {
         $this->priceOverrideMoney = $value;
+        $this->_setField('priceOverrideMoney');
         return $this;
     }
 
@@ -310,6 +318,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setCardId(?string $value = null): self
     {
         $this->cardId = $value;
+        $this->_setField('cardId');
         return $this;
     }
 
@@ -327,6 +336,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setTimezone(?string $value = null): self
     {
         $this->timezone = $value;
+        $this->_setField('timezone');
         return $this;
     }
 
@@ -344,6 +354,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setSource(?SubscriptionSource $value = null): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -361,6 +372,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setMonthlyBillingAnchorDate(?int $value = null): self
     {
         $this->monthlyBillingAnchorDate = $value;
+        $this->_setField('monthlyBillingAnchorDate');
         return $this;
     }
 
@@ -378,6 +390,7 @@ class CreateSubscriptionRequest extends JsonSerializableType
     public function setPhases(?array $value = null): self
     {
         $this->phases = $value;
+        $this->_setField('phases');
         return $this;
     }
 }

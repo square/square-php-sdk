@@ -75,6 +75,7 @@ class RevokeTokenRequest extends JsonSerializableType
     public function setClientId(?string $value = null): self
     {
         $this->clientId = $value;
+        $this->_setField('clientId');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class RevokeTokenRequest extends JsonSerializableType
     public function setAccessToken(?string $value = null): self
     {
         $this->accessToken = $value;
+        $this->_setField('accessToken');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class RevokeTokenRequest extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class RevokeTokenRequest extends JsonSerializableType
     public function setRevokeOnlyAccessToken(?bool $value = null): self
     {
         $this->revokeOnlyAccessToken = $value;
+        $this->_setField('revokeOnlyAccessToken');
         return $this;
     }
 }

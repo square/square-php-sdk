@@ -61,6 +61,7 @@ class CatalogObjectItem extends JsonSerializableType
     public function setItemData(?CatalogItem $value = null): self
     {
         $this->itemData = $value;
+        $this->_setField('itemData');
         return $this;
     }
 

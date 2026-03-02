@@ -42,6 +42,7 @@ class CatalogQueryItemsForModifierList extends JsonSerializableType
     public function setModifierListIds(array $value): self
     {
         $this->modifierListIds = $value;
+        $this->_setField('modifierListIds');
         return $this;
     }
 

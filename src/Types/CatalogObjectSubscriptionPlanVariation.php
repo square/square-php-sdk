@@ -61,6 +61,7 @@ class CatalogObjectSubscriptionPlanVariation extends JsonSerializableType
     public function setSubscriptionPlanVariationData(?CatalogSubscriptionPlanVariation $value = null): self
     {
         $this->subscriptionPlanVariationData = $value;
+        $this->_setField('subscriptionPlanVariationData');
         return $this;
     }
 

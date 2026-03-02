@@ -152,6 +152,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -169,6 +170,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -186,6 +188,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -203,6 +206,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setAccumulatePoints(?LoyaltyEventAccumulatePoints $value = null): self
     {
         $this->accumulatePoints = $value;
+        $this->_setField('accumulatePoints');
         return $this;
     }
 
@@ -220,6 +224,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setCreateReward(?LoyaltyEventCreateReward $value = null): self
     {
         $this->createReward = $value;
+        $this->_setField('createReward');
         return $this;
     }
 
@@ -237,6 +242,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setRedeemReward(?LoyaltyEventRedeemReward $value = null): self
     {
         $this->redeemReward = $value;
+        $this->_setField('redeemReward');
         return $this;
     }
 
@@ -254,6 +260,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setDeleteReward(?LoyaltyEventDeleteReward $value = null): self
     {
         $this->deleteReward = $value;
+        $this->_setField('deleteReward');
         return $this;
     }
 
@@ -271,6 +278,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setAdjustPoints(?LoyaltyEventAdjustPoints $value = null): self
     {
         $this->adjustPoints = $value;
+        $this->_setField('adjustPoints');
         return $this;
     }
 
@@ -288,6 +296,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setLoyaltyAccountId(?string $value = null): self
     {
         $this->loyaltyAccountId = $value;
+        $this->_setField('loyaltyAccountId');
         return $this;
     }
 
@@ -305,6 +314,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -322,6 +332,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setSource(string $value): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -339,6 +350,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setExpirePoints(?LoyaltyEventExpirePoints $value = null): self
     {
         $this->expirePoints = $value;
+        $this->_setField('expirePoints');
         return $this;
     }
 
@@ -356,6 +368,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setOtherEvent(?LoyaltyEventOther $value = null): self
     {
         $this->otherEvent = $value;
+        $this->_setField('otherEvent');
         return $this;
     }
 
@@ -373,6 +386,7 @@ class LoyaltyEvent extends JsonSerializableType
     public function setAccumulatePromotionPoints(?LoyaltyEventAccumulatePromotionPoints $value = null): self
     {
         $this->accumulatePromotionPoints = $value;
+        $this->_setField('accumulatePromotionPoints');
         return $this;
     }
 

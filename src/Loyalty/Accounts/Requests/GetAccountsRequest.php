@@ -36,6 +36,7 @@ class GetAccountsRequest extends JsonSerializableType
     public function setAccountId(string $value): self
     {
         $this->accountId = $value;
+        $this->_setField('accountId');
         return $this;
     }
 }

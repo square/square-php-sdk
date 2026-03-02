@@ -49,6 +49,7 @@ class UpdatePaymentLinkRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class UpdatePaymentLinkRequest extends JsonSerializableType
     public function setPaymentLink(PaymentLink $value): self
     {
         $this->paymentLink = $value;
+        $this->_setField('paymentLink');
         return $this;
     }
 }

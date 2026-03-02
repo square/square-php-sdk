@@ -158,6 +158,7 @@ class Checkout extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -175,6 +176,7 @@ class Checkout extends JsonSerializableType
     public function setCheckoutPageUrl(?string $value = null): self
     {
         $this->checkoutPageUrl = $value;
+        $this->_setField('checkoutPageUrl');
         return $this;
     }
 
@@ -192,6 +194,7 @@ class Checkout extends JsonSerializableType
     public function setAskForShippingAddress(?bool $value = null): self
     {
         $this->askForShippingAddress = $value;
+        $this->_setField('askForShippingAddress');
         return $this;
     }
 
@@ -209,6 +212,7 @@ class Checkout extends JsonSerializableType
     public function setMerchantSupportEmail(?string $value = null): self
     {
         $this->merchantSupportEmail = $value;
+        $this->_setField('merchantSupportEmail');
         return $this;
     }
 
@@ -226,6 +230,7 @@ class Checkout extends JsonSerializableType
     public function setPrePopulateBuyerEmail(?string $value = null): self
     {
         $this->prePopulateBuyerEmail = $value;
+        $this->_setField('prePopulateBuyerEmail');
         return $this;
     }
 
@@ -243,6 +248,7 @@ class Checkout extends JsonSerializableType
     public function setPrePopulateShippingAddress(?Address $value = null): self
     {
         $this->prePopulateShippingAddress = $value;
+        $this->_setField('prePopulateShippingAddress');
         return $this;
     }
 
@@ -260,6 +266,7 @@ class Checkout extends JsonSerializableType
     public function setRedirectUrl(?string $value = null): self
     {
         $this->redirectUrl = $value;
+        $this->_setField('redirectUrl');
         return $this;
     }
 
@@ -277,6 +284,7 @@ class Checkout extends JsonSerializableType
     public function setOrder(?Order $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -294,6 +302,7 @@ class Checkout extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -311,6 +320,7 @@ class Checkout extends JsonSerializableType
     public function setAdditionalRecipients(?array $value = null): self
     {
         $this->additionalRecipients = $value;
+        $this->_setField('additionalRecipients');
         return $this;
     }
 

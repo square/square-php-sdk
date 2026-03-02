@@ -69,6 +69,7 @@ class BatchChangeInventoryRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class BatchChangeInventoryRequest extends JsonSerializableType
     public function setChanges(?array $value = null): self
     {
         $this->changes = $value;
+        $this->_setField('changes');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class BatchChangeInventoryRequest extends JsonSerializableType
     public function setIgnoreUnchangedCounts(?bool $value = null): self
     {
         $this->ignoreUnchangedCounts = $value;
+        $this->_setField('ignoreUnchangedCounts');
         return $this;
     }
 

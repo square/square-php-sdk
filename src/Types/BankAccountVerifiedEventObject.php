@@ -38,6 +38,7 @@ class BankAccountVerifiedEventObject extends JsonSerializableType
     public function setBankAccount(?BankAccount $value = null): self
     {
         $this->bankAccount = $value;
+        $this->_setField('bankAccount');
         return $this;
     }
 

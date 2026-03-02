@@ -58,6 +58,7 @@ class CatalogItemFoodAndBeverageDetails extends JsonSerializableType
     public function setCalorieCount(?int $value = null): self
     {
         $this->calorieCount = $value;
+        $this->_setField('calorieCount');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CatalogItemFoodAndBeverageDetails extends JsonSerializableType
     public function setDietaryPreferences(?array $value = null): self
     {
         $this->dietaryPreferences = $value;
+        $this->_setField('dietaryPreferences');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class CatalogItemFoodAndBeverageDetails extends JsonSerializableType
     public function setIngredients(?array $value = null): self
     {
         $this->ingredients = $value;
+        $this->_setField('ingredients');
         return $this;
     }
 

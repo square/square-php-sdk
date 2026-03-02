@@ -121,6 +121,7 @@ class OrderReturn extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -138,6 +139,7 @@ class OrderReturn extends JsonSerializableType
     public function setSourceOrderId(?string $value = null): self
     {
         $this->sourceOrderId = $value;
+        $this->_setField('sourceOrderId');
         return $this;
     }
 
@@ -155,6 +157,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnLineItems(?array $value = null): self
     {
         $this->returnLineItems = $value;
+        $this->_setField('returnLineItems');
         return $this;
     }
 
@@ -172,6 +175,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnServiceCharges(?array $value = null): self
     {
         $this->returnServiceCharges = $value;
+        $this->_setField('returnServiceCharges');
         return $this;
     }
 
@@ -189,6 +193,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnTaxes(?array $value = null): self
     {
         $this->returnTaxes = $value;
+        $this->_setField('returnTaxes');
         return $this;
     }
 
@@ -206,6 +211,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnDiscounts(?array $value = null): self
     {
         $this->returnDiscounts = $value;
+        $this->_setField('returnDiscounts');
         return $this;
     }
 
@@ -223,6 +229,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnTips(?array $value = null): self
     {
         $this->returnTips = $value;
+        $this->_setField('returnTips');
         return $this;
     }
 
@@ -240,6 +247,7 @@ class OrderReturn extends JsonSerializableType
     public function setRoundingAdjustment(?OrderRoundingAdjustment $value = null): self
     {
         $this->roundingAdjustment = $value;
+        $this->_setField('roundingAdjustment');
         return $this;
     }
 
@@ -257,6 +265,7 @@ class OrderReturn extends JsonSerializableType
     public function setReturnAmounts(?OrderMoneyAmounts $value = null): self
     {
         $this->returnAmounts = $value;
+        $this->_setField('returnAmounts');
         return $this;
     }
 

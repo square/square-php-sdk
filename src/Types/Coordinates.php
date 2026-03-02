@@ -49,6 +49,7 @@ class Coordinates extends JsonSerializableType
     public function setLatitude(?float $value = null): self
     {
         $this->latitude = $value;
+        $this->_setField('latitude');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class Coordinates extends JsonSerializableType
     public function setLongitude(?float $value = null): self
     {
         $this->longitude = $value;
+        $this->_setField('longitude');
         return $this;
     }
 

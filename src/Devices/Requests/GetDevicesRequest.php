@@ -36,6 +36,7 @@ class GetDevicesRequest extends JsonSerializableType
     public function setDeviceId(string $value): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 }

@@ -103,6 +103,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -120,6 +121,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setManufacturer(string $value): self
     {
         $this->manufacturer = $value;
+        $this->_setField('manufacturer');
         return $this;
     }
 
@@ -137,6 +139,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setModel(?string $value = null): self
     {
         $this->model = $value;
+        $this->_setField('model');
         return $this;
     }
 
@@ -154,6 +157,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -171,6 +175,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setManufacturersId(?string $value = null): self
     {
         $this->manufacturersId = $value;
+        $this->_setField('manufacturersId');
         return $this;
     }
 
@@ -188,6 +193,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -205,6 +211,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setVersion(?string $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -222,6 +229,7 @@ class DeviceAttributes extends JsonSerializableType
     public function setMerchantToken(?string $value = null): self
     {
         $this->merchantToken = $value;
+        $this->_setField('merchantToken');
         return $this;
     }
 

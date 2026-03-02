@@ -36,6 +36,7 @@ class GetDisputesRequest extends JsonSerializableType
     public function setDisputeId(string $value): self
     {
         $this->disputeId = $value;
+        $this->_setField('disputeId');
         return $this;
     }
 }

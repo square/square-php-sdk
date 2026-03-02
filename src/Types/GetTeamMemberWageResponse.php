@@ -52,6 +52,7 @@ class GetTeamMemberWageResponse extends JsonSerializableType
     public function setTeamMemberWage(?TeamMemberWage $value = null): self
     {
         $this->teamMemberWage = $value;
+        $this->_setField('teamMemberWage');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class GetTeamMemberWageResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

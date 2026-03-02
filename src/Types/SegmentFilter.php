@@ -56,6 +56,7 @@ class SegmentFilter extends JsonSerializableType
     public function setServiceVariationId(string $value): self
     {
         $this->serviceVariationId = $value;
+        $this->_setField('serviceVariationId');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class SegmentFilter extends JsonSerializableType
     public function setTeamMemberIdFilter(?FilterValue $value = null): self
     {
         $this->teamMemberIdFilter = $value;
+        $this->_setField('teamMemberIdFilter');
         return $this;
     }
 

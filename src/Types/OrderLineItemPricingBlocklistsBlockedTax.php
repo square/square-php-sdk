@@ -65,6 +65,7 @@ class OrderLineItemPricingBlocklistsBlockedTax extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class OrderLineItemPricingBlocklistsBlockedTax extends JsonSerializableType
     public function setTaxUid(?string $value = null): self
     {
         $this->taxUid = $value;
+        $this->_setField('taxUid');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class OrderLineItemPricingBlocklistsBlockedTax extends JsonSerializableType
     public function setTaxCatalogObjectId(?string $value = null): self
     {
         $this->taxCatalogObjectId = $value;
+        $this->_setField('taxCatalogObjectId');
         return $this;
     }
 

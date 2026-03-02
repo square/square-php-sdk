@@ -60,6 +60,7 @@ class AchDetails extends JsonSerializableType
     public function setRoutingNumber(?string $value = null): self
     {
         $this->routingNumber = $value;
+        $this->_setField('routingNumber');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class AchDetails extends JsonSerializableType
     public function setAccountNumberSuffix(?string $value = null): self
     {
         $this->accountNumberSuffix = $value;
+        $this->_setField('accountNumberSuffix');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class AchDetails extends JsonSerializableType
     public function setAccountType(?string $value = null): self
     {
         $this->accountType = $value;
+        $this->_setField('accountType');
         return $this;
     }
 

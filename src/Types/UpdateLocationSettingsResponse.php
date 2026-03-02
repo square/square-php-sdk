@@ -47,6 +47,7 @@ class UpdateLocationSettingsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class UpdateLocationSettingsResponse extends JsonSerializableType
     public function setLocationSettings(?CheckoutLocationSettings $value = null): self
     {
         $this->locationSettings = $value;
+        $this->_setField('locationSettings');
         return $this;
     }
 

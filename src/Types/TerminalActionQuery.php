@@ -46,6 +46,7 @@ class TerminalActionQuery extends JsonSerializableType
     public function setFilter(?TerminalActionQueryFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class TerminalActionQuery extends JsonSerializableType
     public function setSort(?TerminalActionQuerySort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

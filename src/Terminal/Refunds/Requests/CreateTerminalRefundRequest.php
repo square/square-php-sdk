@@ -52,6 +52,7 @@ class CreateTerminalRefundRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CreateTerminalRefundRequest extends JsonSerializableType
     public function setRefund(?TerminalRefund $value = null): self
     {
         $this->refund = $value;
+        $this->_setField('refund');
         return $this;
     }
 }

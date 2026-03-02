@@ -36,6 +36,7 @@ class GetChannelsRequest extends JsonSerializableType
     public function setChannelId(string $value): self
     {
         $this->channelId = $value;
+        $this->_setField('channelId');
         return $this;
     }
 }

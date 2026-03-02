@@ -62,6 +62,7 @@ class CustomerSort extends JsonSerializableType
     public function setField(?string $value = null): self
     {
         $this->field = $value;
+        $this->_setField('field');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class CustomerSort extends JsonSerializableType
     public function setOrder(?string $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 

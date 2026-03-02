@@ -52,6 +52,7 @@ class CreateInvoiceAttachmentRequestData extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CreateInvoiceAttachmentRequestData extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 

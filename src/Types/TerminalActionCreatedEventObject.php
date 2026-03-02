@@ -38,6 +38,7 @@ class TerminalActionCreatedEventObject extends JsonSerializableType
     public function setAction(?TerminalAction $value = null): self
     {
         $this->action = $value;
+        $this->_setField('action');
         return $this;
     }
 

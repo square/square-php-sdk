@@ -69,6 +69,7 @@ class UpdateTransferOrderLineData extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class UpdateTransferOrderLineData extends JsonSerializableType
     public function setItemVariationId(?string $value = null): self
     {
         $this->itemVariationId = $value;
+        $this->_setField('itemVariationId');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class UpdateTransferOrderLineData extends JsonSerializableType
     public function setQuantityOrdered(?string $value = null): self
     {
         $this->quantityOrdered = $value;
+        $this->_setField('quantityOrdered');
         return $this;
     }
 
@@ -120,6 +123,7 @@ class UpdateTransferOrderLineData extends JsonSerializableType
     public function setRemove(?bool $value = null): self
     {
         $this->remove = $value;
+        $this->_setField('remove');
         return $this;
     }
 

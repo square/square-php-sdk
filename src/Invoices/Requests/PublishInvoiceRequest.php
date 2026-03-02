@@ -62,6 +62,7 @@ class PublishInvoiceRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class PublishInvoiceRequest extends JsonSerializableType
     public function setVersion(int $value): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class PublishInvoiceRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

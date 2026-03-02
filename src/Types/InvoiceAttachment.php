@@ -96,6 +96,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -113,6 +114,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setFilename(?string $value = null): self
     {
         $this->filename = $value;
+        $this->_setField('filename');
         return $this;
     }
 
@@ -130,6 +132,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -147,6 +150,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setFilesize(?int $value = null): self
     {
         $this->filesize = $value;
+        $this->_setField('filesize');
         return $this;
     }
 
@@ -164,6 +168,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setHash(?string $value = null): self
     {
         $this->hash = $value;
+        $this->_setField('hash');
         return $this;
     }
 
@@ -181,6 +186,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setMimeType(?string $value = null): self
     {
         $this->mimeType = $value;
+        $this->_setField('mimeType');
         return $this;
     }
 
@@ -198,6 +204,7 @@ class InvoiceAttachment extends JsonSerializableType
     public function setUploadedAt(?string $value = null): self
     {
         $this->uploadedAt = $value;
+        $this->_setField('uploadedAt');
         return $this;
     }
 

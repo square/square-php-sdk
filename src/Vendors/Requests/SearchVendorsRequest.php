@@ -61,6 +61,7 @@ class SearchVendorsRequest extends JsonSerializableType
     public function setFilter(?SearchVendorsRequestFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class SearchVendorsRequest extends JsonSerializableType
     public function setSort(?SearchVendorsRequestSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class SearchVendorsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

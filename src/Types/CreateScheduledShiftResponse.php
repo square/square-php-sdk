@@ -55,6 +55,7 @@ class CreateScheduledShiftResponse extends JsonSerializableType
     public function setScheduledShift(?ScheduledShift $value = null): self
     {
         $this->scheduledShift = $value;
+        $this->_setField('scheduledShift');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class CreateScheduledShiftResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -38,6 +38,7 @@ class DeviceCreatedEventObject extends JsonSerializableType
     public function setDevice(?Device $value = null): self
     {
         $this->device = $value;
+        $this->_setField('device');
         return $this;
     }
 

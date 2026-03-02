@@ -46,6 +46,7 @@ class UpdateTimecardRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateTimecardRequest extends JsonSerializableType
     public function setTimecard(Timecard $value): self
     {
         $this->timecard = $value;
+        $this->_setField('timecard');
         return $this;
     }
 }

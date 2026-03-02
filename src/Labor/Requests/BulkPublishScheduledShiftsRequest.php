@@ -60,6 +60,7 @@ class BulkPublishScheduledShiftsRequest extends JsonSerializableType
     public function setScheduledShifts(array $value): self
     {
         $this->scheduledShifts = $value;
+        $this->_setField('scheduledShifts');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class BulkPublishScheduledShiftsRequest extends JsonSerializableType
     public function setScheduledShiftNotificationAudience(?string $value = null): self
     {
         $this->scheduledShiftNotificationAudience = $value;
+        $this->_setField('scheduledShiftNotificationAudience');
         return $this;
     }
 }

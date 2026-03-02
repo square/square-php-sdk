@@ -42,6 +42,7 @@ class CatalogQueryItemsForTax extends JsonSerializableType
     public function setTaxIds(array $value): self
     {
         $this->taxIds = $value;
+        $this->_setField('taxIds');
         return $this;
     }
 

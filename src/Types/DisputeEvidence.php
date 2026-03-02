@@ -89,6 +89,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setEvidenceId(?string $value = null): self
     {
         $this->evidenceId = $value;
+        $this->_setField('evidenceId');
         return $this;
     }
 
@@ -106,6 +107,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -123,6 +125,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setDisputeId(?string $value = null): self
     {
         $this->disputeId = $value;
+        $this->_setField('disputeId');
         return $this;
     }
 
@@ -140,6 +143,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setEvidenceFile(?DisputeEvidenceFile $value = null): self
     {
         $this->evidenceFile = $value;
+        $this->_setField('evidenceFile');
         return $this;
     }
 
@@ -157,6 +161,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setEvidenceText(?string $value = null): self
     {
         $this->evidenceText = $value;
+        $this->_setField('evidenceText');
         return $this;
     }
 
@@ -174,6 +179,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setUploadedAt(?string $value = null): self
     {
         $this->uploadedAt = $value;
+        $this->_setField('uploadedAt');
         return $this;
     }
 
@@ -191,6 +197,7 @@ class DisputeEvidence extends JsonSerializableType
     public function setEvidenceType(?string $value = null): self
     {
         $this->evidenceType = $value;
+        $this->_setField('evidenceType');
         return $this;
     }
 

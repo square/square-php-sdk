@@ -55,6 +55,7 @@ class CalculateOrderRequest extends JsonSerializableType
     public function setOrder(Order $value): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class CalculateOrderRequest extends JsonSerializableType
     public function setProposedRewards(?array $value = null): self
     {
         $this->proposedRewards = $value;
+        $this->_setField('proposedRewards');
         return $this;
     }
 }

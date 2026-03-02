@@ -54,6 +54,7 @@ class BatchUpdateVendorsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class BatchUpdateVendorsResponse extends JsonSerializableType
     public function setResponses(?array $value = null): self
     {
         $this->responses = $value;
+        $this->_setField('responses');
         return $this;
     }
 

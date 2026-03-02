@@ -38,6 +38,7 @@ class BookingUpdatedEventObject extends JsonSerializableType
     public function setBooking(?Booking $value = null): self
     {
         $this->booking = $value;
+        $this->_setField('booking');
         return $this;
     }
 

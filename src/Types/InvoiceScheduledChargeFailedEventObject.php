@@ -38,6 +38,7 @@ class InvoiceScheduledChargeFailedEventObject extends JsonSerializableType
     public function setInvoice(?Invoice $value = null): self
     {
         $this->invoice = $value;
+        $this->_setField('invoice');
         return $this;
     }
 

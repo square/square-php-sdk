@@ -45,6 +45,7 @@ class UpdateTeamMemberRequest extends JsonSerializableType
     public function setTeamMember(?TeamMember $value = null): self
     {
         $this->teamMember = $value;
+        $this->_setField('teamMember');
         return $this;
     }
 

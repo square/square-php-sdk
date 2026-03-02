@@ -57,6 +57,7 @@ class LocationBookingProfile extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class LocationBookingProfile extends JsonSerializableType
     public function setBookingSiteUrl(?string $value = null): self
     {
         $this->bookingSiteUrl = $value;
+        $this->_setField('bookingSiteUrl');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class LocationBookingProfile extends JsonSerializableType
     public function setOnlineBookingEnabled(?bool $value = null): self
     {
         $this->onlineBookingEnabled = $value;
+        $this->_setField('onlineBookingEnabled');
         return $this;
     }
 

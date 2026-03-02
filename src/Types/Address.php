@@ -165,6 +165,7 @@ class Address extends JsonSerializableType
     public function setAddressLine1(?string $value = null): self
     {
         $this->addressLine1 = $value;
+        $this->_setField('addressLine1');
         return $this;
     }
 
@@ -182,6 +183,7 @@ class Address extends JsonSerializableType
     public function setAddressLine2(?string $value = null): self
     {
         $this->addressLine2 = $value;
+        $this->_setField('addressLine2');
         return $this;
     }
 
@@ -199,6 +201,7 @@ class Address extends JsonSerializableType
     public function setAddressLine3(?string $value = null): self
     {
         $this->addressLine3 = $value;
+        $this->_setField('addressLine3');
         return $this;
     }
 
@@ -216,6 +219,7 @@ class Address extends JsonSerializableType
     public function setLocality(?string $value = null): self
     {
         $this->locality = $value;
+        $this->_setField('locality');
         return $this;
     }
 
@@ -233,6 +237,7 @@ class Address extends JsonSerializableType
     public function setSublocality(?string $value = null): self
     {
         $this->sublocality = $value;
+        $this->_setField('sublocality');
         return $this;
     }
 
@@ -250,6 +255,7 @@ class Address extends JsonSerializableType
     public function setSublocality2(?string $value = null): self
     {
         $this->sublocality2 = $value;
+        $this->_setField('sublocality2');
         return $this;
     }
 
@@ -267,6 +273,7 @@ class Address extends JsonSerializableType
     public function setSublocality3(?string $value = null): self
     {
         $this->sublocality3 = $value;
+        $this->_setField('sublocality3');
         return $this;
     }
 
@@ -284,6 +291,7 @@ class Address extends JsonSerializableType
     public function setAdministrativeDistrictLevel1(?string $value = null): self
     {
         $this->administrativeDistrictLevel1 = $value;
+        $this->_setField('administrativeDistrictLevel1');
         return $this;
     }
 
@@ -301,6 +309,7 @@ class Address extends JsonSerializableType
     public function setAdministrativeDistrictLevel2(?string $value = null): self
     {
         $this->administrativeDistrictLevel2 = $value;
+        $this->_setField('administrativeDistrictLevel2');
         return $this;
     }
 
@@ -318,6 +327,7 @@ class Address extends JsonSerializableType
     public function setAdministrativeDistrictLevel3(?string $value = null): self
     {
         $this->administrativeDistrictLevel3 = $value;
+        $this->_setField('administrativeDistrictLevel3');
         return $this;
     }
 
@@ -335,6 +345,7 @@ class Address extends JsonSerializableType
     public function setPostalCode(?string $value = null): self
     {
         $this->postalCode = $value;
+        $this->_setField('postalCode');
         return $this;
     }
 
@@ -352,6 +363,7 @@ class Address extends JsonSerializableType
     public function setCountry(?string $value = null): self
     {
         $this->country = $value;
+        $this->_setField('country');
         return $this;
     }
 
@@ -369,6 +381,7 @@ class Address extends JsonSerializableType
     public function setFirstName(?string $value = null): self
     {
         $this->firstName = $value;
+        $this->_setField('firstName');
         return $this;
     }
 
@@ -386,6 +399,7 @@ class Address extends JsonSerializableType
     public function setLastName(?string $value = null): self
     {
         $this->lastName = $value;
+        $this->_setField('lastName');
         return $this;
     }
 

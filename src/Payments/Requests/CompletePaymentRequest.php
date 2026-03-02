@@ -49,6 +49,7 @@ class CompletePaymentRequest extends JsonSerializableType
     public function setPaymentId(string $value): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CompletePaymentRequest extends JsonSerializableType
     public function setVersionToken(?string $value = null): self
     {
         $this->versionToken = $value;
+        $this->_setField('versionToken');
         return $this;
     }
 }

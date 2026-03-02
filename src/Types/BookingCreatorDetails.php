@@ -66,6 +66,7 @@ class BookingCreatorDetails extends JsonSerializableType
     public function setCreatorType(?string $value = null): self
     {
         $this->creatorType = $value;
+        $this->_setField('creatorType');
         return $this;
     }
 
@@ -83,6 +84,7 @@ class BookingCreatorDetails extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -100,6 +102,7 @@ class BookingCreatorDetails extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 

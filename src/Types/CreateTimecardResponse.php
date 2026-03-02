@@ -52,6 +52,7 @@ class CreateTimecardResponse extends JsonSerializableType
     public function setTimecard(?Timecard $value = null): self
     {
         $this->timecard = $value;
+        $this->_setField('timecard');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CreateTimecardResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -71,6 +71,7 @@ class SearchTeamMembersFilter extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class SearchTeamMembersFilter extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class SearchTeamMembersFilter extends JsonSerializableType
     public function setIsOwner(?bool $value = null): self
     {
         $this->isOwner = $value;
+        $this->_setField('isOwner');
         return $this;
     }
 

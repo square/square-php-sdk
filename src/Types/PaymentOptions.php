@@ -103,6 +103,7 @@ class PaymentOptions extends JsonSerializableType
     public function setAutocomplete(?bool $value = null): self
     {
         $this->autocomplete = $value;
+        $this->_setField('autocomplete');
         return $this;
     }
 
@@ -120,6 +121,7 @@ class PaymentOptions extends JsonSerializableType
     public function setDelayDuration(?string $value = null): self
     {
         $this->delayDuration = $value;
+        $this->_setField('delayDuration');
         return $this;
     }
 
@@ -137,6 +139,7 @@ class PaymentOptions extends JsonSerializableType
     public function setAcceptPartialAuthorization(?bool $value = null): self
     {
         $this->acceptPartialAuthorization = $value;
+        $this->_setField('acceptPartialAuthorization');
         return $this;
     }
 
@@ -154,6 +157,7 @@ class PaymentOptions extends JsonSerializableType
     public function setDelayAction(?string $value = null): self
     {
         $this->delayAction = $value;
+        $this->_setField('delayAction');
         return $this;
     }
 

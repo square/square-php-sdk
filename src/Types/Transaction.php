@@ -136,6 +136,7 @@ class Transaction extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -153,6 +154,7 @@ class Transaction extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -170,6 +172,7 @@ class Transaction extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -187,6 +190,7 @@ class Transaction extends JsonSerializableType
     public function setTenders(?array $value = null): self
     {
         $this->tenders = $value;
+        $this->_setField('tenders');
         return $this;
     }
 
@@ -204,6 +208,7 @@ class Transaction extends JsonSerializableType
     public function setRefunds(?array $value = null): self
     {
         $this->refunds = $value;
+        $this->_setField('refunds');
         return $this;
     }
 
@@ -221,6 +226,7 @@ class Transaction extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -238,6 +244,7 @@ class Transaction extends JsonSerializableType
     public function setProduct(?string $value = null): self
     {
         $this->product = $value;
+        $this->_setField('product');
         return $this;
     }
 
@@ -255,6 +262,7 @@ class Transaction extends JsonSerializableType
     public function setClientId(?string $value = null): self
     {
         $this->clientId = $value;
+        $this->_setField('clientId');
         return $this;
     }
 
@@ -272,6 +280,7 @@ class Transaction extends JsonSerializableType
     public function setShippingAddress(?Address $value = null): self
     {
         $this->shippingAddress = $value;
+        $this->_setField('shippingAddress');
         return $this;
     }
 
@@ -289,6 +298,7 @@ class Transaction extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 

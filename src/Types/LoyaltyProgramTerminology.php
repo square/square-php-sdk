@@ -49,6 +49,7 @@ class LoyaltyProgramTerminology extends JsonSerializableType
     public function setOne(string $value): self
     {
         $this->one = $value;
+        $this->_setField('one');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class LoyaltyProgramTerminology extends JsonSerializableType
     public function setOther(string $value): self
     {
         $this->other = $value;
+        $this->_setField('other');
         return $this;
     }
 

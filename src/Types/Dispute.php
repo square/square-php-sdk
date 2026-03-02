@@ -174,6 +174,7 @@ class Dispute extends JsonSerializableType
     public function setDisputeId(?string $value = null): self
     {
         $this->disputeId = $value;
+        $this->_setField('disputeId');
         return $this;
     }
 
@@ -191,6 +192,7 @@ class Dispute extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -208,6 +210,7 @@ class Dispute extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -225,6 +228,7 @@ class Dispute extends JsonSerializableType
     public function setReason(?string $value = null): self
     {
         $this->reason = $value;
+        $this->_setField('reason');
         return $this;
     }
 
@@ -242,6 +246,7 @@ class Dispute extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -259,6 +264,7 @@ class Dispute extends JsonSerializableType
     public function setDueAt(?string $value = null): self
     {
         $this->dueAt = $value;
+        $this->_setField('dueAt');
         return $this;
     }
 
@@ -276,6 +282,7 @@ class Dispute extends JsonSerializableType
     public function setDisputedPayment(?DisputedPayment $value = null): self
     {
         $this->disputedPayment = $value;
+        $this->_setField('disputedPayment');
         return $this;
     }
 
@@ -293,6 +300,7 @@ class Dispute extends JsonSerializableType
     public function setEvidenceIds(?array $value = null): self
     {
         $this->evidenceIds = $value;
+        $this->_setField('evidenceIds');
         return $this;
     }
 
@@ -310,6 +318,7 @@ class Dispute extends JsonSerializableType
     public function setCardBrand(?string $value = null): self
     {
         $this->cardBrand = $value;
+        $this->_setField('cardBrand');
         return $this;
     }
 
@@ -327,6 +336,7 @@ class Dispute extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -344,6 +354,7 @@ class Dispute extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -361,6 +372,7 @@ class Dispute extends JsonSerializableType
     public function setBrandDisputeId(?string $value = null): self
     {
         $this->brandDisputeId = $value;
+        $this->_setField('brandDisputeId');
         return $this;
     }
 
@@ -378,6 +390,7 @@ class Dispute extends JsonSerializableType
     public function setReportedDate(?string $value = null): self
     {
         $this->reportedDate = $value;
+        $this->_setField('reportedDate');
         return $this;
     }
 
@@ -395,6 +408,7 @@ class Dispute extends JsonSerializableType
     public function setReportedAt(?string $value = null): self
     {
         $this->reportedAt = $value;
+        $this->_setField('reportedAt');
         return $this;
     }
 
@@ -412,6 +426,7 @@ class Dispute extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -429,6 +444,7 @@ class Dispute extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 

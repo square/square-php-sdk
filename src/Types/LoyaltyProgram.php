@@ -118,6 +118,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -135,6 +136,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -152,6 +154,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setRewardTiers(?array $value = null): self
     {
         $this->rewardTiers = $value;
+        $this->_setField('rewardTiers');
         return $this;
     }
 
@@ -169,6 +172,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setExpirationPolicy(?LoyaltyProgramExpirationPolicy $value = null): self
     {
         $this->expirationPolicy = $value;
+        $this->_setField('expirationPolicy');
         return $this;
     }
 
@@ -186,6 +190,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setTerminology(?LoyaltyProgramTerminology $value = null): self
     {
         $this->terminology = $value;
+        $this->_setField('terminology');
         return $this;
     }
 
@@ -203,6 +208,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -220,6 +226,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -237,6 +244,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -254,6 +262,7 @@ class LoyaltyProgram extends JsonSerializableType
     public function setAccrualRules(?array $value = null): self
     {
         $this->accrualRules = $value;
+        $this->_setField('accrualRules');
         return $this;
     }
 

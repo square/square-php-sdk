@@ -58,6 +58,7 @@ class CreateTeamMemberRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CreateTeamMemberRequest extends JsonSerializableType
     public function setTeamMember(?TeamMember $value = null): self
     {
         $this->teamMember = $value;
+        $this->_setField('teamMember');
         return $this;
     }
 

@@ -46,6 +46,7 @@ class PaymentBalanceActivityAutomaticSavingsDetail extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class PaymentBalanceActivityAutomaticSavingsDetail extends JsonSerializableType
     public function setPayoutId(?string $value = null): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 
