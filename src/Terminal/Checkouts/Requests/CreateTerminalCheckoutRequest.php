@@ -52,6 +52,7 @@ class CreateTerminalCheckoutRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CreateTerminalCheckoutRequest extends JsonSerializableType
     public function setCheckout(TerminalCheckout $value): self
     {
         $this->checkout = $value;
+        $this->_setField('checkout');
         return $this;
     }
 }

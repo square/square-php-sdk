@@ -41,6 +41,7 @@ class CustomerPreferences extends JsonSerializableType
     public function setEmailUnsubscribed(?bool $value = null): self
     {
         $this->emailUnsubscribed = $value;
+        $this->_setField('emailUnsubscribed');
         return $this;
     }
 

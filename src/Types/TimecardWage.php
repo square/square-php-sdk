@@ -71,6 +71,7 @@ class TimecardWage extends JsonSerializableType
     public function setTitle(?string $value = null): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class TimecardWage extends JsonSerializableType
     public function setHourlyRate(?Money $value = null): self
     {
         $this->hourlyRate = $value;
+        $this->_setField('hourlyRate');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class TimecardWage extends JsonSerializableType
     public function setJobId(?string $value = null): self
     {
         $this->jobId = $value;
+        $this->_setField('jobId');
         return $this;
     }
 
@@ -122,6 +125,7 @@ class TimecardWage extends JsonSerializableType
     public function setTipEligible(?bool $value = null): self
     {
         $this->tipEligible = $value;
+        $this->_setField('tipEligible');
         return $this;
     }
 

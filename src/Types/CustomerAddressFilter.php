@@ -53,6 +53,7 @@ class CustomerAddressFilter extends JsonSerializableType
     public function setPostalCode(?CustomerTextFilter $value = null): self
     {
         $this->postalCode = $value;
+        $this->_setField('postalCode');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CustomerAddressFilter extends JsonSerializableType
     public function setCountry(?string $value = null): self
     {
         $this->country = $value;
+        $this->_setField('country');
         return $this;
     }
 

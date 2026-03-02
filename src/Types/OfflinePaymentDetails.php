@@ -41,6 +41,7 @@ class OfflinePaymentDetails extends JsonSerializableType
     public function setClientCreatedAt(?string $value = null): self
     {
         $this->clientCreatedAt = $value;
+        $this->_setField('clientCreatedAt');
         return $this;
     }
 

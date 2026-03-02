@@ -47,6 +47,7 @@ class DeleteCustomAttributesRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class DeleteCustomAttributesRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 }

@@ -90,6 +90,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setDurationMinutes(?int $value = null): self
     {
         $this->durationMinutes = $value;
+        $this->_setField('durationMinutes');
         return $this;
     }
 
@@ -107,6 +108,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setServiceVariationId(?string $value = null): self
     {
         $this->serviceVariationId = $value;
+        $this->_setField('serviceVariationId');
         return $this;
     }
 
@@ -124,6 +126,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setTeamMemberId(string $value): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -141,6 +144,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setServiceVariationVersion(?int $value = null): self
     {
         $this->serviceVariationVersion = $value;
+        $this->_setField('serviceVariationVersion');
         return $this;
     }
 
@@ -158,6 +162,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setIntermissionMinutes(?int $value = null): self
     {
         $this->intermissionMinutes = $value;
+        $this->_setField('intermissionMinutes');
         return $this;
     }
 
@@ -175,6 +180,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setAnyTeamMember(?bool $value = null): self
     {
         $this->anyTeamMember = $value;
+        $this->_setField('anyTeamMember');
         return $this;
     }
 
@@ -192,6 +198,7 @@ class AppointmentSegment extends JsonSerializableType
     public function setResourceIds(?array $value = null): self
     {
         $this->resourceIds = $value;
+        $this->_setField('resourceIds');
         return $this;
     }
 

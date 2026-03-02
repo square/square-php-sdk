@@ -68,6 +68,7 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute extends JsonSe
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute extends JsonSe
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class BulkUpsertOrderCustomAttributesRequestUpsertCustomAttribute extends JsonSe
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 

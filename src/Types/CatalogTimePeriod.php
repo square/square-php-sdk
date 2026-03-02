@@ -57,6 +57,7 @@ class CatalogTimePeriod extends JsonSerializableType
     public function setEvent(?string $value = null): self
     {
         $this->event = $value;
+        $this->_setField('event');
         return $this;
     }
 

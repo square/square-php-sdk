@@ -36,6 +36,7 @@ class DismissTerminalCheckoutRequest extends JsonSerializableType
     public function setCheckoutId(string $value): self
     {
         $this->checkoutId = $value;
+        $this->_setField('checkoutId');
         return $this;
     }
 }

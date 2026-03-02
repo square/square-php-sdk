@@ -72,6 +72,7 @@ class UpdateLocationCustomAttributeDefinitionRequest extends JsonSerializableTyp
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -89,6 +90,7 @@ class UpdateLocationCustomAttributeDefinitionRequest extends JsonSerializableTyp
     public function setCustomAttributeDefinition(CustomAttributeDefinition $value): self
     {
         $this->customAttributeDefinition = $value;
+        $this->_setField('customAttributeDefinition');
         return $this;
     }
 
@@ -106,6 +108,7 @@ class UpdateLocationCustomAttributeDefinitionRequest extends JsonSerializableTyp
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

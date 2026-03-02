@@ -93,6 +93,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -110,6 +111,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setSubscriptionEventType(string $value): self
     {
         $this->subscriptionEventType = $value;
+        $this->_setField('subscriptionEventType');
         return $this;
     }
 
@@ -127,6 +129,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setEffectiveDate(string $value): self
     {
         $this->effectiveDate = $value;
+        $this->_setField('effectiveDate');
         return $this;
     }
 
@@ -144,6 +147,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setMonthlyBillingAnchorDate(?int $value = null): self
     {
         $this->monthlyBillingAnchorDate = $value;
+        $this->_setField('monthlyBillingAnchorDate');
         return $this;
     }
 
@@ -161,6 +165,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setInfo(?SubscriptionEventInfo $value = null): self
     {
         $this->info = $value;
+        $this->_setField('info');
         return $this;
     }
 
@@ -178,6 +183,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setPhases(?array $value = null): self
     {
         $this->phases = $value;
+        $this->_setField('phases');
         return $this;
     }
 
@@ -195,6 +201,7 @@ class SubscriptionEvent extends JsonSerializableType
     public function setPlanVariationId(string $value): self
     {
         $this->planVariationId = $value;
+        $this->_setField('planVariationId');
         return $this;
     }
 

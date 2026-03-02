@@ -61,6 +61,7 @@ class CatalogObjectAvailabilityPeriod extends JsonSerializableType
     public function setAvailabilityPeriodData(?CatalogAvailabilityPeriod $value = null): self
     {
         $this->availabilityPeriodData = $value;
+        $this->_setField('availabilityPeriodData');
         return $this;
     }
 

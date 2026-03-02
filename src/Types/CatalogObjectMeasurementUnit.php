@@ -61,6 +61,7 @@ class CatalogObjectMeasurementUnit extends JsonSerializableType
     public function setMeasurementUnitData(?CatalogMeasurementUnit $value = null): self
     {
         $this->measurementUnitData = $value;
+        $this->_setField('measurementUnitData');
         return $this;
     }
 

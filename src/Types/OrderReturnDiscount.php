@@ -143,6 +143,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -160,6 +161,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setSourceDiscountUid(?string $value = null): self
     {
         $this->sourceDiscountUid = $value;
+        $this->_setField('sourceDiscountUid');
         return $this;
     }
 
@@ -177,6 +179,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -194,6 +197,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 
@@ -211,6 +215,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -228,6 +233,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -245,6 +251,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setPercentage(?string $value = null): self
     {
         $this->percentage = $value;
+        $this->_setField('percentage');
         return $this;
     }
 
@@ -262,6 +269,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -279,6 +287,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 
@@ -296,6 +305,7 @@ class OrderReturnDiscount extends JsonSerializableType
     public function setScope(?string $value = null): self
     {
         $this->scope = $value;
+        $this->_setField('scope');
         return $this;
     }
 

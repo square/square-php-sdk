@@ -71,6 +71,7 @@ class TransferOrderGoodsReceiptLineItem extends JsonSerializableType
     public function setTransferOrderLineUid(string $value): self
     {
         $this->transferOrderLineUid = $value;
+        $this->_setField('transferOrderLineUid');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class TransferOrderGoodsReceiptLineItem extends JsonSerializableType
     public function setQuantityReceived(?string $value = null): self
     {
         $this->quantityReceived = $value;
+        $this->_setField('quantityReceived');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class TransferOrderGoodsReceiptLineItem extends JsonSerializableType
     public function setQuantityDamaged(?string $value = null): self
     {
         $this->quantityDamaged = $value;
+        $this->_setField('quantityDamaged');
         return $this;
     }
 
@@ -122,6 +125,7 @@ class TransferOrderGoodsReceiptLineItem extends JsonSerializableType
     public function setQuantityCanceled(?string $value = null): self
     {
         $this->quantityCanceled = $value;
+        $this->_setField('quantityCanceled');
         return $this;
     }
 

@@ -143,6 +143,7 @@ trait CatalogObjectBase
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -160,6 +161,7 @@ trait CatalogObjectBase
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -177,6 +179,7 @@ trait CatalogObjectBase
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -194,6 +197,7 @@ trait CatalogObjectBase
     public function setIsDeleted(?bool $value = null): self
     {
         $this->isDeleted = $value;
+        $this->_setField('isDeleted');
         return $this;
     }
 
@@ -211,6 +215,7 @@ trait CatalogObjectBase
     public function setCustomAttributeValues(?array $value = null): self
     {
         $this->customAttributeValues = $value;
+        $this->_setField('customAttributeValues');
         return $this;
     }
 
@@ -228,6 +233,7 @@ trait CatalogObjectBase
     public function setCatalogV1Ids(?array $value = null): self
     {
         $this->catalogV1Ids = $value;
+        $this->_setField('catalogV1Ids');
         return $this;
     }
 
@@ -245,6 +251,7 @@ trait CatalogObjectBase
     public function setPresentAtAllLocations(?bool $value = null): self
     {
         $this->presentAtAllLocations = $value;
+        $this->_setField('presentAtAllLocations');
         return $this;
     }
 
@@ -262,6 +269,7 @@ trait CatalogObjectBase
     public function setPresentAtLocationIds(?array $value = null): self
     {
         $this->presentAtLocationIds = $value;
+        $this->_setField('presentAtLocationIds');
         return $this;
     }
 
@@ -279,6 +287,7 @@ trait CatalogObjectBase
     public function setAbsentAtLocationIds(?array $value = null): self
     {
         $this->absentAtLocationIds = $value;
+        $this->_setField('absentAtLocationIds');
         return $this;
     }
 
@@ -296,6 +305,7 @@ trait CatalogObjectBase
     public function setImageId(?string $value = null): self
     {
         $this->imageId = $value;
+        $this->_setField('imageId');
         return $this;
     }
 }

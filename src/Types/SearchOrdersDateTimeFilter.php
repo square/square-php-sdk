@@ -82,6 +82,7 @@ class SearchOrdersDateTimeFilter extends JsonSerializableType
     public function setCreatedAt(?TimeRange $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -99,6 +100,7 @@ class SearchOrdersDateTimeFilter extends JsonSerializableType
     public function setUpdatedAt(?TimeRange $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -116,6 +118,7 @@ class SearchOrdersDateTimeFilter extends JsonSerializableType
     public function setClosedAt(?TimeRange $value = null): self
     {
         $this->closedAt = $value;
+        $this->_setField('closedAt');
         return $this;
     }
 

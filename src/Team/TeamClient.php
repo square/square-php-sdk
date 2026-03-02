@@ -2,7 +2,7 @@
 
 namespace Square\Team;
 
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
 use Square\Team\Requests\ListJobsRequest;
 use Square\Types\ListJobsResponse;
@@ -12,7 +12,6 @@ use Square\Core\Json\JsonApiRequest;
 use Square\Environments;
 use Square\Core\Client\HttpMethod;
 use JsonException;
-use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Square\Team\Requests\CreateJobRequest;
 use Square\Types\CreateJobResponse;
@@ -97,16 +96,6 @@ class TeamClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -154,16 +143,6 @@ class TeamClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -209,16 +188,6 @@ class TeamClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -267,16 +236,6 @@ class TeamClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }

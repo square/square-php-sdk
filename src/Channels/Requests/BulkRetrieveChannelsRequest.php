@@ -39,6 +39,7 @@ class BulkRetrieveChannelsRequest extends JsonSerializableType
     public function setChannelIds(array $value): self
     {
         $this->channelIds = $value;
+        $this->_setField('channelIds');
         return $this;
     }
 }

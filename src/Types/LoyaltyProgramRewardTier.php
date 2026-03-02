@@ -79,6 +79,7 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -96,6 +97,7 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setPoints(int $value): self
     {
         $this->points = $value;
+        $this->_setField('points');
         return $this;
     }
 
@@ -113,6 +115,7 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -130,6 +133,7 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -147,6 +151,7 @@ class LoyaltyProgramRewardTier extends JsonSerializableType
     public function setPricingRuleReference(CatalogObjectReference $value): self
     {
         $this->pricingRuleReference = $value;
+        $this->_setField('pricingRuleReference');
         return $this;
     }
 

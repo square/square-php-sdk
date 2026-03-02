@@ -50,6 +50,7 @@ class BatchCreateTeamMembersResponse extends JsonSerializableType
     public function setTeamMembers(?array $value = null): self
     {
         $this->teamMembers = $value;
+        $this->_setField('teamMembers');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class BatchCreateTeamMembersResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

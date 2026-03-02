@@ -61,6 +61,7 @@ class CatalogObjectItemOptionValue extends JsonSerializableType
     public function setItemOptionValueData(?CatalogItemOptionValue $value = null): self
     {
         $this->itemOptionValueData = $value;
+        $this->_setField('itemOptionValueData');
         return $this;
     }
 

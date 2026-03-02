@@ -49,6 +49,7 @@ class CatalogV1Id extends JsonSerializableType
     public function setCatalogV1Id(?string $value = null): self
     {
         $this->catalogV1Id = $value;
+        $this->_setField('catalogV1Id');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CatalogV1Id extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 

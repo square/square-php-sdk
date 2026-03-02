@@ -90,6 +90,7 @@ class TaxIds extends JsonSerializableType
     public function setEuVat(?string $value = null): self
     {
         $this->euVat = $value;
+        $this->_setField('euVat');
         return $this;
     }
 
@@ -107,6 +108,7 @@ class TaxIds extends JsonSerializableType
     public function setFrSiret(?string $value = null): self
     {
         $this->frSiret = $value;
+        $this->_setField('frSiret');
         return $this;
     }
 
@@ -124,6 +126,7 @@ class TaxIds extends JsonSerializableType
     public function setFrNaf(?string $value = null): self
     {
         $this->frNaf = $value;
+        $this->_setField('frNaf');
         return $this;
     }
 
@@ -141,6 +144,7 @@ class TaxIds extends JsonSerializableType
     public function setEsNif(?string $value = null): self
     {
         $this->esNif = $value;
+        $this->_setField('esNif');
         return $this;
     }
 
@@ -158,6 +162,7 @@ class TaxIds extends JsonSerializableType
     public function setJpQii(?string $value = null): self
     {
         $this->jpQii = $value;
+        $this->_setField('jpQii');
         return $this;
     }
 

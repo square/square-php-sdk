@@ -60,6 +60,7 @@ class CreateBankAccountRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class CreateBankAccountRequest extends JsonSerializableType
     public function setSourceId(string $value): self
     {
         $this->sourceId = $value;
+        $this->_setField('sourceId');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class CreateBankAccountRequest extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 }

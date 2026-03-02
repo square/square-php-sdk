@@ -50,6 +50,7 @@ class CreateCatalogImageResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CreateCatalogImageResponse extends JsonSerializableType
     public function setImage(?CatalogObject $value = null): self
     {
         $this->image = $value;
+        $this->_setField('image');
         return $this;
     }
 

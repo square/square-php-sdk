@@ -46,6 +46,7 @@ class UpsertSnippetRequest extends JsonSerializableType
     public function setSiteId(string $value): self
     {
         $this->siteId = $value;
+        $this->_setField('siteId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpsertSnippetRequest extends JsonSerializableType
     public function setSnippet(Snippet $value): self
     {
         $this->snippet = $value;
+        $this->_setField('snippet');
         return $this;
     }
 }

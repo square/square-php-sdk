@@ -50,6 +50,7 @@ class CreateInvoiceAttachmentResponse extends JsonSerializableType
     public function setAttachment(?InvoiceAttachment $value = null): self
     {
         $this->attachment = $value;
+        $this->_setField('attachment');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CreateInvoiceAttachmentResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

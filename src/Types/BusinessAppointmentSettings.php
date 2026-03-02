@@ -154,6 +154,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setLocationTypes(?array $value = null): self
     {
         $this->locationTypes = $value;
+        $this->_setField('locationTypes');
         return $this;
     }
 
@@ -171,6 +172,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setAlignmentTime(?string $value = null): self
     {
         $this->alignmentTime = $value;
+        $this->_setField('alignmentTime');
         return $this;
     }
 
@@ -188,6 +190,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setMinBookingLeadTimeSeconds(?int $value = null): self
     {
         $this->minBookingLeadTimeSeconds = $value;
+        $this->_setField('minBookingLeadTimeSeconds');
         return $this;
     }
 
@@ -205,6 +208,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setMaxBookingLeadTimeSeconds(?int $value = null): self
     {
         $this->maxBookingLeadTimeSeconds = $value;
+        $this->_setField('maxBookingLeadTimeSeconds');
         return $this;
     }
 
@@ -222,6 +226,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setAnyTeamMemberBookingEnabled(?bool $value = null): self
     {
         $this->anyTeamMemberBookingEnabled = $value;
+        $this->_setField('anyTeamMemberBookingEnabled');
         return $this;
     }
 
@@ -239,6 +244,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setMultipleServiceBookingEnabled(?bool $value = null): self
     {
         $this->multipleServiceBookingEnabled = $value;
+        $this->_setField('multipleServiceBookingEnabled');
         return $this;
     }
 
@@ -256,6 +262,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setMaxAppointmentsPerDayLimitType(?string $value = null): self
     {
         $this->maxAppointmentsPerDayLimitType = $value;
+        $this->_setField('maxAppointmentsPerDayLimitType');
         return $this;
     }
 
@@ -273,6 +280,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setMaxAppointmentsPerDayLimit(?int $value = null): self
     {
         $this->maxAppointmentsPerDayLimit = $value;
+        $this->_setField('maxAppointmentsPerDayLimit');
         return $this;
     }
 
@@ -290,6 +298,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setCancellationWindowSeconds(?int $value = null): self
     {
         $this->cancellationWindowSeconds = $value;
+        $this->_setField('cancellationWindowSeconds');
         return $this;
     }
 
@@ -307,6 +316,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setCancellationFeeMoney(?Money $value = null): self
     {
         $this->cancellationFeeMoney = $value;
+        $this->_setField('cancellationFeeMoney');
         return $this;
     }
 
@@ -324,6 +334,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setCancellationPolicy(?string $value = null): self
     {
         $this->cancellationPolicy = $value;
+        $this->_setField('cancellationPolicy');
         return $this;
     }
 
@@ -341,6 +352,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setCancellationPolicyText(?string $value = null): self
     {
         $this->cancellationPolicyText = $value;
+        $this->_setField('cancellationPolicyText');
         return $this;
     }
 
@@ -358,6 +370,7 @@ class BusinessAppointmentSettings extends JsonSerializableType
     public function setSkipBookingFlowStaffSelection(?bool $value = null): self
     {
         $this->skipBookingFlowStaffSelection = $value;
+        $this->_setField('skipBookingFlowStaffSelection');
         return $this;
     }
 

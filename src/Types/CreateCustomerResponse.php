@@ -54,6 +54,7 @@ class CreateCustomerResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CreateCustomerResponse extends JsonSerializableType
     public function setCustomer(?Customer $value = null): self
     {
         $this->customer = $value;
+        $this->_setField('customer');
         return $this;
     }
 

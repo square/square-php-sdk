@@ -144,6 +144,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -161,6 +162,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setSchema(?array $value = null): self
     {
         $this->schema = $value;
+        $this->_setField('schema');
         return $this;
     }
 
@@ -178,6 +180,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -195,6 +198,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -212,6 +216,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setVisibility(?string $value = null): self
     {
         $this->visibility = $value;
+        $this->_setField('visibility');
         return $this;
     }
 
@@ -229,6 +234,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -246,6 +252,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -263,6 +270,7 @@ class CustomAttributeDefinition extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

@@ -43,6 +43,7 @@ class DeleteCardsRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class DeleteCardsRequest extends JsonSerializableType
     public function setCardId(string $value): self
     {
         $this->cardId = $value;
+        $this->_setField('cardId');
         return $this;
     }
 }

@@ -138,6 +138,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setBatteryPercentage(?string $value = null): self
     {
         $this->batteryPercentage = $value;
+        $this->_setField('batteryPercentage');
         return $this;
     }
 
@@ -155,6 +156,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setChargingState(?string $value = null): self
     {
         $this->chargingState = $value;
+        $this->_setField('chargingState');
         return $this;
     }
 
@@ -172,6 +174,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -189,6 +192,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -206,6 +210,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setNetworkConnectionType(?string $value = null): self
     {
         $this->networkConnectionType = $value;
+        $this->_setField('networkConnectionType');
         return $this;
     }
 
@@ -223,6 +228,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setPaymentRegion(?string $value = null): self
     {
         $this->paymentRegion = $value;
+        $this->_setField('paymentRegion');
         return $this;
     }
 
@@ -240,6 +246,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setSerialNumber(?string $value = null): self
     {
         $this->serialNumber = $value;
+        $this->_setField('serialNumber');
         return $this;
     }
 
@@ -257,6 +264,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setOsVersion(?string $value = null): self
     {
         $this->osVersion = $value;
+        $this->_setField('osVersion');
         return $this;
     }
 
@@ -274,6 +282,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setAppVersion(?string $value = null): self
     {
         $this->appVersion = $value;
+        $this->_setField('appVersion');
         return $this;
     }
 
@@ -291,6 +300,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setWifiNetworkName(?string $value = null): self
     {
         $this->wifiNetworkName = $value;
+        $this->_setField('wifiNetworkName');
         return $this;
     }
 
@@ -308,6 +318,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setWifiNetworkStrength(?string $value = null): self
     {
         $this->wifiNetworkStrength = $value;
+        $this->_setField('wifiNetworkStrength');
         return $this;
     }
 
@@ -325,6 +336,7 @@ class DeviceMetadata extends JsonSerializableType
     public function setIpAddress(?string $value = null): self
     {
         $this->ipAddress = $value;
+        $this->_setField('ipAddress');
         return $this;
     }
 

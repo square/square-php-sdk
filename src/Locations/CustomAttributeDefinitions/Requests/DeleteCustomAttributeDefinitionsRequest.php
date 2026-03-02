@@ -36,6 +36,7 @@ class DeleteCustomAttributeDefinitionsRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 }

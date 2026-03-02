@@ -78,6 +78,7 @@ class SearchOrdersResponse extends JsonSerializableType
     public function setOrderEntries(?array $value = null): self
     {
         $this->orderEntries = $value;
+        $this->_setField('orderEntries');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class SearchOrdersResponse extends JsonSerializableType
     public function setOrders(?array $value = null): self
     {
         $this->orders = $value;
+        $this->_setField('orders');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class SearchOrdersResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -129,6 +132,7 @@ class SearchOrdersResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

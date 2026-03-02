@@ -61,6 +61,7 @@ class CatalogObjectItemVariation extends JsonSerializableType
     public function setItemVariationData(?CatalogItemVariation $value = null): self
     {
         $this->itemVariationData = $value;
+        $this->_setField('itemVariationData');
         return $this;
     }
 

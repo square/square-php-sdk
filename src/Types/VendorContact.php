@@ -87,6 +87,7 @@ class VendorContact extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -104,6 +105,7 @@ class VendorContact extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -121,6 +123,7 @@ class VendorContact extends JsonSerializableType
     public function setEmailAddress(?string $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -138,6 +141,7 @@ class VendorContact extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -155,6 +159,7 @@ class VendorContact extends JsonSerializableType
     public function setRemoved(?bool $value = null): self
     {
         $this->removed = $value;
+        $this->_setField('removed');
         return $this;
     }
 
@@ -172,6 +177,7 @@ class VendorContact extends JsonSerializableType
     public function setOrdinal(int $value): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 

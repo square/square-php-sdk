@@ -39,6 +39,7 @@ class BulkRetrieveTeamMemberBookingProfilesRequest extends JsonSerializableType
     public function setTeamMemberIds(array $value): self
     {
         $this->teamMemberIds = $value;
+        $this->_setField('teamMemberIds');
         return $this;
     }
 }

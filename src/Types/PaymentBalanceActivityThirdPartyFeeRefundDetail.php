@@ -46,6 +46,7 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetail extends JsonSerializableTy
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class PaymentBalanceActivityThirdPartyFeeRefundDetail extends JsonSerializableTy
     public function setRefundId(?string $value = null): self
     {
         $this->refundId = $value;
+        $this->_setField('refundId');
         return $this;
     }
 

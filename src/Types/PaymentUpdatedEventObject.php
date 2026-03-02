@@ -38,6 +38,7 @@ class PaymentUpdatedEventObject extends JsonSerializableType
     public function setPayment(?Payment $value = null): self
     {
         $this->payment = $value;
+        $this->_setField('payment');
         return $this;
     }
 

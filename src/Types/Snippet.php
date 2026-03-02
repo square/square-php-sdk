@@ -73,6 +73,7 @@ class Snippet extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class Snippet extends JsonSerializableType
     public function setSiteId(?string $value = null): self
     {
         $this->siteId = $value;
+        $this->_setField('siteId');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class Snippet extends JsonSerializableType
     public function setContent(string $value): self
     {
         $this->content = $value;
+        $this->_setField('content');
         return $this;
     }
 
@@ -124,6 +127,7 @@ class Snippet extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -141,6 +145,7 @@ class Snippet extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

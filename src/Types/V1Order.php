@@ -237,6 +237,7 @@ class V1Order extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -254,6 +255,7 @@ class V1Order extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -271,6 +273,7 @@ class V1Order extends JsonSerializableType
     public function setBuyerEmail(?string $value = null): self
     {
         $this->buyerEmail = $value;
+        $this->_setField('buyerEmail');
         return $this;
     }
 
@@ -288,6 +291,7 @@ class V1Order extends JsonSerializableType
     public function setRecipientName(?string $value = null): self
     {
         $this->recipientName = $value;
+        $this->_setField('recipientName');
         return $this;
     }
 
@@ -305,6 +309,7 @@ class V1Order extends JsonSerializableType
     public function setRecipientPhoneNumber(?string $value = null): self
     {
         $this->recipientPhoneNumber = $value;
+        $this->_setField('recipientPhoneNumber');
         return $this;
     }
 
@@ -322,6 +327,7 @@ class V1Order extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -339,6 +345,7 @@ class V1Order extends JsonSerializableType
     public function setShippingAddress(?Address $value = null): self
     {
         $this->shippingAddress = $value;
+        $this->_setField('shippingAddress');
         return $this;
     }
 
@@ -356,6 +363,7 @@ class V1Order extends JsonSerializableType
     public function setSubtotalMoney(?V1Money $value = null): self
     {
         $this->subtotalMoney = $value;
+        $this->_setField('subtotalMoney');
         return $this;
     }
 
@@ -373,6 +381,7 @@ class V1Order extends JsonSerializableType
     public function setTotalShippingMoney(?V1Money $value = null): self
     {
         $this->totalShippingMoney = $value;
+        $this->_setField('totalShippingMoney');
         return $this;
     }
 
@@ -390,6 +399,7 @@ class V1Order extends JsonSerializableType
     public function setTotalTaxMoney(?V1Money $value = null): self
     {
         $this->totalTaxMoney = $value;
+        $this->_setField('totalTaxMoney');
         return $this;
     }
 
@@ -407,6 +417,7 @@ class V1Order extends JsonSerializableType
     public function setTotalPriceMoney(?V1Money $value = null): self
     {
         $this->totalPriceMoney = $value;
+        $this->_setField('totalPriceMoney');
         return $this;
     }
 
@@ -424,6 +435,7 @@ class V1Order extends JsonSerializableType
     public function setTotalDiscountMoney(?V1Money $value = null): self
     {
         $this->totalDiscountMoney = $value;
+        $this->_setField('totalDiscountMoney');
         return $this;
     }
 
@@ -441,6 +453,7 @@ class V1Order extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -458,6 +471,7 @@ class V1Order extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -475,6 +489,7 @@ class V1Order extends JsonSerializableType
     public function setExpiresAt(?string $value = null): self
     {
         $this->expiresAt = $value;
+        $this->_setField('expiresAt');
         return $this;
     }
 
@@ -492,6 +507,7 @@ class V1Order extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -509,6 +525,7 @@ class V1Order extends JsonSerializableType
     public function setBuyerNote(?string $value = null): self
     {
         $this->buyerNote = $value;
+        $this->_setField('buyerNote');
         return $this;
     }
 
@@ -526,6 +543,7 @@ class V1Order extends JsonSerializableType
     public function setCompletedNote(?string $value = null): self
     {
         $this->completedNote = $value;
+        $this->_setField('completedNote');
         return $this;
     }
 
@@ -543,6 +561,7 @@ class V1Order extends JsonSerializableType
     public function setRefundedNote(?string $value = null): self
     {
         $this->refundedNote = $value;
+        $this->_setField('refundedNote');
         return $this;
     }
 
@@ -560,6 +579,7 @@ class V1Order extends JsonSerializableType
     public function setCanceledNote(?string $value = null): self
     {
         $this->canceledNote = $value;
+        $this->_setField('canceledNote');
         return $this;
     }
 
@@ -577,6 +597,7 @@ class V1Order extends JsonSerializableType
     public function setTender(?V1Tender $value = null): self
     {
         $this->tender = $value;
+        $this->_setField('tender');
         return $this;
     }
 
@@ -594,6 +615,7 @@ class V1Order extends JsonSerializableType
     public function setOrderHistory(?array $value = null): self
     {
         $this->orderHistory = $value;
+        $this->_setField('orderHistory');
         return $this;
     }
 
@@ -611,6 +633,7 @@ class V1Order extends JsonSerializableType
     public function setPromoCode(?string $value = null): self
     {
         $this->promoCode = $value;
+        $this->_setField('promoCode');
         return $this;
     }
 
@@ -628,6 +651,7 @@ class V1Order extends JsonSerializableType
     public function setBtcReceiveAddress(?string $value = null): self
     {
         $this->btcReceiveAddress = $value;
+        $this->_setField('btcReceiveAddress');
         return $this;
     }
 
@@ -645,6 +669,7 @@ class V1Order extends JsonSerializableType
     public function setBtcPriceSatoshi(?float $value = null): self
     {
         $this->btcPriceSatoshi = $value;
+        $this->_setField('btcPriceSatoshi');
         return $this;
     }
 

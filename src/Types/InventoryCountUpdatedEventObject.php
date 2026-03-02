@@ -39,6 +39,7 @@ class InventoryCountUpdatedEventObject extends JsonSerializableType
     public function setInventoryCounts(?array $value = null): self
     {
         $this->inventoryCounts = $value;
+        $this->_setField('inventoryCounts');
         return $this;
     }
 

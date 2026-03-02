@@ -51,6 +51,7 @@ class UpdateWageSettingResponse extends JsonSerializableType
     public function setWageSetting(?WageSetting $value = null): self
     {
         $this->wageSetting = $value;
+        $this->_setField('wageSetting');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class UpdateWageSettingResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

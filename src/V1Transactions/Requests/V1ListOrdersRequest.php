@@ -61,6 +61,7 @@ class V1ListOrdersRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class V1ListOrdersRequest extends JsonSerializableType
     public function setOrder(?string $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class V1ListOrdersRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -112,6 +115,7 @@ class V1ListOrdersRequest extends JsonSerializableType
     public function setBatchToken(?string $value = null): self
     {
         $this->batchToken = $value;
+        $this->_setField('batchToken');
         return $this;
     }
 }

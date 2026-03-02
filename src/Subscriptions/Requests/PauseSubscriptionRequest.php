@@ -96,6 +96,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -113,6 +114,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setPauseEffectiveDate(?string $value = null): self
     {
         $this->pauseEffectiveDate = $value;
+        $this->_setField('pauseEffectiveDate');
         return $this;
     }
 
@@ -130,6 +132,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setPauseCycleDuration(?int $value = null): self
     {
         $this->pauseCycleDuration = $value;
+        $this->_setField('pauseCycleDuration');
         return $this;
     }
 
@@ -147,6 +150,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setResumeEffectiveDate(?string $value = null): self
     {
         $this->resumeEffectiveDate = $value;
+        $this->_setField('resumeEffectiveDate');
         return $this;
     }
 
@@ -164,6 +168,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setResumeChangeTiming(?string $value = null): self
     {
         $this->resumeChangeTiming = $value;
+        $this->_setField('resumeChangeTiming');
         return $this;
     }
 
@@ -181,6 +186,7 @@ class PauseSubscriptionRequest extends JsonSerializableType
     public function setPauseReason(?string $value = null): self
     {
         $this->pauseReason = $value;
+        $this->_setField('pauseReason');
         return $this;
     }
 }

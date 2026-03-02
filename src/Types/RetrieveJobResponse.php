@@ -51,6 +51,7 @@ class RetrieveJobResponse extends JsonSerializableType
     public function setJob(?Job $value = null): self
     {
         $this->job = $value;
+        $this->_setField('job');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class RetrieveJobResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

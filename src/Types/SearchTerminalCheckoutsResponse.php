@@ -60,6 +60,7 @@ class SearchTerminalCheckoutsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class SearchTerminalCheckoutsResponse extends JsonSerializableType
     public function setCheckouts(?array $value = null): self
     {
         $this->checkouts = $value;
+        $this->_setField('checkouts');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class SearchTerminalCheckoutsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

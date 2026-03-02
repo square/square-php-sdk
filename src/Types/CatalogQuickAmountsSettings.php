@@ -64,6 +64,7 @@ class CatalogQuickAmountsSettings extends JsonSerializableType
     public function setOption(string $value): self
     {
         $this->option = $value;
+        $this->_setField('option');
         return $this;
     }
 
@@ -81,6 +82,7 @@ class CatalogQuickAmountsSettings extends JsonSerializableType
     public function setEligibleForAutoAmounts(?bool $value = null): self
     {
         $this->eligibleForAutoAmounts = $value;
+        $this->_setField('eligibleForAutoAmounts');
         return $this;
     }
 
@@ -98,6 +100,7 @@ class CatalogQuickAmountsSettings extends JsonSerializableType
     public function setAmounts(?array $value = null): self
     {
         $this->amounts = $value;
+        $this->_setField('amounts');
         return $this;
     }
 

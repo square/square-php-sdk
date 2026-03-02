@@ -61,6 +61,7 @@ class ApplicationDetails extends JsonSerializableType
     public function setSquareProduct(?string $value = null): self
     {
         $this->squareProduct = $value;
+        $this->_setField('squareProduct');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class ApplicationDetails extends JsonSerializableType
     public function setApplicationId(?string $value = null): self
     {
         $this->applicationId = $value;
+        $this->_setField('applicationId');
         return $this;
     }
 

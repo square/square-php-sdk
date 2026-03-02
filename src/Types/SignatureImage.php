@@ -49,6 +49,7 @@ class SignatureImage extends JsonSerializableType
     public function setImageType(?string $value = null): self
     {
         $this->imageType = $value;
+        $this->_setField('imageType');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class SignatureImage extends JsonSerializableType
     public function setData(?string $value = null): self
     {
         $this->data = $value;
+        $this->_setField('data');
         return $this;
     }
 

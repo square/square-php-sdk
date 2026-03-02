@@ -57,6 +57,7 @@ class ListTeamMemberProfilesRequest extends JsonSerializableType
     public function setBookableOnly(?bool $value = null): self
     {
         $this->bookableOnly = $value;
+        $this->_setField('bookableOnly');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class ListTeamMemberProfilesRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class ListTeamMemberProfilesRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -108,6 +111,7 @@ class ListTeamMemberProfilesRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 }

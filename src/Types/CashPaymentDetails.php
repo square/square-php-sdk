@@ -54,6 +54,7 @@ class CashPaymentDetails extends JsonSerializableType
     public function setBuyerSuppliedMoney(Money $value): self
     {
         $this->buyerSuppliedMoney = $value;
+        $this->_setField('buyerSuppliedMoney');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CashPaymentDetails extends JsonSerializableType
     public function setChangeBackMoney(?Money $value = null): self
     {
         $this->changeBackMoney = $value;
+        $this->_setField('changeBackMoney');
         return $this;
     }
 

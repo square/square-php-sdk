@@ -36,6 +36,7 @@ class GetBookingsRequest extends JsonSerializableType
     public function setBookingId(string $value): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 }

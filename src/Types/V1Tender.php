@@ -191,6 +191,7 @@ class V1Tender extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -208,6 +209,7 @@ class V1Tender extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -225,6 +227,7 @@ class V1Tender extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -242,6 +245,7 @@ class V1Tender extends JsonSerializableType
     public function setEmployeeId(?string $value = null): self
     {
         $this->employeeId = $value;
+        $this->_setField('employeeId');
         return $this;
     }
 
@@ -259,6 +263,7 @@ class V1Tender extends JsonSerializableType
     public function setReceiptUrl(?string $value = null): self
     {
         $this->receiptUrl = $value;
+        $this->_setField('receiptUrl');
         return $this;
     }
 
@@ -276,6 +281,7 @@ class V1Tender extends JsonSerializableType
     public function setCardBrand(?string $value = null): self
     {
         $this->cardBrand = $value;
+        $this->_setField('cardBrand');
         return $this;
     }
 
@@ -293,6 +299,7 @@ class V1Tender extends JsonSerializableType
     public function setPanSuffix(?string $value = null): self
     {
         $this->panSuffix = $value;
+        $this->_setField('panSuffix');
         return $this;
     }
 
@@ -310,6 +317,7 @@ class V1Tender extends JsonSerializableType
     public function setEntryMethod(?string $value = null): self
     {
         $this->entryMethod = $value;
+        $this->_setField('entryMethod');
         return $this;
     }
 
@@ -327,6 +335,7 @@ class V1Tender extends JsonSerializableType
     public function setPaymentNote(?string $value = null): self
     {
         $this->paymentNote = $value;
+        $this->_setField('paymentNote');
         return $this;
     }
 
@@ -344,6 +353,7 @@ class V1Tender extends JsonSerializableType
     public function setTotalMoney(?V1Money $value = null): self
     {
         $this->totalMoney = $value;
+        $this->_setField('totalMoney');
         return $this;
     }
 
@@ -361,6 +371,7 @@ class V1Tender extends JsonSerializableType
     public function setTenderedMoney(?V1Money $value = null): self
     {
         $this->tenderedMoney = $value;
+        $this->_setField('tenderedMoney');
         return $this;
     }
 
@@ -378,6 +389,7 @@ class V1Tender extends JsonSerializableType
     public function setTenderedAt(?string $value = null): self
     {
         $this->tenderedAt = $value;
+        $this->_setField('tenderedAt');
         return $this;
     }
 
@@ -395,6 +407,7 @@ class V1Tender extends JsonSerializableType
     public function setSettledAt(?string $value = null): self
     {
         $this->settledAt = $value;
+        $this->_setField('settledAt');
         return $this;
     }
 
@@ -412,6 +425,7 @@ class V1Tender extends JsonSerializableType
     public function setChangeBackMoney(?V1Money $value = null): self
     {
         $this->changeBackMoney = $value;
+        $this->_setField('changeBackMoney');
         return $this;
     }
 
@@ -429,6 +443,7 @@ class V1Tender extends JsonSerializableType
     public function setRefundedMoney(?V1Money $value = null): self
     {
         $this->refundedMoney = $value;
+        $this->_setField('refundedMoney');
         return $this;
     }
 
@@ -446,6 +461,7 @@ class V1Tender extends JsonSerializableType
     public function setIsExchange(?bool $value = null): self
     {
         $this->isExchange = $value;
+        $this->_setField('isExchange');
         return $this;
     }
 

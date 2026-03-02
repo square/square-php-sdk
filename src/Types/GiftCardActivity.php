@@ -260,6 +260,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -277,6 +278,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -294,6 +296,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -311,6 +314,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -328,6 +332,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setGiftCardId(?string $value = null): self
     {
         $this->giftCardId = $value;
+        $this->_setField('giftCardId');
         return $this;
     }
 
@@ -345,6 +350,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setGiftCardGan(?string $value = null): self
     {
         $this->giftCardGan = $value;
+        $this->_setField('giftCardGan');
         return $this;
     }
 
@@ -362,6 +368,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setGiftCardBalanceMoney(?Money $value = null): self
     {
         $this->giftCardBalanceMoney = $value;
+        $this->_setField('giftCardBalanceMoney');
         return $this;
     }
 
@@ -379,6 +386,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setLoadActivityDetails(?GiftCardActivityLoad $value = null): self
     {
         $this->loadActivityDetails = $value;
+        $this->_setField('loadActivityDetails');
         return $this;
     }
 
@@ -396,6 +404,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setActivateActivityDetails(?GiftCardActivityActivate $value = null): self
     {
         $this->activateActivityDetails = $value;
+        $this->_setField('activateActivityDetails');
         return $this;
     }
 
@@ -413,6 +422,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setRedeemActivityDetails(?GiftCardActivityRedeem $value = null): self
     {
         $this->redeemActivityDetails = $value;
+        $this->_setField('redeemActivityDetails');
         return $this;
     }
 
@@ -430,6 +440,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setClearBalanceActivityDetails(?GiftCardActivityClearBalance $value = null): self
     {
         $this->clearBalanceActivityDetails = $value;
+        $this->_setField('clearBalanceActivityDetails');
         return $this;
     }
 
@@ -447,6 +458,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setDeactivateActivityDetails(?GiftCardActivityDeactivate $value = null): self
     {
         $this->deactivateActivityDetails = $value;
+        $this->_setField('deactivateActivityDetails');
         return $this;
     }
 
@@ -464,6 +476,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setAdjustIncrementActivityDetails(?GiftCardActivityAdjustIncrement $value = null): self
     {
         $this->adjustIncrementActivityDetails = $value;
+        $this->_setField('adjustIncrementActivityDetails');
         return $this;
     }
 
@@ -481,6 +494,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setAdjustDecrementActivityDetails(?GiftCardActivityAdjustDecrement $value = null): self
     {
         $this->adjustDecrementActivityDetails = $value;
+        $this->_setField('adjustDecrementActivityDetails');
         return $this;
     }
 
@@ -498,6 +512,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setRefundActivityDetails(?GiftCardActivityRefund $value = null): self
     {
         $this->refundActivityDetails = $value;
+        $this->_setField('refundActivityDetails');
         return $this;
     }
 
@@ -515,6 +530,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setUnlinkedActivityRefundActivityDetails(?GiftCardActivityUnlinkedActivityRefund $value = null): self
     {
         $this->unlinkedActivityRefundActivityDetails = $value;
+        $this->_setField('unlinkedActivityRefundActivityDetails');
         return $this;
     }
 
@@ -532,6 +548,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setImportActivityDetails(?GiftCardActivityImport $value = null): self
     {
         $this->importActivityDetails = $value;
+        $this->_setField('importActivityDetails');
         return $this;
     }
 
@@ -549,6 +566,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setBlockActivityDetails(?GiftCardActivityBlock $value = null): self
     {
         $this->blockActivityDetails = $value;
+        $this->_setField('blockActivityDetails');
         return $this;
     }
 
@@ -566,6 +584,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setUnblockActivityDetails(?GiftCardActivityUnblock $value = null): self
     {
         $this->unblockActivityDetails = $value;
+        $this->_setField('unblockActivityDetails');
         return $this;
     }
 
@@ -583,6 +602,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setImportReversalActivityDetails(?GiftCardActivityImportReversal $value = null): self
     {
         $this->importReversalActivityDetails = $value;
+        $this->_setField('importReversalActivityDetails');
         return $this;
     }
 
@@ -600,6 +620,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setTransferBalanceToActivityDetails(?GiftCardActivityTransferBalanceTo $value = null): self
     {
         $this->transferBalanceToActivityDetails = $value;
+        $this->_setField('transferBalanceToActivityDetails');
         return $this;
     }
 
@@ -617,6 +638,7 @@ class GiftCardActivity extends JsonSerializableType
     public function setTransferBalanceFromActivityDetails(?GiftCardActivityTransferBalanceFrom $value = null): self
     {
         $this->transferBalanceFromActivityDetails = $value;
+        $this->_setField('transferBalanceFromActivityDetails');
         return $this;
     }
 

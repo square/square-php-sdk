@@ -65,6 +65,7 @@ class Money extends JsonSerializableType
     public function setAmount(?int $value = null): self
     {
         $this->amount = $value;
+        $this->_setField('amount');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class Money extends JsonSerializableType
     public function setCurrency(?string $value = null): self
     {
         $this->currency = $value;
+        $this->_setField('currency');
         return $this;
     }
 

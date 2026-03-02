@@ -2,7 +2,7 @@
 
 namespace Square\Loyalty\Accounts;
 
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
 use Square\Loyalty\Accounts\Requests\CreateLoyaltyAccountRequest;
 use Square\Types\CreateLoyaltyAccountResponse;
@@ -12,7 +12,6 @@ use Square\Core\Json\JsonApiRequest;
 use Square\Environments;
 use Square\Core\Client\HttpMethod;
 use JsonException;
-use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Square\Loyalty\Accounts\Requests\SearchLoyaltyAccountsRequest;
 use Square\Types\SearchLoyaltyAccountsResponse;
@@ -95,16 +94,6 @@ class AccountsClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -155,16 +144,6 @@ class AccountsClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -210,16 +189,6 @@ class AccountsClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -279,16 +248,6 @@ class AccountsClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -339,16 +298,6 @@ class AccountsClient
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            if ($response === null) {
-                throw new SquareException(message: $e->getMessage(), previous: $e);
-            }
-            throw new SquareApiException(
-                message: "API request failed",
-                statusCode: $response->getStatusCode(),
-                body: $response->getBody()->getContents(),
-            );
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }

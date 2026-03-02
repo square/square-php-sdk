@@ -75,6 +75,7 @@ class DestinationDetailsExternalRefundDetails extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class DestinationDetailsExternalRefundDetails extends JsonSerializableType
     public function setSource(string $value): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class DestinationDetailsExternalRefundDetails extends JsonSerializableType
     public function setSourceId(?string $value = null): self
     {
         $this->sourceId = $value;
+        $this->_setField('sourceId');
         return $this;
     }
 

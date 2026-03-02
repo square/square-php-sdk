@@ -63,6 +63,7 @@ class SearchInvoicesRequest extends JsonSerializableType
     public function setQuery(InvoiceQuery $value): self
     {
         $this->query = $value;
+        $this->_setField('query');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class SearchInvoicesRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class SearchInvoicesRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

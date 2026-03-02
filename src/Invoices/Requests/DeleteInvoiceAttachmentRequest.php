@@ -43,6 +43,7 @@ class DeleteInvoiceAttachmentRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class DeleteInvoiceAttachmentRequest extends JsonSerializableType
     public function setAttachmentId(string $value): self
     {
         $this->attachmentId = $value;
+        $this->_setField('attachmentId');
         return $this;
     }
 }

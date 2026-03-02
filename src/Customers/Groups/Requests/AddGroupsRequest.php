@@ -43,6 +43,7 @@ class AddGroupsRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class AddGroupsRequest extends JsonSerializableType
     public function setGroupId(string $value): self
     {
         $this->groupId = $value;
+        $this->_setField('groupId');
         return $this;
     }
 }

@@ -101,6 +101,7 @@ class CatalogTax extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -118,6 +119,7 @@ class CatalogTax extends JsonSerializableType
     public function setCalculationPhase(?string $value = null): self
     {
         $this->calculationPhase = $value;
+        $this->_setField('calculationPhase');
         return $this;
     }
 
@@ -135,6 +137,7 @@ class CatalogTax extends JsonSerializableType
     public function setInclusionType(?string $value = null): self
     {
         $this->inclusionType = $value;
+        $this->_setField('inclusionType');
         return $this;
     }
 
@@ -152,6 +155,7 @@ class CatalogTax extends JsonSerializableType
     public function setPercentage(?string $value = null): self
     {
         $this->percentage = $value;
+        $this->_setField('percentage');
         return $this;
     }
 
@@ -169,6 +173,7 @@ class CatalogTax extends JsonSerializableType
     public function setAppliesToCustomAmounts(?bool $value = null): self
     {
         $this->appliesToCustomAmounts = $value;
+        $this->_setField('appliesToCustomAmounts');
         return $this;
     }
 
@@ -186,6 +191,7 @@ class CatalogTax extends JsonSerializableType
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 
@@ -203,6 +209,7 @@ class CatalogTax extends JsonSerializableType
     public function setAppliesToProductSetId(?string $value = null): self
     {
         $this->appliesToProductSetId = $value;
+        $this->_setField('appliesToProductSetId');
         return $this;
     }
 

@@ -49,6 +49,7 @@ class FloatNumberRange extends JsonSerializableType
     public function setStartAt(?string $value = null): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class FloatNumberRange extends JsonSerializableType
     public function setEndAt(?string $value = null): self
     {
         $this->endAt = $value;
+        $this->_setField('endAt');
         return $this;
     }
 

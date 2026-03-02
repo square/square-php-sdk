@@ -53,6 +53,7 @@ class SearchVendorsRequestFilter extends JsonSerializableType
     public function setName(?array $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class SearchVendorsRequestFilter extends JsonSerializableType
     public function setStatus(?array $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

@@ -66,6 +66,7 @@ class ListCustomerSegmentsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -83,6 +84,7 @@ class ListCustomerSegmentsResponse extends JsonSerializableType
     public function setSegments(?array $value = null): self
     {
         $this->segments = $value;
+        $this->_setField('segments');
         return $this;
     }
 
@@ -100,6 +102,7 @@ class ListCustomerSegmentsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 

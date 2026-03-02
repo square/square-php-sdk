@@ -52,6 +52,7 @@ class UpdateWorkweekConfigResponse extends JsonSerializableType
     public function setWorkweekConfig(?WorkweekConfig $value = null): self
     {
         $this->workweekConfig = $value;
+        $this->_setField('workweekConfig');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class UpdateWorkweekConfigResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -59,6 +59,7 @@ class QuickPay extends JsonSerializableType
     public function setName(string $value): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class QuickPay extends JsonSerializableType
     public function setPriceMoney(Money $value): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class QuickPay extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 

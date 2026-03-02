@@ -49,6 +49,7 @@ class CategoryPathToRootNode extends JsonSerializableType
     public function setCategoryId(?string $value = null): self
     {
         $this->categoryId = $value;
+        $this->_setField('categoryId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CategoryPathToRootNode extends JsonSerializableType
     public function setCategoryName(?string $value = null): self
     {
         $this->categoryName = $value;
+        $this->_setField('categoryName');
         return $this;
     }
 

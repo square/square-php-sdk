@@ -46,6 +46,7 @@ class UpdateBreakTypeRequest extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class UpdateBreakTypeRequest extends JsonSerializableType
     public function setBreakType(BreakType $value): self
     {
         $this->breakType = $value;
+        $this->_setField('breakType');
         return $this;
     }
 }

@@ -58,6 +58,7 @@ class CatalogCustomAttributeDefinitionSelectionConfig extends JsonSerializableTy
     public function setMaxAllowedSelections(?int $value = null): self
     {
         $this->maxAllowedSelections = $value;
+        $this->_setField('maxAllowedSelections');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class CatalogCustomAttributeDefinitionSelectionConfig extends JsonSerializableTy
     public function setAllowedSelections(?array $value = null): self
     {
         $this->allowedSelections = $value;
+        $this->_setField('allowedSelections');
         return $this;
     }
 

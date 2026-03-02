@@ -66,6 +66,7 @@ class SourceApplication extends JsonSerializableType
     public function setProduct(?string $value = null): self
     {
         $this->product = $value;
+        $this->_setField('product');
         return $this;
     }
 
@@ -83,6 +84,7 @@ class SourceApplication extends JsonSerializableType
     public function setApplicationId(?string $value = null): self
     {
         $this->applicationId = $value;
+        $this->_setField('applicationId');
         return $this;
     }
 
@@ -100,6 +102,7 @@ class SourceApplication extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 

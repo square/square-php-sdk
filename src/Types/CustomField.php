@@ -43,6 +43,7 @@ class CustomField extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 

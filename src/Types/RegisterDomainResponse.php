@@ -58,6 +58,7 @@ class RegisterDomainResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class RegisterDomainResponse extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

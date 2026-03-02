@@ -50,6 +50,7 @@ class GetBankAccountResponse extends JsonSerializableType
     public function setBankAccount(?BankAccount $value = null): self
     {
         $this->bankAccount = $value;
+        $this->_setField('bankAccount');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GetBankAccountResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

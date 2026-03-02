@@ -47,6 +47,7 @@ class RetrieveLocationBookingProfileResponse extends JsonSerializableType
     public function setLocationBookingProfile(?LocationBookingProfile $value = null): self
     {
         $this->locationBookingProfile = $value;
+        $this->_setField('locationBookingProfile');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class RetrieveLocationBookingProfileResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

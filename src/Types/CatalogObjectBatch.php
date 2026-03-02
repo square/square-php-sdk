@@ -42,6 +42,7 @@ class CatalogObjectBatch extends JsonSerializableType
     public function setObjects(array $value): self
     {
         $this->objects = $value;
+        $this->_setField('objects');
         return $this;
     }
 

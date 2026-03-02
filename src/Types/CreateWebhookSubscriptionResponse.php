@@ -54,6 +54,7 @@ class CreateWebhookSubscriptionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CreateWebhookSubscriptionResponse extends JsonSerializableType
     public function setSubscription(?WebhookSubscription $value = null): self
     {
         $this->subscription = $value;
+        $this->_setField('subscription');
         return $this;
     }
 

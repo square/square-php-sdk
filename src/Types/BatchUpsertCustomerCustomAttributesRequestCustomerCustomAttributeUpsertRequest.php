@@ -74,6 +74,7 @@ class BatchUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertReq
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -91,6 +92,7 @@ class BatchUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertReq
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -108,6 +110,7 @@ class BatchUpsertCustomerCustomAttributesRequestCustomerCustomAttributeUpsertReq
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 

@@ -62,6 +62,7 @@ class ReceiveTransferOrderRequest extends JsonSerializableType
     public function setTransferOrderId(string $value): self
     {
         $this->transferOrderId = $value;
+        $this->_setField('transferOrderId');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class ReceiveTransferOrderRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class ReceiveTransferOrderRequest extends JsonSerializableType
     public function setReceipt(TransferOrderGoodsReceipt $value): self
     {
         $this->receipt = $value;
+        $this->_setField('receipt');
         return $this;
     }
 
@@ -113,6 +116,7 @@ class ReceiveTransferOrderRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 }

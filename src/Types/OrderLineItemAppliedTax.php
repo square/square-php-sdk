@@ -80,6 +80,7 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -97,6 +98,7 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     public function setTaxUid(string $value): self
     {
         $this->taxUid = $value;
+        $this->_setField('taxUid');
         return $this;
     }
 
@@ -114,6 +116,7 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 
@@ -131,6 +134,7 @@ class OrderLineItemAppliedTax extends JsonSerializableType
     public function setAutoApplied(?bool $value = null): self
     {
         $this->autoApplied = $value;
+        $this->_setField('autoApplied');
         return $this;
     }
 

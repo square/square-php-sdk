@@ -84,6 +84,7 @@ class CatalogItemOption extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -101,6 +102,7 @@ class CatalogItemOption extends JsonSerializableType
     public function setDisplayName(?string $value = null): self
     {
         $this->displayName = $value;
+        $this->_setField('displayName');
         return $this;
     }
 
@@ -118,6 +120,7 @@ class CatalogItemOption extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -135,6 +138,7 @@ class CatalogItemOption extends JsonSerializableType
     public function setShowColors(?bool $value = null): self
     {
         $this->showColors = $value;
+        $this->_setField('showColors');
         return $this;
     }
 
@@ -152,6 +156,7 @@ class CatalogItemOption extends JsonSerializableType
     public function setValues(?array $value = null): self
     {
         $this->values = $value;
+        $this->_setField('values');
         return $this;
     }
 

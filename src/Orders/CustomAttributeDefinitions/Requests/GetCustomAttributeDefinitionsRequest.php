@@ -46,6 +46,7 @@ class GetCustomAttributeDefinitionsRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class GetCustomAttributeDefinitionsRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 }

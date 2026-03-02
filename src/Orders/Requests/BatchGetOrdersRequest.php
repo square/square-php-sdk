@@ -50,6 +50,7 @@ class BatchGetOrdersRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class BatchGetOrdersRequest extends JsonSerializableType
     public function setOrderIds(array $value): self
     {
         $this->orderIds = $value;
+        $this->_setField('orderIds');
         return $this;
     }
 }

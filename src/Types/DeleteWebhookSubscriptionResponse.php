@@ -43,6 +43,7 @@ class DeleteWebhookSubscriptionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

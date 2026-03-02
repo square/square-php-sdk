@@ -64,6 +64,7 @@ class CatalogQuerySortedAttribute extends JsonSerializableType
     public function setAttributeName(string $value): self
     {
         $this->attributeName = $value;
+        $this->_setField('attributeName');
         return $this;
     }
 
@@ -81,6 +82,7 @@ class CatalogQuerySortedAttribute extends JsonSerializableType
     public function setInitialAttributeValue(?string $value = null): self
     {
         $this->initialAttributeValue = $value;
+        $this->_setField('initialAttributeValue');
         return $this;
     }
 
@@ -98,6 +100,7 @@ class CatalogQuerySortedAttribute extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 

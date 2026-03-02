@@ -36,6 +36,7 @@ class DisableBankAccountRequest extends JsonSerializableType
     public function setBankAccountId(string $value): self
     {
         $this->bankAccountId = $value;
+        $this->_setField('bankAccountId');
         return $this;
     }
 }

@@ -57,6 +57,7 @@ class RiskEvaluation extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class RiskEvaluation extends JsonSerializableType
     public function setRiskLevel(?string $value = null): self
     {
         $this->riskLevel = $value;
+        $this->_setField('riskLevel');
         return $this;
     }
 

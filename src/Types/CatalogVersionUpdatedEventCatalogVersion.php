@@ -38,6 +38,7 @@ class CatalogVersionUpdatedEventCatalogVersion extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

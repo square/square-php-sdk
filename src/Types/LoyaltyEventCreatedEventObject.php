@@ -38,6 +38,7 @@ class LoyaltyEventCreatedEventObject extends JsonSerializableType
     public function setLoyaltyEvent(?LoyaltyEvent $value = null): self
     {
         $this->loyaltyEvent = $value;
+        $this->_setField('loyaltyEvent');
         return $this;
     }
 

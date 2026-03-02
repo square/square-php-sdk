@@ -58,6 +58,7 @@ class DeletePaymentLinkResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class DeletePaymentLinkResponse extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class DeletePaymentLinkResponse extends JsonSerializableType
     public function setCancelledOrderId(?string $value = null): self
     {
         $this->cancelledOrderId = $value;
+        $this->_setField('cancelledOrderId');
         return $this;
     }
 

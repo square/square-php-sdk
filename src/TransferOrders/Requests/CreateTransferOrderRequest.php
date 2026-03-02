@@ -50,6 +50,7 @@ class CreateTransferOrderRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CreateTransferOrderRequest extends JsonSerializableType
     public function setTransferOrder(CreateTransferOrderData $value): self
     {
         $this->transferOrder = $value;
+        $this->_setField('transferOrder');
         return $this;
     }
 }

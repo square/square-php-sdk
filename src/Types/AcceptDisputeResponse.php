@@ -50,6 +50,7 @@ class AcceptDisputeResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class AcceptDisputeResponse extends JsonSerializableType
     public function setDispute(?Dispute $value = null): self
     {
         $this->dispute = $value;
+        $this->_setField('dispute');
         return $this;
     }
 

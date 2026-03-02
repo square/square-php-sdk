@@ -51,6 +51,7 @@ class UpsertCustomerCustomAttributeResponse extends JsonSerializableType
     public function setCustomAttribute(?CustomAttribute $value = null): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class UpsertCustomerCustomAttributeResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

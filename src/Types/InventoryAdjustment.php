@@ -249,6 +249,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -266,6 +267,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -283,6 +285,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setFromState(?string $value = null): self
     {
         $this->fromState = $value;
+        $this->_setField('fromState');
         return $this;
     }
 
@@ -300,6 +303,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setToState(?string $value = null): self
     {
         $this->toState = $value;
+        $this->_setField('toState');
         return $this;
     }
 
@@ -317,6 +321,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -334,6 +339,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -351,6 +357,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setCatalogObjectType(?string $value = null): self
     {
         $this->catalogObjectType = $value;
+        $this->_setField('catalogObjectType');
         return $this;
     }
 
@@ -368,6 +375,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setQuantity(?string $value = null): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 
@@ -385,6 +393,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setTotalPriceMoney(?Money $value = null): self
     {
         $this->totalPriceMoney = $value;
+        $this->_setField('totalPriceMoney');
         return $this;
     }
 
@@ -402,6 +411,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setOccurredAt(?string $value = null): self
     {
         $this->occurredAt = $value;
+        $this->_setField('occurredAt');
         return $this;
     }
 
@@ -419,6 +429,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -436,6 +447,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setSource(?SourceApplication $value = null): self
     {
         $this->source = $value;
+        $this->_setField('source');
         return $this;
     }
 
@@ -453,6 +465,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setEmployeeId(?string $value = null): self
     {
         $this->employeeId = $value;
+        $this->_setField('employeeId');
         return $this;
     }
 
@@ -470,6 +483,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -487,6 +501,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setTransactionId(?string $value = null): self
     {
         $this->transactionId = $value;
+        $this->_setField('transactionId');
         return $this;
     }
 
@@ -504,6 +519,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setRefundId(?string $value = null): self
     {
         $this->refundId = $value;
+        $this->_setField('refundId');
         return $this;
     }
 
@@ -521,6 +537,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setPurchaseOrderId(?string $value = null): self
     {
         $this->purchaseOrderId = $value;
+        $this->_setField('purchaseOrderId');
         return $this;
     }
 
@@ -538,6 +555,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setGoodsReceiptId(?string $value = null): self
     {
         $this->goodsReceiptId = $value;
+        $this->_setField('goodsReceiptId');
         return $this;
     }
 
@@ -555,6 +573,7 @@ class InventoryAdjustment extends JsonSerializableType
     public function setAdjustmentGroup(?InventoryAdjustmentGroup $value = null): self
     {
         $this->adjustmentGroup = $value;
+        $this->_setField('adjustmentGroup');
         return $this;
     }
 

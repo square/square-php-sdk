@@ -343,6 +343,7 @@ class Invoice extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -360,6 +361,7 @@ class Invoice extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -377,6 +379,7 @@ class Invoice extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -394,6 +397,7 @@ class Invoice extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -411,6 +415,7 @@ class Invoice extends JsonSerializableType
     public function setPrimaryRecipient(?InvoiceRecipient $value = null): self
     {
         $this->primaryRecipient = $value;
+        $this->_setField('primaryRecipient');
         return $this;
     }
 
@@ -428,6 +433,7 @@ class Invoice extends JsonSerializableType
     public function setPaymentRequests(?array $value = null): self
     {
         $this->paymentRequests = $value;
+        $this->_setField('paymentRequests');
         return $this;
     }
 
@@ -445,6 +451,7 @@ class Invoice extends JsonSerializableType
     public function setDeliveryMethod(?string $value = null): self
     {
         $this->deliveryMethod = $value;
+        $this->_setField('deliveryMethod');
         return $this;
     }
 
@@ -462,6 +469,7 @@ class Invoice extends JsonSerializableType
     public function setInvoiceNumber(?string $value = null): self
     {
         $this->invoiceNumber = $value;
+        $this->_setField('invoiceNumber');
         return $this;
     }
 
@@ -479,6 +487,7 @@ class Invoice extends JsonSerializableType
     public function setTitle(?string $value = null): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -496,6 +505,7 @@ class Invoice extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -513,6 +523,7 @@ class Invoice extends JsonSerializableType
     public function setScheduledAt(?string $value = null): self
     {
         $this->scheduledAt = $value;
+        $this->_setField('scheduledAt');
         return $this;
     }
 
@@ -530,6 +541,7 @@ class Invoice extends JsonSerializableType
     public function setPublicUrl(?string $value = null): self
     {
         $this->publicUrl = $value;
+        $this->_setField('publicUrl');
         return $this;
     }
 
@@ -547,6 +559,7 @@ class Invoice extends JsonSerializableType
     public function setNextPaymentAmountMoney(?Money $value = null): self
     {
         $this->nextPaymentAmountMoney = $value;
+        $this->_setField('nextPaymentAmountMoney');
         return $this;
     }
 
@@ -564,6 +577,7 @@ class Invoice extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -581,6 +595,7 @@ class Invoice extends JsonSerializableType
     public function setTimezone(?string $value = null): self
     {
         $this->timezone = $value;
+        $this->_setField('timezone');
         return $this;
     }
 
@@ -598,6 +613,7 @@ class Invoice extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -615,6 +631,7 @@ class Invoice extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -632,6 +649,7 @@ class Invoice extends JsonSerializableType
     public function setAcceptedPaymentMethods(?InvoiceAcceptedPaymentMethods $value = null): self
     {
         $this->acceptedPaymentMethods = $value;
+        $this->_setField('acceptedPaymentMethods');
         return $this;
     }
 
@@ -649,6 +667,7 @@ class Invoice extends JsonSerializableType
     public function setCustomFields(?array $value = null): self
     {
         $this->customFields = $value;
+        $this->_setField('customFields');
         return $this;
     }
 
@@ -666,6 +685,7 @@ class Invoice extends JsonSerializableType
     public function setSubscriptionId(?string $value = null): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -683,6 +703,7 @@ class Invoice extends JsonSerializableType
     public function setSaleOrServiceDate(?string $value = null): self
     {
         $this->saleOrServiceDate = $value;
+        $this->_setField('saleOrServiceDate');
         return $this;
     }
 
@@ -700,6 +721,7 @@ class Invoice extends JsonSerializableType
     public function setPaymentConditions(?string $value = null): self
     {
         $this->paymentConditions = $value;
+        $this->_setField('paymentConditions');
         return $this;
     }
 
@@ -717,6 +739,7 @@ class Invoice extends JsonSerializableType
     public function setStorePaymentMethodEnabled(?bool $value = null): self
     {
         $this->storePaymentMethodEnabled = $value;
+        $this->_setField('storePaymentMethodEnabled');
         return $this;
     }
 
@@ -734,6 +757,7 @@ class Invoice extends JsonSerializableType
     public function setAttachments(?array $value = null): self
     {
         $this->attachments = $value;
+        $this->_setField('attachments');
         return $this;
     }
 
@@ -751,6 +775,7 @@ class Invoice extends JsonSerializableType
     public function setCreatorTeamMemberId(?string $value = null): self
     {
         $this->creatorTeamMemberId = $value;
+        $this->_setField('creatorTeamMemberId');
         return $this;
     }
 

@@ -55,6 +55,7 @@ class Range extends JsonSerializableType
     public function setMin(?string $value = null): self
     {
         $this->min = $value;
+        $this->_setField('min');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class Range extends JsonSerializableType
     public function setMax(?string $value = null): self
     {
         $this->max = $value;
+        $this->_setField('max');
         return $this;
     }
 

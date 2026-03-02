@@ -51,6 +51,7 @@ class CreateCustomerCustomAttributeDefinitionResponse extends JsonSerializableTy
     public function setCustomAttributeDefinition(?CustomAttributeDefinition $value = null): self
     {
         $this->customAttributeDefinition = $value;
+        $this->_setField('customAttributeDefinition');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class CreateCustomerCustomAttributeDefinitionResponse extends JsonSerializableTy
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -50,6 +50,7 @@ class ScheduledShiftQuery extends JsonSerializableType
     public function setFilter(?ScheduledShiftFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class ScheduledShiftQuery extends JsonSerializableType
     public function setSort(?ScheduledShiftSort $value = null): self
     {
         $this->sort = $value;
+        $this->_setField('sort');
         return $this;
     }
 

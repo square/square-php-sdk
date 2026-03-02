@@ -57,6 +57,7 @@ class InvoiceFilter extends JsonSerializableType
     public function setLocationIds(array $value): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class InvoiceFilter extends JsonSerializableType
     public function setCustomerIds(?array $value = null): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 

@@ -58,6 +58,7 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
     public function setCustomAttribute(?CustomAttribute $value = null): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class BulkUpsertLocationCustomAttributesResponseLocationCustomAttributeUpsertRes
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

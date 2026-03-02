@@ -118,6 +118,7 @@ class InventoryCount extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -135,6 +136,7 @@ class InventoryCount extends JsonSerializableType
     public function setCatalogObjectType(?string $value = null): self
     {
         $this->catalogObjectType = $value;
+        $this->_setField('catalogObjectType');
         return $this;
     }
 
@@ -152,6 +154,7 @@ class InventoryCount extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -169,6 +172,7 @@ class InventoryCount extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -186,6 +190,7 @@ class InventoryCount extends JsonSerializableType
     public function setQuantity(?string $value = null): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 
@@ -203,6 +208,7 @@ class InventoryCount extends JsonSerializableType
     public function setCalculatedAt(?string $value = null): self
     {
         $this->calculatedAt = $value;
+        $this->_setField('calculatedAt');
         return $this;
     }
 
@@ -220,6 +226,7 @@ class InventoryCount extends JsonSerializableType
     public function setIsEstimated(?bool $value = null): self
     {
         $this->isEstimated = $value;
+        $this->_setField('isEstimated');
         return $this;
     }
 

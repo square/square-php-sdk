@@ -82,6 +82,7 @@ class SearchAvailabilityFilter extends JsonSerializableType
     public function setStartAtRange(TimeRange $value): self
     {
         $this->startAtRange = $value;
+        $this->_setField('startAtRange');
         return $this;
     }
 
@@ -99,6 +100,7 @@ class SearchAvailabilityFilter extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -116,6 +118,7 @@ class SearchAvailabilityFilter extends JsonSerializableType
     public function setSegmentFilters(?array $value = null): self
     {
         $this->segmentFilters = $value;
+        $this->_setField('segmentFilters');
         return $this;
     }
 
@@ -133,6 +136,7 @@ class SearchAvailabilityFilter extends JsonSerializableType
     public function setBookingId(?string $value = null): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 

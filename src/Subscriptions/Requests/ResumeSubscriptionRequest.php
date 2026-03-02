@@ -58,6 +58,7 @@ class ResumeSubscriptionRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class ResumeSubscriptionRequest extends JsonSerializableType
     public function setResumeEffectiveDate(?string $value = null): self
     {
         $this->resumeEffectiveDate = $value;
+        $this->_setField('resumeEffectiveDate');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class ResumeSubscriptionRequest extends JsonSerializableType
     public function setResumeChangeTiming(?string $value = null): self
     {
         $this->resumeChangeTiming = $value;
+        $this->_setField('resumeChangeTiming');
         return $this;
     }
 }

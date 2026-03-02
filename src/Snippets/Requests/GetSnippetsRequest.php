@@ -36,6 +36,7 @@ class GetSnippetsRequest extends JsonSerializableType
     public function setSiteId(string $value): self
     {
         $this->siteId = $value;
+        $this->_setField('siteId');
         return $this;
     }
 }

@@ -41,6 +41,7 @@ class SearchTeamMembersQuery extends JsonSerializableType
     public function setFilter(?SearchTeamMembersFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 

@@ -43,6 +43,7 @@ class DeleteEvidenceRequest extends JsonSerializableType
     public function setDisputeId(string $value): self
     {
         $this->disputeId = $value;
+        $this->_setField('disputeId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class DeleteEvidenceRequest extends JsonSerializableType
     public function setEvidenceId(string $value): self
     {
         $this->evidenceId = $value;
+        $this->_setField('evidenceId');
         return $this;
     }
 }

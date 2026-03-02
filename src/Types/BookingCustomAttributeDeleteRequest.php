@@ -54,6 +54,7 @@ class BookingCustomAttributeDeleteRequest extends JsonSerializableType
     public function setBookingId(string $value): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class BookingCustomAttributeDeleteRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 

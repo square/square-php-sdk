@@ -50,6 +50,7 @@ class GetMerchantResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GetMerchantResponse extends JsonSerializableType
     public function setMerchant(?Merchant $value = null): self
     {
         $this->merchant = $value;
+        $this->_setField('merchant');
         return $this;
     }
 

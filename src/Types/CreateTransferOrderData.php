@@ -101,6 +101,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setSourceLocationId(string $value): self
     {
         $this->sourceLocationId = $value;
+        $this->_setField('sourceLocationId');
         return $this;
     }
 
@@ -118,6 +119,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setDestinationLocationId(string $value): self
     {
         $this->destinationLocationId = $value;
+        $this->_setField('destinationLocationId');
         return $this;
     }
 
@@ -135,6 +137,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setExpectedAt(?string $value = null): self
     {
         $this->expectedAt = $value;
+        $this->_setField('expectedAt');
         return $this;
     }
 
@@ -152,6 +155,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setNotes(?string $value = null): self
     {
         $this->notes = $value;
+        $this->_setField('notes');
         return $this;
     }
 
@@ -169,6 +173,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setTrackingNumber(?string $value = null): self
     {
         $this->trackingNumber = $value;
+        $this->_setField('trackingNumber');
         return $this;
     }
 
@@ -186,6 +191,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setCreatedByTeamMemberId(?string $value = null): self
     {
         $this->createdByTeamMemberId = $value;
+        $this->_setField('createdByTeamMemberId');
         return $this;
     }
 
@@ -203,6 +209,7 @@ class CreateTransferOrderData extends JsonSerializableType
     public function setLineItems(?array $value = null): self
     {
         $this->lineItems = $value;
+        $this->_setField('lineItems');
         return $this;
     }
 

@@ -44,6 +44,7 @@ class LoyaltyProgramAccrualRuleItemVariationData extends JsonSerializableType
     public function setItemVariationId(string $value): self
     {
         $this->itemVariationId = $value;
+        $this->_setField('itemVariationId');
         return $this;
     }
 

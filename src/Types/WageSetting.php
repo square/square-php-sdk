@@ -91,6 +91,7 @@ class WageSetting extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -108,6 +109,7 @@ class WageSetting extends JsonSerializableType
     public function setJobAssignments(?array $value = null): self
     {
         $this->jobAssignments = $value;
+        $this->_setField('jobAssignments');
         return $this;
     }
 
@@ -125,6 +127,7 @@ class WageSetting extends JsonSerializableType
     public function setIsOvertimeExempt(?bool $value = null): self
     {
         $this->isOvertimeExempt = $value;
+        $this->_setField('isOvertimeExempt');
         return $this;
     }
 
@@ -142,6 +145,7 @@ class WageSetting extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -159,6 +163,7 @@ class WageSetting extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -176,6 +181,7 @@ class WageSetting extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

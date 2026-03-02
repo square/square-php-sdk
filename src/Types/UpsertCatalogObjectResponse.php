@@ -55,6 +55,7 @@ class UpsertCatalogObjectResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class UpsertCatalogObjectResponse extends JsonSerializableType
     public function setCatalogObject(?CatalogObject $value = null): self
     {
         $this->catalogObject = $value;
+        $this->_setField('catalogObject');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class UpsertCatalogObjectResponse extends JsonSerializableType
     public function setIdMappings(?array $value = null): self
     {
         $this->idMappings = $value;
+        $this->_setField('idMappings');
         return $this;
     }
 

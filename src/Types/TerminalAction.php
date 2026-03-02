@@ -230,6 +230,7 @@ class TerminalAction extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -247,6 +248,7 @@ class TerminalAction extends JsonSerializableType
     public function setDeviceId(?string $value = null): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 
@@ -264,6 +266,7 @@ class TerminalAction extends JsonSerializableType
     public function setDeadlineDuration(?string $value = null): self
     {
         $this->deadlineDuration = $value;
+        $this->_setField('deadlineDuration');
         return $this;
     }
 
@@ -281,6 +284,7 @@ class TerminalAction extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -298,6 +302,7 @@ class TerminalAction extends JsonSerializableType
     public function setCancelReason(?string $value = null): self
     {
         $this->cancelReason = $value;
+        $this->_setField('cancelReason');
         return $this;
     }
 
@@ -315,6 +320,7 @@ class TerminalAction extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -332,6 +338,7 @@ class TerminalAction extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -349,6 +356,7 @@ class TerminalAction extends JsonSerializableType
     public function setAppId(?string $value = null): self
     {
         $this->appId = $value;
+        $this->_setField('appId');
         return $this;
     }
 
@@ -366,6 +374,7 @@ class TerminalAction extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -383,6 +392,7 @@ class TerminalAction extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -400,6 +410,7 @@ class TerminalAction extends JsonSerializableType
     public function setQrCodeOptions(?QrCodeOptions $value = null): self
     {
         $this->qrCodeOptions = $value;
+        $this->_setField('qrCodeOptions');
         return $this;
     }
 
@@ -417,6 +428,7 @@ class TerminalAction extends JsonSerializableType
     public function setSaveCardOptions(?SaveCardOptions $value = null): self
     {
         $this->saveCardOptions = $value;
+        $this->_setField('saveCardOptions');
         return $this;
     }
 
@@ -434,6 +446,7 @@ class TerminalAction extends JsonSerializableType
     public function setSignatureOptions(?SignatureOptions $value = null): self
     {
         $this->signatureOptions = $value;
+        $this->_setField('signatureOptions');
         return $this;
     }
 
@@ -451,6 +464,7 @@ class TerminalAction extends JsonSerializableType
     public function setConfirmationOptions(?ConfirmationOptions $value = null): self
     {
         $this->confirmationOptions = $value;
+        $this->_setField('confirmationOptions');
         return $this;
     }
 
@@ -468,6 +482,7 @@ class TerminalAction extends JsonSerializableType
     public function setReceiptOptions(?ReceiptOptions $value = null): self
     {
         $this->receiptOptions = $value;
+        $this->_setField('receiptOptions');
         return $this;
     }
 
@@ -485,6 +500,7 @@ class TerminalAction extends JsonSerializableType
     public function setDataCollectionOptions(?DataCollectionOptions $value = null): self
     {
         $this->dataCollectionOptions = $value;
+        $this->_setField('dataCollectionOptions');
         return $this;
     }
 
@@ -502,6 +518,7 @@ class TerminalAction extends JsonSerializableType
     public function setSelectOptions(?SelectOptions $value = null): self
     {
         $this->selectOptions = $value;
+        $this->_setField('selectOptions');
         return $this;
     }
 
@@ -519,6 +536,7 @@ class TerminalAction extends JsonSerializableType
     public function setDeviceMetadata(?DeviceMetadata $value = null): self
     {
         $this->deviceMetadata = $value;
+        $this->_setField('deviceMetadata');
         return $this;
     }
 
@@ -536,6 +554,7 @@ class TerminalAction extends JsonSerializableType
     public function setAwaitNextAction(?bool $value = null): self
     {
         $this->awaitNextAction = $value;
+        $this->_setField('awaitNextAction');
         return $this;
     }
 
@@ -553,6 +572,7 @@ class TerminalAction extends JsonSerializableType
     public function setAwaitNextActionDuration(?string $value = null): self
     {
         $this->awaitNextActionDuration = $value;
+        $this->_setField('awaitNextActionDuration');
         return $this;
     }
 

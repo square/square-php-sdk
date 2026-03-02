@@ -138,6 +138,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -155,6 +156,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 
@@ -172,6 +174,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setBalance(?int $value = null): self
     {
         $this->balance = $value;
+        $this->_setField('balance');
         return $this;
     }
 
@@ -189,6 +192,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setLifetimePoints(?int $value = null): self
     {
         $this->lifetimePoints = $value;
+        $this->_setField('lifetimePoints');
         return $this;
     }
 
@@ -206,6 +210,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -223,6 +228,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setEnrolledAt(?string $value = null): self
     {
         $this->enrolledAt = $value;
+        $this->_setField('enrolledAt');
         return $this;
     }
 
@@ -240,6 +246,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -257,6 +264,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -274,6 +282,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setMapping(?LoyaltyAccountMapping $value = null): self
     {
         $this->mapping = $value;
+        $this->_setField('mapping');
         return $this;
     }
 
@@ -291,6 +300,7 @@ class LoyaltyAccount extends JsonSerializableType
     public function setExpiringPointDeadlines(?array $value = null): self
     {
         $this->expiringPointDeadlines = $value;
+        $this->_setField('expiringPointDeadlines');
         return $this;
     }
 

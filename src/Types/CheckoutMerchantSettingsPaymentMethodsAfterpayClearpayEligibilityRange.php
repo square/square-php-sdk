@@ -49,6 +49,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange ext
     public function setMin(Money $value): self
     {
         $this->min = $value;
+        $this->_setField('min');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange ext
     public function setMax(Money $value): self
     {
         $this->max = $value;
+        $this->_setField('max');
         return $this;
     }
 

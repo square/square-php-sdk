@@ -61,6 +61,7 @@ class ListPayoutsResponse extends JsonSerializableType
     public function setPayouts(?array $value = null): self
     {
         $this->payouts = $value;
+        $this->_setField('payouts');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class ListPayoutsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class ListPayoutsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

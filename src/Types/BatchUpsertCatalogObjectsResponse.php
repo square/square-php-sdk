@@ -63,6 +63,7 @@ class BatchUpsertCatalogObjectsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class BatchUpsertCatalogObjectsResponse extends JsonSerializableType
     public function setObjects(?array $value = null): self
     {
         $this->objects = $value;
+        $this->_setField('objects');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class BatchUpsertCatalogObjectsResponse extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -114,6 +117,7 @@ class BatchUpsertCatalogObjectsResponse extends JsonSerializableType
     public function setIdMappings(?array $value = null): self
     {
         $this->idMappings = $value;
+        $this->_setField('idMappings');
         return $this;
     }
 

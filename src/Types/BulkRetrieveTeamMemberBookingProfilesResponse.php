@@ -50,6 +50,7 @@ class BulkRetrieveTeamMemberBookingProfilesResponse extends JsonSerializableType
     public function setTeamMemberBookingProfiles(?array $value = null): self
     {
         $this->teamMemberBookingProfiles = $value;
+        $this->_setField('teamMemberBookingProfiles');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class BulkRetrieveTeamMemberBookingProfilesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -62,6 +62,7 @@ class CalculateLoyaltyPointsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class CalculateLoyaltyPointsResponse extends JsonSerializableType
     public function setPoints(?int $value = null): self
     {
         $this->points = $value;
+        $this->_setField('points');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class CalculateLoyaltyPointsResponse extends JsonSerializableType
     public function setPromotionPoints(?int $value = null): self
     {
         $this->promotionPoints = $value;
+        $this->_setField('promotionPoints');
         return $this;
     }
 

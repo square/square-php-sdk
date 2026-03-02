@@ -299,6 +299,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setRecipient(?FulfillmentRecipient $value = null): self
     {
         $this->recipient = $value;
+        $this->_setField('recipient');
         return $this;
     }
 
@@ -316,6 +317,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setScheduleType(?string $value = null): self
     {
         $this->scheduleType = $value;
+        $this->_setField('scheduleType');
         return $this;
     }
 
@@ -333,6 +335,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setPlacedAt(?string $value = null): self
     {
         $this->placedAt = $value;
+        $this->_setField('placedAt');
         return $this;
     }
 
@@ -350,6 +353,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setDeliverAt(?string $value = null): self
     {
         $this->deliverAt = $value;
+        $this->_setField('deliverAt');
         return $this;
     }
 
@@ -367,6 +371,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setPrepTimeDuration(?string $value = null): self
     {
         $this->prepTimeDuration = $value;
+        $this->_setField('prepTimeDuration');
         return $this;
     }
 
@@ -384,6 +389,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setDeliveryWindowDuration(?string $value = null): self
     {
         $this->deliveryWindowDuration = $value;
+        $this->_setField('deliveryWindowDuration');
         return $this;
     }
 
@@ -401,6 +407,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -418,6 +425,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCompletedAt(?string $value = null): self
     {
         $this->completedAt = $value;
+        $this->_setField('completedAt');
         return $this;
     }
 
@@ -435,6 +443,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setInProgressAt(?string $value = null): self
     {
         $this->inProgressAt = $value;
+        $this->_setField('inProgressAt');
         return $this;
     }
 
@@ -452,6 +461,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setRejectedAt(?string $value = null): self
     {
         $this->rejectedAt = $value;
+        $this->_setField('rejectedAt');
         return $this;
     }
 
@@ -469,6 +479,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setReadyAt(?string $value = null): self
     {
         $this->readyAt = $value;
+        $this->_setField('readyAt');
         return $this;
     }
 
@@ -486,6 +497,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setDeliveredAt(?string $value = null): self
     {
         $this->deliveredAt = $value;
+        $this->_setField('deliveredAt');
         return $this;
     }
 
@@ -503,6 +515,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCanceledAt(?string $value = null): self
     {
         $this->canceledAt = $value;
+        $this->_setField('canceledAt');
         return $this;
     }
 
@@ -520,6 +533,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCancelReason(?string $value = null): self
     {
         $this->cancelReason = $value;
+        $this->_setField('cancelReason');
         return $this;
     }
 
@@ -537,6 +551,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCourierPickupAt(?string $value = null): self
     {
         $this->courierPickupAt = $value;
+        $this->_setField('courierPickupAt');
         return $this;
     }
 
@@ -554,6 +569,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCourierPickupWindowDuration(?string $value = null): self
     {
         $this->courierPickupWindowDuration = $value;
+        $this->_setField('courierPickupWindowDuration');
         return $this;
     }
 
@@ -571,6 +587,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setIsNoContactDelivery(?bool $value = null): self
     {
         $this->isNoContactDelivery = $value;
+        $this->_setField('isNoContactDelivery');
         return $this;
     }
 
@@ -588,6 +605,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setDropoffNotes(?string $value = null): self
     {
         $this->dropoffNotes = $value;
+        $this->_setField('dropoffNotes');
         return $this;
     }
 
@@ -605,6 +623,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCourierProviderName(?string $value = null): self
     {
         $this->courierProviderName = $value;
+        $this->_setField('courierProviderName');
         return $this;
     }
 
@@ -622,6 +641,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setCourierSupportPhoneNumber(?string $value = null): self
     {
         $this->courierSupportPhoneNumber = $value;
+        $this->_setField('courierSupportPhoneNumber');
         return $this;
     }
 
@@ -639,6 +659,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setSquareDeliveryId(?string $value = null): self
     {
         $this->squareDeliveryId = $value;
+        $this->_setField('squareDeliveryId');
         return $this;
     }
 
@@ -656,6 +677,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setExternalDeliveryId(?string $value = null): self
     {
         $this->externalDeliveryId = $value;
+        $this->_setField('externalDeliveryId');
         return $this;
     }
 
@@ -673,6 +695,7 @@ class FulfillmentDeliveryDetails extends JsonSerializableType
     public function setManagedDelivery(?bool $value = null): self
     {
         $this->managedDelivery = $value;
+        $this->_setField('managedDelivery');
         return $this;
     }
 

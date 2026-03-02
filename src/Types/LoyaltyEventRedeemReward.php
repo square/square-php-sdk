@@ -63,6 +63,7 @@ class LoyaltyEventRedeemReward extends JsonSerializableType
     public function setLoyaltyProgramId(?string $value = null): self
     {
         $this->loyaltyProgramId = $value;
+        $this->_setField('loyaltyProgramId');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class LoyaltyEventRedeemReward extends JsonSerializableType
     public function setRewardId(?string $value = null): self
     {
         $this->rewardId = $value;
+        $this->_setField('rewardId');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class LoyaltyEventRedeemReward extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 

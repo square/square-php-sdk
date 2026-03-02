@@ -56,6 +56,7 @@ class UpdateVendorRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class UpdateVendorRequest extends JsonSerializableType
     public function setVendor(Vendor $value): self
     {
         $this->vendor = $value;
+        $this->_setField('vendor');
         return $this;
     }
 

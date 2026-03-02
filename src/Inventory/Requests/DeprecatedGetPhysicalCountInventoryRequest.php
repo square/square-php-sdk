@@ -39,6 +39,7 @@ class DeprecatedGetPhysicalCountInventoryRequest extends JsonSerializableType
     public function setPhysicalCountId(string $value): self
     {
         $this->physicalCountId = $value;
+        $this->_setField('physicalCountId');
         return $this;
     }
 }

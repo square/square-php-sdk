@@ -46,6 +46,7 @@ class LoyaltyPromotionIncentivePointsAdditionData extends JsonSerializableType
     public function setPointsAddition(int $value): self
     {
         $this->pointsAddition = $value;
+        $this->_setField('pointsAddition');
         return $this;
     }
 

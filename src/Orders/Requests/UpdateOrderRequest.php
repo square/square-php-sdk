@@ -80,6 +80,7 @@ class UpdateOrderRequest extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -97,6 +98,7 @@ class UpdateOrderRequest extends JsonSerializableType
     public function setOrder(?Order $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -114,6 +116,7 @@ class UpdateOrderRequest extends JsonSerializableType
     public function setFieldsToClear(?array $value = null): self
     {
         $this->fieldsToClear = $value;
+        $this->_setField('fieldsToClear');
         return $this;
     }
 
@@ -131,6 +134,7 @@ class UpdateOrderRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

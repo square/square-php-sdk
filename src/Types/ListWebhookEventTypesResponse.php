@@ -62,6 +62,7 @@ class ListWebhookEventTypesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class ListWebhookEventTypesResponse extends JsonSerializableType
     public function setEventTypes(?array $value = null): self
     {
         $this->eventTypes = $value;
+        $this->_setField('eventTypes');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class ListWebhookEventTypesResponse extends JsonSerializableType
     public function setMetadata(?array $value = null): self
     {
         $this->metadata = $value;
+        $this->_setField('metadata');
         return $this;
     }
 

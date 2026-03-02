@@ -293,6 +293,7 @@ class PayoutEntry extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -310,6 +311,7 @@ class PayoutEntry extends JsonSerializableType
     public function setPayoutId(string $value): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 
@@ -327,6 +329,7 @@ class PayoutEntry extends JsonSerializableType
     public function setEffectiveAt(?string $value = null): self
     {
         $this->effectiveAt = $value;
+        $this->_setField('effectiveAt');
         return $this;
     }
 
@@ -344,6 +347,7 @@ class PayoutEntry extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -361,6 +365,7 @@ class PayoutEntry extends JsonSerializableType
     public function setGrossAmountMoney(?Money $value = null): self
     {
         $this->grossAmountMoney = $value;
+        $this->_setField('grossAmountMoney');
         return $this;
     }
 
@@ -378,6 +383,7 @@ class PayoutEntry extends JsonSerializableType
     public function setFeeAmountMoney(?Money $value = null): self
     {
         $this->feeAmountMoney = $value;
+        $this->_setField('feeAmountMoney');
         return $this;
     }
 
@@ -395,6 +401,7 @@ class PayoutEntry extends JsonSerializableType
     public function setNetAmountMoney(?Money $value = null): self
     {
         $this->netAmountMoney = $value;
+        $this->_setField('netAmountMoney');
         return $this;
     }
 
@@ -412,6 +419,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeAppFeeRevenueDetails(?PaymentBalanceActivityAppFeeRevenueDetail $value = null): self
     {
         $this->typeAppFeeRevenueDetails = $value;
+        $this->_setField('typeAppFeeRevenueDetails');
         return $this;
     }
 
@@ -429,6 +437,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeAppFeeRefundDetails(?PaymentBalanceActivityAppFeeRefundDetail $value = null): self
     {
         $this->typeAppFeeRefundDetails = $value;
+        $this->_setField('typeAppFeeRefundDetails');
         return $this;
     }
 
@@ -446,6 +455,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeAutomaticSavingsDetails(?PaymentBalanceActivityAutomaticSavingsDetail $value = null): self
     {
         $this->typeAutomaticSavingsDetails = $value;
+        $this->_setField('typeAutomaticSavingsDetails');
         return $this;
     }
 
@@ -463,6 +473,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeAutomaticSavingsReversedDetails(?PaymentBalanceActivityAutomaticSavingsReversedDetail $value = null): self
     {
         $this->typeAutomaticSavingsReversedDetails = $value;
+        $this->_setField('typeAutomaticSavingsReversedDetails');
         return $this;
     }
 
@@ -480,6 +491,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeChargeDetails(?PaymentBalanceActivityChargeDetail $value = null): self
     {
         $this->typeChargeDetails = $value;
+        $this->_setField('typeChargeDetails');
         return $this;
     }
 
@@ -497,6 +509,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeDepositFeeDetails(?PaymentBalanceActivityDepositFeeDetail $value = null): self
     {
         $this->typeDepositFeeDetails = $value;
+        $this->_setField('typeDepositFeeDetails');
         return $this;
     }
 
@@ -514,6 +527,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeDepositFeeReversedDetails(?PaymentBalanceActivityDepositFeeReversedDetail $value = null): self
     {
         $this->typeDepositFeeReversedDetails = $value;
+        $this->_setField('typeDepositFeeReversedDetails');
         return $this;
     }
 
@@ -531,6 +545,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeDisputeDetails(?PaymentBalanceActivityDisputeDetail $value = null): self
     {
         $this->typeDisputeDetails = $value;
+        $this->_setField('typeDisputeDetails');
         return $this;
     }
 
@@ -548,6 +563,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeFeeDetails(?PaymentBalanceActivityFeeDetail $value = null): self
     {
         $this->typeFeeDetails = $value;
+        $this->_setField('typeFeeDetails');
         return $this;
     }
 
@@ -565,6 +581,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeFreeProcessingDetails(?PaymentBalanceActivityFreeProcessingDetail $value = null): self
     {
         $this->typeFreeProcessingDetails = $value;
+        $this->_setField('typeFreeProcessingDetails');
         return $this;
     }
 
@@ -582,6 +599,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeHoldAdjustmentDetails(?PaymentBalanceActivityHoldAdjustmentDetail $value = null): self
     {
         $this->typeHoldAdjustmentDetails = $value;
+        $this->_setField('typeHoldAdjustmentDetails');
         return $this;
     }
 
@@ -599,6 +617,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeOpenDisputeDetails(?PaymentBalanceActivityOpenDisputeDetail $value = null): self
     {
         $this->typeOpenDisputeDetails = $value;
+        $this->_setField('typeOpenDisputeDetails');
         return $this;
     }
 
@@ -616,6 +635,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeOtherDetails(?PaymentBalanceActivityOtherDetail $value = null): self
     {
         $this->typeOtherDetails = $value;
+        $this->_setField('typeOtherDetails');
         return $this;
     }
 
@@ -633,6 +653,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeOtherAdjustmentDetails(?PaymentBalanceActivityOtherAdjustmentDetail $value = null): self
     {
         $this->typeOtherAdjustmentDetails = $value;
+        $this->_setField('typeOtherAdjustmentDetails');
         return $this;
     }
 
@@ -650,6 +671,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeRefundDetails(?PaymentBalanceActivityRefundDetail $value = null): self
     {
         $this->typeRefundDetails = $value;
+        $this->_setField('typeRefundDetails');
         return $this;
     }
 
@@ -667,6 +689,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeReleaseAdjustmentDetails(?PaymentBalanceActivityReleaseAdjustmentDetail $value = null): self
     {
         $this->typeReleaseAdjustmentDetails = $value;
+        $this->_setField('typeReleaseAdjustmentDetails');
         return $this;
     }
 
@@ -684,6 +707,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeReserveHoldDetails(?PaymentBalanceActivityReserveHoldDetail $value = null): self
     {
         $this->typeReserveHoldDetails = $value;
+        $this->_setField('typeReserveHoldDetails');
         return $this;
     }
 
@@ -701,6 +725,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeReserveReleaseDetails(?PaymentBalanceActivityReserveReleaseDetail $value = null): self
     {
         $this->typeReserveReleaseDetails = $value;
+        $this->_setField('typeReserveReleaseDetails');
         return $this;
     }
 
@@ -718,6 +743,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeSquareCapitalPaymentDetails(?PaymentBalanceActivitySquareCapitalPaymentDetail $value = null): self
     {
         $this->typeSquareCapitalPaymentDetails = $value;
+        $this->_setField('typeSquareCapitalPaymentDetails');
         return $this;
     }
 
@@ -735,6 +761,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeSquareCapitalReversedPaymentDetails(?PaymentBalanceActivitySquareCapitalReversedPaymentDetail $value = null): self
     {
         $this->typeSquareCapitalReversedPaymentDetails = $value;
+        $this->_setField('typeSquareCapitalReversedPaymentDetails');
         return $this;
     }
 
@@ -752,6 +779,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeTaxOnFeeDetails(?PaymentBalanceActivityTaxOnFeeDetail $value = null): self
     {
         $this->typeTaxOnFeeDetails = $value;
+        $this->_setField('typeTaxOnFeeDetails');
         return $this;
     }
 
@@ -769,6 +797,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeThirdPartyFeeDetails(?PaymentBalanceActivityThirdPartyFeeDetail $value = null): self
     {
         $this->typeThirdPartyFeeDetails = $value;
+        $this->_setField('typeThirdPartyFeeDetails');
         return $this;
     }
 
@@ -786,6 +815,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeThirdPartyFeeRefundDetails(?PaymentBalanceActivityThirdPartyFeeRefundDetail $value = null): self
     {
         $this->typeThirdPartyFeeRefundDetails = $value;
+        $this->_setField('typeThirdPartyFeeRefundDetails');
         return $this;
     }
 
@@ -803,6 +833,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeSquarePayrollTransferDetails(?PaymentBalanceActivitySquarePayrollTransferDetail $value = null): self
     {
         $this->typeSquarePayrollTransferDetails = $value;
+        $this->_setField('typeSquarePayrollTransferDetails');
         return $this;
     }
 
@@ -820,6 +851,7 @@ class PayoutEntry extends JsonSerializableType
     public function setTypeSquarePayrollTransferReversedDetails(?PaymentBalanceActivitySquarePayrollTransferReversedDetail $value = null): self
     {
         $this->typeSquarePayrollTransferReversedDetails = $value;
+        $this->_setField('typeSquarePayrollTransferReversedDetails');
         return $this;
     }
 

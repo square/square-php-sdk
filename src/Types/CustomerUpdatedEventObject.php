@@ -41,6 +41,7 @@ class CustomerUpdatedEventObject extends JsonSerializableType
     public function setCustomer(?Customer $value = null): self
     {
         $this->customer = $value;
+        $this->_setField('customer');
         return $this;
     }
 

@@ -47,6 +47,7 @@ class CreateShiftRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateShiftRequest extends JsonSerializableType
     public function setShift(Shift $value): self
     {
         $this->shift = $value;
+        $this->_setField('shift');
         return $this;
     }
 }

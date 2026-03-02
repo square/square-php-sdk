@@ -41,6 +41,7 @@ class DeviceStatus extends JsonSerializableType
     public function setCategory(?string $value = null): self
     {
         $this->category = $value;
+        $this->_setField('category');
         return $this;
     }
 

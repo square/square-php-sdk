@@ -50,6 +50,7 @@ class GetLoyaltyPromotionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GetLoyaltyPromotionResponse extends JsonSerializableType
     public function setLoyaltyPromotion(?LoyaltyPromotion $value = null): self
     {
         $this->loyaltyPromotion = $value;
+        $this->_setField('loyaltyPromotion');
         return $this;
     }
 

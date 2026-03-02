@@ -61,6 +61,7 @@ class CreateLoyaltyPromotionRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class CreateLoyaltyPromotionRequest extends JsonSerializableType
     public function setLoyaltyPromotion(LoyaltyPromotion $value): self
     {
         $this->loyaltyPromotion = $value;
+        $this->_setField('loyaltyPromotion');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class CreateLoyaltyPromotionRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

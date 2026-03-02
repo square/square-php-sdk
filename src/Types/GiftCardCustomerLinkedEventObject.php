@@ -50,6 +50,7 @@ class GiftCardCustomerLinkedEventObject extends JsonSerializableType
     public function setGiftCard(?GiftCard $value = null): self
     {
         $this->giftCard = $value;
+        $this->_setField('giftCard');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GiftCardCustomerLinkedEventObject extends JsonSerializableType
     public function setLinkedCustomerId(?string $value = null): self
     {
         $this->linkedCustomerId = $value;
+        $this->_setField('linkedCustomerId');
         return $this;
     }
 

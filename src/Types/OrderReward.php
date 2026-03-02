@@ -50,6 +50,7 @@ class OrderReward extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class OrderReward extends JsonSerializableType
     public function setRewardTierId(string $value): self
     {
         $this->rewardTierId = $value;
+        $this->_setField('rewardTierId');
         return $this;
     }
 

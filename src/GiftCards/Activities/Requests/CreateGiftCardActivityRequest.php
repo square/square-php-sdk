@@ -50,6 +50,7 @@ class CreateGiftCardActivityRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class CreateGiftCardActivityRequest extends JsonSerializableType
     public function setGiftCardActivity(GiftCardActivity $value): self
     {
         $this->giftCardActivity = $value;
+        $this->_setField('giftCardActivity');
         return $this;
     }
 }

@@ -88,6 +88,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -105,6 +106,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -122,6 +124,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setAction(string $value): self
     {
         $this->action = $value;
+        $this->_setField('action');
         return $this;
     }
 
@@ -139,6 +142,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setShippedTrackingNumber(?string $value = null): self
     {
         $this->shippedTrackingNumber = $value;
+        $this->_setField('shippedTrackingNumber');
         return $this;
     }
 
@@ -156,6 +160,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setCompletedNote(?string $value = null): self
     {
         $this->completedNote = $value;
+        $this->_setField('completedNote');
         return $this;
     }
 
@@ -173,6 +178,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setRefundedNote(?string $value = null): self
     {
         $this->refundedNote = $value;
+        $this->_setField('refundedNote');
         return $this;
     }
 
@@ -190,6 +196,7 @@ class V1UpdateOrderRequest extends JsonSerializableType
     public function setCanceledNote(?string $value = null): self
     {
         $this->canceledNote = $value;
+        $this->_setField('canceledNote');
         return $this;
     }
 }

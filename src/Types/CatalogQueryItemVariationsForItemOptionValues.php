@@ -46,6 +46,7 @@ class CatalogQueryItemVariationsForItemOptionValues extends JsonSerializableType
     public function setItemOptionValueIds(?array $value = null): self
     {
         $this->itemOptionValueIds = $value;
+        $this->_setField('itemOptionValueIds');
         return $this;
     }
 

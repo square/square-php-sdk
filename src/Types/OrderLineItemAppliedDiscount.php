@@ -68,6 +68,7 @@ class OrderLineItemAppliedDiscount extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class OrderLineItemAppliedDiscount extends JsonSerializableType
     public function setDiscountUid(string $value): self
     {
         $this->discountUid = $value;
+        $this->_setField('discountUid');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class OrderLineItemAppliedDiscount extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 

@@ -55,6 +55,7 @@ class InvoiceSort extends JsonSerializableType
     public function setField(string $value): self
     {
         $this->field = $value;
+        $this->_setField('field');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class InvoiceSort extends JsonSerializableType
     public function setOrder(?string $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 

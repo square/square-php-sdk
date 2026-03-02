@@ -41,6 +41,7 @@ class SearchSubscriptionsQuery extends JsonSerializableType
     public function setFilter(?SearchSubscriptionsFilter $value = null): self
     {
         $this->filter = $value;
+        $this->_setField('filter');
         return $this;
     }
 

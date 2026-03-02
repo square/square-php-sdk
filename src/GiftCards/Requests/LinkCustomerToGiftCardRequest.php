@@ -45,6 +45,7 @@ class LinkCustomerToGiftCardRequest extends JsonSerializableType
     public function setGiftCardId(string $value): self
     {
         $this->giftCardId = $value;
+        $this->_setField('giftCardId');
         return $this;
     }
 
@@ -62,6 +63,7 @@ class LinkCustomerToGiftCardRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 }

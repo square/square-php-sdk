@@ -50,6 +50,7 @@ class GetVendorResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GetVendorResponse extends JsonSerializableType
     public function setVendor(?Vendor $value = null): self
     {
         $this->vendor = $value;
+        $this->_setField('vendor');
         return $this;
     }
 

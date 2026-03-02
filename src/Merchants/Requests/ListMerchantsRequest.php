@@ -36,6 +36,7 @@ class ListMerchantsRequest extends JsonSerializableType
     public function setCursor(?int $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

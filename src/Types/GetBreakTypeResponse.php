@@ -52,6 +52,7 @@ class GetBreakTypeResponse extends JsonSerializableType
     public function setBreakType(?BreakType $value = null): self
     {
         $this->breakType = $value;
+        $this->_setField('breakType');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class GetBreakTypeResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

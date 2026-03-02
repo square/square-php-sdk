@@ -369,6 +369,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setSourceId(string $value): self
     {
         $this->sourceId = $value;
+        $this->_setField('sourceId');
         return $this;
     }
 
@@ -386,6 +387,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -403,6 +405,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -420,6 +423,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setTipMoney(?Money $value = null): self
     {
         $this->tipMoney = $value;
+        $this->_setField('tipMoney');
         return $this;
     }
 
@@ -437,6 +441,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setAppFeeMoney(?Money $value = null): self
     {
         $this->appFeeMoney = $value;
+        $this->_setField('appFeeMoney');
         return $this;
     }
 
@@ -454,6 +459,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setDelayDuration(?string $value = null): self
     {
         $this->delayDuration = $value;
+        $this->_setField('delayDuration');
         return $this;
     }
 
@@ -471,6 +477,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setDelayAction(?string $value = null): self
     {
         $this->delayAction = $value;
+        $this->_setField('delayAction');
         return $this;
     }
 
@@ -488,6 +495,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setAutocomplete(?bool $value = null): self
     {
         $this->autocomplete = $value;
+        $this->_setField('autocomplete');
         return $this;
     }
 
@@ -505,6 +513,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -522,6 +531,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -539,6 +549,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -556,6 +567,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -573,6 +585,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -590,6 +603,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setVerificationToken(?string $value = null): self
     {
         $this->verificationToken = $value;
+        $this->_setField('verificationToken');
         return $this;
     }
 
@@ -607,6 +621,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setAcceptPartialAuthorization(?bool $value = null): self
     {
         $this->acceptPartialAuthorization = $value;
+        $this->_setField('acceptPartialAuthorization');
         return $this;
     }
 
@@ -624,6 +639,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setBuyerEmailAddress(?string $value = null): self
     {
         $this->buyerEmailAddress = $value;
+        $this->_setField('buyerEmailAddress');
         return $this;
     }
 
@@ -641,6 +657,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setBuyerPhoneNumber(?string $value = null): self
     {
         $this->buyerPhoneNumber = $value;
+        $this->_setField('buyerPhoneNumber');
         return $this;
     }
 
@@ -658,6 +675,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setBillingAddress(?Address $value = null): self
     {
         $this->billingAddress = $value;
+        $this->_setField('billingAddress');
         return $this;
     }
 
@@ -675,6 +693,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setShippingAddress(?Address $value = null): self
     {
         $this->shippingAddress = $value;
+        $this->_setField('shippingAddress');
         return $this;
     }
 
@@ -692,6 +711,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -709,6 +729,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setStatementDescriptionIdentifier(?string $value = null): self
     {
         $this->statementDescriptionIdentifier = $value;
+        $this->_setField('statementDescriptionIdentifier');
         return $this;
     }
 
@@ -726,6 +747,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setCashDetails(?CashPaymentDetails $value = null): self
     {
         $this->cashDetails = $value;
+        $this->_setField('cashDetails');
         return $this;
     }
 
@@ -743,6 +765,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setExternalDetails(?ExternalPaymentDetails $value = null): self
     {
         $this->externalDetails = $value;
+        $this->_setField('externalDetails');
         return $this;
     }
 
@@ -760,6 +783,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setCustomerDetails(?CustomerDetails $value = null): self
     {
         $this->customerDetails = $value;
+        $this->_setField('customerDetails');
         return $this;
     }
 
@@ -777,6 +801,7 @@ class CreatePaymentRequest extends JsonSerializableType
     public function setOfflinePaymentDetails(?OfflinePaymentDetails $value = null): self
     {
         $this->offlinePaymentDetails = $value;
+        $this->_setField('offlinePaymentDetails');
         return $this;
     }
 }

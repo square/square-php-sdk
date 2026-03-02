@@ -52,6 +52,7 @@ class CustomerDetails extends JsonSerializableType
     public function setCustomerInitiated(?bool $value = null): self
     {
         $this->customerInitiated = $value;
+        $this->_setField('customerInitiated');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CustomerDetails extends JsonSerializableType
     public function setSellerKeyedIn(?bool $value = null): self
     {
         $this->sellerKeyedIn = $value;
+        $this->_setField('sellerKeyedIn');
         return $this;
     }
 

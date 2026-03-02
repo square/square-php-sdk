@@ -58,6 +58,7 @@ class DateRange extends JsonSerializableType
     public function setStartDate(?string $value = null): self
     {
         $this->startDate = $value;
+        $this->_setField('startDate');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class DateRange extends JsonSerializableType
     public function setEndDate(?string $value = null): self
     {
         $this->endDate = $value;
+        $this->_setField('endDate');
         return $this;
     }
 

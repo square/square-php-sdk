@@ -86,6 +86,7 @@ class TimecardFilter extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -103,6 +104,7 @@ class TimecardFilter extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -120,6 +122,7 @@ class TimecardFilter extends JsonSerializableType
     public function setStart(?TimeRange $value = null): self
     {
         $this->start = $value;
+        $this->_setField('start');
         return $this;
     }
 
@@ -137,6 +140,7 @@ class TimecardFilter extends JsonSerializableType
     public function setEnd(?TimeRange $value = null): self
     {
         $this->end = $value;
+        $this->_setField('end');
         return $this;
     }
 
@@ -154,6 +158,7 @@ class TimecardFilter extends JsonSerializableType
     public function setWorkday(?TimecardWorkday $value = null): self
     {
         $this->workday = $value;
+        $this->_setField('workday');
         return $this;
     }
 
@@ -171,6 +176,7 @@ class TimecardFilter extends JsonSerializableType
     public function setTeamMemberIds(?array $value = null): self
     {
         $this->teamMemberIds = $value;
+        $this->_setField('teamMemberIds');
         return $this;
     }
 

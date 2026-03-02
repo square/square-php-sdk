@@ -36,6 +36,7 @@ class GetSubscriptionsRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 }

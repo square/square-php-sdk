@@ -36,6 +36,7 @@ class ListEventTypesRequest extends JsonSerializableType
     public function setApiVersion(?string $value = null): self
     {
         $this->apiVersion = $value;
+        $this->_setField('apiVersion');
         return $this;
     }
 }

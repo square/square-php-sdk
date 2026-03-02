@@ -62,6 +62,7 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery extends JsonSerializableTy
     public function setMappings(?array $value = null): self
     {
         $this->mappings = $value;
+        $this->_setField('mappings');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class SearchLoyaltyAccountsRequestLoyaltyAccountQuery extends JsonSerializableTy
     public function setCustomerIds(?array $value = null): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 

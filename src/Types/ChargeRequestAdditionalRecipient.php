@@ -58,6 +58,7 @@ class ChargeRequestAdditionalRecipient extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -75,6 +76,7 @@ class ChargeRequestAdditionalRecipient extends JsonSerializableType
     public function setDescription(string $value): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -92,6 +94,7 @@ class ChargeRequestAdditionalRecipient extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 

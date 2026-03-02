@@ -60,6 +60,7 @@ class OrderLineItemAppliedServiceCharge extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class OrderLineItemAppliedServiceCharge extends JsonSerializableType
     public function setServiceChargeUid(string $value): self
     {
         $this->serviceChargeUid = $value;
+        $this->_setField('serviceChargeUid');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class OrderLineItemAppliedServiceCharge extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 

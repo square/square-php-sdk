@@ -61,6 +61,7 @@ class CatalogObjectCustomAttributeDefinition extends JsonSerializableType
     public function setCustomAttributeDefinitionData(?CatalogCustomAttributeDefinition $value = null): self
     {
         $this->customAttributeDefinitionData = $value;
+        $this->_setField('customAttributeDefinitionData');
         return $this;
     }
 

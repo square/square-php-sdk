@@ -4,7 +4,7 @@ namespace Square\Webhooks;
 
 use Square\Webhooks\EventTypes\EventTypesClient;
 use Square\Webhooks\Subscriptions\SubscriptionsClient;
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
 
 class WebhooksClient

@@ -38,6 +38,7 @@ class CollectedData extends JsonSerializableType
     public function setInputText(?string $value = null): self
     {
         $this->inputText = $value;
+        $this->_setField('inputText');
         return $this;
     }
 

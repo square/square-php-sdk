@@ -38,6 +38,7 @@ class RegisterDomainRequest extends JsonSerializableType
     public function setDomainName(string $value): self
     {
         $this->domainName = $value;
+        $this->_setField('domainName');
         return $this;
     }
 }

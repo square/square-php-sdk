@@ -47,6 +47,7 @@ class CreateImagesRequest extends JsonSerializableType
     public function setRequest(?CreateCatalogImageRequest $value = null): self
     {
         $this->request = $value;
+        $this->_setField('request');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateImagesRequest extends JsonSerializableType
     public function setImageFile(?File $value = null): self
     {
         $this->imageFile = $value;
+        $this->_setField('imageFile');
         return $this;
     }
 }

@@ -78,6 +78,7 @@ class CreateGiftCardRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class CreateGiftCardRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class CreateGiftCardRequest extends JsonSerializableType
     public function setGiftCard(GiftCard $value): self
     {
         $this->giftCard = $value;
+        $this->_setField('giftCard');
         return $this;
     }
 }

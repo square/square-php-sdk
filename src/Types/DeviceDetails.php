@@ -57,6 +57,7 @@ class DeviceDetails extends JsonSerializableType
     public function setDeviceId(?string $value = null): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class DeviceDetails extends JsonSerializableType
     public function setDeviceInstallationId(?string $value = null): self
     {
         $this->deviceInstallationId = $value;
+        $this->_setField('deviceInstallationId');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class DeviceDetails extends JsonSerializableType
     public function setDeviceName(?string $value = null): self
     {
         $this->deviceName = $value;
+        $this->_setField('deviceName');
         return $this;
     }
 

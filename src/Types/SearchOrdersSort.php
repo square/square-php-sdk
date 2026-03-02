@@ -65,6 +65,7 @@ class SearchOrdersSort extends JsonSerializableType
     public function setSortField(string $value): self
     {
         $this->sortField = $value;
+        $this->_setField('sortField');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class SearchOrdersSort extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 

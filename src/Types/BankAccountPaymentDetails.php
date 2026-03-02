@@ -107,6 +107,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setBankName(?string $value = null): self
     {
         $this->bankName = $value;
+        $this->_setField('bankName');
         return $this;
     }
 
@@ -124,6 +125,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setTransferType(?string $value = null): self
     {
         $this->transferType = $value;
+        $this->_setField('transferType');
         return $this;
     }
 
@@ -141,6 +143,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setAccountOwnershipType(?string $value = null): self
     {
         $this->accountOwnershipType = $value;
+        $this->_setField('accountOwnershipType');
         return $this;
     }
 
@@ -158,6 +161,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setFingerprint(?string $value = null): self
     {
         $this->fingerprint = $value;
+        $this->_setField('fingerprint');
         return $this;
     }
 
@@ -175,6 +179,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setCountry(?string $value = null): self
     {
         $this->country = $value;
+        $this->_setField('country');
         return $this;
     }
 
@@ -192,6 +197,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setStatementDescription(?string $value = null): self
     {
         $this->statementDescription = $value;
+        $this->_setField('statementDescription');
         return $this;
     }
 
@@ -209,6 +215,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setAchDetails(?AchDetails $value = null): self
     {
         $this->achDetails = $value;
+        $this->_setField('achDetails');
         return $this;
     }
 
@@ -226,6 +233,7 @@ class BankAccountPaymentDetails extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -38,6 +38,7 @@ class CardDisabledEventObject extends JsonSerializableType
     public function setCard(?Card $value = null): self
     {
         $this->card = $value;
+        $this->_setField('card');
         return $this;
     }
 

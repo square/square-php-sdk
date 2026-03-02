@@ -59,6 +59,7 @@ class PrePopulatedData extends JsonSerializableType
     public function setBuyerEmail(?string $value = null): self
     {
         $this->buyerEmail = $value;
+        $this->_setField('buyerEmail');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class PrePopulatedData extends JsonSerializableType
     public function setBuyerPhoneNumber(?string $value = null): self
     {
         $this->buyerPhoneNumber = $value;
+        $this->_setField('buyerPhoneNumber');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class PrePopulatedData extends JsonSerializableType
     public function setBuyerAddress(?Address $value = null): self
     {
         $this->buyerAddress = $value;
+        $this->_setField('buyerAddress');
         return $this;
     }
 

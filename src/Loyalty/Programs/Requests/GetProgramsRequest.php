@@ -36,6 +36,7 @@ class GetProgramsRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 }

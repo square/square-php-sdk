@@ -38,6 +38,7 @@ class CardForgottenEventObject extends JsonSerializableType
     public function setCard(?CardForgottenEventCard $value = null): self
     {
         $this->card = $value;
+        $this->_setField('card');
         return $this;
     }
 

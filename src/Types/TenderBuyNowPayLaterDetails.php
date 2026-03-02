@@ -57,6 +57,7 @@ class TenderBuyNowPayLaterDetails extends JsonSerializableType
     public function setBuyNowPayLaterBrand(?string $value = null): self
     {
         $this->buyNowPayLaterBrand = $value;
+        $this->_setField('buyNowPayLaterBrand');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class TenderBuyNowPayLaterDetails extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

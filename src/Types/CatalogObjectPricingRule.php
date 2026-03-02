@@ -64,6 +64,7 @@ class CatalogObjectPricingRule extends JsonSerializableType
     public function setPricingRuleData(?CatalogPricingRule $value = null): self
     {
         $this->pricingRuleData = $value;
+        $this->_setField('pricingRuleData');
         return $this;
     }
 

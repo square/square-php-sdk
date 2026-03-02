@@ -46,6 +46,7 @@ class LoyaltyEventLocationFilter extends JsonSerializableType
     public function setLocationIds(array $value): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 

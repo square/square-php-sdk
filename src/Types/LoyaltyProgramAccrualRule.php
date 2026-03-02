@@ -87,6 +87,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setAccrualType(string $value): self
     {
         $this->accrualType = $value;
+        $this->_setField('accrualType');
         return $this;
     }
 
@@ -104,6 +105,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setPoints(?int $value = null): self
     {
         $this->points = $value;
+        $this->_setField('points');
         return $this;
     }
 
@@ -121,6 +123,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setVisitData(?LoyaltyProgramAccrualRuleVisitData $value = null): self
     {
         $this->visitData = $value;
+        $this->_setField('visitData');
         return $this;
     }
 
@@ -138,6 +141,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setSpendData(?LoyaltyProgramAccrualRuleSpendData $value = null): self
     {
         $this->spendData = $value;
+        $this->_setField('spendData');
         return $this;
     }
 
@@ -155,6 +159,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setItemVariationData(?LoyaltyProgramAccrualRuleItemVariationData $value = null): self
     {
         $this->itemVariationData = $value;
+        $this->_setField('itemVariationData');
         return $this;
     }
 
@@ -172,6 +177,7 @@ class LoyaltyProgramAccrualRule extends JsonSerializableType
     public function setCategoryData(?LoyaltyProgramAccrualRuleCategoryData $value = null): self
     {
         $this->categoryData = $value;
+        $this->_setField('categoryData');
         return $this;
     }
 

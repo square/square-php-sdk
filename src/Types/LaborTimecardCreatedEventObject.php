@@ -38,6 +38,7 @@ class LaborTimecardCreatedEventObject extends JsonSerializableType
     public function setTimecard(?Timecard $value = null): self
     {
         $this->timecard = $value;
+        $this->_setField('timecard');
         return $this;
     }
 

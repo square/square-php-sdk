@@ -55,6 +55,7 @@ class ListEmployeesResponse extends JsonSerializableType
     public function setEmployees(?array $value = null): self
     {
         $this->employees = $value;
+        $this->_setField('employees');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class ListEmployeesResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class ListEmployeesResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

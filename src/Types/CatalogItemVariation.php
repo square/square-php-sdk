@@ -289,6 +289,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setItemId(?string $value = null): self
     {
         $this->itemId = $value;
+        $this->_setField('itemId');
         return $this;
     }
 
@@ -306,6 +307,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -323,6 +325,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setSku(?string $value = null): self
     {
         $this->sku = $value;
+        $this->_setField('sku');
         return $this;
     }
 
@@ -340,6 +343,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setUpc(?string $value = null): self
     {
         $this->upc = $value;
+        $this->_setField('upc');
         return $this;
     }
 
@@ -357,6 +361,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -374,6 +379,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setPricingType(?string $value = null): self
     {
         $this->pricingType = $value;
+        $this->_setField('pricingType');
         return $this;
     }
 
@@ -391,6 +397,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setPriceMoney(?Money $value = null): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 
@@ -408,6 +415,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setLocationOverrides(?array $value = null): self
     {
         $this->locationOverrides = $value;
+        $this->_setField('locationOverrides');
         return $this;
     }
 
@@ -425,6 +433,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setTrackInventory(?bool $value = null): self
     {
         $this->trackInventory = $value;
+        $this->_setField('trackInventory');
         return $this;
     }
 
@@ -442,6 +451,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setInventoryAlertType(?string $value = null): self
     {
         $this->inventoryAlertType = $value;
+        $this->_setField('inventoryAlertType');
         return $this;
     }
 
@@ -459,6 +469,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setInventoryAlertThreshold(?int $value = null): self
     {
         $this->inventoryAlertThreshold = $value;
+        $this->_setField('inventoryAlertThreshold');
         return $this;
     }
 
@@ -476,6 +487,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setUserData(?string $value = null): self
     {
         $this->userData = $value;
+        $this->_setField('userData');
         return $this;
     }
 
@@ -493,6 +505,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setServiceDuration(?int $value = null): self
     {
         $this->serviceDuration = $value;
+        $this->_setField('serviceDuration');
         return $this;
     }
 
@@ -510,6 +523,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setAvailableForBooking(?bool $value = null): self
     {
         $this->availableForBooking = $value;
+        $this->_setField('availableForBooking');
         return $this;
     }
 
@@ -527,6 +541,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setItemOptionValues(?array $value = null): self
     {
         $this->itemOptionValues = $value;
+        $this->_setField('itemOptionValues');
         return $this;
     }
 
@@ -544,6 +559,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setMeasurementUnitId(?string $value = null): self
     {
         $this->measurementUnitId = $value;
+        $this->_setField('measurementUnitId');
         return $this;
     }
 
@@ -561,6 +577,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setSellable(?bool $value = null): self
     {
         $this->sellable = $value;
+        $this->_setField('sellable');
         return $this;
     }
 
@@ -578,6 +595,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setStockable(?bool $value = null): self
     {
         $this->stockable = $value;
+        $this->_setField('stockable');
         return $this;
     }
 
@@ -595,6 +613,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setImageIds(?array $value = null): self
     {
         $this->imageIds = $value;
+        $this->_setField('imageIds');
         return $this;
     }
 
@@ -612,6 +631,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setTeamMemberIds(?array $value = null): self
     {
         $this->teamMemberIds = $value;
+        $this->_setField('teamMemberIds');
         return $this;
     }
 
@@ -629,6 +649,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setStockableConversion(?CatalogStockConversion $value = null): self
     {
         $this->stockableConversion = $value;
+        $this->_setField('stockableConversion');
         return $this;
     }
 
@@ -646,6 +667,7 @@ class CatalogItemVariation extends JsonSerializableType
     public function setKitchenName(?string $value = null): self
     {
         $this->kitchenName = $value;
+        $this->_setField('kitchenName');
         return $this;
     }
 

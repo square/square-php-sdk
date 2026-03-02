@@ -89,6 +89,7 @@ class CreateCustomerCardRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -106,6 +107,7 @@ class CreateCustomerCardRequest extends JsonSerializableType
     public function setCardNonce(string $value): self
     {
         $this->cardNonce = $value;
+        $this->_setField('cardNonce');
         return $this;
     }
 
@@ -123,6 +125,7 @@ class CreateCustomerCardRequest extends JsonSerializableType
     public function setBillingAddress(?Address $value = null): self
     {
         $this->billingAddress = $value;
+        $this->_setField('billingAddress');
         return $this;
     }
 
@@ -140,6 +143,7 @@ class CreateCustomerCardRequest extends JsonSerializableType
     public function setCardholderName(?string $value = null): self
     {
         $this->cardholderName = $value;
+        $this->_setField('cardholderName');
         return $this;
     }
 
@@ -157,6 +161,7 @@ class CreateCustomerCardRequest extends JsonSerializableType
     public function setVerificationToken(?string $value = null): self
     {
         $this->verificationToken = $value;
+        $this->_setField('verificationToken');
         return $this;
     }
 }

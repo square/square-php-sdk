@@ -75,6 +75,7 @@ class UpsertMerchantCustomAttributeRequest extends JsonSerializableType
     public function setMerchantId(string $value): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -92,6 +93,7 @@ class UpsertMerchantCustomAttributeRequest extends JsonSerializableType
     public function setKey(string $value): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 
@@ -109,6 +111,7 @@ class UpsertMerchantCustomAttributeRequest extends JsonSerializableType
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -126,6 +129,7 @@ class UpsertMerchantCustomAttributeRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

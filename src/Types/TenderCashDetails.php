@@ -49,6 +49,7 @@ class TenderCashDetails extends JsonSerializableType
     public function setBuyerTenderedMoney(?Money $value = null): self
     {
         $this->buyerTenderedMoney = $value;
+        $this->_setField('buyerTenderedMoney');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class TenderCashDetails extends JsonSerializableType
     public function setChangeBackMoney(?Money $value = null): self
     {
         $this->changeBackMoney = $value;
+        $this->_setField('changeBackMoney');
         return $this;
     }
 

@@ -60,6 +60,7 @@ class ListEventsShiftsRequest extends JsonSerializableType
     public function setShiftId(string $value): self
     {
         $this->shiftId = $value;
+        $this->_setField('shiftId');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class ListEventsShiftsRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class ListEventsShiftsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -111,6 +114,7 @@ class ListEventsShiftsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 }

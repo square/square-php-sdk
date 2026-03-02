@@ -38,6 +38,7 @@ class CustomAttributeEventDataObject extends JsonSerializableType
     public function setCustomAttribute(?CustomAttribute $value = null): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 

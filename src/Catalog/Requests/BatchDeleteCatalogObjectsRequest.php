@@ -43,6 +43,7 @@ class BatchDeleteCatalogObjectsRequest extends JsonSerializableType
     public function setObjectIds(array $value): self
     {
         $this->objectIds = $value;
+        $this->_setField('objectIds');
         return $this;
     }
 }

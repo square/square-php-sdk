@@ -40,6 +40,7 @@ class DeleteObjectRequest extends JsonSerializableType
     public function setObjectId(string $value): self
     {
         $this->objectId = $value;
+        $this->_setField('objectId');
         return $this;
     }
 }

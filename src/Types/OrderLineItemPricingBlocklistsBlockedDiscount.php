@@ -65,6 +65,7 @@ class OrderLineItemPricingBlocklistsBlockedDiscount extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class OrderLineItemPricingBlocklistsBlockedDiscount extends JsonSerializableType
     public function setDiscountUid(?string $value = null): self
     {
         $this->discountUid = $value;
+        $this->_setField('discountUid');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class OrderLineItemPricingBlocklistsBlockedDiscount extends JsonSerializableType
     public function setDiscountCatalogObjectId(?string $value = null): self
     {
         $this->discountCatalogObjectId = $value;
+        $this->_setField('discountCatalogObjectId');
         return $this;
     }
 

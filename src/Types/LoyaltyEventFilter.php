@@ -78,6 +78,7 @@ class LoyaltyEventFilter extends JsonSerializableType
     public function setLoyaltyAccountFilter(?LoyaltyEventLoyaltyAccountFilter $value = null): self
     {
         $this->loyaltyAccountFilter = $value;
+        $this->_setField('loyaltyAccountFilter');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class LoyaltyEventFilter extends JsonSerializableType
     public function setTypeFilter(?LoyaltyEventTypeFilter $value = null): self
     {
         $this->typeFilter = $value;
+        $this->_setField('typeFilter');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class LoyaltyEventFilter extends JsonSerializableType
     public function setDateTimeFilter(?LoyaltyEventDateTimeFilter $value = null): self
     {
         $this->dateTimeFilter = $value;
+        $this->_setField('dateTimeFilter');
         return $this;
     }
 
@@ -129,6 +132,7 @@ class LoyaltyEventFilter extends JsonSerializableType
     public function setLocationFilter(?LoyaltyEventLocationFilter $value = null): self
     {
         $this->locationFilter = $value;
+        $this->_setField('locationFilter');
         return $this;
     }
 
@@ -146,6 +150,7 @@ class LoyaltyEventFilter extends JsonSerializableType
     public function setOrderFilter(?LoyaltyEventOrderFilter $value = null): self
     {
         $this->orderFilter = $value;
+        $this->_setField('orderFilter');
         return $this;
     }
 

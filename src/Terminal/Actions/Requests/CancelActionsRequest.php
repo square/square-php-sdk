@@ -36,6 +36,7 @@ class CancelActionsRequest extends JsonSerializableType
     public function setActionId(string $value): self
     {
         $this->actionId = $value;
+        $this->_setField('actionId');
         return $this;
     }
 }

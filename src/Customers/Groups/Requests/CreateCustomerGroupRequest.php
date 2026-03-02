@@ -47,6 +47,7 @@ class CreateCustomerGroupRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateCustomerGroupRequest extends JsonSerializableType
     public function setGroup(CustomerGroup $value): self
     {
         $this->group = $value;
+        $this->_setField('group');
         return $this;
     }
 }

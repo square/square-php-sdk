@@ -103,6 +103,7 @@ class Break_ extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -120,6 +121,7 @@ class Break_ extends JsonSerializableType
     public function setStartAt(string $value): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -137,6 +139,7 @@ class Break_ extends JsonSerializableType
     public function setEndAt(?string $value = null): self
     {
         $this->endAt = $value;
+        $this->_setField('endAt');
         return $this;
     }
 
@@ -154,6 +157,7 @@ class Break_ extends JsonSerializableType
     public function setBreakTypeId(string $value): self
     {
         $this->breakTypeId = $value;
+        $this->_setField('breakTypeId');
         return $this;
     }
 
@@ -171,6 +175,7 @@ class Break_ extends JsonSerializableType
     public function setName(string $value): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -188,6 +193,7 @@ class Break_ extends JsonSerializableType
     public function setExpectedDuration(string $value): self
     {
         $this->expectedDuration = $value;
+        $this->_setField('expectedDuration');
         return $this;
     }
 
@@ -205,6 +211,7 @@ class Break_ extends JsonSerializableType
     public function setIsPaid(bool $value): self
     {
         $this->isPaid = $value;
+        $this->_setField('isPaid');
         return $this;
     }
 

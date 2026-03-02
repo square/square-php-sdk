@@ -49,6 +49,7 @@ class CancelInvoiceRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CancelInvoiceRequest extends JsonSerializableType
     public function setVersion(int $value): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 }

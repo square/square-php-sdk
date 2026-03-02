@@ -83,6 +83,7 @@ class CatalogImage extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -100,6 +101,7 @@ class CatalogImage extends JsonSerializableType
     public function setUrl(?string $value = null): self
     {
         $this->url = $value;
+        $this->_setField('url');
         return $this;
     }
 
@@ -117,6 +119,7 @@ class CatalogImage extends JsonSerializableType
     public function setCaption(?string $value = null): self
     {
         $this->caption = $value;
+        $this->_setField('caption');
         return $this;
     }
 
@@ -134,6 +137,7 @@ class CatalogImage extends JsonSerializableType
     public function setPhotoStudioOrderId(?string $value = null): self
     {
         $this->photoStudioOrderId = $value;
+        $this->_setField('photoStudioOrderId');
         return $this;
     }
 

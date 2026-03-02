@@ -55,6 +55,7 @@ class ListBookingsResponse extends JsonSerializableType
     public function setBookings(?array $value = null): self
     {
         $this->bookings = $value;
+        $this->_setField('bookings');
         return $this;
     }
 
@@ -72,6 +73,7 @@ class ListBookingsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -89,6 +91,7 @@ class ListBookingsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

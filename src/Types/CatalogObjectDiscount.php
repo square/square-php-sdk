@@ -61,6 +61,7 @@ class CatalogObjectDiscount extends JsonSerializableType
     public function setDiscountData(?CatalogDiscount $value = null): self
     {
         $this->discountData = $value;
+        $this->_setField('discountData');
         return $this;
     }
 

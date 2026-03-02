@@ -63,6 +63,7 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreference extends JsonSerializabl
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreference extends JsonSerializabl
     public function setStandardName(?string $value = null): self
     {
         $this->standardName = $value;
+        $this->_setField('standardName');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class CatalogItemFoodAndBeverageDetailsDietaryPreference extends JsonSerializabl
     public function setCustomName(?string $value = null): self
     {
         $this->customName = $value;
+        $this->_setField('customName');
         return $this;
     }
 

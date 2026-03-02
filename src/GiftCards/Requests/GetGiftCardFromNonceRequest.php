@@ -41,6 +41,7 @@ class GetGiftCardFromNonceRequest extends JsonSerializableType
     public function setNonce(string $value): self
     {
         $this->nonce = $value;
+        $this->_setField('nonce');
         return $this;
     }
 }

@@ -47,6 +47,7 @@ class GetDeviceResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetDeviceResponse extends JsonSerializableType
     public function setDevice(?Device $value = null): self
     {
         $this->device = $value;
+        $this->_setField('device');
         return $this;
     }
 

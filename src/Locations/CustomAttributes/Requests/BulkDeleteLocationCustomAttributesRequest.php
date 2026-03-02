@@ -43,6 +43,7 @@ class BulkDeleteLocationCustomAttributesRequest extends JsonSerializableType
     public function setValues(array $value): self
     {
         $this->values = $value;
+        $this->_setField('values');
         return $this;
     }
 }

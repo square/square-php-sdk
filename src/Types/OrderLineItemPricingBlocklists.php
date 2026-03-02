@@ -73,6 +73,7 @@ class OrderLineItemPricingBlocklists extends JsonSerializableType
     public function setBlockedDiscounts(?array $value = null): self
     {
         $this->blockedDiscounts = $value;
+        $this->_setField('blockedDiscounts');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class OrderLineItemPricingBlocklists extends JsonSerializableType
     public function setBlockedTaxes(?array $value = null): self
     {
         $this->blockedTaxes = $value;
+        $this->_setField('blockedTaxes');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class OrderLineItemPricingBlocklists extends JsonSerializableType
     public function setBlockedServiceCharges(?array $value = null): self
     {
         $this->blockedServiceCharges = $value;
+        $this->_setField('blockedServiceCharges');
         return $this;
     }
 

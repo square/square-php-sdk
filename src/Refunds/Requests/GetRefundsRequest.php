@@ -36,6 +36,7 @@ class GetRefundsRequest extends JsonSerializableType
     public function setRefundId(string $value): self
     {
         $this->refundId = $value;
+        $this->_setField('refundId');
         return $this;
     }
 }

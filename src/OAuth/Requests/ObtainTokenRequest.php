@@ -181,6 +181,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setClientId(string $value): self
     {
         $this->clientId = $value;
+        $this->_setField('clientId');
         return $this;
     }
 
@@ -198,6 +199,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setClientSecret(?string $value = null): self
     {
         $this->clientSecret = $value;
+        $this->_setField('clientSecret');
         return $this;
     }
 
@@ -215,6 +217,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setCode(?string $value = null): self
     {
         $this->code = $value;
+        $this->_setField('code');
         return $this;
     }
 
@@ -232,6 +235,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setRedirectUri(?string $value = null): self
     {
         $this->redirectUri = $value;
+        $this->_setField('redirectUri');
         return $this;
     }
 
@@ -249,6 +253,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setGrantType(string $value): self
     {
         $this->grantType = $value;
+        $this->_setField('grantType');
         return $this;
     }
 
@@ -266,6 +271,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setRefreshToken(?string $value = null): self
     {
         $this->refreshToken = $value;
+        $this->_setField('refreshToken');
         return $this;
     }
 
@@ -283,6 +289,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setMigrationToken(?string $value = null): self
     {
         $this->migrationToken = $value;
+        $this->_setField('migrationToken');
         return $this;
     }
 
@@ -300,6 +307,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setScopes(?array $value = null): self
     {
         $this->scopes = $value;
+        $this->_setField('scopes');
         return $this;
     }
 
@@ -317,6 +325,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setShortLived(?bool $value = null): self
     {
         $this->shortLived = $value;
+        $this->_setField('shortLived');
         return $this;
     }
 
@@ -334,6 +343,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setCodeVerifier(?string $value = null): self
     {
         $this->codeVerifier = $value;
+        $this->_setField('codeVerifier');
         return $this;
     }
 
@@ -351,6 +361,7 @@ class ObtainTokenRequest extends JsonSerializableType
     public function setUseJwt(?bool $value = null): self
     {
         $this->useJwt = $value;
+        $this->_setField('useJwt');
         return $this;
     }
 }

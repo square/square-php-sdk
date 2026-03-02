@@ -72,6 +72,7 @@ class AdjustLoyaltyPointsRequest extends JsonSerializableType
     public function setAccountId(string $value): self
     {
         $this->accountId = $value;
+        $this->_setField('accountId');
         return $this;
     }
 
@@ -89,6 +90,7 @@ class AdjustLoyaltyPointsRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -106,6 +108,7 @@ class AdjustLoyaltyPointsRequest extends JsonSerializableType
     public function setAdjustPoints(LoyaltyEventAdjustPoints $value): self
     {
         $this->adjustPoints = $value;
+        $this->_setField('adjustPoints');
         return $this;
     }
 
@@ -123,6 +126,7 @@ class AdjustLoyaltyPointsRequest extends JsonSerializableType
     public function setAllowNegativeBalance(?bool $value = null): self
     {
         $this->allowNegativeBalance = $value;
+        $this->_setField('allowNegativeBalance');
         return $this;
     }
 }

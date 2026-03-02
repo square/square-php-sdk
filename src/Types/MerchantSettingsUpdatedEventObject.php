@@ -38,6 +38,7 @@ class MerchantSettingsUpdatedEventObject extends JsonSerializableType
     public function setMerchantSettings(?CheckoutMerchantSettings $value = null): self
     {
         $this->merchantSettings = $value;
+        $this->_setField('merchantSettings');
         return $this;
     }
 

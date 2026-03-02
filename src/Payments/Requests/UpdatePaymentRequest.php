@@ -59,6 +59,7 @@ class UpdatePaymentRequest extends JsonSerializableType
     public function setPaymentId(string $value): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class UpdatePaymentRequest extends JsonSerializableType
     public function setPayment(?Payment $value = null): self
     {
         $this->payment = $value;
+        $this->_setField('payment');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class UpdatePaymentRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

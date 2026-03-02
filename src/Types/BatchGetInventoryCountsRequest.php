@@ -98,6 +98,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setCatalogObjectIds(?array $value = null): self
     {
         $this->catalogObjectIds = $value;
+        $this->_setField('catalogObjectIds');
         return $this;
     }
 
@@ -115,6 +116,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -132,6 +134,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setUpdatedAfter(?string $value = null): self
     {
         $this->updatedAfter = $value;
+        $this->_setField('updatedAfter');
         return $this;
     }
 
@@ -149,6 +152,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -166,6 +170,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setStates(?array $value = null): self
     {
         $this->states = $value;
+        $this->_setField('states');
         return $this;
     }
 
@@ -183,6 +188,7 @@ class BatchGetInventoryCountsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 

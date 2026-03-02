@@ -50,6 +50,7 @@ class GetSnippetResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class GetSnippetResponse extends JsonSerializableType
     public function setSnippet(?Snippet $value = null): self
     {
         $this->snippet = $value;
+        $this->_setField('snippet');
         return $this;
     }
 

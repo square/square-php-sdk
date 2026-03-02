@@ -41,6 +41,7 @@ class LoyaltyEventLoyaltyAccountFilter extends JsonSerializableType
     public function setLoyaltyAccountId(string $value): self
     {
         $this->loyaltyAccountId = $value;
+        $this->_setField('loyaltyAccountId');
         return $this;
     }
 

@@ -66,6 +66,7 @@ class SearchEventsFilter extends JsonSerializableType
     public function setEventTypes(?array $value = null): self
     {
         $this->eventTypes = $value;
+        $this->_setField('eventTypes');
         return $this;
     }
 
@@ -83,6 +84,7 @@ class SearchEventsFilter extends JsonSerializableType
     public function setMerchantIds(?array $value = null): self
     {
         $this->merchantIds = $value;
+        $this->_setField('merchantIds');
         return $this;
     }
 
@@ -100,6 +102,7 @@ class SearchEventsFilter extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -117,6 +120,7 @@ class SearchEventsFilter extends JsonSerializableType
     public function setCreatedAt(?TimeRange $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

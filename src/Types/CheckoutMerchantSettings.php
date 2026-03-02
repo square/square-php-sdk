@@ -51,6 +51,7 @@ class CheckoutMerchantSettings extends JsonSerializableType
     public function setPaymentMethods(?CheckoutMerchantSettingsPaymentMethods $value = null): self
     {
         $this->paymentMethods = $value;
+        $this->_setField('paymentMethods');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class CheckoutMerchantSettings extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

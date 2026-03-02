@@ -47,6 +47,7 @@ class CalculateOrderResponse extends JsonSerializableType
     public function setOrder(?Order $value = null): self
     {
         $this->order = $value;
+        $this->_setField('order');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CalculateOrderResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

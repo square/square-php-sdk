@@ -52,6 +52,7 @@ class CatalogItemOptionValueForItemVariation extends JsonSerializableType
     public function setItemOptionId(?string $value = null): self
     {
         $this->itemOptionId = $value;
+        $this->_setField('itemOptionId');
         return $this;
     }
 
@@ -69,6 +70,7 @@ class CatalogItemOptionValueForItemVariation extends JsonSerializableType
     public function setItemOptionValueId(?string $value = null): self
     {
         $this->itemOptionValueId = $value;
+        $this->_setField('itemOptionValueId');
         return $this;
     }
 

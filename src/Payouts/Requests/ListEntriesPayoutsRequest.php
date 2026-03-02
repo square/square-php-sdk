@@ -69,6 +69,7 @@ class ListEntriesPayoutsRequest extends JsonSerializableType
     public function setPayoutId(string $value): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class ListEntriesPayoutsRequest extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class ListEntriesPayoutsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -120,6 +123,7 @@ class ListEntriesPayoutsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 }

@@ -74,6 +74,7 @@ class ListCatalogRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -91,6 +92,7 @@ class ListCatalogRequest extends JsonSerializableType
     public function setTypes(?string $value = null): self
     {
         $this->types = $value;
+        $this->_setField('types');
         return $this;
     }
 
@@ -108,6 +110,7 @@ class ListCatalogRequest extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 }

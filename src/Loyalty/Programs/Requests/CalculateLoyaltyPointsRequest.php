@@ -79,6 +79,7 @@ class CalculateLoyaltyPointsRequest extends JsonSerializableType
     public function setProgramId(string $value): self
     {
         $this->programId = $value;
+        $this->_setField('programId');
         return $this;
     }
 
@@ -96,6 +97,7 @@ class CalculateLoyaltyPointsRequest extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -113,6 +115,7 @@ class CalculateLoyaltyPointsRequest extends JsonSerializableType
     public function setTransactionAmountMoney(?Money $value = null): self
     {
         $this->transactionAmountMoney = $value;
+        $this->_setField('transactionAmountMoney');
         return $this;
     }
 
@@ -130,6 +133,7 @@ class CalculateLoyaltyPointsRequest extends JsonSerializableType
     public function setLoyaltyAccountId(?string $value = null): self
     {
         $this->loyaltyAccountId = $value;
+        $this->_setField('loyaltyAccountId');
         return $this;
     }
 }

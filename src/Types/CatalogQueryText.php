@@ -42,6 +42,7 @@ class CatalogQueryText extends JsonSerializableType
     public function setKeywords(array $value): self
     {
         $this->keywords = $value;
+        $this->_setField('keywords');
         return $this;
     }
 

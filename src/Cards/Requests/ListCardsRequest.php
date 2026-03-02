@@ -79,6 +79,7 @@ class ListCardsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -96,6 +97,7 @@ class ListCardsRequest extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -113,6 +115,7 @@ class ListCardsRequest extends JsonSerializableType
     public function setIncludeDisabled(?bool $value = null): self
     {
         $this->includeDisabled = $value;
+        $this->_setField('includeDisabled');
         return $this;
     }
 
@@ -130,6 +133,7 @@ class ListCardsRequest extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -147,6 +151,7 @@ class ListCardsRequest extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 }

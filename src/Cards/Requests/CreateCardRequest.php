@@ -76,6 +76,7 @@ class CreateCardRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -93,6 +94,7 @@ class CreateCardRequest extends JsonSerializableType
     public function setSourceId(string $value): self
     {
         $this->sourceId = $value;
+        $this->_setField('sourceId');
         return $this;
     }
 
@@ -110,6 +112,7 @@ class CreateCardRequest extends JsonSerializableType
     public function setVerificationToken(?string $value = null): self
     {
         $this->verificationToken = $value;
+        $this->_setField('verificationToken');
         return $this;
     }
 
@@ -127,6 +130,7 @@ class CreateCardRequest extends JsonSerializableType
     public function setCard(Card $value): self
     {
         $this->card = $value;
+        $this->_setField('card');
         return $this;
     }
 }

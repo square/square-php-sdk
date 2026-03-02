@@ -185,6 +185,7 @@ class PaymentRefund extends JsonSerializableType
     public function setId(string $value): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -202,6 +203,7 @@ class PaymentRefund extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -219,6 +221,7 @@ class PaymentRefund extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -236,6 +239,7 @@ class PaymentRefund extends JsonSerializableType
     public function setUnlinked(?bool $value = null): self
     {
         $this->unlinked = $value;
+        $this->_setField('unlinked');
         return $this;
     }
 
@@ -253,6 +257,7 @@ class PaymentRefund extends JsonSerializableType
     public function setDestinationType(?string $value = null): self
     {
         $this->destinationType = $value;
+        $this->_setField('destinationType');
         return $this;
     }
 
@@ -270,6 +275,7 @@ class PaymentRefund extends JsonSerializableType
     public function setDestinationDetails(?DestinationDetails $value = null): self
     {
         $this->destinationDetails = $value;
+        $this->_setField('destinationDetails');
         return $this;
     }
 
@@ -287,6 +293,7 @@ class PaymentRefund extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -304,6 +311,7 @@ class PaymentRefund extends JsonSerializableType
     public function setAppFeeMoney(?Money $value = null): self
     {
         $this->appFeeMoney = $value;
+        $this->_setField('appFeeMoney');
         return $this;
     }
 
@@ -321,6 +329,7 @@ class PaymentRefund extends JsonSerializableType
     public function setProcessingFee(?array $value = null): self
     {
         $this->processingFee = $value;
+        $this->_setField('processingFee');
         return $this;
     }
 
@@ -338,6 +347,7 @@ class PaymentRefund extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -355,6 +365,7 @@ class PaymentRefund extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -372,6 +383,7 @@ class PaymentRefund extends JsonSerializableType
     public function setReason(?string $value = null): self
     {
         $this->reason = $value;
+        $this->_setField('reason');
         return $this;
     }
 
@@ -389,6 +401,7 @@ class PaymentRefund extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -406,6 +419,7 @@ class PaymentRefund extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -423,6 +437,7 @@ class PaymentRefund extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -440,6 +455,7 @@ class PaymentRefund extends JsonSerializableType
     public function setTerminalRefundId(?string $value = null): self
     {
         $this->terminalRefundId = $value;
+        $this->_setField('terminalRefundId');
         return $this;
     }
 

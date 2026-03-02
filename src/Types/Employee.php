@@ -123,6 +123,7 @@ class Employee extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -140,6 +141,7 @@ class Employee extends JsonSerializableType
     public function setFirstName(?string $value = null): self
     {
         $this->firstName = $value;
+        $this->_setField('firstName');
         return $this;
     }
 
@@ -157,6 +159,7 @@ class Employee extends JsonSerializableType
     public function setLastName(?string $value = null): self
     {
         $this->lastName = $value;
+        $this->_setField('lastName');
         return $this;
     }
 
@@ -174,6 +177,7 @@ class Employee extends JsonSerializableType
     public function setEmail(?string $value = null): self
     {
         $this->email = $value;
+        $this->_setField('email');
         return $this;
     }
 
@@ -191,6 +195,7 @@ class Employee extends JsonSerializableType
     public function setPhoneNumber(?string $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -208,6 +213,7 @@ class Employee extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 
@@ -225,6 +231,7 @@ class Employee extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -242,6 +249,7 @@ class Employee extends JsonSerializableType
     public function setIsOwner(?bool $value = null): self
     {
         $this->isOwner = $value;
+        $this->_setField('isOwner');
         return $this;
     }
 
@@ -259,6 +267,7 @@ class Employee extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -276,6 +285,7 @@ class Employee extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

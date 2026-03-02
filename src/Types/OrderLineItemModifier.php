@@ -135,6 +135,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -152,6 +153,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -169,6 +171,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 
@@ -186,6 +189,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -203,6 +207,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setQuantity(?string $value = null): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 
@@ -220,6 +225,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setBasePriceMoney(?Money $value = null): self
     {
         $this->basePriceMoney = $value;
+        $this->_setField('basePriceMoney');
         return $this;
     }
 
@@ -237,6 +243,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setTotalPriceMoney(?Money $value = null): self
     {
         $this->totalPriceMoney = $value;
+        $this->_setField('totalPriceMoney');
         return $this;
     }
 
@@ -254,6 +261,7 @@ class OrderLineItemModifier extends JsonSerializableType
     public function setMetadata(?array $value = null): self
     {
         $this->metadata = $value;
+        $this->_setField('metadata');
         return $this;
     }
 

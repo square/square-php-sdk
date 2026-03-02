@@ -36,6 +36,7 @@ class DeleteRewardsRequest extends JsonSerializableType
     public function setRewardId(string $value): self
     {
         $this->rewardId = $value;
+        $this->_setField('rewardId');
         return $this;
     }
 }

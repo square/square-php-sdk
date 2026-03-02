@@ -41,6 +41,7 @@ class CustomerDeletedEventEventContext extends JsonSerializableType
     public function setMerge(?CustomerDeletedEventEventContextMerge $value = null): self
     {
         $this->merge = $value;
+        $this->_setField('merge');
         return $this;
     }
 

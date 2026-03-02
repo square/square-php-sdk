@@ -53,6 +53,7 @@ class CancelBookingRequest extends JsonSerializableType
     public function setBookingId(string $value): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CancelBookingRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -87,6 +89,7 @@ class CancelBookingRequest extends JsonSerializableType
     public function setBookingVersion(?int $value = null): self
     {
         $this->bookingVersion = $value;
+        $this->_setField('bookingVersion');
         return $this;
     }
 }

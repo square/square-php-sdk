@@ -53,6 +53,7 @@ class CreatePaymentResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CreatePaymentResponse extends JsonSerializableType
     public function setPayment(?Payment $value = null): self
     {
         $this->payment = $value;
+        $this->_setField('payment');
         return $this;
     }
 

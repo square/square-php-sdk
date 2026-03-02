@@ -47,6 +47,7 @@ class GetBusinessBookingProfileResponse extends JsonSerializableType
     public function setBusinessBookingProfile(?BusinessBookingProfile $value = null): self
     {
         $this->businessBookingProfile = $value;
+        $this->_setField('businessBookingProfile');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetBusinessBookingProfileResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

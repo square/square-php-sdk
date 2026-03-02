@@ -47,6 +47,7 @@ class RetrieveChannelResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class RetrieveChannelResponse extends JsonSerializableType
     public function setChannel(?Channel $value = null): self
     {
         $this->channel = $value;
+        $this->_setField('channel');
         return $this;
     }
 

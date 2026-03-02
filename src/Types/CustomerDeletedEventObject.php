@@ -49,6 +49,7 @@ class CustomerDeletedEventObject extends JsonSerializableType
     public function setCustomer(?Customer $value = null): self
     {
         $this->customer = $value;
+        $this->_setField('customer');
         return $this;
     }
 
@@ -66,6 +67,7 @@ class CustomerDeletedEventObject extends JsonSerializableType
     public function setEventContext(?CustomerDeletedEventEventContext $value = null): self
     {
         $this->eventContext = $value;
+        $this->_setField('eventContext');
         return $this;
     }
 

@@ -71,6 +71,7 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
     public function setMerchantId(string $value): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
     public function setCustomAttribute(CustomAttribute $value): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class BulkUpsertMerchantCustomAttributesRequestMerchantCustomAttributeUpsertRequ
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 

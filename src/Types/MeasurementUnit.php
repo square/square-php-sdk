@@ -123,6 +123,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setCustomUnit(?MeasurementUnitCustom $value = null): self
     {
         $this->customUnit = $value;
+        $this->_setField('customUnit');
         return $this;
     }
 
@@ -140,6 +141,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setAreaUnit(?string $value = null): self
     {
         $this->areaUnit = $value;
+        $this->_setField('areaUnit');
         return $this;
     }
 
@@ -157,6 +159,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setLengthUnit(?string $value = null): self
     {
         $this->lengthUnit = $value;
+        $this->_setField('lengthUnit');
         return $this;
     }
 
@@ -174,6 +177,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setVolumeUnit(?string $value = null): self
     {
         $this->volumeUnit = $value;
+        $this->_setField('volumeUnit');
         return $this;
     }
 
@@ -191,6 +195,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setWeightUnit(?string $value = null): self
     {
         $this->weightUnit = $value;
+        $this->_setField('weightUnit');
         return $this;
     }
 
@@ -208,6 +213,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setGenericUnit(?string $value = null): self
     {
         $this->genericUnit = $value;
+        $this->_setField('genericUnit');
         return $this;
     }
 
@@ -225,6 +231,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setTimeUnit(?string $value = null): self
     {
         $this->timeUnit = $value;
+        $this->_setField('timeUnit');
         return $this;
     }
 
@@ -242,6 +249,7 @@ class MeasurementUnit extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 

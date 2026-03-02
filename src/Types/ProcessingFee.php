@@ -62,6 +62,7 @@ class ProcessingFee extends JsonSerializableType
     public function setEffectiveAt(?string $value = null): self
     {
         $this->effectiveAt = $value;
+        $this->_setField('effectiveAt');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class ProcessingFee extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class ProcessingFee extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 

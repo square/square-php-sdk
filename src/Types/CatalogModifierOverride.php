@@ -78,6 +78,7 @@ class CatalogModifierOverride extends JsonSerializableType
     public function setModifierId(string $value): self
     {
         $this->modifierId = $value;
+        $this->_setField('modifierId');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class CatalogModifierOverride extends JsonSerializableType
     public function setOnByDefault(?bool $value = null): self
     {
         $this->onByDefault = $value;
+        $this->_setField('onByDefault');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class CatalogModifierOverride extends JsonSerializableType
     public function setHiddenOnlineOverride(?string $value = null): self
     {
         $this->hiddenOnlineOverride = $value;
+        $this->_setField('hiddenOnlineOverride');
         return $this;
     }
 
@@ -129,6 +132,7 @@ class CatalogModifierOverride extends JsonSerializableType
     public function setOnByDefaultOverride(?string $value = null): self
     {
         $this->onByDefaultOverride = $value;
+        $this->_setField('onByDefaultOverride');
         return $this;
     }
 

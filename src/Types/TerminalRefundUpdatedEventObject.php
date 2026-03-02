@@ -38,6 +38,7 @@ class TerminalRefundUpdatedEventObject extends JsonSerializableType
     public function setRefund(?TerminalRefund $value = null): self
     {
         $this->refund = $value;
+        $this->_setField('refund');
         return $this;
     }
 

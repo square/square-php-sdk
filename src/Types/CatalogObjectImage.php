@@ -61,6 +61,7 @@ class CatalogObjectImage extends JsonSerializableType
     public function setImageData(?CatalogImage $value = null): self
     {
         $this->imageData = $value;
+        $this->_setField('imageData');
         return $this;
     }
 

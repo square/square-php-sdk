@@ -38,6 +38,7 @@ class TeamMemberWageSettingUpdatedEventObject extends JsonSerializableType
     public function setWageSetting(?WageSetting $value = null): self
     {
         $this->wageSetting = $value;
+        $this->_setField('wageSetting');
         return $this;
     }
 

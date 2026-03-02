@@ -69,6 +69,7 @@ class AccumulateLoyaltyPointsRequest extends JsonSerializableType
     public function setAccountId(string $value): self
     {
         $this->accountId = $value;
+        $this->_setField('accountId');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class AccumulateLoyaltyPointsRequest extends JsonSerializableType
     public function setAccumulatePoints(LoyaltyEventAccumulatePoints $value): self
     {
         $this->accumulatePoints = $value;
+        $this->_setField('accumulatePoints');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class AccumulateLoyaltyPointsRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -120,6 +123,7 @@ class AccumulateLoyaltyPointsRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 }

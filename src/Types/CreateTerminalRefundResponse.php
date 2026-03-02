@@ -47,6 +47,7 @@ class CreateTerminalRefundResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class CreateTerminalRefundResponse extends JsonSerializableType
     public function setRefund(?TerminalRefund $value = null): self
     {
         $this->refund = $value;
+        $this->_setField('refund');
         return $this;
     }
 

@@ -68,6 +68,7 @@ class ShiftWorkday extends JsonSerializableType
     public function setDateRange(?DateRange $value = null): self
     {
         $this->dateRange = $value;
+        $this->_setField('dateRange');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class ShiftWorkday extends JsonSerializableType
     public function setMatchShiftsBy(?string $value = null): self
     {
         $this->matchShiftsBy = $value;
+        $this->_setField('matchShiftsBy');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class ShiftWorkday extends JsonSerializableType
     public function setDefaultTimezone(?string $value = null): self
     {
         $this->defaultTimezone = $value;
+        $this->_setField('defaultTimezone');
         return $this;
     }
 

@@ -39,6 +39,7 @@ class GetByV1IdBankAccountsRequest extends JsonSerializableType
     public function setV1BankAccountId(string $value): self
     {
         $this->v1BankAccountId = $value;
+        $this->_setField('v1BankAccountId');
         return $this;
     }
 }

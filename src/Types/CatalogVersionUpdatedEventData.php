@@ -46,6 +46,7 @@ class CatalogVersionUpdatedEventData extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class CatalogVersionUpdatedEventData extends JsonSerializableType
     public function setObject(?CatalogVersionUpdatedEventObject $value = null): self
     {
         $this->object = $value;
+        $this->_setField('object');
         return $this;
     }
 

@@ -69,6 +69,7 @@ class ListCustomAttributesRequest extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -86,6 +87,7 @@ class ListCustomAttributesRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -103,6 +105,7 @@ class ListCustomAttributesRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -120,6 +123,7 @@ class ListCustomAttributesRequest extends JsonSerializableType
     public function setWithDefinitions(?bool $value = null): self
     {
         $this->withDefinitions = $value;
+        $this->_setField('withDefinitions');
         return $this;
     }
 }

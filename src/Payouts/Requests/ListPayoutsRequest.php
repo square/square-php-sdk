@@ -100,6 +100,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -117,6 +118,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -134,6 +136,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setBeginTime(?string $value = null): self
     {
         $this->beginTime = $value;
+        $this->_setField('beginTime');
         return $this;
     }
 
@@ -151,6 +154,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setEndTime(?string $value = null): self
     {
         $this->endTime = $value;
+        $this->_setField('endTime');
         return $this;
     }
 
@@ -168,6 +172,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setSortOrder(?string $value = null): self
     {
         $this->sortOrder = $value;
+        $this->_setField('sortOrder');
         return $this;
     }
 
@@ -185,6 +190,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -202,6 +208,7 @@ class ListPayoutsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 }

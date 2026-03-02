@@ -211,6 +211,7 @@ class Tender extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -228,6 +229,7 @@ class Tender extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -245,6 +247,7 @@ class Tender extends JsonSerializableType
     public function setTransactionId(?string $value = null): self
     {
         $this->transactionId = $value;
+        $this->_setField('transactionId');
         return $this;
     }
 
@@ -262,6 +265,7 @@ class Tender extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -279,6 +283,7 @@ class Tender extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -296,6 +301,7 @@ class Tender extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -313,6 +319,7 @@ class Tender extends JsonSerializableType
     public function setTipMoney(?Money $value = null): self
     {
         $this->tipMoney = $value;
+        $this->_setField('tipMoney');
         return $this;
     }
 
@@ -330,6 +337,7 @@ class Tender extends JsonSerializableType
     public function setProcessingFeeMoney(?Money $value = null): self
     {
         $this->processingFeeMoney = $value;
+        $this->_setField('processingFeeMoney');
         return $this;
     }
 
@@ -347,6 +355,7 @@ class Tender extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -364,6 +373,7 @@ class Tender extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -381,6 +391,7 @@ class Tender extends JsonSerializableType
     public function setCardDetails(?TenderCardDetails $value = null): self
     {
         $this->cardDetails = $value;
+        $this->_setField('cardDetails');
         return $this;
     }
 
@@ -398,6 +409,7 @@ class Tender extends JsonSerializableType
     public function setCashDetails(?TenderCashDetails $value = null): self
     {
         $this->cashDetails = $value;
+        $this->_setField('cashDetails');
         return $this;
     }
 
@@ -415,6 +427,7 @@ class Tender extends JsonSerializableType
     public function setBankAccountDetails(?TenderBankAccountDetails $value = null): self
     {
         $this->bankAccountDetails = $value;
+        $this->_setField('bankAccountDetails');
         return $this;
     }
 
@@ -432,6 +445,7 @@ class Tender extends JsonSerializableType
     public function setBuyNowPayLaterDetails(?TenderBuyNowPayLaterDetails $value = null): self
     {
         $this->buyNowPayLaterDetails = $value;
+        $this->_setField('buyNowPayLaterDetails');
         return $this;
     }
 
@@ -449,6 +463,7 @@ class Tender extends JsonSerializableType
     public function setSquareAccountDetails(?TenderSquareAccountDetails $value = null): self
     {
         $this->squareAccountDetails = $value;
+        $this->_setField('squareAccountDetails');
         return $this;
     }
 
@@ -466,6 +481,7 @@ class Tender extends JsonSerializableType
     public function setAdditionalRecipients(?array $value = null): self
     {
         $this->additionalRecipients = $value;
+        $this->_setField('additionalRecipients');
         return $this;
     }
 
@@ -483,6 +499,7 @@ class Tender extends JsonSerializableType
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 

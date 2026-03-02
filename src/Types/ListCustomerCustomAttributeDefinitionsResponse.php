@@ -67,6 +67,7 @@ class ListCustomerCustomAttributeDefinitionsResponse extends JsonSerializableTyp
     public function setCustomAttributeDefinitions(?array $value = null): self
     {
         $this->customAttributeDefinitions = $value;
+        $this->_setField('customAttributeDefinitions');
         return $this;
     }
 
@@ -84,6 +85,7 @@ class ListCustomerCustomAttributeDefinitionsResponse extends JsonSerializableTyp
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -101,6 +103,7 @@ class ListCustomerCustomAttributeDefinitionsResponse extends JsonSerializableTyp
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

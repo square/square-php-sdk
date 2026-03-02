@@ -39,6 +39,7 @@ class BulkRetrieveCustomersRequest extends JsonSerializableType
     public function setCustomerIds(array $value): self
     {
         $this->customerIds = $value;
+        $this->_setField('customerIds');
         return $this;
     }
 }

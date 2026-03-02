@@ -94,6 +94,7 @@ class FulfillmentFulfillmentEntry extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -111,6 +112,7 @@ class FulfillmentFulfillmentEntry extends JsonSerializableType
     public function setLineItemUid(string $value): self
     {
         $this->lineItemUid = $value;
+        $this->_setField('lineItemUid');
         return $this;
     }
 
@@ -128,6 +130,7 @@ class FulfillmentFulfillmentEntry extends JsonSerializableType
     public function setQuantity(string $value): self
     {
         $this->quantity = $value;
+        $this->_setField('quantity');
         return $this;
     }
 
@@ -145,6 +148,7 @@ class FulfillmentFulfillmentEntry extends JsonSerializableType
     public function setMetadata(?array $value = null): self
     {
         $this->metadata = $value;
+        $this->_setField('metadata');
         return $this;
     }
 

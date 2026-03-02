@@ -87,6 +87,7 @@ class OrderUpdated extends JsonSerializableType
     public function setOrderId(?string $value = null): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -104,6 +105,7 @@ class OrderUpdated extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -121,6 +123,7 @@ class OrderUpdated extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -138,6 +141,7 @@ class OrderUpdated extends JsonSerializableType
     public function setState(?string $value = null): self
     {
         $this->state = $value;
+        $this->_setField('state');
         return $this;
     }
 
@@ -155,6 +159,7 @@ class OrderUpdated extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -172,6 +177,7 @@ class OrderUpdated extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 

@@ -38,6 +38,7 @@ class LaborScheduledShiftPublishedEventObject extends JsonSerializableType
     public function setScheduledShift(?ScheduledShift $value = null): self
     {
         $this->scheduledShift = $value;
+        $this->_setField('scheduledShift');
         return $this;
     }
 

@@ -54,6 +54,7 @@ class CheckoutLocationSettingsPolicy extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CheckoutLocationSettingsPolicy extends JsonSerializableType
     public function setTitle(?string $value = null): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class CheckoutLocationSettingsPolicy extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 

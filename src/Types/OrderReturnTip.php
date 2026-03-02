@@ -68,6 +68,7 @@ class OrderReturnTip extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -85,6 +86,7 @@ class OrderReturnTip extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 
@@ -102,6 +104,7 @@ class OrderReturnTip extends JsonSerializableType
     public function setSourceTenderUid(?string $value = null): self
     {
         $this->sourceTenderUid = $value;
+        $this->_setField('sourceTenderUid');
         return $this;
     }
 
@@ -119,6 +122,7 @@ class OrderReturnTip extends JsonSerializableType
     public function setSourceTenderId(?string $value = null): self
     {
         $this->sourceTenderId = $value;
+        $this->_setField('sourceTenderId');
         return $this;
     }
 

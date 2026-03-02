@@ -110,6 +110,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -127,6 +128,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setStringValue(?string $value = null): self
     {
         $this->stringValue = $value;
+        $this->_setField('stringValue');
         return $this;
     }
 
@@ -144,6 +146,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setCustomAttributeDefinitionId(?string $value = null): self
     {
         $this->customAttributeDefinitionId = $value;
+        $this->_setField('customAttributeDefinitionId');
         return $this;
     }
 
@@ -161,6 +164,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -178,6 +182,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setNumberValue(?string $value = null): self
     {
         $this->numberValue = $value;
+        $this->_setField('numberValue');
         return $this;
     }
 
@@ -195,6 +200,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setBooleanValue(?bool $value = null): self
     {
         $this->booleanValue = $value;
+        $this->_setField('booleanValue');
         return $this;
     }
 
@@ -212,6 +218,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setSelectionUidValues(?array $value = null): self
     {
         $this->selectionUidValues = $value;
+        $this->_setField('selectionUidValues');
         return $this;
     }
 
@@ -229,6 +236,7 @@ class CatalogCustomAttributeValue extends JsonSerializableType
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 

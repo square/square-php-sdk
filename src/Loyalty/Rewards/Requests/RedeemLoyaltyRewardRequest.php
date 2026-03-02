@@ -56,6 +56,7 @@ class RedeemLoyaltyRewardRequest extends JsonSerializableType
     public function setRewardId(string $value): self
     {
         $this->rewardId = $value;
+        $this->_setField('rewardId');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class RedeemLoyaltyRewardRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -90,6 +92,7 @@ class RedeemLoyaltyRewardRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 }

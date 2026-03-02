@@ -63,6 +63,7 @@ class EventData extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class EventData extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class EventData extends JsonSerializableType
     public function setDeleted(?bool $value = null): self
     {
         $this->deleted = $value;
+        $this->_setField('deleted');
         return $this;
     }
 
@@ -114,6 +117,7 @@ class EventData extends JsonSerializableType
     public function setObject(?array $value = null): self
     {
         $this->object = $value;
+        $this->_setField('object');
         return $this;
     }
 

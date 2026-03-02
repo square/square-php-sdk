@@ -138,6 +138,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -155,6 +156,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setObjectTypes(?array $value = null): self
     {
         $this->objectTypes = $value;
+        $this->_setField('objectTypes');
         return $this;
     }
 
@@ -172,6 +174,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setIncludeDeletedObjects(?bool $value = null): self
     {
         $this->includeDeletedObjects = $value;
+        $this->_setField('includeDeletedObjects');
         return $this;
     }
 
@@ -189,6 +192,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setIncludeRelatedObjects(?bool $value = null): self
     {
         $this->includeRelatedObjects = $value;
+        $this->_setField('includeRelatedObjects');
         return $this;
     }
 
@@ -206,6 +210,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setBeginTime(?string $value = null): self
     {
         $this->beginTime = $value;
+        $this->_setField('beginTime');
         return $this;
     }
 
@@ -223,6 +228,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setQuery(?CatalogQuery $value = null): self
     {
         $this->query = $value;
+        $this->_setField('query');
         return $this;
     }
 
@@ -240,6 +246,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setLimit(?int $value = null): self
     {
         $this->limit = $value;
+        $this->_setField('limit');
         return $this;
     }
 
@@ -257,6 +264,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     public function setIncludeCategoryPathToRoot(?bool $value = null): self
     {
         $this->includeCategoryPathToRoot = $value;
+        $this->_setField('includeCategoryPathToRoot');
         return $this;
     }
 }

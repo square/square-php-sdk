@@ -43,6 +43,7 @@ class V1RetrieveOrderRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -60,6 +61,7 @@ class V1RetrieveOrderRequest extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 }

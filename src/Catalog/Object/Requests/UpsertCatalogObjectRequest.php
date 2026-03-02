@@ -63,6 +63,7 @@ class UpsertCatalogObjectRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class UpsertCatalogObjectRequest extends JsonSerializableType
     public function setObject(CatalogObject $value): self
     {
         $this->object = $value;
+        $this->_setField('object');
         return $this;
     }
 }

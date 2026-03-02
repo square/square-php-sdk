@@ -38,6 +38,7 @@ class ConfirmationDecision extends JsonSerializableType
     public function setHasAgreed(?bool $value = null): self
     {
         $this->hasAgreed = $value;
+        $this->_setField('hasAgreed');
         return $this;
     }
 

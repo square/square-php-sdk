@@ -131,6 +131,7 @@ class CatalogCategory extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -148,6 +149,7 @@ class CatalogCategory extends JsonSerializableType
     public function setImageIds(?array $value = null): self
     {
         $this->imageIds = $value;
+        $this->_setField('imageIds');
         return $this;
     }
 
@@ -165,6 +167,7 @@ class CatalogCategory extends JsonSerializableType
     public function setCategoryType(?string $value = null): self
     {
         $this->categoryType = $value;
+        $this->_setField('categoryType');
         return $this;
     }
 
@@ -182,6 +185,7 @@ class CatalogCategory extends JsonSerializableType
     public function setParentCategory(?CatalogObjectCategory $value = null): self
     {
         $this->parentCategory = $value;
+        $this->_setField('parentCategory');
         return $this;
     }
 
@@ -199,6 +203,7 @@ class CatalogCategory extends JsonSerializableType
     public function setIsTopLevel(?bool $value = null): self
     {
         $this->isTopLevel = $value;
+        $this->_setField('isTopLevel');
         return $this;
     }
 
@@ -216,6 +221,7 @@ class CatalogCategory extends JsonSerializableType
     public function setChannels(?array $value = null): self
     {
         $this->channels = $value;
+        $this->_setField('channels');
         return $this;
     }
 
@@ -233,6 +239,7 @@ class CatalogCategory extends JsonSerializableType
     public function setAvailabilityPeriodIds(?array $value = null): self
     {
         $this->availabilityPeriodIds = $value;
+        $this->_setField('availabilityPeriodIds');
         return $this;
     }
 
@@ -250,6 +257,7 @@ class CatalogCategory extends JsonSerializableType
     public function setOnlineVisibility(?bool $value = null): self
     {
         $this->onlineVisibility = $value;
+        $this->_setField('onlineVisibility');
         return $this;
     }
 
@@ -267,6 +275,7 @@ class CatalogCategory extends JsonSerializableType
     public function setRootCategory(?string $value = null): self
     {
         $this->rootCategory = $value;
+        $this->_setField('rootCategory');
         return $this;
     }
 
@@ -284,6 +293,7 @@ class CatalogCategory extends JsonSerializableType
     public function setEcomSeoData(?CatalogEcomSeoData $value = null): self
     {
         $this->ecomSeoData = $value;
+        $this->_setField('ecomSeoData');
         return $this;
     }
 
@@ -301,6 +311,7 @@ class CatalogCategory extends JsonSerializableType
     public function setPathToRoot(?array $value = null): self
     {
         $this->pathToRoot = $value;
+        $this->_setField('pathToRoot');
         return $this;
     }
 

@@ -39,6 +39,7 @@ class BatchGetVendorsRequest extends JsonSerializableType
     public function setVendorIds(?array $value = null): self
     {
         $this->vendorIds = $value;
+        $this->_setField('vendorIds');
         return $this;
     }
 }

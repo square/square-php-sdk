@@ -53,6 +53,7 @@ class CreateCustomerCardResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class CreateCustomerCardResponse extends JsonSerializableType
     public function setCard(?Card $value = null): self
     {
         $this->card = $value;
+        $this->_setField('card');
         return $this;
     }
 

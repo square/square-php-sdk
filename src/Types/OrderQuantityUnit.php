@@ -85,6 +85,7 @@ class OrderQuantityUnit extends JsonSerializableType
     public function setMeasurementUnit(?MeasurementUnit $value = null): self
     {
         $this->measurementUnit = $value;
+        $this->_setField('measurementUnit');
         return $this;
     }
 
@@ -102,6 +103,7 @@ class OrderQuantityUnit extends JsonSerializableType
     public function setPrecision(?int $value = null): self
     {
         $this->precision = $value;
+        $this->_setField('precision');
         return $this;
     }
 
@@ -119,6 +121,7 @@ class OrderQuantityUnit extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -136,6 +139,7 @@ class OrderQuantityUnit extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 

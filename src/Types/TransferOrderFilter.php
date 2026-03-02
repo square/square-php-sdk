@@ -61,6 +61,7 @@ class TransferOrderFilter extends JsonSerializableType
     public function setSourceLocationIds(?array $value = null): self
     {
         $this->sourceLocationIds = $value;
+        $this->_setField('sourceLocationIds');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class TransferOrderFilter extends JsonSerializableType
     public function setDestinationLocationIds(?array $value = null): self
     {
         $this->destinationLocationIds = $value;
+        $this->_setField('destinationLocationIds');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class TransferOrderFilter extends JsonSerializableType
     public function setStatuses(?array $value = null): self
     {
         $this->statuses = $value;
+        $this->_setField('statuses');
         return $this;
     }
 

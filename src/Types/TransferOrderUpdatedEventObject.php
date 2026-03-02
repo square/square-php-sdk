@@ -38,6 +38,7 @@ class TransferOrderUpdatedEventObject extends JsonSerializableType
     public function setTransferOrder(?TransferOrder $value = null): self
     {
         $this->transferOrder = $value;
+        $this->_setField('transferOrder');
         return $this;
     }
 

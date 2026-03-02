@@ -38,6 +38,7 @@ class SubscriptionCreatedEventObject extends JsonSerializableType
     public function setSubscription(?Subscription $value = null): self
     {
         $this->subscription = $value;
+        $this->_setField('subscription');
         return $this;
     }
 

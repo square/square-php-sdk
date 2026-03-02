@@ -49,6 +49,7 @@ class TenderBankAccountDetails extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

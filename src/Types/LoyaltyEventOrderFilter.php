@@ -41,6 +41,7 @@ class LoyaltyEventOrderFilter extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 

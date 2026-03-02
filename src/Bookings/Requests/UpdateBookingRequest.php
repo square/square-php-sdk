@@ -54,6 +54,7 @@ class UpdateBookingRequest extends JsonSerializableType
     public function setBookingId(string $value): self
     {
         $this->bookingId = $value;
+        $this->_setField('bookingId');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class UpdateBookingRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class UpdateBookingRequest extends JsonSerializableType
     public function setBooking(Booking $value): self
     {
         $this->booking = $value;
+        $this->_setField('booking');
         return $this;
     }
 }

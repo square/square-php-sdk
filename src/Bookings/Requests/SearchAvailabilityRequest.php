@@ -39,6 +39,7 @@ class SearchAvailabilityRequest extends JsonSerializableType
     public function setQuery(SearchAvailabilityQuery $value): self
     {
         $this->query = $value;
+        $this->_setField('query');
         return $this;
     }
 }

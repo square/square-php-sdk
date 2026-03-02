@@ -46,6 +46,7 @@ class BulkDeleteMerchantCustomAttributesRequestMerchantCustomAttributeDeleteRequ
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 

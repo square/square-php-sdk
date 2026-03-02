@@ -38,6 +38,7 @@ class PaymentBalanceActivityDepositFeeDetail extends JsonSerializableType
     public function setPayoutId(?string $value = null): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 

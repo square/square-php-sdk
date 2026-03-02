@@ -202,6 +202,7 @@ class CustomerFilter extends JsonSerializableType
     public function setCreationSource(?CustomerCreationSourceFilter $value = null): self
     {
         $this->creationSource = $value;
+        $this->_setField('creationSource');
         return $this;
     }
 
@@ -219,6 +220,7 @@ class CustomerFilter extends JsonSerializableType
     public function setCreatedAt(?TimeRange $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -236,6 +238,7 @@ class CustomerFilter extends JsonSerializableType
     public function setUpdatedAt(?TimeRange $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -253,6 +256,7 @@ class CustomerFilter extends JsonSerializableType
     public function setEmailAddress(?CustomerTextFilter $value = null): self
     {
         $this->emailAddress = $value;
+        $this->_setField('emailAddress');
         return $this;
     }
 
@@ -270,6 +274,7 @@ class CustomerFilter extends JsonSerializableType
     public function setPhoneNumber(?CustomerTextFilter $value = null): self
     {
         $this->phoneNumber = $value;
+        $this->_setField('phoneNumber');
         return $this;
     }
 
@@ -287,6 +292,7 @@ class CustomerFilter extends JsonSerializableType
     public function setReferenceId(?CustomerTextFilter $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -304,6 +310,7 @@ class CustomerFilter extends JsonSerializableType
     public function setGroupIds(?FilterValue $value = null): self
     {
         $this->groupIds = $value;
+        $this->_setField('groupIds');
         return $this;
     }
 
@@ -321,6 +328,7 @@ class CustomerFilter extends JsonSerializableType
     public function setCustomAttribute(?CustomerCustomAttributeFilters $value = null): self
     {
         $this->customAttribute = $value;
+        $this->_setField('customAttribute');
         return $this;
     }
 
@@ -338,6 +346,7 @@ class CustomerFilter extends JsonSerializableType
     public function setSegmentIds(?FilterValue $value = null): self
     {
         $this->segmentIds = $value;
+        $this->_setField('segmentIds');
         return $this;
     }
 

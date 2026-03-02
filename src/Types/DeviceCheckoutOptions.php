@@ -90,6 +90,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setDeviceId(string $value): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 
@@ -107,6 +108,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setSkipReceiptScreen(?bool $value = null): self
     {
         $this->skipReceiptScreen = $value;
+        $this->_setField('skipReceiptScreen');
         return $this;
     }
 
@@ -124,6 +126,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setCollectSignature(?bool $value = null): self
     {
         $this->collectSignature = $value;
+        $this->_setField('collectSignature');
         return $this;
     }
 
@@ -141,6 +144,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setTipSettings(?TipSettings $value = null): self
     {
         $this->tipSettings = $value;
+        $this->_setField('tipSettings');
         return $this;
     }
 
@@ -158,6 +162,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setShowItemizedCart(?bool $value = null): self
     {
         $this->showItemizedCart = $value;
+        $this->_setField('showItemizedCart');
         return $this;
     }
 
@@ -175,6 +180,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
     public function setAllowAutoCardSurcharge(?bool $value = null): self
     {
         $this->allowAutoCardSurcharge = $value;
+        $this->_setField('allowAutoCardSurcharge');
         return $this;
     }
 

@@ -78,6 +78,7 @@ class UpdateInvoiceRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -95,6 +96,7 @@ class UpdateInvoiceRequest extends JsonSerializableType
     public function setInvoice(Invoice $value): self
     {
         $this->invoice = $value;
+        $this->_setField('invoice');
         return $this;
     }
 
@@ -112,6 +114,7 @@ class UpdateInvoiceRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -129,6 +132,7 @@ class UpdateInvoiceRequest extends JsonSerializableType
     public function setFieldsToClear(?array $value = null): self
     {
         $this->fieldsToClear = $value;
+        $this->_setField('fieldsToClear');
         return $this;
     }
 }

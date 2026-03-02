@@ -61,6 +61,7 @@ class SubscriptionPricing extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class SubscriptionPricing extends JsonSerializableType
     public function setDiscountIds(?array $value = null): self
     {
         $this->discountIds = $value;
+        $this->_setField('discountIds');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class SubscriptionPricing extends JsonSerializableType
     public function setPriceMoney(?Money $value = null): self
     {
         $this->priceMoney = $value;
+        $this->_setField('priceMoney');
         return $this;
     }
 

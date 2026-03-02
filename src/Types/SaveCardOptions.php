@@ -61,6 +61,7 @@ class SaveCardOptions extends JsonSerializableType
     public function setCustomerId(string $value): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class SaveCardOptions extends JsonSerializableType
     public function setCardId(?string $value = null): self
     {
         $this->cardId = $value;
+        $this->_setField('cardId');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class SaveCardOptions extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 

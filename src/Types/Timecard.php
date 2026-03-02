@@ -164,6 +164,7 @@ class Timecard extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -181,6 +182,7 @@ class Timecard extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -198,6 +200,7 @@ class Timecard extends JsonSerializableType
     public function setTimezone(?string $value = null): self
     {
         $this->timezone = $value;
+        $this->_setField('timezone');
         return $this;
     }
 
@@ -215,6 +218,7 @@ class Timecard extends JsonSerializableType
     public function setStartAt(string $value): self
     {
         $this->startAt = $value;
+        $this->_setField('startAt');
         return $this;
     }
 
@@ -232,6 +236,7 @@ class Timecard extends JsonSerializableType
     public function setEndAt(?string $value = null): self
     {
         $this->endAt = $value;
+        $this->_setField('endAt');
         return $this;
     }
 
@@ -249,6 +254,7 @@ class Timecard extends JsonSerializableType
     public function setWage(?TimecardWage $value = null): self
     {
         $this->wage = $value;
+        $this->_setField('wage');
         return $this;
     }
 
@@ -266,6 +272,7 @@ class Timecard extends JsonSerializableType
     public function setBreaks(?array $value = null): self
     {
         $this->breaks = $value;
+        $this->_setField('breaks');
         return $this;
     }
 
@@ -283,6 +290,7 @@ class Timecard extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -300,6 +308,7 @@ class Timecard extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -317,6 +326,7 @@ class Timecard extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -334,6 +344,7 @@ class Timecard extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -351,6 +362,7 @@ class Timecard extends JsonSerializableType
     public function setTeamMemberId(string $value): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -368,6 +380,7 @@ class Timecard extends JsonSerializableType
     public function setDeclaredCashTipMoney(?Money $value = null): self
     {
         $this->declaredCashTipMoney = $value;
+        $this->_setField('declaredCashTipMoney');
         return $this;
     }
 

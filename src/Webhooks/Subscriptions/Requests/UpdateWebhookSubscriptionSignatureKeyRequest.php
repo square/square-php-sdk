@@ -45,6 +45,7 @@ class UpdateWebhookSubscriptionSignatureKeyRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -62,6 +63,7 @@ class UpdateWebhookSubscriptionSignatureKeyRequest extends JsonSerializableType
     public function setIdempotencyKey(?string $value = null): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 }

@@ -85,6 +85,7 @@ class InvoicePaymentReminder extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -102,6 +103,7 @@ class InvoicePaymentReminder extends JsonSerializableType
     public function setRelativeScheduledDays(?int $value = null): self
     {
         $this->relativeScheduledDays = $value;
+        $this->_setField('relativeScheduledDays');
         return $this;
     }
 
@@ -119,6 +121,7 @@ class InvoicePaymentReminder extends JsonSerializableType
     public function setMessage(?string $value = null): self
     {
         $this->message = $value;
+        $this->_setField('message');
         return $this;
     }
 
@@ -136,6 +139,7 @@ class InvoicePaymentReminder extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -153,6 +157,7 @@ class InvoicePaymentReminder extends JsonSerializableType
     public function setSentAt(?string $value = null): self
     {
         $this->sentAt = $value;
+        $this->_setField('sentAt');
         return $this;
     }
 

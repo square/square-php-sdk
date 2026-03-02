@@ -44,6 +44,7 @@ class LoyaltyProgramAccrualRuleCategoryData extends JsonSerializableType
     public function setCategoryId(string $value): self
     {
         $this->categoryId = $value;
+        $this->_setField('categoryId');
         return $this;
     }
 

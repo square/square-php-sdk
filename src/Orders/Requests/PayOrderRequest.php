@@ -71,6 +71,7 @@ class PayOrderRequest extends JsonSerializableType
     public function setOrderId(string $value): self
     {
         $this->orderId = $value;
+        $this->_setField('orderId');
         return $this;
     }
 
@@ -88,6 +89,7 @@ class PayOrderRequest extends JsonSerializableType
     public function setIdempotencyKey(string $value): self
     {
         $this->idempotencyKey = $value;
+        $this->_setField('idempotencyKey');
         return $this;
     }
 
@@ -105,6 +107,7 @@ class PayOrderRequest extends JsonSerializableType
     public function setOrderVersion(?int $value = null): self
     {
         $this->orderVersion = $value;
+        $this->_setField('orderVersion');
         return $this;
     }
 
@@ -122,6 +125,7 @@ class PayOrderRequest extends JsonSerializableType
     public function setPaymentIds(?array $value = null): self
     {
         $this->paymentIds = $value;
+        $this->_setField('paymentIds');
         return $this;
     }
 }

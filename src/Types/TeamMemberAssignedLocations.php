@@ -53,6 +53,7 @@ class TeamMemberAssignedLocations extends JsonSerializableType
     public function setAssignmentType(?string $value = null): self
     {
         $this->assignmentType = $value;
+        $this->_setField('assignmentType');
         return $this;
     }
 
@@ -70,6 +71,7 @@ class TeamMemberAssignedLocations extends JsonSerializableType
     public function setLocationIds(?array $value = null): self
     {
         $this->locationIds = $value;
+        $this->_setField('locationIds');
         return $this;
     }
 

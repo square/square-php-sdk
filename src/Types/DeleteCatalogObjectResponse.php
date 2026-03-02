@@ -63,6 +63,7 @@ class DeleteCatalogObjectResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class DeleteCatalogObjectResponse extends JsonSerializableType
     public function setDeletedObjectIds(?array $value = null): self
     {
         $this->deletedObjectIds = $value;
+        $this->_setField('deletedObjectIds');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class DeleteCatalogObjectResponse extends JsonSerializableType
     public function setDeletedAt(?string $value = null): self
     {
         $this->deletedAt = $value;
+        $this->_setField('deletedAt');
         return $this;
     }
 

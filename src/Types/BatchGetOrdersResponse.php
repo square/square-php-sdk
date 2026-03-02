@@ -51,6 +51,7 @@ class BatchGetOrdersResponse extends JsonSerializableType
     public function setOrders(?array $value = null): self
     {
         $this->orders = $value;
+        $this->_setField('orders');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class BatchGetOrdersResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -60,6 +60,7 @@ class QrCodeOptions extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -77,6 +78,7 @@ class QrCodeOptions extends JsonSerializableType
     public function setBody(string $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 
@@ -94,6 +96,7 @@ class QrCodeOptions extends JsonSerializableType
     public function setBarcodeContents(string $value): self
     {
         $this->barcodeContents = $value;
+        $this->_setField('barcodeContents');
         return $this;
     }
 

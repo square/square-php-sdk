@@ -50,6 +50,7 @@ class UpdateOrderCustomAttributeDefinitionResponse extends JsonSerializableType
     public function setCustomAttributeDefinition(?CustomAttributeDefinition $value = null): self
     {
         $this->customAttributeDefinition = $value;
+        $this->_setField('customAttributeDefinition');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class UpdateOrderCustomAttributeDefinitionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

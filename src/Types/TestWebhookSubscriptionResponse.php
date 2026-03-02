@@ -82,6 +82,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -99,6 +100,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setSubscriptionTestResult(?SubscriptionTestResult $value = null): self
     {
         $this->subscriptionTestResult = $value;
+        $this->_setField('subscriptionTestResult');
         return $this;
     }
 
@@ -116,6 +118,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setNotificationUrl(?string $value = null): self
     {
         $this->notificationUrl = $value;
+        $this->_setField('notificationUrl');
         return $this;
     }
 
@@ -133,6 +136,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setStatusCode(?int $value = null): self
     {
         $this->statusCode = $value;
+        $this->_setField('statusCode');
         return $this;
     }
 
@@ -150,6 +154,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setPassesFilter(?bool $value = null): self
     {
         $this->passesFilter = $value;
+        $this->_setField('passesFilter');
         return $this;
     }
 
@@ -167,6 +172,7 @@ class TestWebhookSubscriptionResponse extends JsonSerializableType
     public function setPayload(?array $value = null): self
     {
         $this->payload = $value;
+        $this->_setField('payload');
         return $this;
     }
 

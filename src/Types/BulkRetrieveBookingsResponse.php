@@ -50,6 +50,7 @@ class BulkRetrieveBookingsResponse extends JsonSerializableType
     public function setBookings(?array $value = null): self
     {
         $this->bookings = $value;
+        $this->_setField('bookings');
         return $this;
     }
 
@@ -67,6 +68,7 @@ class BulkRetrieveBookingsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

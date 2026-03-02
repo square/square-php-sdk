@@ -59,6 +59,7 @@ class ChangeBillingAnchorDateRequest extends JsonSerializableType
     public function setSubscriptionId(string $value): self
     {
         $this->subscriptionId = $value;
+        $this->_setField('subscriptionId');
         return $this;
     }
 
@@ -76,6 +77,7 @@ class ChangeBillingAnchorDateRequest extends JsonSerializableType
     public function setMonthlyBillingAnchorDate(?int $value = null): self
     {
         $this->monthlyBillingAnchorDate = $value;
+        $this->_setField('monthlyBillingAnchorDate');
         return $this;
     }
 
@@ -93,6 +95,7 @@ class ChangeBillingAnchorDateRequest extends JsonSerializableType
     public function setEffectiveDate(?string $value = null): self
     {
         $this->effectiveDate = $value;
+        $this->_setField('effectiveDate');
         return $this;
     }
 }

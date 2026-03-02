@@ -85,6 +85,7 @@ class Component extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -102,6 +103,7 @@ class Component extends JsonSerializableType
     public function setApplicationDetails(?DeviceComponentDetailsApplicationDetails $value = null): self
     {
         $this->applicationDetails = $value;
+        $this->_setField('applicationDetails');
         return $this;
     }
 
@@ -119,6 +121,7 @@ class Component extends JsonSerializableType
     public function setCardReaderDetails(?DeviceComponentDetailsCardReaderDetails $value = null): self
     {
         $this->cardReaderDetails = $value;
+        $this->_setField('cardReaderDetails');
         return $this;
     }
 
@@ -136,6 +139,7 @@ class Component extends JsonSerializableType
     public function setBatteryDetails(?DeviceComponentDetailsBatteryDetails $value = null): self
     {
         $this->batteryDetails = $value;
+        $this->_setField('batteryDetails');
         return $this;
     }
 
@@ -153,6 +157,7 @@ class Component extends JsonSerializableType
     public function setWifiDetails(?DeviceComponentDetailsWiFiDetails $value = null): self
     {
         $this->wifiDetails = $value;
+        $this->_setField('wifiDetails');
         return $this;
     }
 
@@ -170,6 +175,7 @@ class Component extends JsonSerializableType
     public function setEthernetDetails(?DeviceComponentDetailsEthernetDetails $value = null): self
     {
         $this->ethernetDetails = $value;
+        $this->_setField('ethernetDetails');
         return $this;
     }
 

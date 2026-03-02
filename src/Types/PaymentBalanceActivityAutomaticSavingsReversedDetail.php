@@ -46,6 +46,7 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail extends JsonSerializa
     public function setPaymentId(?string $value = null): self
     {
         $this->paymentId = $value;
+        $this->_setField('paymentId');
         return $this;
     }
 
@@ -63,6 +64,7 @@ class PaymentBalanceActivityAutomaticSavingsReversedDetail extends JsonSerializa
     public function setPayoutId(?string $value = null): self
     {
         $this->payoutId = $value;
+        $this->_setField('payoutId');
         return $this;
     }
 

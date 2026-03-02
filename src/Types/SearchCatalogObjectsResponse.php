@@ -77,6 +77,7 @@ class SearchCatalogObjectsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -94,6 +95,7 @@ class SearchCatalogObjectsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -111,6 +113,7 @@ class SearchCatalogObjectsResponse extends JsonSerializableType
     public function setObjects(?array $value = null): self
     {
         $this->objects = $value;
+        $this->_setField('objects');
         return $this;
     }
 
@@ -128,6 +131,7 @@ class SearchCatalogObjectsResponse extends JsonSerializableType
     public function setRelatedObjects(?array $value = null): self
     {
         $this->relatedObjects = $value;
+        $this->_setField('relatedObjects');
         return $this;
     }
 
@@ -145,6 +149,7 @@ class SearchCatalogObjectsResponse extends JsonSerializableType
     public function setLatestTime(?string $value = null): self
     {
         $this->latestTime = $value;
+        $this->_setField('latestTime');
         return $this;
     }
 

@@ -57,6 +57,7 @@ class StandardUnitDescription extends JsonSerializableType
     public function setUnit(?MeasurementUnit $value = null): self
     {
         $this->unit = $value;
+        $this->_setField('unit');
         return $this;
     }
 
@@ -74,6 +75,7 @@ class StandardUnitDescription extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -91,6 +93,7 @@ class StandardUnitDescription extends JsonSerializableType
     public function setAbbreviation(?string $value = null): self
     {
         $this->abbreviation = $value;
+        $this->_setField('abbreviation');
         return $this;
     }
 

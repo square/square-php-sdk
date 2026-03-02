@@ -3,7 +3,7 @@
 namespace Square\CashDrawers;
 
 use Square\CashDrawers\Shifts\ShiftsClient;
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
 
 class CashDrawersClient

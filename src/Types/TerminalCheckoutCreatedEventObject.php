@@ -38,6 +38,7 @@ class TerminalCheckoutCreatedEventObject extends JsonSerializableType
     public function setCheckout(?TerminalCheckout $value = null): self
     {
         $this->checkout = $value;
+        $this->_setField('checkout');
         return $this;
     }
 

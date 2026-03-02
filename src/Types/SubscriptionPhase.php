@@ -84,6 +84,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -101,6 +102,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setCadence(string $value): self
     {
         $this->cadence = $value;
+        $this->_setField('cadence');
         return $this;
     }
 
@@ -118,6 +120,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setPeriods(?int $value = null): self
     {
         $this->periods = $value;
+        $this->_setField('periods');
         return $this;
     }
 
@@ -135,6 +138,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setRecurringPriceMoney(?Money $value = null): self
     {
         $this->recurringPriceMoney = $value;
+        $this->_setField('recurringPriceMoney');
         return $this;
     }
 
@@ -152,6 +156,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setOrdinal(?int $value = null): self
     {
         $this->ordinal = $value;
+        $this->_setField('ordinal');
         return $this;
     }
 
@@ -169,6 +174,7 @@ class SubscriptionPhase extends JsonSerializableType
     public function setPricing(?SubscriptionPricing $value = null): self
     {
         $this->pricing = $value;
+        $this->_setField('pricing');
         return $this;
     }
 

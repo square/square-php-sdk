@@ -44,6 +44,7 @@ class UpdateTeamMembersRequest extends JsonSerializableType
     public function setTeamMemberId(string $value): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -61,6 +62,7 @@ class UpdateTeamMembersRequest extends JsonSerializableType
     public function setBody(UpdateTeamMemberRequest $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 }

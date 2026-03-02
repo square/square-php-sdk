@@ -86,6 +86,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -103,6 +104,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setCustomerId(?string $value = null): self
     {
         $this->customerId = $value;
+        $this->_setField('customerId');
         return $this;
     }
 
@@ -120,6 +122,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setEnabled(?bool $value = null): self
     {
         $this->enabled = $value;
+        $this->_setField('enabled');
         return $this;
     }
 
@@ -137,6 +140,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setReferenceId(?string $value = null): self
     {
         $this->referenceId = $value;
+        $this->_setField('referenceId');
         return $this;
     }
 
@@ -154,6 +158,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -171,6 +176,7 @@ class CardForgottenEventCard extends JsonSerializableType
     public function setMerchantId(?string $value = null): self
     {
         $this->merchantId = $value;
+        $this->_setField('merchantId');
         return $this;
     }
 

@@ -61,6 +61,7 @@ class CatalogObjectModifier extends JsonSerializableType
     public function setModifierData(?CatalogModifier $value = null): self
     {
         $this->modifierData = $value;
+        $this->_setField('modifierData');
         return $this;
     }
 

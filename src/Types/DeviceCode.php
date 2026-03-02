@@ -121,6 +121,7 @@ class DeviceCode extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -138,6 +139,7 @@ class DeviceCode extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -155,6 +157,7 @@ class DeviceCode extends JsonSerializableType
     public function setCode(?string $value = null): self
     {
         $this->code = $value;
+        $this->_setField('code');
         return $this;
     }
 
@@ -172,6 +175,7 @@ class DeviceCode extends JsonSerializableType
     public function setDeviceId(?string $value = null): self
     {
         $this->deviceId = $value;
+        $this->_setField('deviceId');
         return $this;
     }
 
@@ -189,6 +193,7 @@ class DeviceCode extends JsonSerializableType
     public function setProductType(string $value): self
     {
         $this->productType = $value;
+        $this->_setField('productType');
         return $this;
     }
 
@@ -206,6 +211,7 @@ class DeviceCode extends JsonSerializableType
     public function setLocationId(?string $value = null): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 
@@ -223,6 +229,7 @@ class DeviceCode extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 
@@ -240,6 +247,7 @@ class DeviceCode extends JsonSerializableType
     public function setPairBy(?string $value = null): self
     {
         $this->pairBy = $value;
+        $this->_setField('pairBy');
         return $this;
     }
 
@@ -257,6 +265,7 @@ class DeviceCode extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -274,6 +283,7 @@ class DeviceCode extends JsonSerializableType
     public function setStatusChangedAt(?string $value = null): self
     {
         $this->statusChangedAt = $value;
+        $this->_setField('statusChangedAt');
         return $this;
     }
 
@@ -291,6 +301,7 @@ class DeviceCode extends JsonSerializableType
     public function setPairedAt(?string $value = null): self
     {
         $this->pairedAt = $value;
+        $this->_setField('pairedAt');
         return $this;
     }
 

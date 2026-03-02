@@ -62,6 +62,7 @@ class SearchScheduledShiftsResponse extends JsonSerializableType
     public function setScheduledShifts(?array $value = null): self
     {
         $this->scheduledShifts = $value;
+        $this->_setField('scheduledShifts');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class SearchScheduledShiftsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class SearchScheduledShiftsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 

@@ -37,7 +37,7 @@ use Square\TransferOrders\TransferOrdersClient;
 use Square\Vendors\VendorsClient;
 use Square\CashDrawers\CashDrawersClient;
 use Square\Webhooks\WebhooksClient;
-use GuzzleHttp\ClientInterface;
+use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
 use Exception;
 
@@ -256,8 +256,8 @@ class SquareClient
             'Square-Version' => '2026-01-22',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '44.0.0.20260122',
-            'User-Agent' => 'square/square/44.0.0.20260122',
+            'X-Fern-SDK-Version' => '45.0.0.20260122',
+            'User-Agent' => 'square/square/45.0.0.20260122',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;

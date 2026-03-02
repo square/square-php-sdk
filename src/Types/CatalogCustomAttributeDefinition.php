@@ -170,6 +170,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setType(string $value): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 
@@ -187,6 +188,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setName(string $value): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -204,6 +206,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -221,6 +224,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setSourceApplication(?SourceApplication $value = null): self
     {
         $this->sourceApplication = $value;
+        $this->_setField('sourceApplication');
         return $this;
     }
 
@@ -238,6 +242,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setAllowedObjectTypes(array $value): self
     {
         $this->allowedObjectTypes = $value;
+        $this->_setField('allowedObjectTypes');
         return $this;
     }
 
@@ -255,6 +260,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setSellerVisibility(?string $value = null): self
     {
         $this->sellerVisibility = $value;
+        $this->_setField('sellerVisibility');
         return $this;
     }
 
@@ -272,6 +278,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setAppVisibility(?string $value = null): self
     {
         $this->appVisibility = $value;
+        $this->_setField('appVisibility');
         return $this;
     }
 
@@ -289,6 +296,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setStringConfig(?CatalogCustomAttributeDefinitionStringConfig $value = null): self
     {
         $this->stringConfig = $value;
+        $this->_setField('stringConfig');
         return $this;
     }
 
@@ -306,6 +314,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setNumberConfig(?CatalogCustomAttributeDefinitionNumberConfig $value = null): self
     {
         $this->numberConfig = $value;
+        $this->_setField('numberConfig');
         return $this;
     }
 
@@ -323,6 +332,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setSelectionConfig(?CatalogCustomAttributeDefinitionSelectionConfig $value = null): self
     {
         $this->selectionConfig = $value;
+        $this->_setField('selectionConfig');
         return $this;
     }
 
@@ -340,6 +350,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setCustomAttributeUsageCount(?int $value = null): self
     {
         $this->customAttributeUsageCount = $value;
+        $this->_setField('customAttributeUsageCount');
         return $this;
     }
 
@@ -357,6 +368,7 @@ class CatalogCustomAttributeDefinition extends JsonSerializableType
     public function setKey(?string $value = null): self
     {
         $this->key = $value;
+        $this->_setField('key');
         return $this;
     }
 

@@ -82,6 +82,7 @@ class LoyaltyProgramAccrualRuleSpendData extends JsonSerializableType
     public function setAmountMoney(Money $value): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -99,6 +100,7 @@ class LoyaltyProgramAccrualRuleSpendData extends JsonSerializableType
     public function setExcludedCategoryIds(?array $value = null): self
     {
         $this->excludedCategoryIds = $value;
+        $this->_setField('excludedCategoryIds');
         return $this;
     }
 
@@ -116,6 +118,7 @@ class LoyaltyProgramAccrualRuleSpendData extends JsonSerializableType
     public function setExcludedItemVariationIds(?array $value = null): self
     {
         $this->excludedItemVariationIds = $value;
+        $this->_setField('excludedItemVariationIds');
         return $this;
     }
 
@@ -133,6 +136,7 @@ class LoyaltyProgramAccrualRuleSpendData extends JsonSerializableType
     public function setTaxMode(string $value): self
     {
         $this->taxMode = $value;
+        $this->_setField('taxMode');
         return $this;
     }
 

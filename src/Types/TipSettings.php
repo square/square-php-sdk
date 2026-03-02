@@ -89,6 +89,7 @@ class TipSettings extends JsonSerializableType
     public function setAllowTipping(?bool $value = null): self
     {
         $this->allowTipping = $value;
+        $this->_setField('allowTipping');
         return $this;
     }
 
@@ -106,6 +107,7 @@ class TipSettings extends JsonSerializableType
     public function setSeparateTipScreen(?bool $value = null): self
     {
         $this->separateTipScreen = $value;
+        $this->_setField('separateTipScreen');
         return $this;
     }
 
@@ -123,6 +125,7 @@ class TipSettings extends JsonSerializableType
     public function setCustomTipField(?bool $value = null): self
     {
         $this->customTipField = $value;
+        $this->_setField('customTipField');
         return $this;
     }
 
@@ -140,6 +143,7 @@ class TipSettings extends JsonSerializableType
     public function setTipPercentages(?array $value = null): self
     {
         $this->tipPercentages = $value;
+        $this->_setField('tipPercentages');
         return $this;
     }
 
@@ -157,6 +161,7 @@ class TipSettings extends JsonSerializableType
     public function setSmartTipping(?bool $value = null): self
     {
         $this->smartTipping = $value;
+        $this->_setField('smartTipping');
         return $this;
     }
 

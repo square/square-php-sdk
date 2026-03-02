@@ -61,6 +61,7 @@ class ListCashDrawerShiftEventsResponse extends JsonSerializableType
     public function setCursor(?string $value = null): self
     {
         $this->cursor = $value;
+        $this->_setField('cursor');
         return $this;
     }
 
@@ -78,6 +79,7 @@ class ListCashDrawerShiftEventsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -95,6 +97,7 @@ class ListCashDrawerShiftEventsResponse extends JsonSerializableType
     public function setCashDrawerShiftEvents(?array $value = null): self
     {
         $this->cashDrawerShiftEvents = $value;
+        $this->_setField('cashDrawerShiftEvents');
         return $this;
     }
 

@@ -61,6 +61,7 @@ class CatalogObjectQuickAmountsSettings extends JsonSerializableType
     public function setQuickAmountsSettingsData(?CatalogQuickAmountsSettings $value = null): self
     {
         $this->quickAmountsSettingsData = $value;
+        $this->_setField('quickAmountsSettingsData');
         return $this;
     }
 

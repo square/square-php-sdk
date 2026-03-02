@@ -56,6 +56,7 @@ class CustomerTextFilter extends JsonSerializableType
     public function setExact(?string $value = null): self
     {
         $this->exact = $value;
+        $this->_setField('exact');
         return $this;
     }
 
@@ -73,6 +74,7 @@ class CustomerTextFilter extends JsonSerializableType
     public function setFuzzy(?string $value = null): self
     {
         $this->fuzzy = $value;
+        $this->_setField('fuzzy');
         return $this;
     }
 

@@ -3,6 +3,7 @@
 namespace Square\Tests\Core\Json;
 
 use PHPUnit\Framework\TestCase;
+use Square\Core\Json\JsonEncoder;
 use Square\Core\Json\JsonProperty;
 use Square\Core\Json\JsonSerializableType;
 use Square\Core\Types\ArrayType;
@@ -33,11 +34,10 @@ class NullableArrayTest extends TestCase
 {
     public function testNullableArray(): void
     {
-        $expectedJson = json_encode(
+        $expectedJson = JsonEncoder::encode(
             [
                 'nullable_string_array' => ['one', null, 'three']
             ],
-            JSON_THROW_ON_ERROR
         );
 
         $object = NullableArray::fromJson($expectedJson);

@@ -47,6 +47,7 @@ class RetrieveMerchantSettingsResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class RetrieveMerchantSettingsResponse extends JsonSerializableType
     public function setMerchantSettings(?CheckoutMerchantSettings $value = null): self
     {
         $this->merchantSettings = $value;
+        $this->_setField('merchantSettings');
         return $this;
     }
 

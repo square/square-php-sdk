@@ -36,6 +36,7 @@ class GetInvoicesRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 }

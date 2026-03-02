@@ -47,6 +47,7 @@ class DeleteInvoicesRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class DeleteInvoicesRequest extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 }

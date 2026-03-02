@@ -51,6 +51,7 @@ class CatalogObjectReference extends JsonSerializableType
     public function setObjectId(?string $value = null): self
     {
         $this->objectId = $value;
+        $this->_setField('objectId');
         return $this;
     }
 
@@ -68,6 +69,7 @@ class CatalogObjectReference extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 

@@ -216,6 +216,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setUid(?string $value = null): self
     {
         $this->uid = $value;
+        $this->_setField('uid');
         return $this;
     }
 
@@ -233,6 +234,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setSourceServiceChargeUid(?string $value = null): self
     {
         $this->sourceServiceChargeUid = $value;
+        $this->_setField('sourceServiceChargeUid');
         return $this;
     }
 
@@ -250,6 +252,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -267,6 +270,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setCatalogObjectId(?string $value = null): self
     {
         $this->catalogObjectId = $value;
+        $this->_setField('catalogObjectId');
         return $this;
     }
 
@@ -284,6 +288,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setCatalogVersion(?int $value = null): self
     {
         $this->catalogVersion = $value;
+        $this->_setField('catalogVersion');
         return $this;
     }
 
@@ -301,6 +306,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setPercentage(?string $value = null): self
     {
         $this->percentage = $value;
+        $this->_setField('percentage');
         return $this;
     }
 
@@ -318,6 +324,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setAmountMoney(?Money $value = null): self
     {
         $this->amountMoney = $value;
+        $this->_setField('amountMoney');
         return $this;
     }
 
@@ -335,6 +342,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setAppliedMoney(?Money $value = null): self
     {
         $this->appliedMoney = $value;
+        $this->_setField('appliedMoney');
         return $this;
     }
 
@@ -352,6 +360,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setTotalMoney(?Money $value = null): self
     {
         $this->totalMoney = $value;
+        $this->_setField('totalMoney');
         return $this;
     }
 
@@ -369,6 +378,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setTotalTaxMoney(?Money $value = null): self
     {
         $this->totalTaxMoney = $value;
+        $this->_setField('totalTaxMoney');
         return $this;
     }
 
@@ -386,6 +396,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setCalculationPhase(?string $value = null): self
     {
         $this->calculationPhase = $value;
+        $this->_setField('calculationPhase');
         return $this;
     }
 
@@ -403,6 +414,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setTaxable(?bool $value = null): self
     {
         $this->taxable = $value;
+        $this->_setField('taxable');
         return $this;
     }
 
@@ -420,6 +432,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setAppliedTaxes(?array $value = null): self
     {
         $this->appliedTaxes = $value;
+        $this->_setField('appliedTaxes');
         return $this;
     }
 
@@ -437,6 +450,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setTreatmentType(?string $value = null): self
     {
         $this->treatmentType = $value;
+        $this->_setField('treatmentType');
         return $this;
     }
 
@@ -454,6 +468,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setScope(?string $value = null): self
     {
         $this->scope = $value;
+        $this->_setField('scope');
         return $this;
     }
 
@@ -471,6 +486,7 @@ class OrderReturnServiceCharge extends JsonSerializableType
     public function setType(?string $value = null): self
     {
         $this->type = $value;
+        $this->_setField('type');
         return $this;
     }
 

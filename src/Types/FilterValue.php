@@ -65,6 +65,7 @@ class FilterValue extends JsonSerializableType
     public function setAll(?array $value = null): self
     {
         $this->all = $value;
+        $this->_setField('all');
         return $this;
     }
 
@@ -82,6 +83,7 @@ class FilterValue extends JsonSerializableType
     public function setAny(?array $value = null): self
     {
         $this->any = $value;
+        $this->_setField('any');
         return $this;
     }
 
@@ -99,6 +101,7 @@ class FilterValue extends JsonSerializableType
     public function setNone(?array $value = null): self
     {
         $this->none = $value;
+        $this->_setField('none');
         return $this;
     }
 

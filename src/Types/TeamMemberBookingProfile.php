@@ -73,6 +73,7 @@ class TeamMemberBookingProfile extends JsonSerializableType
     public function setTeamMemberId(?string $value = null): self
     {
         $this->teamMemberId = $value;
+        $this->_setField('teamMemberId');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class TeamMemberBookingProfile extends JsonSerializableType
     public function setDescription(?string $value = null): self
     {
         $this->description = $value;
+        $this->_setField('description');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class TeamMemberBookingProfile extends JsonSerializableType
     public function setDisplayName(?string $value = null): self
     {
         $this->displayName = $value;
+        $this->_setField('displayName');
         return $this;
     }
 
@@ -124,6 +127,7 @@ class TeamMemberBookingProfile extends JsonSerializableType
     public function setIsBookable(?bool $value = null): self
     {
         $this->isBookable = $value;
+        $this->_setField('isBookable');
         return $this;
     }
 
@@ -141,6 +145,7 @@ class TeamMemberBookingProfile extends JsonSerializableType
     public function setProfileImageUrl(?string $value = null): self
     {
         $this->profileImageUrl = $value;
+        $this->_setField('profileImageUrl');
         return $this;
     }
 

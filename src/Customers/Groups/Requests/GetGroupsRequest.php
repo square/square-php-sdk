@@ -36,6 +36,7 @@ class GetGroupsRequest extends JsonSerializableType
     public function setGroupId(string $value): self
     {
         $this->groupId = $value;
+        $this->_setField('groupId');
         return $this;
     }
 }

@@ -63,6 +63,7 @@ class SelectOptions extends JsonSerializableType
     public function setTitle(string $value): self
     {
         $this->title = $value;
+        $this->_setField('title');
         return $this;
     }
 
@@ -80,6 +81,7 @@ class SelectOptions extends JsonSerializableType
     public function setBody(string $value): self
     {
         $this->body = $value;
+        $this->_setField('body');
         return $this;
     }
 
@@ -97,6 +99,7 @@ class SelectOptions extends JsonSerializableType
     public function setOptions(array $value): self
     {
         $this->options = $value;
+        $this->_setField('options');
         return $this;
     }
 
@@ -114,6 +117,7 @@ class SelectOptions extends JsonSerializableType
     public function setSelectedOption(?SelectOption $value = null): self
     {
         $this->selectedOption = $value;
+        $this->_setField('selectedOption');
         return $this;
     }
 

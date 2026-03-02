@@ -62,6 +62,7 @@ class BulkSwapPlanRequest extends JsonSerializableType
     public function setNewPlanVariationId(string $value): self
     {
         $this->newPlanVariationId = $value;
+        $this->_setField('newPlanVariationId');
         return $this;
     }
 
@@ -79,6 +80,7 @@ class BulkSwapPlanRequest extends JsonSerializableType
     public function setOldPlanVariationId(string $value): self
     {
         $this->oldPlanVariationId = $value;
+        $this->_setField('oldPlanVariationId');
         return $this;
     }
 
@@ -96,6 +98,7 @@ class BulkSwapPlanRequest extends JsonSerializableType
     public function setLocationId(string $value): self
     {
         $this->locationId = $value;
+        $this->_setField('locationId');
         return $this;
     }
 }

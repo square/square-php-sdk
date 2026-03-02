@@ -54,6 +54,7 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     public function setInvoiceId(string $value): self
     {
         $this->invoiceId = $value;
+        $this->_setField('invoiceId');
         return $this;
     }
 
@@ -71,6 +72,7 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     public function setRequest(?CreateInvoiceAttachmentRequestData $value = null): self
     {
         $this->request = $value;
+        $this->_setField('request');
         return $this;
     }
 
@@ -88,6 +90,7 @@ class CreateInvoiceAttachmentRequest extends JsonSerializableType
     public function setImageFile(?File $value = null): self
     {
         $this->imageFile = $value;
+        $this->_setField('imageFile');
         return $this;
     }
 }

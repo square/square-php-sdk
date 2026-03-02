@@ -41,6 +41,7 @@ class LoyaltyEventDateTimeFilter extends JsonSerializableType
     public function setCreatedAt(TimeRange $value): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 

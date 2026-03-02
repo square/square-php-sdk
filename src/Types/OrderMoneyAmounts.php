@@ -73,6 +73,7 @@ class OrderMoneyAmounts extends JsonSerializableType
     public function setTotalMoney(?Money $value = null): self
     {
         $this->totalMoney = $value;
+        $this->_setField('totalMoney');
         return $this;
     }
 
@@ -90,6 +91,7 @@ class OrderMoneyAmounts extends JsonSerializableType
     public function setTaxMoney(?Money $value = null): self
     {
         $this->taxMoney = $value;
+        $this->_setField('taxMoney');
         return $this;
     }
 
@@ -107,6 +109,7 @@ class OrderMoneyAmounts extends JsonSerializableType
     public function setDiscountMoney(?Money $value = null): self
     {
         $this->discountMoney = $value;
+        $this->_setField('discountMoney');
         return $this;
     }
 
@@ -124,6 +127,7 @@ class OrderMoneyAmounts extends JsonSerializableType
     public function setTipMoney(?Money $value = null): self
     {
         $this->tipMoney = $value;
+        $this->_setField('tipMoney');
         return $this;
     }
 
@@ -141,6 +145,7 @@ class OrderMoneyAmounts extends JsonSerializableType
     public function setServiceChargeMoney(?Money $value = null): self
     {
         $this->serviceChargeMoney = $value;
+        $this->_setField('serviceChargeMoney');
         return $this;
     }
 

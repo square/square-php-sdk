@@ -129,6 +129,7 @@ class Vendor extends JsonSerializableType
     public function setId(?string $value = null): self
     {
         $this->id = $value;
+        $this->_setField('id');
         return $this;
     }
 
@@ -146,6 +147,7 @@ class Vendor extends JsonSerializableType
     public function setCreatedAt(?string $value = null): self
     {
         $this->createdAt = $value;
+        $this->_setField('createdAt');
         return $this;
     }
 
@@ -163,6 +165,7 @@ class Vendor extends JsonSerializableType
     public function setUpdatedAt(?string $value = null): self
     {
         $this->updatedAt = $value;
+        $this->_setField('updatedAt');
         return $this;
     }
 
@@ -180,6 +183,7 @@ class Vendor extends JsonSerializableType
     public function setName(?string $value = null): self
     {
         $this->name = $value;
+        $this->_setField('name');
         return $this;
     }
 
@@ -197,6 +201,7 @@ class Vendor extends JsonSerializableType
     public function setAddress(?Address $value = null): self
     {
         $this->address = $value;
+        $this->_setField('address');
         return $this;
     }
 
@@ -214,6 +219,7 @@ class Vendor extends JsonSerializableType
     public function setContacts(?array $value = null): self
     {
         $this->contacts = $value;
+        $this->_setField('contacts');
         return $this;
     }
 
@@ -231,6 +237,7 @@ class Vendor extends JsonSerializableType
     public function setAccountNumber(?string $value = null): self
     {
         $this->accountNumber = $value;
+        $this->_setField('accountNumber');
         return $this;
     }
 
@@ -248,6 +255,7 @@ class Vendor extends JsonSerializableType
     public function setNote(?string $value = null): self
     {
         $this->note = $value;
+        $this->_setField('note');
         return $this;
     }
 
@@ -265,6 +273,7 @@ class Vendor extends JsonSerializableType
     public function setVersion(?int $value = null): self
     {
         $this->version = $value;
+        $this->_setField('version');
         return $this;
     }
 
@@ -282,6 +291,7 @@ class Vendor extends JsonSerializableType
     public function setStatus(?string $value = null): self
     {
         $this->status = $value;
+        $this->_setField('status');
         return $this;
     }
 

@@ -47,6 +47,7 @@ class GetCashDrawerShiftResponse extends JsonSerializableType
     public function setCashDrawerShift(?CashDrawerShift $value = null): self
     {
         $this->cashDrawerShift = $value;
+        $this->_setField('cashDrawerShift');
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetCashDrawerShiftResponse extends JsonSerializableType
     public function setErrors(?array $value = null): self
     {
         $this->errors = $value;
+        $this->_setField('errors');
         return $this;
     }
 
