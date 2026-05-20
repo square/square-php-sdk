@@ -5,6 +5,7 @@ namespace Square\Payments\Requests;
 use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
 use Square\Types\Money;
+use Square\Core\Types\ArrayType;
 use Square\Types\Address;
 use Square\Types\CashPaymentDetails;
 use Square\Types\ExternalPaymentDetails;
@@ -97,6 +98,17 @@ class CreatePaymentRequest extends JsonSerializableType
      */
     #[JsonProperty('app_fee_money')]
     private ?Money $appFeeMoney;
+
+    /**
+     * Details pertaining to recipients of the application fee. The sum of the amounts in the
+     * app_fee_allocations must equal the app_fee_money amount, if present. If populated, an
+     * allocation must be present for every party that expects to receive a portion of the application
+     * fee, including the application developer.
+     *
+     * @var ?array<mixed> $appFeeAllocations
+     */
+    #[JsonProperty('app_fee_allocations'), ArrayType(['mixed'])]
+    private ?array $appFeeAllocations;
 
     /**
      * The duration of time after the payment's creation when Square automatically
@@ -303,6 +315,7 @@ class CreatePaymentRequest extends JsonSerializableType
      *   amountMoney?: ?Money,
      *   tipMoney?: ?Money,
      *   appFeeMoney?: ?Money,
+     *   appFeeAllocations?: ?array<mixed>,
      *   delayDuration?: ?string,
      *   delayAction?: ?string,
      *   autocomplete?: ?bool,
@@ -333,6 +346,7 @@ class CreatePaymentRequest extends JsonSerializableType
         $this->amountMoney = $values['amountMoney'] ?? null;
         $this->tipMoney = $values['tipMoney'] ?? null;
         $this->appFeeMoney = $values['appFeeMoney'] ?? null;
+        $this->appFeeAllocations = $values['appFeeAllocations'] ?? null;
         $this->delayDuration = $values['delayDuration'] ?? null;
         $this->delayAction = $values['delayAction'] ?? null;
         $this->autocomplete = $values['autocomplete'] ?? null;
@@ -442,6 +456,24 @@ class CreatePaymentRequest extends JsonSerializableType
     {
         $this->appFeeMoney = $value;
         $this->_setField('appFeeMoney');
+        return $this;
+    }
+
+    /**
+     * @return ?array<mixed>
+     */
+    public function getAppFeeAllocations(): ?array
+    {
+        return $this->appFeeAllocations;
+    }
+
+    /**
+     * @param ?array<mixed> $value
+     */
+    public function setAppFeeAllocations(?array $value = null): self
+    {
+        $this->appFeeAllocations = $value;
+        $this->_setField('appFeeAllocations');
         return $this;
     }
 

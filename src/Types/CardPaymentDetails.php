@@ -141,6 +141,26 @@ class CardPaymentDetails extends JsonSerializableType
     private ?array $errors;
 
     /**
+     * @var ?CardSurchargeDetails $appliedCardSurchargeDetails Additional information about a card_surcharge on the payment.
+     */
+    #[JsonProperty('applied_card_surcharge_details')]
+    private ?CardSurchargeDetails $appliedCardSurchargeDetails;
+
+    /**
+     * The type of digital wallet used for this card payment, if applicable.
+     * Currently only populated for in-person Apple Pay payments. Detection has no false
+     * positives but may have false negatives (some Apple Pay payments may not be detected).
+     *
+     * For payments with `source_type` of `WALLET`, see `DigitalWalletDetails` instead.
+     *
+     * Values: `APPLE_PAY`
+     *
+     * @var ?string $walletType
+     */
+    #[JsonProperty('wallet_type')]
+    private ?string $walletType;
+
+    /**
      * @param array{
      *   status?: ?string,
      *   card?: ?Card,
@@ -158,6 +178,8 @@ class CardPaymentDetails extends JsonSerializableType
      *   cardPaymentTimeline?: ?CardPaymentTimeline,
      *   refundRequiresCardPresence?: ?bool,
      *   errors?: ?array<Error>,
+     *   appliedCardSurchargeDetails?: ?CardSurchargeDetails,
+     *   walletType?: ?string,
      * } $values
      */
     public function __construct(
@@ -179,6 +201,8 @@ class CardPaymentDetails extends JsonSerializableType
         $this->cardPaymentTimeline = $values['cardPaymentTimeline'] ?? null;
         $this->refundRequiresCardPresence = $values['refundRequiresCardPresence'] ?? null;
         $this->errors = $values['errors'] ?? null;
+        $this->appliedCardSurchargeDetails = $values['appliedCardSurchargeDetails'] ?? null;
+        $this->walletType = $values['walletType'] ?? null;
     }
 
     /**
@@ -466,6 +490,42 @@ class CardPaymentDetails extends JsonSerializableType
     {
         $this->errors = $value;
         $this->_setField('errors');
+        return $this;
+    }
+
+    /**
+     * @return ?CardSurchargeDetails
+     */
+    public function getAppliedCardSurchargeDetails(): ?CardSurchargeDetails
+    {
+        return $this->appliedCardSurchargeDetails;
+    }
+
+    /**
+     * @param ?CardSurchargeDetails $value
+     */
+    public function setAppliedCardSurchargeDetails(?CardSurchargeDetails $value = null): self
+    {
+        $this->appliedCardSurchargeDetails = $value;
+        $this->_setField('appliedCardSurchargeDetails');
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getWalletType(): ?string
+    {
+        return $this->walletType;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setWalletType(?string $value = null): self
+    {
+        $this->walletType = $value;
+        $this->_setField('walletType');
         return $this;
     }
 

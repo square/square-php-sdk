@@ -5,6 +5,7 @@ namespace Square\Refunds\Requests;
 use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
 use Square\Types\Money;
+use Square\Core\Types\ArrayType;
 use Square\Types\DestinationDetailsCashRefundDetails;
 use Square\Types\DestinationDetailsExternalRefundDetails;
 
@@ -60,6 +61,17 @@ class RefundPaymentRequest extends JsonSerializableType
      */
     #[JsonProperty('app_fee_money')]
     private ?Money $appFeeMoney;
+
+    /**
+     * Details pertaining to contributors to the refund of the application fee.
+     * The sum of the amounts in the app_fee_allocations must equal the app_fee_money amount, if
+     * present. If populated, an allocation must be present for every party that expects to contribute
+     * a portion of the refunded application fee, including the application developer.
+     *
+     * @var ?array<mixed> $appFeeAllocations
+     */
+    #[JsonProperty('app_fee_allocations'), ArrayType(['mixed'])]
+    private ?array $appFeeAllocations;
 
     /**
      * The unique ID of the payment being refunded.
@@ -157,6 +169,7 @@ class RefundPaymentRequest extends JsonSerializableType
      *   idempotencyKey: string,
      *   amountMoney: Money,
      *   appFeeMoney?: ?Money,
+     *   appFeeAllocations?: ?array<mixed>,
      *   paymentId?: ?string,
      *   destinationId?: ?string,
      *   unlinked?: ?bool,
@@ -175,6 +188,7 @@ class RefundPaymentRequest extends JsonSerializableType
         $this->idempotencyKey = $values['idempotencyKey'];
         $this->amountMoney = $values['amountMoney'];
         $this->appFeeMoney = $values['appFeeMoney'] ?? null;
+        $this->appFeeAllocations = $values['appFeeAllocations'] ?? null;
         $this->paymentId = $values['paymentId'] ?? null;
         $this->destinationId = $values['destinationId'] ?? null;
         $this->unlinked = $values['unlinked'] ?? null;
@@ -238,6 +252,24 @@ class RefundPaymentRequest extends JsonSerializableType
     {
         $this->appFeeMoney = $value;
         $this->_setField('appFeeMoney');
+        return $this;
+    }
+
+    /**
+     * @return ?array<mixed>
+     */
+    public function getAppFeeAllocations(): ?array
+    {
+        return $this->appFeeAllocations;
+    }
+
+    /**
+     * @param ?array<mixed> $value
+     */
+    public function setAppFeeAllocations(?array $value = null): self
+    {
+        $this->appFeeAllocations = $value;
+        $this->_setField('appFeeAllocations');
         return $this;
     }
 

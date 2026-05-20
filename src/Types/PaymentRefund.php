@@ -83,6 +83,12 @@ class PaymentRefund extends JsonSerializableType
     private ?Money $appFeeMoney;
 
     /**
+     * @var ?array<mixed> $appFeeAllocations Details pertaining to contributors to the refund of the application fee.
+     */
+    #[JsonProperty('app_fee_allocations'), ArrayType(['mixed'])]
+    private ?array $appFeeAllocations;
+
+    /**
      * @var ?array<ProcessingFee> $processingFee Processing fees and fee adjustments assessed by Square for this refund.
      */
     #[JsonProperty('processing_fee'), ArrayType([ProcessingFee::class])]
@@ -140,6 +146,7 @@ class PaymentRefund extends JsonSerializableType
      *   destinationType?: ?string,
      *   destinationDetails?: ?DestinationDetails,
      *   appFeeMoney?: ?Money,
+     *   appFeeAllocations?: ?array<mixed>,
      *   processingFee?: ?array<ProcessingFee>,
      *   paymentId?: ?string,
      *   orderId?: ?string,
@@ -161,6 +168,7 @@ class PaymentRefund extends JsonSerializableType
         $this->destinationDetails = $values['destinationDetails'] ?? null;
         $this->amountMoney = $values['amountMoney'];
         $this->appFeeMoney = $values['appFeeMoney'] ?? null;
+        $this->appFeeAllocations = $values['appFeeAllocations'] ?? null;
         $this->processingFee = $values['processingFee'] ?? null;
         $this->paymentId = $values['paymentId'] ?? null;
         $this->orderId = $values['orderId'] ?? null;
@@ -312,6 +320,24 @@ class PaymentRefund extends JsonSerializableType
     {
         $this->appFeeMoney = $value;
         $this->_setField('appFeeMoney');
+        return $this;
+    }
+
+    /**
+     * @return ?array<mixed>
+     */
+    public function getAppFeeAllocations(): ?array
+    {
+        return $this->appFeeAllocations;
+    }
+
+    /**
+     * @param ?array<mixed> $value
+     */
+    public function setAppFeeAllocations(?array $value = null): self
+    {
+        $this->appFeeAllocations = $value;
+        $this->_setField('appFeeAllocations');
         return $this;
     }
 

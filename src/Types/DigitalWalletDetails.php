@@ -36,6 +36,12 @@ class DigitalWalletDetails extends JsonSerializableType
     private ?CashAppDetails $cashAppDetails;
 
     /**
+     * @var ?LightningDetails $lightningDetails Brand-specific details for payments with the `brand` of `LIGHTNING`.
+     */
+    #[JsonProperty('lightning_details')]
+    private ?LightningDetails $lightningDetails;
+
+    /**
      * @var ?array<Error> $errors Information about errors encountered during the payment.
      */
     #[JsonProperty('errors'), ArrayType([Error::class])]
@@ -46,6 +52,7 @@ class DigitalWalletDetails extends JsonSerializableType
      *   status?: ?string,
      *   brand?: ?string,
      *   cashAppDetails?: ?CashAppDetails,
+     *   lightningDetails?: ?LightningDetails,
      *   errors?: ?array<Error>,
      * } $values
      */
@@ -55,6 +62,7 @@ class DigitalWalletDetails extends JsonSerializableType
         $this->status = $values['status'] ?? null;
         $this->brand = $values['brand'] ?? null;
         $this->cashAppDetails = $values['cashAppDetails'] ?? null;
+        $this->lightningDetails = $values['lightningDetails'] ?? null;
         $this->errors = $values['errors'] ?? null;
     }
 
@@ -109,6 +117,24 @@ class DigitalWalletDetails extends JsonSerializableType
     {
         $this->cashAppDetails = $value;
         $this->_setField('cashAppDetails');
+        return $this;
+    }
+
+    /**
+     * @return ?LightningDetails
+     */
+    public function getLightningDetails(): ?LightningDetails
+    {
+        return $this->lightningDetails;
+    }
+
+    /**
+     * @param ?LightningDetails $value
+     */
+    public function setLightningDetails(?LightningDetails $value = null): self
+    {
+        $this->lightningDetails = $value;
+        $this->_setField('lightningDetails');
         return $this;
     }
 

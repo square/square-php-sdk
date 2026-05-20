@@ -7,3 +7,6 @@ src/Exceptions/SquareApiException.php
 src/Legacy
 src/Utils/WebhooksHelper.php
 tests/Integration
+.fern/replay.lock
+.fern/replay.yml
+.gitattributes
