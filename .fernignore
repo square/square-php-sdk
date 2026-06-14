@@ -6,6 +6,7 @@ phpstan.neon
 src/Exceptions/SquareApiException.php
 src/Legacy
 src/Utils/WebhooksHelper.php
+src/Utils/ReportingHelper.php
 tests/Integration
 .fern/replay.lock
 .fern/replay.yml
