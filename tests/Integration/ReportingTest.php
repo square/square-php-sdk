@@ -3,7 +3,6 @@
 namespace Square\Tests\Integration;
 
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
 use Square\Environments;
 use Square\Reporting\Requests\LoadRequest;
 use Square\SquareClient;
@@ -18,9 +17,10 @@ use Square\Utils\ReportingHelper;
  * The Reporting API is **production only** — it is not available in sandbox
  * (sandbox host → 404, sandbox token against production → 401) — and requires a
  * reporting-provisioned token. To avoid breaking the default CI run, the whole
- * suite is skipped unless `TEST_SQUARE_REPORTING` is set. When enabled it reuses
- * the same `TEST_SQUARE_TOKEN` as the other integration tests, but points at the
- * production environment.
+ * suite is skipped unless `TEST_SQUARE_REPORTING` is set. When enabled,
+ * `TEST_SQUARE_REPORTING` itself supplies the production reporting-provisioned
+ * access token used to authenticate against the production environment
+ * (`TEST_SQUARE_REPORTING=<prod-reporting-token>`).
  */
 class ReportingTest extends TestCase
 {
@@ -28,13 +28,9 @@ class ReportingTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        if (!getenv('TEST_SQUARE_REPORTING')) {
-            self::markTestSkipped('Set TEST_SQUARE_REPORTING (with a production reporting token in TEST_SQUARE_TOKEN) to run the Reporting API live tests.');
-        }
-
-        $token = getenv('TEST_SQUARE_TOKEN');
+        $token = getenv('TEST_SQUARE_REPORTING');
         if (!$token) {
-            throw new RuntimeException('TEST_SQUARE_TOKEN environment variable is not set.');
+            self::markTestSkipped('Set TEST_SQUARE_REPORTING=<prod-reporting-token> to run the Reporting API live tests against production.');
         }
 
         self::$client = new SquareClient(
