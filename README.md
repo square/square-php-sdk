@@ -210,6 +210,75 @@ $isValid = WebhooksHelper.verifySignature(
 )
 ```
 
+## Reporting API
+
+The [Square Reporting API](https://developer.squareup.com/docs/reporting-api/overview) lets you
+query aggregated business data. Start by calling `getMetadata` to discover the schema — the cubes,
+views, measures, dimensions, and segments you can reference — then run a query with `load`:
+
+```php
+$metadata = $client->reporting->getMetadata();
+
+$response = $client->reporting->load(new Square\Reporting\Requests\LoadRequest([
+    'query' => new Square\Types\Query([
+        'measures' => ['Orders.count'],
+    ]),
+]));
+```
+
+### Polling for long-running queries
+
+The `load` endpoint is asynchronous. While a query is still being computed, the API responds with
+an HTTP `200` whose body is `{ "error": "Continue wait" }` instead of results, and the client is
+expected to re-send the identical request until the results are ready. The SDK provides
+`ReportingHelper::loadAndWait`, which owns that retry loop with exponential backoff:
+
+```php
+use Square\Utils\ReportingHelper;
+use Square\Reporting\Requests\LoadRequest;
+use Square\Types\Query;
+
+$response = ReportingHelper::loadAndWait(
+    $client,
+    new LoadRequest([
+        'query' => new Query([
+            'measures' => ['Orders.count'],
+        ]),
+    ]),
+);
+
+$data = $response->getData(); // the resolved query result rows
+```
+
+`loadAndWait` accepts an options array to tune the polling behavior:
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `maxAttempts` | `20` | Maximum poll attempts before giving up. |
+| `initialDelayMs` | `2000` | Delay before the first retry, in milliseconds. |
+| `maxDelayMs` | `20000` | Upper bound on the backoff delay, in milliseconds. |
+| `backoffFactor` | `2` | Multiplier applied to the delay after each attempt. |
+| `shouldCancel` | `null` | A `callable(): bool` polled before each attempt (and during the wait); aborts the loop when it returns `true`. |
+| `requestOptions` | `null` | Per-request options forwarded to each underlying `reporting->load` call. |
+
+```php
+$response = ReportingHelper::loadAndWait(
+    $client,
+    new LoadRequest([/* ... */]),
+    [
+        'maxAttempts' => 30,
+        'initialDelayMs' => 1000,
+        'shouldCancel' => fn (): bool => /* e.g. a deadline check */ false,
+    ],
+);
+```
+
+If the query does not resolve within `maxAttempts`, or if `shouldCancel` aborts it, a
+`Square\Exceptions\SquareException` is thrown.
+
+> **Note:** The Reporting API is available in **production only** and requires a
+> reporting-provisioned access token; it is not available in the sandbox environment.
+
 ## Legacy SDK
 
 While the new SDK has a lot of improvements, we at Square understand that it takes time to upgrade when there are breaking changes.

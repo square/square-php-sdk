@@ -16011,6 +16011,118 @@ $client->vendors->update(
 </dl>
 </details>
 
+## Reporting
+<details><summary><code>$client-&gt;reporting-&gt;getMetadata() -> MetadataResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Describes the data available to query: the cubes, views, measures, dimensions, and segments you can reference in a reporting query. Call this first to discover the schema, then pass the members you need to `load`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```php
+$client->reporting->getMetadata();
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>$client-&gt;reporting-&gt;load($request) -> LoadResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Runs a reporting query against the discovered schema and returns the aggregated results. Long-running queries may return a "Continue wait" response while processing — retry the same request until results are ready.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```php
+$client->reporting->load(
+    new LoadRequest([]),
+);
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**$queryType:** `?string` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**$cache:** `?string` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**$query:** `?Query` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Bookings CustomAttributeDefinitions
 <details><summary><code>$client-&gt;bookings-&gt;customAttributeDefinitions-&gt;list($request) -> ListBookingCustomAttributeDefinitionsResponse</code></summary>
 <dl>

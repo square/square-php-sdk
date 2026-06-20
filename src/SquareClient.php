@@ -35,6 +35,7 @@ use Square\Team\TeamClient;
 use Square\Terminal\TerminalClient;
 use Square\TransferOrders\TransferOrdersClient;
 use Square\Vendors\VendorsClient;
+use Square\Reporting\ReportingClient;
 use Square\CashDrawers\CashDrawersClient;
 use Square\Webhooks\WebhooksClient;
 use Psr\Http\Client\ClientInterface;
@@ -209,6 +210,11 @@ class SquareClient
     public VendorsClient $vendors;
 
     /**
+     * @var ReportingClient $reporting
+     */
+    public ReportingClient $reporting;
+
+    /**
      * @var CashDrawersClient $cashDrawers
      */
     public CashDrawersClient $cashDrawers;
@@ -256,8 +262,8 @@ class SquareClient
             'Square-Version' => '2026-05-20',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '45.1.0.20260520',
-            'User-Agent' => 'square/square/45.1.0.20260520',
+            'X-Fern-SDK-Version' => '45.2.0-rc.0',
+            'User-Agent' => 'square/square/45.2.0-rc.0',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;
@@ -307,6 +313,7 @@ class SquareClient
         $this->terminal = new TerminalClient($this->client, $this->options);
         $this->transferOrders = new TransferOrdersClient($this->client, $this->options);
         $this->vendors = new VendorsClient($this->client, $this->options);
+        $this->reporting = new ReportingClient($this->client, $this->options);
         $this->cashDrawers = new CashDrawersClient($this->client, $this->options);
         $this->webhooks = new WebhooksClient($this->client, $this->options);
     }
