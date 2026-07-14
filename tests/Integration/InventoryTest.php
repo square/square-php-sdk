@@ -94,7 +94,8 @@ class InventoryTest extends TestCase
         $adjustment = new InventoryAdjustment([
             'fromState' => 'NONE',
             'toState' => 'IN_STOCK',
-            'locationId' => self::$locationId,
+            'fromLocationId' => self::$locationId,
+            'toLocationId' => self::$locationId,
             'catalogObjectId' => self::$itemVariationId,
             'quantity' => '100',
             'occurredAt' => (new DateTimeImmutable())->sub(new DateInterval('PT8H'))->format(DateTimeInterface::ATOM),
@@ -174,7 +175,8 @@ class InventoryTest extends TestCase
         $adjustment = new InventoryAdjustment([
             'fromState' => 'NONE',
             'toState' => 'IN_STOCK',
-            'locationId' => self::$locationId,
+            'fromLocationId' => self::$locationId,
+            'toLocationId' => self::$locationId,
             'catalogObjectId' => self::$itemVariationId,
             'quantity' => '50', // Different quantity than setup
             'occurredAt' => (new DateTimeImmutable())->format(DateTimeInterface::ATOM),
@@ -281,7 +283,8 @@ class InventoryTest extends TestCase
         $adjustment = new InventoryAdjustment([
             'fromState' => 'NONE',
             'toState' => 'IN_STOCK',
-            'locationId' => self::$locationId,
+            'fromLocationId' => self::$locationId,
+            'toLocationId' => self::$locationId,
             'catalogObjectId' => self::$itemVariationId,
             'quantity' => '10',
             'occurredAt' => (new DateTimeImmutable())->format(DateTimeInterface::ATOM),
