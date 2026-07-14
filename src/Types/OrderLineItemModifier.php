@@ -97,6 +97,12 @@ class OrderLineItemModifier extends JsonSerializableType
     private ?array $metadata;
 
     /**
+     * @var ?string $parentModifierUid The `uid` of the parent modifier, if this modifier is nested under another modifier.
+     */
+    #[JsonProperty('parent_modifier_uid')]
+    private ?string $parentModifierUid;
+
+    /**
      * @param array{
      *   uid?: ?string,
      *   catalogObjectId?: ?string,
@@ -106,6 +112,7 @@ class OrderLineItemModifier extends JsonSerializableType
      *   basePriceMoney?: ?Money,
      *   totalPriceMoney?: ?Money,
      *   metadata?: ?array<string, ?string>,
+     *   parentModifierUid?: ?string,
      * } $values
      */
     public function __construct(
@@ -119,6 +126,7 @@ class OrderLineItemModifier extends JsonSerializableType
         $this->basePriceMoney = $values['basePriceMoney'] ?? null;
         $this->totalPriceMoney = $values['totalPriceMoney'] ?? null;
         $this->metadata = $values['metadata'] ?? null;
+        $this->parentModifierUid = $values['parentModifierUid'] ?? null;
     }
 
     /**
@@ -262,6 +270,24 @@ class OrderLineItemModifier extends JsonSerializableType
     {
         $this->metadata = $value;
         $this->_setField('metadata');
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getParentModifierUid(): ?string
+    {
+        return $this->parentModifierUid;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setParentModifierUid(?string $value = null): self
+    {
+        $this->parentModifierUid = $value;
+        $this->_setField('parentModifierUid');
         return $this;
     }
 

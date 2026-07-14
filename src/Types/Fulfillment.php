@@ -124,6 +124,15 @@ class Fulfillment extends JsonSerializableType
     private ?FulfillmentDeliveryDetails $deliveryDetails;
 
     /**
+     * Contains details for an in-store fulfillment. These details are required when the fulfillment
+     * type is `IN_STORE`.
+     *
+     * @var ?FulfillmentInStoreDetails $inStoreDetails
+     */
+    #[JsonProperty('in_store_details')]
+    private ?FulfillmentInStoreDetails $inStoreDetails;
+
+    /**
      * @param array{
      *   uid?: ?string,
      *   type?: ?value-of<FulfillmentType>,
@@ -134,6 +143,7 @@ class Fulfillment extends JsonSerializableType
      *   pickupDetails?: ?FulfillmentPickupDetails,
      *   shipmentDetails?: ?FulfillmentShipmentDetails,
      *   deliveryDetails?: ?FulfillmentDeliveryDetails,
+     *   inStoreDetails?: ?FulfillmentInStoreDetails,
      * } $values
      */
     public function __construct(
@@ -148,6 +158,7 @@ class Fulfillment extends JsonSerializableType
         $this->pickupDetails = $values['pickupDetails'] ?? null;
         $this->shipmentDetails = $values['shipmentDetails'] ?? null;
         $this->deliveryDetails = $values['deliveryDetails'] ?? null;
+        $this->inStoreDetails = $values['inStoreDetails'] ?? null;
     }
 
     /**
@@ -309,6 +320,24 @@ class Fulfillment extends JsonSerializableType
     {
         $this->deliveryDetails = $value;
         $this->_setField('deliveryDetails');
+        return $this;
+    }
+
+    /**
+     * @return ?FulfillmentInStoreDetails
+     */
+    public function getInStoreDetails(): ?FulfillmentInStoreDetails
+    {
+        return $this->inStoreDetails;
+    }
+
+    /**
+     * @param ?FulfillmentInStoreDetails $value
+     */
+    public function setInStoreDetails(?FulfillmentInStoreDetails $value = null): self
+    {
+        $this->inStoreDetails = $value;
+        $this->_setField('inStoreDetails');
         return $this;
     }
 

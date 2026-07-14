@@ -6,31 +6,34 @@ use Square\Core\Json\JsonSerializableType;
 use Square\Core\Json\JsonProperty;
 use Square\Core\Types\ArrayType;
 
-class GetInventoryTransferResponse extends JsonSerializableType
+/**
+ * Represents an output from a call to [DeleteInventoryAdjustmentReason](api-endpoint:Inventory-DeleteInventoryAdjustmentReason).
+ */
+class DeleteInventoryAdjustmentReasonResponse extends JsonSerializableType
 {
     /**
-     * @var ?array<Error> $errors Any errors that occurred during the request.
+     * @var ?array<Error> $errors Errors encountered when the request fails.
      */
     #[JsonProperty('errors'), ArrayType([Error::class])]
     private ?array $errors;
 
     /**
-     * @var ?InventoryTransfer $transfer The requested [InventoryTransfer](entity:InventoryTransfer).
+     * @var ?InventoryAdjustmentReason $adjustmentReason The successfully soft-deleted inventory adjustment reason.
      */
-    #[JsonProperty('transfer')]
-    private ?InventoryTransfer $transfer;
+    #[JsonProperty('adjustment_reason')]
+    private ?InventoryAdjustmentReason $adjustmentReason;
 
     /**
      * @param array{
      *   errors?: ?array<Error>,
-     *   transfer?: ?InventoryTransfer,
+     *   adjustmentReason?: ?InventoryAdjustmentReason,
      * } $values
      */
     public function __construct(
         array $values = [],
     ) {
         $this->errors = $values['errors'] ?? null;
-        $this->transfer = $values['transfer'] ?? null;
+        $this->adjustmentReason = $values['adjustmentReason'] ?? null;
     }
 
     /**
@@ -52,20 +55,20 @@ class GetInventoryTransferResponse extends JsonSerializableType
     }
 
     /**
-     * @return ?InventoryTransfer
+     * @return ?InventoryAdjustmentReason
      */
-    public function getTransfer(): ?InventoryTransfer
+    public function getAdjustmentReason(): ?InventoryAdjustmentReason
     {
-        return $this->transfer;
+        return $this->adjustmentReason;
     }
 
     /**
-     * @param ?InventoryTransfer $value
+     * @param ?InventoryAdjustmentReason $value
      */
-    public function setTransfer(?InventoryTransfer $value = null): self
+    public function setAdjustmentReason(?InventoryAdjustmentReason $value = null): self
     {
-        $this->transfer = $value;
-        $this->_setField('transfer');
+        $this->adjustmentReason = $value;
+        $this->_setField('adjustmentReason');
         return $this;
     }
 

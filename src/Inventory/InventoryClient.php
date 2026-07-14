@@ -4,8 +4,8 @@ namespace Square\Inventory;
 
 use Psr\Http\Client\ClientInterface;
 use Square\Core\Client\RawClient;
-use Square\Inventory\Requests\DeprecatedGetAdjustmentInventoryRequest;
-use Square\Types\GetInventoryAdjustmentResponse;
+use Square\Inventory\Requests\ListInventoryAdjustmentReasonsRequest;
+use Square\Types\ListInventoryAdjustmentReasonsResponse;
 use Square\Exceptions\SquareException;
 use Square\Exceptions\SquareApiException;
 use Square\Core\Json\JsonApiRequest;
@@ -13,6 +13,20 @@ use Square\Environments;
 use Square\Core\Client\HttpMethod;
 use JsonException;
 use Psr\Http\Client\ClientExceptionInterface;
+use Square\Inventory\Requests\CreateInventoryAdjustmentReasonRequest;
+use Square\Types\CreateInventoryAdjustmentReasonResponse;
+use Square\Inventory\Requests\DeleteInventoryAdjustmentReasonRequest;
+use Square\Types\DeleteInventoryAdjustmentReasonResponse;
+use Square\Inventory\Requests\RestoreInventoryAdjustmentReasonRequest;
+use Square\Types\RestoreInventoryAdjustmentReasonResponse;
+use Square\Inventory\Requests\RetrieveInventoryAdjustmentReasonRequest;
+use Square\Types\RetrieveInventoryAdjustmentReasonResponse;
+use Square\Inventory\Requests\UpdateInventoryAdjustmentReasonRequest;
+use Square\Types\UpdateInventoryAdjustmentReasonResponse;
+use Square\Inventory\Requests\DeprecatedGetAdjustmentInventoryRequest;
+use Square\Types\GetInventoryAdjustmentResponse;
+use Square\Inventory\Requests\UpdateInventoryAdjustmentRequest;
+use Square\Types\UpdateInventoryAdjustmentResponse;
 use Square\Inventory\Requests\GetAdjustmentInventoryRequest;
 use Square\Types\BatchChangeInventoryRequest;
 use Square\Types\BatchChangeInventoryResponse;
@@ -27,12 +41,11 @@ use Square\Types\InventoryCount;
 use Square\Inventory\Requests\DeprecatedGetPhysicalCountInventoryRequest;
 use Square\Types\GetInventoryPhysicalCountResponse;
 use Square\Inventory\Requests\GetPhysicalCountInventoryRequest;
-use Square\Inventory\Requests\GetTransferInventoryRequest;
-use Square\Types\GetInventoryTransferResponse;
 use Square\Inventory\Requests\GetInventoryRequest;
 use Square\Types\GetInventoryCountResponse;
 use Square\Inventory\Requests\ChangesInventoryRequest;
 use Square\Types\GetInventoryChangesResponse;
+use Square\Inventory\Requests\GetTransferInventoryRequest;
 
 class InventoryClient
 {
@@ -71,6 +84,291 @@ class InventoryClient
     }
 
     /**
+     * Returns the standard and custom inventory adjustment reasons available
+     * to the seller.
+     *
+     * @param ListInventoryAdjustmentReasonsRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return ListInventoryAdjustmentReasonsResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function listInventoryAdjustmentReasons(ListInventoryAdjustmentReasonsRequest $request = new ListInventoryAdjustmentReasonsRequest(), ?array $options = null): ListInventoryAdjustmentReasonsResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        $query = [];
+        if ($request->getIncludeDeleted() != null) {
+            $query['include_deleted'] = $request->getIncludeDeleted();
+        }
+        if ($request->getIncludeSystemCodes() != null) {
+            $query['include_system_codes'] = $request->getIncludeSystemCodes();
+        }
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons",
+                    method: HttpMethod::GET,
+                    query: $query,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return ListInventoryAdjustmentReasonsResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Creates a custom inventory adjustment reason.
+     *
+     * @param CreateInventoryAdjustmentReasonRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return CreateInventoryAdjustmentReasonResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function createInventoryAdjustmentReason(CreateInventoryAdjustmentReasonRequest $request, ?array $options = null): CreateInventoryAdjustmentReasonResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons/create",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return CreateInventoryAdjustmentReasonResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Soft deletes a custom inventory adjustment reason.
+     *
+     * @param DeleteInventoryAdjustmentReasonRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return DeleteInventoryAdjustmentReasonResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function deleteInventoryAdjustmentReason(DeleteInventoryAdjustmentReasonRequest $request, ?array $options = null): DeleteInventoryAdjustmentReasonResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons/delete",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return DeleteInventoryAdjustmentReasonResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Restores a soft-deleted custom inventory adjustment reason.
+     *
+     * @param RestoreInventoryAdjustmentReasonRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return RestoreInventoryAdjustmentReasonResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function restoreInventoryAdjustmentReason(RestoreInventoryAdjustmentReasonRequest $request, ?array $options = null): RestoreInventoryAdjustmentReasonResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons/restore",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return RestoreInventoryAdjustmentReasonResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Returns the inventory adjustment reason identified by the provided
+     * `reason_id`. Deleted custom reasons can be retrieved by ID.
+     *
+     * @param RetrieveInventoryAdjustmentReasonRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return RetrieveInventoryAdjustmentReasonResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function retrieveInventoryAdjustmentReason(RetrieveInventoryAdjustmentReasonRequest $request, ?array $options = null): RetrieveInventoryAdjustmentReasonResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons/retrieve",
+                    method: HttpMethod::POST,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return RetrieveInventoryAdjustmentReasonResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Updates a custom inventory adjustment reason.
+     *
+     * @param UpdateInventoryAdjustmentReasonRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return UpdateInventoryAdjustmentReasonResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function updateInventoryAdjustmentReason(UpdateInventoryAdjustmentReasonRequest $request, ?array $options = null): UpdateInventoryAdjustmentReasonResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustment-reasons/update",
+                    method: HttpMethod::PUT,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return UpdateInventoryAdjustmentReasonResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
      * Deprecated version of [RetrieveInventoryAdjustment](api-endpoint:Inventory-RetrieveInventoryAdjustment) after the endpoint URL
      * is updated to conform to the standard convention.
      *
@@ -103,6 +401,55 @@ class InventoryClient
             if ($statusCode >= 200 && $statusCode < 400) {
                 $json = $response->getBody()->getContents();
                 return GetInventoryAdjustmentResponse::fromJson($json);
+            }
+        } catch (JsonException $e) {
+            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
+        );
+    }
+
+    /**
+     * Applies an update to the provided adjustment.
+     *
+     * On success: returns the newly updated adjustment.
+     * On failure: returns a list of related errors.
+     *
+     * @param UpdateInventoryAdjustmentRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @return UpdateInventoryAdjustmentResponse
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function updateInventoryAdjustment(UpdateInventoryAdjustmentRequest $request, ?array $options = null): UpdateInventoryAdjustmentResponse
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/adjustments/update",
+                    method: HttpMethod::PUT,
+                    body: $request,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                $json = $response->getBody()->getContents();
+                return UpdateInventoryAdjustmentResponse::fromJson($json);
             }
         } catch (JsonException $e) {
             throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
@@ -521,52 +868,6 @@ class InventoryClient
     }
 
     /**
-     * Returns the [InventoryTransfer](entity:InventoryTransfer) object
-     * with the provided `transfer_id`.
-     *
-     * @param GetTransferInventoryRequest $request
-     * @param ?array{
-     *   baseUrl?: string,
-     *   maxRetries?: int,
-     *   timeout?: float,
-     *   headers?: array<string, string>,
-     *   queryParameters?: array<string, mixed>,
-     *   bodyProperties?: array<string, mixed>,
-     * } $options
-     * @return GetInventoryTransferResponse
-     * @throws SquareException
-     * @throws SquareApiException
-     */
-    public function getTransfer(GetTransferInventoryRequest $request, ?array $options = null): GetInventoryTransferResponse
-    {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/inventory/transfers/{$request->getTransferId()}",
-                    method: HttpMethod::GET,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return GetInventoryTransferResponse::fromJson($json);
-            }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
-        );
-    }
-
-    /**
      * Retrieves the current calculated stock count for a given
      * [CatalogObject](entity:CatalogObject) at a given set of
      * [Location](entity:Location)s. Responses are paginated and unsorted.
@@ -636,6 +937,45 @@ class InventoryClient
             getNextCursor: fn (GetInventoryChangesResponse $response) => $response?->getCursor() ?? null,
             /* @phpstan-ignore-next-line */
             getItems: fn (GetInventoryChangesResponse $response) => $response?->getChanges() ?? [],
+        );
+    }
+
+    /**
+     * @param GetTransferInventoryRequest $request
+     * @param ?array{
+     *   baseUrl?: string,
+     *   maxRetries?: int,
+     *   timeout?: float,
+     *   headers?: array<string, string>,
+     *   queryParameters?: array<string, mixed>,
+     *   bodyProperties?: array<string, mixed>,
+     * } $options
+     * @throws SquareException
+     * @throws SquareApiException
+     */
+    public function getTransfer(GetTransferInventoryRequest $request, ?array $options = null): void
+    {
+        $options = array_merge($this->options, $options ?? []);
+        try {
+            $response = $this->client->sendRequest(
+                new JsonApiRequest(
+                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
+                    path: "v2/inventory/transfers/{$request->getTransferId()}",
+                    method: HttpMethod::GET,
+                ),
+                $options,
+            );
+            $statusCode = $response->getStatusCode();
+            if ($statusCode >= 200 && $statusCode < 400) {
+                return;
+            }
+        } catch (ClientExceptionInterface $e) {
+            throw new SquareException(message: $e->getMessage(), previous: $e);
+        }
+        throw new SquareApiException(
+            message: 'API request failed',
+            statusCode: $statusCode,
+            body: $response->getBody()->getContents(),
         );
     }
 

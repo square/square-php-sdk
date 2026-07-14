@@ -166,7 +166,10 @@ class CatalogItem extends JsonSerializableType
     private ?string $sortName;
 
     /**
-     * @var ?array<CatalogObjectCategory> $categories The list of categories.
+     * The list of categories to which this item belongs. Each entry includes the category ID and an ordinal
+     * value that determines the item's relative position within that category.
+     *
+     * @var ?array<CatalogObjectCategory> $categories
      */
     #[JsonProperty('categories'), ArrayType([CatalogObjectCategory::class])]
     private ?array $categories;

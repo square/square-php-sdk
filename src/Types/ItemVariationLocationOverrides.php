@@ -32,7 +32,11 @@ class ItemVariationLocationOverrides extends JsonSerializableType
     private ?string $pricingType;
 
     /**
-     * @var ?bool $trackInventory If `true`, inventory tracking is active for the `CatalogItemVariation` at this `Location`.
+     * Indicates whether inventory tracking is active for the `CatalogItemVariation` at this `Location`.
+     * When set, this value explicitly overrides the global `track_inventory` setting. When unset, the location
+     * should use the global value. If both global and location-level values are unset, inventory tracking is disabled.
+     *
+     * @var ?bool $trackInventory
      */
     #[JsonProperty('track_inventory')]
     private ?bool $trackInventory;

@@ -83,6 +83,27 @@ class BatchRetrieveInventoryChangesRequest extends JsonSerializableType
     private ?int $limit;
 
     /**
+     * Specification of how returned inventory changes should be ordered.
+     *
+     * Currently, inventory changes can only be ordered by the occurred_at field.
+     * The default sort order for occurred_at is ASC (changes are returned oldest-first by default).
+     *
+     * @var ?BatchRetrieveInventoryChangesSort $sort
+     */
+    #[JsonProperty('sort')]
+    private ?BatchRetrieveInventoryChangesSort $sort;
+
+    /**
+     * The filter to return `ADJUSTMENT` query results by inventory
+     * adjustment reason. This filter is only applied when set. The request cannot
+     * include both `reason_ids` and `states`.
+     *
+     * @var ?array<InventoryAdjustmentReasonId> $reasonIds
+     */
+    #[JsonProperty('reason_ids'), ArrayType([InventoryAdjustmentReasonId::class])]
+    private ?array $reasonIds;
+
+    /**
      * @param array{
      *   catalogObjectIds?: ?array<string>,
      *   locationIds?: ?array<string>,
@@ -92,6 +113,8 @@ class BatchRetrieveInventoryChangesRequest extends JsonSerializableType
      *   updatedBefore?: ?string,
      *   cursor?: ?string,
      *   limit?: ?int,
+     *   sort?: ?BatchRetrieveInventoryChangesSort,
+     *   reasonIds?: ?array<InventoryAdjustmentReasonId>,
      * } $values
      */
     public function __construct(
@@ -105,6 +128,8 @@ class BatchRetrieveInventoryChangesRequest extends JsonSerializableType
         $this->updatedBefore = $values['updatedBefore'] ?? null;
         $this->cursor = $values['cursor'] ?? null;
         $this->limit = $values['limit'] ?? null;
+        $this->sort = $values['sort'] ?? null;
+        $this->reasonIds = $values['reasonIds'] ?? null;
     }
 
     /**
@@ -248,6 +273,42 @@ class BatchRetrieveInventoryChangesRequest extends JsonSerializableType
     {
         $this->limit = $value;
         $this->_setField('limit');
+        return $this;
+    }
+
+    /**
+     * @return ?BatchRetrieveInventoryChangesSort
+     */
+    public function getSort(): ?BatchRetrieveInventoryChangesSort
+    {
+        return $this->sort;
+    }
+
+    /**
+     * @param ?BatchRetrieveInventoryChangesSort $value
+     */
+    public function setSort(?BatchRetrieveInventoryChangesSort $value = null): self
+    {
+        $this->sort = $value;
+        $this->_setField('sort');
+        return $this;
+    }
+
+    /**
+     * @return ?array<InventoryAdjustmentReasonId>
+     */
+    public function getReasonIds(): ?array
+    {
+        return $this->reasonIds;
+    }
+
+    /**
+     * @param ?array<InventoryAdjustmentReasonId> $value
+     */
+    public function setReasonIds(?array $value = null): self
+    {
+        $this->reasonIds = $value;
+        $this->_setField('reasonIds');
         return $this;
     }
 
