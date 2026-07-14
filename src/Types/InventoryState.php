@@ -20,4 +20,5 @@ enum InventoryState: string
     case Decomposed = "DECOMPOSED";
     case SupportedByNewerVersion = "SUPPORTED_BY_NEWER_VERSION";
     case InTransit = "IN_TRANSIT";
+    case Untracked = "UNTRACKED";
 }

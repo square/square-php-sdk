@@ -7,7 +7,7 @@ use Square\Core\Json\JsonSerializableType;
 class GetTransferInventoryRequest extends JsonSerializableType
 {
     /**
-     * @var string $transferId ID of the [InventoryTransfer](entity:InventoryTransfer) to retrieve.
+     * @var string $transferId
      */
     private string $transferId;
 

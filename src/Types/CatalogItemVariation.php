@@ -90,7 +90,11 @@ class CatalogItemVariation extends JsonSerializableType
     private ?array $locationOverrides;
 
     /**
-     * @var ?bool $trackInventory If `true`, inventory tracking is active for the variation.
+     * If `true`, inventory tracking is active for the variation at all locations by default.
+     * This value can be overridden for specific locations using `ItemVariationLocationOverrides.track_inventory`.
+     * If unset at both levels, inventory tracking is disabled.
+     *
+     * @var ?bool $trackInventory
      */
     #[JsonProperty('track_inventory')]
     private ?bool $trackInventory;
@@ -98,6 +102,8 @@ class CatalogItemVariation extends JsonSerializableType
     /**
      * Indicates whether the item variation displays an alert when its inventory quantity is less than or equal
      * to its `inventory_alert_threshold`.
+     *
+     * Deprecated because this field has never been global.
      * See [InventoryAlertType](#type-inventoryalerttype) for possible values
      *
      * @var ?value-of<InventoryAlertType> $inventoryAlertType
@@ -107,9 +113,9 @@ class CatalogItemVariation extends JsonSerializableType
 
     /**
      * If the inventory quantity for the variation is less than or equal to this value and `inventory_alert_type`
-     * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard.
+     * is `LOW_QUANTITY`, the variation displays an alert in the merchant dashboard. This value is always an integer.
      *
-     * This value is always an integer.
+     * Deprecated because this field has never been global.
      *
      * @var ?int $inventoryAlertThreshold
      */
@@ -223,6 +229,16 @@ class CatalogItemVariation extends JsonSerializableType
     private ?string $kitchenName;
 
     /**
+     * Details of the vendor this product is purchased from.
+     * This field can be set only if the seller has an active subscription
+     * to either Square for Retail Premium or Square for Restaurants Premium.
+     *
+     * @var ?array<CatalogItemVariationVendorInformation> $vendorInformation
+     */
+    #[JsonProperty('vendor_information'), ArrayType([CatalogItemVariationVendorInformation::class])]
+    private ?array $vendorInformation;
+
+    /**
      * @param array{
      *   itemId?: ?string,
      *   name?: ?string,
@@ -246,6 +262,7 @@ class CatalogItemVariation extends JsonSerializableType
      *   teamMemberIds?: ?array<string>,
      *   stockableConversion?: ?CatalogStockConversion,
      *   kitchenName?: ?string,
+     *   vendorInformation?: ?array<CatalogItemVariationVendorInformation>,
      * } $values
      */
     public function __construct(
@@ -273,6 +290,7 @@ class CatalogItemVariation extends JsonSerializableType
         $this->teamMemberIds = $values['teamMemberIds'] ?? null;
         $this->stockableConversion = $values['stockableConversion'] ?? null;
         $this->kitchenName = $values['kitchenName'] ?? null;
+        $this->vendorInformation = $values['vendorInformation'] ?? null;
     }
 
     /**
@@ -668,6 +686,24 @@ class CatalogItemVariation extends JsonSerializableType
     {
         $this->kitchenName = $value;
         $this->_setField('kitchenName');
+        return $this;
+    }
+
+    /**
+     * @return ?array<CatalogItemVariationVendorInformation>
+     */
+    public function getVendorInformation(): ?array
+    {
+        return $this->vendorInformation;
+    }
+
+    /**
+     * @param ?array<CatalogItemVariationVendorInformation> $value
+     */
+    public function setVendorInformation(?array $value = null): self
+    {
+        $this->vendorInformation = $value;
+        $this->_setField('vendorInformation');
         return $this;
     }
 

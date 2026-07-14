@@ -48,7 +48,7 @@ class DeviceCheckoutOptions extends JsonSerializableType
      * Controls whether the mobile client applies Auto Card Surcharge (ACS) during checkout.
      * If true, ACS is applied based on Dashboard configuration.
      * If false, ACS is not applied regardless of that configuration.
-     * For more information, see [Add a Card Surcharge](https://developer.squareupstaging.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge).
+     * For more information, see [Add a Card Surcharge](https://developer.squareup.com/docs/terminal-api/additional-payment-checkout-features#add-a-card-surcharge).
      *
      * @var ?bool $allowAutoCardSurcharge
      */
