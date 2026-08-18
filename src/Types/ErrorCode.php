@@ -102,6 +102,7 @@ enum ErrorCode: string
     case CardTokenExpired = "CARD_TOKEN_EXPIRED";
     case CardTokenUsed = "CARD_TOKEN_USED";
     case AmountTooHigh = "AMOUNT_TOO_HIGH";
+    case AmountTooLow = "AMOUNT_TOO_LOW";
     case UnsupportedInstrumentType = "UNSUPPORTED_INSTRUMENT_TYPE";
     case RefundAmountInvalid = "REFUND_AMOUNT_INVALID";
     case RefundAlreadyPending = "REFUND_ALREADY_PENDING";
@@ -132,6 +133,13 @@ enum ErrorCode: string
     case PlaidError = "PLAID_ERROR";
     case PlaidErrorItemLoginRequired = "PLAID_ERROR_ITEM_LOGIN_REQUIRED";
     case PlaidErrorRateLimit = "PLAID_ERROR_RATE_LIMIT";
+    case PlaidErrorInvalidAccessToken = "PLAID_ERROR_INVALID_ACCESS_TOKEN";
+    case PlaidErrorInvalidAccountId = "PLAID_ERROR_INVALID_ACCOUNT_ID";
+    case PlaidErrorNoAccounts = "PLAID_ERROR_NO_ACCOUNTS";
+    case PlaidErrorItemNotFound = "PLAID_ERROR_ITEM_NOT_FOUND";
+    case PlaidErrorInsufficientCredentials = "PLAID_ERROR_INSUFFICIENT_CREDENTIALS";
+    case PlaidErrorItemNotSupported = "PLAID_ERROR_ITEM_NOT_SUPPORTED";
+    case PlaidErrorProductNotReady = "PLAID_ERROR_PRODUCT_NOT_READY";
     case PaymentSourceNotEnabledForTarget = "PAYMENT_SOURCE_NOT_ENABLED_FOR_TARGET";
     case CardDeclined = "CARD_DECLINED";
     case VerifyCvvFailure = "VERIFY_CVV_FAILURE";
@@ -143,6 +151,7 @@ enum ErrorCode: string
     case AllowablePinTriesExceeded = "ALLOWABLE_PIN_TRIES_EXCEEDED";
     case ReservationDeclined = "RESERVATION_DECLINED";
     case UnknownBodyParameter = "UNKNOWN_BODY_PARAMETER";
+    case CartIneligibleForEbt = "CART_INELIGIBLE_FOR_EBT";
     case NotFound = "NOT_FOUND";
     case ApplePaymentProcessingCertificateHashNotFound = "APPLE_PAYMENT_PROCESSING_CERTIFICATE_HASH_NOT_FOUND";
     case MethodNotAllowed = "METHOD_NOT_ALLOWED";

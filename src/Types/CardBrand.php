@@ -18,4 +18,8 @@ enum CardBrand: string
     case Eftpos = "EFTPOS";
     case Felica = "FELICA";
     case Ebt = "EBT";
+    case Quicpay = "QUICPAY";
+    case Id = "ID";
+    case TransportationIc = "TRANSPORTATION_IC";
+    case Carnet = "CARNET";
 }

@@ -220,6 +220,24 @@ class Location extends JsonSerializableType
     private ?TaxIds $taxIds;
 
     /**
+     * The custom text that appears on receipts issued for this location.
+     * This text can also be configured in the Seller Dashboard (Receipts section).
+     *
+     * @var ?string $customReceiptText
+     */
+    #[JsonProperty('custom_receipt_text')]
+    private ?string $customReceiptText;
+
+    /**
+     * The return policy that appears on receipts issued for this location.
+     * This text can also be configured in the Seller Dashboard (Receipts section).
+     *
+     * @var ?string $returnPolicy
+     */
+    #[JsonProperty('return_policy')]
+    private ?string $returnPolicy;
+
+    /**
      * @param array{
      *   id?: ?string,
      *   name?: ?string,
@@ -248,6 +266,8 @@ class Location extends JsonSerializableType
      *   mcc?: ?string,
      *   fullFormatLogoUrl?: ?string,
      *   taxIds?: ?TaxIds,
+     *   customReceiptText?: ?string,
+     *   returnPolicy?: ?string,
      * } $values
      */
     public function __construct(
@@ -280,6 +300,8 @@ class Location extends JsonSerializableType
         $this->mcc = $values['mcc'] ?? null;
         $this->fullFormatLogoUrl = $values['fullFormatLogoUrl'] ?? null;
         $this->taxIds = $values['taxIds'] ?? null;
+        $this->customReceiptText = $values['customReceiptText'] ?? null;
+        $this->returnPolicy = $values['returnPolicy'] ?? null;
     }
 
     /**
@@ -765,6 +787,42 @@ class Location extends JsonSerializableType
     {
         $this->taxIds = $value;
         $this->_setField('taxIds');
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getCustomReceiptText(): ?string
+    {
+        return $this->customReceiptText;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setCustomReceiptText(?string $value = null): self
+    {
+        $this->customReceiptText = $value;
+        $this->_setField('customReceiptText');
+        return $this;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getReturnPolicy(): ?string
+    {
+        return $this->returnPolicy;
+    }
+
+    /**
+     * @param ?string $value
+     */
+    public function setReturnPolicy(?string $value = null): self
+    {
+        $this->returnPolicy = $value;
+        $this->_setField('returnPolicy');
         return $this;
     }
 

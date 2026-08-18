@@ -36,11 +36,18 @@ class SearchCatalogItemsResponse extends JsonSerializableType
     private ?array $matchedVariationIds;
 
     /**
+     * @var ?IncludedResources $includedResources Related resources included in the response as requested via include_options
+     */
+    #[JsonProperty('included_resources')]
+    private ?IncludedResources $includedResources;
+
+    /**
      * @param array{
      *   errors?: ?array<Error>,
      *   items?: ?array<CatalogObject>,
      *   cursor?: ?string,
      *   matchedVariationIds?: ?array<string>,
+     *   includedResources?: ?IncludedResources,
      * } $values
      */
     public function __construct(
@@ -50,6 +57,7 @@ class SearchCatalogItemsResponse extends JsonSerializableType
         $this->items = $values['items'] ?? null;
         $this->cursor = $values['cursor'] ?? null;
         $this->matchedVariationIds = $values['matchedVariationIds'] ?? null;
+        $this->includedResources = $values['includedResources'] ?? null;
     }
 
     /**
@@ -121,6 +129,24 @@ class SearchCatalogItemsResponse extends JsonSerializableType
     {
         $this->matchedVariationIds = $value;
         $this->_setField('matchedVariationIds');
+        return $this;
+    }
+
+    /**
+     * @return ?IncludedResources
+     */
+    public function getIncludedResources(): ?IncludedResources
+    {
+        return $this->includedResources;
+    }
+
+    /**
+     * @param ?IncludedResources $value
+     */
+    public function setIncludedResources(?IncludedResources $value = null): self
+    {
+        $this->includedResources = $value;
+        $this->_setField('includedResources');
         return $this;
     }
 

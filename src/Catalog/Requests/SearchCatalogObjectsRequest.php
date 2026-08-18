@@ -7,6 +7,7 @@ use Square\Core\Json\JsonProperty;
 use Square\Types\CatalogObjectType;
 use Square\Core\Types\ArrayType;
 use Square\Types\CatalogQuery;
+use Square\Types\IncludeOptions;
 
 class SearchCatalogObjectsRequest extends JsonSerializableType
 {
@@ -100,6 +101,12 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     private ?bool $includeCategoryPathToRoot;
 
     /**
+     * @var ?IncludeOptions $includeOptions Options to include related resources in the response.
+     */
+    #[JsonProperty('include_options')]
+    private ?IncludeOptions $includeOptions;
+
+    /**
      * @param array{
      *   cursor?: ?string,
      *   objectTypes?: ?array<value-of<CatalogObjectType>>,
@@ -109,6 +116,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
      *   query?: ?CatalogQuery,
      *   limit?: ?int,
      *   includeCategoryPathToRoot?: ?bool,
+     *   includeOptions?: ?IncludeOptions,
      * } $values
      */
     public function __construct(
@@ -122,6 +130,7 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
         $this->query = $values['query'] ?? null;
         $this->limit = $values['limit'] ?? null;
         $this->includeCategoryPathToRoot = $values['includeCategoryPathToRoot'] ?? null;
+        $this->includeOptions = $values['includeOptions'] ?? null;
     }
 
     /**
@@ -265,6 +274,24 @@ class SearchCatalogObjectsRequest extends JsonSerializableType
     {
         $this->includeCategoryPathToRoot = $value;
         $this->_setField('includeCategoryPathToRoot');
+        return $this;
+    }
+
+    /**
+     * @return ?IncludeOptions
+     */
+    public function getIncludeOptions(): ?IncludeOptions
+    {
+        return $this->includeOptions;
+    }
+
+    /**
+     * @param ?IncludeOptions $value
+     */
+    public function setIncludeOptions(?IncludeOptions $value = null): self
+    {
+        $this->includeOptions = $value;
+        $this->_setField('includeOptions');
         return $this;
     }
 }

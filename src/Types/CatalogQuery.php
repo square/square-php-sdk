@@ -117,6 +117,12 @@ class CatalogQuery extends JsonSerializableType
     private ?CatalogQueryItemVariationsForItemOptionValues $itemVariationsForItemOptionValuesQuery;
 
     /**
+     * @var ?CatalogQueryModifiersForChildList $modifiersForChildListQuery A query expression to return `CatalogModifier` objects that nest the specified modifier lists (via `child_modifier_list_ids`)
+     */
+    #[JsonProperty('modifiers_for_child_list_query')]
+    private ?CatalogQueryModifiersForChildList $modifiersForChildListQuery;
+
+    /**
      * @param array{
      *   sortedAttributeQuery?: ?CatalogQuerySortedAttribute,
      *   exactQuery?: ?CatalogQueryExact,
@@ -128,6 +134,7 @@ class CatalogQuery extends JsonSerializableType
      *   itemsForModifierListQuery?: ?CatalogQueryItemsForModifierList,
      *   itemsForItemOptionsQuery?: ?CatalogQueryItemsForItemOptions,
      *   itemVariationsForItemOptionValuesQuery?: ?CatalogQueryItemVariationsForItemOptionValues,
+     *   modifiersForChildListQuery?: ?CatalogQueryModifiersForChildList,
      * } $values
      */
     public function __construct(
@@ -143,6 +150,7 @@ class CatalogQuery extends JsonSerializableType
         $this->itemsForModifierListQuery = $values['itemsForModifierListQuery'] ?? null;
         $this->itemsForItemOptionsQuery = $values['itemsForItemOptionsQuery'] ?? null;
         $this->itemVariationsForItemOptionValuesQuery = $values['itemVariationsForItemOptionValuesQuery'] ?? null;
+        $this->modifiersForChildListQuery = $values['modifiersForChildListQuery'] ?? null;
     }
 
     /**
@@ -322,6 +330,24 @@ class CatalogQuery extends JsonSerializableType
     {
         $this->itemVariationsForItemOptionValuesQuery = $value;
         $this->_setField('itemVariationsForItemOptionValuesQuery');
+        return $this;
+    }
+
+    /**
+     * @return ?CatalogQueryModifiersForChildList
+     */
+    public function getModifiersForChildListQuery(): ?CatalogQueryModifiersForChildList
+    {
+        return $this->modifiersForChildListQuery;
+    }
+
+    /**
+     * @param ?CatalogQueryModifiersForChildList $value
+     */
+    public function setModifiersForChildListQuery(?CatalogQueryModifiersForChildList $value = null): self
+    {
+        $this->modifiersForChildListQuery = $value;
+        $this->_setField('modifiersForChildListQuery');
         return $this;
     }
 
