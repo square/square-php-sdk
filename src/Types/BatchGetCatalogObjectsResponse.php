@@ -27,10 +27,17 @@ class BatchGetCatalogObjectsResponse extends JsonSerializableType
     private ?array $relatedObjects;
 
     /**
+     * @var ?IncludedResources $includedResources A list of [CatalogObject](entity:CatalogObject)s referenced by the object in the `objects` field and specifically requested.
+     */
+    #[JsonProperty('included_resources')]
+    private ?IncludedResources $includedResources;
+
+    /**
      * @param array{
      *   errors?: ?array<Error>,
      *   objects?: ?array<CatalogObject>,
      *   relatedObjects?: ?array<CatalogObject>,
+     *   includedResources?: ?IncludedResources,
      * } $values
      */
     public function __construct(
@@ -39,6 +46,7 @@ class BatchGetCatalogObjectsResponse extends JsonSerializableType
         $this->errors = $values['errors'] ?? null;
         $this->objects = $values['objects'] ?? null;
         $this->relatedObjects = $values['relatedObjects'] ?? null;
+        $this->includedResources = $values['includedResources'] ?? null;
     }
 
     /**
@@ -92,6 +100,24 @@ class BatchGetCatalogObjectsResponse extends JsonSerializableType
     {
         $this->relatedObjects = $value;
         $this->_setField('relatedObjects');
+        return $this;
+    }
+
+    /**
+     * @return ?IncludedResources
+     */
+    public function getIncludedResources(): ?IncludedResources
+    {
+        return $this->includedResources;
+    }
+
+    /**
+     * @param ?IncludedResources $value
+     */
+    public function setIncludedResources(?IncludedResources $value = null): self
+    {
+        $this->includedResources = $value;
+        $this->_setField('includedResources');
         return $this;
     }
 

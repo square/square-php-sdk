@@ -77,6 +77,21 @@ class CatalogModifier extends JsonSerializableType
     private ?bool $hiddenOnline;
 
     /**
+     * Child `CatalogModifierList`s that this `CatalogModifier` nests for multi-step choices.
+     * When a customer or staff member selects this modifier, the relevant follow-up modifier list appears.
+     * For example, selecting "Hummus" reveals a secondary "Choose Hummus Flavor" set, and selecting a flavor
+     * could reveal a third-level portion size set.
+     *
+     * Each entry references a child modifier list. Each modifier can nest up to 5 child modifier list, and
+     * supports up to 3 levels of nesting depth. The order in `child_modifier_list_ids` determines display order
+     * during checkout.
+     *
+     * @var ?array<string> $childModifierListIds
+     */
+    #[JsonProperty('child_modifier_list_ids'), ArrayType(['string'])]
+    private ?array $childModifierListIds;
+
+    /**
      * @param array{
      *   name?: ?string,
      *   priceMoney?: ?Money,
@@ -87,6 +102,7 @@ class CatalogModifier extends JsonSerializableType
      *   kitchenName?: ?string,
      *   imageId?: ?string,
      *   hiddenOnline?: ?bool,
+     *   childModifierListIds?: ?array<string>,
      * } $values
      */
     public function __construct(
@@ -101,6 +117,7 @@ class CatalogModifier extends JsonSerializableType
         $this->kitchenName = $values['kitchenName'] ?? null;
         $this->imageId = $values['imageId'] ?? null;
         $this->hiddenOnline = $values['hiddenOnline'] ?? null;
+        $this->childModifierListIds = $values['childModifierListIds'] ?? null;
     }
 
     /**
@@ -262,6 +279,24 @@ class CatalogModifier extends JsonSerializableType
     {
         $this->hiddenOnline = $value;
         $this->_setField('hiddenOnline');
+        return $this;
+    }
+
+    /**
+     * @return ?array<string>
+     */
+    public function getChildModifierListIds(): ?array
+    {
+        return $this->childModifierListIds;
+    }
+
+    /**
+     * @param ?array<string> $value
+     */
+    public function setChildModifierListIds(?array $value = null): self
+    {
+        $this->childModifierListIds = $value;
+        $this->_setField('childModifierListIds');
         return $this;
     }
 

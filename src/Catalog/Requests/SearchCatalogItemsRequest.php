@@ -10,6 +10,7 @@ use Square\Types\SortOrder;
 use Square\Types\CatalogItemProductType;
 use Square\Types\CustomAttributeFilter;
 use Square\Types\ArchivedState;
+use Square\Types\IncludeOptions;
 
 class SearchCatalogItemsRequest extends JsonSerializableType
 {
@@ -88,6 +89,12 @@ class SearchCatalogItemsRequest extends JsonSerializableType
     private ?string $archivedState;
 
     /**
+     * @var ?IncludeOptions $includeOptions Options to include related resources in the response.
+     */
+    #[JsonProperty('include_options')]
+    private ?IncludeOptions $includeOptions;
+
+    /**
      * @param array{
      *   textFilter?: ?string,
      *   categoryIds?: ?array<string>,
@@ -99,6 +106,7 @@ class SearchCatalogItemsRequest extends JsonSerializableType
      *   productTypes?: ?array<value-of<CatalogItemProductType>>,
      *   customAttributeFilters?: ?array<CustomAttributeFilter>,
      *   archivedState?: ?value-of<ArchivedState>,
+     *   includeOptions?: ?IncludeOptions,
      * } $values
      */
     public function __construct(
@@ -114,6 +122,7 @@ class SearchCatalogItemsRequest extends JsonSerializableType
         $this->productTypes = $values['productTypes'] ?? null;
         $this->customAttributeFilters = $values['customAttributeFilters'] ?? null;
         $this->archivedState = $values['archivedState'] ?? null;
+        $this->includeOptions = $values['includeOptions'] ?? null;
     }
 
     /**
@@ -293,6 +302,24 @@ class SearchCatalogItemsRequest extends JsonSerializableType
     {
         $this->archivedState = $value;
         $this->_setField('archivedState');
+        return $this;
+    }
+
+    /**
+     * @return ?IncludeOptions
+     */
+    public function getIncludeOptions(): ?IncludeOptions
+    {
+        return $this->includeOptions;
+    }
+
+    /**
+     * @param ?IncludeOptions $value
+     */
+    public function setIncludeOptions(?IncludeOptions $value = null): self
+    {
+        $this->includeOptions = $value;
+        $this->_setField('includeOptions');
         return $this;
     }
 }
