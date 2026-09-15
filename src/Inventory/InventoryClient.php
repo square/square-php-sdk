@@ -45,7 +45,6 @@ use Square\Inventory\Requests\GetInventoryRequest;
 use Square\Types\GetInventoryCountResponse;
 use Square\Inventory\Requests\ChangesInventoryRequest;
 use Square\Types\GetInventoryChangesResponse;
-use Square\Inventory\Requests\GetTransferInventoryRequest;
 
 class InventoryClient
 {
@@ -937,45 +936,6 @@ class InventoryClient
             getNextCursor: fn (GetInventoryChangesResponse $response) => $response?->getCursor() ?? null,
             /* @phpstan-ignore-next-line */
             getItems: fn (GetInventoryChangesResponse $response) => $response?->getChanges() ?? [],
-        );
-    }
-
-    /**
-     * @param GetTransferInventoryRequest $request
-     * @param ?array{
-     *   baseUrl?: string,
-     *   maxRetries?: int,
-     *   timeout?: float,
-     *   headers?: array<string, string>,
-     *   queryParameters?: array<string, mixed>,
-     *   bodyProperties?: array<string, mixed>,
-     * } $options
-     * @throws SquareException
-     * @throws SquareApiException
-     */
-    public function getTransfer(GetTransferInventoryRequest $request, ?array $options = null): void
-    {
-        $options = array_merge($this->options, $options ?? []);
-        try {
-            $response = $this->client->sendRequest(
-                new JsonApiRequest(
-                    baseUrl: $options['baseUrl'] ?? $this->client->options['baseUrl'] ?? Environments::Production->value,
-                    path: "v2/inventory/transfers/{$request->getTransferId()}",
-                    method: HttpMethod::GET,
-                ),
-                $options,
-            );
-            $statusCode = $response->getStatusCode();
-            if ($statusCode >= 200 && $statusCode < 400) {
-                return;
-            }
-        } catch (ClientExceptionInterface $e) {
-            throw new SquareException(message: $e->getMessage(), previous: $e);
-        }
-        throw new SquareApiException(
-            message: 'API request failed',
-            statusCode: $statusCode,
-            body: $response->getBody()->getContents(),
         );
     }
 
