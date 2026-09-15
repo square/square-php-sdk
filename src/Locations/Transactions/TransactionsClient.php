@@ -16,9 +16,7 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Square\Locations\Transactions\Requests\GetTransactionsRequest;
 use Square\Types\GetTransactionResponse;
 use Square\Locations\Transactions\Requests\CaptureTransactionsRequest;
-use Square\Types\CaptureTransactionResponse;
 use Square\Locations\Transactions\Requests\VoidTransactionsRequest;
-use Square\Types\VoidTransactionResponse;
 
 class TransactionsClient
 {
@@ -166,13 +164,6 @@ class TransactionsClient
     }
 
     /**
-     * Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-     * endpoint with a `delay_capture` value of `true`.
-     *
-     *
-     * See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-     * for more information.
-     *
      * @param CaptureTransactionsRequest $request
      * @param ?array{
      *   baseUrl?: string,
@@ -182,11 +173,10 @@ class TransactionsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return CaptureTransactionResponse
      * @throws SquareException
      * @throws SquareApiException
      */
-    public function capture(CaptureTransactionsRequest $request, ?array $options = null): CaptureTransactionResponse
+    public function capture(CaptureTransactionsRequest $request, ?array $options = null): void
     {
         $options = array_merge($this->options, $options ?? []);
         try {
@@ -200,11 +190,8 @@ class TransactionsClient
             );
             $statusCode = $response->getStatusCode();
             if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return CaptureTransactionResponse::fromJson($json);
+                return;
             }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }
@@ -216,13 +203,6 @@ class TransactionsClient
     }
 
     /**
-     * Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-     * endpoint with a `delay_capture` value of `true`.
-     *
-     *
-     * See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-     * for more information.
-     *
      * @param VoidTransactionsRequest $request
      * @param ?array{
      *   baseUrl?: string,
@@ -232,11 +212,10 @@ class TransactionsClient
      *   queryParameters?: array<string, mixed>,
      *   bodyProperties?: array<string, mixed>,
      * } $options
-     * @return VoidTransactionResponse
      * @throws SquareException
      * @throws SquareApiException
      */
-    public function void(VoidTransactionsRequest $request, ?array $options = null): VoidTransactionResponse
+    public function void(VoidTransactionsRequest $request, ?array $options = null): void
     {
         $options = array_merge($this->options, $options ?? []);
         try {
@@ -250,11 +229,8 @@ class TransactionsClient
             );
             $statusCode = $response->getStatusCode();
             if ($statusCode >= 200 && $statusCode < 400) {
-                $json = $response->getBody()->getContents();
-                return VoidTransactionResponse::fromJson($json);
+                return;
             }
-        } catch (JsonException $e) {
-            throw new SquareException(message: "Failed to deserialize response: {$e->getMessage()}", previous: $e);
         } catch (ClientExceptionInterface $e) {
             throw new SquareException(message: $e->getMessage(), previous: $e);
         }

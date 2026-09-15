@@ -23651,28 +23651,9 @@ $client->locations->transactions->get(
 </dl>
 </details>
 
-<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;capture($request) -> CaptureTransactionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;capture($request)</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Captures a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-endpoint with a `delay_capture` value of `true`.
-
-
-See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-for more information.
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -23703,7 +23684,7 @@ $client->locations->transactions->capture(
 <dl>
 <dd>
 
-**$locationId:** `string` — 
+**$locationId:** `string` 
     
 </dd>
 </dl>
@@ -23711,7 +23692,7 @@ $client->locations->transactions->capture(
 <dl>
 <dd>
 
-**$transactionId:** `string` — 
+**$transactionId:** `string` 
     
 </dd>
 </dl>
@@ -23723,28 +23704,9 @@ $client->locations->transactions->capture(
 </dl>
 </details>
 
-<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;void($request) -> VoidTransactionResponse</code></summary>
+<details><summary><code>$client-&gt;locations-&gt;transactions-&gt;void($request)</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Cancels a transaction that was created with the [Charge](api-endpoint:Transactions-Charge)
-endpoint with a `delay_capture` value of `true`.
-
-
-See [Delayed capture transactions](https://developer.squareup.com/docs/payments/transactions/overview#delayed-capture)
-for more information.
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -23775,7 +23737,7 @@ $client->locations->transactions->void(
 <dl>
 <dd>
 
-**$locationId:** `string` — 
+**$locationId:** `string` 
     
 </dd>
 </dl>
@@ -23783,7 +23745,7 @@ $client->locations->transactions->void(
 <dl>
 <dd>
 
-**$transactionId:** `string` — 
+**$transactionId:** `string` 
     
 </dd>
 </dl>
