@@ -50,6 +50,6 @@ class WebhooksHelper
         // Compare the computed hash vs the value in the signature header
         $hashBase64 = base64_encode($hash);
 
-        return $hashBase64 === $signatureHeader;
+        return hash_equals($hashBase64, $signatureHeader);
     }
 }
