@@ -8,25 +8,34 @@ use Square\Core\Json\JsonProperty;
 class CheckoutMerchantSettingsPaymentMethods extends JsonSerializableType
 {
     /**
-     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $applePay
+     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $applePay Apple Pay.
      */
     #[JsonProperty('apple_pay')]
     private ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $applePay;
 
     /**
-     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $googlePay
+     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $googlePay Google Pay.
      */
     #[JsonProperty('google_pay')]
     private ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $googlePay;
 
     /**
-     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $cashApp
+     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $cashApp Cash App Pay.
      */
     #[JsonProperty('cash_app')]
     private ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $cashApp;
 
     /**
-     * @var ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay $afterpayClearpay
+     * Bank account (ACH). Enabled by default for eligible sellers who have
+     * not saved an ACH preference. A saved enabled or disabled choice takes precedence.
+     *
+     * @var ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $bankAccount
+     */
+    #[JsonProperty('bank_account')]
+    private ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $bankAccount;
+
+    /**
+     * @var ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay $afterpayClearpay Afterpay/Clearpay.
      */
     #[JsonProperty('afterpay_clearpay')]
     private ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay $afterpayClearpay;
@@ -36,6 +45,7 @@ class CheckoutMerchantSettingsPaymentMethods extends JsonSerializableType
      *   applePay?: ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod,
      *   googlePay?: ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod,
      *   cashApp?: ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod,
+     *   bankAccount?: ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod,
      *   afterpayClearpay?: ?CheckoutMerchantSettingsPaymentMethodsAfterpayClearpay,
      * } $values
      */
@@ -45,6 +55,7 @@ class CheckoutMerchantSettingsPaymentMethods extends JsonSerializableType
         $this->applePay = $values['applePay'] ?? null;
         $this->googlePay = $values['googlePay'] ?? null;
         $this->cashApp = $values['cashApp'] ?? null;
+        $this->bankAccount = $values['bankAccount'] ?? null;
         $this->afterpayClearpay = $values['afterpayClearpay'] ?? null;
     }
 
@@ -99,6 +110,24 @@ class CheckoutMerchantSettingsPaymentMethods extends JsonSerializableType
     {
         $this->cashApp = $value;
         $this->_setField('cashApp');
+        return $this;
+    }
+
+    /**
+     * @return ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod
+     */
+    public function getBankAccount(): ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod
+    {
+        return $this->bankAccount;
+    }
+
+    /**
+     * @param ?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $value
+     */
+    public function setBankAccount(?CheckoutMerchantSettingsPaymentMethodsPaymentMethod $value = null): self
+    {
+        $this->bankAccount = $value;
+        $this->_setField('bankAccount');
         return $this;
     }
 

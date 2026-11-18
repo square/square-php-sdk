@@ -32,11 +32,26 @@ class AcceptedPaymentMethods extends JsonSerializableType
     private ?bool $afterpayClearpay;
 
     /**
+     * Whether ACH bank transfer payments are accepted at checkout.
+     * When enabled, buyers can pay directly from their bank account via Plaid.
+     * This payment method is supported only for seller locations in the United States.
+     * When omitted from CreatePaymentLink, ACH is enabled for eligible one-time USD
+     * payments unless the seller has disabled ACH in their merchant settings.
+     * Set this field to false to disable ACH for the link. Existing links retain
+     * their saved setting when this field is omitted from an update.
+     *
+     * @var ?bool $bankAccount
+     */
+    #[JsonProperty('bank_account')]
+    private ?bool $bankAccount;
+
+    /**
      * @param array{
      *   applePay?: ?bool,
      *   googlePay?: ?bool,
      *   cashAppPay?: ?bool,
      *   afterpayClearpay?: ?bool,
+     *   bankAccount?: ?bool,
      * } $values
      */
     public function __construct(
@@ -46,6 +61,7 @@ class AcceptedPaymentMethods extends JsonSerializableType
         $this->googlePay = $values['googlePay'] ?? null;
         $this->cashAppPay = $values['cashAppPay'] ?? null;
         $this->afterpayClearpay = $values['afterpayClearpay'] ?? null;
+        $this->bankAccount = $values['bankAccount'] ?? null;
     }
 
     /**
@@ -117,6 +133,24 @@ class AcceptedPaymentMethods extends JsonSerializableType
     {
         $this->afterpayClearpay = $value;
         $this->_setField('afterpayClearpay');
+        return $this;
+    }
+
+    /**
+     * @return ?bool
+     */
+    public function getBankAccount(): ?bool
+    {
+        return $this->bankAccount;
+    }
+
+    /**
+     * @param ?bool $value
+     */
+    public function setBankAccount(?bool $value = null): self
+    {
+        $this->bankAccount = $value;
+        $this->_setField('bankAccount');
         return $this;
     }
 

@@ -11,13 +11,13 @@ use Square\Core\Json\JsonProperty;
 class CheckoutMerchantSettingsPaymentMethodsAfterpayClearpayEligibilityRange extends JsonSerializableType
 {
     /**
-     * @var Money $min
+     * @var Money $min The lower bound of the range.
      */
     #[JsonProperty('min')]
     private Money $min;
 
     /**
-     * @var Money $max
+     * @var Money $max The upper bound of the range.
      */
     #[JsonProperty('max')]
     private Money $max;

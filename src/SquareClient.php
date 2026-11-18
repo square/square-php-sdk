@@ -259,11 +259,11 @@ class SquareClient
         $token ??= $this->getFromEnvOrThrow('SQUARE_TOKEN', 'Please pass in token or set the environment variable SQUARE_TOKEN.');
         $defaultHeaders = [
             'Authorization' => "Bearer $token",
-            'Square-Version' => '2026-09-16',
+            'Square-Version' => '2026-11-18',
             'X-Fern-Language' => 'PHP',
             'X-Fern-SDK-Name' => 'Square',
-            'X-Fern-SDK-Version' => '47.0.0.20260916',
-            'User-Agent' => 'square/square/47.0.0.20260916',
+            'X-Fern-SDK-Version' => '47.1.0.20261118',
+            'User-Agent' => 'square/square/47.1.0.20261118',
         ];
         if ($version != null) {
             $defaultHeaders['Square-Version'] = $version;

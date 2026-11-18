@@ -77,10 +77,7 @@ class PaymentLink extends JsonSerializableType
     private ?string $updatedAt;
 
     /**
-     * An optional note. After Square processes the payment, this note is added to the
-     * resulting `Payment`.
-     *
-     * @var ?string $paymentNote
+     * @var ?string $paymentNote A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
      */
     #[JsonProperty('payment_note')]
     private ?string $paymentNote;

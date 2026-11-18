@@ -9,7 +9,7 @@ use Square\Core\Types\ArrayType;
 class DeletePaymentLinkResponse extends JsonSerializableType
 {
     /**
-     * @var ?array<Error> $errors
+     * @var ?array<Error> $errors Any errors that occurred during the request.
      */
     #[JsonProperty('errors'), ArrayType([Error::class])]
     private ?array $errors;
