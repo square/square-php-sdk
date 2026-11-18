@@ -2415,9 +2415,7 @@ $client->catalog->batchUpsert(
                     CatalogObject::item(new CatalogObjectItem([
                         'id' => 'id',
                     ])),
-                    CatalogObject::item(new CatalogObjectItem([
-                        'id' => 'id',
-                    ])),
+                    CatalogObject::category(new CatalogObjectCategory([])),
                     CatalogObject::tax(new CatalogObjectTax([
                         'id' => 'id',
                     ])),
@@ -18632,7 +18630,7 @@ For more information, see [Prepopulate the shipping address](https://developer.s
 <dl>
 <dd>
 
-**$paymentNote:** `?string` — A note for the payment. After processing the payment, Square adds this note to the resulting `Payment`.
+**$paymentNote:** `?string` — A note for the payment. After processing the payment, Square adds this note to the resulting `Payment` as well as the post payment confirmation email.
     
 </dd>
 </dl>

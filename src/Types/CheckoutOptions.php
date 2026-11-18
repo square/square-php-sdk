@@ -88,6 +88,18 @@ class CheckoutOptions extends JsonSerializableType
     private ?bool $enableLoyalty;
 
     /**
+     * Indicates how the buyer's phone number is collected on the checkout page.
+     * When `REQUIRED` (default), the buyer must provide a phone number to complete checkout.
+     * When `OPTIONAL`, the phone field is shown but not required. When `HIDDEN`, the field
+     * is not shown. Leaving this field unset preserves the historical behavior (`REQUIRED`).
+     * See [PhoneCollection](#type-phonecollection) for possible values
+     *
+     * @var ?value-of<CheckoutOptionsPhoneCollection> $phoneCollection
+     */
+    #[JsonProperty('phone_collection')]
+    private ?string $phoneCollection;
+
+    /**
      * @param array{
      *   allowTipping?: ?bool,
      *   customFields?: ?array<CustomField>,
@@ -100,6 +112,7 @@ class CheckoutOptions extends JsonSerializableType
      *   shippingFee?: ?ShippingFee,
      *   enableCoupon?: ?bool,
      *   enableLoyalty?: ?bool,
+     *   phoneCollection?: ?value-of<CheckoutOptionsPhoneCollection>,
      * } $values
      */
     public function __construct(
@@ -116,6 +129,7 @@ class CheckoutOptions extends JsonSerializableType
         $this->shippingFee = $values['shippingFee'] ?? null;
         $this->enableCoupon = $values['enableCoupon'] ?? null;
         $this->enableLoyalty = $values['enableLoyalty'] ?? null;
+        $this->phoneCollection = $values['phoneCollection'] ?? null;
     }
 
     /**
@@ -313,6 +327,24 @@ class CheckoutOptions extends JsonSerializableType
     {
         $this->enableLoyalty = $value;
         $this->_setField('enableLoyalty');
+        return $this;
+    }
+
+    /**
+     * @return ?value-of<CheckoutOptionsPhoneCollection>
+     */
+    public function getPhoneCollection(): ?string
+    {
+        return $this->phoneCollection;
+    }
+
+    /**
+     * @param ?value-of<CheckoutOptionsPhoneCollection> $value
+     */
+    public function setPhoneCollection(?string $value = null): self
+    {
+        $this->phoneCollection = $value;
+        $this->_setField('phoneCollection');
         return $this;
     }
 

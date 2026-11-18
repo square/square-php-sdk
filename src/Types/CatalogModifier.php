@@ -82,7 +82,7 @@ class CatalogModifier extends JsonSerializableType
      * For example, selecting "Hummus" reveals a secondary "Choose Hummus Flavor" set, and selecting a flavor
      * could reveal a third-level portion size set.
      *
-     * Each entry references a child modifier list. Each modifier can nest up to 5 child modifier list, and
+     * Each entry references a child modifier list. Each modifier can nest up to 15 child modifier lists, and
      * supports up to 3 levels of nesting depth. The order in `child_modifier_list_ids` determines display order
      * during checkout.
      *
@@ -90,6 +90,15 @@ class CatalogModifier extends JsonSerializableType
      */
     #[JsonProperty('child_modifier_list_ids'), ArrayType(['string'])]
     private ?array $childModifierListIds;
+
+    /**
+     * The text color for this modifier on Kitchen Display System (KDS) tickets. Kitchen staff use the color to identify important modifiers quickly.
+     * See [CatalogModifierColor](#type-catalogmodifiercolor) for possible values
+     *
+     * @var ?value-of<CatalogModifierColor> $kitchenColor
+     */
+    #[JsonProperty('kitchen_color')]
+    private ?string $kitchenColor;
 
     /**
      * @param array{
@@ -103,6 +112,7 @@ class CatalogModifier extends JsonSerializableType
      *   imageId?: ?string,
      *   hiddenOnline?: ?bool,
      *   childModifierListIds?: ?array<string>,
+     *   kitchenColor?: ?value-of<CatalogModifierColor>,
      * } $values
      */
     public function __construct(
@@ -118,6 +128,7 @@ class CatalogModifier extends JsonSerializableType
         $this->imageId = $values['imageId'] ?? null;
         $this->hiddenOnline = $values['hiddenOnline'] ?? null;
         $this->childModifierListIds = $values['childModifierListIds'] ?? null;
+        $this->kitchenColor = $values['kitchenColor'] ?? null;
     }
 
     /**
@@ -297,6 +308,24 @@ class CatalogModifier extends JsonSerializableType
     {
         $this->childModifierListIds = $value;
         $this->_setField('childModifierListIds');
+        return $this;
+    }
+
+    /**
+     * @return ?value-of<CatalogModifierColor>
+     */
+    public function getKitchenColor(): ?string
+    {
+        return $this->kitchenColor;
+    }
+
+    /**
+     * @param ?value-of<CatalogModifierColor> $value
+     */
+    public function setKitchenColor(?string $value = null): self
+    {
+        $this->kitchenColor = $value;
+        $this->_setField('kitchenColor');
         return $this;
     }
 
